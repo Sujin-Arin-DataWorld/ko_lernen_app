@@ -175,6 +175,25 @@ def _clean(value: str) -> str:
     return " ".join(value.split())
 
 
+def _clean_form(value: str) -> str:
+    """`_clean` + 문법 형태 표기에 딸려 온 전사 잡음 제거.
+
+    2017 고시 xlsx 의 문법 시트에는 형태 자체가 아닌 문자가 두 군데 섞여 들어와 있다.
+
+    * 6급 연결어미 ``'-을망정,'`` — 형태 끝에 쉼표가 붙어 있다(336 행 중 한 행).
+    * 5급 종결어미 ``'\u00ad으려고2'`` 와 그 variants — 붙임표 자리에 soft hyphen
+      (U+00AD) 이 들어 있다. 눈에 보이지 않으므로 ``'-으려고2'`` 와 다른 문자열이다.
+
+    form 은 저장소 전체에서 조인 키로 쓰이므로(ko.json 의 forms, Phase 의
+    formsUsed, transfer 의 relevantKoreanForms) 이런 문자가 남으면 그 형태만 조용히
+    매칭에 실패한다. soft hyphen 은 보이지 않는 서식 문자여서 이 데이터의 어느
+    칸에도 정당한 자리가 없으므로 보통 붙임표로 되돌리고, 한국어 문법 형태 표기에
+    들어갈 일이 없는 문장부호는 앞뒤에서 걷어 낸다. 형태 내부의 ``-`` ``·`` ``/``
+    ``<유의>`` 같은 표기는 건드리지 않는다.
+    """
+    return _clean(value.replace("\u00ad", "-")).strip(",.;·")
+
+
 def parse_grade(text: str) -> int:
     """Extract the leading grade integer from text like ``'1급'``/``'1등급'``."""
     match = _GRADE_RE.match(text.strip())
@@ -324,8 +343,8 @@ def parse_kiiq_grammar(path: Path) -> list[GrammarRow]:
             GrammarRow(
                 grade=parse_grade(grade_text),
                 category=_clean(category),
-                form=_clean(form_),
-                variants=_clean(variants),
+                form=_clean_form(form_),
+                variants=_clean_form(variants),
                 meaning=_clean(meaning),
                 band_2stage=_clean(band_2stage),
                 band_1to4=_clean(band_1to4),

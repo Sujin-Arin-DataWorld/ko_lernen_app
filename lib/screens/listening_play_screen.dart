@@ -277,7 +277,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final intro = _scenario.intro.pick(lang);
     final speakers = <String>{
       for (final line in _scenario.dialog)
-        if (line.speaker != 'narrator') _speakerName(t, line.speaker, lang),
+        if (line.speaker != 'narrator') _speakerName(t, line.speaker),
     }.join(', ');
     return Column(
       children: [
@@ -312,6 +312,16 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
                     label: t.listeningParticipants,
                     value: speakers,
                   ),
+                  if (_scenario.playerCharacterId.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.sm),
+                    _IntroFact(
+                      icon: Icons.theater_comedy_outlined,
+                      label: t.scenarioAssignedRole,
+                      value: _scenario.playerRoleDisplayName(
+                        fallbackYou: t.listeningSpeakerYou,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: Spacing.sm),
                   _IntroFact(
                     icon: Icons.format_list_numbered_rounded,
@@ -380,11 +390,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               for (var index = 0; index < _playback.revealedCount; index++)
                 _DialogueBubble(
                   line: _scenario.dialog[index],
-                  speakerName: _speakerName(
-                    t,
-                    _scenario.dialog[index].speaker,
-                    lang,
-                  ),
+                  speakerName: _speakerName(t, _scenario.dialog[index].speaker),
                   gloss: _scenario.dialog[index].pick(lang),
                   current: index == _playback.currentIndex,
                   review: review,
@@ -510,13 +516,11 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     );
   }
 
-  String _speakerName(AppL10n t, String speaker, String languageCode) =>
+  String _speakerName(AppL10n t, String speaker) =>
       _scenario.speakerDisplayName(
         speaker,
-        languageCode: languageCode,
         fallbackYou: t.listeningSpeakerYou,
         fallbackNarrator: t.listeningNarrator,
-        playerSelfSuffix: t.scenarioPlayerSelfSuffix,
       );
 }
 

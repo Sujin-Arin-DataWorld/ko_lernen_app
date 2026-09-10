@@ -405,11 +405,12 @@ A1/A2 결손 목록의 단어는 하향으로 결손을 메운다. 수사·기�
 
 부록은 표 데이터라 별도 파일이다. F1·F2·F3·F5·F6·F7·F9는
 `python tool/build_level_bible_tables.py`로 결정론적으로 재생성한다(직접
-편집 금지). F4·F8·F10은 손으로 쓴다.
+편집 금지). F4·F8·F10·F1b는 손으로 쓴다.
 
 | 부록 | 파일 | 내용 |
 |---|---|---|
-| F1 | [F1_grammar_map.md](data/level_bible/F1_grammar_map.md) | 국제통용 문법 336 ↔ 앱 244 매핑·결손·불일치, app_only 목록 |
+| F1 | [F1_grammar_map.md](data/level_bible/F1_grammar_map.md) | 국제통용 문법 336 ↔ 앱 문법 매핑·결손·불일치, app_only 목록 |
+| F1b | [F1b_grammar_grade12_manual.md](data/level_bible/F1b_grammar_grade12_manual.md) | 1·2급 90항목 수기 재검증(F1 자동 매처 오분류 6건 정정 포함) |
 | F2 | [F2_vocab_coverage.md](data/level_bible/F2_vocab_coverage.md) | 레벨별(1~6급) 커버리지 표, 1급·2급 결손 전체 목록 |
 | F3 | [F3_units_packs_shelves.md](data/level_bible/F3_units_packs_shelves.md) | 코스유닛·팩→유닛 맵·선반(shelf) 슬러그 |
 | F4 | [F4_sejong1_units.md](data/level_bible/F4_sejong1_units.md) | 세종한국어 회화 익힘책 1급 14과 표(§B.1 씨앗) |
@@ -419,3 +420,23 @@ A1/A2 결손 목록의 단어는 하향으로 결손을 메운다. 수사·기�
 | F8 | [F8_review_checklist.md](data/level_bible/F8_review_checklist.md) | 검수 체크리스트·Jin 10% 표본 절차·증거 패키지 |
 | F9 | [F9_exceptions.md](data/level_bible/F9_exceptions.md) | 예외표(수사·감탄 표현 A1 유지, 앱 고유 문법) |
 | F10 | [F10_review_lessons.md](data/level_bible/F10_review_lessons.md) | 검수 학습 원장(반려 사유 누적, 빈 원장으로 시작) |
+
+### 교육과정 매트릭스 (별도 계열)
+
+아래 둘은 `level_bible/` 이 아니라 `docs/data/` 에 있고 `python
+tool/audit_curriculum_matrix.py` 가 생성한다(직접 편집 금지). 정본은
+`tools/content_factory/cefr_matrix/{taxonomy,ko,en,de}.json` 이다.
+**레벨별로 배워야 하는 문법·주제·화행·텍스트 유형·어휘 영역의 전수 목록은
+§B가 아니라 여기 있다** — §B는 A1·A2만 문법표를 인라인으로 담고 B1~C2는 F1을
+가리킨다.
+
+| 문서 | 내용 |
+|---|---|
+| [cefr_curriculum_matrix.md](data/cefr_curriculum_matrix.md) | 국제통용 문법 **336 전수** × 레벨 × 범주(45·45·67·67·56·56) + 주제(필수·선택)·화행·텍스트 유형(수용/산출)·어휘 영역·문체를 KO/EN/DE 삼언어로. 기능 문법 34항목의 삼언어 도입 시점 대조표 포함 |
+| [curriculum_matrix_report.md](data/curriculum_matrix_report.md) | 위 매트릭스 대비 앱 콘텐츠 갭. 앱 미보유 문법 **197항목의 이름 전수**(레벨별), 레벨 불일치 39건, 앱 표면 자체가 없어 실현 불가한 텍스트 유형 19종 |
+
+> **아직 없는 것(2026-09-09):** 336형태의 뜻·기능·예문은 어디에도 없다(원본
+> CSV의 `meaning` 열이 336행 중 91행만 채워져 있고 두 문서 모두 그 열을
+> 렌더하지 않는다). 화행 39종의 **실현 문형(exponent)** 목록도 없다 —
+> `taxonomy.json`의 `speechActs` 스키마에 해당 필드가 없다. 둘 다 후속
+> 작업이다.

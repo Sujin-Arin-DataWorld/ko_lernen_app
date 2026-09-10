@@ -1,0 +1,3842 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "hand-authored (2026-09-09, session cefr-matrix); edit this JSON directly",
+  "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2"
+  ],
+  "axes": {
+    "topics": "주제 / Themen — Threshold 1990 specific-notion themes, Profile deutsch Themen, 국제통용 주제 목록을 언어 독립 id 로 정렬",
+    "speechActs": "기능 / Sprachhandlungen — Threshold 1990 language-function categories (information · attitude · suasion · socialising · discourse)",
+    "textTypes": "텍스트 유형 / Textsorten — CEFR CV activity scales + Profile deutsch Textsorten + 국제통용 텍스트 유형",
+    "vocabDomains": "어휘 영역 / Wortschatzbereiche — lexical fields cutting across topics; posDe 'Ausdruck' 은 관용 표현 축",
+    "functionalGrammar": "언어 독립 문법 기능 축 — 언어별 파일이 각 기능을 어느 레벨에서 도입하는지 기록 (KO 는 국제통용 형태와 앱 grammar.csv id 로 앵커)",
+    "registers": "존대·문체 축 — 시나리오 register 값(polite/business/casual/intimate) 에 대응",
+    "skills": "언어 기술 축 — 앱 표면이 어떤 기술을 훈련하는지"
+  },
+  "topics": [
+    {
+      "id": "personal_identification",
+      "label": {
+        "ko": "개인 신상·자기소개",
+        "en": "Personal identification",
+        "de": "Person & Identität"
+      },
+      "thresholdTheme": "personal identification",
+      "group": "self_and_others",
+      "appAliases": {
+        "vocabTopics": [
+          "Person",
+          "Begrüßung",
+          "자기소개",
+          "첫인사",
+          "Zeit & Lebenslauf",
+          "Geographie"
+        ],
+        "shelfSlugs": [
+          "greet"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "self_intro",
+          "greetings",
+          "identity"
+        ],
+        "titleKeywords": [
+          "자기소개",
+          "이름과 출신",
+          "첫 인사",
+          "처음 만나"
+        ]
+      }
+    },
+    {
+      "id": "family_relationships",
+      "label": {
+        "ko": "가족·인간관계",
+        "en": "Family & relationships",
+        "de": "Familie & Beziehungen"
+      },
+      "thresholdTheme": "relations with other people",
+      "group": "self_and_others",
+      "appAliases": {
+        "vocabTopics": [
+          "Familie",
+          "Beziehungen",
+          "Partnerschaft & koreanische Familie",
+          "Menschen & Beziehungen",
+          "Sicherheit & Grenzen"
+        ],
+        "shelfSlugs": [
+          "partner",
+          "friends",
+          "dating"
+        ],
+        "smalltalkCategories": [
+          "family",
+          "dating",
+          "partner_family",
+          "theme_park_date"
+        ],
+        "packKeywords": [
+          "partner",
+          "family",
+          "friend",
+          "dating"
+        ],
+        "titleKeywords": [
+          "가족",
+          "여자친구",
+          "남자친구",
+          "연인",
+          "친구",
+          "부모",
+          "데이트",
+          "연애"
+        ]
+      }
+    },
+    {
+      "id": "house_home",
+      "label": {
+        "ko": "주거·집",
+        "en": "House & home",
+        "de": "Wohnen"
+      },
+      "thresholdTheme": "house and home",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Position",
+          "Haushalt & Zimmer",
+          "Wohnen",
+          "Wohnen & Vertrag",
+          "Hausordnung",
+          "WG-Gespräch",
+          "Reparaturwortschatz",
+          "집 구하기",
+          "Haushalt & Praktisches",
+          "Wohnstreit",
+          "주거비와 사회 통합"
+        ],
+        "shelfSlugs": [
+          "home",
+          "apt",
+          "repair"
+        ],
+        "smalltalkCategories": [
+          "moving"
+        ],
+        "packKeywords": [
+          "home",
+          "housing",
+          "house",
+          "room",
+          "apartment",
+          "repair",
+          "moving"
+        ],
+        "titleKeywords": [
+          "집에서",
+          "집 열쇠",
+          "집 구하기",
+          "집안",
+          "집을",
+          "집이",
+          "세탁기",
+          "열쇠",
+          "아파트",
+          "이사",
+          "주거",
+          "퇴거",
+          "입주"
+        ]
+      }
+    },
+    {
+      "id": "neighbourhood_environment",
+      "label": {
+        "ko": "동네·이웃·주변 환경",
+        "en": "Neighbourhood & surroundings",
+        "de": "Nachbarschaft & Umgebung"
+      },
+      "thresholdTheme": "environment",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "도시 생활",
+          "Stadt & Orte",
+          "Nachbarschaft",
+          "Gemeinsame Räume & Rücksicht"
+        ],
+        "shelfSlugs": [
+          "apt",
+          "neighbor"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "neighbor",
+          "neighbour",
+          "city",
+          "town"
+        ],
+        "titleKeywords": [
+          "이웃",
+          "동네",
+          "골목",
+          "분리수거",
+          "분리배출",
+          "공용",
+          "주민"
+        ]
+      }
+    },
+    {
+      "id": "daily_life_routines",
+      "label": {
+        "ko": "일상생활·하루 일과",
+        "en": "Daily life & routines",
+        "de": "Tagesablauf & Alltag"
+      },
+      "thresholdTheme": "daily life",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Alltag",
+          "Bewegung",
+          "Zustandsverben",
+          "Nützliche Verben",
+          "약속과 일정",
+          "생활 종합",
+          "Wochenendzusage"
+        ],
+        "shelfSlugs": [
+          "plan"
+        ],
+        "smalltalkCategories": [
+          "daily",
+          "weekend"
+        ],
+        "packKeywords": [
+          "daily",
+          "routine",
+          "morning"
+        ],
+        "titleKeywords": [
+          "아침",
+          "주말",
+          "하루",
+          "할 일"
+        ]
+      }
+    },
+    {
+      "id": "numbers_time_dates",
+      "label": {
+        "ko": "숫자·시간·날짜",
+        "en": "Numbers, time & dates",
+        "de": "Zahlen, Uhrzeit & Datum"
+      },
+      "thresholdTheme": "general notions (quantity, time)",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Zahlen",
+          "Zeit",
+          "Menge"
+        ],
+        "shelfSlugs": [
+          "numbers"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "number",
+          "time",
+          "date",
+          "count"
+        ],
+        "titleKeywords": [
+          "시간",
+          "몇 시",
+          "날짜",
+          "숫자"
+        ]
+      }
+    },
+    {
+      "id": "food_drink",
+      "label": {
+        "ko": "식음료·식당",
+        "en": "Food & drink",
+        "de": "Essen & Trinken"
+      },
+      "thresholdTheme": "food and drink",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Essen & Trinken",
+          "Im Restaurant",
+          "Essen & Zutaten"
+        ],
+        "shelfSlugs": [
+          "eat",
+          "booking"
+        ],
+        "smalltalkCategories": [
+          "food"
+        ],
+        "packKeywords": [
+          "food",
+          "restaurant",
+          "cafe",
+          "drink",
+          "meal"
+        ],
+        "titleKeywords": [
+          "식당",
+          "카페",
+          "커피",
+          "주문",
+          "떡볶이",
+          "삼겹살",
+          "메뉴",
+          "배달 음식",
+          "디저트",
+          "빵집"
+        ]
+      }
+    },
+    {
+      "id": "shopping_consumption",
+      "label": {
+        "ko": "쇼핑·소비·결제",
+        "en": "Shopping & consumption",
+        "de": "Einkaufen & Konsum"
+      },
+      "thresholdTheme": "shopping",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Einkaufen",
+          "결제와 배달",
+          "Kleidung",
+          "Anziehen & Accessoires",
+          "Farben"
+        ],
+        "shelfSlugs": [
+          "counter",
+          "buy",
+          "delivery",
+          "refund"
+        ],
+        "smalltalkCategories": [
+          "shopping"
+        ],
+        "packKeywords": [
+          "shop",
+          "market",
+          "store",
+          "clothes",
+          "buy",
+          "delivery",
+          "refund",
+          "exchange"
+        ],
+        "titleKeywords": [
+          "마트",
+          "가게",
+          "사이즈",
+          "옷 사이즈",
+          "옷을",
+          "옷이",
+          "굿즈",
+          "장보기",
+          "물건",
+          "택배",
+          "환불",
+          "교환",
+          "중고 거래"
+        ]
+      }
+    },
+    {
+      "id": "transport_wayfinding",
+      "label": {
+        "ko": "교통·길 찾기",
+        "en": "Transport & wayfinding",
+        "de": "Verkehr & Wegbeschreibung"
+      },
+      "thresholdTheme": "travel (transport)",
+      "group": "mobility",
+      "appAliases": {
+        "vocabTopics": [
+          "Verkehr",
+          "U-Bahnkarte",
+          "Reise & Verkehr"
+        ],
+        "shelfSlugs": [
+          "transit",
+          "wayfinding",
+          "move",
+          "delay",
+          "incident"
+        ],
+        "smalltalkCategories": [
+          "transport"
+        ],
+        "packKeywords": [
+          "subway",
+          "transport",
+          "bus",
+          "taxi",
+          "train",
+          "station"
+        ],
+        "titleKeywords": [
+          "지하철",
+          "택시",
+          "버스",
+          "기차",
+          "KTX",
+          "막차",
+          "길 묻",
+          "출구",
+          "내릴",
+          "좌석",
+          "접촉 사고"
+        ]
+      }
+    },
+    {
+      "id": "travel_accommodation",
+      "label": {
+        "ko": "여행·숙박",
+        "en": "Travel & accommodation",
+        "de": "Reisen & Unterkunft"
+      },
+      "thresholdTheme": "travel",
+      "group": "mobility",
+      "appAliases": {
+        "vocabTopics": [
+          "Reise",
+          "Reise & Verkehr",
+          "Reiseänderung",
+          "Fundsachen"
+        ],
+        "shelfSlugs": [
+          "taxi_stay",
+          "move",
+          "travel"
+        ],
+        "smalltalkCategories": [
+          "travel"
+        ],
+        "packKeywords": [
+          "travel",
+          "trip",
+          "hotel",
+          "airport"
+        ],
+        "titleKeywords": [
+          "공항",
+          "숙소",
+          "여행",
+          "제주",
+          "결항",
+          "환승",
+          "비자",
+          "체류"
+        ]
+      }
+    },
+    {
+      "id": "health_body",
+      "label": {
+        "ko": "건강·신체·병원·약국",
+        "en": "Health & body",
+        "de": "Gesundheit & Körper"
+      },
+      "thresholdTheme": "health and body care",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Körper",
+          "Gesundheit",
+          "Apotheke",
+          "Krankenhaus & Apotheke",
+          "Fitnesskurs",
+          "Risikosprache"
+        ],
+        "shelfSlugs": [
+          "body",
+          "health",
+          "clinical"
+        ],
+        "smalltalkCategories": [
+          "health",
+          "hospital",
+          "emergency"
+        ],
+        "packKeywords": [
+          "health",
+          "hospital",
+          "pharmacy",
+          "body",
+          "doctor",
+          "clinic"
+        ],
+        "titleKeywords": [
+          "약국",
+          "병원",
+          "증상",
+          "감기",
+          "무릎",
+          "부작용",
+          "임상",
+          "다친",
+          "치료"
+        ]
+      }
+    },
+    {
+      "id": "free_time_hobbies_sport",
+      "label": {
+        "ko": "여가·취미·운동",
+        "en": "Free time, hobbies & sport",
+        "de": "Freizeit, Hobbys & Sport"
+      },
+      "thresholdTheme": "free time, entertainment",
+      "group": "leisure_culture",
+      "appAliases": {
+        "vocabTopics": [
+          "Freizeit",
+          "Sport",
+          "Fitnesskurs",
+          "Wochenendzusage",
+          "Feststand"
+        ],
+        "shelfSlugs": [
+          "plan",
+          "enrolment",
+          "cancellation",
+          "friends"
+        ],
+        "smalltalkCategories": [
+          "weekend",
+          "hobby",
+          "health",
+          "theme_park_date"
+        ],
+        "packKeywords": [
+          "hobby",
+          "sport",
+          "leisure",
+          "fitness",
+          "gym",
+          "weekend"
+        ],
+        "titleKeywords": [
+          "운동",
+          "필라테스",
+          "헬스장",
+          "전시",
+          "노래방",
+          "축제",
+          "대회",
+          "놀이공원",
+          "댄스"
+        ]
+      }
+    },
+    {
+      "id": "media_entertainment_culture_pop",
+      "label": {
+        "ko": "미디어·대중문화(K-pop·드라마·SNS)",
+        "en": "Media, entertainment & pop culture",
+        "de": "Medien, Unterhaltung & Popkultur"
+      },
+      "thresholdTheme": "free time, entertainment (media)",
+      "group": "leisure_culture",
+      "appAliases": {
+        "vocabTopics": [
+          "Medien & Kultur",
+          "Lesen & Reaktionen",
+          "Digitale Aufmerksamkeit",
+          "Medienkompetenz",
+          "Medien & Evidenz",
+          "Fanarbeit & Belastung",
+          "Framinganalyse"
+        ],
+        "shelfSlugs": [
+          "fandom",
+          "critique",
+          "attribution",
+          "representation"
+        ],
+        "smalltalkCategories": [
+          "screen",
+          "music",
+          "kpop"
+        ],
+        "packKeywords": [
+          "kpop",
+          "drama",
+          "media",
+          "fandom",
+          "music",
+          "movie",
+          "sns"
+        ],
+        "titleKeywords": [
+          "음악",
+          "가수",
+          "드라마",
+          "굿즈",
+          "팬과",
+          "팬의",
+          "릴스",
+          "인스타",
+          "라이브 방송",
+          "영상",
+          "보도",
+          "기사",
+          "콘텐츠",
+          "조회 수",
+          "딥페이크",
+          "팩트체크",
+          "명소",
+          "팬 번역",
+          "팬 활동",
+          "팬 프로젝트"
+        ]
+      }
+    },
+    {
+      "id": "education_study",
+      "label": {
+        "ko": "교육·학교·학습",
+        "en": "Education & study",
+        "de": "Bildung & Lernen"
+      },
+      "thresholdTheme": "education",
+      "group": "work_education",
+      "appAliases": {
+        "vocabTopics": [
+          "Bildung",
+          "Schule & Uni",
+          "Schultasche",
+          "Elterngespräch",
+          "Kurzreferat",
+          "첫 수업"
+        ],
+        "shelfSlugs": [
+          "enrolment"
+        ],
+        "smalltalkCategories": [
+          "work_study"
+        ],
+        "packKeywords": [
+          "school",
+          "class",
+          "study",
+          "university",
+          "education",
+          "lesson"
+        ],
+        "titleKeywords": [
+          "수업",
+          "학교",
+          "도서관",
+          "공부",
+          "연구",
+          "학생",
+          "스마트폰 규제"
+        ]
+      }
+    },
+    {
+      "id": "work_career",
+      "label": {
+        "ko": "직업·직장·취업",
+        "en": "Work & career",
+        "de": "Arbeit & Beruf"
+      },
+      "thresholdTheme": "occupation / work",
+      "group": "work_education",
+      "appAliases": {
+        "vocabTopics": [
+          "Beruf",
+          "Menschen & Berufe",
+          "Karriere & Büro",
+          "Arbeitskoordination & Termine",
+          "Nebenjob",
+          "Dienstmail",
+          "취업과 근무 조건",
+          "직장 소통",
+          "Teamarbeit & Feedback",
+          "Formelle Vereinbarungen",
+          "Beurteilung",
+          "Teamverhandlung",
+          "Kurzlage",
+          "Betriebslast"
+        ],
+        "shelfSlugs": [
+          "work",
+          "team",
+          "meeting",
+          "negotiate",
+          "hiring",
+          "briefing",
+          "conflict_interest",
+          "access",
+          "labor"
+        ],
+        "smalltalkCategories": [
+          "work_study",
+          "interview",
+          "job_hunting"
+        ],
+        "packKeywords": [
+          "work",
+          "office",
+          "job",
+          "career",
+          "interview",
+          "team",
+          "meeting",
+          "hiring"
+        ],
+        "titleKeywords": [
+          "회사",
+          "회의",
+          "면접",
+          "업무",
+          "동료",
+          "발표",
+          "인수인계",
+          "직원",
+          "퇴근",
+          "계약 범위",
+          "프리랜서",
+          "성과",
+          "포트폴리오",
+          "출근",
+          "팀에서",
+          "팀원",
+          "팀장",
+          "팀 조율",
+          "팀 리더"
+        ]
+      }
+    },
+    {
+      "id": "services_public_admin",
+      "label": {
+        "ko": "공공 서비스·관공서·은행·우체국",
+        "en": "Services & public administration",
+        "de": "Dienstleistungen, Behörden & Banken"
+      },
+      "thresholdTheme": "services",
+      "group": "civic",
+      "appAliases": {
+        "vocabTopics": [
+          "Postamt",
+          "Friseursalon",
+          "Bankschalter",
+          "Fundsachen",
+          "Amtgang",
+          "Formelle Beschwerde & Abhilfe",
+          "Eskalation"
+        ],
+        "shelfSlugs": [
+          "counter",
+          "money",
+          "form",
+          "notice",
+          "authorities",
+          "booking"
+        ],
+        "smalltalkCategories": [
+          "emergency"
+        ],
+        "packKeywords": [
+          "bank",
+          "post",
+          "office",
+          "service",
+          "salon",
+          "authority",
+          "document"
+        ],
+        "titleKeywords": [
+          "은행",
+          "우체국",
+          "미용실",
+          "서류",
+          "접수",
+          "과태료",
+          "계좌",
+          "카드가 인식",
+          "복지 신청",
+          "관할",
+          "등기부",
+          "신청"
+        ]
+      }
+    },
+    {
+      "id": "communication_phone_digital",
+      "label": {
+        "ko": "전화·메신저·인터넷 소통",
+        "en": "Communication, phone & messaging",
+        "de": "Kommunikation, Telefon & Messenger"
+      },
+      "thresholdTheme": "communication",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Kommunikation",
+          "Handytarif",
+          "Dienstmail"
+        ],
+        "shelfSlugs": [
+          "phone"
+        ],
+        "smalltalkCategories": [
+          "phone"
+        ],
+        "packKeywords": [
+          "phone",
+          "message",
+          "chat",
+          "contact",
+          "kakao"
+        ],
+        "titleKeywords": [
+          "카카오톡",
+          "전화",
+          "메신저",
+          "연락",
+          "이메일",
+          "답장",
+          "문자",
+          "첨부파일",
+          "메시지"
+        ]
+      }
+    },
+    {
+      "id": "weather_nature_climate",
+      "label": {
+        "ko": "날씨·계절·자연",
+        "en": "Weather, nature & seasons",
+        "de": "Wetter, Natur & Jahreszeiten"
+      },
+      "thresholdTheme": "weather",
+      "group": "everyday_life",
+      "appAliases": {
+        "vocabTopics": [
+          "Wetter",
+          "Wetterschicht",
+          "Natur & Draußen"
+        ],
+        "shelfSlugs": [
+          "body"
+        ],
+        "smalltalkCategories": [
+          "weather"
+        ],
+        "packKeywords": [
+          "weather",
+          "season",
+          "nature"
+        ],
+        "titleKeywords": [
+          "비 오는",
+          "우산",
+          "날씨",
+          "폭염",
+          "계절"
+        ]
+      }
+    },
+    {
+      "id": "feelings_character",
+      "label": {
+        "ko": "감정·성격·외모 묘사",
+        "en": "Feelings, character & appearance",
+        "de": "Gefühle, Charakter & Aussehen"
+      },
+      "thresholdTheme": "personal identification (character, appearance)",
+      "group": "self_and_others",
+      "appAliases": {
+        "vocabTopics": [
+          "Gefühle",
+          "Beschreibung",
+          "Motivation",
+          "Charakter & Gefühle",
+          "Eigenschaften",
+          "Rhythmus & Grenzen",
+          "Farben"
+        ],
+        "shelfSlugs": [
+          "feel",
+          "facework",
+          "dating"
+        ],
+        "smalltalkCategories": [
+          "mood",
+          "dating"
+        ],
+        "packKeywords": [
+          "feeling",
+          "emotion",
+          "character",
+          "descriptions",
+          "mood"
+        ],
+        "titleKeywords": [
+          "서운",
+          "실망",
+          "민망",
+          "마음",
+          "감정",
+          "체면",
+          "솔직",
+          "혼자만의 시간",
+          "헷갈릴"
+        ]
+      }
+    },
+    {
+      "id": "social_etiquette_customs",
+      "label": {
+        "ko": "예절·관습·명절·호칭",
+        "en": "Etiquette, customs & festivals",
+        "de": "Umgangsformen, Sitten & Feste"
+      },
+      "thresholdTheme": "sociocultural competence",
+      "group": "leisure_culture",
+      "appAliases": {
+        "vocabTopics": [
+          "Höflichkeit",
+          "Entschuldigung",
+          "Feste & Einladungen",
+          "Umgangsformen",
+          "Feste & Traditionen",
+          "Ehrensprache",
+          "Begrüßung"
+        ],
+        "shelfSlugs": [
+          "greet",
+          "partner",
+          "facework"
+        ],
+        "smalltalkCategories": [
+          "partner_family"
+        ],
+        "packKeywords": [
+          "etiquette",
+          "holiday",
+          "chuseok",
+          "manners",
+          "politeness",
+          "honorific"
+        ],
+        "titleKeywords": [
+          "추석",
+          "명절",
+          "인사드리",
+          "호칭",
+          "결혼식",
+          "생일",
+          "초대",
+          "말투",
+          "예절",
+          "세배"
+        ]
+      }
+    },
+    {
+      "id": "language_learning_communication_repair",
+      "label": {
+        "ko": "언어·학습·의사소통 되묻기",
+        "en": "Language, learning & communication repair",
+        "de": "Sprache, Lernen & Verständigung"
+      },
+      "thresholdTheme": "language",
+      "group": "self_and_others",
+      "appAliases": {
+        "vocabTopics": [
+          "다시 묻기",
+          "Sprache & Ausdruck",
+          "Sprache & Grammatik",
+          "은는과 이가",
+          "Sprache & Gesellschaft",
+          "Sprache und Wandel",
+          "Autoritätssprache",
+          "Sprache, Deutung & Macht"
+        ],
+        "shelfSlugs": [
+          "repeat"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "language",
+          "korean",
+          "hangul",
+          "repeat",
+          "clarify"
+        ],
+        "titleKeywords": [
+          "다시 천천히",
+          "말투",
+          "말을 놓",
+          "번역",
+          "통역",
+          "언어",
+          "발음",
+          "다시 묻",
+          "알아듣",
+          "우리’"
+        ]
+      }
+    },
+    {
+      "id": "money_finance_contracts",
+      "label": {
+        "ko": "돈·요금·계약·보험",
+        "en": "Money, fees, contracts & insurance",
+        "de": "Geld, Gebühren, Verträge & Versicherungen"
+      },
+      "thresholdTheme": "services (bank), shopping (prices)",
+      "group": "civic",
+      "appAliases": {
+        "vocabTopics": [
+          "Geld",
+          "Geld & Gebühren",
+          "Wohnen & Vertrag",
+          "Handytarif",
+          "Bankschalter",
+          "Versicherungsfall",
+          "Formelle Vereinbarungen",
+          "Widerrufsrecht"
+        ],
+        "shelfSlugs": [
+          "money",
+          "bill",
+          "refund",
+          "insurance",
+          "cancellation",
+          "contract"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "money",
+          "bank",
+          "fee",
+          "contract",
+          "insurance",
+          "bill",
+          "pay",
+          "budget",
+          "price"
+        ],
+        "titleKeywords": [
+          "결제",
+          "요금",
+          "환불",
+          "보험",
+          "계약",
+          "구독",
+          "영수증",
+          "수리비",
+          "회원권",
+          "금액",
+          "가격",
+          "모금",
+          "보증금",
+          "위임장"
+        ]
+      }
+    },
+    {
+      "id": "technology_digital_ai",
+      "label": {
+        "ko": "기술·디지털·AI·데이터",
+        "en": "Technology, digital life & AI",
+        "de": "Technologie, Digitalisierung & KI"
+      },
+      "thresholdTheme": "modern topics (not in Threshold)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Technologie",
+          "Modernes Leben",
+          "Digitale Aufmerksamkeit",
+          "AI 투명성과 문화 노동",
+          "Technikethik & Verantwortung",
+          "Prüfspur",
+          "Automatenfolgen",
+          "Automatisierung & Rechtsweg"
+        ],
+        "shelfSlugs": [
+          "privacy",
+          "automation",
+          "access"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "tech",
+          "digital",
+          "ai",
+          "data",
+          "app",
+          "internet",
+          "automation"
+        ],
+        "titleKeywords": [
+          "AI",
+          "자동",
+          "데이터",
+          "알고리즘",
+          "무인",
+          "계정",
+          "인공지능",
+          "자율",
+          "모델",
+          "개인정보"
+        ]
+      }
+    },
+    {
+      "id": "environment_sustainability",
+      "label": {
+        "ko": "환경·기후·지속가능성",
+        "en": "Environment & sustainability",
+        "de": "Umwelt & Nachhaltigkeit"
+      },
+      "thresholdTheme": "environment (extended)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Umwelt",
+          "Nachhaltige Entscheidungen vor Ort",
+          "Ortliche Abwägung"
+        ],
+        "shelfSlugs": [
+          "policy"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "environment",
+          "climate",
+          "sustain",
+          "recycl",
+          "energy"
+        ],
+        "titleKeywords": [
+          "환경",
+          "기후",
+          "쓰레기",
+          "재활용",
+          "분리수거",
+          "일회용",
+          "에너지",
+          "지속"
+        ]
+      }
+    },
+    {
+      "id": "society_current_affairs",
+      "label": {
+        "ko": "사회 문제·시사·공동체",
+        "en": "Society, current affairs & community",
+        "de": "Gesellschaft, aktuelle Themen & Gemeinschaft"
+      },
+      "thresholdTheme": "society (Vantage+)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Gesellschaft",
+          "Modernes Leben",
+          "Ehrenamtsschicht",
+          "Sicherheit & Regeln",
+          "Handeln & Verändern",
+          "Sprache & Gesellschaft",
+          "Bürgerversammlung",
+          "Gesellschaft & Alltag 2026",
+          "주거비와 사회 통합",
+          "Zugänglichkeit & Teilhabe",
+          "Risiko & öffentliche Information",
+          "Zugangskosten",
+          "Gesellschaft im Wandel",
+          "인구 담론과 제도 책임",
+          "Sprache und Wandel"
+        ],
+        "shelfSlugs": [
+          "public",
+          "evidence",
+          "mediation",
+          "impact"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "society",
+          "social",
+          "community",
+          "public",
+          "civic"
+        ],
+        "titleKeywords": [
+          "사회",
+          "주민",
+          "공동체",
+          "세대",
+          "청년",
+          "봉사",
+          "공공",
+          "쉼터",
+          "접근",
+          "참여",
+          "휠체어",
+          "상권",
+          "재난",
+          "이주",
+          "인구"
+        ]
+      }
+    },
+    {
+      "id": "politics_law_institutions",
+      "label": {
+        "ko": "정치·법·제도·행정",
+        "en": "Politics, law & institutions",
+        "de": "Politik, Recht & Institutionen"
+      },
+      "thresholdTheme": "politics/law (Vantage+, 국제통용 4급+)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Sicherheit & Regeln",
+          "Formelle Beschwerde & Abhilfe",
+          "Bürgerversammlung",
+          "Öffentliche Lage",
+          "Beteiligungsdesign",
+          "Ortliche Abwägung",
+          "Regulierung & Nebenwirkung",
+          "Institutionelle Vermittlung",
+          "Institutionsstimme",
+          "Autoritätssprache",
+          "Einspruchsweg",
+          "Widerrufsrecht",
+          "Automatisierung & Rechtsweg",
+          "Sanktion & Rechenschaft",
+          "Diskurs, Macht & Verantwortung",
+          "인구 담론과 제도 책임"
+        ],
+        "shelfSlugs": [
+          "notice",
+          "authorities",
+          "privacy",
+          "policy",
+          "record",
+          "mandate",
+          "limitation",
+          "jurisdiction",
+          "access"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "law",
+          "legal",
+          "policy",
+          "regulation",
+          "rights",
+          "authority",
+          "government"
+        ],
+        "titleKeywords": [
+          "권리",
+          "규제",
+          "정책",
+          "책임",
+          "제도",
+          "이의",
+          "과태료",
+          "관할",
+          "소멸시효",
+          "위임",
+          "집회",
+          "표현의 자유",
+          "보유세",
+          "행정",
+          "심사",
+          "권한",
+          "동의",
+          "법률",
+          "법적",
+          "법을",
+          "법이",
+          "법에"
+        ]
+      }
+    },
+    {
+      "id": "economy_business_labour",
+      "label": {
+        "ko": "경제·기업·노동시장",
+        "en": "Economy, business & labour market",
+        "de": "Wirtschaft, Unternehmen & Arbeitsmarkt"
+      },
+      "thresholdTheme": "economy (Vantage+, 국제통용 4급+)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Zugangskosten",
+          "Betriebslast",
+          "Fanarbeit & Belastung",
+          "AI 투명성과 문화 노동"
+        ],
+        "shelfSlugs": [
+          "labor",
+          "negotiate",
+          "impact"
+        ],
+        "smalltalkCategories": [
+          "job_hunting"
+        ],
+        "packKeywords": [
+          "economy",
+          "business",
+          "labor",
+          "labour",
+          "market",
+          "wage",
+          "startup"
+        ],
+        "titleKeywords": [
+          "임대료",
+          "노동",
+          "경제",
+          "사업",
+          "라이더",
+          "비용",
+          "물가",
+          "보상 구조",
+          "공로"
+        ]
+      }
+    },
+    {
+      "id": "science_research_evidence",
+      "label": {
+        "ko": "과학·연구·근거·통계",
+        "en": "Science, research & evidence",
+        "de": "Wissenschaft, Forschung & Evidenz"
+      },
+      "thresholdTheme": "science (국제통용 5급+)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Wissenschaft",
+          "Forschung & Evidenz",
+          "Evidenzvorbehalt",
+          "Erhebungsdesign",
+          "Risikosprache",
+          "Medien & Evidenz",
+          "Risiko & öffentliche Information"
+        ],
+        "shelfSlugs": [
+          "uncertainty",
+          "methodology",
+          "critique",
+          "clinical",
+          "evidence"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "science",
+          "research",
+          "evidence",
+          "survey",
+          "study",
+          "data"
+        ],
+        "titleKeywords": [
+          "연구",
+          "설문",
+          "표본",
+          "근거",
+          "통계",
+          "상관관계",
+          "재현",
+          "불확실",
+          "수치",
+          "지표",
+          "평균",
+          "예측",
+          "모델",
+          "결론"
+        ]
+      }
+    },
+    {
+      "id": "arts_literature_history",
+      "label": {
+        "ko": "예술·문학·역사·기억",
+        "en": "Arts, literature, history & memory",
+        "de": "Kunst, Literatur, Geschichte & Erinnerung"
+      },
+      "thresholdTheme": "culture (Vantage+, 국제통용 5급+)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Literatur und Gefühle",
+          "Erinnerung & Erzählperspektive",
+          "Erinnerungsnarrativ",
+          "Narrativ & Perspektive"
+        ],
+        "shelfSlugs": [
+          "memory",
+          "history",
+          "aesthetic"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "art",
+          "literature",
+          "history",
+          "museum",
+          "memory",
+          "narrative"
+        ],
+        "titleKeywords": [
+          "박물관",
+          "전통 공연",
+          "작품",
+          "역사",
+          "기억",
+          "서사",
+          "예술",
+          "문학",
+          "과거",
+          "원형"
+        ]
+      }
+    },
+    {
+      "id": "ethics_philosophy_abstract",
+      "label": {
+        "ko": "윤리·철학·추상적 논쟁",
+        "en": "Ethics, philosophy & abstract debate",
+        "de": "Ethik, Philosophie & abstrakte Debatten"
+      },
+      "thresholdTheme": "abstract themes (C-levels)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Abstrakte Begriffe",
+          "Denken",
+          "Entscheidungen & Perspektiven",
+          "Lebensphilosophie",
+          "Diskurs & Macht",
+          "Diskurs, Macht & Verantwortung",
+          "Sprache, Deutung & Macht",
+          "Technikethik & Verantwortung",
+          "Framinganalyse"
+        ],
+        "shelfSlugs": [
+          "ethics",
+          "discourse",
+          "conflict_interest",
+          "mediation",
+          "representation"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "ethic",
+          "philosoph",
+          "abstract",
+          "value",
+          "discourse"
+        ],
+        "titleKeywords": [
+          "윤리",
+          "책임",
+          "권력",
+          "프레임",
+          "의미",
+          "정의",
+          "가치",
+          "화해",
+          "사과 한마디",
+          "‘우리’",
+          "관점",
+          "담론",
+          "논쟁",
+          "이해관계"
+        ]
+      }
+    },
+    {
+      "id": "professional_specialised_fields",
+      "label": {
+        "ko": "전문 분야·학술·직무 언어",
+        "en": "Professional & specialised fields",
+        "de": "Fach- & Berufssprache"
+      },
+      "thresholdTheme": "specialised fields (C-levels, 국제통용 6급)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [],
+        "shelfSlugs": [
+          "clinical",
+          "methodology",
+          "briefing"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "academic",
+          "professional",
+          "specialised",
+          "legal",
+          "medical"
+        ],
+        "titleKeywords": [
+          "논문",
+          "학술",
+          "전문",
+          "임상",
+          "계약서",
+          "위임장",
+          "등기"
+        ]
+      }
+    },
+    {
+      "id": "intercultural_globalisation_migration",
+      "label": {
+        "ko": "문화 차이·세계화·이주",
+        "en": "Intercultural contact, globalisation & migration",
+        "de": "Interkulturelles, Globalisierung & Migration"
+      },
+      "thresholdTheme": "sociocultural (B1+), migration (BAMF)",
+      "group": "society_abstract",
+      "appAliases": {
+        "vocabTopics": [
+          "Geographie"
+        ],
+        "shelfSlugs": [],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "culture",
+          "abroad",
+          "foreign",
+          "migration",
+          "visa"
+        ],
+        "titleKeywords": [
+          "한국 생활",
+          "외국",
+          "비자",
+          "체류",
+          "이주",
+          "문화 차이",
+          "번역",
+          "발음과 소속감",
+          "이름의 발음"
+        ]
+      }
+    }
+  ],
+  "speechActs": [
+    {
+      "id": "greet_introduce_self",
+      "category": "socialising",
+      "label": {
+        "ko": "인사하고 자기소개하기",
+        "en": "Greeting and introducing oneself",
+        "de": "Begrüßen und sich vorstellen"
+      },
+      "matchers": {
+        "ko": [
+          "인사",
+          "자기소개",
+          "이름과 출신",
+          "소개하"
+        ],
+        "en": [
+          "greet",
+          "introduc",
+          "your name",
+          "where you are from"
+        ]
+      }
+    },
+    {
+      "id": "ask_give_personal_information",
+      "category": "information",
+      "label": {
+        "ko": "신상 정보 묻고 답하기",
+        "en": "Asking for and giving personal information",
+        "de": "Nach persönlichen Angaben fragen und sie geben"
+      },
+      "matchers": {
+        "ko": [
+          "출신",
+          "온 시기",
+          "한국 생활이 어떤지",
+          "국적",
+          "직업",
+          "나이"
+        ],
+        "en": [
+          "personal information",
+          "how long",
+          "where you are from",
+          "nationality",
+          "occupation"
+        ]
+      }
+    },
+    {
+      "id": "ask_for_information_confirm",
+      "category": "information",
+      "label": {
+        "ko": "정보 묻고 확인하기",
+        "en": "Asking for information and confirming",
+        "de": "Informationen erfragen und bestätigen"
+      },
+      "matchers": {
+        "ko": [
+          "묻는다",
+          "물어",
+          "확인한다",
+          "확인하",
+          "문의",
+          "묻고",
+          "묻기"
+        ],
+        "en": [
+          "ask",
+          "check",
+          "confirm",
+          "inquire",
+          "find out",
+          "whether"
+        ]
+      }
+    },
+    {
+      "id": "identify_locate_things",
+      "category": "information",
+      "label": {
+        "ko": "사물 이름·위치 말하기",
+        "en": "Identifying and locating things",
+        "de": "Dinge benennen und lokalisieren"
+      },
+      "matchers": {
+        "ko": [
+          "어디 있는지",
+          "위치",
+          "찾기",
+          "찾는",
+          "물건"
+        ],
+        "en": [
+          "where it is",
+          "locate",
+          "looking for",
+          "find"
+        ]
+      }
+    },
+    {
+      "id": "describe_people_things_places",
+      "category": "information",
+      "label": {
+        "ko": "사람·사물·장소 묘사하기",
+        "en": "Describing people, things and places",
+        "de": "Personen, Dinge und Orte beschreiben"
+      },
+      "matchers": {
+        "ko": [
+          "묘사",
+          "설명하고",
+          "어떤지",
+          "생김새",
+          "상태를 말"
+        ],
+        "en": [
+          "describe",
+          "what it looks like",
+          "condition"
+        ]
+      }
+    },
+    {
+      "id": "narrate_experience_events",
+      "category": "information",
+      "label": {
+        "ko": "경험·사건 이야기하기",
+        "en": "Narrating experiences and events",
+        "de": "Erlebnisse und Ereignisse erzählen"
+      },
+      "matchers": {
+        "ko": [
+          "경험",
+          "경위",
+          "있었던",
+          "이야기하기",
+          "이야기한다",
+          "지난"
+        ],
+        "en": [
+          "experience",
+          "what happened",
+          "narrat",
+          "tell about",
+          "story"
+        ]
+      }
+    },
+    {
+      "id": "explain_reason_cause_effect",
+      "category": "information",
+      "label": {
+        "ko": "이유·원인·결과 설명하기",
+        "en": "Explaining reasons, causes and effects",
+        "de": "Gründe, Ursachen und Folgen erklären"
+      },
+      "matchers": {
+        "ko": [
+          "이유",
+          "원인",
+          "결과",
+          "때문",
+          "왜 "
+        ],
+        "en": [
+          "reason",
+          "cause",
+          "effect",
+          "why",
+          "explain"
+        ]
+      }
+    },
+    {
+      "id": "report_relay_information",
+      "category": "information",
+      "label": {
+        "ko": "들은 정보 전달하기(간접화법)",
+        "en": "Reporting and relaying information",
+        "de": "Informationen wiedergeben und weiterleiten"
+      },
+      "matchers": {
+        "ko": [
+          "전한다",
+          "전달",
+          "들은 정보",
+          "출처와",
+          "알린다",
+          "알리고"
+        ],
+        "en": [
+          "report",
+          "relay",
+          "pass on",
+          "reported",
+          "heard",
+          "let someone know",
+          "keep someone updated"
+        ]
+      }
+    },
+    {
+      "id": "summarise_reconstruct",
+      "category": "information",
+      "label": {
+        "ko": "요약·재구성하기",
+        "en": "Summarising and reconstructing",
+        "de": "Zusammenfassen und rekonstruieren"
+      },
+      "matchers": {
+        "ko": [
+          "요약",
+          "정리한다",
+          "재구성",
+          "구성한다",
+          "순서대로 설명"
+        ],
+        "en": [
+          "summar",
+          "synthes",
+          "reconstruct",
+          "in order"
+        ]
+      }
+    },
+    {
+      "id": "compare_contrast_alternatives",
+      "category": "information",
+      "label": {
+        "ko": "비교·대조·대안 검토하기",
+        "en": "Comparing, contrasting and weighing alternatives",
+        "de": "Vergleichen, gegenüberstellen und Alternativen abwägen"
+      },
+      "matchers": {
+        "ko": [
+          "비교",
+          "차이",
+          "대안",
+          "대체",
+          "다른 방법",
+          "달라"
+        ],
+        "en": [
+          "compare",
+          "contrast",
+          "alternative",
+          "difference",
+          "weigh"
+        ]
+      }
+    },
+    {
+      "id": "express_preference_taste",
+      "category": "attitude",
+      "label": {
+        "ko": "취향·선호 말하기",
+        "en": "Expressing likes, preferences and tastes",
+        "de": "Vorlieben und Geschmack ausdrücken"
+      },
+      "matchers": {
+        "ko": [
+          "좋아",
+          "취향",
+          "선호",
+          "원하는",
+          "맛을 말"
+        ],
+        "en": [
+          "like",
+          "prefer",
+          "favorite",
+          "favourite",
+          "taste",
+          "want"
+        ]
+      }
+    },
+    {
+      "id": "express_opinion_agree_disagree",
+      "category": "attitude",
+      "label": {
+        "ko": "의견 말하고 동의·반대하기",
+        "en": "Expressing opinions, agreeing and disagreeing",
+        "de": "Meinungen äußern, zustimmen und widersprechen"
+      },
+      "matchers": {
+        "ko": [
+          "의견",
+          "생각을",
+          "주장",
+          "반대",
+          "동의",
+          "입장",
+          "논쟁"
+        ],
+        "en": [
+          "opinion",
+          "argue",
+          "agree",
+          "disagree",
+          "position",
+          "debate",
+          "view"
+        ]
+      }
+    },
+    {
+      "id": "express_feelings_emotions",
+      "category": "attitude",
+      "label": {
+        "ko": "감정·기분 표현하기",
+        "en": "Expressing feelings and emotions",
+        "de": "Gefühle ausdrücken"
+      },
+      "matchers": {
+        "ko": [
+          "느낌",
+          "감정",
+          "마음",
+          "서운",
+          "실망",
+          "민망",
+          "무서",
+          "놀란",
+          "미안함"
+        ],
+        "en": [
+          "feel",
+          "emotion",
+          "upset",
+          "disappoint",
+          "embarrass",
+          "scary",
+          "afraid",
+          "regret"
+        ]
+      }
+    },
+    {
+      "id": "express_certainty_doubt_hedging",
+      "category": "attitude",
+      "label": {
+        "ko": "확신·의심·완곡 표현하기",
+        "en": "Expressing certainty, doubt and hedging",
+        "de": "Sicherheit, Zweifel und Vorbehalte ausdrücken"
+      },
+      "matchers": {
+        "ko": [
+          "불확실",
+          "확정되지",
+          "미확정",
+          "단정",
+          "가능성",
+          "확정된 정보",
+          "확정 수준",
+          "추측"
+        ],
+        "en": [
+          "uncertain",
+          "unconfirmed",
+          "hedg",
+          "likely",
+          "possib",
+          "confirmation level",
+          "guess",
+          "certain"
+        ]
+      }
+    },
+    {
+      "id": "evaluate_assess_critique",
+      "category": "attitude",
+      "label": {
+        "ko": "평가·비판·한계 지적하기",
+        "en": "Evaluating, assessing and critiquing",
+        "de": "Bewerten, beurteilen und kritisieren"
+      },
+      "matchers": {
+        "ko": [
+          "평가",
+          "따지",
+          "타당",
+          "한계",
+          "비판",
+          "지적",
+          "판단",
+          "따져",
+          "장단점",
+          "한계를"
+        ],
+        "en": [
+          "evaluat",
+          "assess",
+          "critique",
+          "judge",
+          "limit",
+          "point out",
+          "weakness"
+        ]
+      }
+    },
+    {
+      "id": "express_obligation_permission",
+      "category": "attitude",
+      "label": {
+        "ko": "의무·허가·금지 말하기",
+        "en": "Expressing obligation, permission and prohibition",
+        "de": "Pflicht, Erlaubnis und Verbot ausdrücken"
+      },
+      "matchers": {
+        "ko": [
+          "허락",
+          "되는지",
+          "해도 되",
+          "규칙",
+          "허용",
+          "금지",
+          "가져가도"
+        ],
+        "en": [
+          "permission",
+          "allowed",
+          "may i",
+          "rule",
+          "have to",
+          "must",
+          "prohibit"
+        ]
+      }
+    },
+    {
+      "id": "express_intention_plan_wish",
+      "category": "attitude",
+      "label": {
+        "ko": "의도·계획·바람 말하기",
+        "en": "Expressing intentions, plans and wishes",
+        "de": "Absichten, Pläne und Wünsche ausdrücken"
+      },
+      "matchers": {
+        "ko": [
+          "계획",
+          "예정",
+          "할 일",
+          "하려고",
+          "바람",
+          "다음에",
+          "뭐부터"
+        ],
+        "en": [
+          "plan",
+          "intend",
+          "going to",
+          "schedule",
+          "wish",
+          "future"
+        ]
+      }
+    },
+    {
+      "id": "request_ask_someone_to_do",
+      "category": "suasion",
+      "label": {
+        "ko": "요청·부탁하기",
+        "en": "Requesting and asking someone to do something",
+        "de": "Bitten und auffordern"
+      },
+      "matchers": {
+        "ko": [
+          "요청",
+          "달라고",
+          "부탁",
+          "주세요",
+          "요구",
+          "세워 달라"
+        ],
+        "en": [
+          "request",
+          "ask for",
+          "ask to",
+          "ask someone",
+          "demand"
+        ]
+      }
+    },
+    {
+      "id": "order_buy_pay",
+      "category": "suasion",
+      "label": {
+        "ko": "주문·구매·결제하기",
+        "en": "Ordering, buying and paying",
+        "de": "Bestellen, kaufen und bezahlen"
+      },
+      "matchers": {
+        "ko": [
+          "주문",
+          "결제",
+          "산다",
+          "계산",
+          "고른다",
+          "장보기",
+          "사기"
+        ],
+        "en": [
+          "order",
+          "pay",
+          "buy",
+          "purchase",
+          "groceries",
+          "choose a snack"
+        ]
+      }
+    },
+    {
+      "id": "suggest_propose",
+      "category": "suasion",
+      "label": {
+        "ko": "제안하기",
+        "en": "Suggesting and proposing",
+        "de": "Vorschlagen"
+      },
+      "matchers": {
+        "ko": [
+          "제안",
+          "제시",
+          "하자고",
+          "갈까",
+          "할까",
+          "권한다",
+          "까?"
+        ],
+        "en": [
+          "suggest",
+          "propose",
+          "offer",
+          "shall we",
+          "let's"
+        ]
+      }
+    },
+    {
+      "id": "invite_accept_decline",
+      "category": "suasion",
+      "label": {
+        "ko": "초대·수락·거절하기",
+        "en": "Inviting, accepting and declining",
+        "de": "Einladen, annehmen und ablehnen"
+      },
+      "matchers": {
+        "ko": [
+          "초대",
+          "거절",
+          "수락",
+          "참석",
+          "같이 가",
+          "놀러"
+        ],
+        "en": [
+          "invite",
+          "decline",
+          "accept",
+          "attend",
+          "hangout",
+          "hang out",
+          "join"
+        ]
+      }
+    },
+    {
+      "id": "advise_recommend_warn",
+      "category": "suasion",
+      "label": {
+        "ko": "조언·추천·경고하기",
+        "en": "Advising, recommending and warning",
+        "de": "Raten, empfehlen und warnen"
+      },
+      "matchers": {
+        "ko": [
+          "조언",
+          "추천",
+          "경고",
+          "권고",
+          "꼭 확인",
+          "주의"
+        ],
+        "en": [
+          "advise",
+          "recommend",
+          "warn",
+          "caution",
+          "should"
+        ]
+      }
+    },
+    {
+      "id": "give_follow_instructions_directions",
+      "category": "suasion",
+      "label": {
+        "ko": "길·절차 안내하고 따르기",
+        "en": "Giving and following instructions and directions",
+        "de": "Anweisungen und Wegbeschreibungen geben und befolgen"
+      },
+      "matchers": {
+        "ko": [
+          "가는 길",
+          "안내",
+          "길 묻",
+          "방법을 묻",
+          "절차",
+          "순서를",
+          "굽는 방법",
+          "복용법"
+        ],
+        "en": [
+          "direction",
+          "instruct",
+          "how to",
+          "procedure",
+          "steps",
+          "way to"
+        ]
+      }
+    },
+    {
+      "id": "negotiate_compromise_conditions",
+      "category": "suasion",
+      "label": {
+        "ko": "협상·절충·조건 조율하기",
+        "en": "Negotiating, compromising and setting conditions",
+        "de": "Verhandeln, Kompromisse finden und Bedingungen aushandeln"
+      },
+      "matchers": {
+        "ko": [
+          "협상",
+          "협의",
+          "절충",
+          "조건",
+          "조율",
+          "재협의",
+          "타협",
+          "합의",
+          "조정"
+        ],
+        "en": [
+          "negotiat",
+          "compromise",
+          "counter offer",
+          "condition",
+          "renegotiat",
+          "terms"
+        ]
+      }
+    },
+    {
+      "id": "complain_object_appeal",
+      "category": "suasion",
+      "label": {
+        "ko": "불만 제기·이의 신청하기",
+        "en": "Complaining, objecting and appealing",
+        "de": "Sich beschweren, widersprechen und Einspruch erheben"
+      },
+      "matchers": {
+        "ko": [
+          "불만",
+          "항의",
+          "이의",
+          "문제를 설명",
+          "문제를 말",
+          "이의를 제기",
+          "재심"
+        ],
+        "en": [
+          "complain",
+          "object",
+          "appeal",
+          "dispute",
+          "escalate",
+          "problem"
+        ]
+      }
+    },
+    {
+      "id": "persuade_argue_justify",
+      "category": "suasion",
+      "label": {
+        "ko": "설득·논증·정당화하기",
+        "en": "Persuading, arguing and justifying",
+        "de": "Überzeugen, argumentieren und begründen"
+      },
+      "matchers": {
+        "ko": [
+          "설득",
+          "논증",
+          "근거",
+          "정당",
+          "주장한다",
+          "설명하고 대안",
+          "비교해 항목"
+        ],
+        "en": [
+          "persuade",
+          "argue",
+          "justify",
+          "evidence",
+          "make the case",
+          "defend"
+        ]
+      }
+    },
+    {
+      "id": "refuse_set_boundaries",
+      "category": "suasion",
+      "label": {
+        "ko": "거절하고 경계 정하기",
+        "en": "Refusing and setting boundaries",
+        "de": "Ablehnen und Grenzen setzen"
+      },
+      "matchers": {
+        "ko": [
+          "경계",
+          "선을",
+          "거리",
+          "필요한 규칙",
+          "필요할 때",
+          "혼자만의"
+        ],
+        "en": [
+          "boundar",
+          "refuse",
+          "draw a line",
+          "personal space",
+          "limit contact"
+        ]
+      }
+    },
+    {
+      "id": "thank_apologise_respond",
+      "category": "socialising",
+      "label": {
+        "ko": "감사·사과하고 반응하기",
+        "en": "Thanking, apologising and responding",
+        "de": "Danken, sich entschuldigen und reagieren"
+      },
+      "matchers": {
+        "ko": [
+          "감사",
+          "사과",
+          "미안",
+          "고맙"
+        ],
+        "en": [
+          "thank",
+          "apolog",
+          "sorry"
+        ]
+      }
+    },
+    {
+      "id": "congratulate_sympathise_comfort",
+      "category": "socialising",
+      "label": {
+        "ko": "축하·위로하기",
+        "en": "Congratulating, sympathising and comforting",
+        "de": "Gratulieren, Anteil nehmen und trösten"
+      },
+      "matchers": {
+        "ko": [
+          "축하",
+          "위로",
+          "달래",
+          "격려"
+        ],
+        "en": [
+          "congratulat",
+          "condol",
+          "sympath",
+          "comfort",
+          "calm"
+        ]
+      }
+    },
+    {
+      "id": "make_change_cancel_appointments",
+      "category": "socialising",
+      "label": {
+        "ko": "약속·예약 잡고 바꾸고 취소하기",
+        "en": "Making, changing and cancelling appointments",
+        "de": "Termine vereinbaren, verschieben und absagen"
+      },
+      "matchers": {
+        "ko": [
+          "약속",
+          "예약",
+          "일정",
+          "시간을 다시",
+          "취소",
+          "바꿀 수",
+          "등록",
+          "늦는"
+        ],
+        "en": [
+          "appointment",
+          "reservation",
+          "book",
+          "reschedul",
+          "cancel",
+          "postpone",
+          "register",
+          "late"
+        ]
+      }
+    },
+    {
+      "id": "small_talk_maintain_relationships",
+      "category": "socialising",
+      "label": {
+        "ko": "근황·안부 나누기(스몰토크)",
+        "en": "Small talk and maintaining relationships",
+        "de": "Small Talk und Beziehungen pflegen"
+      },
+      "matchers": {
+        "ko": [
+          "근황",
+          "안부",
+          "이야기하기",
+          "이야기한다",
+          "친해진",
+          "형편"
+        ],
+        "en": [
+          "chat",
+          "small talk",
+          "catch up",
+          "talk about",
+          "hang out"
+        ]
+      }
+    },
+    {
+      "id": "clarify_repair_ask_to_repeat",
+      "category": "discourse",
+      "label": {
+        "ko": "못 들었을 때 되묻고 고치기",
+        "en": "Clarifying, repairing and asking to repeat",
+        "de": "Nachfragen, klären und um Wiederholung bitten"
+      },
+      "matchers": {
+        "ko": [
+          "다시 천천히",
+          "다시 말해",
+          "못 들었",
+          "되묻",
+          "다시 묻",
+          "천천히",
+          "오해"
+        ],
+        "en": [
+          "repeat",
+          "slowly",
+          "clarif",
+          "didn't catch",
+          "asking again",
+          "misunderstanding"
+        ]
+      }
+    },
+    {
+      "id": "structure_discourse_open_close_scope",
+      "category": "discourse",
+      "label": {
+        "ko": "대화 열고 닫기·범위 정하기",
+        "en": "Opening, closing and scoping a discussion",
+        "de": "Gespräche eröffnen, beenden und den Rahmen abstecken"
+      },
+      "matchers": {
+        "ko": [
+          "범위와 목적",
+          "목적 확인",
+          "범위와 기대",
+          "안건",
+          "정리하",
+          "범위"
+        ],
+        "en": [
+          "purpose and scope",
+          "scope",
+          "agenda",
+          "open",
+          "wrap up"
+        ]
+      }
+    },
+    {
+      "id": "manage_turns_interrupt_hold_floor",
+      "category": "discourse",
+      "label": {
+        "ko": "발언권 관리·끼어들기",
+        "en": "Managing turns and interrupting politely",
+        "de": "Das Wort ergreifen und höflich unterbrechen"
+      },
+      "matchers": {
+        "ko": [
+          "끊지 않으면서",
+          "끼어",
+          "발언"
+        ],
+        "en": [
+          "interrupt",
+          "hold the floor",
+          "take the floor"
+        ]
+      }
+    },
+    {
+      "id": "adjust_register_speech_style",
+      "category": "discourse",
+      "label": {
+        "ko": "말투·존댓말·호칭 조절하기",
+        "en": "Adjusting register, speech style and address terms",
+        "de": "Register, Anrede und Sprachstil anpassen"
+      },
+      "matchers": {
+        "ko": [
+          "말투",
+          "말을 놓",
+          "호칭",
+          "존댓말",
+          "반말",
+          "두 말투",
+          "친한 말",
+          "공손한 말",
+          "딱딱하게"
+        ],
+        "en": [
+          "register",
+          "speech style",
+          "formal",
+          "casual",
+          "address",
+          "polite speech",
+          "informal"
+        ]
+      }
+    },
+    {
+      "id": "mediate_between_parties",
+      "category": "discourse",
+      "label": {
+        "ko": "당사자 사이 중재·조정하기",
+        "en": "Mediating between parties",
+        "de": "Zwischen Parteien vermitteln"
+      },
+      "matchers": {
+        "ko": [
+          "중재",
+          "조정",
+          "당사자",
+          "양측",
+          "함께 다루",
+          "함께 논의",
+          "함께 반영"
+        ],
+        "en": [
+          "mediat",
+          "between",
+          "both sides",
+          "reconcil",
+          "balance"
+        ]
+      }
+    },
+    {
+      "id": "reformulate_paraphrase_rewrite",
+      "category": "discourse",
+      "label": {
+        "ko": "바꿔 말하기·문장 고쳐 쓰기",
+        "en": "Reformulating, paraphrasing and rewriting",
+        "de": "Umformulieren, paraphrasieren und umschreiben"
+      },
+      "matchers": {
+        "ko": [
+          "바꿔 말",
+          "고친다",
+          "수정안",
+          "다시 쓰",
+          "수정",
+          "자연스럽게 고"
+        ],
+        "en": [
+          "rephrase",
+          "paraphrase",
+          "reformulat",
+          "rewrite",
+          "revise"
+        ]
+      }
+    },
+    {
+      "id": "analyse_framing_implicature_presupposition",
+      "category": "discourse",
+      "label": {
+        "ko": "프레임·함축·전제 분석하기",
+        "en": "Analysing framing, implicature and presupposition",
+        "de": "Framing, Implikaturen und Präsuppositionen analysieren"
+      },
+      "matchers": {
+        "ko": [
+          "프레임",
+          "함축",
+          "전제",
+          "암시",
+          "뉘앙스",
+          "지운",
+          "지우",
+          "가리는"
+        ],
+        "en": [
+          "framing",
+          "implicat",
+          "premise",
+          "presuppos",
+          "nuance",
+          "hides",
+          "erase"
+        ]
+      }
+    },
+    {
+      "id": "define_distinguish_terms",
+      "category": "discourse",
+      "label": {
+        "ko": "용어 정의·개념 구분하기",
+        "en": "Defining terms and distinguishing concepts",
+        "de": "Begriffe definieren und Konzepte abgrenzen"
+      },
+      "matchers": {
+        "ko": [
+          "정의",
+          "명확히",
+          "구분",
+          "구별",
+          "나눈다",
+          "분리해"
+        ],
+        "en": [
+          "define",
+          "distinguish",
+          "separate",
+          "clarify the scope",
+          "scope and limits"
+        ]
+      }
+    }
+  ],
+  "textTypes": [
+    {
+      "id": "dialogue_face_to_face",
+      "mode": "spoken_interaction",
+      "label": {
+        "ko": "대면 대화",
+        "en": "Face-to-face conversation",
+        "de": "Gespräch von Angesicht zu Angesicht"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "scenarioAll": true
+      }
+    },
+    {
+      "id": "phone_call",
+      "mode": "spoken_interaction",
+      "label": {
+        "ko": "전화 통화",
+        "en": "Phone call",
+        "de": "Telefongespräch"
+      },
+      "appSurfaces": [
+        "scenario",
+        "smalltalk"
+      ],
+      "matchers": {
+        "titleKo": [
+          "전화"
+        ],
+        "smalltalkCategories": [
+          "phone"
+        ]
+      }
+    },
+    {
+      "id": "instant_message_chat",
+      "mode": "written_interaction",
+      "label": {
+        "ko": "메신저·문자(카카오톡)",
+        "en": "Instant messaging / chat",
+        "de": "Messenger / Chat"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "titleKo": [
+          "카카오톡",
+          "메신저",
+          "문자",
+          "답장",
+          "메시지"
+        ]
+      }
+    },
+    {
+      "id": "email_informal",
+      "mode": "written_interaction",
+      "label": {
+        "ko": "비격식 이메일",
+        "en": "Informal email",
+        "de": "Informelle E-Mail"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "titleKo": [
+          "이메일"
+        ]
+      }
+    },
+    {
+      "id": "email_letter_formal",
+      "mode": "written_interaction",
+      "label": {
+        "ko": "격식 이메일·공문",
+        "en": "Formal email / letter",
+        "de": "Formelle E-Mail / Brief"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "form_application",
+      "mode": "written_production",
+      "label": {
+        "ko": "서식·신청서 작성",
+        "en": "Forms and applications",
+        "de": "Formulare und Anträge"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "sign_notice_short",
+      "mode": "written_reception",
+      "label": {
+        "ko": "표지판·짧은 안내문",
+        "en": "Signs and short notices",
+        "de": "Schilder und kurze Hinweise"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "menu_pricelist_timetable",
+      "mode": "written_reception",
+      "label": {
+        "ko": "메뉴·가격표·시간표",
+        "en": "Menus, price lists and timetables",
+        "de": "Speisekarten, Preislisten und Fahrpläne"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "public_announcement_spoken",
+      "mode": "spoken_reception",
+      "label": {
+        "ko": "안내 방송",
+        "en": "Public announcements",
+        "de": "Durchsagen"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "personal_note_postcard",
+      "mode": "written_production",
+      "label": {
+        "ko": "메모·엽서·짧은 쪽지",
+        "en": "Notes and postcards",
+        "de": "Notizen und Postkarten"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "written_notice_announcement",
+      "mode": "written_reception",
+      "label": {
+        "ko": "공지문·안내문",
+        "en": "Written notices and announcements",
+        "de": "Aushänge und Bekanntmachungen"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "advertisement_leaflet",
+      "mode": "written_reception",
+      "label": {
+        "ko": "광고·전단·브로슈어",
+        "en": "Advertisements and leaflets",
+        "de": "Anzeigen und Broschüren"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "instructions_manual_recipe",
+      "mode": "written_reception",
+      "label": {
+        "ko": "사용 설명서·조리법·지시문",
+        "en": "Instructions, manuals and recipes",
+        "de": "Anleitungen, Gebrauchsanweisungen und Rezepte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "narrative_story_diary",
+      "mode": "written_production",
+      "label": {
+        "ko": "이야기·일기·서사문",
+        "en": "Stories, diaries and narratives",
+        "de": "Erzählungen, Tagebuch und Berichte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "song_lyric_line",
+      "mode": "spoken_reception",
+      "label": {
+        "ko": "노래 가사 한 줄",
+        "en": "Song lyric line",
+        "de": "Liedzeile"
+      },
+      "appSurfaces": [
+        "media"
+      ],
+      "matchers": {
+        "mediaSourceTypes": [
+          "song"
+        ]
+      }
+    },
+    {
+      "id": "drama_film_line",
+      "mode": "spoken_reception",
+      "label": {
+        "ko": "드라마·영화 대사",
+        "en": "Drama / film line",
+        "de": "Drama- / Filmzeile"
+      },
+      "appSurfaces": [
+        "media"
+      ],
+      "matchers": {
+        "mediaSourceTypes": [
+          "drama"
+        ]
+      }
+    },
+    {
+      "id": "social_media_post_comment",
+      "mode": "written_interaction",
+      "label": {
+        "ko": "SNS 게시물·댓글·포럼",
+        "en": "Social media posts, comments and forums",
+        "de": "Social-Media-Beiträge, Kommentare und Foren"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "titleKo": [
+          "릴스",
+          "인스타",
+          "게시",
+          "댓글",
+          "커뮤니티 글",
+          "업로드",
+          "라이브 방송"
+        ]
+      }
+    },
+    {
+      "id": "explanatory_informational_text",
+      "mode": "written_reception",
+      "label": {
+        "ko": "설명문·안내 텍스트",
+        "en": "Explanatory / informational text",
+        "de": "Sachtext / erklärender Text"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "news_article_report",
+      "mode": "written_reception",
+      "label": {
+        "ko": "신문 기사·보도문",
+        "en": "News articles and reports",
+        "de": "Zeitungsartikel und Berichte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "job_interview",
+      "mode": "spoken_interaction",
+      "label": {
+        "ko": "면접",
+        "en": "Job interview",
+        "de": "Vorstellungsgespräch"
+      },
+      "appSurfaces": [
+        "scenario",
+        "smalltalk"
+      ],
+      "matchers": {
+        "titleKo": [
+          "면접"
+        ],
+        "smalltalkCategories": [
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "presentation_briefing_talk",
+      "mode": "spoken_production",
+      "label": {
+        "ko": "발표·브리핑",
+        "en": "Presentations and briefings",
+        "de": "Präsentationen und Briefings"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "titleKo": [
+          "발표",
+          "브리핑",
+          "전하는 법",
+          "보고"
+        ],
+        "shelfSlugs": [
+          "briefing"
+        ]
+      }
+    },
+    {
+      "id": "meeting_formal_discussion",
+      "mode": "spoken_interaction",
+      "label": {
+        "ko": "회의·공식 토론",
+        "en": "Meetings and formal discussion",
+        "de": "Sitzungen und formelle Diskussionen"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "titleKo": [
+          "회의",
+          "논쟁하기",
+          "논의하기",
+          "토론"
+        ],
+        "shelfSlugs": [
+          "meeting",
+          "policy",
+          "discourse"
+        ],
+        "registers": [
+          "business"
+        ]
+      }
+    },
+    {
+      "id": "service_encounter_counter",
+      "mode": "spoken_interaction",
+      "label": {
+        "ko": "창구·매장 응대 대화",
+        "en": "Service encounters",
+        "de": "Dienstleistungsgespräche"
+      },
+      "appSurfaces": [
+        "scenario"
+      ],
+      "matchers": {
+        "backdrops": [
+          "market",
+          "convenience",
+          "cafe",
+          "restaurant",
+          "pharmacy",
+          "bank",
+          "salon",
+          "station",
+          "airport",
+          "taxi",
+          "hotel"
+        ]
+      }
+    },
+    {
+      "id": "review_critique_text",
+      "mode": "written_production",
+      "label": {
+        "ko": "리뷰·비평문",
+        "en": "Reviews and critiques",
+        "de": "Rezensionen und Kritiken"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "essay_opinion_argumentative",
+      "mode": "written_production",
+      "label": {
+        "ko": "논설문·의견문(에세이)",
+        "en": "Opinion essays and argumentative writing",
+        "de": "Erörterung und Meinungsaufsatz"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "report_proposal_official",
+      "mode": "written_production",
+      "label": {
+        "ko": "보고서·제안서·공식 문서",
+        "en": "Reports, proposals and official documents",
+        "de": "Berichte, Vorschläge und amtliche Schreiben"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "contract_terms_legal_text",
+      "mode": "written_reception",
+      "label": {
+        "ko": "계약서·약관·법률 텍스트",
+        "en": "Contracts, terms and legal texts",
+        "de": "Verträge, AGB und Rechtstexte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "academic_specialised_text",
+      "mode": "written_reception",
+      "label": {
+        "ko": "학술·전문 텍스트",
+        "en": "Academic and specialised texts",
+        "de": "Wissenschaftliche und Fachtexte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "literary_text",
+      "mode": "written_reception",
+      "label": {
+        "ko": "문학 텍스트",
+        "en": "Literary texts",
+        "de": "Literarische Texte"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "lecture_speech_monologue",
+      "mode": "spoken_reception",
+      "label": {
+        "ko": "강연·연설·긴 독백",
+        "en": "Lectures, speeches and extended monologue",
+        "de": "Vorträge, Reden und längere Monologe"
+      },
+      "appSurfaces": [],
+      "matchers": {}
+    },
+    {
+      "id": "explanatory_culture_note",
+      "mode": "written_reception",
+      "label": {
+        "ko": "문화 설명 노트(DE/EN)",
+        "en": "Explanatory culture note (DE/EN)",
+        "de": "Erklärende Kulturnotiz (DE/EN)"
+      },
+      "appSurfaces": [
+        "culture_note"
+      ],
+      "matchers": {
+        "cultureNotesAll": true
+      }
+    }
+  ],
+  "vocabDomains": [
+    {
+      "id": "numbers_quantity_units",
+      "label": {
+        "ko": "수·수량·단위명사",
+        "en": "Numbers, quantity & counters",
+        "de": "Zahlen, Mengen & Zähleinheiten"
+      },
+      "topicIds": [
+        "numbers_time_dates"
+      ],
+      "vocabTopics": [
+        "Zahlen",
+        "Menge"
+      ]
+    },
+    {
+      "id": "time_calendar",
+      "label": {
+        "ko": "시간·날짜·요일·계절",
+        "en": "Time, calendar & seasons",
+        "de": "Zeit, Kalender & Jahreszeiten"
+      },
+      "topicIds": [],
+      "vocabTopics": [
+        "Zeit",
+        "Wochenendzusage",
+        "약속과 일정"
+      ]
+    },
+    {
+      "id": "colours_shapes_description",
+      "label": {
+        "ko": "색·모양·기본 묘사 형용사",
+        "en": "Colours, shapes & basic descriptive adjectives",
+        "de": "Farben, Formen & Beschreibungsadjektive"
+      },
+      "topicIds": [],
+      "vocabTopics": [
+        "Farben",
+        "Beschreibung",
+        "Eigenschaften"
+      ]
+    },
+    {
+      "id": "body_health_symptoms",
+      "label": {
+        "ko": "신체·증상·의료",
+        "en": "Body, symptoms & medical",
+        "de": "Körper, Symptome & Medizin"
+      },
+      "topicIds": [
+        "health_body"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "family_kinship_address_terms",
+      "label": {
+        "ko": "가족·친족 호칭·관계어",
+        "en": "Family, kinship & address terms",
+        "de": "Familie, Verwandtschaft & Anrede"
+      },
+      "topicIds": [
+        "family_relationships"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "food_cooking",
+      "label": {
+        "ko": "음식·재료·조리",
+        "en": "Food, ingredients & cooking",
+        "de": "Essen, Zutaten & Kochen"
+      },
+      "topicIds": [
+        "food_drink"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "clothing_accessories",
+      "label": {
+        "ko": "의류·액세서리",
+        "en": "Clothing & accessories",
+        "de": "Kleidung & Accessoires"
+      },
+      "topicIds": [],
+      "vocabTopics": [
+        "Kleidung",
+        "Anziehen & Accessoires"
+      ]
+    },
+    {
+      "id": "home_objects_furniture",
+      "label": {
+        "ko": "집·가구·생활용품",
+        "en": "Home, furniture & household objects",
+        "de": "Wohnung, Möbel & Haushaltsgegenstände"
+      },
+      "topicIds": [
+        "house_home"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "places_buildings_city",
+      "label": {
+        "ko": "장소·건물·도시",
+        "en": "Places, buildings & city",
+        "de": "Orte, Gebäude & Stadt"
+      },
+      "topicIds": [
+        "neighbourhood_environment"
+      ],
+      "vocabTopics": [
+        "Position",
+        "Stadt & Orte",
+        "도시 생활"
+      ]
+    },
+    {
+      "id": "transport_travel_vocab",
+      "label": {
+        "ko": "교통·여행 어휘",
+        "en": "Transport & travel vocabulary",
+        "de": "Verkehrs- & Reisewortschatz"
+      },
+      "topicIds": [
+        "transport_wayfinding",
+        "travel_accommodation"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "professions_workplace",
+      "label": {
+        "ko": "직업·직장 어휘",
+        "en": "Professions & workplace",
+        "de": "Berufe & Arbeitsplatz"
+      },
+      "topicIds": [
+        "work_career"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "school_study_terms",
+      "label": {
+        "ko": "학교·학습 어휘",
+        "en": "School & study terms",
+        "de": "Schule & Lernen"
+      },
+      "topicIds": [
+        "education_study"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "feelings_emotions_character",
+      "label": {
+        "ko": "감정·성격 어휘",
+        "en": "Feelings, emotions & character",
+        "de": "Gefühle, Emotionen & Charakter"
+      },
+      "topicIds": [
+        "feelings_character"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "weather_nature",
+      "label": {
+        "ko": "날씨·자연 어휘",
+        "en": "Weather & nature",
+        "de": "Wetter & Natur"
+      },
+      "topicIds": [
+        "weather_nature_climate"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "money_prices_banking",
+      "label": {
+        "ko": "돈·가격·금융·계약 어휘",
+        "en": "Money, prices, banking & contracts",
+        "de": "Geld, Preise, Bank & Verträge"
+      },
+      "topicIds": [
+        "money_finance_contracts"
+      ],
+      "vocabTopics": [
+        "Geld"
+      ]
+    },
+    {
+      "id": "technology_devices_internet",
+      "label": {
+        "ko": "기기·인터넷·디지털 어휘",
+        "en": "Devices, internet & digital",
+        "de": "Geräte, Internet & Digitales"
+      },
+      "topicIds": [
+        "technology_digital_ai",
+        "communication_phone_digital"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "leisure_sport_hobbies_vocab",
+      "label": {
+        "ko": "여가·운동·취미 어휘",
+        "en": "Leisure, sport & hobbies",
+        "de": "Freizeit, Sport & Hobbys"
+      },
+      "topicIds": [
+        "free_time_hobbies_sport"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "media_pop_culture_vocab",
+      "label": {
+        "ko": "미디어·대중문화 어휘",
+        "en": "Media & pop culture",
+        "de": "Medien & Popkultur"
+      },
+      "topicIds": [
+        "media_entertainment_culture_pop"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "public_services_admin_vocab",
+      "label": {
+        "ko": "행정·공공 서비스 어휘",
+        "en": "Public services & administration",
+        "de": "Behörden & öffentliche Dienste"
+      },
+      "topicIds": [
+        "services_public_admin",
+        "politics_law_institutions"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "society_economy_abstract_nouns",
+      "label": {
+        "ko": "사회·경제·추상 명사",
+        "en": "Society, economy & abstract nouns",
+        "de": "Gesellschaft, Wirtschaft & Abstrakta"
+      },
+      "topicIds": [
+        "society_current_affairs",
+        "economy_business_labour",
+        "environment_sustainability",
+        "intercultural_globalisation_migration"
+      ],
+      "vocabTopics": [
+        "Abstrakte Begriffe",
+        "Gesellschaft"
+      ]
+    },
+    {
+      "id": "argumentation_evaluation_lexis",
+      "label": {
+        "ko": "논증·평가·근거 어휘",
+        "en": "Argumentation, evaluation & evidence lexis",
+        "de": "Argumentations-, Bewertungs- & Evidenzwortschatz"
+      },
+      "topicIds": [
+        "science_research_evidence",
+        "ethics_philosophy_abstract"
+      ],
+      "vocabTopics": [
+        "Denken",
+        "Entscheidungen & Perspektiven",
+        "Evidenzvorbehalt",
+        "Medien & Evidenz"
+      ]
+    },
+    {
+      "id": "institutional_legal_lexis",
+      "label": {
+        "ko": "제도·법률·행정 담화 어휘",
+        "en": "Institutional & legal discourse lexis",
+        "de": "Institutioneller & juristischer Wortschatz"
+      },
+      "topicIds": [
+        "politics_law_institutions"
+      ],
+      "vocabTopics": [
+        "Institutionsstimme",
+        "Autoritätssprache",
+        "Einspruchsweg",
+        "Widerrufsrecht",
+        "Sanktion & Rechenschaft"
+      ]
+    },
+    {
+      "id": "arts_history_memory_lexis",
+      "label": {
+        "ko": "예술·역사·기억 담화 어휘",
+        "en": "Arts, history & memory lexis",
+        "de": "Kunst, Geschichte & Erinnerung"
+      },
+      "topicIds": [
+        "arts_literature_history"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "language_metalanguage",
+      "label": {
+        "ko": "언어·문법·화법 메타언어",
+        "en": "Language & metalanguage",
+        "de": "Sprache & Metasprache"
+      },
+      "topicIds": [
+        "language_learning_communication_repair"
+      ],
+      "vocabTopics": []
+    },
+    {
+      "id": "etiquette_honorific_lexis",
+      "label": {
+        "ko": "예절·높임·호칭 어휘",
+        "en": "Etiquette, honorific & address lexis",
+        "de": "Höflichkeits-, Honorativ- & Anredewortschatz"
+      },
+      "topicIds": [
+        "social_etiquette_customs"
+      ],
+      "vocabTopics": [
+        "Ehrensprache",
+        "Höflichkeit",
+        "Umgangsformen"
+      ]
+    },
+    {
+      "id": "fixed_expressions_collocations",
+      "label": {
+        "ko": "관용 표현·연어·담화 표지(품사=표현)",
+        "en": "Fixed expressions, collocations & discourse markers",
+        "de": "Feste Wendungen, Kollokationen & Diskursmarker"
+      },
+      "topicIds": [],
+      "vocabTopics": [],
+      "posDe": [
+        "Ausdruck"
+      ]
+    }
+  ],
+  "functionalGrammar": [
+    {
+      "id": "copula_identity",
+      "label": {
+        "ko": "서술격 조사·계사(이다/be/sein)",
+        "en": "Copula / identity statements",
+        "de": "Kopula / Identitätsaussagen"
+      }
+    },
+    {
+      "id": "present_habitual",
+      "label": {
+        "ko": "현재·습관 표현",
+        "en": "Present & habitual",
+        "de": "Präsens & Gewohnheit"
+      }
+    },
+    {
+      "id": "past_narration",
+      "label": {
+        "ko": "과거 서술",
+        "en": "Past narration",
+        "de": "Vergangenheit"
+      }
+    },
+    {
+      "id": "future_intention",
+      "label": {
+        "ko": "미래·의도",
+        "en": "Future & intention",
+        "de": "Zukunft & Absicht"
+      }
+    },
+    {
+      "id": "negation",
+      "label": {
+        "ko": "부정",
+        "en": "Negation",
+        "de": "Negation"
+      }
+    },
+    {
+      "id": "questions_wh_yesno",
+      "label": {
+        "ko": "의문문(의문사·판정)",
+        "en": "Questions (wh- and yes/no)",
+        "de": "Fragen (W- und Ja/Nein-Fragen)"
+      }
+    },
+    {
+      "id": "case_roles_particles",
+      "label": {
+        "ko": "격·조사·관사(문장 성분 표시)",
+        "en": "Case / particles / articles (marking roles)",
+        "de": "Kasus / Partikeln / Artikel (Satzglieder markieren)"
+      }
+    },
+    {
+      "id": "location_direction_time_markers",
+      "label": {
+        "ko": "장소·방향·시간 표지",
+        "en": "Location, direction & time markers",
+        "de": "Orts-, Richtungs- & Zeitangaben"
+      }
+    },
+    {
+      "id": "possession",
+      "label": {
+        "ko": "소유",
+        "en": "Possession",
+        "de": "Besitz"
+      }
+    },
+    {
+      "id": "desire_want",
+      "label": {
+        "ko": "바람·소망(-고 싶다/want/möchte)",
+        "en": "Desire / wanting",
+        "de": "Wunsch / Wollen"
+      }
+    },
+    {
+      "id": "ability_possibility",
+      "label": {
+        "ko": "능력·가능(-을 수 있다/can/können)",
+        "en": "Ability & possibility",
+        "de": "Fähigkeit & Möglichkeit"
+      }
+    },
+    {
+      "id": "obligation_necessity",
+      "label": {
+        "ko": "의무·필요",
+        "en": "Obligation & necessity",
+        "de": "Pflicht & Notwendigkeit"
+      }
+    },
+    {
+      "id": "permission_prohibition",
+      "label": {
+        "ko": "허가·금지",
+        "en": "Permission & prohibition",
+        "de": "Erlaubnis & Verbot"
+      }
+    },
+    {
+      "id": "requests_commands_polite",
+      "label": {
+        "ko": "요청·명령·공손 요청",
+        "en": "Requests, commands & polite requests",
+        "de": "Bitten, Aufforderungen & höfliche Anfragen"
+      }
+    },
+    {
+      "id": "suggestions_proposals",
+      "label": {
+        "ko": "제안·청유",
+        "en": "Suggestions & proposals",
+        "de": "Vorschläge"
+      }
+    },
+    {
+      "id": "coordination_basic_connectives",
+      "label": {
+        "ko": "기본 접속(나열·대조·이유)",
+        "en": "Basic coordination & connectives",
+        "de": "Grundlegende Satzverbindung"
+      }
+    },
+    {
+      "id": "progressive_aspect",
+      "label": {
+        "ko": "진행상",
+        "en": "Progressive aspect",
+        "de": "Verlaufsform"
+      }
+    },
+    {
+      "id": "experience_perfect",
+      "label": {
+        "ko": "경험·완료(-은 적이 있다/present perfect/Perfekt)",
+        "en": "Experience & perfect",
+        "de": "Erfahrung & Perfekt"
+      }
+    },
+    {
+      "id": "conditional_real",
+      "label": {
+        "ko": "현실 조건",
+        "en": "Real conditionals",
+        "de": "Reale Bedingungen"
+      }
+    },
+    {
+      "id": "conditional_unreal_counterfactual",
+      "label": {
+        "ko": "비현실·반사실 조건",
+        "en": "Unreal & counterfactual conditionals",
+        "de": "Irreale & kontrafaktische Bedingungen"
+      }
+    },
+    {
+      "id": "comparison",
+      "label": {
+        "ko": "비교·최상",
+        "en": "Comparison & superlative",
+        "de": "Komparation"
+      }
+    },
+    {
+      "id": "attributive_relative_clauses",
+      "label": {
+        "ko": "관형절·관계절",
+        "en": "Attributive & relative clauses",
+        "de": "Attribut- & Relativsätze"
+      }
+    },
+    {
+      "id": "nominalisation_clausal",
+      "label": {
+        "ko": "절 명사화(-는 것/-기/-음)",
+        "en": "Clausal nominalisation",
+        "de": "Satznominalisierung"
+      }
+    },
+    {
+      "id": "reported_speech",
+      "label": {
+        "ko": "간접화법·인용",
+        "en": "Reported speech",
+        "de": "Indirekte Rede"
+      }
+    },
+    {
+      "id": "passive_causative",
+      "label": {
+        "ko": "피동·사동",
+        "en": "Passive & causative",
+        "de": "Passiv & Kausativ"
+      }
+    },
+    {
+      "id": "inference_evidentiality",
+      "label": {
+        "ko": "추측·추론·증거성",
+        "en": "Inference & evidentiality",
+        "de": "Vermutung & Evidenzialität"
+      }
+    },
+    {
+      "id": "concession_contrast_advanced",
+      "label": {
+        "ko": "양보·대조(고급)",
+        "en": "Concession & contrast (advanced)",
+        "de": "Konzession & Kontrast (fortgeschritten)"
+      }
+    },
+    {
+      "id": "cause_purpose_formal",
+      "label": {
+        "ko": "격식 인과·목적",
+        "en": "Formal cause & purpose",
+        "de": "Formale Kausal- & Finalangaben"
+      }
+    },
+    {
+      "id": "honorifics_register_marking",
+      "label": {
+        "ko": "높임·문체(합쇼체/반말, du-Sie)",
+        "en": "Honorifics & register marking",
+        "de": "Honorativ & Registermarkierung"
+      }
+    },
+    {
+      "id": "hedging_stance_modality_advanced",
+      "label": {
+        "ko": "완곡·태도·고급 양태",
+        "en": "Hedging, stance & advanced modality",
+        "de": "Abschwächung, Haltung & fortgeschrittene Modalität"
+      }
+    },
+    {
+      "id": "nominal_style_academic",
+      "label": {
+        "ko": "명사문체·학술체",
+        "en": "Nominal style & academic register",
+        "de": "Nominalstil & Wissenschaftssprache"
+      }
+    },
+    {
+      "id": "information_structure_focus",
+      "label": {
+        "ko": "정보 구조·초점·어순 조작",
+        "en": "Information structure & focus",
+        "de": "Informationsstruktur & Fokus"
+      }
+    },
+    {
+      "id": "discourse_connectives_formal",
+      "label": {
+        "ko": "격식 담화 연결·논증 표지",
+        "en": "Formal discourse connectives & argument markers",
+        "de": "Formale Konnektoren & Argumentationsmarker"
+      }
+    },
+    {
+      "id": "pragmatic_particles_implicature",
+      "label": {
+        "ko": "화용 표지·함축(양태조사·종결어미 뉘앙스)",
+        "en": "Pragmatic particles & implicature",
+        "de": "Modalpartikeln & Implikatur"
+      }
+    }
+  ],
+  "registers": [
+    {
+      "id": "haeyo_polite",
+      "label": {
+        "ko": "해요체(공손 비격식)",
+        "en": "Haeyo style (informal polite)",
+        "de": "Haeyo-Stil (informell höflich)"
+      },
+      "appRegisters": [
+        "polite"
+      ]
+    },
+    {
+      "id": "hapsyo_formal_business",
+      "label": {
+        "ko": "합쇼체·업무 격식",
+        "en": "Formal / business register (합쇼체)",
+        "de": "Formell / Geschäftsregister (합쇼체)"
+      },
+      "appRegisters": [
+        "business"
+      ]
+    },
+    {
+      "id": "banmal_casual",
+      "label": {
+        "ko": "반말(친근·평교)",
+        "en": "Casual / peer speech (반말)",
+        "de": "Umgangssprachlich / unter Gleichgestellten (반말)"
+      },
+      "appRegisters": [
+        "casual"
+      ]
+    },
+    {
+      "id": "intimate",
+      "label": {
+        "ko": "친밀체(연인·가까운 사이)",
+        "en": "Intimate register",
+        "de": "Intimes Register"
+      },
+      "appRegisters": [
+        "intimate"
+      ]
+    },
+    {
+      "id": "hage_familiar",
+      "label": {
+        "ko": "하게체(손아랫사람·오랜 동년배를 향해 아래로 예의를 갖추는 말 — -네1·-나2·-게3·-는가1)",
+        "en": "하게체 (familiar level: downward courtesy to a junior or a long-known peer — -네1, -나2, -게3, -는가1)",
+        "de": "하게체 (vertraute Ebene: Höflichkeit nach unten gegenüber Jüngeren oder lang bekannten Gleichaltrigen — -네1, -나2, -게3, -는가1)"
+      },
+      "appRegisters": []
+    },
+    {
+      "id": "hao_semiformal",
+      "label": {
+        "ko": "하오체(상대를 대접하되 가까이 가지 않는 말 — -소·-으오·-구려2)",
+        "en": "하오체 (semi-formal level: deference held at a distance — -소, -으오, -구려2)",
+        "de": "하오체 (halbformelle Ebene: Achtung auf Abstand — -소, -으오, -구려2)"
+      },
+      "appRegisters": []
+    },
+    {
+      "id": "written_plain_haeche",
+      "label": {
+        "ko": "문어 하다체(해라체의 문어 용법 — -는다·-다4·-라2. 읽는 사람이 정해져 있지 않아 청자 대우 등급이 비어 있고, 사람을 높이는 일은 -으시-와 겸양 어휘가 맡는다)",
+        "en": "Written plain style (the written use of 해라체 — -는다, -다4, -라2: with no determinate addressee the politeness slot is empty, and raising a person is done by -으시- and humbling lexis instead)",
+        "de": "Schriftliche Grundform (schriftlicher Gebrauch des 해라체 — -는다, -다4, -라2: ohne bestimmten Adressaten bleibt die Höflichkeitsstufe leer; das Anheben einer Person übernehmen -으시- und Demutslexik)"
+      },
+      "appRegisters": []
+    }
+  ],
+  "skills": [
+    {
+      "id": "listening",
+      "label": {
+        "ko": "듣기",
+        "en": "Listening",
+        "de": "Hören"
+      },
+      "appSurfaces": [
+        "scenario_tts",
+        "quest_hoerverstehen",
+        "quest_diktat",
+        "media",
+        "pronunciation"
+      ]
+    },
+    {
+      "id": "speaking",
+      "label": {
+        "ko": "말하기",
+        "en": "Speaking",
+        "de": "Sprechen"
+      },
+      "appSurfaces": [
+        "pronunciation",
+        "smalltalk",
+        "scenario_player_turns"
+      ]
+    },
+    {
+      "id": "reading",
+      "label": {
+        "ko": "읽기",
+        "en": "Reading",
+        "de": "Lesen"
+      },
+      "appSurfaces": [
+        "scenario_dialog_text",
+        "cloze",
+        "culture_note",
+        "book_capture_ocr"
+      ]
+    },
+    {
+      "id": "writing",
+      "label": {
+        "ko": "쓰기",
+        "en": "Writing",
+        "de": "Schreiben"
+      },
+      "appSurfaces": [
+        "quest_satzBauen",
+        "quest_uebersetzen",
+        "quest_diktat",
+        "quest_luecken",
+        "satz",
+        "vocab_recall_typing"
+      ]
+    },
+    {
+      "id": "mediation",
+      "label": {
+        "ko": "중개(통역·문화 설명)",
+        "en": "Mediation",
+        "de": "Sprachmittlung"
+      },
+      "appSurfaces": [
+        "scenario (translating/explaining turns)",
+        "quest_uebersetzen"
+      ]
+    }
+  ]
+}

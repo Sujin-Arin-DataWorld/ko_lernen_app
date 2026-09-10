@@ -3183,7 +3183,7 @@ class AppL10nEn extends AppL10n {
   String get listeningSpeakerYou => 'You';
 
   @override
-  String get scenarioPlayerSelfSuffix => '(나)';
+  String get scenarioAssignedRole => 'Your role in this scene';
 
   @override
   String get listeningReviewTitle => 'Review line by line';

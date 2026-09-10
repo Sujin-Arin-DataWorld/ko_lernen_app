@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-09-10",
+  "policy": "원문 열람은 아래 주장·쪽에 한정한다. 출처 파일을 읽었다는 사실만으로 언어 파일 전체나 새 예문·전이·Phase를 OFFICIAL로 승격하지 않는다.",
+  "sources": [
+    {
+      "sourceId": "cefr_cv_2020",
+      "title": "CEFR Companion Volume (2020)",
+      "url": "https://rm.coe.int/common-european-framework-of-reference-for-languages-learning-teaching/16809ea0d4",
+      "accessMethod": "primary_pdf_opened_web",
+      "pdfPagesRead": [
+        66,
+        91
+      ],
+      "printedPagesRead": [
+        "66",
+        "91"
+      ],
+      "verifiedClaims": [
+        "전체 쓰기 산출 척도는 수준별 과제·텍스트 조직·독자 및 장르 적합성을 구별한다.",
+        "중개 척도는 복수 관점·모호성·의미와 관계의 조절을 다룬다."
+      ],
+      "doesNotVerify": [
+        "이 프로젝트의 개별 문법·주제·Phase 배치",
+        "한국어 원 급 또는 TOPIK과 CEFR의 동치"
+      ],
+      "accessedOn": "2026-09-10",
+      "verificationStatus": "verified_claim_scope_only"
+    },
+    {
+      "sourceId": "goethe_a1_pruefungsziele",
+      "title": "Start Deutsch 1 — Prüfungsziele, Testbeschreibung",
+      "url": "https://www.goethe.de/pro/relaunch/prf/sr/Pruefungsziele_Testbeschreibung_A1_SD1.pdf",
+      "accessMethod": "primary_pdf_opened_web",
+      "pdfPagesRead": [
+        56,
+        57,
+        58
+      ],
+      "printedPagesRead": [
+        "54",
+        "55",
+        "56"
+      ],
+      "verifiedClaims": [
+        "A1 인벤토리는 기능·전략·개념·주제·어휘·문법을 의사소통 과제와 연결하는 시험·교재 설계 자원이다."
+      ],
+      "doesNotVerify": [
+        "독일어 A2–C2 목록",
+        "이 프로젝트의 모든 독일어 항목·전이 sourceLevel",
+        "고정된 수업 순서"
+      ],
+      "accessedOn": "2026-09-10",
+      "verificationStatus": "verified_claim_scope_only"
+    },
+    {
+      "sourceId": "cambridge_c1_handbook",
+      "title": "C1 Advanced — Handbook for teachers",
+      "url": "https://www.cambridgeenglish.org/Images/167804-c1-advanced-handbook.pdf",
+      "accessMethod": "primary_pdf_downloaded_and_text_read",
+      "pdfPagesRead": [
+        30
+      ],
+      "printedPagesRead": [
+        "28"
+      ],
+      "localEvidenceFilename": "cambridge_c1_advanced_handbook.pdf",
+      "verifiedClaims": [
+        "C1 쓰기는 에세이와 편지·이메일·제안서·보고서·리뷰를 다루며 상황·목적·독자를 과제 조건으로 제시한다."
+      ],
+      "doesNotVerify": [
+        "영어 A1–C2 문법 목록",
+        "개별 전이 개념의 sourceLevel",
+        "한국어 C1 과제의 공식 인증"
+      ],
+      "accessedOn": "2026-09-10",
+      "verificationStatus": "verified_claim_scope_only",
+      "sha256": "6e8ea1f0c02bb2c0a99e39987aa453890510a3355db806c1a975df7d71822f26",
+      "byteSize": 15807663
+    },
+    {
+      "sourceId": "nikl_std_curriculum_2020",
+      "title": "한국어 표준 교육과정 — 문화체육관광부 고시 제2020-54호",
+      "url": "https://www.korean.go.kr/common/download.do?file_path=etcData&c_file_name=af98e53e-a5eb-4de0-8600-1675e2016f4e_1.pdf&o_file_name=curriculum2020.pdf",
+      "landingUrl": "https://www.korean.go.kr/front/etcData/etcDataView.do?etc_seq=657&mn_id=208&pageIndex=1",
+      "accessMethod": "primary_pdf_downloaded_and_text_read",
+      "pdfPagesRead": [
+        13,
+        14,
+        15
+      ],
+      "printedPagesRead": [
+        "9",
+        "10",
+        "11"
+      ],
+      "localEvidenceFilename": "nikl_2020_curriculum.pdf",
+      "verifiedClaims": [
+        "고시는 한국어 자체의 6등급을 제시하고 맥락·기능·기술 및 전략·텍스트·언어지식을 성취기준과 연결한다.",
+        "기관의 학습 목적과 상황에 따른 교육과정 구성을 허용한다."
+      ],
+      "doesNotVerify": [
+        "2017 문법 336행의 개별 현대 용법",
+        "TOPIK·CEFR과 한국어 원 급의 자동 환산",
+        "현재 재구성 주제·기능 전 항목"
+      ],
+      "accessedOn": "2026-09-10",
+      "verificationStatus": "verified_claim_scope_only",
+      "sha256": "36c081024c26854c9660c59960a2a28fc9b0db6c1bf48469417447dce975ff68",
+      "byteSize": 799723
+    }
+  ],
+  "dictionaryCorrections": [
+    {
+      "grammarKey": "G4:-을래야",
+      "url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=328665",
+      "reviewScope": "원 인벤토리 표제를 보존하되 현대 규범형 으려야와 구별하여 인식·교정 대상으로 표시한다.",
+      "status": "primary_entry_reviewed"
+    },
+    {
+      "grammarKey": "G6:-으오",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86114&nation=eng&nationCode=6",
+      "reviewScope": "결합 환경을 반영한 예문으로 수정한다.",
+      "status": "primary_entry_reviewed"
+    },
+    {
+      "grammarKey": "G6:-으니4",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=80851&nation=eng&nationCode=6",
+      "reviewScope": "미완성 이유절과 종결 의문·질책 용법을 구별한다.",
+      "status": "primary_entry_reviewed",
+      "reviewedSurface": "-으니 (종결 질문)"
+    },
+    {
+      "grammarKey": "G6:-던가1",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=89043&nation=eng&nationCode=6",
+      "reviewScope": "상대 경험의 확인과 자기 기억 질문을 구별한다.",
+      "status": "primary_entry_reviewed"
+    },
+    {
+      "grammarKey": "G5:-는다니1",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86511&nation=eng&nationCode=6",
+      "reviewScope": "명령 내용의 확인 질문을 평서 반응으로 바꾸지 않는다.",
+      "status": "primary_entry_reviewed",
+      "reviewedSurface": "-라니 (인용된 명령 내용 질문)"
+    },
+    {
+      "grammarKey": "G6:을랑",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86122&nation=eng&nationCode=6",
+      "reviewScope": "화제 한정 용법의 최소 예문을 검토한다.",
+      "status": "primary_entry_reviewed"
+    }
+  ],
+  "remainingVerification": [
+    "언어별 주제·화행·텍스트·어휘 영역의 전 항목 원문 대조",
+    "EN/DE 전이 개념별 sourceLevel 근거",
+    "현행 TOPIK 과제·채점 기준의 별도 매핑",
+    "교육자·원어민의 전체 커리큘럼 승인"
+  ]
+}

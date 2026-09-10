@@ -3201,7 +3201,7 @@ class AppL10nDe extends AppL10n {
   String get listeningSpeakerYou => 'Du';
 
   @override
-  String get scenarioPlayerSelfSuffix => '(나)';
+  String get scenarioAssignedRole => 'Deine Rolle in dieser Szene';
 
   @override
   String get listeningReviewTitle => 'Zeile für Zeile wiederholen';
