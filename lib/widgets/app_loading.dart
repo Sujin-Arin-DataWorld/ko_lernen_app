@@ -117,8 +117,10 @@ class _AppLoadingState extends State<AppLoading>
         _logoAsset,
         fit: BoxFit.cover,
         filterQuality: FilterQuality.medium,
-        errorBuilder: (_, __, ___) =>
-            _DotFallback(controllerValue: _ctrl.value, colors: _dots),
+        errorBuilder: (_, __, ___) => FittedBox(
+          fit: BoxFit.scaleDown,
+          child: _DotFallback(controllerValue: _ctrl.value, colors: _dots),
+        ),
       ),
     );
     final visual = widget.asset == null

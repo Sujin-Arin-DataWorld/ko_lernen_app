@@ -622,6 +622,44 @@ with real bundled content and simulated platform failures, not native phone
 or production-server evidence. Final source/Graphify preservation and the
 local commit are recorded in external `visible-retry-20260910/verification.json`.
 
+### Task 19: Keep loading-image failures inside their visual bounds
+
+**Trigger:** Task 18's first generated-manifest fixture error exposed an 8px
+overflow in `AppLoading`'s dot fallback. The default logo box is 58px wide;
+three 12px dots plus their horizontal padding need 66px. Isolate a real image
+read failure with the rest of the asset bundle healthy before changing code.
+
+- [x] **Step 1: Reproduce the image-error fallback.** Use a scoped asset bundle
+  that delegates healthy manifests/fonts/images and fails only the chosen logo
+  or illustration. Verify the default 58px logo and small custom illustration
+  sizes; the fallback must not emit a layout error. Exercise DE/EN, light/dark,
+  reduced motion and normal animation, preserving the single localized live
+  status. Capture the failure before the production fix.
+- [x] **Step 2: Fit the existing dots without redesigning loading.** Limit the
+  change to the failing visual boundary in `lib/widgets/app_loading.dart`.
+  Preserve successful images, layout/scroll constraints, intrinsic parents,
+  tokens, reduced-motion behavior, translations, and screen-reader semantics.
+  Do not add assets, SDKs, global error suppression, new loading states, or
+  unrelated screen/layout changes.
+- [x] **Step 3: Verify and preserve the local candidate.** Run the new failure
+  tests with existing loading accessibility/motion/short-height checks and
+  affected learning-screen tests. Analyze changed files, obtain independent
+  Standards/Spec reviews, update Graphify while preserving paid records, and
+  record the local commit. No push, remote CI, build, device retry or deployment.
+
+Local evidence: the isolated image-failure test first passed two controls
+and failed the default and small double-failure cases with 8px/42px
+RenderFlex overflows. The fix is confined to the logo error builder.
+Four new tests cover 13 configurations: default failures 8, custom-only
+failures 2, double failures 2, and healthy custom image 1. The combined
+12-file suite passed 387/387 with the actual app themes; final analysis
+passed after removing two unnecessary test imports, followed by a passing
+rerun of all four new image-failure tests. Both review axes
+approved the implementation. These are component/consumer checks, not
+native device performance evidence. Final source/Graphify preservation
+and the local commit are recorded in external
+`loading-image-fallback-20260910/verification.json`.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.
