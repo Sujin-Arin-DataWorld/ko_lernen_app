@@ -595,16 +595,83 @@ Jin은 iPhone풍 배지/필(둥근 pill 라벨, "칩" 강조 요소) UI를 싫�
 
 **How to apply:** 무언가를 강조/안내할 때 배지·필·칩을 새로 얹기 전에 **기존 텍스트/콘텐츠 내 인라인 강조**(fontWeight, 색, `Text.rich`)로 해결 가능한지 먼저 고려. 배지형 UI가 꼭 필요하면 제안 전 Jin에게 확인. 관련 작업: [[cloze-shared-prompt-widget]].
 
-## graphify
+## graphify — 운영 규칙 바이블
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+이 저장소의 지식 그래프는 `graphify-out/` 에 있다 (45K 노드, god node·커뮤니티·교차파일 관계).
+**이 섹션이 graphify 관련 단일 출처다.** `.gitignore`·`.claude/settings.json` 의 훅이 이 규칙을 강제한다.
 
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+### 원칙
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
-- **세션 북엔드 (2026-08-23, Jin):** 세션 **시작**은 `graphify query`로 오리엔테이션, 세션 **종료**는 `graphify update .`로 저장. 수기 handoff·SESSION_LOG는 쓰지 않는다. 상세는 위 "세션 기록 — graphify 북엔드".
+> **비싼 것만 커밋한다. 큰 것은 재생성한다.**
+
+graphify 산출물은 크기와 가치가 반대다. 큰 것은 전부 `graphify update .` 로 **무료** 복원되고,
+복원 불가능한 것은 전부 작다. 그래서 크기가 아니라 **재생성 가능성**으로 가른다.
+
+### 3계층 — 무엇을 커밋하는가
+
+| 계층 | 대상 | 크기 | 판단 근거 |
+|---|---|---|---|
+| **커밋** | `.graphify_labels.json(.sig)` | 55 KB | LLM 커뮤니티 이름. 재생성에 **API 비용** |
+| | `cache/semantic/` | 1 MB | LLM 의미 추출 (154개 파일분). **복원 불가** |
+| | `wiki/` | 5 MB | LLM 생성 |
+| | `GRAPH_REPORT.md`, `manifest.json` | 0.9 MB | 클러스터링 결과·증분 갱신 원장 |
+| **무시** | `graph.json`, `graph.html` | 43 MB | AST 파생물. 소스가 있으면 무료 복원 |
+| | `cache/ast/` | 278 MB | 콘텐츠 해시 캐시. 미스는 재추출로 무해 |
+| | `YYYY-MM-DD/` 스냅샷 | ~40 MB/개 | `graph.json` 전체 사본. git 히스토리와 중복 |
+| | `.graphify_root` | 0 KB | 로컬 절대경로. 머신·워크트리마다 달라 충돌원 |
+| **삭제** | `graph.json.bak-*`, 구버전 `cache/ast/v*` | — | 잔해 |
+
+**진짜 축적은 ~7MB 짜리 "커밋" 계층에 있다.** 라벨과 semantic 캐시가 남아 있으면
+그래프를 새로 빌드해도 커뮤니티 이름과 의미 추출을 **무료로 다시 입힌다.**
+
+### 세션 북엔드 — 무엇이 강제하는가
+
+| 시점 | 동작 | 강제 주체 |
+|---|---|---|
+| 조회 시 | `graphify query` 먼저, 그 다음 grep | `PreToolUse` → `graphify hook-guard` |
+| 세션 시작 | `graph.json` **없을 때만** 생성 | `SessionStart` 훅 |
+| 세션 종료 | `graphify update .` → `graphify_prune.sh --apply` | `Stop` 훅 |
+
+세션 시작에 재빌드하지 **않는** 이유: 45K 노드 재빌드가 세션 시작을 막는다. 갱신은 종료 시점에 몰아서 한다.
+종료 훅이 update 와 prune 을 **한 쌍으로** 묶는 이유: 떼어놓으면 축적만 되고 정리가 빠진다 (아래 "왜" 참조).
+
+### 조회 규칙
+
+- 코드베이스 질문은 `graphify query "<질문>"` 이 먼저다. 관계 추적은 `graphify path "<A>" "<B>"`,
+  개념 하나는 `graphify explain "<개념>"`. 스코프된 부분그래프라 `GRAPH_REPORT.md` 통독이나 raw grep 보다 훨씬 싸다.
+- 넓은 탐색은 `graphify-out/wiki/index.md`. `GRAPH_REPORT.md` 는 전체 아키텍처 리뷰가 필요할 때만 읽는다.
+- `graphify-out/` 이 dirty 한 건 정상이다 — 훅과 증분 갱신의 결과다. dirty 를 이유로 graphify 를 건너뛰지 않는다.
+  건너뛸 수 있는 경우는 그래프 자체가 낡았거나 틀렸을 때, 또는 Jin 이 쓰지 말라고 할 때뿐이다.
+- `/graphify` 를 입력하면 설치된 graphify 스킬을 먼저 따른다.
+
+### 정리
+
+```bash
+tool/graphify_prune.sh            # dry-run — 무엇을 지울지만 표시
+tool/graphify_prune.sh --apply    # 실제 삭제 (Stop 훅이 이걸 부른다)
+```
+
+`GRAPHIFY_KEEP_SNAPSHOTS`(기본 2), `GRAPHIFY_CACHE_MAX_AGE`(기본 30일)로 조절한다.
+스크립트는 "커밋" 계층을 **절대 건드리지 않는다** — 수정 시 이 불변식을 깨지 말 것.
+
+### 하지 말 것
+
+- **`graph.json` 을 커밋하지 않는다.** 재빌드마다 노드 순서·ID 가 흔들려 델타 압축이 안 잡힌다.
+  이걸 81커밋 쌓은 결과가 packed 3.7GB 짜리 `.git` 이다.
+- **`.gitignore` 에 `graphify-out/cache/` 를 통째로 넣지 않는다.** `cache/semantic/` 까지 삼킨다.
+  무시 대상은 항목별로 명시한다.
+- **`/graphify --update` 를 쓰지 않는다.** 에이전트 ~900개가 뜬다. 갱신은 `graphify update .` (AST-only, 무료).
+- 날짜 스냅샷을 백업으로 신뢰하지 않는다. 그래프의 이력은 소스의 git 히스토리가 갖는다.
+
+### 왜 (2026-09-09)
+
+graphify-out 전체가 추적 중이었고 `.gitignore` 항목이 없었으며 graphify CLI 에 prune 이 없었다.
+정리 주체가 아예 없어 세션마다 순증만 했다 — **950MB, 추적 4,433개, 상시 변경 372개, `.git` 3.7GB.**
+캐시가 콘텐츠 해시 이름이라 append-only 인 것, 날짜 스냅샷이 40MB 사본인 것이 증가원이었다.
+정리 후 로컬 437MB, 추적 4,433 → 1,105개, `.git` 증가 세션당 40MB → 0.
+로컬이 0 에 가까워지지는 않는다 — `cache/ast` 278MB 는 update 를 가속하는 실사용 캐시라
+30일 미접근분부터 순차 삭제된다. `update` 마다 커밋 계층 4개(`.graphify_labels.json`(.sig),
+`GRAPH_REPORT.md`, `manifest.json`, 합계 ~1MB)가 dirty 해지는데 이건 정상이고 실제 작업
+커밋에 얹어 함께 커밋한다. 이전의 세션당 40MB 대비 1/40 이다.
+히스토리에 이미 박힌 3.7GB 는 남아 있고,
+줄이려면 `filter-repo` + force-push 가 필요하다 (원격 `origin`·`ci`·`archive` 3개가 걸려 별건).

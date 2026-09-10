@@ -1,0 +1,45 @@
+{
+  "operation": "empty local ground, restored gates, separate contact shadow, transparent Sarangchae",
+  "base": "map-transfer-02-map.png",
+  "output": "map-transfer-05-map.png",
+  "mapSize": [
+    1202,
+    1308
+  ],
+  "fixedMapCrop": [
+    270,
+    625,
+    480,
+    240
+  ],
+  "spriteSource": "sarangchae-candidate05-transparent.png",
+  "spriteCanvasSizeOnMap": [
+    360,
+    240
+  ],
+  "spriteOriginOnMap": [
+    323,
+    636
+  ],
+  "spriteVisibleBoundsWithinCanvas": [
+    1,
+    9,
+    358,
+    220
+  ],
+  "spriteFoundationReferenceYOnMap": 856,
+  "spriteOpaquePixelsOnMap": 47255,
+  "spritePartialAlphaPixelsOnMap": 4053,
+  "changedRgbPixels": 71486,
+  "changedRgbPixelsOutsideAuthorizedLayers": 0,
+  "layoutPlanSha256": "14c873a78ccdad01dbe3033f02cd39e19fa826d66c21400c3865927e5e082084",
+  "cameraSelectionSha256": "d79aba3942ab577aca1d0b53afdb575189d76ef2edc47cc042f6c9f050b65b69",
+  "layoutImageSha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe",
+  "layerFiles": {
+    "ground": "sarangchae-empty-ground-layer-v1.png",
+    "shadow": "sarangchae-candidate05-shadow-layer.png",
+    "building": "sarangchae-candidate05-map-layer.png",
+    "leftGate": "gates-02-left-layer.png",
+    "rightGate": "gates-02-right-layer.png"
+  }
+}

@@ -25,7 +25,13 @@
             "type": "command",
             "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null)/tool/check_session_worktree.sh\" 2>/dev/null || true",
             "timeout": 10,
-            "statusMessage": "\uc6cc\ud0b9\ud2b8\ub9ac \uaca9\ub9ac \ud655\uc778"
+            "statusMessage": "워킹트리 격리 확인"
+          },
+          {
+            "type": "command",
+            "command": "cat >/dev/null || true; command -v graphify >/dev/null 2>&1 || exit 0; R=\"$(git rev-parse --show-toplevel 2>/dev/null)\"; [ -n \"$R\" ] || exit 0; if [ ! -f \"$R/graphify-out/graph.json\" ]; then echo \"graphify: graph.json 없음 — 생성한다 (AST-only, 무료)\"; graphify update \"$R\" >/dev/null 2>&1 || true; fi; echo \"graphify 정책: 큰 산출물(graph.json / cache/ast / 날짜 스냅샷)은 ignore 대상 — 커밋 금지.\" \" 규칙 전문 AGENTS.md '## graphify'. 세션 종료 시 Stop 훅이 update+prune 을 자동 실행한다.\"",
+            "timeout": 300,
+            "statusMessage": "graphify 그래프 확인"
           }
         ]
       }
@@ -46,6 +52,19 @@
           {
             "type": "command",
             "command": "C:/Users/vjinn/.local/bin/graphify.EXE hook-guard read"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat >/dev/null || true; command -v graphify >/dev/null 2>&1 || exit 0; R=\"$(git rev-parse --show-toplevel 2>/dev/null)\"; [ -n \"$R\" ] || exit 0; graphify update \"$R\" >/dev/null 2>&1 || true; bash \"$R/tool/graphify_prune.sh\" --apply 2>&1 | tail -2 || true",
+            "timeout": 300,
+            "statusMessage": "graphify 갱신·정리"
           }
         ]
       }

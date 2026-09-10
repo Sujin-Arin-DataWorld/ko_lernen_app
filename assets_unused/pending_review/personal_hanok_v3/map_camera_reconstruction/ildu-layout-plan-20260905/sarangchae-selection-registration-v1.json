@@ -1,0 +1,55 @@
+{
+  "status": "asset_selected_map_scale_review_pending",
+  "buildingId": "sarangchae",
+  "designSelection": {
+    "userSelectedSource": "sarangchae-user-selected-source.png",
+    "userSelectedSourceSha256": "dddd93668f8ad799c03d90aa058855848d59323937a1a03260e7169dd468bfe9",
+    "transparentMaster": "sarangchae-candidate05-transparent.png",
+    "transparentMasterSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+    "rgbPixelIdenticalAfterAlphaExtraction": true,
+    "designSelectionConfirmed": true,
+    "immutableElements": [
+      "roof geometry and tile pattern",
+      "all roof-support columns",
+      "windows and doors",
+      "left low guard rail",
+      "right projecting numaru and rail",
+      "stone foundation and stair",
+      "Munheonsega plaque and Chunghyojeolui calligraphy",
+      "V3 materials, colors, and rendering style"
+    ]
+  },
+  "mapRegistration": {
+    "composite": "map-transfer-selected-small-map.png",
+    "buildingLayer": "sarangchae-selected-small-map-layer.png",
+    "shadowLayer": "sarangchae-selected-small-shadow-layer.png",
+    "groundLayer": "sarangchae-selected-small-ground-layer.png",
+    "canvasSize": [1202, 1308],
+    "spriteCanvasSize": [282, 188],
+    "linearScaleVersusPrevious": 0.7833,
+    "origin": [358, 686],
+    "visibleBounds": [358, 692, 639, 859],
+    "foundationReferenceY": 859,
+    "leftGateVisiblePercent": 100.0,
+    "rightGateVisiblePercent": 100.0,
+    "changedRgbPixelsOutsideAuthorizedLayers": 0,
+    "verification": "sarangchae-selected-small-map-verification.json",
+    "reviewPage": "map-transfer-review.html?selected=small-v1",
+    "mapScaleApprovalConfirmed": false
+  },
+  "fixedCamera": {
+    "azimuthDescription": "front-right 15 degrees",
+    "groundElevationDegrees": 34,
+    "zoom": 1.25,
+    "cameraSelectionSha256": "1e10483a32408ef23ab7046afed803a9c49a55b928180d428e9dc71f2bf30b5b"
+  },
+  "placementAuthority": {
+    "layoutPlan": "layout-plan.json",
+    "layoutPlanSha256": "dd7fd434470898595d07a4a6f1811434000fe8b9896311f3dac20f542613b4c7",
+    "layoutImage": "ildu-layout-plan-v3.png",
+    "layoutImageSha256": "69034ead69f5cdbd5f2193c04487843ccf431361eb2aa245cdfe18a3947a6cbe"
+  },
+  "runtimePromoted": false,
+  "nextGenerationAllowed": false,
+  "nextBuildingAfterApproval": "jungmunchae"
+}

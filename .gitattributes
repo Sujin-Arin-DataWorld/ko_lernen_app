@@ -32,5 +32,9 @@ docs/data/*.md text eol=lf
 *.pdf binary
 
 # Windows 전용 스크립트만 CRLF
+# 셸 스크립트는 LF 고정 (2026-09-09). `* text=auto` 로 두면 Windows 체크아웃에서
+# CRLF 가 되어 bash 가 캐리지리턴에서 죽는다 — Stop 훅의 graphify_prune.sh, Xcode Cloud 의
+# ci_post_clone.sh 처럼 조용히 실패하는 경로가 생긴다.
+*.sh text eol=lf
 *.bat text eol=crlf
 *.ps1 text eol=crlf

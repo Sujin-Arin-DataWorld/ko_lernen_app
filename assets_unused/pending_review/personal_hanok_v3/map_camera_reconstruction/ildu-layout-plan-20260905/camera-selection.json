@@ -1,0 +1,19 @@
+{
+  "elevation": 34,
+  "azimuth": -15,
+  "zoom": 1.25,
+  "focus": [
+    430,
+    640,
+    30
+  ],
+  "angleStatus": "user_selected",
+  "zoomStatus": "125_percent_interpretation_of_user_request_for_slight_zoom",
+  "reference": {
+    "path": "assets_unused/pending_review/personal_hanok_v3/맵구조4.webp",
+    "role": "viewing_distance_and_framing_only_not_layout"
+  },
+  "layoutRevision": "2026-09-05-v3-front-facing-sadangmun",
+  "projection": "orthographic",
+  "physicalCameraDistanceMeters": null
+}

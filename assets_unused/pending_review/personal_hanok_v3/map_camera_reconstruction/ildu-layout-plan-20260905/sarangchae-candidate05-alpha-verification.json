@@ -1,0 +1,26 @@
+{
+  "operation": "checkerboard background to alpha; source RGB unchanged",
+  "source": "sarangchae-candidate05-signage-corrected-rgb.png",
+  "output": "sarangchae-candidate05-transparent.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "foregroundBounds": [
+    17,
+    47,
+    1516,
+    928
+  ],
+  "rgbChangedPixels": 0,
+  "transparentPixels": 673918,
+  "opaquePixels": 896890,
+  "partialAlphaPixels": 2056,
+  "sourceSha256": "5ee866cea9d734cf8a88454323f2402938281d280043ef4603cd8d13601c5613",
+  "outputSha256": "e3485cd1e9270abb8cdf31404e16d3155eaf382c954f5a1882cd73f93a2a5d38",
+  "checks": {
+    "realAlphaChannel": true,
+    "rgbBytePreserved": true,
+    "fullCanvasUnchanged": true
+  }
+}

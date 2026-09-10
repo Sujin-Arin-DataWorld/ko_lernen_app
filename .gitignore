@@ -180,3 +180,22 @@ node_modules/
 tools/content_factory/lexicon/*.xlsx
 # kornorms 외래어 감사 캐시(tool/audit_loanword_spelling.py, T1.9).
 tool/.cache/
+
+# ── graphify 정책: 비싼 것만 커밋, 큰 것은 재생성 (2026-09-09, Jin) ──
+# 규칙 전문은 AGENTS.md "## graphify". 요약:
+#  · 커밋(~7MB) = 소스에서 복원 불가능한 것 — .graphify_labels.json,
+#    cache/semantic/(LLM 추출), wiki/, GRAPH_REPORT.md, manifest.json
+#  · 무시(~920MB) = `graphify update .`(AST-only, 무료)로 언제든 복원되는 것
+# graph.json 은 45K 노드짜리 AST 파생물이라 커밋하면 소스의 중복 저장이 되고,
+# 재빌드마다 노드 순서가 흔들려 델타 압축이 안 잡힌다(.git 이 packed 3.7GB 가 된 원인).
+# cache/ 를 통째로 무시하면 cache/semantic/ 까지 삼키므로 항목을 명시한다.
+graphify-out/graph.json
+graphify-out/graph.html
+graphify-out/cache/ast/
+graphify-out/cache/stat-index.json
+graphify-out/cache/last_query_stamp
+graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+graphify-out/graph.json.bak-*
+# .graphify_root 는 로컬 절대경로만 담는다 — 머신·워크트리마다 달라 충돌원이다.
+graphify-out/.graphify_root
+
