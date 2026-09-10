@@ -12,9 +12,10 @@ typedef OnboardingCharacterMediaFailure =
 
 /// Transparent, onboarding-only companion media.
 ///
-/// The widget owns a single animated WebP codec. Idle motion loops while the
-/// widget is active and visible; select and confirm play once and return to the
-/// poster. Reduced motion, a disabled [TickerMode], and a background app all
+/// The widget owns a single animated WebP codec. The bundled idle is a poster;
+/// select and confirm play the authored choose gesture once and return to it.
+/// An explicitly supplied idle animation may loop. Reduced motion,
+/// a disabled [TickerMode], and a background app all
 /// release the codec immediately.
 class OnboardingCharacterMedia extends StatefulWidget {
   const OnboardingCharacterMedia({
@@ -50,7 +51,7 @@ class OnboardingCharacterMedia extends StatefulWidget {
   String get resolvedAnimationAsset {
     final stem = _characterStem(characterId);
     return animationAsset ??
-        'assets/illustrations/onboarding/companions/${stem}_${motion.name}.webp';
+        'assets/illustrations/onboarding/companions/${stem}_choose.webp';
   }
 
   static String _characterStem(String characterId) {
@@ -89,6 +90,8 @@ class _OnboardingCharacterMediaState extends State<OnboardingCharacterMedia>
 
   bool get _eligible =>
       widget.active &&
+      (widget.motion != OnboardingCharacterMotion.idle ||
+          widget.animationAsset != null) &&
       !_reduceMotion &&
       (_tickerMode?.value.enabled ?? true) &&
       _lifecycleState == AppLifecycleState.resumed;

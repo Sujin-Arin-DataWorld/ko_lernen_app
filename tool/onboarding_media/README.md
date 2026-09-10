@@ -1,4 +1,34 @@
-# Onboarding companion media import
+# Onboarding companion media
+
+## Bundled choose gestures
+
+The onboarding currently uses the original `tiger_choose.mp4` and
+`magpie_choose.mp4` gestures, including Joy's front-facing greeting. These H.264
+sources have an opaque white stage. `prepare_choose_videos.py` is a separate,
+source-specific video preparation tool: it isolates their silhouettes, retains
+white fur and feathers, removes white spill only at translucent edges, and
+encodes the complete gestures as one-shot Animated WebP. It does not modify the
+source MP4 files or accept generated still images.
+
+```powershell
+python tool/onboarding_media/prepare_choose_videos.py --review-dir C:\path\to\choose-review
+```
+
+This command requires NumPy, SciPy, Pillow, and ffmpeg. The output directory is
+`assets/illustrations/onboarding/companions`. Both clips use a fixed 640px square
+canvas at 15 fps, preserving framing across all frames. Taego's clip lasts about
+4.9 seconds and Joy's about 7.1 seconds. Each animation must stay below 3 MB;
+`choose_manifest.json` records source/output hashes, dimensions, duration, alpha
+ranges for every frame, and memory estimates. The idle PNGs are extracted from
+these same prepared gestures. Selection and confirmation each play the choose
+gesture once; idle, reduced motion, background state, and media errors display
+the PNG. No multiply blend is applied by the app.
+
+After regenerating, inspect the contacts on light and dark backgrounds under
+`--review-dir` before accepting new outputs. This matte is specific to the two
+authored videos and is not a general replacement for author-supplied alpha.
+
+## Import author-supplied alpha media
 
 This tool accepts final artwork that already has real transparency. It converts
 an alpha MOV or a numbered PNG sequence into an animated WebP and extracts a

@@ -28,7 +28,7 @@ void main() {
     );
     expect(
       tiger.resolvedAnimationAsset,
-      'assets/illustrations/onboarding/companions/taego_idle.webp',
+      'assets/illustrations/onboarding/companions/taego_choose.webp',
     );
     expect(
       magpie.resolvedPosterAsset,
@@ -36,7 +36,7 @@ void main() {
     );
     expect(
       magpie.resolvedAnimationAsset,
-      'assets/illustrations/onboarding/companions/joy_confirm.webp',
+      'assets/illustrations/onboarding/companions/joy_choose.webp',
     );
   });
 

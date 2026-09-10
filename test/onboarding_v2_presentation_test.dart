@@ -1,5 +1,3 @@
-import 'dart:ui' show Tristate;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart' show LocaleStringAttribute;
 import 'package:flutter/services.dart';
@@ -61,22 +59,24 @@ void main() {
       FocusManager.instance.primaryFocus?.debugLabel,
       'onboarding-v2-heading',
     );
-    expect(find.text('Which syllable reads “ga”?'), findsOneWidget);
+    expect(find.text('Which word means “door”?'), findsOneWidget);
     expect(
-      find.text('Just a demo. No XP or items are awarded here.'),
+      find.text('Preview only. No XP, items, or Hanok pieces are awarded.'),
       findsOneWidget,
     );
     final answerSemantics = tester
-        .getSemantics(find.byKey(const ValueKey('onboarding-v2-answer-가')))
+        .getSemantics(find.byKey(const ValueKey('onboarding-v2-answer-문')))
         .getSemanticsData();
-    expect(answerSemantics.label, contains('가'));
+    expect(answerSemantics.label, contains('문'));
     expect(answerSemantics.flagsCollection.isButton, isTrue);
-    final giftSemantics = tester
-        .getSemantics(find.byKey(const ValueKey('onboarding-v2-gift-action')))
-        .getSemanticsData();
-    expect(giftSemantics.label, 'Unwrap the bojagi');
-    expect(giftSemantics.flagsCollection.isButton, isTrue);
-    expect(giftSemantics.flagsCollection.isEnabled, Tristate.isFalse);
+    expect(
+      find.byKey(const ValueKey('onboarding-v2-discover-gift')),
+      findsNothing,
+    );
+    expect(
+      find.byKey(const ValueKey('onboarding-v2-gift-action')),
+      findsNothing,
+    );
 
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-back')));
     expect(previousPage, OnboardingV2Ids.storyGamesAndRewards);
@@ -142,12 +142,12 @@ void main() {
       tester.getSemantics(card).getSemanticsData().flagsCollection.isButton,
       isTrue,
     );
-    expect(find.text('안녕하세요.'), findsOneWidget);
+    expect(find.text('문'), findsOneWidget);
     await tester.tap(card);
     await _pumpFinite(tester);
 
-    expect(find.text('Hello.'), findsOneWidget);
-    expect(find.text('안녕하세요.'), findsOneWidget);
+    expect(find.text('door'), findsOneWidget);
+    expect(find.text('문'), findsOneWidget);
     expect(find.byType(SingleChildScrollView), findsNothing);
     _expectMinimumTarget(
       tester,
@@ -436,13 +436,17 @@ void main() {
     expect(
       find.descendant(
         of: find.byType(OnboardingCharacterMedia),
-        matching: find.byType(RawImage),
+        matching: find.byKey(
+          ValueKey(
+            'onboarding-character-animation-${media.resolvedAnimationAsset}',
+          ),
+        ),
       ),
       findsNothing,
     );
     expect(
       find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
-      findsOneWidget,
+      findsNothing,
     );
     expect(find.text('Joy has been selected.'), findsOneWidget);
     await tester.tap(

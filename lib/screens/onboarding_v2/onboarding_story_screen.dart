@@ -17,6 +17,7 @@ import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
+import 'onboarding_hanok_growth_preview.dart';
 import 'onboarding_story_practice.dart';
 import 'onboarding_character_media.dart';
 import 'onboarding_v2_shell.dart';
@@ -94,9 +95,7 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
       const Duration(milliseconds: 220),
     );
     final progress = copy.navigation.progress(pageIndex + 1, 7);
-    final compactHeading =
-        MediaQuery.sizeOf(context).height < 700 &&
-        MediaQuery.textScalerOf(context).scale(16) > 24;
+    final compactHeading = MediaQuery.textScalerOf(context).scale(16) > 24;
 
     return OnboardingV2PageShell(
       brandLatin: copy.brandLatin,
@@ -106,7 +105,7 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
       progressLabel: progress,
       stageKey: ValueKey('onboarding-v2-stage-${page.id}'),
       stage: OnboardingStoryStage(page: page, questComplete: false),
-      showStage: pageIndex == 0 || pageIndex == 4,
+      showStage: pageIndex == 4,
       heading: OnboardingV2Heading(
         key: ValueKey('onboarding-v2-heading-${page.id}'),
         titleKey: const ValueKey('onboarding-v2-story-title'),
@@ -230,8 +229,8 @@ class _StoryInteraction extends StatelessWidget {
         page: page,
         flipped: cardFlipped,
         onTap: onToggleCard,
-        korean: setup.levels.first.exampleKorean,
-        translation: setup.levels.first.exampleTranslation,
+        korean: learnedWord,
+        translation: AppL10n.of(context).onboardingV2DoorMeaning,
       ),
       OnboardingStoryVisualKind.gamesAndRewards => _QuestPreview(
         page: page,
@@ -266,31 +265,15 @@ class _LearningPathPreview extends StatelessWidget {
             constraints.maxHeight >= 200 &&
             MediaQuery.textScalerOf(context).scale(16) <= 24;
         return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Semantics(
-              key: const ValueKey('onboarding-v2-story-hero'),
-              container: true,
-              label: page.heroSemanticLabel,
-              child: ExcludeSemantics(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    for (final (index, level) in levels.indexed) ...[
-                      if (index > 0)
-                        const Icon(
-                          Icons.arrow_forward_rounded,
-                          color: SoriColors.gold,
-                          size: 20,
-                        ),
-                      Text(
-                        level.code,
-                        textAlign: TextAlign.center,
-                        style: text.h3,
-                      ),
-                    ],
-                  ],
+            Expanded(
+              child: Semantics(
+                key: const ValueKey('onboarding-v2-story-hero'),
+                container: true,
+                label: page.heroSemanticLabel,
+                child: const ExcludeSemantics(
+                  child: OnboardingHanokGrowthPreview(),
                 ),
               ),
             ),

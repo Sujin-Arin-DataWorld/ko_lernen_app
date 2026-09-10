@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_hanok_growth_preview.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_practice.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
@@ -20,7 +21,7 @@ void main() {
 
   for (final locale in ['de', 'en']) {
     testWidgets(
-      '$locale recognition retries, requires separate unwrap, awards nothing at 200%',
+      '$locale keeps 문, Hanok growth, gift discovery, and unwrap in order at 200%',
       (tester) async {
         tester.view.physicalSize = const Size(360, 800);
         tester.view.devicePixelRatio = 1;
@@ -35,9 +36,19 @@ void main() {
             const OnboardingRewardPractice(character: SizedBox.shrink()),
           ),
         );
-        final unwrap = find.byKey(const ValueKey('onboarding-v2-unwrap-gift'));
-        expect(tester.widget<SoriButton>(unwrap).onTap, isNull);
-        for (final syllable in ['가', '나', '다']) {
+        final discover = find.byKey(
+          const ValueKey('onboarding-v2-discover-gift'),
+        );
+        expect(discover, findsNothing);
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-hanok-growth-before')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-gift-action')),
+          findsNothing,
+        );
+        for (final syllable in ['문', '눈', '물']) {
           final answer = find.byKey(ValueKey('onboarding-v2-answer-$syllable'));
           expect(tester.getSize(answer).height, greaterThanOrEqualTo(48));
           expect(tester.getSize(answer).width, greaterThanOrEqualTo(48));
@@ -50,35 +61,65 @@ void main() {
             isTrue,
           );
         }
-        await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-나')));
+        await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-눈')));
         await tester.pump();
         expect(
           find.byKey(const ValueKey('onboarding-v2-answer-retry')),
           findsOneWidget,
         );
-        expect(tester.widget<SoriButton>(unwrap).onTap, isNull);
-        await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-가')));
+        expect(discover, findsNothing);
+        await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-문')));
         await tester.pump();
         expect(
           find.byKey(const ValueKey('onboarding-v2-answer-correct')),
           findsOneWidget,
         );
         expect(
+          find.byKey(const ValueKey('onboarding-v2-hanok-growth-after')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-gift-action')),
+          findsNothing,
+        );
+        expect(discover, findsOneWidget);
+        expect(tester.widget<SoriButton>(discover).onTap, isNull);
+        await tester.pump(const Duration(milliseconds: 420));
+        expect(tester.widget<SoriButton>(discover).onTap, isNotNull);
+        await tester.tap(discover);
+        await tester.pumpAndSettle();
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-hanok-growth-after')),
+          findsNothing,
+        );
+        expect(
           find.byKey(const ValueKey('onboarding-v2-gift-false')),
           findsOneWidget,
         );
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-gift-true')),
-          findsNothing,
-        );
+        final unwrap = find.byKey(const ValueKey('onboarding-v2-unwrap-gift'));
         await tester.ensureVisible(unwrap);
         await tester.tap(unwrap);
-        await tester.pump();
+        await tester.pumpAndSettle();
         expect(
           find.byKey(const ValueKey('onboarding-v2-gift-true')),
           findsOneWidget,
         );
-        expect(tester.widget<SoriButton>(unwrap).onTap, isNull);
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-replay-demo')),
+          findsOneWidget,
+        );
+        await tester.tap(
+          find.byKey(const ValueKey('onboarding-v2-replay-demo')),
+        );
+        await tester.pumpAndSettle();
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-hanok-growth-before')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const ValueKey('onboarding-v2-answer-문')),
+          findsOneWidget,
+        );
         expect({
           for (final key in prefs.getKeys()) key: prefs.get(key),
         }, before);
@@ -88,14 +129,68 @@ void main() {
     );
   }
 
+  for (final (locale, meaning) in const [('de', 'Tür'), ('en', 'door')]) {
+    testWidgets('$locale review keeps 문 paired with $meaning', (tester) async {
+      await tester.pumpWidget(
+        _host(
+          locale,
+          Builder(
+            builder: (context) => OnboardingStoryScreen(
+              copy: onboardingV2Copy(AppL10n.of(context)),
+              pageIndex: 2,
+              onContinue: (_) {},
+              onPrevious: (_) {},
+            ),
+          ),
+          scrollable: false,
+        ),
+      );
+      expect(find.text('문'), findsOneWidget);
+      expect(find.text(meaning), findsNothing);
+      await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-hero')));
+      await tester.pumpAndSettle();
+      expect(find.text(meaning), findsOneWidget);
+      expect(find.text('문'), findsOneWidget);
+    });
+  }
+
+  testWidgets('Hanok preview preserves 4:3 assets inside a bounded stage', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        'en',
+        const SizedBox(
+          width: 500,
+          height: 500,
+          child: OnboardingHanokGrowthPreview(),
+        ),
+      ),
+    );
+    final preview = find.byKey(
+      const ValueKey('onboarding-v2-hanok-growth-preview'),
+    );
+    expect(tester.getSize(preview), const Size(360, 270));
+    final image = tester.widget<Image>(
+      find.descendant(of: preview, matching: find.byType(Image)),
+    );
+    expect(image.fit, BoxFit.contain);
+    expect(
+      (image.image as AssetImage).assetName,
+      endsWith('14_ondol_maru.webp'),
+    );
+  });
+
   testWidgets('gift unwrap stages anticipation, opening and gift burst once', (
     tester,
   ) async {
     await tester.pumpWidget(
       _host('en', const OnboardingRewardPractice(character: SizedBox.shrink())),
     );
-    await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-가')));
-    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-문')));
+    await tester.pump(const Duration(milliseconds: 420));
+    await tester.tap(find.byKey(const ValueKey('onboarding-v2-discover-gift')));
+    await tester.pumpAndSettle();
     final parcel = find.byKey(const ValueKey('onboarding-v2-gift-action'));
     await tester.ensureVisible(parcel);
     await tester.tap(parcel);
@@ -152,7 +247,11 @@ void main() {
           reduceMotion: true,
         ),
       );
-      await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-가')));
+      await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-문')));
+      await tester.pumpAndSettle();
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v2-discover-gift')),
+      );
       await tester.pumpAndSettle();
       final parcel = find.byKey(const ValueKey('onboarding-v2-gift-action'));
       await tester.ensureVisible(parcel);
@@ -171,7 +270,7 @@ void main() {
   );
 
   testWidgets(
-    'jamo composition plays canonical 가 at the same action and recovers from failure',
+    'jamo composition plays canonical 문 at the same action and recovers from failure',
     (tester) async {
       final speech = stubSoriSpeech();
       await tester.pumpWidget(_host('en', const OnboardingJamoPractice()));
@@ -179,11 +278,11 @@ void main() {
       final initialRect = tester.getRect(action);
       await tester.tap(action);
       await tester.pumpAndSettle();
-      expect(find.text('ㄱ + ㅏ → 가'), findsOneWidget);
-      expect(speech.spoken, isEmpty);
+      expect(find.text('ㅁ + ㅜ + ㄴ → 문'), findsOneWidget);
+      expect(speech.spoken, ['문']);
       expect(tester.getRect(action).top, initialRect.top);
       SoriSpeech.speakImpl = (text, voice) async {
-        expect(text, '가');
+        expect(text, '문');
         expect(voice, 'female');
         throw StateError('offline');
       };
@@ -213,8 +312,6 @@ void main() {
       await tester.pumpWidget(_host('en', const OnboardingJamoPractice()));
       final action = find.byKey(const ValueKey('onboarding-v2-jamo-action'));
       await tester.tap(action);
-      await tester.pumpAndSettle();
-      await tester.tap(action);
       await tester.pump();
       expect(tester.widget<SoriButton>(action).onTap, isNull);
       await tester.pumpWidget(_host('en', const SizedBox.shrink()));
@@ -232,8 +329,10 @@ void main() {
     await tester.pumpWidget(
       _host('en', const OnboardingRewardPractice(character: SizedBox.shrink())),
     );
-    await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-가')));
-    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('onboarding-v2-answer-문')));
+    await tester.pump(const Duration(milliseconds: 420));
+    await tester.tap(find.byKey(const ValueKey('onboarding-v2-discover-gift')));
+    await tester.pumpAndSettle();
     final parcel = find.byKey(const ValueKey('onboarding-v2-gift-action'));
     await tester.ensureVisible(parcel);
     await tester.tap(parcel);
@@ -271,7 +370,7 @@ void main() {
       expect(page, 4);
       update(() => page = 3);
       await tester.pumpAndSettle();
-      final answer = find.byKey(const ValueKey('onboarding-v2-answer-가'));
+      final answer = find.byKey(const ValueKey('onboarding-v2-answer-문'));
       await tester.ensureVisible(answer);
       await tester.tap(answer);
       await tester.pumpAndSettle();
@@ -288,19 +387,15 @@ void main() {
         findsNothing,
       );
       expect(
-        tester
-            .widget<SoriButton>(
-              find.byKey(const ValueKey('onboarding-v2-unwrap-gift')),
-            )
-            .onTap,
-        isNull,
+        find.byKey(const ValueKey('onboarding-v2-discover-gift')),
+        findsNothing,
       );
     },
   );
 
   for (final locale in ['de', 'en']) {
     testWidgets(
-      '$locale gate preview opens real image, closes and preserves page scroll at 200%',
+      '$locale gate preview opens and closes without adding primary scroll at 200%',
       (tester) async {
         tester.view.physicalSize = const Size(360, 800);
         tester.view.devicePixelRatio = 1;
@@ -326,11 +421,10 @@ void main() {
         );
         await tester.ensureVisible(preview);
         await tester.pumpAndSettle();
-        final scrollable = find
-            .ancestor(of: preview, matching: find.byType(Scrollable))
-            .first;
-        final position = tester.state<ScrollableState>(scrollable).position;
-        final offset = position.pixels;
+        expect(
+          find.ancestor(of: preview, matching: find.byType(Scrollable)),
+          findsNothing,
+        );
         expect(tester.getSize(preview).height, greaterThanOrEqualTo(48));
         await tester.tap(preview);
         await tester.pumpAndSettle();
@@ -351,7 +445,6 @@ void main() {
           find.byKey(const ValueKey('onboarding-v2-gate-preview-image')),
           findsNothing,
         );
-        expect(position.pixels, offset);
         expect(continued, isFalse);
         expect(tester.takeException(), isNull);
       },

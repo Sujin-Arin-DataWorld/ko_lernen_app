@@ -9,6 +9,12 @@ import '../../widgets/sori/card.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'onboarding_hanok_growth_preview.dart';
+
+const learnedWord = '문';
+const composition = 'ㅁ + ㅜ + ㄴ → 문';
+const _jamoParts = 'ㅁ + ㅜ + ㄴ';
+const _growthDuration = Duration(milliseconds: 420);
 
 /// Ephemeral learning demonstration. Leaving the page discards its state.
 class OnboardingJamoPractice extends StatefulWidget {
@@ -33,7 +39,7 @@ class _OnboardingJamoPracticeState extends State<OnboardingJamoPractice> {
     });
     var played = false;
     try {
-      played = await SoriSpeech.speak('가', voice: 'female');
+      played = await SoriSpeech.speak(learnedWord, voice: 'female');
     } catch (_) {
       // Audio is optional in this demonstration; the next action stays usable.
     }
@@ -58,70 +64,76 @@ class _OnboardingJamoPracticeState extends State<OnboardingJamoPractice> {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     return LayoutBuilder(
-      builder: (context, constraints) => SoriCard(
-        key: const ValueKey('onboarding-v2-story-hero'),
-        padding: const EdgeInsets.all(Spacing.sm),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Semantics(
-              liveRegion: true,
-              label: _failed
-                  ? t.onboardingV2AudioUnavailable
-                  : _composed
-                  ? 'ㄱ + ㅏ → 가'
-                  : null,
-              excludeSemantics: _failed || _composed,
-              child: Text(
-                _composed
-                    ? MediaQuery.textScalerOf(context).scale(16) > 24
-                          ? '가'
-                          : 'ㄱ + ㅏ → 가'
-                    : 'ㄱ + ㅏ',
-                key: const ValueKey('onboarding-v2-jamo-result'),
-                locale: const Locale('ko'),
-                textAlign: TextAlign.center,
-                style: text.koDisplay,
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-            SoriButton.filled(
-              key: const ValueKey('onboarding-v2-jamo-action'),
-              semanticLabel: _failed ? t.onboardingV2AudioUnavailable : null,
-              label: _failed
-                  ? t.btnRetry
-                  : _composed
-                  ? (_playing
-                        ? t.onboardingV2AudioPlaying
-                        : t.onboardingV2PlayGa)
-                  : t.onboardingV2ComposeGa,
-              icon: _failed
-                  ? Icons.volume_off_rounded
-                  : _composed
-                  ? Icons.volume_up_rounded
-                  : Icons.add_rounded,
-              size: SoriButtonSize.md,
-              fullWidth: true,
-              onTap: _playing
-                  ? null
-                  : _composed
-                  ? _play
-                  : () => setState(() => _composed = true),
-            ),
-            if (_failed && constraints.maxHeight >= 380) ...[
-              const SizedBox(height: Spacing.sm),
+      builder: (context, constraints) {
+        final compact =
+            constraints.hasBoundedHeight && constraints.maxHeight < 150;
+        return SoriCard(
+          key: const ValueKey('onboarding-v2-story-hero'),
+          padding: EdgeInsets.all(compact ? Spacing.xs : Spacing.sm),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
               Semantics(
                 liveRegion: true,
-                child: Text(
-                  t.onboardingV2AudioUnavailable,
-                  textAlign: TextAlign.center,
-                  style: text.bodySmall,
+                label: _failed
+                    ? t.onboardingV2AudioUnavailable
+                    : _composed
+                    ? composition
+                    : null,
+                excludeSemantics: _failed || _composed,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    _composed ? composition : _jamoParts,
+                    key: const ValueKey('onboarding-v2-jamo-result'),
+                    locale: const Locale('ko'),
+                    textAlign: TextAlign.center,
+                    style: text.koDisplay,
+                  ),
                 ),
               ),
+              SizedBox(height: compact ? Spacing.xs : Spacing.sm),
+              SoriButton.filled(
+                key: const ValueKey('onboarding-v2-jamo-action'),
+                semanticLabel: _failed ? t.onboardingV2AudioUnavailable : null,
+                label: _failed
+                    ? t.btnRetry
+                    : _composed
+                    ? (_playing
+                          ? t.onboardingV2AudioPlaying
+                          : t.onboardingV2PlayGa)
+                    : t.onboardingV2ComposeGa,
+                icon: _failed
+                    ? Icons.volume_off_rounded
+                    : _composed
+                    ? Icons.volume_up_rounded
+                    : Icons.add_rounded,
+                size: SoriButtonSize.md,
+                fullWidth: true,
+                onTap: _playing
+                    ? null
+                    : _composed
+                    ? _play
+                    : () {
+                        setState(() => _composed = true);
+                        unawaited(_play());
+                      },
+              ),
+              if (_failed && constraints.maxHeight >= 380) ...[
+                const SizedBox(height: Spacing.sm),
+                Semantics(
+                  liveRegion: true,
+                  child: Text(
+                    t.onboardingV2AudioUnavailable,
+                    textAlign: TextAlign.center,
+                    style: text.bodySmall,
+                  ),
+                ),
+              ],
             ],
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -140,15 +152,21 @@ class OnboardingRewardPractice extends StatefulWidget {
 
 class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _reveal =
-      AnimationController(
-        vsync: this,
-        duration: const Duration(milliseconds: 800),
-      )..addStatusListener((status) {
-        if (status == AnimationStatus.completed && mounted) {
-          setState(() {});
-        }
-      });
+  late final AnimationController _reveal;
+
+  @override
+  void initState() {
+    super.initState();
+    _reveal =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 800),
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed && mounted) {
+            setState(() {});
+          }
+        });
+  }
 
   @override
   void didChangeDependencies() {
@@ -156,10 +174,13 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
     if (_opened && MediaQuery.disableAnimationsOf(context)) {
       _reveal.value = 1;
     }
+    if (_correct && MediaQuery.disableAnimationsOf(context)) {
+      _growthReady = true;
+    }
   }
 
   void _unwrap() {
-    if (!_correct || _opened) {
+    if (!_correct || !_growthReady || !_giftDiscovered || _opened) {
       return;
     }
     setState(() => _opened = true);
@@ -172,13 +193,59 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
 
   @override
   void dispose() {
+    _growthTimer?.cancel();
     _reveal.dispose();
     super.dispose();
   }
 
   bool _correct = false;
   bool _wrong = false;
+  bool _growthComplete = false;
+  bool _growthReady = false;
+  bool _giftDiscovered = false;
   bool _opened = false;
+  Timer? _growthTimer;
+
+  void _answer(String answer) {
+    _growthTimer?.cancel();
+    final correct = answer == learnedWord;
+    final reduceMotion = MediaQuery.disableAnimationsOf(context);
+    setState(() {
+      _correct = correct;
+      _wrong = !correct;
+      _growthComplete = correct;
+      _growthReady = correct && reduceMotion;
+      _giftDiscovered = false;
+    });
+    if (correct && !reduceMotion) {
+      _growthTimer = Timer(_growthDuration, () {
+        if (mounted) {
+          setState(() => _growthReady = true);
+        }
+      });
+    }
+  }
+
+  void _discoverGift() {
+    if (!_correct || !_growthReady || _giftDiscovered) {
+      return;
+    }
+    setState(() => _giftDiscovered = true);
+  }
+
+  void _replay() {
+    _growthTimer?.cancel();
+    _reveal.stop();
+    _reveal.value = 0;
+    setState(() {
+      _correct = false;
+      _wrong = false;
+      _growthComplete = false;
+      _growthReady = false;
+      _giftDiscovered = false;
+      _opened = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -191,30 +258,45 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
         : t.onboardingV2GiftOpening;
     return LayoutBuilder(
       builder: (context, constraints) {
-        final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
-        final scene = Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(child: widget.character),
-            Expanded(
-              child: Semantics(
-                key: const ValueKey('onboarding-v2-gift-action'),
-                button: true,
-                enabled: _correct && !_opened,
-                label: giftLabel,
-                onTap: _correct && !_opened ? _unwrap : null,
-                excludeSemantics: true,
-                child: SoriPressable(
-                  onTap: _correct && !_opened ? _unwrap : null,
-                  child: AnimatedBuilder(
-                    animation: _reveal,
-                    builder: (context, child) =>
-                        _BojagiReveal(progress: _reveal.value, opened: _opened),
-                  ),
+        final scaledBodySize = MediaQuery.textScalerOf(context).scale(16);
+        final showDemoNote =
+            scaledBodySize <= 18 &&
+            (!constraints.hasBoundedHeight || constraints.maxHeight >= 220);
+        final giftEnabled = _giftDiscovered && !_opened;
+        final scene = AnimatedSwitcher(
+          duration: SoriMotion.respect(context, _growthDuration),
+          child: !_giftDiscovered
+              ? OnboardingHanokGrowthPreview(
+                  key: const ValueKey('onboarding-v2-growth-scene'),
+                  complete: _growthComplete,
+                )
+              : Row(
+                  key: const ValueKey('onboarding-v2-gift-scene'),
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(child: widget.character),
+                    Expanded(
+                      child: Semantics(
+                        key: const ValueKey('onboarding-v2-gift-action'),
+                        button: true,
+                        enabled: giftEnabled,
+                        label: giftLabel,
+                        onTap: giftEnabled ? _unwrap : null,
+                        excludeSemantics: true,
+                        child: SoriPressable(
+                          onTap: giftEnabled ? _unwrap : null,
+                          child: AnimatedBuilder(
+                            animation: _reveal,
+                            builder: (context, child) => _BojagiReveal(
+                              progress: _reveal.value,
+                              opened: _opened,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ),
-          ],
         );
         return Column(
           key: const ValueKey('onboarding-v2-story-hero'),
@@ -228,31 +310,33 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
             else
               AspectRatio(aspectRatio: 1.8, child: scene),
             const SizedBox(height: Spacing.sm),
-            Semantics(
-              liveRegion: _wrong || _correct,
-              child: Text(
-                _correct
-                    ? t.onboardingV2RecognitionCorrect
-                    : _wrong
-                    ? t.onboardingV2RecognitionRetry
-                    : t.onboardingV2RecognitionPrompt,
-                key: _correct
-                    ? const ValueKey('onboarding-v2-answer-correct')
-                    : _wrong
-                    ? const ValueKey('onboarding-v2-answer-retry')
-                    : null,
-                textAlign: TextAlign.center,
-                style: text.body,
+            if (!_giftDiscovered) ...[
+              Semantics(
+                liveRegion: _wrong || _correct,
+                child: Text(
+                  _correct
+                      ? t.onboardingV2RecognitionCorrect
+                      : _wrong
+                      ? t.onboardingV2RecognitionRetry
+                      : t.onboardingV2RecognitionPrompt,
+                  key: _correct
+                      ? const ValueKey('onboarding-v2-answer-correct')
+                      : _wrong
+                      ? const ValueKey('onboarding-v2-answer-retry')
+                      : null,
+                  textAlign: TextAlign.center,
+                  style: text.body,
+                ),
               ),
-            ),
-            const SizedBox(height: Spacing.sm),
+              const SizedBox(height: Spacing.sm),
+            ],
             if (!_correct)
               Row(
                 children: [
                   for (final (index, syllable) in const [
-                    '가',
-                    '나',
-                    '다',
+                    learnedWord,
+                    '눈',
+                    '물',
                   ].indexed) ...[
                     if (index > 0) const SizedBox(width: Spacing.sm),
                     Expanded(
@@ -261,15 +345,30 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                         child: SoriButton.outlined(
                           key: ValueKey('onboarding-v2-answer-$syllable'),
                           label: syllable,
-                          onTap: () => setState(() {
-                            _correct = syllable == '가';
-                            _wrong = !_correct;
-                          }),
+                          onTap: () => _answer(syllable),
                         ),
                       ),
                     ),
                   ],
                 ],
+              )
+            else if (!_giftDiscovered)
+              SoriButton.filled(
+                key: const ValueKey('onboarding-v2-discover-gift'),
+                label: t.onboardingV2DiscoverGift,
+                icon: Icons.card_giftcard_rounded,
+                size: SoriButtonSize.md,
+                fullWidth: true,
+                onTap: _growthReady ? _discoverGift : null,
+              )
+            else if (_opened && _reveal.isCompleted)
+              SoriButton.outlined(
+                key: const ValueKey('onboarding-v2-replay-demo'),
+                label: t.onboardingV2ReplayDemo,
+                icon: Icons.replay_rounded,
+                size: SoriButtonSize.md,
+                fullWidth: true,
+                onTap: _replay,
               )
             else
               SoriButton.filled(
@@ -277,9 +376,9 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                 label: giftLabel,
                 size: SoriButtonSize.md,
                 fullWidth: true,
-                onTap: !_opened ? _unwrap : null,
+                onTap: giftEnabled ? _unwrap : null,
               ),
-            if (!largeText) ...[
+            if (showDemoNote) ...[
               const SizedBox(height: Spacing.sm),
               Semantics(
                 liveRegion: _opened,

@@ -50,10 +50,8 @@ void main() {
     ]);
     expect(
       find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
-      findsNWidgets(2),
-      reason:
-          'Unapproved companion originals are intentionally absent; the '
-          'screen must show the neutral fallback instead of old artwork.',
+      findsNothing,
+      reason: 'The bundled transparent posters must load for both companions.',
     );
     _expectNoLegacyMediaOrTint();
     expect(tester.takeException(), isNull);
@@ -297,10 +295,16 @@ void main() {
       expect(media.characterId, testCase.characterId);
       expect(media.motion, OnboardingCharacterMotion.confirm);
       expect(media.active, isTrue);
-      expect(media.resolvedAnimationAsset, contains('_confirm.webp'));
+      expect(media.resolvedAnimationAsset, contains('_choose.webp'));
       expect(media.resolvedAnimationAsset, isNot(contains('/video/')));
       expect(
         find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(
+          ValueKey('onboarding-character-poster-${media.resolvedPosterAsset}'),
+        ),
         findsOneWidget,
       );
       _expectNoLegacyMediaOrTint();

@@ -10,10 +10,12 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'support/real_fonts.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUp(stubSoriSpeech);
   for (final size in const [
     Size(320, 640),
     Size(360, 640),
@@ -84,8 +86,8 @@ void main() {
                   supportedLocales: AppL10n.supportedLocales,
                   builder: (context, child) => MediaQuery(
                     data: MediaQuery.of(context).copyWith(
-                      padding: const EdgeInsets.only(top: 24, bottom: 24),
-                      viewPadding: const EdgeInsets.only(top: 24, bottom: 24),
+                      padding: const EdgeInsets.only(top: 44, bottom: 34),
+                      viewPadding: const EdgeInsets.only(top: 44, bottom: 34),
                       textScaler: TextScaler.linear(scale),
                       disableAnimations: true,
                     ),
@@ -97,6 +99,12 @@ void main() {
               await tester.pump(const Duration(milliseconds: 40));
               final evidence = '$language $size scale=$scale screen=$index';
               _expectScreenFits(tester, size, evidence);
+              if (index == 3) {
+                final title = tester.widget<Text>(
+                  find.byKey(const ValueKey('onboarding-v2-story-title')),
+                );
+                expect(title.data!.toLowerCase(), contains('demo'));
+              }
               if (index == 1) {
                 await tester.tap(
                   find.byKey(const ValueKey('onboarding-v2-jamo-action')),
@@ -106,15 +114,19 @@ void main() {
               }
               if (index == 3) {
                 await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-answer-나')),
+                  find.byKey(const ValueKey('onboarding-v2-answer-눈')),
                 );
                 await tester.pump();
                 _expectScreenFits(tester, size, '$evidence wrong answer');
                 await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-answer-가')),
+                  find.byKey(const ValueKey('onboarding-v2-answer-문')),
                 );
                 await tester.pump();
                 _expectScreenFits(tester, size, '$evidence correct answer');
+                await tester.tap(
+                  find.byKey(const ValueKey('onboarding-v2-discover-gift')),
+                );
+                await tester.pump();
                 final gift = find.byKey(
                   const ValueKey('onboarding-v2-gift-action'),
                 );
@@ -169,10 +181,10 @@ void _expectScreenFits(WidgetTester tester, Size size, String evidence) {
 void _expectInside(Rect rect, Size size, String evidence) {
   expect(rect.left, greaterThanOrEqualTo(-.1), reason: evidence);
   expect(rect.right, lessThanOrEqualTo(size.width + .1), reason: evidence);
-  expect(rect.top, greaterThanOrEqualTo(24 - .1), reason: evidence);
+  expect(rect.top, greaterThanOrEqualTo(44 - .1), reason: evidence);
   expect(
     rect.bottom,
-    lessThanOrEqualTo(size.height - 24 + .1),
+    lessThanOrEqualTo(size.height - 34 + .1),
     reason: evidence,
   );
 }

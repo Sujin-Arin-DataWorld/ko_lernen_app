@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/models/heritage_journey_contract.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'support/real_fonts.dart';
 
@@ -201,6 +202,12 @@ void main() {
       _host(locale: const Locale('en'), pageIndex: 4, textScale: 2),
     );
 
+    final details = find.byType(OnboardingV2DetailsButton);
+    expect(details, findsOneWidget);
+    await tester.ensureVisible(details);
+    await tester.tap(details);
+    await tester.pumpAndSettle();
+
     expect(find.text(chapter.officialName), findsOneWidget);
     expect(
       _koreanLocaleCodes(
@@ -215,7 +222,7 @@ void main() {
       ),
       contains('ko'),
     );
-    expect(find.text('Preview · In preparation'), findsOneWidget);
+    expect(find.text('See the gate with 문 · In preparation'), findsOneWidget);
     expect(
       find.textContaining('Only artwork already approved for the app'),
       findsOneWidget,

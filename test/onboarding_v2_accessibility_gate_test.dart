@@ -426,13 +426,19 @@ void main() {
         expect(
           find.descendant(
             of: find.byKey(const ValueKey('onboarding-v2-confirmation-hero')),
-            matching: find.byType(RawImage),
+            matching: find.byWidgetPredicate(
+              (widget) =>
+                  widget is RawImage &&
+                  widget.key.toString().contains(
+                    'onboarding-character-animation-',
+                  ),
+            ),
           ),
           findsNothing,
         );
         expect(
           find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
-          findsOneWidget,
+          findsNothing,
         );
         final liveHeading = tester
             .getSemantics(
