@@ -217,7 +217,7 @@ void main() {
   });
 
   testWidgets(
-    'canonical player profile renders its name and supplies its voice',
+    'canonical role is introduced separately and supplies its voice',
     (tester) async {
       const spokenText = '네, 여기 있어요.';
       const scenario = Scenario(
@@ -259,6 +259,59 @@ void main() {
         return true;
       };
 
+      for (final roleCase in const [
+        (
+          locale: Locale('de'),
+          roleLabel: 'Deine Rolle in dieser Szene',
+          learnerLabel: 'Du',
+        ),
+        (
+          locale: Locale('en'),
+          roleLabel: 'Your role in this scene',
+          learnerLabel: 'You',
+        ),
+      ]) {
+        await _pumpPlayer(
+          tester,
+          child: ScenarioPlayerScreen.preview(
+            fixture: const ScenarioPlayerPreviewFixture.action(
+              scenario: scenario,
+              stage: ScenarioStage.intro,
+            ),
+          ),
+          size: const Size(390, 844),
+          textScale: 1.3,
+          locale: roleCase.locale,
+        );
+
+        expect(find.textContaining(roleCase.roleLabel), findsOneWidget);
+        expect(find.textContaining('크리스티안'), findsOneWidget);
+        expect(find.textContaining('(나)'), findsNothing);
+
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+
+        await _pumpPlayer(
+          tester,
+          child: ScenarioPlayerScreen.preview(
+            fixture: const ScenarioPlayerPreviewFixture.action(
+              scenario: scenario,
+              stage: ScenarioStage.dialog,
+            ),
+          ),
+          size: const Size(390, 844),
+          textScale: 1.3,
+          locale: roleCase.locale,
+        );
+
+        expect(find.text(roleCase.learnerLabel), findsOneWidget);
+        expect(find.textContaining('(나)'), findsNothing);
+
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
+      }
+
+      speakCalls.clear();
       await _pumpPlayer(
         tester,
         child: ScenarioPlayerScreen.preview(
@@ -271,7 +324,8 @@ void main() {
         textScale: 1.3,
       );
 
-      expect(find.text('크리스티안 (나)'), findsOneWidget);
+      expect(find.text('Du'), findsOneWidget);
+      expect(find.textContaining('(나)'), findsNothing);
 
       await tester.tap(
         find.bySemanticsLabel(RegExp(r'^Aussprache: 네, 여기 있어요\.')),
