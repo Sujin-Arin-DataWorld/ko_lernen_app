@@ -39,6 +39,13 @@ class DataLoader {
 
   static Future<List<Vocab>> loadVocab() => _vocabs.load();
 
+  /// Whether [value] is the result owned by the current vocabulary generation.
+  ///
+  /// This is read-only correlation for a higher-level cache. It prevents an
+  /// older load from borrowing the success/error state of a newer retry.
+  static bool isCurrentVocabResult(List<Vocab> value) =>
+      _vocabs.isCurrentResult(value);
+
   static Future<List<Grammar>> loadGrammar() => _grammars.load();
 
   /// Cache löschen — z.B. nach App-Reset.
@@ -122,6 +129,8 @@ class _BundledContentCache<T> {
     }
     return _pending ??= _read(_generation);
   }
+
+  bool isCurrentResult(List<T> value) => identical(_value, value);
 
   Future<List<T>> _read(int generation) async {
     List<T> value;

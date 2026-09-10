@@ -873,6 +873,85 @@ remote CI dispatch, new app/site build, store upload, email, paid API call or
 device retry was performed. Current public routing, mailbox handling, store
 checker access and signed-candidate device acceptance remain open.
 
+### Task 23: Recover the learning path without caching a failed vocabulary catalog
+
+**Trigger at `071a7ec121c56b09e37453a093434c264ea2310d`:**
+`DataLoader.loadVocab()` reports a failed corpus through `vocabError` and an
+empty list. `VocabPackService.loadAll()` currently caches that list as a valid
+empty catalog. A later successful corpus retry by CurriculumCatalog cannot
+replace the cached pack list. Its reset also has no protection against an
+older in-flight load republishing a cache. LearningPathScreen reads the legacy
+projection and all six pack levels before its guarded course read; pack/store
+exceptions escape, while corpus failures can look like zero available packs.
+There is no actionable error/retry for those unavailable sections.
+
+**Contract:** Keep the existing canonical course and optional additional
+practice hierarchy, free access, selected-course versus independent browse
+level, local progress and coaching behavior. An unavailable source is neither
+a successful empty catalog nor evidence of zero progress. Do not introduce a
+new framework, backend call, data migration, storage reset or asset change.
+
+- [x] **Reproduce:** Use actual asset-channel failure/recovery for the pack
+  cache and production LearningPathScreen entry where feasible. Prove a failed
+  vocabulary read followed by recovery can repopulate packs without restarting
+  the app. Prove reset during a pending load prevents stale cache publication.
+  Cover a legacy failure without losing a usable course path, a course failure
+  with usable legacy practice, and a visible retry that makes a real new read.
+- [x] **Pack cache:** Keep the existing `Future<List<VocabPack>>` and fallback
+  behavior for other consumers. Cache only successful corpus results, share
+  concurrent grouping, and fence pending/cache ownership across `reset()`.
+  Do not turn previously tolerated corpus failures into new uncaught exceptions
+  for other screens. Distinguish a valid empty corpus from a failed read.
+- [x] **Learning path:** Handle course and legacy availability explicitly.
+  Render a resolved usable course while additional practice is still loading
+  or unavailable. Catch pack/store failures, show localized retry feedback in
+  the affected section, and avoid publishing partial/zero metrics as success.
+  Use existing Sori components and ARB copy where suitable. Retry only failed
+  vocabulary caches and display reads; never erase progress or initialize a
+  replacement course. Keep raw error/private canaries out of UI. Older refresh
+  completions and disposed screens must not publish stale data or errors.
+- [x] **Layout and behavior:** Preserve default collapsing, legacy focus/jump,
+  canonical course navigation, preview purity, scroll position, and coach
+  ownership. Exercise DE/EN at 320dp/200% with real fonts and light/dark for
+  affected error/recovery states. Do not put LayoutBuilder-based loading/error
+  widgets under the existing collapsed IntrinsicHeight path without resolving
+  that constraint. Use bounded pumps for animated states.
+- [x] **Verify and record:** Run relevant service, screen, navigation and
+  localization tests plus changed Dart analysis. Read the final diff and obtain
+  independent Standards/Spec reviews. Preserve prior source/assets/paid graph
+  records, run the free Graphify update/prune and commit only this local change.
+  No push, remote CI dispatch, new app/site build, email, paid API call, device
+  retry or deployment. Signed-device and real operational gates remain open.
+
+**Ownership/consistency:** One implementer owns VocabPackService,
+LearningPathScreen and focused tests; existing localization is reused unless a
+specific missing user-facing message needs DE/EN ARBs and generated output.
+Root owns this plan, evidence and integration verification. The service API's
+empty-on-corpus-failure compatibility must be retained for inherited consumers;
+the path checks availability before presenting metrics. Task 9's DataLoader
+generation contract stays unchanged. A small read-only DataLoader result or
+generation check is allowed to fence a vocabulary-only reset by another caller;
+it must not change the existing load/reset behavior. No second implementation
+edits these files.
+Evidence lives in external `learning-path-recovery-20260910/`.
+
+**Task 23 local verification (2026-09-10):** The final related Flutter
+run passed **175 tests across 21 files**. Changed Dart analysis:
+**5 files, no issues**. Actual asset-channel and controlled UI tests
+cover failure/recovery, cache/reset ownership and usable learning-path sections;
+the detailed RED/GREEN evidence and final source hashes are in external
+`learning-path-recovery-20260910/worker-summary.json`. Independent Standards
+and Spec reviews approved the final diff. The source checks do not establish
+physical cold-start latency, memory use or signed-device behavior.
+
+Existing **2,396 files**, **962 assets**, and **1,095 paid Graphify
+records** were preserved. Free Graphify update/prune completed. The local
+commit's exact parent/tree and clean-worktree checks are recorded in external
+`learning-path-recovery-20260910/verification.json` after committing. No push,
+remote CI dispatch, app/site release build, store upload, paid API call,
+email or device retry was performed. Signed-device and operational release
+gates remain open.
+
 ### Verification evidence
 
 2026-09-10 로컬 후보의 검증 결과다. 서로 겹치는 실행 횟수는 더하지 않는다.

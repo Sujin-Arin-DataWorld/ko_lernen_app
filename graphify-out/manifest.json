@@ -1488,9 +1488,9 @@
     "semantic_hash": ""
   },
   "lib/screens/learning_path_screen.dart": {
-    "mtime": 1789058839.1779065,
-    "seen": 1789060099.225397,
-    "ast_hash": "b33a69766edb27af663369b5fced51bf",
+    "mtime": 1789071918.8471828,
+    "seen": 1789072771.1030402,
+    "ast_hash": "54100a9a08f339bf44094e3a2cd7d120",
     "semantic_hash": ""
   },
   "lib/screens/legacy_vocab_screen.dart": {
@@ -2172,9 +2172,9 @@
     "semantic_hash": ""
   },
   "lib/services/data_loader.dart": {
-    "mtime": 1789054703.2817218,
-    "seen": 1789055614.2541747,
-    "ast_hash": "2ee005bef90faaba99b9945994a1ce3f",
+    "mtime": 1789070936.6904938,
+    "seen": 1789072771.13787,
+    "ast_hash": "3e5ff12a6dbfcbb30d87e1662176d0f9",
     "semantic_hash": ""
   },
   "lib/services/data_migration_service.dart": {
@@ -2634,9 +2634,9 @@
     "semantic_hash": ""
   },
   "lib/services/vocab_pack_service.dart": {
-    "mtime": 1788987817.3344169,
-    "seen": 1788995056.917844,
-    "ast_hash": "12cf5ffc4efdad3990f43225a8d14c1a",
+    "mtime": 1789071981.7064595,
+    "seen": 1789072771.1648514,
+    "ast_hash": "e523e4f8a6205f99dc143619e2d73a1a",
     "semantic_hash": ""
   },
   "lib/services/vocab_recall_evidence.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789067518.8599896,
-    "seen": 1789069211.515153,
-    "ast_hash": "411914c744a9e81ebfc731493070f404",
+    "mtime": 1789070778.9882956,
+    "seen": 1789072771.676373,
+    "ast_hash": "0bd71332f8517c4e632d0e9bde2bf191",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -15951,6 +15951,18 @@
     "mtime": 1789068572.1648047,
     "seen": 1789069210.9666247,
     "ast_hash": "9b02c954b374da6fca23204fca727711",
+    "semantic_hash": ""
+  },
+  "test/learning_path_recovery_test.dart": {
+    "mtime": 1789071867.3092563,
+    "seen": 1789072771.2909899,
+    "ast_hash": "fdbbe671510c4254c0baa57f092b8083",
+    "semantic_hash": ""
+  },
+  "test/vocab_pack_service_recovery_test.dart": {
+    "mtime": 1789071482.7340183,
+    "seen": 1789072771.3882413,
+    "ast_hash": "9592381c2d2a6401b2222e4e24697d22",
     "semantic_hash": ""
   }
 }
