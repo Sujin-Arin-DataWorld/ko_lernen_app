@@ -1,0 +1,1089 @@
+{
+ "appAnchors": {
+  "citedAppGrammarIds": 0,
+  "dangling": [],
+  "unanchored": []
+ },
+ "coverage": {
+  "A1": {
+   "acts_production": {
+    "covered": 15,
+    "missing": [],
+    "want": 15
+   },
+   "registers_production": {
+    "covered": 1,
+    "missing": [],
+    "want": 1
+   },
+   "textTypes_P": {
+    "covered": 5,
+    "missing": [],
+    "want": 5
+   },
+   "textTypes_R": {
+    "covered": 7,
+    "missing": [],
+    "want": 7
+   },
+   "topics": {
+    "covered": 17,
+    "missing": [
+     "intercultural_globalisation_migration",
+     "media_entertainment_culture_pop",
+     "money_finance_contracts",
+     "neighbourhood_environment",
+     "services_public_admin",
+     "travel_accommodation"
+    ],
+    "want": 23
+   },
+   "topics_required": {
+    "covered": 17,
+    "missing": [],
+    "want": 17
+   },
+   "vocabDomains": {
+    "covered": 14,
+    "missing": [],
+    "want": 14
+   }
+  },
+  "A2": {
+   "acts_production": {
+    "covered": 15,
+    "missing": [],
+    "want": 15
+   },
+   "registers_production": {
+    "covered": 3,
+    "missing": [],
+    "want": 3
+   },
+   "textTypes_P": {
+    "covered": 5,
+    "missing": [],
+    "want": 5
+   },
+   "textTypes_R": {
+    "covered": 7,
+    "missing": [],
+    "want": 7
+   },
+   "topics": {
+    "covered": 22,
+    "missing": [],
+    "want": 22
+   },
+   "topics_required": {
+    "covered": 17,
+    "missing": [],
+    "want": 17
+   },
+   "vocabDomains": {
+    "covered": 11,
+    "missing": [],
+    "want": 11
+   }
+  },
+  "B1": {
+   "acts_production": {
+    "covered": 15,
+    "missing": [],
+    "want": 15
+   },
+   "registers_production": {
+    "covered": 4,
+    "missing": [],
+    "want": 4
+   },
+   "textTypes_P": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "textTypes_R": {
+    "covered": 5,
+    "missing": [],
+    "want": 5
+   },
+   "topics": {
+    "covered": 23,
+    "missing": [],
+    "want": 23
+   },
+   "topics_required": {
+    "covered": 18,
+    "missing": [],
+    "want": 18
+   },
+   "vocabDomains": {
+    "covered": 9,
+    "missing": [],
+    "want": 9
+   }
+  },
+  "B2": {
+   "acts_production": {
+    "covered": 14,
+    "missing": [],
+    "want": 14
+   },
+   "registers_production": {
+    "covered": 4,
+    "missing": [],
+    "want": 4
+   },
+   "textTypes_P": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "textTypes_R": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "topics": {
+    "covered": 20,
+    "missing": [],
+    "want": 20
+   },
+   "topics_required": {
+    "covered": 17,
+    "missing": [],
+    "want": 17
+   },
+   "vocabDomains": {
+    "covered": 7,
+    "missing": [],
+    "want": 7
+   }
+  },
+  "C1": {
+   "acts_production": {
+    "covered": 12,
+    "missing": [],
+    "want": 12
+   },
+   "registers_production": {
+    "covered": 4,
+    "missing": [],
+    "want": 4
+   },
+   "textTypes_P": {
+    "covered": 5,
+    "missing": [],
+    "want": 5
+   },
+   "textTypes_R": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "topics": {
+    "covered": 16,
+    "missing": [],
+    "want": 16
+   },
+   "topics_required": {
+    "covered": 12,
+    "missing": [],
+    "want": 12
+   },
+   "vocabDomains": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   }
+  },
+  "C2": {
+   "acts_production": {
+    "covered": 12,
+    "missing": [],
+    "want": 12
+   },
+   "registers_production": {
+    "covered": 5,
+    "missing": [],
+    "want": 5
+   },
+   "textTypes_P": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "textTypes_R": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   },
+   "topics": {
+    "covered": 15,
+    "missing": [],
+    "want": 15
+   },
+   "topics_required": {
+    "covered": 12,
+    "missing": [],
+    "want": 12
+   },
+   "vocabDomains": {
+    "covered": 6,
+    "missing": [],
+    "want": 6
+   }
+  }
+ },
+ "crossMapping": {
+  "A1": {
+   "axes": {
+    "discourse": 1,
+    "function": 4,
+    "grammar": 13,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 10,
+    "topic": 4,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 28,
+    "shared": 4,
+    "zero_correspondence": 3
+   },
+   "rows": 35
+  },
+  "A2": {
+   "axes": {
+    "discourse": 1,
+    "function": 4,
+    "grammar": 12,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 10,
+    "topic": 4,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 30,
+    "shared": 4
+   },
+   "rows": 34
+  },
+  "B1": {
+   "axes": {
+    "discourse": 1,
+    "function": 5,
+    "grammar": 15,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 9,
+    "topic": 5,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 33,
+    "shared": 5
+   },
+   "rows": 38
+  },
+  "B2": {
+   "axes": {
+    "discourse": 1,
+    "function": 5,
+    "grammar": 16,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 9,
+    "topic": 5,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 34,
+    "shared": 5
+   },
+   "rows": 39
+  },
+  "C1": {
+   "axes": {
+    "discourse": 1,
+    "function": 6,
+    "grammar": 18,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 9,
+    "topic": 6,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 37,
+    "shared": 6
+   },
+   "rows": 43
+  },
+  "C2": {
+   "axes": {
+    "discourse": 1,
+    "function": 6,
+    "grammar": 18,
+    "pragmatics": 1,
+    "register": 1,
+    "textType": 10,
+    "topic": 6,
+    "vocabDomain": 1
+   },
+   "disagreements": 1,
+   "relations": {
+    "partial": 36,
+    "shared": 6,
+    "zero_correspondence": 2
+   },
+   "rows": 44
+  }
+ },
+ "dependencyMapRows": 117,
+ "depth": {
+  "floor": {
+   "functions": {
+    "a1a2_mean": 5.0,
+    "a1a2_min": 4,
+    "c1c2_mean": 3.67,
+    "c1c2_min": 3
+   },
+   "koreanGrammar": {
+    "a1a2_mean": 12.0,
+    "a1a2_min": 9,
+    "c1c2_mean": 10.25,
+    "c1c2_min": 8
+   },
+   "listening": {
+    "a1a2_mean": 2.0,
+    "a1a2_min": 1,
+    "c1c2_mean": 2.42,
+    "c1c2_min": 2
+   },
+   "masteryCheck": {
+    "a1a2_mean": 4.0,
+    "a1a2_min": 4,
+    "c1c2_mean": 5.0,
+    "c1c2_min": 5
+   },
+   "phonology": {
+    "a1a2_mean": 2.0,
+    "a1a2_min": 2,
+    "c1c2_mean": 2.0,
+    "c1c2_min": 2
+   },
+   "pragmaticsItems": {
+    "a1a2_mean": 6.12,
+    "a1a2_min": 5,
+    "c1c2_mean": 7.08,
+    "c1c2_min": 6
+   },
+   "reading": {
+    "a1a2_mean": 2.38,
+    "a1a2_min": 1,
+    "c1c2_mean": 3.67,
+    "c1c2_min": 3
+   },
+   "speaking": {
+    "a1a2_mean": 1.62,
+    "a1a2_min": 1,
+    "c1c2_mean": 2.75,
+    "c1c2_min": 2
+   },
+   "textTypes": {
+    "a1a2_mean": 3.75,
+    "a1a2_min": 3,
+    "c1c2_mean": 3.58,
+    "c1c2_min": 2
+   },
+   "topics": {
+    "a1a2_mean": 5.62,
+    "a1a2_min": 4,
+    "c1c2_mean": 4.08,
+    "c1c2_min": 4
+   },
+   "transferWarnings": {
+    "a1a2_mean": 6.0,
+    "a1a2_min": 6,
+    "c1c2_mean": 6.0,
+    "c1c2_min": 6
+   },
+   "vocabDomains": {
+    "a1a2_mean": 4.25,
+    "a1a2_min": 3,
+    "c1c2_mean": 3.5,
+    "c1c2_min": 3
+   },
+   "writing": {
+    "a1a2_mean": 2.38,
+    "a1a2_min": 2,
+    "c1c2_mean": 3.33,
+    "c1c2_min": 2
+   }
+  },
+  "perLevelMean": {
+   "A1": {
+    "functions": 5.25,
+    "koreanGrammar": 11.5,
+    "listening": 2.5,
+    "masteryCheck": 4.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 5.75,
+    "reading": 1.75,
+    "speaking": 1.75,
+    "textTypes": 3.5,
+    "topics": 5.0,
+    "transferWarnings": 6.0,
+    "vocabDomains": 4.5,
+    "writing": 2.25
+   },
+   "A2": {
+    "functions": 4.75,
+    "koreanGrammar": 12.5,
+    "listening": 1.5,
+    "masteryCheck": 4.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 6.5,
+    "reading": 3.0,
+    "speaking": 1.5,
+    "textTypes": 4.0,
+    "topics": 6.25,
+    "transferWarnings": 6.0,
+    "vocabDomains": 4.0,
+    "writing": 2.5
+   },
+   "B1": {
+    "functions": 3.6,
+    "koreanGrammar": 13.6,
+    "listening": 1.2,
+    "masteryCheck": 4.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 6.6,
+    "reading": 2.8,
+    "speaking": 1.8,
+    "textTypes": 3.6,
+    "topics": 5.6,
+    "transferWarnings": 6.0,
+    "vocabDomains": 3.8,
+    "writing": 2.2
+   },
+   "B2": {
+    "functions": 4.0,
+    "koreanGrammar": 13.8,
+    "listening": 1.2,
+    "masteryCheck": 4.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 6.4,
+    "reading": 2.8,
+    "speaking": 1.8,
+    "textTypes": 3.0,
+    "topics": 5.2,
+    "transferWarnings": 6.4,
+    "vocabDomains": 3.0,
+    "writing": 2.2
+   },
+   "C1": {
+    "functions": 4.0,
+    "koreanGrammar": 9.83,
+    "listening": 2.5,
+    "masteryCheck": 5.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 6.33,
+    "reading": 3.5,
+    "speaking": 2.83,
+    "textTypes": 3.33,
+    "topics": 4.0,
+    "transferWarnings": 6.0,
+    "vocabDomains": 3.67,
+    "writing": 3.17
+   },
+   "C2": {
+    "functions": 3.33,
+    "koreanGrammar": 10.67,
+    "listening": 2.33,
+    "masteryCheck": 5.0,
+    "phonology": 2.0,
+    "pragmaticsItems": 7.83,
+    "reading": 3.83,
+    "speaking": 2.67,
+    "textTypes": 3.83,
+    "topics": 4.17,
+    "transferWarnings": 6.0,
+    "vocabDomains": 3.33,
+    "writing": 3.5
+   }
+  }
+ },
+ "evidence": {
+  "OFFICIAL": 356,
+  "PEDAGOGICAL": 182
+ },
+ "findings": {
+  "error": 0,
+  "info": 120,
+  "total": 194,
+  "warn": 74
+ },
+ "findingsByCheck": {
+  "C11_depth": {
+   "error": 0,
+   "info": 3,
+   "warn": 2
+  },
+  "C13_transfer": {
+   "error": 0,
+   "info": 10,
+   "warn": 0
+  },
+  "C16_lexis": {
+   "error": 0,
+   "info": 101,
+   "warn": 0
+  },
+  "C18_surface": {
+   "error": 0,
+   "info": 0,
+   "warn": 72
+  },
+  "C6_coverage": {
+   "error": 0,
+   "info": 6,
+   "warn": 0
+  }
+ },
+ "lexis": {
+  "missingUnique": 211,
+  "missingWords": [
+   "가교 역할을 하다",
+   "가정적 상황",
+   "개념 정의",
+   "검증 가능성",
+   "검토 기준",
+   "격식을 갖추다",
+   "격차",
+   "결제",
+   "경계 사례",
+   "경향성",
+   "고용",
+   "공유 전제",
+   "공익",
+   "공책",
+   "관습적 표현",
+   "교차 검증",
+   "권리 충돌",
+   "권한",
+   "권한 범위",
+   "규범",
+   "극단적 양보",
+   "근거를 뒷받침하다",
+   "근거의 한계",
+   "기사",
+   "기차",
+   "기회비용",
+   "냉소",
+   "논거",
+   "논리적 귀결",
+   "논점을 흐리다",
+   "논증 구조",
+   "논지를 전개하다",
+   "높임",
+   "다의성",
+   "단서 조항",
+   "단서를 달다",
+   "당황하다",
+   "대안 검토",
+   "대인 거리",
+   "덥다",
+   "도움이 되다",
+   "독백",
+   "동료",
+   "동생",
+   "드리다",
+   "뜻을 조율하다",
+   "뜻을 헤아리다",
+   "마음에 들다",
+   "만 원",
+   "말꼬리를 잡다",
+   "말머리를 돌리다",
+   "말문을 열다",
+   "말씀",
+   "말에 뼈가 있다",
+   "말을 가려 하다",
+   "말을 보태다",
+   "말을 옮기다",
+   "말의 무게",
+   "말투 전환",
+   "맥락",
+   "맥락을 벗어나다",
+   "맥락을 살피다",
+   "맥을 짚다",
+   "메뉴",
+   "명사화",
+   "명제",
+   "명제 보존",
+   "모임",
+   "무게를 두다",
+   "문장 성분",
+   "문체 효과",
+   "문턱을 낮추다",
+   "문학적 관습",
+   "문학적 목소리",
+   "반대 해석",
+   "반례",
+   "반론",
+   "반론을 제기하다",
+   "반문",
+   "반어",
+   "반증 가능성",
+   "발화 주체",
+   "배",
+   "범위를 한정하다",
+   "부모님",
+   "불확실성",
+   "비",
+   "비밀번호",
+   "비용",
+   "비용 편익",
+   "비평",
+   "비평적 거리",
+   "빛이 바래다",
+   "사회적 비용",
+   "산책",
+   "상대 높임",
+   "상쇄 효과",
+   "색안경을 끼다",
+   "서사 시점",
+   "서술자",
+   "설득력을 얻다",
+   "설명력",
+   "세 개",
+   "소비",
+   "속내를 드러내다",
+   "속단을 경계하다",
+   "수사 의문",
+   "시대적 맥락",
+   "시야를 넓히다",
+   "시행 절차",
+   "시행 조건",
+   "신발",
+   "신청",
+   "실현 가능성",
+   "아프다",
+   "안내",
+   "안심하다",
+   "앞뒤가 맞다",
+   "약",
+   "약속을 지키다",
+   "양보를 끌어내다",
+   "양태",
+   "언중유골",
+   "업무",
+   "업무 분장",
+   "여운을 남기다",
+   "여지를 남기다",
+   "역사적 기억",
+   "예산",
+   "예외",
+   "예외 규정",
+   "오전",
+   "오후",
+   "외연",
+   "요금",
+   "용례 분포",
+   "운동",
+   "위험 평가",
+   "유보 표현",
+   "의견을 나누다",
+   "인과 추론",
+   "인용",
+   "인용 범위",
+   "인용 조건",
+   "입장 차를 좁히다",
+   "자격 요건",
+   "작품 해석",
+   "장르 제약",
+   "장면",
+   "재원",
+   "재현",
+   "적용 범위",
+   "전언",
+   "접속",
+   "접수",
+   "접점을 찾다",
+   "정당성",
+   "정보 구조",
+   "정정",
+   "정책 효과",
+   "제도",
+   "제도적 제약",
+   "조건을 충족하다",
+   "종결형",
+   "주체 높임",
+   "중재안",
+   "지시 대상",
+   "지시 범위",
+   "직업",
+   "집행 권한",
+   "창문",
+   "책임을 지다",
+   "청자 대우",
+   "체면 손상",
+   "추론 과정",
+   "출처 확인",
+   "춥다",
+   "충분조건",
+   "크기",
+   "타당성",
+   "텍스트 근거",
+   "파급 효과",
+   "파일",
+   "판단을 유보하다",
+   "평가 기준",
+   "평가 지표",
+   "평가적 명명",
+   "평행선을 달리다",
+   "필요조건",
+   "한 귀로 흘리다",
+   "한 치도 물러서지 않다",
+   "한데 묶다",
+   "한발 물러서다",
+   "해석의 유보",
+   "해석의 정합성",
+   "핵심 쟁점",
+   "핵심을 짚다",
+   "행간을 읽다",
+   "행위 주체",
+   "허점을 짚다",
+   "협의 절차",
+   "형평성",
+   "호칭 선택",
+   "호칭 체계",
+   "화면",
+   "화용적 함축",
+   "화자",
+   "화자 태도",
+   "화제 한정",
+   "확신 정도",
+   "회사"
+  ],
+  "sampleLexisTotal": 441
+ },
+ "niklFormsPerLevel": {
+  "A1": 45,
+  "A2": 45,
+  "B1": 67,
+  "B2": 67,
+  "C1": 56,
+  "C2": 56
+ },
+ "phaseCount": 30,
+ "phasesPerLevel": {
+  "A1": 4,
+  "A2": 4,
+  "B1": 5,
+  "B2": 5,
+  "C1": 6,
+  "C2": 6
+ },
+ "schemaVersion": 1,
+ "spiral": [
+  {
+   "depth": 4,
+   "form": "G1:-고 있다",
+   "introducedAt": 3,
+   "revisits": [
+    {
+     "no": 6,
+     "use": "경험 기간과 현재 진행을 구분해 취미를 설명한다."
+    },
+    {
+     "no": 8,
+     "use": "공지 속 진행 동작과 결과 상태를 나란히 구별한다."
+    },
+    {
+     "no": 15,
+     "use": "진행·반복·완료의 네 축 중 진행을 사실 보고에서 분리한다."
+    }
+   ]
+  },
+  {
+   "depth": 4,
+   "form": "G2:-어 있다",
+   "introducedAt": 8,
+   "revisits": [
+    {
+     "no": 10,
+     "use": "준비 행동과 남아 있는 상태의 차이를 경위 설명에서 비교한다."
+    },
+    {
+     "no": 15,
+     "use": "결과 상태를 책임·원인 평가와 분리해 보고한다."
+    },
+    {
+     "no": 19,
+     "use": "전문 보고에서 결과 상태와 그 상태를 유지한 행동을 구별한다."
+    }
+   ]
+  },
+  {
+   "depth": 3,
+   "form": "G1:-으시-",
+   "introducedAt": 4,
+   "revisits": [
+    {
+     "no": 24,
+     "use": "공적·친밀한 말투를 바꿔도 제3자 주체 높임을 유지한다."
+    },
+    {
+     "no": 30,
+     "use": "말투 사다리를 바꾸어도 주체 높임의 독립성을 유지한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G1:-겠-",
+   "introducedAt": 3,
+   "revisits": [
+    {
+     "no": 4,
+     "use": "날씨 단서를 보고 추정하며 약속을 조정한다. 의지와 추측을 구별한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G1:-고4",
+   "introducedAt": 4,
+   "revisits": [
+    {
+     "no": 7,
+     "use": "이미 말한 내용에 사정을 덧붙여 조정을 준비한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G1:-어서",
+   "introducedAt": 4,
+   "revisits": [
+    {
+     "no": 7,
+     "use": "이유를 제시한 뒤 상대의 선택 여지를 남겨 조정한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G1:-지만",
+   "introducedAt": 4,
+   "revisits": [
+    {
+     "no": 7,
+     "use": "서로 다른 사정을 인정한 뒤 의사를 조정한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G2:-는 것 같다",
+   "introducedAt": 7,
+   "revisits": [
+    {
+     "no": 20,
+     "use": "동료와 자료의 한계를 평가할 때 추정을 낮은 확신으로 유지한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G2:-기",
+   "introducedAt": 6,
+   "revisits": [
+    {
+     "no": 25,
+     "use": "행동 명사화를 전문 글의 책임 주체를 드러내는 데 활용한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G4:-어 버리다",
+   "introducedAt": 15,
+   "revisits": [
+    {
+     "no": 26,
+     "use": "완료에 대한 화자의 평가를 서사 비평에서 구별한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G4:-더라도",
+   "introducedAt": 16,
+   "revisits": [
+    {
+     "no": 27,
+     "use": "일반 양보를 기준으로 더 극단적인 감수 조건의 효과를 비교한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G3:이라고1",
+   "introducedAt": 13,
+   "revisits": [
+    {
+     "no": 28,
+     "use": "인용 조사와 평가적 이라고를 같은 표기만 보고 합치지 않는다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G5:-는 듯하다",
+   "introducedAt": 20,
+   "revisits": [
+    {
+     "no": 29,
+     "use": "수사적 예측과 근거가 제한된 추정을 대비한다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G2:-네",
+   "introducedAt": 8,
+   "revisits": [
+    {
+     "no": 30,
+     "use": "새 정보 감탄을 하게체의 진술과 구별해 듣는다."
+    }
+   ]
+  },
+  {
+   "depth": 2,
+   "form": "G5:-네2",
+   "introducedAt": 24,
+   "revisits": [
+    {
+     "no": 30,
+     "use": "감탄 네2의 태도와 하게체 네1의 진술을 관계 맥락으로 비교한다."
+    }
+   ]
+  }
+ ],
+ "spiralForms": 15,
+ "transfer": {
+  "DE": {
+   "A1": {
+    "items": 12,
+    "verdicts": {
+     "negative_risk": 2,
+     "new_concept": 2,
+     "partial": 6,
+     "positive": 2
+    }
+   },
+   "A2": {
+    "items": 12,
+    "verdicts": {
+     "negative_risk": 4,
+     "partial": 6,
+     "positive": 2
+    }
+   },
+   "B1": {
+    "items": 15,
+    "verdicts": {
+     "negative_risk": 2,
+     "partial": 12,
+     "positive": 1
+    }
+   },
+   "B2": {
+    "items": 16,
+    "verdicts": {
+     "negative_risk": 1,
+     "partial": 13,
+     "positive": 2
+    }
+   },
+   "C1": {
+    "items": 18,
+    "verdicts": {
+     "negative_risk": 1,
+     "partial": 16,
+     "positive": 1
+    }
+   },
+   "C2": {
+    "items": 18,
+    "verdicts": {
+     "negative_risk": 2,
+     "new_concept": 2,
+     "partial": 14
+    }
+   }
+  },
+  "EN": {
+   "A1": {
+    "items": 12,
+    "verdicts": {
+     "negative_risk": 2,
+     "new_concept": 2,
+     "partial": 6,
+     "positive": 2
+    }
+   },
+   "A2": {
+    "items": 12,
+    "verdicts": {
+     "negative_risk": 4,
+     "partial": 6,
+     "positive": 2
+    }
+   },
+   "B1": {
+    "items": 15,
+    "verdicts": {
+     "negative_risk": 2,
+     "partial": 12,
+     "positive": 1
+    }
+   },
+   "B2": {
+    "items": 16,
+    "verdicts": {
+     "negative_risk": 1,
+     "partial": 13,
+     "positive": 2
+    }
+   },
+   "C1": {
+    "items": 18,
+    "verdicts": {
+     "negative_risk": 1,
+     "partial": 16,
+     "positive": 1
+    }
+   },
+   "C2": {
+    "items": 18,
+    "verdicts": {
+     "negative_risk": 2,
+     "new_concept": 2,
+     "partial": 14
+    }
+   }
+  }
+ }
+}

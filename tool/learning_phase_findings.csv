@@ -1,0 +1,195 @@
+check,severity,level,phase,subject,detail,action
+C18_surface,warn,A1,KP01,KP01 · sign_notice_short,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP01,KP01 · form_application,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP02,KP02 · menu_pricelist_timetable,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP02,KP02 · public_announcement_spoken,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP02,KP02 · personal_note_postcard,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP03,KP03 · menu_pricelist_timetable,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A1,KP04,KP04 · personal_note_postcard,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP05,KP05 · written_notice_announcement,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP05,KP05 · advertisement_leaflet,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP05,KP05 · instructions_manual_recipe,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP06,KP06 · explanatory_informational_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP06,KP06 · narrative_story_diary,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP07,KP07 · explanatory_informational_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP08,KP08 · written_notice_announcement,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,A2,KP08,KP08 · instructions_manual_recipe,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP09,KP09 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP09,KP09 · narrative_story_diary,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP10,KP10 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP10,KP10 · explanatory_informational_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP10,KP10 · narrative_story_diary,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP11,KP11 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP11,KP11 · review_critique_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP12,KP12 · email_letter_formal,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP12,KP12 · explanatory_informational_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP13,KP13 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP13,KP13 · email_letter_formal,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B1,KP13,KP13 · explanatory_informational_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP14,KP14 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP14,KP14 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP15,KP15 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP15,KP15 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP15,KP15 · email_letter_formal,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP16,KP16 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP16,KP16 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP17,KP17 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP17,KP17 · review_critique_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP18,KP18 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,B2,KP18,KP18 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP19,KP19 · academic_specialised_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP19,KP19 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP20,KP20 · academic_specialised_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP20,KP20 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP21,KP21 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP21,KP21 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP21,KP21 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP22,KP22 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP22,KP22 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP23,KP23 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP23,KP23 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP23,KP23 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP24,KP24 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP24,KP24 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C1,KP24,KP24 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP25,KP25 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP25,KP25 · academic_specialised_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP25,KP25 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP26,KP26 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP26,KP26 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP26,KP26 · review_critique_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP26,KP26 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP27,KP27 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP27,KP27 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP28,KP28 · news_article_report,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP28,KP28 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP29,KP29 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP29,KP29 · academic_specialised_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP29,KP29 · essay_opinion_argumentative,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP30,KP30 · literary_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP30,KP30 · lecture_speech_monologue,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP30,KP30 · contract_terms_legal_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP30,KP30 · review_critique_text,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C18_surface,warn,C2,KP30,KP30 · report_proposal_official,현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다,기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · intercultural_globalisation_migration,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · media_entertainment_culture_pop,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · money_finance_contracts,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · neighbourhood_environment,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · services_public_admin,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C6_coverage,info,A1,,A1 · 주제(선택 포함) · travel_accommodation,A1 의 주제(선택 포함) 축 항목이 어느 Phase 에도 배치되지 않았다,해당 항목을 담당할 Phase 를 정한다
+C13_transfer,info,A2,,EN · A2,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,B1,,EN · B1,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,B2,,EN · B2,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,C1,,EN · C1,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,C2,,EN · C2,판정 positive 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,A2,,DE · A2,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,B1,,DE · B1,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,B2,,DE · B2,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,C1,,DE · C1,판정 new_concept 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C13_transfer,info,C2,,DE · C2,판정 positive 항목이 없다,해당 레벨에 정말 없다면 그대로 둔다
+C11_depth,warn,,,topics,C1/C2 평균(4.08) 이 A1/A2 평균(5.62) 보다 작다,상위 레벨이 얇아지지 않게 보강한다
+C11_depth,info,,,koreanGrammar,C1/C2 최소치(8) < A1/A2 최소치(9) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
+C11_depth,info,,,functions,C1/C2 최소치(3) < A1/A2 최소치(4) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
+C11_depth,warn,,,vocabDomains,C1/C2 평균(3.5) 이 A1/A2 평균(4.25) 보다 작다,상위 레벨이 얇아지지 않게 보강한다
+C11_depth,info,,,textTypes,C1/C2 최소치(2) < A1/A2 최소치(3) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
+C16_lexis,info,A1,KP01,KP01 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · family_kinship_address_terms,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 부모님, 동생",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · professions_workplace,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 직업, 회사, 동료, 업무",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · school_study_terms,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 공책,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP02,KP02 · home_objects_furniture,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 창문,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP02,KP02 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP02,KP02 · time_calendar,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 오전, 오후",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP02,KP02 · transport_travel_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 기차,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP03,KP03 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP03,KP03 · food_cooking,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 메뉴,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP03,KP03 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP03,KP03 · transport_travel_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 기차,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP04,KP04 · body_health_symptoms,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 배, 아프다, 약",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP04,KP04 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP04,KP04 · weather_nature,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 비, 덥다, 춥다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP05,KP05 · clothing_accessories,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신발, 크기",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP05,KP05 · food_cooking,Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 메뉴,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP05,KP05 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP05,KP05 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP06,KP06 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP06,KP06 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP06,KP06 · leisure_sport_hobbies_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 운동, 산책, 모임",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP07,KP07 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP07,KP07 · technology_devices_internet,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 파일, 비밀번호, 접속, 화면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP08,KP08 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP08,KP08 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP08,KP08 · technology_devices_internet,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 파일, 비밀번호, 접속, 화면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP09,KP09 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP09,KP09 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP09,KP09 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 인용, 맥락, 화자",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP10,KP10 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP10,KP10 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP10,KP10 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP11,KP11 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP11,KP11 · media_pop_culture_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 기사, 장면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP11,KP11 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP11,KP11 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 제도, 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP12,KP12 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP12,KP12 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP12,KP12 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP13,KP13 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 인용, 맥락, 화자",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP13,KP13 · media_pop_culture_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 기사, 장면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP13,KP13 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 제도, 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP13,KP13 · technology_devices_internet,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 파일, 비밀번호, 접속, 화면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP14,KP14 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 반론, 타당성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP14,KP14 · institutional_legal_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 권한, 예외",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP14,KP14 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP15,KP15 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 반론, 타당성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP15,KP15 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP16,KP16 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 반론, 타당성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP16,KP16 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP16,KP16 · institutional_legal_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 권한, 예외",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP17,KP17 · etiquette_honorific_lexis,Phase 가 쓰는 어휘 1 개가 앱 어휘(B2 이하)에 없다: 높임,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP17,KP17 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP17,KP17 · media_pop_culture_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 기사, 장면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP18,KP18 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B2 이하)에 없다: 반론, 타당성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP18,KP18 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B2,KP18,KP18 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B2 이하)에 없다: 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP19,KP19 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 논거, 타당성, 추론 과정, 설명력",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP19,KP19 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 논지를 전개하다, 핵심을 짚다, 맥을 짚다, 문턱을 낮추다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP19,KP19 · institutional_legal_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C1 이하)에 없다: 업무 분장, 시행 절차, 검토 기준",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP19,KP19 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 명사화, 정보 구조, 행위 주체, 문장 성분",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP20,KP20 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 2 개가 앱 어휘(C1 이하)에 없다: 반증 가능성, 인과 추론",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP20,KP20 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 판단을 유보하다, 근거를 뒷받침하다, 여지를 남기다, 속단을 경계하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP20,KP20 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 양태, 유보 표현, 확신 정도, 명제",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP20,KP20 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 2 개가 앱 어휘(C1 이하)에 없다: 경향성, 불확실성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP21,KP21 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C1 이하)에 없다: 반론, 논증 구조, 반례",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP21,KP21 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 논점을 흐리다, 반론을 제기하다, 허점을 짚다, 한발 물러서다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP21,KP21 · institutional_legal_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 제도적 제약, 예외 규정, 권한 범위, 공익",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP21,KP21 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C1 이하)에 없다: 기회비용, 형평성, 정당성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP22,KP22 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 위험 평가, 비용 편익, 실현 가능성, 대안 검토",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP22,KP22 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C1 이하)에 없다: 책임을 지다, 조건을 충족하다, 입장 차를 좁히다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP22,KP22 · institutional_legal_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C1 이하)에 없다: 집행 권한, 시행 조건, 평가 지표",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP22,KP22 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 정책 효과, 재원, 파급 효과, 사회적 비용",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP23,KP23 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 출처 확인, 교차 검증, 정정, 검증 가능성",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP23,KP23 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 말을 옮기다, 뜻을 조율하다, 말을 보태다, 앞뒤가 맞다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP23,KP23 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 인용 범위, 전언, 발화 주체, 지시 대상",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP24,KP24 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 서술자, 작품 해석, 비평, 문학적 관습",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP24,KP24 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 말에 뼈가 있다, 말문을 열다, 속내를 드러내다, 한 귀로 흘리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C1,KP24,KP24 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 냉소, 반어, 공유 전제, 화자 태도",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP25,KP25 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 필요조건, 충분조건, 경계 사례, 논리적 귀결",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP25,KP25 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 범위를 한정하다, 단서를 달다, 맥락을 살피다, 한데 묶다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP25,KP25 · institutional_legal_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 적용 범위, 단서 조항, 자격 요건, 규범",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP25,KP25 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 개념 정의, 외연, 지시 범위",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP26,KP26 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 해석의 정합성, 평가 기준, 텍스트 근거, 반대 해석",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP26,KP26 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 서사 시점, 역사적 기억, 재현",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP26,KP26 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 행간을 읽다, 색안경을 끼다, 여운을 남기다, 빛이 바래다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP27,KP27 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 극단적 양보, 가정적 상황, 상쇄 효과, 핵심 쟁점",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP27,KP27 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 접점을 찾다, 평행선을 달리다, 양보를 끌어내다, 한 치도 물러서지 않다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP27,KP27 · institutional_legal_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 협의 절차, 중재안, 권리 충돌",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP28,KP28 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 호칭 선택, 청자 대우, 대인 거리, 체면 손상",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP28,KP28 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 말꼬리를 잡다, 언중유골, 말의 무게, 말머리를 돌리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP28,KP28 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 평가적 명명, 화제 한정, 인용 조건, 반문",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP29,KP29 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 해석의 유보, 다의성, 비평적 거리, 근거의 한계",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP29,KP29 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 문학적 목소리, 독백, 관습적 표현, 시대적 맥락",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP29,KP29 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 시야를 넓히다, 맥락을 벗어나다, 무게를 두다, 설득력을 얻다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP29,KP29 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 종결형, 장르 제약, 수사 의문, 용례 분포",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP30,KP30 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 주체 높임, 상대 높임, 호칭 체계, 말투 전환",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP30,KP30 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 격식을 갖추다, 말을 가려 하다, 뜻을 헤아리다, 가교 역할을 하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP30,KP30 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 문체 효과, 명제 보존, 화용적 함축",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
