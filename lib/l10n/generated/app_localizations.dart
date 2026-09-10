@@ -5533,11 +5533,11 @@ abstract class AppL10n {
   /// **'Du'**
   String get listeningSpeakerYou;
 
-  /// No description provided for @scenarioPlayerSelfSuffix.
+  /// No description provided for @scenarioAssignedRole.
   ///
   /// In de, this message translates to:
-  /// **'(나)'**
-  String get scenarioPlayerSelfSuffix;
+  /// **'Deine Rolle in dieser Szene'**
+  String get scenarioAssignedRole;
 
   /// No description provided for @listeningReviewTitle.
   ///

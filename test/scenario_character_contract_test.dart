@@ -87,13 +87,12 @@ void main() {
     expect(
       scenario.speakerDisplayName(
         'user',
-        languageCode: 'de',
         fallbackYou: 'Du',
         fallbackNarrator: 'Erzähler',
-        playerSelfSuffix: '(나)',
       ),
-      '크리스티안 (나)',
+      'Du',
     );
+    expect(scenario.playerRoleDisplayName(fallbackYou: 'Du'), '크리스티안');
   });
 
   test('legacy scenario keeps the old user and NPC voice fallback', () {
