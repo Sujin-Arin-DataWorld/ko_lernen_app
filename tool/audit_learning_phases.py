@@ -34,6 +34,7 @@ import pathlib
 import re
 import sys
 from collections import Counter, OrderedDict, defaultdict
+import learning_phase_contracts as contracts
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
 LEVELS: Tuple[str, ...] = ("A1", "A2", "B1", "B2", "C1", "C2")
@@ -72,11 +73,7 @@ OFFICIAL_AXIS_SOURCES = {
     ("grammar", "nikl_kiiq_2017"),
     ("grammar", "cefrj_grammar_profile"),
     ("vocabulary", "cefrj_vocabulary_profile"),
-    ("vocabDomain", "cefrj_vocabulary_profile"),
 }
-# 교차 매핑 행에는 sources 키가 없어 evidence_for() 로 재도출할 수 없다. 그래서
-# "OFFICIAL 이 붙을 수 있는 축" 만 따로 뽑아 축 단위로 검사한다.
-OFFICIAL_AXES = {axis for axis, _ in OFFICIAL_AXIS_SOURCES}
 DERIVED_SOURCES = {
     "nikl_std_curriculum_2020", "nikl_kiiq_summary", "topik_levels", "cefr_cv_2020",
     "threshold_1990", "egp", "evp", "cambridge_a2_key", "cambridge_b1_preliminary",
@@ -92,9 +89,9 @@ PEDAGOGICAL_SOURCES = {
     "user_brief_2026_09_09",
 }
 EVIDENCE_LEGEND = {
-    "OFFICIAL": "저장소가 원본 인벤토리를 그대로 보유한 항목 — 국제통용 2017 문법 336(공공누리 1유형 CSV), CEFR-J Grammar Profile CSV. 바이트 단위로 대조 가능하다.",
-    "DERIVED": "실재하는 공식 문서(Goethe Prüfungsziele·Profile deutsch·DTZ·BAMF·telc·Cambridge 핸드북·EGP/EVP·CEFR CV·TOPIK 등급·국립국어원 2020 고시)를 근거로 하지만 이 세션의 프록시가 원문 PDF 를 차단해 문면을 열지 못했다 — 재구성이며 원문 대조 대상이다.",
-    "PEDAGOGICAL": "교재 관행(세종한국어)·2차 문헌·앱 내부 정본 문서(CONTENT_LEVEL_BIBLE)·Jin 브리프·언어학적 추론에 근거한 교수 판단. 공식 규정이 아니다.",
+    "OFFICIAL": "보유한 1차 인벤토리의 형태·원 등급·범주 사실에 한정한다. 예문·Phase 순서·언어 간 대응의 공식성을 뜻하지 않는다.",
+    "DERIVED": "실제로 읽은 1차 자료의 특정 주장·쪽을 근거로 한 합성이다. URL 존재 확인이나 모델 지식만으로는 이 등급을 부여하지 않는다.",
+    "PEDAGOGICAL": "저자의 교수 판단·예문·전이 가설·Phase 배열 또는 항목 단위 원문 대조가 아직 없는 재구성이다. 전문가·원어민 승인과 구별한다.",
 }
 
 # 각 Phase 가 반드시 채워야 하는 16개 필드 (PART 5)
@@ -139,8 +136,15 @@ MIN_TRANSFER_ITEMS = 12
 
 
 def _read_json(path: pathlib.Path) -> Any:
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"{path}: duplicate JSON key {key!r}")
+            result[key] = value
+        return result
     with path.open(encoding="utf-8") as fh:
-        return json.load(fh)
+        return json.load(fh, object_pairs_hook=unique_object)
 
 
 class Findings:
@@ -180,22 +184,18 @@ class Findings:
 
 
 def evidence_for(axis: str, sources: Sequence[str]) -> Tuple[str, str]:
-    """축 + 출처 목록 → (등급, 근거 설명). PART 2 의 기계적 규칙."""
-    srcs = [s for s in sources if s]
-    if not srcs:
-        return "PEDAGOGICAL", "출처 미기재 — 교수 판단으로 취급"
+    """Inventory membership and authored interpretation have different authority.
+
+    A source URL or a retrieved PDF alone cannot authenticate a reconstructed
+    topic, cross-language mapping, example or pedagogical sequence.
+    """
+    srcs = sorted({s for s in sources if s})
     official = [s for s in srcs if (axis, s) in OFFICIAL_AXIS_SOURCES]
     if official:
-        return "OFFICIAL", "저장소 보유 원본 인벤토리: " + ", ".join(sorted(official))
-    derived = [s for s in srcs if s in DERIVED_SOURCES]
-    if derived:
-        note = "공식 문서 근거(원문 미개봉): " + ", ".join(sorted(derived))
-        downgraded = [s for s in derived if (axis, s) not in OFFICIAL_AXIS_SOURCES
-                      and s in {"nikl_kiiq_2017", "cefrj_grammar_profile", "cefrj_vocabulary_profile"}]
-        if downgraded:
-            note += f" · 주의: {', '.join(downgraded)} 는 문법 축에서만 저장소 원본이다(이 축의 목록은 보유하지 않음)"
-        return "DERIVED", note
-    return "PEDAGOGICAL", "교재·2차 문헌·내부 정본·브리프 근거: " + ", ".join(sorted(srcs))
+        return "OFFICIAL", "저장소 보유 인벤토리의 항목·등급 사실에 한정: " + ", ".join(official)
+    return "PEDAGOGICAL", "저자 재구성; 항목 단위 원문 근거는 별도 확인: " + ", ".join(srcs)
+
+
 
 
 # ── 로더 ────────────────────────────────────────────────────────────────────
@@ -206,6 +206,8 @@ class Matrix:
         self.ko = _read_json(d / "ko.json")
         self.en = _read_json(d / "en.json")
         self.de = _read_json(d / "de.json")
+        access_path = d / "source_access.json"
+        self.source_access = _read_json(access_path) if access_path.exists() else {}
         self.topics = {t["id"]: t for t in self.taxonomy["topics"]}
         self.acts = {a["id"]: a for a in self.taxonomy["speechActs"]}
         self.text_types = {t["id"]: t for t in self.taxonomy["textTypes"]}
@@ -431,6 +433,10 @@ def check_grammar_partition(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[st
                         f"{_j([str(x) + '급' for x in sorted(official_grades)], '·')} 에 둔다",
                         "국제통용 336 의 실제 급으로 고친다", lv, pid)
             if role == "new":
+                if official_grades and declared != GRADE_OF_LEVEL.get(lv):
+                    f.error("C3_grammar", f"{pid} · {form}",
+                            f"new의 niklGrade={declared}는 이 Phase의 프로젝트 배정 급 {GRADE_OF_LEVEL.get(lv)}와 달라선 안 된다",
+                            "동형 형태도 해당 급의 sense를 도입한다", lv, pid)
                 assigned[lv][form].append(pid)
                 if form not in mx.form_set.get(lv, set()):
                     grade = mx.form_grade.get(form)
@@ -519,8 +525,8 @@ def check_axis_ids(mx: Matrix, ps: PhaseSystem, f: Findings) -> None:
                 f.warn("C5_ids", f"{pid} · textType {tid}", f"{lv} 의 텍스트 유형 목록에 없다", "목록을 맞춘다", lv, pid)
             if tid in mx.text_types and not (mx.text_types[tid].get("appSurfaces") or []):
                 f.warn("C18_surface", f"{pid} · {tid}",
-                       "앱에 이 장르를 실현할 학습 표면이 없다(structural_gap) — Phase 는 요구하지만 배치 수단이 없다",
-                       "표면 설계가 필요하다(audit_curriculum_matrix.py §텍스트 유형 참조)", lv, pid)
+                       "현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다",
+                       "기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다", lv, pid)
         for v in p.get("vocabDomains") or []:
             vid = v.get("id")
             if vid not in mx.vocab_domains:
@@ -551,15 +557,16 @@ def check_coverage(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Dict[s
         group = groups.get(lv) or []
         used_topics = {t.get("id") for p in group for t in (p.get("topics") or [])}
         used_acts = {a.get("id") for p in group for a in (p.get("functions") or [])}
-        used_tt = {t.get("id") for p in group for t in (p.get("textTypes") or [])}
+        used_tt_r = {t.get("id") for p in group for t in (p.get("textTypes") or []) if t.get("use") in ("R", "R/P")}
+        used_tt_p = {t.get("id") for p in group for t in (p.get("textTypes") or []) if t.get("use") in ("P", "R/P")}
         used_vd = {v.get("id") for p in group for v in (p.get("vocabDomains") or [])}
         used_reg = {r for p in group for r in ((p.get("pragmaticsRegister") or {}).get("registerIds") or [])}
         rows = (
             ("주제(필수)", "topics_required", used_topics, "error"),
             ("주제(선택 포함)", "topics", used_topics, "info"),
             ("화행(생산)", "acts_production", used_acts, "error"),
-            ("텍스트 유형(수용)", "textTypes_R", used_tt, "warn"),
-            ("텍스트 유형(생산)", "textTypes_P", used_tt, "warn"),
+            ("텍스트 유형(수용)", "textTypes_R", used_tt_r, "warn"),
+            ("텍스트 유형(생산)", "textTypes_P", used_tt_p, "warn"),
             ("어휘 영역", "vocabDomains", used_vd, "error"),
             ("문체(생산)", "registers_production", used_reg, "error"),
         )
@@ -577,42 +584,8 @@ def check_coverage(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Dict[s
 
 
 def check_prerequisites(mx: Matrix, ps: PhaseSystem, f: Findings) -> None:
-    order = {p["id"]: p.get("no", 0) for p in ps.phases}
-    taught_by: Dict[str, int] = {}
-    for p in ps.phases:
-        for g in p.get("koreanGrammar") or []:
-            form = (g.get("form") or "").strip()
-            if g.get("role") == "new" and form and form not in taught_by:
-                taught_by[form] = p.get("no", 0)
-    for p in ps.phases:
-        pid, lv, no = p.get("id", "?"), p.get("level", ""), p.get("no", 0)
-        pre = p.get("prerequisites") or {}
-        for ref in pre.get("phaseIds") or []:
-            if ref not in order:
-                f.error("C7_prereq", f"{pid} → {ref}", "존재하지 않는 Phase 를 선수 조건으로 가리킨다",
-                        "선수 Phase id 를 고친다", lv, pid)
-            elif order[ref] >= no:
-                f.error("C7_prereq", f"{pid} → {ref}", "선수 조건이 자기 자신 또는 이후 Phase 다(전방 참조)",
-                        "앞선 Phase 만 선수 조건으로 쓴다", lv, pid)
-        for form in pre.get("forms") or []:
-            form = (form or "").strip()
-            if not form:
-                continue
-            when = taught_by.get(form)
-            if when is None:
-                f.warn("C7_prereq", f"{pid} · 선수 형태 {form}", "이 체계의 어느 Phase 에서도 new 로 도입되지 않는 형태",
-                       "형태 표기를 맞추거나 도입 Phase 를 만든다", lv, pid)
-            elif when >= no:
-                f.error("C7_prereq", f"{pid} · 선수 형태 {form}",
-                        f"선수 형태가 이후 Phase(no={when}) 에서 도입된다 — 의존 순서 위반",
-                        "형태를 앞 Phase 로 옮기거나 선수 조건에서 뺀다", lv, pid)
-        for m in p.get("masteryCheck") or []:
-            for form in m.get("formsUsed") or []:
-                when = taught_by.get((form or "").strip())
-                if when is not None and when > no:
-                    f.error("C10_mastery", f"{pid} · {form}",
-                            f"숙달 점검이 아직 배우지 않은 형태를 요구한다(도입 no={when})",
-                            "점검 과제를 이 Phase 까지 배운 형태로 바꾼다", lv, pid)
+    contracts.check_reference_order(ps, f)
+
 
 
 def check_bridges(mx: Matrix, ps: PhaseSystem, f: Findings) -> None:
@@ -724,13 +697,10 @@ def check_crossmap(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
                 f.error("C14_crossmap", f"{lv} · {rid}", f"알 수 없는 관계 {r.get('relation')!r}", "관계를 고친다", lv)
             if r.get("evidence") not in EVIDENCE_TAGS:
                 f.error("C14_crossmap", f"{lv} · {rid}", f"알 수 없는 근거 등급 {r.get('evidence')!r}", "등급을 고친다", lv)
-            # 등급의 참·거짓은 축이 정한다(PART 2). 교차 매핑 행에는 sources 키가 없으므로
-            # evidence_for() 를 돌릴 수 없고, 대신 "이 축에 저장소가 원본 인벤토리를 갖고
-            # 있는가" 만 본다 — 화용·문체·담화 축에는 원본 목록이 없으므로 OFFICIAL 이 설 수 없다.
-            elif r.get("evidence") == "OFFICIAL" and r.get("axis") not in OFFICIAL_AXES:
+            # Authored cross-language relations are not official inventory facts.
+            elif r.get("evidence") == "OFFICIAL":
                 f.error("C14_crossmap", f"{lv} · {rid}",
-                        f"{r.get('axis')!r} 축에는 저장소가 원본 인벤토리를 갖고 있지 않은데 OFFICIAL 을 붙였다"
-                        f"(OFFICIAL 가능 축: {_j(sorted(OFFICIAL_AXES), '·')})",
+                        "저자가 구성한 언어 간 대응 전체에 OFFICIAL을 붙였다; 구성 요소의 공식성과 대응 판단을 구별해야 한다",
                         "DERIVED 또는 PEDAGOGICAL 로 내린다", lv)
             for key in ("koreanLevel", "englishLevel", "germanLevel"):
                 if r.get(key) not in CEFR_OR_NONE:
@@ -770,6 +740,8 @@ def check_crossmap(mx: Matrix, ps: PhaseSystem, f: Findings) -> Dict[str, Any]:
 
 def _is_article_row(row: Mapping[str, Any]) -> bool:
     """관사·한정성 행인가 — 조사(particles) 행과 혼동하지 않는다."""
+    if row.get("axis") not in (None, "grammar"):
+        return False  # A news article is a genre, not an article determiner.
     concept = row.get("concept") or {}
     tokens: set = set()
     for text in (row.get("id"), concept.get("en")):
@@ -840,7 +812,7 @@ def check_evidence(ps: PhaseSystem, f: Findings) -> Dict[str, int]:
                     f.error("C12_evidence", f"{lang}:{it.get('id')}", f"알 수 없는 근거 등급 {tag!r}", "고친다", lv)
                 elif tag == "OFFICIAL":
                     f.error("C12_evidence", f"{lang}:{it.get('id')}",
-                            "전이 분석은 원문 대조가 불가능한 이 세션에서 OFFICIAL 이 될 수 없다",
+                            "저자가 만든 언어 간 전이 판단 전체에는 OFFICIAL을 붙일 수 없다",
                             "DERIVED 또는 PEDAGOGICAL 로 내린다", lv)
                 tally[tag] += 1
     return dict(tally)
@@ -894,27 +866,8 @@ def check_app_anchors(mx: Matrix, ps: PhaseSystem, app: AppCorpus, f: Findings) 
 
 
 def check_dependency_map(mx: Matrix, ps: PhaseSystem, f: Findings) -> None:
-    taught_by: Dict[str, int] = {}
-    for p in ps.phases:
-        for g in p.get("koreanGrammar") or []:
-            if g.get("role") == "new":
-                taught_by.setdefault((g.get("form") or "").strip(), p.get("no", 0))
-    if not ps.dependency_map:
-        f.error("C17_depmap", "dependencyMap", "문법 의존 지도가 비어 있다", "PART 8 의 지도를 채운다")
-    for row in ps.dependency_map:
-        pre, tgt = (row.get("prerequisite") or "").strip(), (row.get("target") or "").strip()
-        adv = row.get("advancedReuse") or ""
-        if not (pre and tgt and adv):
-            f.error("C17_depmap", f"{pre} → {tgt}", "prerequisite·target·advancedReuse 가 모두 필요하다", "행을 채운다")
-            continue
-        for label, form in (("prerequisite", pre), ("target", tgt)):
-            if form not in mx.all_forms and form not in taught_by:
-                f.warn("C17_depmap", f"{label} {form}", "국제통용 목록에도 Phase 도입 목록에도 없는 형태",
-                       "형태 표기를 맞춘다")
-        a, b = taught_by.get(pre), taught_by.get(tgt)
-        if a is not None and b is not None and a > b:
-            f.error("C17_depmap", f"{pre} → {tgt}",
-                    f"선수 형태가 목표 형태보다 늦게 도입된다(no {a} > {b})", "배치를 바로잡는다")
+    contracts.check_dependency_order(ps, f)
+
 
 
 # ── 렌더러 ──────────────────────────────────────────────────────────────────
@@ -970,9 +923,10 @@ def render_part12(mx: Matrix, ps: PhaseSystem, evidence_tally: Mapping[str, int]
     o.append("")
     o.append("등급은 출처 id 만으로 정하지 않는다. **축(axis)** 과 함께 정한다:")
     o.append("`국제 통용 한국어 표준 교육과정(2017)` 의 *문법 목록* 은 이 저장소에 CSV 로 있으나 *주제 목록* 은 없다.")
-    o.append("따라서 같은 `nikl_kiiq_2017` 출처라도 문법 축에서는 `[OFFICIAL]`, 주제 축에서는 `[DERIVED]` 다.")
-    o.append("이 세션의 프록시가 goethe.de · korean.go.kr · coe.int · cambridgeenglish.org · bamf.de · telc.net 를 차단해")
-    o.append("공식 PDF 원문을 열지 못했다 — 그 문서들에 근거한 항목은 전부 `[DERIVED]` 이며 원문 대조가 남아 있다.")
+    o.append("따라서 같은 `nikl_kiiq_2017` 출처라도 문법 축에서는 `[OFFICIAL]`, 주제 축에서는 항목 단위 증거가 없으면 `[PEDAGOGICAL]` 다.")
+    o.append("초기 작성 환경의 원문 접근 실패는 현재 전체 자료의 상태를 뜻하지 않는다. 후속 검토에서 CEFR CV·Goethe A1·국립국어원 자료를 열어 관련 부분을 확인했다.")
+    o.append("그 확인을 기존 목록 전체의 검증으로 확대하지 않는다. `source_access.json`의 열람 범위와 각 항목의 provenance를 함께 본다.")
+    o.append("30개 Phase와 예문·전이는 유실된 원본을 되찾은 파일이 아니라, 남은 336 문법 목록·89개 노트를 검토해 새로 작성한 교수 설계다.")
     o.append("")
     o.append("### 출처 등급표")
     o.append("")
@@ -986,7 +940,7 @@ def render_part12(mx: Matrix, ps: PhaseSystem, evidence_tally: Mapping[str, int]
     for sid, lang in seen_sources:
         g_tag, _ = evidence_for("grammar", [sid])
         o_tag, _ = evidence_for("topic", [sid])
-        kind = "저장소 보유 원본" if g_tag == "OFFICIAL" else ("공식 문서(원문 미개봉)" if sid in DERIVED_SOURCES else "교재·2차 문헌·내부 문서")
+        kind = "저장소 보유 원본" if g_tag == "OFFICIAL" else ("공식 참고 문서(항목별 근거 별도)" if sid in DERIVED_SOURCES else "교재·2차 문헌·내부 문서")
         o.append(f"| `{sid}` ({lang}) | [{g_tag}] | [{o_tag}] | {kind} |")
     o.append("")
     o.append("### 이 문서의 항목 등급 분포")
@@ -995,6 +949,16 @@ def render_part12(mx: Matrix, ps: PhaseSystem, evidence_tally: Mapping[str, int]
     o.append("|---|---|")
     for tag in EVIDENCE_TAGS:
         o.append(f"| [{tag}] | {evidence_tally.get(tag, 0)} |")
+    if mx.source_access:
+        o.append("")
+        o.append("### 이번 검토에서 직접 연 1차 자료 — 주장별 확인 범위")
+        o.append("")
+        for source in mx.source_access.get("sources") or []:
+            pages = ", ".join(map(str, source.get("printedPagesRead") or []))
+            o.append(f"- [{source.get('title')}]({source.get('url')}) — 인쇄 {pages}쪽 ({source.get('accessedOn')}).")
+            o.append(f"  - 확인: {' '.join(source.get('verifiedClaims') or [])}")
+            o.append(f"  - 이 확인에 포함되지 않음: {'; '.join(source.get('doesNotVerify') or [])}")
+        o.append("출처 파일의 열람과 새 Phase·예문·전이 전체의 승인은 구별한다. 항목별 언어 프로파일 검증과 교육자 검토는 남아 있다.")
     o.append("")
     o.append("### 출처 간 불일치 기록")
     o.append("")
@@ -1010,7 +974,7 @@ def render_part12(mx: Matrix, ps: PhaseSystem, evidence_tally: Mapping[str, int]
     o.append("")
     o.append("## PART 1 — 언어별 레벨 기술")
     o.append("")
-    o.append("세 언어를 각각 그 언어의 공식 인벤토리로 기술한다. 교차 매핑은 PART 3 에서만 한다.")
+    o.append("각 언어의 원 등급·출처와 저자 재구성을 구분한다. KO의 앱 CEFR 배정은 프로젝트 가설이며 TOPIK·국제통용·EN·DE 등급의 자동 등치가 아니다.")
     o.append("")
 
     groups = ps.levels()
@@ -1018,7 +982,7 @@ def render_part12(mx: Matrix, ps: PhaseSystem, evidence_tally: Mapping[str, int]
         ko_lv = mx.ko["levels"][lv]
         o.append(f"### {lv}")
         o.append("")
-        o.append(f"- 등급 대응 — 한국어: {_j([f'{k}={v}' for k, v in ko_lv['scale'].items()], ' · ')}")
+        o.append(f"- 원 척도·프로젝트 배정 — 한국어: {_j([f'{k}={v}' for k, v in ko_lv['scale'].items()], ' · ')}")
         o.append(f"- 등급 대응 — 영어: {_j([f'{k}={v}' for k, v in mx.en['levels'][lv]['scale'].items()], ' · ')}")
         o.append(f"- 등급 대응 — 독일어: {_j([f'{k}={v}' for k, v in mx.de['levels'][lv]['scale'].items()], ' · ')}")
         o.append("")
@@ -1192,6 +1156,8 @@ def render_part4(mx: Matrix, ps: PhaseSystem) -> str:
                 for it in sel:
                     c = it.get("concept") or {}
                     o.append(f"- **{c.get('ko','')}** ({c.get('en','')}) — {lang} {it.get('sourceLevel','')}: {it.get('sourceRealisation','')}")
+                    if it.get("sourceLevelEvidence"):
+                        o.append(f"  - 모어 쪽 수준 근거: [{it['sourceLevelEvidence']}] {it.get('sourceLevelNote', '')}")
                     o.append(f"  - 한국어: {it.get('koreanRealisation','')}")
                     o.append(f"  - 기제: {it.get('why','')}")
                     if it.get("predictedError"):
@@ -1199,6 +1165,10 @@ def render_part4(mx: Matrix, ps: PhaseSystem) -> str:
                     o.append(f"  - 교수 조치: {it.get('teachingMove','')}")
                     if it.get("relevantKoreanForms"):
                         o.append(f"  - 관련 형태: {_j(it['relevantKoreanForms'], ', ')}")
+                    for analysis in it.get("functionAnalysis") or []:
+                        o.append(f"  - 화행 `{analysis.get('id')}`: {analysis.get('targetAction')} — {analysis.get('l1TeachingMove')}")
+                    if it.get("distinction"):
+                        o.append(f"  - 구별할 점: {it['distinction']}")
                     if it.get("doNotSay"):
                         o.append(f"  - 이렇게 비유하지 말 것: {it.get('doNotSay')}")
                     o.append(f"  - 근거: [{it.get('evidence','')}]")
@@ -1229,9 +1199,10 @@ def render_part5(mx: Matrix, ps: PhaseSystem, only_level: Optional[str] = None) 
     o.append(f"Phase {len(ps.phases)}개 · 레벨당 " + _j([f"{lv} {len(g)}" for lv, g in ps.levels().items()], " · "))
     o.append("")
     o.append("각 Phase 는 16개 필드를 모두 채운다. 문법의 `[OFFICIAL]` 표시는 국립국어원 국제 통용 한국어 표준 교육과정(2017)")
-    o.append("문법 목록(저장소 CSV, 공공누리 제1유형)에 그 형태가 그대로 있다는 뜻이다. 336개 형태 전부가 어느 Phase 에 새로")
+    o.append("문법 목록(저장소 CSV, 공공누리 제1유형)에 그 형태가 그대로 있다는 뜻이다. 336개 급·형태 쌍 전부가 어느 Phase 에 새로")
     op = "도입되는지 기계 검사로 고정되어 있다 — 누락·중복이 있으면 빌드가 실패한다."
     o.append(op)
+    o.append("기능 설명·예문·Phase 배치는 PEDAGOGICAL이며, OFFICIAL 표지가 이 저작 부분까지 검증하지 않는다.")
     o.append("")
     o.append("## 목차")
     o.append("")
@@ -1286,6 +1257,11 @@ def render_part5(mx: Matrix, ps: PhaseSystem, only_level: Optional[str] = None) 
                 for g in spiral:
                     o.append(f"- {g.get('form')} — {_ko(g.get('functionUse'))}")
                 o.append("")
+            for contrast in p.get("supplementaryContrasts") or []:
+                ex = contrast.get("example") or {}
+                o.append(f"- **보조 대비 [PEDAGOGICAL]: {contrast.get('form')}** — {contrast.get('note')}")
+                o.append(f"  - 예: {ex.get('ko', '')} — {ex.get('en', '')}")
+                o.append(f"  - 과제: {_ko(contrast.get('task'))} · 판정: {_ko(contrast.get('criterion'))}")
             o.append("**3 의사소통 기능 (Sprachhandlungen)**")
             for a in p.get("functions") or []:
                 o.append(f"- {mx.label(mx.acts, a.get('id'))} (`{a.get('id')}`) — {_ko(a.get('realisation'))}")
@@ -1300,7 +1276,7 @@ def render_part5(mx: Matrix, ps: PhaseSystem, only_level: Optional[str] = None) 
             o.append("**5 텍스트 유형 (Textsorten)**")
             for t in p.get("textTypes") or []:
                 surfaces = (mx.text_types.get(t.get("id")) or {}).get("appSurfaces") or []
-                mark = "" if surfaces else " ⛔ 앱에 실현 표면 없음"
+                mark = "" if surfaces else " ⛔ 현재 taxonomy에 앱 배치 경로 미매핑"
                 o.append(f"- {mx.label(mx.text_types, t.get('id'))} (`{t.get('id')}`, {t.get('use','')}) — {t.get('note','')}{mark}")
             o.append("")
             for key, title in (("listening", "6 듣기"), ("speaking", "7 말하기"), ("reading", "8 읽기"), ("writing", "9 쓰기")):
@@ -1368,13 +1344,13 @@ def sequencing_report(mx: Matrix, ps: PhaseSystem) -> Dict[str, Any]:
     for p in ps.phases:
         for g in p.get("koreanGrammar") or []:
             if g.get("role") == "new":
-                intro.setdefault((g.get("form") or "").strip(), p.get("no", 0))
+                intro.setdefault(contracts.grammar_key(g), p.get("no", 0))
     spiral_rows: List[Dict[str, Any]] = []
     spiral_by_form: Dict[str, List[Tuple[int, str]]] = defaultdict(list)
     for p in ps.phases:
         for g in p.get("koreanGrammar") or []:
             if g.get("role") == "spiral":
-                spiral_by_form[(g.get("form") or "").strip()].append((p.get("no", 0), _ko(g.get("functionUse"))))
+                spiral_by_form[contracts.grammar_key(g)].append((p.get("no", 0), _ko(g.get("functionUse"))))
     for form, uses in sorted(spiral_by_form.items(), key=lambda kv: -len(kv[1])):
         first = intro.get(form)
         spiral_rows.append({
@@ -1586,19 +1562,18 @@ def render_part8(mx: Matrix, ps: PhaseSystem, rows: Sequence[Sequence[str]]) -> 
     o.append("각 행은 \"이것을 먼저 해야 저것이 되고, 그 뒤에 이렇게 다시 쓰인다\" 를 하나로 묶는다.")
     o.append("도입 Phase 번호는 phases.json 의 배정에서 자동으로 채운다 — 순서가 뒤집히면 검증이 실패한다.")
     o.append("")
-    intro: Dict[str, int] = {}
-    for p in ps.phases:
-        for g in p.get("koreanGrammar") or []:
-            if g.get("role") == "new":
-                intro.setdefault((g.get("form") or "").strip(), p.get("no", 0))
+    index = contracts.GrammarIndex(ps.phases)
+    def introduction(row, field):
+        key = index.resolve(row.get(field), row.get(field + "Key"), lambda *_: None, "render")
+        pos = index.intro.get(key)
+        return f"{key or row.get(field, '')} (no{pos[0] if pos else '—'})"
     o.append("| 선수 (도입) | 목표 (도입) | 상위 재활용 | 왜 이 순서인가 |")
     o.append("|---|---|---|---|")
     for row in ps.dependency_map:
-        pre, tgt = row.get("prerequisite", ""), row.get("target", "")
         o.append("| " + " | ".join([
-            _cell(f"{pre} (no{intro.get(pre, '—')})"),
-            _cell(f"{tgt} (no{intro.get(tgt, '—')})"),
-            _cell(row.get("advancedReuse")),
+            _cell(introduction(row, "prerequisite")),
+            _cell(introduction(row, "target")),
+            _cell(f"{row.get('advancedReuseKey', row.get('advancedReuse'))} ({row.get('advancedReusePhase', '')})"),
             _cell(row.get("why")),
         ]) + " |")
     o.append("")
@@ -1665,15 +1640,18 @@ def run(root: pathlib.Path, check_only: bool) -> Tuple[Dict[str, Any], List[str]
 
     check_plan(ps, f)
     check_fields(ps, f)
+    contracts.check_nested_fields(ps, f)
     check_grammar_partition(mx, ps, f)
     check_axis_ids(mx, ps, f)
     cov = check_coverage(mx, ps, f)
     check_prerequisites(mx, ps, f)
     check_bridges(mx, ps, f)
     transfer_stats = check_transfer_links(ps, f)
+    contracts.check_transfer_targets(ps, f)
     crossmap_stats = check_crossmap(mx, ps, f)
     depth = check_depth_floor(ps, f)
     evidence_tally = check_evidence(ps, f)
+    contracts.check_declared_metadata(mx, ps, f)
     lexis = check_lexis(mx, ps, app, f)
     anchors = check_app_anchors(mx, ps, app, f)
     check_dependency_map(mx, ps, f)

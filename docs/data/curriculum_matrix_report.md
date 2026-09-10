@@ -2,33 +2,33 @@
 
 > 생성: `python tool/audit_curriculum_matrix.py` — 직접 편집 금지. 매트릭스 정본은 `tools/content_factory/cefr_matrix/` (taxonomy·ko·en·de JSON).
 > 문법 매칭은 `tool/build_level_bible_tables.py` 의 F1 매처를 그대로 재사용한다(F1_grammar_map.md 와 항상 일치).
-> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(앱에 그 장르를 담을 표면 자체가 없음) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).
+> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(현재 taxonomy에 장르 배치 경로 미매핑) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).
 
 ## 0. 요약
 
 - 콘텐츠 규모: 어휘 2499 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 1895 · satz 2416 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **535** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **539** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
-| A1 | 17/0/0 | 40/0/5 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/1/0/5 | 12/1/1 | 2/1 | 31/55 |
-| A2 | 17/0/0 | 37/0/8 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/2/1/5 | 10/1/0 | 3/1 | 43/59 |
-| B1 | 18/0/0 | 8/10/49 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 2/0/1/6 | 8/1/0 | 4/0 | 25/35 |
+| A1 | 17/0/0 | 40/0/5 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 12/1/1 | 2/1 | 31/55 |
+| A2 | 17/0/0 | 37/0/8 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 10/1/0 | 3/1 | 43/59 |
+| B1 | 18/0/0 | 8/10/49 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 25/35 |
 | B2 | 17/0/0 | 12/11/44 (of 67) | 5/2/10 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 39/57 |
-| C1 | 12/0/0 | 1/9/46 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 5/23 |
-| C2 | 12/0/0 | 2/9/45 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/1 | 9/23 |
+| C1 | 12/0/0 | 1/10/45 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 5/23 |
+| C2 | 12/0/0 | 2/9/45 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
 
 ### 0.1 구조적 결손(레벨 무관)
 
-앱의 학습 표면(시나리오 대화·TTS·가사/대사 한 줄·cloze·satz·스몰토크·발음·문화 노트)으로는 아래 장르를 **읽기 텍스트나 쓰기 산출물로 실현할 수 없다**. 대화 *속에서* 계약·기사·공지를 이야기하는 것은 그 장르를 읽는 것이 아니다.
+아래 장르는 현재 taxonomy에 실제 수용·산출 콘텐츠를 배치한 앱 경로가 매핑되어 있지 않다. 기존 UI의 확장 가능성을 부정하는 판정은 아니다. 대화 *속에서* 계약·기사·공지를 이야기하는 것만으로 해당 장르를 읽거나 썼다고 계산하지 않는다.
 
 - ⛔ `academic_specialised_text` — 학술·전문 텍스트 (written_reception) · 매트릭스 요구 레벨: C1, C2
 - ⛔ `advertisement_leaflet` — 광고·전단·브로슈어 (written_reception) · 매트릭스 요구 레벨: A2
 - ⛔ `contract_terms_legal_text` — 계약서·약관·법률 텍스트 (written_reception) · 매트릭스 요구 레벨: B2, C1, C2
 - ⛔ `email_letter_formal` — 격식 이메일·공문 (written_interaction) · 매트릭스 요구 레벨: B1, B2
 - ⛔ `essay_opinion_argumentative` — 논설문·의견문(에세이) (written_production) · 매트릭스 요구 레벨: B2, C1, C2
-- ⛔ `explanatory_informational_text` — 설명문·안내 텍스트(TOPIK 쓰기 51~52 설명문 포함) (written_reception) · 매트릭스 요구 레벨: A2, B1
+- ⛔ `explanatory_informational_text` — 설명문·안내 텍스트 (written_reception) · 매트릭스 요구 레벨: A2, B1
 - ⛔ `form_application` — 서식·신청서 작성 (written_production) · 매트릭스 요구 레벨: A1
 - ⛔ `instructions_manual_recipe` — 사용 설명서·조리법·지시문 (written_reception) · 매트릭스 요구 레벨: A2
 - ⛔ `lecture_speech_monologue` — 강연·연설·긴 독백 (spoken_reception) · 매트릭스 요구 레벨: B1, C1, C2
@@ -43,7 +43,7 @@
 - ⛔ `sign_notice_short` — 표지판·짧은 안내문 (written_reception) · 매트릭스 요구 레벨: A1
 - ⛔ `written_notice_announcement` — 공지문·안내문 (written_reception) · 매트릭스 요구 레벨: A2
 
-## 1. A1 — 1급 · TOPIK I 1급
+## 1. A1 — 1급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 자기소개·가족·물건·위치·숫자·시간·음식·날씨처럼 나와 바로 주변의 생존 언어를 짧은 문장으로 주고받는다. 현재·과거·가까운 미래를 이미 만들 수 있어야 한다(저는 독일에 살아요 / 어제 친구를 만났어요 / 내일 영화를 볼 거예요).
 
@@ -151,7 +151,7 @@
 | ✅ covered | `service_encounter_counter` 창구·매장 응대 대화 | R/P | spoken_interaction | scenario | 18 |
 | ⛔ structural_gap | `form_application` 서식·신청서 작성 | P | written_production | — | 0 |
 | ⛔ structural_gap | `personal_note_postcard` 메모·엽서·짧은 쪽지 | P | written_production | — | 0 |
-| 🟡 thin | `instant_message_chat` 메신저·문자(카카오톡) | P | written_interaction | scenario | 1 |
+| ❌ missing | `instant_message_chat` 메신저·문자(카카오톡) | P | written_interaction | scenario | 0 |
 | ⛔ structural_gap | `sign_notice_short` 표지판·짧은 안내문 | R | written_reception | — | 0 |
 | ⛔ structural_gap | `menu_pricelist_timetable` 메뉴·가격표·시간표 | R | written_reception | — | 0 |
 | ⛔ structural_gap | `public_announcement_spoken` 안내 방송 | R | spoken_reception | — | 0 |
@@ -191,7 +191,7 @@
 - ➕ 매트릭스 밖 문체: intimate 1
 - 매트릭스 메모: 합쇼체는 자기소개·공식 인사 한 줄만 산출(polite 시나리오 안에서) — 시나리오 register 값으로는 business 가 아니어야 정상. 반말 종결 -어 는 a1_13 에서 인지만(F1b §6).
 
-## 2. A2 — 2급 · TOPIK I 2급
+## 2. A2 — 2급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 주거·건강·여행·교통·직장·학교·전화·은행처럼 일상생활을 스스로 처리한다. 문장을 연결해(이유+행동 의도: 비가 오니까 택시를 타려고 해요) 절차를 끝까지 밟는다.
 
@@ -291,8 +291,8 @@
 
 | 상태 | 텍스트 유형 | R/P | 모드 | 앱 표면 | 건수 |
 |---|---|---|---|---|---|
-| 🟡 thin | `email_informal` 비격식 이메일 | R/P | written_interaction | scenario | 1 |
-| 🟡 thin | `instant_message_chat` 메신저·문자(카카오톡) | P | written_interaction | scenario | 1 |
+| ❌ missing | `email_informal` 비격식 이메일 | R/P | written_interaction | scenario | 0 |
+| ❌ missing | `instant_message_chat` 메신저·문자(카카오톡) | P | written_interaction | scenario | 0 |
 | ⛔ structural_gap | `narrative_story_diary` 이야기·일기·서사문 | P | written_production | — | 0 |
 | ❌ missing | `social_media_post_comment` SNS 게시물·댓글·포럼 | P | written_interaction | scenario | 0 |
 | ✅ covered | `phone_call` 전화 통화 | R/P | spoken_interaction | scenario, smalltalk | 5 |
@@ -300,7 +300,7 @@
 | ⛔ structural_gap | `advertisement_leaflet` 광고·전단·브로슈어 | R | written_reception | — | 0 |
 | ⛔ structural_gap | `instructions_manual_recipe` 사용 설명서·조리법·지시문 | R | written_reception | — | 0 |
 | ✅ covered | `drama_film_line` 드라마·영화 대사 | R | spoken_reception | media | 35 |
-| ⛔ structural_gap | `explanatory_informational_text` 설명문·안내 텍스트(TOPIK 쓰기 51~52 설명문 포함) | R | written_reception | — | 0 |
+| ⛔ structural_gap | `explanatory_informational_text` 설명문·안내 텍스트 | R | written_reception | — | 0 |
 
 ### A2 어휘 영역
 
@@ -334,7 +334,7 @@
 - ✅ present `intimate` (recognition) — 시나리오 2
 - 매트릭스 메모: 반말 산출 시작(친한 사이), -습니다체 스스로 산출 시작.
 
-## 3. B1 — 3급 · TOPIK II 3급
+## 3. B1 — 3급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 경험·계획·이유·의견을 연결해서 말한다. 간접화법, 추측, 사건 상태, 시간 관계, 양보·대조, 인과, 가능성 표현으로 '사건 → 원인 → 결과 → 내 의견' 담화를 만든다.
 
@@ -439,11 +439,11 @@
 | ✅ covered | `job_interview` 면접 | P | spoken_interaction | scenario, smalltalk | 3 |
 | ⛔ structural_gap | `email_letter_formal` 격식 이메일·공문 | R/P | written_interaction | — | 0 |
 | ⛔ structural_gap | `review_critique_text` 리뷰·비평문 | P | written_production | — | 0 |
-| ⛔ structural_gap | `explanatory_informational_text` 설명문·안내 텍스트(TOPIK 쓰기 51~52 설명문 포함) | R/P | written_reception | — | 0 |
+| ⛔ structural_gap | `explanatory_informational_text` 설명문·안내 텍스트 | R/P | written_reception | — | 0 |
 | ⛔ structural_gap | `narrative_story_diary` 이야기·일기·서사문 | P | written_production | — | 0 |
 | ⛔ structural_gap | `news_article_report` 신문 기사·보도문 | R | written_reception | — | 0 |
 | ⛔ structural_gap | `lecture_speech_monologue` 강연·연설·긴 독백 | R | spoken_reception | — | 0 |
-| ✅ covered | `social_media_post_comment` SNS 게시물·댓글·포럼 | R | written_interaction | scenario | 2 |
+| ❌ missing | `social_media_post_comment` SNS 게시물·댓글·포럼 | R | written_interaction | scenario | 0 |
 
 ### B1 어휘 영역
 
@@ -477,7 +477,7 @@
 - ✅ present `intimate` (production) — 시나리오 2
 - 매트릭스 메모: 완곡어법 확대, 업무 완곡 표현.
 
-## 4. B2 — 4급 · TOPIK II 4급
+## 4. B2 — 4급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 사회적 주제를 논리적으로 토론한다. 왜 그런지 설명하고, 다른 관점과 비교하고, 자신의 입장을 방어한다. 복합 비교·판단·원인 평가·정도 표현·논증 표현과 피동·사동을 본격적으로 쓴다.
 
@@ -618,7 +618,7 @@
 - ✅ present `intimate` (production) — 시나리오 2
 - 매트릭스 메모: 공식 요청·협상 화행, 문어체 인지.
 
-## 5. C1 — 5급 · TOPIK II 5급
+## 5. C1 — 5급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 복잡하고 추상적인 내용을 정교하게 표현한다. 문법 항목보다 담화 표현이 핵심 — 명사화(정부의 지원 확대), 객관화(사용량이 증가한 것으로 나타났다), hedging(타당성이 다소 부족한 것으로 보인다), 격식 연결(-기에 앞서, -고자, -(으)며, -(으)므로).
 
@@ -658,11 +658,11 @@
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 1 | 0 | 2 | 0 |  |
 
-### C1 문법 — 국제통용 56항목: match 1 · level_mismatch 9 · missing 46 (앱 C1 문법 23개)
+### C1 문법 — 국제통용 56항목: match 1 · level_mismatch 10 · missing 45 (앱 C1 문법 23개)
 
-**앱에 없는 국제통용 항목:** -고는(연결어미) · -길래(연결어미) · -느니1(연결어미) · -을뿐더러(연결어미) · -지1(연결어미) · 따라(조사) · 이라든가(조사) · 조차(조사) · -거라(종결어미) · -고말고(종결어미) · -네2(종결어미) · -는가1(종결어미) · -는걸(종결어미) · -다4(종결어미) · -다니1(종결어미) · -더라고(종결어미) · -데(종결어미) · ­으려고2(종결어미) · -게 생겼다(표현) · -기가 바쁘게(표현) · -기가 쉽다(표현) · -기만 하다(표현) · -기에 따라(표현) · -기에 앞서(서)(표현) · -는 가운데(표현) · -는 데다가(표현) · -는 동시에(표현) · -는 법이다(표현) · -는 척하다(표현) · -는다기에(표현) · -는다는 것이(표현) · -는다니1(표현) · -는데도(표현) · -는데도 불구하고(표현) · -어 내다(표현) · -었던(표현) · -으려나 보다(표현) · -으면 몰라도(표현) · -은 채로(표현) · -을 법하다(표현) · -을 테다(표현) · -을 테면(표현) · -을 테지만(표현) · -자기에(표현) · 는 말할 것도 없고(표현) · 를 가지고(표현)
+**앱에 없는 국제통용 항목:** -고는(연결어미) · -길래(연결어미) · -느니1(연결어미) · -을뿐더러(연결어미) · -지1(연결어미) · 따라(조사) · 이라든가(조사) · 조차(조사) · -거라(종결어미) · -고말고(종결어미) · -네2(종결어미) · -는가1(종결어미) · -는걸(종결어미) · -다4(종결어미) · -다니1(종결어미) · -더라고(종결어미) · -데(종결어미) · -게 생겼다(표현) · -기가 바쁘게(표현) · -기가 쉽다(표현) · -기만 하다(표현) · -기에 따라(표현) · -기에 앞서(서)(표현) · -는 가운데(표현) · -는 데다가(표현) · -는 동시에(표현) · -는 법이다(표현) · -는 척하다(표현) · -는다기에(표현) · -는다는 것이(표현) · -는다니1(표현) · -는데도(표현) · -는데도 불구하고(표현) · -어 내다(표현) · -었던(표현) · -으려나 보다(표현) · -으면 몰라도(표현) · -은 채로(표현) · -을 법하다(표현) · -을 테다(표현) · -을 테면(표현) · -을 테지만(표현) · -자기에(표현) · 는 말할 것도 없고(표현) · 를 가지고(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -다가는→B2 · -을지라도→B2 · -게 마련이다→B2 · -기 나름이다→B2 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2 · 에 관하여→B2 · 에도 불구하고→B2
+**레벨 불일치(앱은 다른 레벨에 둠):** -다가는→B2 · -을지라도→B2 · -으려고2→A1 · -게 마련이다→B2 · -기 나름이다→B2 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2 · 에 관하여→B2 · 에도 불구하고→B2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -746,7 +746,7 @@
 - ✅ present `intimate` (production) — 시나리오 1
 - 매트릭스 메모: 공적 발표체, 다자간 입장 조정.
 
-## 6. C2 — 6급 · TOPIK II 6급
+## 6. C2 — 6급 · 별도 시험 척도 — 현행 과제·채점 기준 대조 필요
 
 > can-do: 주제 제한이 사라진다. 새 문법 100개가 아니라 문체 전환(해 주세요 → 협조를 부탁드리는 바입니다), 태도 차이(-기는커녕/-을망정/-거니와/-건대), 함축·완곡·아이러니·높임·거리두기·문어체/구어체를 상황에 맞게 조절한다.
 
@@ -794,7 +794,7 @@
 |---|---|---|---|---|
 | ❌ missing | -기는커녕 | — |  |  |
 | ❌ missing | -기는 고사하고 | — |  |  |
-| ❌ missing | -(으)ㄹ망정 | — |  |  |
+| ❌ missing | -(으)ㄹ망정 | C2 |  |  |
 | ✅ match | -(으)ㄹ지언정 | C2 | grammar_c2_even_if_concession | C2 |
 | ❌ missing | -거니와 | B2 |  |  |
 | ❌ missing | -건대 | C2 |  |  |
@@ -864,7 +864,10 @@
 - ❌ absent `haeyo_polite` (production) — 시나리오 0
 - ✅ present `banmal_casual` (production) — 시나리오 2
 - ✅ present `intimate` (production) — 시나리오 4
-- 매트릭스 메모: 문체 전환 사다리 전체를 의도에 따라 선택.
+- ❌ absent `written_plain_haeche` (production) — 시나리오 0
+- ❌ absent `hage_familiar` (recognition) — 시나리오 0
+- ❌ absent `hao_semiformal` (recognition) — 시나리오 0
+- 매트릭스 메모: 문체 전환 사다리 전체를 의도에 따라 선택한다. 산출은 다섯 층 — 합쇼체·해요체·반말·친밀체에 '대우 등급을 비운 문어 하다체'(-는다·-다4·-라2)가 더해진다. 규정문·논설문·문학 서술이 청자 높임을 지우는 것은 무례가 아니라 장르 관습이므로 해요체와 겨루지 않는다. 하게체·하오체는 인식 전용이다 — 옛 규정·사규 인용, 옛 사설, 노년 화자와 시대극에서 만나고 KP30 에서 '고를 수 있게 된 선택지'로 다루되 일상 산출 목표로 올리지 않는다.
 
 ## 7. 삼언어 정렬 — 기능 문법 도입 시점 (KO 매트릭스 · EN · DE · 앱 grammar.csv)
 

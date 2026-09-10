@@ -393,6 +393,31 @@ class FixtureAuditTest(unittest.TestCase):
             header = (root / acm.GAPS_CSV_REL).read_text(encoding="utf-8").splitlines()[0]
             self.assertEqual(header, ",".join(acm.GAPS_CSV_HEADER))
 
+    def test_default_check_includes_matrix_document_without_writing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            self.assertEqual(acm.main(["--root", str(root)]), 0)
+            matrix_doc = root / acm.MATRIX_MD_REL
+            matrix_doc.write_text("stale matrix", encoding="utf-8")
+            self.assertEqual(acm.main(["--root", str(root), "--check"]), 2)
+            self.assertEqual(matrix_doc.read_text(encoding="utf-8"), "stale matrix")
+
+    def test_scenario_title_does_not_prove_written_genre(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            path = root / "tools/content_factory/cefr_matrix/taxonomy.json"
+            tax = json.loads(path.read_text(encoding="utf-8"))
+            phone = next(t for t in tax["textTypes"] if t["id"] == "phone")
+            # Reuse the existing scenario-title hit but require a written genre.
+            phone["mode"] = "written_interaction"
+            path.write_text(json.dumps(tax, ensure_ascii=False), encoding="utf-8")
+            _, _, result = acm.run_audit(root)
+            row = next(r for r in result.text_types["A1"] if r["id"] == "phone")
+            self.assertEqual(row["count"], 0)
+            self.assertEqual(row["status"], "missing")
+
 
 # ---------------------------------------------------------------------------
 # Live ratchet (하향 전용 — lower the caps as content improves, never raise)
@@ -431,15 +456,8 @@ class LiveRatchetTest(unittest.TestCase):
         self.assertEqual(total_missing, sum(1 for r in f1.rows if r.status == "missing_in_app"))
         self.assertEqual(total_mismatch, sum(1 for r in f1.rows if r.status == "level_mismatch"))
 
-    def test_committed_summary_is_well_formed(self):
-        # The committed summary is a snapshot, not a freshness gate: a content
-        # batch that lands on main must not turn this test red just because
-        # nobody re-ran the audit yet (`--check` is the explicit freshness
-        # gate for that). It only has to parse and cover every level.
-        summary_path = REPO / acm.SUMMARY_JSON_REL
-        committed = json.loads(summary_path.read_text(encoding="utf-8"))
-        self.assertEqual(list(committed["levels"]), list(acm.LEVELS))
-        self.assertLessEqual(committed["gap_total"], CAP_GAP_TOTAL)
+    def test_committed_outputs_are_fresh(self):
+        self.assertEqual(acm.main(["--root", str(REPO), "--check"]), 0)
 
 
 if __name__ == "__main__":

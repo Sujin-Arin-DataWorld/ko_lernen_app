@@ -2856,7 +2856,7 @@
       "id": "explanatory_informational_text",
       "mode": "written_reception",
       "label": {
-        "ko": "설명문·안내 텍스트(TOPIK 쓰기 51~52 설명문 포함)",
+        "ko": "설명문·안내 텍스트",
         "en": "Explanatory / informational text",
         "de": "Sachtext / erklärender Text"
       },
@@ -3699,8 +3699,8 @@
       "id": "haeyo_polite",
       "label": {
         "ko": "해요체(공손 비격식)",
-        "en": "Polite informal (해요체 / neutral politeness)",
-        "de": "Höflich-informell (해요체 / Sie-neutral)"
+        "en": "Haeyo style (informal polite)",
+        "de": "Haeyo-Stil (informell höflich)"
       },
       "appRegisters": [
         "polite"

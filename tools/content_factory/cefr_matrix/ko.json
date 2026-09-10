@@ -7,11 +7,11 @@
     "de": "Koreanisch"
   },
   "role": "target_language — 한글소리가 가르치는 언어. 감사기(tool/audit_curriculum_matrix.py)는 이 파일의 기대치를 앱 콘텐츠와 대조한다.",
-  "scaleMapping": "CEFR A1~C2 ↔ 국제통용 1~6급 ↔ TOPIK I 1·2급 / TOPIK II 3~6급 (docs/CONTENT_LEVEL_BIBLE.md §A)",
+  "scaleMapping": "국제통용 원 급(1–6)을 보존한다. 앱의 A1–C2 교수 배정은 잠정 매핑이며 CEFR 수행 척도·TOPIK 시험 등급과 자동 등치하지 않는다.",
   "provenanceLegend": {
     "verified_repo": "저장소 안의 공공누리 1유형 원본 데이터 또는 검증된 정본 문서에서 그대로 가져옴",
-    "url_verified_search": "출처 문서의 존재·URL은 웹 검색 결과로 확인했으나 원문은 이 세션에서 열지 못함(프록시 차단) — 항목 내용은 model_knowledge",
-    "verified_user": "Jin 이 이 세션에 입력한 교차검증 브리프",
+    "url_verified_search": "URL 존재 확인만으로 항목 내용을 검증하지 않는다. 현재 열람한 특정 주장·쪽은 source_access.json에 기록하며 원 항목의 model_knowledge 상태와 구별한다.",
+    "verified_user": "사용자가 제공한 연구 요구·작업 로그임을 확인했다는 뜻이며 그 안의 모델 생성 내용이 공식 검증되었다는 뜻은 아니다.",
     "model_knowledge": "모델 지식으로 채움 — 원문 대조 전까지 EVIDENCE_REQUIRED"
   },
   "sources": [
@@ -34,7 +34,7 @@
       "url": "https://www.korean.go.kr/front/etcData/etcDataView.do?mn_id=216&etc_seq=657",
       "license": "공공저작물",
       "provenance": "url_verified_search",
-      "note": "내용 체계 = 주제·기능·맥락·기술 및 전략·텍스트·언어지식(검색 스니펫으로 확인). 6등급 성취기준(듣기·말하기·읽기·쓰기). 등급별 주제·기능·텍스트 유형 세부 목록은 이 세션에서 원문 열람이 차단되어 model_knowledge 로 채움 — EVIDENCE_REQUIRED."
+      "note": "2026-09-10 원문 PDF 13–15쪽(인쇄 9–11쪽)의 한국어 6등급·내용 체계·교육과정 구성 기준을 확인했다. 이 확인은 기존 항목 목록 전체에 적용되지 않는다. 상세 범위: source_access.json."
     },
     {
       "id": "nikl_kiiq_summary",
@@ -70,7 +70,7 @@
       "year": 2025,
       "url": "https://www.topik.go.kr",
       "provenance": "url_verified_search",
-      "note": "1급 ≈ 800 기초 어휘, 2급 1,500~2,000, 3급 3,000~4,000(검색 스니펫). 쓰기 51~52번 = 설명문 200~300자(중급)·논술문 600~700자(고급). lib/data/curriculum_alignment_registry.dart 가 IBT 튜토리얼 3종을 검증 레코드로 보유."
+      "note": "현행 시험 종류별 문항·분량·채점 기준을 독립적으로 확인해야 한다. 검증되지 않은 문항 번호와 글자 수의 결합은 삭제했다. 앱 교육 급과 시험 급의 자동 동치는 주장하지 않는다."
     },
     {
       "id": "sejong_hoehwa_1",
@@ -98,15 +98,15 @@
       "year": 2020,
       "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4",
       "provenance": "url_verified_search",
-      "note": "언어 비종속 can-do 척도. 텍스트 유형·중개(mediation) 척도의 근거."
+      "note": "2026-09-10 전체 쓰기 산출과 중개 척도의 지정 부분을 직접 읽었다. source_access.json의 쪽·주장에만 적용하며 개별 목록과 Phase 레벨의 공식성을 뜻하지 않는다."
     },
     {
       "id": "user_brief_2026_09_09",
-      "title": "Jin 교차검증 브리프 (한국어·영어·독일어 A1–C2 문법·주제 목록)",
+      "title": "Jin 연구 지시 및 제공 작업 로그",
       "publisher": "Jin (세션 입력)",
       "year": 2026,
       "provenance": "verified_user",
-      "note": "이 매트릭스의 briefHighlights 축은 이 브리프의 문법 목록을 그대로 옮긴 것이다. 국제통용 등급과 다른 항목(예: A1의 -(으)ㄹ 거예요 = 국제통용 2급 '-을 것')은 감사 리포트에 level_mismatch 로 드러난다."
+      "note": "연구 범위·요구와 남아 있는 작성 로그의 출처이다. 모델이 작성한 언어 인벤토리의 공식성이나 원문 일치성을 보증하지 않는다."
     }
   ],
   "functionalGrammar": [
@@ -622,7 +622,7 @@
     "A1": {
       "scale": {
         "kiiq": "1급",
-        "topik": "TOPIK I 1급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 1 · 회화 1",
         "vocabTarget": "1급 735(연구보고서) / 고유 표제어 714(F2 분모) — 앱 목표 100%"
       },
@@ -1281,7 +1281,7 @@
     "A2": {
       "scale": {
         "kiiq": "2급",
-        "topik": "TOPIK I 2급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 2 · 회화 2",
         "vocabTarget": "2급 1,100 / 고유 표제어 1,070 — 앱 목표 100%"
       },
@@ -1916,7 +1916,7 @@
     "B1": {
       "scale": {
         "kiiq": "3급",
-        "topik": "TOPIK II 3급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 3",
         "vocabTarget": "3급 1,655 중 우선 800"
       },
@@ -2713,7 +2713,7 @@
     "B2": {
       "scale": {
         "kiiq": "4급",
-        "topik": "TOPIK II 4급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 4",
         "vocabTarget": "4급 2,200 중 800"
       },
@@ -3473,7 +3473,7 @@
     "C1": {
       "scale": {
         "kiiq": "5급",
-        "topik": "TOPIK II 5급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 5A/5B",
         "vocabTarget": "5급 연어·담화 400"
       },
@@ -4123,7 +4123,7 @@
     "C2": {
       "scale": {
         "kiiq": "6급",
-        "topik": "TOPIK II 6급",
+        "topik": "별도 시험 척도 — 현행 과제·채점 기준 대조 필요",
         "sejong": "세종한국어 6A/6B",
         "vocabTarget": "6급 400"
       },
@@ -4749,5 +4749,11 @@
       "cultureFocus": "관념어·제도 항목, 국제사회와 국제정치 류 심화 주제",
       "sentenceRules": "함의·관점·책임 소재를 정밀하게 구분. 현학적 학술체 금지 — 회화 교재"
     }
+  },
+  "authoringProvenance": {
+    "status": "mixed_inventory_and_authored_reconstruction",
+    "policy": "보유 원 인벤토리의 항목·급 사실만 verified_repo이다. 주제·화행·장르·그룹화·교수 순서의 저자 재구성과 항목 단위 대조가 없는 설명은 model_knowledge이다.",
+    "primaryAccessRegistry": "source_access.json",
+    "reviewStatus": "model_reviewed_human_review_pending"
   }
 }

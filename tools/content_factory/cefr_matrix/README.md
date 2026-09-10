@@ -33,14 +33,27 @@ CEFR 자체는 A1~C2 별 필수 문법 목록을 정하지 않는다(언어 비�
 | `cross_mapping.json` | 레벨별 KO/EN/DE 개념 교차 매핑(PART 3) + 출처 간 불일치 기록 |
 | `transfer.json` | EN→KO · DE→KO 전이 분석(PART 4) — 판정 `positive` / `partial` / `negative_risk` / `new_concept` |
 | `phase_review.json` | 배열 검증(PART 6)·10항목 갭 분석(PART 7) 검토 소견 |
+| `source_access.json` | 직접 열람한 1차 자료의 URL·쪽·확인 주장·확인하지 않은 범위와 사전 교정 근거 |
+
+현재 배정은 A1 4 · A2 4 · B1 5 · B2 5 · C1 6 · C2 6, 총 30 Phase다.
+유실된 클라우드 JSON의 원본 바이트를 복구한 결과가 아니라, 저장소 문법 목록과 남은 89개
+의존 노트를 검토해 새로 작성한 설계다. 전이 182항목, 교차 매핑 233행, 의존 연결 117개를 포함한다.
+앱 출하 콘텐츠와 336 전 항목의 상세 교수 주석 확장은 별도 범위다.
 
 핵심 불변식: **국제통용 336 형태가 정확히 한 Phase 에서 한 번만 새로 도입된다.** 누락·중복·급 불일치가
 있으면 `tool/audit_learning_phases.py` 가 error 를 내고 테스트가 빨개진다. 이전 레벨 형태를 더 깊은
 기능으로 다시 쓰는 것은 `role: "spiral"` 로 표시하며 도입으로 세지 않는다.
 
-근거 등급은 축과 함께 정한다. 2017 고시의 *문법 목록* 은 저장소에 CSV 로 있어 `[OFFICIAL]` 이지만
-*주제 목록* 은 저장소에 없어 같은 출처라도 `[DERIVED]` 다. 전이 분석은 원문 대조가 불가능한 동안
-`[OFFICIAL]` 이 될 수 없다(테스트가 막는다).
+근거 등급은 확인한 주장과 함께 정한다. 2017 연구의 *문법 목록*은 저장소 CSV와 같은
+형태·원 급·범주에만 `[OFFICIAL]`을 붙인다. 새 기능 설명·예문·Phase 배열은 `[PEDAGOGICAL]`이다.
+원문 항목을 대조하지 않은 주제 목록도 `[PEDAGOGICAL]`이며 URL만으로 `[DERIVED]`가 되지 않는다.
+언어 간 대응·전이 판단 전체는 공식 목록 사실과 다르므로 `[OFFICIAL]`을 붙이지 않는다.
+국제통용 원 급, TOPIK 시험 급, CEFR 수행 척도와 모어 쪽 인벤토리는 자동 환산하지 않는다.
+
+문법 식별자는 `G{원 급}:{정확한 형태}`다. 같은 표기의 다른 급·의미를 하나로 합치지 않는다.
+선수·재사용·전이·교차표의 `grammarKeys`는 실제 항목과 일치해야 하며 같은 Phase 내부의
+의존 순서도 검사한다. `textTypes.use`의 R/P는 해당 매체의 기술 목표(`textTypeId`)에 연결한다.
+장르 연습은 과제 설계이며 앱에 실제 녹음·글이 배치되었다는 증거가 아니다.
 
 ```bash
 python tool/audit_learning_phases.py          # 검증 + PART 1~8 문서 재생성
@@ -59,19 +72,21 @@ python -m unittest tool.test_audit_learning_phases -v
 | 값 | 뜻 |
 |---|---|
 | `verified_repo` | 저장소 안의 공공누리 1유형 원본 데이터 또는 검증된 정본 문서에서 그대로 |
-| `verified_user` | Jin 이 2026-09-09 세션에 입력한 교차검증 브리프 |
-| `url_verified_search` | 출처 문서의 존재·URL은 웹 검색으로 확인, 원문은 열지 못함(프록시 차단) — 항목 내용은 model_knowledge |
+| `verified_user` | 사용자가 제공한 연구 요구·작업 로그의 출처 확인. 그 안의 모델 생성 내용을 공식 검증한 표시는 아님 |
+| `url_verified_search` | 문서 URL의 존재 확인. 특정 원문 열람은 `source_access.json`에 별도 기록하며 항목 전체의 검증으로 확대하지 않음 |
 | `model_knowledge` | 모델 지식으로 채움 — **원문 대조 전까지 EVIDENCE_REQUIRED** |
 
 한국어 문법 축(336항목)과 영어 CEFR-J 항목만 저장소 데이터로 검증된 상태다. 주제·기능·텍스트
 유형 목록은 Threshold/Profile deutsch/국제통용 체계를 따르되 세부 문구는 원문 대조가 남아 있다.
-원문 PDF 를 받으면 `sources[].provenance` 를 올리고 어긋난 항목만 고친다.
+2026-09-10에는 CEFR CV, Goethe A1, Cambridge C1 핸드북, 국립국어원 2020 고시의 지정 부분을
+직접 읽었다. 확인한 쪽·주장만 기록했으며 기존 목록 전체의 상태를 일괄 승격하지 않았다.
+EN/DE 전이의 `sourceLevel`은 현재 교수 추정이다. 항목별 원문 대조와 교육자·원어민 검토가 남아 있다.
 
 ## 감사기
 
 ```bash
-python tool/audit_curriculum_matrix.py                 # 리포트·요약·갭 CSV
-python tool/audit_curriculum_matrix.py --write-matrix  # + 삼언어 매트릭스 MD 렌더
+python tool/audit_curriculum_matrix.py                 # 리포트·요약·갭 CSV·삼언어 매트릭스 MD
+python tool/audit_curriculum_matrix.py --write-matrix  # 기존 호출 호환 옵션(결과 동일)
 python tool/audit_curriculum_matrix.py --check         # 산출물이 낡았으면 exit 2
 python -m unittest tool.test_audit_curriculum_matrix -v
 ```

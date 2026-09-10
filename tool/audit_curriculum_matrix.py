@@ -20,7 +20,7 @@ packs), ``grammar.csv``, ``scenarios_{a1..c2}.json``, ``curriculum_manifest.json
 Outputs (``main()``):
   - ``docs/data/curriculum_matrix_report.md``  gap report (per level × axis)
   - ``docs/data/cefr_curriculum_matrix.md``    full KO/EN/DE matrix rendered
-    from the JSON (only with ``--write-matrix``)
+    from the JSON (always generated and checked)
   - ``tool/curriculum_matrix_summary.json``    machine counts (ratchet tests)
   - ``tool/curriculum_matrix_gaps.csv``        one row per gap, header
     ``level,axis,id,label,status,evidence,suggested_action``
@@ -34,7 +34,7 @@ Status vocabulary (per axis):
                discourse features: covered | missing;
                practice: taught_never_practiced
   speechActs   covered (>=2 scenarios/units) | thin (1) | missing (0)
-  textTypes    structural_gap (no app surface can host the genre at all) |
+  textTypes    structural_gap (no genre placement mapped in the taxonomy) |
                covered | thin | missing
   vocabDomains covered (>=8 words) | thin (1..7) | missing (0)
   registers    present | absent (expected production registers)
@@ -697,6 +697,11 @@ def collect_text_type_evidence(matrix: Matrix, corpus: Corpus) -> Dict[str, Dict
         if not tt.get("appSurfaces"):
             continue
         for scn in corpus.scenarios:
+            # A conversation mentioning an email, post or form is not evidence
+            # that the learner receives or produces that written genre. The
+            # current scenario contract has dialogue turns, no genre payload.
+            if str(tt.get("mode", "")).startswith("written"):
+                continue
             lv = norm_level(scn.get("level"))
             if not lv:
                 continue
@@ -1025,7 +1030,7 @@ def build_gap_rows(result: AuditResult) -> List[dict]:
                 add(lv, "speech_act", r["id"], _label_ko(r["label"]), r["status"], f"scenarios={len(r['scenarios'])};units={len(r['units'])}", "add_scenario_with_this_intent")
         for r in result.text_types[lv]:
             if r["status"] in _GAP_STATUSES:
-                add(lv, "text_type", r["id"], _label_ko(r["label"]), r["status"], f"mode={r['mode']};count={r['count']};surfaces={'|'.join(r['appSurfaces']) or 'none'}", "new_content_surface_needed" if r["status"] == "structural_gap" else "add_items_of_this_genre")
+                add(lv, "text_type", r["id"], _label_ko(r["label"]), r["status"], f"mode={r['mode']};count={r['count']};surfaces={'|'.join(r['appSurfaces']) or 'none'}", "verify_genre_content_and_placement" if r["status"] == "structural_gap" else "add_items_of_this_genre")
         for r in result.vocab_domains[lv]:
             if r["status"] in _GAP_STATUSES:
                 add(lv, "vocab_domain", r["id"], _label_ko(r["label"]), r["status"], f"words={r['words']}", "add_pack_in_domain")
@@ -1078,7 +1083,7 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
     L.append("")
     L.append("> 생성: `python tool/audit_curriculum_matrix.py` — 직접 편집 금지. 매트릭스 정본은 `tools/content_factory/cefr_matrix/` (taxonomy·ko·en·de JSON).")
     L.append("> 문법 매칭은 `tool/build_level_bible_tables.py` 의 F1 매처를 그대로 재사용한다(F1_grammar_map.md 와 항상 일치).")
-    L.append("> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(앱에 그 장르를 담을 표면 자체가 없음) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).")
+    L.append("> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(현재 taxonomy에 장르 배치 경로 미매핑) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).")
     L.append("")
     L.append("## 0. 요약")
     L.append("")
@@ -1109,7 +1114,7 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
     structural = sorted({r["id"] for lv in LEVELS for r in result.text_types[lv] if r["status"] == "structural_gap"})
     tt_index = matrix.axis_index("textTypes")
     if structural:
-        L.append("앱의 학습 표면(시나리오 대화·TTS·가사/대사 한 줄·cloze·satz·스몰토크·발음·문화 노트)으로는 아래 장르를 **읽기 텍스트나 쓰기 산출물로 실현할 수 없다**. 대화 *속에서* 계약·기사·공지를 이야기하는 것은 그 장르를 읽는 것이 아니다.")
+        L.append("아래 장르는 현재 taxonomy에 실제 수용·산출 콘텐츠를 배치한 앱 경로가 매핑되어 있지 않다. 기존 UI의 확장 가능성을 부정하는 판정은 아니다. 대화 *속에서* 계약·기사·공지를 이야기하는 것만으로 해당 장르를 읽거나 썼다고 계산하지 않는다.")
         L.append("")
         for tid in structural:
             levels_needed = [lv for lv in LEVELS if any(r["id"] == tid for r in result.text_types[lv])]
@@ -1354,7 +1359,7 @@ def render_matrix_md(matrix: Matrix) -> str:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n", 1)[0])
     parser.add_argument("--root", type=Path, default=REPO, help="repository root (default: this checkout)")
-    parser.add_argument("--write-matrix", action="store_true", help="also render docs/data/cefr_curriculum_matrix.md from the JSON")
+    parser.add_argument("--write-matrix", action="store_true", help="legacy compatibility flag; the matrix document is always rendered/checked")
     parser.add_argument("--check", action="store_true", help="exit 2 when any output file would change (CI freshness gate)")
     args = parser.parse_args(argv)
     root: Path = args.root
@@ -1369,8 +1374,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         (root / REPORT_MD_REL, report + "\n"),
         (root / SUMMARY_JSON_REL, json.dumps(summary, ensure_ascii=False, indent=2) + "\n"),
     ]
-    if args.write_matrix:
-        outputs.append((root / MATRIX_MD_REL, render_matrix_md(matrix) + "\n"))
+    # The canonical matrix document is part of the output contract even when
+    # callers omit the legacy --write-matrix switch.
+    outputs.append((root / MATRIX_MD_REL, render_matrix_md(matrix) + "\n"))
 
     changed: List[str] = []
     for path, text in outputs:

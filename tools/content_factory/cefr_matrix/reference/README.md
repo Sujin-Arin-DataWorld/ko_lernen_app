@@ -35,7 +35,14 @@
 - **용도:** `../en.json` 의 레벨별 `scale.cefrjVocabulary` 가 이 수치를 인용한다 — 영어 어휘 규모는
   이제 재구성이 아니라 저장소 대조 가능한 값이다. 앱 런타임은 읽지 않는다.
 
-## 받아오지 못한 것 / 받았지만 넣지 않은 것 (2026-09-09 재확인)
+## 초기 환경의 접근 기록과 현재 확인 범위
+
+아래 접근 제한은 2026-09-09 초기 작성 환경의 기록이다. 2026-09-10 후속 검토에서는
+CEFR CV·Goethe A1·Cambridge C1·국립국어원 2020 고시 PDF의 지정 부분을 직접 읽었다.
+현재 확인한 URL·쪽·주장·한계는 `../source_access.json`이 정본이다. 원문 열람만으로
+프로젝트의 언어 목록이나 전이·Phase 전체를 검증했다고 표시하지 않는다.
+
+### 받아오지 못한 것 / 받았지만 넣지 않은 것 (2026-09-09 기록)
 
 이 세션의 이그레스는 좁은 허용 목록이다. `raw.githubusercontent.com` 만 curl 로 문서를 준다
 (`example.com` 조차 차단된다). 두 경로(curl · WebFetch)를 각각 시험한 결과:
@@ -45,7 +52,8 @@
   rm.coe.int · coe.int · englishprofile.org · cambridgeenglish.org · goethe.de · bamf.de ·
   telc.net · wikipedia · huggingface.co · zenodo.org · archive.org · web.archive.org.
   따라서 국제통용 고시 별책 · TOPIK 등급 기술 · CEFR CV 2020 · Goethe Prüfungsziele · DTZ ·
-  BAMF · telc · Cambridge 핸드북은 계속 `[DERIVED]`(재구성) 이다.
+  BAMF · telc · Cambridge 핸드북의 내용을 대조하지 못했다. 해당 상태의 재구성은
+  현재 근거 규칙상 `[PEDAGOGICAL]`이며, URL만으로 `[DERIVED]`를 부여하지 않는다.
 - **확정된 부재:** `openlanguageprofiles` 조직은 저장소가 정확히 3개다(`olp-en-cefrj`,
   `olp-zh-zerotohero`, 웹사이트). **English Grammar Profile · English Vocabulary Profile 데이터셋은
   이 조직에 없다** — 이 경로로는 EGP/EVP 원본을 얻을 수 없다. `en.json` 의 `egp:` 인용은 레벨

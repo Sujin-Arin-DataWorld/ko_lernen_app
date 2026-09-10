@@ -10,8 +10,8 @@
   "scaleMapping": "CEFR ↔ Cambridge English Qualifications (A2 Key, B1 Preliminary, B2 First, C1 Advanced, C2 Proficiency) ↔ EVP/EGP",
   "provenanceLegend": {
     "verified_repo": "repo-held dataset (CEFR-J grammar profile CSV)",
-    "url_verified_search": "document existence/URL confirmed via web search; body not opened in this session (proxy blocked)",
-    "verified_user": "Jin's brief",
+    "url_verified_search": "URL 존재 확인만으로 항목 내용을 검증하지 않는다. 현재 열람한 특정 주장·쪽은 source_access.json에 기록하며 원 항목의 model_knowledge 상태와 구별한다.",
+    "verified_user": "사용자가 제공한 연구 요구·작업 로그임을 확인했다는 뜻이며 그 안의 모델 생성 내용이 공식 검증되었다는 뜻은 아니다.",
     "model_knowledge": "filled from model knowledge — EVIDENCE_REQUIRED until checked against the source"
   },
   "sources": [
@@ -22,7 +22,7 @@
       "year": 2020,
       "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4",
       "provenance": "url_verified_search",
-      "note": "Global scale + activity scales (reading correspondence, reading for information and argument, reports and essays, formal discussion, mediation)."
+      "note": "2026-09-10 전체 쓰기 산출과 중개 척도의 지정 부분을 직접 읽었다. source_access.json의 쪽·주장에만 적용하며 개별 목록과 Phase 레벨의 공식성을 뜻하지 않는다."
     },
     {
       "id": "threshold_1990",
@@ -98,14 +98,15 @@
       "year": 2020,
       "url": "https://www.cambridgeenglish.org/exams-and-tests/",
       "provenance": "url_verified_search",
-      "note": "Writing genres: essay, article, letter/email, report, review, proposal (C1), summary essay (C2). Reading genres: articles, fiction extracts, academic/professional texts."
+      "note": "2026-09-10 C1 Advanced 핸드북 인쇄 28쪽의 쓰기 장르·과제 조건을 확인했다. B2·C2 또는 영어 문법 목록 전체는 별도 대조 대상이다. source_access.json 참조."
     },
     {
       "id": "user_brief_2026_09_09",
-      "title": "Jin 교차검증 브리프 — English A1–C2 topics/grammar",
+      "title": "Jin 연구 지시 및 제공 작업 로그",
       "publisher": "Jin (세션 입력)",
       "year": 2026,
-      "provenance": "verified_user"
+      "provenance": "verified_user",
+      "note": "연구 범위·요구와 남아 있는 작성 로그의 출처이다. 모델이 작성한 언어 인벤토리의 공식성이나 원문 일치성을 보증하지 않는다."
     }
   ],
   "functionalGrammar": [
@@ -2614,5 +2615,11 @@
         "note": "full register control"
       }
     }
+  },
+  "authoringProvenance": {
+    "status": "mixed_inventory_and_authored_reconstruction",
+    "policy": "보유 원 인벤토리의 항목·급 사실만 verified_repo이다. 주제·화행·장르·그룹화·교수 순서의 저자 재구성과 항목 단위 대조가 없는 설명은 model_knowledge이다.",
+    "primaryAccessRegistry": "source_access.json",
+    "reviewStatus": "model_reviewed_human_review_pending"
   }
 }

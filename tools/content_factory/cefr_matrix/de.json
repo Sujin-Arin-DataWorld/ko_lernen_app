@@ -9,8 +9,8 @@
   "role": "reference_language — 한글소리 주 사용자(독일어 모국어)의 L1 기대치. 앱 콘텐츠 감사에는 쓰지 않고, 기능 문법·주제 도입 시점의 삼언어 정렬표에만 쓴다. 독일어는 Akkusativ/Dativ → Wechselpräpositionen → Nebensatz → Relativsatz → Passiv/Konjunktiv → Nominalisierung → Register 라는 누적 구조를 축으로 둔다.",
   "scaleMapping": "CEFR ↔ Goethe-Zertifikat A1–C2 / telc Deutsch A1–C2 / DTZ (A2–B1) ↔ Profile deutsch",
   "provenanceLegend": {
-    "url_verified_search": "Dokument/URL per Websuche bestätigt; Inhalt in dieser Sitzung nicht geöffnet (Proxy)",
-    "verified_user": "Jins Brief",
+    "url_verified_search": "URL 존재 확인만으로 항목 내용을 검증하지 않는다. 현재 열람한 특정 주장·쪽은 source_access.json에 기록하며 원 항목의 model_knowledge 상태와 구별한다.",
+    "verified_user": "사용자가 제공한 연구 요구·작업 로그임을 확인했다는 뜻이며 그 안의 모델 생성 내용이 공식 검증되었다는 뜻은 아니다.",
     "model_knowledge": "aus Modellwissen — EVIDENCE_REQUIRED bis zum Abgleich mit der Quelle"
   },
   "sources": [
@@ -29,9 +29,9 @@
       "title": "Goethe-Zertifikat A1: Start Deutsch 1 — Prüfungsziele, Testbeschreibung",
       "publisher": "Goethe-Institut",
       "year": 2013,
-      "url": "https://www.goethe.de/pro/relaunch/prf/el/Pruefungsziele_Testbeschreibung_A1_SD1.pdf",
+      "url": "https://www.goethe.de/pro/relaunch/prf/sr/Pruefungsziele_Testbeschreibung_A1_SD1.pdf",
       "provenance": "url_verified_search",
-      "note": "Inventar: Sprachhandlungen → Notionen → Themen → Wortschatz → Grammatik. Wortliste ≈650 Einträge, davon etwa die Hälfte aktiv (검색 스니펫으로 확인)."
+      "note": "2026-09-10 인쇄 54–56쪽의 인벤토리 성격·과제 연결을 확인했다. 개별 A1 항목과 A2–C2 목록 전체의 검증으로 확대하지 않는다."
     },
     {
       "id": "goethe_a1_wortliste",
@@ -76,7 +76,7 @@
       "year": 2024,
       "url": "https://www.goethe.de/pro/relaunch/prf/en/Handbuch_Pruefungsziele_Testbeschreibung_C1.pdf",
       "provenance": "url_verified_search",
-      "note": "C1 führt kein geschlossenes Wortschatz-/Grammatikinventar (Jin 브리프)."
+      "note": "기존 항목은 저자 재구성이며 이 문서의 개별 인벤토리와 원문 대조가 필요하다. 사용자 브리프가 공식 목록을 제공했다고 표시하지 않는다."
     },
     {
       "id": "goethe_c2_pruefungsziele",
@@ -93,7 +93,7 @@
       "year": 2009,
       "url": "https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Integrationskurse/Kurstraeger/Modellsaetze/dtz-handbuch_pdf.pdf?__blob=publicationFile&v=8",
       "provenance": "url_verified_search",
-      "note": "Inventar: Verb, Tempus/Modus, Kasus, Artikel/Pronomen, Adjektiv, Präpositionen, Haupt-/Nebensatz, Relativsatz, Infinitivsatz, Doppelkonjunktionen, Wortbildung (Jin 브리프)."
+      "note": "기존 항목은 저자 재구성이며 이 문서의 개별 인벤토리와 원문 대조가 필요하다. 사용자 브리프가 공식 목록을 제공했다고 표시하지 않는다."
     },
     {
       "id": "bamf_rahmencurriculum",
@@ -119,15 +119,16 @@
       "publisher": "Council of Europe",
       "year": 2020,
       "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4",
-      "provenance": "url_verified_search"
+      "provenance": "url_verified_search",
+      "note": "2026-09-10 전체 쓰기 산출과 중개 척도의 지정 부분을 직접 읽었다. source_access.json의 쪽·주장에만 적용하며 개별 목록과 Phase 레벨의 공식성을 뜻하지 않는다."
     },
     {
       "id": "user_brief_2026_09_09",
-      "title": "Jin 교차검증 브리프 — Deutsch A1–C2 (Profile deutsch · Goethe Prüfungsziele · DTZ · BAMF · telc 기준)",
+      "title": "Jin 연구 지시 및 제공 작업 로그",
       "publisher": "Jin (세션 입력)",
       "year": 2026,
       "provenance": "verified_user",
-      "note": "이 파일의 grammar 축은 브리프의 독일어 인벤토리를 항목 단위로 옮긴 것."
+      "note": "연구 범위·요구와 남아 있는 작성 로그의 출처이다. 모델이 작성한 언어 인벤토리의 공식성이나 원문 일치성을 보증하지 않는다."
     }
   ],
   "functionalGrammar": [
@@ -2590,5 +2591,11 @@
         "note": "Registerwechsel inkl. ironisch/diplomatisch"
       }
     }
+  },
+  "authoringProvenance": {
+    "status": "mixed_inventory_and_authored_reconstruction",
+    "policy": "보유 원 인벤토리의 항목·급 사실만 verified_repo이다. 주제·화행·장르·그룹화·교수 순서의 저자 재구성과 항목 단위 대조가 없는 설명은 model_knowledge이다.",
+    "primaryAccessRegistry": "source_access.json",
+    "reviewStatus": "model_reviewed_human_review_pending"
   }
 }

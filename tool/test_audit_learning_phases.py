@@ -38,13 +38,7 @@ def _load(rel: str):
         return json.load(fh)
 
 
-# phases.json 은 이 커밋 다음 커밋에 들어온다. 정본이 아직 없는 동안 데이터 의존 테스트를
-# 건너뛰되, 파일이 들어오는 순간 자동으로 켜진다 — 실패를 숨기는 스킵이 아니라 입력 부재 가드다.
-HAS_PHASES = (REPO / alp.PHASES_REL).exists()
-SKIP_REASON = f"{alp.PHASES_REL} 아직 없음 — 정본이 커밋되면 자동으로 활성화된다"
-
-
-@unittest.skipUnless(HAS_PHASES, SKIP_REASON)
+# Canonical inputs are required. Deleting one must fail CI, not skip tests.
 class SchemaTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -337,7 +331,7 @@ def _phase(no: int, lv: str, i: int, new_forms, **over):
         "functions": [{"id": "a_greet", "realisation": {"ko": "인사", "en": "greet"}},
                       {"id": "a_opinion", "realisation": {"ko": "의견", "en": "opinion"}}],
         "vocabDomains": [{"id": "v_basic", "sampleLexis": [{"ko": "안녕하세요", "en": "hello", "de": "hallo"}], "note": ""}],
-        "textTypes": [{"id": "x_dialog", "mode": "spoken_interaction", "use": "both", "note": "대화"}],
+        "textTypes": [{"id": "x_dialog", "mode": "spoken_interaction", "use": "R/P", "note": "대화"}],
         "listening": [{"objective": {"ko": "듣기", "en": "listen"}, "taskType": "dialog", "note": ""}],
         "speaking": [{"objective": {"ko": "말하기", "en": "speak"}, "taskType": "roleplay", "note": ""}],
         "reading": [{"objective": {"ko": "읽기", "en": "read"}, "taskType": "cloze", "note": ""}],
@@ -350,9 +344,9 @@ def _phase(no: int, lv: str, i: int, new_forms, **over):
                      "exploit": {"ko": "활용", "en": "exploit"}, "note": ""},
         "deBridge": {"deCefrLevel": "A1", "anchors": [{"grammarId": "de_a1_sein_a1", "note": "sein"}],
                      "exploit": {"ko": "활용", "en": "exploit"}, "note": ""},
-        "transferWarnings": [{"sourceLanguage": "EN", "transferItemId": "en_x", "verdict": "partial",
+        "transferWarnings": [{"sourceLanguage": "EN", "transferItemId": "en_x_0", "verdict": "partial",
                               "warning": {"ko": "경고", "en": "warn"}, "predictedError": None, "correction": None},
-                             {"sourceLanguage": "DE", "transferItemId": "de_x", "verdict": "positive",
+                             {"sourceLanguage": "DE", "transferItemId": "de_x_0", "verdict": "partial",
                               "warning": {"ko": "경고", "en": "warn"}, "predictedError": None, "correction": None}],
         "masteryCheck": [{"task": {"ko": f"과제{k}", "en": f"task{k}"}, "skill": "speaking",
                           "criterion": {"ko": "기준", "en": "criterion"}, "formsUsed": []} for k in range(1, 4)],
@@ -378,11 +372,14 @@ def _phase_docs(tmp: pathlib.Path, phases) -> None:
                   "relation": "zero_correspondence", "note": "", "evidence": "DERIVED"}],
               "disagreements": []} for lv in LEVELS}, ensure_ascii=False), encoding="utf-8")
     (tmp / alp.TRANSFER_REL).write_text(json.dumps(
-        {lang: {lv: {"items": [{"id": f"{lang.lower()}_x", "concept": {"ko": "개념", "en": "concept"},
+        {lang: {lv: {"items": [{"id": f"{lang.lower()}_x_{j}", "concept": {"ko": "개념", "en": "concept"},
                                 "sourceRealisation": "src", "sourceLevel": "A1", "koreanRealisation": "ko",
                                 "verdict": "partial", "why": "why", "predictedError": None, "correction": None,
-                                "teachingMove": "move", "relevantKoreanForms": [], "doNotSay": None,
-                                "evidence": "DERIVED"}] * alp.MIN_TRANSFER_ITEMS,
+                                "teachingMove": "move", "relevantKoreanForms": [g['form'] for p in phases if p['level']==lv for g in p['koreanGrammar'] if g['role']=='new'],
+                                "grammarKeys": [f"G{g['niklGrade']}:{g['form']}" for p in phases if p['level']==lv for g in p['koreanGrammar'] if g['role']=='new'],
+                                "functionIds": ["a_greet", "a_opinion"], "doNotSay": None,
+                                "functionAnalysis": [{"id": a, "targetAction": "목표", "l1TeachingMove": "모어별 비교", "context": "역할 자료"} for a in ("a_greet", "a_opinion")],
+                                "evidence": "DERIVED"} for j in range(alp.MIN_TRANSFER_ITEMS)],
                      "phonologyNotes": [], "summary": {}} for lv in LEVELS} for lang in ("EN", "DE")},
         ensure_ascii=False), encoding="utf-8")
     (tmp / alp.REVIEW_REL).write_text(json.dumps(
@@ -418,6 +415,192 @@ class FixtureTest(unittest.TestCase):
     def test_clean_fixture_has_no_errors(self):
         _, _, f = self._run()
         self.assertEqual(f.counts["error"], 0, [r for r in f.rows if r["severity"] == "error"][:6])
+
+    def _edit_json(self, rel, edit):
+        path = self.root / rel
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        edit(doc)
+        path.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+
+    def test_empty_nested_objectives_and_mastery_are_rejected(self):
+        self.phases[0]["listening"] = [{}]
+        self.phases[0]["masteryCheck"] = [{"skill": "speaking"}] * 3
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C2_fields"))
+        self.assertTrue(self._errors(f, "C10_mastery"))
+
+    def test_explicit_key_must_agree_with_grade_and_printed_form(self):
+        self.phases[0]["koreanGrammar"][0]["grammarKey"] = "G6:-을진대"
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C3_grammar") if "grammarKey" in r["detail"]])
+
+    def test_same_phase_reverse_dependency_and_self_edge_are_rejected(self):
+        def reverse(doc):
+            doc["dependencyMap"] = [{"prerequisite": "-었-", "target": "-어요", "advancedReuse": "-더라", "why": "잘못된 순서"}]
+        self._edit_json(alp.PHASES_REL, reverse)
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C17_depmap"))
+        # Explicitly put two forms in one Phase to check the inner order.
+        self.phases[0]["koreanGrammar"].append(self.phases[1]["koreanGrammar"].pop())
+        _phase_docs(self.root, self.phases)
+        self._edit_json(alp.PHASES_REL, reverse)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C17_depmap") if "같은 Phase" in r["detail"]])
+        self._edit_json(alp.PHASES_REL, lambda d: d["dependencyMap"][0].update(prerequisite="-어요"))
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C17_depmap"))
+
+    def test_nonexistent_advanced_reuse_is_rejected(self):
+        self._edit_json(alp.PHASES_REL, lambda d: d["dependencyMap"][0].update(advancedReuse="없는 형태"))
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C17_depmap"))
+
+    def test_future_mastery_sense_is_rejected(self):
+        self.phases[0]["masteryCheck"][0].update(grammarKeys=["G6:-을진대"], formsUsed=["-을진대"])
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C10_mastery"))
+
+    def test_unknown_and_mismatched_reference_keys_are_rejected(self):
+        for keys, forms in ((["G9:unknown"], ["unknown"]), (["G1:-어요"], ["-었-"])):
+            with self.subTest(keys=keys, forms=forms):
+                self.phases[3]["prerequisites"].update(grammarKeys=keys, forms=forms)
+                _phase_docs(self.root, self.phases)
+                _, _, f = self._run()
+                self.assertTrue(self._errors(f, "C7_prereq"))
+
+    def test_ambiguous_form_reference_requires_a_sense(self):
+        # The earlier form cannot satisfy a later grade's homograph by accident.
+        item = dict(self.phases[0]["koreanGrammar"][0], niklGrade=2, functionUse={"ko": "다른 의미"})
+        self.phases[3]["koreanGrammar"].append(item)
+        self.phases[2]["prerequisites"]["forms"] = ["-어요"]
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C7_prereq") if "모호" in r["detail"]])
+        self.phases[2]["prerequisites"]["grammarKeys"] = ["G2:-어요"]
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C7_prereq") if "아직" in r["detail"]])
+        self.phases[2]["prerequisites"]["grammarKeys"] = ["G1:-어요"]
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertFalse(self._errors(f, "C7_prereq"))
+
+    def test_duplicate_transfer_id_cannot_overwrite_another_item(self):
+        self._edit_json(alp.TRANSFER_REL, lambda d: d["EN"]["A1"]["items"][1].update(id="en_x_0"))
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C13_transfer") if "중복" in r["detail"]])
+
+    def test_wrong_level_warning_link_is_rejected(self):
+        self.phases[0]["transferWarnings"][0]["transferLevel"] = "C2"
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C15_warning") if "다른 KO 레벨" in r["detail"]])
+
+    def test_warning_target_cannot_be_unrelated_to_its_transfer(self):
+        self.phases[0]["transferWarnings"][0].update(grammarKeys=["G6:-을진대"], forms=["-을진대"])
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C15_warning") if "대상 문법" in r["detail"]])
+
+    def test_verdict_slice_requires_reason_and_does_not_allow_wrong_target(self):
+        self.phases[0]["transferWarnings"][0]["verdict"] = "positive"
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C15_warning") if "sliceReason" in r["detail"]])
+        self.phases[0]["transferWarnings"][0]["sliceReason"] = "이 경고는 전체 대응의 한계 중 공유된 기능만을 활용하는 부분 과제다."
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertFalse(self._errors(f, "C15_warning"))
+        self.phases[0]["transferWarnings"][0]["transferLevel"] = "C2"
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue(self._errors(f, "C15_warning"))
+
+    def test_transfer_missing_analysis_and_uncovered_forms_fail(self):
+        def empty(doc):
+            for item in doc["EN"]["A1"]["items"]:
+                item.update(why="", grammarKeys=[], relevantKoreanForms=[])
+        self._edit_json(alp.TRANSFER_REL, empty)
+        _, _, f = self._run()
+        self.assertTrue([r for r in self._errors(f, "C13_transfer") if "분석이 없다" in r["detail"]])
+        self.assertTrue([r for r in self._errors(f, "C13_transfer") if "why" in r["detail"]])
+
+    def test_reception_does_not_satisfy_production_coverage(self):
+        for p in self.phases:
+            if p["level"] == "A1":
+                p["textTypes"][0]["use"] = "R"
+        _phase_docs(self.root, self.phases)
+        summary, _, _ = self._run()
+        self.assertEqual(summary["coverage"]["A1"]["textTypes_R"]["missing"], [])
+        self.assertEqual(summary["coverage"]["A1"]["textTypes_P"]["missing"], ["x_dialog"])
+
+    def test_news_article_is_not_a_grammatical_article(self):
+        self.assertFalse(alp._is_article_row({"axis": "textType", "id": "news_article_report", "concept": {"en": "news article"}}))
+
+    def test_missing_canonical_input_fails_instead_of_skipping(self):
+        (self.root / alp.PHASES_REL).unlink()
+        with self.assertRaises(FileNotFoundError):
+            self._run(check_only=True)
+
+    def test_duplicate_json_keys_are_rejected(self):
+        (self.root / alp.PHASES_REL).write_text('{"phases":[],"phases":[]}', encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "duplicate JSON key"):
+            self._run()
+
+    def test_declared_inventory_authority_is_checked(self):
+        for patch in ({"authoredContentEvidence": "OFFICIAL"}, {"category": "수동태"},
+                      {"inventoryRef": {"sourceId": "made_up", "grade": 6, "form": "-거늘"}},
+                      {"evidenceScope": ["all_authored_content"]}):
+            with self.subTest(patch=patch):
+                _phase_docs(self.root, self.phases)
+                self._edit_json(alp.PHASES_REL, lambda d: d["phases"][0]["koreanGrammar"][0].update(patch))
+                _, _, f = self._run()
+                self.assertTrue(self._errors(f, "C12_evidence"))
+
+    def test_transfer_container_labels_must_agree(self):
+        self._edit_json(alp.TRANSFER_REL, lambda d: d["EN"]["A1"]["items"][0].update(sourceLanguage="DE", koreanLevel="C2"))
+        _, _, f = self._run()
+        self.assertEqual(len([r for r in self._errors(f, "C13_transfer") if "컨테이너" in r["detail"]]), 2)
+
+    def test_function_ids_require_actual_analysis(self):
+        self._edit_json(alp.TRANSFER_REL, lambda d: d["EN"]["A1"]["items"][0].update(functionAnalysis=[]))
+        _, _, f = self._run()
+        self.assertTrue(any("functionAnalysis" in r["detail"] for r in self._errors(f, "C13_transfer")))
+
+    def test_unverified_source_level_cannot_claim_official_authority(self):
+        for tag, note in (("OFFICIAL", "claim"), ("made_up", "claim"), ("PEDAGOGICAL", "")):
+            with self.subTest(tag=tag, note=note):
+                self._edit_json(alp.TRANSFER_REL, lambda d: d["EN"]["A1"]["items"][0].update(sourceLevelEvidence=tag, sourceLevelNote=note))
+                _, _, f = self._run()
+                self.assertTrue(any("sourceLevel" in r["detail"] for r in self._errors(f, "C13_transfer")))
+
+    def test_crossmap_declared_grammar_keys_are_checked(self):
+        self._edit_json(alp.CROSSMAP_REL, lambda d: d["A1"]["rows"][0].update(grammarKeys=["G6:made_up"]))
+        _, _, f = self._run()
+        self.assertTrue(any("문법 키" in r["detail"] for r in self._errors(f, "C14_crossmap")))
+
+    def test_dependency_phase_labels_are_checked(self):
+        self._edit_json(alp.PHASES_REL, lambda d: d["dependencyMap"][0].update(prerequisitePhase="KP18", targetPhase="KP18"))
+        _, _, f = self._run()
+        self.assertEqual(len([r for r in self._errors(f, "C17_depmap") if "실제 도입 Phase" in r["detail"]]), 2)
+
+    def test_dependency_document_keeps_homograph_grades_distinct(self):
+        self.phases[-1]["koreanGrammar"][0].update(form="-어요", niklGrade=6)
+        _phase_docs(self.root, self.phases)
+        self._edit_json(alp.PHASES_REL, lambda d: d.update(dependencyMap=[
+            {"prerequisite": "-어요", "prerequisiteKey": "G1:-어요", "target": "-어요", "targetKey": "G6:-어요", "advancedReuse": "-어요", "advancedReuseKey": "G6:-어요", "why": "test"}]))
+        doc = alp.render_part8(alp.Matrix(self.root), alp.PhaseSystem(self.root), [])
+        self.assertIn("G1:-어요 (no1)", doc)
+        self.assertIn("G6:-어요 (no18)", doc)
+
+    def test_spoken_genre_cannot_be_counted_as_reading(self):
+        self.phases[0]["reading"][0]["textTypeId"] = "x_dialog"
+        _phase_docs(self.root, self.phases)
+        _, _, f = self._run()
+        self.assertTrue(any("채널" in r["detail"] for r in self._errors(f, "C6_coverage")))
 
     def test_missing_official_form_is_an_error(self):
         for p in self.phases:
@@ -554,7 +737,7 @@ class FixtureTest(unittest.TestCase):
         rows = [r for r in self._errors(f, "C14_crossmap") if "OFFICIAL" in r["detail"]]
         self.assertTrue(rows, "pragmatics 축의 OFFICIAL 을 통과시켰다")
 
-    def test_official_evidence_on_grammar_axis_still_passes(self):
+    def test_official_cross_language_claim_on_grammar_axis_is_rejected(self):
         cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
         for r in cm["C2"]["rows"]:
             if r["axis"] in ("grammar", "vocabDomain"):
@@ -562,7 +745,7 @@ class FixtureTest(unittest.TestCase):
         (self.root / alp.CROSSMAP_REL).write_text(json.dumps(cm, ensure_ascii=False), encoding="utf-8")
         _, _, f = self._run()
         rows = [r for r in self._errors(f, "C14_crossmap") if "OFFICIAL" in r["detail"]]
-        self.assertEqual(rows, [], f"문법·어휘 영역 축의 정당한 OFFICIAL 을 막고 있다: {rows}")
+        self.assertTrue(rows, "원 형태의 공식성을 언어 간 대응의 공식성으로 승격했다")
 
     def test_article_row_must_be_zero_correspondence(self):
         cm = json.loads((self.root / alp.CROSSMAP_REL).read_text(encoding="utf-8"))
@@ -588,7 +771,7 @@ class FixtureTest(unittest.TestCase):
     def test_structural_gap_text_type_is_reported(self):
         for p in self.phases:
             if p["id"] == "KP01":
-                p["textTypes"].append({"id": "x_sign", "mode": "written_reception", "use": "reception", "note": "표지판"})
+                p["textTypes"].append({"id": "x_sign", "mode": "written_reception", "use": "R", "note": "표지판"})
         _phase_docs(self.root, self.phases)
         _, _, f = self._run()
         self.assertTrue([r for r in f.rows if r["check"] == "C18_surface"])
@@ -610,7 +793,6 @@ class FixtureTest(unittest.TestCase):
                          json.dumps(s2, sort_keys=True, ensure_ascii=False))
 
 
-@unittest.skipUnless(HAS_PHASES, SKIP_REASON)
 class LiveTest(unittest.TestCase):
     def test_live_audit_has_no_errors_and_outputs_are_fresh(self):
         summary, stale, f = alp.run(REPO, check_only=True)
