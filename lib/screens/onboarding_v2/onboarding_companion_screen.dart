@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/mascot.dart';
+import 'onboarding_character_media.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
@@ -28,130 +29,114 @@ class OnboardingCompanionScreen extends StatelessWidget {
     assert(copy.companion.companions.length == 2);
     final companionCopy = copy.companion;
     final text = SoriTextTheme.of(context);
-    final selected = selectedCompanionId == null
-        ? null
-        : companionCopy.companion(selectedCompanionId!);
     final progress = copy.navigation.progress(7, 7);
+    final compactHeading =
+        MediaQuery.sizeOf(context).height < 700 &&
+        MediaQuery.textScalerOf(context).scale(16) > 24;
     return OnboardingV2PageShell(
       brandLatin: copy.brandLatin,
       brandKorean: copy.brandKorean,
       currentStep: 7,
       totalSteps: 7,
       progressLabel: progress,
-      stageKey: ValueKey(
-        'onboarding-v2-companion-stage-${selectedCompanionId ?? 'empty'}',
-      ),
-      stage: OnboardingCompanionStage(
-        companions: companionCopy.companions,
-        selectedCompanionId: selectedCompanionId,
-        onCompanionChanged: onCompanionChanged,
+      showStage: false,
+      heading: OnboardingV2Heading(
+        eyebrow: companionCopy.eyebrow,
+        title: compactHeading ? companionCopy.eyebrow : companionCopy.title,
+        body: companionCopy.body,
+        showBody: false,
+        announcementLabel: '$progress. ${companionCopy.title}',
       ),
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          OnboardingV2Heading(
-            eyebrow: companionCopy.eyebrow,
-            title: companionCopy.title,
-            body: companionCopy.body,
-            announcementLabel: '$progress. ${companionCopy.title}',
-          ),
-          if (selected != null) ...[
-            const SizedBox(height: Spacing.lg),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: Spacing.md),
-              decoration: BoxDecoration(
-                border: Border.symmetric(
-                  horizontal: BorderSide(
-                    color: SoriSurfaces.of(context).border,
-                  ),
-                ),
+      body: LayoutBuilder(
+        builder: (context, constraints) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: OnboardingCompanionStage(
+                companions: companionCopy.companions,
+                selectedCompanionId: selectedCompanionId,
+                onCompanionChanged: onCompanionChanged,
+                showDescription:
+                    constraints.maxHeight >= 300 &&
+                    MediaQuery.textScalerOf(context).scale(16) <= 24,
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+            if (constraints.maxHeight >= 650) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                companionCopy.body,
+                textAlign: TextAlign.center,
+                style: text.body,
+              ),
+            ],
+            OnboardingV2DetailsButton(
+              key: const ValueKey('onboarding-v2-companion-details'),
+              label: AppL10n.of(context).onboardingV2DetailsAction,
+              sheetTitle: companionCopy.title,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(
-                    selected.id == OnboardingV2Ids.companionJoy
-                        ? Icons.auto_awesome_rounded
-                        : Icons.route_rounded,
-                    color: selected.id == OnboardingV2Ids.companionTaego
-                        ? SoriColors.tigerOnLight
-                        : SoriColors.primary,
+                  Text(
+                    companionCopy.title,
+                    textAlign: TextAlign.center,
+                    style: text.h3,
                   ),
-                  const SizedBox(width: Spacing.md),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(selected.rhythm, style: text.cardTitle),
-                        const SizedBox(height: Spacing.xs),
-                        Text(selected.body, style: text.cardSubtitle),
-                      ],
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    companionCopy.body,
+                    textAlign: TextAlign.center,
+                    style: text.body,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  for (final companion in companionCopy.companions) ...[
+                    Text(
+                      '${companion.name} · ${companion.koreanName}',
+                      textAlign: TextAlign.center,
+                      style: text.h2,
                     ),
+                    Text(
+                      companion.rhythm,
+                      textAlign: TextAlign.center,
+                      style: text.cardTitle,
+                    ),
+                    Text(
+                      companion.body,
+                      textAlign: TextAlign.center,
+                      style: text.body,
+                    ),
+                    const SizedBox(height: Spacing.md),
+                  ],
+                  Text(
+                    companionCopy.equalLearningNote,
+                    key: const ValueKey(
+                      'onboarding-v2-companion-equal-learning-note',
+                    ),
+                    textAlign: TextAlign.center,
+                    style: text.bodySmall,
                   ),
                 ],
               ),
             ),
           ],
-          const SizedBox(height: Spacing.md),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Icon(
-                Icons.balance_rounded,
-                size: 20,
-                color: SoriColors.highlight,
-              ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Text(
-                  key: const ValueKey(
-                    'onboarding-v2-companion-equal-learning-note',
-                  ),
-                  companionCopy.equalLearningNote,
-                  style: text.bodySmall,
-                ),
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
-      footer: LayoutBuilder(
-        builder: (context, constraints) {
-          final back = SoriButton.outlined(
-            key: const ValueKey('onboarding-v2-companion-back'),
-            label: copy.navigation.back,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: onBack,
-          );
-          final next = SoriButton.filled(
-            key: const ValueKey('onboarding-v2-companion-continue'),
-            label: companionCopy.continueAction,
-            trailingIcon: Icons.arrow_forward_rounded,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: selectedCompanionId == null
-                ? null
-                : () => onContinue(selectedCompanionId!),
-          );
-          if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
-            return Column(
-              children: [
-                next,
-                const SizedBox(height: Spacing.sm),
-                back,
-              ],
-            );
-          }
-          return Row(
-            children: [
-              Expanded(flex: 4, child: back),
-              const SizedBox(width: Spacing.md),
-              Expanded(flex: 6, child: next),
-            ],
-          );
-        },
+      footer: OnboardingV2FooterActions(
+        backKey: const ValueKey('onboarding-v2-companion-back'),
+        backLabel: copy.navigation.back,
+        onBack: onBack,
+        primaryAction: SoriButton.filled(
+          key: const ValueKey('onboarding-v2-companion-continue'),
+          label: companionCopy.continueAction,
+          trailingIcon: MediaQuery.textScalerOf(context).scale(16) > 24
+              ? null
+              : Icons.arrow_forward_rounded,
+          fullWidth: true,
+          size: SoriButtonSize.md,
+          onTap: selectedCompanionId == null
+              ? null
+              : () => onContinue(selectedCompanionId!),
+        ),
       ),
     );
   }
@@ -212,23 +197,15 @@ class _OnboardingCompanionConfirmationScreenState
     final companionCopy = widget.copy.companion;
     final companion = companionCopy.companion(widget.companionId);
     final text = SoriTextTheme.of(context);
-    final kind = companion.id == OnboardingV2Ids.companionJoy
-        ? MascotKind.magpie
-        : MascotKind.tiger;
-    final accent = companion.id == OnboardingV2Ids.companionJoy
-        ? SoriColors.primary
-        : SoriColors.tigerOnLight;
-    final showPreview =
-        widget.previewBuilder != null && !SoriMotion.reduceMotion(context);
+    final isJoy = companion.id == OnboardingV2Ids.companionJoy;
     final progress = widget.copy.navigation.progress(7, 7);
-    final preview = showPreview
-        ? widget.previewBuilder!(context, companion.id)
-        : Mascot(
-            kind: kind,
-            emotion: MascotEmotion.smile,
-            size: 220,
-            animate: false,
-          );
+    final preview =
+        widget.previewBuilder?.call(context, companion.id) ??
+        OnboardingCharacterMedia(
+          characterId: isJoy ? 'magpie' : 'tiger',
+          motion: OnboardingCharacterMotion.confirm,
+          size: 320,
+        );
 
     return OnboardingV2PageShell(
       brandLatin: widget.copy.brandLatin,
@@ -236,21 +213,11 @@ class _OnboardingCompanionConfirmationScreenState
       currentStep: 7,
       totalSteps: 7,
       progressLabel: progress,
-      stageKey: ValueKey('onboarding-v2-confirmation-stage-${companion.id}'),
-      stage: OnboardingConfirmationStage(
-        key: const ValueKey('onboarding-v2-confirmation-hero'),
-        companion: companion,
-        preview: preview,
-      ),
+      showStage: false,
       bodyKey: const ValueKey('onboarding-v2-confirmation-scroll'),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      heading: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            companionCopy.confirmationEyebrow.toUpperCase(),
-            style: text.eyebrow,
-          ),
-          const SizedBox(height: Spacing.sm),
           Focus(
             focusNode: _headingFocus,
             child: Semantics(
@@ -258,68 +225,79 @@ class _OnboardingCompanionConfirmationScreenState
               header: true,
               liveRegion: true,
               focusable: true,
-              label: companion.selectedMessage,
+              label: '$progress. ${companion.selectedMessage}',
               child: ExcludeSemantics(
-                child: Text(companion.selectedMessage, style: text.h1),
-              ),
-            ),
-          ),
-          const SizedBox(height: Spacing.md),
-          Text(companionCopy.confirmationBody, style: text.body),
-          const SizedBox(height: Spacing.lg),
-          Container(
-            key: const ValueKey('onboarding-v2-confirmation-details'),
-            padding: const EdgeInsets.symmetric(vertical: Spacing.md),
-            decoration: BoxDecoration(
-              border: Border.symmetric(
-                horizontal: BorderSide(color: SoriSurfaces.of(context).border),
-              ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  kind == MascotKind.magpie
-                      ? Icons.auto_awesome_rounded
-                      : Icons.route_rounded,
-                  color: accent,
+                child: Text(
+                  companion.selectedMessage,
+                  textAlign: TextAlign.center,
+                  style: text.h1,
                 ),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(companion.rhythm, style: text.cardTitle),
-                      const SizedBox(height: Spacing.xs),
-                      Text(companion.body, style: text.cardSubtitle),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ],
       ),
-      footer: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SoriButton.filled(
-            key: const ValueKey('onboarding-v2-confirmation-start'),
-            label: companionCopy.startAction,
-            trailingIcon: Icons.arrow_forward_rounded,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: widget.onStart,
-          ),
-          const SizedBox(height: Spacing.xs),
-          SoriButton.ghost(
-            key: const ValueKey('onboarding-v2-confirmation-change'),
-            label: companionCopy.changeAction,
-            fullWidth: true,
-            maxLines: 1,
-            onTap: widget.onChange,
-          ),
-        ],
+      body: LayoutBuilder(
+        builder: (context, constraints) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: OnboardingConfirmationStage(
+                key: const ValueKey('onboarding-v2-confirmation-hero'),
+                companion: companion,
+                preview: preview,
+              ),
+            ),
+            if (constraints.maxHeight >= 420 &&
+                MediaQuery.textScalerOf(context).scale(16) <= 24) ...[
+              const SizedBox(height: Spacing.md),
+              Text(
+                companionCopy.confirmationBody,
+                textAlign: TextAlign.center,
+                style: text.body,
+              ),
+            ],
+            OnboardingV2DetailsButton(
+              key: const ValueKey('onboarding-v2-confirmation-details'),
+              label: AppL10n.of(context).onboardingV2DetailsAction,
+              sheetTitle: companion.selectedMessage,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    companionCopy.confirmationBody,
+                    textAlign: TextAlign.center,
+                    style: text.body,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    companion.rhythm,
+                    textAlign: TextAlign.center,
+                    style: text.cardTitle,
+                  ),
+                  Text(
+                    companion.body,
+                    textAlign: TextAlign.center,
+                    style: text.body,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      footer: OnboardingV2FooterActions(
+        backKey: const ValueKey('onboarding-v2-confirmation-change'),
+        backLabel: widget.copy.navigation.back,
+        backSemanticLabel: companionCopy.changeAction,
+        onBack: widget.onChange,
+        primaryAction: SoriButton.filled(
+          key: const ValueKey('onboarding-v2-confirmation-start'),
+          label: companionCopy.startAction,
+          fullWidth: true,
+          size: SoriButtonSize.md,
+          onTap: widget.onStart,
+        ),
       ),
     );
   }

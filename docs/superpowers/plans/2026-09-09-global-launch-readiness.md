@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- 초기 통합 기준 SHA는 `7e844d1b7d751a31f3a666769224da68989523be` (#293 포함), 시작 기준은 `aa0d932f`다. Task 15에서 main `cf1599ee` (#289·#295)를 통합했고, Task 17에서 `f2cd156837a57e745ef81c6903d8d3747eb0428a` (#296)까지 통합해 검증했다. 이전 웹/Flutter 증거와 현재 통합 검증의 기준을 구분한다. 전용 `global-launch-readiness-20260909` 작업 공간만 수정.
+- 초기 통합 기준 SHA는 `7e844d1b7d751a31f3a666769224da68989523be` (#293 포함), 시작 기준은 `aa0d932f`다. Task 15에서 main `cf1599ee` (#289·#295), Task 17에서 `f2cd1568` (#296), Task 21에서 `8185cca7334348e52edac8464ddac6de49b97b81` (#297)까지 통합해 로컬 검증했다. 이전 웹/Flutter 증거와 현재 통합 검증의 기준을 구분한다. 전용 `global-launch-readiness-20260909` 작업 공간만 수정.
 - 커밋/푸시는 Jin이 명시적으로 요청할 때만. 구현자는 커밋하지 않고 diff와 테스트 증거를 남긴다.
 - Jin이 앞서 승인한 커밋 범위로 누적 최적화와 main 통합을 로컬에 기록한다. 이후 배포 보류 지시에 따라 푸시·원격 CI·스토어 작업은 보류한다. 커밋 직전 해시 대조와 커밋 후 트리·부모·작업 공간 검증 결과는 외부 `local-commit-20260910/verification.json`이 정본이다. 아래 각 Task의 HEAD·미커밋 표기는 해당 검증 시점의 기록이다.
 - 무료 학습 정책, 계정 삭제/전환 fencing, 개인 음성 캐시 격리, `allowSynthesis: false` prefetch 유지.
@@ -745,6 +745,50 @@ installed-client guidance delivery or device behavior.
 Local tests cannot close the real Apple/provider, deployed worker, App Check,
 privacy-retention or device verification gates. Older installed clients have
 not necessarily displayed the new manual instructions.
+
+### Task 21: Integrate the current onboarding without losing launch fixes
+
+**Trigger:** The current remote main advanced to
+`8185cca7334348e52edac8464ddac6de49b97b81` (PR #297) while the local
+launch candidate reached `b655dc0413ad3700f9e0ee2508327bc543e1028c`.
+Validate one candidate containing both the approved onboarding and the
+existing loading, retry, speech and account-deletion fixes.
+
+**Scope:** Import the 44 paths changed by #297. Preserve its already-approved
+four companion assets exactly; generate no new artwork. Keep both sets of
+DE/EN messages and the local journey loading semantic fix. Do not alter the
+unrelated website while its public deletion-path audit is still running.
+
+- [x] Capture the clean local base, exact remote main, previous merge base,
+  source and paid Graphify hashes before integration. Preserve both parents'
+  Graphify records before rebuilding derived metadata.
+- [x] Merge the exact main revision locally without committing. Resolve only
+  generated Graphify conflicts; review the automatically combined journey and
+  localization changes. Regenerate localization from the merged ARB files.
+- [x] Verify onboarding presentation, learning preview, companion save/retry,
+  motion/lifecycle and bundle contracts together with account/startup/loading,
+  localization and adaptive-layout guards. Compare source/assets against the
+  correct parent and analyze changed Dart. Obtain independent Standards/Spec
+  reviews of the integration, not a repeat review of all inherited code.
+- [x] Update/prune Graphify, retain paid records, and commit the verified merge
+  locally with both parents. Keep exact upstream CI observations separate from
+  local checks. No push, remote CI dispatch, mobile/site build, device retry,
+  support message, store action or deployment.
+
+**Evidence:** External `onboarding-integration-20260910/` records the baseline,
+composition checks, focused test paths/results, reviews and final merge tree.
+The existing profile APK predates this candidate and cannot verify it.
+
+**Local verification (2026-09-10):** One combined run passed 462/462 across
+48 test files; the Python media contract passed 5/5 and changed Dart analysis
+passed for 24 files. Both independent reviews approved the composition and
+matched all 40 incoming source hashes. There are 34 exact-main files plus six
+shared localization/journey files, and 2,349 untouched prior source files.
+The reviewed journey differs from main only by retaining the single loading
+semantic owner. An initial test-list import-path error was corrected; its
+accidental default test run was stopped at +0 and is not passing evidence.
+Current main's existing CI/Playwright observations are stored separately;
+they do not prove remote CI for this unpushed merge candidate.
 
 ### Verification evidence
 

@@ -11,8 +11,6 @@ import '../../motion/transitions.dart';
 import '../../services/analytics_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/character_clip.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/toast.dart';
 import '../app_shell.dart';
@@ -23,7 +21,7 @@ import 'onboarding_story_screen.dart';
 import 'onboarding_v2_copy.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
-import 'onboarding_v2_stage.dart';
+import 'onboarding_character_media.dart';
 
 /// Connects the pure V2 presentation to the durable first-run coordinator.
 /// No draft changes product data; only the final explicit CTA begins commit.
@@ -53,7 +51,9 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   final Stopwatch _journeyStopwatch = Stopwatch();
   final Set<OnboardingPurpose> _pendingPurposes = {};
   final Set<LearnerLevel> _pendingLevels = {};
-  final Set<OnboardingCompanion> _pendingCompanions = {};
+  OnboardingCompanion? _companionIntent;
+  int _companionIntentRevision = 0;
+  Future<bool> _companionSave = Future.value(true);
   StoryPageId? _observedStoryPage;
   Stopwatch? _storyStopwatch;
   bool _journeyDurationRecorded = false;
@@ -224,6 +224,31 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     }
   }
 
+  Future<bool> _saveCompanionIntent(OnboardingCompanion companion) async {
+    final revision = ++_companionIntentRevision;
+    setState(() => _companionIntent = companion);
+    try {
+      // Coordinator writes are serialized. Keep every changed intent in order;
+      // deduplicating by character drops A → B → A while B is still saving.
+      final next = await _coordinator.saveCompanionDraft(companion);
+      unawaited(Analytics.onboardingCompanionSelectedV2(companion));
+      if (mounted) {
+        _applyState(next);
+      }
+      return true;
+    } catch (_) {
+      _showSaveError();
+      return false;
+    } finally {
+      if (mounted && revision == _companionIntentRevision) {
+        // An in-flight Continue still awaits this attempt's result. A later
+        // explicit Continue may use the visibly restored, durable selection.
+        _companionSave = Future.value(_state?.companionDraft != null);
+        setState(() => _companionIntent = null);
+      }
+    }
+  }
+
   Future<void> _commitAndOpenGate() async {
     if (_busy) {
       return;
@@ -264,6 +289,9 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     }
     setState(() => _busy = true);
     try {
+      if (!await _companionSave) {
+        return;
+      }
       final next = await _coordinator.commitFromCompanionMinimal();
       if (!mounted) {
         return;
@@ -379,27 +407,28 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       ),
       OnboardingPhase.companion => OnboardingCompanionScreen(
         copy: copy,
-        selectedCompanionId: _companionId(state.companionDraft),
+        selectedCompanionId: _companionId(
+          _companionIntent ?? state.companionDraft,
+        ),
         onCompanionChanged: (id) {
           final companion = _companionForId(id);
-          if (companion == state.companionDraft ||
-              !_pendingCompanions.add(companion)) {
+          if (companion == (_companionIntent ?? _state?.companionDraft)) {
             return;
           }
-          unawaited(
-            _updateDraft(
-              () => _coordinator.saveCompanionDraft(companion),
-              onSaved: () =>
-                  unawaited(Analytics.onboardingCompanionSelectedV2(companion)),
-              onFinished: () => _pendingCompanions.remove(companion),
-            ),
-          );
+          _companionSave = _saveCompanionIntent(companion);
         },
         onContinue: (_) {
           if (_coordinator.usesMinimalSafeFlow) {
             unawaited(_commitMinimalFromCompanion());
           } else {
-            unawaited(_runTransition(_coordinator.continueFromCompanion));
+            unawaited(
+              _runTransition(() async {
+                if (!await _companionSave) {
+                  return _state!;
+                }
+                return _coordinator.continueFromCompanion();
+              }),
+            );
           }
         },
         onBack: () => unawaited(_runTransition(_coordinator.returnToSetup)),
@@ -446,33 +475,17 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   }
 
   Widget _buildCompanionPreview(BuildContext context, String companionId) {
-    final isJoy = companionId == OnboardingV2Ids.companionJoy;
-    final kind = isJoy ? MascotKind.magpie : MascotKind.tiger;
     return Center(
-      child: CharacterClipPlayer(
-        asset: CharacterClips.chooseFor(kind),
-        size: 260,
-        // Must equal the color painted immediately behind this player —
-        // OnboardingConfirmationStage's own matte — or BlendMode.multiply
-        // leaves a visible mismatched rectangle around the clip.
-        blendColor: OnboardingConfirmationStage.matteFor(context, isJoy: isJoy),
-        fallbackKind: kind,
-        fallbackEmotion: MascotEmotion.smile,
-        loop: false,
-        // Only fall back to the static mascot when video is categorically
-        // unavailable (device/dark) — never unconditionally, or the static
-        // PNG and the playing clip render on top of each other.
-        staticFallback: CharacterClipPlayer.videoUnavailable(context),
-        // A touch slower than real-time so the welcome greeting reads as
-        // unhurried rather than rushed.
-        playbackSpeed: 0.85,
-        onFailure: (reason) => unawaited(
-          _coordinator.recordCompanionPreviewFailure(switch (reason) {
-            CharacterClipFailureReason.initialization =>
-              OnboardingCompanionPreviewFailure.initialization,
-            CharacterClipFailureReason.playback =>
-              OnboardingCompanionPreviewFailure.playback,
-          }),
+      child: OnboardingCharacterMedia(
+        characterId: companionId == OnboardingV2Ids.companionJoy
+            ? 'magpie'
+            : 'tiger',
+        motion: OnboardingCharacterMotion.confirm,
+        size: 320,
+        onFailure: (_, __) => unawaited(
+          _coordinator.recordCompanionPreviewFailure(
+            OnboardingCompanionPreviewFailure.initialization,
+          ),
         ),
       ),
     );

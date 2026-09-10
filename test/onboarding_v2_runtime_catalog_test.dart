@@ -13,10 +13,13 @@ import 'package:ko_lernen_app/models/heritage_journey_contract.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   testWidgets('page 1 renders validated CEFR and NIKL evidence from registry', (
     tester,
@@ -25,6 +28,9 @@ void main() {
     final projection = OnboardingCurriculumEvidenceProjector.project()!;
     await tester.pumpWidget(_host(locale: const Locale('en'), pageIndex: 0));
 
+    await tester.ensureVisible(find.text('Curriculum and sources'));
+    await tester.tap(find.text('Curriculum and sources'));
+    await tester.pumpAndSettle();
     expect(find.textContaining('CEFR performance goals'), findsOneWidget);
     expect(find.textContaining('Korean Standard Curriculum'), findsOneWidget);
     final sources = find.byKey(
@@ -123,6 +129,9 @@ void main() {
       ),
     );
 
+    await tester.ensureVisible(find.text('About rewards'));
+    await tester.tap(find.text('About rewards'));
+    await tester.pumpAndSettle();
     expect(
       find.text(
         'Examples from ${soriActivityCatalog.length} current '
@@ -193,6 +202,12 @@ void main() {
       _host(locale: const Locale('en'), pageIndex: 4, textScale: 2),
     );
 
+    final details = find.byType(OnboardingV2DetailsButton);
+    expect(details, findsOneWidget);
+    await tester.ensureVisible(details);
+    await tester.tap(details);
+    await tester.pumpAndSettle();
+
     expect(find.text(chapter.officialName), findsOneWidget);
     expect(
       _koreanLocaleCodes(
@@ -207,7 +222,7 @@ void main() {
       ),
       contains('ko'),
     );
-    expect(find.text('Preview · In preparation'), findsOneWidget);
+    expect(find.text('See the gate with 문 · In preparation'), findsOneWidget);
     expect(
       find.textContaining('Only artwork already approved for the app'),
       findsOneWidget,
@@ -220,10 +235,7 @@ void main() {
         .toList(growable: false);
     expect(
       imageAssets,
-      contains(
-        'assets/illustrations/personal_hanok_v2/a1/states/'
-        '16_landscape_move_in.webp',
-      ),
+      contains('assets/illustrations/personal_hanok_v3/world/main-gate.png'),
     );
     expect(
       imageAssets,
@@ -235,7 +247,9 @@ void main() {
     );
     expect(
       imageAssets.where((asset) => asset.contains('personal_hanok_v3')),
-      isEmpty,
+      everyElement(
+        'assets/illustrations/personal_hanok_v3/world/main-gate.png',
+      ),
     );
 
     final sources = find.byKey(
