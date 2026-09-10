@@ -263,9 +263,13 @@ void main() {
                 await tester.tap(details.first);
                 await _pumpFinite(tester);
                 expect(
-                  find.byType(SoriSheetShell),
+                  viewport.size.width < 600
+                      ? find.byType(SoriSheetShell)
+                      : find.byKey(
+                          const ValueKey('onboarding-v2-reading-surface'),
+                        ),
                   findsOneWidget,
-                  reason: '$evidence details did not open a reading sheet',
+                  reason: '$evidence details did not open a reading modal',
                 );
               }
               final deepContent = find.byKey(surface.deepContentKey);

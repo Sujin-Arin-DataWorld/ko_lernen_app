@@ -12,6 +12,8 @@ import '../../widgets/sori/tokens.dart';
 import 'onboarding_hanok_growth_preview.dart';
 
 const learnedWord = '문';
+// Same example as vocab_a1_0075 in assets/data/korean_vocab.csv.
+const learnedExample = '문을 열어요.';
 const composition = 'ㅁ + ㅜ + ㄴ → 문';
 const _jamoParts = 'ㅁ + ㅜ + ㄴ';
 const _growthDuration = Duration(milliseconds: 420);
@@ -253,45 +255,54 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
         : t.onboardingV2GiftOpening;
     return LayoutBuilder(
       builder: (context, constraints) {
-        final scaledBodySize = MediaQuery.textScalerOf(context).scale(16);
-        final showDemoNote =
-            scaledBodySize <= 18 &&
-            (!constraints.hasBoundedHeight || constraints.maxHeight >= 220);
         final giftEnabled = _giftDiscovered && !_opened;
-        final scene = AnimatedSwitcher(
-          duration: SoriMotion.respect(context, _growthDuration),
-          child: !_giftDiscovered
-              ? OnboardingHanokGrowthPreview(
-                  key: const ValueKey('onboarding-v2-growth-scene'),
-                  complete: _growthComplete,
-                )
-              : Row(
-                  key: const ValueKey('onboarding-v2-gift-scene'),
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(child: widget.character),
-                    Expanded(
-                      child: Semantics(
-                        key: const ValueKey('onboarding-v2-gift-action'),
-                        button: true,
-                        enabled: giftEnabled,
-                        label: giftLabel,
-                        onTap: giftEnabled ? _unwrap : null,
-                        excludeSemantics: true,
-                        child: SoriPressable(
-                          onTap: giftEnabled ? _unwrap : null,
-                          child: AnimatedBuilder(
-                            animation: _reveal,
-                            builder: (context, child) => _BojagiReveal(
-                              progress: _reveal.value,
-                              opened: _opened,
+        final scene = LayoutBuilder(
+          builder: (context, sceneConstraints) => Stack(
+            fit: StackFit.expand,
+            children: [
+              OnboardingHanokGrowthPreview(
+                key: const ValueKey('onboarding-v2-growth-scene'),
+                complete: _growthComplete,
+              ),
+              if (_giftDiscovered)
+                Align(
+                  alignment: const Alignment(0, .65),
+                  child: FractionallySizedBox(
+                    widthFactor: .52,
+                    heightFactor: math
+                        .max(.48, 48 / sceneConstraints.maxHeight)
+                        .clamp(0.0, 1.0),
+                    child: Row(
+                      key: const ValueKey('onboarding-v2-gift-scene'),
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(child: widget.character),
+                        Expanded(
+                          child: Semantics(
+                            key: const ValueKey('onboarding-v2-gift-action'),
+                            button: true,
+                            enabled: giftEnabled,
+                            label: giftLabel,
+                            onTap: giftEnabled ? _unwrap : null,
+                            excludeSemantics: true,
+                            child: SoriPressable(
+                              onTap: giftEnabled ? _unwrap : null,
+                              child: AnimatedBuilder(
+                                animation: _reveal,
+                                builder: (context, child) => _BojagiReveal(
+                                  progress: _reveal.value,
+                                  opened: _opened,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
+            ],
+          ),
         );
         return Column(
           key: const ValueKey('onboarding-v2-story-hero'),
@@ -371,7 +382,7 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                 fullWidth: true,
                 onTap: giftEnabled ? _unwrap : null,
               ),
-            if (showDemoNote) ...[
+            ...[
               const SizedBox(height: Spacing.sm),
               Semantics(
                 liveRegion: _opened,

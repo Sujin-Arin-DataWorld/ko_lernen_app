@@ -25,13 +25,13 @@ void main() {
         );
         expect(preview, findsOneWidget);
         final previewSize = tester.getSize(preview);
-        expect(previewSize.width / previewSize.height, closeTo(3 / 2, .01));
-        final image = tester.widget<Image>(
+        expect(previewSize.width / previewSize.height, closeTo(2, .01));
+        final images = tester.widgetList<Image>(
           find.descendant(of: preview, matching: find.byType(Image)),
         );
-        expect(image.fit, BoxFit.contain);
+        expect(images.every((image) => image.fit == BoxFit.contain), isTrue);
         expect(
-          (image.image as AssetImage).assetName,
+          (images.last.image as AssetImage).assetName,
           endsWith('ildu_v3_sarangchae.png'),
         );
 

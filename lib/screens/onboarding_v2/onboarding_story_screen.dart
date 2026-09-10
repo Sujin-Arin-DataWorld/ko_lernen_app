@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart'
     show AttributedString, LocaleStringAttribute;
@@ -14,7 +16,8 @@ import '../../widgets/sori/chip.dart';
 import '../../widgets/sori/external_link.dart';
 import '../../widgets/sori/localized_copy.dart';
 import '../../widgets/sori/pressable.dart';
-import '../../widgets/sori/sheet.dart';
+import '../../widgets/sori/speakable.dart';
+import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_hanok_growth_preview.dart';
@@ -98,6 +101,11 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
     final compactHeading = MediaQuery.textScalerOf(context).scale(16) > 24;
 
     return OnboardingV2PageShell(
+      maxContentHeight: pageIndex == 1
+          ? 620
+          : pageIndex == 2
+          ? 740
+          : 820,
       brandLatin: copy.brandLatin,
       brandKorean: copy.brandKorean,
       currentStep: pageIndex + 1,
@@ -207,7 +215,7 @@ class _StoryInteraction extends StatelessWidget {
         builder: (context, constraints) => Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Expanded(child: Center(child: OnboardingJamoPractice())),
+            const OnboardingJamoPractice(),
             const SizedBox(height: Spacing.sm),
             if (MediaQuery.textScalerOf(context).scale(16) <= 24 &&
                 constraints.maxHeight >= 260)
@@ -273,7 +281,7 @@ class _LearningPathPreview extends StatelessWidget {
                 container: true,
                 label: page.heroSemanticLabel,
                 child: const ExcludeSemantics(
-                  child: OnboardingHanokGrowthPreview(showDestination: true),
+                  child: OnboardingHanokGrowthPreview(complete: true),
                 ),
               ),
             ),
@@ -322,7 +330,7 @@ class _LearningPathPreview extends StatelessWidget {
   }
 }
 
-class _FlipReviewPreview extends StatelessWidget {
+class _FlipReviewPreview extends StatefulWidget {
   const _FlipReviewPreview({
     required this.page,
     required this.flipped,
@@ -338,99 +346,270 @@ class _FlipReviewPreview extends StatelessWidget {
   final String translation;
 
   @override
+  State<_FlipReviewPreview> createState() => _FlipReviewPreviewState();
+}
+
+class _FlipReviewPreviewState extends State<_FlipReviewPreview>
+    with WidgetsBindingObserver {
+  bool _playing = false;
+  bool _failed = false;
+  int _request = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  Future<void> _play(String value, {bool slow = false}) async {
+    final request = ++_request;
+    setState(() {
+      _playing = true;
+      _failed = false;
+    });
+    var played = false;
+    try {
+      played = slow
+          ? await SoriSpeech.speakSlow(value)
+          : await SoriSpeech.speak(value);
+    } catch (_) {
+      // The card stays readable and the learner can retry unavailable audio.
+    }
+    if (mounted && request == _request) {
+      setState(() {
+        _playing = false;
+        _failed = !played;
+      });
+    }
+  }
+
+  void _stop() {
+    _request++;
+    if (_playing) {
+      unawaited(SoriSpeech.stop().catchError((Object _) {}));
+    }
+    _playing = false;
+  }
+
+  void _flip() {
+    final revealing = !widget.flipped;
+    widget.onTap();
+    if (revealing) {
+      unawaited(_play(widget.korean));
+    } else {
+      setState(_stop);
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      setState(_stop);
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _stop();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
     final text = SoriTextTheme.of(context);
+    final page = widget.page;
+    final flipped = widget.flipped;
+    final korean = widget.korean;
+    final translation = widget.translation;
+    final t = AppL10n.of(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
-        final compact = constraints.maxHeight < 300;
+        final compact = constraints.maxHeight < 420;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              child: Semantics(
+              child: Material(
                 key: const ValueKey('onboarding-v2-story-hero'),
-                button: true,
-                label: page.heroSemanticLabel,
-                onTap: onTap,
-                excludeSemantics: true,
-                child: Material(
-                  color: surfaces.bg,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: SoriRadius.brMd,
-                    side: BorderSide(
-                      color: flipped ? SoriColors.gold : SoriColors.primary,
-                    ),
+                color: flipped ? surfaces.surfaceAlt : SoriColors.primaryDark,
+                shape: RoundedRectangleBorder(
+                  borderRadius: SoriRadius.brMd,
+                  side: BorderSide(
+                    color: flipped ? SoriColors.gold : SoriColors.primary,
                   ),
-                  child: SoriPressable(
-                    onTap: onTap,
-                    child: Center(
-                      child: Padding(
-                        padding: compact
-                            ? const EdgeInsets.symmetric(
-                                horizontal: Spacing.sm,
-                                vertical: Spacing.xs,
+                ),
+                child: Padding(
+                  padding: compact
+                      ? const EdgeInsets.symmetric(
+                          horizontal: Spacing.sm,
+                          vertical: Spacing.xs,
+                        )
+                      : const EdgeInsets.all(Spacing.md),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: flipped
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '$korean · $translation',
+                                    textAlign: TextAlign.center,
+                                    style: compact && largeText
+                                        ? text.body
+                                        : text.h2,
+                                  ),
+                                  if (!compact && !largeText)
+                                    Text('mun', style: text.meta),
+                                  if (!compact || !largeText)
+                                    const SizedBox(height: Spacing.xs),
+                                  TextButton.icon(
+                                    key: const ValueKey(
+                                      'onboarding-v3-example-audio',
+                                    ),
+                                    style: TextButton.styleFrom(
+                                      minimumSize: const Size(48, 48),
+                                    ),
+                                    onPressed: _playing
+                                        ? null
+                                        : () => _play(learnedExample),
+                                    icon: const Icon(Icons.volume_up_rounded),
+                                    label: Text(
+                                      learnedExample,
+                                      locale: const Locale('ko'),
+                                      textAlign: TextAlign.center,
+                                      style: largeText ? text.body : text.h2,
+                                    ),
+                                  ),
+                                  Text(
+                                    t.onboardingV3DoorExampleTranslation,
+                                    textAlign: TextAlign.center,
+                                    style: text.bodySmall,
+                                  ),
+                                ],
                               )
-                            : const EdgeInsets.all(Spacing.md),
-                        child: AnimatedSwitcher(
-                          duration: SoriMotion.respect(
-                            context,
-                            const Duration(milliseconds: 360),
-                          ),
-                          child: Column(
-                            key: ValueKey(flipped),
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                flipped ? translation : korean,
-                                locale: flipped ? null : const Locale('ko'),
-                                textAlign: TextAlign.center,
-                                style: flipped ? text.h2 : text.koDisplay,
-                              ),
-                              if (flipped) ...[
-                                const SizedBox(height: Spacing.sm),
-                                Text(
-                                  korean,
-                                  locale: const Locale('ko'),
-                                  textAlign: TextAlign.center,
-                                  style: text.meta,
+                            : Semantics(
+                                key: const ValueKey('onboarding-v3-card-front'),
+                                button: true,
+                                label: page.heroSemanticLabel,
+                                onTap: _flip,
+                                excludeSemantics: true,
+                                child: SoriPressable(
+                                  onTap: _flip,
+                                  child: Center(
+                                    child: Text(
+                                      korean,
+                                      locale: const Locale('ko'),
+                                      style: text.koDisplay.copyWith(
+                                        color: Colors.white,
+                                        fontSize: largeText
+                                            ? text.koDisplay.fontSize
+                                            : soriFillSize(
+                                                constraints.maxHeight,
+                                                .22,
+                                                64,
+                                                104,
+                                              ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ],
-                            ],
-                          ),
-                        ),
+                              ),
                       ),
-                    ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextButton.icon(
+                              key: const ValueKey('onboarding-v3-card-audio'),
+                              style: TextButton.styleFrom(
+                                foregroundColor: flipped
+                                    ? SoriColors.primaryOnLight
+                                    : Colors.white,
+                                minimumSize: const Size(48, 48),
+                              ),
+                              onPressed: _playing
+                                  ? null
+                                  : () => _play(
+                                      flipped ? learnedExample : korean,
+                                      slow: flipped,
+                                    ),
+                              icon: const Icon(
+                                Icons.volume_up_rounded,
+                                size: 20,
+                              ),
+                              label: Text(
+                                _failed
+                                    ? t.btnRetry
+                                    : flipped
+                                    ? t.onboardingV3ListenSlow
+                                    : t.onboardingV3ListenWord,
+                                semanticsLabel: _failed
+                                    ? t.onboardingV2AudioUnavailable
+                                    : null,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextButton.icon(
+                              key: const ValueKey('onboarding-v3-card-flip'),
+                              style: TextButton.styleFrom(
+                                foregroundColor: flipped
+                                    ? SoriColors.primaryOnLight
+                                    : Colors.white,
+                                minimumSize: const Size(48, 48),
+                              ),
+                              onPressed: _flip,
+                              icon: const Icon(Icons.flip_rounded, size: 20),
+                              label: Text(
+                                t.onboardingV3FlipCard,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: compact ? Spacing.xs : Spacing.md),
-            Row(
-              children: [
-                for (final (index, days) in const ['1', '3', '7', '30'].indexed)
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 3,
-                          color: index == 0
-                              ? SoriColors.primary
-                              : surfaces.border,
-                        ),
-                        SizedBox(height: compact ? Spacing.xs : Spacing.sm),
-                        Text(
-                          days,
-                          textAlign: TextAlign.center,
-                          style: text.meta,
-                        ),
-                      ],
+            if (!flipped || (!largeText && constraints.maxHeight >= 450)) ...[
+              SizedBox(height: compact ? Spacing.xs : Spacing.md),
+              Row(
+                children: [
+                  for (final (index, days) in const [
+                    '1',
+                    '3',
+                    '7',
+                    '30',
+                  ].indexed)
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 3,
+                            color: index == 0
+                                ? SoriColors.primary
+                                : surfaces.border,
+                          ),
+                          SizedBox(height: compact ? Spacing.xs : Spacing.sm),
+                          Text(
+                            days,
+                            textAlign: TextAlign.center,
+                            style: text.meta,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-              ],
-            ),
-            if (!largeText && constraints.maxHeight >= 340) ...[
+                ],
+              ),
+            ],
+            if (!largeText && constraints.maxHeight >= 450) ...[
               const SizedBox(height: Spacing.md),
               Text(page.body, textAlign: TextAlign.center, style: text.body),
             ],
@@ -830,9 +1009,8 @@ Future<void> _showCurriculumSources(
   required OnboardingCurriculumEvidenceProjection projection,
 }) {
   return showOnboardingV2ModalWithFocusRestore(
-    () => showSoriSheet<void>(
+    () => showOnboardingV2ReadingModal<void>(
       context: context,
-      maxTextScaleFactor: 2.0,
       builder: (sheetContext) {
         final text = SoriTextTheme.of(sheetContext);
         return Column(
@@ -1082,9 +1260,8 @@ Future<void> _showGatePreview(
   required OnboardingHeritageCatalogProjection projection,
 }) {
   return showOnboardingV2ModalWithFocusRestore(
-    () => showSoriSheet<void>(
+    () => showOnboardingV2ReadingModal<void>(
       context: context,
-      maxTextScaleFactor: 2.0,
       builder: (sheetContext) {
         final t = AppL10n.of(sheetContext);
         final text = SoriTextTheme.of(sheetContext);
@@ -1187,9 +1364,8 @@ Future<void> _showHeritageSources(
   required OnboardingHeritageCatalogProjection projection,
 }) {
   return showOnboardingV2ModalWithFocusRestore(
-    () => showSoriSheet<void>(
+    () => showOnboardingV2ReadingModal<void>(
       context: context,
-      maxTextScaleFactor: 2.0,
       builder: (sheetContext) {
         final text = SoriTextTheme.of(sheetContext);
         final sourcesTitle = copy.sourcesTitleBuilder(projection.officialName);

@@ -9308,7 +9308,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2Story1Body =>
-      'Lerne ein Wort und sieh, was sich verändert.';
+      '문 heißt Tür. Erlebe, wie Lernen diesem Hanok Gestalt gibt.';
 
   @override
   String get onboardingV2Story1Status =>
@@ -9434,10 +9434,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story3Eyebrow => 'Wiederholen';
 
   @override
-  String get onboardingV2Story3Title => 'Was bedeutet 문?';
+  String get onboardingV2Story3Title => 'Hören. Verstehen. Wiedererkennen.';
 
   @override
-  String get onboardingV2Story3Body => 'Dreh die Karte um: 문 bedeutet Tür.';
+  String get onboardingV2Story3Body =>
+      'Dreh die Karte um. Hör das Wort und verwende es in einem Satz.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
@@ -9480,8 +9481,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story4Eyebrow => 'Demo';
 
   @override
-  String get onboardingV2Story4Title =>
-      'Demo: Erkenne 문. Lass dein Hanok wachsen.';
+  String get onboardingV2Story4Title => 'Dein Wort. Dein wachsender Hanok.';
 
   @override
   String get onboardingV2Story4Body =>
@@ -10378,12 +10378,10 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2RecognitionPrompt => 'Welches Wort bedeutet „Tür“?';
 
   @override
-  String get onboardingV2RecognitionRetry =>
-      'Fast! Suche ㅁ + ㅜ + ㄴ. Versuch es noch einmal.';
+  String get onboardingV2RecognitionRetry => 'Tipp: ㅁ + ㅜ + ㄴ.';
 
   @override
-  String get onboardingV2RecognitionCorrect =>
-      'Richtig! Sieh, wie dein Hanok wächst.';
+  String get onboardingV2RecognitionCorrect => 'Richtig! Dein Hanok wächst.';
 
   @override
   String get onboardingV2UnwrapGift => 'Bojagi öffnen';
@@ -10392,8 +10390,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2GiftOpened => 'Bojagi geöffnet';
 
   @override
-  String get onboardingV2RewardDemoNote =>
-      'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.';
+  String get onboardingV2RewardDemoNote => 'Demo · keine XP';
 
   @override
   String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
@@ -10423,6 +10420,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2DoorMeaning => 'Tür';
+
+  @override
+  String get onboardingV3DoorExampleTranslation => 'Ich öffne die Tür.';
+
+  @override
+  String get onboardingV3ListenSlow => 'Langsam';
+
+  @override
+  String get onboardingV3ListenWord => 'Anhören';
+
+  @override
+  String get onboardingV3FlipCard => 'Umdrehen';
 
   @override
   String get onboardingV2HanokGrowthBeforeSemantics =>

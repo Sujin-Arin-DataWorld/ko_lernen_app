@@ -80,7 +80,7 @@ class OnboardingHanokGrowthPreview extends StatelessWidget {
                               widthFactor: .7,
                               heightFactor: 1,
                               child: AnimatedOpacity(
-                                opacity: complete ? 1 : 0,
+                                opacity: complete ? 1 : .16,
                                 duration: duration,
                                 curve: Curves.easeOutCubic,
                                 child: Image.asset(

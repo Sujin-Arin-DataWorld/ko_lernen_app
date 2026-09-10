@@ -90,7 +90,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(
           find.byKey(const ValueKey('onboarding-v2-hanok-growth-after')),
-          findsNothing,
+          findsOneWidget,
         );
         expect(
           find.byKey(const ValueKey('onboarding-v2-gift-false')),
@@ -131,6 +131,7 @@ void main() {
 
   for (final (locale, meaning) in const [('de', 'Tür'), ('en', 'door')]) {
     testWidgets('$locale review keeps 문 paired with $meaning', (tester) async {
+      final speech = stubSoriSpeech();
       await tester.pumpWidget(
         _host(
           locale,
@@ -149,10 +150,92 @@ void main() {
       expect(find.text(meaning), findsNothing);
       await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-hero')));
       await tester.pumpAndSettle();
-      expect(find.text(meaning), findsOneWidget);
-      expect(find.text('문'), findsOneWidget);
+      expect(find.text('문 · $meaning'), findsOneWidget);
+      expect(find.text(learnedExample), findsOneWidget);
+      expect(speech.spoken, ['문']);
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v3-example-audio')),
+      );
+      await tester.pump();
+      expect(speech.spoken.last, learnedExample);
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-card-audio')));
+      await tester.pump();
+      expect(speech.spokenSlow, [learnedExample]);
     });
   }
+
+  testWidgets(
+    'review audio failure permits retry, flip and onward navigation',
+    (tester) async {
+      stubSoriSpeech();
+      SoriSpeech.speakImpl = (_, _) async => throw StateError('offline');
+      var continued = false;
+      await tester.pumpWidget(
+        _host(
+          'en',
+          Builder(
+            builder: (context) => OnboardingStoryScreen(
+              copy: onboardingV2Copy(AppL10n.of(context)),
+              pageIndex: 2,
+              onContinue: (_) => continued = true,
+              onPrevious: (_) {},
+            ),
+          ),
+          scrollable: false,
+        ),
+      );
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-card-flip')));
+      await tester.pumpAndSettle();
+      expect(find.text(learnedExample), findsOneWidget);
+      expect(find.text('Try again'), findsOneWidget);
+      var played = false;
+      SoriSpeech.speakSlowImpl = (text, _) async {
+        expect(text, learnedExample);
+        return played = true;
+      };
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-card-audio')));
+      await tester.pumpAndSettle();
+      expect(played, isTrue);
+      expect(find.text('Try again'), findsNothing);
+      await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-next')));
+      expect(continued, isTrue);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'review pauses on background and ignores audio completion after leaving',
+    (tester) async {
+      final speech = stubSoriSpeech(completeSpeak: false);
+      await tester.pumpWidget(
+        _host(
+          'en',
+          Builder(
+            builder: (context) => OnboardingStoryScreen(
+              copy: onboardingV2Copy(AppL10n.of(context)),
+              pageIndex: 2,
+              onContinue: (_) {},
+              onPrevious: (_) {},
+            ),
+          ),
+          scrollable: false,
+        ),
+      );
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-card-flip')));
+      await tester.pump();
+      final audio = find.byKey(const ValueKey('onboarding-v3-card-audio'));
+      expect(tester.widget<TextButton>(audio).onPressed, isNull);
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+      await tester.pump();
+      expect(speech.stops, 1);
+      expect(tester.widget<TextButton>(audio).onPressed, isNotNull);
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+      await tester.pumpWidget(_host('en', const SizedBox.shrink()));
+      speech.speakCompleter!.complete(false);
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('Hanok preview preserves the courtyard and V3 building ratios', (
     tester,

@@ -14,10 +14,62 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 import 'support/real_fonts.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadSoriRealFonts);
+  setUp(stubSoriSpeech);
+
+  for (final viewport in [const Size(720, 1152), const Size(1152, 720)]) {
+    testWidgets('reading modal stays centred and returns focus at $viewport', (
+      tester,
+    ) async {
+      tester.view.physicalSize = viewport;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _host(
+          Scaffold(
+            body: Center(
+              child: OnboardingV2DetailsButton(
+                label: 'Reading details',
+                child: Text(
+                  List.filled(40, 'Your word grows with your Hanok.').join(' '),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+      final opener = find.byType(OnboardingV2DetailsButton);
+      await _focusWithKeyboard(tester, opener);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      final surface = find.byKey(
+        const ValueKey('onboarding-v2-reading-surface'),
+      );
+      final bounds = tester.getRect(surface);
+      expect(bounds.width, lessThanOrEqualTo(640));
+      expect(bounds.center.dy, closeTo(viewport.height / 2, 1));
+      expect(bounds.top, greaterThan(24));
+      final close = find.byTooltip('Close');
+      final closeBounds = tester.getRect(close);
+      expect(closeBounds.height, greaterThanOrEqualTo(48));
+      await tester.drag(
+        find.byType(SingleChildScrollView),
+        const Offset(0, -500),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.getRect(close), closeBounds);
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+      expect(surface, findsNothing);
+      expect(_primaryFocusIsWithin(opener), isTrue);
+      expect(tester.takeException(), isNull);
+    });
+  }
 
   testWidgets('story is coordinator-driven, mandatory, and resume-ready', (
     tester,
@@ -61,7 +113,7 @@ void main() {
     );
     expect(find.text('Which word means “door”?'), findsOneWidget);
     expect(
-      find.text('Preview only. No XP, items, or Hanok pieces are awarded.'),
+      find.text('Demo · no XP'),
       findsOneWidget,
     );
     final answerSemantics = tester
@@ -137,7 +189,7 @@ void main() {
     );
     await tester.pump();
 
-    final card = find.byKey(const ValueKey('onboarding-v2-story-hero'));
+    final card = find.byKey(const ValueKey('onboarding-v3-card-front'));
     expect(
       tester.getSemantics(card).getSemanticsData().flagsCollection.isButton,
       isTrue,
@@ -146,8 +198,8 @@ void main() {
     await tester.tap(card);
     await _pumpFinite(tester);
 
-    expect(find.text('door'), findsOneWidget);
-    expect(find.text('문'), findsOneWidget);
+    expect(find.text('문 · door'), findsOneWidget);
+    expect(find.text('문을 열어요.'), findsOneWidget);
     expect(find.byType(SingleChildScrollView), findsNothing);
     _expectMinimumTarget(
       tester,

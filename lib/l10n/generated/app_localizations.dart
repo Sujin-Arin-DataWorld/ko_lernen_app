@@ -15795,7 +15795,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Body.
   ///
   /// In de, this message translates to:
-  /// **'Lerne ein Wort und sieh, was sich verändert.'**
+  /// **'문 heißt Tür. Erlebe, wie Lernen diesem Hanok Gestalt gibt.'**
   String get onboardingV2Story1Body;
 
   /// No description provided for @onboardingV2Story1Status.
@@ -16011,13 +16011,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Title.
   ///
   /// In de, this message translates to:
-  /// **'Was bedeutet 문?'**
+  /// **'Hören. Verstehen. Wiedererkennen.'**
   String get onboardingV2Story3Title;
 
   /// No description provided for @onboardingV2Story3Body.
   ///
   /// In de, this message translates to:
-  /// **'Dreh die Karte um: 문 bedeutet Tür.'**
+  /// **'Dreh die Karte um. Hör das Wort und verwende es in einem Satz.'**
   String get onboardingV2Story3Body;
 
   /// No description provided for @onboardingV2Story3HeroSemantics.
@@ -16089,7 +16089,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Title.
   ///
   /// In de, this message translates to:
-  /// **'Demo: Erkenne 문. Lass dein Hanok wachsen.'**
+  /// **'Dein Wort. Dein wachsender Hanok.'**
   String get onboardingV2Story4Title;
 
   /// No description provided for @onboardingV2Story4Body.
@@ -17601,13 +17601,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2RecognitionRetry.
   ///
   /// In de, this message translates to:
-  /// **'Fast! Suche ㅁ + ㅜ + ㄴ. Versuch es noch einmal.'**
+  /// **'Tipp: ㅁ + ㅜ + ㄴ.'**
   String get onboardingV2RecognitionRetry;
 
   /// No description provided for @onboardingV2RecognitionCorrect.
   ///
   /// In de, this message translates to:
-  /// **'Richtig! Sieh, wie dein Hanok wächst.'**
+  /// **'Richtig! Dein Hanok wächst.'**
   String get onboardingV2RecognitionCorrect;
 
   /// No description provided for @onboardingV2UnwrapGift.
@@ -17625,7 +17625,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2RewardDemoNote.
   ///
   /// In de, this message translates to:
-  /// **'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.'**
+  /// **'Demo · keine XP'**
   String get onboardingV2RewardDemoNote;
 
   /// No description provided for @onboardingV2RewardDetails.
@@ -17681,6 +17681,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tür'**
   String get onboardingV2DoorMeaning;
+
+  /// No description provided for @onboardingV3DoorExampleTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich öffne die Tür.'**
+  String get onboardingV3DoorExampleTranslation;
+
+  /// No description provided for @onboardingV3ListenSlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Langsam'**
+  String get onboardingV3ListenSlow;
+
+  /// No description provided for @onboardingV3ListenWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get onboardingV3ListenWord;
+
+  /// No description provided for @onboardingV3FlipCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Umdrehen'**
+  String get onboardingV3FlipCard;
 
   /// No description provided for @onboardingV2HanokGrowthBeforeSemantics.
   ///
