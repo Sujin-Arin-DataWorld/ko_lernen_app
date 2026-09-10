@@ -1,0 +1,490 @@
+{
+  "schemaVersion": 1,
+  "coverage": "related_practice_only",
+  "policy": "기존 미션에서 연습 가능한 하위 기능의 편집상 연결이다. Phase 전체 문법·장르·숙달 평가의 동등성 또는 완성을 뜻하지 않는다. 기존 ID와 진도·평가 권한은 그대로 유지한다.",
+  "phases": [
+    {
+      "phaseId": "KP01",
+      "practiceUnitIds": [
+        "a1_01_greetings_hangul",
+        "a1_02_self_intro_identity",
+        "a1_11_titles_relationships",
+        "a1_15_first_class_work"
+      ],
+      "practiceFocus": {
+        "ko": "인사·소개·취향 말하기",
+        "en": "Greetings, introductions and preferences",
+        "de": "Begrüßungen, Vorstellungen und Vorlieben"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP02",
+      "practiceUnitIds": [
+        "a1_05_numbers_time",
+        "a1_06_transport_directions",
+        "a1_09_home_daily_life"
+      ],
+      "practiceFocus": {
+        "ko": "시간·교통·집 안 위치 확인하기",
+        "en": "Checking times, transport and locations at home",
+        "de": "Uhrzeiten, Verkehr und Orte zu Hause klären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP03",
+      "practiceUnitIds": [
+        "a1_03_topic_subject_particles",
+        "a1_04_order_request_object",
+        "a1_07_contact_address",
+        "a1_12_daily_negation",
+        "a1_14_payment_delivery",
+        "a1_16_survival_capstone"
+      ],
+      "practiceFocus": {
+        "ko": "물건·음식 주문과 연락·계획 말하기",
+        "en": "Ordering, keeping in touch and making plans",
+        "de": "Bestellen, Kontakt halten und Pläne machen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP04",
+      "practiceUnitIds": [
+        "a1_08_clarify_repair",
+        "a1_10_health_safety",
+        "a1_13_register_switching"
+      ],
+      "practiceFocus": {
+        "ko": "다시 묻기·사과하기·말투 구별하기",
+        "en": "Asking again, apologising and recognising speech styles",
+        "de": "Nachfragen, sich entschuldigen und Sprechweisen unterscheiden"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP05",
+      "practiceUnitIds": [
+        "a2_05_delivery_services",
+        "a2_07_travel_repair",
+        "a2_08_home_money"
+      ],
+      "practiceFocus": {
+        "ko": "교환·이동·집 문제에 필요한 요청하기",
+        "en": "Requests about exchanges, travel and household problems",
+        "de": "Bitten bei Umtausch, Reisen und Problemen zu Hause"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP06",
+      "practiceUnitIds": [
+        "a2_01_haeyo_transition",
+        "a2_04_feelings_health"
+      ],
+      "practiceFocus": {
+        "ko": "취향의 이유와 증상·느낌 설명하기",
+        "en": "Explaining preferences, symptoms and feelings",
+        "de": "Vorlieben begründen, Beschwerden und Gefühle beschreiben"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP07",
+      "practiceUnitIds": [
+        "a2_02_plans_proposals",
+        "a2_06_study_work"
+      ],
+      "practiceFocus": {
+        "ko": "약속 바꾸기와 실수 수습하기",
+        "en": "Changing plans and putting mistakes right",
+        "de": "Verabredungen ändern und Fehler beheben"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP08",
+      "practiceUnitIds": [
+        "a2_03_chat_relationships"
+      ],
+      "practiceFocus": {
+        "ko": "메신저로 현재 상황 알리기",
+        "en": "Explaining the current situation in messages",
+        "de": "Die aktuelle Situation in Nachrichten erklären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP09",
+      "practiceUnitIds": [
+        "b1_01_experience_reasons",
+        "b1_04_relationships"
+      ],
+      "practiceFocus": {
+        "ko": "경험의 이유와 관계·감정 확인하기",
+        "en": "Explaining experiences and checking feelings in relationships",
+        "de": "Erlebnisse erklären und Gefühle in Beziehungen klären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP10",
+      "practiceUnitIds": [
+        "b1_01_experience_reasons",
+        "b1_05_complaint_resolution"
+      ],
+      "practiceFocus": {
+        "ko": "문제의 경위와 원하는 해결 말하기",
+        "en": "Explaining a problem and the resolution you want",
+        "de": "Ein Problem und die gewünschte Lösung schildern"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP11",
+      "practiceUnitIds": [
+        "b1_06_life_capstone"
+      ],
+      "practiceFocus": {
+        "ko": "생활 갈등에서 서로의 사정 조정하기",
+        "en": "Working through conflicting needs in daily life",
+        "de": "Unterschiedliche Bedürfnisse im Alltag abstimmen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP12",
+      "practiceUnitIds": [
+        "b1_03_work_softening",
+        "b1_06_life_capstone"
+      ],
+      "practiceFocus": {
+        "ko": "업무·생활 갈등의 해결 협의하기",
+        "en": "Negotiating solutions to work and daily-life conflicts",
+        "de": "Lösungen für Konflikte im Beruf und Alltag aushandeln"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP13",
+      "practiceUnitIds": [
+        "b1_02_indirect_speech"
+      ],
+      "practiceFocus": {
+        "ko": "들은 정보와 확정된 정보 구분하기",
+        "en": "Separating reported information from confirmed facts",
+        "de": "Gehörte Informationen von bestätigten Angaben unterscheiden"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP14",
+      "practiceUnitIds": [
+        "b2_01_formal_opening",
+        "b2_02_professional_opinion"
+      ],
+      "practiceFocus": {
+        "ko": "공식 대화의 범위와 의견의 근거 확인하기",
+        "en": "Clarifying scope and evidence in formal discussions",
+        "de": "Umfang und Belege in formellen Gesprächen klären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP15",
+      "practiceUnitIds": [
+        "b2_04_complaint_resolution",
+        "b2_05_interview"
+      ],
+      "practiceFocus": {
+        "ko": "책임 범위와 경력의 한계 설명하기",
+        "en": "Explaining responsibilities and the limits of experience",
+        "de": "Verantwortungsbereiche und Grenzen der eigenen Erfahrung erklären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP16",
+      "practiceUnitIds": [
+        "b2_03_precise_requests",
+        "b2_06_advanced_capstone"
+      ],
+      "practiceFocus": {
+        "ko": "요청 조건과 공동체 갈등의 절충 협의하기",
+        "en": "Negotiating request conditions and community compromises",
+        "de": "Bedingungen für Bitten und Kompromisse in der Gemeinschaft aushandeln"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP17",
+      "practiceUnitIds": [
+        "b2_01_formal_opening",
+        "b2_04_complaint_resolution"
+      ],
+      "practiceFocus": {
+        "ko": "발언의 범위와 책임을 확인하기",
+        "en": "Clarifying the scope of statements and responsibilities",
+        "de": "Die Reichweite von Aussagen und Verantwortlichkeiten klären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP18",
+      "practiceUnitIds": [
+        "b2_02_professional_opinion",
+        "b2_06_advanced_capstone"
+      ],
+      "practiceFocus": {
+        "ko": "근거를 바탕으로 의견과 절충안 조정하기",
+        "en": "Adjusting opinions and compromises using evidence",
+        "de": "Meinungen und Kompromisse anhand von Belegen anpassen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP19",
+      "practiceUnitIds": [
+        "c1_01_evidence_public_reasoning"
+      ],
+      "practiceFocus": {
+        "ko": "공공 근거의 범위와 대표성 설명하기",
+        "en": "Explaining the scope and representativeness of public evidence",
+        "de": "Die Reichweite und Repräsentativität öffentlicher Belege erklären"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP20",
+      "practiceUnitIds": [
+        "c1_01_evidence_public_reasoning",
+        "c1_03_media_evidence_literacy"
+      ],
+      "practiceFocus": {
+        "ko": "자료의 대표성·출처·확정 수준 판단하기",
+        "en": "Assessing representativeness, sources and certainty",
+        "de": "Repräsentativität, Quellen und Gewissheit einschätzen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP21",
+      "practiceUnitIds": [
+        "c1_02_inclusive_sustainable_systems",
+        "c1_05_fan_labor_sustainability"
+      ],
+      "practiceFocus": {
+        "ko": "자원 제약과 문화 참여의 공로 협의하기",
+        "en": "Discussing resource limits and contributions to cultural participation",
+        "de": "Ressourcengrenzen und Beiträge zur kulturellen Teilhabe besprechen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP22",
+      "practiceUnitIds": [
+        "c1_04_play_time_policy",
+        "c1_02_inclusive_sustainable_systems"
+      ],
+      "practiceFocus": {
+        "ko": "규제의 목적·예외와 자원 제약 검토하기",
+        "en": "Examining regulatory purposes, exceptions and resource limits",
+        "de": "Regelungsziele, Ausnahmen und Ressourcengrenzen prüfen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP23",
+      "practiceUnitIds": [
+        "c1_03_media_evidence_literacy",
+        "c1_05_fan_labor_sustainability"
+      ],
+      "practiceFocus": {
+        "ko": "미디어 출처와 문화 참여자의 공로 구분하기",
+        "en": "Distinguishing media sources and participants’ contributions",
+        "de": "Medienquellen und Beiträge Beteiligter unterscheiden"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP24",
+      "practiceUnitIds": [
+        "c1_06_intimacy_safety_design"
+      ],
+      "practiceFocus": {
+        "ko": "관계 속 기대와 경계를 조심스럽게 협의하기",
+        "en": "Negotiating expectations and boundaries in relationships",
+        "de": "Erwartungen und Grenzen in Beziehungen behutsam aushandeln"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP25",
+      "practiceUnitIds": [
+        "c2_01_interpretation_institutions",
+        "c2_03_automation_redress"
+      ],
+      "practiceFocus": {
+        "ko": "제도·권리 충돌과 이의 제기 절차 논의하기",
+        "en": "Discussing institutional conflicts, rights and appeals",
+        "de": "Institutionelle Konflikte, Rechte und Einspruchsverfahren besprechen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP26",
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives"
+      ],
+      "practiceFocus": {
+        "ko": "같은 경험을 서로 다른 기억·관점으로 설명하기",
+        "en": "Explaining an experience through different memories and perspectives",
+        "de": "Ein Erlebnis aus verschiedenen Erinnerungen und Perspektiven schildern"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP27",
+      "practiceUnitIds": [
+        "c2_02_technology_public_ethics",
+        "c2_03_automation_redress",
+        "c2_04_sanction_accountability"
+      ],
+      "practiceFocus": {
+        "ko": "자동화의 공공 책임·재심·책임 범위 협의하기",
+        "en": "Discussing public accountability, review and responsibility in automation",
+        "de": "Öffentliche Rechenschaft, Überprüfung und Verantwortung bei Automatisierung besprechen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP28",
+      "practiceUnitIds": [
+        "c2_06_fandom_discourse_power",
+        "c2_05_relationship_narratives"
+      ],
+      "practiceFocus": {
+        "ko": "미디어 프레이밍과 관계 서사의 관점 비교하기",
+        "en": "Comparing perspectives in media framing and relationship narratives",
+        "de": "Perspektiven in Medien und Beziehungserzählungen vergleichen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP29",
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives",
+        "c2_06_fandom_discourse_power"
+      ],
+      "practiceFocus": {
+        "ko": "관계 서사와 미디어 담론의 관점 조정하기",
+        "en": "Adjusting perspectives in relationship narratives and media discourse",
+        "de": "Perspektiven in Beziehungserzählungen und Mediendiskursen abstimmen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    },
+    {
+      "phaseId": "KP30",
+      "practiceUnitIds": [
+        "c2_05_relationship_narratives"
+      ],
+      "practiceFocus": {
+        "ko": "서로 다른 기억과 관계의 관점을 조정하기",
+        "en": "Reconciling different memories and relationship perspectives",
+        "de": "Unterschiedliche Erinnerungen und Beziehungsperspektiven abstimmen"
+      },
+      "artwork": {
+        "status": "pending",
+        "asset": null
+      }
+    }
+  ]
+}

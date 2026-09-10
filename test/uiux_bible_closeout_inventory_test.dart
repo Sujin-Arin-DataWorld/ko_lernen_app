@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(74));
+    expect(registered, hasLength(76));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(74));
+    expect(documented, hasLength(76));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -108,8 +108,8 @@ void main() {
     }
 
     // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
-    expect(seen, hasLength(109));
-    expect(documented, hasLength(109));
+    expect(seen, hasLength(111));
+    expect(documented, hasLength(111));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

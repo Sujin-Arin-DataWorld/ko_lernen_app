@@ -383,6 +383,23 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         // 서브트리에는 내부 LayoutBuilder가 없어 fillViewport의
         // IntrinsicHeight 측정과 안전하게 함께 쓸 수 있다.
         final collapsedChildren = <Widget>[
+          SoriButton.outlined(
+            key: const ValueKey('path-learning-phases'),
+            label: t.learningPhasesTitle,
+            trailingIcon: Icons.grid_view_rounded,
+            fullWidth: true,
+            onTap: () async {
+              await Navigator.pushNamed(
+                context,
+                '/course/phases',
+                arguments: _courseLevel,
+              );
+              if (mounted) {
+                await _load();
+              }
+            },
+          ),
+          const SizedBox(height: Spacing.lg),
           if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
             _CourseMissionPath(
               courseUnits: _courseUnits,

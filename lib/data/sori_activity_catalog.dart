@@ -124,7 +124,11 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     descriptionDe: 'Dein geführter Weg durch echte Situationen.',
     descriptionEn: 'Your guided path through real situations.',
     route: '/path',
-    detailRouteAliases: const ['/course/mission'],
+    detailRouteAliases: const [
+      '/course/mission',
+      '/course/phases',
+      '/course/phase',
+    ],
     minutes: 8,
     color: SoriActivityColorRole.completion,
     icon: 'route',
