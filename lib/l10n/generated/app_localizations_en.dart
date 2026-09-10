@@ -9,6 +9,24 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get learningPhasesTitle => '30 learning phases';
+
+  @override
+  String get learningPhasesIntro =>
+      'Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.';
+
+  @override
+  String get learningPhasePracticeTitle =>
+      'Free practice: related conversations';
+
+  @override
+  String get learningPhasePracticeScope =>
+      'These conversations practise related topics. Tasks specific to this phase goal are still in preparation. Your learning progress continues to follow the existing mission checks.';
+
+  @override
+  String get learningPhaseImagePreparing => 'Image in preparation';
+
+  @override
   String get accountAdditionalProviderTitle => 'Connect another sign-in method';
 
   @override
