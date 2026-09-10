@@ -1,5 +1,10 @@
 {
   "@@locale": "en",
+  "learningPhasesTitle": "30 learning phases",
+  "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
+  "learningPhasePracticeTitle": "Free practice: related conversations",
+  "learningPhasePracticeScope": "These conversations practise related topics. Tasks specific to this phase goal are still in preparation. Your learning progress continues to follow the existing mission checks.",
+  "learningPhaseImagePreparing": "Image in preparation",
   "accountAdditionalProviderTitle": "Connect another sign-in method",
   "accountAdditionalProviderConsent": "First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.",
   "accountProviderCollisionTitle": "Already connected to another account",
