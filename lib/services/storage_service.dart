@@ -517,6 +517,47 @@ class SrsCard {
   );
 }
 
+/// One actual judgment, retained by a caller that offers persistence retry.
+/// A new judgment must use a new attempt; attempts are never serialized.
+class SrsReviewAttempt {
+  SrsReviewAttempt({
+    required this.id,
+    required this.gotIt,
+    this.recordToStudyLog = true,
+  }) : _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._srsAttemptEpoch;
+
+  final String id;
+  final bool gotIt;
+  final bool recordToStudyLog;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool _primarySaved = false;
+  bool _completed = false;
+  String? _judgmentDate;
+
+  bool get _isCurrent =>
+      _lifetime.isCurrent && _epoch == Storage._srsAttemptEpoch;
+
+  Future<bool> save() => Storage._enqueueSrsReviewMutation(
+    (generation) => Storage._srsReviewTransaction(this, generation: generation),
+  );
+}
+
+class _PendingSrsWrite {
+  const _PendingSrsWrite({
+    required this.store,
+    required this.before,
+    required this.encoded,
+    required this.attempt,
+  });
+
+  final PreferenceStringStore store;
+  final _StringPreferenceState before;
+  final String encoded;
+  final SrsReviewAttempt attempt;
+}
+
 class _PronunciationProgressRecord {
   const _PronunciationProgressRecord({
     required this.count,
@@ -623,13 +664,15 @@ class Storage {
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
   static int _xpRewardMutationGeneration = 0;
-  static int _rewardResetCount = 0;
+  static int _learningResetCount = 0;
   static bool _xpRewardWritePending = false;
   static _XpRewardLedger? _confirmedXpRewardLedger;
   static final Map<String, List<String>> _confirmedRewardLists = {};
   static final Set<String> _pendingRewardListKeys = {};
   static int _srsReviewMutationCount = 0;
   static int _srsReviewMutationGeneration = 0;
+  static int _srsAttemptEpoch = 0;
+  static _PendingSrsWrite? _pendingSrsWrite;
   // `resetForTesting()` remains synchronous for its many callers, but a new
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
@@ -713,13 +756,14 @@ class Storage {
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
     _xpRewardMutationGeneration++;
-    _rewardResetCount = 0;
+    _learningResetCount = 0;
     _xpRewardWritePending = false;
     _confirmedXpRewardLedger = null;
     _confirmedRewardLists.clear();
     _pendingRewardListKeys.clear();
     _srsReviewMutationCount = 0;
     _srsReviewMutationGeneration++;
+    _invalidateSrsAttempts();
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -738,6 +782,7 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    _invalidateSrsAttempts();
     _confirmedXpRewardLedger = null;
     _confirmedRewardLists.clear();
     _invalidateSrsCache();
@@ -758,7 +803,7 @@ class Storage {
   static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
 
   static Future<T> _enqueueXpRewardMutation<T>(Future<T> Function() mutation) {
-    if (_rewardResetCount > 0) {
+    if (_learningResetCount > 0) {
       return Future<T>.error(const StaleLocalDataLifetimeException());
     }
     final generation = _xpRewardMutationGeneration;
@@ -802,6 +847,9 @@ class Storage {
   static Future<bool> _enqueueSrsReviewMutation(
     Future<bool> Function(int generation) mutation,
   ) {
+    if (_learningResetCount > 0) {
+      return Future<bool>.value(false);
+    }
     // SRS callers intentionally fire-and-forget in several game screens. As
     // with XP, start the idle queue immediately so their in-memory card is
     // visible at once, while every overlapping review waits for the complete
@@ -2496,10 +2544,10 @@ class Storage {
   /// - **부분 손상**(일부 항목만 깨짐) → 유효한 항목은 보존하고 깨진 항목만
   ///   버린다. `roomPlacement` 정규화와 같은 정책이며, 이 경우는 정상 write 를
   ///   허용해 남은 덱이 계속 갱신되게 한다.
-  static Map<String, SrsCard> _loadSrs() {
+  static Map<String, SrsCard> _loadSrs({String? confirmedRaw}) {
     if (_srsCache != null) return _srsCache!;
     _srsDroppedEntries = 0;
-    final raw = _s('kl_srs_v1');
+    final raw = confirmedRaw ?? srsRawJson;
     if (raw.isEmpty) {
       _srsQuarantined = false;
       return _srsCache = {};
@@ -2570,18 +2618,21 @@ class Storage {
     _srsDroppedEntries = 0;
   }
 
+  static void _invalidateSrsAttempts() {
+    _srsAttemptEpoch++;
+    _pendingSrsWrite = null;
+  }
+
   /// 격리를 해제하고 SRS 덱을 빈 상태로 다시 시작한다.
   ///
   /// 사용자가 "복구 불가, 새로 시작"을 **명시적으로** 선택했을 때만 호출한다.
   /// 격리본은 남겨 둔다.
-  static Future<void> resetQuarantinedSrs() async {
-    _srsQuarantined = false;
-    _srsDroppedEntries = 0;
-    _srsCache = {};
-    await _ss('kl_srs_v1', jsonEncode(const <String, dynamic>{}));
-  }
+  static Future<void> resetQuarantinedSrs() => setSrsRawJsonStrict('{}');
 
-  static Future<bool> _persistSrs({required int generation}) async {
+  static Future<bool> _persistSrs({
+    required int generation,
+    required SrsReviewAttempt attempt,
+  }) async {
     if (_learningWritesLockReason != null) {
       debugPrint(
         'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_srs_v1 쓰기를 건너뛴다',
@@ -2603,20 +2654,38 @@ class Storage {
         const <String, dynamic>{};
     final encoded = jsonEncode(json);
     final before = await _prepareStringMutation(store, 'kl_srs_v1');
-    await _ssStrict(
-      'kl_srs_v1',
-      encoded,
-      preferences: store,
-      beforeState: before,
-      // Check at the last synchronous point before issuing the platform
-      // setter. A reset that happens earlier therefore has no write to undo.
-      assertCurrentWrite: () {
-        if (generation != _srsReviewMutationGeneration) {
-          throw StateError('stale SRS generation before primary write');
-        }
-      },
+    final pending = _PendingSrsWrite(
+      store: store,
+      before: before,
+      encoded: encoded,
+      attempt: attempt,
     );
-    if (generation != _srsReviewMutationGeneration) {
+    _pendingSrsWrite = pending;
+    var unknown = false;
+    try {
+      await _ssStrict(
+        'kl_srs_v1',
+        encoded,
+        preferences: store,
+        beforeState: before,
+        // Check at the last synchronous point before issuing the platform
+        // setter. A reset that happens earlier therefore has no write to undo.
+        assertCurrentWrite: () {
+          if (generation != _srsReviewMutationGeneration ||
+              !attempt._isCurrent) {
+            throw StateError('stale SRS generation before primary write');
+          }
+        },
+      );
+    } on PreferenceOutcomeUnknownException {
+      unknown = true;
+      rethrow;
+    } finally {
+      if (!unknown && identical(_pendingSrsWrite, pending)) {
+        _pendingSrsWrite = null;
+      }
+    }
+    if (generation != _srsReviewMutationGeneration || !attempt._isCurrent) {
       await _restoreStaleSrsPrimaryWrite(
         store: store,
         before: before,
@@ -2625,6 +2694,36 @@ class Storage {
       return false;
     }
     return true;
+  }
+
+  /// Resolve the exact outstanding write before deriving another judgment.
+  /// Comparing the entire value also detects an unexpected external writer.
+  static Future<bool> _resolvePendingSrsWrite() async {
+    final pending = _pendingSrsWrite;
+    if (pending == null) {
+      return true;
+    }
+    try {
+      final after = await _reloadStringState(pending.store, 'kl_srs_v1');
+      if (!identical(_pendingSrsWrite, pending) ||
+          !pending.attempt._isCurrent) {
+        return false;
+      }
+      if (after.value == pending.encoded) {
+        pending.attempt._primarySaved = true;
+      } else if (after != pending.before) {
+        // Preserve a third value rather than guessing whether it includes us.
+        return false;
+      }
+      _pendingSrsWrite = null;
+      _unknownStrictKeys.remove('kl_srs_v1');
+      _invalidateSrsCache();
+      _loadSrs(confirmedRaw: after.value ?? '');
+      return true;
+    } on Object catch (error) {
+      debugPrint('Storage: SRS outcome still unavailable: $error');
+      return false;
+    }
   }
 
   /// This runs before the reset drain barrier releases a new [_prefs]. The
@@ -2650,21 +2749,57 @@ class Storage {
   }
 
   /// Roh-JSON des SRS-Decks (für CloudSync-Backup). Leer = kein Deck.
-  static String get srsRawJson => _s('kl_srs_v1');
+  static String get srsRawJson => _pendingSrsWrite == null
+      ? _s('kl_srs_v1')
+      : (_pendingSrsWrite!.before.value ?? '');
 
   /// SRS-Deck als Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren,
   /// damit der nächste [_loadSrs] neu parst.
-  static Future<void> setSrsRawJson(String json) async {
-    await _ss('kl_srs_v1', json);
-    _invalidateSrsCache();
-  }
+  static Future<void> setSrsRawJson(String json) => setSrsRawJsonStrict(json);
 
   static Future<void> setSrsRawJsonStrict(
     String json, {
     PreferenceStringStore? preferences,
   }) async {
-    await _ssStrict('kl_srs_v1', json, preferences: preferences);
-    _invalidateSrsCache();
+    _invalidateSrsAttempts();
+    final saved = await _enqueueSrsReviewMutation((generation) async {
+      // A retired review may have rolled its native write back. Never reuse
+      // that review's optimistic cache if this replacement also fails.
+      _invalidateSrsCache();
+      final store = _stringStore(preferences);
+      final before = await _prepareStringMutation(store, 'kl_srs_v1');
+      try {
+        await _ssStrict(
+          'kl_srs_v1',
+          json,
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: () {
+            if (generation != _srsReviewMutationGeneration) {
+              throw StateError('stale SRS generation before deck replacement');
+            }
+          },
+        );
+        if (generation != _srsReviewMutationGeneration) {
+          await _restoreStaleSrsPrimaryWrite(
+            store: store,
+            before: before,
+            attemptedJson: json,
+          );
+          return false;
+        }
+        return true;
+      } finally {
+        _invalidateSrsCache();
+        if (_unknownStrictKeys.contains('kl_srs_v1') &&
+            generation == _srsReviewMutationGeneration) {
+          _loadSrs(confirmedRaw: before.value ?? '');
+        }
+      }
+    });
+    if (!saved) {
+      throw const PreferenceWriteException('kl_srs_v1');
+    }
   }
 
   static const int _studyLogMaxIdsPerDay = 500;
@@ -2716,20 +2851,6 @@ class Storage {
     if (_learningWritesLockReason != null) {
       return false;
     }
-    late final List<String> ids;
-    try {
-      ids = _l(_studyLogKey(dateIso));
-    } on Object catch (error) {
-      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
-      return false;
-    }
-    if (ids.contains(id)) {
-      return true;
-    }
-    if (ids.length >= _studyLogMaxIdsPerDay) {
-      return false;
-    }
-    ids.add(id);
     final key = _studyLogKey(dateIso);
     final store =
         _studyLogStoreForTesting ??
@@ -2737,13 +2858,21 @@ class Storage {
     if (store == null) {
       return false;
     }
-    late final _StringListPreferenceState before;
     try {
-      before = _StringListPreferenceState.read(store, key);
+      final before = await _prepareStringListMutation(store, key);
+      final ids = List<String>.of(before.value ?? const []);
+      if (ids.contains(id)) {
+        return true;
+      }
+      if (ids.length >= _studyLogMaxIdsPerDay) {
+        return false;
+      }
+      ids.add(id);
       await _slStrict(
         key,
         ids,
         preferences: store,
+        beforeState: before,
         assertCurrentWrite: () {
           if (generation != _srsReviewMutationGeneration) {
             throw StateError('stale SRS generation before study-log write');
@@ -2989,104 +3118,117 @@ class Storage {
     String id, {
     required bool gotIt,
     bool recordToStudyLog = true,
-  }) => _enqueueSrsReviewMutation(
-    (generation) => _srsReviewTransaction(
-      id,
-      gotIt: gotIt,
-      recordToStudyLog: recordToStudyLog,
-      generation: generation,
-    ),
-  );
+  }) => SrsReviewAttempt(
+    id: id,
+    gotIt: gotIt,
+    recordToStudyLog: recordToStudyLog,
+  ).save();
 
   static Future<bool> _srsReviewTransaction(
-    String id, {
-    required bool gotIt,
-    required bool recordToStudyLog,
+    SrsReviewAttempt attempt, {
     required int generation,
   }) async {
-    if (generation != _srsReviewMutationGeneration) {
+    if (generation != _srsReviewMutationGeneration || !attempt._isCurrent) {
       return false;
     }
-    final map = _loadSrs();
-    final hadPreviousCard = map.containsKey(id);
-    final previousCard = map[id];
-    final old =
-        map[id] ??
-        const SrsCard(
-          ease: 2.5,
-          intervalDays: 0,
-          nextReviewIso: '',
-          reviewCount: 0,
-        );
-    final now = DateTime.now();
-    final judgmentDate = _today(now);
-
-    final SrsCard updated;
-    if (gotIt) {
-      final newInterval = old.intervalDays == 0
-          ? 1
-          : old.intervalDays == 1
-          ? 3
-          : (old.intervalDays * old.ease).round().clamp(1, 365);
-      updated = SrsCard(
-        ease: (old.ease + 0.05).clamp(1.3, 3.5),
-        intervalDays: newInterval,
-        nextReviewIso: _isoOf(now.add(Duration(days: newInterval))),
-        reviewCount: old.reviewCount + 1,
-      );
-    } else {
-      updated = SrsCard(
-        ease: (old.ease - 0.2).clamp(1.3, 3.5),
-        intervalDays: 1,
-        nextReviewIso: _isoOf(now.add(const Duration(days: 1))),
-        reviewCount: old.reviewCount + 1,
-      );
-    }
-    map[id] = updated;
-    bool persisted;
-    try {
-      persisted = await _persistSrs(generation: generation);
-    } on Object catch (error) {
-      _restoreSrsCacheEntry(
-        map,
-        id,
-        hadPreviousCard: hadPreviousCard,
-        previousCard: previousCard,
-      );
-      debugPrint('Storage: SRS persistence incomplete for $id: $error');
-      return false;
-    }
-    if (generation != _srsReviewMutationGeneration) {
-      return false;
-    }
-    if (!persisted) {
-      _restoreSrsCacheEntry(
-        map,
-        id,
-        hadPreviousCard: hadPreviousCard,
-        previousCard: previousCard,
-      );
-      return false;
-    }
-    if (!recordToStudyLog) {
+    if (attempt._completed) {
       return true;
     }
-    final ledgerRecorded = await _appendStudyLogEntry(
-      id,
-      dateIso: judgmentDate,
-      generation: generation,
-    );
-    if (generation != _srsReviewMutationGeneration) {
+    if (_pendingSrsWrite != null && !await _resolvePendingSrsWrite()) {
       return false;
     }
-    if (!ledgerRecorded) {
-      // Der SRS-Write ist die primäre Autorität. Da das tägliche Log in einem
-      // separaten Key liegt, ist hier kein atomarer Rollback möglich; wir
-      // melden den unvollständigen Hilfs-Write ohne fire-and-forget-Aufrufer
-      // mit einer neuen Exception zu belasten.
-      debugPrint('Storage: study-log result incomplete for $id');
+    if (_unknownStrictKeys.contains('kl_srs_v1')) {
+      // A failed explicit restore can also leave an unknown value. Refresh
+      // before computing a card, rather than persisting a stale cached deck.
+      try {
+        final store = _srsPersistenceStoreForTesting ?? _stringStore();
+        await _refreshUnknownStringKeys(store, ['kl_srs_v1']);
+        _invalidateSrsCache();
+        _loadSrs(confirmedRaw: store.getString('kl_srs_v1') ?? '');
+      } on Object catch (_) {
+        return false;
+      }
+    }
+    if (generation != _srsReviewMutationGeneration || !attempt._isCurrent) {
       return false;
     }
+    final id = attempt.id;
+    if (!attempt._primarySaved) {
+      final map = _loadSrs();
+      final hadPreviousCard = map.containsKey(id);
+      final previousCard = map[id];
+      final old =
+          map[id] ??
+          const SrsCard(
+            ease: 2.5,
+            intervalDays: 0,
+            nextReviewIso: '',
+            reviewCount: 0,
+          );
+      final now = DateTime.now();
+      attempt._judgmentDate = _today(now);
+      final SrsCard updated;
+      if (attempt.gotIt) {
+        final newInterval = old.intervalDays == 0
+            ? 1
+            : old.intervalDays == 1
+            ? 3
+            : (old.intervalDays * old.ease).round().clamp(1, 365);
+        updated = SrsCard(
+          ease: (old.ease + 0.05).clamp(1.3, 3.5),
+          intervalDays: newInterval,
+          nextReviewIso: _isoOf(now.add(Duration(days: newInterval))),
+          reviewCount: old.reviewCount + 1,
+        );
+      } else {
+        updated = SrsCard(
+          ease: (old.ease - 0.2).clamp(1.3, 3.5),
+          intervalDays: 1,
+          nextReviewIso: _isoOf(now.add(const Duration(days: 1))),
+          reviewCount: old.reviewCount + 1,
+        );
+      }
+      map[id] = updated;
+      bool persisted;
+      try {
+        persisted = await _persistSrs(generation: generation, attempt: attempt);
+      } on Object catch (error) {
+        _restoreSrsCacheEntry(
+          map,
+          id,
+          hadPreviousCard: hadPreviousCard,
+          previousCard: previousCard,
+        );
+        debugPrint('Storage: SRS persistence incomplete for $id: $error');
+        return false;
+      }
+      if (generation != _srsReviewMutationGeneration || !attempt._isCurrent) {
+        return false;
+      }
+      if (!persisted) {
+        _restoreSrsCacheEntry(
+          map,
+          id,
+          hadPreviousCard: hadPreviousCard,
+          previousCard: previousCard,
+        );
+        return false;
+      }
+      attempt._primarySaved = true;
+    }
+    if (attempt.recordToStudyLog) {
+      final ledgerRecorded = await _appendStudyLogEntry(
+        id,
+        dateIso: attempt._judgmentDate!,
+        generation: generation,
+      );
+      if (generation != _srsReviewMutationGeneration ||
+          !attempt._isCurrent ||
+          !ledgerRecorded) {
+        return false;
+      }
+    }
+    attempt._completed = true;
     return true;
   }
 
@@ -4813,7 +4955,7 @@ class Storage {
         preferences ??
         (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
     if (store == null) return;
-    await _withRewardReset(() async {
+    await _withLearningReset(() async {
       // Reload after admitted native writes settle, so their new keys remain
       // visible to deletion even if they were absent before their reply.
       await _assertDurableAccountResetAllowed(
@@ -4848,7 +4990,7 @@ class Storage {
     canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
-    await _withRewardReset(() async {
+    await _withLearningReset(() async {
       await _assertDurableAccountResetAllowed(
         store,
         allowAccountDeletionCheckpoint:
@@ -4928,19 +5070,20 @@ class Storage {
     });
   }
 
-  /// Drain admitted reward writes before deletion and reject new admissions.
+  /// Drain admitted reward/SRS writes before deletion and reject new admissions.
   /// This prevents a delayed native completion from restoring erased progress.
-  static Future<void> _withRewardReset(Future<void> Function() reset) async {
+  static Future<void> _withLearningReset(Future<void> Function() reset) async {
     final generation = _xpRewardMutationGeneration;
-    _rewardResetCount++;
+    _learningResetCount++;
     try {
-      if (_xpRewardMutationCount > 0) {
-        await _xpRewardMutation;
-      }
+      await Future.wait([
+        if (_xpRewardMutationCount > 0) _xpRewardMutation,
+        if (_srsReviewMutationCount > 0) _srsReviewMutation,
+      ]);
       await reset();
     } finally {
       if (generation == _xpRewardMutationGeneration) {
-        _rewardResetCount--;
+        _learningResetCount--;
       }
     }
   }

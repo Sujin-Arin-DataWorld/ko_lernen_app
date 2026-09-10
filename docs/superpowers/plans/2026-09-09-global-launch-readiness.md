@@ -1242,3 +1242,55 @@ proof are external in scenario-reward-durability-20260911/verification.json.
 No push, remote CI, build, upload, paid call or device retry. Best-effort SRS
 unknown outcomes, ordinary XP daily-counter atomicity and signed-device and
 operational launch gates remain open.
+
+### Task 28: Keep failed scenario SRS evidence retryable
+
+**Baseline:** `595240723d49741baa35e89f3d22419fb6914e52`. Scenario
+completion ignores a false SRS save result. Successful entries are remembered,
+but unknown native outcomes cannot be reliably classified by that set.
+
+- [x] Preserve the clean baseline and source/asset/paid Graphify records;
+  reproduce failed-quest SRS rejection being treated as saved completion.
+- [x] Introduce a reusable, session-local SRS review attempt. Remember its
+  confirmed primary write separately from the optional daily log. Retain the
+  exact before/candidate snapshot for an unknown write; resolve it against
+  native storage before another SRS mutation, preserving unrelated cards.
+- [x] Require failed-quest SRS persistence before the player's success callback
+  and XP. Reuse attempts on retry. Drain SRS alongside rewards during reset,
+  reject new admissions, and invalidate old attempts after reset/restore.
+  Preserve SM-2, direct-target-only negative evidence and legacy boolean calls.
+- [x] Verify rejection, committed/uncommitted lost replies, delayed resets,
+  genuine repeated judgments, daily-log retry and real-player recovery; run
+  related regression tests, changed Dart analysis and independent reviews.
+- [x] Complete free Graphify update/prune, local commit and exact evidence,
+  retaining the deployment hold. No push, remote CI, build, upload, paid call,
+  secret operation or device retry.
+
+**Limits:** Attempts are session-local and do not introduce process-death
+resumption or a whole-result transaction. Ordinary XP daily accounting and
+signed-device/operational readiness remain separate open requirements.
+Evidence: scenario-srs-durability-20260911/. Root owns implementation/tests;
+independent reviewers inspect frozen source. Primary checkout is untouched.
+
+**Task 28 local verification (2026-09-11):** The baseline helper ignored
+native SRS rejection and returned successful completion (one failing test).
+Review reproduced two unknown daily-log outcomes and three delayed-write
+restore races (five failures), then a rejected-restore cache resurrection
+(one failure). All reproduced failures were corrected. Earlier frozen runs
+and independent review findings remain in revision1/ and revision2/.
+
+Final scoped verification passed 912 Flutter tests
+in 90 files (842 in the main scoped run plus 70
+additional quarantine-recovery and account-reconciliation caller tests); 5 changed
+Dart files analyzed without issues. Both independent review axes approved.
+SRS attempts retain primary-save state, recover indeterminate writes before
+new judgments, and retry daily logs without repeating primary evidence.
+Deck replacement and quarantine reset share the SRS queue; failed replacement
+cannot publish a retired cached review. Explicit raw setters now confirm writes.
+All 2,474 frozen source files, 1014 assets and
+1,095 paid Graphify records were checked. Free
+Graphify update/prune completed. Exact commit/parent/tree and clean-state proof
+are external in scenario-srs-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Ordinary XP daily
+accounting, process-death attempt resumption and signed-device/operational
+readiness remain open; this is not whole-result atomicity or full CI.

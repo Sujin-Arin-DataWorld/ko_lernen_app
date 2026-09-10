@@ -269,7 +269,7 @@ Future<void> runScenarioResultAction({
 Future<void> recordScenarioFailedQuestSrs({
   required Scenario scenario,
   required Iterable<int> failedQuestIndices,
-  Set<String>? recordedKeys,
+  Map<String, SrsReviewAttempt>? attempts,
 }) async {
   final missedKeys = <String>{};
   for (final index in failedQuestIndices) {
@@ -278,16 +278,12 @@ Future<void> recordScenarioFailedQuestSrs({
     }
   }
   for (final missed in missedKeys) {
-    if (recordedKeys?.contains(missed) == true) {
-      continue;
-    }
-    final recorded = await Storage.srsReview(
-      missed,
-      gotIt: false,
-      recordToStudyLog: false,
-    );
-    if (recorded) {
-      recordedKeys?.add(missed);
+    SrsReviewAttempt createAttempt() =>
+        SrsReviewAttempt(id: missed, gotIt: false, recordToStudyLog: false);
+    final attempt =
+        attempts?.putIfAbsent(missed, createAttempt) ?? createAttempt();
+    if (!await attempt.save()) {
+      throw const PreferenceWriteException('kl_srs_v1');
     }
   }
 }
@@ -648,7 +644,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // konsumiert, um deren Ziel-Vokabeln SRS-mäßig herabzustufen (error-aware
   // review).
   final Set<int> _failedQuestIndices = <int>{};
-  final Set<String> _recordedFailedQuestSrs = <String>{};
+  final Map<String, SrsReviewAttempt> _failedQuestSrsAttempts = {};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
   final ScenarioLoadLifecycleGate _loadLifecycle = ScenarioLoadLifecycleGate();
@@ -1159,7 +1155,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     await recordScenarioFailedQuestSrs(
       scenario: s,
       failedQuestIndices: _failedQuestIndices,
-      recordedKeys: _recordedFailedQuestSrs,
+      attempts: _failedQuestSrsAttempts,
     );
     _resultLifetime.assertCurrent();
     await Storage.claimScenarioCompletionReward(

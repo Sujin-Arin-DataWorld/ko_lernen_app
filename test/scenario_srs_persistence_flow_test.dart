@@ -94,24 +94,24 @@ void main() {
   test(
     'retry remembers successful failed-quest SRS within an attempt',
     () async {
-      final recorded = <String>{};
+      final recorded = <String, SrsReviewAttempt>{};
       await recordScenarioFailedQuestSrs(
         scenario: _scenario,
         failedQuestIndices: [0],
-        recordedKeys: recorded,
+        attempts: recorded,
       );
       final firstCount = Storage.srsCard(_failedTarget)!.reviewCount;
       expect(recorded, contains(_failedTarget));
       await recordScenarioFailedQuestSrs(
         scenario: _scenario,
         failedQuestIndices: [0],
-        recordedKeys: recorded,
+        attempts: recorded,
       );
       expect(Storage.srsCard(_failedTarget)!.reviewCount, firstCount);
       await recordScenarioFailedQuestSrs(
         scenario: _scenario,
         failedQuestIndices: [0],
-        recordedKeys: <String>{},
+        attempts: <String, SrsReviewAttempt>{},
       );
       expect(Storage.srsCard(_failedTarget)!.reviewCount, firstCount + 1);
     },

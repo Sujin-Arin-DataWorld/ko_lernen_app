@@ -51,6 +51,28 @@ const _context = CoursePracticeContext(
   contentLinkId: 'recovery-checkpoint',
 );
 
+const _srsScenario = Scenario(
+  id: 'srs-completion-recovery',
+  level: LearnerLevel.a1,
+  emoji: '',
+  register: Register.polite,
+  title: LocalizedText(ko: '', de: '', en: ''),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [VocabRef(korean: '사과')],
+  grammarIds: [],
+  dialog: [],
+  quests: [
+    QuestSpec(
+      type: QuestType.luecken,
+      data: {
+        'sentence': '___ 입니다.',
+        'options': ['사과', '바나나'],
+        'correctIndex': 0,
+      },
+    ),
+  ],
+);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final originalPlatform = SharedPreferencesStorePlatform.instance;
@@ -213,11 +235,49 @@ void main() {
       },
     );
   }
+  for (final committed in [false, true]) {
+    testWidgets(
+      'real player retries unknown failed-quest SRS; committed=$committed',
+      (tester) async {
+        var completions = 0;
+        platform
+          ..rejectKey = 'kl_srs_v1'
+          ..throwReply = true
+          ..commitBeforeFailure = committed
+          ..failReloadAfterWrite = true;
+        CourseActivityReporter.recordScenarioCheckpointForTesting =
+            (_, _, _) async => throw StateError('unlinked practice');
+        await _finish(
+          tester,
+          scenario: _srsScenario,
+          failQuest: true,
+          onCompleted: () => completions++,
+        );
+        expect(completions, 0);
+        expect(Storage.srsCard('사과'), isNull);
+        final t = await AppL10n.delegate.load(const Locale('en'));
+        expect(find.text(t.scenarioResultSaveRetry), findsOneWidget);
+        platform
+          ..unavailable = false
+          ..rejectKey = null;
+        await tester.ensureVisible(find.text(t.scenarioResultSaveRetry));
+        await tester.tap(find.text(t.scenarioResultSaveRetry));
+        await tester.pump();
+        await tester.pump(const Duration(seconds: 2));
+        expect(completions, 1);
+        expect(Storage.srsCard('사과')!.reviewCount, 1);
+        expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+        expect(platform.writes['kl_srs_v1'], committed ? 1 : 2);
+      },
+    );
+  }
 }
 
 Future<void> _finish(
   WidgetTester tester, {
   CoursePracticeContext? courseContext,
+  Scenario scenario = _scenario,
+  bool failQuest = false,
   required VoidCallback onCompleted,
 }) async {
   tester.view.physicalSize = const Size(480, 900);
@@ -236,8 +296,8 @@ Future<void> _finish(
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: ScenarioPlayerScreen(
-        scenarioId: _scenario.id,
-        scenarioLoader: (_) async => _scenario,
+        scenarioId: scenario.id,
+        scenarioLoader: (_) async => scenario,
         courseContext: courseContext,
         mode: ScenarioPlayerMode.onboardingFirstScene,
         onCompleted: (_) => onCompleted(),
@@ -246,7 +306,15 @@ Future<void> _finish(
   );
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 500));
-  await tester.tap(find.byKey(const ValueKey('answer-0')));
+  if (failQuest) {
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(find.byKey(const ValueKey('answer-1')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 250));
+    }
+  } else {
+    await tester.tap(find.byKey(const ValueKey('answer-0')));
+  }
   await tester.pump();
   await tester.tap(find.byKey(const ValueKey('quest-continue')));
   await tester.pump();
