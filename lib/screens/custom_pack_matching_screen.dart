@@ -1,3 +1,4 @@
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import 'dart:async';
 import 'dart:math' as math;
@@ -41,9 +42,17 @@ class CustomPackMatchingScreen extends StatefulWidget {
 class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     with
         ScreenCoachMixin<CustomPackMatchingScreen>,
-        GameResultRecovery<CustomPackMatchingScreen> {
+        GameResultRecovery<CustomPackMatchingScreen>,
+        StudyEvidenceRecovery<CustomPackMatchingScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
+  int _presentation = 0;
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
   List<ExtractedWord> _pool = const [];
   String _languageCode = 'de';
   bool _roundInitialized = false;
@@ -126,6 +135,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   void _newRound() {
+    _presentation++;
     final shuffled = [..._pool]..shuffle(_rng);
     // Preserve the existing rule: one tile per distinct meaning. Apply that
     // rule to the locale fixed for this round so the right column is clear.
@@ -157,21 +167,27 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     resetGameResult();
   }
 
-  void _tapLeft(int i) {
+  void _tapLeft(int i, int presentation) {
+    if (!_acceptsInput || presentation != _presentation || _roundDone) return;
     final ko = _leftKo[i];
     if (_matched.contains(ko)) {
       return;
     }
+    _presentation++;
     HapticFeedback.selectionClick();
     setState(() {
       _selLeft = i;
+      _wrongRight = null;
       _statusMessage = null;
     });
     TtsService.speak(ko);
   }
 
-  void _tapRight(String meaning) {
-    if (_selLeft == null) {
+  Future<void> _tapRight(String meaning, int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _roundDone ||
+        _selLeft == null) {
       return;
     }
     final ko = _leftKo[_selLeft!];
@@ -179,6 +195,12 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         .firstWhere((word) => word.korean == ko)
         .translationFor(_languageCode)
         .trim();
+    final judgment = ++_presentation;
+    if (!_missedKorean.contains(ko)) {
+      final attempt = SrsReviewAttempt(id: ko, gotIt: meaning == expected);
+      if (!await saveStudyEvidence(attempt.save)) return;
+    }
+    if (!mounted || !_acceptsInput || judgment != _presentation) return;
     // 정답/오답 무관 — 이 라운드에서 노출됐다는 사실 자체를 기록한다.
     Storage.addVokSeen(ko);
     if (meaning == expected) {
@@ -186,9 +208,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       SoundService.correct();
       // Eine spätere Korrektur darf XP und den Spielfortschritt abschließen,
       // aber keine positive SRS-Evidenz über den vorherigen Fehlversuch legen.
-      if (!_missedKorean.contains(ko)) {
-        unawaited(Storage.srsReview(ko, gotIt: true));
-      }
       setState(() {
         _matched.add(ko);
         _selLeft = null;
@@ -205,7 +224,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       // Pro Wort/Runde genau ein negativer Lernnachweis. Wiederholte Taps auf
       // dieselbe falsche Zuordnung dürfen den Zähler nicht künstlich aufblasen.
       if (_missedKorean.add(ko)) {
-        unawaited(Storage.srsReview(ko, gotIt: false));
         unawaited(Storage.incrementWrongCount(ko));
       }
       setState(() {
@@ -213,17 +231,34 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         _statusMessage = AppL10n.of(context).statsWrong;
       });
       Future.delayed(const Duration(milliseconds: 450), () {
-        if (mounted) {
+        if (_acceptsInput && judgment == _presentation) {
           setState(() => _wrongRight = null);
         }
       });
     }
   }
 
+  void _restart(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        !_roundDone ||
+        _feedbackCompletion.current == null) {
+      return;
+    }
+    setState(
+      () => _startRoundForLocale(Localizations.localeOf(context).languageCode),
+    );
+  }
+
   Future<void> _finish() async {
+    if (!_acceptsInput) return;
+    final presentation = _presentation;
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
     final outcome = await saveGameResult(gameId: 'cp_matching', xp: _roundXp);
-    if (!mounted || outcome == null) {
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        presentation != _presentation ||
+        outcome == null) {
       return;
     }
     _feedbackCompletion.complete(
@@ -238,6 +273,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       result: 'win',
       score: _round.length,
     );
+    if (!studyEvidenceIsCurrent || presentation != _presentation) return;
     _abandonTracker.markCompleted();
   }
 
@@ -253,7 +289,10 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   @override
   Widget build(BuildContext context) {
-    final recovery = gameResultRecoveryFrame(AppL10n.of(context).wbMatching);
+    final presentation = _presentation;
+    final recovery =
+        studyEvidenceRecoveryFrame(AppL10n.of(context).wbMatching) ??
+        gameResultRecoveryFrame(AppL10n.of(context).wbMatching);
     if (recovery != null) {
       return recovery;
     }
@@ -262,7 +301,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
     if (pack == null) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
@@ -276,7 +315,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     }
     if (_pool.length < 2 || _round.length < 2) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
@@ -293,7 +332,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     final tt = SoriTextTheme.of(context);
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.wbMatching,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),
@@ -360,7 +399,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                                     selected: _selLeft == i,
                                     accent: SoriColors.primary,
                                     enabled: !_matched.contains(_leftKo[i]),
-                                    onTap: () => _tapLeft(i),
+                                    onTap: () => _tapLeft(i, presentation),
                                   ),
                               ],
                             ),
@@ -384,7 +423,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                                     wrong: _wrongRight == meaning,
                                     accent: SoriColors.accent,
                                     enabled: _selLeft != null,
-                                    onTap: () => _tapRight(meaning),
+                                    onTap: () =>
+                                        _tapRight(meaning, presentation),
                                   ),
                               ],
                             ),
@@ -399,7 +439,20 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     );
   }
 
+  void _closeResult(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        !(_roundDone && _feedbackCompletion.current != null)) {
+      return;
+    }
+    _retireStudy();
+    Navigator.of(
+      context,
+    ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst);
+  }
+
   Widget _buildDone(AppL10n t) {
+    final presentation = _presentation;
     return Semantics(
       container: true,
       liveRegion: true,
@@ -418,19 +471,13 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
             variant: SoriButtonVariant.filled,
             accent: SoriColors.primary,
             fullWidth: true,
-            onTap: () => setState(
-              () => _startRoundForLocale(
-                Localizations.localeOf(context).languageCode,
-              ),
-            ),
+            onTap: () => _restart(presentation),
           ),
           SoriButton(
             label: t.btnClose,
             variant: SoriButtonVariant.ghost,
             fullWidth: true,
-            onTap: () => Navigator.of(
-              context,
-            ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst),
+            onTap: () => _closeResult(presentation),
           ),
         ],
       ),

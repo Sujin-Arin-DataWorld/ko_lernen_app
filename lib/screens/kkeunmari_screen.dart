@@ -621,169 +621,175 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       child: LayoutBuilder(
-        builder: (context, constraints) => SingleChildScrollView(
-          padding: soriClampPadding(
-            constraints.maxWidth,
-            base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // ── chain 시각화 ──
-              _ChainStrip(chain: _chain),
-              const SizedBox(height: Spacing.md),
-
-              if (_end != _End.none)
-                _ResultCard(
-                  end: _end,
-                  chainLength: _chain.length,
-                  xpEarned: (_chain.length * 10).clamp(20, 500),
-                  isNewBest: _newBest,
-                  feedbackCompletion: _feedbackCompletion.current,
-                  onAgain: () {
-                    if (gameResultAcceptsInput &&
-                        generation == _roundGeneration) {
-                      _start();
-                    }
-                  },
-                  onHome: () => Navigator.pop(context),
-                )
-              else ...[
-                // ── 현재 차례 + 타이머 ──
-                KeyedSubtree(
-                  key: const ValueKey('kkeunmari-gameplay'),
-                  child: Wrap(
-                    key: _timerRowKey,
-                    alignment: WrapAlignment.spaceBetween,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      _TurnIndicator(turn: _turn, t: t),
-                      _Timer(remaining: _remaining, total: _turnSeconds),
-                    ],
-                  ),
-                ),
+        builder: (context, constraints) => SoriMinHeightScroll(
+          minHeight: 0,
+          fillViewport: true,
+          intrinsic: false,
+          child: Padding(
+            padding: soriClampPadding(
+              constraints.maxWidth,
+              base: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // ── chain 시각화 ──
+                _ChainStrip(chain: _chain),
                 const SizedBox(height: Spacing.md),
 
-                // ── 마지막 단어 카드 (last 음절 강조) ──
-                KeyedSubtree(
-                  key: _lastWordCardKey,
-                  child: _LastWordCard(word: _last!),
-                ),
-                const SizedBox(height: Spacing.md),
-
-                // ── 사용자 차례: 입력 ──
-                if (_turn == _Turn.user) ...[
-                  Text(
-                    t.kkeunmariStartHint(_required),
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      color: s.textMuted,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  SoriTextField(
-                    fieldKey: _inputFieldKey,
-                    controller: _ctrl,
-                    focusNode: _focusNode,
-                    autofocus: true,
-                    enabled: !_dictionaryChecking,
-                    textAlign: TextAlign.center,
-                    hintText: t.kkeunmariInputHint,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    onSubmitted: (_) => unawaited(_submit(generation)),
-                  ),
-                  if (_errorMsg.isNotEmpty) ...[
-                    const SizedBox(height: Spacing.xs),
-                    Semantics(
-                      liveRegion: true,
-                      child: Text(
-                        _errorMsg,
-                        textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(context).caption.copyWith(
-                          color: SoriColors.danger,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.filled(
-                    label: t.kkeunmariSubmit,
-                    icon: Icons.send_rounded,
-                    accent: SoriColors.accent,
-                    fullWidth: true,
-                    onTap: _dictionaryChecking
-                        ? null
-                        : () => unawaited(_submit(generation)),
-                  ),
-                ] else
-                  // 호랑이 차례: 짧은 "생각 중" 카드
-                  SoriCard(
-                    variant: SoriCardVariant.base,
-                    accent: SoriColors.tiger,
-                    tinted: true,
-                    child: Row(
+                if (_end != _End.none)
+                  _ResultCard(
+                    end: _end,
+                    chainLength: _chain.length,
+                    xpEarned: (_chain.length * 10).clamp(20, 500),
+                    isNewBest: _newBest,
+                    feedbackCompletion: _feedbackCompletion.current,
+                    onAgain: () {
+                      if (gameResultAcceptsInput &&
+                          generation == _roundGeneration) {
+                        _start();
+                      }
+                    },
+                    onHome: () => Navigator.pop(context),
+                  )
+                else ...[
+                  // ── 현재 차례 + 타이머 ──
+                  KeyedSubtree(
+                    key: const ValueKey('kkeunmari-gameplay'),
+                    child: Wrap(
+                      key: _timerRowKey,
+                      alignment: WrapAlignment.spaceBetween,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: Spacing.sm,
+                      runSpacing: Spacing.xs,
                       children: [
-                        // 생각 중 클립 루프 — 카드 실배경과 **같은 함수**로
-                        // blendColor를 맞춰 흰 배경 흡수(수식 복제 금지).
-                        CompanionBuilder(
-                          builder: (context, kind) => CharacterClipPlayer(
-                            asset: CharacterClips.thinkingFor(kind),
-                            size: 56,
-                            loop: true,
-                            blendColor: SoriCard.resolvedBackground(
-                              context,
-                              accent: SoriColors.tiger,
-                              tinted: true,
-                            ),
-                            fallbackKind: kind,
-                            fallbackEmotion: MascotEmotion.thinking,
-                          ),
-                          noneBuilder: (context) => const SizedBox.square(
-                            dimension: 56,
-                            child: Icon(
-                              Icons.psychology_alt_rounded,
-                              color: SoriColors.tiger,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: Spacing.md),
-                        Expanded(
-                          child: Text(
-                            MascotPreference.hasCompanion
-                                ? t.kkeunmariTigerTurn
-                                : t.companionNeutralThinking,
-                            style: SoriTextTheme.of(context).caption.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: SoriColors.tiger,
-                            ),
-                          ),
-                        ),
+                        _TurnIndicator(turn: _turn, t: t),
+                        _Timer(remaining: _remaining, total: _turnSeconds),
                       ],
                     ),
                   ),
+                  const SizedBox(height: Spacing.md),
 
-                const SizedBox(height: Spacing.lg),
-
-                // ── chain length ──
-                Center(
-                  child: SoriChip(
-                    label: t.kkeunmariChainLength(_chain.length),
-                    accent: SoriColors.accent,
-                    variant: SoriChipVariant.soft,
+                  // ── 마지막 단어 카드 (last 음절 강조) ──
+                  KeyedSubtree(
+                    key: _lastWordCardKey,
+                    child: _LastWordCard(word: _last!),
                   ),
-                ),
+                  const SizedBox(height: Spacing.md),
+
+                  // ── 사용자 차례: 입력 ──
+                  if (_turn == _Turn.user) ...[
+                    Text(
+                      t.kkeunmariStartHint(_required),
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        color: s.textMuted,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    SoriTextField(
+                      fieldKey: _inputFieldKey,
+                      controller: _ctrl,
+                      focusNode: _focusNode,
+                      autofocus: true,
+                      enabled: !_dictionaryChecking,
+                      textAlign: TextAlign.center,
+                      hintText: t.kkeunmariInputHint,
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      onSubmitted: (_) => unawaited(_submit(generation)),
+                    ),
+                    if (_errorMsg.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          _errorMsg,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).caption.copyWith(
+                            color: SoriColors.danger,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.md),
+                    SoriButton.filled(
+                      label: t.kkeunmariSubmit,
+                      icon: Icons.send_rounded,
+                      accent: SoriColors.accent,
+                      fullWidth: true,
+                      onTap: _dictionaryChecking
+                          ? null
+                          : () => unawaited(_submit(generation)),
+                    ),
+                  ] else
+                    // 호랑이 차례: 짧은 "생각 중" 카드
+                    SoriCard(
+                      variant: SoriCardVariant.base,
+                      accent: SoriColors.tiger,
+                      tinted: true,
+                      child: Row(
+                        children: [
+                          // 생각 중 클립 루프 — 카드 실배경과 **같은 함수**로
+                          // blendColor를 맞춰 흰 배경 흡수(수식 복제 금지).
+                          CompanionBuilder(
+                            builder: (context, kind) => CharacterClipPlayer(
+                              asset: CharacterClips.thinkingFor(kind),
+                              size: 56,
+                              loop: true,
+                              blendColor: SoriCard.resolvedBackground(
+                                context,
+                                accent: SoriColors.tiger,
+                                tinted: true,
+                              ),
+                              fallbackKind: kind,
+                              fallbackEmotion: MascotEmotion.thinking,
+                            ),
+                            noneBuilder: (context) => const SizedBox.square(
+                              dimension: 56,
+                              child: Icon(
+                                Icons.psychology_alt_rounded,
+                                color: SoriColors.tiger,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: Spacing.md),
+                          Expanded(
+                            child: Text(
+                              MascotPreference.hasCompanion
+                                  ? t.kkeunmariTigerTurn
+                                  : t.companionNeutralThinking,
+                              style: SoriTextTheme.of(context).caption.copyWith(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: SoriColors.tiger,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  const SizedBox(height: Spacing.lg),
+
+                  // ── chain length ──
+                  Center(
+                    child: SoriChip(
+                      label: t.kkeunmariChainLength(_chain.length),
+                      accent: SoriColors.accent,
+                      variant: SoriChipVariant.soft,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),

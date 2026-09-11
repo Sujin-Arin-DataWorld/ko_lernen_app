@@ -18,10 +18,20 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
   bool _gameFailed = false;
   bool _gameExpired = false;
   bool _gameRetired = false;
+  ModalRoute<dynamic>? _gameRoute;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _gameRoute = ModalRoute.of(context);
+  }
+
+  bool get _gameRouteIsActive => _gameRoute?.isActive ?? true;
 
   /// Guards retained input callbacks as well as visible controls.
   bool get gameResultAcceptsInput =>
       mounted &&
+      _gameRouteIsActive &&
       !_gameRetired &&
       !_gameSaving &&
       !_gameFailed &&
@@ -45,7 +55,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
     int? dailyCompletionBonus,
     bool kkeunmariWin = false,
   }) {
-    if (!mounted || _gameRetired) {
+    if (!mounted || _gameRetired || !_gameRouteIsActive) {
       return Future.value(null);
     }
     if (!_gameLifetime.isCurrent) {
@@ -77,6 +87,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
     final completion = _gameCompletion;
     if (!mounted ||
         _gameRetired ||
+        !_gameRouteIsActive ||
         _gameSaving ||
         attempt == null ||
         completion == null ||
@@ -92,9 +103,16 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
       if (!mounted || _gameRetired || !identical(attempt, _gameAttempt)) {
         return;
       }
+      if (!_gameRouteIsActive) {
+        retireGameResult();
+        return;
+      }
       completion.complete(outcome);
     } catch (error) {
-      if (mounted && !_gameRetired && identical(attempt, _gameAttempt)) {
+      if (mounted &&
+          _gameRouteIsActive &&
+          !_gameRetired &&
+          identical(attempt, _gameAttempt)) {
         setState(() {
           _gameFailed = true;
           _gameExpired = error is StaleLocalDataLifetimeException;
@@ -123,6 +141,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
       return null;
     }
     final t = AppL10n.of(context);
+    final attempt = _gameAttempt;
     return SoriStudyFrame(
       title: title,
       homeEscape: const SoriHomeEscape(confirmWhen: true),
@@ -137,7 +156,11 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
                   : t.btnRetry,
               onRetry: _gameExpired || _gameRetired
                   ? () => Navigator.of(context).maybePop()
-                  : () => unawaited(_trySaveGameResult()),
+                  : () {
+                      if (identical(attempt, _gameAttempt)) {
+                        unawaited(_trySaveGameResult());
+                      }
+                    },
             ),
     );
   }

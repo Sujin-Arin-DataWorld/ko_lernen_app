@@ -31,6 +31,7 @@ import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/text_field.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/hangul_composer.dart';
@@ -629,8 +630,12 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
           // 본문은 스크롤 가능 — autofocus 키보드 + 자음패드가 동시에 떠도
           // 하단 오버플로 없이 스크롤된다. 진행 바는 아래 고정.
           Expanded(
-            child: SingleChildScrollView(
+            child: SoriMinHeightScroll(
+              minHeight: 0,
+              fillViewport: true,
+              intrinsic: false,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // ── 레벨 선택 ──────────────────────────────────────────

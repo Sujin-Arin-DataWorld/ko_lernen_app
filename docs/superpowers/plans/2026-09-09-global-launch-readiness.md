@@ -1560,3 +1560,70 @@ No push, remote CI, build, upload, paid call or device retry. Other question
 SRS callers, seen/wrong diagnostics, recognition-course attempt durability,
 process-death resumption and signed-device/operational readiness remain open.
 This does not establish whole-lesson atomicity or commercial readiness.
+
+### Task 34: Preserve custom-wordbook learning evidence through storage recovery
+
+Baseline: a97d94e6c9dd5e99e9753150fdbb08688fe59af3. Custom play, quiz,
+typing and matching discard SRS persistence futures. Matching reserves its
+negative-evidence marker before confirmation, suppressing later retries.
+
+- [x] Preserve current source/assets and reproduce native SRS rejection in all
+  four real custom-pack screens before introducing recovery.
+- [x] Retain each accepted SRS attempt until both card and daily log are
+  confirmed, then publish feedback, score, advancement and matching evidence.
+  Preserve matching first-negative/no-later-positive rules, flip/reveal/defer,
+  locale grading, wrong-count semantics and existing game reward amounts.
+- [x] Reuse accessible study-evidence recovery; gate old question/selection/
+  round callbacks, delayed advancement, replay, editing, exit and data reset.
+  Keep game-result and per-answer recovery coherent. Apply the verified
+  popped-route/retry-ownership guards to their shared game reward recovery.
+- [x] Test false/unknown card/log writes, repeated retries, matching mistakes,
+  replay, stale input, system pop, exit/reset, existing layout and game rewards.
+  Fix the observed stale matching highlight and the three existing viewport
+  guard failures in kkeunmari/chosung using the shared scroll/fill layout.
+  Keep short-screen and keyboard controls reachable without relaxing guards.
+  Run scoped regression, analysis and independent Standards/Spec reviews.
+- [x] Complete free Graphify/preservation checks, update local readiness
+  evidence and commit locally. Keep push/CI/build/deployment/paid calls held.
+
+Other game/legacy question SRS callers, seen/wrong diagnostics, process-death
+resumption and signed-device/operational readiness remain separate unfinished
+work. This task does not establish whole-session transactional atomicity.
+
+**Task 34 local verification (2026-09-11):** All four custom-pack
+screens failed native-SRS rejection reproductions. Play, quiz, typing and
+matching now retain accepted SRS attempts through retry and confirm the card
+and daily study log before feedback, scores or advancement. Matching publishes
+its first-negative marker only after confirmation and retains the rule that
+later correction cannot overwrite that round's negative evidence.
+
+Presentation and round guards reject stale judgments, selection, automatic
+advance, replay and old result navigation. Exit/reset and popped-route tests
+cover accepted pending writes and retired input. Editor return immediately
+uses the saved target; optional catalog enrichment is generation-bound and
+does not hold input locked. Four shared reward reproductions also failed on
+system-pop admission/publication and old-round retry ownership. The shared
+reward mixin now checks its captured route and binds retry to its attempt;
+temporary dialogs do not retire an accepted completion.
+
+Tests include native false/unknown card and log writes, unavailable reloads,
+double retries, matching coalescing, two complete rounds, editor return,
+retained result navigation and previous layout/locale/reward contracts.
+The first focused run passed 54 cases. Standards review then reproduced a
+stale red matching tile after an immediate new selection; clearing the old
+feedback on selection passed the new regression. The broader suite exposed
+three vertical-fill failures in kkeunmari/chosung. Shared viewport-filling,
+scrollable centered content fixed them without relaxing the existing guards.
+All five focused feedback/layout cases passed. Final scoped verification passed
+1738 Flutter tests in 104 files;
+9 changed Dart files analyzed without issues.
+Independent Standards and Spec approved the final source hashes.
+All 2,486 frozen source files, 1014 assets and
+1,095 paid Graphify records were checked.
+Free Graphify update/prune completed. Exact local commit/parent/tree proof is
+external in custom-pack-srs-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Other game/legacy
+question SRS callers, seen/wrong diagnostics, process-death resumption and
+signed-device/operational readiness remain unfinished. Previously admitted
+native operations may complete after exit; this is not a transactional
+rollback or whole-session commercial-readiness claim.

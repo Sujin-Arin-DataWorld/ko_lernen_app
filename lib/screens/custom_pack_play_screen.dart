@@ -1,3 +1,5 @@
+import '../widgets/sori/study_evidence_recovery.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -56,7 +58,9 @@ class CustomPackPlayScreen extends StatefulWidget {
 }
 
 class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
-    with ScreenCoachMixin<CustomPackPlayScreen> {
+    with
+        ScreenCoachMixin<CustomPackPlayScreen>,
+        StudyEvidenceRecovery<CustomPackPlayScreen> {
   CustomPack? _pack;
   int _idx = 0;
   bool _flipped = false;
@@ -68,6 +72,14 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   // (계약: flip_card.dart doc-comment).
   int _serve = 0;
   int _learned = 0;
+  bool _editing = false;
+  int _translationGeneration = 0;
+  bool _canUseCard(int presentation) =>
+      studyEvidenceAcceptsInput &&
+      !_editing &&
+      presentation == _serve &&
+      _pack != null &&
+      _idx < _pack!.words.length;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
@@ -105,44 +117,57 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   }
 
   Future<void> _loadSavedTranslations() async {
-    final catalog = await DataLoader.loadVocab();
-    if (!mounted || _pack == null || catalog.isEmpty) {
-      return;
+    final generation = ++_translationGeneration;
+    try {
+      final catalog = await DataLoader.loadVocab();
+      if (!studyEvidenceIsCurrent ||
+          generation != _translationGeneration ||
+          _pack == null ||
+          catalog.isEmpty) {
+        return;
+      }
+      setState(() {
+        _pack = _pack!.copyWith(
+          words: [
+            for (final word in _pack!.words) localizeSavedWord(word, catalog),
+          ],
+        );
+      });
+    } catch (error) {
+      // Optional catalog enrichment must not block the user's saved words.
+      debugPrint('Saved-word translation enrichment unavailable: $error');
     }
-    setState(() {
-      _pack = _pack!.copyWith(
-        words: [
-          for (final word in _pack!.words) localizeSavedWord(word, catalog),
-        ],
-      );
-    });
   }
 
-  Future<void> _editTranslation() async {
-    final selected = _pack?.words.map((word) => word.korean).toSet();
-    await Navigator.of(
-      context,
-    ).pushNamed('/custom_pack/edit', arguments: widget.packId);
-    if (!mounted) {
-      return;
+  Future<void> _editTranslation(int presentation) async {
+    if (!_canUseCard(presentation)) return;
+    _editing = true;
+    _serve++;
+    _translationGeneration++;
+    final selected = _pack!.words.map((word) => word.korean).toSet();
+    try {
+      await Navigator.of(
+        context,
+      ).pushNamed('/custom_pack/edit', arguments: widget.packId);
+      if (!studyEvidenceIsCurrent) return;
+      final updated = CustomPackService.getById(widget.packId);
+      if (updated == null) return;
+      setState(() {
+        _pack = widget.words == null
+            ? updated
+            : updated.copyWith(
+                words: updated.words
+                    .where((word) => selected.contains(word.korean))
+                    .toList(),
+              );
+        if (_idx >= _pack!.words.length) _idx = 0;
+        _flipped = false;
+        _cardRevealed = false;
+      });
+      unawaited(_loadSavedTranslations());
+    } finally {
+      if (mounted) setState(() => _editing = false);
     }
-    final updated = CustomPackService.getById(widget.packId);
-    if (updated == null) {
-      return;
-    }
-    setState(() {
-      _pack = widget.words == null
-          ? updated
-          : updated.copyWith(
-              words: updated.words
-                  .where((w) => selected!.contains(w.korean))
-                  .toList(),
-            );
-      if (_idx >= _pack!.words.length) {
-        _idx = 0;
-      }
-    });
-    await _loadSavedTranslations();
   }
 
   // §P2-5 플립 게이트 힌트 칩 트리거.
@@ -154,40 +179,56 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     super.dispose();
   }
 
-  void _gotIt() {
-    final pack = _pack;
-    if (pack == null) return;
-    HapticFeedback.lightImpact();
-    final w = pack.words[_idx];
-    Storage.addVokSeen(w.korean);
-    // A1: 메인 SRS 에 편입 → "오늘의 복습"에서 다시 만남.
-    Storage.srsReview(w.korean, gotIt: true);
-    setState(() {
-      _learned++;
-    });
-    _advance();
-  }
-
-  /// §P2-2 개명: 옛 `_skip` — 이름과 달리 **완전한 음성 판정**이다
-  /// (srsReview(gotIt:false) + incrementWrongCount). 라벨도 btnNichtGewusst
-  /// 로 정정 (기존 btnSkip 오표기).
-  void _dontKnow() {
-    HapticFeedback.selectionClick();
-    final pack = _pack;
-    if (pack != null) {
-      // A1: 모른 단어 → SRS 간격 짧게 리셋 (내일 다시).
-      Storage.srsReview(pack.words[_idx].korean, gotIt: false);
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(pack.words[_idx].korean);
+  Future<void> _gotIt(int presentation) async {
+    if (!_canUseCard(presentation) || !_cardRevealed) return;
+    final word = _pack!.words[_idx];
+    final attempt = SrsReviewAttempt(id: word.korean, gotIt: true);
+    if (!await saveStudyEvidence(attempt.save) || !_canUseCard(presentation)) {
+      return;
     }
+    HapticFeedback.lightImpact();
+    Storage.addVokSeen(word.korean);
+    _learned++;
     _advance();
   }
 
-  /// ↓ 스킵 (§P2-2) — **기록 없는 전진**. `_advance` 는 완료 슬롯 외 아무
-  /// 기록도 남기지 않는 무기록 경로다.
-  void _defer() {
+  Future<void> _dontKnow(int presentation) async {
+    if (!_canUseCard(presentation) || !_cardRevealed) return;
+    final word = _pack!.words[_idx];
+    final attempt = SrsReviewAttempt(id: word.korean, gotIt: false);
+    if (!await saveStudyEvidence(attempt.save) || !_canUseCard(presentation)) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    // Existing auxiliary diagnostic; it is not part of durable evidence.
+    // ignore: discarded_futures
+    Storage.incrementWrongCount(word.korean);
+    _advance();
+  }
+
+  /// Deferring advances without creating learning evidence.
+  void _defer(int presentation) {
+    if (!_canUseCard(presentation)) return;
     HapticFeedback.selectionClick();
     _advance();
+  }
+
+  void _restart(int presentation) {
+    if (!studyEvidenceAcceptsInput ||
+        _editing ||
+        presentation != _serve ||
+        _pack == null ||
+        _idx < _pack!.words.length) {
+      return;
+    }
+    setState(() {
+      _idx = 0;
+      _learned = 0;
+      _flipped = false;
+      _cardRevealed = false;
+      _serve++;
+      _feedbackCompletion.reset();
+    });
   }
 
   Future<void> _likeCurrent() async {
@@ -218,6 +259,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   }
 
   void _advance() {
+    if (!studyEvidenceAcceptsInput || _editing) return;
     final pack = _pack;
     if (pack == null) return;
     setState(() {
@@ -237,7 +279,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     });
   }
 
-  void _toggleFlip() {
+  void _toggleFlip(int presentation) {
+    if (!_canUseCard(presentation)) return;
     HapticFeedback.selectionClick();
     setState(() {
       if (!_flipped) {
@@ -250,9 +293,13 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final recovery = studyEvidenceRecoveryFrame(t.customPackPlayTitle);
+    if (recovery != null) return recovery;
+    final presentation = _serve;
 
     if (_pack == null) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
@@ -268,6 +315,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
     if (pack.words.isEmpty) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
@@ -300,6 +348,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     });
 
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: pack.displayName(),
       actions: [
         FlashcardRomanizationAction(
@@ -336,14 +385,16 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
             Expanded(
               child: SoriContentFeed(
                 judgmentsEnabled: _cardRevealed,
-                onBlockedJudgment: () => _flipHintTrigger.value++,
+                onBlockedJudgment: () {
+                  if (_canUseCard(presentation)) _flipHintTrigger.value++;
+                },
                 flipHintTrigger: _flipHintTrigger,
-                onNext: _gotIt,
-                onHard: _dontKnow,
-                onSkip: _defer,
+                onNext: () => _gotIt(presentation),
+                onHard: () => _dontKnow(presentation),
+                onSkip: () => _defer(presentation),
                 onLike: _likeCurrent,
                 onShare: _shareCurrent,
-                onFlip: _toggleFlip,
+                onFlip: () => _toggleFlip(presentation),
                 showBookmark: false,
                 liked: LikedContentService.isLiked(
                   kind: LikedContentService.vocab,
@@ -366,7 +417,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                         child: FlipCard(
                           key: ValueKey('cp-$_serve'),
                           flipped: _flipped,
-                          onTap: _toggleFlip,
+                          onTap: () => _toggleFlip(presentation),
                           front: _Front(
                             word: w,
                             deckKoreans: [for (final x in pack.words) x.korean],
@@ -375,7 +426,8 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                           back: _Back(
                             word: w,
                             romanizationOnFront: _romanizationOnFront,
-                            onAddTranslation: _editTranslation,
+                            onAddTranslation: () =>
+                                _editTranslation(presentation),
                           ),
                         ),
                       ),
@@ -407,9 +459,24 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     );
   }
 
+  void _closeResult(int presentation) {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _serve ||
+        _pack == null ||
+        _idx < _pack!.words.length) {
+      return;
+    }
+    retireStudyEvidence();
+    Navigator.of(
+      context,
+    ).popUntil((route) => route.settings.name == '/bookshelf' || route.isFirst);
+  }
+
   Widget _buildDone(AppL10n t, CustomPack pack) {
+    final presentation = _serve;
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: t.customPackResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
@@ -468,13 +535,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 variant: SoriButtonVariant.filled,
                 accent: SoriColors.primary,
                 fullWidth: true,
-                onTap: () => setState(() {
-                  _idx = 0;
-                  _learned = 0;
-                  _flipped = false;
-                  _cardRevealed = false;
-                  _feedbackCompletion.reset();
-                }),
+                onTap: () => _restart(presentation),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton(
@@ -483,9 +544,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 variant: SoriButtonVariant.outlined,
                 accent: SoriColors.info,
                 fullWidth: true,
-                onTap: () => Navigator.of(
-                  context,
-                ).popUntil((r) => r.settings.name == '/bookshelf' || r.isFirst),
+                onTap: () => _closeResult(presentation),
               ),
             ],
           ),

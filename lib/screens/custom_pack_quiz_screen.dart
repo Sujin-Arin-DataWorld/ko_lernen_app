@@ -1,3 +1,4 @@
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
 
@@ -42,9 +43,17 @@ class CustomPackQuizScreen extends StatefulWidget {
 class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     with
         ScreenCoachMixin<CustomPackQuizScreen>,
-        GameResultRecovery<CustomPackQuizScreen> {
+        GameResultRecovery<CustomPackQuizScreen>,
+        StudyEvidenceRecovery<CustomPackQuizScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
+  int _presentation = 0;
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
   List<ExtractedWord> _pool = const [];
   List<int> _order = const [];
   int _qIdx = 0;
@@ -100,6 +109,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   void _startRoundForLocale(String languageCode) {
+    _presentation++;
     _languageCode = languageCode;
     final pack = _pack;
     if (pack == null) {
@@ -120,6 +130,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   void _buildOptions() {
+    _presentation++;
     final word = _pool[_order[_qIdx]];
     final correct = word.translationFor(_languageCode).trim();
     // 같은 품사 오답 우선 (커스텀 단어는 레벨이 없어 품사 계층만 작동;
@@ -146,17 +157,27 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     _picked = null;
   }
 
-  void _pick(String option) {
-    if (_picked != null) {
+  Future<void> _pick(String option, int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _qIdx >= _order.length ||
+        _picked != null) {
       return;
     }
     final word = _pool[_order[_qIdx]];
     final correct = word.translationFor(_languageCode).trim();
     final isRight = option == correct;
+    final attempt = SrsReviewAttempt(id: word.korean, gotIt: isRight);
+    if (!await saveStudyEvidence(attempt.save) ||
+        !mounted ||
+        !_acceptsInput ||
+        presentation != _presentation) {
+      return;
+    }
     setState(() => _picked = option);
     // A1: 노출 기록(책장 타일 "n von m gelernt" 소스) + 퀴즈 결과를 SRS 에 반영.
     Storage.addVokSeen(word.korean);
-    Storage.srsReview(word.korean, gotIt: isRight);
+
     if (isRight) {
       _score++;
       HapticFeedback.lightImpact();
@@ -171,17 +192,19 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       return;
     }
     Future.delayed(const Duration(milliseconds: 900), () {
-      if (!mounted) {
-        return;
-      }
-      _advance();
+      if (!_acceptsInput || presentation != _presentation) return;
+      _advance(presentation);
     });
   }
 
-  void _advance() {
-    if (_picked == null || _qIdx >= _order.length) {
+  void _advance(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _picked == null ||
+        _qIdx >= _order.length) {
       return;
     }
+    _presentation++;
     setState(() {
       _qIdx++;
       if (_qIdx < _order.length) {
@@ -194,13 +217,18 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   Future<void> _finish() async {
+    if (!_acceptsInput) return;
+    final presentation = _presentation;
     final pct = ((_score / _order.length) * 100).round();
     final outcome = await saveGameResult(
       gameId: 'cp_quiz',
       xp: _score * 4,
       score: pct,
     );
-    if (!mounted || outcome == null) {
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        presentation != _presentation ||
+        outcome == null) {
       return;
     }
     _feedbackCompletion.complete(
@@ -215,7 +243,10 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     }
   }
 
-  void _restart() {
+  void _restart(int presentation) {
+    if (!_acceptsInput || presentation != _presentation || _outcome == null) {
+      return;
+    }
     final languageCode = Localizations.localeOf(context).languageCode;
     setState(() {
       _startRoundForLocale(languageCode);
@@ -224,7 +255,10 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
   @override
   Widget build(BuildContext context) {
-    final recovery = gameResultRecoveryFrame(AppL10n.of(context).wbQuiz);
+    final presentation = _presentation;
+    final recovery =
+        studyEvidenceRecoveryFrame(AppL10n.of(context).wbQuiz) ??
+        gameResultRecoveryFrame(AppL10n.of(context).wbQuiz);
     if (recovery != null) {
       return recovery;
     }
@@ -232,7 +266,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     if (_pack == null) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
@@ -247,7 +281,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     if (_pool.length < 4) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
@@ -271,7 +305,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     final correct = word.translationFor(_languageCode).trim();
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.wbQuiz,
       homeEscape: SoriHomeEscape(confirmWhen: _qIdx > 0 || _picked != null),
       actions: const [TtsSpeedAction()],
@@ -397,7 +431,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                             idleBorderColor: SoriColors.primary,
                             semanticTapEnabled: true,
                             onSelected: _picked == null
-                                ? () => _pick(option)
+                                ? () => _pick(option, presentation)
                                 : null,
                           ),
                         ),
@@ -410,7 +444,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                             variant: SoriButtonVariant.filled,
                             accent: SoriColors.accent,
                             fullWidth: true,
-                            onTap: _advance,
+                            onTap: () => _advance(presentation),
                           ),
                         ),
                     ],
@@ -424,10 +458,23 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     );
   }
 
+  void _closeResult(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        !(_outcome != null)) {
+      return;
+    }
+    _retireStudy();
+    Navigator.of(
+      context,
+    ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst);
+  }
+
   Widget _buildDone(AppL10n t) {
+    final presentation = _presentation;
     final pct = ((_score / _order.length) * 100).round();
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
@@ -455,16 +502,14 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
               variant: SoriButtonVariant.filled,
               accent: SoriColors.accent,
               fullWidth: true,
-              onTap: _restart,
+              onTap: () => _restart(presentation),
             ),
             SoriButton(
               label: t.customPackResultBack,
               icon: Icons.menu_book_outlined,
               variant: SoriButtonVariant.outlined,
               fullWidth: true,
-              onTap: () => Navigator.of(
-                context,
-              ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst),
+              onTap: () => _closeResult(presentation),
             ),
           ],
         ),
