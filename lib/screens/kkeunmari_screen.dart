@@ -24,6 +24,7 @@ import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
@@ -49,10 +50,14 @@ enum _PendingTurnAction { none, deadEnd, tigerMove }
 /// 호랑이 차례: 자동으로 다음 단어 선택 → 호랑이가 단어 없으면 사용자 승.
 /// dead_end 단어가 나오면 그 차례 종료 (다음 차례 응답 못 함).
 class KkeunmariScreen extends StatefulWidget {
-  const KkeunmariScreen({super.key, this.poolLoader});
+  const KkeunmariScreen({super.key, this.poolLoader, this.dictionaryValidator});
 
   /// Optional deterministic seam. Production keeps [KkeunmariEngine.load].
   final Future<List<KkeunmariWord>> Function()? poolLoader;
+
+  /// Optional deterministic seam. Production keeps the trusted validator.
+  final Future<KkeunmariDictionaryResult> Function(String word)?
+  dictionaryValidator;
 
   @override
   State<KkeunmariScreen> createState() => _KkeunmariScreenState();
@@ -62,7 +67,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     with
         ScreenCoachMixin<KkeunmariScreen>,
         WidgetsBindingObserver,
-        GameResultRecovery<KkeunmariScreen> {
+        GameResultRecovery<KkeunmariScreen>,
+        StudyEvidenceRecovery<KkeunmariScreen> {
   static const _turnSeconds = 30;
 
   bool _loading = true;
@@ -76,6 +82,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   bool _newBest = false; // diese Runde = längste Kette aller Zeiten?
   bool _dictionaryChecking = false;
   int _roundGeneration = 0;
+  int _turnGeneration = 0;
+  int _dictionaryGeneration = 0;
   String _errorMsg = '';
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
@@ -92,6 +100,13 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
+
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
 
   // ── 코치마크 타겟 ──
   final GlobalKey _lastWordCardKey = GlobalKey();
@@ -148,6 +163,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       case AppLifecycleState.resumed:
         _lifecyclePaused = false;
         if (_resumeCountdownAfterLifecycle &&
+            _acceptsInput &&
             _end == _End.none &&
             _turn == _Turn.user &&
             _remaining > 0) {
@@ -170,7 +186,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   Future<void> _start() async {
-    if (!gameResultAcceptsInput || (_loading && _roundGeneration > 0)) {
+    if (!_acceptsInput || (_loading && _roundGeneration > 0)) {
       return;
     }
     if (!_loading || _loadFailed) {
@@ -181,6 +197,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     }
     resetGameResult();
     final generation = ++_roundGeneration;
+    _dictionaryGeneration++;
     _finishing = false;
     _feedbackCompletion.reset();
     _cancelPendingTurnAction();
@@ -189,10 +206,14 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       if (poolLoader == null) {
         await KkeunmariEngine.load();
       } else {
-        KkeunmariEngine.setPoolForTesting(await poolLoader());
+        final pool = await poolLoader();
+        if (!_acceptsInput || generation != _roundGeneration) {
+          return;
+        }
+        KkeunmariEngine.setPoolForTesting(pool);
       }
     } catch (_) {
-      if (!gameResultAcceptsInput || generation != _roundGeneration) {
+      if (!_acceptsInput || generation != _roundGeneration) {
         return;
       }
       setState(() {
@@ -201,7 +222,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       });
       return;
     }
-    if (!gameResultAcceptsInput || generation != _roundGeneration) {
+    if (!_acceptsInput || generation != _roundGeneration) {
       return;
     }
     final defaultLoadFailed =
@@ -218,13 +239,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (widget.poolLoader == null && _vocabKeys.isEmpty) {
       try {
         final vocab = await DataLoader.loadVocab();
-        if (!gameResultAcceptsInput || generation != _roundGeneration) return;
+        if (!_acceptsInput || generation != _roundGeneration) {
+          return;
+        }
         _vocabKeys = vocab.map((v) => v.korean).toSet();
       } catch (_) {
         /* SRS-Einspeisung optional */
       }
     }
-    if (!gameResultAcceptsInput || generation != _roundGeneration) return;
+    if (!_acceptsInput || generation != _roundGeneration) {
+      return;
+    }
     if (KkeunmariEngine.pool.isEmpty) {
       // Pool leer (Asset fehlt/defekt) → Leer-Zustand zeigen statt pickStart-Crash.
       setState(() => _loading = false);
@@ -238,6 +263,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         ..add(start.word);
       _last = start;
       _turn = _Turn.user;
+      _turnGeneration++;
       _end = _End.none;
       _newBest = false;
       _dictionaryChecking = false;
@@ -248,14 +274,14 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _ctrl.clear();
     _startTimer();
     Future.delayed(const Duration(milliseconds: 200), () {
-      if (gameResultAcceptsInput && generation == _roundGeneration) {
+      if (_acceptsInput && generation == _roundGeneration) {
         TtsService.speak(start.word);
       }
     });
   }
 
   Future<void> _retryLoad(int generation) async {
-    if (!gameResultAcceptsInput ||
+    if (!_acceptsInput ||
         generation != _roundGeneration ||
         _loading ||
         !_loadFailed) {
@@ -281,8 +307,15 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void _runTimer() {
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (t) {
-      if (!mounted) {
+      if (!identical(t, _timer)) {
         t.cancel();
+        return;
+      }
+      if (!_acceptsInput ||
+          _dictionaryChecking ||
+          _finishing ||
+          _end != _End.none ||
+          _turn != _Turn.user) {
         return;
       }
       setState(() => _remaining--);
@@ -310,9 +343,18 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   void _armPendingTurnAction() {
-    if (_pendingTurnAction == _PendingTurnAction.none) return;
+    if (_pendingTurnAction == _PendingTurnAction.none) {
+      return;
+    }
+    final generation = _roundGeneration;
     _pendingTurnStartedAt = DateTime.now();
     _turnDelayTimer = Timer(_pendingTurnDelay, () {
+      if (!_acceptsInput ||
+          generation != _roundGeneration ||
+          _finishing ||
+          _end != _End.none) {
+        return;
+      }
       final action = _pendingTurnAction;
       _turnDelayTimer = null;
       _pendingTurnAction = _PendingTurnAction.none;
@@ -342,7 +384,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   void _resumePendingTurnAction() {
-    if (_pendingTurnAction != _PendingTurnAction.none &&
+    if (_acceptsInput &&
+        _pendingTurnAction != _PendingTurnAction.none &&
         _turnDelayTimer == null) {
       _armPendingTurnAction();
     }
@@ -358,10 +401,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   String get _required => _last?.last ?? '';
 
-  Future<void> _submit(int generation) async {
-    if (!gameResultAcceptsInput ||
+  Future<void> _submit(int generation, int turnGeneration) async {
+    if (!_acceptsInput ||
         _finishing ||
         generation != _roundGeneration ||
+        turnGeneration != _turnGeneration ||
         _dictionaryChecking ||
         _end != _End.none ||
         _turn != _Turn.user) {
@@ -379,30 +423,49 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         _showValidationError(reason);
         return;
       }
-      await _checkDictionaryWord(input);
+      await _checkDictionaryWord(input, generation, turnGeneration);
       return;
     }
-    _acceptUserWord(word!);
+    await _acceptUserWord(word!, generation, turnGeneration);
   }
 
-  Future<void> _checkDictionaryWord(String input) async {
+  Future<void> _checkDictionaryWord(
+    String input,
+    int generation,
+    int turnGeneration,
+  ) async {
     final t = AppL10n.of(context);
-    final generation = _roundGeneration;
+    final dictionaryGeneration = ++_dictionaryGeneration;
     setState(() {
       _dictionaryChecking = true;
       _errorMsg = t.kkeunmariDictionaryChecking;
     });
     try {
-      final result = await KkeunmariDictionaryService.validate(word: input);
-      if (!gameResultAcceptsInput ||
+      final validator =
+          widget.dictionaryValidator ??
+          (word) => KkeunmariDictionaryService.validate(word: word);
+      late final KkeunmariDictionaryResult result;
+      try {
+        result = await validator(input);
+      } catch (_) {
+        result = const KkeunmariDictionaryResult(
+          KkeunmariDictionaryStatus.unavailable,
+        );
+      }
+      if (!_acceptsInput ||
           _finishing ||
           generation != _roundGeneration ||
+          turnGeneration != _turnGeneration ||
           _end != _End.none ||
           _turn != _Turn.user) {
         return;
       }
       if (result.isValid) {
-        _acceptUserWord(KkeunmariWord.dictionary(input));
+        await _acceptUserWord(
+          KkeunmariWord.dictionary(input),
+          generation,
+          turnGeneration,
+        );
         return;
       }
       HapticFeedback.mediumImpact();
@@ -415,7 +478,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         };
       });
     } finally {
-      if (mounted && generation == _roundGeneration) {
+      if (_acceptsInput &&
+          generation == _roundGeneration &&
+          dictionaryGeneration == _dictionaryGeneration) {
         setState(() => _dictionaryChecking = false);
       }
     }
@@ -434,12 +499,43 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     });
   }
 
-  void _acceptUserWord(KkeunmariWord w) {
+  Future<void> _acceptUserWord(
+    KkeunmariWord w,
+    int generation,
+    int turnGeneration,
+  ) async {
+    if (!_acceptsInput ||
+        generation != _roundGeneration ||
+        turnGeneration != _turnGeneration ||
+        _finishing ||
+        _end != _End.none ||
+        _turn != _Turn.user) {
+      return;
+    }
+    // A validated answer owns the current turn. Stop its clock before any
+    // persistence I/O, retaining the exact displayed remainder across retry.
+    _stopTimer();
+    if (_vocabKeys.contains(w.word)) {
+      final attempt = SrsReviewAttempt(id: w.word, gotIt: true);
+      if (!await saveStudyEvidence(attempt.save)) {
+        return;
+      }
+      if (!mounted ||
+          !_acceptsInput ||
+          generation != _roundGeneration ||
+          turnGeneration != _turnGeneration ||
+          _finishing ||
+          _end != _End.none ||
+          _turn != _Turn.user) {
+        return;
+      }
+    }
     HapticFeedback.lightImpact();
     // 정답을 또렷한 긍정 신호로 알린다 — 예전엔 햅틱만 있어 곧바로 뜨는
     // 호랑이 '생각 중' 클립이 오답 플래시처럼 읽혔다 (Jin 2026-08-11 실기기).
     SoundService.correct();
     setState(() {
+      _turnGeneration++;
       _chain.add(w);
       _used.add(w.word);
       _last = w;
@@ -447,12 +543,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _ctrl.clear();
     });
     TtsService.speak(w.word);
-
-    // M1: nur echte Vokabeln ins SRS (Kkeunmari-Pool ≠ Vokabel-CSV → sonst
-    // Geisterkarten, die in der Wiederholung nie auftauchen).
-    if (_vocabKeys.contains(w.word)) {
-      Storage.srsReview(w.word, gotIt: true);
-    }
 
     // The bundle-level `is_dead_end` is only an unused-pool snapshot. A real
     // turn must account for already-used words, otherwise a stale next_count
@@ -477,7 +567,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   void _tigerMove() {
-    if (!gameResultAcceptsInput || _finishing || _end != _End.none) return;
+    if (!_acceptsInput || _finishing || _end != _End.none) {
+      return;
+    }
     final next = KkeunmariEngine.pickTigerNext(_required, _used);
     if (next == null) {
       _endGame(_End.tigerStuck);
@@ -488,6 +580,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _used.add(next.word);
       _last = next;
       _turn = _Turn.user;
+      _turnGeneration++;
     });
     TtsService.speak(next.word);
     _startTimer();
@@ -495,7 +588,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   Future<void> _endGame(_End reason) async {
-    if (!gameResultAcceptsInput || _finishing || _end != _End.none) return;
+    if (!_acceptsInput || _finishing || _end != _End.none) {
+      return;
+    }
+    final generation = _roundGeneration;
     _finishing = true;
     _stopTimer();
     _cancelPendingTurnAction();
@@ -506,7 +602,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       score: _chain.length,
       kkeunmariWin: didWin,
     );
-    if (!mounted || outcome == null) return;
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        generation != _roundGeneration ||
+        outcome == null) {
+      return;
+    }
     _newBest = outcome.isNewBest;
     HapticFeedback.heavyImpact();
     _feedbackCompletion.complete(
@@ -535,7 +636,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     }
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (gameResultAcceptsInput && _end == reason) {
+        if (_acceptsInput && generation == _roundGeneration && _end == reason) {
           SoriCelebration.burst(context);
         }
       });
@@ -545,6 +646,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   @override
   void retireGameResult() {
     _roundGeneration++;
+    _turnGeneration++;
+    _dictionaryGeneration++;
     _stopTimer();
     _cancelPendingTurnAction();
     super.retireGameResult();
@@ -564,14 +667,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final recovery = gameResultRecoveryFrame(t.kkeunmariTitle);
+    final recovery =
+        studyEvidenceRecoveryFrame(t.kkeunmariTitle) ??
+        gameResultRecoveryFrame(t.kkeunmariTitle);
     if (recovery != null) return recovery;
     final generation = _roundGeneration;
+    final turnGeneration = _turnGeneration;
     final s = SoriSurfaces.of(context);
 
     if (_loading) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.kkeunmariTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -585,7 +691,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
     if (_loadFailed) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.kkeunmariTitle,
         padding: EdgeInsets.zero,
         child: AppError(
@@ -598,7 +704,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
     if (KkeunmariEngine.pool.isEmpty) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.kkeunmariTitle,
         child: SoriEmptyState(
           asset: 'assets/illustrations/mascot/magpie_encourage.png',
@@ -610,7 +716,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     }
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.kkeunmariTitle,
       homeEscape: SoriHomeEscape(
         // The round is live as soon as its initial timer starts. `_end`
@@ -646,12 +752,19 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                     isNewBest: _newBest,
                     feedbackCompletion: _feedbackCompletion.current,
                     onAgain: () {
-                      if (gameResultAcceptsInput &&
-                          generation == _roundGeneration) {
+                      if (_acceptsInput &&
+                          generation == _roundGeneration &&
+                          _end != _End.none) {
                         _start();
                       }
                     },
-                    onHome: () => Navigator.pop(context),
+                    onHome: () {
+                      if (_acceptsInput &&
+                          generation == _roundGeneration &&
+                          _end != _End.none) {
+                        Navigator.pop(context);
+                      }
+                    },
                   )
                 else ...[
                   // ── 현재 차례 + 타이머 ──
@@ -702,7 +815,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
                       ),
-                      onSubmitted: (_) => unawaited(_submit(generation)),
+                      onSubmitted: (_) =>
+                          unawaited(_submit(generation, turnGeneration)),
                     ),
                     if (_errorMsg.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
@@ -727,7 +841,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                       fullWidth: true,
                       onTap: _dictionaryChecking
                           ? null
-                          : () => unawaited(_submit(generation)),
+                          : () =>
+                                unawaited(_submit(generation, turnGeneration)),
                     ),
                   ] else
                     // 호랑이 차례: 짧은 "생각 중" 카드

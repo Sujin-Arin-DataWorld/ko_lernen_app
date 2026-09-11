@@ -1690,3 +1690,62 @@ legacy flashcards, transactional course/diagnostic persistence, process-death
 resumption and signed-device/operational readiness remain unfinished.
 Previously admitted native writes may complete after exit; no whole-session
 rollback or full commercial-readiness claim is made.
+
+### Task 36: Preserve timed-game answers through storage recovery
+
+Baseline: 8aca95fe137c8961a90a28220df5f618ac286af0. Speed Match correct
+and first-wrong pairs and vocabulary-backed Kkeunmari answers discard SRS
+write results before publishing progress.
+
+- [x] Preserve current sources/assets and reproduce native rejection on
+  Speed Match correct/wrong and a real vocabulary-backed Kkeunmari answer.
+- [x] Retain each admitted SrsReviewAttempt through card plus daily log,
+  confirming before score, feedback, speech, chain changes or turn completion.
+  Preserve Speed Match first-negative evidence on later correction and
+  Kkeunmari's vocabulary-only SRS rule; do not create ghost cards.
+- [x] Hold countdown while evidence is pending/failed, without restarting
+  the remaining round duration on each answer. Preserve the existing
+  one-second countdown resolution and lifecycle pause contract. Dictionary
+  waiting must not consume learner time; failed validation resumes the
+  existing remaining time. No millisecond-precision timing claim is made.
+- [x] Fence timers, delayed feedback/tiger moves, resize, filters, loads,
+  dictionary completions, retained answer/replay/result callbacks and exit,
+  reset or popped routes. Verify unknown native outcomes, duplicate retry,
+  expiry boundaries, first-attempt semantics, vocabulary eligibility and
+  existing grading/reward/layout behavior with independent two-axis review.
+- [x] Complete scoped regression/analysis, free Graphify/preservation checks
+  and local commit/evidence. Keep push, CI, builds, paid calls and deployment held.
+
+Scope: these two timed-game screen adapters and meaningful tests. Shared
+storage/recovery primitives remain unchanged unless new evidence requires it.
+Legacy flashcards, transactional course/diagnostic persistence, process-death
+resumption and signed-device/operational readiness remain open; this task
+does not establish full commercial readiness or durable whole-round resumes.
+
+**Task 36 local verification (2026-09-11):** Three native SRS rejection
+reproductions failed before recovery on Speed Match correct/wrong and a real
+vocabulary-backed Kkeunmari answer. Both screen adapters retain their SRS
+attempt through card plus daily-log confirmation before publishing progress.
+Speed Match preserves first-negative evidence after correction; Kkeunmari
+keeps its vocabulary-only eligibility. Waiting for storage or dictionary
+responses no longer consumes countdown ticks. Remaining time is preserved
+at the existing one-second resolution, without a millisecond-precision claim.
+
+The focused timed-game recovery/lifecycle suite passed 55 cases.
+The combined timed-game and terminal-feedback suite passed 62 cases; its
+existing Speed test now renders the selected pair and awaits saved results
+while preserving the original feedback assertions.
+Final scoped verification passed 1625 Flutter tests
+in 78 files; 4 changed
+Dart files analyzed without issues. Independent Standards and Spec approved
+the actual final source hashes. All 2,488 frozen source files,
+1014 assets and 1,095 paid Graphify
+records were checked. Free Graphify update/prune completed; exact local
+commit/parent/tree evidence is in timed-game-srs-durability-20260911/verification.json.
+
+No push, remote CI, build, upload, paid API call or device retry. Sentence-game
+and legacy-card SRS adapters,
+transactional course/diagnostic persistence, process-death resumption and
+signed-device/operational readiness remain unfinished. Previously admitted
+native writes may complete after exit; this is not a whole-round rollback
+or a full commercial-readiness claim.

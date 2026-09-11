@@ -183,8 +183,15 @@ void main() {
     await tester.pump();
 
     await tester.tap(find.text('하나'));
-    await tester.tap(find.text('eins'));
     await tester.pump();
+    await tester.tap(find.text('eins'));
+    // The selected pair confirms its SRS and daily log before saving the result.
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump();
+      if (find.byType(GameOverCard).evaluate().isNotEmpty) {
+        break;
+      }
+    }
 
     _expectTerminalFeedback(tester);
   });
