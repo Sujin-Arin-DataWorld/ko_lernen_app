@@ -1773,4 +1773,48 @@ in-process retained-answer guarantee, not whole-session process-death resume.
 Legacy-card adapters, remaining course/diagnostic callers, signed-device and
 operational readiness remain open under the full commercial-launch objective.
 
-**Task 37 local verification:** Native card/log/course rejection reproduced before repair. Focused recovery passed 92 tests. Affected regression passed 5224 tests in 456 files; 7 Dart files analyzed cleanly. 16 configured tests were skipped, including Linux-only goldens; no remote CI was run. Two additional regression tests reproduced and then verified restoration of the original eligible-link concept guard for both ordinary and retained inactive-context calls. Independent Standards and Spec reviews approved the actual final source hashes. Preserved 1014 assets and 1095 paid Graphify records. Free Graphify update/prune completed. Exact commit and verification: external sentence-game-evidence-20260911/verification.json. No push, remote CI, build, paid call, upload or device retry. Whole commercial-launch goal remains open.
+**Task 37 local verification:**Native card/log/course rejection reproduced before repair. Focused recovery passed 92 tests. Affected regression passed 5224 tests in 456 files; 7 Dart files analyzed cleanly. 16 configured tests were skipped, including Linux-only goldens; no remote CI was run. Two additional regression tests reproduced and then verified restoration of the original eligible-link concept guard for both ordinary and retained inactive-context calls. Independent Standards and Spec reviews approved the actual final source hashes. Preserved 1014 assets and 1095 paid Graphify records. Free Graphify update/prune completed. Exact commit and verification: external sentence-game-evidence-20260911/verification.json. No push, remote CI, build, paid call, upload or device retry. Whole commercial-launch goal remains open.
+
+### Task 38: Check committed asset declarations before expensive builds
+
+Baseline: 45e0432471708d7f975684f16d039ef19a6cb1d6. Local main
+b375cd75e748d1625f1716f1d0374b411e97499c deletes 40 Hanok assets while
+retaining their pubspec declarations and Dart consumers. Keep both branches
+unchanged by this audit; do not restore retired assets or integrate main.
+
+- [x] Add `tool/check_committed_assets.py` and
+  `tool/test_check_committed_assets.py`. Read a specified local Git commit
+  (`--repo`, `--ref`, default current repository and HEAD) without checkout,
+  fetch, build or network. Resolve the ref once to a commit SHA, then read
+  pubspec.yaml and the file tree from that exact commit using argument arrays.
+- [x] Parse YAML using the existing PyYAML dependency. Check scalar
+  `flutter.assets` declarations and `flutter.fonts[].fonts[].asset` files.
+  Directory declarations require regular files directly inside the directory;
+  nested unrelated files do not satisfy them. Explicitly document this
+  conservative presence check and reject unsupported asset declaration forms
+  rather than silently claiming success. Reject duplicate YAML mapping keys
+  so a later empty list cannot hide a missing declaration. Disable Git lazy
+  fetching for partial clones to enforce the offline read contract.
+  Validate repository-relative paths,
+  avoid following tree symlinks/submodules, and report malformed input clearly.
+  Do not attempt a Dart dependency scanner or full Flutter bundle emulation.
+- [x] Emit machine-readable JSON with commit SHA, check counts, missing paths
+  and a narrowly named declaration-presence verdict. Nonzero exit on missing,
+  invalid or unsupported inputs; never label success release-ready. Do not
+  read or print credentials, mutate the repository, or execute Git hooks.
+- [x] Verify real temporary Git repositories: retained files pass; deleted
+  declared files/directories and fonts fail; nested-only directories fail;
+  quoted/Unicode paths and comments work; working-tree-only files cannot mask
+  missing committed assets; invalid refs/forms fail without success output.
+  Keep tests bounded and local. Run against the pinned candidate and main
+  commits and record their distinct results without changing either tree.
+- [x] Add a short usage/limitations runbook at
+  `docs/runbooks/committed-asset-check.md`, complete independent Standards and
+  Spec review, free Graphify update and local commit evidence.
+
+Scope is two Python files, one runbook and this plan. No Dart, image, pubspec,
+workflow, deployment, build, remote CI, paid API or device action. Existing
+runtime optimization remains intact; this prevents misleading release
+readiness claims while the other session's Hanok retirement is incomplete.
+
+**Task 38 local verification:** Seven Python temporary-Git tests passed, including duplicate-key rejection and a real local partial clone whose promised pubspec blob stays unavailable. The pinned candidate has all 42 asset declarations and 6 fonts; pinned main b375cd75 fails with six missing directories after 40 runtime image deletions. The retirement worktree already has uncommitted runtime/pubspec repairs, so no duplicate retirement or integration was attempted. Independent Standards and Spec approved the actual three-file hashes. Prior 2,489 source files and 1,095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external committed-assets-20260911/verification.json. No runtime source, image, pubspec, workflow, build, push, remote CI, paid provider, deployment or device changes. Legacy-card persistence and the broader launch objective remain open.

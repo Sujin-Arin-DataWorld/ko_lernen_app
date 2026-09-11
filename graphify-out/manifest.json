@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789102885.7645955,
-    "seen": 1789104693.7767384,
-    "ast_hash": "3c21ff388ef42390216dcf57d6139844",
+    "mtime": 1789106451.5036561,
+    "seen": 1789106747.616878,
+    "ast_hash": "2495484bebacd34a679ae5bda57dd219",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16131,6 +16131,24 @@
     "mtime": 1789103692.7747412,
     "seen": 1789104693.37723,
     "ast_hash": "37c57e7ef4451f34f1d01d0091022f1a",
+    "semantic_hash": ""
+  },
+  "tool/check_committed_assets.py": {
+    "mtime": 1789106467.3766718,
+    "seen": 1789106747.4117136,
+    "ast_hash": "ae740d21b997b97769c01a6ecb125a7f",
+    "semantic_hash": ""
+  },
+  "tool/test_check_committed_assets.py": {
+    "mtime": 1789106467.3776996,
+    "seen": 1789106747.430764,
+    "ast_hash": "2e6fea232ef6bf4523b6b7f535cdb094",
+    "semantic_hash": ""
+  },
+  "docs/runbooks/committed-asset-check.md": {
+    "mtime": 1789106467.3787444,
+    "seen": 1789106747.6067958,
+    "ast_hash": "98ef911f7010e9bb600e21fe2250ee1b",
     "semantic_hash": ""
   }
 }
