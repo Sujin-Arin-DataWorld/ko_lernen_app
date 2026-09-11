@@ -672,10 +672,10 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1789076528.4481058,
-    "seen": 1789090006.0778103,
-    "ast_hash": "b3ed9a13a0e3af2c338b512d0dca6fde",
-    "semantic_hash": "b3ed9a13a0e3af2c338b512d0dca6fde"
+    "mtime": 1789091567.1280718,
+    "seen": 1789091832.8526645,
+    "ast_hash": "a21debde657a1790986c6745be3c4465",
+    "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
     "mtime": 1789076528.4481058,
@@ -744,9 +744,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/deployment-contract.test.mjs": {
-    "mtime": 1789076528.5338993,
-    "seen": 1789090006.0778322,
-    "ast_hash": "033fcdbf4785bfbaa25ade5b9cfba26e",
+    "mtime": 1789091565.9520657,
+    "seen": 1789091832.8572488,
+    "ast_hash": "df5faf047385b076e52e4b5f9089a29c",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/release-safety.test.mjs": {
