@@ -79,6 +79,61 @@ class _ScenarioRewardClaim {
   };
 }
 
+class _OrdinaryXpDay {
+  const _OrdinaryXpDay({required this.date, required this.xp});
+
+  final String date;
+  final int xp;
+
+  factory _OrdinaryXpDay.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['date'] is! String ||
+        !Storage._isCanonicalStudyLogDate(value['date'] as String) ||
+        value['xp'] is! int) {
+      throw const FormatException('Ordinary XP day is invalid.');
+    }
+    return _OrdinaryXpDay(
+      date: value['date'] as String,
+      xp: value['xp'] as int,
+    );
+  }
+
+  Map<String, Object> toJson() => {'date': date, 'xp': xp};
+}
+
+/// One award retained while the same completion is retried in this session.
+/// A new completion uses a new attempt, even if its XP amount is identical.
+class XpAwardAttempt {
+  XpAwardAttempt(this.amount, {DateTime? earnedAt})
+    : _earnedOn = Storage._isoOf(earnedAt ?? DateTime.now()),
+      _lifetime = LocalDataLifetime.capture(),
+      _epoch = Storage._xpAwardEpoch;
+
+  final int amount;
+  final String _earnedOn;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool _committed = false;
+
+  bool get _isCurrent => _lifetime.isCurrent && _epoch == Storage._xpAwardEpoch;
+
+  Future<void> save() => Storage._enqueueXpRewardMutation(
+    () => Storage._saveOrdinaryXpAward(this),
+  );
+}
+
+class _PendingOrdinaryXpWrite {
+  const _PendingOrdinaryXpWrite({
+    required this.attempt,
+    required this.before,
+    required this.encoded,
+  });
+
+  final XpAwardAttempt attempt;
+  final String before;
+  final String encoded;
+}
+
 /// One durable value is both the listening-claim record and the XP authority.
 /// A crash can therefore never leave "XP written, claim missing" or the
 /// inverse. `kl_xp` remains a best-effort compatibility mirror for old builds.
@@ -87,6 +142,7 @@ class _XpRewardLedger {
     required this.totalXp,
     required this.claims,
     this.scenarioClaims = const {},
+    this.ordinaryDay,
   });
 
   static const int schemaVersion = 1;
@@ -94,6 +150,7 @@ class _XpRewardLedger {
   final int totalXp;
   final Map<String, _ListeningRewardClaim> claims;
   final Map<String, _ScenarioRewardClaim> scenarioClaims;
+  final _OrdinaryXpDay? ordinaryDay;
 
   factory _XpRewardLedger.decode(String raw) {
     final value = jsonDecode(raw);
@@ -129,6 +186,9 @@ class _XpRewardLedger {
       totalXp: value['totalXp'] as int,
       claims: Map.unmodifiable(claims),
       scenarioClaims: Map.unmodifiable(scenarios),
+      ordinaryDay: value.containsKey('ordinaryDay')
+          ? _OrdinaryXpDay.fromJson(value['ordinaryDay'])
+          : null,
     );
   }
 
@@ -146,6 +206,7 @@ class _XpRewardLedger {
       'scenarioClaims': {
         for (final entry in orderedScenarios) entry.key: entry.value.toJson(),
       },
+      if (ordinaryDay != null) 'ordinaryDay': ordinaryDay!.toJson(),
     });
   }
 
@@ -153,10 +214,12 @@ class _XpRewardLedger {
     int? totalXp,
     Map<String, _ListeningRewardClaim>? claims,
     Map<String, _ScenarioRewardClaim>? scenarioClaims,
+    _OrdinaryXpDay? ordinaryDay,
   }) => _XpRewardLedger(
     totalXp: totalXp ?? this.totalXp,
     claims: Map.unmodifiable(claims ?? this.claims),
     scenarioClaims: Map.unmodifiable(scenarioClaims ?? this.scenarioClaims),
+    ordinaryDay: ordinaryDay ?? this.ordinaryDay,
   );
 }
 
@@ -667,6 +730,8 @@ class Storage {
   static int _learningResetCount = 0;
   static bool _xpRewardWritePending = false;
   static _XpRewardLedger? _confirmedXpRewardLedger;
+  static int _xpAwardEpoch = 0;
+  static _PendingOrdinaryXpWrite? _pendingOrdinaryXpWrite;
   static final Map<String, List<String>> _confirmedRewardLists = {};
   static final Set<String> _pendingRewardListKeys = {};
   static int _srsReviewMutationCount = 0;
@@ -759,6 +824,8 @@ class Storage {
     _learningResetCount = 0;
     _xpRewardWritePending = false;
     _confirmedXpRewardLedger = null;
+    _xpAwardEpoch++;
+    _pendingOrdinaryXpWrite = null;
     _confirmedRewardLists.clear();
     _pendingRewardListKeys.clear();
     _srsReviewMutationCount = 0;
@@ -782,6 +849,8 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    _xpAwardEpoch++;
+    _pendingOrdinaryXpWrite = null;
     _invalidateSrsAttempts();
     _confirmedXpRewardLedger = null;
     _confirmedRewardLists.clear();
@@ -925,10 +994,8 @@ class Storage {
   }
 
   static int _effectiveXpTotal(_XpRewardLedger ledger) {
-    final compatibilityMirror = _i('kl_xp');
-    return compatibilityMirror > ledger.totalXp
-        ? compatibilityMirror
-        : ledger.totalXp;
+    // Once present, this confirmed record outranks its best-effort mirror.
+    return ledger.totalXp;
   }
 
   static Future<void> _persistXpRewardLedger(_XpRewardLedger ledger) async {
@@ -949,10 +1016,26 @@ class Storage {
   }
 
   static Future<void> _recoverUnknownXpRewardState() async {
+    final pending = _pendingOrdinaryXpWrite;
     if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
       await _refreshUnknownStringKeys(_stringStore(), [
         listeningRewardLedgerPreferenceKey,
       ]);
+    }
+    if (pending != null) {
+      if (!identical(_pendingOrdinaryXpWrite, pending)) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      final raw = _s(listeningRewardLedgerPreferenceKey);
+      if (raw == pending.encoded) {
+        pending.attempt._committed = true;
+      } else if (raw != pending.before) {
+        _unknownStrictKeys.add(listeningRewardLedgerPreferenceKey);
+        throw const PreferenceOutcomeUnknownException(
+          listeningRewardLedgerPreferenceKey,
+        );
+      }
+      _pendingOrdinaryXpWrite = null;
     }
   }
 
@@ -3866,40 +3949,94 @@ class Storage {
     if (value < 0) {
       throw ArgumentError.value(value, 'value', 'XP cannot be negative.');
     }
+    // An explicit balance restore supersedes older session-local awards.
+    _xpAwardEpoch++;
     return _enqueueXpRewardMutation(() async {
       if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
         await _recoverUnknownXpRewardState();
       }
-      final ledger = _readXpRewardLedger(strict: true);
-      if (ledger == null) {
-        await _si('kl_xp', value);
-        return;
-      }
+      final ledger =
+          _readXpRewardLedger(strict: true) ??
+          _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
       await _persistXpRewardLedger(ledger.copyWith(totalXp: value));
     });
   }
 
-  static Future<void> addXp(int amount) {
-    return _enqueueXpRewardMutation(() async {
-      if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
-        await _recoverUnknownXpRewardState();
+  static Future<void> addXp(int amount) => XpAwardAttempt(amount).save();
+
+  static _OrdinaryXpDay? _ordinaryXpDay(_XpRewardLedger ledger) {
+    if (ledger.ordinaryDay != null) {
+      return ledger.ordinaryDay;
+    }
+    final date = _s('kl_xp_today_date');
+    return _isCanonicalStudyLogDate(date)
+        ? _OrdinaryXpDay(date: date, xp: _i('kl_xp_today_raw'))
+        : null;
+  }
+
+  static Future<void> _saveOrdinaryXpAward(XpAwardAttempt attempt) async {
+    if (!attempt._isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (attempt._committed || attempt.amount == 0) {
+      return;
+    }
+    if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      await _recoverUnknownXpRewardState();
+    }
+    if (!attempt._isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (attempt._committed) {
+      return;
+    }
+    final ledger =
+        _readXpRewardLedger(strict: true) ??
+        _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+    final total = ledger.totalXp + attempt.amount;
+    if (total < 0) {
+      throw ArgumentError.value(
+        attempt.amount,
+        'amount',
+        'XP cannot be negative.',
+      );
+    }
+    final previous = _ordinaryXpDay(ledger);
+    final _OrdinaryXpDay day;
+    if (previous == null || previous.date.compareTo(attempt._earnedOn) < 0) {
+      day = _OrdinaryXpDay(date: attempt._earnedOn, xp: attempt.amount);
+    } else if (previous.date == attempt._earnedOn) {
+      day = _OrdinaryXpDay(
+        date: previous.date,
+        xp: previous.xp + attempt.amount,
+      );
+    } else {
+      // A retry from an earlier day may change total XP, but cannot replace
+      // the newer day's already-earned amount.
+      day = previous;
+    }
+    final updated = ledger.copyWith(totalXp: total, ordinaryDay: day);
+    final pending = _PendingOrdinaryXpWrite(
+      attempt: attempt,
+      before: _s(listeningRewardLedgerPreferenceKey),
+      encoded: updated.encode(),
+    );
+    _pendingOrdinaryXpWrite = pending;
+    var unknown = false;
+    try {
+      await _persistXpRewardLedger(updated);
+      if (!attempt._isCurrent) {
+        throw const StaleLocalDataLifetimeException();
       }
-      final ledger = _readXpRewardLedger(strict: true);
-      if (ledger == null) {
-        final updated = _i('kl_xp') + amount;
-        if (updated < 0) {
-          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
-        }
-        await _si('kl_xp', updated);
-      } else {
-        final updated = _effectiveXpTotal(ledger) + amount;
-        if (updated < 0) {
-          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
-        }
-        await _persistXpRewardLedger(ledger.copyWith(totalXp: updated));
+      attempt._committed = true;
+    } on PreferenceOutcomeUnknownException {
+      unknown = true;
+      rethrow;
+    } finally {
+      if (!unknown && identical(_pendingOrdinaryXpWrite, pending)) {
+        _pendingOrdinaryXpWrite = null;
       }
-      await _bumpXpToday(amount);
-    });
+    }
   }
 
   /// Claims the first-completion listening reward exactly once.
@@ -4032,12 +4169,13 @@ class Storage {
   /// 오늘 획득한 XP(자정 리셋). 저장 날짜가 오늘이 아니면 0.
   static int get xpToday {
     final today = _isoOf(DateTime.now());
+    final ledger = _readXpRewardLedger(strict: false);
+    final day = ledger?.ordinaryDay;
     final ordinaryXp = xpTodayValue(
-      _s('kl_xp_today_date'),
-      _i('kl_xp_today_raw'),
+      day?.date ?? _s('kl_xp_today_date'),
+      day?.xp ?? _i('kl_xp_today_raw'),
       today,
     );
-    final ledger = _readXpRewardLedger(strict: false);
     final listeningXp = ledger?.claims.values
         .where((claim) => claim.earnedOn == today)
         .fold<int>(0, (total, claim) => total + claim.earnedXp);
@@ -4056,16 +4194,6 @@ class Storage {
   static int get dailyGoalXp {
     final m = dailyGoalMinutes;
     return m > 0 ? m * 3 : 30;
-  }
-
-  static Future<void> _bumpXpToday(int amount) async {
-    final today = _isoOf(DateTime.now());
-    if (_s('kl_xp_today_date') != today) {
-      await _ss('kl_xp_today_date', today);
-      await _si('kl_xp_today_raw', amount);
-    } else {
-      await _si('kl_xp_today_raw', _i('kl_xp_today_raw') + amount);
-    }
   }
 
   // ── Persönliche Bestleistung pro Spiel (Highscore) ──────────────────

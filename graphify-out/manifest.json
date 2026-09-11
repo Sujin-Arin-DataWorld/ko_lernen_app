@@ -1788,9 +1788,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_pack_screen.dart": {
-    "mtime": 1788987817.1999478,
-    "seen": 1788995056.917407,
-    "ast_hash": "c4f08bab76f96bc06b501db7ad10aaf3",
+    "mtime": 1789081983.959349,
+    "seen": 1789087663.6856258,
+    "ast_hash": "f2f52c1d9a9888db2fa33b2ff660f458",
     "semantic_hash": ""
   },
   "lib/screens/vocab_packs_screen.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1789081174.9076717,
-    "seen": 1789081470.6895058,
-    "ast_hash": "743764dcabdcb9b59ed0d0d46813b019",
+    "mtime": 1789081983.9239883,
+    "seen": 1789087663.7169883,
+    "ast_hash": "1abd354556c176952f716f1f9f9eb638",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -11694,9 +11694,9 @@
     "semantic_hash": ""
   },
   "lib/services/vocab_pack_finish_coordinator.dart": {
-    "mtime": 1788987817.3332977,
-    "seen": 1788995056.9178417,
-    "ast_hash": "8acb53c5a08d9b29b1a796aeaa60667b",
+    "mtime": 1789081983.9262466,
+    "seen": 1789087663.719428,
+    "ast_hash": "1e0ba0aa2d7ee187b161eef26bc73e65",
     "semantic_hash": ""
   },
   "test/backup_new_storage_keys_guard_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789080326.8155384,
-    "seen": 1789081471.0978675,
-    "ast_hash": "96b2a77cdec25010ee29f5efbbf4c03b",
+    "mtime": 1789081854.4955752,
+    "seen": 1789087664.0997093,
+    "ast_hash": "820d5ec941b96898a124d7915cdae295",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16041,6 +16041,12 @@
     "mtime": 1789081174.917687,
     "seen": 1789081470.8199644,
     "ast_hash": "418267013c09848f7fe031d65ad25579",
+    "semantic_hash": ""
+  },
+  "test/ordinary_xp_durability_test.dart": {
+    "mtime": 1789082189.8998513,
+    "seen": 1789087663.8252652,
+    "ast_hash": "3b2eec0a8a01af3410203b7614989a84",
     "semantic_hash": ""
   }
 }

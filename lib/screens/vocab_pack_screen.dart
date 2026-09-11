@@ -245,7 +245,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       lastStepReached: () => '${_stage.name}_$_qIdx',
     );
     _finishCoordinator = VocabPackFinishCoordinator(
-      widget.finishOperations ?? const DefaultVocabPackFinishOperations(),
+      widget.finishOperations ?? DefaultVocabPackFinishOperations(),
     );
     _load();
     // 첫 진입 시 3단계 코치마크 1회 표시.

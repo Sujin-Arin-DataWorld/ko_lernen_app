@@ -1294,3 +1294,53 @@ are external in scenario-srs-durability-20260911/verification.json.
 No push, remote CI, build, upload, paid call or device retry. Ordinary XP daily
 accounting, process-death attempt resumption and signed-device/operational
 readiness remain open; this is not whole-result atomicity or full CI.
+
+### Task 29: Commit ordinary XP and its daily total together
+
+**Baseline:** `f96169a723514b97d860401bc6baf4c2b2ba84e0`. Ordinary
+awards persist total XP and daily counters separately. A rejected daily write
+leaves an apparently successful award with mismatched durable totals.
+
+- [x] Preserve the clean baseline and source/asset/paid Graphify hashes;
+  reproduce native rejection leaving total XP updated but daily XP unchanged.
+- [x] Extend the existing XP ledger with an optional bounded ordinary-day
+  snapshot. Commit total and daily delta in one confirmed value, read older
+  legacy counters until migrated, preserve listening/scenario claims and
+  zero/negative adjustments, and treat the ledger as authority over mirrors.
+- [x] Provide a session-local XP award attempt that resolves unknown native
+  outcomes before retry or another mutation. Retain the earned date without
+  allowing an older retry to replace a newer day's total. Reuse one attempt
+  for the default vocab-pack finish adapter's immutable request. Preserve
+  reset/restore lifetime fences and avoid a growing per-award receipt map.
+- [x] Verify rejection, lost replies, retry, rollover, concurrent awards,
+  migration, mirrors, reset and the production vocab adapter. Run related
+  regression tests, changed Dart analysis and independent Spec/Standards review.
+- [x] Complete free Graphify update/prune, local commit, preservation proof
+  and local readiness evidence. No push, remote CI, build, upload, paid call,
+  secret operation or device retry.
+
+**Remaining scope:** General game-result error/retry presentation and
+process-death session resumption need separate validation. This task proves
+the XP storage boundary and vocab adapter retry, not whole-result atomicity,
+full CI or signed-device/operational readiness. Evidence is under
+ordinary-xp-durability-20260911/; primary checkout remains untouched.
+
+**Task 29 local verification (2026-09-11):** The baseline returned success
+with total XP 110 but daily XP 5 instead of 15 after a rejected daily write.
+The final optional ordinary-day snapshot commits the daily amount and total
+in the same XP ledger value. Legacy counters seed the first ordinary award;
+existing listening/scenario claims remain independent daily contributors.
+Reusable session attempts resolve unknown native writes without duplicate
+awards, including the production vocab-pack adapter. The confirmed ledger
+outranks failed legacy mirrors, and daily state stays bounded to one snapshot.
+
+Final scoped verification passed 1283 Flutter tests
+in 148 files. Analysis of 4
+changed Dart files had no issues; independent Standards and Spec approved.
+All 2,475 frozen source files, 1014 assets and
+1,095 paid Graphify records were preserved. Free
+Graphify update/prune completed; exact local commit/parent/tree and clean-state
+proof are external in ordinary-xp-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. General game
+result error/retry presentation and process-death session resumption remain
+separate work, alongside signed-device and operational readiness.

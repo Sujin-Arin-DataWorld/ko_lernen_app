@@ -76,7 +76,9 @@ abstract interface class VocabPackFinishOperations {
 
 /// Production adapter for the existing local-first progress services.
 class DefaultVocabPackFinishOperations implements VocabPackFinishOperations {
-  const DefaultVocabPackFinishOperations();
+  DefaultVocabPackFinishOperations();
+
+  final Expando<XpAwardAttempt> _xpAttempts = Expando<XpAwardAttempt>();
 
   @override
   Future<VocabPackFinishOutcome> recordBossAttempt(
@@ -113,7 +115,7 @@ class DefaultVocabPackFinishOperations implements VocabPackFinishOperations {
 
   @override
   Future<void> awardXp(VocabPackFinishRequest request) =>
-      Storage.addXp(request.xpAward);
+      (_xpAttempts[request] ??= XpAwardAttempt(request.xpAward)).save();
 
   @override
   Future<void> recordCompletionStamp(
