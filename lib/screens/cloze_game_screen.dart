@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -59,7 +60,8 @@ class ClozeGameScreen extends StatefulWidget {
   State<ClozeGameScreen> createState() => _ClozeGameScreenState();
 }
 
-class _ClozeGameScreenState extends State<ClozeGameScreen> {
+class _ClozeGameScreenState extends State<ClozeGameScreen>
+    with GameResultRecovery<ClozeGameScreen> {
   static const _roundSize = 10;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
   static const _allLevels = '';
@@ -171,6 +173,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       _retried = false;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
     });
   }
 
@@ -336,6 +339,15 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Future<void> _finish() async {
+    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'cloze',
+      xp: _score * 5,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.cloze(
         contentLabel: AppL10n.of(context).clozeTitle,
@@ -344,21 +356,20 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
         total: _round.length,
       ),
     );
-    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'cloze',
-      xp: _score * 5,
-      score: pct,
-    );
     if (mounted) setState(() => _outcome = outcome);
   }
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(AppL10n.of(context).clozeTitle);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
 
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -368,6 +379,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     if (_round.isEmpty) {
       final selectedGroup = _group;
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
         child: Column(
@@ -422,6 +434,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     );
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.clozeTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: _idx > 0 || _picked != null || _retried,
@@ -474,6 +487,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       automaticallyImplyLeading: false,
       title: t.clozeTitle,
       padding: EdgeInsets.zero,

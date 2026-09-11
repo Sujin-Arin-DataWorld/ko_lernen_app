@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -46,7 +47,8 @@ class SatzArcadeScreen extends StatefulWidget {
   State<SatzArcadeScreen> createState() => _SatzArcadeScreenState();
 }
 
-class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
+class _SatzArcadeScreenState extends State<SatzArcadeScreen>
+    with GameResultRecovery<SatzArcadeScreen> {
   static const _roundSize = 8;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
   static const _allLevels = '';
@@ -138,6 +140,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _hasSubmittedAnswer = false;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
     });
   }
 
@@ -213,6 +216,15 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   }
 
   Future<void> _finish() async {
+    final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'satz_arcade',
+      xp: _passed * 5,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.satzArcade(
         contentLabel: AppL10n.of(context).satzArcadeTitle,
@@ -221,20 +233,21 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         total: _round.length,
       ),
     );
-    final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'satz_arcade',
-      xp: _passed * 5,
-      score: pct,
-    );
     if (mounted) setState(() => _outcome = outcome);
   }
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(
+      AppL10n.of(context).satzArcadeTitle,
+    );
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.satzArcadeTitle,
         padding: EdgeInsets.zero,
         child: const Center(child: CircularProgressIndicator()),
@@ -242,6 +255,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     }
     if (_round.isEmpty) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.satzArcadeTitle,
         padding: EdgeInsets.zero,
         child: Column(
@@ -273,6 +287,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
     final item = _round[_idx];
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.satzArcadeTitle,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAnswer),
       eyebrow:
@@ -304,6 +319,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       automaticallyImplyLeading: false,
       title: t.satzArcadeTitle,
       padding: EdgeInsets.zero,

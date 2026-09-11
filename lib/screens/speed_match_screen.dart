@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -45,7 +46,7 @@ class SpeedMatchScreen extends StatefulWidget {
 }
 
 class _SpeedMatchScreenState extends State<SpeedMatchScreen>
-    with WidgetsBindingObserver {
+    with WidgetsBindingObserver, GameResultRecovery<SpeedMatchScreen> {
   static const _seconds = 60;
   static const _regularSlots = 5;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -224,6 +225,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       _wrongRightKo = null;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
       _running = _active.length >= 2;
       _reshuffleRight();
     });
@@ -332,18 +334,22 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     _timer?.cancel();
     _timer = null;
     _running = false;
+
+    HapticFeedback.heavyImpact();
+    final outcome = await saveGameResult(
+      gameId: 'speed_match',
+      xp: _score * 3,
+      score: _score, // höher = besser
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.speedMatch(
         contentLabel: AppL10n.of(context).speedMatchTitle,
         level: _level,
         score: _score,
       ),
-    );
-    HapticFeedback.heavyImpact();
-    final outcome = await recordGameResult(
-      gameId: 'speed_match',
-      xp: _score * 3,
-      score: _score, // höher = besser
     );
     if (mounted) setState(() => _outcome = outcome);
   }
@@ -357,9 +363,16 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(
+      AppL10n.of(context).speedMatchTitle,
+    );
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.speedMatchTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -372,6 +385,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     }
     if (_loadFailed) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.speedMatchTitle,
         padding: EdgeInsets.zero,
         child: AppError(
@@ -385,6 +399,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       final canUseAllLevels =
           widget.items == null && _level != null && _all.length >= 2;
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.speedMatchTitle,
         child: Center(
           child: SoriEmptyState(
@@ -408,6 +423,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     final compact = _slotCount < _regularSlots;
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.speedMatchTitle,
       homeEscape: SoriHomeEscape(confirmWhen: _running),
       padding: EdgeInsets.symmetric(
@@ -597,6 +613,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
 
   Widget _buildDone(AppL10n t) {
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       automaticallyImplyLeading: false,
       title: t.speedMatchTitle,
       padding: EdgeInsets.zero,

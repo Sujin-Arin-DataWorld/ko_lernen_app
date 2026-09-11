@@ -1314,15 +1314,15 @@
     "semantic_hash": ""
   },
   "lib/screens/chosung_quiz_screen.dart": {
-    "mtime": 1788987817.1125185,
-    "seen": 1788995056.917161,
-    "ast_hash": "8b5cd5a47b46a26ce874be2eca5eda6d",
+    "mtime": 1789090329.0989974,
+    "seen": 1789090862.1182966,
+    "ast_hash": "9224c3b1ef1d0f8018b250ff056167d3",
     "semantic_hash": ""
   },
   "lib/screens/cloze_game_screen.dart": {
-    "mtime": 1788987817.1135805,
-    "seen": 1788995056.9171636,
-    "ast_hash": "6c14c5f38baa0bdd30be80ef510c7390",
+    "mtime": 1789090329.0209877,
+    "seen": 1789090862.1182997,
+    "ast_hash": "3c87c89c466deed0b2b61318d544a064",
     "semantic_hash": ""
   },
   "lib/screens/consent_screen.dart": {
@@ -1356,9 +1356,9 @@
     "semantic_hash": ""
   },
   "lib/screens/custom_pack_matching_screen.dart": {
-    "mtime": 1788987817.118162,
-    "seen": 1788995056.9171772,
-    "ast_hash": "c0725a3309242a67fa53cb09279764d8",
+    "mtime": 1789090329.070987,
+    "seen": 1789090862.1192966,
+    "ast_hash": "a0d613bfd9486e6271c3572d1c0de4a2",
     "semantic_hash": ""
   },
   "lib/screens/custom_pack_play_screen.dart": {
@@ -1368,21 +1368,21 @@
     "semantic_hash": ""
   },
   "lib/screens/custom_pack_quiz_screen.dart": {
-    "mtime": 1788987817.1201622,
-    "seen": 1788995056.917182,
-    "ast_hash": "b0d684d2bef7718d19f25e54ef75655e",
+    "mtime": 1789090329.051988,
+    "seen": 1789090862.1195405,
+    "ast_hash": "47dffac5cfb2a0ddac4238673c6fdb7d",
     "semantic_hash": ""
   },
   "lib/screens/custom_pack_typing_screen.dart": {
-    "mtime": 1788987817.1201622,
-    "seen": 1788995056.917184,
-    "ast_hash": "9610e6ef79fe8ace1c4a7c91409266cb",
+    "mtime": 1789090329.059986,
+    "seen": 1789090862.1195428,
+    "ast_hash": "c1b8522aff52bd97675360d04b5d5ac6",
     "semantic_hash": ""
   },
   "lib/screens/daily_challenge_screen.dart": {
-    "mtime": 1788987817.1216588,
-    "seen": 1788995056.9171863,
-    "ast_hash": "1edba1e1d8324d9f0cfa3ac486408555",
+    "mtime": 1789090329.1079369,
+    "seen": 1789090862.1195443,
+    "ast_hash": "203033f513e4536f710b5311517eac82",
     "semantic_hash": ""
   },
   "lib/screens/daily_char_sheet.dart": {
@@ -1638,9 +1638,9 @@
     "semantic_hash": ""
   },
   "lib/screens/satz_arcade_screen.dart": {
-    "mtime": 1788987817.1719944,
-    "seen": 1788995056.917338,
-    "ast_hash": "991edd454c8ef98da79d811c4f2254f6",
+    "mtime": 1789090329.028987,
+    "seen": 1789090862.1313636,
+    "ast_hash": "3e987370b9819654bf0a99d39ceaeaeb",
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
@@ -1722,9 +1722,9 @@
     "semantic_hash": ""
   },
   "lib/screens/speed_match_screen.dart": {
-    "mtime": 1788987817.1877437,
-    "seen": 1788995056.917377,
-    "ast_hash": "9f3b0f1e1adb7f9b1a19252201c2663e",
+    "mtime": 1789090329.0429847,
+    "seen": 1789090862.1341248,
+    "ast_hash": "3a80f84d75f2112f60829b97804551d5",
     "semantic_hash": ""
   },
   "lib/screens/splash_screen.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1789081983.9239883,
-    "seen": 1789087663.7169883,
-    "ast_hash": "1abd354556c176952f716f1f9f9eb638",
+    "mtime": 1789090328.9974706,
+    "seen": 1789090862.16774,
+    "ast_hash": "2f10f9936663fcefda388dd2756b8234",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -2934,9 +2934,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/game_reward.dart": {
-    "mtime": 1788987817.384999,
-    "seen": 1788995056.9179678,
-    "ast_hash": "20d6d59038e6ace7ffe32edcf07ffc16",
+    "mtime": 1789089466.0417285,
+    "seen": 1789090862.1816266,
+    "ast_hash": "fae5eed2de18d7bddbd6922774bc21ca",
     "semantic_hash": ""
   },
   "lib/widgets/sori/gye_dedication_action.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789087917.2466378,
-    "seen": 1789088899.8608503,
-    "ast_hash": "87eff9533ff322a20bcf5294fec11e57",
+    "mtime": 1789089464.6700282,
+    "seen": 1789090862.5493166,
+    "ast_hash": "c818c9f2c63674b2ece4ec57d8d2c768",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16053,6 +16053,24 @@
     "mtime": 1789088438.1424658,
     "seen": 1789088899.5849655,
     "ast_hash": "5a2b884799593371fb163b6da2c5b614",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/game_result_recovery.dart": {
+    "mtime": 1789090327.7762291,
+    "seen": 1789090862.1816227,
+    "ast_hash": "dad375d79d2f5f9e66761b18718ae3b5",
+    "semantic_hash": ""
+  },
+  "test/game_result_durability_test.dart": {
+    "mtime": 1789090329.1181662,
+    "seen": 1789090862.243583,
+    "ast_hash": "fec4fdd6c9018e8711b3568aca767910",
+    "semantic_hash": ""
+  },
+  "test/game_result_recovery_test.dart": {
+    "mtime": 1789090329.1231675,
+    "seen": 1789090862.2435858,
+    "ast_hash": "ba543364310edf1e0d154926b0329ec3",
     "semantic_hash": ""
   }
 }

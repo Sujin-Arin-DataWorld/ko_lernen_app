@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math';
 import 'dart:async';
 
@@ -71,7 +72,8 @@ class DailyChallengeScreen extends StatefulWidget {
   State<DailyChallengeScreen> createState() => _DailyChallengeScreenState();
 }
 
-class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
+class _DailyChallengeScreenState extends State<DailyChallengeScreen>
+    with GameResultRecovery<DailyChallengeScreen> {
   static const _count = 10;
   static const _completionBonus = 20;
 
@@ -168,6 +170,16 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   }
 
   Future<void> _finish() async {
+    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'daily',
+      xp: _score * 5,
+      dailyCompletionBonus: _completionBonus,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.dailyChallenge(
         contentLabel: AppL10n.of(context).dailyTitle,
@@ -175,18 +187,6 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
         correct: _score,
         total: _round.length,
       ),
-    );
-    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
-    // Bonus nur beim ERSTEN Abschluss heute (kein Doppel-Bonus beim Üben).
-    final firstToday = !Storage.dailyChallengeDoneToday();
-    final bonus = firstToday ? _completionBonus : 0;
-    if (firstToday) {
-      await Storage.markDailyChallengeDone();
-    }
-    final outcome = await recordGameResult(
-      gameId: 'daily',
-      xp: _score * 5 + bonus,
-      score: pct,
     );
     if (mounted) {
       setState(() {
@@ -198,9 +198,14 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(AppL10n.of(context).dailyTitle);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.dailyTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -210,6 +215,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
       // Defensive: cloze.json leer/fehlend → gemeinsamer leerer Zustand statt
       // eines irreführenden 0/0-Ergebnisses.
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.dailyTitle,
         padding: EdgeInsets.zero,
         child: Center(
@@ -240,6 +246,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     final revealed = _picked != null;
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.dailyTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: _idx > 0 || _picked != null || _retried,
@@ -325,6 +332,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.dailyTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,

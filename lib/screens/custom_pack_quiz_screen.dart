@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -39,7 +40,9 @@ class CustomPackQuizScreen extends StatefulWidget {
 }
 
 class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
-    with ScreenCoachMixin<CustomPackQuizScreen> {
+    with
+        ScreenCoachMixin<CustomPackQuizScreen>,
+        GameResultRecovery<CustomPackQuizScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -110,6 +113,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     _score = 0;
     _outcome = null;
     _feedbackCompletion.reset();
+    resetGameResult();
     if (_pool.length >= 4) {
       _buildOptions();
     }
@@ -190,18 +194,21 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   Future<void> _finish() async {
+    final pct = ((_score / _order.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'cp_quiz',
+      xp: _score * 4,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackQuiz(
         packId: widget.packId,
         correct: _score,
         total: _order.length,
       ),
-    );
-    final pct = ((_score / _order.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'cp_quiz',
-      xp: _score * 4,
-      score: pct,
     );
     if (mounted) {
       setState(() => _outcome = outcome);
@@ -217,10 +224,15 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(AppL10n.of(context).wbQuiz);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
 
     if (_pack == null) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
@@ -235,6 +247,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     if (_pool.length < 4) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
@@ -258,6 +271,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     final correct = word.translationFor(_languageCode).trim();
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.wbQuiz,
       homeEscape: SoriHomeEscape(confirmWhen: _qIdx > 0 || _picked != null),
       actions: const [TtsSpeedAction()],
@@ -413,6 +427,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   Widget _buildDone(AppL10n t) {
     final pct = ((_score / _order.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,

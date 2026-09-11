@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +21,6 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/chosung_hint.dart';
-import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/level_filter_bar.dart';
@@ -96,7 +96,10 @@ class ChosungQuizScreen extends StatefulWidget {
 }
 
 class _ChosungQuizScreenState extends State<ChosungQuizScreen>
-    with ScreenCoachMixin<ChosungQuizScreen>, WidgetsBindingObserver {
+    with
+        ScreenCoachMixin<ChosungQuizScreen>,
+        WidgetsBindingObserver,
+        GameResultRecovery<ChosungQuizScreen> {
   static const int _roundSize = 10;
 
   // ── 코치마크 타겟 ──
@@ -202,6 +205,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   Future<void> _load() async {
     _feedbackCompletion.reset();
+    resetGameResult();
     if (!_loading || _loadFailed) {
       setState(() {
         _loading = true;
@@ -408,7 +412,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     Future.delayed(const Duration(milliseconds: 1000), _next);
   }
 
-  void _next() {
+  Future<void> _next() async {
     if (!mounted) return;
     final completedRound = _roundIndex + 1 >= _roundSize;
     if (completedRound) {
@@ -416,15 +420,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
           ? 0
           : _roundDurationsMs.reduce((a, b) => a + b) ~/
                 _roundDurationsMs.length;
-      _feedbackCompletion.complete(
-        () => FeedbackCompletion.chosung(
-          contentLabel: AppL10n.of(context).gameChosungTitle,
-          level: _level,
-          correct: _roundCorrect,
-          total: _roundSize,
-          averageDurationMs: averageDurationMs,
-        ),
-      );
+
       setState(() {
         _roundIndex = _roundSize;
         _state = _State.waiting;
@@ -435,19 +431,31 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       final accuracy = _roundCorrect / _roundSize;
       final xp = _roundCorrect * 4;
       _roundXp = xp;
+      final outcome = await saveGameResult(
+        gameId: 'chosung',
+        xp: xp,
+        score: (accuracy * 100).round(),
+      );
+      if (!mounted || outcome == null) {
+        return;
+      }
+      setState(() => _roundNewBest = outcome.isNewBest);
+      _feedbackCompletion.complete(
+        () => FeedbackCompletion.chosung(
+          contentLabel: AppL10n.of(context).gameChosungTitle,
+          level: _level,
+          correct: _roundCorrect,
+          total: _roundSize,
+          averageDurationMs: averageDurationMs,
+        ),
+      );
       Analytics.gameCompleted(
         gameType: 'chosung',
         result: accuracy >= 0.8 ? 'win' : 'lose',
         score: (accuracy * 100).round(),
       );
       _abandonTracker.markCompleted();
-      recordGameResult(
-        gameId: 'chosung',
-        xp: xp,
-        score: (accuracy * 100).round(),
-      ).then((o) {
-        if (mounted) setState(() => _roundNewBest = o.isNewBest);
-      });
+
       // 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
       if (accuracy >= 0.8) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -469,6 +477,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   void _startNewRound() {
     HapticFeedback.selectionClick();
     _feedbackCompletion.reset();
+    resetGameResult();
     setState(() {
       _idx++;
       _roundIndex = 0;
@@ -542,9 +551,16 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(
+      AppL10n.of(context).gameChosungTitle,
+    );
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -557,6 +573,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     }
     if (_loadFailed) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: AppError(
@@ -568,6 +585,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     }
     if (_deck.isEmpty) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: SoriEmptyState(
@@ -587,6 +605,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         : (_roundIndex / _roundSize).clamp(0.0, 1.0);
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.gameChosungTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen:

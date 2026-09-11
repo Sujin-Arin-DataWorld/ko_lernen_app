@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -38,7 +39,9 @@ class CustomPackMatchingScreen extends StatefulWidget {
 }
 
 class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
-    with ScreenCoachMixin<CustomPackMatchingScreen> {
+    with
+        ScreenCoachMixin<CustomPackMatchingScreen>,
+        GameResultRecovery<CustomPackMatchingScreen> {
   final math.Random _rng = math.Random();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -151,6 +154,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _statusMessage = null;
     _misses = 0;
     _feedbackCompletion.reset();
+    resetGameResult();
   }
 
   void _tapLeft(int i) {
@@ -217,6 +221,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   Future<void> _finish() async {
+    // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
+    final outcome = await saveGameResult(gameId: 'cp_matching', xp: _roundXp);
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackMatching(
         packId: widget.packId,
@@ -224,8 +233,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         misses: _misses,
       ),
     );
-    // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    await recordGameResult(gameId: 'cp_matching', xp: _roundXp);
     await Analytics.gameCompleted(
       gameType: 'matching',
       result: 'win',
@@ -246,11 +253,16 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(AppL10n.of(context).wbMatching);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     final pack = _pack;
 
     if (pack == null) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
@@ -264,6 +276,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     }
     if (_pool.length < 2 || _round.length < 2) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbMatching,
         child: Center(
           child: SoriEmptyState(
@@ -280,6 +293,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     final tt = SoriTextTheme.of(context);
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.wbMatching,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),

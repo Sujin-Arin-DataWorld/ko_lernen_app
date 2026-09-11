@@ -1389,3 +1389,57 @@ No push, remote CI, build, upload, paid call or device retry. Wrong-count
 diagnostics retain their best-effort storage contract. General game-result
 recovery, process-death resumption and signed-device/operational readiness
 remain open; this does not prove whole-session atomicity or commercial readiness.
+
+### Task 31: Recover shared game completion and daily rewards
+
+Baseline: c1a90ec5a4c6ea26be710e50e3f97894d5595f8b. Native rejection was
+ignored by personal-best writes, and daily completion used separate markers.
+Eight callers of recordGameResult lacked a common save/retry presentation.
+
+- [x] Preserve baseline and reproduce false personal-best success and lost
+  daily completion after rejected native writes.
+- [x] Retain XP and personal-best attempts per round, hide pending best values,
+  serialize writes/reset, and resolve unknown native outcomes before retry.
+  Store daily bonus, completion date, streak and XP in the same bounded ledger
+  snapshot; preserve prior listening/scenario claims and legacy daily state.
+- [x] Use a shared saving/retry frame in all eight recordGameResult callers:
+  cloze, satz arcade, speed match, custom quiz/typing/matching, chosung and
+  daily challenge. Confirm persistence before feedback/celebration/results.
+  Preserve reward amounts, new-round ownership, accessible Sori exits and
+  cancellation of downstream work after leaving/resetting.
+- [x] Test native failure/unknown outcomes, concurrent retries/daily awards,
+  legacy migration, reset/exit, real screen completion and replay, plus related
+  regressions; analyze final changes and get independent Spec/Standards review.
+- [x] Update free Graphify, verify preservation, commit and refresh local
+  evidence. No push, build, remote CI, paid call, deployment or device retry.
+
+The separate hard-choice, kkeunmari and silben award paths, per-question SRS
+and diagnostic writes, and process-death round resumption remain subsequent
+work. XP and best confirmation are ordered stages, not one whole-game atomic
+transaction; daily bonus and its completion receipt are one atomic value.
+
+**Task 31 local verification (2026-09-11):** Native best rejection
+returned a successful record; separate daily markers could lose completion.
+Shared GameResultAttempt and recovery UI now retain XP/best stages across retry
+in all eight prior recordGameResult callers. Daily base XP, first-day bonus,
+completion date and streak commit in the same bounded XP ledger snapshot.
+Existing listening/scenario claims and legacy state remain readable.
+
+Further reproductions caught unknown and definitely rejected best attempts
+falsely claiming records after being overtaken, spring-DST streak reset,
+late completion after reset and missing normal-frame exit retirement. The
+corrected source preserves record ownership, uses calendar yesterday, captures
+the screen's data lifetime and retires every normal/recovery study-frame exit.
+Earlier sources, review findings and logs remain under revision1/.
+
+Final scoped verification passed 1352 Flutter tests
+in 153 files; 13 changed
+Dart files analyzed without issues. Standards and Spec approved final source.
+All 2,479 frozen source files, 1014 assets and
+1,095 paid Graphify records were checked. Free
+Graphify update/prune completed. Exact commit/parent/tree and clean-state proof
+are external in game-result-durability-20260911/verification.json.
+No push, remote CI, new build, upload, paid call or device retry. Separate
+hard-choice/kkeunmari/silben award paths, per-question SRS/diagnostic durability,
+process-death resumption and signed-device/operational readiness remain open.
+XP/best are ordered stages, not one whole-game atomic transaction.

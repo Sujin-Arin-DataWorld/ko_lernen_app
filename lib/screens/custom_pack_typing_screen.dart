@@ -1,3 +1,4 @@
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -44,7 +45,9 @@ class CustomPackTypingScreen extends StatefulWidget {
 }
 
 class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
-    with ScreenCoachMixin<CustomPackTypingScreen> {
+    with
+        ScreenCoachMixin<CustomPackTypingScreen>,
+        GameResultRecovery<CustomPackTypingScreen> {
   final TextEditingController _input = TextEditingController();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
@@ -127,6 +130,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     _correct = null;
     _outcome = null;
     _feedbackCompletion.reset();
+    resetGameResult();
     _input.clear();
   }
 
@@ -191,18 +195,21 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   }
 
   Future<void> _finish() async {
+    final pct = ((_score / _order.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'cp_typing',
+      xp: _score * 5,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackTyping(
         packId: widget.packId,
         correct: _score,
         total: _order.length,
       ),
-    );
-    final pct = ((_score / _order.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'cp_typing',
-      xp: _score * 5,
-      score: pct,
     );
     await Analytics.gameCompleted(
       gameType: 'typing',
@@ -217,10 +224,15 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
 
   @override
   Widget build(BuildContext context) {
+    final recovery = gameResultRecoveryFrame(AppL10n.of(context).wbTyping);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
 
     if (_pack == null) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
@@ -234,6 +246,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
     if (_pool.isEmpty) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
@@ -254,6 +267,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final revealed = _correct != null;
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.wbTyping,
       homeEscape: SoriHomeEscape(confirmWhen: _idx > 0 || _correct != null),
       actions: const [TtsSpeedAction()],
@@ -359,6 +373,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   Widget _buildDone(AppL10n t) {
     final pct = ((_score / _order.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,

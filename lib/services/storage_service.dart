@@ -104,12 +104,17 @@ class _OrdinaryXpDay {
 /// One award retained while the same completion is retried in this session.
 /// A new completion uses a new attempt, even if its XP amount is identical.
 class XpAwardAttempt {
-  XpAwardAttempt(this.amount, {DateTime? earnedAt})
+  XpAwardAttempt(this.amount, {DateTime? earnedAt, this.dailyCompletionBonus})
     : _earnedOn = Storage._isoOf(earnedAt ?? DateTime.now()),
       _lifetime = LocalDataLifetime.capture(),
       _epoch = Storage._xpAwardEpoch;
 
   final int amount;
+
+  /// Null for ordinary awards; zero also records daily completion without bonus.
+  final int? dailyCompletionBonus;
+  int _earnedXp = 0;
+  int get earnedXp => _committed ? _earnedXp : 0;
   final String _earnedOn;
   final LocalDataLifetimeLease _lifetime;
   final int _epoch;
@@ -120,6 +125,54 @@ class XpAwardAttempt {
   Future<void> save() => Storage._enqueueXpRewardMutation(
     () => Storage._saveOrdinaryXpAward(this),
   );
+}
+
+class _DailyChallengeState {
+  const _DailyChallengeState(this.date, this.streak);
+  final String date;
+  final int streak;
+  factory _DailyChallengeState.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['date'] is! String ||
+        !Storage._isCanonicalStudyLogDate(value['date'] as String) ||
+        value['streak'] is! int ||
+        (value['streak'] as int) < 1) {
+      throw const FormatException('Invalid daily challenge state.');
+    }
+    return _DailyChallengeState(
+      value['date'] as String,
+      value['streak'] as int,
+    );
+  }
+  Map<String, Object> toJson() => {'date': date, 'streak': streak};
+}
+
+/// One personal-best comparison, retained across native acknowledgement loss.
+class GameBestAttempt {
+  GameBestAttempt(this.id, this.score, {this.higherIsBetter = true})
+    : _lifetime = LocalDataLifetime.capture(),
+      _epoch = Storage._xpAwardEpoch;
+  final String id;
+  final int score;
+  final bool higherIsBetter;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool? _wasNewBest;
+  bool _saved = false;
+  int? _best;
+  int? get best => _saved ? _best : null;
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+    if (_epoch != Storage._xpAwardEpoch) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  bool _beats(int? previous) =>
+      previous == null ||
+      (higherIsBetter ? score > previous : score < previous);
+  Future<bool> save() =>
+      Storage._enqueueXpRewardMutation(() => Storage._saveGameBest(this));
 }
 
 class _PendingOrdinaryXpWrite {
@@ -143,6 +196,7 @@ class _XpRewardLedger {
     required this.claims,
     this.scenarioClaims = const {},
     this.ordinaryDay,
+    this.dailyChallenge,
   });
 
   static const int schemaVersion = 1;
@@ -151,6 +205,7 @@ class _XpRewardLedger {
   final Map<String, _ListeningRewardClaim> claims;
   final Map<String, _ScenarioRewardClaim> scenarioClaims;
   final _OrdinaryXpDay? ordinaryDay;
+  final _DailyChallengeState? dailyChallenge;
 
   factory _XpRewardLedger.decode(String raw) {
     final value = jsonDecode(raw);
@@ -189,6 +244,9 @@ class _XpRewardLedger {
       ordinaryDay: value.containsKey('ordinaryDay')
           ? _OrdinaryXpDay.fromJson(value['ordinaryDay'])
           : null,
+      dailyChallenge: value.containsKey('dailyChallenge')
+          ? _DailyChallengeState.fromJson(value['dailyChallenge'])
+          : null,
     );
   }
 
@@ -207,6 +265,7 @@ class _XpRewardLedger {
         for (final entry in orderedScenarios) entry.key: entry.value.toJson(),
       },
       if (ordinaryDay != null) 'ordinaryDay': ordinaryDay!.toJson(),
+      if (dailyChallenge != null) 'dailyChallenge': dailyChallenge!.toJson(),
     });
   }
 
@@ -215,11 +274,13 @@ class _XpRewardLedger {
     Map<String, _ListeningRewardClaim>? claims,
     Map<String, _ScenarioRewardClaim>? scenarioClaims,
     _OrdinaryXpDay? ordinaryDay,
+    _DailyChallengeState? dailyChallenge,
   }) => _XpRewardLedger(
     totalXp: totalXp ?? this.totalXp,
     claims: Map.unmodifiable(claims ?? this.claims),
     scenarioClaims: Map.unmodifiable(scenarioClaims ?? this.scenarioClaims),
     ordinaryDay: ordinaryDay ?? this.ordinaryDay,
+    dailyChallenge: dailyChallenge ?? this.dailyChallenge,
   );
 }
 
@@ -732,6 +793,10 @@ class Storage {
   static _XpRewardLedger? _confirmedXpRewardLedger;
   static int _xpAwardEpoch = 0;
   static _PendingOrdinaryXpWrite? _pendingOrdinaryXpWrite;
+  static Map<String, int>? _confirmedGameBests;
+  static bool _gameBestWritePending = false;
+  static ({GameBestAttempt attempt, String before, String after})?
+  _pendingGameBestWrite;
   static final Map<String, List<String>> _confirmedRewardLists = {};
   static final Set<String> _pendingRewardListKeys = {};
   static int _srsReviewMutationCount = 0;
@@ -826,6 +891,9 @@ class Storage {
     _confirmedXpRewardLedger = null;
     _xpAwardEpoch++;
     _pendingOrdinaryXpWrite = null;
+    _confirmedGameBests = null;
+    _gameBestWritePending = false;
+    _pendingGameBestWrite = null;
     _confirmedRewardLists.clear();
     _pendingRewardListKeys.clear();
     _srsReviewMutationCount = 0;
@@ -849,6 +917,9 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    _pendingGameBestWrite = null;
+    _confirmedGameBests = null;
+    _gameBestWritePending = false;
     _xpAwardEpoch++;
     _pendingOrdinaryXpWrite = null;
     _invalidateSrsAttempts();
@@ -3978,7 +4049,8 @@ class Storage {
     if (!attempt._isCurrent) {
       throw const StaleLocalDataLifetimeException();
     }
-    if (attempt._committed || attempt.amount == 0) {
+    if (attempt._committed ||
+        (attempt.amount == 0 && attempt.dailyCompletionBonus == null)) {
       return;
     }
     if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
@@ -3993,7 +4065,35 @@ class Storage {
     final ledger =
         _readXpRewardLedger(strict: true) ??
         _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
-    final total = ledger.totalXp + attempt.amount;
+    var earnedXp = attempt.amount;
+    var daily = ledger.dailyChallenge;
+    final dailyBonus = attempt.dailyCompletionBonus;
+    if (dailyBonus != null) {
+      if (dailyBonus < 0 || attempt.amount < 0) {
+        throw ArgumentError('Daily challenge rewards must be nonnegative.');
+      }
+      final last = daily?.date ?? _s('kl_daily_last');
+      if (last.isNotEmpty && !_isCanonicalStudyLogDate(last)) {
+        throw const FormatException('Invalid legacy daily challenge date.');
+      }
+      final legacyStreak = daily?.streak ?? _i('kl_daily_streak');
+      // Old split writes could save the date but lose its streak value.
+      final streak = legacyStreak < 1 ? 1 : legacyStreak;
+      if (last.isEmpty || last.compareTo(attempt._earnedOn) < 0) {
+        final earnedDate = DateTime.parse(attempt._earnedOn);
+        final yesterday = _isoOf(
+          DateTime(earnedDate.year, earnedDate.month, earnedDate.day - 1),
+        );
+        daily = _DailyChallengeState(
+          attempt._earnedOn,
+          last == yesterday ? streak + 1 : 1,
+        );
+        earnedXp += dailyBonus;
+      } else if (daily == null && _isCanonicalStudyLogDate(last)) {
+        daily = _DailyChallengeState(last, streak < 1 ? 1 : streak);
+      }
+    }
+    final total = ledger.totalXp + earnedXp;
     if (total < 0) {
       throw ArgumentError.value(
         attempt.amount,
@@ -4004,18 +4104,20 @@ class Storage {
     final previous = _ordinaryXpDay(ledger);
     final _OrdinaryXpDay day;
     if (previous == null || previous.date.compareTo(attempt._earnedOn) < 0) {
-      day = _OrdinaryXpDay(date: attempt._earnedOn, xp: attempt.amount);
+      day = _OrdinaryXpDay(date: attempt._earnedOn, xp: earnedXp);
     } else if (previous.date == attempt._earnedOn) {
-      day = _OrdinaryXpDay(
-        date: previous.date,
-        xp: previous.xp + attempt.amount,
-      );
+      day = _OrdinaryXpDay(date: previous.date, xp: previous.xp + earnedXp);
     } else {
       // A retry from an earlier day may change total XP, but cannot replace
       // the newer day's already-earned amount.
       day = previous;
     }
-    final updated = ledger.copyWith(totalXp: total, ordinaryDay: day);
+    final updated = ledger.copyWith(
+      totalXp: total,
+      ordinaryDay: day,
+      dailyChallenge: daily,
+    );
+    attempt._earnedXp = earnedXp;
     final pending = _PendingOrdinaryXpWrite(
       attempt: attempt,
       before: _s(listeningRewardLedgerPreferenceKey),
@@ -4199,13 +4301,18 @@ class Storage {
   // ── Persönliche Bestleistung pro Spiel (Highscore) ──────────────────
   // Eine JSON-Map gameId -> best (int). Selbst-Wettbewerb, KEINE Ranglisten.
   static Map<String, int> get _gameBests {
+    if (_gameBestWritePending || _unknownStrictKeys.contains('kl_game_best')) {
+      return _confirmedGameBests ?? const {};
+    }
     final raw = _s('kl_game_best');
     if (raw.isEmpty) {
-      return {};
+      return _confirmedGameBests = const {};
     }
     try {
       final m = jsonDecode(raw) as Map<String, dynamic>;
-      return m.map((k, v) => MapEntry(k, (v as num).toInt()));
+      return _confirmedGameBests = Map.unmodifiable(
+        m.map((k, v) => MapEntry(k, (v as num).toInt())),
+      );
     } catch (_) {
       return {};
     }
@@ -4220,23 +4327,93 @@ class Storage {
     String id,
     int value, {
     bool higherIsBetter = true,
-  }) async {
-    final map = _gameBests;
-    final cur = map[id];
-    final better = cur == null || (higherIsBetter ? value > cur : value < cur);
-    if (!better) {
-      return false;
+  }) => GameBestAttempt(id, value, higherIsBetter: higherIsBetter).save();
+
+  static Future<bool> _saveGameBest(GameBestAttempt attempt) async {
+    attempt._assertCurrent();
+    if (attempt._saved) {
+      return attempt._wasNewBest!;
     }
-    map[id] = value;
-    await _ss('kl_game_best', jsonEncode(map));
-    return true;
+    const key = 'kl_game_best';
+    final store = _stringStore();
+    await _refreshUnknownStringKeys(store, [key]);
+    final pending = _pendingGameBestWrite;
+    if (pending != null) {
+      final native = store.getString(key) ?? '';
+      if (native == pending.after) {
+        pending.attempt._saved = true;
+        pending.attempt._best = pending.attempt.score;
+      } else if (native == pending.before) {
+        pending.attempt._wasNewBest = null;
+      } else {
+        _unknownStrictKeys.add(key);
+        throw const PreferenceOutcomeUnknownException(key);
+      }
+      _pendingGameBestWrite = null;
+    }
+    attempt._assertCurrent();
+    if (attempt._saved) {
+      return attempt._wasNewBest!;
+    }
+    final before = await _prepareStringMutation(store, key);
+    attempt._assertCurrent();
+    final raw = before.value ?? '';
+    // Malformed recovery data must not be replaced by an empty-looking map.
+    final current = raw.isEmpty
+        ? <String, int>{}
+        : (jsonDecode(raw) as Map<String, dynamic>).map(
+            (k, v) => MapEntry(k, (v as num).toInt()),
+          );
+    _confirmedGameBests = Map.unmodifiable(current);
+    attempt._wasNewBest ??= attempt._beats(current[attempt.id]);
+    if (attempt._beats(current[attempt.id])) {
+      final updated = Map<String, int>.of(current)
+        ..[attempt.id] = attempt.score;
+      final write = (attempt: attempt, before: raw, after: jsonEncode(updated));
+      _pendingGameBestWrite = write;
+      _gameBestWritePending = true;
+      var unknown = false;
+      try {
+        await _ssStrict(
+          key,
+          jsonEncode(updated),
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: attempt._assertCurrent,
+        );
+        attempt._assertCurrent();
+        _confirmedGameBests = Map.unmodifiable(updated);
+        current[attempt.id] = attempt.score;
+      } on PreferenceOutcomeUnknownException {
+        unknown = true;
+        rethrow;
+      } on PreferenceWriteException {
+        // A confirmed rejection did not establish a record. Compare again
+        // if another round has updated this game before the user retries.
+        attempt._wasNewBest = null;
+        rethrow;
+      } finally {
+        _gameBestWritePending = false;
+        if (!unknown && _pendingGameBestWrite == write) {
+          _pendingGameBestWrite = null;
+        }
+      }
+    }
+    attempt._assertCurrent();
+    attempt._best = current[attempt.id];
+    attempt._saved = true;
+    return attempt._wasNewBest!;
   }
 
   // ── Tages-Challenge (오늘의 도전) — täglicher Selbst-Streak ──────────
   // Datums-Seed-Puzzle (alle Nutzer:innen bekommen dasselbe Tagesset).
   // Selbst-Wettbewerb (Streak), KEINE Rangliste.
-  static String get dailyChallengeLastDone => _s('kl_daily_last');
-  static int get dailyChallengeStreak => _i('kl_daily_streak');
+  static String get dailyChallengeLastDone =>
+      _readXpRewardLedger(strict: false)?.dailyChallenge?.date ??
+      _s('kl_daily_last');
+  static int get dailyChallengeStreak =>
+      _readXpRewardLedger(strict: false)?.dailyChallenge?.streak ??
+      _i('kl_daily_streak');
 
   static bool dailyChallengeDoneToday({DateTime? now}) =>
       dailyChallengeLastDone == _isoOf(now ?? DateTime.now());
@@ -4244,19 +4421,8 @@ class Storage {
   /// Markiert die heutige Tages-Challenge als erledigt und pflegt den
   /// Selbst-Streak: gestern erledigt → +1, sonst Reset auf 1; heute schon
   /// erledigt → no-op (kein Doppel-Bonus).
-  static Future<void> markDailyChallengeDone({DateTime? now}) async {
-    final n = now ?? DateTime.now();
-    final today = _isoOf(n);
-    if (dailyChallengeLastDone == today) {
-      return;
-    }
-    final yesterday = _isoOf(n.subtract(const Duration(days: 1)));
-    final newStreak = dailyChallengeLastDone == yesterday
-        ? dailyChallengeStreak + 1
-        : 1;
-    await _ss('kl_daily_last', today);
-    await _si('kl_daily_streak', newStreak);
-  }
+  static Future<void> markDailyChallengeDone({DateTime? now}) =>
+      XpAwardAttempt(0, earnedAt: now, dailyCompletionBonus: 0).save();
 
   /// 계 피드에 마지막으로 broadcast 한 레벨 (2픽 levelUp 중복 방지).
   static int get lastGyeLevel => _i('kl_gye_level');
