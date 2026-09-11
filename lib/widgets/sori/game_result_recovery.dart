@@ -19,6 +19,14 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
   bool _gameExpired = false;
   bool _gameRetired = false;
 
+  /// Guards retained input callbacks as well as visible controls.
+  bool get gameResultAcceptsInput =>
+      mounted &&
+      !_gameRetired &&
+      !_gameSaving &&
+      !_gameFailed &&
+      _gameLifetime.isCurrent;
+
   void resetGameResult() {
     retireGameResult();
     _gameAttempt = null;
@@ -35,6 +43,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
     int? score,
     bool higherIsBetter = true,
     int? dailyCompletionBonus,
+    bool kkeunmariWin = false,
   }) {
     if (!mounted || _gameRetired) {
       return Future.value(null);
@@ -56,6 +65,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
       score: score,
       higherIsBetter: higherIsBetter,
       dailyCompletionBonus: dailyCompletionBonus,
+      kkeunmariWin: kkeunmariWin,
     );
     _gameCompletion = Completer<GameOutcome?>();
     unawaited(_trySaveGameResult());

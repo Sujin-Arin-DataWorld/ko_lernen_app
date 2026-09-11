@@ -1443,3 +1443,55 @@ No push, remote CI, new build, upload, paid call or device retry. Separate
 hard-choice/kkeunmari/silben award paths, per-question SRS/diagnostic durability,
 process-death resumption and signed-device/operational readiness remain open.
 XP/best are ordered stages, not one whole-game atomic transaction.
+
+### Task 32: Confirm remaining standalone game rewards before completion
+
+Baseline: 099bb80927f6ae0d62a9ea630a44f0a1297ecdee. Hard-choice,
+kkeunmari and silben still fire-and-forget their completion rewards.
+
+- [x] Reproduce real-screen completion after native XP rejection and preserve
+  the clean baseline, previous source and paid Graphify records.
+- [x] Connect all three screens to retained game-result saving/retry. Preserve
+  reward amounts, puzzle progress, new-round ownership, accessible exits,
+  feedback timing and reject stale input after exit/reset or presentation change.
+- [x] Store kkeunmari wins with the same XP ledger snapshot, preserving legacy
+  counts and other reward claims. Retries must not duplicate wins or XP;
+  losses earn existing XP without a win increment.
+- [x] Verify real screen rejection/unknown writes, best/progress failure,
+  repeated input, replay, loss, reset/exit and retained stale callbacks. Run
+  related regressions, analysis and independent Standards/Spec review.
+- [x] Complete free Graphify update/prune, preservation checks and local commit.
+  Keep push, remote CI, new builds, uploads, paid calls and device retries held.
+
+Per-question SRS and diagnostic durability, process-death round resumption,
+signed-device and operational readiness remain distinct unfinished work.
+XP/win count are atomic; personal-best/puzzle-progress confirmation remains
+an ordered second stage with retry, not an atomic whole-game transaction.
+
+**Task 32 local verification (2026-09-11):** All three real screens
+failed the native-XP rejection reproduction. Hard-choice, kkeunmari and silben
+now retain saving/retry attempts and confirm persistence before publishing
+completion, feedback or navigation. Existing reward amounts are preserved.
+Kkeunmari win counts and XP commit together, including legacy migration,
+lost native acknowledgement, concurrent wins and compatibility increments.
+Personal-best and puzzle progress remain a confirmed second stage.
+
+Retained input is rejected after exit/reset or a new question/puzzle/round.
+Replay admits a fresh award while repeated old navigation cannot skip rounds.
+Tests cover real screens, rejection, unknown writes, best/progress failure,
+loss, replay, stale input, legacy and malformed state, plus quest/UI regressions.
+Standards review found unbound old load-retry callbacks in both loader screens;
+two failing real-screen reproductions are preserved in load-retry-red.log.
+Retry admission and late load success/error now require the current error
+generation and local-data lifetime. Earlier reviewed source and evidence are
+retained under revision1; final reviews apply to the corrected frozen source.
+Final scoped verification passed 1410 Flutter tests
+in 157 files; 8 changed
+Dart files analyzed without issues. Standards and Spec approved final hashes.
+All 2,481 frozen source files, 1014 assets and
+1,095 paid Graphify records were checked.
+Free Graphify update/prune completed. Exact local commit/parent/tree proof is
+external in separate-game-rewards-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Per-question
+SRS/diagnostics, process-death resumption and signed-device/operational readiness
+remain open; this does not prove whole-game atomicity or commercial readiness.

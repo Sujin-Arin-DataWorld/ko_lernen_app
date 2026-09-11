@@ -1464,9 +1464,9 @@
     "semantic_hash": ""
   },
   "lib/screens/hard_choice_quiz_screen.dart": {
-    "mtime": 1788987817.1338506,
-    "seen": 1788995056.9172237,
-    "ast_hash": "1f60ae3725cbeaa6f688c23b83d4551b",
+    "mtime": 1789091314.285068,
+    "seen": 1789092388.776646,
+    "ast_hash": "a20610165cef5a8ab9326c2b6ad241b3",
     "semantic_hash": ""
   },
   "lib/screens/hard_words_screen.dart": {
@@ -1482,9 +1482,9 @@
     "semantic_hash": ""
   },
   "lib/screens/kkeunmari_screen.dart": {
-    "mtime": 1788989049.4625425,
-    "seen": 1788995056.9172342,
-    "ast_hash": "4f4e20d5dfeaa6363818e18a19d8606d",
+    "mtime": 1789092056.1489449,
+    "seen": 1789092388.777235,
+    "ast_hash": "d521a94313ae4bd927d42f52d975cc61",
     "semantic_hash": ""
   },
   "lib/screens/learning_path_screen.dart": {
@@ -1662,9 +1662,9 @@
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
-    "mtime": 1788987817.1782749,
-    "seen": 1788995056.9173467,
-    "ast_hash": "270c32167f285935cf4876ddb98184b0",
+    "mtime": 1789092056.1855803,
+    "seen": 1789092388.7862074,
+    "ast_hash": "e7b8cf356d0014d97a42bd49c129ad97",
     "semantic_hash": ""
   },
   "lib/screens/smalltalk_screen.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1789090328.9974706,
-    "seen": 1789090862.16774,
-    "ast_hash": "2f10f9936663fcefda388dd2756b8234",
+    "mtime": 1789091673.2605562,
+    "seen": 1789092388.8207743,
+    "ast_hash": "4e1e99a3d9f47a9599a133e66f945e90",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -2934,9 +2934,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/game_reward.dart": {
-    "mtime": 1789089466.0417285,
-    "seen": 1789090862.1816266,
-    "ast_hash": "fae5eed2de18d7bddbd6922774bc21ca",
+    "mtime": 1789091314.472894,
+    "seen": 1789092388.8347175,
+    "ast_hash": "fd93cfc945d297f51e00133afe5e2753",
     "semantic_hash": ""
   },
   "lib/widgets/sori/gye_dedication_action.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789089464.6700282,
-    "seen": 1789090862.5493166,
-    "ast_hash": "c818c9f2c63674b2ece4ec57d8d2c768",
+    "mtime": 1789091154.4768553,
+    "seen": 1789092389.2018664,
+    "ast_hash": "02c47f145c0fe31f26a2e8f8742f7d5f",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16056,9 +16056,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/game_result_recovery.dart": {
-    "mtime": 1789090327.7762291,
-    "seen": 1789090862.1816227,
-    "ast_hash": "dad375d79d2f5f9e66761b18718ae3b5",
+    "mtime": 1789091314.483316,
+    "seen": 1789092388.8347147,
+    "ast_hash": "92f8dac4423429553dc785289324a27e",
     "semantic_hash": ""
   },
   "test/game_result_durability_test.dart": {
@@ -16071,6 +16071,18 @@
     "mtime": 1789090329.1231675,
     "seen": 1789090862.2435858,
     "ast_hash": "ba543364310edf1e0d154926b0329ec3",
+    "semantic_hash": ""
+  },
+  "test/kkeunmari_reward_durability_test.dart": {
+    "mtime": 1789091736.3182125,
+    "seen": 1789092388.9123209,
+    "ast_hash": "112f97b42fee920a3beff8f25a7650e4",
+    "semantic_hash": ""
+  },
+  "test/separate_game_reward_recovery_test.dart": {
+    "mtime": 1789092056.2015326,
+    "seen": 1789092388.9479868,
+    "ast_hash": "763eefa6f8b4ff4ac968feccb970ba81",
     "semantic_hash": ""
   }
 }

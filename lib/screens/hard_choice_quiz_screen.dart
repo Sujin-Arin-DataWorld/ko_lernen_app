@@ -15,6 +15,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/lazy_scroll_reveal.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
@@ -48,7 +49,8 @@ class HardChoiceQuizScreen extends StatefulWidget {
   State<HardChoiceQuizScreen> createState() => _HardChoiceQuizScreenState();
 }
 
-class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
+class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
+    with GameResultRecovery<HardChoiceQuizScreen> {
   final math.Random _rng = math.Random();
   final ScrollController _questionScroll = ScrollController();
   final GlobalKey _feedbackKey = GlobalKey();
@@ -61,6 +63,8 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   int _selected = -1;
   bool _locked = false;
   bool _done = false;
+  bool _finishing = false;
+  int _presentation = 0;
 
   @override
   void initState() {
@@ -100,6 +104,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
       (_idx >= 0 && _idx < _round.length) ? _round[_idx] : null;
 
   void _prepare() {
+    _presentation++;
     final cur = _current;
     if (cur == null) {
       setState(() => _done = true);
@@ -146,7 +151,12 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     });
   }
 
-  void _select(int i) {
+  void _select(int i, int presentation) {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation) {
+      return;
+    }
     final cur = _current;
     final options = _options;
     if (cur == null || options == null || _locked) {
@@ -180,7 +190,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
       if (!mounted) {
         return;
       }
-      _advanceAfterFeedback();
+      _advanceAfterFeedback(presentation);
     });
   }
 
@@ -193,15 +203,26 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     );
   }
 
-  void _advanceAfterFeedback() {
-    if (!_locked || _done) {
+  Future<void> _advanceAfterFeedback(int presentation) async {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation ||
+        !_locked ||
+        _done) {
       return;
     }
     if (_idx + 1 >= _round.length) {
-      Storage.addXp(_score * 2);
+      _finishing = true;
+      final outcome = await saveGameResult(
+        gameId: 'hard_choice',
+        xp: _score * 2,
+      );
+      if (!mounted || outcome == null) {
+        return;
+      }
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) {
+        if (gameResultAcceptsInput && _done) {
           SoriCelebration.burst(context);
         }
       });
@@ -220,6 +241,10 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final recovery = gameResultRecoveryFrame(widget.title ?? t.hardQuizTitle);
+    if (recovery != null) {
+      return recovery;
+    }
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final progress = !_loading && !_done && _round.isNotEmpty
@@ -227,6 +252,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
         : null;
 
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: widget.title ?? t.hardQuizTitle,
       homeEscape: SoriHomeEscape(confirmWhen: !_done && (_idx > 0 || _locked)),
       eyebrow: progress,
@@ -243,6 +269,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   }
 
   Widget _buildQuestion(AppL10n t, SoriSurfaces s, String lang) {
+    final presentation = _presentation;
     final cur = _current!;
     final options = _options ?? const <String>[];
     final tt = SoriTextTheme.of(context);
@@ -283,7 +310,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
                   minHeight: 56,
                   idleBorderColor: SoriColors.primary,
                   semanticTapEnabled: true,
-                  onSelected: _locked ? null : () => _select(i),
+                  onSelected: _locked ? null : () => _select(i, presentation),
                 ),
                 if (i + 1 < options.length) const SizedBox(height: Spacing.sm),
               ],
@@ -313,7 +340,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
           SoriButton.filled(
             label: _idx + 1 >= _round.length ? t.hardQuizFinish : t.btnNext,
             fullWidth: true,
-            onTap: _advanceAfterFeedback,
+            onTap: () => _advanceAfterFeedback(presentation),
           ),
         ],
       ],

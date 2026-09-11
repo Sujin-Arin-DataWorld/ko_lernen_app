@@ -104,15 +104,20 @@ class _OrdinaryXpDay {
 /// One award retained while the same completion is retried in this session.
 /// A new completion uses a new attempt, even if its XP amount is identical.
 class XpAwardAttempt {
-  XpAwardAttempt(this.amount, {DateTime? earnedAt, this.dailyCompletionBonus})
-    : _earnedOn = Storage._isoOf(earnedAt ?? DateTime.now()),
-      _lifetime = LocalDataLifetime.capture(),
-      _epoch = Storage._xpAwardEpoch;
+  XpAwardAttempt(
+    this.amount, {
+    DateTime? earnedAt,
+    this.dailyCompletionBonus,
+    this.kkeunmariWin = false,
+  }) : _earnedOn = Storage._isoOf(earnedAt ?? DateTime.now()),
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._xpAwardEpoch;
 
   final int amount;
 
   /// Null for ordinary awards; zero also records daily completion without bonus.
   final int? dailyCompletionBonus;
+  final bool kkeunmariWin;
   int _earnedXp = 0;
   int get earnedXp => _committed ? _earnedXp : 0;
   final String _earnedOn;
@@ -197,6 +202,7 @@ class _XpRewardLedger {
     this.scenarioClaims = const {},
     this.ordinaryDay,
     this.dailyChallenge,
+    this.kkeunmariWins,
   });
 
   static const int schemaVersion = 1;
@@ -206,6 +212,7 @@ class _XpRewardLedger {
   final Map<String, _ScenarioRewardClaim> scenarioClaims;
   final _OrdinaryXpDay? ordinaryDay;
   final _DailyChallengeState? dailyChallenge;
+  final int? kkeunmariWins;
 
   factory _XpRewardLedger.decode(String raw) {
     final value = jsonDecode(raw);
@@ -237,7 +244,12 @@ class _XpRewardLedger {
       }
       scenarios[entry.key] = _ScenarioRewardClaim.fromJson(entry.value);
     }
+    final wins = value['kkeunmariWins'];
+    if (value.containsKey('kkeunmariWins') && (wins is! int || wins < 0)) {
+      throw const FormatException('Invalid kkeunmari win count.');
+    }
     return _XpRewardLedger(
+      kkeunmariWins: wins as int?,
       totalXp: value['totalXp'] as int,
       claims: Map.unmodifiable(claims),
       scenarioClaims: Map.unmodifiable(scenarios),
@@ -266,6 +278,7 @@ class _XpRewardLedger {
       },
       if (ordinaryDay != null) 'ordinaryDay': ordinaryDay!.toJson(),
       if (dailyChallenge != null) 'dailyChallenge': dailyChallenge!.toJson(),
+      if (kkeunmariWins != null) 'kkeunmariWins': kkeunmariWins,
     });
   }
 
@@ -275,12 +288,14 @@ class _XpRewardLedger {
     Map<String, _ScenarioRewardClaim>? scenarioClaims,
     _OrdinaryXpDay? ordinaryDay,
     _DailyChallengeState? dailyChallenge,
+    int? kkeunmariWins,
   }) => _XpRewardLedger(
     totalXp: totalXp ?? this.totalXp,
     claims: Map.unmodifiable(claims ?? this.claims),
     scenarioClaims: Map.unmodifiable(scenarioClaims ?? this.scenarioClaims),
     ordinaryDay: ordinaryDay ?? this.ordinaryDay,
     dailyChallenge: dailyChallenge ?? this.dailyChallenge,
+    kkeunmariWins: kkeunmariWins ?? this.kkeunmariWins,
   );
 }
 
@@ -4050,7 +4065,9 @@ class Storage {
       throw const StaleLocalDataLifetimeException();
     }
     if (attempt._committed ||
-        (attempt.amount == 0 && attempt.dailyCompletionBonus == null)) {
+        (attempt.amount == 0 &&
+            attempt.dailyCompletionBonus == null &&
+            !attempt.kkeunmariWin)) {
       return;
     }
     if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
@@ -4065,6 +4082,14 @@ class Storage {
     final ledger =
         _readXpRewardLedger(strict: true) ??
         _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+    var wins = ledger.kkeunmariWins;
+    if (attempt.kkeunmariWin) {
+      final previousWins = wins ?? _i('kl_kkeunmari_wins');
+      if (previousWins < 0) {
+        throw const FormatException('Invalid legacy kkeunmari win count.');
+      }
+      wins = previousWins + 1;
+    }
     var earnedXp = attempt.amount;
     var daily = ledger.dailyChallenge;
     final dailyBonus = attempt.dailyCompletionBonus;
@@ -4116,6 +4141,7 @@ class Storage {
       totalXp: total,
       ordinaryDay: day,
       dailyChallenge: daily,
+      kkeunmariWins: wins,
     );
     attempt._earnedXp = earnedXp;
     final pending = _PendingOrdinaryXpWrite(
@@ -5149,9 +5175,11 @@ class Storage {
   //
   // Wird in `kkeunmari_screen._endGame()` inkrementiert bei Sieg
   // (tigerStuck / deadEnd). Quest `q_punggyeong` braucht ≥ 10.
-  static int get kkeunmariWins => _i('kl_kkeunmari_wins');
+  static int get kkeunmariWins =>
+      _readXpRewardLedger(strict: false)?.kkeunmariWins ??
+      _i('kl_kkeunmari_wins');
   static Future<void> incKkeunmariWins() =>
-      _si('kl_kkeunmari_wins', kkeunmariWins + 1);
+      XpAwardAttempt(0, kkeunmariWin: true).save();
 
   // ── Phase 4 (stately-rising-jongga) ── Quest-Abschluss-Persistenz ────
   //

@@ -56,7 +56,12 @@ class GameResultAttempt {
     int? score,
     bool higherIsBetter = true,
     int? dailyCompletionBonus,
-  }) : _xp = XpAwardAttempt(xp, dailyCompletionBonus: dailyCompletionBonus),
+    bool kkeunmariWin = false,
+  }) : _xp = XpAwardAttempt(
+         xp,
+         dailyCompletionBonus: dailyCompletionBonus,
+         kkeunmariWin: kkeunmariWin,
+       ),
        _best = score == null
            ? null
            : GameBestAttempt(gameId, score, higherIsBetter: higherIsBetter);
