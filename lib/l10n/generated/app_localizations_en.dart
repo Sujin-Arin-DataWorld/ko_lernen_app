@@ -21,7 +21,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get learningPhasePracticeScope =>
-      'These conversations practise related topics. Tasks specific to this phase goal are still in preparation. Your learning progress continues to follow the existing mission checks.';
+      'These conversations practise related topics and continue to use the existing mission checks. Assessments from available phase tasks are recorded separately.';
 
   @override
   String get learningPhaseImagePreparing => 'Image in preparation';

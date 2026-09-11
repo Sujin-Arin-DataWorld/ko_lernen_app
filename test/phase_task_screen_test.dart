@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/screens/phase_task_screen.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 class FakeRecorder implements PronunciationRecorder {
   bool allowed = false;
@@ -120,10 +121,10 @@ void main() {
       await tester.pumpWidget(host(screen()));
       await tester.pumpAndSettle();
       expect(tester.widget<TextFormField>(name).initialValue, '유나');
-      await tap(tester, find.byType(FilledButton));
+      await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
       expect(saved, isNull);
       expect(find.text('100%'), findsNothing);
-      await tap(tester, find.byType(FilledButton));
+      await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
       expect(saved!.passed, isTrue);
       await tester.scrollUntilVisible(
         find.text('100%'),
@@ -158,34 +159,34 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      final submit = find.byType(FilledButton);
+      final submit = find.byKey(const ValueKey('phase-task-submit'));
       await tester.scrollUntilVisible(
         submit,
         400,
         scrollable: find.byType(Scrollable).first,
       );
-      expect(tester.widget<FilledButton>(submit).onPressed, isNull);
+      expect(tester.widget<SoriButton>(submit).onTap, isNull);
       final transcript = catalog.byId('KP01:listening:01').assessment.sourceKo;
       expect(find.text(transcript), findsNothing);
       await tester.drag(find.byType(ListView), const Offset(0, 3000));
       await tester.pumpAndSettle();
-      await tap(tester, find.widgetWithIcon(OutlinedButton, Icons.volume_up));
+      await tap(tester, find.widgetWithIcon(SoriButton, Icons.volume_up));
       await tester.scrollUntilVisible(
         submit,
         400,
         scrollable: find.byType(Scrollable).first,
       );
-      expect(tester.widget<FilledButton>(submit).onPressed, isNull);
+      expect(tester.widget<SoriButton>(submit).onTap, isNull);
       expect(writes, 0);
       await tester.drag(find.byType(ListView), const Offset(0, 3000));
       await tester.pumpAndSettle();
-      await tap(tester, find.widgetWithIcon(OutlinedButton, Icons.volume_up));
+      await tap(tester, find.widgetWithIcon(SoriButton, Icons.volume_up));
       await tester.scrollUntilVisible(
         submit,
         400,
         scrollable: find.byType(Scrollable).first,
       );
-      expect(tester.widget<FilledButton>(submit).onPressed, isNotNull);
+      expect(tester.widget<SoriButton>(submit).onTap, isNotNull);
       await tap(tester, submit);
       expect(writes, 1);
       await tester.drag(find.byType(ListView), const Offset(0, 3000));
@@ -215,30 +216,34 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tap(tester, find.widgetWithIcon(OutlinedButton, Icons.mic));
+    await tap(tester, find.widgetWithIcon(SoriButton, Icons.mic));
     expect(
-      tester.widget<FilledButton>(find.byType(FilledButton)).onPressed,
+      tester
+          .widget<SoriButton>(find.byKey(const ValueKey('phase-task-submit')))
+          .onTap,
       isNull,
     );
     recorder.allowed = true;
-    await tap(tester, find.widgetWithIcon(OutlinedButton, Icons.mic));
+    await tap(tester, find.widgetWithIcon(SoriButton, Icons.mic));
     recorder.controller.add(Uint8List(40000));
     await tester.pump();
     await tester.runAsync(() async {
-      await tester.tap(find.widgetWithIcon(OutlinedButton, Icons.stop));
+      await tester.tap(find.widgetWithIcon(SoriButton, Icons.stop));
       await Future<void>.delayed(Duration.zero);
     });
     await tester.pumpAndSettle();
     expect(recorder.stops, 1);
     expect(
-      tester.widget<FilledButton>(find.byType(FilledButton)).onPressed,
+      tester
+          .widget<SoriButton>(find.byKey(const ValueKey('phase-task-submit')))
+          .onTap,
       isNotNull,
       reason: tester
           .widgetList<Text>(find.byType(Text))
           .map((t) => t.data)
           .join(' | '),
     );
-    await tap(tester, find.byType(FilledButton));
+    await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
     expect(saved!.score, isNull);
     expect(saved!.passed, isFalse);
     await tester.pumpWidget(const SizedBox());
@@ -263,8 +268,8 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.byType(FilledButton), findsNothing);
-    await tap(tester, find.byType(TextButton));
+    expect(find.byKey(const ValueKey('phase-task-submit')), findsNothing);
+    await tap(tester, find.byKey(const ValueKey('phase-task-load-retry')));
     expect(loads, 2);
   });
   testWidgets(
@@ -287,7 +292,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(
-        find.byType(FilledButton),
+        find.byKey(const ValueKey('phase-task-submit')),
         400,
         scrollable: find.byType(Scrollable).first,
       );

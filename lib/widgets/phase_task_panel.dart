@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sori/button.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../screens/phase_task_screen.dart';
 import '../services/course_progress_service.dart';
@@ -81,9 +82,9 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
           return const SizedBox.shrink();
         }
         if (snapshot.hasError) {
-          return TextButton(
-            onPressed: () => setState(() => _data = _load()),
-            child: Text(t.loadErrorTryAgain),
+          return SoriButton.ghost(
+            onTap: () => setState(() => _data = _load()),
+            label: t.loadErrorTryAgain,
           );
         }
         if (!snapshot.hasData || snapshot.data!.$1.isEmpty) {

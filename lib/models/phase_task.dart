@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'curriculum.dart';
+import 'learner_level.dart';
 
 Object? _canonical(Object? value) {
   if (value is Map) {
@@ -137,7 +138,7 @@ class PhaseTask {
     if (phaseFingerprint(body) != contentHash ||
         !id.startsWith('$phaseId:') ||
         !objectiveId.startsWith('$phaseId:') ||
-        !['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].contains(level) ||
+        !LearnerLevel.values.any((item) => item.display == level) ||
         !['listening', 'reading', 'writing', 'speaking'].contains(skill) ||
         mode != (['writing', 'speaking'].contains(skill) ? 'P' : 'R') ||
         !minimumScore.isFinite ||

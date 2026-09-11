@@ -118,7 +118,7 @@ abstract class AppL10n {
   /// No description provided for @learningPhasePracticeScope.
   ///
   /// In de, this message translates to:
-  /// **'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.'**
+  /// **'Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.'**
   String get learningPhasePracticeScope;
 
   /// No description provided for @learningPhaseImagePreparing.

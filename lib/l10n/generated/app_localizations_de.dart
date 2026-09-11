@@ -20,7 +20,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get learningPhasePracticeScope =>
-      'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.';
+      'Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.';
 
   @override
   String get learningPhaseImagePreparing => 'Bild in Vorbereitung';

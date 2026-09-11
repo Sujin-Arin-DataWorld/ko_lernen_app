@@ -11,6 +11,7 @@ import '../services/phase_task_drafts.dart';
 import '../services/pronunciation_recorder.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 
@@ -380,12 +381,13 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
           return _error == null
               ? const AppLoading()
               : Center(
-                  child: TextButton(
-                    onPressed: () {
+                  child: SoriButton.ghost(
+                    key: const ValueKey('phase-task-load-retry'),
+                    onTap: () {
                       setState(() => _error = null);
                       unawaited(_load());
                     },
-                    child: Text(t.phaseTaskRetry),
+                    label: t.phaseTaskRetry,
                   ),
                 );
         }
@@ -420,10 +422,10 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
               ],
             ),
             if (packet.sourceKind == 'audio')
-              OutlinedButton.icon(
-                onPressed: _audioBusy || _busy ? null : _listen,
-                icon: const Icon(Icons.volume_up),
-                label: Text(t.phaseTaskPlay),
+              SoriButton.outlined(
+                onTap: _audioBusy || _busy ? null : _listen,
+                icon: Icons.volume_up,
+                label: t.phaseTaskPlay,
               ),
             if (packet.sourceKind != 'audio' || _result != null)
               Card(
@@ -487,16 +489,16 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
               ),
             if (task.skill == 'speaking') ...[
               Text(t.phaseTaskRecordingNotice),
-              OutlinedButton.icon(
-                onPressed: _busy || _result != null
+              SoriButton.outlined(
+                onTap: _busy || _result != null
                     ? null
                     : (_recording ? _stopRecording : _record),
-                icon: Icon(_recording ? Icons.stop : Icons.mic),
-                label: Text(_recording ? t.phaseTaskStop : t.phaseTaskRecord),
+                icon: _recording ? Icons.stop : Icons.mic,
+                label: _recording ? t.phaseTaskStop : t.phaseTaskRecord,
               ),
               if (_recorded != null)
-                OutlinedButton(
-                  onPressed: () async {
+                SoriButton.outlined(
+                  onTap: () async {
                     try {
                       await _player.play(
                         BytesSource(_recorded!, mimeType: 'audio/wav'),
@@ -507,20 +509,21 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
                       }
                     }
                   },
-                  child: Text(t.phaseTaskReplay),
+                  label: t.phaseTaskReplay,
                 ),
             ],
             if (_error != null)
               Semantics(liveRegion: true, child: Text(_error!)),
             if (_result == null)
-              FilledButton(
-                onPressed:
+              SoriButton.filled(
+                key: const ValueKey('phase-task-submit'),
+                onTap:
                     disabled ||
                         (task.skill == 'speaking' && _recorded == null) ||
                         (task.skill == 'listening' && !_listened)
                     ? null
                     : _submit,
-                child: Text(t.phaseTaskSubmit),
+                label: t.phaseTaskSubmit,
               )
             else ...[
               Semantics(
@@ -537,15 +540,15 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
               ),
               if (_result!.score != null)
                 Text('${(_result!.score! * 100).round()}%'),
-              OutlinedButton(
-                onPressed: () => setState(() {
+              SoriButton.outlined(
+                onTap: () => setState(() {
                   _result = null;
                   _attemptId = const Uuid().v4();
                   _occurredAt = null;
                   _listened = false;
                   _recorded = null;
                 }),
-                child: Text(t.phaseTaskRetry),
+                label: t.phaseTaskRetry,
               ),
             ],
           ],
