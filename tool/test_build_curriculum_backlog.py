@@ -32,6 +32,14 @@ def phase(phase_id: str, text_id: str, word: str, level: str = "A1") -> dict:
 
 
 class BuildCurriculumBacklogTest(unittest.TestCase):
+    def test_source_hashes_ignore_checkout_line_endings(self) -> None:
+        before = build_backlog(self.root)
+        for relative in before["sourceSha256"]:
+            source = self.root / relative
+            source.write_bytes(source.read_bytes().replace(b"\r\n", b"\n"))
+        after = build_backlog(self.root)
+        self.assertEqual(before, after)
+
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)

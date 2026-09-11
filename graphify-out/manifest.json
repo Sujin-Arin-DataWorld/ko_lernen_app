@@ -15870,15 +15870,15 @@
     "semantic_hash": ""
   },
   "tool/build_curriculum_backlog.py": {
-    "mtime": 1789088888.9042947,
-    "seen": 1789090006.0815058,
-    "ast_hash": "9660ed5c75615f0430f8c80d9868af5f",
+    "mtime": 1789090389.693356,
+    "seen": 1789090713.0635366,
+    "ast_hash": "748fae7b5f5805a3feef91d365e4f8d0",
     "semantic_hash": ""
   },
   "tool/curriculum_completion_backlog.json": {
-    "mtime": 1789088926.757727,
-    "seen": 1789090006.0815585,
-    "ast_hash": "3954f249a9ba43d50e7a4978e0f3e438",
+    "mtime": 1789090391.4020102,
+    "seen": 1789090713.069466,
+    "ast_hash": "7ca0f1952994d3ec43e2ebe59c6833c0",
     "semantic_hash": ""
   },
   "tool/curriculum_context_inventory.py": {
@@ -15894,9 +15894,9 @@
     "semantic_hash": ""
   },
   "tool/test_build_curriculum_backlog.py": {
-    "mtime": 1789088896.422713,
-    "seen": 1789090006.0817075,
-    "ast_hash": "f1b6b294194cec4b62694342adfcd7c1",
+    "mtime": 1789090370.0633645,
+    "seen": 1789090713.085308,
+    "ast_hash": "b1fb3d29cef8d858db983734bf4be85b",
     "semantic_hash": ""
   },
   "tool/test_curriculum_context_inventory.py": {
@@ -15924,9 +15924,9 @@
     "semantic_hash": ""
   },
   "docs/data/curriculum_completion_backlog.md": {
-    "mtime": 1789088926.757727,
-    "seen": 1789090006.0832481,
-    "ast_hash": "00eba623d838b9af2db160f7916e8780",
+    "mtime": 1789090391.4020102,
+    "seen": 1789090713.2653136,
+    "ast_hash": "3d172b54a365b120c4fb377fcbc2e659",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-10-level-content-completion.md": {

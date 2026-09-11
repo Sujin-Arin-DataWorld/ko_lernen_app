@@ -102,7 +102,12 @@ def _read_csv(root: Path, relative: str) -> list[dict[str, str]]:
 
 
 def _hashes(root: Path) -> dict[str, str]:
-    return {relative: hashlib.sha256(_read_bytes(root, relative)).hexdigest() for relative in SOURCE_PATHS}
+    # These are textual audit inputs. Git normalizes CSV/JSON checkout line
+    # endings, so hash the same LF representation on Windows and Linux.
+    return {
+        relative: hashlib.sha256(_read_bytes(root, relative).replace(b"\r\n", b"\n")).hexdigest()
+        for relative in SOURCE_PATHS
+    }
 
 
 def _mode(evidence: str) -> list[str]:
@@ -419,6 +424,7 @@ def build_backlog(root: Path) -> dict[str, Any]:
         "schemaVersion": 1,
         "purpose": "W0b3 review-first triage queue; not completed curriculum, a definitive missing-card count, or a full requirement denominator.",
         "sourceSha256": hashes,
+        "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
         "counts": {
             "diagnosticRows": {key: diagnostic_counts[key] for key in sorted(diagnostic_counts)},
             "uniqueWorkItems": len(ordered_items),
@@ -448,6 +454,8 @@ def build_markdown(backlog: dict[str, Any]) -> str:
         "- 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.",
         "",
         "## Source hashes",
+        "",
+        "SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.",
         "",
     ]
     lines.extend(f"- `{path}`: `{digest}`" for path, digest in backlog["sourceSha256"].items())

@@ -30797,8 +30797,9 @@
   ],
   "purpose": "W0b3 review-first triage queue; not completed curriculum, a definitive missing-card count, or a full requirement denominator.",
   "schemaVersion": 1,
+  "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
   "sourceSha256": {
-    "tool/curriculum_matrix_gaps.csv": "6d15dde991472bbd13b265ceb39fdc7ef9b9ae6a4ebe1b3a059f0aeaaf0c0214",
+    "tool/curriculum_matrix_gaps.csv": "b97b0338510ceb0a13dcd7a3d9bf3ea3b7c124093a32cbe8446ccc2fd178c6bd",
     "tool/learning_phase_findings.csv": "1b2fd35168227b87237cacdfac226c694ad24a58f383f3cc243a044cd2245f4c",
     "tool/learning_phase_summary.json": "3b7670ee8e99c9ff07b36077f91230c19f9ab84819c752a2cdd71ea483aa2ed2",
     "tools/content_factory/cefr_matrix/ko.json": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf",

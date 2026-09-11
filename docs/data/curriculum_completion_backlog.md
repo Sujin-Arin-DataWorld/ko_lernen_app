@@ -9,7 +9,9 @@
 
 ## Source hashes
 
-- `tool/curriculum_matrix_gaps.csv`: `6d15dde991472bbd13b265ceb39fdc7ef9b9ae6a4ebe1b3a059f0aeaaf0c0214`
+SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
+
+- `tool/curriculum_matrix_gaps.csv`: `b97b0338510ceb0a13dcd7a3d9bf3ea3b7c124093a32cbe8446ccc2fd178c6bd`
 - `tool/learning_phase_findings.csv`: `1b2fd35168227b87237cacdfac226c694ad24a58f383f3cc243a044cd2245f4c`
 - `tool/learning_phase_summary.json`: `3b7670ee8e99c9ff07b36077f91230c19f9ab84819c752a2cdd71ea483aa2ed2`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
