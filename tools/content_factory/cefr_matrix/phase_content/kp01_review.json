@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP01:grammar:01",
+      "sha256": "c658e4faf67fa819020b9cee3dd9342f9f52cfd9e28a4df42c814f5f98941692",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:02",
+      "sha256": "77ee8d52b1b7082a275ef5b230b8965e9dd3189f44cc576da0f1174d07b14f8f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:03",
+      "sha256": "e2423ce8509fb283a45748e1b2771b5449b0a634eecdaf8e0c9e8710a4374b59",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:04",
+      "sha256": "5a18f97fbb99120d66c413b0817fad82ea4e8c320ebe4118d761bca3720d1e2e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:05",
+      "sha256": "b779911342456bb8c371c538314b88ec75d253b83a767c6859dccd9b0623e8d3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:grammar:06",
+      "sha256": "c66499fc41477db946d7c1fca5e5a51b7fa56c35901c6352fcdf19ea05badb38",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:07",
+      "sha256": "77f3018cd78598fac54620c998bceb1599da38148e576f43a7d810c0d7d5c65e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:08",
+      "sha256": "8217f516c972a215a107d9864a8295ac8c927e19a2c2fca18bfecd3345e37a69",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:09",
+      "sha256": "bfc73ca62ecbae41100dfed38ec7442b5915748cb65b71b1c22a8f03f2cd4f53",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:10",
+      "sha256": "a8445256efb27bd13fb2b616e6e71a62786096e828ab2c21fe49ec636c240fbe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:11",
+      "sha256": "7d4a9e4b7236823e137c64e44137fe34731f4536c89ad2b0d5a4eb80d9c62cd3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:12",
+      "sha256": "fb2c5bba5c87bb23089d8a180aab23c5e3f0892f1820bb09e50b50042bf766df",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:reading:01",
+      "sha256": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:listening:01",
+      "sha256": "a995013dcd94e61eb4099ec35e625769106c5521f0c8201b4a779df7556bd906",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:writing:01",
+      "sha256": "04dc99063c515a64012a94e14ea8eb7368b5102f972d3852ac5811bb3421b423",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:speaking:01",
+      "sha256": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    }
+  ]
+}

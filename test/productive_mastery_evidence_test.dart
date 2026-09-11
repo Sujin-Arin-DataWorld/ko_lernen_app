@@ -170,7 +170,7 @@ void main() {
       'productiveEvidence': [forged.toJson()],
     });
 
-    expect(migrated.version, 4);
+    expect(migrated.version, 5);
     expect(migrated.completedUnitIds, ['a1_01_greetings_hangul']);
     expect(migrated.productiveEvidence, isEmpty);
     expect(migrated.toJson()['productiveEvidence'], isEmpty);

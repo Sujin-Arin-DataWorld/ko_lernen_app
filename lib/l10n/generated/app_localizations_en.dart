@@ -10384,4 +10384,82 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2ReplayDemo => 'Replay demo';
+
+  @override
+  String get phaseTasksTitle => 'Phase tasks';
+
+  @override
+  String get phaseTasksScope =>
+      'Practice and structured assessments. Free responses do not automatically count as mastery.';
+
+  @override
+  String get phaseTaskPractice => 'Practice';
+
+  @override
+  String get phaseTaskAssessment => 'Assess';
+
+  @override
+  String get phaseTaskSubmit => 'Check and save answers';
+
+  @override
+  String get phaseTaskRetry => 'Try again';
+
+  @override
+  String get phaseTaskPassed => 'Assessed criteria met';
+
+  @override
+  String get phaseTaskNeedsPractice =>
+      'Keep practicing: review the explanations.';
+
+  @override
+  String get phaseTaskUnscored =>
+      'Attempt saved · meaning not automatically scored';
+
+  @override
+  String get phaseTaskPlay => 'Listen';
+
+  @override
+  String get phaseTaskRecord => 'Record';
+
+  @override
+  String get phaseTaskStop => 'Stop recording';
+
+  @override
+  String get phaseTaskReplay => 'Listen to recording';
+
+  @override
+  String get phaseTaskError =>
+      'That did not work. Check audio, microphone and connection, then try again.';
+
+  @override
+  String get phaseTaskAccountChanged =>
+      'Your account changed. Reopen this task.';
+
+  @override
+  String get phaseTaskRecordingNotice =>
+      'The recording stays in memory for this task and is not uploaded.';
+
+  @override
+  String get phaseTaskHistory => 'Assessed criteria already met';
+
+  @override
+  String get phaseTaskAudioRequired => 'Listen to the audio first.';
+
+  @override
+  String get phaseTaskPracticeComplete =>
+      'Practice saved. The score applies to this practice attempt.';
+
+  @override
+  String get phaseTaskCriterionPassed => 'Criterion met';
+
+  @override
+  String get phaseTaskCriterionRequired => 'Required criterion';
+
+  @override
+  String get phaseTaskCriterionUnscored =>
+      'This wording cannot be scored automatically.';
+
+  @override
+  String get phaseTaskEarlierRevision =>
+      'Earlier attempt saved · task has since been revised';
 }

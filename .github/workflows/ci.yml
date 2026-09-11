@@ -917,6 +917,7 @@ jobs:
         run: |
           python -B -X utf8 tool/audit_curriculum_matrix.py --check
           python -B -X utf8 tool/audit_learning_phases.py --check --quiet
+          python -B -X utf8 tool/build_phase_tasks.py --check
           python -B -X utf8 tool/build_learning_phase_catalog.py --check
           python -B -X utf8 tool/build_curriculum_backlog.py --check
 

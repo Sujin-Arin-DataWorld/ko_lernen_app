@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "sourceSha256": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9",
-  "coverage": "related_practice_only",
+  "coverage": "phase_tasks_partial",
   "phases": [
     {
       "id": "KP01",
@@ -28,7 +28,26 @@
         "a1_11_titles_relationships",
         "a1_15_first_class_work"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp01.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp01.webp",
+      "taskIds": [
+        "KP01:grammar:01",
+        "KP01:grammar:02",
+        "KP01:grammar:03",
+        "KP01:grammar:04",
+        "KP01:grammar:05",
+        "KP01:grammar:06",
+        "KP01:grammar:07",
+        "KP01:grammar:08",
+        "KP01:grammar:09",
+        "KP01:grammar:10",
+        "KP01:grammar:11",
+        "KP01:grammar:12",
+        "KP01:reading:01",
+        "KP01:listening:01",
+        "KP01:writing:01",
+        "KP01:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP02",
@@ -54,7 +73,9 @@
         "a1_06_transport_directions",
         "a1_09_home_daily_life"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp02.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp02.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP03",
@@ -83,7 +104,9 @@
         "a1_14_payment_delivery",
         "a1_16_survival_capstone"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp03.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp03.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP04",
@@ -109,7 +132,9 @@
         "a1_10_health_safety",
         "a1_13_register_switching"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp04.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp04.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP05",
@@ -135,7 +160,9 @@
         "a2_07_travel_repair",
         "a2_08_home_money"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp05.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp05.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP06",
@@ -160,7 +187,9 @@
         "a2_01_haeyo_transition",
         "a2_04_feelings_health"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp06.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp06.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP07",
@@ -185,7 +214,9 @@
         "a2_02_plans_proposals",
         "a2_06_study_work"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp07.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp07.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP08",
@@ -209,7 +240,9 @@
       "practiceUnitIds": [
         "a2_03_chat_relationships"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp08.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp08.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP09",
@@ -234,7 +267,9 @@
         "b1_01_experience_reasons",
         "b1_04_relationships"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp09.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp09.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP10",
@@ -259,7 +294,9 @@
         "b1_01_experience_reasons",
         "b1_05_complaint_resolution"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp10.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp10.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP11",
@@ -283,7 +320,9 @@
       "practiceUnitIds": [
         "b1_06_life_capstone"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp11.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp11.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP12",
@@ -308,7 +347,9 @@
         "b1_03_work_softening",
         "b1_06_life_capstone"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp12.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp12.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP13",
@@ -332,7 +373,9 @@
       "practiceUnitIds": [
         "b1_02_indirect_speech"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp13.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp13.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP14",
@@ -357,7 +400,9 @@
         "b2_01_formal_opening",
         "b2_02_professional_opinion"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp14.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp14.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP15",
@@ -382,7 +427,9 @@
         "b2_04_complaint_resolution",
         "b2_05_interview"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp15.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp15.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP16",
@@ -407,7 +454,9 @@
         "b2_03_precise_requests",
         "b2_06_advanced_capstone"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp16.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp16.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP17",
@@ -432,7 +481,9 @@
         "b2_01_formal_opening",
         "b2_04_complaint_resolution"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp17.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp17.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP18",
@@ -457,7 +508,9 @@
         "b2_02_professional_opinion",
         "b2_06_advanced_capstone"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp18.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp18.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP19",
@@ -481,7 +534,9 @@
       "practiceUnitIds": [
         "c1_01_evidence_public_reasoning"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp19.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp19.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP20",
@@ -506,7 +561,9 @@
         "c1_01_evidence_public_reasoning",
         "c1_03_media_evidence_literacy"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp20.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp20.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP21",
@@ -531,7 +588,9 @@
         "c1_02_inclusive_sustainable_systems",
         "c1_05_fan_labor_sustainability"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp21.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp21.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP22",
@@ -556,7 +615,9 @@
         "c1_04_play_time_policy",
         "c1_02_inclusive_sustainable_systems"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp22.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp22.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP23",
@@ -581,7 +642,9 @@
         "c1_03_media_evidence_literacy",
         "c1_05_fan_labor_sustainability"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp23.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp23.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP24",
@@ -605,7 +668,9 @@
       "practiceUnitIds": [
         "c1_06_intimacy_safety_design"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp24.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp24.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP25",
@@ -630,7 +695,9 @@
         "c2_01_interpretation_institutions",
         "c2_03_automation_redress"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp25.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp25.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP26",
@@ -654,7 +721,9 @@
       "practiceUnitIds": [
         "c2_05_relationship_narratives"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp26.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp26.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP27",
@@ -680,7 +749,9 @@
         "c2_03_automation_redress",
         "c2_04_sanction_accountability"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp27.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp27.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP28",
@@ -705,7 +776,9 @@
         "c2_06_fandom_discourse_power",
         "c2_05_relationship_narratives"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp28.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp28.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP29",
@@ -730,7 +803,9 @@
         "c2_05_relationship_narratives",
         "c2_06_fandom_discourse_power"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp29.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp29.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     },
     {
       "id": "KP30",
@@ -754,7 +829,10 @@
       "practiceUnitIds": [
         "c2_05_relationship_narratives"
       ],
-      "illustrationAsset": "assets/illustrations/phases/kp30.webp"
+      "illustrationAsset": "assets/illustrations/phases/kp30.webp",
+      "taskIds": [],
+      "taskCoverage": "related_practice_only"
     }
-  ]
+  ],
+  "phaseTaskSourceSha256": "0efff82f6bec97e35e84b9b3879e58fc012312e98a9cefe38798a2a2e53fba96"
 }
