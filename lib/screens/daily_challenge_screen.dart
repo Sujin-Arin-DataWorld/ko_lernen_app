@@ -1,4 +1,5 @@
 import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:math';
 import 'dart:async';
 
@@ -73,7 +74,9 @@ class DailyChallengeScreen extends StatefulWidget {
 }
 
 class _DailyChallengeScreenState extends State<DailyChallengeScreen>
-    with GameResultRecovery<DailyChallengeScreen> {
+    with
+        GameResultRecovery<DailyChallengeScreen>,
+        StudyEvidenceRecovery<DailyChallengeScreen> {
   static const _count = 10;
   static const _completionBonus = 20;
 
@@ -81,6 +84,8 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
   Map<String, Vocab> _vocabByKo = const {};
   bool _loading = true;
   bool _alreadyDone = false; // heute schon erledigt → Übungsmodus, kein Bonus
+  int _presentation = 0;
+  int _loadGeneration = 0;
   int _idx = 0;
   int _score = 0;
   String? _picked;
@@ -92,6 +97,20 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
   int _streak = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
+  bool _isCurrentQuestion(int presentation, ClozeItem item) =>
+      _acceptsInput &&
+      presentation == _presentation &&
+      _idx >= 0 &&
+      _idx < _round.length &&
+      identical(_round[_idx], item);
+
   @override
   void initState() {
     super.initState();
@@ -99,13 +118,20 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
   }
 
   Future<void> _load() async {
+    final loadGeneration = ++_loadGeneration;
+    ++_presentation;
     final all = widget.items ?? await ClozeLoader.load();
     // Keep injected item fixtures independent from the vocabulary asset. The
     // production path still loads it to enrich the translation gloss.
     final vocab = widget.items == null
         ? await DataLoader.loadVocab()
         : const <Vocab>[];
-    if (!mounted) return;
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        !gameResultAcceptsInput ||
+        loadGeneration != _loadGeneration) {
+      return;
+    }
     final round = DailyChallengeScreen.pickDaily(
       DailyChallengeScreen.capToLevel(all, Storage.placementLevelCode, _count),
       DailyChallengeScreen.dailySeed(DateTime.now()),
@@ -127,31 +153,49 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     }
   }
 
-  void _pick(ClozeItem item, String option) {
-    if (_picked != null) return;
+  Future<void> _pick(ClozeItem item, String option, int presentation) async {
+    if (!_isCurrentQuestion(presentation, item) || _picked != null) {
+      return;
+    }
     final ok = item.accepts(option);
     // 첫 시도 여부를 기록 전에 잡는다 — 재시도로 맞혀도 점수·SRS 는 첫 시도
     // 결과를 따른다. 안 그러면 재시도 허용이 곧 전원 만점이 되어
     // `n / 10 richtig` 카운터가 의미를 잃는다.
     final firstTry = !_retried;
-    setState(() => _picked = option);
-
+    final judgment = ++_presentation;
     if (firstTry) {
-      Storage.srsReview(item.answer, gotIt: ok);
-      if (ok) _score++;
+      final attempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
+      if (!await saveStudyEvidence(attempt.save) ||
+          !_isCurrentQuestion(judgment, item)) {
+        return;
+      }
     }
+    if (!_isCurrentQuestion(judgment, item)) {
+      return;
+    }
+    setState(() {
+      _picked = option;
+      if (firstTry && ok) {
+        _score++;
+      }
+    });
 
     if (ok) {
       HapticFeedback.lightImpact();
       SoundService.correct();
       Future.delayed(const Duration(milliseconds: 1100), () {
-        if (!mounted) return;
+        if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+          return;
+        }
         setState(() {
+          _presentation++;
           _idx++;
           _picked = null;
           _retried = false;
         });
-        if (_idx >= _round.length) _finish();
+        if (_idx >= _round.length) {
+          _finish(_presentation);
+        }
       });
       return;
     }
@@ -161,15 +205,23 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     HapticFeedback.mediumImpact();
     SoundService.wrong();
     Future.delayed(const Duration(milliseconds: 700), () {
-      if (!mounted) return;
+      if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+        return;
+      }
       setState(() {
+        _presentation++;
         _picked = null;
         _retried = true;
       });
     });
   }
 
-  Future<void> _finish() async {
+  Future<void> _finish(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _idx < _round.length) {
+      return;
+    }
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     final outcome = await saveGameResult(
       gameId: 'daily',
@@ -177,7 +229,10 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
       dailyCompletionBonus: _completionBonus,
       score: pct,
     );
-    if (!mounted || outcome == null) {
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        presentation != _presentation ||
+        outcome == null) {
       return;
     }
     _feedbackCompletion.complete(
@@ -198,14 +253,17 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
 
   @override
   Widget build(BuildContext context) {
-    final recovery = gameResultRecoveryFrame(AppL10n.of(context).dailyTitle);
+    final presentation = _presentation;
+    final recovery =
+        studyEvidenceRecoveryFrame(AppL10n.of(context).dailyTitle) ??
+        gameResultRecoveryFrame(AppL10n.of(context).dailyTitle);
     if (recovery != null) {
       return recovery;
     }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.dailyTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -215,7 +273,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
       // Defensive: cloze.json leer/fehlend → gemeinsamer leerer Zustand statt
       // eines irreführenden 0/0-Ergebnisses.
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.dailyTitle,
         padding: EdgeInsets.zero,
         child: Center(
@@ -234,7 +292,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     // _buildDone liest _outcome defensiv (?.), rendert also auch während des
     // kurzen Fensters korrekt.
     if (_idx >= _round.length) {
-      return _buildDone(t);
+      return _buildDone(t, presentation);
     }
 
     final s = SoriSurfaces.of(context);
@@ -246,7 +304,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     final revealed = _picked != null;
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.dailyTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: _idx > 0 || _picked != null || _retried,
@@ -320,7 +378,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
                 acceptedAnswers: item.acceptedAnswers,
                 picked: _picked,
                 revealed: revealed,
-                onPick: (opt) => _pick(item, opt),
+                onPick: (opt) => _pick(item, opt, presentation),
               ),
             ),
           ],
@@ -329,10 +387,10 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     );
   }
 
-  Widget _buildDone(AppL10n t) {
+  Widget _buildDone(AppL10n t, int presentation) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.dailyTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
@@ -360,7 +418,13 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
               variant: SoriButtonVariant.filled,
               accent: SoriColors.gold,
               fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () {
+                if (_acceptsInput &&
+                    presentation == _presentation &&
+                    _outcome != null) {
+                  Navigator.of(context).maybePop();
+                }
+              },
             ),
           ],
         ),

@@ -1627,3 +1627,66 @@ question SRS callers, seen/wrong diagnostics, process-death resumption and
 signed-device/operational readiness remain unfinished. Previously admitted
 native operations may complete after exit; this is not a transactional
 rollback or whole-session commercial-readiness claim.
+
+### Task 35: Confirm quiz answer evidence before feedback and advancement
+
+Baseline: 443a2727ad55f9cb5d3ce0f2016026bc6463a3d1. Chosung, cloze,
+daily challenge and hard-choice quizzes discard the SRS persistence result.
+
+- [x] Preserve current source/assets and reproduce native SRS rejection on
+  all four real screens, including chosung skip.
+- [x] Retain the accepted SrsReviewAttempt and confirm both card and daily log
+  before score, speech, feedback, diagnostics and automatic advancement.
+  Reuse StudyEvidenceRecovery and preserve exact grading, rewards and the
+  cloze/daily first-attempt-only rule. Chosung duration measures the answer
+  time captured before disk I/O; retries do not inflate duration or counts.
+- [x] Bind judgments, skip/next, delayed feedback, replay/close, level/group
+  and mode/input callbacks to their current question/round. Respect pending
+  evidence, game rewards, exit/reset and popped routes. Late loads/sheet
+  returns must not replace the current round or admit retired input.
+- [x] Verify false/unknown card/log writes, repeated retry, correction after
+  first failure, lifecycle/retained callback races, replay, grading, audio,
+  course reporter cardinality and existing small/large-screen layout.
+  Run appropriate related regression and independent Standards/Spec reviews.
+- [x] Complete free Graphify and preservation checks, update local readiness
+  evidence and commit locally. Keep push/CI/build/deployment/paid calls held.
+
+Scope: these four screen adapters and meaningful tests; shared persistence
+primitives already verified in Tasks 28/33/34 stay unchanged unless a new
+failure proves a shared defect. Cloze's existing course reporter is invoked
+once after confirmed first-attempt SRS, but transactional course-mastery
+recovery remains a separate open audit alongside satz/other callers.
+Timed games, legacy flashcards, best-effort diagnostic persistence,
+process-death recovery and signed-device/operational readiness remain open.
+This is not a whole-session atomicity or commercial-readiness claim.
+
+**Task 35 local verification (2026-09-11):** Native SRS rejection failed
+five reproductions on chosung answer/skip, cloze, daily and hard-choice quiz.
+Each accepted judgment now retains its SRS attempt and confirms card plus
+daily log before score, feedback, speech and advancement. Retry does not
+repeat confirmed evidence or promote a corrected first-negative answer.
+
+Question/round guards reject stale input, skip, next, replay, filters and
+result navigation; popped routes, pending writes and data reset remain
+fenced. Chosung captures answer duration before disk I/O. Cloze's existing
+course reporter remains once per first accepted answer after confirmed SRS.
+This preserves its cardinality, not transactional course-mastery recovery.
+
+The focused failure/recovery/lifecycle suite passed 62 cases. The existing
+audio harness now initializes storage and waits for the actual answer reveal;
+its original speech-count, placement and tap assertions remain intact.
+The combined recovery/audio suite passed 65 cases. Final scoped
+verification passed 1701 Flutter tests
+in 91 files; 6 changed
+Dart files analyzed without issues. Independent Standards and Spec approved
+the final actual source hashes. All 2,487 frozen source files,
+1014 assets and 1,095 paid Graphify
+records were checked. Free Graphify update/prune completed; exact local
+commit/parent/tree proof is external in
+game-answer-srs-durability-20260911/verification.json.
+
+No push, remote CI, build, upload, paid API call or device retry. Timed games,
+legacy flashcards, transactional course/diagnostic persistence, process-death
+resumption and signed-device/operational readiness remain unfinished.
+Previously admitted native writes may complete after exit; no whole-session
+rollback or full commercial-readiness claim is made.

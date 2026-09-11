@@ -1,4 +1,5 @@
 import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -100,7 +101,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     with
         ScreenCoachMixin<ChosungQuizScreen>,
         WidgetsBindingObserver,
-        GameResultRecovery<ChosungQuizScreen> {
+        GameResultRecovery<ChosungQuizScreen>,
+        StudyEvidenceRecovery<ChosungQuizScreen> {
   static const int _roundSize = 10;
 
   // ── 코치마크 타겟 ──
@@ -143,6 +145,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   Map<String, int> _levelCounts = const {};
   bool _loading = true;
   bool _loadFailed = false;
+  int _presentation = 0;
+  int _loadGeneration = 0;
   int _idx = 0;
   int _correct = 0;
   int _wrong = 0;
@@ -167,6 +171,20 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
+
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
+  bool _isCurrentQuestion(int presentation, Vocab card) =>
+      _acceptsInput &&
+      presentation == _presentation &&
+      !_roundComplete &&
+      _deck.isNotEmpty &&
+      identical(_card, card);
 
   @override
   void initState() {
@@ -205,6 +223,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   }
 
   Future<void> _load() async {
+    final loadGeneration = ++_loadGeneration;
+    ++_presentation;
     _feedbackCompletion.reset();
     resetGameResult();
     if (!_loading || _loadFailed) {
@@ -218,7 +238,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       source =
           widget.deck ?? await (widget.vocabLoader ?? DataLoader.loadVocab)();
     } catch (_) {
-      if (!mounted) {
+      if (!mounted ||
+          !studyEvidenceIsCurrent ||
+          !gameResultAcceptsInput ||
+          loadGeneration != _loadGeneration) {
         return;
       }
       setState(() {
@@ -227,7 +250,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       });
       return;
     }
-    if (!mounted) {
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        !gameResultAcceptsInput ||
+        loadGeneration != _loadGeneration) {
       return;
     }
     final defaultLoadFailed =
@@ -277,12 +303,17 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       _roundCorrect = 0;
       _roundDurationsMs.clear();
       _roundComplete = false;
+      _roundXp = 0;
+      _roundNewBest = false;
     });
     _ctrl.clear();
     _questionStart = DateTime.now();
   }
 
-  Future<void> _showLevelFilter(AppL10n t) async {
+  Future<void> _showLevelFilter(AppL10n t, int presentation) async {
+    if (!_acceptsInput || presentation != _presentation) {
+      return;
+    }
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level,
@@ -292,51 +323,76 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       allLabel: t.filterAll,
       countFor: (level) => _levelCounts[level] ?? 0,
     );
-    if (!mounted || next == null) return;
+    if (!mounted ||
+        next == null ||
+        !_acceptsInput ||
+        presentation != _presentation) {
+      return;
+    }
     setState(() => _level = next);
     await _load();
   }
 
-  Future<void> _showModeSheet(AppL10n t) async {
+  Future<void> _showModeSheet(AppL10n t, int presentation) async {
+    if (!_acceptsInput || presentation != _presentation) {
+      return;
+    }
     await showSoriSheet<void>(
       context: context,
-      builder: (sheetContext) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SoriChip(
-            key: const Key('chosung-mode-with-vowels'),
-            label: t.chosungModeWithVowels,
-            icon: Icons.lightbulb_outline,
-            accent: SoriColors.warning,
-            selected: _mode == HintMode.chosungVowel,
-            variant: SoriChipVariant.soft,
-            minInteractiveHeight: 48,
-            onTap: () {
-              setState(() => _mode = HintMode.chosungVowel);
-              Navigator.pop(sheetContext);
-            },
-          ),
-          const SizedBox(height: Spacing.sm),
-          SoriChip(
-            key: const Key('chosung-mode-initials-only'),
-            label: t.chosungModeInitialsOnly,
-            icon: Icons.flash_on_rounded,
-            accent: SoriColors.danger,
-            selected: _mode == HintMode.chosung,
-            variant: SoriChipVariant.soft,
-            minInteractiveHeight: 48,
-            onTap: () {
-              setState(() => _mode = HintMode.chosung);
-              Navigator.pop(sheetContext);
-            },
-          ),
-        ],
-      ),
+      builder: (sheetContext) {
+        void closeCurrentSheet() {
+          if (!sheetContext.mounted ||
+              ModalRoute.of(sheetContext)?.isCurrent != true) {
+            return;
+          }
+          Navigator.pop(sheetContext);
+        }
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SoriChip(
+              key: const Key('chosung-mode-with-vowels'),
+              label: t.chosungModeWithVowels,
+              icon: Icons.lightbulb_outline,
+              accent: SoriColors.warning,
+              selected: _mode == HintMode.chosungVowel,
+              variant: SoriChipVariant.soft,
+              minInteractiveHeight: 48,
+              onTap: () {
+                if (_acceptsInput && presentation == _presentation) {
+                  setState(() => _mode = HintMode.chosungVowel);
+                }
+                closeCurrentSheet();
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+            SoriChip(
+              key: const Key('chosung-mode-initials-only'),
+              label: t.chosungModeInitialsOnly,
+              icon: Icons.flash_on_rounded,
+              accent: SoriColors.danger,
+              selected: _mode == HintMode.chosung,
+              variant: SoriChipVariant.soft,
+              minInteractiveHeight: 48,
+              onTap: () {
+                if (_acceptsInput && presentation == _presentation) {
+                  setState(() => _mode = HintMode.chosung);
+                }
+                closeCurrentSheet();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
-  Future<void> _retryLoad() async {
+  Future<void> _retryLoad(int presentation) async {
+    if (!_acceptsInput || presentation != _presentation || !_loadFailed) {
+      return;
+    }
     if (widget.deck == null && widget.vocabLoader == null) {
       DataLoader.resetVocab();
     }
@@ -345,19 +401,43 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   Vocab get _card => _deck[_idx % _deck.length];
 
-  void _recordDuration() {
+  int _captureDurationMs() {
     final start = _questionStart;
-    if (start != null) {
-      _roundDurationsMs.add(DateTime.now().difference(start).inMilliseconds);
+    if (start == null) {
+      return 0;
     }
+    return DateTime.now().difference(start).inMilliseconds;
   }
 
-  void _submit() {
+  Future<void> _submit(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _roundComplete ||
+        _state != _State.waiting ||
+        _deck.isEmpty) {
+      return;
+    }
     final ans = _ctrl.text.trim();
-    if (ans.isEmpty) return;
-    final ok = ans == _card.korean;
-    _recordDuration();
+    if (ans.isEmpty) {
+      return;
+    }
+    final card = _card;
+    final ok = ans == card.korean;
+    // Capture answer time before persistence I/O. A rejected write retries the
+    // same attempt, while this immutable sample is published only once.
+    final durationMs = _captureDurationMs();
+    final judgment = ++_presentation;
+    final attempt = SrsReviewAttempt(id: card.korean, gotIt: ok);
+    if (!await saveStudyEvidence(attempt.save)) {
+      return;
+    }
+    if (!mounted ||
+        !_isCurrentQuestion(judgment, card) ||
+        _state != _State.waiting) {
+      return;
+    }
     setState(() {
+      _roundDurationsMs.add(durationMs);
       _state = ok ? _State.correct : _State.wrong;
       if (ok) {
         _correct++;
@@ -369,7 +449,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     // 2.9 잔여 — 답 공개 직후(정/오답 무관) 정답 단어를 1회 자동으로 읽는다.
     // 카드 좌상단 인디케이터(_QuizCard)·탭 재생(SoriSpeakable)과 같은
     // word 텍스트를 쓰므로 in-flight dedupe 로 탭=정지 계약이 성립한다.
-    SoriSpeech.speak(_card.korean);
+    SoriSpeech.speak(card.korean);
     // Persistenz + Haptik
     if (ok) {
       HapticFeedback.lightImpact();
@@ -390,31 +470,54 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       Storage.incChosungWrong();
       _combo = 0;
     }
-    // M1: Das Spiel speist das SRS — gewusst/nicht gewusst fließt in die
-    // Wiederholungs-Planung (gleicher Key wie Vokabel-Packs: korean-String).
-    Storage.srsReview(_card.korean, gotIt: ok);
     // 정답은 짧게(700ms) — 이미 맞은 걸 아는데 1.4s 대기는 체감상 "느리다".
     // 오답(1000ms)은 정답을 읽을 시간이 필요해 더 길게 유지한다.
-    Future.delayed(Duration(milliseconds: ok ? 700 : 1000), _next);
+    Future.delayed(
+      Duration(milliseconds: ok ? 700 : 1000),
+      () => _next(judgment),
+    );
   }
 
-  void _skip() {
-    HapticFeedback.selectionClick();
-    _recordDuration();
+  Future<void> _skip(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _roundComplete ||
+        _state != _State.waiting ||
+        _deck.isEmpty) {
+      return;
+    }
+    final card = _card;
+    final durationMs = _captureDurationMs();
+    final judgment = ++_presentation;
+    final attempt = SrsReviewAttempt(id: card.korean, gotIt: false);
+    if (!await saveStudyEvidence(attempt.save)) {
+      return;
+    }
+    if (!mounted ||
+        !_isCurrentQuestion(judgment, card) ||
+        _state != _State.waiting) {
+      return;
+    }
     setState(() {
+      _roundDurationsMs.add(durationMs);
       _wrong++;
       _state = _State.wrong;
     });
+    HapticFeedback.selectionClick();
     // 2.9 잔여 — 스킵도 정답 공개이므로 동일하게 1회 자동으로 읽는다.
-    SoriSpeech.speak(_card.korean);
+    SoriSpeech.speak(card.korean);
     Storage.incChosungWrong();
     _combo = 0;
-    Storage.srsReview(_card.korean, gotIt: false); // M1: Skip = nicht gewusst
-    Future.delayed(const Duration(milliseconds: 1000), _next);
+    Future.delayed(const Duration(milliseconds: 1000), () => _next(judgment));
   }
 
-  Future<void> _next() async {
-    if (!mounted) return;
+  Future<void> _next(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _roundComplete ||
+        _state == _State.waiting) {
+      return;
+    }
     final completedRound = _roundIndex + 1 >= _roundSize;
     if (completedRound) {
       final averageDurationMs = _roundDurationsMs.isEmpty
@@ -422,12 +525,14 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
           : _roundDurationsMs.reduce((a, b) => a + b) ~/
                 _roundDurationsMs.length;
 
+      final finishingPresentation = ++_presentation;
       setState(() {
         _roundIndex = _roundSize;
         _state = _State.waiting;
         _roundComplete = true;
       });
       _ctrl.clear();
+      _questionStart = null;
       // 라운드 종료 — XP 보상 + 개인 최고기록(정확도%).
       final accuracy = _roundCorrect / _roundSize;
       final xp = _roundCorrect * 4;
@@ -437,7 +542,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         xp: xp,
         score: (accuracy * 100).round(),
       );
-      if (!mounted || outcome == null) {
+      if (!mounted ||
+          !studyEvidenceIsCurrent ||
+          finishingPresentation != _presentation ||
+          outcome == null) {
         return;
       }
       setState(() => _roundNewBest = outcome.isNewBest);
@@ -460,12 +568,17 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       // 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
       if (accuracy >= 0.8) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) SoriCelebration.burst(context);
+          if (_acceptsInput &&
+              finishingPresentation == _presentation &&
+              _roundComplete) {
+            SoriCelebration.burst(context);
+          }
         });
       }
       return;
     }
     setState(() {
+      _presentation++;
       _idx++;
       _roundIndex++;
       _state = _State.waiting;
@@ -475,11 +588,18 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     _focusNode.requestFocus();
   }
 
-  void _startNewRound() {
+  void _startNewRound(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        !_roundComplete ||
+        _feedbackCompletion.current == null) {
+      return;
+    }
     HapticFeedback.selectionClick();
     _feedbackCompletion.reset();
     resetGameResult();
     setState(() {
+      _presentation++;
       _idx++;
       _roundIndex = 0;
       _roundCorrect = 0;
@@ -529,13 +649,25 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     );
   }
 
-  void _appendJamo(String jamo) {
+  void _appendJamo(String jamo, int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _state != _State.waiting ||
+        _roundComplete) {
+      return;
+    }
     _syncComposer();
     _composer.addJamo(jamo);
     _writeComposer();
   }
 
-  void _backspaceJamo() {
+  void _backspaceJamo(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _state != _State.waiting ||
+        _roundComplete) {
+      return;
+    }
     _syncComposer();
     _composer.backspace();
     _writeComposer();
@@ -552,16 +684,17 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   @override
   Widget build(BuildContext context) {
-    final recovery = gameResultRecoveryFrame(
-      AppL10n.of(context).gameChosungTitle,
-    );
+    final presentation = _presentation;
+    final title = AppL10n.of(context).gameChosungTitle;
+    final recovery =
+        studyEvidenceRecoveryFrame(title) ?? gameResultRecoveryFrame(title);
     if (recovery != null) {
       return recovery;
     }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -574,19 +707,19 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     }
     if (_loadFailed) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: AppError(
           message: t.loadErrorTryAgain,
-          onRetry: _retryLoad,
+          onRetry: () => _retryLoad(presentation),
           messageLiveRegion: true,
         ),
       );
     }
     if (_deck.isEmpty) {
       return SoriStudyFrame(
-        onLeave: retireGameResult,
+        onLeave: _retireStudy,
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
         child: SoriEmptyState(
@@ -606,7 +739,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         : (_roundIndex / _roundSize).clamp(0.0, 1.0);
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: t.gameChosungTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen:
@@ -641,7 +774,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                   // ── 레벨 선택 ──────────────────────────────────────────
                   SoriChromeRow(
                     key: _levelRowKey,
-                    onFilterTap: () => _showLevelFilter(t),
+                    onFilterTap: () => _showLevelFilter(t, presentation),
                     filterKey: const Key('chosung-level-selector'),
                     filterSemanticLabel: t.filterLevel,
                     meta: Semantics(
@@ -658,7 +791,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                       tooltip: _mode == HintMode.chosungVowel
                           ? t.chosungModeWithVowels
                           : t.chosungModeInitialsOnly,
-                      onPressed: () => _showModeSheet(t),
+                      onPressed: () => _showModeSheet(t, presentation),
                       icon: const Icon(Icons.tune_rounded),
                     ),
                   ),
@@ -676,7 +809,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                           isNewBest: _roundNewBest,
                           recommendation: _recommendation(t),
                           feedbackCompletion: _feedbackCompletion.current,
-                          onContinue: _startNewRound,
+                          onContinue: () => _startNewRound(presentation),
                         );
                       },
                     ),
@@ -714,7 +847,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                 fontSize: 22,
                                 fontWeight: FontWeight.w700,
                               ),
-                              onSubmitted: (_) => _submit(),
+                              onSubmitted: (_) => _submit(presentation),
                             ),
                             const SizedBox(height: Spacing.sm + 2),
                             Row(
@@ -724,7 +857,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                   child: SoriButton.filled(
                                     label: t.chosungSubmitBtn,
                                     fullWidth: true,
-                                    onTap: _submit,
+                                    onTap: () => _submit(presentation),
                                   ),
                                 ),
                                 const SizedBox(width: Spacing.sm + 2),
@@ -733,7 +866,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                   child: SoriButton.outlined(
                                     label: t.btnSkip,
                                     fullWidth: true,
-                                    onTap: _skip,
+                                    onTap: () => _skip(presentation),
                                   ),
                                 ),
                               ],
@@ -745,8 +878,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                     if (showPad) ...[
                       const SizedBox(height: 12),
                       _JamoPad(
-                        onJamo: _appendJamo,
-                        onBackspace: _backspaceJamo,
+                        onJamo: (jamo) => _appendJamo(jamo, presentation),
+                        onBackspace: () => _backspaceJamo(presentation),
                       ),
                     ] else ...[
                       // 자판이 사라지는 게 고장처럼 보인다는 피드백

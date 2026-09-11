@@ -20,6 +20,7 @@ import '../widgets/sori/lazy_scroll_reveal.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **어려운 철자 퀴즈** — Extra-Lernset(어려운 단어)의 2단계 연습
@@ -50,7 +51,9 @@ class HardChoiceQuizScreen extends StatefulWidget {
 }
 
 class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
-    with GameResultRecovery<HardChoiceQuizScreen> {
+    with
+        GameResultRecovery<HardChoiceQuizScreen>,
+        StudyEvidenceRecovery<HardChoiceQuizScreen> {
   final math.Random _rng = math.Random();
   final ScrollController _questionScroll = ScrollController();
   final GlobalKey _feedbackKey = GlobalKey();
@@ -65,6 +68,20 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
   bool _done = false;
   bool _finishing = false;
   int _presentation = 0;
+  int _loadGeneration = 0;
+
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
+  bool _isCurrentQuestion(int presentation, Vocab word, List<String> options) =>
+      _acceptsInput &&
+      presentation == _presentation &&
+      identical(_current, word) &&
+      identical(_options, options);
 
   @override
   void initState() {
@@ -74,6 +91,8 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
   }
 
   Future<void> _load() async {
+    final loadGeneration = ++_loadGeneration;
+    ++_presentation;
     // 실단어 blocklist — 변이가 우연히 실제 단어(동의어 가능성)를 만들지 않게.
     var blocklist = <String>{for (final v in widget.deck) v.korean};
     try {
@@ -82,7 +101,10 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
     } catch (_) {
       /* best-effort — 덱 표제어만으로도 동작 */
     }
-    if (!mounted) {
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        !gameResultAcceptsInput ||
+        loadGeneration != _loadGeneration) {
       return;
     }
     final round =
@@ -104,7 +126,10 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
       (_idx >= 0 && _idx < _round.length) ? _round[_idx] : null;
 
   void _prepare() {
-    _presentation++;
+    if (!_acceptsInput) {
+      return;
+    }
+    final presentation = ++_presentation;
     final cur = _current;
     if (cur == null) {
       setState(() => _done = true);
@@ -145,24 +170,36 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
       _locked = false;
     });
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (_questionScroll.hasClients) {
+      if (_acceptsInput &&
+          presentation == _presentation &&
+          _questionScroll.hasClients) {
         _questionScroll.jumpTo(0);
       }
     });
   }
 
-  void _select(int i, int presentation) {
-    if (!gameResultAcceptsInput ||
-        _finishing ||
-        presentation != _presentation) {
+  Future<void> _select(int i, int presentation) async {
+    if (!_acceptsInput || _finishing || presentation != _presentation) {
       return;
     }
     final cur = _current;
     final options = _options;
-    if (cur == null || options == null || _locked) {
+    if (cur == null ||
+        options == null ||
+        _locked ||
+        i < 0 ||
+        i >= options.length) {
       return;
     }
     final isCorrect = options[i] == cur.korean;
+    final judgment = ++_presentation;
+    final attempt = SrsReviewAttempt(id: cur.korean, gotIt: isCorrect);
+    if (!await saveStudyEvidence(attempt.save)) {
+      return;
+    }
+    if (!mounted || !_isCurrentQuestion(judgment, cur, options)) {
+      return;
+    }
     setState(() {
       _selected = i;
       _locked = true;
@@ -180,31 +217,30 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
     // 정답 철자를 소리로 한 번 더 각인.
     // ignore: discarded_futures
     TtsService.speak(cur.korean);
-    // ignore: discarded_futures
-    Storage.srsReview(cur.korean, gotIt: isCorrect);
-    _revealFeedback();
+    _revealFeedback(judgment);
     if (SoriMotion.reduceMotion(context)) {
       return;
     }
     Future.delayed(const Duration(milliseconds: 850), () {
-      if (!mounted) {
+      if (!_isCurrentQuestion(judgment, cur, options)) {
         return;
       }
-      _advanceAfterFeedback(presentation);
+      _advanceAfterFeedback(judgment);
     });
   }
 
-  void _revealFeedback() {
+  void _revealFeedback(int presentation) {
     revealLazyScrollTarget(
       context: context,
       controller: _questionScroll,
       targetKey: _feedbackKey,
-      isMounted: () => mounted,
+      isMounted: () =>
+          mounted && _acceptsInput && presentation == _presentation && _locked,
     );
   }
 
   Future<void> _advanceAfterFeedback(int presentation) async {
-    if (!gameResultAcceptsInput ||
+    if (!_acceptsInput ||
         _finishing ||
         presentation != _presentation ||
         !_locked ||
@@ -212,17 +248,21 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
       return;
     }
     if (_idx + 1 >= _round.length) {
+      final finishingPresentation = ++_presentation;
       _finishing = true;
       final outcome = await saveGameResult(
         gameId: 'hard_choice',
         xp: _score * 2,
       );
-      if (!mounted || outcome == null) {
+      if (!mounted ||
+          !studyEvidenceIsCurrent ||
+          finishingPresentation != _presentation ||
+          outcome == null) {
         return;
       }
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (gameResultAcceptsInput && _done) {
+        if (_acceptsInput && finishingPresentation == _presentation && _done) {
           SoriCelebration.burst(context);
         }
       });
@@ -240,8 +280,11 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
 
   @override
   Widget build(BuildContext context) {
+    final presentation = _presentation;
     final t = AppL10n.of(context);
-    final recovery = gameResultRecoveryFrame(widget.title ?? t.hardQuizTitle);
+    final recovery =
+        studyEvidenceRecoveryFrame(widget.title ?? t.hardQuizTitle) ??
+        gameResultRecoveryFrame(widget.title ?? t.hardQuizTitle);
     if (recovery != null) {
       return recovery;
     }
@@ -252,7 +295,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
         : null;
 
     return SoriStudyFrame(
-      onLeave: retireGameResult,
+      onLeave: _retireStudy,
       title: widget.title ?? t.hardQuizTitle,
       homeEscape: SoriHomeEscape(confirmWhen: !_done && (_idx > 0 || _locked)),
       eyebrow: progress,
@@ -260,10 +303,12 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
       child: _loading
           ? const Center(child: AppLoading())
           : _round.isEmpty
-          ? _buildEmpty(t)
+          ? _buildEmpty(t, presentation)
           : SoriAdaptiveStudyBody(
               minHeight: 380,
-              child: _done ? _buildDone(t) : _buildQuestion(t, s, lang),
+              child: _done
+                  ? _buildDone(t, presentation)
+                  : _buildQuestion(t, s, lang),
             ),
     );
   }
@@ -347,18 +392,22 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
     );
   }
 
-  Widget _buildEmpty(AppL10n t) => Center(
+  Widget _buildEmpty(AppL10n t, int presentation) => Center(
     child: SoriEmptyState(
       asset: 'assets/illustrations/mascot/magpie_encourage.png',
       icon: Icons.fact_check_outlined,
       title: t.hardWordsEmptyTitle,
       body: t.hardWordsEmptyBody,
       ctaLabel: t.btnClose,
-      onCta: () => Navigator.of(context).maybePop(),
+      onCta: () {
+        if (_acceptsInput && presentation == _presentation) {
+          Navigator.of(context).maybePop();
+        }
+      },
     ),
   );
 
-  Widget _buildDone(AppL10n t) {
+  Widget _buildDone(AppL10n t, int presentation) {
     final tt = SoriTextTheme.of(context);
     final score = t.hardQuizScore(_score, _round.length);
     return Center(
@@ -390,7 +439,11 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
             SoriButton.filled(
               label: t.btnClose,
               fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () {
+                if (_acceptsInput && presentation == _presentation && _done) {
+                  Navigator.of(context).maybePop();
+                }
+              },
             ),
           ],
         ),
