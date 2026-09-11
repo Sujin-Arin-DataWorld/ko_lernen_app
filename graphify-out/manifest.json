@@ -1494,9 +1494,9 @@
     "semantic_hash": ""
   },
   "lib/screens/legacy_vocab_screen.dart": {
-    "mtime": 1788987817.1398504,
-    "seen": 1788995056.9172404,
-    "ast_hash": "8ae338adc5ec8a9b1a80d61b53ae193e",
+    "mtime": 1789108798.878528,
+    "seen": 1789109408.6542146,
+    "ast_hash": "349a134571080f5c74ceebdd98f6d9d9",
     "semantic_hash": ""
   },
   "lib/screens/listening_play_screen.dart": {
@@ -13224,9 +13224,9 @@
     "semantic_hash": ""
   },
   "test/study_home_escape_guard_test.dart": {
-    "mtime": 1788987818.081223,
-    "seen": 1788995056.919625,
-    "ast_hash": "70fa151ddf3336658156f042c9207dea",
+    "mtime": 1789109064.2677958,
+    "seen": 1789109408.8656886,
+    "ast_hash": "2d28032f80779c99bb067498e2da61f7",
     "semantic_hash": ""
   },
   "test/vocab_packs_level_progress_responsive_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789106451.5036561,
-    "seen": 1789106747.616878,
-    "ast_hash": "2495484bebacd34a679ae5bda57dd219",
+    "mtime": 1789109188.3555236,
+    "seen": 1789109409.1022458,
+    "ast_hash": "3142e303fbdda5014cd4966c3ffbccca",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16149,6 +16149,12 @@
     "mtime": 1789106467.3787444,
     "seen": 1789106747.6067958,
     "ast_hash": "98ef911f7010e9bb600e21fe2250ee1b",
+    "semantic_hash": ""
+  },
+  "test/legacy_vocab_evidence_recovery_test.dart": {
+    "mtime": 1789108787.2974455,
+    "seen": 1789109408.8026373,
+    "ast_hash": "895ea68020c0902b7a8d76cc76e20506",
     "semantic_hash": ""
   }
 }

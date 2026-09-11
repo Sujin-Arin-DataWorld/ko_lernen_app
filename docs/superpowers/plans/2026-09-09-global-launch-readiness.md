@@ -1817,4 +1817,50 @@ workflow, deployment, build, remote CI, paid API or device action. Existing
 runtime optimization remains intact; this prevents misleading release
 readiness claims while the other session's Hanok retirement is incomplete.
 
-**Task 38 local verification:** Seven Python temporary-Git tests passed, including duplicate-key rejection and a real local partial clone whose promised pubspec blob stays unavailable. The pinned candidate has all 42 asset declarations and 6 fonts; pinned main b375cd75 fails with six missing directories after 40 runtime image deletions. The retirement worktree already has uncommitted runtime/pubspec repairs, so no duplicate retirement or integration was attempted. Independent Standards and Spec approved the actual three-file hashes. Prior 2,489 source files and 1,095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external committed-assets-20260911/verification.json. No runtime source, image, pubspec, workflow, build, push, remote CI, paid provider, deployment or device changes. Legacy-card persistence and the broader launch objective remain open.
+**Task 38 local verification:**Seven Python temporary-Git tests passed, including duplicate-key rejection and a real local partial clone whose promised pubspec blob stays unavailable. The pinned candidate has all 42 asset declarations and 6 fonts; pinned main b375cd75 fails with six missing directories after 40 runtime image deletions. The retirement worktree already has uncommitted runtime/pubspec repairs, so no duplicate retirement or integration was attempted. Independent Standards and Spec approved the actual three-file hashes. Prior 2,489 source files and 1,095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external committed-assets-20260911/verification.json. No runtime source, image, pubspec, workflow, build, push, remote CI, paid provider, deployment or device changes. Legacy-card persistence and the broader launch objective remain open.
+
+### Task 39: Retain legacy flashcard SRS evidence before advancement
+
+Baseline: 1d39936e7254fa8a4f9059c3722220ddfc2d76c4. LegacyVocabScreen is
+registered at /vocab/legacy. Both judgments ignore SRS persistence results
+while advancing, updating counters and completing due-session feedback.
+
+- [x] Reproduce native rejected card and daily-log writes against the existing
+  screen for known and unknown judgments, using native preferences separate
+  from SharedPreferences' optimistic cache.
+- [x] Use existing StudyEvidenceRecovery and one retained SrsReviewAttempt per
+  admitted judgment. Confirm card and daily log before local score, due removal,
+  completion feedback, auxiliary counters/seen/wrong diagnostics and advancement.
+  Retry the same attempt; preserve original judgment, flip-before-grade rule,
+  daily-goal eligibility, all/favorites modes and normal per-answer semantics.
+- [x] Capture immutable presentation/serve identity in callbacks. Fence stale
+  and duplicate grade/flip/skip/prev/random/mode/favorite callbacks, delayed
+  loaders and culture-note completions, both filter sheets, due-result action,
+  reset, onLeave, dispose and popped-route reverse transitions. Covered routes
+  such as a current filter sheet remain usable; don't simply disable filters
+  by requiring ModalRoute.isCurrent. Loader failures must recover through the
+  existing localized load-error UI instead of leaving an unhandled Future.
+- [x] Add test/legacy_vocab_evidence_recovery_test.dart. Cover native false and
+  unknown committed/uncommitted outcomes, repeated retry, correct/incorrect,
+  pending and failed input fencing, fresh post-recovery input, route exit/pop,
+  unmount/reset, stale filter/loader/result callbacks and empty/load-failure
+  recovery. Existing flipgate, due feedback, viewport and card interactions
+  must remain valid. Adjust existing test fixtures only where async evidence
+  confirmation changes timing; do not weaken their assertions.
+- [x] Complete scoped regression/static analysis and independent Standards and
+  Spec review, preservation/free Graphify and local commit evidence.
+
+Scope: legacy_vocab_screen.dart, new recovery test and directly affected
+existing legacy tests, plus the exact review-session home-escape guard expectation described below. Shared recovery/storage primitives stay unchanged
+unless a concrete new defect makes that impossible; report before expanding.
+Auxiliary legacy counters, seen IDs, skip/index and wrong-count writes retain
+their current best-effort storage contract, attempted at most once after the
+primary evidence succeeds, with async errors handled and lifetime checks
+between writes. They require a later shared persistence repair covering pack,
+cloud restore and statistics consumers; do not claim they are transactional.
+No whole-process-death resume or complete commercial-readiness claim. No
+push, merge, remote CI, build, upload, paid calls, image or device changes.
+
+Task 39 verification scope amendment: the required 38-file regression exposed a pre-existing stale expectation in test/study_home_escape_guard_test.dart. Baseline review_session_screen.dart already protects pending accepted judgments as well as completed reviews. Update only that guard expectation to preserve the stronger existing behavior; no review-session runtime edit. This small verification repair is included under the user-authorized local stabilization goal. Original failure log and scoped 8-test rerun are retained; no full-suite repetition.
+
+**Task 39 local verification:** 3 native persistence failures reproduced before repair. Affected regression passed 1080 tests in 38 files, with 0 configured skips; 3 changed Dart files analyzed cleanly. The 38-file run initially passed 1079 tests with one stale review-home-escape source guard failure; correcting that pre-existing expectation to include pending judgments passed all 8 guard tests on a scoped rerun, covering 1080 unique tests without repeating successful suites. Independent Standards and Spec approved actual final source hashes. Prior sources, 1014 assets and 1095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external legacy-vocab-evidence-20260911/verification.json. Auxiliary counters/seen/skip/index/wrong metrics remain best-effort and require a later shared persistence repair; this confirms retained primary SRS and daily-log evidence only. No push, merge, remote CI, build, upload, paid provider or device action. Initial reproduction invoked automatic dependency resolution; tracked pubspec/lock remained unchanged and subsequent tests use --no-pub. Whole launch goal remains open.

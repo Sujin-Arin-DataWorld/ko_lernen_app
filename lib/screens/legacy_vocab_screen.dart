@@ -34,6 +34,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -53,7 +54,9 @@ class LegacyVocabScreen extends StatefulWidget {
 }
 
 class _LegacyVocabScreenState extends State<LegacyVocabScreen>
-    with ScreenCoachMixin<LegacyVocabScreen> {
+    with
+        ScreenCoachMixin<LegacyVocabScreen>,
+        StudyEvidenceRecovery<LegacyVocabScreen> {
   List<Vocab> _all = [];
   List<Vocab> _filtered = [];
   int _idx = 0;
@@ -87,6 +90,20 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
   bool _loading = true;
   bool _loadFailed = false;
+  int _loadGeneration = 0;
+  int _filterSheetGeneration = 0;
+  bool _filterSheetOpen = false;
+
+  bool _isCurrentPresentation(int presentation) =>
+      studyEvidenceAcceptsInput && !_filterSheetOpen && presentation == _serve;
+
+  bool _isCurrentCard(int presentation, Vocab word) =>
+      _isCurrentPresentation(presentation) && identical(_current, word);
+
+  bool _isCurrentFilterSheet(int generation) =>
+      studyEvidenceIsCurrent &&
+      _filterSheetOpen &&
+      generation == _filterSheetGeneration;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _flashCardKey = GlobalKey();
@@ -130,12 +147,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     } catch (_) {
       return;
     }
-    if (mounted) {
+    if (studyEvidenceIsCurrent) {
       setState(() {});
     }
   }
 
-  void _load() {
+  Future<void> _load() async {
+    if (!studyEvidenceAcceptsInput || (_loadGeneration > 0 && !_loadFailed)) {
+      return;
+    }
+    final generation = ++_loadGeneration;
     setState(() {
       _loading = true;
       _loadFailed = false;
@@ -143,8 +164,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     });
     final providedLoader = widget.vocabLoader;
     final loader = providedLoader ?? DataLoader.loadVocab;
-    loader().then((raw) {
-      if (!mounted) return;
+    try {
+      final raw = await loader();
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) {
+        return;
+      }
       // 레벨 오름차순 안정 정렬 — `todayNewIds` 는 입력 순서대로 신규를 뽑아,
       // 원본 CSV 순서(레벨 뒤섞임)면 A2 학습자에게 B1/B2 신규가 나간다.
       // ReviewDeckService.allReviewable() 과 같은 규칙.
@@ -173,7 +197,17 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         _cardRevealed = false;
         _serve++;
       });
-    });
+    } catch (_) {
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) {
+        return;
+      }
+      setState(() {
+        _all = const [];
+        _filtered = const [];
+        _loading = false;
+        _loadFailed = true;
+      });
+    }
   }
 
   List<Vocab> _filterList() {
@@ -203,11 +237,19 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         _serve++;
       }
     });
-    // ignore: discarded_futures
-    Storage.toggleVokFavorite(korean);
+    unawaited(
+      _runLegacyBestEffort('favorite', () => Storage.toggleVokFavorite(korean)),
+    );
   }
 
-  void _applyFilters() {
+  void _applyFilters({int? sheetGeneration}) {
+    if (sheetGeneration == null) {
+      if (!studyEvidenceAcceptsInput) {
+        return;
+      }
+    } else if (!_isCurrentFilterSheet(sheetGeneration)) {
+      return;
+    }
     setState(() {
       _filtered = _filterList();
       _idx = 0;
@@ -217,7 +259,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     });
   }
 
-  void _setMode(String m) {
+  void _setMode(String m, {int? presentation, int? sheetGeneration}) {
+    if (sheetGeneration == null) {
+      if (presentation == null || !_isCurrentPresentation(presentation)) {
+        return;
+      }
+    } else if (!_isCurrentFilterSheet(sheetGeneration)) {
+      return;
+    }
     if (_mode == m) return;
     HapticFeedback.selectionClick();
     _dueFeedback.reset();
@@ -244,9 +293,29 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return [for (final v in _filtered) v.translationFor(lang)];
   }
 
-  void _persistIdx() => Storage.setVokLastIdx(_idx);
+  void _persistIdx() {
+    final index = _idx;
+    unawaited(
+      _runLegacyBestEffort('index', () => Storage.setVokLastIdx(index)),
+    );
+  }
 
-  void _next() {
+  Future<void> _runLegacyBestEffort(
+    String label,
+    Future<void> Function() save,
+  ) async {
+    try {
+      await save();
+    } catch (error) {
+      debugPrint('Legacy vocab $label persistence failed: $error');
+    }
+  }
+
+  void _next(int presentation) {
+    final current = _current;
+    if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
     setState(() {
       _flipped = false;
       _cardRevealed = false;
@@ -258,8 +327,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
   // §C-1-2: prev 복원. 판정 덱 유지 + prev 버튼(하단 행).
   // 판정 없이 이전 카드로 되돌아간다 (SRS 영향 0).
-  void _prev() {
-    if (_filtered.isEmpty) return;
+  void _prev(int presentation) {
+    final current = _current;
+    if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
     setState(() {
       _flipped = false;
       _cardRevealed = false;
@@ -269,7 +341,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _persistIdx();
   }
 
-  void _random() {
+  void _random(int presentation) {
+    final current = _current;
+    if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
     setState(() {
       _flipped = false;
       _cardRevealed = false;
@@ -279,58 +355,60 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _persistIdx();
   }
 
-  void _gewusst() {
-    HapticFeedback.lightImpact();
-    final cur = _current;
-    setState(() {
-      _correct++;
-      if (_mode == 'due' && cur != null && _dueIds.contains(cur.korean)) {
-        _dueFeedback.record(known: true);
-      }
-      if (cur != null) _dueIds.remove(cur.korean);
-    });
-    Storage.setVokCorrect(_correct);
-    if (cur != null) {
-      Storage.addVokSeen(cur.korean);
-      // SRS: nächste Wiederholung in die Zukunft schieben.
-      // ignore: discarded_futures
-      Storage.srsReview(cur.korean, gotIt: true);
-    }
-    _advanceAfterReview();
-  }
+  Future<void> _gewusst(int presentation) => _review(presentation, gotIt: true);
 
-  void _nichtGewusst() {
-    HapticFeedback.mediumImpact();
-    final cur = _current;
-    setState(() {
-      _wrong++;
-      if (_mode == 'due' && cur != null && _dueIds.contains(cur.korean)) {
-        _dueFeedback.record(known: false);
-      }
-      // Falsch → morgen wieder fällig, also heute nicht mehr in der due-Liste.
-      if (cur != null) _dueIds.remove(cur.korean);
-    });
-    Storage.setVokWrong(_wrong);
-    if (cur != null) {
-      // ignore: discarded_futures
-      Storage.srsReview(cur.korean, gotIt: false);
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(cur.korean);
-    }
-    _advanceAfterReview();
-  }
+  Future<void> _nichtGewusst(int presentation) =>
+      _review(presentation, gotIt: false);
 
-  /// Nach SRS-Update: im 'due' Modus die Karte aus _filtered entfernen,
-  /// damit sie nicht direkt wieder erscheint.
-  void _advanceAfterReview() {
-    if (_mode == 'due') {
-      setState(() {
-        if (_filtered.isNotEmpty) {
-          _filtered = _filterList();
-          if (_idx >= _filtered.length) _idx = 0;
-          _flipped = false;
-          _cardRevealed = false;
-          _serve++;
+  Future<void> _review(int presentation, {required bool gotIt}) async {
+    final word = _current;
+    if (word == null || !_isCurrentCard(presentation, word) || !_cardRevealed) {
+      return;
+    }
+    final wasDue = _mode == 'due' && _dueIds.contains(word.korean);
+    final nextCorrect = _correct + (gotIt ? 1 : 0);
+    final nextWrong = _wrong + (gotIt ? 0 : 1);
+    final attempt = SrsReviewAttempt(id: word.korean, gotIt: gotIt);
+    var auxiliaryAttempted = false;
+    final saved = await saveStudyEvidence(() async {
+      if (!await attempt.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent ||
+          presentation != _serve ||
+          !identical(_current, word)) {
+        return false;
+      }
+      if (!auxiliaryAttempted) {
+        auxiliaryAttempted = true;
+        await _persistLegacyReviewAuxiliary(
+          word,
+          gotIt: gotIt,
+          correct: nextCorrect,
+          wrong: nextWrong,
+        );
+      }
+      return true;
+    });
+    if (!saved || !_isCurrentCard(presentation, word)) {
+      return;
+    }
+    if (gotIt) {
+      HapticFeedback.lightImpact();
+    } else {
+      HapticFeedback.mediumImpact();
+    }
+    setState(() {
+      _correct = nextCorrect;
+      _wrong = nextWrong;
+      if (wasDue) {
+        _dueFeedback.record(known: gotIt);
+      }
+      _dueIds.remove(word.korean);
+      if (_mode == 'due') {
+        _filtered = _filterList();
+        if (_idx >= _filtered.length) {
+          _idx = 0;
         }
         _dueFeedback.completeIfEligible(
           isDueMode: true,
@@ -338,18 +416,73 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           contentLabel: AppL10n.of(context).vocabDueEmptyTitle,
           level: null,
         );
-      });
-      _persistIdx();
-    } else {
-      _next();
+      } else if (_filtered.isNotEmpty) {
+        _idx = (_idx + 1) % _filtered.length;
+      }
+      _flipped = false;
+      _cardRevealed = false;
+      _serve++;
+    });
+    // Legacy index persistence remains best-effort and follows confirmed SRS
+    // plus daily-log evidence. It is not part of that two-key transaction.
+    try {
+      await Storage.setVokLastIdx(_idx);
+    } catch (error) {
+      debugPrint('Legacy vocab index persistence failed: $error');
     }
   }
 
-  void _skip() {
+  Future<void> _persistLegacyReviewAuxiliary(
+    Vocab word, {
+    required bool gotIt,
+    required int correct,
+    required int wrong,
+  }) async {
+    if (!studyEvidenceIsCurrent) {
+      return;
+    }
+    try {
+      if (gotIt) {
+        await Storage.setVokCorrect(correct);
+      } else {
+        await Storage.setVokWrong(wrong);
+      }
+    } catch (error) {
+      debugPrint('Legacy vocab counter persistence failed: $error');
+    }
+    if (!studyEvidenceIsCurrent) {
+      return;
+    }
+    if (gotIt) {
+      try {
+        await Storage.addVokSeen(word.korean);
+      } catch (error) {
+        debugPrint('Legacy vocab seen persistence failed: $error');
+      }
+    } else {
+      try {
+        await Storage.incrementWrongCount(word.korean);
+      } catch (error) {
+        debugPrint('Legacy vocab wrong-count persistence failed: $error');
+      }
+    }
+  }
+
+  void _skip(int presentation) {
+    final current = _current;
+    if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() => _skipped++);
-    Storage.setVokSkipped(_skipped);
-    _next();
+    final skipped = _skipped;
+    unawaited(
+      _runLegacyBestEffort(
+        'skip counter',
+        () => Storage.setVokSkipped(skipped),
+      ),
+    );
+    _next(presentation);
   }
 
   // §P2-5 플립 게이트 힌트 칩 트리거.
@@ -357,6 +490,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
   @override
   void dispose() {
+    _filterSheetGeneration++;
+    _filterSheetOpen = false;
     _flipHintTrigger.dispose();
     super.dispose();
   }
@@ -364,31 +499,33 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   /// ↑ 저장 (§P2-2) — **추가 전용**. 이미 즐겨찾기면 no-op(스프링백만) —
   /// 토글 그대로 쓰면 재스와이프가 해제되고 favorites 모드에선 리스트가
   /// 즉석 축소된다. 해제는 기존 별 탭 경로만.
-  void _favoriteAdd() {
+  void _favoriteAdd(int presentation) {
     final cur = _current;
-    if (cur == null || _favorites.contains(cur.korean)) {
+    if (cur == null ||
+        !_isCurrentCard(presentation, cur) ||
+        _favorites.contains(cur.korean)) {
       return;
     }
     _toggleFavorite(cur.korean);
   }
 
-  Future<void> _likeCurrent() async {
+  Future<void> _likeCurrent(int presentation) async {
     final cur = _current;
-    if (cur == null) {
+    if (cur == null || !_isCurrentCard(presentation, cur)) {
       return;
     }
     await LikedContentService.toggle(
       kind: LikedContentService.vocab,
       id: cur.korean,
     );
-    if (mounted) {
+    if (_isCurrentCard(presentation, cur)) {
       setState(() {});
     }
   }
 
-  Future<void> _shareCurrent() async {
+  Future<void> _shareCurrent(int presentation) async {
     final cur = _current;
-    if (cur == null) {
+    if (cur == null || !_isCurrentCard(presentation, cur)) {
       return;
     }
     final lang = Localizations.localeOf(context).languageCode;
@@ -399,7 +536,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     );
   }
 
-  void _onFlip() {
+  void _onFlip(int presentation) {
+    final current = _current;
+    if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() {
       if (!_flipped) {
@@ -418,23 +559,36 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       ? _all.length
       : _all.where((vocab) => vocab.level == level).length;
 
-  Future<void> _showLevelFilter() async {
+  Future<void> _showLevelFilter(int presentation) async {
+    if (!_isCurrentPresentation(presentation)) {
+      return;
+    }
+    final generation = ++_filterSheetGeneration;
+    _filterSheetOpen = true;
     final t = AppL10n.of(context);
-    final next = await showSoriLevelFilterSheet(
-      context: context,
-      selected: _level,
-      levels: _levels,
-      allLabel: t.filterAll,
-      countFor: _levelCount,
-    );
-    if (!mounted || next == null) return;
-    _level = next;
-    _applyFilters();
+    try {
+      final next = await showSoriLevelFilterSheet(
+        context: context,
+        selected: _level,
+        levels: _levels,
+        allLabel: t.filterAll,
+        countFor: _levelCount,
+      );
+      if (!_isCurrentFilterSheet(generation) || next == null) {
+        return;
+      }
+      _level = next;
+      _applyFilters(sheetGeneration: generation);
+    } finally {
+      if (mounted && generation == _filterSheetGeneration) {
+        _filterSheetOpen = false;
+      }
+    }
   }
 
-  Widget _levelChrome(AppL10n t) {
+  Widget _levelChrome(AppL10n t, int presentation) {
     return SoriChromeRow(
-      onFilterTap: _showLevelFilter,
+      onFilterTap: () => _showLevelFilter(presentation),
       filterSemanticLabel: t.filterLevel,
       meta: Text(
         '${_modeLabel(t)} · ${_level == 'Alle' ? t.filterAll : _level} · '
@@ -446,7 +600,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         icon: const Icon(Icons.filter_list_rounded),
         tooltip: t.filterTitle,
         constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        onPressed: _showFilterSheet,
+        onPressed: () => _showFilterSheet(presentation),
       ),
     );
   }
@@ -465,6 +619,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final evidenceRecovery = studyEvidenceRecoveryFrame(t.screenVocabTitle);
+    if (evidenceRecovery != null) {
+      return evidenceRecovery;
+    }
     if (_loading) {
       return Scaffold(body: AppLoading(message: t.loadingVocab));
     }
@@ -483,10 +641,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }
 
     final v = _current;
+    final presentation = _serve;
     if (v == null) {
       // Im 'due' Modus: heute alles erledigt → eigene Empty-State.
       if (_mode == 'due') {
-        return _buildDueResult(t);
+        return _buildDueResult(t, presentation);
       }
       // Im 'favorites' Modus: noch keine Sternchen → Hinweis-State.
       if (_mode == 'favorites') {
@@ -498,7 +657,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             icon: Icons.star_outline_rounded,
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
-            onCta: () => _setMode('all'),
+            onCta: () => _setMode('all', presentation: presentation),
             accent: SoriColors.like,
           ),
         );
@@ -508,14 +667,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         maxWidth: SoriMaxWidth.focus,
         builder: (context, padding) => Column(
           children: [
-            _levelChrome(t),
+            _levelChrome(t, presentation),
             Expanded(
               child: SoriEmptyState(
                 asset: 'assets/illustrations/mascot/magpie_wave.png',
                 icon: Icons.tune_rounded,
                 title: t.emptyVocab,
                 ctaLabel: t.filterOpenBtn,
-                onCta: _showFilterSheet,
+                onCta: () => _showFilterSheet(presentation),
               ),
             ),
           ],
@@ -535,6 +694,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     });
 
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: t.screenVocabTitle,
       actions: const [TtsSpeedAction()],
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
@@ -542,7 +702,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         minHeight: 680,
         child: Column(
           children: [
-            _levelChrome(t),
+            _levelChrome(t, presentation),
             const SizedBox(height: Spacing.sm),
 
             // Card with swipe judgment + favorite star overlay
@@ -554,15 +714,19 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                   heightFactor: 0.82,
                   child: SoriContentFeed(
                     judgmentsEnabled: _cardRevealed,
-                    onBlockedJudgment: () => _flipHintTrigger.value++,
+                    onBlockedJudgment: () {
+                      if (_isCurrentCard(presentation, v)) {
+                        _flipHintTrigger.value++;
+                      }
+                    },
                     flipHintTrigger: _flipHintTrigger,
-                    onNext: _gewusst,
-                    onHard: _nichtGewusst,
-                    onSkip: _skip,
-                    onLike: _likeCurrent,
-                    onBookmark: _favoriteAdd,
-                    onShare: _shareCurrent,
-                    onFlip: _onFlip,
+                    onNext: () => _gewusst(presentation),
+                    onHard: () => _nichtGewusst(presentation),
+                    onSkip: () => _skip(presentation),
+                    onLike: () => _likeCurrent(presentation),
+                    onBookmark: () => _favoriteAdd(presentation),
+                    onShare: () => _shareCurrent(presentation),
+                    onFlip: () => _onFlip(presentation),
                     liked: LikedContentService.isLiked(
                       kind: LikedContentService.vocab,
                       id: v.korean,
@@ -584,7 +748,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                         child: FlipCard(
                           key: ValueKey('legacy-$_serve'),
                           flipped: _flipped,
-                          onTap: _onFlip,
+                          onTap: () => _onFlip(presentation),
                           front: _Front(
                             v: v,
                             koFirst: _koFirst,
@@ -606,7 +770,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             ),
             const SizedBox(height: Spacing.sm),
 
-            _buildBottomActions(t, v),
+            _buildBottomActions(t, v, presentation),
             const SizedBox(height: Spacing.xs),
             Center(
               child: Text(
@@ -623,12 +787,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     );
   }
 
-  Widget _buildBottomActions(AppL10n t, Vocab v) {
+  Widget _buildBottomActions(AppL10n t, Vocab v, int presentation) {
     final previous = Semantics(
       label: t.legacyVocabPrevious,
       button: true,
       child: SoriPressable(
-        onTap: _prev,
+        onTap: () => _prev(presentation),
         haptic: SoriHaptic.selection,
         child: Container(
           width: 48,
@@ -691,7 +855,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       label: t.btnRandom,
       icon: Icons.shuffle,
       fullWidth: true,
-      onTap: _random,
+      onTap: () => _random(presentation),
     );
 
     return LayoutBuilder(
@@ -738,7 +902,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     );
   }
 
-  Widget _buildDueResult(AppL10n t) {
+  Widget _buildDueResult(AppL10n t, int presentation) {
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final completion = _dueFeedback.current;
     return SoriStandardFrame(
@@ -770,7 +934,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             SoriButton.filled(
               label: t.vocabDueEmptyAction,
               fullWidth: true,
-              onTap: () => _setMode('all'),
+              onTap: () => _setMode('all', presentation: presentation),
             ),
           ],
         ),
@@ -778,68 +942,90 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     );
   }
 
-  void _showFilterSheet() {
-    showSoriSheet<void>(
-      context: context,
-      builder: (ctx) {
-        return StatefulBuilder(
-          builder: (ctx, setLocal) => Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppL10n.of(ctx).filterTitle,
-                style: SoriTextTheme.of(ctx).h3,
-              ),
-              const SizedBox(height: Spacing.md),
-              for (final mode in <(String, String)>[
-                ('due', AppL10n.of(ctx).vocabModeDue),
-                ('all', AppL10n.of(ctx).vocabModeAll),
-                ('favorites', AppL10n.of(ctx).vocabModeFavorites),
-              ]) ...[
-                SoriChip(
-                  key: ValueKey('legacy-vocab-mode-${mode.$1}'),
-                  label: mode.$2,
-                  selected: _mode == mode.$1,
-                  minInteractiveHeight: 48,
-                  onTap: () {
-                    _setMode(mode.$1);
+  Future<void> _showFilterSheet(int presentation) async {
+    if (!_isCurrentPresentation(presentation)) {
+      return;
+    }
+    final generation = ++_filterSheetGeneration;
+    _filterSheetOpen = true;
+    try {
+      await showSoriSheet<void>(
+        context: context,
+        builder: (ctx) {
+          return StatefulBuilder(
+            builder: (ctx, setLocal) => Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppL10n.of(ctx).filterTitle,
+                  style: SoriTextTheme.of(ctx).h3,
+                ),
+                const SizedBox(height: Spacing.md),
+                for (final mode in <(String, String)>[
+                  ('due', AppL10n.of(ctx).vocabModeDue),
+                  ('all', AppL10n.of(ctx).vocabModeAll),
+                  ('favorites', AppL10n.of(ctx).vocabModeFavorites),
+                ]) ...[
+                  SoriChip(
+                    key: ValueKey('legacy-vocab-mode-${mode.$1}'),
+                    label: mode.$2,
+                    selected: _mode == mode.$1,
+                    minInteractiveHeight: 48,
+                    onTap: () {
+                      if (_isCurrentFilterSheet(generation)) {
+                        _setMode(mode.$1, sheetGeneration: generation);
+                        setLocal(() {});
+                      }
+                    },
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                ],
+                _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
+                  if (v != null && _isCurrentFilterSheet(generation)) {
+                    _topic = v;
                     setLocal(() {});
-                  },
+                  }
+                }),
+                const SizedBox(height: Spacing.lg),
+                Material(
+                  color: Colors.transparent,
+                  child: SwitchListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(AppL10n.of(ctx).filterDirKoDe),
+                    value: _koFirst,
+                    onChanged: (b) {
+                      if (_isCurrentFilterSheet(generation)) {
+                        _koFirst = b;
+                        setLocal(() {});
+                      }
+                    },
+                  ),
                 ),
                 const SizedBox(height: Spacing.sm),
-              ],
-              _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
-                setLocal(() => _topic = v!);
-                _topic = v!;
-              }),
-              const SizedBox(height: Spacing.lg),
-              Material(
-                color: Colors.transparent,
-                child: SwitchListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppL10n.of(ctx).filterDirKoDe),
-                  value: _koFirst,
-                  onChanged: (b) {
-                    setLocal(() => _koFirst = b);
-                    _koFirst = b;
+                SoriButton.filled(
+                  label: AppL10n.of(ctx).btnApply,
+                  fullWidth: true,
+                  onTap: () {
+                    if (!_isCurrentFilterSheet(generation)) {
+                      return;
+                    }
+                    _applyFilters(sheetGeneration: generation);
+                    _filterSheetOpen = false;
+                    _filterSheetGeneration++;
+                    Navigator.pop(ctx);
                   },
                 ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.filled(
-                label: AppL10n.of(ctx).btnApply,
-                fullWidth: true,
-                onTap: () {
-                  _applyFilters();
-                  Navigator.pop(ctx);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
+              ],
+            ),
+          );
+        },
+      );
+    } finally {
+      if (mounted && generation == _filterSheetGeneration) {
+        _filterSheetOpen = false;
+      }
+    }
   }
 
   Widget _dropdown(
@@ -1189,14 +1375,20 @@ class _Back extends StatelessWidget {
                                 child: Text(
                                   v.exampleKorean,
                                   textAlign: TextAlign.center,
-                                  style: SoriTextTheme.of(context).caption.copyWith(
-                                    fontSize: soriFillSize(h, 0.075, 16, 40),
-                                    fontWeight: FontWeight.w700,
-                                    color: SoriColors.info.withValues(
-                                      alpha: 0.9,
-                                    ),
-                                    height: 1.25,
-                                  ),
+                                  style: SoriTextTheme.of(context).caption
+                                      .copyWith(
+                                        fontSize: soriFillSize(
+                                          h,
+                                          0.075,
+                                          16,
+                                          40,
+                                        ),
+                                        fontWeight: FontWeight.w700,
+                                        color: SoriColors.info.withValues(
+                                          alpha: 0.9,
+                                        ),
+                                        height: 1.25,
+                                      ),
                                 ),
                               ),
                               const SizedBox(width: 8),
