@@ -311,6 +311,8 @@ class CourseProgressService {
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
     double? score,
+    CourseContentEvidenceReceipt? evidenceReceipt,
+    void Function()? assertCurrentWrite,
   }) => _serialized(
     (service) => service.recordContentAttempt(
       kind,
@@ -321,6 +323,8 @@ class CourseProgressService {
       errorReason: errorReason,
       occurredAt: occurredAt,
       score: score,
+      evidenceReceipt: evidenceReceipt,
+      assertCurrentWrite: assertCurrentWrite,
     ),
   );
 

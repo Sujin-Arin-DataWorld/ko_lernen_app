@@ -13,11 +13,13 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/productive_mastery.dart';
 import 'package:ko_lernen_app/models/scenario_corpus_generation.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
+import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/services/account/reconciliation_errors.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/satz_loader.dart';
 
 class _RejectedCourseMasteryWriteStore implements PreferenceStringStore {
   _RejectedCourseMasteryWriteStore(Map<String, String> initial)
@@ -132,6 +134,40 @@ void main() {
     await Storage.init();
   });
 
+  for (final retained in [false, true]) {
+    test(
+      'inactive sentence context rejects another edge concept retained=$retained',
+      () async {
+        final catalog = _catalog(withSharedSentence: true);
+        expect(catalog.validationIssues, isEmpty);
+        final service = CourseMasteryService(catalog);
+        await service.initializeForPlacement('a1');
+        final context = CoursePracticeContext.fromLink(
+          catalog.contentLinks.singleWhere(
+            (l) => l.id == 'shared_sentence_second',
+          ),
+        );
+        expect(context.courseUnitId, isNot(service.currentUnit!.id));
+        final before = Storage.courseMasterySnapshotRawJson;
+        await expectLater(
+          service.recordContentAttempt(
+            CurriculumContentKind.satz,
+            'shared_sentence',
+            true,
+            courseContext: context,
+            conceptId: 'concept_greeting_politeness',
+            occurredAt: _time(1),
+            evidenceReceipt: retained
+                ? CourseContentEvidenceReceipt('other-edge-regression')
+                : null,
+          ),
+          throwsA(isA<FormatException>()),
+        );
+        expect(Storage.courseMasterySnapshotRawJson, before);
+        expect(service.snapshot.evidence, isEmpty);
+      },
+    );
+  }
   for (final rejectedKey in [
     Storage.courseUnitPreferenceKey,
     Storage.courseMasterySnapshotPreferenceKey,
@@ -2273,6 +2309,7 @@ Future<void> _advanceToObjectParticleUnit(CourseMasteryService service) async {
 }
 
 CurriculumCatalog _catalog({
+  bool withSharedSentence = false,
   bool withInvalidLink = false,
   bool firstUnitHasTwoCheckpoints = false,
   bool withSmalltalk = false,
@@ -2459,6 +2496,24 @@ CurriculumCatalog _catalog({
     'surfaceForms': const [],
     'formFamilies': const [],
     'contentLinks': [
+      if (withSharedSentence) ...[
+        {
+          'id': 'shared_sentence_first',
+          'contentKind': 'satz',
+          'contentId': 'shared_sentence',
+          'courseUnitId': 'a1_01_greetings_hangul',
+          'conceptIds': ['concept_greeting_politeness'],
+          'role': 'practice',
+        },
+        {
+          'id': 'shared_sentence_second',
+          'contentKind': 'satz',
+          'contentId': 'shared_sentence',
+          'courseUnitId': 'a1_02_self_intro_identity',
+          'conceptIds': ['concept_identity_formal'],
+          'role': 'practice',
+        },
+      ],
       {
         'id': 'object_particle_repair',
         'contentKind': 'grammar',
@@ -2477,7 +2532,9 @@ CurriculumCatalog _catalog({
           'role': 'practice',
         },
     ],
-    'vocabPackUnitMap': const {},
+    'vocabPackUnitMap': withSharedSentence
+        ? const {'shared_pack': 'a1_01_greetings_hangul'}
+        : const {},
     'smalltalkCategoryUnitMap': withSmalltalk
         ? {
             'a1:greeting': {
@@ -2499,11 +2556,38 @@ CurriculumCatalog _catalog({
   };
   return CurriculumCatalog.fromDataForTesting(
     manifestJson: manifest,
-    vocab: const [],
+    vocab: withSharedSentence
+        ? const [
+            Vocab(
+              id: 'shared_source',
+              packId: 'shared_pack',
+              korean: '안녕',
+              romanization: 'annyeong',
+              german: 'Hallo',
+              level: 'a1',
+              posDe: 'Gruß',
+              exampleKorean: '안녕하세요',
+              exampleGerman: 'Hallo.',
+              topic: 'test',
+            ),
+          ]
+        : const [],
     grammar: grammar,
     smalltalk: smalltalk,
     cloze: const [],
-    satz: const [],
+    satz: withSharedSentence
+        ? const [
+            SatzSentence(
+              id: 'shared_sentence',
+              vocabKo: '안녕',
+              level: 'a1',
+              targetKo: '안녕하세요',
+              promptDe: 'Hallo.',
+              promptEn: 'Hello.',
+              distractors: [],
+            ),
+          ]
+        : const [],
     scenarios: scenarios,
   );
 }

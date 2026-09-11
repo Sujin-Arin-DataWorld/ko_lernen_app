@@ -1638,9 +1638,9 @@
     "semantic_hash": ""
   },
   "lib/screens/satz_arcade_screen.dart": {
-    "mtime": 1789090329.028987,
-    "seen": 1789090862.1313636,
-    "ast_hash": "3e987370b9819654bf0a99d39ceaeaeb",
+    "mtime": 1789104075.8121827,
+    "seen": 1789104693.0388951,
+    "ast_hash": "f82f5b812b651e0a5d397d7255185795",
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
@@ -2088,9 +2088,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_activity_reporter.dart": {
-    "mtime": 1788987817.247268,
-    "seen": 1788995056.9175756,
-    "ast_hash": "7e26302105572d9937e18ca03e68a57e",
+    "mtime": 1789104083.4370568,
+    "seen": 1789104693.064086,
+    "ast_hash": "1945d83b214e4973fb9f939f64411c08",
     "semantic_hash": ""
   },
   "lib/services/course_checkpoint_questions.dart": {
@@ -2100,9 +2100,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_mastery_service.dart": {
-    "mtime": 1789075189.2756464,
-    "seen": 1789075846.9225368,
-    "ast_hash": "3449b696e46c14aa644d8182379a7243",
+    "mtime": 1789104893.7274163,
+    "seen": 1789105386.6737425,
+    "ast_hash": "4c9ad457ffd46c9bea3d0b8674d1b264",
     "semantic_hash": ""
   },
   "lib/services/course_mission_navigation.dart": {
@@ -2112,9 +2112,9 @@
     "semantic_hash": ""
   },
   "lib/services/course_progress_service.dart": {
-    "mtime": 1789075189.2843509,
-    "seen": 1789075846.922991,
-    "ast_hash": "254b929932f4217a68174a6311000c70",
+    "mtime": 1789103292.4375572,
+    "seen": 1789104693.0646966,
+    "ast_hash": "f0d83ba41d92e8e2ae6e6a6d653d2016",
     "semantic_hash": ""
   },
   "lib/services/course_segment_catalog.dart": {
@@ -3972,9 +3972,9 @@
     "semantic_hash": ""
   },
   "test/course_mastery_test.dart": {
-    "mtime": 1789074057.5455656,
-    "seen": 1789075847.05888,
-    "ast_hash": "00375b8484a8f5c8b2dcffd286b88956",
+    "mtime": 1789104863.368789,
+    "seen": 1789105387.1724234,
+    "ast_hash": "7f32d98532c09104bf009c5f7717781a",
     "semantic_hash": ""
   },
   "test/course_mission_brief_production_test.dart": {
@@ -5706,9 +5706,9 @@
     "semantic_hash": ""
   },
   "test/shared_game_feedback_route_test.dart": {
-    "mtime": 1789102072.8018105,
-    "seen": 1789102430.446244,
-    "ast_hash": "d9035ccf3ef43f24a08b2860f8ff0b13",
+    "mtime": 1789104030.3682663,
+    "seen": 1789104693.40345,
+    "ast_hash": "03600232732c7c3fb776ef890b4b792e",
     "semantic_hash": ""
   },
   "test/silben_puzzle_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789100948.6700315,
-    "seen": 1789102430.752533,
-    "ast_hash": "4a2e239be267cdbae4fce37f7cdcb0c4",
+    "mtime": 1789102885.7645955,
+    "seen": 1789104693.7767384,
+    "ast_hash": "3c21ff388ef42390216dcf57d6139844",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16125,6 +16125,12 @@
     "mtime": 1789101862.38795,
     "seen": 1789102430.4749367,
     "ast_hash": "a4f92cbdec1cadbd83a533e88ccd8cc5",
+    "semantic_hash": ""
+  },
+  "test/satz_evidence_recovery_test.dart": {
+    "mtime": 1789103692.7747412,
+    "seen": 1789104693.37723,
+    "ast_hash": "37c57e7ef4451f34f1d01d0091022f1a",
     "semantic_hash": ""
   }
 }

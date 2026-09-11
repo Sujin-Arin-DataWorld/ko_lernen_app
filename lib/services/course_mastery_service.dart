@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../models/can_do_segment.dart';
+import '../models/content_id.dart';
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
@@ -12,6 +13,41 @@ import 'curriculum_catalog.dart';
 import 'course_segment_catalog.dart';
 import 'productive_assessment_service.dart';
 import 'storage_service.dart';
+
+/// Process-retained identity and prepared evidence for one accepted answer.
+///
+/// The prepared entries capture mission provenance before the native write.
+/// When that write's outcome is unknown, the same object can distinguish a
+/// committed snapshot from a rolled-back one without deriving a new answer.
+final class CourseContentEvidenceReceipt {
+  CourseContentEvidenceReceipt(this.id) {
+    if (id.trim().isEmpty) {
+      throw ArgumentError.value(id, 'id', 'must not be empty');
+    }
+  }
+
+  final String id;
+  List<MasteryEvidence>? _preparedEvidence;
+
+  List<MasteryEvidence> get _requiredEvidence =>
+      _preparedEvidence ??
+      (throw StateError('Course content evidence has not been prepared.'));
+
+  bool confirms(CourseMasterySnapshot snapshot) {
+    final required = _requiredEvidence;
+    for (final expected in required) {
+      final matches = snapshot.evidence.where(
+        (entry) =>
+            entry.id == expected.id &&
+            jsonEncode(entry.toJson()) == jsonEncode(expected.toJson()),
+      );
+      if (matches.length != 1) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
 
 /// A corrective activity for an answer that needs more than vocabulary SRS.
 class RemediationRecommendation {
@@ -600,8 +636,12 @@ class CourseMasteryService {
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
     double? score,
+    CourseContentEvidenceReceipt? evidenceReceipt,
+    void Function()? assertCurrentWrite,
   }) async {
+    assertCurrentWrite?.call();
     await _ensureLoaded();
+    assertCurrentWrite?.call();
     final previousSnapshot = _snapshot;
     final timestamp = _validTimestamp(occurredAt ?? DateTime.now().toUtc());
     final checkedScore = _validOptionalScore(score);
@@ -708,8 +748,6 @@ class CourseMasteryService {
     if (conceptIds.isEmpty) {
       throw const FormatException('Content attempt has no linked concept.');
     }
-
-    final entries = <MasteryEvidence>[..._snapshot.evidence];
     for (final id in conceptIds) {
       _requireKnownConcept(id);
       final matchingLinks = eligibleLinks
@@ -720,32 +758,92 @@ class CourseMasteryService {
           'Content ${kind.code}:$normalizedContentId is not linked to concept $id.',
         );
       }
+    }
+
+    final prepared = evidenceReceipt?._preparedEvidence;
+    if (prepared != null) {
+      final preparedConceptIds = prepared
+          .map((entry) => entry.conceptId)
+          .toSet();
+      final requestMatches =
+          prepared.length == conceptIds.length &&
+          preparedConceptIds.length == conceptIds.length &&
+          preparedConceptIds.containsAll(conceptIds) &&
+          prepared.every(
+            (entry) =>
+                entry.contentKind == kind &&
+                entry.contentId == normalizedContentId &&
+                entry.isCorrect == isCorrect &&
+                entry.occurredAt == timestamp &&
+                entry.errorReason == errorReason &&
+                entry.score == checkedScore,
+          );
+      if (!requestMatches) {
+        throw StateError('Retained course attempt changed before retry.');
+      }
+      final presentIds = _snapshot.evidence
+          .where((entry) => prepared.any((item) => item.id == entry.id))
+          .map((entry) => entry.id)
+          .toSet();
+      if (presentIds.isNotEmpty && !evidenceReceipt!.confirms(_snapshot)) {
+        throw StateError('Retained course evidence is only partly confirmed.');
+      }
+      if (evidenceReceipt!.confirms(_snapshot)) {
+        final queue = reviewQueue;
+        return CourseUpdate(
+          snapshot: _snapshot,
+          currentUnit: currentUnit,
+          previousSnapshot: previousSnapshot,
+          remediation: queue.isEmpty ? null : queue.first,
+        );
+      }
+    }
+
+    final List<MasteryEvidence> attemptEvidence;
+    if (prepared != null) {
+      attemptEvidence = prepared;
+    } else {
       final activeLink =
           contextEntry != null && currentUnit?.id == contextEntry.courseUnitId
           ? contextEntry
           : null;
-      entries.add(
-        MasteryEvidence(
-          conceptId: id,
-          contentKind: kind,
-          contentId: normalizedContentId,
-          courseUnitId: activeLink?.courseUnitId,
-          missionContentLinkId: activeLink?.id,
-          isCorrect: isCorrect,
-          occurredAt: timestamp,
-          errorReason: errorReason,
-          score: checkedScore,
-          // Only an exact assessment edge may change sequential mastery.
-          // Typed practice still keeps its unit provenance so the mission
-          // brief can advance without pretending that practice was a test.
-          courseEligible:
-              activeLink?.role == ContentLinkRole.assess &&
-              _requiresTypedMissionContext(kind),
-        ),
-      );
+      attemptEvidence = [
+        for (final id in conceptIds)
+          MasteryEvidence(
+            id: evidenceReceipt == null
+                ? null
+                : stableContentId('retained_evidence', [
+                    evidenceReceipt.id,
+                    id,
+                  ]),
+            conceptId: id,
+            contentKind: kind,
+            contentId: normalizedContentId,
+            courseUnitId: activeLink?.courseUnitId,
+            missionContentLinkId: activeLink?.id,
+            isCorrect: isCorrect,
+            occurredAt: timestamp,
+            errorReason: errorReason,
+            score: checkedScore,
+            courseEligible:
+                activeLink?.role == ContentLinkRole.assess &&
+                _requiresTypedMissionContext(kind),
+          ),
+      ];
+      evidenceReceipt?._preparedEvidence = List.unmodifiable(attemptEvidence);
     }
+    for (final entry in attemptEvidence) {
+      _validateEvidence(entry);
+    }
+
+    final entries = <MasteryEvidence>[..._snapshot.evidence];
+    entries.addAll(attemptEvidence);
     final candidate = _snapshot.copyWith(evidence: _boundedEvidence(entries));
-    return _commitUpdate(candidate, previousSnapshot: previousSnapshot);
+    return _commitUpdate(
+      candidate,
+      previousSnapshot: previousSnapshot,
+      assertCurrentWrite: assertCurrentWrite,
+    );
   }
 
   /// Records a scenario's aggregate checkpoint score. Only a score completed
@@ -1141,6 +1239,7 @@ class CourseMasteryService {
   Future<CourseUpdate> _commitUpdate(
     CourseMasterySnapshot candidate, {
     CourseMasterySnapshot? previousSnapshot,
+    void Function()? assertCurrentWrite,
   }) async {
     // Compact legacy oversized snapshots before the next durable write too,
     // not only when the corresponding list was appended in this call.
@@ -1149,7 +1248,11 @@ class CourseMasteryService {
       scenarioCheckpoints: _boundedCheckpoints(candidate.scenarioCheckpoints),
     );
     final advanced = _advanceIfPassed(candidate);
-    await _persistSnapshot(advanced, mirrorLegacyUserLevel: true);
+    await _persistSnapshot(
+      advanced,
+      mirrorLegacyUserLevel: true,
+      assertCurrentWrite: assertCurrentWrite,
+    );
     _snapshot = advanced;
     final newlyUnlocked =
         advanced.currentCourseUnitId != candidate.currentCourseUnitId

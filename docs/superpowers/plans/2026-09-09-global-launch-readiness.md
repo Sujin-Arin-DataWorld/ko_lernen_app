@@ -1749,3 +1749,28 @@ transactional course/diagnostic persistence, process-death resumption and
 signed-device/operational readiness remain unfinished. Previously admitted
 native writes may complete after exit; this is not a whole-round rollback
 or a full commercial-readiness claim.
+
+### Task 37: Confirm sentence-game learning evidence before advancement
+
+Baseline: 45fa721bc52814dac4edbb6259b22b131407b2a3. Satz Arcade discards
+SRS results and best-effort course reporting while advancing the sentence.
+
+- [x] Reproduce native card, daily-log and course rejection against the existing screen.
+- [x] Retain one accepted answer through SRS and applicable course evidence;
+  confirm both before score, next sentence or game reward. Retry unknown native
+  outcomes without duplicate records or losing the original answer provenance.
+- [x] Keep unlinked free practice playable, vocabulary-headword-only SRS,
+  correct/incorrect grading and typed mission versus browse attribution.
+  Use existing recovery UI and serialize course writes with existing reset barriers.
+- [x] Fence duplicate and stale quest callbacks, delayed advancement, loads,
+  filters, replay/close and route retirement/reset. Verify recovery using actual
+  native preferences distinct from optimistic cache, plus independent reviews.
+- [x] Complete affected regression and analysis, source/asset/paid-record
+  preservation, free Graphify update/prune and local commit evidence.
+
+No push, remote CI, build, upload, paid calls or device retry. This is an
+in-process retained-answer guarantee, not whole-session process-death resume.
+Legacy-card adapters, remaining course/diagnostic callers, signed-device and
+operational readiness remain open under the full commercial-launch objective.
+
+**Task 37 local verification:** Native card/log/course rejection reproduced before repair. Focused recovery passed 92 tests. Affected regression passed 5224 tests in 456 files; 7 Dart files analyzed cleanly. 16 configured tests were skipped, including Linux-only goldens; no remote CI was run. Two additional regression tests reproduced and then verified restoration of the original eligible-link concept guard for both ordinary and retained inactive-context calls. Independent Standards and Spec reviews approved the actual final source hashes. Preserved 1014 assets and 1095 paid Graphify records. Free Graphify update/prune completed. Exact commit and verification: external sentence-game-evidence-20260911/verification.json. No push, remote CI, build, paid call, upload or device retry. Whole commercial-launch goal remains open.
