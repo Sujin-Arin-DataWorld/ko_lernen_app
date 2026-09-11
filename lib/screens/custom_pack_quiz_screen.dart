@@ -168,16 +168,25 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     final correct = word.translationFor(_languageCode).trim();
     final isRight = option == correct;
     final attempt = SrsReviewAttempt(id: word.korean, gotIt: isRight);
-    if (!await saveStudyEvidence(attempt.save) ||
+    final progress = VocabProgressAttempt(
+      seenId: word.korean,
+      wrongCountId: isRight ? null : word.korean,
+    );
+    if (!await saveStudyEvidence(() async {
+          if (!await attempt.save()) {
+            return false;
+          }
+          if (!studyEvidenceIsCurrent) {
+            return false;
+          }
+          return progress.save();
+        }) ||
         !mounted ||
         !_acceptsInput ||
         presentation != _presentation) {
       return;
     }
     setState(() => _picked = option);
-    // A1: 노출 기록(책장 타일 "n von m gelernt" 소스) + 퀴즈 결과를 SRS 에 반영.
-    Storage.addVokSeen(word.korean);
-
     if (isRight) {
       _score++;
       HapticFeedback.lightImpact();
@@ -185,8 +194,6 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(word.korean);
     }
     if (SoriMotion.reduceMotion(context)) {
       return;

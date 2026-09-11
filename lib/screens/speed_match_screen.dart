@@ -401,7 +401,18 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     final firstMiss = !_missedKorean.contains(selectedKorean);
     if (firstMiss) {
       final attempt = SrsReviewAttempt(id: selectedKorean, gotIt: correct);
-      if (!await saveStudyEvidence(attempt.save)) {
+      final progress = correct
+          ? null
+          : VocabProgressAttempt(wrongCountId: selectedKorean);
+      if (!await saveStudyEvidence(() async {
+        if (!await attempt.save()) {
+          return false;
+        }
+        if (!studyEvidenceIsCurrent) {
+          return false;
+        }
+        return progress?.save() ?? true;
+      })) {
         return;
       }
     }
@@ -443,10 +454,8 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
-      if (firstMiss && _missedKorean.add(selectedKorean)) {
-        // SRS card + daily log were already confirmed above. This diagnostic
-        // is emitted once per word/round and cannot run ahead of that evidence.
-        unawaited(Storage.incrementWrongCount(selectedKorean));
+      if (firstMiss) {
+        _missedKorean.add(selectedKorean);
       }
       setState(() {
         _applyPendingSlotCount();

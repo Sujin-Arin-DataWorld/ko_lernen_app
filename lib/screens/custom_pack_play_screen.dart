@@ -183,11 +183,20 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     if (!_canUseCard(presentation) || !_cardRevealed) return;
     final word = _pack!.words[_idx];
     final attempt = SrsReviewAttempt(id: word.korean, gotIt: true);
-    if (!await saveStudyEvidence(attempt.save) || !_canUseCard(presentation)) {
+    final progress = VocabProgressAttempt(seenId: word.korean);
+    if (!await saveStudyEvidence(() async {
+          if (!await attempt.save()) {
+            return false;
+          }
+          if (!studyEvidenceIsCurrent) {
+            return false;
+          }
+          return progress.save();
+        }) ||
+        !_canUseCard(presentation)) {
       return;
     }
     HapticFeedback.lightImpact();
-    Storage.addVokSeen(word.korean);
     _learned++;
     _advance();
   }
@@ -196,13 +205,20 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     if (!_canUseCard(presentation) || !_cardRevealed) return;
     final word = _pack!.words[_idx];
     final attempt = SrsReviewAttempt(id: word.korean, gotIt: false);
-    if (!await saveStudyEvidence(attempt.save) || !_canUseCard(presentation)) {
+    final progress = VocabProgressAttempt(wrongCountId: word.korean);
+    if (!await saveStudyEvidence(() async {
+          if (!await attempt.save()) {
+            return false;
+          }
+          if (!studyEvidenceIsCurrent) {
+            return false;
+          }
+          return progress.save();
+        }) ||
+        !_canUseCard(presentation)) {
       return;
     }
     HapticFeedback.selectionClick();
-    // Existing auxiliary diagnostic; it is not part of durable evidence.
-    // ignore: discarded_futures
-    Storage.incrementWrongCount(word.korean);
     _advance();
   }
 

@@ -308,6 +308,31 @@ void main() {
     },
   );
 
+  testWidgets('speed miss holds rejected vocabulary progress until retry', (
+    tester,
+  ) async {
+    await _pump(tester, 'speed-wrong');
+    platform.rejectKey = 'kl_wrong_count_v1';
+    await _answer(tester, 'speed-wrong');
+    await _flush(tester);
+
+    expect(find.byType(AppError), findsOneWidget);
+    expect(Storage.srsCard('사과')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('사과'), 0);
+
+    platform.rejectKey = null;
+    final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+    retry();
+    retry();
+    await _flush(tester);
+
+    expect(find.byType(AppError), findsNothing);
+    expect(Storage.srsCard('사과')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('사과'), 1);
+    expect(platform.writes['kl_wrong_count_v1'], 2);
+    await _dispose(tester);
+  });
+
   for (final kind in ['speed-correct', 'chain']) {
     testWidgets('$kind lifecycle resume cannot restart clock during recovery', (
       tester,

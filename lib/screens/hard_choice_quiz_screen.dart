@@ -194,7 +194,18 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
     final isCorrect = options[i] == cur.korean;
     final judgment = ++_presentation;
     final attempt = SrsReviewAttempt(id: cur.korean, gotIt: isCorrect);
-    if (!await saveStudyEvidence(attempt.save)) {
+    final progress = isCorrect
+        ? null
+        : VocabProgressAttempt(wrongCountId: cur.korean);
+    if (!await saveStudyEvidence(() async {
+      if (!await attempt.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent) {
+        return false;
+      }
+      return progress?.save() ?? true;
+    })) {
       return;
     }
     if (!mounted || !_isCurrentQuestion(judgment, cur, options)) {
@@ -211,8 +222,6 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(cur.korean);
     }
     // 정답 철자를 소리로 한 번 더 각인.
     // ignore: discarded_futures

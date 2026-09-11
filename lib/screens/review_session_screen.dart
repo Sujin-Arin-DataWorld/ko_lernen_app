@@ -57,12 +57,14 @@ class _ReviewJudgment {
     required this.id,
     required this.gotIt,
     required this.needsEvidence,
-  }) : srs = needsEvidence ? SrsReviewAttempt(id: id, gotIt: gotIt) : null;
+  }) : srs = needsEvidence ? SrsReviewAttempt(id: id, gotIt: gotIt) : null,
+       progress = gotIt ? null : VocabProgressAttempt(wrongCountId: id);
 
   final String id;
   final bool gotIt;
   final bool needsEvidence;
   final SrsReviewAttempt? srs;
+  final VocabProgressAttempt? progress;
   bool appliedToQueue = false;
 }
 
@@ -114,6 +116,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   bool _saveFailed = false;
   bool _sessionExpired = false;
   bool _leaving = false;
+  ModalRoute<dynamic>? _route;
   final _sessionLifetime = LocalDataLifetime.capture();
   _ReviewJudgment? _pendingJudgment;
   XpAwardAttempt? _completionXp;
@@ -122,13 +125,20 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   final _speech = ContentSpeechController();
 
   bool get _loading => _loadState == ReviewLoadState.loading;
-  bool get _acceptsInput => !_saving && _pendingJudgment == null && !_leaving;
+  bool get _routeIsActive => _route?.isActive ?? true;
+  bool get _routeCanUpdate => mounted && !_leaving && _routeIsActive;
+  bool get _sessionIsCurrent => _routeCanUpdate && _sessionLifetime.isCurrent;
+  bool get _acceptsInput =>
+      _sessionIsCurrent && !_saving && _pendingJudgment == null;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final route = ModalRoute.of(context);
-    if (route != null) _speech.subscribe(route);
+    if (route != null) {
+      _route = route;
+      _speech.subscribe(route);
+    }
   }
 
   @override
@@ -406,7 +416,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   Future<void> _savePendingJudgment() async {
     final judgment = _pendingJudgment;
     final queue = _queue;
-    if (_saving || _leaving || !mounted || judgment == null || queue == null) {
+    if (_saving || !_sessionIsCurrent || judgment == null || queue == null) {
       return;
     }
     setState(() {
@@ -421,21 +431,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           _sessionLifetime.assertCurrent();
           throw StateError('Review evidence has not been confirmed.');
         }
-        if (!mounted || _leaving) {
+        if (!_routeCanUpdate) {
           return;
         }
         _sessionLifetime.assertCurrent();
-        if (!judgment.gotIt) {
-          // This legacy diagnostic is best effort, separate from SRS evidence.
-          // Attempt it once; retrying a failed completion must not count a
-          // second wrong answer that the learner never gave.
-          try {
-            await Storage.incrementWrongCount(judgment.id);
-          } catch (error) {
-            debugPrint('Review wrong-count diagnostic failed: $error');
-          }
+        final progress = judgment.progress;
+        if (progress != null && !await progress.save()) {
+          _sessionLifetime.assertCurrent();
+          throw StateError('Vocabulary progress has not been confirmed.');
         }
-        if (!mounted || _leaving) {
+        if (!_routeCanUpdate) {
           return;
         }
         _sessionLifetime.assertCurrent();
@@ -457,7 +462,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         return;
       }
       await (_completionXp ??= XpAwardAttempt(_reviewed * 2)).save();
-      if (!mounted || _leaving) {
+      if (!_routeCanUpdate) {
         return;
       }
       _sessionLifetime.assertCurrent();
@@ -478,19 +483,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _pendingJudgment = null;
       });
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && !_leaving && _sessionLifetime.isCurrent) {
+        if (_sessionIsCurrent) {
           SoriCelebration.burst(context);
         }
       });
     } catch (error) {
-      if (mounted && !_leaving) {
+      if (_routeCanUpdate) {
         setState(() {
           _saveFailed = true;
           _sessionExpired = error is StaleLocalDataLifetimeException;
         });
       }
     } finally {
-      if (mounted) {
+      if (_routeCanUpdate) {
         setState(() => _saving = false);
       }
     }

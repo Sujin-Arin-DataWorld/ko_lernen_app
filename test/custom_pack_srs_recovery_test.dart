@@ -356,6 +356,32 @@ void main() {
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });
+
+    testWidgets(
+      '${flow.name} rejected vocabulary progress waits for recovery',
+      (tester) async {
+        await _pump(tester, flow);
+        platform.rejectKey = 'kl_wrong_count_v1';
+        final word = await _answer(tester, flow);
+        await _until(tester, find.byType(AppError));
+        expect(Storage.srsCard(word)?.reviewCount, 1);
+        expect(Storage.wrongCountOf(word), 0);
+        expect(Storage.xp, 0);
+
+        platform.rejectKey = null;
+        final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+        retry();
+        retry();
+        await _settle(tester);
+
+        expect(find.byType(AppError), findsNothing);
+        expect(Storage.srsCard(word)?.reviewCount, 1);
+        expect(Storage.wrongCountOf(word), 1);
+        expect(platform.writes['kl_wrong_count_v1'], 2);
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox());
+      },
+    );
   }
 }
 

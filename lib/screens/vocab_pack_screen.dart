@@ -412,19 +412,24 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     }
     final cur = _currentLearn;
     if (cur == null) return;
-    if (!_learnSrsRated.contains(cur.korean)) {
-      // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
-      // 최초의 정직한 "몰랐다" 평가가 유지된다.
-      if (!await _recordSessionSrs(cur.korean, gotIt: true)) {
-        return;
-      }
+    final firstSrsRating = !_learnSrsRated.contains(cur.korean);
+    final progress = VocabProgressAttempt(seenId: cur.korean);
+    if (!await _recordSessionSrs(
+      cur.korean,
+      gotIt: true,
+      progress: progress,
+      saveSrs: firstSrsRating,
+    )) {
+      return;
+    }
+    if (firstSrsRating) {
+      // 처음 몰랐다가 재출제에서 맞힌 단어는 SRS를 다시 덮지 않는다.
       _learnSrsRated.add(cur.korean);
     }
     if (!studyEvidenceAcceptsInput) {
       return;
     }
     HapticFeedback.lightImpact();
-    Storage.addVokSeen(cur.korean);
     _learnQueue?.markKnown();
     _advanceLearn();
   }
@@ -437,22 +442,29 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     }
     final cur = _currentLearn;
     if (cur == null) return;
-    if (!_learnSrsRated.contains(cur.korean)) {
-      if (!await _recordSessionSrs(cur.korean, gotIt: false)) {
-        return;
-      }
+    final firstSrsRating = !_learnSrsRated.contains(cur.korean);
+    final progress = VocabProgressAttempt(
+      seenId: cur.korean,
+      wrongCountId: cur.korean,
+    );
+    if (!await _recordSessionSrs(
+      cur.korean,
+      gotIt: false,
+      progress: progress,
+      saveSrs: firstSrsRating,
+    )) {
+      return;
+    }
+    if (firstSrsRating) {
       _learnSrsRated.add(cur.korean);
     }
     if (!studyEvidenceAcceptsInput) {
       return;
     }
     HapticFeedback.mediumImpact();
-    Storage.addVokSeen(cur.korean);
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
     _sessionMissedWordIds.add(cur.korean);
-    // ignore: discarded_futures
-    Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
     _advanceLearn();
   }
@@ -591,17 +603,29 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     _advanceLearn();
   }
 
-  Future<bool> _recordSessionSrs(String korean, {required bool gotIt}) async {
+  Future<bool> _recordSessionSrs(
+    String korean, {
+    required bool gotIt,
+    required VocabProgressAttempt progress,
+    bool saveSrs = true,
+  }) async {
     final session = _recallSession;
-    if (session == null) {
-      return true;
-    }
-    final attempt = session.evidenceAttempt(
-      expectedPackId: widget.packId,
-      wordId: korean,
-      gotIt: gotIt,
-    );
-    return saveStudyEvidence(attempt.save);
+    final attempt = session == null || !saveSrs
+        ? null
+        : session.evidenceAttempt(
+            expectedPackId: widget.packId,
+            wordId: korean,
+            gotIt: gotIt,
+          );
+    return saveStudyEvidence(() async {
+      if (attempt != null && !await attempt.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent) {
+        return false;
+      }
+      return progress.save();
+    });
   }
 
   // ── Stage 2 / 3 (Quiz / Boss) ──────────────────────────────────────
@@ -786,7 +810,15 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       _choiceLocked = true;
       _hasSubmittedAssessment = true;
     });
-    if (!await _recordSessionSrs(cur.korean, gotIt: isCorrect) ||
+    final progress = VocabProgressAttempt(
+      seenId: isCorrect ? cur.korean : null,
+      wrongCountId: isCorrect ? null : cur.korean,
+    );
+    if (!await _recordSessionSrs(
+          cur.korean,
+          gotIt: isCorrect,
+          progress: progress,
+        ) ||
         !mounted ||
         !studyEvidenceAcceptsInput) {
       return;
@@ -820,10 +852,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       }
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
-        Storage.addVokSeen(cur.korean);
       } else {
         _bossCorrect++;
-        Storage.addVokSeen(cur.korean);
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
@@ -831,9 +861,6 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       SoundService.wrong();
       _combo = 0;
       _sessionMissedWordIds.add(cur.korean);
-
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(cur.korean);
     }
     // 짧은 피드백 후 다음 질문
     _scheduleAdvance();

@@ -329,6 +329,14 @@ abstract interface class PreferenceStringListStore {
   Future<bool> remove(String key);
 }
 
+/// Injectable integer preference boundary for confirmed vocabulary progress.
+abstract interface class PreferenceIntStore {
+  bool containsKey(String key);
+  int? getInt(String key);
+  Future<void> reload();
+  Future<bool> setInt(String key, int value);
+}
+
 /// Outcome of one atomic historical study-log date restore.
 enum StudyLogDateRestoreResult {
   written,
@@ -433,6 +441,35 @@ class _StringListPreferenceState {
 
   @override
   int get hashCode => Object.hash(isPresent, Object.hashAll(value ?? const []));
+}
+
+class _IntPreferenceState {
+  const _IntPreferenceState._({required this.isPresent, this.value});
+
+  const _IntPreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final int? value;
+
+  static _IntPreferenceState read(PreferenceIntStore store, String key) {
+    if (!store.containsKey(key)) {
+      return const _IntPreferenceState.absent();
+    }
+    final value = store.getInt(key);
+    if (value == null) {
+      throw StateError('Preference $key is not an int.');
+    }
+    return _IntPreferenceState._(isPresent: true, value: value);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _IntPreferenceState &&
+      other.isPresent == isPresent &&
+      other.value == value;
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
 }
 
 class _BoolPreferenceState {
@@ -607,6 +644,24 @@ class _SharedPreferenceStringListStore implements PreferenceStringListStore {
       preferences.setStringList(key, value);
 }
 
+class _SharedPreferenceIntStore implements PreferenceIntStore {
+  const _SharedPreferenceIntStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  int? getInt(String key) => preferences.getInt(key);
+
+  @override
+  Future<void> reload() => preferences.reload();
+
+  @override
+  Future<bool> setInt(String key, int value) => preferences.setInt(key, value);
+}
+
 class _SharedPreferenceBoolStore implements PreferenceBoolStore {
   const _SharedPreferenceBoolStore(this.preferences);
 
@@ -681,6 +736,153 @@ class SrsReviewAttempt {
   Future<bool> save() => Storage._enqueueSrsReviewMutation(
     (generation) => Storage._srsReviewTransaction(this, generation: generation),
   );
+}
+
+/// One accepted vocabulary-progress decision retained across persistence retry.
+///
+/// A caller creates this beside its retained SRS attempt and reuses the same
+/// instance until [save] returns true. Successfully committed fields are never
+/// applied again when a later field in the batch needs recovery.
+class VocabProgressAttempt {
+  VocabProgressAttempt({
+    this.correctDelta = 0,
+    this.wrongDelta = 0,
+    this.skippedDelta = 0,
+    this.cursor,
+    this.seenId,
+    this.wrongCountId,
+  }) : minimumCorrect = null,
+       minimumWrong = null,
+       minimumSkipped = null,
+       absoluteCorrect = null,
+       absoluteWrong = null,
+       absoluteSkipped = null,
+       restoreSeenIds = const <String>[],
+       restoreWrongCountJson = null,
+       restoreWrongCountOnlyIfEmpty = false,
+       assertCurrentWrite = null,
+       bypassLearningWriteLock = false,
+       isRestore = false,
+       assert(correctDelta >= 0),
+       assert(wrongDelta >= 0),
+       assert(skippedDelta >= 0),
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  VocabProgressAttempt._absolute({
+    this.absoluteCorrect,
+    this.absoluteWrong,
+    this.absoluteSkipped,
+    this.cursor,
+    this.bypassLearningWriteLock = false,
+  }) : correctDelta = 0,
+       wrongDelta = 0,
+       skippedDelta = 0,
+       seenId = null,
+       wrongCountId = null,
+       minimumCorrect = null,
+       minimumWrong = null,
+       minimumSkipped = null,
+       restoreSeenIds = const <String>[],
+       restoreWrongCountJson = null,
+       restoreWrongCountOnlyIfEmpty = false,
+       assertCurrentWrite = null,
+       isRestore = false,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  VocabProgressAttempt._restore({
+    this.minimumCorrect,
+    this.minimumWrong,
+    this.minimumSkipped,
+    this.cursor,
+    required this.restoreSeenIds,
+    this.restoreWrongCountJson,
+    this.restoreWrongCountOnlyIfEmpty = true,
+    this.assertCurrentWrite,
+  }) : correctDelta = 0,
+       wrongDelta = 0,
+       skippedDelta = 0,
+       absoluteCorrect = null,
+       absoluteWrong = null,
+       absoluteSkipped = null,
+       seenId = null,
+       wrongCountId = null,
+       bypassLearningWriteLock = true,
+       isRestore = true,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  final int correctDelta;
+  final int wrongDelta;
+  final int skippedDelta;
+  final int? cursor;
+  final String? seenId;
+  final String? wrongCountId;
+  final int? minimumCorrect;
+  final int? minimumWrong;
+  final int? minimumSkipped;
+  final int? absoluteCorrect;
+  final int? absoluteWrong;
+  final int? absoluteSkipped;
+  final List<String> restoreSeenIds;
+  final String? restoreWrongCountJson;
+  final bool restoreWrongCountOnlyIfEmpty;
+  final void Function()? assertCurrentWrite;
+  final bool bypassLearningWriteLock;
+  final bool isRestore;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+
+  bool _correctSaved = false;
+  bool _wrongSaved = false;
+  bool _skippedSaved = false;
+  bool _cursorSaved = false;
+  bool _seenSaved = false;
+  bool _wrongCountSaved = false;
+  bool _restoreCursorEligible = false;
+  bool _restoreEligibilityCaptured = false;
+  bool _completed = false;
+
+  bool get _isCurrent =>
+      _lifetime.isCurrent && _epoch == Storage._vocabProgressAttemptEpoch;
+
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+    if (_epoch != Storage._vocabProgressAttemptEpoch) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    assertCurrentWrite?.call();
+    _lifetime.assertCurrent();
+  }
+
+  Future<bool> save() => Storage._enqueueVocabProgressMutation(
+    () => Storage._saveVocabProgressAttempt(this),
+  );
+}
+
+enum _VocabPreferenceKind { integer, string, stringList }
+
+class _PendingVocabPreferenceWrite {
+  const _PendingVocabPreferenceWrite({
+    required this.generation,
+    required this.key,
+    required this.kind,
+    required this.store,
+    required this.before,
+    required this.after,
+    required this.assertOriginCurrent,
+    required this.confirm,
+  });
+
+  final int generation;
+  final String key;
+  final _VocabPreferenceKind kind;
+  final Object store;
+  final Object before;
+  final Object after;
+  final void Function() assertOriginCurrent;
+  final void Function() confirm;
 }
 
 class _PendingSrsWrite {
@@ -799,6 +1001,8 @@ class Storage {
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _xpRewardMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
+  static Future<void> _vocabProgressMutation = Future<void>.value();
+  static Future<void>? _learningResetMutation;
   static Future<void> _consentedFirstLearningActionClaimMutation =
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
@@ -818,6 +1022,15 @@ class Storage {
   static int _srsReviewMutationGeneration = 0;
   static int _srsAttemptEpoch = 0;
   static _PendingSrsWrite? _pendingSrsWrite;
+  static int _vocabProgressMutationCount = 0;
+  static int _vocabProgressMutationGeneration = 0;
+  static int _vocabProgressAttemptEpoch = 0;
+  static final Map<String, int> _confirmedVocabInts = <String, int>{};
+  static List<String>? _confirmedVokSeenIds;
+  static String? _confirmedWrongCountRaw;
+  static _PendingVocabPreferenceWrite? _pendingVocabPreferenceWrite;
+  static final Map<String, _PendingVocabPreferenceWrite>
+  _quarantinedVocabPreferenceWrites = <String, _PendingVocabPreferenceWrite>{};
   // `resetForTesting()` remains synchronous for its many callers, but a new
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
@@ -865,6 +1078,15 @@ class Storage {
     if (_xpRewardMutationCount > 0) {
       drains.add(_xpRewardMutation);
     }
+    if (_vocabProgressMutationCount > 0) {
+      drains.add(_vocabProgressMutation);
+    }
+    final learningReset = _learningResetMutation;
+    if (_learningResetCount > 0 && learningReset != null) {
+      drains.add(
+        learningReset.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
+      );
+    }
     if (drains.isEmpty) {
       // Do not carry even a completed Future into the next widget-test
       // fake-async zone. With no old SRS work, init must enter the new
@@ -898,6 +1120,8 @@ class Storage {
     _pronunciationProgressMutation = Future<void>.value();
     _xpRewardMutation = Future<void>.value();
     _srsReviewMutation = Future<void>.value();
+    _vocabProgressMutation = Future<void>.value();
+    _learningResetMutation = null;
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
     _xpRewardMutationGeneration++;
@@ -914,6 +1138,14 @@ class Storage {
     _srsReviewMutationCount = 0;
     _srsReviewMutationGeneration++;
     _invalidateSrsAttempts();
+    _vocabProgressMutationCount = 0;
+    _vocabProgressMutationGeneration++;
+    _vocabProgressAttemptEpoch++;
+    _confirmedVocabInts.clear();
+    _confirmedVokSeenIds = null;
+    _confirmedWrongCountRaw = null;
+    _pendingVocabPreferenceWrite = null;
+    _quarantinedVocabPreferenceWrites.clear();
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -940,6 +1172,12 @@ class Storage {
     _invalidateSrsAttempts();
     _confirmedXpRewardLedger = null;
     _confirmedRewardLists.clear();
+    _vocabProgressAttemptEpoch++;
+    _confirmedVocabInts.clear();
+    _confirmedVokSeenIds = null;
+    _confirmedWrongCountRaw = null;
+    _pendingVocabPreferenceWrite = null;
+    _quarantinedVocabPreferenceWrites.clear();
     _invalidateSrsCache();
     _invalidatePackCache();
     _courseMasteryCache = null;
@@ -1043,6 +1281,52 @@ class Storage {
       onError: (Object _, StackTrace __) {
         if (generation == _srsReviewMutationGeneration) {
           _srsReviewMutationCount--;
+        }
+      },
+    );
+    return result;
+  }
+
+  static Future<bool> _enqueueVocabProgressMutation(
+    Future<bool> Function() mutation,
+  ) {
+    if (_learningResetCount > 0) {
+      return Future<bool>.error(const StaleLocalDataLifetimeException());
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final startsImmediately = _vocabProgressMutationCount == 0;
+    _vocabProgressMutationCount++;
+
+    Future<bool> runCurrentMutation() {
+      if (generation != _vocabProgressMutationGeneration) {
+        return Future<bool>.error(const StaleLocalDataLifetimeException());
+      }
+      try {
+        return mutation();
+      } on Object catch (error, stackTrace) {
+        return Future<bool>.error(error, stackTrace);
+      }
+    }
+
+    late final Future<bool> result;
+    if (startsImmediately) {
+      result = runCurrentMutation();
+    } else {
+      result = _vocabProgressMutation.then<bool>((_) => runCurrentMutation());
+    }
+    _vocabProgressMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    result.then<void>(
+      (_) {
+        if (generation == _vocabProgressMutationGeneration) {
+          _vocabProgressMutationCount--;
+        }
+      },
+      onError: (Object _, StackTrace __) {
+        if (generation == _vocabProgressMutationGeneration) {
+          _vocabProgressMutationCount--;
         }
       },
     );
@@ -1176,6 +1460,42 @@ class Storage {
     throw PreferenceOutcomeUnknownException(key, cause: failure);
   }
 
+  static Future<void> _siStrict(
+    String key,
+    int value, {
+    PreferenceIntStore? preferences,
+    void Function()? assertCurrentWrite,
+    _IntPreferenceState? beforeState,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceIntStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    final before = beforeState ?? await _prepareIntMutation(store, key);
+    assertCurrentWrite?.call();
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setInt(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) {
+      return;
+    }
+    final after = await _reloadIntState(store, key, operationFailure: failure);
+    if (after.isPresent && after.value == value) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
   static Future<void> _slStrict(
     String key,
     List<String> value, {
@@ -1264,6 +1584,62 @@ class Storage {
     } on Object catch (error) {
       _unknownStrictKeys.add(key);
       throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<_IntPreferenceState> _prepareIntMutation(
+    PreferenceIntStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      await _refreshUnknownIntKeys(store, [key]);
+      throw PreferenceWriteException(key);
+    }
+    try {
+      return _IntPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<void> _refreshUnknownIntKeys(
+    PreferenceIntStore store,
+    Iterable<String> keys,
+  ) async {
+    final unknown = keys
+        .where(_unknownStrictKeys.contains)
+        .toSet()
+        .toList(growable: false);
+    if (unknown.isEmpty) {
+      return;
+    }
+    try {
+      await store.reload();
+      for (final key in unknown) {
+        _IntPreferenceState.read(store, key);
+      }
+      _unknownStrictKeys.removeAll(unknown);
+    } on Object catch (error) {
+      _unknownStrictKeys.addAll(unknown);
+      throw PreferenceOutcomeUnknownException(unknown.first, cause: error);
+    }
+  }
+
+  static Future<_IntPreferenceState> _reloadIntState(
+    PreferenceIntStore store,
+    String key, {
+    Object? operationFailure,
+  }) async {
+    try {
+      await store.reload();
+      return _IntPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(
+        key,
+        cause: operationFailure ?? error,
+      );
     }
   }
 
@@ -1581,21 +1957,628 @@ class Storage {
   static Future<void> setInterests(List<String> v) => _sl('kl_interests', v);
 
   // ───────── Vokabeln ─────────
-  static int get vokCorrect => _i('kl_vok_correct');
-  static int get vokWrong => _i('kl_vok_wrong');
-  static int get vokSkipped => _i('kl_vok_skipped');
-  static int get vokLastIdx => _i('kl_vok_last_idx');
-  static List<String> get vokSeenIds => _l('kl_vok_seen_ids');
+  static const _vokCorrectKey = 'kl_vok_correct';
+  static const _vokWrongKey = 'kl_vok_wrong';
+  static const _vokSkippedKey = 'kl_vok_skipped';
+  static const _vokLastIdxKey = 'kl_vok_last_idx';
+  static const _vokSeenIdsKey = 'kl_vok_seen_ids';
+  static const _wrongCountKey = 'kl_wrong_count_v1';
 
-  static Future<void> setVokCorrect(int v) => _si('kl_vok_correct', v);
-  static Future<void> setVokWrong(int v) => _si('kl_vok_wrong', v);
-  static Future<void> setVokSkipped(int v) => _si('kl_vok_skipped', v);
-  static Future<void> setVokLastIdx(int v) => _si('kl_vok_last_idx', v);
+  static bool _vocabWriteIsUnconfirmed(String key) =>
+      _pendingVocabPreferenceWrite?.key == key ||
+      _unknownStrictKeys.contains(key);
+
+  static int _readConfirmedVocabInt(String key) {
+    if (_vocabWriteIsUnconfirmed(key)) {
+      return _confirmedVocabInts[key] ?? 0;
+    }
+    final value = _i(key);
+    _confirmedVocabInts[key] = value;
+    return value;
+  }
+
+  static int get vokCorrect => _readConfirmedVocabInt(_vokCorrectKey);
+  static int get vokWrong => _readConfirmedVocabInt(_vokWrongKey);
+  static int get vokSkipped => _readConfirmedVocabInt(_vokSkippedKey);
+  static int get vokLastIdx => _readConfirmedVocabInt(_vokLastIdxKey);
+  static List<String> get vokSeenIds {
+    if (_vocabWriteIsUnconfirmed(_vokSeenIdsKey)) {
+      return List<String>.of(_confirmedVokSeenIds ?? const <String>[]);
+    }
+    final value = _l(_vokSeenIdsKey);
+    _confirmedVokSeenIds = List<String>.unmodifiable(value);
+    return List<String>.of(value);
+  }
+
+  static Future<void> setVokCorrect(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteCorrect: v),
+    );
+  }
+
+  static Future<void> setVokWrong(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteWrong: v),
+    );
+  }
+
+  static Future<void> setVokSkipped(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteSkipped: v),
+    );
+  }
+
+  static Future<void> setVokLastIdx(int v) async {
+    await _requireVocabProgress(VocabProgressAttempt._absolute(cursor: v));
+  }
+
   static Future<void> addVokSeen(String id) async {
-    final list = vokSeenIds;
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_vok_seen_ids', list);
+    await _requireVocabProgress(VocabProgressAttempt(seenId: id));
+  }
+
+  static Future<void> _requireVocabProgress(
+    VocabProgressAttempt attempt,
+  ) async {
+    if (!await attempt.save()) {
+      throw const PreferenceWriteException('vocabulary progress');
+    }
+  }
+
+  static Future<void> restoreVocabularyProgress({
+    int? minimumCorrect,
+    int? minimumWrong,
+    int? minimumSkipped,
+    int? cursor,
+    Iterable<String> seenIds = const <String>[],
+    String? wrongCountJson,
+    void Function()? assertCurrentWrite,
+  }) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._restore(
+        minimumCorrect: minimumCorrect,
+        minimumWrong: minimumWrong,
+        minimumSkipped: minimumSkipped,
+        cursor: cursor,
+        restoreSeenIds: List<String>.unmodifiable(seenIds),
+        restoreWrongCountJson: wrongCountJson,
+        assertCurrentWrite: assertCurrentWrite,
+      ),
+    );
+  }
+
+  static Future<bool> _saveVocabProgressAttempt(
+    VocabProgressAttempt attempt,
+  ) async {
+    attempt._assertCurrent();
+    if (attempt._completed) {
+      return true;
+    }
+    await _resolvePendingVocabPreferenceWrite();
+    attempt._assertCurrent();
+    if (!attempt.bypassLearningWriteLock && _learningWritesLockReason != null) {
+      return false;
+    }
+
+    if (!attempt._restoreEligibilityCaptured && attempt.isRestore) {
+      attempt._restoreCursorEligible =
+          vokCorrect == 0 &&
+          vokWrong == 0 &&
+          vokSkipped == 0 &&
+          vokLastIdx == 0 &&
+          vokSeenIds.isEmpty;
+      attempt._restoreEligibilityCaptured = true;
+    }
+
+    final shouldWriteCursor =
+        attempt.cursor != null &&
+        (!attempt.isRestore || attempt._restoreCursorEligible);
+    if (!attempt._cursorSaved && shouldWriteCursor) {
+      await _writeVocabInt(
+        attempt,
+        _vokLastIdxKey,
+        attempt.cursor!,
+        () => attempt._cursorSaved = true,
+      );
+    } else if (!attempt._cursorSaved) {
+      attempt._cursorSaved = true;
+    }
+
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokCorrectKey,
+      delta: attempt.correctDelta,
+      absolute: attempt.absoluteCorrect,
+      minimum: attempt.minimumCorrect,
+      isSaved: () => attempt._correctSaved,
+      markSaved: () => attempt._correctSaved = true,
+    );
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokWrongKey,
+      delta: attempt.wrongDelta,
+      absolute: attempt.absoluteWrong,
+      minimum: attempt.minimumWrong,
+      isSaved: () => attempt._wrongSaved,
+      markSaved: () => attempt._wrongSaved = true,
+    );
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokSkippedKey,
+      delta: attempt.skippedDelta,
+      absolute: attempt.absoluteSkipped,
+      minimum: attempt.minimumSkipped,
+      isSaved: () => attempt._skippedSaved,
+      markSaved: () => attempt._skippedSaved = true,
+    );
+
+    if (!attempt._seenSaved) {
+      final additions = <String>[
+        if (attempt.seenId case final id?) id,
+        ...attempt.restoreSeenIds,
+      ];
+      final current = vokSeenIds;
+      final updated = List<String>.of(current);
+      for (final id in additions) {
+        if (!updated.contains(id)) {
+          updated.add(id);
+        }
+      }
+      if (_preferenceValueEquals(current, updated)) {
+        if (additions.isNotEmpty &&
+            _quarantinedVocabPreferenceWrites.containsKey(_vokSeenIdsKey)) {
+          throw PreferenceOutcomeUnknownException(_vokSeenIdsKey);
+        }
+        attempt._seenSaved = true;
+      } else {
+        await _writeVocabStringList(
+          attempt,
+          _vokSeenIdsKey,
+          updated,
+          () => attempt._seenSaved = true,
+        );
+      }
+    }
+
+    if (!attempt._wrongCountSaved) {
+      if (attempt.wrongCountId case final id?) {
+        final updated = Map<String, int>.of(_readWrongCountMap())
+          ..update(id, (count) => count + 1, ifAbsent: () => 1);
+        await _writeVocabString(
+          attempt,
+          _wrongCountKey,
+          jsonEncode(updated),
+          () => attempt._wrongCountSaved = true,
+        );
+      } else if (attempt.restoreWrongCountJson case final restored?) {
+        if (!attempt.restoreWrongCountOnlyIfEmpty ||
+            wrongCountRawJson.isEmpty) {
+          await _writeVocabString(
+            attempt,
+            _wrongCountKey,
+            restored,
+            () => attempt._wrongCountSaved = true,
+          );
+        } else {
+          attempt._wrongCountSaved = true;
+        }
+      } else {
+        attempt._wrongCountSaved = true;
+      }
+    }
+
+    attempt._assertCurrent();
+    attempt._completed = true;
+    return true;
+  }
+
+  static Future<void> _applyVocabIntChange(
+    VocabProgressAttempt attempt, {
+    required String key,
+    required int delta,
+    required int? absolute,
+    required int? minimum,
+    required bool Function() isSaved,
+    required void Function() markSaved,
+  }) async {
+    if (isSaved()) {
+      return;
+    }
+    final current = _readConfirmedVocabInt(key);
+    final target =
+        absolute ??
+        (minimum == null
+            ? current + delta
+            : (current < minimum ? minimum : current));
+    if (target == current) {
+      final hasRequestedChange =
+          delta != 0 || absolute != null || minimum != null;
+      if (hasRequestedChange &&
+          _quarantinedVocabPreferenceWrites.containsKey(key)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      markSaved();
+      return;
+    }
+    await _writeVocabInt(attempt, key, target, markSaved);
+  }
+
+  static Future<void> _resolvePendingVocabPreferenceWrite() async {
+    final pending = _pendingVocabPreferenceWrite;
+    if (pending == null) {
+      return;
+    }
+    if (pending.generation != _vocabProgressMutationGeneration) {
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      _unknownStrictKeys.remove(pending.key);
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (!_vocabPendingOriginIsCurrent(pending)) {
+      _quarantineVocabPreferenceWrite(pending);
+      return;
+    }
+    try {
+      late final Object current;
+      switch (pending.kind) {
+        case _VocabPreferenceKind.integer:
+          final store = pending.store as PreferenceIntStore;
+          await store.reload();
+          current = _IntPreferenceState.read(store, pending.key);
+          break;
+        case _VocabPreferenceKind.string:
+          final store = pending.store as PreferenceStringStore;
+          await store.reload();
+          current = _StringPreferenceState.read(store, pending.key);
+          break;
+        case _VocabPreferenceKind.stringList:
+          final store = pending.store as PreferenceStringListStore;
+          await store.reload();
+          current = _StringListPreferenceState.read(store, pending.key);
+          break;
+      }
+      if (!_vocabPendingOriginIsCurrent(pending)) {
+        _quarantineVocabPreferenceWrite(pending);
+        return;
+      }
+      if (pending.generation != _vocabProgressMutationGeneration) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      final matchesAfter = _vocabPreferenceStateMatches(current, pending.after);
+      if (matchesAfter) {
+        if (!_vocabPendingOriginIsCurrent(pending)) {
+          _quarantineVocabPreferenceWrite(pending);
+          return;
+        }
+        pending.confirm();
+      } else if (current != pending.before) {
+        _unknownStrictKeys.add(pending.key);
+        throw PreferenceOutcomeUnknownException(pending.key);
+      }
+      if (!_quarantinedVocabPreferenceWrites.containsKey(pending.key)) {
+        _unknownStrictKeys.remove(pending.key);
+      }
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+    } on StaleLocalDataLifetimeException {
+      _unknownStrictKeys.remove(pending.key);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    } on PreferenceOutcomeUnknownException {
+      rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(pending.key);
+      throw PreferenceOutcomeUnknownException(pending.key, cause: error);
+    }
+  }
+
+  static bool _vocabPendingOriginIsCurrent(
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    try {
+      pending.assertOriginCurrent();
+      return true;
+    } on Object {
+      return false;
+    }
+  }
+
+  static void _quarantineVocabPreferenceWrite(
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    _quarantinedVocabPreferenceWrites[pending.key] = pending;
+    _unknownStrictKeys.add(pending.key);
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static void _assertVocabPendingOriginAfterNative(
+    VocabProgressAttempt attempt,
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    if (!attempt._isCurrent ||
+        pending.generation != _vocabProgressMutationGeneration) {
+      _unknownStrictKeys.remove(pending.key);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      throw const StaleLocalDataLifetimeException();
+    }
+    try {
+      pending.assertOriginCurrent();
+    } on Object {
+      _quarantineVocabPreferenceWrite(pending);
+      rethrow;
+    }
+  }
+
+  static bool _vocabPreferenceStateMatches(Object state, Object value) =>
+      switch (state) {
+        _IntPreferenceState state => state.isPresent && state.value == value,
+        _StringPreferenceState state => state.isPresent && state.value == value,
+        _StringListPreferenceState state =>
+          state.isPresent && _preferenceValueEquals(state.value, value),
+        _ => false,
+      };
+
+  static Future<_IntPreferenceState> _prepareVocabIntMutation(
+    VocabProgressAttempt attempt,
+    PreferenceIntStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.integer) {
+      attempt._assertCurrent();
+      final current = await _reloadIntState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    return _prepareIntMutation(store, key);
+  }
+
+  static Future<_StringPreferenceState> _prepareVocabStringMutation(
+    VocabProgressAttempt attempt,
+    PreferenceStringStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.string) {
+      attempt._assertCurrent();
+      final current = await _reloadStringState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    return _prepareStringMutation(store, key);
+  }
+
+  static Future<_StringListPreferenceState> _prepareVocabStringListMutation(
+    VocabProgressAttempt attempt,
+    PreferenceStringListStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.stringList) {
+      attempt._assertCurrent();
+      final current = await _reloadStringListState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    return _prepareStringListMutation(store, key);
+  }
+
+  static Future<void> _writeVocabInt(
+    VocabProgressAttempt attempt,
+    String key,
+    int value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceIntStore(preferences);
+    final before = await _prepareVocabIntMutation(attempt, store, key);
+    attempt._assertCurrent();
+    _confirmedVocabInts.putIfAbsent(key, () => before.value ?? 0);
+    if (before.isPresent && before.value == value) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      _confirmedVocabInts[key] = value;
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.integer,
+      store: store,
+      before: before,
+      after: value,
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        _confirmedVocabInts[key] = value;
+        markSaved();
+      },
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _siStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static Future<void> _writeVocabString(
+    VocabProgressAttempt attempt,
+    String key,
+    String value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringStore(preferences);
+    final before = await _prepareVocabStringMutation(attempt, store, key);
+    attempt._assertCurrent();
+    if (key == _wrongCountKey) {
+      _confirmedWrongCountRaw ??= before.value ?? '';
+    }
+    if (before.isPresent && before.value == value) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      if (key == _wrongCountKey) {
+        _confirmWrongCountRaw(value);
+      }
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.string,
+      store: store,
+      before: before,
+      after: value,
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        if (key == _wrongCountKey) {
+          _confirmWrongCountRaw(value);
+        }
+        markSaved();
+      },
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _ssStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static Future<void> _writeVocabStringList(
+    VocabProgressAttempt attempt,
+    String key,
+    List<String> value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringListStore(preferences);
+    final before = await _prepareVocabStringListMutation(attempt, store, key);
+    attempt._assertCurrent();
+    _confirmedVokSeenIds ??= List<String>.unmodifiable(
+      before.value ?? const <String>[],
+    );
+    if (before.isPresent && _preferenceValueEquals(before.value, value)) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      _confirmedVokSeenIds = List<String>.unmodifiable(value);
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.stringList,
+      store: store,
+      before: before,
+      after: List<String>.unmodifiable(value),
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        _confirmedVokSeenIds = List<String>.unmodifiable(value);
+        markSaved();
+      },
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _slStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
     }
   }
 
@@ -3568,36 +4551,50 @@ class Storage {
   // 두지 않는다 — 파싱 실패 시 빈 맵으로 관대하게 시작.
   static Map<String, int>? _wrongCountCache;
 
-  static Map<String, int> _loadWrongCounts() {
-    if (_wrongCountCache != null) return _wrongCountCache!;
-    final raw = _s('kl_wrong_count_v1');
-    if (raw.isEmpty) return _wrongCountCache = {};
+  static Map<String, int> _decodeWrongCounts(String raw) {
+    if (raw.isEmpty) {
+      return <String, int>{};
+    }
     try {
       final decoded = jsonDecode(raw);
-      if (decoded is! Map<String, dynamic>) return _wrongCountCache = {};
+      if (decoded is! Map<String, dynamic>) {
+        return <String, int>{};
+      }
       final out = <String, int>{};
       decoded.forEach((k, v) {
         if (v is int && v > 0) {
           out[k] = v;
         }
       });
-      return _wrongCountCache = out;
+      return out;
     } catch (_) {
-      return _wrongCountCache = {};
+      return <String, int>{};
     }
   }
 
-  static Future<void> _persistWrongCounts() async {
-    if (_learningWritesLockReason != null) {
-      debugPrint(
-        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_wrong_count_v1 쓰기를 건너뛴다',
-      );
-      return;
+  static void _confirmWrongCountRaw(String raw) {
+    _confirmedWrongCountRaw = raw;
+    _wrongCountCache = _decodeWrongCounts(raw);
+  }
+
+  static String _readConfirmedWrongCountRaw() {
+    if (_vocabWriteIsUnconfirmed(_wrongCountKey)) {
+      return _confirmedWrongCountRaw ?? '';
     }
-    await _ss(
-      'kl_wrong_count_v1',
-      jsonEncode(_wrongCountCache ?? const <String, int>{}),
-    );
+    final raw = _s(_wrongCountKey);
+    _confirmWrongCountRaw(raw);
+    return raw;
+  }
+
+  static Map<String, int> _readWrongCountMap() {
+    if (_wrongCountCache != null) {
+      return _wrongCountCache!;
+    }
+    return _wrongCountCache = _decodeWrongCounts(_readConfirmedWrongCountRaw());
+  }
+
+  static Map<String, int> _loadWrongCounts() {
+    return _readWrongCountMap();
   }
 
   /// 누적 실패 횟수 (모든 리트리벌 실패 — 같은 세션 내 반복 실패도 각각 셈).
@@ -3605,9 +4602,7 @@ class Storage {
 
   /// 실패 1회 기록. `srsReview(gotIt: false)` 를 부르는 지점 옆에 병치한다.
   static Future<void> incrementWrongCount(String id) async {
-    final map = _loadWrongCounts();
-    map[id] = (map[id] ?? 0) + 1;
-    await _persistWrongCounts();
+    await _requireVocabProgress(VocabProgressAttempt(wrongCountId: id));
   }
 
   /// [threshold]회 이상 틀린 단어 IDs — Extra-Lernset 의 명시적 절반
@@ -3633,12 +4628,17 @@ class Storage {
   }
 
   /// Roh-JSON (CloudSync-Backup/Export). Leer = nie etwas falsch.
-  static String get wrongCountRawJson => _s('kl_wrong_count_v1');
+  static String get wrongCountRawJson => _readConfirmedWrongCountRaw();
 
   /// Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren.
   static Future<void> setWrongCountRawJson(String json) async {
-    await _ss('kl_wrong_count_v1', json);
-    _wrongCountCache = null;
+    await _requireVocabProgress(
+      VocabProgressAttempt._restore(
+        restoreSeenIds: const <String>[],
+        restoreWrongCountJson: json,
+        restoreWrongCountOnlyIfEmpty: false,
+      ),
+    );
   }
 
   // ───────── Szenarien (Phase 5) ─────────
@@ -4779,9 +5779,9 @@ class Storage {
   /// 설치하면, 옛 코드가 자기가 이해하지 못하는 새 포맷 위에 옛 포맷을 써서
   /// 데이터를 망가뜨릴 수 있다. 그때 읽기는 허용하되 쓰기만 막는다.
   ///
-  /// ⚠️ **범위**: SRS 덱(`kl_srs_v1`)과 단어팩 진행도(`kl_pack_progress_v1`) 두
-  /// blob 만 막는다. 스트릭·XP 같은 스칼라 키와 클라우드 복원(`*Strict`) 경로는
-  /// 막지 않는다 — 복원은 원본을 통째로 교체하므로 오히려 회복 수단이다.
+  /// ⚠️ **범위**: SRS 덱(`kl_srs_v1`), 단어팩 진행도(`kl_pack_progress_v1`),
+  /// 공유 어휘 진행도를 막는다. 스트릭·XP 같은 다른 스칼라 키와 클라우드 복원
+  /// 경로는 막지 않는다 — 복원은 원본을 통째로 교체하므로 오히려 회복 수단이다.
   static void lockLearningWrites(String reason) {
     _learningWritesLockReason = reason;
     debugPrint('Storage: 학습 데이터 쓰기 잠금 — $reason');
@@ -5392,22 +6392,36 @@ class Storage {
     });
   }
 
-  /// Drain admitted reward/SRS writes before deletion and reject new admissions.
+  /// Drain admitted reward/SRS/vocabulary writes before deletion and reject new admissions.
   /// This prevents a delayed native completion from restoring erased progress.
-  static Future<void> _withLearningReset(Future<void> Function() reset) async {
-    final generation = _xpRewardMutationGeneration;
-    _learningResetCount++;
-    try {
-      await Future.wait([
-        if (_xpRewardMutationCount > 0) _xpRewardMutation,
-        if (_srsReviewMutationCount > 0) _srsReviewMutation,
-      ]);
-      await reset();
-    } finally {
-      if (generation == _xpRewardMutationGeneration) {
-        _learningResetCount--;
-      }
+  static Future<void> _withLearningReset(Future<void> Function() reset) {
+    if (_learningResetCount > 0) {
+      return Future<void>.error(
+        StateError('A learning-data reset is already in progress.'),
+      );
     }
+    final generation = _xpRewardMutationGeneration;
+    _learningResetCount = 1;
+    late final Future<void> operation;
+    operation = () async {
+      try {
+        await Future.wait([
+          if (_xpRewardMutationCount > 0) _xpRewardMutation,
+          if (_srsReviewMutationCount > 0) _srsReviewMutation,
+          if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
+        ]);
+        await reset();
+      } finally {
+        if (generation == _xpRewardMutationGeneration) {
+          _learningResetCount = 0;
+        }
+        if (identical(operation, _learningResetMutation)) {
+          _learningResetMutation = null;
+        }
+      }
+    }();
+    _learningResetMutation = operation;
+    return operation;
   }
 
   static PreferenceRemovalStore _preferenceRemovalStore() {
@@ -5462,11 +6476,26 @@ class Storage {
       );
 
   static Future<void> resetSession() async {
-    // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben
-    await _si('kl_vok_correct', 0);
-    await _si('kl_vok_wrong', 0);
-    await _si('kl_vok_skipped', 0);
-    await _si('kl_vok_last_idx', 0);
-    await _sl('kl_vok_seen_ids', []);
+    await _withLearningReset(() async {
+      // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben.
+      await _resolvePendingVocabPreferenceWrite();
+      _vocabProgressAttemptEpoch++;
+      final reset = VocabProgressAttempt._absolute(
+        absoluteCorrect: 0,
+        absoluteWrong: 0,
+        absoluteSkipped: 0,
+        cursor: 0,
+        bypassLearningWriteLock: true,
+      );
+      await _saveVocabProgressAttempt(reset);
+      var seenSaved = false;
+      await _writeVocabStringList(
+        reset,
+        _vokSeenIdsKey,
+        const <String>[],
+        () => seenSaved = true,
+      );
+      assert(seenSaved);
+    });
   }
 }

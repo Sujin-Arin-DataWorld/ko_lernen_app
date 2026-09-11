@@ -217,22 +217,14 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
       wordId: word.korean,
       gotIt: grade.evidence == VocabRecallEvidence.positive,
     );
-    var diagnosticAttempted = false;
+    final progress = grade.evidence == VocabRecallEvidence.negative
+        ? VocabProgressAttempt(wrongCountId: word.korean)
+        : null;
     return saveStudyEvidence(() async {
       if (!await attempt.save() || !studyEvidenceIsCurrent) {
         return false;
       }
-      if (grade.evidence == VocabRecallEvidence.negative &&
-          !diagnosticAttempted) {
-        diagnosticAttempted = true;
-        // Auxiliary metric, attempted once after primary evidence confirmation.
-        try {
-          await Storage.incrementWrongCount(word.korean);
-        } catch (error) {
-          debugPrint('Recall wrong-count diagnostic failed: $error');
-        }
-      }
-      return true;
+      return progress?.save() ?? true;
     });
   }
 
@@ -404,7 +396,10 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
                     labelText: t.vocabPackRecallPrompt,
                     hintText: t.vocabPackRecallInputHint,
                     onChanged: (_) {
-                      if (studyEvidenceAcceptsInput && presentation == _presentation) { setState(() {}); }
+                      if (studyEvidenceAcceptsInput &&
+                          presentation == _presentation) {
+                        setState(() {});
+                      }
                     },
                     onSubmitted: (_) {
                       // ignore: discarded_futures

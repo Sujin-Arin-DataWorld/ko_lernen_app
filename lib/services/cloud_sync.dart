@@ -336,39 +336,30 @@ class CloudSync {
     hanokStateMerger,
   }) async {
     final vok = _map(data['vok']);
-    final vocabularyWasUninitialized =
-        Storage.vokCorrect == 0 &&
-        Storage.vokWrong == 0 &&
-        Storage.vokSkipped == 0 &&
-        Storage.vokLastIdx == 0 &&
-        Storage.vokSeenIds.isEmpty;
-    await _maxMergeInt(
-      vok['correct'],
-      Storage.vokCorrect,
-      Storage.setVokCorrect,
-      beforeWrite: beforeWrite,
+    final wrongCountJson = _structuredJson(
+      data['wrong_count_json'],
+      hasExpectedShape: (decoded) => decoded is Map,
     );
-    await _maxMergeInt(
-      vok['wrong'],
-      Storage.vokWrong,
-      Storage.setVokWrong,
-      beforeWrite: beforeWrite,
-    );
-    await _maxMergeInt(
-      vok['skipped'],
-      Storage.vokSkipped,
-      Storage.setVokSkipped,
-      beforeWrite: beforeWrite,
-    );
+    final cloudVokCorrect = _nonNegativeInt(vok['correct']);
+    final cloudVokWrong = _nonNegativeInt(vok['wrong']);
+    final cloudVokSkipped = _nonNegativeInt(vok['skipped']);
     final cloudVokCursor = _nonNegativeInt(vok['last_idx']);
-    if (vocabularyWasUninitialized && cloudVokCursor != null) {
-      await _guardedWrite(
-        beforeWrite,
-        () => Storage.setVokLastIdx(cloudVokCursor),
+    final cloudVokSeen = _stringValues(vok['seen_ids']).toList();
+    if (cloudVokCorrect != null ||
+        cloudVokWrong != null ||
+        cloudVokSkipped != null ||
+        cloudVokCursor != null ||
+        cloudVokSeen.isNotEmpty ||
+        wrongCountJson != null) {
+      await Storage.restoreVocabularyProgress(
+        minimumCorrect: cloudVokCorrect,
+        minimumWrong: cloudVokWrong,
+        minimumSkipped: cloudVokSkipped,
+        cursor: cloudVokCursor,
+        seenIds: cloudVokSeen,
+        wrongCountJson: wrongCountJson,
+        assertCurrentWrite: beforeWrite,
       );
-    }
-    for (final id in _stringValues(vok['seen_ids'])) {
-      await _guardedWrite(beforeWrite, () => Storage.addVokSeen(id));
     }
 
     final ch = _map(data['chosung']);
@@ -526,16 +517,6 @@ class CloudSync {
     );
     if (srsJson != null && Storage.srsRawJson.isEmpty) {
       await _guardedWrite(beforeWrite, () => Storage.setSrsRawJson(srsJson));
-    }
-    final wrongCountJson = _structuredJson(
-      data['wrong_count_json'],
-      hasExpectedShape: (decoded) => decoded is Map,
-    );
-    if (wrongCountJson != null && Storage.wrongCountRawJson.isEmpty) {
-      await _guardedWrite(
-        beforeWrite,
-        () => Storage.setWrongCountRawJson(wrongCountJson),
-      );
     }
     final customPacksJson = _portableRestoreJson(
       data['custom_packs_json'],

@@ -69,7 +69,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   int _serve = 0;
   int _correct = 0;
   int _wrong = 0;
-  int _skipped = 0;
 
   String _level = 'Alle';
   String _topic = 'Alle';
@@ -133,7 +132,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     // Persistente Werte beim Start laden
     _correct = Storage.vokCorrect;
     _wrong = Storage.vokWrong;
-    _skipped = Storage.vokSkipped;
     _idx = Storage.vokLastIdx;
     _load();
     scheduleCoach();
@@ -293,13 +291,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return [for (final v in _filtered) v.translationFor(lang)];
   }
 
-  void _persistIdx() {
-    final index = _idx;
-    unawaited(
-      _runLegacyBestEffort('index', () => Storage.setVokLastIdx(index)),
-    );
-  }
-
   Future<void> _runLegacyBestEffort(
     String label,
     Future<void> Function() save,
@@ -311,48 +302,44 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }
   }
 
-  void _next(int presentation) {
-    final current = _current;
-    if (current == null || !_isCurrentCard(presentation, current)) {
-      return;
-    }
-    setState(() {
-      _flipped = false;
-      _cardRevealed = false;
-      _serve++;
-      _idx = (_idx + 1) % _filtered.length;
-    });
-    _persistIdx();
-  }
-
   // §C-1-2: prev 복원. 판정 덱 유지 + prev 버튼(하단 행).
   // 판정 없이 이전 카드로 되돌아간다 (SRS 영향 0).
-  void _prev(int presentation) {
+  Future<void> _prev(int presentation) async {
     final current = _current;
     if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
+    final nextIndex = (_idx - 1 + _filtered.length) % _filtered.length;
+    final progress = VocabProgressAttempt(cursor: nextIndex);
+    if (!await saveStudyEvidence(progress.save) ||
+        !_isCurrentCard(presentation, current)) {
       return;
     }
     setState(() {
       _flipped = false;
       _cardRevealed = false;
       _serve++;
-      _idx = (_idx - 1 + _filtered.length) % _filtered.length;
+      _idx = nextIndex;
     });
-    _persistIdx();
   }
 
-  void _random(int presentation) {
+  Future<void> _random(int presentation) async {
     final current = _current;
     if (current == null || !_isCurrentCard(presentation, current)) {
+      return;
+    }
+    final nextIndex = math.Random().nextInt(_filtered.length);
+    final progress = VocabProgressAttempt(cursor: nextIndex);
+    if (!await saveStudyEvidence(progress.save) ||
+        !_isCurrentCard(presentation, current)) {
       return;
     }
     setState(() {
       _flipped = false;
       _cardRevealed = false;
       _serve++;
-      _idx = math.Random().nextInt(_filtered.length);
+      _idx = nextIndex;
     });
-    _persistIdx();
   }
 
   Future<void> _gewusst(int presentation) => _review(presentation, gotIt: true);
@@ -368,10 +355,24 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     final wasDue = _mode == 'due' && _dueIds.contains(word.korean);
     final nextCorrect = _correct + (gotIt ? 1 : 0);
     final nextWrong = _wrong + (gotIt ? 0 : 1);
-    final attempt = SrsReviewAttempt(id: word.korean, gotIt: gotIt);
-    var auxiliaryAttempted = false;
+    final dueAfterReview = wasDue
+        ? _filtered
+              .where((candidate) => candidate.korean != word.korean)
+              .toList()
+        : _filtered;
+    final nextIndex = wasDue
+        ? (_idx >= dueAfterReview.length ? 0 : _idx)
+        : (_idx + 1) % _filtered.length;
+    final srs = SrsReviewAttempt(id: word.korean, gotIt: gotIt);
+    final progress = VocabProgressAttempt(
+      correctDelta: gotIt ? 1 : 0,
+      wrongDelta: gotIt ? 0 : 1,
+      cursor: nextIndex,
+      seenId: gotIt ? word.korean : null,
+      wrongCountId: gotIt ? null : word.korean,
+    );
     final saved = await saveStudyEvidence(() async {
-      if (!await attempt.save()) {
+      if (!await srs.save()) {
         return false;
       }
       if (!studyEvidenceIsCurrent ||
@@ -379,16 +380,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           !identical(_current, word)) {
         return false;
       }
-      if (!auxiliaryAttempted) {
-        auxiliaryAttempted = true;
-        await _persistLegacyReviewAuxiliary(
-          word,
-          gotIt: gotIt,
-          correct: nextCorrect,
-          wrong: nextWrong,
-        );
-      }
-      return true;
+      return progress.save();
     });
     if (!saved || !_isCurrentCard(presentation, word)) {
       return;
@@ -407,9 +399,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       _dueIds.remove(word.korean);
       if (_mode == 'due') {
         _filtered = _filterList();
-        if (_idx >= _filtered.length) {
-          _idx = 0;
-        }
+        _idx = nextIndex;
         _dueFeedback.completeIfEligible(
           isDueMode: true,
           dueIsEmpty: _dueIds.isEmpty,
@@ -417,72 +407,32 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           level: null,
         );
       } else if (_filtered.isNotEmpty) {
-        _idx = (_idx + 1) % _filtered.length;
+        _idx = nextIndex;
       }
       _flipped = false;
       _cardRevealed = false;
       _serve++;
     });
-    // Legacy index persistence remains best-effort and follows confirmed SRS
-    // plus daily-log evidence. It is not part of that two-key transaction.
-    try {
-      await Storage.setVokLastIdx(_idx);
-    } catch (error) {
-      debugPrint('Legacy vocab index persistence failed: $error');
-    }
   }
 
-  Future<void> _persistLegacyReviewAuxiliary(
-    Vocab word, {
-    required bool gotIt,
-    required int correct,
-    required int wrong,
-  }) async {
-    if (!studyEvidenceIsCurrent) {
-      return;
-    }
-    try {
-      if (gotIt) {
-        await Storage.setVokCorrect(correct);
-      } else {
-        await Storage.setVokWrong(wrong);
-      }
-    } catch (error) {
-      debugPrint('Legacy vocab counter persistence failed: $error');
-    }
-    if (!studyEvidenceIsCurrent) {
-      return;
-    }
-    if (gotIt) {
-      try {
-        await Storage.addVokSeen(word.korean);
-      } catch (error) {
-        debugPrint('Legacy vocab seen persistence failed: $error');
-      }
-    } else {
-      try {
-        await Storage.incrementWrongCount(word.korean);
-      } catch (error) {
-        debugPrint('Legacy vocab wrong-count persistence failed: $error');
-      }
-    }
-  }
-
-  void _skip(int presentation) {
+  Future<void> _skip(int presentation) async {
     final current = _current;
     if (current == null || !_isCurrentCard(presentation, current)) {
       return;
     }
+    final nextIndex = (_idx + 1) % _filtered.length;
+    final progress = VocabProgressAttempt(skippedDelta: 1, cursor: nextIndex);
+    if (!await saveStudyEvidence(progress.save) ||
+        !_isCurrentCard(presentation, current)) {
+      return;
+    }
     HapticFeedback.selectionClick();
-    setState(() => _skipped++);
-    final skipped = _skipped;
-    unawaited(
-      _runLegacyBestEffort(
-        'skip counter',
-        () => Storage.setVokSkipped(skipped),
-      ),
-    );
-    _next(presentation);
+    setState(() {
+      _flipped = false;
+      _cardRevealed = false;
+      _serve++;
+      _idx = nextIndex;
+    });
   }
 
   // §P2-5 플립 게이트 힌트 칩 트리거.

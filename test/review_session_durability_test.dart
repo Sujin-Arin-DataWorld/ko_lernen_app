@@ -65,6 +65,32 @@ void main() {
     },
   );
 
+  testWidgets('rejected wrong-count keeps the answer pending until retry', (
+    tester,
+  ) async {
+    await _pumpReview(tester);
+    platform.rejectKey = 'kl_wrong_count_v1';
+    await _flip(tester);
+    _feed(tester).onHard!();
+    await _settleTransition(tester);
+
+    expect(find.byType(AppError), findsOneWidget);
+    expect(Storage.srsCard('학교')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('학교'), 0);
+    expect(Storage.xp, 0);
+
+    platform.rejectKey = null;
+    final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+    retry();
+    retry();
+    await _settleTransition(tester);
+
+    expect(find.byType(AppError), findsNothing);
+    expect(Storage.srsCard('학교')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('학교'), 1);
+    expect(platform.writes['kl_wrong_count_v1'], 2);
+  });
+
   for (final key in ['kl_srs_v1', Storage.listeningRewardLedgerPreferenceKey]) {
     for (final committed in [false, true]) {
       testWidgets(
@@ -215,6 +241,36 @@ void main() {
     });
   }
 
+  testWidgets(
+    'system pop after accepted SRS does not start vocabulary progress',
+    (tester) async {
+      await _pumpReview(tester, pushed: true);
+      final entered = Completer<void>();
+      final release = Completer<void>();
+      platform
+        ..rejectKey = 'kl_srs_v1'
+        ..writeEntered = entered
+        ..releaseWrite = release
+        ..successfulReply = true
+        ..commitBeforeFailure = true;
+      await _flip(tester);
+      _feed(tester).onHard!();
+      await tester.runAsync(() => entered.future);
+      await _settleTransition(tester);
+      final context = tester.element(find.byType(ReviewSessionScreen));
+
+      Navigator.of(context).pop();
+      release.complete();
+      await _settleTransition(tester);
+
+      expect(Storage.srsCard('학교')?.reviewCount, 1);
+      expect(Storage.wrongCountOf('학교'), 0);
+      expect(platform.writes['kl_wrong_count_v1'], isNull);
+      expect(Storage.xp, 0);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets('old feed callback cannot judge the newly served card', (
     tester,
   ) async {
@@ -259,31 +315,42 @@ void main() {
   });
 }
 
-Future<void> _pumpReview(WidgetTester tester, {List<Vocab>? deck}) async {
+Future<void> _pumpReview(
+  WidgetTester tester, {
+  List<Vocab>? deck,
+  bool pushed = false,
+}) async {
   tester.view.physicalSize = const Size(400, 800);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
 
+  final navigator = GlobalKey<NavigatorState>();
+  final screen = MediaQuery(
+    data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
+    child: ReviewSessionScreen(
+      deck: deck ?? [_deck.first],
+      cultureNotesLoader: () async {},
+    ),
+  );
   await tester.pumpWidget(
     MaterialApp(
+      navigatorKey: navigator,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: MediaQuery(
-        data: const MediaQueryData(
-          size: Size(400, 800),
-          disableAnimations: true,
-        ),
-        child: ReviewSessionScreen(
-          deck: deck ?? [_deck.first],
-          cultureNotesLoader: () async {},
-        ),
-      ),
+      home: pushed ? const SizedBox() : screen,
     ),
   );
+  if (pushed) {
+    unawaited(
+      navigator.currentState!.push(
+        MaterialPageRoute<void>(builder: (_) => screen),
+      ),
+    );
+  }
   await _settleTransition(tester);
 }
 

@@ -1864,3 +1864,70 @@ push, merge, remote CI, build, upload, paid calls, image or device changes.
 Task 39 verification scope amendment: the required 38-file regression exposed a pre-existing stale expectation in test/study_home_escape_guard_test.dart. Baseline review_session_screen.dart already protects pending accepted judgments as well as completed reviews. Update only that guard expectation to preserve the stronger existing behavior; no review-session runtime edit. This small verification repair is included under the user-authorized local stabilization goal. Original failure log and scoped 8-test rerun are retained; no full-suite repetition.
 
 **Task 39 local verification:** 3 native persistence failures reproduced before repair. Affected regression passed 1080 tests in 38 files, with 0 configured skips; 3 changed Dart files analyzed cleanly. The 38-file run initially passed 1079 tests with one stale review-home-escape source guard failure; correcting that pre-existing expectation to include pending judgments passed all 8 guard tests on a scoped rerun, covering 1080 unique tests without repeating successful suites. Independent Standards and Spec approved actual final source hashes. Prior sources, 1014 assets and 1095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external legacy-vocab-evidence-20260911/verification.json. Auxiliary counters/seen/skip/index/wrong metrics remain best-effort and require a later shared persistence repair; this confirms retained primary SRS and daily-log evidence only. No push, merge, remote CI, build, upload, paid provider or device action. Initial reproduction invoked automatic dependency resolution; tracked pubspec/lock remained unchanged and subsequent tests use --no-pub. Whole launch goal remains open.
+
+### Task 40: Confirm shared vocabulary progress and fence reset/restore races
+
+Baseline: 1fb18c561431f39dfc5cdbc3f05e07730e5b5cff. Native preference false
+responses currently appear successful for vocabulary counters, seen IDs and
+wrong counts. Optimistic cache reaches stats/pack completion/export while
+native storage differs. Delayed auxiliary writes are outside reset drain.
+
+- [x] Reproduce real native rejection/unknown outcomes, lost wrong increments,
+  and delayed write/reset races before production edits. Native state must be
+  separate from the SharedPreferences optimistic cache. Preserve baseline red.
+- [x] Implement a retained vocabulary progress mutation contract for correct,
+  wrong, skipped, cursor, seen IDs and wrong-count data. Confirm native writes
+  before reporting success; retries must reuse one logical mutation and never
+  double an increment after committed-but-lost responses. Serialize concurrent
+  read/modify/write and pending reconciliation. Preserve existing preference
+  keys, cloud schema and learner data; do not globally alter unrelated generic
+  setters. Synchronous readers/exports must expose confirmed values while a
+  write outcome is pending or rejected, not optimistic phantom progress.
+- [x] Integrate every active writer of these APIs: legacy_vocab, vocab_pack,
+  vocab_pack_recall, review_session, custom_pack_play/quiz/typing/matching,
+  hard_choice_quiz and speed_match screens. Attach retained progress attempts
+  to existing SRS/recovery before completion, feedback/advance or timer resume;
+  preserve each screen's exact seen and miss-count eligibility (including first
+  miss per word/round vs every retrieval failure). Repeating a recovered answer
+  cannot duplicate SRS or auxiliary progress. Fence stale/duplicate UI, route
+  pop/exit/unmount, pending skip/cursor actions and local data lifetime. Preserve
+  current localized recovery UX, first-judgment SRS semantics, scoring, timing,
+  course eligibility and empty/due/filter behavior. Do not silently swallow a
+  progress write failure or add discarded exceptions at remaining callers.
+- [x] Include accepted vocabulary writes in production reset drain and reject
+  new admissions during reset; invalidate retained attempts across reset and
+  resetForTesting/re-init. A delayed old native write/rollback must not restore
+  deleted data or target a new preferences/account boundary. Cloud restore must
+  await confirmed writes and propagate failure, recheck account/lifetime fences
+  at queued execution/native writes, and compute counter max/seen union at the
+  serialized boundary so concurrent local learning is not overwritten. Preserve
+  existing cursor initialization and wrong-count restore policy.
+- [x] Verify stats, export, custom/standard pack completion/backfill, SoriStage
+  progression and word relations see confirmed progress. Add native failure,
+  unknown committed/uncommitted and retry/concurrency/reset/restore tests plus
+  representative widget failure recovery for all changed learning adapters.
+  Adjust existing timings only where confirmation legitimately becomes async;
+  do not weaken semantic assertions. All Flutter runs use --no-pub and one
+  active process; no source edits while tests/analyzer run.
+- [x] Complete appropriate local regression/static analysis and independent
+  Standards and Spec review against final actual hashes. Shared Storage changes
+  require broad local regression; do not substitute a few tests for shared scope.
+- [x] Preserve prior sources/assets/paid Graph records, run free Graphify update
+  and verified prune, and record a verified local commit and external evidence.
+
+Owned production scope: storage_service.dart and focused new persistence
+helper/model if justified; cloud_sync.dart; the ten learning screens listed
+above. Relevant tests and test support may change. Consumer services/screens
+may change only if required to consume confirmed progress (explain any addition).
+Shared SRS/XP semantics, course reporter durability, favorites/likes persistence,
+new assets/SDKs/pubspec/workflows and UI redesign are outside this fix. Their
+remaining risks must not be concealed by a vocabulary durability claim.
+No push, merge, remote CI, build, upload, paid API or device action. Retention
+covers the running process unless separately proven; whole-process-death
+recovery and global launch/commercial-readiness remain open.
+
+**Task 40 local verification:** 4 native baseline failures reproduced before repair. Scoped regression passed 5293 tests in 472 files, with 16 configured skips; 19 changed Dart files analyzed cleanly. Independent Standards and Spec approved actual final source hashes. Prior sources, 1014 assets and 1095 paid Graph records were preserved; free Graphify update/prune completed. Exact local commit and evidence: external vocab-progress-evidence-20260911/verification.json. Shared vocabulary progress confirmation covers native retry/concurrency, adapted learning screens, confirmed consumers and reset/restore fences. Whole-process-death, unrelated course/favorite writes, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
+
+**Review repair:** 8 additional review failures reproduced before repairing public setter lock bypass, session/full-reset ownership and stale account pending confirmation; required braces added. Quarantine preserves confirmed readers, checks third native values and fails closed for unconfirmed no-op restores. Both review axes re-approved the repaired final hashes. Initial successful broad evidence remains archived in review-round-0 and is not substituted for final-hash verification.
+
+**Second review repair:** 15 delayed-native account transition failures reproduced. Post-native stale-origin handling now also protects success/rejection paths for integer, string and string-list writes. Round 1 broad evidence is archived separately and was superseded by final repaired-source verification.

@@ -196,13 +196,29 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         .translationFor(_languageCode)
         .trim();
     final judgment = ++_presentation;
-    if (!_missedKorean.contains(ko)) {
+    final firstJudgment = !_missedKorean.contains(ko);
+    if (firstJudgment) {
+      final correct = meaning == expected;
       final attempt = SrsReviewAttempt(id: ko, gotIt: meaning == expected);
-      if (!await saveStudyEvidence(attempt.save)) return;
+      final progress = VocabProgressAttempt(
+        seenId: ko,
+        wrongCountId: correct ? null : ko,
+      );
+      if (!await saveStudyEvidence(() async {
+        if (!await attempt.save()) {
+          return false;
+        }
+        if (!studyEvidenceIsCurrent) {
+          return false;
+        }
+        return progress.save();
+      })) {
+        return;
+      }
     }
-    if (!mounted || !_acceptsInput || judgment != _presentation) return;
-    // 정답/오답 무관 — 이 라운드에서 노출됐다는 사실 자체를 기록한다.
-    Storage.addVokSeen(ko);
+    if (!mounted || !_acceptsInput || judgment != _presentation) {
+      return;
+    }
     if (meaning == expected) {
       HapticFeedback.lightImpact();
       SoundService.correct();
@@ -223,9 +239,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       _misses++;
       // Pro Wort/Runde genau ein negativer Lernnachweis. Wiederholte Taps auf
       // dieselbe falsche Zuordnung dürfen den Zähler nicht künstlich aufblasen.
-      if (_missedKorean.add(ko)) {
-        unawaited(Storage.incrementWrongCount(ko));
-      }
+      _missedKorean.add(ko);
       setState(() {
         _wrongRight = meaning;
         _statusMessage = AppL10n.of(context).statsWrong;

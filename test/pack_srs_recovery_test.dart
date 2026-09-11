@@ -260,6 +260,38 @@ void main() {
       },
     );
 
+    testWidgets(
+      '${recall ? 'typed recall' : 'pack learn'} holds rejected vocabulary progress until retry',
+      (tester) async {
+        final session = PackRecallSession.forPack(packId: _pack.id);
+        await _pump(tester, recall, session);
+        platform.rejectKey = 'kl_wrong_count_v1';
+        await _answer(tester, recall, gotIt: false);
+        await _until(tester, find.byType(AppError));
+
+        expect(Storage.srsCard(_word.korean)?.reviewCount, 1);
+        expect(Storage.wrongCountOf(_word.korean), 0);
+        expect(find.byKey(const Key('vocab-recall-next')), findsNothing);
+
+        platform.rejectKey = null;
+        final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+        retry();
+        retry();
+        await _until(
+          tester,
+          recall
+              ? find.byKey(const Key('vocab-recall-next'))
+              : _confirmed(false),
+        );
+
+        expect(Storage.srsCard(_word.korean)?.reviewCount, 1);
+        expect(Storage.wrongCountOf(_word.korean), 1);
+        expect(platform.writes['kl_wrong_count_v1'], 2);
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox());
+      },
+    );
+
     for (final logFailure in [false, true]) {
       for (final committed in [false, true]) {
         testWidgets(
@@ -459,6 +491,58 @@ void main() {
       await tester.pumpWidget(const SizedBox());
       expect(timers.single.isActive, isFalse);
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'recognition waits for rejected vocabulary progress and schedules once',
+    (tester) async {
+      final timers = <Timer>[];
+      await _pump(
+        tester,
+        false,
+        PackRecallSession.forPack(packId: _pack.id),
+        pack: _twoWords,
+        timerFactory: (duration, callback) {
+          final timer = Timer(duration, callback);
+          timers.add(timer);
+          return timer;
+        },
+      );
+      await _answer(tester, false);
+      await _answer(tester, false);
+      await _until(tester, _confirmed(false));
+      final correctText = tester
+          .widgetList<QuizChoice>(find.byType(QuizChoice))
+          .singleWhere((choice) => choice.isCorrect)
+          .text;
+      final current = _twoWords.words
+          .singleWhere((word) => word.english == correctText)
+          .korean;
+      final wrong = tester
+          .widgetList<QuizChoice>(find.byType(QuizChoice))
+          .firstWhere((choice) => !choice.isCorrect)
+          .onSelected!;
+      platform.rejectKey = 'kl_wrong_count_v1';
+
+      wrong();
+      await _until(tester, find.byType(AppError));
+      expect(timers, isEmpty);
+      expect(Storage.srsCard(current)?.reviewCount, 2);
+      expect(Storage.wrongCountOf(current), 0);
+
+      platform.rejectKey = null;
+      final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+      retry();
+      retry();
+      await _until(tester, _confirmed(false));
+
+      expect(timers, hasLength(1));
+      expect(Storage.srsCard(current)?.reviewCount, 2);
+      expect(Storage.wrongCountOf(current), 1);
+      expect(platform.writes['kl_wrong_count_v1'], 2);
+      await tester.pumpWidget(const SizedBox());
+      expect(timers.single.isActive, isFalse);
     },
   );
 }

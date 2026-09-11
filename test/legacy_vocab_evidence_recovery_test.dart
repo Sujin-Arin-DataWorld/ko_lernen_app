@@ -242,7 +242,7 @@ void main() {
   }
 
   testWidgets(
-    'auxiliary failure stays best-effort after primary confirmation',
+    'legacy progress failure retains the confirmed judgment until retry',
     (tester) async {
       await _pump(tester);
       final action = await _acceptedAction(tester, gotIt: false);
@@ -251,21 +251,33 @@ void main() {
         ..throwReply = true;
 
       action();
-      await _until(tester, _nextCard);
+      await _until(tester, find.byType(AppError));
 
       expect(Storage.srsCard('사과')?.reviewCount, 1);
       expect(Storage.studyLogIdsFor(Storage.todayIso()), contains('사과'));
       expect(platform.writes['kl_vok_wrong'], 1);
+      expect(platform.writes['kl_wrong_count_v1'], isNull);
+      expect(Storage.wrongCountOf('사과'), 0);
+      expect(find.text('바나나'), findsNothing);
+
+      platform.rejectKey = null;
+      final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+      retry();
+      retry();
+      await _until(tester, _nextCard);
+
+      expect(Storage.srsCard('사과')?.reviewCount, 1);
+      expect(platform.values['kl_vok_wrong'], 1);
+      expect(platform.writes['kl_vok_wrong'], 2);
       expect(platform.writes['kl_wrong_count_v1'], 1);
       expect(Storage.wrongCountOf('사과'), 1);
-      expect(find.byType(AppError), findsNothing);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     },
   );
 
   for (final rejectedKey in ['kl_vok_skipped', 'kl_vok_last_idx']) {
-    testWidgets('$rejectedKey failure stays best-effort during skip', (
+    testWidgets('$rejectedKey failure holds skip position until retry', (
       tester,
     ) async {
       await _pump(tester);
@@ -274,10 +286,21 @@ void main() {
         ..throwReply = true;
 
       tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onSkip!();
-      await _until(tester, _nextCard);
-      await _flush(tester);
+      await _until(tester, find.byType(AppError));
 
       expect(Storage.srsTotalReviewed(), 0);
+      expect(find.text('바나나'), findsNothing);
+      expect(Storage.vokSkipped, 0);
+
+      platform.rejectKey = null;
+      final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+      retry();
+      retry();
+      await _until(tester, _nextCard);
+
+      expect(Storage.vokSkipped, 1);
+      expect(platform.values['kl_vok_last_idx'], 1);
+      expect(platform.writes[rejectedKey], 2);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });

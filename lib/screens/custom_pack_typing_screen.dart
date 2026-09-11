@@ -163,15 +163,22 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final word = _pool[_order[_idx]];
     final ok = _norm(_input.text) == _norm(word.korean);
     final attempt = SrsReviewAttempt(id: word.korean, gotIt: ok);
-    if (!await saveStudyEvidence(attempt.save) ||
+    final progress = VocabProgressAttempt(
+      seenId: word.korean,
+      wrongCountId: ok ? null : word.korean,
+    );
+    if (!await saveStudyEvidence(() async {
+          if (!await attempt.save()) {
+            return false;
+          }
+          if (!studyEvidenceIsCurrent) {
+            return false;
+          }
+          return progress.save();
+        }) ||
         !_acceptsInput ||
         presentation != _presentation) {
       return;
-    }
-    Storage.addVokSeen(word.korean);
-    if (!ok) {
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(word.korean);
     }
     setState(() {
       _correct = ok;
