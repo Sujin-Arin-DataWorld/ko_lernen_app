@@ -1620,9 +1620,9 @@
     "semantic_hash": ""
   },
   "lib/screens/review_session_screen.dart": {
-    "mtime": 1788987817.1675444,
-    "seen": 1788995056.9173312,
-    "ast_hash": "cf8df62ec3949d471c842c9f3ce36b06",
+    "mtime": 1789088578.6705058,
+    "seen": 1789088899.4279096,
+    "ast_hash": "bd757a77d52ee5ebedcedf33bc2f0300",
     "semantic_hash": ""
   },
   "lib/screens/sarangbang_furnish_screen.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789081854.4955752,
-    "seen": 1789087664.0997093,
-    "ast_hash": "820d5ec941b96898a124d7915cdae295",
+    "mtime": 1789087917.2466378,
+    "seen": 1789088899.8608503,
+    "ast_hash": "87eff9533ff322a20bcf5294fec11e57",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16047,6 +16047,12 @@
     "mtime": 1789082189.8998513,
     "seen": 1789087663.8252652,
     "ast_hash": "3b2eec0a8a01af3410203b7614989a84",
+    "semantic_hash": ""
+  },
+  "test/review_session_durability_test.dart": {
+    "mtime": 1789088438.1424658,
+    "seen": 1789088899.5849655,
+    "ast_hash": "5a2b884799593371fb163b6da2c5b614",
     "semantic_hash": ""
   }
 }

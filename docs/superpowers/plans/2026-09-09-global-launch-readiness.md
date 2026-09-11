@@ -1344,3 +1344,48 @@ proof are external in ordinary-xp-durability-20260911/verification.json.
 No push, remote CI, build, upload, paid call or device retry. General game
 result error/retry presentation and process-death session resumption remain
 separate work, alongside signed-device and operational readiness.
+
+### Task 30: Confirm review judgments and XP before advancing the screen
+
+Baseline: `fb68409cde9b8ce0086e8320556c1ae30ae14e91`. ReviewSessionScreen
+discards SRS and XP futures and announces completion even when native storage
+rejects the judgment. Apply the existing retryable storage attempts to this
+production learning flow, preserving deck order and one bounded wrong repeat.
+
+- [x] Reproduce rejected SRS showing false completion in the real screen.
+- [x] Await confirmed SRS/study-log evidence before advancing; retain the same
+  judgment and final XP attempt across retry. Only show completion and feedback
+  after XP confirmation. Prevent double taps, stale callbacks and post-exit work.
+- [x] Show localized, accessible saving/failure states using existing Sori
+  components. Keep close/home exits, respect reset lifetime, and preserve
+  existing bounded repeats, history navigation and reward amount.
+- [x] Test native rejection, lost acknowledgement, retry, daily-log failure,
+  double input, route exit and reset plus related review/storage regressions.
+  Run analysis and independent Spec/Standards reviews of the final source.
+- [x] Update free Graphify, verify preservation and commit locally. No push,
+  new build, deployment, paid calls or device retry.
+
+Wrong-count diagnostics retain their existing best-effort storage contract;
+they are attempted once per judgment, never retried as primary SRS evidence.
+General game screens and process-death session resumption remain open work.
+
+**Task 30 local verification (2026-09-11):** The real review screen
+showed no failure state after native SRS rejection. It now waits for confirmed
+SRS and daily-log evidence before advancing and confirmed XP before completion
+or feedback. Retained attempts resume the same judgment and XP award. Native
+lost replies, rejected writes, double input, leave/reset and bounded repeats
+are covered. Independent Spec review exposed an old feed callback targeting
+the next card; its failing reproduction is preserved and presentation-bound
+callbacks now reject it, including after the next card is revealed.
+
+Final scoped verification passed 280 Flutter tests
+in 28 files. Analysis of 2
+Dart files had no issues; both independent review axes approved the final
+source. All 2,476 frozen source files, 1014 assets
+and 1,095 paid Graphify records were checked.
+Free Graphify update/prune completed. Exact commit/parent/tree and clean-state
+proof are in review-session-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Wrong-count
+diagnostics retain their best-effort storage contract. General game-result
+recovery, process-death resumption and signed-device/operational readiness
+remain open; this does not prove whole-session atomicity or commercial readiness.
