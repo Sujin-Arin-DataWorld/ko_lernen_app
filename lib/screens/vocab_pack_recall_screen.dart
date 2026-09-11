@@ -19,6 +19,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -51,11 +52,14 @@ class VocabPackRecallScreen extends StatefulWidget {
 
 enum _RecallFeedback { correct, correctWithHint, incorrect, revealed }
 
-class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
+class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
+    with StudyEvidenceRecovery<VocabPackRecallScreen> {
   final TextEditingController _input = TextEditingController();
   final FocusNode _inputFocus = FocusNode();
 
   bool _loading = true;
+  int _presentation = 0;
+  int _loadGeneration = 0;
   String? _error;
   List<Vocab> _words = const [];
   int _index = 0;
@@ -79,6 +83,10 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   }
 
   Future<void> _load() async {
+    if (!studyEvidenceAcceptsInput || (_loadGeneration > 0 && _error == null)) {
+      return;
+    }
+    final generation = ++_loadGeneration;
     setState(() {
       _loading = true;
       _error = null;
@@ -88,7 +96,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
       final pack = providedLoader != null
           ? await providedLoader(widget.packId)
           : await VocabPackService.findById(widget.packId);
-      if (!mounted) {
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) {
         return;
       }
       if (pack == null) {
@@ -104,6 +112,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
           rng: widget.orderRng ?? math.Random(),
         );
         _index = 0;
+        _presentation++;
         _directCorrect = 0;
         _hintUsed = false;
         _feedback = null;
@@ -113,7 +122,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
       });
       _focusInput();
     } catch (_) {
-      if (!mounted) {
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) {
         return;
       }
       setState(() {
@@ -127,14 +136,19 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
 
   void _focusInput() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && _feedback == null && !_done) {
+      if (studyEvidenceAcceptsInput && _feedback == null && !_done) {
         _inputFocus.requestFocus();
       }
     });
   }
 
-  Future<void> _submit() async {
-    if (_feedback != null || _input.text.trim().isEmpty) {
+  Future<void> _submit(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        _loading ||
+        _done ||
+        presentation != _presentation ||
+        _feedback != null ||
+        _input.text.trim().isEmpty) {
       return;
     }
     final word = _current;
@@ -143,6 +157,10 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
       expected: word.korean,
       usedHint: _hintUsed,
     );
+    _presentation++;
+    if (!await _recordEvidence(word, grade) || !studyEvidenceAcceptsInput) {
+      return;
+    }
     setState(() {
       if (grade.isCorrect) {
         _feedback = _hintUsed
@@ -156,10 +174,6 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
         _missedWordIds.add(word.korean);
       }
     });
-    await _recordEvidence(word, grade);
-    if (!mounted) {
-      return;
-    }
     if (grade.isCorrect) {
       HapticFeedback.lightImpact();
       SoundService.correct();
@@ -169,68 +183,77 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
     }
   }
 
-  Future<void> _showAnswer() async {
-    if (_feedback != null) {
+  Future<void> _showAnswer(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        _loading ||
+        _done ||
+        presentation != _presentation ||
+        _feedback != null) {
       return;
     }
     final word = _current;
+    _presentation++;
+    if (!await _recordEvidence(word, revealedVocabRecallAnswer) ||
+        !studyEvidenceAcceptsInput) {
+      return;
+    }
     setState(() {
       _feedback = _RecallFeedback.revealed;
       _missedWordIds.add(word.korean);
     });
-    await _recordEvidence(word, revealedVocabRecallAnswer);
-    if (!mounted) {
-      return;
-    }
     HapticFeedback.mediumImpact();
     SoundService.wrong();
   }
 
-  Future<void> _recordEvidence(Vocab word, VocabRecallGrade grade) async {
+  Future<bool> _recordEvidence(Vocab word, VocabRecallGrade grade) async {
     final session = widget.recallSession;
-    if (session == null || !session.isValidForPack(widget.packId)) {
-      return;
+    if (session == null ||
+        !session.isValidForPack(widget.packId) ||
+        grade.evidence == VocabRecallEvidence.none) {
+      return true;
     }
-    switch (grade.evidence) {
-      case VocabRecallEvidence.positive:
-        final action = session.recordPositiveFor(
-          expectedPackId: widget.packId,
-          wordId: word.korean,
-        );
-        if (action.writesSrs) {
-          await Storage.srsReview(word.korean, gotIt: action.gotIt!);
+    final attempt = session.evidenceAttempt(
+      expectedPackId: widget.packId,
+      wordId: word.korean,
+      gotIt: grade.evidence == VocabRecallEvidence.positive,
+    );
+    var diagnosticAttempted = false;
+    return saveStudyEvidence(() async {
+      if (!await attempt.save() || !studyEvidenceIsCurrent) {
+        return false;
+      }
+      if (grade.evidence == VocabRecallEvidence.negative &&
+          !diagnosticAttempted) {
+        diagnosticAttempted = true;
+        // Auxiliary metric, attempted once after primary evidence confirmation.
+        try {
+          await Storage.incrementWrongCount(word.korean);
+        } catch (error) {
+          debugPrint('Recall wrong-count diagnostic failed: $error');
         }
-        return;
-      case VocabRecallEvidence.negative:
-        final action = session.recordNegativeFor(
-          expectedPackId: widget.packId,
-          wordId: word.korean,
-        );
-        if (action.writesSrs) {
-          await Storage.srsReview(word.korean, gotIt: action.gotIt!);
-        }
-        // The ledger coalesces SRS scheduling only. Every genuine miss keeps
-        // the existing wrong-count behavior, but practice-only route payloads
-        // return above without recording either kind of learning evidence.
-        await Storage.incrementWrongCount(word.korean);
-        return;
-      case VocabRecallEvidence.none:
-        return;
-    }
+      }
+      return true;
+    });
   }
 
-  void _showHint() {
-    if (_feedback != null || _hintUsed) {
+  void _showHint(int presentation) {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        _feedback != null ||
+        _hintUsed) {
       return;
     }
     HapticFeedback.selectionClick();
     setState(() => _hintUsed = true);
   }
 
-  void _next() {
-    if (_feedback == null) {
+  void _next(int presentation) {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        _feedback == null) {
       return;
     }
+    _presentation++;
     if (_index + 1 >= _words.length) {
       setState(() => _done = true);
       return;
@@ -247,8 +270,14 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final recovery = studyEvidenceRecoveryFrame(t.vocabPackRecallTitle);
+    if (recovery != null) {
+      return recovery;
+    }
+    final generation = _loadGeneration;
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackRecallTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -256,13 +285,22 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
     }
     if (_error != null) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackRecallTitle,
         padding: EdgeInsets.zero,
-        child: AppError(message: _error!, onRetry: _load),
+        child: AppError(
+          message: _error!,
+          onRetry: () {
+            if (generation == _loadGeneration && !_loading && _error != null) {
+              _load();
+            }
+          },
+        ),
       );
     }
     if (_words.isEmpty) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackRecallTitle,
         child: Center(
           child: SoriEmptyState(
@@ -281,6 +319,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   }
 
   Widget _buildPrompt(AppL10n t) {
+    final presentation = _presentation;
     final word = _current;
     final lang = Localizations.localeOf(context).languageCode;
     final feedback = _feedback;
@@ -297,6 +336,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
         : SoriColors.success;
 
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: t.vocabPackRecallTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_done && (_index > 0 || _feedback != null),
@@ -363,10 +403,12 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
                     style: tt.h1,
                     labelText: t.vocabPackRecallPrompt,
                     hintText: t.vocabPackRecallInputHint,
-                    onChanged: (_) => setState(() {}),
+                    onChanged: (_) {
+                      if (studyEvidenceAcceptsInput && presentation == _presentation) { setState(() {}); }
+                    },
                     onSubmitted: (_) {
                       // ignore: discarded_futures
-                      _submit();
+                      _submit(presentation);
                     },
                   ),
                   if (_hintUsed && !isLocked) ...[
@@ -415,7 +457,9 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
                             label: t.vocabPackRecallHintCta,
                             variant: SoriButtonVariant.outlined,
                             accent: SoriColors.warning,
-                            onTap: _hintUsed ? null : _showHint,
+                            onTap: _hintUsed
+                                ? null
+                                : () => _showHint(presentation),
                           ),
                         ),
                         const SizedBox(width: Spacing.sm),
@@ -425,7 +469,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
                             label: t.vocabPackRecallShowAnswerCta,
                             variant: SoriButtonVariant.outlined,
                             accent: SoriColors.danger,
-                            onTap: _showAnswer,
+                            onTap: () => _showAnswer(presentation),
                           ),
                         ),
                       ],
@@ -441,8 +485,10 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
                     accent: SoriColors.accent,
                     fullWidth: true,
                     onTap: isLocked
-                        ? _next
-                        : (_input.text.trim().isEmpty ? null : _submit),
+                        ? () => _next(presentation)
+                        : (_input.text.trim().isEmpty
+                              ? null
+                              : () => _submit(presentation)),
                   ),
                 ],
               ),
@@ -469,6 +515,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   Widget _buildDone(AppL10n t) {
     final tt = SoriTextTheme.of(context);
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       automaticallyImplyLeading: false,
       title: t.vocabPackRecallTitle,
       child: LayoutBuilder(

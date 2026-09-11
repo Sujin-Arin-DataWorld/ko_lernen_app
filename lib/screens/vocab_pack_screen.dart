@@ -46,6 +46,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -157,8 +158,11 @@ bool shouldOfferHardWordPractice(Iterable<String> sessionMissedWordIds) {
       Storage.frequentlyMissedIds(ids).isNotEmpty;
 }
 
-class _VocabPackScreenState extends State<VocabPackScreen> {
+class _VocabPackScreenState extends State<VocabPackScreen>
+    with StudyEvidenceRecovery<VocabPackScreen> {
   bool _loading = true;
+  int _presentation = 0;
+  int _loadGeneration = 0;
   String? _error;
   VocabPack? _pack;
   bool _learningStartRecorded = false;
@@ -227,9 +231,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   Timer? _advanceTimer;
 
   @override
-  void dispose() {
+  void retireStudyEvidence() {
     _cancelAdvanceTimer();
     _persistLearnProgress();
+    super.retireStudyEvidence();
+  }
+
+  @override
+  void dispose() {
+    _cancelAdvanceTimer();
     _abandonTracker.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
@@ -264,6 +274,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Future<void> _load() async {
+    if (!studyEvidenceAcceptsInput ||
+        _finishing ||
+        (_loadGeneration > 0 && _error == null)) {
+      return;
+    }
+    final generation = ++_loadGeneration;
     setState(() {
       _loading = true;
       _error = null;
@@ -273,7 +289,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       final pack = providedPackLoader != null
           ? await providedPackLoader(widget.packId)
           : await VocabPackService.findById(widget.packId);
-      if (!mounted) return;
+      if (!mounted ||
+          !studyEvidenceAcceptsInput ||
+          generation != _loadGeneration) {
+        return;
+      }
       if (pack == null) {
         setState(() {
           _loading = false;
@@ -290,7 +310,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       final catalog = courseContext?.isFor(CurriculumContentKind.vocab) == true
           ? await CurriculumCatalog.load()
           : null;
-      if (!mounted) return;
+      if (!mounted ||
+          !studyEvidenceAcceptsInput ||
+          generation != _loadGeneration) {
+        return;
+      }
       final languageCode = Localizations.localeOf(context).languageCode;
       final pool = <Vocab>[
         ...pack.words,
@@ -355,7 +379,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
     } catch (_) {
-      if (!mounted) return;
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) return;
       setState(() {
         _loading = false;
         _error = AppL10n.of(context).loadErrorTryAgain;
@@ -380,34 +404,50 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   // ── Stage 1 (Learn) ────────────────────────────────────────────────
 
-  void _learnGotIt() {
-    if (!_learnCardRevealed) {
+  Future<void> _learnGotIt(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        !_learnCardRevealed) {
       return;
     }
     final cur = _currentLearn;
     if (cur == null) return;
-    HapticFeedback.lightImpact();
-    Storage.addVokSeen(cur.korean);
-    if (_learnSrsRated.add(cur.korean)) {
+    if (!_learnSrsRated.contains(cur.korean)) {
       // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
       // 최초의 정직한 "몰랐다" 평가가 유지된다.
-      _recordSessionSrs(cur.korean, gotIt: true);
+      if (!await _recordSessionSrs(cur.korean, gotIt: true)) {
+        return;
+      }
+      _learnSrsRated.add(cur.korean);
     }
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
+    HapticFeedback.lightImpact();
+    Storage.addVokSeen(cur.korean);
     _learnQueue?.markKnown();
     _advanceLearn();
   }
 
-  void _learnDontKnow() {
-    if (!_learnCardRevealed) {
+  Future<void> _learnDontKnow(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        !_learnCardRevealed) {
       return;
     }
     final cur = _currentLearn;
     if (cur == null) return;
+    if (!_learnSrsRated.contains(cur.korean)) {
+      if (!await _recordSessionSrs(cur.korean, gotIt: false)) {
+        return;
+      }
+      _learnSrsRated.add(cur.korean);
+    }
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     HapticFeedback.mediumImpact();
     Storage.addVokSeen(cur.korean);
-    if (_learnSrsRated.add(cur.korean)) {
-      _recordSessionSrs(cur.korean, gotIt: false);
-    }
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
     _sessionMissedWordIds.add(cur.korean);
@@ -418,6 +458,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _advanceLearn() {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
+    _presentation++;
     final pack = _pack;
     if (pack == null) return;
     final queue = _learnQueue;
@@ -461,13 +505,19 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   /// 여러 번 불러도 멱등 — 세션당 완주 시 1회(_advanceLearn) + 이탈 시 1회
   /// (dispose) = 최대 2회.
   void _persistLearnProgress() {
+    if (!studyEvidenceMayFlushAcceptedProgress) {
+      return;
+    }
     final pack = _pack;
     if (pack == null) return;
     // ignore: discarded_futures
     PackProgressService.recordWordLearned(pack);
   }
 
-  void _toggleLearnFlip() {
+  void _toggleLearnFlip(int presentation) {
+    if (!studyEvidenceAcceptsInput || presentation != _presentation) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() {
       if (!_flipped) {
@@ -528,7 +578,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. 아직 보지 않은 카드가 있으면
   /// 그 뒤로 보내고, 모든 고유 카드를 한 번씩 확인한 시점에는 평가로 간다.
-  void _learnDefer() {
+  void _learnDefer(int presentation) {
+    if (!studyEvidenceAcceptsInput || presentation != _presentation) {
+      return;
+    }
     final queue = _learnQueue;
     if (queue == null || queue.isDone) {
       return;
@@ -538,25 +591,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     _advanceLearn();
   }
 
-  void _recordSessionSrs(String korean, {required bool gotIt}) {
+  Future<bool> _recordSessionSrs(String korean, {required bool gotIt}) async {
     final session = _recallSession;
     if (session == null) {
-      return;
+      return true;
     }
-    final action = gotIt
-        ? session.recordPositiveFor(
-            expectedPackId: session.packId,
-            wordId: korean,
-          )
-        : session.recordNegativeFor(
-            expectedPackId: session.packId,
-            wordId: korean,
-          );
-    if (!action.writesSrs) {
-      return;
-    }
-    // ignore: discarded_futures
-    Storage.srsReview(korean, gotIt: action.gotIt!);
+    final attempt = session.evidenceAttempt(
+      expectedPackId: widget.packId,
+      wordId: korean,
+      gotIt: gotIt,
+    );
+    return saveStudyEvidence(attempt.save);
   }
 
   // ── Stage 2 / 3 (Quiz / Boss) ──────────────────────────────────────
@@ -581,6 +626,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _enterQuiz() {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_quizQuestions.isEmpty) {
@@ -623,6 +671,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Future<void> _enterBoss() async {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_bossQuestions.isEmpty) {
@@ -667,6 +718,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   /// 4지선다 옵션 생성 — 정답 + 같은 품사·레벨 우선 3 distractor
   /// (계층 폴백은 `quiz_distractor_service.dart`).
   void _prepareNextQuestion() {
+    _presentation++;
     final cur = _currentQuiz;
     if (cur == null) return;
     final lang = Localizations.localeOf(context).languageCode;
@@ -717,8 +769,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     SoriSpeech.speak(cur.korean);
   }
 
-  void _selectChoice(int i) {
-    if (_choiceLocked || _finishing) return;
+  Future<void> _selectChoice(int i, int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        _choiceLocked ||
+        _finishing) {
+      return;
+    }
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) return;
@@ -729,6 +786,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choiceLocked = true;
       _hasSubmittedAssessment = true;
     });
+    if (!await _recordSessionSrs(cur.korean, gotIt: isCorrect) ||
+        !mounted ||
+        !studyEvidenceAcceptsInput) {
+      return;
+    }
     // Only scored recognition-assessment stages become course evidence. The
     // earlier card self-rating stays in SRS only, so a tap cannot unlock a
     // mission. `vocabularyRecall` is a legacy enum name, not a claim that the
@@ -759,11 +821,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
         Storage.addVokSeen(cur.korean);
-        _recordSessionSrs(cur.korean, gotIt: true);
       } else {
         _bossCorrect++;
         Storage.addVokSeen(cur.korean);
-        _recordSessionSrs(cur.korean, gotIt: true);
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
@@ -771,7 +831,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       SoundService.wrong();
       _combo = 0;
       _sessionMissedWordIds.add(cur.korean);
-      _recordSessionSrs(cur.korean, gotIt: false);
+
       // ignore: discarded_futures
       Storage.incrementWrongCount(cur.korean);
     }
@@ -781,9 +841,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   void _scheduleAdvance() {
     _cancelAdvanceTimer();
+    final presentation = _presentation;
     final createTimer = widget.advanceTimerFactory ?? Timer.new;
     _advanceTimer = createTimer(const Duration(milliseconds: 850), () {
-      if (!mounted || _finishing) {
+      if (!studyEvidenceAcceptsInput ||
+          presentation != _presentation ||
+          _finishing) {
         return;
       }
       unawaited(_advanceQuiz());
@@ -797,7 +860,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   Future<void> _advanceQuiz() async {
     _cancelAdvanceTimer();
-    if (!mounted) {
+    if (!studyEvidenceAcceptsInput || !_choiceLocked) {
       return;
     }
     final isQuiz = _stage == _Stage.quiz;
@@ -842,7 +905,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     required int bossTotal,
   }) async {
     _cancelAdvanceTimer();
-    if (_finishing) {
+    if (!studyEvidenceAcceptsInput || _finishing) {
       return;
     }
     final pack = _pack;
@@ -888,6 +951,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       return;
     }
 
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _abandonTracker.markCompleted();
     unawaited(_recordFinishAnalytics(request, outcome));
     if (!mounted) {
@@ -974,9 +1040,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-
+    final recovery = studyEvidenceRecoveryFrame(t.vocabPackPlayTitle);
+    if (recovery != null) {
+      return recovery;
+    }
+    final generation = _loadGeneration;
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackPlayTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -984,9 +1055,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
     if (_error != null || _pack == null) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackPlayTitle,
         padding: EdgeInsets.zero,
-        child: AppError(message: _error ?? 'unknown error', onRetry: _load),
+        child: AppError(
+          message: _error ?? 'unknown error',
+          onRetry: () {
+            if (generation == _loadGeneration && !_loading && _error != null) {
+              _load();
+            }
+          },
+        ),
       );
     }
 
@@ -1001,6 +1080,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final Vocab? addable = _currentQuiz;
 
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: title,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
       actions: [
@@ -1068,6 +1148,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Widget _buildLearn(AppL10n t) {
+    final presentation = _presentation;
     final cur = _currentLearn;
     if (cur == null) {
       // 빈 팩 edge case → 바로 quiz/boss
@@ -1111,14 +1192,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 judgmentsEnabled: _learnCardRevealed,
                 onBlockedJudgment: () => _flipHintTrigger.value++,
                 flipHintTrigger: _flipHintTrigger,
-                onNext: _learnGotIt,
-                onHard: _learnDontKnow,
-                onSkip: _learnDefer,
+                onNext: () => _learnGotIt(presentation),
+                onHard: () => _learnDontKnow(presentation),
+                onSkip: () => _learnDefer(presentation),
                 onLike: _likeCurrent,
                 onBookmark: _saveCurrent,
                 bookmarkKey: cur.korean,
                 onShare: _shareCurrent,
-                onFlip: _toggleLearnFlip,
+                onFlip: () => _toggleLearnFlip(presentation),
                 liked: LikedContentService.isLiked(
                   kind: LikedContentService.vocab,
                   id: cur.korean,
@@ -1149,7 +1230,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       return FlipCard(
                         key: ValueKey('learn-$_learnServe'),
                         flipped: _flipped,
-                        onTap: _toggleLearnFlip,
+                        onTap: () => _toggleLearnFlip(presentation),
                         front: _FlipFront(
                           v: cur,
                           h: h,
@@ -1203,6 +1284,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Widget _buildQuiz(AppL10n t) {
+    final presentation = _presentation;
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) {
@@ -1314,7 +1396,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                               minHeight: 60,
                               onSelected: _choiceLocked || _finishing
                                   ? null
-                                  : () => _selectChoice(i),
+                                  : () => _selectChoice(i, presentation),
                             ),
                           ),
                       ],

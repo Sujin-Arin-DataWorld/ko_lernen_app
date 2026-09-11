@@ -33,7 +33,7 @@ void main() {
     final t = await _pumpPack(tester, pack, timers);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     expect(timers.created, hasLength(1));
     expect(timers.created.single.isActive, isTrue);
 
@@ -53,11 +53,11 @@ void main() {
     final t = await _pumpPack(tester, pack, timers);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     final first = timers.created.single;
     first.fire();
     await tester.pump();
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
 
     expect(timers.created, hasLength(2));
     expect(first.cancelCalls, 1);
@@ -75,7 +75,7 @@ void main() {
     final t = await _pumpPack(tester, pack, timers, operations: operations);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     final timer = timers.created.single;
     timer.fire();
     await tester.pump();
@@ -129,11 +129,12 @@ Future<void> _learnAll(WidgetTester tester, AppL10n t, int count) async {
   }
 }
 
-void _answerCorrect(WidgetTester tester) {
+Future<void> _answerCorrect(WidgetTester tester) async {
   tester
       .widgetList<QuizChoice>(find.byType(QuizChoice))
       .singleWhere((choice) => choice.isCorrect)
       .onSelected!();
+  await tester.pump();
 }
 
 VocabPack _pack({required int normalWords}) => VocabPack(

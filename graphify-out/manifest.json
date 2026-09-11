@@ -1776,9 +1776,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_pack_recall_screen.dart": {
-    "mtime": 1788987817.1979487,
-    "seen": 1788995056.917402,
-    "ast_hash": "7c4ed929af0366d87662fe3c801c0db5",
+    "mtime": 1789093182.225142,
+    "seen": 1789094393.466623,
+    "ast_hash": "8df647cf9214dfec6ed7c5afb308685b",
     "semantic_hash": ""
   },
   "lib/screens/vocab_pack_result_screen.dart": {
@@ -1788,9 +1788,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_pack_screen.dart": {
-    "mtime": 1789081983.959349,
-    "seen": 1789087663.6856258,
-    "ast_hash": "f2f52c1d9a9888db2fa33b2ff660f458",
+    "mtime": 1789094381.9559937,
+    "seen": 1789094393.4668486,
+    "ast_hash": "a1ff3cf60de1b21ae90682bfa2f66e68",
     "semantic_hash": ""
   },
   "lib/screens/vocab_packs_screen.dart": {
@@ -2394,9 +2394,9 @@
     "semantic_hash": ""
   },
   "lib/services/pack_session_srs_ledger.dart": {
-    "mtime": 1788987817.2929528,
-    "seen": 1788995056.9177144,
-    "ast_hash": "4eb276e16be515a75caa387854ebe0bc",
+    "mtime": 1789092969.8584561,
+    "seen": 1789094393.49337,
+    "ast_hash": "9bb3482652ceb3dc92d6fd02333b7a10",
     "semantic_hash": ""
   },
   "lib/services/palette_service.dart": {
@@ -11778,9 +11778,9 @@
     "semantic_hash": ""
   },
   "test/vocab_pack_advance_timer_test.dart": {
-    "mtime": 1788987818.1242335,
-    "seen": 1788995056.9197726,
-    "ast_hash": "9f041ad9bfe1fa717323853064b970ee",
+    "mtime": 1789093603.8108027,
+    "seen": 1789094393.7215023,
+    "ast_hash": "a4213fea00317e15b0b128478483e748",
     "semantic_hash": ""
   },
   "test/vocab_pack_finish_coordinator_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789091154.4768553,
-    "seen": 1789092389.2018664,
-    "ast_hash": "02c47f145c0fe31f26a2e8f8742f7d5f",
+    "mtime": 1789092719.3641932,
+    "seen": 1789094394.0014393,
+    "ast_hash": "b9c7a6696c8d1a3d745a5c4873d11e83",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16083,6 +16083,24 @@
     "mtime": 1789092056.2015326,
     "seen": 1789092388.9479868,
     "ast_hash": "763eefa6f8b4ff4ac968feccb970ba81",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/study_evidence_recovery.dart": {
+    "mtime": 1789094382.7970285,
+    "seen": 1789094393.5363932,
+    "ast_hash": "a682473155502f9bfa1159bf9ec95aa3",
+    "semantic_hash": ""
+  },
+  "test/pack_srs_durability_test.dart": {
+    "mtime": 1789093270.8778162,
+    "seen": 1789094393.6326632,
+    "ast_hash": "b6a4bec79f4b7b6cd91664ebaef94d39",
+    "semantic_hash": ""
+  },
+  "test/pack_srs_recovery_test.dart": {
+    "mtime": 1789094341.2136514,
+    "seen": 1789094393.632668,
+    "ast_hash": "b58079d74136cc0c4615edefb08ca886",
     "semantic_hash": ""
   }
 }

@@ -1495,3 +1495,68 @@ external in separate-game-rewards-20260911/verification.json.
 No push, remote CI, build, upload, paid call or device retry. Per-question
 SRS/diagnostics, process-death resumption and signed-device/operational readiness
 remain open; this does not prove whole-game atomicity or commercial readiness.
+
+### Task 33: Confirm vocabulary-pack SRS evidence before advancing
+
+Baseline: 83b3674e8819a72586a064a9741fbbfc73abdf7e. The main pack
+learn/recognition path discards SRS futures; typed recall exposes Next before
+the write completes. Both reserve session evidence before durable success.
+
+- [x] Preserve the current source and reproduce native SRS rejection in both
+  real screens, including missing recovery and premature session evidence.
+- [x] Retain one SRS attempt per accepted judgment and update the session
+  coalescing ledger only after SRS plus daily study-log confirmation. Preserve
+  first-positive/terminal-negative rules, route ownership and practice-only
+  behavior; recover unresolved writes before later session judgments.
+- [x] Add accessible saving/retry to pack learn/recognition and typed recall.
+  Gate advancement/feedback, retained callbacks, load retries and exit/reset.
+  Preserve card reveal/defer, hint/no-evidence, grading and reward rules.
+- [x] Test native false/unknown writes, study-log failure, retries, session
+  coalescing, stale controls, practice-only routes, load ownership and exit/reset.
+  Run related regressions, analysis and independent Standards/Spec reviews.
+- [x] Complete free Graphify/preservation checks, update local evidence and
+  commit locally. Keep push, CI dispatch, build, deployment and paid calls held.
+
+Other game/custom/legacy question-level SRS callers, seen-word and wrong-count
+diagnostics, recognition-course attempt persistence, process-death resumption
+and signed-device/operational readiness remain separate unfinished work.
+
+**Task 33 local verification (2026-09-11):** Main pack learning and
+typed recall failed the native-SRS rejection reproduction. Both now retain a
+judgment until its SRS card and daily study log are confirmed, then publish
+session coalescing state. Unknown outcomes are reconciled before another
+judgment; retries preserve first-positive and terminal-negative semantics.
+Main recognition also waits before feedback, scoring and its advance timer.
+Practice-only/mismatched routes and hint-only answers retain no-evidence rules.
+
+Shared saving/retry UI holds input and allows exit. Presentation and load
+generations reject old answer, Next, flip, defer and load-retry callbacks.
+Local-data lifetime and screen retirement reject continuation after reset
+or exit. Spec review found that real system pop bypasses the frame leave
+callback while the route remains mounted during its reverse transition.
+Four failing real-route reproductions are retained in route-pop-red.log.
+The shared recovery mixin now captures the route and checks isActive for
+admission/currentness and retries, without blocking temporarily covered routes.
+The corrected focused run passed 36 tests; the final suite also includes two
+pending-write route-pop cases. Prior source/reviews are preserved in revision1.
+Both reviewers then identified a partial-Learn cleanup regression: the route
+check also suppressed the preexisting dispose flush. A real two-word pack test
+failed with missing progress after learning one card and popping. A separate
+cleanup-only lifetime guard preserves already accepted progress while keeping
+new judgment admission route-bound and reset-safe. The focused run passed 39
+tests; partial-progress-red.log and revision2 preserve the intermediate evidence.
+Known/unknown native failures, daily-log failures, coalescing,
+concurrent/repeated retries, recognition timers and stale controls were tested.
+Three prior timer tests were updated to wait for asynchronous confirmation;
+their cancellation and scheduling assertions are unchanged.
+Final scoped verification passed 800 Flutter tests
+in 70 files; 7 changed
+Dart files analyzed without issues. Standards and Spec approved final hashes.
+All 2,484 frozen source files, 1014 assets and
+1,095 paid Graphify records were checked.
+Free Graphify update/prune completed. Exact local commit/parent/tree proof is
+external in pack-srs-durability-20260911/verification.json.
+No push, remote CI, build, upload, paid call or device retry. Other question
+SRS callers, seen/wrong diagnostics, recognition-course attempt durability,
+process-death resumption and signed-device/operational readiness remain open.
+This does not establish whole-lesson atomicity or commercial readiness.
