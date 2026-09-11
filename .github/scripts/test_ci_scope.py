@@ -133,6 +133,20 @@ class CiScopeTest(unittest.TestCase):
             ["docs/assets/hanok_estate_kit/anchae_stages.json"], "app"
         )
 
+    def test_curriculum_audit_inputs_and_outputs_select_validation(self):
+        for path in [
+            "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+            "docs/data/level_bible/F1_grammar_map.md",
+            "docs/data/curriculum_matrix_report.md",
+            "docs/data/cefr_curriculum_matrix.md",
+            "docs/data/curriculum_completion_backlog.md",
+            "tool/build_curriculum_backlog.py",
+            "tool/curriculum_completion_backlog.json",
+            "tools/content_factory/cefr_matrix/grammar_correspondence.json",
+        ]:
+            with self.subTest(path=path):
+                self.assert_enabled([path], "app")
+
     def test_website_root_contracts_select_website(self):
         self.assert_enabled(["docs/CNAME"], "website")
         self.assert_enabled(["wrangler.legacy-docs.jsonc"], "website")

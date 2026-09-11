@@ -33,11 +33,7 @@ A1,grammar_anchor,grammar_b1_honorific_subject_kkeyseo,grammar.csv row never sho
 A1,grammar_brief,-(으)ㄹ 거예요,Jin brief highlight,level_mismatch,nikl=;app_levels=A2;ids=grammar_a2_future_intention,review_level
 A1,grammar_brief,-지 마세요,Jin brief highlight,level_mismatch,nikl=;app_levels=A2;ids=grammar_a1_polite_prohibition,review_level
 A1,grammar_brief,있다/없다,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
-A1,grammar_nikl,-겠-,선어말어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A1,grammar_nikl,-습니까,종결어미 -ㅂ니까,missing_in_app,nikl_kiiq_2017,add_grammar_row
-A1,grammar_nikl,-지 않다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
-A1,grammar_nikl,이 아니다,표현 가 아니다,missing_in_app,nikl_kiiq_2017,add_grammar_row
-A1,grammar_nikl,이다,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A1,register,hapsyo_formal_business,recognition,absent,scenarios=0,add_scenario_in_register
 A1,speech_act,describe_people_things_places,사람·사물·장소 묘사하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A1,speech_act,express_feelings_emotions,감정·기분 표현하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
@@ -108,7 +104,6 @@ A2,grammar_nikl,-다가1(1),"연결어미 -다5, 다가도",missing_in_app,nikl_
 A2,grammar_nikl,-을 것1,표현 -ㄹ 것1,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A2,grammar_nikl,-음,전성어미 -ㅁ,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A2,grammar_nikl,-지,종결어미 -지요(-죠),missing_in_app,nikl_kiiq_2017,add_grammar_row
-A2,grammar_nikl,-지 말다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A2,grammar_nikl,에게로,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A2,grammar_nikl,에다가,조사 에다,missing_in_app,nikl_kiiq_2017,add_grammar_row
 A2,grammar_nikl,에서부터(서부터),조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -174,7 +169,7 @@ B1,grammar_brief,-더라도,Jin brief highlight,level_mismatch,nikl=B2;app_level
 B1,grammar_brief,-아/어 버리다,Jin brief highlight,missing,nikl=B2;app_levels=;ids=,add_grammar_row
 B1,grammar_nikl,-거든1,연결어미 거들랑,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-게 하다,표현,level_mismatch,app_levels=B2;ids=grammar_b2_formal_arrangement,relevel_or_add_same_level_row
-B1,grammar_nikl,-고 나다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
+B1,grammar_nikl,-고 나다,표현,level_mismatch,app_levels=A2;ids=grammar_a2_after_finishing,relevel_or_add_same_level_row
 B1,grammar_nikl,-고 말다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-고 싶어 하다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-기 위해,표현,level_mismatch,app_levels=A2;ids=grammar_a2_purpose,relevel_or_add_same_level_row
@@ -213,7 +208,7 @@ B1,grammar_nikl,-으니2,연결어미 -니4,missing_in_app,nikl_kiiq_2017,add_gr
 B1,grammar_nikl,-으려다가,"표현 -려다가, -으려다, 려다",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-으려면,연결어미 -려면,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-으면 안 되다,표현,level_mismatch,app_levels=A2;ids=grammar_a2_prohibition,relevel_or_add_same_level_row
-B1,grammar_nikl,-으면 좋겠다,표현 -면 좋겠다,missing_in_app,nikl_kiiq_2017,add_grammar_row
+B1,grammar_nikl,-으면 좋겠다,표현,level_mismatch,app_levels=A2;ids=grammar_a2_preference_soft_batch20,relevel_or_add_same_level_row
 B1,grammar_nikl,-은 결과,표현 -ㄴ 결과,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-은 다음에,표현 -ㄴ 다음에,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-을 테니,"표현 -ㄹ 테니, -을 테니까, -ㄹ 테니까",missing_in_app,nikl_kiiq_2017,add_grammar_row

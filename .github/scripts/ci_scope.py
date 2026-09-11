@@ -42,6 +42,9 @@ APP_DOC_PREFIXES = (
     # these are test/tool inputs, not prose, even though the path looks like
     # a doc. See test/hanok_v1_asset_provenance_test.dart.
     "docs/assets/",
+    # Exact correspondence review sources and generated curriculum reports
+    # are executable audit inputs, including Markdown-only edits.
+    "docs/data/level_bible/",
 )
 APP_DOC_FILES = {
     "docs/account-deletion-page.js",
@@ -52,6 +55,9 @@ APP_DOC_FILES = {
     "docs/support.html",
     "docs/terms.html",
     "docs/SESSION_CHANGES_2026-07-31.md",
+    "docs/data/curriculum_matrix_report.md",
+    "docs/data/cefr_curriculum_matrix.md",
+    "docs/data/curriculum_completion_backlog.md",
 }
 WEBSITE_ROOT_FILES = {
     "docs/CNAME",

@@ -264,6 +264,19 @@ def _write_fixture(root: Path) -> None:
     (assets / "culture_notes.json").write_text(json.dumps({"notes": [{"ko": "오빠"}]}, ensure_ascii=False), encoding="utf-8")
 
 
+def _write_draft_fixture(root: Path, *, approved: bool = False, malformed: bool = False) -> None:
+    path = root / "tools" / "content_factory" / "drafts" / "productive_assessments.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    data = {"schemaVersion": 99} if malformed else {
+        "schemaVersion": 1,
+        "runtimeContentApproved": approved,
+        "definitions": [{"assessmentItemId": "draft_a1", "level": "A1", "grammarReferenceIds": []}],
+        "projects": [],
+        "sourceSnippets": [],
+    }
+    path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+
+
 class FixtureAuditTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -318,6 +331,100 @@ class FixtureAuditTest(unittest.TestCase):
         self.assertEqual(a1["phone"]["status"], "thin")
         a2 = {r["id"]: r for r in self.result.text_types["A2"]}
         self.assertEqual(a2["phone"]["status"], "missing")
+
+    def test_absent_draft_input_is_explicit_and_not_completion(self):
+        inventory = self.corpus.draft_inventory
+        self.assertTrue(inventory["metadata"]["inputAbsent"])
+        self.assertEqual(inventory["metadata"]["evidenceStage"], "input_absent")
+        self.assertEqual(inventory["counts"]["total"], 0)
+        summary = acm.build_summary(self.result, "fixture")
+        self.assertTrue(summary["draftHoldings"]["inputAbsent"])
+        self.assertEqual(summary["draftHoldings"]["counts"]["total"], 0)
+
+    def test_declared_approved_draft_stays_isolated_and_unmapped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            _write_draft_fixture(root, approved=True)
+            _, corpus, result = acm.run_audit(root)
+            self.assertTrue(corpus.draft_inventory["metadata"]["declaredRuntimeContentApproved"])
+            self.assertEqual(corpus.draft_inventory["metadata"]["evidenceStage"], "draft_only")
+            self.assertEqual(corpus.draft_inventory["counts"]["total"], 1)
+            draft = corpus.draft_inventory["records"][0]
+            self.assertEqual((draft["reviewState"], draft["runtimeLinked"], draft["assessable"]), ("draft_only", False, False))
+            row = next(r for r in result.evidence_requirements if r["requirementKey"] == "A1:speechAct:order:P")
+            self.assertEqual(row["evidenceStage"], "unverified_unmapped")
+            self.assertEqual((row["taskBindings"], row["assessmentEvidence"], row["runtimeEvidence"]), ([], [], []))
+            self.assertEqual(row["draftHoldings"], [])
+            self.assertEqual(row["draftBindingState"], "no_approved_semantic_binding")
+            self.assertTrue(all(r["draftHoldings"] == [] for r in result.evidence_requirements))
+            summary = acm.build_summary(result, "fixture")
+            self.assertEqual([r["id"] for r in summary["draftHoldings"]["records"]], ["draft_a1"])
+            # The only serialized occurrence is the global ledger, never a
+            # requirement-row association or repeated diagnostics copy.
+            self.assertEqual(json.dumps(summary).count('"draft_a1"'), 1)
+            self.assertNotIn("draft_a1", result.grammar["A1"]["no_scenario_anchor"])
+
+    def test_present_malformed_draft_input_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            _write_draft_fixture(root, malformed=True)
+            with self.assertRaisesRegex(ValueError, "productive assessment draft"):
+                acm.load_corpus(root)
+
+    def test_levelled_culture_note_does_not_fan_out_to_every_level(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            path = root / "assets" / "data" / "culture_notes.json"
+            path.write_text(json.dumps({"notes": [{"id": "a1-note", "level": "A1", "ko": "오빠"}, {"id": "no-level", "ko": "언니"}]}, ensure_ascii=False), encoding="utf-8")
+            matrix = acm.load_matrix(root)
+            corpus = acm.load_corpus(root)
+            # The fixture has no culture-note genre, so add one only for this
+            # evidence collector test; valid A1 remains the sole recipient.
+            matrix.taxonomy["textTypes"].append({"id": "culture", "label": _label("문화"), "appSurfaces": ["culture_note"], "matchers": {"cultureNotesAll": True}})
+            evidence, diagnostics = acm.collect_text_type_evidence(matrix, corpus)
+            self.assertEqual(evidence["A1"]["culture"], {"culture_note:a1-note"})
+            self.assertNotIn("culture", evidence["A2"])
+            self.assertNotIn("culture", evidence["C2"])
+            self.assertEqual(diagnostics["unassigned_culture_notes"], ["no-level"])
+
+    def test_requirements_keep_modes_distinct_and_never_promote_candidates(self):
+        # `phone` is a legacy scenario-title hit in the default fixture.  It
+        # remains a legacy placement reference, never a verified P task.
+        legacy_phone = next(row for row in self.result.text_types["A1"] if row["id"] == "phone")
+        self.assertEqual(legacy_phone["count"], 1)
+        default_rows = {r["requirementKey"]: r for r in self.result.evidence_requirements}
+        phone = default_rows["A1:textType:phone:P"]
+        self.assertEqual(phone["evidenceStage"], "unverified_unmapped")
+        self.assertEqual((phone["taskBindings"], phone["assessmentEvidence"]), ([], []))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_fixture(root)
+            taxonomy_path = root / "tools" / "content_factory" / "cefr_matrix" / "taxonomy.json"
+            taxonomy = json.loads(taxonomy_path.read_text(encoding="utf-8"))
+            taxonomy["textTypes"].append({"id": "media_genre", "mode": "spoken_reception", "label": _label("미디어"), "appSurfaces": ["media"], "matchers": {"mediaSourceTypes": ["song"]}})
+            taxonomy_path.write_text(json.dumps(taxonomy, ensure_ascii=False), encoding="utf-8")
+            path = root / "tools" / "content_factory" / "cefr_matrix" / "ko.json"
+            ko = json.loads(path.read_text(encoding="utf-8"))
+            ko["levels"]["A1"]["textTypes"] = {"R": ["media_genre"], "P": ["media_genre"]}
+            ko["levels"]["A1"]["speechActs"] = {"production": ["order"], "recognition": ["order"]}
+            ko["levels"]["A1"]["registers"] = {"production": ["polite"], "recognition": ["polite"], "note": ""}
+            path.write_text(json.dumps(ko, ensure_ascii=False), encoding="utf-8")
+            _, _, result = acm.run_audit(root)
+            rows = {r["requirementKey"]: r for r in result.evidence_requirements}
+            recognition = rows["A1:textType:media_genre:R"]
+            production = rows["A1:textType:media_genre:P"]
+            self.assertNotEqual(recognition["requirementKey"], production["requirementKey"])
+            self.assertEqual(recognition["contentCandidates"], ["media:m1"])
+            self.assertEqual(production["contentCandidates"], [])
+            self.assertEqual(production["evidenceStage"], "unverified_unmapped")
+            self.assertEqual((production["taskBindings"], production["assessmentEvidence"], production["runtimeEvidence"]), ([], [], []))
+            self.assertIn("A1:speechAct:order:P", rows)
+            self.assertIn("A1:speechAct:order:R", rows)
+            self.assertIn("A1:register:polite:P", rows)
+            self.assertIn("A1:register:polite:R", rows)
 
     def test_vocab_domain_verdicts(self):
         a1 = {r["id"]: r for r in self.result.vocab_domains["A1"]}
@@ -376,6 +483,9 @@ class FixtureAuditTest(unittest.TestCase):
         self.assertEqual(summary["gap_total"], len(rows))
         self.assertEqual(summary["levels"]["A1"]["topics"]["missing"], 1)
         self.assertEqual(summary["functional_alignment"], {"aligned": 1, "app_earlier": 1, "missing": 1})
+        self.assertEqual(summary["evidenceRequirements"]["requiredRowCount"], 42)
+        self.assertEqual(summary["evidenceRequirements"]["requiredRowsByLevelAxisMode"]["A1"]["textType"], {"R": 1, "P": 2})
+        self.assertEqual(summary["gap_total"], len(rows))  # requirements have their own denominator
 
     def test_main_is_deterministic_and_check_gate_works(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -450,11 +560,19 @@ class LiveRatchetTest(unittest.TestCase):
     def test_grammar_axis_agrees_with_f1(self):
         # the report must never disagree with F1_grammar_map.md's headline counts
         bible = acm._bible_module(REPO)
-        f1 = bible.build_f1(self.corpus.grammar_rows, self.corpus.nikl_grammar_rows)
+        correspondences = bible.load_grammar_correspondences(REPO, self.corpus.grammar_rows, self.corpus.nikl_grammar_rows)
+        f1 = bible.build_f1(self.corpus.grammar_rows, self.corpus.nikl_grammar_rows, correspondences)
         total_missing = sum(self.result.grammar[lv]["missing_in_app"] for lv in acm.LEVELS)
         total_mismatch = sum(self.result.grammar[lv]["level_mismatch"] for lv in acm.LEVELS)
         self.assertEqual(total_missing, sum(1 for r in f1.rows if r.status == "missing_in_app"))
         self.assertEqual(total_mismatch, sum(1 for r in f1.rows if r.status == "level_mismatch"))
+
+    def test_matrix_uses_the_reviewed_negation_correspondence(self):
+        # `run_audit()` must pass the same explicit registry into F1 that the
+        # appendix builder does; otherwise -지 않다 would reappear as A1
+        # missing_in_app only in the matrix reports.
+        missing_forms = {row["form"] for row in self.result.grammar["A1"]["missing_forms"]}
+        self.assertNotIn("-지 않다", missing_forms)
 
     def test_committed_outputs_are_fresh(self):
         self.assertEqual(acm.main(["--root", str(REPO), "--check"]), 0)

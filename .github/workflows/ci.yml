@@ -24,6 +24,10 @@ on:
       - 'docs/support.html'
       - 'docs/terms.html'
       - 'docs/data/cultural_glossary.json'
+      - 'docs/data/level_bible/**'
+      - 'docs/data/curriculum_matrix_report.md'
+      - 'docs/data/cefr_curriculum_matrix.md'
+      - 'docs/data/curriculum_completion_backlog.md'
       - 'docs/assets/**'
       - 'docs/screenshots/**'
       - 'docs/SESSION_CHANGES_2026-07-31.md'
@@ -47,6 +51,10 @@ on:
       - 'docs/support.html'
       - 'docs/terms.html'
       - 'docs/data/cultural_glossary.json'
+      - 'docs/data/level_bible/**'
+      - 'docs/data/curriculum_matrix_report.md'
+      - 'docs/data/cefr_curriculum_matrix.md'
+      - 'docs/data/curriculum_completion_backlog.md'
       - 'docs/assets/**'
       - 'docs/screenshots/**'
       - 'docs/SESSION_CHANGES_2026-07-31.md'
@@ -904,6 +912,13 @@ jobs:
       # 있어 지정 모듈만 실행한다 — 플랜 §4.7
       - name: Run validate_content and relevel ledger unit tests
         run: python -m unittest tools.content_factory.test_validate_content tools.content_factory.test_relevel_ledger -v
+
+      - name: Verify curriculum audit and backlog freshness
+        run: |
+          python -B -X utf8 tool/audit_curriculum_matrix.py --check
+          python -B -X utf8 tool/audit_learning_phases.py --check --quiet
+          python -B -X utf8 tool/build_learning_phase_catalog.py --check
+          python -B -X utf8 tool/build_curriculum_backlog.py --check
 
       - name: Validate reference intake quarantine and clean-room provenance
         run: python tools/content_factory/validate_reference_intake.py

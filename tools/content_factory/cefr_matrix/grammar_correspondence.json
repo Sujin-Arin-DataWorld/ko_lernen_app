@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "correspondences": [
+    {
+      "sourceKey": "G1:-지 않다",
+      "appGrammarIds": [
+        "grammar_a1_long_negation"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "Both entries teach long-form verbal negation, contrasted in the app with short 안 + verb negation.",
+        "form": "The NIKL dictionary form -지 않다 is realised by the app's polite present surface V-지 않아요; this is a conjugation relation, not a substring match."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_a1_long_negation",
+          "field": "example_korean",
+          "value": "먹지 않아요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "`grammar_a1_long_negation`(A1) 매치"
+      }
+    },
+    {
+      "sourceKey": "G1:이다",
+      "appGrammarIds": [
+        "grammar_a1_copula_polite"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL copula identity form 이다 corresponds to the app's polite identity statement 이에요/예요.",
+        "form": "The dictionary copula 이다 is realised by the app's polite present copula N이에요/예요; the current app level is read from grammar.csv and this correspondence does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a1_copula_polite",
+        "field": "example_korean",
+        "value": "학생이에요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| 이다(지정사) | `grammar_a1_copula_polite` (N이에요/예요, A1) | match | §0 정정 항목 |"
+      }
+    },
+    {
+      "sourceKey": "G1:이 아니다",
+      "appGrammarIds": [
+        "grammar_a1_copula_negation"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL negative copula 이 아니다 corresponds to the app's polite negative identity statement 이 아니에요/가 아니에요.",
+        "form": "The negative copula is realised by the app's N이/가 아니에요; the current app level is read from grammar.csv and this correspondence does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a1_copula_negation",
+        "field": "example_korean",
+        "value": "학생이 아니에요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| 표현 `이 아니다` (1급) | missing_in_app | `grammar_a1_copula_negation`(A1) 매치 | 매처가 `이` 단독 조사 행에 엉뚱하게 흡수 |"
+      }
+    },
+    {
+      "sourceKey": "G1:-겠-",
+      "appGrammarIds": [
+        "grammar_a2_intention_guess"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL intention and conjecture morpheme -겠- corresponds to the app's intention/guess lesson.",
+        "form": "The source morpheme -겠- is realised by the app surface form V-겠어요; the current app level is A1 in grammar.csv despite the A2 ID prefix, and this correspondence does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a2_intention_guess",
+        "field": "example_korean",
+        "value": "제가 하겠어요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| 선어말어미 `-겠-` (1급) | missing_in_app | `grammar_a2_intention_guess`(A2, `V-겠어요`) 매치 — **레벨 불일치** | 매처가 `-겠-`(양쪽 하이픈)을 표면형과 매칭 못함 |"
+      }
+    },
+    {
+      "sourceKey": "G3:-고 나다",
+      "appGrammarIds": [
+        "grammar_a2_after_finishing"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL completion-before-next-action form -고 나다 corresponds semantically to the app's after-finishing lesson.",
+        "form": "The source form -고 나다 is represented by the app surface form V-고 나서; the app card remains at its current A2 level from grammar.csv, so this is a cross-level correspondence and does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a2_after_finishing",
+        "field": "example_korean",
+        "value": "숙제를 하고 나서 놀아요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| 연결어미 `-고 나다`(3급, 참고) | missing_in_app | `grammar_a2_after_finishing`(A2, `V-고 나서`) 매치 | 동일 원인. 3급이라 이 표 범위 밖이지만 향후 B1 정본화 때 참고 |"
+      }
+    },
+    {
+      "sourceKey": "G3:-으면 좋겠다",
+      "appGrammarIds": [
+        "grammar_a2_preference_soft_batch20"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL wish or preference form -으면 좋겠다 corresponds to the app's gentle preference lesson.",
+        "form": "The source form -으면 좋겠다 is represented by the app surface form V-(으)면 좋겠어요; the app card remains at its current A2 level from grammar.csv, so this is a cross-level correspondence and does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a2_preference_soft_batch20",
+        "field": "example_korean",
+        "value": "관리비가 계약서에 따로 적혀 있으면 좋겠어요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| 표현 `-으면 좋겠다`(3급, 참고) | missing_in_app | `grammar_a2_preference_soft_batch20`(A2, `V-(으)면 좋겠어요`) 매치 | 동일 원인. 3급이라 범위 밖 |"
+      }
+    },
+    {
+      "sourceKey": "G2:-지 말다",
+      "appGrammarIds": [
+        "grammar_a1_polite_prohibition"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "The NIKL prohibition form -지 말다 corresponds to the app's polite negative imperative lesson.",
+        "form": "The source form -지 말다 is realised by V-지 마세요; the current card level is A2 in grammar.csv even though its ID begins grammar_a1, and this correspondence does not move the card."
+      },
+      "exampleReferences": [
+        {
+        "appGrammarId": "grammar_a1_polite_prohibition",
+        "field": "example_korean",
+        "value": "여기서 사진 찍지 마세요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
+        "requiredText": "| -지 말다 | `grammar_a1_polite_prohibition` (V-지 마세요, **A1**) | move_app_row_to:A2 | **move-up** — 브리프 명시. §3 시나리오 영향 없음 |"
+      }
+    }
+  ]
+}
