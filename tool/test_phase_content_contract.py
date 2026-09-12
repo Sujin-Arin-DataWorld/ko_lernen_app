@@ -33,6 +33,8 @@ class PhaseContentContractTest(unittest.TestCase):
                     self.assertEqual(question['kind'], 'boundedSentence')
                     self.assertTrue(question['required'])
                     self.assertNotIn(question['acceptedAnswers'][0], task[mode]['sourceKo'])
+                for answer in task['assessment']['questions'][0]['acceptedAnswers']:
+                    self.assertNotIn(answer, '\n'.join(task['examplesKo']))
 
     def test_published_a1_a2_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)

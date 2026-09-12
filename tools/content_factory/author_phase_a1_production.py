@@ -62,7 +62,7 @@ ROWS = {
 }
 
 
-def production(phase_id, sources, rows=None):
+def production(phase_id, sources, rows=None, *, revision=1):
     recognition = {t['requirementKeys'][0]: t for t in sources
                    if ':grammar:' in t['id']}
     result = []
@@ -79,12 +79,14 @@ def production(phase_id, sources, rows=None):
                 'Write a complete sentence that meets the given conditions.',
                 'Schreibe einen vollständigen Satz, der die Vorgaben erfüllt.'),
                 [answer], [error], explanation)], 'form')
-        result.append(task(phase_id, f'production:{index:02}', 'writing',
+        authored = task(phase_id, f'production:{index:02}', 'writing',
             loc(f'{lesson["title"]["ko"]} 문장 만들기',
                 f'{lesson["title"]["en"]}: write a sentence',
                 f'{lesson["title"]["de"]}: einen Satz bilden'),
             lesson['teaching'], make(practice), make(assessment), keys=[key],
-            examples=lesson['examplesKo'], minimum=1))
+            examples=[practice[1]], minimum=1)
+        authored['contentRevision'] = revision
+        result.append(authored)
     return result
 
 
@@ -92,4 +94,4 @@ if __name__ == '__main__':
     for phase_id in ROWS:
         source = json.loads((FOLDER / f'{phase_id.lower()}.json').read_text(encoding='utf-8'))
         previous = [t for t in source['tasks'] if ':production:' not in t['id']]
-        write_source(phase_id, previous + production(phase_id, previous))
+        write_source(phase_id, previous + production(phase_id, previous, revision=2))

@@ -263,7 +263,7 @@
     },
     {
       "taskId": "KP07:production:01",
-      "sha256": "d1163bcc5d4c2e7e4f82357349b2f0de045dac9267e5bedd5b514fbbc149b43b",
+      "sha256": "58b2c6fb22e4997bc7cf7a10e0ce3d5b6625967dc2f128d75167ea9d7d187ed2",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -272,11 +272,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: background proposal retains actual condition and no compulsion. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: background proposal retains actual condition and no compulsion. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:02",
-      "sha256": "cffd5b3527271184ce8eaa29e3b635b868083f4cc23b557cada77a09f5e35152",
+      "sha256": "57eadf0aff3ffa0731098328fa019e5397c54ca675a584c6c917a92ea72e320b",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -285,11 +285,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: purpose preserves possibility, not deliberate prevention. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: purpose preserves possibility, not deliberate prevention. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:03",
-      "sha256": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "sha256": "1b3da7879111250b515eca9a6fbef7da9c8550ad8b994eece97fce9569d17d27",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -298,11 +298,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: cause/result direction. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: cause/result direction. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:04",
-      "sha256": "020cb0690836ef47bbb7fbeb0c0280d0b1861cd6cc5ff9e8b9ff487b536531c2",
+      "sha256": "676c96ee423ff9fe3e117b69cb6abfeab62fd290fb77d2fd8413fba7f66f4074",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -311,11 +311,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: past decision with future execution, not completed execution. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: past decision with future execution, not completed execution. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:05",
-      "sha256": "2923f2a6b488aef63b6eeeca40886ca42254fe7fb4addec1de84e30dc0e01cbf",
+      "sha256": "64b6d6a23f3b93eaf12af734c3e0cad0f4b1f339195579c946f183b280701ea8",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -324,11 +324,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: unconfirmed audible evidence stays inference. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: unconfirmed audible evidence stays inference. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:06",
-      "sha256": "658bcfbef4e4968e33105a9cf41438fce7781e906ff9e80620898fad4aefb1a7",
+      "sha256": "0a9e313b6c10931be5b1c775d2d3281ea518a46c82fe070d4d90c74b5b46a257",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -337,11 +337,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: constraint, not preference. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: constraint, not preference. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:07",
-      "sha256": "48890eeb1338a32d232faabeea80ae9b3c229698b1f2482838fe07cdde49703b",
+      "sha256": "64c3bddb406f883c03dcb9f4039bd45b2619174e206583f7cc5bd61cbedc8b52",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -350,11 +350,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: first-person commitment, not third-person promise ending. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: first-person commitment, not third-person promise ending. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:08",
-      "sha256": "376752802e8139c84c67a42c2c997ebe54423c190604af082b4c259967e52018",
+      "sha256": "dba6664885f45a53f29834d5e588254ede646f586afb3f5332675561d4af22b7",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -363,11 +363,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: own choice, not obligation. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: own choice, not obligation. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:09",
-      "sha256": "377882d36f55eebf071c8e39cfb386081cb45dca189c7b717fd4ea8754948e8a",
+      "sha256": "28c33aca027fd505303e697049c466bf943acb1bf16476f1c80fa176cae9873f",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -376,11 +376,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: explicit tentative-intention context, not fear or settled decision. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: explicit tentative-intention context, not fear or settled decision. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:10",
-      "sha256": "6f4bbe7458b0be843b08bb96b4be12d05cbdd4ff9ad6f28fd9d8b12a28c48bd1",
+      "sha256": "e9edfa169e50e5ce8356f4e0d720dec4cee064d2cd5436ec872f58f782ab5f8e",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -389,11 +389,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: assignment-driven change, no invented voluntary choice. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: assignment-driven change, no invented voluntary choice. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:11",
-      "sha256": "b4962c0cde7a74d1598b52eb754750876b330932cb9d16b44adfc71d56e1cdc8",
+      "sha256": "302549c91e18f0a0988e8f2d6e618512011409b5aefd3e076443cde71b73e326",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -402,11 +402,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: additional circumstance polarity. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: additional circumstance polarity. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:12",
-      "sha256": "2d0012a6cb552e630c7df3909868707a29366f521e823828dee56a393218a488",
+      "sha256": "0245146c6a0e8e9ce6655be341cf9675b6d1e1ea38f487f84b89fbc64ddc06de",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -415,11 +415,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: apology cause and effect preserve direction. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: apology cause and effect preserve direction. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:production:13",
-      "sha256": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb",
+      "sha256": "5948febc7041c9a9c2c3d046c9c15421e2890695e18d5f3a10879dbd75ef349c",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -428,7 +428,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: contrast retains actual scheduling constraint. Bounded production only; unlisted free wording remains unscored."
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: contrast retains actual scheduling constraint. Bounded production only; unlisted free wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP07:reading:02",

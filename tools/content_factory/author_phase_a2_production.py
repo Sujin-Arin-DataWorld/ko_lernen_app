@@ -68,4 +68,4 @@ if __name__ == '__main__':
     for phase, rows in ROWS.items():
         source=json.loads((FOLDER/f'{phase.lower()}.json').read_text(encoding='utf-8'))
         previous=[t for t in source['tasks'] if ':production:' not in t['id']]
-        write_source(phase, previous+production(phase,previous,rows))
+        write_source(phase, previous+production(phase,previous,rows,revision=2))

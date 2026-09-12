@@ -1850,1026 +1850,6 @@
       }
     },
     {
-      "id": "KP03:production:01",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:01",
-      "requirementKeys": [
-        "G1:에게"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "에게 문장 만들기",
-        "en": "에게: write a sentence",
-        "de": "에게: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
-        "en": "에게 marks the person receiving something, not a destination place.",
-        "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
-      },
-      "examplesKo": [
-        "친구에게 책을 줘요.",
-        "지수가 선생님에게 메모를 보내요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "받는 사람: 친구 / 책을 주다 / 에게 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "친구에게 책을 줘요."
-            ],
-            "rejectedAnswers": [
-              "친구에게서 책을 받아요."
-            ],
-            "explanation": {
-              "ko": "예: 친구에게 책을 줘요. 의미가 다른 예: 친구에게서 책을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 친구에게 책을 줘요. Meaning or register error: 친구에게서 책을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 친구에게 책을 줘요. Fehler bei Bedeutung oder Register: 친구에게서 책을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "받는 사람: 동생 / 연필을 주다 / 에게 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "동생에게 연필을 줘요."
-            ],
-            "rejectedAnswers": [
-              "동생에게서 연필을 받아요."
-            ],
-            "explanation": {
-              "ko": "예: 동생에게 연필을 줘요. 의미가 다른 예: 동생에게서 연필을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 동생에게 연필을 줘요. Meaning or register error: 동생에게서 연필을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 동생에게 연필을 줘요. Fehler bei Bedeutung oder Register: 동생에게서 연필을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:02",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:02",
-      "requirementKeys": [
-        "G1:한테"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "한테 문장 만들기",
-        "en": "한테: write a sentence",
-        "de": "한테: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
-        "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
-        "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
-      },
-      "examplesKo": [
-        "친구한테 전화해요.",
-        "민수가 지수한테 사진을 보내요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "전화를 받는 사람: 동생 / 전화하다 / 한테 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "동생한테 전화해요."
-            ],
-            "rejectedAnswers": [
-              "동생한테서 전화가 와요."
-            ],
-            "explanation": {
-              "ko": "예: 동생한테 전화해요. 의미가 다른 예: 동생한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 동생한테 전화해요. Meaning or register error: 동생한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 동생한테 전화해요. Fehler bei Bedeutung oder Register: 동생한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "전화를 받는 사람: 친구 / 전화하다 / 한테 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "친구한테 전화해요."
-            ],
-            "rejectedAnswers": [
-              "친구한테서 전화가 와요."
-            ],
-            "explanation": {
-              "ko": "예: 친구한테 전화해요. 의미가 다른 예: 친구한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 친구한테 전화해요. Meaning or register error: 친구한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 친구한테 전화해요. Fehler bei Bedeutung oder Register: 친구한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:03",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:03",
-      "requirementKeys": [
-        "G1:-으러"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-으러 문장 만들기",
-        "en": "-으러: write a sentence",
-        "de": "-으러: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
-        "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
-        "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
-      },
-      "examplesKo": [
-        "점심을 먹으러 가요.",
-        "친구를 만나러 역에 가요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "이동 목적: 책을 빌리다 / 도서관에 가다 / -(으)러 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "책을 빌리러 도서관에 가요."
-            ],
-            "rejectedAnswers": [
-              "도서관을 빌리러 책에 가요."
-            ],
-            "explanation": {
-              "ko": "예: 책을 빌리러 도서관에 가요. 의미가 다른 예: 도서관을 빌리러 책에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 책을 빌리러 도서관에 가요. Meaning or register error: 도서관을 빌리러 책에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 책을 빌리러 도서관에 가요. Fehler bei Bedeutung oder Register: 도서관을 빌리러 책에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "이동 목적: 빵을 사다 / 가게에 가다 / -(으)러 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "빵을 사러 가게에 가요."
-            ],
-            "rejectedAnswers": [
-              "가게를 사러 빵에 가요."
-            ],
-            "explanation": {
-              "ko": "예: 빵을 사러 가게에 가요. 의미가 다른 예: 가게를 사러 빵에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 빵을 사러 가게에 가요. Meaning or register error: 가게를 사러 빵에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 빵을 사러 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사러 빵에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:04",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:04",
-      "requirementKeys": [
-        "G1:-으려고1"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-으려고1 문장 만들기",
-        "en": "-으려고1: write a sentence",
-        "de": "-으려고1: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
-        "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
-        "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
-      },
-      "examplesKo": [
-        "친구를 만나려고 역에 가요.",
-        "일찍 가려고 버스를 기다려요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "의도: 친구를 만나다 / 역에 가다 / -(으)려고 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "친구를 만나려고 역에 가요."
-            ],
-            "rejectedAnswers": [
-              "역을 만나려고 친구에 가요."
-            ],
-            "explanation": {
-              "ko": "예: 친구를 만나려고 역에 가요. 의미가 다른 예: 역을 만나려고 친구에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 친구를 만나려고 역에 가요. Meaning or register error: 역을 만나려고 친구에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 친구를 만나려고 역에 가요. Fehler bei Bedeutung oder Register: 역을 만나려고 친구에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "의도: 물을 사다 / 가게에 가다 / -(으)려고 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "물을 사려고 가게에 가요."
-            ],
-            "rejectedAnswers": [
-              "가게를 사려고 물에 가요."
-            ],
-            "explanation": {
-              "ko": "예: 물을 사려고 가게에 가요. 의미가 다른 예: 가게를 사려고 물에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 물을 사려고 가게에 가요. Meaning or register error: 가게를 사려고 물에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 물을 사려고 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사려고 물에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:05",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:05",
-      "requirementKeys": [
-        "G1:-고 싶다"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-고 싶다 문장 만들기",
-        "en": "-고 싶다: write a sentence",
-        "de": "-고 싶다: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
-        "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
-        "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
-      },
-      "examplesKo": [
-        "한국에 가고 싶어요.",
-        "책을 사고 싶어요. 하지만 돈이 없어요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "나의 희망: 한국에 가다 / -고 싶다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "저는 한국에 가고 싶어요."
-            ],
-            "rejectedAnswers": [
-              "저는 한국에 가고 있어요."
-            ],
-            "explanation": {
-              "ko": "예: 저는 한국에 가고 싶어요. 의미가 다른 예: 저는 한국에 가고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 저는 한국에 가고 싶어요. Meaning or register error: 저는 한국에 가고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 저는 한국에 가고 싶어요. Fehler bei Bedeutung oder Register: 저는 한국에 가고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "나의 희망: 이 책을 읽다 / -고 싶다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "저는 이 책을 읽고 싶어요."
-            ],
-            "rejectedAnswers": [
-              "저는 이 책을 읽고 있어요."
-            ],
-            "explanation": {
-              "ko": "예: 저는 이 책을 읽고 싶어요. 의미가 다른 예: 저는 이 책을 읽고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 저는 이 책을 읽고 싶어요. Meaning or register error: 저는 이 책을 읽고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 저는 이 책을 읽고 싶어요. Fehler bei Bedeutung oder Register: 저는 이 책을 읽고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:06",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:06",
-      "requirementKeys": [
-        "G1:-고 있다"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-고 있다 문장 만들기",
-        "en": "-고 있다: write a sentence",
-        "de": "-고 있다: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
-        "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
-        "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
-      },
-      "examplesKo": [
-        "지금 책을 읽고 있어요.",
-        "지금 주문을 기다리고 있어요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "현재 진행: 지금 / 책을 읽다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "지금 책을 읽고 있어요."
-            ],
-            "rejectedAnswers": [
-              "어제 책을 읽었어요."
-            ],
-            "explanation": {
-              "ko": "예: 지금 책을 읽고 있어요. 의미가 다른 예: 어제 책을 읽었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 지금 책을 읽고 있어요. Meaning or register error: 어제 책을 읽었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 지금 책을 읽고 있어요. Fehler bei Bedeutung oder Register: 어제 책을 읽었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "현재 진행: 지금 / 친구를 기다리다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "지금 친구를 기다리고 있어요."
-            ],
-            "rejectedAnswers": [
-              "어제 친구를 기다렸어요."
-            ],
-            "explanation": {
-              "ko": "예: 지금 친구를 기다리고 있어요. 의미가 다른 예: 어제 친구를 기다렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 지금 친구를 기다리고 있어요. Meaning or register error: 어제 친구를 기다렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 지금 친구를 기다리고 있어요. Fehler bei Bedeutung oder Register: 어제 친구를 기다렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:07",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:07",
-      "requirementKeys": [
-        "G1:-을 수 있다"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-을 수 있다 문장 만들기",
-        "en": "-을 수 있다: write a sentence",
-        "de": "-을 수 있다: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
-        "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
-        "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
-      },
-      "examplesKo": [
-        "한국어를 조금 읽을 수 있어요.",
-        "유나는 한국어 메뉴를 읽을 수 있어요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "할 수 있음: 한글을 읽다 / -(으)ㄹ 수 있다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "한글을 읽을 수 있어요."
-            ],
-            "rejectedAnswers": [
-              "한글을 읽을 수 없어요."
-            ],
-            "explanation": {
-              "ko": "예: 한글을 읽을 수 있어요. 의미가 다른 예: 한글을 읽을 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 한글을 읽을 수 있어요. Meaning or register error: 한글을 읽을 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 한글을 읽을 수 있어요. Fehler bei Bedeutung oder Register: 한글을 읽을 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "할 수 있음: 수영하다 / -(으)ㄹ 수 있다 / 해요체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "수영할 수 있어요."
-            ],
-            "rejectedAnswers": [
-              "수영할 수 없어요."
-            ],
-            "explanation": {
-              "ko": "예: 수영할 수 있어요. 의미가 다른 예: 수영할 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 수영할 수 있어요. Meaning or register error: 수영할 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 수영할 수 있어요. Fehler bei Bedeutung oder Register: 수영할 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:08",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:08",
-      "requirementKeys": [
-        "G1:-겠-"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-겠- 문장 만들기",
-        "en": "-겠-: write a sentence",
-        "de": "-겠-: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
-        "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
-        "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
-      },
-      "examplesKo": [
-        "제가 내일 전화하겠습니다.",
-        "제가 주문을 확인하겠습니다."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "나의 자발적 약속: 내일 / 전화하다 / 제가 / -겠- / 하십시오체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "제가 내일 전화하겠습니다."
-            ],
-            "rejectedAnswers": [
-              "제가 내일 전화했어요."
-            ],
-            "explanation": {
-              "ko": "예: 제가 내일 전화하겠습니다. 의미가 다른 예: 제가 내일 전화했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 제가 내일 전화하겠습니다. Meaning or register error: 제가 내일 전화했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 제가 내일 전화하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 전화했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "나의 자발적 약속: 내일 / 준비하다 / 제가 / -겠- / 하십시오체",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "제가 내일 준비하겠습니다."
-            ],
-            "rejectedAnswers": [
-              "제가 내일 준비했어요."
-            ],
-            "explanation": {
-              "ko": "예: 제가 내일 준비하겠습니다. 의미가 다른 예: 제가 내일 준비했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 제가 내일 준비하겠습니다. Meaning or register error: 제가 내일 준비했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 제가 내일 준비하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 준비했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:09",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:09",
-      "requirementKeys": [
-        "G1:-으세요"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-으세요 문장 만들기",
-        "en": "-으세요: write a sentence",
-        "de": "-으세요: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
-        "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
-        "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
-      },
-      "examplesKo": [
-        "여기에 앉으세요.",
-        "친구: 여기에서 잠시 기다리세요."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "동료에게 공손히 권유: 여기 / 앉다 / -(으)세요",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "여기에 앉으세요."
-            ],
-            "rejectedAnswers": [
-              "여기에 앉아."
-            ],
-            "explanation": {
-              "ko": "예: 여기에 앉으세요. 의미가 다른 예: 여기에 앉아. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 여기에 앉으세요. Meaning or register error: 여기에 앉아. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 여기에 앉으세요. Fehler bei Bedeutung oder Register: 여기에 앉아. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "동료에게 공손히 요청: 잠시 / 기다리다 / -(으)세요",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "잠시 기다리세요."
-            ],
-            "rejectedAnswers": [
-              "잠시 기다려."
-            ],
-            "explanation": {
-              "ko": "예: 잠시 기다리세요. 의미가 다른 예: 잠시 기다려. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 잠시 기다리세요. Meaning or register error: 잠시 기다려. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 잠시 기다리세요. Fehler bei Bedeutung oder Register: 잠시 기다려. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:10",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:10",
-      "requirementKeys": [
-        "G1:-으십시오"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-으십시오 문장 만들기",
-        "en": "-으십시오: write a sentence",
-        "de": "-으십시오: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
-        "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
-        "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
-      },
-      "examplesKo": [
-        "잠시 기다리십시오.",
-        "안내: 계산대에서 주문하십시오."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "행사 진행자의 격식 있는 안내: 잠시 / 기다리다 / -(으)십시오",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "잠시 기다리십시오."
-            ],
-            "rejectedAnswers": [
-              "잠시 기다립니다."
-            ],
-            "explanation": {
-              "ko": "예: 잠시 기다리십시오. 의미가 다른 예: 잠시 기다립니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 잠시 기다리십시오. Meaning or register error: 잠시 기다립니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 잠시 기다리십시오. Fehler bei Bedeutung oder Register: 잠시 기다립니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "행사 진행자의 격식 있는 안내: 안으로 / 들어오다 / -(으)십시오",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "안으로 들어오십시오."
-            ],
-            "rejectedAnswers": [
-              "안으로 들어옵니다."
-            ],
-            "explanation": {
-              "ko": "예: 안으로 들어오십시오. 의미가 다른 예: 안으로 들어옵니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 안으로 들어오십시오. Meaning or register error: 안으로 들어옵니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 안으로 들어오십시오. Fehler bei Bedeutung oder Register: 안으로 들어옵니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:11",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:11",
-      "requirementKeys": [
-        "G1:-을까"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-을까 문장 만들기",
-        "en": "-을까: write a sentence",
-        "de": "-을까: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
-        "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
-        "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
-      },
-      "examplesKo": [
-        "같이 갈까요?",
-        "내일 공원에서 만날까요?"
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "동료의 의향을 묻는 공동 제안: 같이 / 점심을 먹다 / -(으)ㄹ까요",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "같이 점심을 먹을까요?"
-            ],
-            "rejectedAnswers": [
-              "같이 점심을 먹어야 돼요."
-            ],
-            "explanation": {
-              "ko": "예: 같이 점심을 먹을까요? 의미가 다른 예: 같이 점심을 먹어야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 같이 점심을 먹을까요? Meaning or register error: 같이 점심을 먹어야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 같이 점심을 먹을까요? Fehler bei Bedeutung oder Register: 같이 점심을 먹어야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "동료의 의향을 묻는 공동 제안: 내일 / 만나다 / -(으)ㄹ까요",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "내일 만날까요?"
-            ],
-            "rejectedAnswers": [
-              "내일 만나야 돼요."
-            ],
-            "explanation": {
-              "ko": "예: 내일 만날까요? 의미가 다른 예: 내일 만나야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 내일 만날까요? Meaning or register error: 내일 만나야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 내일 만날까요? Fehler bei Bedeutung oder Register: 내일 만나야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "KP03:production:12",
-      "phaseId": "KP03",
-      "level": "A1",
-      "objectiveId": "KP03:production:12",
-      "requirementKeys": [
-        "G1:-읍시다"
-      ],
-      "skill": "writing",
-      "mode": "P",
-      "contentRevision": 1,
-      "rubricVersion": 1,
-      "title": {
-        "ko": "-읍시다 문장 만들기",
-        "en": "-읍시다: write a sentence",
-        "de": "-읍시다: einen Satz bilden"
-      },
-      "teaching": {
-        "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
-        "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
-        "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
-      },
-      "examplesKo": [
-        "내일 다시 만납시다.",
-        "동료끼리: 여기에서 같이 기다립시다."
-      ],
-      "minimumScore": 1,
-      "prerequisiteTaskIds": [],
-      "practice": {
-        "sourceKind": "form",
-        "sourceKo": "같은 팀의 공동 제안: 여기에서 / 쉬다 / -(으)ㅂ시다",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "여기에서 쉽시다."
-            ],
-            "rejectedAnswers": [
-              "여기에서 쉬십시오."
-            ],
-            "explanation": {
-              "ko": "예: 여기에서 쉽시다. 의미가 다른 예: 여기에서 쉬십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 여기에서 쉽시다. Meaning or register error: 여기에서 쉬십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 여기에서 쉽시다. Fehler bei Bedeutung oder Register: 여기에서 쉬십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      },
-      "assessment": {
-        "sourceKind": "form",
-        "sourceKo": "같은 팀의 공동 제안: 세 시에 / 만나다 / -(으)ㅂ시다",
-        "questions": [
-          {
-            "id": "sentence",
-            "kind": "boundedSentence",
-            "prompt": {
-              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
-              "en": "Write a complete sentence that meets the given conditions.",
-              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
-            },
-            "required": true,
-            "options": [],
-            "acceptedAnswers": [
-              "세 시에 만납시다."
-            ],
-            "rejectedAnswers": [
-              "세 시에 만나십시오."
-            ],
-            "explanation": {
-              "ko": "예: 세 시에 만납시다. 의미가 다른 예: 세 시에 만나십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 세 시에 만납시다. Meaning or register error: 세 시에 만나십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 세 시에 만납시다. Fehler bei Bedeutung oder Register: 세 시에 만나십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
-            }
-          }
-        ]
-      }
-    },
-    {
       "id": "KP03:reading:02",
       "phaseId": "KP03",
       "level": "A1",
@@ -3306,6 +2286,1014 @@
               "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
               "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
               "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:01",
+      "requirementKeys": [
+        "G1:에게"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에게 문장 만들기",
+        "en": "에게: write a sentence",
+        "de": "에게: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
+        "en": "에게 marks the person receiving something, not a destination place.",
+        "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
+      },
+      "examplesKo": [
+        "친구에게 책을 줘요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "받는 사람: 친구 / 책을 주다 / 에게 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구에게 책을 줘요."
+            ],
+            "rejectedAnswers": [
+              "친구에게서 책을 받아요."
+            ],
+            "explanation": {
+              "ko": "예: 친구에게 책을 줘요. 의미가 다른 예: 친구에게서 책을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구에게 책을 줘요. Meaning or register error: 친구에게서 책을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구에게 책을 줘요. Fehler bei Bedeutung oder Register: 친구에게서 책을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "받는 사람: 동생 / 연필을 주다 / 에게 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생에게 연필을 줘요."
+            ],
+            "rejectedAnswers": [
+              "동생에게서 연필을 받아요."
+            ],
+            "explanation": {
+              "ko": "예: 동생에게 연필을 줘요. 의미가 다른 예: 동생에게서 연필을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생에게 연필을 줘요. Meaning or register error: 동생에게서 연필을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생에게 연필을 줘요. Fehler bei Bedeutung oder Register: 동생에게서 연필을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:02",
+      "requirementKeys": [
+        "G1:한테"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "한테 문장 만들기",
+        "en": "한테: write a sentence",
+        "de": "한테: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
+        "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
+        "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
+      },
+      "examplesKo": [
+        "동생한테 전화해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "전화를 받는 사람: 동생 / 전화하다 / 한테 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생한테 전화해요."
+            ],
+            "rejectedAnswers": [
+              "동생한테서 전화가 와요."
+            ],
+            "explanation": {
+              "ko": "예: 동생한테 전화해요. 의미가 다른 예: 동생한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생한테 전화해요. Meaning or register error: 동생한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생한테 전화해요. Fehler bei Bedeutung oder Register: 동생한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "전화를 받는 사람: 친구 / 전화하다 / 한테 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구한테 전화해요."
+            ],
+            "rejectedAnswers": [
+              "친구한테서 전화가 와요."
+            ],
+            "explanation": {
+              "ko": "예: 친구한테 전화해요. 의미가 다른 예: 친구한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구한테 전화해요. Meaning or register error: 친구한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구한테 전화해요. Fehler bei Bedeutung oder Register: 친구한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:03",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:03",
+      "requirementKeys": [
+        "G1:-으러"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으러 문장 만들기",
+        "en": "-으러: write a sentence",
+        "de": "-으러: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
+        "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
+        "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
+      },
+      "examplesKo": [
+        "책을 빌리러 도서관에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "이동 목적: 책을 빌리다 / 도서관에 가다 / -(으)러 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "책을 빌리러 도서관에 가요."
+            ],
+            "rejectedAnswers": [
+              "도서관을 빌리러 책에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 책을 빌리러 도서관에 가요. 의미가 다른 예: 도서관을 빌리러 책에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 책을 빌리러 도서관에 가요. Meaning or register error: 도서관을 빌리러 책에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 책을 빌리러 도서관에 가요. Fehler bei Bedeutung oder Register: 도서관을 빌리러 책에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "이동 목적: 빵을 사다 / 가게에 가다 / -(으)러 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵을 사러 가게에 가요."
+            ],
+            "rejectedAnswers": [
+              "가게를 사러 빵에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 빵을 사러 가게에 가요. 의미가 다른 예: 가게를 사러 빵에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵을 사러 가게에 가요. Meaning or register error: 가게를 사러 빵에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵을 사러 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사러 빵에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:04",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:04",
+      "requirementKeys": [
+        "G1:-으려고1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으려고1 문장 만들기",
+        "en": "-으려고1: write a sentence",
+        "de": "-으려고1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
+        "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
+        "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
+      },
+      "examplesKo": [
+        "친구를 만나려고 역에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "의도: 친구를 만나다 / 역에 가다 / -(으)려고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구를 만나려고 역에 가요."
+            ],
+            "rejectedAnswers": [
+              "역을 만나려고 친구에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 친구를 만나려고 역에 가요. 의미가 다른 예: 역을 만나려고 친구에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구를 만나려고 역에 가요. Meaning or register error: 역을 만나려고 친구에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구를 만나려고 역에 가요. Fehler bei Bedeutung oder Register: 역을 만나려고 친구에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "의도: 물을 사다 / 가게에 가다 / -(으)려고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "물을 사려고 가게에 가요."
+            ],
+            "rejectedAnswers": [
+              "가게를 사려고 물에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 물을 사려고 가게에 가요. 의미가 다른 예: 가게를 사려고 물에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 물을 사려고 가게에 가요. Meaning or register error: 가게를 사려고 물에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 물을 사려고 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사려고 물에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:05",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:05",
+      "requirementKeys": [
+        "G1:-고 싶다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 싶다 문장 만들기",
+        "en": "-고 싶다: write a sentence",
+        "de": "-고 싶다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
+        "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
+        "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
+      },
+      "examplesKo": [
+        "저는 한국에 가고 싶어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 한국에 가다 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 한국에 가고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "저는 한국에 가고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 한국에 가고 싶어요. 의미가 다른 예: 저는 한국에 가고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 한국에 가고 싶어요. Meaning or register error: 저는 한국에 가고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 한국에 가고 싶어요. Fehler bei Bedeutung oder Register: 저는 한국에 가고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 이 책을 읽다 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 이 책을 읽고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "저는 이 책을 읽고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 이 책을 읽고 싶어요. 의미가 다른 예: 저는 이 책을 읽고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 이 책을 읽고 싶어요. Meaning or register error: 저는 이 책을 읽고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 이 책을 읽고 싶어요. Fehler bei Bedeutung oder Register: 저는 이 책을 읽고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:06",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:06",
+      "requirementKeys": [
+        "G1:-고 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 있다 문장 만들기",
+        "en": "-고 있다: write a sentence",
+        "de": "-고 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
+        "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
+        "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
+      },
+      "examplesKo": [
+        "지금 책을 읽고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "현재 진행: 지금 / 책을 읽다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 책을 읽고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 책을 읽었어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 책을 읽고 있어요. 의미가 다른 예: 어제 책을 읽었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 책을 읽고 있어요. Meaning or register error: 어제 책을 읽었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 책을 읽고 있어요. Fehler bei Bedeutung oder Register: 어제 책을 읽었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "현재 진행: 지금 / 친구를 기다리다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 친구를 기다리고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 친구를 기다렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 친구를 기다리고 있어요. 의미가 다른 예: 어제 친구를 기다렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 친구를 기다리고 있어요. Meaning or register error: 어제 친구를 기다렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 친구를 기다리고 있어요. Fehler bei Bedeutung oder Register: 어제 친구를 기다렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:07",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:07",
+      "requirementKeys": [
+        "G1:-을 수 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 수 있다 문장 만들기",
+        "en": "-을 수 있다: write a sentence",
+        "de": "-을 수 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
+        "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
+        "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
+      },
+      "examplesKo": [
+        "한글을 읽을 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "할 수 있음: 한글을 읽다 / -(으)ㄹ 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "한글을 읽을 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "한글을 읽을 수 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 한글을 읽을 수 있어요. 의미가 다른 예: 한글을 읽을 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 한글을 읽을 수 있어요. Meaning or register error: 한글을 읽을 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 한글을 읽을 수 있어요. Fehler bei Bedeutung oder Register: 한글을 읽을 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "할 수 있음: 수영하다 / -(으)ㄹ 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "수영할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "수영할 수 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 수영할 수 있어요. 의미가 다른 예: 수영할 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 수영할 수 있어요. Meaning or register error: 수영할 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 수영할 수 있어요. Fehler bei Bedeutung oder Register: 수영할 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:08",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:08",
+      "requirementKeys": [
+        "G1:-겠-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-겠- 문장 만들기",
+        "en": "-겠-: write a sentence",
+        "de": "-겠-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
+        "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
+        "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
+      },
+      "examplesKo": [
+        "제가 내일 전화하겠습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 자발적 약속: 내일 / 전화하다 / 제가 / -겠- / 하십시오체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 내일 전화하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 내일 전화했어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 내일 전화하겠습니다. 의미가 다른 예: 제가 내일 전화했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 내일 전화하겠습니다. Meaning or register error: 제가 내일 전화했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 내일 전화하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 전화했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 자발적 약속: 내일 / 준비하다 / 제가 / -겠- / 하십시오체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 내일 준비하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 내일 준비했어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 내일 준비하겠습니다. 의미가 다른 예: 제가 내일 준비했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 내일 준비하겠습니다. Meaning or register error: 제가 내일 준비했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 내일 준비하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 준비했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:09",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:09",
+      "requirementKeys": [
+        "G1:-으세요"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으세요 문장 만들기",
+        "en": "-으세요: write a sentence",
+        "de": "-으세요: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
+        "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
+        "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
+      },
+      "examplesKo": [
+        "여기에 앉으세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 공손히 권유: 여기 / 앉다 / -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에 앉으세요."
+            ],
+            "rejectedAnswers": [
+              "여기에 앉아."
+            ],
+            "explanation": {
+              "ko": "예: 여기에 앉으세요. 의미가 다른 예: 여기에 앉아. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에 앉으세요. Meaning or register error: 여기에 앉아. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에 앉으세요. Fehler bei Bedeutung oder Register: 여기에 앉아. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 공손히 요청: 잠시 / 기다리다 / -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "잠시 기다리세요."
+            ],
+            "rejectedAnswers": [
+              "잠시 기다려."
+            ],
+            "explanation": {
+              "ko": "예: 잠시 기다리세요. 의미가 다른 예: 잠시 기다려. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 잠시 기다리세요. Meaning or register error: 잠시 기다려. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 잠시 기다리세요. Fehler bei Bedeutung oder Register: 잠시 기다려. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:10",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:10",
+      "requirementKeys": [
+        "G1:-으십시오"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으십시오 문장 만들기",
+        "en": "-으십시오: write a sentence",
+        "de": "-으십시오: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
+        "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
+        "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
+      },
+      "examplesKo": [
+        "잠시 기다리십시오."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "행사 진행자의 격식 있는 안내: 잠시 / 기다리다 / -(으)십시오",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "잠시 기다리십시오."
+            ],
+            "rejectedAnswers": [
+              "잠시 기다립니다."
+            ],
+            "explanation": {
+              "ko": "예: 잠시 기다리십시오. 의미가 다른 예: 잠시 기다립니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 잠시 기다리십시오. Meaning or register error: 잠시 기다립니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 잠시 기다리십시오. Fehler bei Bedeutung oder Register: 잠시 기다립니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "행사 진행자의 격식 있는 안내: 안으로 / 들어오다 / -(으)십시오",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "안으로 들어오십시오."
+            ],
+            "rejectedAnswers": [
+              "안으로 들어옵니다."
+            ],
+            "explanation": {
+              "ko": "예: 안으로 들어오십시오. 의미가 다른 예: 안으로 들어옵니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 안으로 들어오십시오. Meaning or register error: 안으로 들어옵니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 안으로 들어오십시오. Fehler bei Bedeutung oder Register: 안으로 들어옵니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:11",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:11",
+      "requirementKeys": [
+        "G1:-을까"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을까 문장 만들기",
+        "en": "-을까: write a sentence",
+        "de": "-을까: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
+        "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
+        "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
+      },
+      "examplesKo": [
+        "같이 점심을 먹을까요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료의 의향을 묻는 공동 제안: 같이 / 점심을 먹다 / -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "같이 점심을 먹을까요?"
+            ],
+            "rejectedAnswers": [
+              "같이 점심을 먹어야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 같이 점심을 먹을까요? 의미가 다른 예: 같이 점심을 먹어야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 같이 점심을 먹을까요? Meaning or register error: 같이 점심을 먹어야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 같이 점심을 먹을까요? Fehler bei Bedeutung oder Register: 같이 점심을 먹어야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동료의 의향을 묻는 공동 제안: 내일 / 만나다 / -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "내일 만날까요?"
+            ],
+            "rejectedAnswers": [
+              "내일 만나야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 내일 만날까요? 의미가 다른 예: 내일 만나야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 내일 만날까요? Meaning or register error: 내일 만나야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 내일 만날까요? Fehler bei Bedeutung oder Register: 내일 만나야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:12",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:12",
+      "requirementKeys": [
+        "G1:-읍시다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-읍시다 문장 만들기",
+        "en": "-읍시다: write a sentence",
+        "de": "-읍시다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
+        "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
+        "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
+      },
+      "examplesKo": [
+        "여기에서 쉽시다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "같은 팀의 공동 제안: 여기에서 / 쉬다 / -(으)ㅂ시다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에서 쉽시다."
+            ],
+            "rejectedAnswers": [
+              "여기에서 쉬십시오."
+            ],
+            "explanation": {
+              "ko": "예: 여기에서 쉽시다. 의미가 다른 예: 여기에서 쉬십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에서 쉽시다. Meaning or register error: 여기에서 쉬십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에서 쉽시다. Fehler bei Bedeutung oder Register: 여기에서 쉬십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "같은 팀의 공동 제안: 세 시에 / 만나다 / -(으)ㅂ시다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "세 시에 만납시다."
+            ],
+            "rejectedAnswers": [
+              "세 시에 만나십시오."
+            ],
+            "explanation": {
+              "ko": "예: 세 시에 만납시다. 의미가 다른 예: 세 시에 만나십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 세 시에 만납시다. Meaning or register error: 세 시에 만나십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 세 시에 만납시다. Fehler bei Bedeutung oder Register: 세 시에 만나십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
             }
           }
         ]

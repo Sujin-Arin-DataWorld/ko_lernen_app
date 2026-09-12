@@ -250,7 +250,7 @@
     },
     {
       "taskId": "KP01:production:01",
-      "sha256": "e72709beb75c92e8a6d33a2a5ae5f30d1d0628f93403bf18627bf5beb63b4fe6",
+      "sha256": "aa0b66277dd262430fd3fa625962eec37ded99c1a3b80774897ebf0c13e5f9bd",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -259,11 +259,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: copula affiliation, not negative identity. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: copula affiliation, not negative identity. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:02",
-      "sha256": "71fdd4d45b3fb691c68d9058bce6e85a193aa7673ac65321823eeb0b5f8231e1",
+      "sha256": "e9f936033b615d4978dce2e4301158a76d4acff23dff4a3c07e36f9c4a9b1e5c",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -272,11 +272,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: negative copula with subject-specific particles. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: negative copula with subject-specific particles. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:03",
-      "sha256": "48007bf55fd761c572bf3e4847a4f00beab1cdaaf83d9567631127837e12c0e1",
+      "sha256": "b65cb94b0fe668ac4636097b6c61ae258042dc4234ad55d7b70989064fe11864",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -285,11 +285,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:04",
-      "sha256": "2aba010fc4877d5f39f6d4056722491c104baf06afb78cf8121f3c7e97241545",
+      "sha256": "deb33ee795052441a081e6359dcd3ede1ef296c48859debb1bdc281825b0f78a",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -298,11 +298,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: nominative actor, not object. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: nominative actor, not object. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:05",
-      "sha256": "d3f4197b83c8a27644521cd7931a652d16525ca6f1c3ba85009c2bb5aa3ed1db",
+      "sha256": "ba2de1705bff81eb1cbd5f1638c66922404e7ac4c762153b9d26624da1287d80",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -311,11 +311,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: object particle for drinking/reading. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: object particle for drinking/reading. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:06",
-      "sha256": "c8ef60e3ad990f059cac588561963aee1c850e7a56199ff11e7e11f0d3150728",
+      "sha256": "439d1f2419ac0558fe129dedf80090b42d5349b8db216f545e8e46e93f615da6",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -324,11 +324,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:07",
-      "sha256": "c3e0b813a9798308cad125fba3148cb13a25673a69d5e8ce27bb9dac366738cd",
+      "sha256": "4e22b59d8fdba30e171e2b3a9f29a8dcf5ccd0837f74b342b12973b7d6896cc0",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -337,11 +337,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:08",
-      "sha256": "436ecd9c0f8b75eb1cc4555ee53ea12908cbe4e8b3dd70bd9d2506d653d2b5b1",
+      "sha256": "2c51c676fed56f2af9613dbbbbb3c939746a416aefeb758885d9e5538bf31afe",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -350,11 +350,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: companion marker, not exclusion. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: companion marker, not exclusion. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:09",
-      "sha256": "1a329c11dbeb8a28bc69a8d01d7173a1b545af22979498538cb4db80fbd63c59",
+      "sha256": "f774ea9bf862b0cc64ba5106e0a27ca09a98f9199c839d66d6e367a202529443",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -363,11 +363,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: colloquial conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: colloquial conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:10",
-      "sha256": "11beb8ce23ccaaf5c242fce22f9d5be73c8aee79c80fdbb8bfa1ecdab54ea42e",
+      "sha256": "39dc182e92680af10443dc11a85c959f88b00b161cf650af975b86684e14ae39",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -376,11 +376,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: polite endings with adjective conjugation. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: polite endings with adjective conjugation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:11",
-      "sha256": "d04a5236df40194c85631d765be024b3f0a68dcae6e6efb050b8513737ad5aa5",
+      "sha256": "be099a4e67fb8099187d0b3c87bfb5402313d650714fb93b224648be3be36b2e",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -389,11 +389,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: formal statement, not question. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: formal statement, not question. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:production:12",
-      "sha256": "ec381b42e48ce67c28d40c27486c6a8d8422496e78fa3e9a44711694c985af0e",
+      "sha256": "49f6f0ed0bf263b8e40c621603a19b93a9b033f07b26a597f92e10a9b7f052a5",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -402,7 +402,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: unknown identity asked, not asserted. Bounded sentence only; unlisted appropriate wording remains unscored."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: unknown identity asked, not asserted. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
     },
     {
       "taskId": "KP01:listening:03",

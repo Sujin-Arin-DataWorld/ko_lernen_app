@@ -1760,507 +1760,507 @@
       "objectiveId": "KP01:objective:grammar/G1:이다:P",
       "taskId": "KP01:production:01",
       "sourceHash": "62442fda47e5004f289b87f24627e24811c7166e1a3a7a32c4b40ec35980389c",
-      "taskHash": "e72709beb75c92e8a6d33a2a5ae5f30d1d0628f93403bf18627bf5beb63b4fe6",
+      "taskHash": "aa0b66277dd262430fd3fa625962eec37ded99c1a3b80774897ebf0c13e5f9bd",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. copula affiliation, not negative identity. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. copula affiliation, not negative identity. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:이 아니다:P",
       "taskId": "KP01:production:02",
       "sourceHash": "4491668e2d23ecc5717c53567500eaad2dfff6158f0eae0cd0d82d5bde6a8b0d",
-      "taskHash": "71fdd4d45b3fb691c68d9058bce6e85a193aa7673ac65321823eeb0b5f8231e1",
+      "taskHash": "e9f936033b615d4978dce2e4301158a76d4acff23dff4a3c07e36f9c4a9b1e5c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. negative copula with subject-specific particles. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. negative copula with subject-specific particles. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:은1:P",
       "taskId": "KP01:production:03",
       "sourceHash": "c811eb8f45aeeb6d687981a67077ed7e120f77dd1f0d4c067a428038d0f9bcda",
-      "taskHash": "48007bf55fd761c572bf3e4847a4f00beab1cdaaf83d9567631127837e12c0e1",
+      "taskHash": "b65cb94b0fe668ac4636097b6c61ae258042dc4234ad55d7b70989064fe11864",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrastive topic retains the second person occupation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrastive topic retains the second person occupation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:이:P",
       "taskId": "KP01:production:04",
       "sourceHash": "ebf3fd6f0eab1c49c292843ecb3daf3e4e1410e022d6cfa3e20cf8675b9e1183",
-      "taskHash": "2aba010fc4877d5f39f6d4056722491c104baf06afb78cf8121f3c7e97241545",
+      "taskHash": "deb33ee795052441a081e6359dcd3ede1ef296c48859debb1bdc281825b0f78a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. nominative actor, not object. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. nominative actor, not object. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:을1:P",
       "taskId": "KP01:production:05",
       "sourceHash": "0ed5d3211f2d47e362e6f8f65224a20ca1d2ab702d60908e05ee2d606afe8d8a",
-      "taskHash": "d3f4197b83c8a27644521cd7931a652d16525ca6f1c3ba85009c2bb5aa3ed1db",
+      "taskHash": "ba2de1705bff81eb1cbd5f1638c66922404e7ac4c762153b9d26624da1287d80",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. object particle for drinking/reading. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. object particle for drinking/reading. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:의:P",
       "taskId": "KP01:production:06",
       "sourceHash": "e94c5f75015e412085401d52d2d8bf105de663a3ddab4494ae7a3e9e81770ed0",
-      "taskHash": "c8ef60e3ad990f059cac588561963aee1c850e7a56199ff11e7e11f0d3150728",
+      "taskHash": "439d1f2419ac0558fe129dedf80090b42d5349b8db216f545e8e46e93f615da6",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. named possessor, not learner ownership. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. named possessor, not learner ownership. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:과:P",
       "taskId": "KP01:production:07",
       "sourceHash": "a7559907e18a7e3461ebbd9f30f605a8063a1e211b5786a67baffcecc3c7c94f",
-      "taskHash": "c3e0b813a9798308cad125fba3148cb13a25673a69d5e8ce27bb9dac366738cd",
+      "taskHash": "4e22b59d8fdba30e171e2b3a9f29a8dcf5ccd0837f74b342b12973b7d6896cc0",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:이랑:P",
       "taskId": "KP01:production:08",
       "sourceHash": "67df1ce323bb53e5e9822bc691ef44a187c7aa9492d6e362c280733de13ced2f",
-      "taskHash": "436ecd9c0f8b75eb1cc4555ee53ea12908cbe4e8b3dd70bd9d2506d653d2b5b1",
+      "taskHash": "2c51c676fed56f2af9613dbbbbb3c939746a416aefeb758885d9e5538bf31afe",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. companion marker, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. companion marker, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:하고:P",
       "taskId": "KP01:production:09",
       "sourceHash": "5c33067e8c7f199a737c6c6f0f92461d8d72d2bdb4bb20edd787e147492a2228",
-      "taskHash": "1a329c11dbeb8a28bc69a8d01d7173a1b545af22979498538cb4db80fbd63c59",
+      "taskHash": "f774ea9bf862b0cc64ba5106e0a27ca09a98f9199c839d66d6e367a202529443",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. colloquial conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. colloquial conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:-어2:P",
       "taskId": "KP01:production:10",
       "sourceHash": "4eae6d2e498489d809908c9c708bc7f8678dbbe487364781107d43fc58eb1d44",
-      "taskHash": "11beb8ce23ccaaf5c242fce22f9d5be73c8aee79c80fdbb8bfa1ecdab54ea42e",
+      "taskHash": "39dc182e92680af10443dc11a85c959f88b00b161cf650af975b86684e14ae39",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite endings with adjective conjugation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite endings with adjective conjugation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:-습니다:P",
       "taskId": "KP01:production:11",
       "sourceHash": "15d73d2b9ad023d51ed1dfb1457daf49f02806fc96ed3aff6220063cc6e08935",
-      "taskHash": "d04a5236df40194c85631d765be024b3f0a68dcae6e6efb050b8513737ad5aa5",
+      "taskHash": "be099a4e67fb8099187d0b3c87bfb5402313d650714fb93b224648be3be36b2e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal statement, not question. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal statement, not question. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:grammar/G1:-습니까:P",
       "taskId": "KP01:production:12",
       "sourceHash": "0814308c8bb258df516e78a957bc7de33575e991bb5e508a548828403ab6aa9e",
-      "taskHash": "ec381b42e48ce67c28d40c27486c6a8d8422496e78fa3e9a44711694c985af0e",
+      "taskHash": "49f6f0ed0bf263b8e40c621603a19b93a9b033f07b26a597f92e10a9b7f052a5",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. unknown identity asked, not asserted. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. unknown identity asked, not asserted. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:에:P",
       "taskId": "KP02:production:01",
       "sourceHash": "f0336194991db06a95cdb0e3d5db07e30ea5eb3aafb8914c82f25a0aaa2f627e",
-      "taskHash": "e73a345c25c82aeae003172c647850a7c9e0cdc6566a50e7e2cf053073d8c6ce",
+      "taskHash": "05af689a81adc6e8b6b145d401e47599974111292be95d4d3c7eb1e2f31ef096",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. destination, not action location. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. destination, not action location. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:에서:P",
       "taskId": "KP02:production:02",
       "sourceHash": "42c1a59d031a1c9d3ce486a2aea406e3fc72d073e926675eb8792c14d7e4cfaf",
-      "taskHash": "90af0180485ca20500fae98d41e171d394021c16fea57b29e6c86608d8f46b0b",
+      "taskHash": "063753bdca6fcf2580cabbc8f7780894b2737576f1177f48dce15d991c4cede9",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. action location, not destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. action location, not destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:부터:P",
       "taskId": "KP02:production:03",
       "sourceHash": "810eeb0fe510eea269a2bcc1316a12c25fa2b7f82322a75b4093a4d2cfebd260",
-      "taskHash": "b2af2ae96193fea1cbb256d90ea5acbe6e2d894860e86df25552ba140c47b517",
+      "taskHash": "aa6223907ae4ba4992f508350b5f72062c182afa839133ce129d8e06a65e613e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. start, not end. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. start, not end. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:까지:P",
       "taskId": "KP02:production:04",
       "sourceHash": "e6cc98d0a4c3ee1db312b854a35e7727899a4b9dca42b57d1c3420b40cfc5b4e",
-      "taskHash": "c7b895471619e70dc5d2039d2e9ec14012b6086dd5fb581486f8f6208b7bbc9e",
+      "taskHash": "f2ba853ffdce5089372208e928fa0532cdc29fe81d43381725e0899b2c1209ce",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. end, not start. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. end, not start. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:으로:P",
       "taskId": "KP02:production:05",
       "sourceHash": "5c241d199d2b24da849c8aed6d1cb7079ba7fb46dacc909be974bdec48dd6d25",
-      "taskHash": "b1640a43965cf4979adbda3c471db69d8d41e21e599cde4f1d455f1a93dfd41e",
+      "taskHash": "868987ef24d37ae0cf3a257fde8f3649defabe5d134d97eeac94aa7ce33be813",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. transport means with ㄹ exception 로. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. transport means with ㄹ exception 로. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:-었-:P",
       "taskId": "KP02:production:06",
       "sourceHash": "2f39a9e6b1046b6d2c7ce2630459ba715efc49940eb4f369e029df3da55f4558",
-      "taskHash": "4164b20cf9ca950bf567edfe601eb076e6cdb941d7e48a88e89bfbf202eed1b3",
+      "taskHash": "1d334bb1a290616bb2cbbea576ea7eb110478b8b6a564a10e02dab571f994bec",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. completed yesterday, not tomorrow. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. completed yesterday, not tomorrow. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:-고3:P",
       "taskId": "KP02:production:07",
       "sourceHash": "07f86a2c6aa81cbb683373c2b683c61e03eac2c80f9139a9c21ef96cae8d60b0",
-      "taskHash": "68a44af7339d75c296fea669606dffe0b55dc4393965bf8a8d9583ac022a1aae",
+      "taskHash": "e67765297fa4a794823ef993923d2e80325ce53db34dd49e90ba0b43f17aa5ad",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. two actions preserve explicit order. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. two actions preserve explicit order. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:-지 않다:P",
       "taskId": "KP02:production:08",
       "sourceHash": "9bb8a75d6426441bfa8a7a42ddb7f98a10c103a2bd2c5cd1ee6740ae35de7ede",
-      "taskHash": "63eb7592160cebd59363b55740ddc2bc6bcb5ebaa1f38c856aaa870875fde17e",
+      "taskHash": "948c8b8956410704abc0f7a61f08e9836b3ad916e3eac22e9e468b663d5d4a43",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. explicit negative statement. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. explicit negative statement. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:-지 못하다:P",
       "taskId": "KP02:production:09",
       "sourceHash": "d1c402a4953038695a9975094131be6cee57d7016d2f694457dd9bebb2823c49",
-      "taskHash": "a082ae8a3e3a6676de9c0bb591469295f073a981d1ebff2548386cbd654ae8de",
+      "taskHash": "71db5c9e8fc8caa3f7d674b1ac58c5674165c278ecda06c46ae5133450560ca8",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. situational inability, not completion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. situational inability, not completion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:도:P",
       "taskId": "KP02:production:10",
       "sourceHash": "90a09b5a6f2acf4674fa96e58fa2f7155e4457d13cbf78614c46f765281ad647",
-      "taskHash": "a7d95cc5afdfe72c40dcacd0ad201250ee7026b1cb9135fbf5c9123daa7e56a6",
+      "taskHash": "77d19b1e76f6f4814e14d82396e00d3d5de892570714ce04bbab5908375fd01b",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. inclusion, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. inclusion, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP02:objective:grammar/G1:만:P",
       "taskId": "KP02:production:11",
       "sourceHash": "5f26fcfb005cc898ad9a5e7c6f2ad7eb64242d6974eaa6f7874b6c9f243f0c9f",
-      "taskHash": "574180ec43984e565b34b78a8568d6af92551265ee62985335a525fe862fbfee",
+      "taskHash": "c73d8e1746fe499e5f13f55e6e4148460f67f98acbd1311c00c014e244a2b869",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. exclusion, not inclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. exclusion, not inclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:에게:P",
       "taskId": "KP03:production:01",
       "sourceHash": "f9c686e6c67baf5f071a7311f5433d769c0ba79f62ff3b86116a9c5e10f5d4bc",
-      "taskHash": "5bd4f79129703adfedb06ba02c198ed898a3a6e5987e66ce3712e03f417c0db8",
+      "taskHash": "589abe7fc4efd8408c2dc8b57fd9e91c230902e65d309eb9cd4bc3f5ce2e443c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. recipient of giving, not source of receiving. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. recipient of giving, not source of receiving. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:한테:P",
       "taskId": "KP03:production:02",
       "sourceHash": "e23b839eee21c3d059277d64eff767ffec38dce3b8ca3c94e109108b764284e1",
-      "taskHash": "e8c8af5cfdc821416887e3bf4eef4bafe799b0c312ef514b26178363f1e96342",
+      "taskHash": "48dff2862b567b39040f92049220ce8c19e6adbca02632c6f4059d32e1ce6fa5",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. call recipient, not caller. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. call recipient, not caller. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-으러:P",
       "taskId": "KP03:production:03",
       "sourceHash": "3f4f475034966389c596abe5e925d7780a05439d62d2c86a04ee7e9e9af59e49",
-      "taskHash": "82e28ecdcac8421bb7d803891830b1dbe103670ad25aa64072fabdd5824ce68b",
+      "taskHash": "286750a0fd3974baee44b96634bf8d9b130283e49f26e712ea147276950ea106",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. motion purpose with correct object/destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. motion purpose with correct object/destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-으려고1:P",
       "taskId": "KP03:production:04",
       "sourceHash": "6993ac642e7fe39a64f6181144af9465b2ce63b09551223d233ab55d3bb73196",
-      "taskHash": "8839eb8b6b8be322e4f3f352696c51efb332f03673054974c92335229997947d",
+      "taskHash": "2b7f864521e249dd2d928dddf912f3079eb0c314a8e05d64fcdce37cc1bedd0e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. intended purpose preserves object and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. intended purpose preserves object and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-고 싶다:P",
       "taskId": "KP03:production:05",
       "sourceHash": "f1803463b64e22b5de5984cdbe403f34db6d361d1d0133b3219ce73a30d9a1f5",
-      "taskHash": "a027c116dedf6bdd5ad771ccf0e0ecfbc58c4fa87e17b3d3ce448e96a1653f02",
+      "taskHash": "3f1b441e6904ad912e5efff4ee98af9761e3f9521612abbc4cead028a6e0c051",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. own desire, not ongoing action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. own desire, not ongoing action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-고 있다:P",
       "taskId": "KP03:production:06",
       "sourceHash": "16d2a21352e507988be0eb09798b98ab40bc55a80aae034e84cf09a70aa4562e",
-      "taskHash": "37032232fabf099fec7ad68bf4cba3e3378b9eaaa08f91b3f017874f112ad6ab",
+      "taskHash": "17d7c19a3a2e32a595b47212e063b8cfb8c0a77a0447f32719d73620e64e3847",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ongoing event, not completed yesterday. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ongoing event, not completed yesterday. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-을 수 있다:P",
       "taskId": "KP03:production:07",
       "sourceHash": "d9b138f9755723c20a0804d88008c461c76ff14e8e015e91a47f71820505a3d0",
-      "taskHash": "98016f5bf4e78afac3b9a221eeb564bc782cb295d51447d2276aea95f1698ab2",
+      "taskHash": "119a699bbaa38de5d6dd119a4065071dba220d09a01560420dc057235c186581",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ability positive, not inability. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ability positive, not inability. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-겠-:P",
       "taskId": "KP03:production:08",
       "sourceHash": "aa88a2466f251c2361b64ad980bfaf8e1295121d118422db419c45bfbbda8651",
-      "taskHash": "cda41331840a8a3220495ddbeee6bc7f085e9e2fc992ad3e063f049ae0433980",
+      "taskHash": "5cc60f349d684b4bb77f935cc837acae509552f97868685d16f106593c0afa8a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. voluntary first-person commitment, not past action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. voluntary first-person commitment, not past action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-으세요:P",
       "taskId": "KP03:production:09",
       "sourceHash": "6e0084d955e6e1d5374889ce75cd6621a3c2bfb81554ba5a0100dcc1d2bb4d34",
-      "taskHash": "5c5562eadae3f1395c8d7a52d50c3c05c8ec3ade8b4d713411dc8b3bde23739d",
+      "taskHash": "e242f9c248f263227932209b4da9b534a15e9de603553db3dccb069bd2181e1a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite request, not unlicensed casual command. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite request, not unlicensed casual command. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-으십시오:P",
       "taskId": "KP03:production:10",
       "sourceHash": "9a32be47c637433e1104d01d0661fad94d6d23160619ae47948d981d02caa4e0",
-      "taskHash": "15ec1b6f2a02f4d16f044b9f7c46f32782c388b0e0acdd1ebdc01e4cb419fb87",
+      "taskHash": "b2dc88d5e54ac6b50a8b0868413a6761f622e54f64553868e90f7b24b000a8bd",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal directive, not declarative report. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal directive, not declarative report. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-을까:P",
       "taskId": "KP03:production:11",
       "sourceHash": "36b91ebdaa9903025d6eb06657e329a417786018166f64a92213d4265011a385",
-      "taskHash": "99254e81faec2fcf0343b3e17b3829da07494a035e0096b4ad6354d5efe81829",
+      "taskHash": "0ad604f22b10fa8ab3ba71bb1890e984d878217744367e150ff84004c315ec2a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. open shared proposal, not obligation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. open shared proposal, not obligation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-읍시다:P",
       "taskId": "KP03:production:12",
       "sourceHash": "621d3746dc4fd130ac7d48be334a3bc7ca2194ecbff3a986de27c5a2c1ee185a",
-      "taskHash": "d8ec07cc3a72eacbd47df350a20df3f15393b54e9b6ceedcbc1d61c2be019668",
+      "taskHash": "b21b8f06e1ab27b1bbe121e6480e71a30bf0e5654e3ae6fefb1961b6ab8ef9c8",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. shared team proposal, not command only to listener. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. shared team proposal, not command only to listener. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-으시-:P",
       "taskId": "KP04:production:01",
       "sourceHash": "6003ed446067f1aa36b74bd74ed88a5fef9ada49b6d0371b1d706756e7e4ca5e",
-      "taskHash": "0e545db8261a81618f74ce4440218eb05d89c2205e825b53f7a6ff2b32eceab1",
+      "taskHash": "e94d960571454f94db0619489f866b7d07c34b44f81d4e2b33b5113744d82836",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. subject honorific separately from listener politeness. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. subject honorific separately from listener politeness. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:께서:P",
       "taskId": "KP04:production:02",
       "sourceHash": "5966b5fb8d6d7f3ae7f07edd552a8f087b3635795b02725b50de5ca04a21d48e",
-      "taskHash": "10f93bbe95e379c0cd0204d4ddbbfdbb64eb37368d979da83ee4a2b628fd95d6",
+      "taskHash": "e78d645ad77da93d3ad406c0b77e524a5cb588192895cd05a958aa2462ed1d40",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. honored subject, not honored recipient. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. honored subject, not honored recipient. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-어서:P",
       "taskId": "KP04:production:03",
       "sourceHash": "ca3947a33bd39d2342cdd492528b1a711a2f7f4ceae64d03f0048a3a9a46f920",
-      "taskHash": "9ff977b6a002435e5f210abf7c5dcb87711ca0672cd470066ac0398588d4597a",
+      "taskHash": "10e558ecf7cf3d08a6c938c90e10603f0af5574b694c7a60fc539c52095b353a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. cause and result direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. cause and result direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-으니까:P",
       "taskId": "KP04:production:04",
       "sourceHash": "4715343006f1d06a5d6d48bdb8cd1c766e2b600e34b308b870067f06e8480605",
-      "taskHash": "cd97a2328e853c1fab5c9423ac85c922441c9bb71f7ffe1acc60e381a93a1dae",
+      "taskHash": "a364c7b06c6fc85a299dc24e63b39b27da16b1c87e975c2a0f25ca40ddd4ea03",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ground for request preserves polarity and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ground for request preserves polarity and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-지만:P",
       "taskId": "KP04:production:05",
       "sourceHash": "802de124968b3adcb60db0fc0955fd5f8e01f123b7c278cb3ea20d7a47e3a985",
-      "taskHash": "382b1c0631941427b2beff99ab2d3449ef5ee772b28dde31407928d24ddb5928",
+      "taskHash": "c06ccfccea5fe073fa9bab6d0f61beb2a7a2bc467820b7510358294378b27876",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrast preserves both stated qualities. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrast preserves both stated qualities. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:보다:P",
       "taskId": "KP04:production:06",
       "sourceHash": "93847fdcaeb583318b81b3db1e74b7a2db94499fefdc1e8140008d9123ed80f0",
-      "taskHash": "ca15529a82b5516fca0af6ebcd2c8072fa6da0668b0b864cafc2eb3c3fcc70de",
+      "taskHash": "7821f02d200b74edc222b89a878a2dcfb2f51e7ba9b77794d0928b2c253403e8",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. comparison direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. comparison direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-고4:P",
       "taskId": "KP04:production:07",
       "sourceHash": "7c0d0e7d61e764c2f2f0efe83ab4547f3e4b0e6fd11b5d857056c8c36363ed9d",
-      "taskHash": "e40f23d9e73f33eb13a0b7c3dde30ad4fea640e330dcc3b7fdaa0b6679cb2c9f",
+      "taskHash": "dabbcec4aeb4c05ddf3a1f41ee73bf90c722afb4cc7398aecdf7251f7a0816d3",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. sentence-final added information, not opposite quality. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. sentence-final added information, not opposite quality. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-기 전에:P",
       "taskId": "KP04:production:08",
       "sourceHash": "41950434b50ebe136662be67928445d770279719f385d2350dbaade217069b6e",
-      "taskHash": "94f7b57bdb8bb32a1f2fd57d4d500a3683e07ed365805cb4f014e0d315f1c911",
+      "taskHash": "bc266d5f406f81a164146bfa3a541ba0f9afd7bc4114e9cab5669bb9d85a6542",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. before-order, not after. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. before-order, not after. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-은 후에:P",
       "taskId": "KP04:production:09",
       "sourceHash": "3cdc6077b6b9d650205553e00e8f153fdf33ad9e68c00a7369a9210950b0aa70",
-      "taskHash": "d70552f0b36523319dcf7dba63a8e0e7a452bab8356859589db3b4ce0385cbe8",
+      "taskHash": "30b8b0aea8f740ed143a9f7dbcc1ede106c58729a2046ebef8c62e291b6c5e8c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. after-order, not before. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. after-order, not before. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-어야 되다:P",
       "taskId": "KP04:production:10",
       "sourceHash": "529bd4068f20dc92b82d420b7ff726ba3f40775fb423429cb679b2d076a4686d",
-      "taskHash": "ef2a408491adeaab198b6678ad70ff156992850f3f60f5a7e2991cd70699bde5",
+      "taskHash": "2da1166cee693e60d420e9685d10a1546d32ce0e4b1a3f673ac105bd703dd10c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. requirement, not mere permission. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. requirement, not mere permission. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP04:objective:grammar/G1:-겠-:P",
       "taskId": "KP04:production:11",
       "sourceHash": "6fda8ee555d2ad748789238684f37eba18c8b11feed1a8a864d0949ef6055163",
-      "taskHash": "b09c6b5b35f94d0b8f5508c747d72ec8c00ecf043e08ec8c637c128ebcb9ecea",
+      "taskHash": "e02cf2a063d35a762ac8df7f5d87d098abdd45730c7969ad2e20f5b9aaf93d50",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. evidence-based inference, not first-person resolve. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. evidence-based inference, not first-person resolve. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP01:objective:listening/genre/dialogue_face_to_face:R",
@@ -3123,12 +3123,12 @@
       "objectiveId": "KP03:objective:functions/express_intention_plan_wish:P",
       "taskId": "KP03:production:05",
       "sourceHash": "5b21c55d2858216a69452d8b4b84cf8a2d95c6d238fe52840eadd024f107300f",
-      "taskHash": "a027c116dedf6bdd5ad771ccf0e0ecfbc58c4fa87e17b3d3ce448e96a1653f02",
+      "taskHash": "3f1b441e6904ad912e5efff4ee98af9761e3f9521612abbc4cead028a6e0c051",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "실제 자료·응답 지시에서 functions/express_intention_plan_wish:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_intention_plan_wish:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/numbers_quantity_units:R",
@@ -3634,551 +3634,551 @@
       "objectiveId": "KP05:objective:grammar/G2:-으면:P",
       "taskId": "KP05:production:01",
       "sourceHash": "7be6bdd06113ad78009a601708b19c6f6e1583cb4d2a45131c3eaafbd880c389",
-      "taskHash": "4af69434b4677c1dc3e5d368c1ad32bcbbf8ab57c3351e15a8637967921ab720",
+      "taskHash": "9afa9e8588483ab98ba9c11fe5497b683f6e274cf002fc08eef770e8a12cda6e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: conditional proposal preserves choice. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: conditional proposal preserves choice. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:-거나:P",
       "taskId": "KP05:production:02",
       "sourceHash": "598607f452d0e8180163142eba803fab0aa41ac0dffee4e38ab59f64c28ab8f9",
-      "taskHash": "3f51e7f127af35be9932ebf50606ddb2e76d7ddb6231b9d342fbe9f857476ff1",
+      "taskHash": "1d339f86f3ade50064e9f8b384795513b4a6c7a05f3ba65c70e4ebf06a7636b4",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: alternative actions, not both in sequence. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: alternative actions, not both in sequence. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:이나:P",
       "taskId": "KP05:production:03",
       "sourceHash": "10749ee99503212987e6701ef64d77b30a37a1f14fe5188159ffe196a231130c",
-      "taskHash": "d8c86c61b265aa5a041648dfa1049142f67cea1ac1f57e17377dc78fb412b764",
+      "taskHash": "9bd276a2765d3e1000c8adebeee8a60a0dfba0bd493e959787f7065dd37c66f6",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: noun alternatives, not both purchased. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: noun alternatives, not both purchased. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:마다:P",
       "taskId": "KP05:production:04",
       "sourceHash": "9a4bf65e1fa469266dfef350890ff08a6bcc682b2645d3d9dbe60125fa03c41b",
-      "taskHash": "2f18dc41dc4b04a17741f9a83076c464f749a92707af9ff5d02a6c46d3260026",
+      "taskHash": "69150ea2916352db68371dcacec73c1cddee364631283001a729b051bac623c2",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: every occurrence, not only one date. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: every occurrence, not only one date. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:밖에:P",
       "taskId": "KP05:production:05",
       "sourceHash": "f7aef62afd78b5d223a4baafcdca92403c3942a9602dcb7b1f30c16e5e95a14a",
-      "taskHash": "c76f7c2d5ce4a55413ad003121de72944485842ec5017327fe26d4bd4fc90e8a",
+      "taskHash": "987f9271a2cb0ae074fcc62a8ac2022d7d01ccc84093ee2c521af913cb64660d",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: limited positive amount, not zero. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: limited positive amount, not zero. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:처럼:P",
       "taskId": "KP05:production:06",
       "sourceHash": "f211e90bee8effa245d7764f825491596b911dbb5985e4eee5deefa131122b45",
-      "taskHash": "ec1a05d84a1e8704d66f8da8f1c512741e7a7c93da39dc5b4a01b5ee5acccd6b",
+      "taskHash": "d7444c0483d8fb9b3b48ddd164adcf8f4ee68ac46aaa01ce78c04c71fefac0f9",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: modelled similarity, not competitive comparison. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: modelled similarity, not competitive comparison. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:-어도 되다:P",
       "taskId": "KP05:production:07",
       "sourceHash": "a32d57be377c53c2a5e6a03f59772678488eabf8e0fc1026c30003eecfe1cec4",
-      "taskHash": "a770ad34c11fd5421f1e8be11aa269f06ade4303c9dc4a80fb9f79c2106c1186",
+      "taskHash": "cb343420ec848e0cd35149633ec09ea4b42c705eb4ce6201ed89bd77224b7779",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ask permission, not impose obligation. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ask permission, not impose obligation. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:-지 말다:P",
       "taskId": "KP05:production:08",
       "sourceHash": "8718d1038c5cdd589b1af764c5f4f328a91abd1b65cc0ce29b8e2b16ca40ee75",
-      "taskHash": "377a9041d86d840bcfdd8c61c3b55d4a55c6448b72d419cedd03ae44619f499b",
+      "taskHash": "a89a83be2e596f5e00304d2ba93662910f22acc314ecb1ff0d37f7b6b2a9e838",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: negative directive, not positive request. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: negative directive, not positive request. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:grammar/G2:-어 주다:P",
       "taskId": "KP05:production:09",
       "sourceHash": "04af46989642f0e2e0c7f33a63ed4021f11e0bf6fdc8add4736be8c4dcd9f681",
-      "taskHash": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd",
+      "taskHash": "fc819c472e760751e44aca8c7aee63432e54b4981857deb37ee52aae7959dedd",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: listener help request, not speaker undertaking. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: listener help request, not speaker undertaking. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-는2:P",
       "taskId": "KP06:production:01",
       "sourceHash": "dcb1a86d29202e46192a6d41426594148421cd456e226ef30e59f7a36ea8e23e",
-      "taskHash": "08a4012c8f3fda2ef55b121dc9d01f83c72250d56b9a9a0ed609401e30b18e3e",
+      "taskHash": "c800ec8c78516c70ee89296994fc4e7128b1a5541c84f29c0f52bdbb7bb2c575",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present actor versus future modifier. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present actor versus future modifier. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-은2:P",
       "taskId": "KP06:production:02",
       "sourceHash": "d75a2d836d51d2d6cc9636ccdea0f3148822368fca7a686742b012dd10113928",
-      "taskHash": "c6d79fa2c7a49bb244a9c2a5bf20fbbf5045894ae8f72a2d2e4c186ab4c2f16b",
+      "taskHash": "cc258f5e8f322ed50a35e363fd2c34b57ad4c24d55ccf802f9a4f079879aa3d5",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed modifier versus future plan. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed modifier versus future plan. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-은3:P",
       "taskId": "KP06:production:03",
       "sourceHash": "0afa299fbb5cf3547e6a4a64d32d4a3166878d3a9aef08cfa8576882a944a1de",
-      "taskHash": "dba86caa77ffd78df129f34ad09889163eb52602f856e6b28e254e4eb151faab",
+      "taskHash": "0aec336e3c6c8bcb188655e559df8a790b830c8dae19d65d340d9ffc99f4ee9f",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present adjective quality versus past recollection. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present adjective quality versus past recollection. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-을2:P",
       "taskId": "KP06:production:04",
       "sourceHash": "739d7e7e90f5425fee33e242c1033e7a707c1cefa0f02656c8fb0c11f84fc9da",
-      "taskHash": "1783f5a1a996b9e45fcd57ad6f57676870d78f7d7f797d6e4ec449ade4873682",
+      "taskHash": "1d0be55d9ca8a36ae7b332e7ee0ba227085ee26ecff82d8fd50351b0557aa26a",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: future modifier versus completed action. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: future modifier versus completed action. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-는 것:P",
       "taskId": "KP06:production:05",
       "sourceHash": "5347b40dd1230806fdf5f51abec4059b06f88fb31d7a43412a798f48767ad869",
-      "taskHash": "9340a83b857338a2ba1de9db07f44f74005dc420d6829a499d37e28a60820524",
+      "taskHash": "dfe07a82614e8646855b15f0ca82de495d93a24e53c52485ed9a2f1418f010ca",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: activity object, not person object. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: activity object, not person object. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-기:P",
       "taskId": "KP06:production:06",
       "sourceHash": "8b35f2f67aa669a272b4b63e5b2ef4b4b505f30a346ffd3bf7bf7b08a634c60e",
-      "taskHash": "e6d514d4c4bcd0a6dfd90c5fb37e4babba717065bc456363c9f95d1eab85fa67",
+      "taskHash": "385c6bf12829e8afe8f9edeaaa8826d5a3349cf8ea7717985277b57a33465c57",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal activity, not a person. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal activity, not a person. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-을 때:P",
       "taskId": "KP06:production:07",
       "sourceHash": "9bc8a9ea919d68d6bdd50d6e577af4b1f7eb2792bbb3711d0e1e4e9a26295a57",
-      "taskHash": "c6251670818752fc67011ed6564afb80c9684576f05d9667587cb4bf371cc187",
+      "taskHash": "0e03ce3215fee65503e91ab1ea457607999c1f0581d3914cb307087e735bf799",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: event time, not before-event time. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: event time, not before-event time. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-는 동안에:P",
       "taskId": "KP06:production:08",
       "sourceHash": "cf5b9d8d980fac2b147bd911c170f239bcc5bcd9eced87798c8311bd5b4b24ee",
-      "taskHash": "99e75023e0af4901b6a75a6a8ee381a2433b2de0c3cb1c7bd8d498d3078fc3dc",
+      "taskHash": "20c7f27ab49a5de4ed6902ab50bc29bdce7a7f196177cfba29c8b8f4080237d2",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: overlapping period, not after completion. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: overlapping period, not after completion. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-은 지2:P",
       "taskId": "KP06:production:09",
       "sourceHash": "2e1cff0656089bbca06fd8158f8351498a63032da610e3a87d75f6ad9338e01a",
-      "taskHash": "b2a2022e1e6cbcd8693df139567289c5185566caca3ae72697c8b0a056eed828",
+      "taskHash": "243cc8184878e77bebb18563cd54ce5cdd1f824e4b6547d3d6e2ed90ddca708d",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: elapsed time since event, not time spent performing it. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: elapsed time since event, not time spent performing it. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-은 적이 있다:P",
       "taskId": "KP06:production:10",
       "sourceHash": "b7b9212cf4a22829057973bdf3d6ddbd91c6b5a1efdecfb235e0c8ca50b7752f",
-      "taskHash": "ab62df30ecb742f0232ea65052ed7ec33c57452167f6c9462b1c4107923369e0",
+      "taskHash": "dc488473065b87588f92e65374483768be10a3f6e5cf3232aae5074685ead085",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: positive experience, not negated experience. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: positive experience, not negated experience. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-어 보다:P",
       "taskId": "KP06:production:11",
       "sourceHash": "99afd8a3b8d9c5dc3e9f9ff5ec987d4df711dab8c8b1a2e07ac307419f7c17c6",
-      "taskHash": "ef5da72c2027100744a3e16b9f933bb00eddd1d239fd741342ad0028d1e946a9",
+      "taskHash": "75d63f811b2aa36ac2e94337b8a234ab7ad5d6a172b18ecb39b360bde4036eab",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: trying an action, not watching another act. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: trying an action, not watching another act. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-으면서:P",
       "taskId": "KP06:production:12",
       "sourceHash": "15e02511d131d89ffd4292a709357cff3c494c0506b33ef8b2a61350ffe031ea",
-      "taskHash": "8989b8d6526db24d3b1d3c337ba39401ecb1c1816d18b1406806f17e21bae3dc",
+      "taskHash": "c55c2c6071cffea72d812687134f31b87bc4c20a298a7c26b4677e023e52c328",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: same-subject concurrency, not sequence. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: same-subject concurrency, not sequence. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G2:-다가1(1):P",
       "taskId": "KP06:production:13",
       "sourceHash": "cd9e1d892f6a702a40a9eaa31dddc61aff934537338e2a2f7263d78bf671c5f2",
-      "taskHash": "8d9bd5f5c2f8c6d52f75d2dc15c739f3415cfcbda843c3752fb3b588a1026cc7",
+      "taskHash": "3307185263a4418539e7992da83e0c76fe0345964c27079a48f4a32f81df1e7e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: interruption retains unfinished first activity. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: interruption retains unfinished first activity. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP06:objective:grammar/G1:-고 있다:P",
       "taskId": "KP06:production:14",
       "sourceHash": "110f200612bc7fd706ec4b7302f8419e071460d8474409494cfc53dcfa702b8f",
-      "taskHash": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100",
+      "taskHash": "515f2bf55a25a3c4177b75f44b99ba791b732b559c303cd0c7961cb3bd4f58c3",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing now, not yesterday completion. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing now, not yesterday completion. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-는데1:P",
       "taskId": "KP07:production:01",
       "sourceHash": "ac970f571d9c9ff6ea124d6d3e75d2a47bb3063b518c3d2cedd14adc509e777f",
-      "taskHash": "d1163bcc5d4c2e7e4f82357349b2f0de045dac9267e5bedd5b514fbbc149b43b",
+      "taskHash": "58b2c6fb22e4997bc7cf7a10e0ce3d5b6625967dc2f128d75167ea9d7d187ed2",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: background proposal retains actual condition and no compulsion. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: background proposal retains actual condition and no compulsion. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-게2:P",
       "taskId": "KP07:production:02",
       "sourceHash": "04ece0e9261c6b6b3f13ae9173ed43f70f871bccd47c23b2db74ed57558cafee",
-      "taskHash": "cffd5b3527271184ce8eaa29e3b635b868083f4cc23b557cada77a09f5e35152",
+      "taskHash": "57eadf0aff3ffa0731098328fa019e5397c54ca675a584c6c917a92ea72e320b",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: purpose preserves possibility, not deliberate prevention. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: purpose preserves possibility, not deliberate prevention. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-기 때문에:P",
       "taskId": "KP07:production:03",
       "sourceHash": "91acfec11922821a8ef675fd2f467f36f08221c013e93988299c086e3d8ffe77",
-      "taskHash": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "taskHash": "1b3da7879111250b515eca9a6fbef7da9c8550ad8b994eece97fce9569d17d27",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: cause/result direction. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: cause/result direction. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-기로 하다:P",
       "taskId": "KP07:production:04",
       "sourceHash": "9680e60275e38cdd844a24c700f681a5f2790fb3792fd53f38cae2216fd3b7fc",
-      "taskHash": "020cb0690836ef47bbb7fbeb0c0280d0b1861cd6cc5ff9e8b9ff487b536531c2",
+      "taskHash": "676c96ee423ff9fe3e117b69cb6abfeab62fd290fb77d2fd8413fba7f66f4074",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: past decision with future execution, not completed execution. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: past decision with future execution, not completed execution. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-는 것 같다:P",
       "taskId": "KP07:production:05",
       "sourceHash": "57b06846851c0f10389cf04016f6471578960b7db618d0d259821e8a3a627f67",
-      "taskHash": "2923f2a6b488aef63b6eeeca40886ca42254fe7fb4addec1de84e30dc0e01cbf",
+      "taskHash": "64b6d6a23f3b93eaf12af734c3e0cad0f4b1f339195579c946f183b280701ea8",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: unconfirmed audible evidence stays inference. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: unconfirmed audible evidence stays inference. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-을 수밖에 없다:P",
       "taskId": "KP07:production:06",
       "sourceHash": "90a00f5c5e67eb2fad327534069b52441dfe49e82d73da9165cd29809cbdcae0",
-      "taskHash": "658bcfbef4e4968e33105a9cf41438fce7781e906ff9e80620898fad4aefb1a7",
+      "taskHash": "0a9e313b6c10931be5b1c775d2d3281ea518a46c82fe070d4d90c74b5b46a257",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: constraint, not preference. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: constraint, not preference. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-을게:P",
       "taskId": "KP07:production:07",
       "sourceHash": "d0207b95acc89e52031f23d4248762bfae1f6077293fe6bf25f79e5fc9594791",
-      "taskHash": "48890eeb1338a32d232faabeea80ae9b3c229698b1f2482838fe07cdde49703b",
+      "taskHash": "64c3bddb406f883c03dcb9f4039bd45b2619174e206583f7cc5bd61cbedc8b52",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: first-person commitment, not third-person promise ending. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: first-person commitment, not third-person promise ending. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-을래:P",
       "taskId": "KP07:production:08",
       "sourceHash": "f285a6635913190255f840457646e6419e086e07a85e2de7a1c14b79e36902d4",
-      "taskHash": "376752802e8139c84c67a42c2c997ebe54423c190604af082b4c259967e52018",
+      "taskHash": "dba6664885f45a53f29834d5e588254ede646f586afb3f5332675561d4af22b7",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: own choice, not obligation. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: own choice, not obligation. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-을까 보다:P",
       "taskId": "KP07:production:09",
       "sourceHash": "9b610182245a5caa89732c34fcdd68ff2cfd7362463f1931ece4a7252229bdcb",
-      "taskHash": "377882d36f55eebf071c8e39cfb386081cb45dca189c7b717fd4ea8754948e8a",
+      "taskHash": "28c33aca027fd505303e697049c466bf943acb1bf16476f1c80fa176cae9873f",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit tentative-intention context, not fear or settled decision. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit tentative-intention context, not fear or settled decision. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G2:-게 되다:P",
       "taskId": "KP07:production:10",
       "sourceHash": "a7ba0783651bce77f6339369884de84fa75767d400719c95586ef22c984532ba",
-      "taskHash": "6f4bbe7458b0be843b08bb96b4be12d05cbdd4ff9ad6f28fd9d8b12a28c48bd1",
+      "taskHash": "e9edfa169e50e5ce8356f4e0d720dec4cee064d2cd5436ec872f58f782ab5f8e",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: assignment-driven change, no invented voluntary choice. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: assignment-driven change, no invented voluntary choice. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G1:-고4:P",
       "taskId": "KP07:production:11",
       "sourceHash": "0b81ee4e78f1987398bb656f2fff1d80e356849698fe215b472b7f38b3d9b1ae",
-      "taskHash": "b4962c0cde7a74d1598b52eb754750876b330932cb9d16b44adfc71d56e1cdc8",
+      "taskHash": "302549c91e18f0a0988e8f2d6e618512011409b5aefd3e076443cde71b73e326",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: additional circumstance polarity. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: additional circumstance polarity. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G1:-어서:P",
       "taskId": "KP07:production:12",
       "sourceHash": "d463bec2a2471e9cdc935f7e4daca8ca05bc675611ca3948d0b23e5c2ac48e65",
-      "taskHash": "2d0012a6cb552e630c7df3909868707a29366f521e823828dee56a393218a488",
+      "taskHash": "0245146c6a0e8e9ce6655be341cf9675b6d1e1ea38f487f84b89fbc64ddc06de",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: apology cause and effect preserve direction. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: apology cause and effect preserve direction. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:grammar/G1:-지만:P",
       "taskId": "KP07:production:13",
       "sourceHash": "13822f2a24cbec7a63c860fe984d56eea799cae4e07ae9d612ddf883cccf7e0c",
-      "taskHash": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb",
+      "taskHash": "5948febc7041c9a9c2c3d046c9c15421e2890695e18d5f3a10879dbd75ef349c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: contrast retains actual scheduling constraint. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: contrast retains actual scheduling constraint. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-음:P",
       "taskId": "KP08:production:01",
       "sourceHash": "1bd6ac50c4d12321d142d98c7f5f0d4d64cbadbcc5d979dadb8137b7f0f9967c",
-      "taskHash": "03c9cd2b3c11f5b8ebec965fa2c2c92094f27e3ad046f90c257ce602e39d5a68",
+      "taskHash": "b2444802c74887f6196e0ce0b8fa7304e5bb8e7b9ee321fd69b6d2753143d832",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal notice negative, not positive availability. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal notice negative, not positive availability. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:께:P",
       "taskId": "KP08:production:02",
       "sourceHash": "a3addecf95f12435786f74e04b1e1b38a787317c22fdb972917b61a9a40e0926",
-      "taskHash": "0dc1b1eaef87d3971686ddb12227e1dcba183b646c7242a75ef1efeebadc9aca",
+      "taskHash": "c6712748471e4784266fd4d7b2aed44201b2a5d811dd2bd562a46ad4720388d4",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: honored recipient, not honored sender. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: honored recipient, not honored sender. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:에게로:P",
       "taskId": "KP08:production:03",
       "sourceHash": "daa87fde7a7bb9c4e0397ab920410887100bd6076585c69abc1f180d8d0f8659",
-      "taskHash": "fd136d471d3d55bd6af93e2fe8899d1ead8d3e4f611f2b5c1776e5dbc5135b2c",
+      "taskHash": "f2e0746984a08bfa6ee3acbb551862fe94d3cf266f0e577361fdaf593a7220ef",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: moving actor and destination person retain roles. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: moving actor and destination person retain roles. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:에게서:P",
       "taskId": "KP08:production:04",
       "sourceHash": "8217548f1a719e71d86296f84fec3acb97007aee5a95d53ffe6767637708dd47",
-      "taskHash": "3439e1aa3c99fe23ead65eff58c8b3052796d3c96e86ba6af00287ca06ba7812",
+      "taskHash": "81e678968b48998284e5166d4ceb2b6b5781385348f1cb9ad2e554deef5c1644",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: personal source, not recipient. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: personal source, not recipient. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:한테서:P",
       "taskId": "KP08:production:05",
       "sourceHash": "201b9f4208d7193914ff83f88733e85e6317b2e77af466db63e9f78eb9b7a297",
-      "taskHash": "f989ff9c005b28d106a024f6d34bd61c4e329f3ab0a3dbb4fd3113e135e80218",
+      "taskHash": "24c9722dd71154a72f2d48065d67aafc693673db387db5a31d97a4fa3994b07c",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: colloquial personal source, not recipient. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: colloquial personal source, not recipient. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:에다가:P",
       "taskId": "KP08:production:06",
       "sourceHash": "49662b4f77f75070eaf6c04e165976fd42b072476adb0338daaae7b78c50d4c0",
-      "taskHash": "615da786904770f057214d5c8d208403eb8cee26dfa6f54a85a6ad11c8b8a88d",
+      "taskHash": "9d9e3f012e5a99c22ddad499a526d06538abfc49dae6c51145abd6eeba5446ee",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: placement destination, not removal source. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: placement destination, not removal source. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:에서부터(서부터):P",
       "taskId": "KP08:production:07",
       "sourceHash": "3b740e2d8e950349e5e1f93489e28b07e6d3c986194e4644aa8df83a0bbcd71f",
-      "taskHash": "959c970288ba17f6b4725492497c6e9b79e7b19bd79ebcd61565fb7f93b5eaea",
+      "taskHash": "30e74ac1ff742eee820983cd6c87fb7517315340e5d6e5c8cb36b11d2b0ec158",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: origin, not destination. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: origin, not destination. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-네:P",
       "taskId": "KP08:production:08",
       "sourceHash": "7539e88e27e9048783ac622f8b1ec178a91a632d2816872f938827f9fbda4df8",
-      "taskHash": "669576af716b4b6b0c9dce877cbb32156aff56322f28f6a206da3b332aeecabf",
+      "taskHash": "ca3d8d25e0c87587d9b2c60bbf9f1e372e780606baa176291899cc58dc0faed5",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directly noticed realization, not command or negative weather. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directly noticed realization, not command or negative weather. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-는군:P",
       "taskId": "KP08:production:09",
       "sourceHash": "a3525d4ae48beab388d05f5a4596fef48a0bfdb81da0a7bfc866994677a9d51f",
-      "taskHash": "f3acba603ef128efa4a7c6d933aa22ee3aec3a9aaf37ff9e57add58c0c927d00",
+      "taskHash": "67d9b16b8f1b4188b5233eb06cf6259feca69eefd3fed6dd85b5d5f7ec925607",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: new realization, not information question. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: new realization, not information question. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-는데2:P",
       "taskId": "KP08:production:10",
       "sourceHash": "c618f2070d18ed43e2808c4d337413f0c6bb35c91d8c6ac56889711128c148cb",
-      "taskHash": "0ae08123acfa4152b46485d248080f517959bbc69511b556e66da57348f00fdf",
+      "taskHash": "7dee0da279834c30cb59eeb660d40f53c77c83b7ab2d247308e3bc864e1d9283",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit positive surprise, not negative evaluation. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit positive surprise, not negative evaluation. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-지:P",
       "taskId": "KP08:production:11",
       "sourceHash": "53a8833579d140bb3e078cc892e1ca4e23eb688b28d92324cfcc3387e53ff3df",
-      "taskHash": "d2564e1c55ebae2eef1e00931f64c72e1eb50cb6a2c1c3cea29c07e2c0763b33",
+      "taskHash": "883e75799787df63d734eca9c3c2afc06057f9163ae9116faaeb4a83f220a192",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: agreed close-peer knowledge confirmation, not prohibition. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: agreed close-peer knowledge confirmation, not prohibition. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-어 있다:P",
       "taskId": "KP08:production:12",
       "sourceHash": "7f6400ff4d71e284529b2b2b4d71fdcb4e2fb43aaf5f0640bf67207cd28fbb7a",
-      "taskHash": "accfc579d2baa9e4ad89124150614a52c44c548b2a86c600942abc08afdbeabe",
+      "taskHash": "77d53642b3d08fe22f6581600be3598ef5ea76decf63972a6734f94aa93e892b",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed resulting state, not ongoing transition. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed resulting state, not ongoing transition. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G2:-을 것1:P",
       "taskId": "KP08:production:13",
       "sourceHash": "e9c6d4931663a75bcb220f6ea0a8035d6e39db003aed9ea30e405dfcb9979e1a",
-      "taskHash": "8f5712e2a288eaad682691212f6411703d35beb2af86385150195c10d92f0d02",
+      "taskHash": "04830318cf9089b30f267481b16fc5f7bfd785882f16b10a5ebccba08457c7a5",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directive notice, not uncertain prediction. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directive notice, not uncertain prediction. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP08:objective:grammar/G1:-고 있다:P",
       "taskId": "KP08:production:14",
       "sourceHash": "f407fc851e7a1bafd275c5587c31b91454e29d1e482c172ef7e25db365498f77",
-      "taskHash": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146",
+      "taskHash": "99546bda2c7267e4765d8d78163b616c841e8881c383301006fb1a1dfb2c3422",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing transitive action, not resulting state. 자유 의미 전체 숙달은 미검증이다."
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing transitive action, not resulting state. 자유 의미 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP05:objective:reading/genre/written_notice_announcement:R",
@@ -4788,12 +4788,12 @@
       "objectiveId": "KP07:objective:functions/explain_reason_cause_effect:P",
       "taskId": "KP07:production:03",
       "sourceHash": "5310c712767f287b7624bed1b2e1582b5dac633b8e8867cfe1ef91a72a7f9963",
-      "taskHash": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "taskHash": "1b3da7879111250b515eca9a6fbef7da9c8550ad8b994eece97fce9569d17d27",
       "criterionIds": [
         "sentence"
       ],
       "reviewer": "Astra",
-      "rationaleKo": "실제 자료·응답 지시에서 functions/explain_reason_cause_effect:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+      "rationaleKo": "실제 자료·응답 지시에서 functions/explain_reason_cause_effect:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
       "objectiveId": "KP07:objective:functions/express_opinion_agree_disagree:R",
