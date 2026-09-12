@@ -672,10 +672,10 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1789091377.9292207,
-    "seen": 1789092808.148999,
-    "ast_hash": "b3ed9a13a0e3af2c338b512d0dca6fde",
-    "semantic_hash": "b3ed9a13a0e3af2c338b512d0dca6fde"
+    "mtime": 1789226907.0318563,
+    "seen": 1789229628.534849,
+    "ast_hash": "87e2e2d628632b2f2f0976eaf9ba71b3",
+    "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
     "mtime": 1789091377.9292207,
@@ -744,9 +744,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/deployment-contract.test.mjs": {
-    "mtime": 1789091378.0302124,
-    "seen": 1789092808.1490173,
-    "ast_hash": "033fcdbf4785bfbaa25ade5b9cfba26e",
+    "mtime": 1789227060.2449992,
+    "seen": 1789229628.5410385,
+    "ast_hash": "ad3a8f51237252f74bf4d9293a2faa6f",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/release-safety.test.mjs": {
@@ -4152,8 +4152,8 @@
     "semantic_hash": ""
   },
   "test/entry_onboarding_uiux_test.dart": {
-    "mtime": 1789091378.767681,
-    "seen": 1789092808.1500754,
+    "mtime": 1789228825.742572,
+    "seen": 1789229628.8727348,
     "ast_hash": "fb08579991fc0394acb8a1469b87ef25",
     "semantic_hash": ""
   },
@@ -5844,9 +5844,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1789091379.233725,
-    "seen": 1789092808.150705,
-    "ast_hash": "ec645861ab9d802b61adadbd33b220ad",
+    "mtime": 1789228928.7261002,
+    "seen": 1789229629.0814743,
+    "ast_hash": "686553c5feb3534e9b7be5efb6bf3a98",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -8838,9 +8838,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1789091375.9872699,
-    "seen": 1789092808.1520667,
-    "ast_hash": "cb00aa0832bfc8d3563865e50b7b8f6b",
+    "mtime": 1789228919.1269014,
+    "seen": 1789229629.577389,
+    "ast_hash": "fd360fba87203e1a425a3299094804e9",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -10830,9 +10830,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": {
-    "mtime": 1789091378.257994,
-    "seen": 1789092808.1493204,
-    "ast_hash": "615971dd335773d22ac2157a46d7a732",
+    "mtime": 1789229000.0541313,
+    "seen": 1789229628.6330256,
+    "ast_hash": "e9c0cbc59d137a0d71284a6e502d01a9",
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_v2_presentation.dart": {
@@ -14136,9 +14136,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/updating_scene.dart": {
-    "mtime": 1789093579.191164,
-    "seen": 1789100958.695985,
-    "ast_hash": "1fbcf36578c9bff72d62df266e4183b7",
+    "mtime": 1789228825.7087214,
+    "seen": 1789229628.7974162,
+    "ast_hash": "8d8ec67465c024f98bbe8be8493e1cf9",
     "semantic_hash": ""
   },
   "test/sori_gaps_usage_guard_test.dart": {
@@ -14280,9 +14280,9 @@
     "semantic_hash": ""
   },
   "test/open_access_default_test.dart": {
-    "mtime": 1789096296.3910165,
-    "seen": 1789100958.7695868,
-    "ast_hash": "e7215bd4191490d5ce3e8988c46475a9",
+    "mtime": 1789228690.4950514,
+    "seen": 1789229628.9514523,
+    "ast_hash": "ef73e59f50c9de32ce2339a7ab11c263",
     "semantic_hash": ""
   },
   "test/open_access_transport_test.dart": {
@@ -15312,9 +15312,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_story_practice.dart": {
-    "mtime": 1789091378.2551727,
-    "seen": 1789092808.1493144,
-    "ast_hash": "b75fd24a2e73bcdfe90800739b095a26",
+    "mtime": 1789228690.4640644,
+    "seen": 1789229628.6315973,
+    "ast_hash": "e58720a8f275f16b8a660493ebf7ea1c",
     "semantic_hash": ""
   },
   "test/onboarding_character_media_test.dart": {
@@ -15432,9 +15432,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-11-hanok-v1-retirement-v3-preview-design.md": {
-    "mtime": 1789091801.8409386,
-    "seen": 1789092808.1522605,
-    "ast_hash": "85794238ac99227a985ad3a866c6fc89",
+    "mtime": 1789226373.886722,
+    "seen": 1789229629.641426,
+    "ast_hash": "c1426fb0de66618fc41055900083987e",
     "semantic_hash": ""
   },
   "lib/models/hanok_learning_receipt.dart": {
