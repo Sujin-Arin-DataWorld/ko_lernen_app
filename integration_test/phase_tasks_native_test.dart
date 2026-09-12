@@ -37,6 +37,18 @@ Future<void> main() async {
   final restoreOnly = configuration.restoreOnly;
   final qaLevel = configuration.level;
   debugPrint('PHASE_NATIVE_CONFIGURATION $qaLevel restore=$restoreOnly');
+  // Finish async catalogue loading before registering any test. On a launched
+  // native app, registering the first test schedules its runner immediately.
+  final audioEnabled =
+      !restoreOnly && const bool.fromEnvironment('PHASE_NATIVE_TTS');
+  final listening = audioEnabled
+      ? (await PhaseTaskCatalog.load()).tasks
+            .where((t) => t.skill == 'listening' && t.level == qaLevel)
+            .toList()
+      : <PhaseTask>[];
+  debugPrint(
+    'PHASE_NATIVE_AUDIO enabled=$audioEnabled tasks=${listening.length}',
+  );
 
   Widget host(PhaseTaskRoute route) => MaterialApp(
     initialRoute: '/',
@@ -347,10 +359,7 @@ Future<void> main() async {
     expect(tester.widget<TextFormField>(field).initialValue, '지금 도서관에 있어요.');
   }, skip: !restoreOnly);
 
-  if (!restoreOnly && const bool.fromEnvironment('PHASE_NATIVE_TTS')) {
-    final listening = (await PhaseTaskCatalog.load()).tasks
-        .where((t) => t.skill == 'listening' && t.level == qaLevel)
-        .toList();
+  if (audioEnabled) {
     test('the selected level has published listening tasks', () {
       expect(listening, isNotEmpty);
     });
