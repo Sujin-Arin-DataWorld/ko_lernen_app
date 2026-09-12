@@ -115,23 +115,23 @@
 | KP09 | G3:-었었- | 1 | 0 | 0 | 미검증 |
 | KP09 | G3:-는 중이다 | 1 | 0 | 0 | 미검증 |
 | KP09 | G3:-고 싶어 하다 | 1 | 0 | 0 | 미검증 |
-| KP10 | G3:-다가1(2) | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-으려다가 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-었더니 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-느라고 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어다가 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-자마자 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-고 나다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-고 말다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어 가다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어 오다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어 놓다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어 두다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어지다 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-은 결과 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-은 다음에 | 0 | 0 | 0 | 미검증 |
-| KP10 | G3:-어 가지고 | 0 | 0 | 0 | 미검증 |
-| KP10 | G2:-어 있다 | 0 | 0 | 0 | 미검증 |
+| KP10 | G3:-다가1(2) | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-으려다가 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-었더니 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-느라고 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어다가 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-자마자 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-고 나다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-고 말다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어 가다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어 오다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어 놓다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어 두다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어지다 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-은 결과 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-은 다음에 | 1 | 0 | 0 | 미검증 |
+| KP10 | G3:-어 가지고 | 1 | 0 | 0 | 미검증 |
+| KP10 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
 | KP11 | G3:만큼 | 0 | 0 | 0 | 미검증 |
 | KP11 | G3:-는 만큼 | 0 | 0 | 0 | 미검증 |
 | KP11 | G3:같이 | 0 | 0 | 0 | 미검증 |
@@ -441,3 +441,20 @@
 - KP09 / G3:-었었- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp09.json/tasks/8/practice/sourceKo` — “예전에는 이 동네에 살았었어.”. 다음 문장에 지금 다른 도시에 산다고 명시하여 바뀐 과거 상황을 회상한다. 신규로 작성한 Phase 자료의 수용 용례이며 기존 대화 재사용이나 산출 평가 완료 근거가 아니다.
 - KP09 / G3:-는 중이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp09.json/tasks/9/practice/sourceKo` — “지금 이사 준비를 하는 중이야.”. 지금 진행하는 준비를 나타내며 이사 완료가 아니다. 신규로 작성한 Phase 자료의 수용 용례이며 기존 대화 재사용이나 산출 평가 완료 근거가 아니다.
 - KP09 / G3:-고 싶어 하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp09.json/tasks/10/practice/sourceKo` — “동생은 제주도에 가고 싶어 해.”. 다른 사람인 동생의 희망이며 다음 문장의 아직 간 적 없다는 조건으로 미실현임을 확인한다. 신규로 작성한 Phase 자료의 수용 용례이며 기존 대화 재사용이나 산출 평가 완료 근거가 아니다.
+- KP10 / G3:-다가1(2) / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/0/practice/sourceKo` — “자료를 읽다가 전화를 받았어요.”. 읽던 실제 행동이 전화 받기로 전환된다. 의도만 바꾼 것이 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-으려다가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/1/practice/sourceKo` — “버스를 타려다가 걸어갔어요.”. 타려던 의도 대신 걸어간 행동을 말하며 버스를 탔다고 확정하지 않는다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-었더니 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/2/practice/sourceKo` — “파일을 열었더니 내용이 비어 있었어요.”. 파일을 열어 본 뒤 비어 있는 내용을 발견한다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-느라고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/3/practice/sourceKo` — “저는 자료를 찾느라고 전화를 못 받았어요.”. 화자가 찾기에 매여 전화를 못 받은 동일 행위자의 불리한 결과다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어다가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/4/practice/sourceKo` — “주방에서 물을 떠다가 회의실 화분에 주었어요.”. 주방에서 얻은 물을 회의실로 옮겨 뒤 행동에 사용한다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-자마자 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/5/practice/sourceKo` — “도착하자마자 담당자에게 전화했어요.”. 도착 직후 전화한 즉시 순서를 나타내며 별도 원인을 입증하지 않는다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-고 나다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/6/practice/sourceKo` — “정리를 하고 나니 빈자리가 보였어요.”. 정리 완료를 기준으로 뒤에서 알게 된 상황을 말한다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-고 말다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/7/practice/sourceKo` — “서두르다가 파일을 지우고 말았어요.”. 원치 않은 파일 삭제가 실제로 일어난 결과다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어 가다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/8/practice/sourceKo` — “새 업무에 조금씩 익숙해져 가고 있어요.”. 현재에서 앞으로 계속되는 익숙해지는 변화이며 이동이 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어 오다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/9/practice/sourceKo` — “우리는 지난달부터 이 문제를 논의해 왔어요.”. 지난달부터 지금까지 이어진 논의 과정이다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어 놓다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/10/practice/sourceKo` — “환기하려고 창문을 열어 놓았어요.”. 열어 생긴 결과 상태를 남기며 환기 목적이 명시된다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어 두다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/11/practice/sourceKo` — “내일 회의를 위해 자료를 미리 찾아 두었어요.”. 내일 사용할 목적을 위해 미리 자료를 찾은 준비다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어지다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/12/practice/sourceKo` — “수리한 뒤 방이 따뜻해졌어요.”. 형용사 따뜻하다의 상태 변화이며 행위자 피동 일반 규칙이 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-은 결과 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/13/practice/sourceKo` — “직원들과 의논한 결과 날짜를 바꾸었어요.”. 의논을 거쳐 얻은 날짜 변경 결과다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-은 다음에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/14/practice/sourceKo` — “신청서를 쓴 다음에 창구에 내세요.”. 작성 완료 이후 제출하는 순서이며 반대 순서가 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G3:-어 가지고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/15/practice/sourceKo` — “길이 막혀 가지고 조금 늦었어요.”. 구어에서 정체를 늦은 이유로 제시한다. 역인과가 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP10 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/16/practice/sourceKo` — “확인해 보니 창문이 열려 있었어요.”. 확인 당시 열린 결과 상태다. 창문을 연 행위자는 명시되지 않는다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.

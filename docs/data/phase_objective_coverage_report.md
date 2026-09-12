@@ -15,7 +15,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP07 | 56 | 56 | 0 | 미검증 |
 | KP08 | 61 | 61 | 0 | 미검증 |
 | KP09 | 49 | 49 | 0 | 미검증 |
-| KP10 | 62 | 0 | 62 | 미검증 |
+| KP10 | 62 | 62 | 0 | 미검증 |
 | KP11 | 58 | 0 | 58 | 미검증 |
 | KP12 | 57 | 0 | 57 | 미검증 |
 | KP13 | 57 | 0 | 57 | 미검증 |
@@ -39,68 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP10:objective:grammar/G3:-다가1(2):R`
-- `KP10:objective:grammar/G3:-다가1(2):P`
-- `KP10:objective:grammar/G3:-으려다가:R`
-- `KP10:objective:grammar/G3:-으려다가:P`
-- `KP10:objective:grammar/G3:-었더니:R`
-- `KP10:objective:grammar/G3:-었더니:P`
-- `KP10:objective:grammar/G3:-느라고:R`
-- `KP10:objective:grammar/G3:-느라고:P`
-- `KP10:objective:grammar/G3:-어다가:R`
-- `KP10:objective:grammar/G3:-어다가:P`
-- `KP10:objective:grammar/G3:-자마자:R`
-- `KP10:objective:grammar/G3:-자마자:P`
-- `KP10:objective:grammar/G3:-고 나다:R`
-- `KP10:objective:grammar/G3:-고 나다:P`
-- `KP10:objective:grammar/G3:-고 말다:R`
-- `KP10:objective:grammar/G3:-고 말다:P`
-- `KP10:objective:grammar/G3:-어 가다:R`
-- `KP10:objective:grammar/G3:-어 가다:P`
-- `KP10:objective:grammar/G3:-어 오다:R`
-- `KP10:objective:grammar/G3:-어 오다:P`
-- `KP10:objective:grammar/G3:-어 놓다:R`
-- `KP10:objective:grammar/G3:-어 놓다:P`
-- `KP10:objective:grammar/G3:-어 두다:R`
-- `KP10:objective:grammar/G3:-어 두다:P`
-- `KP10:objective:grammar/G3:-어지다:R`
-- `KP10:objective:grammar/G3:-어지다:P`
-- `KP10:objective:grammar/G3:-은 결과:R`
-- `KP10:objective:grammar/G3:-은 결과:P`
-- `KP10:objective:grammar/G3:-은 다음에:R`
-- `KP10:objective:grammar/G3:-은 다음에:P`
-- `KP10:objective:grammar/G3:-어 가지고:R`
-- `KP10:objective:grammar/G3:-어 가지고:P`
-- `KP10:objective:grammar/G2:-어 있다:R`
-- `KP10:objective:grammar/G2:-어 있다:P`
-- `KP10:objective:listening/core:R`
-- `KP10:objective:reading/core:R`
-- `KP10:objective:reading/genre/news_article_report:R`
-- `KP10:objective:reading/genre/explanatory_informational_text:R`
-- `KP10:objective:speaking/core:P`
-- `KP10:objective:writing/core:P`
-- `KP10:objective:writing/genre/explanatory_informational_text:P`
-- `KP10:objective:writing/genre/narrative_story_diary:P`
-- `KP10:objective:functions/narrate_experience_events:R`
-- `KP10:objective:functions/narrate_experience_events:P`
-- `KP10:objective:functions/explain_reason_cause_effect:R`
-- `KP10:objective:functions/explain_reason_cause_effect:P`
-- `KP10:objective:functions/report_relay_information:R`
-- `KP10:objective:functions/report_relay_information:P`
-- `KP10:objective:vocabDomains/professions_workplace:R`
-- `KP10:objective:vocabDomains/professions_workplace:P`
-- `KP10:objective:vocabDomains/money_prices_banking:R`
-- `KP10:objective:vocabDomains/money_prices_banking:P`
-- `KP10:objective:vocabDomains/public_services_admin_vocab:R`
-- `KP10:objective:vocabDomains/public_services_admin_vocab:P`
-- `KP10:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP10:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP10:objective:phonology/0:R`
-- `KP10:objective:phonology/0:P`
-- `KP10:objective:phonology/1:R`
-- `KP10:objective:phonology/1:P`
-- `KP10:objective:register/haeyo_polite:P`
-- `KP10:objective:register/hapsyo_formal_business:P`
 - `KP11:objective:grammar/G3:만큼:R`
 - `KP11:objective:grammar/G3:만큼:P`
 - `KP11:objective:grammar/G3:-는 만큼:R`

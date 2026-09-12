@@ -5829,6 +5829,724 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Other-person wish remains unfulfilled and belongs to sibling/friend, not speaker. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP10:objective:listening/core:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "aea3760901e33933d4bd1cd8063be475cdaa571a3b818a67d7ae5993b54422dc",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:reading/core:R",
+      "taskId": "KP10:reading:01",
+      "sourceHash": "c36689e6c2dc50c719ee39e53295a3e814afa26d70a4cbd4fb826e613429aa6c",
+      "taskHash": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "interpretation",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Fictional news article: screen failure and later manual intake observed, preceding notice not proved causal, applicant quote not verified double charge, reporter hypothesis separate, refund not approved. No real legal/financial advice. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:reading/genre/news_article_report:R",
+      "taskId": "KP10:reading:01",
+      "sourceHash": "1986f638aac6b442bc324d2d9eb718863517c6701f3777b9af9d515f6952c210",
+      "taskHash": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "interpretation",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Fictional news article: screen failure and later manual intake observed, preceding notice not proved causal, applicant quote not verified double charge, reporter hypothesis separate, refund not approved. No real legal/financial advice. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:reading/genre/explanatory_informational_text:R",
+      "taskId": "KP10:reading:02",
+      "sourceHash": "3154fdff8cdd8c856c17037d432e604e059c3b7076529b5fa5ae68e5013ec192",
+      "taskHash": "b3b980af701e2597158fea0294201374b97d64f477044e7f58c4980a6011faa6",
+      "criterionIds": [
+        "purpose",
+        "order",
+        "unknown",
+        "state"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Connected procedural explanation: purpose of number, check-before-save, verify saved copy, unknown cause stays unknown. Additional facility-state illustration distinguishes agent/action, change and resulting open state without inventing actor. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:writing/core:P",
+      "taskId": "KP10:writing:01",
+      "sourceHash": "7c181a25f70c47f46259ce5441e6954fa508b1e2b2c65b6b3890607ec54d87bb",
+      "taskHash": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
+      "criterionIds": [
+        "report",
+        "story"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Two required full free texts from same explicit fictional facts: formal record and first-person narrative, costs/numbers/source/uncertainty maintained. Corrected 동료의 도움으로. No keys, no automatic meaning or narrative-quality score. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:writing/genre/explanatory_informational_text:P",
+      "taskId": "KP10:writing:02",
+      "sourceHash": "09ffdebddd28a189ef930045ebf742f74702697f2e4ecc23fbc3550bf8ef30d3",
+      "taskHash": "5f42c617c19f2de9cb13f1e113736e407a6283f10ad63e59a7fb5e8fde4f454b",
+      "criterionIds": [
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Required connected explanatory text with purpose/order/result and receipt-not-approval constraint. Distinct application/reservation practice and assessment; free meaning unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:writing/genre/narrative_story_diary:P",
+      "taskId": "KP10:writing:01",
+      "sourceHash": "e25783fb4b2cb40008294e779e2efec19167468212592367ad15fab2a40de941",
+      "taskHash": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
+      "criterionIds": [
+        "report",
+        "story"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Two required full free texts from same explicit fictional facts: formal record and first-person narrative, costs/numbers/source/uncertainty maintained. Corrected 동료의 도움으로. No keys, no automatic meaning or narrative-quality score. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:speaking/core:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "47ea71653064b69af4fcfa574ba36a2240cd0b3f52bbce6bdc9a9ff004173578",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/narrate_experience_events:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "b59a9becf07dbf0633b9dee69936d6c3412bcb52b22d862a4b720810d7d4b558",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/narrate_experience_events:P",
+      "taskId": "KP10:writing:01",
+      "sourceHash": "b59a9becf07dbf0633b9dee69936d6c3412bcb52b22d862a4b720810d7d4b558",
+      "taskHash": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
+      "criterionIds": [
+        "report",
+        "story"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Two required full free texts from same explicit fictional facts: formal record and first-person narrative, costs/numbers/source/uncertainty maintained. Corrected 동료의 도움으로. No keys, no automatic meaning or narrative-quality score. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/explain_reason_cause_effect:R",
+      "taskId": "KP10:reading:01",
+      "sourceHash": "079e1a95d9d2273ad116c7b79124fb2737fecd0ab46af5ad0a3ef5cb0006bc88",
+      "taskHash": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "interpretation",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Fictional news article: screen failure and later manual intake observed, preceding notice not proved causal, applicant quote not verified double charge, reporter hypothesis separate, refund not approved. No real legal/financial advice. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/explain_reason_cause_effect:P",
+      "taskId": "KP10:writing:02",
+      "sourceHash": "079e1a95d9d2273ad116c7b79124fb2737fecd0ab46af5ad0a3ef5cb0006bc88",
+      "taskHash": "5f42c617c19f2de9cb13f1e113736e407a6283f10ad63e59a7fb5e8fde4f454b",
+      "criterionIds": [
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Required connected explanatory text with purpose/order/result and receipt-not-approval constraint. Distinct application/reservation practice and assessment; free meaning unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/report_relay_information:R",
+      "taskId": "KP10:reading:01",
+      "sourceHash": "2c9c440b390d098704d74754aa8bc0e48a1e6240c173f3436ad9b93e169a5b93",
+      "taskHash": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "interpretation",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Fictional news article: screen failure and later manual intake observed, preceding notice not proved causal, applicant quote not verified double charge, reporter hypothesis separate, refund not approved. No real legal/financial advice. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:functions/report_relay_information:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "2c9c440b390d098704d74754aa8bc0e48a1e6240c173f3436ad9b93e169a5b93",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/professions_workplace:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "a332904a87397d0feef598a60612750bda77fca87c68f34701ae3739ef2bb5d8",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/professions_workplace:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "a332904a87397d0feef598a60612750bda77fca87c68f34701ae3739ef2bb5d8",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/money_prices_banking:R",
+      "taskId": "KP10:reading:01",
+      "sourceHash": "65c51ffcc3585c1d4240ec11bed82cf21eb3ba2bdd4a1cdf255e0dfcefb28760",
+      "taskHash": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "interpretation",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Fictional news article: screen failure and later manual intake observed, preceding notice not proved causal, applicant quote not verified double charge, reporter hypothesis separate, refund not approved. No real legal/financial advice. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/money_prices_banking:P",
+      "taskId": "KP10:writing:01",
+      "sourceHash": "65c51ffcc3585c1d4240ec11bed82cf21eb3ba2bdd4a1cdf255e0dfcefb28760",
+      "taskHash": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
+      "criterionIds": [
+        "report",
+        "story"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Two required full free texts from same explicit fictional facts: formal record and first-person narrative, costs/numbers/source/uncertainty maintained. Corrected 동료의 도움으로. No keys, no automatic meaning or narrative-quality score. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/public_services_admin_vocab:R",
+      "taskId": "KP10:reading:02",
+      "sourceHash": "dd58cf6cf15523f762ba63d8ee64b923ffece2f6bdec6d9f90ac7b4374430390",
+      "taskHash": "b3b980af701e2597158fea0294201374b97d64f477044e7f58c4980a6011faa6",
+      "criterionIds": [
+        "purpose",
+        "order",
+        "unknown",
+        "state"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Connected procedural explanation: purpose of number, check-before-save, verify saved copy, unknown cause stays unknown. Additional facility-state illustration distinguishes agent/action, change and resulting open state without inventing actor. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/public_services_admin_vocab:P",
+      "taskId": "KP10:writing:02",
+      "sourceHash": "dd58cf6cf15523f762ba63d8ee64b923ffece2f6bdec6d9f90ac7b4374430390",
+      "taskHash": "5f42c617c19f2de9cb13f1e113736e407a6283f10ad63e59a7fb5e8fde4f454b",
+      "criterionIds": [
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Required connected explanatory text with purpose/order/result and receipt-not-approval constraint. Distinct application/reservation practice and assessment; free meaning unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "30d613365cc9720d6bd52b492710e93c8c8ae82f6236d30fa3c0541966b735e0",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "30d613365cc9720d6bd52b492710e93c8c8ae82f6236d30fa3c0541966b735e0",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:phonology/0:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "d5a48dd92285f9d325461f8da25a22e23411ee0be634bd2f159749cde74fc15f",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:phonology/0:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "d5a48dd92285f9d325461f8da25a22e23411ee0be634bd2f159749cde74fc15f",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:phonology/1:R",
+      "taskId": "KP10:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "criterionIds": [
+        "plan",
+        "interrupted",
+        "source",
+        "cause",
+        "prepared"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:phonology/1:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:register/haeyo_polite:P",
+      "taskId": "KP10:speaking:01",
+      "sourceHash": "649baa0245b2923aaf88b407699db2ddd28490d9ffc9a5d264ae1680d230cac9",
+      "taskHash": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Peer polite explanation then formal staff report using same fictional facts, actual interruption versus abandoned plan, same-actor 느라고, kept records and unresolved refund. Replay clause pauses/endings; free meaning/prosody unscored. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP10:writing:01",
+      "sourceHash": "649baa0245b2923aaf88b407699db2ddd28490d9ffc9a5d264ae1680d230cac9",
+      "taskHash": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
+      "criterionIds": [
+        "report",
+        "story"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. Two required full free texts from same explicit fictional facts: formal record and first-person narrative, costs/numbers/source/uncertainty maintained. Corrected 동료의 도움으로. No keys, no automatic meaning or narrative-quality score. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-다가1(2):R",
+      "taskId": "KP10:grammar:01",
+      "sourceHash": "b352a352e5757f458e7a4dc0a854a73cb1ad46e5670dcea8d708f52eb8d4d034",
+      "taskHash": "c98563108d0f04c5e1343c9e54528d12f9cfbbede95adb46d800ea5809e38bb8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Actual ongoing reading/writing interrupted, not intention only. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-으려다가:R",
+      "taskId": "KP10:grammar:02",
+      "sourceHash": "5d139ac7258af23db44c11dfb5b48fa632c7c2d7e3c35fdcdceb634831ee8534",
+      "taskHash": "b365eaae0227e35c3d984127093c4c761b20583a9f9a15328b85269845b7311e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Intention changed before the intended action is asserted complete. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-었더니:R",
+      "taskId": "KP10:grammar:03",
+      "sourceHash": "8cb5e85566403e1422d138d046b2257f2fc1d73d9a6a4c2c34d426943e82213c",
+      "taskHash": "dbd1792b8f20110a07164594e5c749b3c92e1947e2d65a2296a88a89864e6fef",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Result discovered after opening/asking; no prior prediction as observation. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-느라고:R",
+      "taskId": "KP10:grammar:04",
+      "sourceHash": "1216f4238e0f7c87af081c79ac42a18a0a37eac48befc7297ecec2951f832b92",
+      "taskHash": "9276d9d4e5c0a5762c30cdc415da2abf4505b73a268ed436202ad54f86f3f6f2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Same actor occupied with searching/meeting cannot answer/eat; no blanket because mapping. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어다가:R",
+      "taskId": "KP10:grammar:05",
+      "sourceHash": "a555e3d8c47d4064e95df55628ab14e296e9b34f48594c7a9ebce301b0b0448c",
+      "taskHash": "8f63eab92224d7a2a750a0bda063c26d8716d97b25e7f26f7bf0d66bd0a70987",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Fetched water/copied materials transferred to subsequent use at another place. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-자마자:R",
+      "taskId": "KP10:grammar:06",
+      "sourceHash": "149ec285ad727653e88235ea33cb900d2af110bbb16564fa35988c6ad776bcb1",
+      "taskHash": "773ef5be51bb557c8b2d202ed8b7ba52b51a3e2afd7d83202965143a0c6448dc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Immediate succession preserves order, does not prove causal connection. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-고 나다:R",
+      "taskId": "KP10:grammar:07",
+      "sourceHash": "e2d9f1f00b2509bb6b19945ba114854ca31782a13aac4da4729deb8aa13155bb",
+      "taskHash": "8336cae966d4b81600270ed538b2871bfca0a34ee3d3181efd790cc15b9c04eb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Completion used as reference point, distinct from ongoing action or guaranteed success. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-고 말다:R",
+      "taskId": "KP10:grammar:08",
+      "sourceHash": "8fc7325845ce6e3e9f287fa8a550acbdbff3b897b40fc2fa782a83f0093e1261",
+      "taskHash": "cd4846967b8aa9c01644f44c7ea0c5acaa59bfc1c76426b13ce6c3823e014149",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Actual undesired deletion/deadline lapse, not fear without occurrence. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 가다:R",
+      "taskId": "KP10:grammar:09",
+      "sourceHash": "0d079c380582738d75de099a5f077fee17b08fda2ddaab0e01cc4f9b2c480867",
+      "taskHash": "2299fc3355bb219124680a2a979c07b10ae9be894e5830a5cbee68516b716bbb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Change continuing forward from present, no physical displacement. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 오다:R",
+      "taskId": "KP10:grammar:10",
+      "sourceHash": "23ed62315412b77d529cd1d9671f8e05e7136e4bb9e423ce815fbc97df0ed622",
+      "taskHash": "81dd8969d19f23e8f572f29a1d14275281d1028346abe673c0d09049d313a519",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Process continuing from past to present, not movement of an object. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 놓다:R",
+      "taskId": "KP10:grammar:11",
+      "sourceHash": "7596869320c48cb5bb4dd704015265b135cb24ff40922e1e3bdacc1ddb8dd135",
+      "taskHash": "499eb004cc9239906cbf005470a552a5329a488478797e83b280bdbac30e1330",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Result deliberately left in place; stated ventilation/visibility purpose preserved. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 두다:R",
+      "taskId": "KP10:grammar:12",
+      "sourceHash": "2e968d71a9cdcbf996e93af332aae03e767319fa3484cbb1acf3380b1dc77118",
+      "taskHash": "d141d3ebd1b2506c6164a54889967079785b87389b8e5d6f77750f63ebf8edb5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Preparation for explicit later need: meeting material or application number. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어지다:R",
+      "taskId": "KP10:grammar:13",
+      "sourceHash": "ae29862ed9af131d006d1e85a2decf532f77d286776fa598f7f97888be768719",
+      "taskHash": "b67f5d9d2a5858d8272dd9eee954e7a2fa69fb227f874914bd445e387cac5ad9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Adjective state change, not all German werden/passive/future usages. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-은 결과:R",
+      "taskId": "KP10:grammar:14",
+      "sourceHash": "f3ff0a87f90576175f3a51d013989fcbf467fd235bbad4d71c6d753955816a14",
+      "taskHash": "960c4bea85cb2b5ccb5457ac105b04c03afc6ece23ea90b3945803a9f0508d57",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Reported result of consultation/checking, no reversed sequence or unconfirmed refund. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-은 다음에:R",
+      "taskId": "KP10:grammar:15",
+      "sourceHash": "e04c7fe862fd785e743d85dbe4f77acb6c8ecac93f57f05ea4be53573fd93694",
+      "taskHash": "d0da5a60ce27502fc9282f718efb1e9af3af17158e949efb6460f687c5c79b9e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Completed first step then submission/saving, no chronology-to-cause inference. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 가지고:R",
+      "taskId": "KP10:grammar:16",
+      "sourceHash": "194bef36db2798499446c494369a4e8b0b12d0f80bee16f7c392fb0abef9c268",
+      "taskHash": "3efb4d200ff637068c7d3b94afc865dad38193afc66d47809d434b905ae8dc32",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Colloquial causal connection, traffic/file size direction preserved; formal report may reformulate. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G2:-어 있다:R",
+      "taskId": "KP10:grammar:17",
+      "sourceHash": "a2a687e53702e684d2b43e4a64fcb744dc71dd7a2a990fda9dbe9b2835470390",
+      "taskHash": "773c69e9eb4d70ecf8c783ac4b37762d2aca43c221e140d1a1bc8d5fe4223ea5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE contextual review: Resulting open/closed state, no invented agent or ongoing opening/closing action. Receptive sample only. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-다가1(2):P",
+      "taskId": "KP10:production:01",
+      "sourceHash": "b352a352e5757f458e7a4dc0a854a73cb1ad46e5670dcea8d708f52eb8d4d034",
+      "taskHash": "ae5c3d03cbc859aa473418f9fe47fba822c1bde8093f3dbd5593f07fe5e5272c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Actual ongoing reading/writing interrupted, not intention only. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-으려다가:P",
+      "taskId": "KP10:production:02",
+      "sourceHash": "5d139ac7258af23db44c11dfb5b48fa632c7c2d7e3c35fdcdceb634831ee8534",
+      "taskHash": "c4600bf10eeda780705c2ec2e5bf82e56a051ad46b4739a341c9f38c00769774",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Intention changed before the intended action is asserted complete. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-었더니:P",
+      "taskId": "KP10:production:03",
+      "sourceHash": "8cb5e85566403e1422d138d046b2257f2fc1d73d9a6a4c2c34d426943e82213c",
+      "taskHash": "9ecfe0efd4cd433a4e95cbd88dbb9c6c06368f6f75e9018953696620aea75522",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Result discovered after opening/asking; no prior prediction as observation. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-느라고:P",
+      "taskId": "KP10:production:04",
+      "sourceHash": "1216f4238e0f7c87af081c79ac42a18a0a37eac48befc7297ecec2951f832b92",
+      "taskHash": "fa5e60d3c58573ab1f73745b0af6ddd612452759368c98e699bcc53b9e64d37c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Same actor occupied with searching/meeting cannot answer/eat; no blanket because mapping. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어다가:P",
+      "taskId": "KP10:production:05",
+      "sourceHash": "a555e3d8c47d4064e95df55628ab14e296e9b34f48594c7a9ebce301b0b0448c",
+      "taskHash": "2d0bd1c4d1b1ab040aff71c5f6f96a03d2d027ab7b6066faa41c1558a8479439",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Fetched water/copied materials transferred to subsequent use at another place. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-자마자:P",
+      "taskId": "KP10:production:06",
+      "sourceHash": "149ec285ad727653e88235ea33cb900d2af110bbb16564fa35988c6ad776bcb1",
+      "taskHash": "29fbf79743acf0a92d506f4bc73e8a60091e47c4ab12a0584d8ce6e86a2986b9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Immediate succession preserves order, does not prove causal connection. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-고 나다:P",
+      "taskId": "KP10:production:07",
+      "sourceHash": "e2d9f1f00b2509bb6b19945ba114854ca31782a13aac4da4729deb8aa13155bb",
+      "taskHash": "23435f65c1f010000f9814012f328f0816b4010b3bcf9345241feaf01c57fe05",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Completion used as reference point, distinct from ongoing action or guaranteed success. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-고 말다:P",
+      "taskId": "KP10:production:08",
+      "sourceHash": "8fc7325845ce6e3e9f287fa8a550acbdbff3b897b40fc2fa782a83f0093e1261",
+      "taskHash": "90304cceaa033f6f4e51415b3fa0486e8eed794b9a73aa900cb443bfe69857ef",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Actual undesired deletion/deadline lapse, not fear without occurrence. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 가다:P",
+      "taskId": "KP10:production:09",
+      "sourceHash": "0d079c380582738d75de099a5f077fee17b08fda2ddaab0e01cc4f9b2c480867",
+      "taskHash": "c6e61e5eefe6dce5ea5423f7a45b085bd07e7bceb241d0f4c361a478295aaf00",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Change continuing forward from present, no physical displacement. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 오다:P",
+      "taskId": "KP10:production:10",
+      "sourceHash": "23ed62315412b77d529cd1d9671f8e05e7136e4bb9e423ce815fbc97df0ed622",
+      "taskHash": "e771eb9c0ef206910acbee936102332ae5e65d833999a2a05d5a2c59e3585934",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Process continuing from past to present, not movement of an object. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 놓다:P",
+      "taskId": "KP10:production:11",
+      "sourceHash": "7596869320c48cb5bb4dd704015265b135cb24ff40922e1e3bdacc1ddb8dd135",
+      "taskHash": "a3d3c4fe8477eeccddcbd2c3c6f349e09fa7b096795b966091aebdd952ca1804",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Result deliberately left in place; stated ventilation/visibility purpose preserved. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 두다:P",
+      "taskId": "KP10:production:12",
+      "sourceHash": "2e968d71a9cdcbf996e93af332aae03e767319fa3484cbb1acf3380b1dc77118",
+      "taskHash": "c9db40e2066de3258778efc6559bb8bd129227d77f8b5ec36b4d9fd0486055c1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Preparation for explicit later need: meeting material or application number. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어지다:P",
+      "taskId": "KP10:production:13",
+      "sourceHash": "ae29862ed9af131d006d1e85a2decf532f77d286776fa598f7f97888be768719",
+      "taskHash": "afcbeb4668fe6ee1e00c2cbbe8209afc2e1061cd85a4663b8c0325cce4096cfa",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Adjective state change, not all German werden/passive/future usages. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-은 결과:P",
+      "taskId": "KP10:production:14",
+      "sourceHash": "f3ff0a87f90576175f3a51d013989fcbf467fd235bbad4d71c6d753955816a14",
+      "taskHash": "fcfebe1b3f16f8e436597cad6165f4a32e82ba76c9b9a87593c02322e036d024",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Reported result of consultation/checking, no reversed sequence or unconfirmed refund. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-은 다음에:P",
+      "taskId": "KP10:production:15",
+      "sourceHash": "e04c7fe862fd785e743d85dbe4f77acb6c8ecac93f57f05ea4be53573fd93694",
+      "taskHash": "933fe831d93a79ef7038ab85879fd28d27052bfc833b6669de95935d4e226f75",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Completed first step then submission/saving, no chronology-to-cause inference. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G3:-어 가지고:P",
+      "taskId": "KP10:production:16",
+      "sourceHash": "194bef36db2798499446c494369a4e8b0b12d0f80bee16f7c392fb0abef9c268",
+      "taskHash": "9e4cc5f050e5042d986576f0c045f55ac054cbb5e507b24310b42dde33fbb4a3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Colloquial causal connection, traffic/file size direction preserved; formal report may reformulate. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP10:objective:grammar/G2:-어 있다:P",
+      "taskId": "KP10:production:17",
+      "sourceHash": "a2a687e53702e684d2b43e4a64fcb744dc71dd7a2a990fda9dbe9b2835470390",
+      "taskHash": "88ec93ee288d5c078139114eb532ea800144787f5afa21d36689e751bf158713",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Resulting open/closed state, no invented agent or ongoing opening/closing action. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
     }
   ]
 }
