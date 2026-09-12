@@ -28,7 +28,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP20 | 52 | 52 | 0 | 미검증 |
 | KP21 | 54 | 54 | 0 | 미검증 |
 | KP22 | 52 | 52 | 0 | 미검증 |
-| KP23 | 48 | 0 | 48 | 미검증 |
+| KP23 | 48 | 48 | 0 | 미검증 |
 | KP24 | 58 | 0 | 58 | 미검증 |
 | KP25 | 49 | 0 | 49 | 미검증 |
 | KP26 | 48 | 0 | 48 | 미검증 |
@@ -39,54 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP23:objective:grammar/G5:-는다기에:R`
-- `KP23:objective:grammar/G5:-는다기에:P`
-- `KP23:objective:grammar/G5:-는다니1:R`
-- `KP23:objective:grammar/G5:-는다니1:P`
-- `KP23:objective:grammar/G5:-자기에:R`
-- `KP23:objective:grammar/G5:-자기에:P`
-- `KP23:objective:grammar/G5:-더라고:R`
-- `KP23:objective:grammar/G5:-더라고:P`
-- `KP23:objective:grammar/G5:-데:R`
-- `KP23:objective:grammar/G5:-데:P`
-- `KP23:objective:grammar/G5:-다니1:R`
-- `KP23:objective:grammar/G5:-다니1:P`
-- `KP23:objective:grammar/G5:-는다는 것이:R`
-- `KP23:objective:grammar/G5:-는다는 것이:P`
-- `KP23:objective:grammar/G5:를 가지고:R`
-- `KP23:objective:grammar/G5:를 가지고:P`
-- `KP23:objective:listening/core:R`
-- `KP23:objective:listening/additional/1:R`
-- `KP23:objective:listening/genre/lecture_speech_monologue:R`
-- `KP23:objective:reading/core:R`
-- `KP23:objective:reading/additional/1:R`
-- `KP23:objective:reading/genre/news_article_report:R`
-- `KP23:objective:speaking/core:P`
-- `KP23:objective:speaking/additional/1:P`
-- `KP23:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP23:objective:writing/core:P`
-- `KP23:objective:writing/additional/1:P`
-- `KP23:objective:writing/genre/report_proposal_official:P`
-- `KP23:objective:functions/summarise_reconstruct:R`
-- `KP23:objective:functions/summarise_reconstruct:P`
-- `KP23:objective:functions/mediate_between_parties:R`
-- `KP23:objective:functions/mediate_between_parties:P`
-- `KP23:objective:functions/analyse_framing_implicature_presupposition:R`
-- `KP23:objective:functions/analyse_framing_implicature_presupposition:P`
-- `KP23:objective:functions/reformulate_paraphrase_rewrite:R`
-- `KP23:objective:functions/reformulate_paraphrase_rewrite:P`
-- `KP23:objective:vocabDomains/language_metalanguage:R`
-- `KP23:objective:vocabDomains/language_metalanguage:P`
-- `KP23:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP23:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP23:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP23:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP23:objective:phonology/0:R`
-- `KP23:objective:phonology/0:P`
-- `KP23:objective:phonology/1:R`
-- `KP23:objective:phonology/1:P`
-- `KP23:objective:register/haeyo_polite:P`
-- `KP23:objective:register/hapsyo_formal_business:P`
 - `KP24:objective:grammar/G5:-거라:R`
 - `KP24:objective:grammar/G5:-거라:P`
 - `KP24:objective:grammar/G5:-고말고:R`

@@ -1,0 +1,2589 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP23",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP23:grammar:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:01",
+      "requirementKeys": [
+        "G5:-는다기에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다기에",
+        "en": "-는다기에",
+        "de": "-는다기에"
+      },
+      "teaching": {
+        "ko": "다른 사람에게 들은 내용을 자신의 행동 이유로 제시해요. 들은 명제가 독립적으로 검증됐다는 뜻은 아니에요.",
+        "en": "Give something heard from another person as the reason for your action. The reported proposition has not thereby been independently verified.",
+        "de": "Nenne eine gehörte Aussage als Grund für dein Handeln. Ihr Inhalt ist dadurch nicht unabhängig bestätigt."
+      },
+      "examplesKo": [
+        "동료가 추가 설명이 필요하다기에 자료를 보냈습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료가 추가 설명이 필요하다기에 자료를 보냈습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "동료의 필요하다는 말을 이유로 전송"
+              },
+              {
+                "id": "1",
+                "text": "화자가 직접 필요성을 조사해 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다른 사람에게 들은 내용을 자신의 행동 이유로 제시해요. 들은 명제가 독립적으로 검증됐다는 뜻은 아니에요.",
+              "en": "Give something heard from another person as the reason for your action. The reported proposition has not thereby been independently verified.",
+              "de": "Nenne eine gehörte Aussage als Grund für dein Handeln. Ihr Inhalt ist dadurch nicht unabhängig bestätigt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "담당자가 장소가 바뀐다기에 새 안내를 확인했습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 현장에서 변경을 직접 목격"
+              },
+              {
+                "id": "0",
+                "text": "장소 변경 전언을 이유로 안내 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다른 사람에게 들은 내용을 자신의 행동 이유로 제시해요. 들은 명제가 독립적으로 검증됐다는 뜻은 아니에요.",
+              "en": "Give something heard from another person as the reason for your action. The reported proposition has not thereby been independently verified.",
+              "de": "Nenne eine gehörte Aussage als Grund für dein Handeln. Ihr Inhalt ist dadurch nicht unabhängig bestätigt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:02",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:02",
+      "requirementKeys": [
+        "G5:-는다니1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다니1",
+        "en": "-는다니1",
+        "de": "-는다니1"
+      },
+      "teaching": {
+        "ko": "여기서는 전달된 지시의 내용을 묻는 -으라니 변이예요. 친한 동료 사이에서 누구에게·무엇을과 함께 지시의 빈칸을 확인해요. 자신이 새 명령을 내리거나 들은 말에 감탄하는 용례와 구별합니다.",
+        "en": "Here the -으라니 variant asks about a reported instruction. Among close peers, who or what asks for missing content. Distinguish issuing your own command and reacting with surprise.",
+        "de": "Hier fragt die Variante -으라니 nach dem Inhalt einer übermittelten Anweisung. Unter vertrauten Gleichgestellten klärt wer oder was eine Lücke. Unterscheide eigene Befehle und überraschte Reaktionen."
+      },
+      "examplesKo": [
+        "담당자가 자료를 누구에게 제출하라니? 받는 사람을 못 들었어."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "담당자가 자료를 누구에게 제출하라니? 받는 사람을 못 들었어.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 직접 새 제출 명령"
+              },
+              {
+                "id": "0",
+                "text": "전달받은 제출 지시의 수신자 질문"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 전달된 지시의 내용을 묻는 -으라니 변이예요. 친한 동료 사이에서 누구에게·무엇을과 함께 지시의 빈칸을 확인해요. 자신이 새 명령을 내리거나 들은 말에 감탄하는 용례와 구별합니다.",
+              "en": "Here the -으라니 variant asks about a reported instruction. Among close peers, who or what asks for missing content. Distinguish issuing your own command and reacting with surprise.",
+              "de": "Hier fragt die Variante -으라니 nach dem Inhalt einer übermittelten Anweisung. Unter vertrauten Gleichgestellten klärt wer oder was eine Lücke. Unterscheide eigene Befehle und überraschte Reaktionen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "진행자가 내일까지 무엇을 준비하라니? 준비물을 못 들었어.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "전달받은 준비 지시의 대상 질문"
+              },
+              {
+                "id": "1",
+                "text": "준비가 끝났다는 사실 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 전달된 지시의 내용을 묻는 -으라니 변이예요. 친한 동료 사이에서 누구에게·무엇을과 함께 지시의 빈칸을 확인해요. 자신이 새 명령을 내리거나 들은 말에 감탄하는 용례와 구별합니다.",
+              "en": "Here the -으라니 variant asks about a reported instruction. Among close peers, who or what asks for missing content. Distinguish issuing your own command and reacting with surprise.",
+              "de": "Hier fragt die Variante -으라니 nach dem Inhalt einer übermittelten Anweisung. Unter vertrauten Gleichgestellten klärt wer oder was eine Lücke. Unterscheide eigene Befehle und überraschte Reaktionen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:03",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:03",
+      "requirementKeys": [
+        "G5:-자기에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-자기에",
+        "en": "-자기에",
+        "de": "-자기에"
+      },
+      "teaching": {
+        "ko": "다른 사람이 한 공동 제안을 자신의 행동 이유로 제시해요. 제안을 명령으로 강화하거나 행동의 주체를 바꾸지 않아요.",
+        "en": "Use another person’s joint proposal as the reason for your action. Do not strengthen it into an order or swap the actor.",
+        "de": "Nenne den gemeinsamen Vorschlag einer anderen Person als Grund für dein Handeln. Verstärke ihn nicht zum Befehl und vertausche die handelnde Person nicht."
+      },
+      "examplesKo": [
+        "동료가 함께 검토하자기에 회의에 참석했습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료가 함께 검토하자기에 회의에 참석했습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 동료에게 참석을 명령"
+              },
+              {
+                "id": "0",
+                "text": "동료의 공동 검토 제안 때문에 화자가 참석"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다른 사람이 한 공동 제안을 자신의 행동 이유로 제시해요. 제안을 명령으로 강화하거나 행동의 주체를 바꾸지 않아요.",
+              "en": "Use another person’s joint proposal as the reason for your action. Do not strengthen it into an order or swap the actor.",
+              "de": "Nenne den gemeinsamen Vorschlag einer anderen Person als Grund für dein Handeln. Verstärke ihn nicht zum Befehl und vertausche die handelnde Person nicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민서가 같이 비교하자기에 두 표를 가져왔어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "민서가 혼자 비교하라고 명령"
+              },
+              {
+                "id": "0",
+                "text": "민서의 공동 비교 제안 때문에 화자가 준비"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다른 사람이 한 공동 제안을 자신의 행동 이유로 제시해요. 제안을 명령으로 강화하거나 행동의 주체를 바꾸지 않아요.",
+              "en": "Use another person’s joint proposal as the reason for your action. Do not strengthen it into an order or swap the actor.",
+              "de": "Nenne den gemeinsamen Vorschlag einer anderen Person als Grund für dein Handeln. Verstärke ihn nicht zum Befehl und vertausche die handelnde Person nicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:04",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:04",
+      "requirementKeys": [
+        "G5:-더라고"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-더라고",
+        "en": "-더라고",
+        "de": "-더라고"
+      },
+      "teaching": {
+        "ko": "화자가 직접 살피거나 경험하고 알게 된 일을 전달하는 용례예요. 무엇을 직접 비교했는지 밝히고 전언과 나누어요.",
+        "en": "Report something the speaker learned through direct inspection or experience. State what was inspected and distinguish hearsay.",
+        "de": "Berichte, was die sprechende Person durch eigenes Prüfen oder Erleben erfahren hat. Benenne die eigene Prüfung und trenne Hörensagen."
+      },
+      "examplesKo": [
+        "제가 두 표를 직접 비교해 보니 기준이 다르더라고요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "제가 두 표를 직접 비교해 보니 기준이 다르더라고요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 직접 비교해 알게 된 기준 차이"
+              },
+              {
+                "id": "1",
+                "text": "제삼자 말만 전달한 기준 차이"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자가 직접 살피거나 경험하고 알게 된 일을 전달하는 용례예요. 무엇을 직접 비교했는지 밝히고 전언과 나누어요.",
+              "en": "Report something the speaker learned through direct inspection or experience. State what was inspected and distinguish hearsay.",
+              "de": "Berichte, was die sprechende Person durch eigenes Prüfen oder Erleben erfahren hat. Benenne die eigene Prüfung und trenne Hörensagen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제가 어제 원고를 읽어 보니 인용이 빠져 있더라고요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 직접 읽고 발견한 인용 누락"
+              },
+              {
+                "id": "1",
+                "text": "원고를 읽지 않고 들은 이야기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자가 직접 살피거나 경험하고 알게 된 일을 전달하는 용례예요. 무엇을 직접 비교했는지 밝히고 전언과 나누어요.",
+              "en": "Report something the speaker learned through direct inspection or experience. State what was inspected and distinguish hearsay.",
+              "de": "Berichte, was die sprechende Person durch eigenes Prüfen oder Erleben erfahren hat. Benenne die eigene Prüfung und trenne Hörensagen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:05",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:05",
+      "requirementKeys": [
+        "G5:-데"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-데",
+        "en": "-데",
+        "de": "-데"
+      },
+      "teaching": {
+        "ko": "직접 경험한 과거를 회상하는 종결 -데·-데요예요. 다른 사람에게 들었다는 -대·-대요와 한 글자 차이지만 출처가 달라요. 이 말투를 읽고 더 널리 쓰는 -더라고요로도 풀어 말해요.",
+        "en": "Sentence-final -데/-데요 recalls direct past experience. The similar-looking hearsay -대/-대요 has a different source. Recognise this register and also paraphrase with common -더라고요.",
+        "de": "Das Satzende -데/-데요 erinnert an eigenes vergangenes Erleben. Das ähnlich geschriebene Hörensagen -대/-대요 hat eine andere Quelle. Erkenne diese Sprechweise und formuliere auch mit gebräuchlichem -더라고요 um."
+      },
+      "examplesKo": [
+        "어제 직접 가 보니 전시실이 꽤 조용하데요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "어제 직접 가 보니 전시실이 꽤 조용하데요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 방문해 경험한 조용함"
+              },
+              {
+                "id": "1",
+                "text": "누군가에게 들은 조용함만 전달"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직접 경험한 과거를 회상하는 종결 -데·-데요예요. 다른 사람에게 들었다는 -대·-대요와 한 글자 차이지만 출처가 달라요. 이 말투를 읽고 더 널리 쓰는 -더라고요로도 풀어 말해요.",
+              "en": "Sentence-final -데/-데요 recalls direct past experience. The similar-looking hearsay -대/-대요 has a different source. Recognise this register and also paraphrase with common -더라고요.",
+              "de": "Das Satzende -데/-데요 erinnert an eigenes vergangenes Erleben. Das ähnlich geschriebene Hörensagen -대/-대요 hat eine andere Quelle. Erkenne diese Sprechweise und formuliere auch mit gebräuchlichem -더라고요 um."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "어제 직접 들어 보니 설명이 또렷하데요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "듣지 않고 제삼자의 평가만 전달"
+              },
+              {
+                "id": "0",
+                "text": "화자가 직접 들은 설명의 또렷함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직접 경험한 과거를 회상하는 종결 -데·-데요예요. 다른 사람에게 들었다는 -대·-대요와 한 글자 차이지만 출처가 달라요. 이 말투를 읽고 더 널리 쓰는 -더라고요로도 풀어 말해요.",
+              "en": "Sentence-final -데/-데요 recalls direct past experience. The similar-looking hearsay -대/-대요 has a different source. Recognise this register and also paraphrase with common -더라고요.",
+              "de": "Das Satzende -데/-데요 erinnert an eigenes vergangenes Erleben. Das ähnlich geschriebene Hörensagen -대/-대요 hat eine andere Quelle. Erkenne diese Sprechweise und formuliere auch mit gebräuchlichem -더라고요 um."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:06",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:06",
+      "requirementKeys": [
+        "G5:-다니1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다니1",
+        "en": "-다니1",
+        "de": "-다니1"
+      },
+      "teaching": {
+        "ko": "들은 내용에 대한 감탄이나 평가를 드러내요. 감탄은 전달자가 원 사건을 직접 확인한 증거가 아니에요. 빈칸을 묻는 의문 용례와 구별해요.",
+        "en": "Express surprise or evaluation about something heard. The reaction is not evidence that the reporter personally verified the event. Distinguish a question asking for missing information.",
+        "de": "Zeige Erstaunen oder Bewertung über Gehörtes. Die Reaktion belegt keine eigene Prüfung des Ereignisses. Unterscheide die Frage nach fehlender Information."
+      },
+      "examplesKo": [
+        "그 많은 일을 혼자 감당했다니 놀라워요! 저는 그 말을 전해 들었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "그 많은 일을 혼자 감당했다니 놀라워요! 저는 그 말을 전해 들었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 모든 작업을 직접 지켜본 확인"
+              },
+              {
+                "id": "0",
+                "text": "전해 들은 내용에 대한 화자의 놀람"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 내용에 대한 감탄이나 평가를 드러내요. 감탄은 전달자가 원 사건을 직접 확인한 증거가 아니에요. 빈칸을 묻는 의문 용례와 구별해요.",
+              "en": "Express surprise or evaluation about something heard. The reaction is not evidence that the reporter personally verified the event. Distinguish a question asking for missing information.",
+              "de": "Zeige Erstaunen oder Bewertung über Gehörtes. Die Reaktion belegt keine eigene Prüfung des Ereignisses. Unterscheide die Frage nach fehlender Information."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "벌써 기록을 다 정리했다니 대단해요! 동료에게 들었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 직접 기록 전수를 검사했다는 보고"
+              },
+              {
+                "id": "0",
+                "text": "정리 완료 전언에 대한 감탄"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 내용에 대한 감탄이나 평가를 드러내요. 감탄은 전달자가 원 사건을 직접 확인한 증거가 아니에요. 빈칸을 묻는 의문 용례와 구별해요.",
+              "en": "Express surprise or evaluation about something heard. The reaction is not evidence that the reporter personally verified the event. Distinguish a question asking for missing information.",
+              "de": "Zeige Erstaunen oder Bewertung über Gehörtes. Die Reaktion belegt keine eigene Prüfung des Ereignisses. Unterscheide die Frage nach fehlender Information."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:07",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:07",
+      "requirementKeys": [
+        "G5:-는다는 것이"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다는 것이",
+        "en": "-는다는 것이",
+        "de": "-는다는 것이"
+      },
+      "teaching": {
+        "ko": "하려던 의도와 실제 결과가 어긋났음을 말해요. 의도를 실제 성과로 기록하지 않아요.",
+        "en": "Mark a mismatch between intended action and actual outcome. Do not record the intention as an achieved result.",
+        "de": "Kennzeichne eine Abweichung zwischen Absicht und tatsächlichem Ergebnis. Erfasse die Absicht nicht als erreichte Wirkung."
+      },
+      "examplesKo": [
+        "도와준다는 것이 오히려 일을 늘리고 말았어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "도와준다는 것이 오히려 일을 늘리고 말았어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "돕는 의도와 일 증가 결과의 어긋남"
+              },
+              {
+                "id": "1",
+                "text": "도우려던 의도대로 일이 줄어듦"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하려던 의도와 실제 결과가 어긋났음을 말해요. 의도를 실제 성과로 기록하지 않아요.",
+              "en": "Mark a mismatch between intended action and actual outcome. Do not record the intention as an achieved result.",
+              "de": "Kennzeichne eine Abweichung zwischen Absicht und tatsächlichem Ergebnis. Erfasse die Absicht nicht als erreichte Wirkung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "분명하게 설명한다는 것이 오히려 혼란을 키웠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "명확한 설명 의도와 혼란 증가 결과"
+              },
+              {
+                "id": "1",
+                "text": "처음부터 혼란을 키우려는 목적"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하려던 의도와 실제 결과가 어긋났음을 말해요. 의도를 실제 성과로 기록하지 않아요.",
+              "en": "Mark a mismatch between intended action and actual outcome. Do not record the intention as an achieved result.",
+              "de": "Kennzeichne eine Abweichung zwischen Absicht und tatsächlichem Ergebnis. Erfasse die Absicht nicht als erreichte Wirkung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:grammar:08",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:grammar:08",
+      "requirementKeys": [
+        "G5:를 가지고"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "를 가지고",
+        "en": "를 가지고",
+        "de": "를 가지고"
+      },
+      "teaching": {
+        "ko": "주어진 말이나 자료를 판단의 재료로 삼는 용례예요. 물리적으로 들고 이동하는 뜻과 구별하고 자료의 보증 범위를 넘지 않아요.",
+        "en": "Here use a statement or data as grounds for judgement. Distinguish physically carrying it and do not exceed its evidential scope.",
+        "de": "Verwende hier eine Aussage oder Daten als Urteilsgrundlage. Unterscheide das körperliche Mitnehmen und überschreite die Belegkraft nicht."
+      },
+      "examplesKo": [
+        "그 한마디를 가지고 의도를 단정할 수는 없어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "그 한마디를 가지고 의도를 단정할 수는 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "그 말을 손에 들고 이동할 수 없음"
+              },
+              {
+                "id": "0",
+                "text": "한 발언만으로 의도를 확정할 근거 부족"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "주어진 말이나 자료를 판단의 재료로 삼는 용례예요. 물리적으로 들고 이동하는 뜻과 구별하고 자료의 보증 범위를 넘지 않아요.",
+              "en": "Here use a statement or data as grounds for judgement. Distinguish physically carrying it and do not exceed its evidential scope.",
+              "de": "Verwende hier eine Aussage oder Daten als Urteilsgrundlage. Unterscheide das körperliche Mitnehmen und überschreite die Belegkraft nicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "그 기사만을 가지고 합의가 있었다고 말하기는 어려워요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "한 기사만으로 합의를 확정하기 어려움"
+              },
+              {
+                "id": "1",
+                "text": "기사를 운반하는 방법 설명"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "주어진 말이나 자료를 판단의 재료로 삼는 용례예요. 물리적으로 들고 이동하는 뜻과 구별하고 자료의 보증 범위를 넘지 않아요.",
+              "en": "Here use a statement or data as grounds for judgement. Distinguish physically carrying it and do not exceed its evidential scope.",
+              "de": "Verwende hier eine Aussage oder Daten als Urteilsgrundlage. Unterscheide das körperliche Mitnehmen und überschreite die Belegkraft nicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:01",
+      "requirementKeys": [
+        "G5:-는다기에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다기에 문장 만들기",
+        "en": "-는다기에: write a sentence",
+        "de": "-는다기에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "다른 사람에게 들은 내용을 자신의 행동 이유로 제시해요. 들은 명제가 독립적으로 검증됐다는 뜻은 아니에요.",
+        "en": "Give something heard from another person as the reason for your action. The reported proposition has not thereby been independently verified.",
+        "de": "Nenne eine gehörte Aussage als Grund für dein Handeln. Ihr Inhalt ist dadurch nicht unabhängig bestätigt."
+      },
+      "examplesKo": [
+        "동료가 추가 설명이 필요하다기에 자료를 보냈습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료가 추가 설명 필요하다고 말함 → 내가 자료 보냄 / -다기에, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동료가 추가 설명이 필요하다기에 자료를 보냈습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 직접 필요성을 조사해서 확정했습니다."
+            ],
+            "explanation": {
+              "ko": "예: 동료가 추가 설명이 필요하다기에 자료를 보냈습니다. 의미가 다른 예: 제가 직접 필요성을 조사해서 확정했습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동료가 추가 설명이 필요하다기에 자료를 보냈습니다. Meaning or register error: 제가 직접 필요성을 조사해서 확정했습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동료가 추가 설명이 필요하다기에 자료를 보냈습니다. Fehler bei Bedeutung oder Register: 제가 직접 필요성을 조사해서 확정했습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "담당자가 장소 바뀐다고 말함 → 내가 새 안내 확인 / -다기에, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "담당자가 장소가 바뀐다기에 새 안내를 확인했습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 장소 변경을 직접 목격했습니다."
+            ],
+            "explanation": {
+              "ko": "예: 담당자가 장소가 바뀐다기에 새 안내를 확인했습니다. 의미가 다른 예: 제가 장소 변경을 직접 목격했습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 담당자가 장소가 바뀐다기에 새 안내를 확인했습니다. Meaning or register error: 제가 장소 변경을 직접 목격했습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 담당자가 장소가 바뀐다기에 새 안내를 확인했습니다. Fehler bei Bedeutung oder Register: 제가 장소 변경을 직접 목격했습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:02",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:02",
+      "requirementKeys": [
+        "G5:-는다니1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다니1 문장 만들기",
+        "en": "-는다니1: write a sentence",
+        "de": "-는다니1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "여기서는 전달된 지시의 내용을 묻는 -으라니 변이예요. 친한 동료 사이에서 누구에게·무엇을과 함께 지시의 빈칸을 확인해요. 자신이 새 명령을 내리거나 들은 말에 감탄하는 용례와 구별합니다.",
+        "en": "Here the -으라니 variant asks about a reported instruction. Among close peers, who or what asks for missing content. Distinguish issuing your own command and reacting with surprise.",
+        "de": "Hier fragt die Variante -으라니 nach dem Inhalt einer übermittelten Anweisung. Unter vertrauten Gleichgestellten klärt wer oder was eine Lücke. Unterscheide eigene Befehle und überraschte Reaktionen."
+      },
+      "examplesKo": [
+        "담당자가 자료를 누구에게 제출하라니?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "친한 동료에게 전해진 지시의 수신자 묻기 / 담당자 / 자료 / 누구에게 / 제출하라니?",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "담당자가 자료를 누구에게 제출하라니?"
+            ],
+            "rejectedAnswers": [
+              "자료를 지금 제출해."
+            ],
+            "explanation": {
+              "ko": "예: 담당자가 자료를 누구에게 제출하라니? 의미가 다른 예: 자료를 지금 제출해. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 담당자가 자료를 누구에게 제출하라니? Meaning or register error: 자료를 지금 제출해. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 담당자가 자료를 누구에게 제출하라니? Fehler bei Bedeutung oder Register: 자료를 지금 제출해. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "친한 동료에게 전해진 지시의 준비물 묻기 / 진행자 / 내일까지 / 무엇을 / 준비하라니?",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "진행자가 내일까지 무엇을 준비하라니?"
+            ],
+            "rejectedAnswers": [
+              "준비가 이미 끝났어."
+            ],
+            "explanation": {
+              "ko": "예: 진행자가 내일까지 무엇을 준비하라니? 의미가 다른 예: 준비가 이미 끝났어. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 진행자가 내일까지 무엇을 준비하라니? Meaning or register error: 준비가 이미 끝났어. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 진행자가 내일까지 무엇을 준비하라니? Fehler bei Bedeutung oder Register: 준비가 이미 끝났어. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:03",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:03",
+      "requirementKeys": [
+        "G5:-자기에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-자기에 문장 만들기",
+        "en": "-자기에: write a sentence",
+        "de": "-자기에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "다른 사람이 한 공동 제안을 자신의 행동 이유로 제시해요. 제안을 명령으로 강화하거나 행동의 주체를 바꾸지 않아요.",
+        "en": "Use another person’s joint proposal as the reason for your action. Do not strengthen it into an order or swap the actor.",
+        "de": "Nenne den gemeinsamen Vorschlag einer anderen Person als Grund für dein Handeln. Verstärke ihn nicht zum Befehl und vertausche die handelnde Person nicht."
+      },
+      "examplesKo": [
+        "동료가 함께 검토하자기에 회의에 참석했습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료가 함께 검토하자고 제안 → 내가 회의 참석 / -자기에, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동료가 함께 검토하자기에 회의에 참석했습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 동료에게 회의 참석을 명령했습니다."
+            ],
+            "explanation": {
+              "ko": "예: 동료가 함께 검토하자기에 회의에 참석했습니다. 의미가 다른 예: 제가 동료에게 회의 참석을 명령했습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동료가 함께 검토하자기에 회의에 참석했습니다. Meaning or register error: 제가 동료에게 회의 참석을 명령했습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동료가 함께 검토하자기에 회의에 참석했습니다. Fehler bei Bedeutung oder Register: 제가 동료에게 회의 참석을 명령했습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "민서가 같이 비교하자고 제안 → 내가 두 표 가져옴 / -자기에, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "민서가 같이 비교하자기에 두 표를 가져왔어요."
+            ],
+            "rejectedAnswers": [
+              "민서가 혼자 비교하라고 명령했어요."
+            ],
+            "explanation": {
+              "ko": "예: 민서가 같이 비교하자기에 두 표를 가져왔어요. 의미가 다른 예: 민서가 혼자 비교하라고 명령했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 민서가 같이 비교하자기에 두 표를 가져왔어요. Meaning or register error: 민서가 혼자 비교하라고 명령했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 민서가 같이 비교하자기에 두 표를 가져왔어요. Fehler bei Bedeutung oder Register: 민서가 혼자 비교하라고 명령했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:04",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:04",
+      "requirementKeys": [
+        "G5:-더라고"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-더라고 문장 만들기",
+        "en": "-더라고: write a sentence",
+        "de": "-더라고: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "화자가 직접 살피거나 경험하고 알게 된 일을 전달하는 용례예요. 무엇을 직접 비교했는지 밝히고 전언과 나누어요.",
+        "en": "Report something the speaker learned through direct inspection or experience. State what was inspected and distinguish hearsay.",
+        "de": "Berichte, was die sprechende Person durch eigenes Prüfen oder Erleben erfahren hat. Benenne die eigene Prüfung und trenne Hörensagen."
+      },
+      "examplesKo": [
+        "제가 두 표를 직접 비교해 보니 기준이 다르더라고요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "내 직접 경험 / 제가 두 표를 직접 비교해 보다 / 기준 다르다 / -더라고요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 두 표를 직접 비교해 보니 기준이 다르더라고요."
+            ],
+            "rejectedAnswers": [
+              "직접 보지는 않았고 기준이 다르다고 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 두 표를 직접 비교해 보니 기준이 다르더라고요. 의미가 다른 예: 직접 보지는 않았고 기준이 다르다고 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 두 표를 직접 비교해 보니 기준이 다르더라고요. Meaning or register error: 직접 보지는 않았고 기준이 다르다고 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 두 표를 직접 비교해 보니 기준이 다르더라고요. Fehler bei Bedeutung oder Register: 직접 보지는 않았고 기준이 다르다고 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "내 직접 경험 / 제가 어제 원고 읽어 보다 / 인용 빠져 있다 / -더라고요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 어제 원고를 읽어 보니 인용이 빠져 있더라고요."
+            ],
+            "rejectedAnswers": [
+              "읽지는 않았고 인용이 빠졌다고 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 어제 원고를 읽어 보니 인용이 빠져 있더라고요. 의미가 다른 예: 읽지는 않았고 인용이 빠졌다고 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 어제 원고를 읽어 보니 인용이 빠져 있더라고요. Meaning or register error: 읽지는 않았고 인용이 빠졌다고 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 어제 원고를 읽어 보니 인용이 빠져 있더라고요. Fehler bei Bedeutung oder Register: 읽지는 않았고 인용이 빠졌다고 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:05",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:05",
+      "requirementKeys": [
+        "G5:-데"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-데 문장 만들기",
+        "en": "-데: write a sentence",
+        "de": "-데: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "직접 경험한 과거를 회상하는 종결 -데·-데요예요. 다른 사람에게 들었다는 -대·-대요와 한 글자 차이지만 출처가 달라요. 이 말투를 읽고 더 널리 쓰는 -더라고요로도 풀어 말해요.",
+        "en": "Sentence-final -데/-데요 recalls direct past experience. The similar-looking hearsay -대/-대요 has a different source. Recognise this register and also paraphrase with common -더라고요.",
+        "de": "Das Satzende -데/-데요 erinnert an eigenes vergangenes Erleben. Das ähnlich geschriebene Hörensagen -대/-대요 hat eine andere Quelle. Erkenne diese Sprechweise und formuliere auch mit gebräuchlichem -더라고요 um."
+      },
+      "examplesKo": [
+        "어제 직접 가 보니 전시실이 꽤 조용하데요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "직접 방문 회상 / 어제 직접 가 보다 / 전시실 꽤 조용하다 / -데요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제 직접 가 보니 전시실이 꽤 조용하데요."
+            ],
+            "rejectedAnswers": [
+              "전시실이 조용하다고 전해 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 어제 직접 가 보니 전시실이 꽤 조용하데요. 의미가 다른 예: 전시실이 조용하다고 전해 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제 직접 가 보니 전시실이 꽤 조용하데요. Meaning or register error: 전시실이 조용하다고 전해 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제 직접 가 보니 전시실이 꽤 조용하데요. Fehler bei Bedeutung oder Register: 전시실이 조용하다고 전해 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "직접 청취 회상 / 어제 직접 들어 보다 / 설명 또렷하다 / -데요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제 직접 들어 보니 설명이 또렷하데요."
+            ],
+            "rejectedAnswers": [
+              "설명이 또렷하다고 전해 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 어제 직접 들어 보니 설명이 또렷하데요. 의미가 다른 예: 설명이 또렷하다고 전해 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제 직접 들어 보니 설명이 또렷하데요. Meaning or register error: 설명이 또렷하다고 전해 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제 직접 들어 보니 설명이 또렷하데요. Fehler bei Bedeutung oder Register: 설명이 또렷하다고 전해 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:06",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:06",
+      "requirementKeys": [
+        "G5:-다니1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다니1 문장 만들기",
+        "en": "-다니1: write a sentence",
+        "de": "-다니1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "들은 내용에 대한 감탄이나 평가를 드러내요. 감탄은 전달자가 원 사건을 직접 확인한 증거가 아니에요. 빈칸을 묻는 의문 용례와 구별해요.",
+        "en": "Express surprise or evaluation about something heard. The reaction is not evidence that the reporter personally verified the event. Distinguish a question asking for missing information.",
+        "de": "Zeige Erstaunen oder Bewertung über Gehörtes. Die Reaktion belegt keine eigene Prüfung des Ereignisses. Unterscheide die Frage nach fehlender Information."
+      },
+      "examplesKo": [
+        "그 많은 일을 혼자 감당했다니 놀라워요!"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "전해 들은 일에 감탄 / 그 많은 일을 혼자 감당하다 / -다니 놀라워요!",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그 많은 일을 혼자 감당했다니 놀라워요!"
+            ],
+            "rejectedAnswers": [
+              "제가 모든 작업을 직접 지켜봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 그 많은 일을 혼자 감당했다니 놀라워요! 의미가 다른 예: 제가 모든 작업을 직접 지켜봤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그 많은 일을 혼자 감당했다니 놀라워요! Meaning or register error: 제가 모든 작업을 직접 지켜봤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그 많은 일을 혼자 감당했다니 놀라워요! Fehler bei Bedeutung oder Register: 제가 모든 작업을 직접 지켜봤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "전해 들은 완료에 감탄 / 벌써 기록을 다 정리하다 / -다니 대단해요!",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "벌써 기록을 다 정리했다니 대단해요!"
+            ],
+            "rejectedAnswers": [
+              "제가 모든 기록을 직접 검사했어요."
+            ],
+            "explanation": {
+              "ko": "예: 벌써 기록을 다 정리했다니 대단해요! 의미가 다른 예: 제가 모든 기록을 직접 검사했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 벌써 기록을 다 정리했다니 대단해요! Meaning or register error: 제가 모든 기록을 직접 검사했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 벌써 기록을 다 정리했다니 대단해요! Fehler bei Bedeutung oder Register: 제가 모든 기록을 직접 검사했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:07",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:07",
+      "requirementKeys": [
+        "G5:-는다는 것이"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다는 것이 문장 만들기",
+        "en": "-는다는 것이: write a sentence",
+        "de": "-는다는 것이: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "하려던 의도와 실제 결과가 어긋났음을 말해요. 의도를 실제 성과로 기록하지 않아요.",
+        "en": "Mark a mismatch between intended action and actual outcome. Do not record the intention as an achieved result.",
+        "de": "Kennzeichne eine Abweichung zwischen Absicht und tatsächlichem Ergebnis. Erfasse die Absicht nicht als erreichte Wirkung."
+      },
+      "examplesKo": [
+        "도와준다는 것이 오히려 일을 늘리고 말았어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "의도는 돕기 / 결과는 오히려 일 늘림 / 도와주다 / -는다는 것이, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "도와준다는 것이 오히려 일을 늘리고 말았어요."
+            ],
+            "rejectedAnswers": [
+              "도와주려던 의도대로 일이 줄었어요."
+            ],
+            "explanation": {
+              "ko": "예: 도와준다는 것이 오히려 일을 늘리고 말았어요. 의미가 다른 예: 도와주려던 의도대로 일이 줄었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 도와준다는 것이 오히려 일을 늘리고 말았어요. Meaning or register error: 도와주려던 의도대로 일이 줄었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 도와준다는 것이 오히려 일을 늘리고 말았어요. Fehler bei Bedeutung oder Register: 도와주려던 의도대로 일이 줄었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "의도는 분명한 설명 / 결과는 오히려 혼란 키움 / 설명하다 / -는다는 것이, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "분명하게 설명한다는 것이 오히려 혼란을 키웠어요."
+            ],
+            "rejectedAnswers": [
+              "처음부터 혼란을 키우려고 했어요."
+            ],
+            "explanation": {
+              "ko": "예: 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 의미가 다른 예: 처음부터 혼란을 키우려고 했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. Meaning or register error: 처음부터 혼란을 키우려고 했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. Fehler bei Bedeutung oder Register: 처음부터 혼란을 키우려고 했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:production:08",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:production:08",
+      "requirementKeys": [
+        "G5:를 가지고"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "를 가지고 문장 만들기",
+        "en": "를 가지고: write a sentence",
+        "de": "를 가지고: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "주어진 말이나 자료를 판단의 재료로 삼는 용례예요. 물리적으로 들고 이동하는 뜻과 구별하고 자료의 보증 범위를 넘지 않아요.",
+        "en": "Here use a statement or data as grounds for judgement. Distinguish physically carrying it and do not exceed its evidential scope.",
+        "de": "Verwende hier eine Aussage oder Daten als Urteilsgrundlage. Unterscheide das körperliche Mitnehmen und überschreite die Belegkraft nicht."
+      },
+      "examplesKo": [
+        "그 한마디를 가지고 의도를 단정할 수는 없어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "판단 재료는 한마디뿐 / 그 한마디 / 의도 단정 불가 / 를 가지고, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그 한마디를 가지고 의도를 단정할 수는 없어요."
+            ],
+            "rejectedAnswers": [
+              "그 한마디만으로 의도를 확정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 그 한마디를 가지고 의도를 단정할 수는 없어요. 의미가 다른 예: 그 한마디만으로 의도를 확정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그 한마디를 가지고 의도를 단정할 수는 없어요. Meaning or register error: 그 한마디만으로 의도를 확정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그 한마디를 가지고 의도를 단정할 수는 없어요. Fehler bei Bedeutung oder Register: 그 한마디만으로 의도를 확정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "판단 재료는 기사 하나 / 그 기사만 / 합의 있었다고 말하기 어려움 / 을 가지고, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그 기사만을 가지고 합의가 있었다고 말하기는 어려워요."
+            ],
+            "rejectedAnswers": [
+              "그 기사만으로 합의를 확정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 그 기사만을 가지고 합의가 있었다고 말하기는 어려워요. 의미가 다른 예: 그 기사만으로 합의를 확정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그 기사만을 가지고 합의가 있었다고 말하기는 어려워요. Meaning or register error: 그 기사만으로 합의를 확정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그 기사만을 가지고 합의가 있었다고 말하기는 어려워요. Fehler bei Bedeutung oder Register: 그 기사만으로 합의를 확정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:listening:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "세 전언에서 지시가 달라진 곳",
+        "en": "A changed instruction across three reports",
+        "de": "Eine veränderte Anweisung in drei Übermittlungen"
+      },
+      "teaching": {
+        "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+        "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+        "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 가람전시관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 윤서: 월요일까지 초안 8건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 민서: 제가 방금 윤서의 녹음 1을 들었어요. 윤서가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 준호: 저는 민서에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 윤서의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 민서: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n준호: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n민서: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.",
+        "questions": [
+          {
+            "id": "chain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "녹음 3의 확인된 전언 경로는?",
+              "en": "What is recording 3’s confirmed reporting chain?",
+              "de": "Welche Übermittlungskette ist für Aufnahme 3 belegt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "준호가 위원회에서 직접 승인 확인"
+              },
+              {
+                "id": "0",
+                "text": "윤서 → 민서 → 준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "act",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원문이 외부 공개에 관해 지시한 행동은?",
+              "en": "What action does the original require about external disclosure?",
+              "de": "Welche Handlung verlangt das Original zur externen Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "외부 공개 즉시 실행"
+              },
+              {
+                "id": "0",
+                "text": "위원회에 허용 여부 질문"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "independent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "세 녹음을 세 독립 승인으로 셀 수 있나요?",
+              "en": "Are the three recordings three independent approvals?",
+              "de": "Sind die drei Aufnahmen drei unabhängige Genehmigungen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "같은 지시의 재전달이므로 아님"
+              },
+              {
+                "id": "1",
+                "text": "발언자가 셋이므로 독립 승인 셋"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "누군가의 확정 전언은 어떻게 기록하나요?",
+              "en": "How should the anonymous confirmation report be recorded?",
+              "de": "Wie wird die anonyme Bestätigungsaussage erfasst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "원 출처와 앞 전언과의 동일성 미상"
+              },
+              {
+                "id": "1",
+                "text": "위원회에서 나온 별도 직접 증거"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "definition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "두 집단의 공개 정의는?",
+              "en": "How do the groups define disclosure?",
+              "de": "Wie definieren die Gruppen Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 집단 모두 외부 공개로 합의"
+              },
+              {
+                "id": "0",
+                "text": "운영팀 내부 공유, 전시팀 관람객 공개"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "clarify",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 정확히 되물을 내용은?",
+              "en": "What still needs precise clarification?",
+              "de": "Was muss noch genau nachgefragt werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "녹음에 이미 나온 초안 건수 자체"
+              },
+              {
+                "id": "0",
+                "text": "구체 검토함 계정과 접근 명단"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 솔빛기록관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 서하: 화요일까지 초안 11건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 지수: 제가 방금 서하의 녹음 1을 들었어요. 서하가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 도윤: 저는 지수에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 서하의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 지수: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n도윤: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n지수: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.",
+        "questions": [
+          {
+            "id": "chain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "녹음 3의 확인된 전언 경로는?",
+              "en": "What is recording 3’s confirmed reporting chain?",
+              "de": "Welche Übermittlungskette ist für Aufnahme 3 belegt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "서하 → 지수 → 도윤"
+              },
+              {
+                "id": "1",
+                "text": "도윤가 위원회에서 직접 승인 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "act",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원문이 외부 공개에 관해 지시한 행동은?",
+              "en": "What action does the original require about external disclosure?",
+              "de": "Welche Handlung verlangt das Original zur externen Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "위원회에 허용 여부 질문"
+              },
+              {
+                "id": "1",
+                "text": "외부 공개 즉시 실행"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "independent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "세 녹음을 세 독립 승인으로 셀 수 있나요?",
+              "en": "Are the three recordings three independent approvals?",
+              "de": "Sind die drei Aufnahmen drei unabhängige Genehmigungen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "발언자가 셋이므로 독립 승인 셋"
+              },
+              {
+                "id": "0",
+                "text": "같은 지시의 재전달이므로 아님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "누군가의 확정 전언은 어떻게 기록하나요?",
+              "en": "How should the anonymous confirmation report be recorded?",
+              "de": "Wie wird die anonyme Bestätigungsaussage erfasst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "원 출처와 앞 전언과의 동일성 미상"
+              },
+              {
+                "id": "1",
+                "text": "위원회에서 나온 별도 직접 증거"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "definition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "두 집단의 공개 정의는?",
+              "en": "How do the groups define disclosure?",
+              "de": "Wie definieren die Gruppen Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 집단 모두 외부 공개로 합의"
+              },
+              {
+                "id": "0",
+                "text": "운영팀 내부 공유, 전시팀 관람객 공개"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "clarify",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 정확히 되물을 내용은?",
+              "en": "What still needs precise clarification?",
+              "de": "Was muss noch genau nachgefragt werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "구체 검토함 계정과 접근 명단"
+              },
+              {
+                "id": "1",
+                "text": "녹음에 이미 나온 초안 건수 자체"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:listening:02",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "인용 범위와 정정의 한계 강연",
+        "en": "Lecture on quotation scope and correction limits",
+        "de": "Vortrag über Zitatumfang und Korrekturgrenzen"
+      },
+      "teaching": {
+        "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+        "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+        "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 강연: 인용과 검증 가능성]\n가람전시관 사례의 출처를 먼저 살펴보겠습니다. 윤서의 원 녹음은 8건을 내부에 올리고 외부 공개 여부를 위원회에 물으라는 내용입니다. 민서는 이 녹음을 들었지만 준호는 민서의 말만 들었습니다. 원 발언자가 다시 언급된다고 새 출처가 생기는 것은 아닙니다.\n이제 화행을 보겠습니다. 질문하라는 지시에서 질문 내용만 떼어 평서문으로 만들면 공개 여부라는 미결 명제가 공개 확정으로 바뀝니다. 전달자가 질문을 맡겠다는 약속 역시 승인 권한과 다릅니다. 상대가 일을 다 마쳤다니 대단하다고 반응해도 그것은 감탄이지 작업 전수 확인은 아닙니다.\n다음은 용어의 인용 범위입니다. 운영팀의 공개는 내부 공유이고 전시팀의 공개는 관람객 접근입니다. 뜻을 조율하려면 각 정의를 보존한 채 구체적인 지시 대상을 물어야 합니다. 누가 무슨 의미로 썼는지 확인하지 않고 공통 정의를 만들면 말을 옮기면서 사실을 보태게 됩니다.\n마지막으로 정정의 범위를 보겠습니다. 오류를 고친다고 반대 사실을 새로 단정할 수는 없습니다. 공개가 승인됐다는 근거가 없다는 말은 영구히 금지됐다는 뜻이 아닙니다. 서로 다른 발화 주체를 추적하고, 교차 검증이 가능한지 출처 확인을 거쳐야 합니다. 지금 확인 가능한 결론은 내부 업로드 지시와 외부 공개 질문이 있었고 외부 승인 결과는 자료에 없다는 것입니다.",
+        "questions": [
+          {
+            "id": "structure",
+            "kind": "choice",
+            "prompt": {
+              "ko": "강연의 전개 순서는?",
+              "en": "What is the lecture’s order?",
+              "de": "Wie ist der Vortrag aufgebaut?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "승인 확정 → 공개 실행 → 성과 인증"
+              },
+              {
+                "id": "0",
+                "text": "출처 연쇄 → 화행 → 용어 범위 → 정정 한계"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "reaction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대단하다는 반응의 보증 수준은?",
+              "en": "What does the admiring reaction verify?",
+              "de": "Was bestätigt die bewundernde Reaktion?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "감탄 자체이며 작업 전수 검증 아님"
+              },
+              {
+                "id": "1",
+                "text": "화자의 직접 작업 검사 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "correction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "근거 없는 승인을 정정할 때 올바른 결론은?",
+              "en": "What correction follows an unsupported approval claim?",
+              "de": "Welche Korrektur folgt aus einer unbelegten Genehmigung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "영구 공개 금지 확정"
+              },
+              {
+                "id": "0",
+                "text": "승인 결과 미상"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 강연: 인용과 검증 가능성]\n솔빛기록관 사례의 출처를 먼저 살펴보겠습니다. 서하의 원 녹음은 11건을 내부에 올리고 외부 공개 여부를 위원회에 물으라는 내용입니다. 지수는 이 녹음을 들었지만 도윤는 지수의 말만 들었습니다. 원 발언자가 다시 언급된다고 새 출처가 생기는 것은 아닙니다.\n이제 화행을 보겠습니다. 질문하라는 지시에서 질문 내용만 떼어 평서문으로 만들면 공개 여부라는 미결 명제가 공개 확정으로 바뀝니다. 전달자가 질문을 맡겠다는 약속 역시 승인 권한과 다릅니다. 상대가 일을 다 마쳤다니 대단하다고 반응해도 그것은 감탄이지 작업 전수 확인은 아닙니다.\n다음은 용어의 인용 범위입니다. 운영팀의 공개는 내부 공유이고 전시팀의 공개는 관람객 접근입니다. 뜻을 조율하려면 각 정의를 보존한 채 구체적인 지시 대상을 물어야 합니다. 누가 무슨 의미로 썼는지 확인하지 않고 공통 정의를 만들면 말을 옮기면서 사실을 보태게 됩니다.\n마지막으로 정정의 범위를 보겠습니다. 오류를 고친다고 반대 사실을 새로 단정할 수는 없습니다. 공개가 승인됐다는 근거가 없다는 말은 영구히 금지됐다는 뜻이 아닙니다. 서로 다른 발화 주체를 추적하고, 교차 검증이 가능한지 출처 확인을 거쳐야 합니다. 지금 확인 가능한 결론은 내부 업로드 지시와 외부 공개 질문이 있었고 외부 승인 결과는 자료에 없다는 것입니다.",
+        "questions": [
+          {
+            "id": "structure",
+            "kind": "choice",
+            "prompt": {
+              "ko": "강연의 전개 순서는?",
+              "en": "What is the lecture’s order?",
+              "de": "Wie ist der Vortrag aufgebaut?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "출처 연쇄 → 화행 → 용어 범위 → 정정 한계"
+              },
+              {
+                "id": "1",
+                "text": "승인 확정 → 공개 실행 → 성과 인증"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "reaction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대단하다는 반응의 보증 수준은?",
+              "en": "What does the admiring reaction verify?",
+              "de": "Was bestätigt die bewundernde Reaktion?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자의 직접 작업 검사 완료"
+              },
+              {
+                "id": "0",
+                "text": "감탄 자체이며 작업 전수 검증 아님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "correction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "근거 없는 승인을 정정할 때 올바른 결론은?",
+              "en": "What correction follows an unsupported approval claim?",
+              "de": "Welche Korrektur folgt aus einer unbelegten Genehmigung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "승인 결과 미상"
+              },
+              {
+                "id": "1",
+                "text": "영구 공개 금지 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:reading:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "기사 제목·인터뷰·검토 메모의 출처",
+        "en": "Sources across headline, interviews and editorial note",
+        "de": "Quellen in Überschrift, Interviews und Redaktionsnotiz"
+      },
+      "teaching": {
+        "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+        "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+        "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 기사 제목] “가람전시관, 초안 8건 외부 공개한다”\n[기사 본문] 기자는 준호에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 민서]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 윤서의 녹음입니다. 월요일까지 초안 8건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 윤서가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 준호]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 민서에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": [
+          {
+            "id": "headline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제목에서 바뀐 화행은?",
+              "en": "Which speech act changes in the headline?",
+              "de": "Welcher Sprechakt ändert sich in der Überschrift?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "확정 승인을 그대로 인용"
+              },
+              {
+                "id": "0",
+                "text": "허용 여부 질문이 공개 확정 진술로 바뀜"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "witness",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 비교한 명제의 범위는?",
+              "en": "What is the scope of the directly compared finding?",
+              "de": "Welchen Umfang hat der direkt verglichene Befund?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 자료의 인용 오류 전수 확인"
+              },
+              {
+                "id": "0",
+                "text": "두 초안 중 한쪽 인용 누락"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기사와 마지막 전달자의 관계는?",
+              "en": "How are the article and last intermediary related?",
+              "de": "Wie hängen Artikel und letzte vermittelnde Person zusammen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기사가 그 전언을 재사용해 독립 확인 아님"
+              },
+              {
+                "id": "1",
+                "text": "별도 의결문을 각각 직접 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "reaction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "혼자 감당했다니의 감탄은?",
+              "en": "What does the exclamation about working alone establish?",
+              "de": "Was belegt der Ausruf über allein bewältigte Arbeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "들은 일에 대한 반응, 직접 확인 아님"
+              },
+              {
+                "id": "1",
+                "text": "작업 과정을 직접 본 증언"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "recollection",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조용하데요의 근거는?",
+              "en": "What supports the recalled quietness?",
+              "de": "Worauf beruht die erinnerte Ruhe?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자의 전날 직접 방문"
+              },
+              {
+                "id": "1",
+                "text": "익명 전언만 전달"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "intention",
+            "kind": "choice",
+            "prompt": {
+              "ko": "설명한다는 것이의 어긋남은?",
+              "en": "What mismatch is expressed by intending to explain?",
+              "de": "Welche Abweichung beschreibt die beabsichtigte Erklärung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "처음부터 오해를 만들려는 목적"
+              },
+              {
+                "id": "0",
+                "text": "명확히 전달하려던 의도와 혼란 결과"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "미상으로 남겨야 할 것은?",
+              "en": "What must remain unknown?",
+              "de": "Was muss unbekannt bleiben?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "위원회의 외부 공개 답변"
+              },
+              {
+                "id": "1",
+                "text": "내부 업로드 지시의 존재"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 기사 제목] “솔빛기록관, 초안 11건 외부 공개한다”\n[기사 본문] 기자는 도윤에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 지수]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 서하의 녹음입니다. 화요일까지 초안 11건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 서하가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 도윤]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 지수에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": [
+          {
+            "id": "headline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제목에서 바뀐 화행은?",
+              "en": "Which speech act changes in the headline?",
+              "de": "Welcher Sprechakt ändert sich in der Überschrift?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "허용 여부 질문이 공개 확정 진술로 바뀜"
+              },
+              {
+                "id": "1",
+                "text": "확정 승인을 그대로 인용"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "witness",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 비교한 명제의 범위는?",
+              "en": "What is the scope of the directly compared finding?",
+              "de": "Welchen Umfang hat der direkt verglichene Befund?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 자료의 인용 오류 전수 확인"
+              },
+              {
+                "id": "0",
+                "text": "두 초안 중 한쪽 인용 누락"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기사와 마지막 전달자의 관계는?",
+              "en": "How are the article and last intermediary related?",
+              "de": "Wie hängen Artikel und letzte vermittelnde Person zusammen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기사가 그 전언을 재사용해 독립 확인 아님"
+              },
+              {
+                "id": "1",
+                "text": "별도 의결문을 각각 직접 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "reaction",
+            "kind": "choice",
+            "prompt": {
+              "ko": "혼자 감당했다니의 감탄은?",
+              "en": "What does the exclamation about working alone establish?",
+              "de": "Was belegt der Ausruf über allein bewältigte Arbeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "들은 일에 대한 반응, 직접 확인 아님"
+              },
+              {
+                "id": "1",
+                "text": "작업 과정을 직접 본 증언"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "recollection",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조용하데요의 근거는?",
+              "en": "What supports the recalled quietness?",
+              "de": "Worauf beruht die erinnerte Ruhe?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "익명 전언만 전달"
+              },
+              {
+                "id": "0",
+                "text": "화자의 전날 직접 방문"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "intention",
+            "kind": "choice",
+            "prompt": {
+              "ko": "설명한다는 것이의 어긋남은?",
+              "en": "What mismatch is expressed by intending to explain?",
+              "de": "Welche Abweichung beschreibt die beabsichtigte Erklärung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "처음부터 오해를 만들려는 목적"
+              },
+              {
+                "id": "0",
+                "text": "명확히 전달하려던 의도와 혼란 결과"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "미상으로 남겨야 할 것은?",
+              "en": "What must remain unknown?",
+              "de": "Was muss unbekannt bleiben?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "위원회의 외부 공개 답변"
+              },
+              {
+                "id": "1",
+                "text": "내부 업로드 지시의 존재"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원 발언자→전달자→현재 화자의 연쇄를 복원하고, 같은 원문을 여러 번 옮긴 것을 독립 출처로 세지 않아요. 질문·권유·명령·감탄을 구별하며 인용 범위 밖의 평가를 분리합니다. 공개처럼 같은 단어도 집단별 정의를 확인해요.",
+              "en": "Reconstruct original speaker → intermediary → current speaker. Repeated copies of one original are not independent sources. Separate questions, proposals, orders and reactions, and identify evaluations outside quotation scope. Check each group’s meaning of shared terms such as disclosure.",
+              "de": "Rekonstruiere ursprüngliche Stimme → vermittelnde Person → heutige Stimme. Wiederholungen eines Originals sind keine unabhängigen Quellen. Trenne Fragen, Vorschläge, Anweisungen und Reaktionen sowie Bewertungen außerhalb des Zitats. Prüfe die gruppenspezifische Bedeutung gemeinsamer Wörter wie Veröffentlichung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:writing:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "보고 연쇄가 복원되는 기록과 정정",
+        "en": "Recoverable reporting chains and corrections",
+        "de": "Nachvollziehbare Übermittlungsketten und Korrekturen"
+      },
+      "teaching": {
+        "ko": "첫째 완전한 브리핑 보고서를 써서 목적·명제별 출처·전언 연쇄·직접 경험 범위·현재 이견·미상 정보·확인 담당과 후속 질문을 나누세요. 같은 원문 재전달을 독립 교차 검증으로 세지 않고, 제안할 확인 절차와 이미 한 확인을 구별합니다. 운영팀과 전시팀의 공개 정의를 각각 보존하세요. 둘째 정정문에서 기사의 제목이 질문을 확정 진술로 바꾼 구절을 바로잡되 영구 금지라는 반대 사실을 만들지 마세요. 원 발언자·전달자·지시 수행자, 감탄과 검증, 의도와 결과를 분리합니다. 빠진 계정과 위원회 답변은 미상으로 남겨요. 원문과 대조해 누락된 인용 경계와 출처를 보완하여 재작성합니다. 자유 의미·논증은 미채점입니다.",
+        "en": "First write a complete briefing report separating purpose, sources for each proposition, reporting chain, direct-experience scope, disagreement, unknowns, proposed checking roles and follow-up questions. Do not count repeated originals as independent cross-checks; distinguish proposed verification from completed checks. Preserve both groups’ meanings of disclosure. Then write a correction identifying the headline’s shift from question to confirmed statement without inventing permanent prohibition. Separate original speaker, intermediary and instructed actor, admiration and verification, intention and outcome. Leave missing account details and committee response unknown. Compare source passages and rewrite missing quotation boundaries and attribution. Free meaning and argument remain unscored.",
+        "de": "Schreibe zuerst einen vollständigen Briefingbericht mit Zweck, Quellen je Aussage, Übermittlungskette, Umfang eigener Erfahrung, Dissens, Unbekanntem, vorgeschlagenen Prüfzuständigkeiten und Folgefragen. Zähle wiederholte Originale nicht als unabhängige Gegenprüfung; trenne vorgeschlagene von erfolgter Prüfung. Erhalte beide gruppenspezifischen Bedeutungen von Veröffentlichung. Schreibe dann eine Richtigstellung zum Wechsel von Frage zu sicherer Aussage in der Überschrift, ohne ein dauerhaftes Verbot zu erfinden. Trenne ursprüngliche Stimme, vermittelnde und angewiesene Person, Bewunderung und Prüfung sowie Absicht und Ergebnis. Fehlende Kontodetails und Ausschussantwort bleiben unbekannt. Vergleiche Belegstellen und überarbeite fehlende Zitatgrenzen und Zuschreibungen. Inhalt und Argumentation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "[가상 가람전시관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 윤서: 월요일까지 초안 8건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 민서: 제가 방금 윤서의 녹음 1을 들었어요. 윤서가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 준호: 저는 민서에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 윤서의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 민서: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n준호: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n민서: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.\n[가상 기사 제목] “가람전시관, 초안 8건 외부 공개한다”\n[기사 본문] 기자는 준호에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 민서]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 윤서의 녹음입니다. 월요일까지 초안 8건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 윤서가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 준호]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 민서에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": [
+          {
+            "id": "briefing",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "출처별 브리핑 보고서",
+              "en": "Briefing report by source",
+              "de": "Briefingbericht nach Quellen"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "첫째 완전한 브리핑 보고서를 써서 목적·명제별 출처·전언 연쇄·직접 경험 범위·현재 이견·미상 정보·확인 담당과 후속 질문을 나누세요. 같은 원문 재전달을 독립 교차 검증으로 세지 않고, 제안할 확인 절차와 이미 한 확인을 구별합니다. 운영팀과 전시팀의 공개 정의를 각각 보존하세요. 둘째 정정문에서 기사의 제목이 질문을 확정 진술로 바꾼 구절을 바로잡되 영구 금지라는 반대 사실을 만들지 마세요. 원 발언자·전달자·지시 수행자, 감탄과 검증, 의도와 결과를 분리합니다. 빠진 계정과 위원회 답변은 미상으로 남겨요. 원문과 대조해 누락된 인용 경계와 출처를 보완하여 재작성합니다. 자유 의미·논증은 미채점입니다.",
+              "en": "First write a complete briefing report separating purpose, sources for each proposition, reporting chain, direct-experience scope, disagreement, unknowns, proposed checking roles and follow-up questions. Do not count repeated originals as independent cross-checks; distinguish proposed verification from completed checks. Preserve both groups’ meanings of disclosure. Then write a correction identifying the headline’s shift from question to confirmed statement without inventing permanent prohibition. Separate original speaker, intermediary and instructed actor, admiration and verification, intention and outcome. Leave missing account details and committee response unknown. Compare source passages and rewrite missing quotation boundaries and attribution. Free meaning and argument remain unscored.",
+              "de": "Schreibe zuerst einen vollständigen Briefingbericht mit Zweck, Quellen je Aussage, Übermittlungskette, Umfang eigener Erfahrung, Dissens, Unbekanntem, vorgeschlagenen Prüfzuständigkeiten und Folgefragen. Zähle wiederholte Originale nicht als unabhängige Gegenprüfung; trenne vorgeschlagene von erfolgter Prüfung. Erhalte beide gruppenspezifischen Bedeutungen von Veröffentlichung. Schreibe dann eine Richtigstellung zum Wechsel von Frage zu sicherer Aussage in der Überschrift, ohne ein dauerhaftes Verbot zu erfinden. Trenne ursprüngliche Stimme, vermittelnde und angewiesene Person, Bewunderung und Prüfung sowie Absicht und Ergebnis. Fehlende Kontodetails und Ausschussantwort bleiben unbekannt. Vergleiche Belegstellen und überarbeite fehlende Zitatgrenzen und Zuschreibungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "correction",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "검증 범위를 보존한 정정문",
+              "en": "Correction preserving verification limits",
+              "de": "Richtigstellung mit erhaltenen Prüfgrenzen"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "첫째 완전한 브리핑 보고서를 써서 목적·명제별 출처·전언 연쇄·직접 경험 범위·현재 이견·미상 정보·확인 담당과 후속 질문을 나누세요. 같은 원문 재전달을 독립 교차 검증으로 세지 않고, 제안할 확인 절차와 이미 한 확인을 구별합니다. 운영팀과 전시팀의 공개 정의를 각각 보존하세요. 둘째 정정문에서 기사의 제목이 질문을 확정 진술로 바꾼 구절을 바로잡되 영구 금지라는 반대 사실을 만들지 마세요. 원 발언자·전달자·지시 수행자, 감탄과 검증, 의도와 결과를 분리합니다. 빠진 계정과 위원회 답변은 미상으로 남겨요. 원문과 대조해 누락된 인용 경계와 출처를 보완하여 재작성합니다. 자유 의미·논증은 미채점입니다.",
+              "en": "First write a complete briefing report separating purpose, sources for each proposition, reporting chain, direct-experience scope, disagreement, unknowns, proposed checking roles and follow-up questions. Do not count repeated originals as independent cross-checks; distinguish proposed verification from completed checks. Preserve both groups’ meanings of disclosure. Then write a correction identifying the headline’s shift from question to confirmed statement without inventing permanent prohibition. Separate original speaker, intermediary and instructed actor, admiration and verification, intention and outcome. Leave missing account details and committee response unknown. Compare source passages and rewrite missing quotation boundaries and attribution. Free meaning and argument remain unscored.",
+              "de": "Schreibe zuerst einen vollständigen Briefingbericht mit Zweck, Quellen je Aussage, Übermittlungskette, Umfang eigener Erfahrung, Dissens, Unbekanntem, vorgeschlagenen Prüfzuständigkeiten und Folgefragen. Zähle wiederholte Originale nicht als unabhängige Gegenprüfung; trenne vorgeschlagene von erfolgter Prüfung. Erhalte beide gruppenspezifischen Bedeutungen von Veröffentlichung. Schreibe dann eine Richtigstellung zum Wechsel von Frage zu sicherer Aussage in der Überschrift, ohne ein dauerhaftes Verbot zu erfinden. Trenne ursprüngliche Stimme, vermittelnde und angewiesene Person, Bewunderung und Prüfung sowie Absicht und Ergebnis. Fehlende Kontodetails und Ausschussantwort bleiben unbekannt. Vergleiche Belegstellen und überarbeite fehlende Zitatgrenzen und Zuschreibungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "[가상 솔빛기록관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 서하: 화요일까지 초안 11건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 지수: 제가 방금 서하의 녹음 1을 들었어요. 서하가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 도윤: 저는 지수에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 서하의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 지수: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n도윤: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n지수: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.\n[가상 기사 제목] “솔빛기록관, 초안 11건 외부 공개한다”\n[기사 본문] 기자는 도윤에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 지수]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 서하의 녹음입니다. 화요일까지 초안 11건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 서하가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 도윤]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 지수에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": [
+          {
+            "id": "briefing",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "출처별 브리핑 보고서",
+              "en": "Briefing report by source",
+              "de": "Briefingbericht nach Quellen"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "첫째 완전한 브리핑 보고서를 써서 목적·명제별 출처·전언 연쇄·직접 경험 범위·현재 이견·미상 정보·확인 담당과 후속 질문을 나누세요. 같은 원문 재전달을 독립 교차 검증으로 세지 않고, 제안할 확인 절차와 이미 한 확인을 구별합니다. 운영팀과 전시팀의 공개 정의를 각각 보존하세요. 둘째 정정문에서 기사의 제목이 질문을 확정 진술로 바꾼 구절을 바로잡되 영구 금지라는 반대 사실을 만들지 마세요. 원 발언자·전달자·지시 수행자, 감탄과 검증, 의도와 결과를 분리합니다. 빠진 계정과 위원회 답변은 미상으로 남겨요. 원문과 대조해 누락된 인용 경계와 출처를 보완하여 재작성합니다. 자유 의미·논증은 미채점입니다.",
+              "en": "First write a complete briefing report separating purpose, sources for each proposition, reporting chain, direct-experience scope, disagreement, unknowns, proposed checking roles and follow-up questions. Do not count repeated originals as independent cross-checks; distinguish proposed verification from completed checks. Preserve both groups’ meanings of disclosure. Then write a correction identifying the headline’s shift from question to confirmed statement without inventing permanent prohibition. Separate original speaker, intermediary and instructed actor, admiration and verification, intention and outcome. Leave missing account details and committee response unknown. Compare source passages and rewrite missing quotation boundaries and attribution. Free meaning and argument remain unscored.",
+              "de": "Schreibe zuerst einen vollständigen Briefingbericht mit Zweck, Quellen je Aussage, Übermittlungskette, Umfang eigener Erfahrung, Dissens, Unbekanntem, vorgeschlagenen Prüfzuständigkeiten und Folgefragen. Zähle wiederholte Originale nicht als unabhängige Gegenprüfung; trenne vorgeschlagene von erfolgter Prüfung. Erhalte beide gruppenspezifischen Bedeutungen von Veröffentlichung. Schreibe dann eine Richtigstellung zum Wechsel von Frage zu sicherer Aussage in der Überschrift, ohne ein dauerhaftes Verbot zu erfinden. Trenne ursprüngliche Stimme, vermittelnde und angewiesene Person, Bewunderung und Prüfung sowie Absicht und Ergebnis. Fehlende Kontodetails und Ausschussantwort bleiben unbekannt. Vergleiche Belegstellen und überarbeite fehlende Zitatgrenzen und Zuschreibungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "correction",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "검증 범위를 보존한 정정문",
+              "en": "Correction preserving verification limits",
+              "de": "Richtigstellung mit erhaltenen Prüfgrenzen"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "첫째 완전한 브리핑 보고서를 써서 목적·명제별 출처·전언 연쇄·직접 경험 범위·현재 이견·미상 정보·확인 담당과 후속 질문을 나누세요. 같은 원문 재전달을 독립 교차 검증으로 세지 않고, 제안할 확인 절차와 이미 한 확인을 구별합니다. 운영팀과 전시팀의 공개 정의를 각각 보존하세요. 둘째 정정문에서 기사의 제목이 질문을 확정 진술로 바꾼 구절을 바로잡되 영구 금지라는 반대 사실을 만들지 마세요. 원 발언자·전달자·지시 수행자, 감탄과 검증, 의도와 결과를 분리합니다. 빠진 계정과 위원회 답변은 미상으로 남겨요. 원문과 대조해 누락된 인용 경계와 출처를 보완하여 재작성합니다. 자유 의미·논증은 미채점입니다.",
+              "en": "First write a complete briefing report separating purpose, sources for each proposition, reporting chain, direct-experience scope, disagreement, unknowns, proposed checking roles and follow-up questions. Do not count repeated originals as independent cross-checks; distinguish proposed verification from completed checks. Preserve both groups’ meanings of disclosure. Then write a correction identifying the headline’s shift from question to confirmed statement without inventing permanent prohibition. Separate original speaker, intermediary and instructed actor, admiration and verification, intention and outcome. Leave missing account details and committee response unknown. Compare source passages and rewrite missing quotation boundaries and attribution. Free meaning and argument remain unscored.",
+              "de": "Schreibe zuerst einen vollständigen Briefingbericht mit Zweck, Quellen je Aussage, Übermittlungskette, Umfang eigener Erfahrung, Dissens, Unbekanntem, vorgeschlagenen Prüfzuständigkeiten und Folgefragen. Zähle wiederholte Originale nicht als unabhängige Gegenprüfung; trenne vorgeschlagene von erfolgter Prüfung. Erhalte beide gruppenspezifischen Bedeutungen von Veröffentlichung. Schreibe dann eine Richtigstellung zum Wechsel von Frage zu sicherer Aussage in der Überschrift, ohne ein dauerhaftes Verbot zu erfinden. Trenne ursprüngliche Stimme, vermittelnde und angewiesene Person, Bewunderung und Prüfung sowie Absicht und Ergebnis. Fehlende Kontodetails und Ausschussantwort bleiben unbekannt. Vergleiche Belegstellen und überarbeite fehlende Zitatgrenzen und Zuschreibungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP23:speaking:01",
+      "phaseId": "KP23",
+      "level": "C1",
+      "objectiveId": "KP23:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "출처와 같은 단어의 다른 뜻을 중개하기",
+        "en": "Mediate sources and different meanings of one term",
+        "de": "Quellen und verschiedene Bedeutungen eines Wortes vermitteln"
+      },
+      "teaching": {
+        "ko": "발언을 중개하는 동료로서 해요체로 두 집단의 공개 정의를 각각 확인하고, 어떤 자료를 누구에게 어떤 권한으로 전달하라는 것인지 되물으세요. 자료에 없는 계정·접근 명단·위원회 답변은 확인 과제로 남기며 합의한 공통 정의를 만들지 않습니다. 이어 합쇼체 브리핑으로 요점·출처 연쇄·한계 순으로 발표하고 개인 평가를 인용 밖에서 밝힙니다. 모어가 다른 동료에게 한국어로 질문→명령과 전언→직접 경험이라는 두 전이 오류를 짚어 주세요. 같은 출처가 두 번 등장해도 한 원문임을 보존하고, -데요 회고를 -더라고요로 풀어도 출처를 유지하세요. 녹음을 듣고 발화자 전환·인용 경계의 휴지를 표시해 다시 말합니다. 의미·억양은 미채점입니다.",
+        "en": "As a mediating colleague, politely confirm each group’s definition of disclosure and ask which material should go to whom under whose authority. Leave missing accounts, access lists and committee response as checking tasks; invent no agreed common definition. Then give a formal briefing in point–reporting chain–limits order, keeping personal evaluation outside quotations. Explain in Korean two transfer errors to a colleague with another first language: question becomes command and hearsay becomes direct experience. Preserve one original even when its source is mentioned twice; retain the source when paraphrasing recalled 데요 with 더라고요. Replay, mark pauses at speaker changes and quotation boundaries, and revise. Meaning and intonation remain unscored.",
+        "de": "Bestätige als vermittelnde Person höflich die jeweilige Definition von Veröffentlichung. Frage nach Material, Empfänger und Befugnis. Fehlende Konten, Zugangslisten und Ausschussantwort bleiben Prüfaufträge; erfinde keine vereinbarte gemeinsame Definition. Halte danach ein förmliches Briefing in der Reihenfolge Kernpunkt–Übermittlungskette–Grenzen und kennzeichne eigene Bewertung außerhalb von Zitaten. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Frage wird Befehl und Hörensagen eigenes Erleben. Bewahre ein einziges Original auch bei zweimaliger Quellennennung; erhalte die Quelle beim Umformulieren von erinnerndem 데요 mit 더라고요. Höre zu, markiere Pausen bei Sprecherwechsel und Zitatgrenzen und überarbeite. Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 가람전시관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 윤서: 월요일까지 초안 8건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 민서: 제가 방금 윤서의 녹음 1을 들었어요. 윤서가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 준호: 저는 민서에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 윤서의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 민서: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n준호: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n민서: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.\n[가상 기사 제목] “가람전시관, 초안 8건 외부 공개한다”\n[기사 본문] 기자는 준호에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 민서]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 윤서의 녹음입니다. 월요일까지 초안 8건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 윤서가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 준호]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 민서에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 솔빛기록관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 서하: 화요일까지 초안 11건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 지수: 제가 방금 서하의 녹음 1을 들었어요. 서하가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 도윤: 저는 지수에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 서하의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 지수: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n도윤: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n지수: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.\n[가상 기사 제목] “솔빛기록관, 초안 11건 외부 공개한다”\n[기사 본문] 기자는 도윤에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 지수]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 서하의 녹음입니다. 화요일까지 초안 11건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 서하가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 도윤]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 지수에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
+        "questions": []
+      }
+    }
+  ]
+}

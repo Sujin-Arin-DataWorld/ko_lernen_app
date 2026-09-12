@@ -280,14 +280,14 @@
 | KP22 | G5:-는 이상 | 1 | 0 | 0 | 미검증 |
 | KP22 | G5:-다가는 | 1 | 0 | 0 | 미검증 |
 | KP22 | G5:-으면 몰라도 | 1 | 0 | 0 | 미검증 |
-| KP23 | G5:-는다기에 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-는다니1 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-자기에 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-더라고 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-데 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-다니1 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:-는다는 것이 | 0 | 0 | 0 | 미검증 |
-| KP23 | G5:를 가지고 | 0 | 0 | 0 | 미검증 |
+| KP23 | G5:-는다기에 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-는다니1 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-자기에 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-더라고 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-데 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-다니1 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:-는다는 것이 | 1 | 0 | 0 | 미검증 |
+| KP23 | G5:를 가지고 | 1 | 0 | 0 | 미검증 |
 | KP24 | G5:-거라 | 0 | 0 | 0 | 미검증 |
 | KP24 | G5:-고말고 | 0 | 0 | 0 | 미검증 |
 | KP24 | G5:-네2 | 0 | 0 | 0 | 미검증 |
@@ -616,3 +616,11 @@
 - KP22 / G5:-는 이상 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/6/practice/sourceKo` — “자료를 공개한 이상 질문에도 답해야 합니다.”. 이미 성립한 공개 전제를 근거로 답변 책임을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP22 / G5:-다가는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/7/practice/sourceKo` — “이렇게 미루다가는 기한을 놓치겠어요. 아직 기한 전이에요.”. 지속될 미루기의 부정적 미래 위험이며 이미 발생한 실패가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP22 / G5:-으면 몰라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/8/practice/sourceKo` — “추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다.”. 추가 근거를 예외로 열어 두면서 현재 단정을 유보한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-는다기에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/0/practice/sourceKo` — “동료가 추가 설명이 필요하다기에 자료를 보냈습니다.”. 동료에게 들은 필요성 진술을 화자의 자료 전송 이유로 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-는다니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/1/practice/sourceKo` — “담당자가 자료를 누구에게 제출하라니? 받는 사람을 못 들었어.”. 전달된 명령의 수신자라는 빈칸을 묻는 으라니 변이이며 감탄이나 새 명령이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-자기에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/2/practice/sourceKo` — “동료가 함께 검토하자기에 회의에 참석했습니다.”. 공동 검토 제안을 듣고 화자가 참석한 이유를 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-더라고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/3/practice/sourceKo` — “제가 두 표를 직접 비교해 보니 기준이 다르더라고요.”. 화자가 직접 비교하여 알게 된 기준 차이를 전달한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-데 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/4/practice/sourceKo` — “어제 직접 가 보니 전시실이 꽤 조용하데요.”. 직접 방문 경험을 데요로 회상하며 대요 전언과 구별된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-다니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/5/practice/sourceKo` — “그 많은 일을 혼자 감당했다니 놀라워요! 저는 그 말을 전해 들었어요.”. 전해 들은 일에 대한 감탄이며 직접 검증을 뜻하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:-는다는 것이 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/6/practice/sourceKo` — “도와준다는 것이 오히려 일을 늘리고 말았어요.”. 도움 의도와 일 증가 결과의 어긋남이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP23 / G5:를 가지고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/7/practice/sourceKo` — “그 한마디를 가지고 의도를 단정할 수는 없어요.”. 한 발언을 판단 재료로 삼을 때 의도 단정의 한계를 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

@@ -14500,6 +14500,593 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으면 몰라도 possible new evidence/budget exception with current reservation/refusal, not confirmed condition or automatic approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:listening/core:R",
+      "taskId": "KP23:listening:01",
+      "sourceHash": "0f72aaeec26159af2b804acdbfbb02e7d01ca967a3a6813dbc871c4519c26e9d",
+      "taskHash": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "criterionIds": [
+        "chain",
+        "act",
+        "independent",
+        "unknown",
+        "definition",
+        "clarify"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:listening/additional/1:R",
+      "taskId": "KP23:listening:01",
+      "sourceHash": "4b3b5dbe12cbb728cd163143fd75ce4b2216c4e96e5041a80596eccea221782c",
+      "taskHash": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "criterionIds": [
+        "chain",
+        "act",
+        "independent",
+        "unknown",
+        "definition",
+        "clarify"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP23:listening:02",
+      "sourceHash": "bdc5ed4e1f55d0adab11427e837c216610d09f39df7f1ce310fe998c96684ce1",
+      "taskHash": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
+      "criterionIds": [
+        "structure",
+        "reaction",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended lecture source chain→speech act→term scope→correction limits. Repeated origin not new evidence, personal relay promise not approval power, admiration not full inspection. Unverified permission does not entail permanent prohibition. Three mandatory discourse/evidential contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:reading/core:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "5c5d3babf1f4d36b2bb7a8d1e3eee5a19b8210762d75a7cebd20dc5be4dab487",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:reading/additional/1:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "7fcd7884f40f058c95f500d2d104430f8012b20e920aa1ef25284d55feea81fa",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:reading/genre/news_article_report:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "d45edf6651aa0628b20c1d5dc019adc9d091b0f42e719c69aa19da6cd1879358",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:speaking/core:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "905fc2bdee481c3b0e2d4c56911750439ed02e55309ca7a9530e195223666ce8",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:speaking/additional/1:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "197d667dea1772fcf1527ef3fa2e305f08728ddaa6c5655f26b29a5d9c04a6ee",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "b5abd70aa9fcca082f2afd83a90dba79785b54d26192425784ae438d49a9ea6e",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:writing/core:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "df8481ebbf9dfadf1b1a18cf24758197f1e6dc93490af8ea0bba2d7c4e58d8a4",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:writing/additional/1:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "829014259eb490c17fafffd0362cc99451da21316aba56889cd1a377bb429987",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "d6cce705ecdde15c1ae050782dee74f0921c253aeaf5356e7d247d08cae330ed",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/summarise_reconstruct:R",
+      "taskId": "KP23:listening:01",
+      "sourceHash": "67c23b1b649ee910aac2abcf0c632fd3d474d43c5c4a0bfa9ca794f6aeb088da",
+      "taskHash": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "criterionIds": [
+        "chain",
+        "act",
+        "independent",
+        "unknown",
+        "definition",
+        "clarify"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/summarise_reconstruct:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "67c23b1b649ee910aac2abcf0c632fd3d474d43c5c4a0bfa9ca794f6aeb088da",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/mediate_between_parties:R",
+      "taskId": "KP23:listening:01",
+      "sourceHash": "4d319d1076e9df2ec82be1f0aaf525c4efd0e9103855d3dad984b629e449e731",
+      "taskHash": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "criterionIds": [
+        "chain",
+        "act",
+        "independent",
+        "unknown",
+        "definition",
+        "clarify"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/mediate_between_parties:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "4d319d1076e9df2ec82be1f0aaf525c4efd0e9103855d3dad984b629e449e731",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/analyse_framing_implicature_presupposition:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "89ed126f66a161c22cd48aee048c3861093883dc173813fe9af41e80610bf9fb",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/analyse_framing_implicature_presupposition:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "89ed126f66a161c22cd48aee048c3861093883dc173813fe9af41e80610bf9fb",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP23:listening:02",
+      "sourceHash": "7d18ccafa5744b8b83a4008d9a2d9524ff501aa25598ff78fba0ef1027eac694",
+      "taskHash": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
+      "criterionIds": [
+        "structure",
+        "reaction",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended lecture source chain→speech act→term scope→correction limits. Repeated origin not new evidence, personal relay promise not approval power, admiration not full inspection. Unverified permission does not entail permanent prohibition. Three mandatory discourse/evidential contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "7d18ccafa5744b8b83a4008d9a2d9524ff501aa25598ff78fba0ef1027eac694",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "53b20da40c5ac123399eec3b7866ea9b9974f58a3ef430e795cac7446bf39365",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "53b20da40c5ac123399eec3b7866ea9b9974f58a3ef430e795cac7446bf39365",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP23:reading:01",
+      "sourceHash": "3f325665d191ca828f3ef3c761d6aff8ee8e615bd3c673734011c9553a6397a7",
+      "taskHash": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "criterionIds": [
+        "headline",
+        "witness",
+        "source",
+        "reaction",
+        "recollection",
+        "intention",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP23:writing:01",
+      "sourceHash": "3f325665d191ca828f3ef3c761d6aff8ee8e615bd3c673734011c9553a6397a7",
+      "taskHash": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "criterionIds": [
+        "briefing",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP23:listening:02",
+      "sourceHash": "5326a61afd913609493fa66ddcd799cba4947ae7abecd7aef2636a2fa558c46f",
+      "taskHash": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
+      "criterionIds": [
+        "structure",
+        "reaction",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended lecture source chain→speech act→term scope→correction limits. Repeated origin not new evidence, personal relay promise not approval power, admiration not full inspection. Unverified permission does not entail permanent prohibition. Three mandatory discourse/evidential contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "5326a61afd913609493fa66ddcd799cba4947ae7abecd7aef2636a2fa558c46f",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:phonology/0:R",
+      "taskId": "KP23:listening:01",
+      "sourceHash": "9fc78afa52d0dcfc37009ed02faa92a08ec4ff00a7007105f69684057ae2f43b",
+      "taskHash": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "criterionIds": [
+        "chain",
+        "act",
+        "independent",
+        "unknown",
+        "definition",
+        "clarify"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:phonology/0:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "9fc78afa52d0dcfc37009ed02faa92a08ec4ff00a7007105f69684057ae2f43b",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:phonology/1:R",
+      "taskId": "KP23:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
+      "criterionIds": [
+        "structure",
+        "reaction",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended lecture source chain→speech act→term scope→correction limits. Repeated origin not new evidence, personal relay promise not approval power, admiration not full inspection. Unverified permission does not entail permanent prohibition. Three mandatory discourse/evidential contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:phonology/1:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:register/haeyo_polite:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "11336176a418f885629372d3029764e7cf85381072c0f8c12d0534fb7947d1dc",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP23:speaking:01",
+      "sourceHash": "11336176a418f885629372d3029764e7cf85381072c0f8c12d0534fb7947d1dc",
+      "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다기에:R",
+      "taskId": "KP23:grammar:01",
+      "sourceHash": "cf95c241dbd524f297198008dedf70bf6dcac0186249ec38a983787d49054c21",
+      "taskHash": "86137c1c1389816c6e4223302c3ed1ce8584ee09fd5e33815911585c6ed6809c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는다기에 third-party statement gives speaker reason for sending/checking; no independent verification implied. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다니1:R",
+      "taskId": "KP23:grammar:02",
+      "sourceHash": "91d7f856b3df66e188eda8f15e5f9944622478b2ff61623481748b3973eef149",
+      "taskHash": "289d7339dce6a0fb798112873de008ab70fcb6ddbe044226d7735a06dab8597d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는다니1 inventory command-content-question variant 으라니: close-peer question asks missing recipient/object, not new order or 다니1 surprise; core gives polite recast. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-자기에:R",
+      "taskId": "KP23:grammar:03",
+      "sourceHash": "206749002bed69cb90533cd565ca5df1ddd6596313ffd6f01d81a1f22a6347d8",
+      "taskHash": "28ff1b83b746e041610db735774bb166aea9a6ef2d2a92d9ab0ab333c9e8de31",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 자기에 reported joint review/comparison proposal motivates speaker attendance/preparation, not command or reversed actor. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-더라고:R",
+      "taskId": "KP23:grammar:04",
+      "sourceHash": "ce1bc7d62e26eebbe8fd91728357d164ea6e2036a7730668ef1eb08d36eb8913",
+      "taskHash": "b894c9b79a0ab8bc870376be3f63032e8d82ed92ac2227577b70796e884ee2ec",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 더라고 direct comparison/reading of two tables/manuscript establishes only inspected difference, not hearsay. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-데:R",
+      "taskId": "KP23:grammar:05",
+      "sourceHash": "4dc464ec5c5215f8821a72895c5298546f52db3b9980af1ccfef9b9bedf25635",
+      "taskHash": "0b1a621d6f02521cd691dcb2c9cf8eae97b66d29a344fdd6e0c88c997975949b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 데/데요 recollected direct visit/listening distinct from hearsay 대/대요; less-common register acknowledged and paraphrased 더라고요. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-다니1:R",
+      "taskId": "KP23:grammar:06",
+      "sourceHash": "c8b19ee46af8431d21f607e0d4747ec4a1df15b96d809768641ba76009b5df3d",
+      "taskHash": "7fb61d8f1ce5dfba92933965a02f4803abbc229f38e830a6a91737f18761a487",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 다니1 exclamatory reaction to reported workload/completion, not personal full inspection or missing-content question. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다는 것이:R",
+      "taskId": "KP23:grammar:07",
+      "sourceHash": "43158a08fa73ca08b13de23de0f9ec1ce5f64c87e436d8d86703d2d6d8d1a3c3",
+      "taskHash": "df03df68f7befd1dbac8c5c47c37fa83957a08da44efa5fc06c99431977875c4",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는다는 것이 intended assistance/clarity versus increased work/confusion, not achieved benefit or malicious initial intention. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:를 가지고:R",
+      "taskId": "KP23:grammar:08",
+      "sourceHash": "d8e59c1d430bfb3d8ccd198e67b72c3a60c5eb0546fba7cbe7040dfce238ee6f",
+      "taskHash": "4404ea7b8c0372567dc2e8f72c440a227a736f9b8687eccb0664b553caeb9a21",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 를 가지고 statement/article as judgement grounds, insufficient for intention/agreement certainty, not physical carrying. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다기에:P",
+      "taskId": "KP23:production:01",
+      "sourceHash": "cf95c241dbd524f297198008dedf70bf6dcac0186249ec38a983787d49054c21",
+      "taskHash": "9ee46ec67a3ba32803409f8d6abf958552042c36cac953532af6685653f72491",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는다기에 third-party statement gives speaker reason for sending/checking; no independent verification implied. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다니1:P",
+      "taskId": "KP23:production:02",
+      "sourceHash": "91d7f856b3df66e188eda8f15e5f9944622478b2ff61623481748b3973eef149",
+      "taskHash": "ca02f21ced7696da51e122479daffbc519ac0ea9f08a253a8dc8c9b3db1a5e0e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는다니1 inventory command-content-question variant 으라니: close-peer question asks missing recipient/object, not new order or 다니1 surprise; core gives polite recast. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-자기에:P",
+      "taskId": "KP23:production:03",
+      "sourceHash": "206749002bed69cb90533cd565ca5df1ddd6596313ffd6f01d81a1f22a6347d8",
+      "taskHash": "6db6562207e774b4c9c3e0f2e38d16c48953b667545f44cce462264f2885a5b7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 자기에 reported joint review/comparison proposal motivates speaker attendance/preparation, not command or reversed actor. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-더라고:P",
+      "taskId": "KP23:production:04",
+      "sourceHash": "ce1bc7d62e26eebbe8fd91728357d164ea6e2036a7730668ef1eb08d36eb8913",
+      "taskHash": "a6a3dce624f5cf3c19c8b71a982b778cc4454776b576403cf20e3a34062f593b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더라고 direct comparison/reading of two tables/manuscript establishes only inspected difference, not hearsay. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-데:P",
+      "taskId": "KP23:production:05",
+      "sourceHash": "4dc464ec5c5215f8821a72895c5298546f52db3b9980af1ccfef9b9bedf25635",
+      "taskHash": "623fb4dc43880f7558b6dae38f169930a3396ddd25f9ff1724723a7b66d6f540",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 데/데요 recollected direct visit/listening distinct from hearsay 대/대요; less-common register acknowledged and paraphrased 더라고요. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-다니1:P",
+      "taskId": "KP23:production:06",
+      "sourceHash": "c8b19ee46af8431d21f607e0d4747ec4a1df15b96d809768641ba76009b5df3d",
+      "taskHash": "597296d5a0297de80305c8a18234afbb812635ac504a42b6e674c31ca0df5c15",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 다니1 exclamatory reaction to reported workload/completion, not personal full inspection or missing-content question. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:-는다는 것이:P",
+      "taskId": "KP23:production:07",
+      "sourceHash": "43158a08fa73ca08b13de23de0f9ec1ce5f64c87e436d8d86703d2d6d8d1a3c3",
+      "taskHash": "7113255d498e919b6ac85c4fb0567938ef189c49808ede531f844d19ff216ea8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는다는 것이 intended assistance/clarity versus increased work/confusion, not achieved benefit or malicious initial intention. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP23:objective:grammar/G5:를 가지고:P",
+      "taskId": "KP23:production:08",
+      "sourceHash": "d8e59c1d430bfb3d8ccd198e67b72c3a60c5eb0546fba7cbe7040dfce238ee6f",
+      "taskHash": "ca90d20fbacd4bcc71b93ddd95b56f39f36847fcdd1be14eb4d6ecba84495a25",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 를 가지고 statement/article as judgement grounds, insufficient for intention/agreement certainty, not physical carrying. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

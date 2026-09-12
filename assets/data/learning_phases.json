@@ -1340,8 +1340,30 @@
         "c1_05_fan_labor_sustainability"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp23.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP23:grammar:01",
+        "KP23:grammar:02",
+        "KP23:grammar:03",
+        "KP23:grammar:04",
+        "KP23:grammar:05",
+        "KP23:grammar:06",
+        "KP23:grammar:07",
+        "KP23:grammar:08",
+        "KP23:production:01",
+        "KP23:production:02",
+        "KP23:production:03",
+        "KP23:production:04",
+        "KP23:production:05",
+        "KP23:production:06",
+        "KP23:production:07",
+        "KP23:production:08",
+        "KP23:listening:01",
+        "KP23:listening:02",
+        "KP23:reading:01",
+        "KP23:writing:01",
+        "KP23:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP24",
@@ -1531,5 +1553,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "c4a34720f125c428e80897e0ecdd33c31923090cc00fee633e623188b9ce85e5"
+  "phaseTaskSourceSha256": "1805dfea3971a2c16b3aa56c9d26f6b4476f73fa94d0ac25c3789cdd628d32c6"
 }
