@@ -6547,6 +6547,662 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "실제 원문·응답 조건을 비교한 학습 경로다. KO/EN/DE bounded production review: Resulting open/closed state, no invented agent or ongoing opening/closing action. Distinct item conditions; unknown legitimate variants remain unscored, practice example contains no held-out answer. 요구 어휘 전수·자유 의미·억양 전체의 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP11:objective:listening/core:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "6718f3480744fb83c0faab2446f8fbb9df91dc48b3d5f6b387c3f06656ad6f40",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:reading/core:R",
+      "taskId": "KP11:reading:01",
+      "sourceHash": "43a094e64866f3eb7dac658392ee0485efb7ba3508a70254d772520656b75adf",
+      "taskHash": "f421f925cfd7011a20ad9f751a32fbf29098858f1e48db926b2a8927d9d60538",
+      "criterionIds": [
+        "basis",
+        "limit",
+        "alternative",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Genuine fictional review based on viewing; short duration and insufficient background are different axes. Free material mentioned by organiser but unread; other alternative prices/content missing. KO/EN/DE limitations consistent. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:reading/genre/news_article_report:R",
+      "taskId": "KP11:reading:02",
+      "sourceHash": "751aa76d9f627c32fbb181dcc418b66585ae5b323ae485c9efc0f3fb4f750529",
+      "taskHash": "ec7e0a33f4dd3f2fc714c6755108cbea507bc1c74036834ec13961fb0ea22741",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "effect"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Fictional report: free text-support scheme does not remove paid admission. Four/six interviewees not all residents; reduced participation gap a reporter hypothesis, participation change unmeasured. No real financial/policy claim. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:reading/genre/social_media_post_comment:R",
+      "taskId": "KP11:reading:03",
+      "sourceHash": "8568ff0ad1d8483ed9d8f316efffd93b173f999039c85c9606d530a8a6ec1214",
+      "taskHash": "c5b61928a1fed9cd8161c85c7fdbb79dcdfae0ca220b0cd4aa3b0e9e90303bc9",
+      "criterionIds": [
+        "scope",
+        "unknown",
+        "person"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. SNS post and three responses separate partial agreement, unviewed alternative, and unsupported character judgement from programme preference. Roles and quoted positions preserved. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:writing/core:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "9c5be9e156cadf5769fb1e4bdad653b1f8e833311520d19fd274818144e053ff",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:writing/genre/review_critique_text:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "7ae2436594c943ff341f3cf4de4e9508fb9695eed9d15e71db2eb57c814ea6d8",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:speaking/core:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "86ecc56dbb83a5a1800e07fb7252aba3fecf48eb92129a02ea98ea5ba6bcef01",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP11:speaking:02",
+      "sourceHash": "aabd359759e35933fced07b87fb76d9deebd9cb8ad3d93aee7675aeec8d8ef68",
+      "taskHash": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Formal briefing main point/evidence/counterpoint/limit and audience question; no unsupported superiority or access-gap reduction. Same fictional numbers/source, full speech unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "e133932a609190e78218ccbb642da6c4ade45247dba61f48926e3c068e0de00e",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "e133932a609190e78218ccbb642da6c4ade45247dba61f48926e3c068e0de00e",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP11:reading:01",
+      "sourceHash": "d4a3e28c197404c16eaf0b9963e54046b10d0cd47890a83fb27bc92bb8e205ca",
+      "taskHash": "f421f925cfd7011a20ad9f751a32fbf29098858f1e48db926b2a8927d9d60538",
+      "criterionIds": [
+        "basis",
+        "limit",
+        "alternative",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Genuine fictional review based on viewing; short duration and insufficient background are different axes. Free material mentioned by organiser but unread; other alternative prices/content missing. KO/EN/DE limitations consistent. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "d4a3e28c197404c16eaf0b9963e54046b10d0cd47890a83fb27bc92bb8e205ca",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/express_opinion_agree_disagree:R",
+      "taskId": "KP11:reading:03",
+      "sourceHash": "77c4dbde4c174f5fbb8338820eabd55f75ea3bde52d86714562b014ad4625f73",
+      "taskHash": "c5b61928a1fed9cd8161c85c7fdbb79dcdfae0ca220b0cd4aa3b0e9e90303bc9",
+      "criterionIds": [
+        "scope",
+        "unknown",
+        "person"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. SNS post and three responses separate partial agreement, unviewed alternative, and unsupported character judgement from programme preference. Roles and quoted positions preserved. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/express_opinion_agree_disagree:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "77c4dbde4c174f5fbb8338820eabd55f75ea3bde52d86714562b014ad4625f73",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/persuade_argue_justify:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "249125fbd6b83092a827c7494526ee0577bd88ffdf4aab293a551982a3cb469e",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:functions/persuade_argue_justify:P",
+      "taskId": "KP11:speaking:02",
+      "sourceHash": "249125fbd6b83092a827c7494526ee0577bd88ffdf4aab293a551982a3cb469e",
+      "taskHash": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Formal briefing main point/evidence/counterpoint/limit and audience question; no unsupported superiority or access-gap reduction. Same fictional numbers/source, full speech unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/money_prices_banking:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "c949e9044e6f7eb84905793bfa05693531aca76876a46f3419992afdff41e69a",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/money_prices_banking:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "c949e9044e6f7eb84905793bfa05693531aca76876a46f3419992afdff41e69a",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/media_pop_culture_vocab:R",
+      "taskId": "KP11:reading:01",
+      "sourceHash": "e3709183dd0703d14dc17ab483e0cba05ada9e521a12bdf171e5440091dd3ded",
+      "taskHash": "f421f925cfd7011a20ad9f751a32fbf29098858f1e48db926b2a8927d9d60538",
+      "criterionIds": [
+        "basis",
+        "limit",
+        "alternative",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Genuine fictional review based on viewing; short duration and insufficient background are different axes. Free material mentioned by organiser but unread; other alternative prices/content missing. KO/EN/DE limitations consistent. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/media_pop_culture_vocab:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "e3709183dd0703d14dc17ab483e0cba05ada9e521a12bdf171e5440091dd3ded",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP11:reading:02",
+      "sourceHash": "2b8748232f79df2d7932cd67ac2ee0c393c98ebf17802d43f93e915ad2555a38",
+      "taskHash": "ec7e0a33f4dd3f2fc714c6755108cbea507bc1c74036834ec13961fb0ea22741",
+      "criterionIds": [
+        "fact",
+        "quote",
+        "effect"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Fictional report: free text-support scheme does not remove paid admission. Four/six interviewees not all residents; reduced participation gap a reporter hypothesis, participation change unmeasured. No real financial/policy claim. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP11:speaking:02",
+      "sourceHash": "2b8748232f79df2d7932cd67ac2ee0c393c98ebf17802d43f93e915ad2555a38",
+      "taskHash": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Formal briefing main point/evidence/counterpoint/limit and audience question; no unsupported superiority or access-gap reduction. Same fictional numbers/source, full speech unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP11:reading:01",
+      "sourceHash": "9ebec412934b011781bdf311997607b22e16be128a451be3c8b117b9cdd766e7",
+      "taskHash": "f421f925cfd7011a20ad9f751a32fbf29098858f1e48db926b2a8927d9d60538",
+      "criterionIds": [
+        "basis",
+        "limit",
+        "alternative",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Genuine fictional review based on viewing; short duration and insufficient background are different axes. Free material mentioned by organiser but unread; other alternative prices/content missing. KO/EN/DE limitations consistent. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP11:writing:01",
+      "sourceHash": "9ebec412934b011781bdf311997607b22e16be128a451be3c8b117b9cdd766e7",
+      "taskHash": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "criterionIds": [
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:phonology/0:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "9b0ce5e05004179b612e1ec9d040f15ab5da3c2c12d46e2c35a0123494449334",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:phonology/0:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "9b0ce5e05004179b612e1ec9d040f15ab5da3c2c12d46e2c35a0123494449334",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:phonology/1:R",
+      "taskId": "KP11:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "criterionIds": [
+        "criterion",
+        "observed",
+        "appearance",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:phonology/1:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:register/haeyo_polite:P",
+      "taskId": "KP11:speaking:01",
+      "sourceHash": "0a4f98585bf8c17e625adbf976a8e824070fde95fcda884bc878b2214c667ffc",
+      "taskHash": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP11:speaking:02",
+      "sourceHash": "0a4f98585bf8c17e625adbf976a8e824070fde95fcda884bc878b2214c667ffc",
+      "taskHash": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. Formal briefing main point/evidence/counterpoint/limit and audience question; no unsupported superiority or access-gap reduction. Same fictional numbers/source, full speech unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:만큼:R",
+      "taskId": "KP11:grammar:01",
+      "sourceHash": "d753d25d2e9adecb0875b62471b767ab06b8e2f4ebc8a20d008bc959ae8719e3",
+      "taskHash": "2fd1122cbf4080dd0c6cd689c08d4ef9684ed26bd64e0bc857364e94a301ba53",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Nominal amount/degree benchmark, same axis not all properties. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 만큼:R",
+      "taskId": "KP11:grammar:02",
+      "sourceHash": "f9a1f98103789573926243714bccb2a6019b342266850743e7b5e6de64df6e38",
+      "taskHash": "03eb934e78cec44f9c69156d0c0415c7672f75c1573ce9f23610ff39cae5ac91",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Clause degree proportional to result, not measured universal causal formula. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:같이:R",
+      "taskId": "KP11:grammar:03",
+      "sourceHash": "85d282f3cce9554d2edb5434812d60547dbde5c67410c3e6cc67f9642262f7e2",
+      "taskHash": "eb89819e9fdcdd3ad482a0d5d6b592df1ec78eb56b22f56abf48b56fa059dc0a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Nominal likeness 저같이, not necessarily joint action or total agreement. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:대로:R",
+      "taskId": "KP11:grammar:04",
+      "sourceHash": "f2a277a7c2a582a776faf2424d804e5e6501169cc9bdd2e07d603d245a77bca9",
+      "taskHash": "339163d698b3aeb0ccfdf894a7f3581161c30242fcdde26c9f6f86bc227a5b71",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Nominal stated standard followed, not reversed. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:뿐:R",
+      "taskId": "KP11:grammar:05",
+      "sourceHash": "fa15dc264a121b60dd80bcdbeb77a680460c2fbcbcc31822adda45c7d7beca69",
+      "taskHash": "701a32a0e49a806ce52d27b54c141d6f1c128ed7bc496060ea9241e83284f935",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Nominal restriction 뿐, only one ticket/price, not additive 도. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:이고:R",
+      "taskId": "KP11:grammar:06",
+      "sourceHash": "2d157cbc61023c63b2da13bc95e46c46c1e4bb73e0e79804c5612f9517e49fae",
+      "taskHash": "05f6455ddbbbfb588f9f46561232a9643d65eee961f10e8db722dce211079050",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Inclusive A이고 B이고 across named categories, not copula-only linkage. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-어도:R",
+      "taskId": "KP11:grammar:07",
+      "sourceHash": "d1792aaae6c0025a8732c2af8c5e2495d5ebc4bce7ec5a21fa45a151770192ae",
+      "taskHash": "377b1905e32eaf878f24377685260328dcc11cefe4186d2a2be14e1f687b6b07",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Conceded condition leaves conclusion polarity unchanged. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-으나:R",
+      "taskId": "KP11:grammar:08",
+      "sourceHash": "14f047bb947adb822d260ea26d10c8a8b3bb9ee9cf8272a95cc3f8407dce891c",
+      "taskHash": "97df040907e6ea16345ea2e65d2cbcaeb50a09206278ceceb87154cb68cdb3bd",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Formal contrast preserves expensive/good and small/convenient axes. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 대신에:R",
+      "taskId": "KP11:grammar:09",
+      "sourceHash": "4c8dea22fa961c18b4300fd9f56bcabdbfa46ec6c4eccac0ea0d5a78c7da2755",
+      "taskHash": "2ec20bfd12668b4db8eece0c1ad827296942fb4886b901769347e6a4a7f58c5a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Replacement or reciprocal role assignment, actor and day preserved. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 반면:R",
+      "taskId": "KP11:grammar:10",
+      "sourceHash": "9aed0c000ab3a98005a613bef70a64ae40e25415f0a869bed8ad1617ee74bd0e",
+      "taskHash": "4b16a4215c4bf51a530151c171e4015d232a9b354c7acf8e220b43ac3828ce1c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Contrast of aspects, not replacing one action with another. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 편이다:R",
+      "taskId": "KP11:grammar:11",
+      "sourceHash": "dbfca21636b9aaf52b628ba7129a94a0a897238ae3fad7695cd5766361f0b8e2",
+      "taskHash": "7faf095e8c7a6c433f9c1259085fbc1730b03ed84f6894c747a96325754803ec",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Relative tendency with exceptions, not always or zero noise. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-어 보이다:R",
+      "taskId": "KP11:grammar:12",
+      "sourceHash": "db2ae00c37fd1cad3dcb699e7f52542cb09e2030f095048913c8af86248abca7",
+      "taskHash": "573d73cfe6b72b39c8e3270d8d67d70ad7f8f34c9d8c14750acde3bf5b31c36e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Outward impression with explicit no sitting/no weighing, not verified performance. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-기는:R",
+      "taskId": "KP11:grammar:13",
+      "sourceHash": "54dfd032935cc4915ee3277ad4c0748c2f4c231ccf083298b21f7818e5620aaa",
+      "taskHash": "5b2d507fa67018540d5a3362579bbd3165c1239522fccb6fb47754c91404ae98",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Partial concession retains reservation, not full acceptance or no advantage. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:에 대하여:R",
+      "taskId": "KP11:grammar:14",
+      "sourceHash": "1e89cfa2cafed515c0941eb96a194b02296ca6b6987daede05fc8f8c2583e882",
+      "taskHash": "0ef98aeccaa2a0c0c70f201e2fb7df44122a49a2725366f76083cb3423bf0116",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE meaning review: Topic specified, not endorsement or fare-increase decision. Receptive sample only. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:만큼:P",
+      "taskId": "KP11:production:01",
+      "sourceHash": "d753d25d2e9adecb0875b62471b767ab06b8e2f4ebc8a20d008bc959ae8719e3",
+      "taskHash": "55ebb5628ae77daf523bcc712fcdd988c542e44194f37fc73f274437daaeb4c4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Nominal amount/degree benchmark, same axis not all properties. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 만큼:P",
+      "taskId": "KP11:production:02",
+      "sourceHash": "f9a1f98103789573926243714bccb2a6019b342266850743e7b5e6de64df6e38",
+      "taskHash": "ce64b28f005aaf4802718dc820cf12ed6199739ba1984aaa12c2bf0c5dfabd22",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Clause degree proportional to result, not measured universal causal formula. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:같이:P",
+      "taskId": "KP11:production:03",
+      "sourceHash": "85d282f3cce9554d2edb5434812d60547dbde5c67410c3e6cc67f9642262f7e2",
+      "taskHash": "2b62fd8ed05ef2be3012614e8a8b3ba1e558fa806d241bcce276b214e917717f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Nominal likeness 저같이, not necessarily joint action or total agreement. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:대로:P",
+      "taskId": "KP11:production:04",
+      "sourceHash": "f2a277a7c2a582a776faf2424d804e5e6501169cc9bdd2e07d603d245a77bca9",
+      "taskHash": "633318f0133c692b9be5c3eba24d2108c78bd86a92c19a11a86a2bc8efb1848b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Nominal stated standard followed, not reversed. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:뿐:P",
+      "taskId": "KP11:production:05",
+      "sourceHash": "fa15dc264a121b60dd80bcdbeb77a680460c2fbcbcc31822adda45c7d7beca69",
+      "taskHash": "25039ba72d477fd08837d3a8b7ff6ff104c75a8527709f9b03001ac8e0a55a6f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Nominal restriction 뿐, only one ticket/price, not additive 도. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:이고:P",
+      "taskId": "KP11:production:06",
+      "sourceHash": "2d157cbc61023c63b2da13bc95e46c46c1e4bb73e0e79804c5612f9517e49fae",
+      "taskHash": "153d29d5cfb2ef4f227c9a7addc0f6928c2c0af096eef247a4d69edc325eb613",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Inclusive A이고 B이고 across named categories, not copula-only linkage. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-어도:P",
+      "taskId": "KP11:production:07",
+      "sourceHash": "d1792aaae6c0025a8732c2af8c5e2495d5ebc4bce7ec5a21fa45a151770192ae",
+      "taskHash": "0aa678f90fe120a4154f7447076e559b8b2755186f7cd6a371ebbabd48bd5f26",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Conceded condition leaves conclusion polarity unchanged. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-으나:P",
+      "taskId": "KP11:production:08",
+      "sourceHash": "14f047bb947adb822d260ea26d10c8a8b3bb9ee9cf8272a95cc3f8407dce891c",
+      "taskHash": "6e421cca8db072a1be5d9eb9f42a87def85cf3a609807d01bf7ee1da9b2e0ee6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Formal contrast preserves expensive/good and small/convenient axes. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 대신에:P",
+      "taskId": "KP11:production:09",
+      "sourceHash": "4c8dea22fa961c18b4300fd9f56bcabdbfa46ec6c4eccac0ea0d5a78c7da2755",
+      "taskHash": "45c100165b8e76f7a3ef7df6d1eff12ab18eddeed216d328632e05098d0097cf",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Replacement or reciprocal role assignment, actor and day preserved. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 반면:P",
+      "taskId": "KP11:production:10",
+      "sourceHash": "9aed0c000ab3a98005a613bef70a64ae40e25415f0a869bed8ad1617ee74bd0e",
+      "taskHash": "31571e35d7fc05e99d779624963e12ea2afafb9e50cde2c2eca544a9d9c377f9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Contrast of aspects, not replacing one action with another. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-는 편이다:P",
+      "taskId": "KP11:production:11",
+      "sourceHash": "dbfca21636b9aaf52b628ba7129a94a0a897238ae3fad7695cd5766361f0b8e2",
+      "taskHash": "2b627ecfb71290b8a6eb09c28b047cd8d81f05dadc6803f8bbdfa181e9729493",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Relative tendency with exceptions, not always or zero noise. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-어 보이다:P",
+      "taskId": "KP11:production:12",
+      "sourceHash": "db2ae00c37fd1cad3dcb699e7f52542cb09e2030f095048913c8af86248abca7",
+      "taskHash": "f63e42d1b47321d11150bdd912afa7166bc14bb893462da4c53c1b532493d0e2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Outward impression with explicit no sitting/no weighing, not verified performance. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:-기는:P",
+      "taskId": "KP11:production:13",
+      "sourceHash": "54dfd032935cc4915ee3277ad4c0748c2f4c231ccf083298b21f7818e5620aaa",
+      "taskHash": "49c2a3c8cff91a245f500836c6d4c41c653140a59f7c6a3bd88ec24545c0fad7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Partial concession retains reservation, not full acceptance or no advantage. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP11:objective:grammar/G3:에 대하여:P",
+      "taskId": "KP11:production:14",
+      "sourceHash": "1e89cfa2cafed515c0941eb96a194b02296ca6b6987daede05fc8f8c2583e882",
+      "taskHash": "9b68a45484fd1e93d7d0611b84b0dee56d82b67c7a8e973a3a414c2458c1b0e8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Topic specified, not endorsement or fare-increase decision. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
     }
   ]
 }

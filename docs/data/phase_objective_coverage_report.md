@@ -16,7 +16,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP08 | 61 | 61 | 0 | 미검증 |
 | KP09 | 49 | 49 | 0 | 미검증 |
 | KP10 | 62 | 62 | 0 | 미검증 |
-| KP11 | 58 | 0 | 58 | 미검증 |
+| KP11 | 58 | 58 | 0 | 미검증 |
 | KP12 | 57 | 0 | 57 | 미검증 |
 | KP13 | 57 | 0 | 57 | 미검증 |
 | KP14 | 48 | 0 | 48 | 미검증 |
@@ -39,64 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP11:objective:grammar/G3:만큼:R`
-- `KP11:objective:grammar/G3:만큼:P`
-- `KP11:objective:grammar/G3:-는 만큼:R`
-- `KP11:objective:grammar/G3:-는 만큼:P`
-- `KP11:objective:grammar/G3:같이:R`
-- `KP11:objective:grammar/G3:같이:P`
-- `KP11:objective:grammar/G3:대로:R`
-- `KP11:objective:grammar/G3:대로:P`
-- `KP11:objective:grammar/G3:뿐:R`
-- `KP11:objective:grammar/G3:뿐:P`
-- `KP11:objective:grammar/G3:이고:R`
-- `KP11:objective:grammar/G3:이고:P`
-- `KP11:objective:grammar/G3:-어도:R`
-- `KP11:objective:grammar/G3:-어도:P`
-- `KP11:objective:grammar/G3:-으나:R`
-- `KP11:objective:grammar/G3:-으나:P`
-- `KP11:objective:grammar/G3:-는 대신에:R`
-- `KP11:objective:grammar/G3:-는 대신에:P`
-- `KP11:objective:grammar/G3:-는 반면:R`
-- `KP11:objective:grammar/G3:-는 반면:P`
-- `KP11:objective:grammar/G3:-는 편이다:R`
-- `KP11:objective:grammar/G3:-는 편이다:P`
-- `KP11:objective:grammar/G3:-어 보이다:R`
-- `KP11:objective:grammar/G3:-어 보이다:P`
-- `KP11:objective:grammar/G3:-기는:R`
-- `KP11:objective:grammar/G3:-기는:P`
-- `KP11:objective:grammar/G3:에 대하여:R`
-- `KP11:objective:grammar/G3:에 대하여:P`
-- `KP11:objective:listening/core:R`
-- `KP11:objective:reading/core:R`
-- `KP11:objective:reading/genre/news_article_report:R`
-- `KP11:objective:reading/genre/social_media_post_comment:R`
-- `KP11:objective:speaking/core:P`
-- `KP11:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP11:objective:writing/core:P`
-- `KP11:objective:writing/genre/review_critique_text:P`
-- `KP11:objective:functions/compare_contrast_alternatives:R`
-- `KP11:objective:functions/compare_contrast_alternatives:P`
-- `KP11:objective:functions/evaluate_assess_critique:R`
-- `KP11:objective:functions/evaluate_assess_critique:P`
-- `KP11:objective:functions/express_opinion_agree_disagree:R`
-- `KP11:objective:functions/express_opinion_agree_disagree:P`
-- `KP11:objective:functions/persuade_argue_justify:R`
-- `KP11:objective:functions/persuade_argue_justify:P`
-- `KP11:objective:vocabDomains/money_prices_banking:R`
-- `KP11:objective:vocabDomains/money_prices_banking:P`
-- `KP11:objective:vocabDomains/media_pop_culture_vocab:R`
-- `KP11:objective:vocabDomains/media_pop_culture_vocab:P`
-- `KP11:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP11:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP11:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP11:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP11:objective:phonology/0:R`
-- `KP11:objective:phonology/0:P`
-- `KP11:objective:phonology/1:R`
-- `KP11:objective:phonology/1:P`
-- `KP11:objective:register/haeyo_polite:P`
-- `KP11:objective:register/hapsyo_formal_business:P`
 - `KP12:objective:grammar/G3:-거든1:R`
 - `KP12:objective:grammar/G3:-거든1:P`
 - `KP12:objective:grammar/G3:-어야:R`

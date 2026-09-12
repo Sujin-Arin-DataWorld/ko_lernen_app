@@ -132,20 +132,20 @@
 | KP10 | G3:-은 다음에 | 1 | 0 | 0 | 미검증 |
 | KP10 | G3:-어 가지고 | 1 | 0 | 0 | 미검증 |
 | KP10 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
-| KP11 | G3:만큼 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-는 만큼 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:같이 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:대로 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:뿐 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:이고 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-어도 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-으나 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-는 대신에 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-는 반면 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-는 편이다 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-어 보이다 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:-기는 | 0 | 0 | 0 | 미검증 |
-| KP11 | G3:에 대하여 | 0 | 0 | 0 | 미검증 |
+| KP11 | G3:만큼 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-는 만큼 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:같이 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:대로 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:뿐 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:이고 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-어도 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-으나 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-는 대신에 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-는 반면 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-는 편이다 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-어 보이다 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:-기는 | 1 | 0 | 0 | 미검증 |
+| KP11 | G3:에 대하여 | 1 | 0 | 0 | 미검증 |
 | KP12 | G3:-거든1 | 0 | 0 | 0 | 미검증 |
 | KP12 | G3:-어야 | 0 | 0 | 0 | 미검증 |
 | KP12 | G3:-어야지1 | 0 | 0 | 0 | 미검증 |
@@ -458,3 +458,17 @@
 - KP10 / G3:-은 다음에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/14/practice/sourceKo` — “신청서를 쓴 다음에 창구에 내세요.”. 작성 완료 이후 제출하는 순서이며 반대 순서가 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
 - KP10 / G3:-어 가지고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/15/practice/sourceKo` — “길이 막혀 가지고 조금 늦었어요.”. 구어에서 정체를 늦은 이유로 제시한다. 역인과가 아니다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
 - KP10 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp10.json/tasks/16/practice/sourceKo` — “확인해 보니 창문이 열려 있었어요.”. 확인 당시 열린 결과 상태다. 창문을 연 행위자는 명시되지 않는다. 신규 Phase 원문의 수용 용례 검수이며 기존 콘텐츠 재사용이나 산출 숙달로 소급하지 않는다.
+- KP11 / G3:만큼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/0/practice/sourceKo` — “저도 친구만큼 연습했어요.”. 명사 친구를 기준으로 연습 정도를 비교한다. 모든 속성의 동일성이 아니다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-는 만큼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/1/practice/sourceKo` — “연습한 만큼 자신감이 생겼어요.”. 앞 절의 연습 정도와 뒤 자신감 변화를 비례 관계로 제시한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:같이 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/2/practice/sourceKo` — “동생도 저같이 매운 음식을 좋아해요.”. 명사 저에 붙어 선호의 유사성을 나타내며 함께 식사하는 동작이 아니다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:대로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/3/practice/sourceKo` — “안내문대로 신청서를 썼어요.”. 안내문이라는 명사 기준을 따라 작성한 행위다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:뿐 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/4/practice/sourceKo` — “남은 표는 한 장뿐이에요.”. 남은 수량을 한 장으로 제한하며 한 장을 추가한 뜻이 아니다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:이고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/5/practice/sourceKo` — “아이이고 어른이고 모두 참여했어요.”. 아이와 어른을 가리지 않고 포함하는 열거다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-어도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/6/practice/sourceKo` — “비가 와도 행사는 열려요.”. 비라는 양보 조건 아래 개최라는 긍정 결론이 유지된다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-으나 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/7/practice/sourceKo` — “가격은 비싸나 품질은 좋아요.”. 가격의 불리함과 품질의 유리함을 대조한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-는 대신에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/8/practice/sourceKo` — “오늘 제가 정리하는 대신에 내일은 동료가 정리해요.”. 오늘 화자의 역할과 내일 동료의 역할을 보상·교환 관계로 연결한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-는 반면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/9/practice/sourceKo` — “이 집은 넓은 반면에 교통이 불편해요.”. 주거의 넓이와 교통이라는 다른 평가 면의 장단점을 대조한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-는 편이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/10/practice/sourceKo` — “저는 아침에 일찍 일어나는 편이에요.”. 예외를 허용하는 상대적 경향이며 매일이라는 절대 규칙이 아니다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-어 보이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/11/practice/sourceKo` — “이 의자는 편안해 보여요.”. 다음 문장에 앉아 보지 않았다고 명시하여 외관상 인상임을 확인한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:-기는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/12/practice/sourceKo` — “좋기는 하지만 너무 비싸요.”. 좋음을 일부 인정하되 가격에 대한 유보를 남긴다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP11 / G3:에 대하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/13/practice/sourceKo` — “음식 문화에 대하여 이야기했어요.”. 대화의 주제를 지정할 뿐 찬성이나 결정으로 확장하지 않는다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
