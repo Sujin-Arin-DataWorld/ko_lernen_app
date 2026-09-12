@@ -1,5 +1,10 @@
 import 'package:integration_test/integration_test_driver.dart';
+import 'phase_native_receipt.dart';
 
-// Upper levels contain multiple long sources; each native audio task has its
-// own shorter timeout. This host deadline covers the complete selected level.
-Future<void> main() => integrationDriver(timeout: const Duration(minutes: 60));
+Future<void> main() => integrationDriver(
+  timeout: const Duration(minutes: 60),
+  responseDataCallback: (data) async {
+    validatePhaseNativeReceipt(data);
+    await writeResponseData(data);
+  },
+);

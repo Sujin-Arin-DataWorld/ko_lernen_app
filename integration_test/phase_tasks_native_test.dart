@@ -22,8 +22,9 @@ import 'support/phase_native_configuration.dart';
 /// evidence after launching a fresh app process, without submitting another task.
 /// PHASE_NATIVE_MIC requires OS permission to be granted on the QA device.
 /// Emulator PCM delivery proves plugin operation, not physical microphone quality.
-Future<void> main() async {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+void main() {
+  final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  var completedAudioPackets = 0;
   final configuration = PhaseNativeConfiguration.fromRoute(
     // TestWidgetsFlutterBinding replaces its dispatcher route with '/'. Read
     // the engine route so a reused QA binary honours the actual launch mode.
@@ -37,18 +38,10 @@ Future<void> main() async {
   final restoreOnly = configuration.restoreOnly;
   final qaLevel = configuration.level;
   debugPrint('PHASE_NATIVE_CONFIGURATION $qaLevel restore=$restoreOnly');
-  // Finish async catalogue loading before registering any test. On a launched
-  // native app, registering the first test schedules its runner immediately.
+  // Register synchronously: native test runners may start before an async main
+  // resumes from an asset read, reporting a misleading empty-suite success.
   final audioEnabled =
       !restoreOnly && const bool.fromEnvironment('PHASE_NATIVE_TTS');
-  final listening = audioEnabled
-      ? (await PhaseTaskCatalog.load()).tasks
-            .where((t) => t.skill == 'listening' && t.level == qaLevel)
-            .toList()
-      : <PhaseTask>[];
-  debugPrint(
-    'PHASE_NATIVE_AUDIO enabled=$audioEnabled tasks=${listening.length}',
-  );
 
   Widget host(PhaseTaskRoute route) => MaterialApp(
     initialRoute: '/',
@@ -359,32 +352,50 @@ Future<void> main() async {
     expect(tester.widget<TextFormField>(field).initialValue, '지금 도서관에 있어요.');
   }, skip: !restoreOnly);
 
-  if (audioEnabled) {
-    test('the selected level has published listening tasks', () {
+  testWidgets(
+    'native playback of every selected-level listening packet',
+    (tester) async {
+      final listening = (await PhaseTaskCatalog.load()).tasks
+          .where((t) => t.skill == 'listening' && t.level == qaLevel)
+          .toList();
+      debugPrint('PHASE_NATIVE_AUDIO enabled=true tasks=${listening.length}');
       expect(listening, isNotEmpty);
-    });
-    // C1 through KP22 alone contains 18 minutes of actual MP3 audio. Each task
-    // gets its own clock and result so later packets cannot hide a failed one.
-    for (final task in listening) {
-      testWidgets('native playback ${task.id}', (tester) async {
-        await Storage.init();
-        if (Firebase.apps.isEmpty) {
-          await Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform,
-          );
-        }
+      await Storage.init();
+      if (Firebase.apps.isEmpty) {
+        await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        );
+      }
+      for (final task in listening) {
         for (final packet in [task.practice, task.assessment]) {
-          // Uses reviewed public content only, never a learner recording/answer.
+          // Only reviewed public material; each packet has a bounded deadline.
           final played = await TtsService.speakPassage(
             packet.sourceKo,
             voice: 'female',
-          );
+          ).timeout(const Duration(minutes: 5));
           expect(played, isTrue, reason: '${task.id}: ${TtsService.lastError}');
           debugPrint(
             'PHASE_AUDIO_COMPLETED ${task.id} ${packet == task.assessment ? 'assessment' : 'practice'}',
           );
         }
-      }, timeout: const Timeout(Duration(minutes: 10)));
-    }
-  }
+      }
+      debugPrint(
+        'PHASE_NATIVE_AUDIO_COMPLETE $qaLevel packets=${listening.length * 2}',
+      );
+    },
+    skip: !audioEnabled,
+    timeout: const Timeout(Duration(minutes: 60)),
+  );
+  test('native suite emits a nonempty execution receipt', () {
+    expect(binding.results, isNotEmpty);
+    if (audioEnabled) expect(completedAudioPackets, greaterThan(0));
+    binding.reportData = {
+      'phaseNativeReceipt': 1,
+      'level': qaLevel,
+      'restoreOnly': restoreOnly,
+      'widgetTestCount': binding.results.length,
+      'audioEnabled': audioEnabled,
+      'completedAudioPackets': completedAudioPackets,
+    };
+  });
 }
