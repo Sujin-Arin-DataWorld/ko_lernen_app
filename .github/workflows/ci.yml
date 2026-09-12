@@ -452,18 +452,74 @@ jobs:
             FLUTTER_TARGET=test/support/native_test_host.dart FLUTTER_BUILD_MODE=debug \
             -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult" \
             2>&1 | tee "$RUNNER_TEMP/native-privacy-build-test.log"
+      - name: Retain native test results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native-privacy-results
+          path: |
+            ${{ runner.temp }}/native-privacy.xcresult
+            ${{ runner.temp }}/native-privacy-build-test.log
+          if-no-files-found: error
+          retention-days: 3
+
+  # Phase input/audio/restore is a separate cold build, not part of XCTest's clock.
+  phase-ios-tests:
+    name: Phase tasks on iOS simulator
+    needs: changes
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.phase_native_level != 'off' && inputs.phase_native_level != ''
+    runs-on: macos-15-intel
+    timeout-minutes: 90
+    env:
+      CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Verify native Intel simulator host
+        run: |
+          set -euo pipefail
+          host_arch="$(uname -m)"
+          printf 'Simulator host architecture: %s\n' "$host_arch"
+          test "$host_arch" = "x86_64"
+      - name: Verify pinned Xcode and iOS SDKs
+        run: |
+          set -euo pipefail
+          test -d "$DEVELOPER_DIR"
+          xcode_version="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_version"
+          test "${xcode_version%%$'\n'*}" = "Xcode 26.3"
+          for sdk in iphoneos iphonesimulator; do
+            sdk_version="$(xcrun --sdk "$sdk" --show-sdk-version)"
+            sdk_path="$(xcrun --sdk "$sdk" --show-sdk-path)"
+            printf '%s SDK %s: %s\n' "$sdk" "$sdk_version" "$sdk_path"
+            test "$sdk_version" = "26.2"
+            case "$sdk_path" in
+              "$DEVELOPER_DIR"/*) ;;
+              *) echo "SDK resolved outside the pinned Xcode" >&2; exit 1 ;;
+            esac
+          done
+      - name: Prepare existing pinned iOS toolchain and plugins
+        run: bash ios/ci_scripts/ci_post_clone.sh
       - name: Exercise published Phase tasks on the iPhone simulator
-        if: github.event_name == 'workflow_dispatch' && inputs.phase_native_level != 'off' && inputs.phase_native_level != ''
         env:
           PHASE_QA_LEVEL: ${{ inputs.phase_native_level }}
         run: |
           set -euo pipefail
           case "$PHASE_QA_LEVEL" in A1|A2|B1|B2|C1|C2) ;; *) exit 1 ;; esac
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
-          # XCTest can shut down its cloned simulator after the privacy suite.
-          # Select an available device and wait for its own boot explicitly.
+          # This independent job has no previously installed privacy-test app.
+          # Boot and install the Phase host before granting its microphone access.
           simulator_id="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; devices=json.load(sys.stdin)["devices"]; candidates=[d for runtime, group in devices.items() if "iOS-" in runtime for d in group if d["isAvailable"] and d["name"].startswith("iPhone")]; candidates.sort(key=lambda d: d["state"] != "Booted"); print(candidates[0]["udid"])')"
           xcrun simctl bootstatus "$simulator_id" -b
+          flutter build ios --simulator --debug --no-pub \
+            --target=integration_test/phase_tasks_native_test.dart \
+            --dart-define=PHASE_NATIVE_MIC=true --dart-define=PHASE_NATIVE_TTS=true \
+            --dart-define="PHASE_NATIVE_LEVEL=$PHASE_QA_LEVEL" \
+            2>&1 | tee "$RUNNER_TEMP/phase-native-build.log"
+          xcrun simctl install "$simulator_id" build/ios/iphonesimulator/Runner.app
           xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
           flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
             --driver=test_driver/phase_tasks_driver.dart \
@@ -478,14 +534,13 @@ jobs:
             --dart-define=PHASE_NATIVE_RESTORE_ONLY=true \
             --dart-define="PHASE_NATIVE_LEVEL=$PHASE_QA_LEVEL" \
             2>&1 | tee "$RUNNER_TEMP/phase-native-restore.log"
-      - name: Retain native test results
+      - name: Retain Phase native results
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: native-privacy-results
+          name: phase-native-results
           path: |
-            ${{ runner.temp }}/native-privacy.xcresult
-            ${{ runner.temp }}/native-privacy-build-test.log
+            ${{ runner.temp }}/phase-native-build.log
             ${{ runner.temp }}/phase-native-driver.log
             ${{ runner.temp }}/phase-native-restore.log
           if-no-files-found: error

@@ -63,6 +63,20 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("xcodebuild test", simulator)
         self.assertIn("-only-testing:RunnerTests", simulator)
 
+    def test_phase_device_checks_have_their_own_clock_and_installed_permissions(self):
+        workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
+        phase = workflow.split('  phase-ios-tests:\n', 1)[1].split('  release-internal:\n', 1)[0]
+        _, privacy = self.ios_jobs()
+        self.assertNotIn('flutter drive', privacy)
+        self.assertIn('timeout-minutes: 90', phase)
+        self.assertIn("github.event_name == 'workflow_dispatch'", phase)
+        self.assertIn('macos-15-intel', phase)
+        self.assertIn('bash ios/ci_scripts/ci_post_clone.sh', phase)
+        self.assertLess(phase.index('xcrun simctl install'), phase.index('grant microphone'))
+        self.assertIn('PHASE_NATIVE_RESTORE_ONLY=true', phase)
+        self.assertIn('phase-native-results', phase)
+        self.assertNotIn('continue-on-error', phase)
+
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
         self.assertRegex(release, r"(?m)^    runs-on: macos-15$")
