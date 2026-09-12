@@ -3652,6 +3652,448 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP08:reading:02",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "공지 아래 문의와 공감",
+        "en": "A question and a considerate reply below a notice",
+        "de": "Nachfrage und Anteilnahme unter einem Hinweis"
+      },
+      "teaching": {
+        "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+        "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+        "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 공지 전달\n미나: 안내 직원에게서 받았어요. 활동 기록은 월요일까지 제출할 것. 제가 전체 회원에게 전달합니다.\n회원: 작품을 완성해서 기쁜데, 제출 화면이 열리지 않아요. 화요일에 내도 될까요?\n미나: 완성하신 것을 축하해요! 화면 때문에 불편하시겠어요. 하지만 예외는 제가 허가할 수 없어요. 담당자에게 오류를 알리고 기한을 확인해 볼게요.",
+        "questions": [
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원래 공지의 출처는?",
+              "en": "Who issued the original notice?",
+              "de": "Von wem stammt der ursprüngliche Hinweis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "미나"
+              },
+              {
+                "id": "0",
+                "text": "안내 직원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "회원의 불편은?",
+              "en": "What problem does the member report?",
+              "de": "Welches Problem meldet das Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "제출 화면이 열리지 않아요."
+              },
+              {
+                "id": "1",
+                "text": "작품을 아직 시작하지 않았어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한은 연장됐어요?",
+              "en": "Was the deadline extended?",
+              "de": "Wurde die Frist verlängert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 화요일까지로 바뀌었어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 담당자 확인 전이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "제출 오류가 해결됐어요."
+              },
+              {
+                "id": "0",
+                "text": "작품을 완성했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 공지 전달\n준호: 안내 직원에게서 받았어요. 활동 기록은 화요일까지 제출할 것. 제가 전체 회원에게 전달합니다.\n회원: 작품을 완성해서 기쁜데, 제출 화면이 열리지 않아요. 수요일에 내도 될까요?\n준호: 완성하신 것을 축하해요! 화면 때문에 불편하시겠어요. 하지만 예외는 제가 허가할 수 없어요. 담당자에게 오류를 알리고 기한을 확인해 볼게요.",
+        "questions": [
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원래 공지의 출처는?",
+              "en": "Who issued the original notice?",
+              "de": "Von wem stammt der ursprüngliche Hinweis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "준호"
+              },
+              {
+                "id": "0",
+                "text": "안내 직원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "회원의 불편은?",
+              "en": "What problem does the member report?",
+              "de": "Welches Problem meldet das Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "작품을 아직 시작하지 않았어요."
+              },
+              {
+                "id": "0",
+                "text": "제출 화면이 열리지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한은 연장됐어요?",
+              "en": "Was the deadline extended?",
+              "de": "Wurde die Frist verlängert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 수요일까지로 바뀌었어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 담당자 확인 전이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "작품을 완성했어요."
+              },
+              {
+                "id": "1",
+                "text": "제출 오류가 해결됐어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP08:speaking:02",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "상태·불편·출처를 세 청자에게 말하기",
+        "en": "State a problem and its source to three audiences",
+        "de": "Zustand, Problem und Quelle drei Personen mitteilen"
+      },
+      "teaching": {
+        "ko": "열려 있어요·열고 있어요와 앉아 있어요·옮기고 있어요를 상태와 진행으로 나눠 말해요. 이어서 친구·새 회원·담당자에게 관계에 맞는 말투로 같은 사실을 전하세요. 축하·공감 뒤에도 기한 연장을 약속하지 마세요. 녹음을 듣고 휴지·말끝을 수정해요. 의미와 발음은 미채점이에요.",
+        "en": "Distinguish resulting states from ongoing actions in 열려 있어요/열고 있어요 and 앉아 있어요/옮기고 있어요. Then relay the same facts to a friend, new member and organiser in the appropriate register. Do not promise a deadline extension after congratulations or sympathy. Replay and revise pauses and endings; meaning and pronunciation remain unscored.",
+        "de": "Unterscheide Zustand und laufende Handlung bei 열려 있어요/열고 있어요 und 앉아 있어요/옮기고 있어요. Gib dieselben Fakten dann einem Freund oder einer Freundin, einem neuen Mitglied und der zuständigen Person im passenden Sprachstil weiter. Versprich auch nach Gratulation oder Mitgefühl keine Fristverlängerung. Höre zu und überarbeite Pausen und Endungen; Inhalt und Aussprache bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "출처: 안내 직원. 공지: 월요일까지 기록 제출. 회원은 작품을 완성했지만 제출 화면이 열리지 않아 불편함. 화요일 제출 가능 여부는 아직 미확인.\n1. 반말에 합의한 친구에게 축하·공감과 사실 전달. 2. 새 회원에게 해요체로 출처·기한·미확인 사항 전달. 3. 담당자에게 하십시오체로 화면 문제와 기한 문의. 개인정보는 추가하지 마세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "출처: 안내 직원. 공지: 화요일까지 기록 제출. 회원은 발표를 마쳤지만 제출 화면이 열리지 않아 불편함. 수요일 제출 가능 여부는 아직 미확인.\n1. 반말에 합의한 친구에게 축하·공감과 사실 전달. 2. 새 회원에게 해요체로 출처·기한·미확인 사항 전달. 3. 담당자에게 하십시오체로 화면 문제와 기한 문의. 개인정보는 추가하지 마세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP08:reading:03",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "친밀함을 만드는 관계와 맥락",
+        "en": "The relationship and context behind intimacy",
+        "de": "Beziehung und Kontext vertrauter Sprache"
+      },
+      "teaching": {
+        "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+        "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+        "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "사적으로 이야기하는 오래된 가까운 친구. 서로 반말을 쓰기로 했고 개인적인 고민을 나누는 사이예요.\n가: 오늘 발표를 마쳤는데 좀 지쳤어.\n나: 그랬구나. 내 앞에서는 괜찮은 척 안 해도 돼. 네 얘기 듣고 싶어.\n가: 고마워. 네가 있어서 마음이 놓여.\n다음은 처음 만난 회원에게 하는 안내예요.\n나: 안녕하세요. 안내가 필요하시면 말씀해 주세요.",
+        "questions": [
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞부분의 친밀한 말투를 이해할 근거는?",
+              "en": "What supports the intimate tone in the first part?",
+              "de": "Was begründet den vertrauten Ton im ersten Teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오래된 가까운 친구가 사적으로 고민을 나눠요."
+              },
+              {
+                "id": "1",
+                "text": "반말이면 누구와도 이미 친밀한 사이예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          },
+          {
+            "id": "audience",
+            "kind": "choice",
+            "prompt": {
+              "ko": "같은 친밀한 말을 새 회원에게 바로 사용해도 돼요?",
+              "en": "Can the same intimate wording simply be used with the new member?",
+              "de": "Kann man diese vertrauten Worte einfach auch an das neue Mitglied richten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 가까운 사이인지 확인할 필요가 없어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 관계와 상황에 맞게 바꿔요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "사적으로 이야기하는 오래된 가까운 친구. 서로 반말을 쓰기로 했고 개인적인 고민을 나누는 사이예요.\n가: 오늘 모임에서 실수했는데 좀 속상해.\n나: 그랬구나. 내 앞에서는 괜찮은 척 안 해도 돼. 네 얘기 듣고 싶어.\n가: 고마워. 네가 있어서 마음이 놓여.\n다음은 처음 만난 회원에게 하는 안내예요.\n나: 안녕하세요. 안내가 필요하시면 말씀해 주세요.",
+        "questions": [
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞부분의 친밀한 말투를 이해할 근거는?",
+              "en": "What supports the intimate tone in the first part?",
+              "de": "Was begründet den vertrauten Ton im ersten Teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오래된 가까운 친구가 사적으로 고민을 나눠요."
+              },
+              {
+                "id": "1",
+                "text": "반말이면 누구와도 이미 친밀한 사이예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          },
+          {
+            "id": "audience",
+            "kind": "choice",
+            "prompt": {
+              "ko": "같은 친밀한 말을 새 회원에게 바로 사용해도 돼요?",
+              "en": "Can the same intimate wording simply be used with the new member?",
+              "de": "Kann man diese vertrauten Worte einfach auch an das neue Mitglied richten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 가까운 사이인지 확인할 필요가 없어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 관계와 상황에 맞게 바꿔요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -17214,6 +17214,543 @@
       "contentHash": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd"
     },
     {
+      "id": "KP05:reading:04",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:04",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "대여 창구에서 불편 알리기",
+        "en": "Report a problem at a rental counter",
+        "de": "Ein Problem am Verleihschalter melden"
+      },
+      "teaching": {
+        "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+        "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+        "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화센터 대여 창구\n손님: 겉옷이 너무 작아요. 다른 크기로 바꿀 수 있어요? 가격표에는 3000원인데 영수증에는 4000원이에요. 확인해 주세요.\n직원: 불편을 드려 죄송해요. 다른 크기가 있는지, 계산이 맞는지 먼저 확인할게요. 아직 환불이 정해진 것은 아니에요.\n손님: 네. 그리고 팔이 아파서 의자를 옮기기 어려워요. 도와주세요.",
+        "questions": [
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "옷에 관한 불편은?",
+              "en": "What is wrong with the clothing?",
+              "de": "Was ist das Problem mit dem Kleidungsstück?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "색이 마음에 들지 않아요."
+              },
+              {
+                "id": "0",
+                "text": "크기가 너무 작아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "prices",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가격 확인에 필요한 두 금액은?",
+              "en": "Which amounts need to be compared?",
+              "de": "Welche Beträge müssen verglichen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "가격표 3000원 / 영수증 4000원"
+              },
+              {
+                "id": "1",
+                "text": "가격표 4000원 / 영수증 3000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "refund",
+            "kind": "choice",
+            "prompt": {
+              "ko": "환불은 이미 결정됐어요?",
+              "en": "Has a refund already been decided?",
+              "de": "Ist eine Rückerstattung bereits beschlossen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 전액 환불을 약속했어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 직원이 먼저 확인해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이동 도움을 부탁한 이유는?",
+              "en": "Why was help moving an object requested?",
+              "de": "Warum wurde um Hilfe beim Tragen gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "돈이 없어서"
+              },
+              {
+                "id": "0",
+                "text": "팔이 아파서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화센터 대여 창구\n손님: 운동복이 너무 작아요. 다른 크기로 바꿀 수 있어요? 가격표에는 4000원인데 영수증에는 5000원이에요. 확인해 주세요.\n직원: 불편을 드려 죄송해요. 다른 크기가 있는지, 계산이 맞는지 먼저 확인할게요. 아직 환불이 정해진 것은 아니에요.\n손님: 네. 그리고 손목이 아파서 상자를 옮기기 어려워요. 도와주세요.",
+        "questions": [
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "옷에 관한 불편은?",
+              "en": "What is wrong with the clothing?",
+              "de": "Was ist das Problem mit dem Kleidungsstück?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "크기가 너무 작아요."
+              },
+              {
+                "id": "1",
+                "text": "색이 마음에 들지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "prices",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가격 확인에 필요한 두 금액은?",
+              "en": "Which amounts need to be compared?",
+              "de": "Welche Beträge müssen verglichen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가격표 5000원 / 영수증 4000원"
+              },
+              {
+                "id": "0",
+                "text": "가격표 4000원 / 영수증 5000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "refund",
+            "kind": "choice",
+            "prompt": {
+              "ko": "환불은 이미 결정됐어요?",
+              "en": "Has a refund already been decided?",
+              "de": "Ist eine Rückerstattung bereits beschlossen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 직원이 먼저 확인해요."
+              },
+              {
+                "id": "1",
+                "text": "네. 전액 환불을 약속했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이동 도움을 부탁한 이유는?",
+              "en": "Why was help moving an object requested?",
+              "de": "Warum wurde um Hilfe beim Tragen gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "손목이 아파서"
+              },
+              {
+                "id": "1",
+                "text": "돈이 없어서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          }
+        ]
+      },
+      "contentHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f"
+    },
+    {
+      "id": "KP05:writing:03",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:writing:03",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "담당자에게 격식 있게 문의하기",
+        "en": "Write a formal enquiry to staff",
+        "de": "Eine förmliche Anfrage an das Personal schreiben"
+      },
+      "teaching": {
+        "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+        "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+        "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 문화센터 담당자에게 보내는 문의문\n옷: 겉옷, 너무 작음. 다른 크기로 교환을 원함. 가격표: 3000원, 영수증: 4000원. 직원 확인 전이며 환불 약속 없음.\n개인적으로 전달할 몸 상태: 팔이 아픔. 필요한 도움: 의자 옮기기. 공개 게시판이 아닌 담당자 문의창이에요.\n격식 있는 서술과 공손한 확인 요청으로 전체 문의문을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "문의 내용과 요청을 완전한 글로 쓰세요.",
+              "en": "Write the complete enquiry and request.",
+              "de": "Schreibe die vollständige Anfrage mit deiner Bitte."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+              "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+              "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 문화센터 담당자에게 보내는 문의문\n옷: 운동복, 너무 작음. 다른 크기로 교환을 원함. 가격표: 4000원, 영수증: 5000원. 직원 확인 전이며 환불 약속 없음.\n개인적으로 전달할 몸 상태: 손목이 아픔. 필요한 도움: 상자 옮기기. 공개 게시판이 아닌 담당자 문의창이에요.\n격식 있는 서술과 공손한 확인 요청으로 전체 문의문을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "문의 내용과 요청을 완전한 글로 쓰세요.",
+              "en": "Write the complete enquiry and request.",
+              "de": "Schreibe die vollständige Anfrage mit deiner Bitte."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+              "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+              "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      },
+      "contentHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0"
+    },
+    {
+      "id": "KP05:reading:05",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:05",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "숙소 안내의 교통편과 조건",
+        "en": "Transport and conditions in a lodging leaflet",
+        "de": "Anreise und Bedingungen im Unterkunftsflyer"
+      },
+      "teaching": {
+        "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+        "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+        "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 숙소 안내\n역에서 가까운 편리한 숙소!\n한빛역에서 12번 버스로 두 정거장. 숙소 앞에서 내리세요.\n1인실 1박 50000원. 아침 식사는 별도 요금입니다.\n예약 확인 문자를 받은 뒤 방문하세요.",
+        "questions": [
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "역에서 무엇을 타요?",
+              "en": "What transport is used from the station?",
+              "de": "Was nimmt man ab dem Bahnhof?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "12번 기차"
+              },
+              {
+                "id": "0",
+                "text": "12번 버스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제시된 가격의 범위는?",
+              "en": "What does the quoted price cover?",
+              "de": "Wofür gilt der angegebene Preis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "1인실 1박, 아침 식사는 별도"
+              },
+              {
+                "id": "1",
+                "text": "1인실 1박과 모든 식사"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방문 전에 확인할 것은?",
+              "en": "What must be checked before visiting?",
+              "de": "Was muss vor der Anreise vorliegen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예약 확인 문자"
+              },
+              {
+                "id": "1",
+                "text": "공연 입장권"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 숙소 안내\n역에서 가까운 편리한 숙소!\n새봄역에서 24번 버스로 두 정거장. 숙소 앞에서 내리세요.\n1인실 1박 60000원. 아침 식사는 별도 요금입니다.\n예약 확인 문자를 받은 뒤 방문하세요.",
+        "questions": [
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "역에서 무엇을 타요?",
+              "en": "What transport is used from the station?",
+              "de": "Was nimmt man ab dem Bahnhof?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "24번 버스"
+              },
+              {
+                "id": "1",
+                "text": "24번 기차"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제시된 가격의 범위는?",
+              "en": "What does the quoted price cover?",
+              "de": "Wofür gilt der angegebene Preis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "1인실 1박과 모든 식사"
+              },
+              {
+                "id": "0",
+                "text": "1인실 1박, 아침 식사는 별도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방문 전에 확인할 것은?",
+              "en": "What must be checked before visiting?",
+              "de": "Was muss vor der Anreise vorliegen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예약 확인 문자"
+              },
+              {
+                "id": "1",
+                "text": "공연 입장권"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          }
+        ]
+      },
+      "contentHash": "6d2918b878e7d6b6ba44a4b7500860380bed28c01248a2a85e937d651b9e86ed"
+    },
+    {
       "id": "KP06:grammar:01",
       "phaseId": "KP06",
       "level": "A2",
@@ -20932,6 +21469,246 @@
       "contentHash": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100"
     },
     {
+      "id": "KP06:reading:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "축하·공감·초대의 답장",
+        "en": "Congratulations, empathy and an invitation",
+        "de": "Gratulation, Mitgefühl und Einladung"
+      },
+      "teaching": {
+        "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+        "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+        "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n미나: 어제 처음으로 작품을 완성했어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 토요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n미나: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "처음으로 작품을 완성했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나의 친구"
+              },
+              {
+                "id": "1",
+                "text": "미나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n준호: 어제 처음으로 공연을 마쳤어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 일요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n준호: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              },
+              {
+                "id": "0",
+                "text": "처음으로 공연을 마쳤어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호의 친구"
+              },
+              {
+                "id": "1",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      },
+      "contentHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b"
+    },
+    {
+      "id": "KP06:speaking:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "경험을 전하며 축하하고 위로하기",
+        "en": "Relay an experience and respond with care",
+        "de": "Ein Erlebnis weitergeben und Anteil nehmen"
+      },
+      "teaching": {
+        "ko": "간 사람·가는 사람·갈 사람의 끝소리와 시점을 구별해 말해요. 이어서 제공된 경험을 전하고 축하·공감·초대에 답하세요. 첫 장면은 해요체, 둘째 장면은 반말에 합의한 친구예요. 듣고 휴지와 말끝을 고쳐 재녹음하세요. 의미·억양은 미채점이에요.",
+        "en": "Say 간 사람, 가는 사람 and 갈 사람 while preserving their time reference. Then relay the given experience and respond to congratulations, disappointment and an invitation. Use polite speech in the first scene and agreed casual speech in the second. Replay and revise pauses and endings; meaning and intonation remain unscored.",
+        "de": "Sprich 간 사람, 가는 사람 und 갈 사람 mit passendem Zeitbezug. Gib dann das vorgegebene Erlebnis weiter und reagiere auf Gratulation, Enttäuschung und Einladung. Sprich in der ersten Szene höflich, in der zweiten mit vereinbarter vertraulicher Anrede. Höre zu und überarbeite Pausen und Endungen; Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 미나가 어제 첫 작품을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 지수는 지금 가며, 민수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 시험에 합격했다고 해요. 축하하세요. 이어서 이번 토요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 준호가 어제 첫 공연을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 민수는 지금 가며, 지수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 작품을 완성했다고 해요. 축하하세요. 이어서 이번 일요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      },
+      "contentHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df"
+    },
+    {
       "id": "KP07:grammar:01",
       "phaseId": "KP07",
       "level": "A2",
@@ -24405,6 +25182,246 @@
         ]
       },
       "contentHash": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb"
+    },
+    {
+      "id": "KP07:reading:02",
+      "phaseId": "KP07",
+      "level": "A2",
+      "objectiveId": "KP07:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부분 동의와 확인할 조언",
+        "en": "Partial agreement and advice to check",
+        "de": "Teilweise Zustimmung und ein Hinweis zur Prüfung"
+      },
+      "teaching": {
+        "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+        "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+        "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동등한 직장 동료의 메시지\n가: 주말은 잘 보냈어요? 저는 산책해서 기분이 좋아요. 공유 일정표 링크를 보니 모임은 월요일이에요. 저는 온라인 모임이 더 편해요.\n나: 저도 이동이 없다는 점에는 동의해요. 하지만 자료를 같이 보는 것은 직접 만나는 편이 좋아요. 버스 시간을 먼저 확인해 보세요. 늦을 수도 있으니까요.\n가: 좋아요. 그런데 파일에 화요일도 보이는 것 같아요. 확실하지 않아서 담당자에게 물어볼게요.",
+        "questions": [
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 동의한 부분은?",
+              "en": "Which point does the second speaker agree with?",
+              "de": "Welchem Punkt stimmt die zweite Person zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 모임을 온라인으로 해야 해요."
+              },
+              {
+                "id": "0",
+                "text": "온라인이면 이동이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "advice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조언은 무엇이에요?",
+              "en": "What is the advice?",
+              "de": "Was wird geraten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "담당자에게 사실을 숨기기"
+              },
+              {
+                "id": "0",
+                "text": "버스 시간을 먼저 확인해 보기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "uncertain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인되지 않은 것은?",
+              "en": "What remains unverified?",
+              "de": "Was ist noch ungeprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화요일 표시의 의미"
+              },
+              {
+                "id": "1",
+                "text": "월요일이라는 공유 일정표의 명시 정보"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동등한 직장 동료의 메시지\n가: 주말은 잘 보냈어요? 저는 산책해서 기분이 좋아요. 공유 일정표 링크를 보니 모임은 수요일이에요. 저는 온라인 모임이 더 편해요.\n나: 저도 이동이 없다는 점에는 동의해요. 하지만 자료를 같이 보는 것은 직접 만나는 편이 좋아요. 기차 시간을 먼저 확인해 보세요. 늦을 수도 있으니까요.\n가: 좋아요. 그런데 파일에 목요일도 보이는 것 같아요. 확실하지 않아서 담당자에게 물어볼게요.",
+        "questions": [
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 동의한 부분은?",
+              "en": "Which point does the second speaker agree with?",
+              "de": "Welchem Punkt stimmt die zweite Person zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "온라인이면 이동이 없어요."
+              },
+              {
+                "id": "1",
+                "text": "모든 모임을 온라인으로 해야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "advice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조언은 무엇이에요?",
+              "en": "What is the advice?",
+              "de": "Was wird geraten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기차 시간을 먼저 확인해 보기"
+              },
+              {
+                "id": "1",
+                "text": "담당자에게 사실을 숨기기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "uncertain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인되지 않은 것은?",
+              "en": "What remains unverified?",
+              "de": "Was ist noch ungeprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "수요일이라는 공유 일정표의 명시 정보"
+              },
+              {
+                "id": "0",
+                "text": "목요일 표시의 의미"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          }
+        ]
+      },
+      "contentHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9"
+    },
+    {
+      "id": "KP07:speaking:02",
+      "phaseId": "KP07",
+      "level": "A2",
+      "objectiveId": "KP07:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "의견과 약속을 두 말투로 전달",
+        "en": "Give an opinion and commitment in two registers",
+        "de": "Meinung und Zusage in zwei Sprachstilen"
+      },
+      "teaching": {
+        "ko": "동료와 가볍게 안부를 나눈 뒤 의견과 이유, 부분 동의와 조언을 말해요. 확정 정보와 추정을 구별하세요. 갈래요는 선택, 갈게요는 내 약속, 갈까 봐요는 아직 정하지 않은 생각으로 비교해 녹음해요. 마지막에 담당자에게 같은 사실을 하십시오체로 전달하세요. 의미·억양은 미채점이에요.",
+        "en": "Exchange brief personal news with a peer, then give an opinion, reason, partial agreement and advice. Keep facts separate from inferences. Compare 갈래요 as a choice, 갈게요 as your commitment and 갈까 봐요 as tentative intention. Finally relay the same facts formally to the organiser. Meaning and intonation remain unscored.",
+        "de": "Tausche mit einer gleichgestellten Person kurz Neuigkeiten aus und nenne dann Meinung, Grund, teilweise Zustimmung und Rat. Trenne Fakten von Vermutungen. Vergleiche 갈래요 als Wahl, 갈게요 als eigene Zusage und 갈까 봐요 als vorläufige Absicht. Gib dieselben Fakten danach förmlich an die zuständige Person weiter. Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 해요체: 주말 산책이 즐거웠음. 온라인 모임은 이동이 없어 좋다는 점에 동의하지만 자료 검토는 직접 만나서 하고 싶음. 공유 파일에 월요일이라고 적혀 있음. 화요일 표시는 미확인.\n내 선택: 버스. 내 약속: 담당자에게 확인하고 내일 알림. 동료에게 교통편을 미리 확인해 보라고 권유.\n담당자에게 하십시오체: 확인된 날짜와 모르는 표시를 구별해 문의.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 해요체: 주말 독서가 즐거웠음. 온라인 모임은 이동이 없어 좋다는 점에 동의하지만 자료 검토는 직접 만나서 하고 싶음. 공유 파일에 수요일이라고 적혀 있음. 목요일 표시는 미확인.\n내 선택: 기차. 내 약속: 담당자에게 확인하고 오늘 오후 알림. 동료에게 교통편을 미리 확인해 보라고 권유.\n담당자에게 하십시오체: 확인된 날짜와 모르는 표시를 구별해 문의.",
+        "questions": []
+      },
+      "contentHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a"
     },
     {
       "id": "KP08:grammar:01",
@@ -28090,6 +29107,451 @@
         ]
       },
       "contentHash": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146"
+    },
+    {
+      "id": "KP08:reading:02",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "공지 아래 문의와 공감",
+        "en": "A question and a considerate reply below a notice",
+        "de": "Nachfrage und Anteilnahme unter einem Hinweis"
+      },
+      "teaching": {
+        "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+        "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+        "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 공지 전달\n미나: 안내 직원에게서 받았어요. 활동 기록은 월요일까지 제출할 것. 제가 전체 회원에게 전달합니다.\n회원: 작품을 완성해서 기쁜데, 제출 화면이 열리지 않아요. 화요일에 내도 될까요?\n미나: 완성하신 것을 축하해요! 화면 때문에 불편하시겠어요. 하지만 예외는 제가 허가할 수 없어요. 담당자에게 오류를 알리고 기한을 확인해 볼게요.",
+        "questions": [
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원래 공지의 출처는?",
+              "en": "Who issued the original notice?",
+              "de": "Von wem stammt der ursprüngliche Hinweis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "미나"
+              },
+              {
+                "id": "0",
+                "text": "안내 직원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "회원의 불편은?",
+              "en": "What problem does the member report?",
+              "de": "Welches Problem meldet das Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "제출 화면이 열리지 않아요."
+              },
+              {
+                "id": "1",
+                "text": "작품을 아직 시작하지 않았어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한은 연장됐어요?",
+              "en": "Was the deadline extended?",
+              "de": "Wurde die Frist verlängert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 화요일까지로 바뀌었어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 담당자 확인 전이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "제출 오류가 해결됐어요."
+              },
+              {
+                "id": "0",
+                "text": "작품을 완성했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 공지 전달\n준호: 안내 직원에게서 받았어요. 활동 기록은 화요일까지 제출할 것. 제가 전체 회원에게 전달합니다.\n회원: 작품을 완성해서 기쁜데, 제출 화면이 열리지 않아요. 수요일에 내도 될까요?\n준호: 완성하신 것을 축하해요! 화면 때문에 불편하시겠어요. 하지만 예외는 제가 허가할 수 없어요. 담당자에게 오류를 알리고 기한을 확인해 볼게요.",
+        "questions": [
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "원래 공지의 출처는?",
+              "en": "Who issued the original notice?",
+              "de": "Von wem stammt der ursprüngliche Hinweis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "준호"
+              },
+              {
+                "id": "0",
+                "text": "안내 직원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "회원의 불편은?",
+              "en": "What problem does the member report?",
+              "de": "Welches Problem meldet das Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "작품을 아직 시작하지 않았어요."
+              },
+              {
+                "id": "0",
+                "text": "제출 화면이 열리지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한은 연장됐어요?",
+              "en": "Was the deadline extended?",
+              "de": "Wurde die Frist verlängert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 수요일까지로 바뀌었어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 담당자 확인 전이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "작품을 완성했어요."
+              },
+              {
+                "id": "1",
+                "text": "제출 오류가 해결됐어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "축하와 공감을 표현해도 담당자가 확인하지 않은 예외를 허가할 수는 없어요. 공지 작성자, 전달자, 수신자와 기한을 따로 확인해요. 게시글의 문의를 곧바로 규칙 변경으로 읽지 않아요.",
+              "en": "Congratulations and sympathy do not grant an exception that staff have not approved. Separate author, messenger, recipient and deadline. A question in a post does not change a rule.",
+              "de": "Gratulation und Mitgefühl erlauben keine Ausnahme, die die zuständige Person nicht bestätigt hat. Unterscheide Verfasser, übermittelnde Person, Empfänger und Frist. Eine Frage in einem Beitrag ändert keine Regel."
+            }
+          }
+        ]
+      },
+      "contentHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d"
+    },
+    {
+      "id": "KP08:speaking:02",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "상태·불편·출처를 세 청자에게 말하기",
+        "en": "State a problem and its source to three audiences",
+        "de": "Zustand, Problem und Quelle drei Personen mitteilen"
+      },
+      "teaching": {
+        "ko": "열려 있어요·열고 있어요와 앉아 있어요·옮기고 있어요를 상태와 진행으로 나눠 말해요. 이어서 친구·새 회원·담당자에게 관계에 맞는 말투로 같은 사실을 전하세요. 축하·공감 뒤에도 기한 연장을 약속하지 마세요. 녹음을 듣고 휴지·말끝을 수정해요. 의미와 발음은 미채점이에요.",
+        "en": "Distinguish resulting states from ongoing actions in 열려 있어요/열고 있어요 and 앉아 있어요/옮기고 있어요. Then relay the same facts to a friend, new member and organiser in the appropriate register. Do not promise a deadline extension after congratulations or sympathy. Replay and revise pauses and endings; meaning and pronunciation remain unscored.",
+        "de": "Unterscheide Zustand und laufende Handlung bei 열려 있어요/열고 있어요 und 앉아 있어요/옮기고 있어요. Gib dieselben Fakten dann einem Freund oder einer Freundin, einem neuen Mitglied und der zuständigen Person im passenden Sprachstil weiter. Versprich auch nach Gratulation oder Mitgefühl keine Fristverlängerung. Höre zu und überarbeite Pausen und Endungen; Inhalt und Aussprache bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "출처: 안내 직원. 공지: 월요일까지 기록 제출. 회원은 작품을 완성했지만 제출 화면이 열리지 않아 불편함. 화요일 제출 가능 여부는 아직 미확인.\n1. 반말에 합의한 친구에게 축하·공감과 사실 전달. 2. 새 회원에게 해요체로 출처·기한·미확인 사항 전달. 3. 담당자에게 하십시오체로 화면 문제와 기한 문의. 개인정보는 추가하지 마세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "출처: 안내 직원. 공지: 화요일까지 기록 제출. 회원은 발표를 마쳤지만 제출 화면이 열리지 않아 불편함. 수요일 제출 가능 여부는 아직 미확인.\n1. 반말에 합의한 친구에게 축하·공감과 사실 전달. 2. 새 회원에게 해요체로 출처·기한·미확인 사항 전달. 3. 담당자에게 하십시오체로 화면 문제와 기한 문의. 개인정보는 추가하지 마세요.",
+        "questions": []
+      },
+      "contentHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292"
+    },
+    {
+      "id": "KP08:reading:03",
+      "phaseId": "KP08",
+      "level": "A2",
+      "objectiveId": "KP08:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "친밀함을 만드는 관계와 맥락",
+        "en": "The relationship and context behind intimacy",
+        "de": "Beziehung und Kontext vertrauter Sprache"
+      },
+      "teaching": {
+        "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+        "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+        "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "사적으로 이야기하는 오래된 가까운 친구. 서로 반말을 쓰기로 했고 개인적인 고민을 나누는 사이예요.\n가: 오늘 발표를 마쳤는데 좀 지쳤어.\n나: 그랬구나. 내 앞에서는 괜찮은 척 안 해도 돼. 네 얘기 듣고 싶어.\n가: 고마워. 네가 있어서 마음이 놓여.\n다음은 처음 만난 회원에게 하는 안내예요.\n나: 안녕하세요. 안내가 필요하시면 말씀해 주세요.",
+        "questions": [
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞부분의 친밀한 말투를 이해할 근거는?",
+              "en": "What supports the intimate tone in the first part?",
+              "de": "Was begründet den vertrauten Ton im ersten Teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오래된 가까운 친구가 사적으로 고민을 나눠요."
+              },
+              {
+                "id": "1",
+                "text": "반말이면 누구와도 이미 친밀한 사이예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          },
+          {
+            "id": "audience",
+            "kind": "choice",
+            "prompt": {
+              "ko": "같은 친밀한 말을 새 회원에게 바로 사용해도 돼요?",
+              "en": "Can the same intimate wording simply be used with the new member?",
+              "de": "Kann man diese vertrauten Worte einfach auch an das neue Mitglied richten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 가까운 사이인지 확인할 필요가 없어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 관계와 상황에 맞게 바꿔요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "사적으로 이야기하는 오래된 가까운 친구. 서로 반말을 쓰기로 했고 개인적인 고민을 나누는 사이예요.\n가: 오늘 모임에서 실수했는데 좀 속상해.\n나: 그랬구나. 내 앞에서는 괜찮은 척 안 해도 돼. 네 얘기 듣고 싶어.\n가: 고마워. 네가 있어서 마음이 놓여.\n다음은 처음 만난 회원에게 하는 안내예요.\n나: 안녕하세요. 안내가 필요하시면 말씀해 주세요.",
+        "questions": [
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞부분의 친밀한 말투를 이해할 근거는?",
+              "en": "What supports the intimate tone in the first part?",
+              "de": "Was begründet den vertrauten Ton im ersten Teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오래된 가까운 친구가 사적으로 고민을 나눠요."
+              },
+              {
+                "id": "1",
+                "text": "반말이면 누구와도 이미 친밀한 사이예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          },
+          {
+            "id": "audience",
+            "kind": "choice",
+            "prompt": {
+              "ko": "같은 친밀한 말을 새 회원에게 바로 사용해도 돼요?",
+              "en": "Can the same intimate wording simply be used with the new member?",
+              "de": "Kann man diese vertrauten Worte einfach auch an das neue Mitglied richten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 가까운 사이인지 확인할 필요가 없어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 관계와 상황에 맞게 바꿔요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "친밀한 말투는 반말 어미만의 문제가 아니에요. 서로 가까운 관계와 개인적인 대화 맥락을 확인하세요. 같은 말을 처음 만난 사람이나 전체 회원에게 그대로 옮기지 않아요.",
+              "en": "Intimacy is not established by a casual ending alone. Check the close relationship and private conversation. Do not transfer the same wording to a stranger or a public group.",
+              "de": "Vertrautheit entsteht nicht allein durch eine informelle Endung. Achte auf die enge Beziehung und das persönliche Gespräch. Übertrage dieselben Worte nicht einfach auf Fremde oder eine öffentliche Gruppe."
+            }
+          }
+        ]
+      },
+      "contentHash": "8cdf5ccd0718c2dde4421110c35d55c3b4dea94d128a732e3c4e92396e8f9773"
     }
   ],
   "objectives": [
@@ -34866,8 +36328,26 @@
       "sourceHash": "1935719b3782e3fe28be9536576bd62b560a745c8bd3bd03aa9794f287be0fce",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:01",
+          "taskHash": "ce2f65718a6e6449c62ca44aae40b39543e0f1c97df93a74d9950cb0ba2434b9",
+          "materialIds": [
+            "KP05:reading:01/practice/material",
+            "KP05:reading:01/assessment/material"
+          ],
+          "practiceId": "KP05:reading:01/practice",
+          "assessmentId": "KP05:reading:01/assessment",
+          "criterionIds": [
+            "preparation",
+            "repeat",
+            "only",
+            "prohibition"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35056,8 +36536,25 @@
       "sourceHash": "4486669044006f670ae0a6b880320b566ec38dcb72a49577103db32cfe4ea8c1",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35068,8 +36565,25 @@
       "sourceHash": "4486669044006f670ae0a6b880320b566ec38dcb72a49577103db32cfe4ea8c1",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:01",
+          "taskHash": "af20b6982a35d3431f57d4081c4a8a608595d4c9a17032a8f225b9021d925d6f",
+          "materialIds": [
+            "KP05:writing:01/practice/material",
+            "KP05:writing:01/assessment/material"
+          ],
+          "practiceId": "KP05:writing:01/practice",
+          "assessmentId": "KP05:writing:01/assessment",
+          "criterionIds": [
+            "condition",
+            "permission",
+            "help"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35080,8 +36594,26 @@
       "sourceHash": "ea6c6cb3e798e702e8596b0c34a220f78fd007099a133ffbd7b8dc3a6bef2dfa",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35092,8 +36624,23 @@
       "sourceHash": "ea6c6cb3e798e702e8596b0c34a220f78fd007099a133ffbd7b8dc3a6bef2dfa",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35104,8 +36651,25 @@
       "sourceHash": "3596e437d7facad5fde200b119d8ff8bec954fc2f8669669659490b2182ca1c0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35116,8 +36680,23 @@
       "sourceHash": "3596e437d7facad5fde200b119d8ff8bec954fc2f8669669659490b2182ca1c0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:02",
+          "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+          "materialIds": [
+            "KP05:writing:02/practice/material",
+            "KP05:writing:02/assessment/material"
+          ],
+          "practiceId": "KP05:writing:02/practice",
+          "assessmentId": "KP05:writing:02/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35128,8 +36707,26 @@
       "sourceHash": "32ed6bb634b24e947ab4f0b97808b4d22119131777a5d09cc6a00bf576170028",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35140,8 +36737,23 @@
       "sourceHash": "32ed6bb634b24e947ab4f0b97808b4d22119131777a5d09cc6a00bf576170028",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35152,8 +36764,25 @@
       "sourceHash": "49cd6b6ce5008f7d92208cfb497fc4e2ec174ccb4b027163e37e538de288c26e",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35164,8 +36793,21 @@
       "sourceHash": "49cd6b6ce5008f7d92208cfb497fc4e2ec174ccb4b027163e37e538de288c26e",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:speaking:01",
+          "taskHash": "b958d3992c3b624e9fa01d2590f3d1a1acd9baaa9cfe4ed92cc599e8d589d5e4",
+          "materialIds": [
+            "KP05:speaking:01/practice/material",
+            "KP05:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP05:speaking:01/practice",
+          "assessmentId": "KP05:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35176,8 +36818,26 @@
       "sourceHash": "ea4e2d9fccca55f857b88d8270920d12b15cbaa6f8d9e9990cd8269e4850faee",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35188,8 +36848,23 @@
       "sourceHash": "ea4e2d9fccca55f857b88d8270920d12b15cbaa6f8d9e9990cd8269e4850faee",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35200,8 +36875,26 @@
       "sourceHash": "09aff4d268051868085c6dd609c4de3768980e96212c8ebfcd79e1394346aaa8",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35212,8 +36905,23 @@
       "sourceHash": "09aff4d268051868085c6dd609c4de3768980e96212c8ebfcd79e1394346aaa8",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35224,8 +36932,26 @@
       "sourceHash": "51f12744a8917bf75bf7f48527e9486142ba66cb8a0b175bde0990a66e4d682d",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:01",
+          "taskHash": "ce2f65718a6e6449c62ca44aae40b39543e0f1c97df93a74d9950cb0ba2434b9",
+          "materialIds": [
+            "KP05:reading:01/practice/material",
+            "KP05:reading:01/assessment/material"
+          ],
+          "practiceId": "KP05:reading:01/practice",
+          "assessmentId": "KP05:reading:01/assessment",
+          "criterionIds": [
+            "preparation",
+            "repeat",
+            "only",
+            "prohibition"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35236,8 +36962,25 @@
       "sourceHash": "51f12744a8917bf75bf7f48527e9486142ba66cb8a0b175bde0990a66e4d682d",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:01",
+          "taskHash": "af20b6982a35d3431f57d4081c4a8a608595d4c9a17032a8f225b9021d925d6f",
+          "materialIds": [
+            "KP05:writing:01/practice/material",
+            "KP05:writing:01/assessment/material"
+          ],
+          "practiceId": "KP05:writing:01/practice",
+          "assessmentId": "KP05:writing:01/assessment",
+          "criterionIds": [
+            "condition",
+            "permission",
+            "help"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35248,8 +36991,26 @@
       "sourceHash": "fc770eeece01f052742777c676c98326491478c722918348230d908f3f384ae0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35260,8 +37021,23 @@
       "sourceHash": "fc770eeece01f052742777c676c98326491478c722918348230d908f3f384ae0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35272,8 +37048,26 @@
       "sourceHash": "16b353f9320f4bdc10d26c6bfbb8e9122ae2eb3dc041bddae49b8dd7e0577842",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:04",
+          "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+          "materialIds": [
+            "KP05:reading:04/practice/material",
+            "KP05:reading:04/assessment/material"
+          ],
+          "practiceId": "KP05:reading:04/practice",
+          "assessmentId": "KP05:reading:04/assessment",
+          "criterionIds": [
+            "problem",
+            "prices",
+            "refund",
+            "help"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35284,8 +37078,23 @@
       "sourceHash": "16b353f9320f4bdc10d26c6bfbb8e9122ae2eb3dc041bddae49b8dd7e0577842",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35296,8 +37105,25 @@
       "sourceHash": "e24e08a07c3463e2e429f2f381c552b9083008c109d31269f57efa452a7d5fd0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:reading:05",
+          "taskHash": "6d2918b878e7d6b6ba44a4b7500860380bed28c01248a2a85e937d651b9e86ed",
+          "materialIds": [
+            "KP05:reading:05/practice/material",
+            "KP05:reading:05/assessment/material"
+          ],
+          "practiceId": "KP05:reading:05/practice",
+          "assessmentId": "KP05:reading:05/assessment",
+          "criterionIds": [
+            "transport",
+            "price",
+            "condition"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35308,8 +37134,23 @@
       "sourceHash": "e24e08a07c3463e2e429f2f381c552b9083008c109d31269f57efa452a7d5fd0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:02",
+          "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+          "materialIds": [
+            "KP05:writing:02/practice/material",
+            "KP05:writing:02/assessment/material"
+          ],
+          "practiceId": "KP05:writing:02/practice",
+          "assessmentId": "KP05:writing:02/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35320,8 +37161,25 @@
       "sourceHash": "f89cc46db1e00c4286e1e9610adf96d077caf542ad60c332ec92046eecfa8b54",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35332,8 +37190,23 @@
       "sourceHash": "f89cc46db1e00c4286e1e9610adf96d077caf542ad60c332ec92046eecfa8b54",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:02",
+          "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+          "materialIds": [
+            "KP05:writing:02/practice/material",
+            "KP05:writing:02/assessment/material"
+          ],
+          "practiceId": "KP05:writing:02/practice",
+          "assessmentId": "KP05:writing:02/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35344,8 +37217,25 @@
       "sourceHash": "fe1d984ef9f071430d2b3c84746d6925abd3a29b4e1a31acfb2bc911eaf50daf",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35356,8 +37246,21 @@
       "sourceHash": "fe1d984ef9f071430d2b3c84746d6925abd3a29b4e1a31acfb2bc911eaf50daf",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:speaking:02",
+          "taskHash": "9bef7f4c262acb8578f02d9033d8270f045196302b9b9c5b5deae3a09b6c4b4e",
+          "materialIds": [
+            "KP05:speaking:02/practice/material",
+            "KP05:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP05:speaking:02/practice",
+          "assessmentId": "KP05:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35368,8 +37271,25 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:listening:01",
+          "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+          "materialIds": [
+            "KP05:listening:01/practice/material",
+            "KP05:listening:01/assessment/material"
+          ],
+          "practiceId": "KP05:listening:01/practice",
+          "assessmentId": "KP05:listening:01/assessment",
+          "criterionIds": [
+            "condition",
+            "price",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35380,8 +37300,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:speaking:02",
+          "taskHash": "9bef7f4c262acb8578f02d9033d8270f045196302b9b9c5b5deae3a09b6c4b4e",
+          "materialIds": [
+            "KP05:speaking:02/practice/material",
+            "KP05:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP05:speaking:02/practice",
+          "assessmentId": "KP05:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35392,8 +37325,21 @@
       "sourceHash": "7b62b2da8ff3641f1411950f6e89f1d3e22d2941ed6ca9807cd66b9baa3a4bd9",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:speaking:01",
+          "taskHash": "b958d3992c3b624e9fa01d2590f3d1a1acd9baaa9cfe4ed92cc599e8d589d5e4",
+          "materialIds": [
+            "KP05:speaking:01/practice/material",
+            "KP05:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP05:speaking:01/practice",
+          "assessmentId": "KP05:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -35404,8 +37350,23 @@
       "sourceHash": "7b62b2da8ff3641f1411950f6e89f1d3e22d2941ed6ca9807cd66b9baa3a4bd9",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP05:writing:03",
+          "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+          "materialIds": [
+            "KP05:writing:03/practice/material",
+            "KP05:writing:03/assessment/material"
+          ],
+          "practiceId": "KP05:writing:03/practice",
+          "assessmentId": "KP05:writing:03/assessment",
+          "criterionIds": [
+            "draft"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36426,8 +38387,26 @@
       "sourceHash": "60bcec775f15fd2effd0528b259a845a76ac73cc64262e74d943639af6c6be87",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:01",
+          "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+          "materialIds": [
+            "KP06:reading:01/practice/material",
+            "KP06:reading:01/assessment/material"
+          ],
+          "practiceId": "KP06:reading:01/practice",
+          "assessmentId": "KP06:reading:01/assessment",
+          "criterionIds": [
+            "actor_past",
+            "actor_future",
+            "duration",
+            "purpose"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36438,8 +38417,21 @@
       "sourceHash": "60bcec775f15fd2effd0528b259a845a76ac73cc64262e74d943639af6c6be87",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36450,8 +38442,25 @@
       "sourceHash": "ac959ade1a56a00e18a01a4cdec365d24eabf14ef2cf3746858f38a939f67e70",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:03",
+          "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+          "materialIds": [
+            "KP06:reading:03/practice/material",
+            "KP06:reading:03/assessment/material"
+          ],
+          "practiceId": "KP06:reading:03/practice",
+          "assessmentId": "KP06:reading:03/assessment",
+          "criterionIds": [
+            "reason",
+            "absent",
+            "invitation"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36462,8 +38471,21 @@
       "sourceHash": "ac959ade1a56a00e18a01a4cdec365d24eabf14ef2cf3746858f38a939f67e70",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36474,8 +38496,25 @@
       "sourceHash": "b31a45feb790baed0ed4ae977ff49f4426ffdce3657699497731dccf98af0fbd",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:03",
+          "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+          "materialIds": [
+            "KP06:reading:03/practice/material",
+            "KP06:reading:03/assessment/material"
+          ],
+          "practiceId": "KP06:reading:03/practice",
+          "assessmentId": "KP06:reading:03/assessment",
+          "criterionIds": [
+            "reason",
+            "absent",
+            "invitation"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36486,8 +38525,21 @@
       "sourceHash": "b31a45feb790baed0ed4ae977ff49f4426ffdce3657699497731dccf98af0fbd",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:01",
+          "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+          "materialIds": [
+            "KP06:speaking:01/practice/material",
+            "KP06:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:01/practice",
+          "assessmentId": "KP06:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36498,8 +38550,25 @@
       "sourceHash": "c79fe40b4637ba254ca4097dd58c0774812d6f4c8115330be19daddfbbd95701",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:03",
+          "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+          "materialIds": [
+            "KP06:reading:03/practice/material",
+            "KP06:reading:03/assessment/material"
+          ],
+          "practiceId": "KP06:reading:03/practice",
+          "assessmentId": "KP06:reading:03/assessment",
+          "criterionIds": [
+            "reason",
+            "absent",
+            "invitation"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36510,8 +38579,21 @@
       "sourceHash": "c79fe40b4637ba254ca4097dd58c0774812d6f4c8115330be19daddfbbd95701",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36522,8 +38604,25 @@
       "sourceHash": "91c01b01ccd3b8c05207f496bf45f5bc676394f37698f3f82b8216376936413f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:03",
+          "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+          "materialIds": [
+            "KP06:reading:03/practice/material",
+            "KP06:reading:03/assessment/material"
+          ],
+          "practiceId": "KP06:reading:03/practice",
+          "assessmentId": "KP06:reading:03/assessment",
+          "criterionIds": [
+            "reason",
+            "absent",
+            "invitation"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36534,8 +38633,21 @@
       "sourceHash": "91c01b01ccd3b8c05207f496bf45f5bc676394f37698f3f82b8216376936413f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36546,8 +38658,26 @@
       "sourceHash": "5bbb5f7ff3698c2333d1fed008fad86909bc41a4fc888040cb17406d4ad7789a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:01",
+          "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+          "materialIds": [
+            "KP06:reading:01/practice/material",
+            "KP06:reading:01/assessment/material"
+          ],
+          "practiceId": "KP06:reading:01/practice",
+          "assessmentId": "KP06:reading:01/assessment",
+          "criterionIds": [
+            "actor_past",
+            "actor_future",
+            "duration",
+            "purpose"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36558,8 +38688,21 @@
       "sourceHash": "5bbb5f7ff3698c2333d1fed008fad86909bc41a4fc888040cb17406d4ad7789a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:01",
+          "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+          "materialIds": [
+            "KP06:speaking:01/practice/material",
+            "KP06:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:01/practice",
+          "assessmentId": "KP06:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36570,8 +38713,25 @@
       "sourceHash": "5c2306d30729dfd7ab50e10d565aed3e8f8e52045e43724fbfff7c3bb72821b0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:reading:03",
+          "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+          "materialIds": [
+            "KP06:reading:03/practice/material",
+            "KP06:reading:03/assessment/material"
+          ],
+          "practiceId": "KP06:reading:03/practice",
+          "assessmentId": "KP06:reading:03/assessment",
+          "criterionIds": [
+            "reason",
+            "absent",
+            "invitation"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36582,8 +38742,21 @@
       "sourceHash": "5c2306d30729dfd7ab50e10d565aed3e8f8e52045e43724fbfff7c3bb72821b0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36594,8 +38767,24 @@
       "sourceHash": "43c6cc70faefe3778804ad6493882d4dc4dee9d9e8a1926c1f94f84e195dac9b",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:listening:02",
+          "taskHash": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+          "materialIds": [
+            "KP06:listening:02/practice/material",
+            "KP06:listening:02/assessment/material"
+          ],
+          "practiceId": "KP06:listening:02/practice",
+          "assessmentId": "KP06:listening:02/assessment",
+          "criterionIds": [
+            "past",
+            "future"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36606,8 +38795,21 @@
       "sourceHash": "43c6cc70faefe3778804ad6493882d4dc4dee9d9e8a1926c1f94f84e195dac9b",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36618,8 +38820,24 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:listening:02",
+          "taskHash": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+          "materialIds": [
+            "KP06:listening:02/practice/material",
+            "KP06:listening:02/assessment/material"
+          ],
+          "practiceId": "KP06:listening:02/practice",
+          "assessmentId": "KP06:listening:02/assessment",
+          "criterionIds": [
+            "past",
+            "future"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36630,8 +38848,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36642,8 +38873,21 @@
       "sourceHash": "e240050d891c89eef08d7b4a33c4832dba7d57dda06badc488efb43f08b57e7a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:01",
+          "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+          "materialIds": [
+            "KP06:speaking:01/practice/material",
+            "KP06:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:01/practice",
+          "assessmentId": "KP06:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -36654,8 +38898,21 @@
       "sourceHash": "e240050d891c89eef08d7b4a33c4832dba7d57dda06badc488efb43f08b57e7a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP06:speaking:02",
+          "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+          "materialIds": [
+            "KP06:speaking:02/practice/material",
+            "KP06:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP06:speaking:02/practice",
+          "assessmentId": "KP06:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37620,8 +39877,25 @@
       "sourceHash": "5310c712767f287b7624bed1b2e1582b5dac633b8e8867cfe1ef91a72a7f9963",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:01",
+          "taskHash": "17cc15ff07287bfce5acf514becb425a59ab6cf33ccbce8a8ad6ba3ec07a21e2",
+          "materialIds": [
+            "KP07:reading:01/practice/material",
+            "KP07:reading:01/assessment/material"
+          ],
+          "practiceId": "KP07:reading:01/practice",
+          "assessmentId": "KP07:reading:01/assessment",
+          "criterionIds": [
+            "cause",
+            "result",
+            "uncertainty"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37632,8 +39906,23 @@
       "sourceHash": "5310c712767f287b7624bed1b2e1582b5dac633b8e8867cfe1ef91a72a7f9963",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:production:03",
+          "taskHash": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+          "materialIds": [
+            "KP07:production:03/practice/material",
+            "KP07:production:03/assessment/material"
+          ],
+          "practiceId": "KP07:production:03/practice",
+          "assessmentId": "KP07:production:03/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37644,8 +39933,25 @@
       "sourceHash": "2fb43c444ff85d0d0587b62aa8a4dfddf91f683cf3c413d0073baa3047fed23c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:02",
+          "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+          "materialIds": [
+            "KP07:reading:02/practice/material",
+            "KP07:reading:02/assessment/material"
+          ],
+          "practiceId": "KP07:reading:02/practice",
+          "assessmentId": "KP07:reading:02/assessment",
+          "criterionIds": [
+            "agreement",
+            "advice",
+            "uncertain"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37656,8 +39962,21 @@
       "sourceHash": "2fb43c444ff85d0d0587b62aa8a4dfddf91f683cf3c413d0073baa3047fed23c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37668,8 +39987,25 @@
       "sourceHash": "11ab9b62e53e8f4f44e20232e0da09e27e093b29f929ecafe7613ce86674c007",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:02",
+          "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+          "materialIds": [
+            "KP07:reading:02/practice/material",
+            "KP07:reading:02/assessment/material"
+          ],
+          "practiceId": "KP07:reading:02/practice",
+          "assessmentId": "KP07:reading:02/assessment",
+          "criterionIds": [
+            "agreement",
+            "advice",
+            "uncertain"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37680,8 +40016,21 @@
       "sourceHash": "11ab9b62e53e8f4f44e20232e0da09e27e093b29f929ecafe7613ce86674c007",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37692,8 +40041,25 @@
       "sourceHash": "6ac39e93967f4e160abeceafef658091270a8d74a2868528c0fa563579501f9c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:listening:01",
+          "taskHash": "69dd12ea177bb88df782193153d43758dea5212f1b8bbffc653b2c89d996d25f",
+          "materialIds": [
+            "KP07:listening:01/practice/material",
+            "KP07:listening:01/assessment/material"
+          ],
+          "practiceId": "KP07:listening:01/practice",
+          "assessmentId": "KP07:listening:01/assessment",
+          "criterionIds": [
+            "reason",
+            "decision",
+            "promise"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37704,8 +40070,21 @@
       "sourceHash": "6ac39e93967f4e160abeceafef658091270a8d74a2868528c0fa563579501f9c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:01",
+          "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+          "materialIds": [
+            "KP07:speaking:01/practice/material",
+            "KP07:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:01/practice",
+          "assessmentId": "KP07:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37716,8 +40095,25 @@
       "sourceHash": "6d84b79a37dd8104ada1e2dd3d6029b4346e9202c6661fa091d2c6b5094568ba",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:02",
+          "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+          "materialIds": [
+            "KP07:reading:02/practice/material",
+            "KP07:reading:02/assessment/material"
+          ],
+          "practiceId": "KP07:reading:02/practice",
+          "assessmentId": "KP07:reading:02/assessment",
+          "criterionIds": [
+            "agreement",
+            "advice",
+            "uncertain"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37728,8 +40124,21 @@
       "sourceHash": "6d84b79a37dd8104ada1e2dd3d6029b4346e9202c6661fa091d2c6b5094568ba",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37740,8 +40149,25 @@
       "sourceHash": "91024e51d58a873e3718be7b11a997fd3189408984a6e868668df5fe5237de07",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:02",
+          "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+          "materialIds": [
+            "KP07:reading:02/practice/material",
+            "KP07:reading:02/assessment/material"
+          ],
+          "practiceId": "KP07:reading:02/practice",
+          "assessmentId": "KP07:reading:02/assessment",
+          "criterionIds": [
+            "agreement",
+            "advice",
+            "uncertain"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37752,8 +40178,21 @@
       "sourceHash": "91024e51d58a873e3718be7b11a997fd3189408984a6e868668df5fe5237de07",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37764,8 +40203,25 @@
       "sourceHash": "6e75341aa7f94029d054f4b430efbc2c94d542aef156ab7f1864d14202ddc89c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:reading:02",
+          "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+          "materialIds": [
+            "KP07:reading:02/practice/material",
+            "KP07:reading:02/assessment/material"
+          ],
+          "practiceId": "KP07:reading:02/practice",
+          "assessmentId": "KP07:reading:02/assessment",
+          "criterionIds": [
+            "agreement",
+            "advice",
+            "uncertain"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37776,8 +40232,21 @@
       "sourceHash": "6e75341aa7f94029d054f4b430efbc2c94d542aef156ab7f1864d14202ddc89c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37788,8 +40257,25 @@
       "sourceHash": "793b0889236eb1aa16e6113dbe7c1f1a6b80ef58343a47c8c26dfee730218c09",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:listening:03",
+          "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+          "materialIds": [
+            "KP07:listening:03/practice/material",
+            "KP07:listening:03/assessment/material"
+          ],
+          "practiceId": "KP07:listening:03/practice",
+          "assessmentId": "KP07:listening:03/assessment",
+          "criterionIds": [
+            "preference",
+            "promise",
+            "necessity"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37800,8 +40286,21 @@
       "sourceHash": "793b0889236eb1aa16e6113dbe7c1f1a6b80ef58343a47c8c26dfee730218c09",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37812,8 +40311,25 @@
       "sourceHash": "96fce2dc2c5eace9bac71d931953e7b1b41e8301214890ac33c5de032ccbf7ab",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:listening:03",
+          "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+          "materialIds": [
+            "KP07:listening:03/practice/material",
+            "KP07:listening:03/assessment/material"
+          ],
+          "practiceId": "KP07:listening:03/practice",
+          "assessmentId": "KP07:listening:03/assessment",
+          "criterionIds": [
+            "preference",
+            "promise",
+            "necessity"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37824,8 +40340,21 @@
       "sourceHash": "96fce2dc2c5eace9bac71d931953e7b1b41e8301214890ac33c5de032ccbf7ab",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37836,8 +40365,25 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:listening:03",
+          "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+          "materialIds": [
+            "KP07:listening:03/practice/material",
+            "KP07:listening:03/assessment/material"
+          ],
+          "practiceId": "KP07:listening:03/practice",
+          "assessmentId": "KP07:listening:03/assessment",
+          "criterionIds": [
+            "preference",
+            "promise",
+            "necessity"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37848,8 +40394,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37860,8 +40419,21 @@
       "sourceHash": "571ec1e5fec0e4d68143a15dae9c3bc7593f807d2419fd97f0dd060f9acc9967",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:01",
+          "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+          "materialIds": [
+            "KP07:speaking:01/practice/material",
+            "KP07:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:01/practice",
+          "assessmentId": "KP07:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -37872,8 +40444,21 @@
       "sourceHash": "571ec1e5fec0e4d68143a15dae9c3bc7593f807d2419fd97f0dd060f9acc9967",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP07:speaking:02",
+          "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+          "materialIds": [
+            "KP07:speaking:02/practice/material",
+            "KP07:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP07:speaking:02/practice",
+          "assessmentId": "KP07:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38926,8 +41511,26 @@
       "sourceHash": "ff5ced80367143139e3820faada347696545c73d9c8572cf41001213f035fa8e",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:01",
+          "taskHash": "caef2b606e46ff2959424ba8755d0e0d11cbaa1d4e127155512771c5d542d20f",
+          "materialIds": [
+            "KP08:reading:01/practice/material",
+            "KP08:reading:01/assessment/material"
+          ],
+          "practiceId": "KP08:reading:01/practice",
+          "assessmentId": "KP08:reading:01/assessment",
+          "criterionIds": [
+            "state",
+            "sequence",
+            "deadline",
+            "scope"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38938,8 +41541,21 @@
       "sourceHash": "ff5ced80367143139e3820faada347696545c73d9c8572cf41001213f035fa8e",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:01",
+          "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+          "materialIds": [
+            "KP08:speaking:01/practice/material",
+            "KP08:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:01/practice",
+          "assessmentId": "KP08:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38950,8 +41566,26 @@
       "sourceHash": "5d2ed04aac49380db3f5c3f43ee746e7f7fb41b704a639fc17778ad31d44e56e",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:listening:01",
+          "taskHash": "91b4eb4a4f6139cbb844f94ac819b3d7b65d8ad01195d753020049c0ff1d2638",
+          "materialIds": [
+            "KP08:listening:01/practice/material",
+            "KP08:listening:01/assessment/material"
+          ],
+          "practiceId": "KP08:listening:01/practice",
+          "assessmentId": "KP08:listening:01/assessment",
+          "criterionIds": [
+            "source",
+            "recipient",
+            "function",
+            "deadline"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38962,8 +41596,21 @@
       "sourceHash": "5d2ed04aac49380db3f5c3f43ee746e7f7fb41b704a639fc17778ad31d44e56e",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38974,8 +41621,26 @@
       "sourceHash": "a0739d2d504c2295e432ea04596e96502863de652db2b5f77a8d2de760fed974",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:02",
+          "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+          "materialIds": [
+            "KP08:reading:02/practice/material",
+            "KP08:reading:02/assessment/material"
+          ],
+          "practiceId": "KP08:reading:02/practice",
+          "assessmentId": "KP08:reading:02/assessment",
+          "criterionIds": [
+            "source",
+            "problem",
+            "exception",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38986,8 +41651,21 @@
       "sourceHash": "a0739d2d504c2295e432ea04596e96502863de652db2b5f77a8d2de760fed974",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -38998,8 +41676,26 @@
       "sourceHash": "2d67bbfe04551efad1cb113b5cad2a94d89e0e9615e2fd40e8fe1e32a63a4085",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:02",
+          "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+          "materialIds": [
+            "KP08:reading:02/practice/material",
+            "KP08:reading:02/assessment/material"
+          ],
+          "practiceId": "KP08:reading:02/practice",
+          "assessmentId": "KP08:reading:02/assessment",
+          "criterionIds": [
+            "source",
+            "problem",
+            "exception",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39010,8 +41706,21 @@
       "sourceHash": "2d67bbfe04551efad1cb113b5cad2a94d89e0e9615e2fd40e8fe1e32a63a4085",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39022,8 +41731,25 @@
       "sourceHash": "ee725067580a233c722052b813feb4380eb1e41f0c82f5095da29623bb9bac8a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:listening:02",
+          "taskHash": "d38708cdca354feab2f839c19d887a169a355f632453274ba6327a743cc72175",
+          "materialIds": [
+            "KP08:listening:02/practice/material",
+            "KP08:listening:02/assessment/material"
+          ],
+          "practiceId": "KP08:listening:02/practice",
+          "assessmentId": "KP08:listening:02/assessment",
+          "criterionIds": [
+            "relation",
+            "reaction",
+            "audience"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39034,8 +41760,21 @@
       "sourceHash": "ee725067580a233c722052b813feb4380eb1e41f0c82f5095da29623bb9bac8a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39046,8 +41785,26 @@
       "sourceHash": "d3b351c9b485c5b27039abe6be894ff1306cd7c9b808610e6a1df0d11f96062c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:listening:01",
+          "taskHash": "91b4eb4a4f6139cbb844f94ac819b3d7b65d8ad01195d753020049c0ff1d2638",
+          "materialIds": [
+            "KP08:listening:01/practice/material",
+            "KP08:listening:01/assessment/material"
+          ],
+          "practiceId": "KP08:listening:01/practice",
+          "assessmentId": "KP08:listening:01/assessment",
+          "criterionIds": [
+            "source",
+            "recipient",
+            "function",
+            "deadline"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39058,8 +41815,21 @@
       "sourceHash": "d3b351c9b485c5b27039abe6be894ff1306cd7c9b808610e6a1df0d11f96062c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39070,8 +41840,26 @@
       "sourceHash": "9b53b2a931e95d9b4dc94628662a5b8d6af774cd09a92b5244c440a231b47f46",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:02",
+          "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+          "materialIds": [
+            "KP08:reading:02/practice/material",
+            "KP08:reading:02/assessment/material"
+          ],
+          "practiceId": "KP08:reading:02/practice",
+          "assessmentId": "KP08:reading:02/assessment",
+          "criterionIds": [
+            "source",
+            "problem",
+            "exception",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39082,8 +41870,21 @@
       "sourceHash": "9b53b2a931e95d9b4dc94628662a5b8d6af774cd09a92b5244c440a231b47f46",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39094,8 +41895,26 @@
       "sourceHash": "28483ef428bd9c98ec5a1b5dc8f2eaff1f96f18e643d739a501af50279b74101",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:02",
+          "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+          "materialIds": [
+            "KP08:reading:02/practice/material",
+            "KP08:reading:02/assessment/material"
+          ],
+          "practiceId": "KP08:reading:02/practice",
+          "assessmentId": "KP08:reading:02/assessment",
+          "criterionIds": [
+            "source",
+            "problem",
+            "exception",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39106,8 +41925,21 @@
       "sourceHash": "28483ef428bd9c98ec5a1b5dc8f2eaff1f96f18e643d739a501af50279b74101",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39118,8 +41950,24 @@
       "sourceHash": "8fff54db7bf5cfe2c892d3bb00d31822a3bce173df0ed682762a1c7d64fabd9f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:listening:03",
+          "taskHash": "60892cf040b8c27f54a249535ae416bbe9a4053359c5b4cdd0390947c5867755",
+          "materialIds": [
+            "KP08:listening:03/practice/material",
+            "KP08:listening:03/assessment/material"
+          ],
+          "practiceId": "KP08:listening:03/practice",
+          "assessmentId": "KP08:listening:03/assessment",
+          "criterionIds": [
+            "state",
+            "progress"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39130,8 +41978,21 @@
       "sourceHash": "8fff54db7bf5cfe2c892d3bb00d31822a3bce173df0ed682762a1c7d64fabd9f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39142,8 +42003,24 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:listening:03",
+          "taskHash": "60892cf040b8c27f54a249535ae416bbe9a4053359c5b4cdd0390947c5867755",
+          "materialIds": [
+            "KP08:listening:03/practice/material",
+            "KP08:listening:03/assessment/material"
+          ],
+          "practiceId": "KP08:listening:03/practice",
+          "assessmentId": "KP08:listening:03/assessment",
+          "criterionIds": [
+            "state",
+            "progress"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39154,8 +42031,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39166,8 +42056,24 @@
       "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:reading:03",
+          "taskHash": "8cdf5ccd0718c2dde4421110c35d55c3b4dea94d128a732e3c4e92396e8f9773",
+          "materialIds": [
+            "KP08:reading:03/practice/material",
+            "KP08:reading:03/assessment/material"
+          ],
+          "practiceId": "KP08:reading:03/practice",
+          "assessmentId": "KP08:reading:03/assessment",
+          "criterionIds": [
+            "relationship",
+            "audience"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39178,8 +42084,21 @@
       "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:01",
+          "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+          "materialIds": [
+            "KP08:speaking:01/practice/material",
+            "KP08:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:01/practice",
+          "assessmentId": "KP08:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39190,8 +42109,21 @@
       "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:01",
+          "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+          "materialIds": [
+            "KP08:speaking:01/practice/material",
+            "KP08:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:01/practice",
+          "assessmentId": "KP08:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -39202,8 +42134,21 @@
       "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP08:speaking:02",
+          "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+          "materialIds": [
+            "KP08:speaking:02/practice/material",
+            "KP08:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP08:speaking:02/practice",
+          "assessmentId": "KP08:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -53937,9 +56882,12 @@
         "KP05:production:06": "ec1a05d84a1e8704d66f8da8f1c512741e7a7c93da39dc5b4a01b5ee5acccd6b",
         "KP05:production:07": "a770ad34c11fd5421f1e8be11aa269f06ade4303c9dc4a80fb9f79c2106c1186",
         "KP05:production:08": "377a9041d86d840bcfdd8c61c3b55d4a55c6448b72d419cedd03ae44619f499b",
-        "KP05:production:09": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd"
+        "KP05:production:09": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd",
+        "KP05:reading:04": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+        "KP05:writing:03": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+        "KP05:reading:05": "6d2918b878e7d6b6ba44a4b7500860380bed28c01248a2a85e937d651b9e86ed"
       },
-      "contentHash": "2c09d82a1c9daff7edf78ab37252ee7df7be8d106c59341743e7f12a33207c75"
+      "contentHash": "8a60a84564dabcd7a5a922309f912bb1a0f87260225f37450097d1bc045d5280"
     },
     {
       "phaseId": "KP06",
@@ -53980,9 +56928,11 @@
         "KP06:production:11": "ef5da72c2027100744a3e16b9f933bb00eddd1d239fd741342ad0028d1e946a9",
         "KP06:production:12": "8989b8d6526db24d3b1d3c337ba39401ecb1c1816d18b1406806f17e21bae3dc",
         "KP06:production:13": "8d9bd5f5c2f8c6d52f75d2dc15c739f3415cfcbda843c3752fb3b588a1026cc7",
-        "KP06:production:14": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100"
+        "KP06:production:14": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100",
+        "KP06:reading:03": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+        "KP06:speaking:02": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df"
       },
-      "contentHash": "8e99d9b45bee34b4a9c36ecced12610d667e2a12f0c8e1964547761a201ccc61"
+      "contentHash": "431bd3103c0a3a98cbc18f57b04eeb33353b1ec8afdb0000f6bf16a8e9243373"
     },
     {
       "phaseId": "KP07",
@@ -54020,9 +56970,11 @@
         "KP07:production:10": "6f4bbe7458b0be843b08bb96b4be12d05cbdd4ff9ad6f28fd9d8b12a28c48bd1",
         "KP07:production:11": "b4962c0cde7a74d1598b52eb754750876b330932cb9d16b44adfc71d56e1cdc8",
         "KP07:production:12": "2d0012a6cb552e630c7df3909868707a29366f521e823828dee56a393218a488",
-        "KP07:production:13": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb"
+        "KP07:production:13": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb",
+        "KP07:reading:02": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+        "KP07:speaking:02": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a"
       },
-      "contentHash": "962f3eff37bca4cf14b3a37774c8bef8ce37c60e68008f637ddf11d0af788b53"
+      "contentHash": "ff79eebe7be0a800bc211bed623f5f3f9806c318969780d0c6e036e8d4b8e83f"
     },
     {
       "phaseId": "KP08",
@@ -54062,9 +57014,12 @@
         "KP08:production:11": "d2564e1c55ebae2eef1e00931f64c72e1eb50cb6a2c1c3cea29c07e2c0763b33",
         "KP08:production:12": "accfc579d2baa9e4ad89124150614a52c44c548b2a86c600942abc08afdbeabe",
         "KP08:production:13": "8f5712e2a288eaad682691212f6411703d35beb2af86385150195c10d92f0d02",
-        "KP08:production:14": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146"
+        "KP08:production:14": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146",
+        "KP08:reading:02": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+        "KP08:speaking:02": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+        "KP08:reading:03": "8cdf5ccd0718c2dde4421110c35d55c3b4dea94d128a732e3c4e92396e8f9773"
       },
-      "contentHash": "eec06535c4e2b25dff9a8fab7b078863f32a126a33850bb3ff199f6980d02fb3"
+      "contentHash": "6ad7f8271a7312bee6d5bf4c8d8ac83134125190485da011221c51f8f77c7c64"
     }
   ]
 }

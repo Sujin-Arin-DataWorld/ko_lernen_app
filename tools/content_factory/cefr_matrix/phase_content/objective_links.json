@@ -4179,6 +4179,1101 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing transitive action, not resulting state. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:reading/genre/written_notice_announcement:R",
+      "taskId": "KP05:reading:01",
+      "sourceHash": "1935719b3782e3fe28be9536576bd62b560a745c8bd3bd03aa9794f287be0fce",
+      "taskHash": "ce2f65718a6e6449c62ca44aae40b39543e0f1c97df93a74d9950cb0ba2434b9",
+      "criterionIds": [
+        "preparation",
+        "repeat",
+        "only",
+        "prohibition"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 reading/genre/written_notice_announcement:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/express_obligation_permission:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "4486669044006f670ae0a6b880320b566ec38dcb72a49577103db32cfe4ea8c1",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_obligation_permission:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/express_obligation_permission:P",
+      "taskId": "KP05:writing:01",
+      "sourceHash": "4486669044006f670ae0a6b880320b566ec38dcb72a49577103db32cfe4ea8c1",
+      "taskHash": "af20b6982a35d3431f57d4081c4a8a608595d4c9a17032a8f225b9021d925d6f",
+      "criterionIds": [
+        "condition",
+        "permission",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_obligation_permission:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/request_ask_someone_to_do:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "ea6c6cb3e798e702e8596b0c34a220f78fd007099a133ffbd7b8dc3a6bef2dfa",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/request_ask_someone_to_do:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/request_ask_someone_to_do:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "ea6c6cb3e798e702e8596b0c34a220f78fd007099a133ffbd7b8dc3a6bef2dfa",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/request_ask_someone_to_do:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/order_buy_pay:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "3596e437d7facad5fde200b119d8ff8bec954fc2f8669669659490b2182ca1c0",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/order_buy_pay:P",
+      "taskId": "KP05:writing:02",
+      "sourceHash": "3596e437d7facad5fde200b119d8ff8bec954fc2f8669669659490b2182ca1c0",
+      "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/complain_object_appeal:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "32ed6bb634b24e947ab4f0b97808b4d22119131777a5d09cc6a00bf576170028",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/complain_object_appeal:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/complain_object_appeal:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "32ed6bb634b24e947ab4f0b97808b4d22119131777a5d09cc6a00bf576170028",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/complain_object_appeal:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "49cd6b6ce5008f7d92208cfb497fc4e2ec174ccb4b027163e37e538de288c26e",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/compare_contrast_alternatives:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP05:speaking:01",
+      "sourceHash": "49cd6b6ce5008f7d92208cfb497fc4e2ec174ccb4b027163e37e538de288c26e",
+      "taskHash": "b958d3992c3b624e9fa01d2590f3d1a1acd9baaa9cfe4ed92cc599e8d589d5e4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/compare_contrast_alternatives:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/clothing_accessories:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "ea4e2d9fccca55f857b88d8270920d12b15cbaa6f8d9e9990cd8269e4850faee",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/clothing_accessories:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/clothing_accessories:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "ea4e2d9fccca55f857b88d8270920d12b15cbaa6f8d9e9990cd8269e4850faee",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/clothing_accessories:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/money_prices_banking:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "09aff4d268051868085c6dd609c4de3768980e96212c8ebfcd79e1394346aaa8",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/money_prices_banking:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/money_prices_banking:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "09aff4d268051868085c6dd609c4de3768980e96212c8ebfcd79e1394346aaa8",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/money_prices_banking:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/public_services_admin_vocab:R",
+      "taskId": "KP05:reading:01",
+      "sourceHash": "51f12744a8917bf75bf7f48527e9486142ba66cb8a0b175bde0990a66e4d682d",
+      "taskHash": "ce2f65718a6e6449c62ca44aae40b39543e0f1c97df93a74d9950cb0ba2434b9",
+      "criterionIds": [
+        "preparation",
+        "repeat",
+        "only",
+        "prohibition"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/public_services_admin_vocab:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/public_services_admin_vocab:P",
+      "taskId": "KP05:writing:01",
+      "sourceHash": "51f12744a8917bf75bf7f48527e9486142ba66cb8a0b175bde0990a66e4d682d",
+      "taskHash": "af20b6982a35d3431f57d4081c4a8a608595d4c9a17032a8f225b9021d925d6f",
+      "criterionIds": [
+        "condition",
+        "permission",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/public_services_admin_vocab:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/body_health_symptoms:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "fc770eeece01f052742777c676c98326491478c722918348230d908f3f384ae0",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/body_health_symptoms:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/body_health_symptoms:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "fc770eeece01f052742777c676c98326491478c722918348230d908f3f384ae0",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/body_health_symptoms:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/home_objects_furniture:R",
+      "taskId": "KP05:reading:04",
+      "sourceHash": "16b353f9320f4bdc10d26c6bfbb8e9122ae2eb3dc041bddae49b8dd7e0577842",
+      "taskHash": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "criterionIds": [
+        "problem",
+        "prices",
+        "refund",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/home_objects_furniture:R의 학습 경로를 검수했다. Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/home_objects_furniture:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "16b353f9320f4bdc10d26c6bfbb8e9122ae2eb3dc041bddae49b8dd7e0577842",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/home_objects_furniture:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/transport_travel_vocab:R",
+      "taskId": "KP05:reading:05",
+      "sourceHash": "e24e08a07c3463e2e429f2f381c552b9083008c109d31269f57efa452a7d5fd0",
+      "taskHash": "6d2918b878e7d6b6ba44a4b7500860380bed28c01248a2a85e937d651b9e86ed",
+      "criterionIds": [
+        "transport",
+        "price",
+        "condition"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:R의 학습 경로를 검수했다. Fictional lodging leaflet: named station, numbered bus, two stops, per-room/night price excludes breakfast, confirmed booking required. No real price or travel recommendation. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/transport_travel_vocab:P",
+      "taskId": "KP05:writing:02",
+      "sourceHash": "e24e08a07c3463e2e429f2f381c552b9083008c109d31269f57efa452a7d5fd0",
+      "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/food_cooking:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "f89cc46db1e00c4286e1e9610adf96d077caf542ad60c332ec92046eecfa8b54",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/food_cooking:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:vocabDomains/food_cooking:P",
+      "taskId": "KP05:writing:02",
+      "sourceHash": "f89cc46db1e00c4286e1e9610adf96d077caf542ad60c332ec92046eecfa8b54",
+      "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/food_cooking:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:phonology/0:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "fe1d984ef9f071430d2b3c84746d6925abd3a29b4e1a31acfb2bc911eaf50daf",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:phonology/0:P",
+      "taskId": "KP05:speaking:02",
+      "sourceHash": "fe1d984ef9f071430d2b3c84746d6925abd3a29b4e1a31acfb2bc911eaf50daf",
+      "taskHash": "9bef7f4c262acb8578f02d9033d8270f045196302b9b9c5b5deae3a09b6c4b4e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:phonology/1:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:phonology/1:P",
+      "taskId": "KP05:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "9bef7f4c262acb8578f02d9033d8270f045196302b9b9c5b5deae3a09b6c4b4e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:register/haeyo_polite:P",
+      "taskId": "KP05:speaking:01",
+      "sourceHash": "7b62b2da8ff3641f1411950f6e89f1d3e22d2941ed6ca9807cd66b9baa3a4bd9",
+      "taskHash": "b958d3992c3b624e9fa01d2590f3d1a1acd9baaa9cfe4ed92cc599e8d589d5e4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP05:writing:03",
+      "sourceHash": "7b62b2da8ff3641f1411950f6e89f1d3e22d2941ed6ca9807cd66b9baa3a4bd9",
+      "taskHash": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/hapsyo_formal_business:P의 학습 경로를 검수했다. Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/report_relay_information:R",
+      "taskId": "KP06:reading:01",
+      "sourceHash": "60bcec775f15fd2effd0528b259a845a76ac73cc64262e74d943639af6c6be87",
+      "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+      "criterionIds": [
+        "actor_past",
+        "actor_future",
+        "duration",
+        "purpose"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/report_relay_information:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/report_relay_information:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "60bcec775f15fd2effd0528b259a845a76ac73cc64262e74d943639af6c6be87",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/report_relay_information:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/express_feelings_emotions:R",
+      "taskId": "KP06:reading:03",
+      "sourceHash": "ac959ade1a56a00e18a01a4cdec365d24eabf14ef2cf3746858f38a939f67e70",
+      "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "criterionIds": [
+        "reason",
+        "absent",
+        "invitation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_feelings_emotions:R의 학습 경로를 검수했다. Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/express_feelings_emotions:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "ac959ade1a56a00e18a01a4cdec365d24eabf14ef2cf3746858f38a939f67e70",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_feelings_emotions:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/invite_accept_decline:R",
+      "taskId": "KP06:reading:03",
+      "sourceHash": "b31a45feb790baed0ed4ae977ff49f4426ffdce3657699497731dccf98af0fbd",
+      "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "criterionIds": [
+        "reason",
+        "absent",
+        "invitation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/invite_accept_decline:R의 학습 경로를 검수했다. Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/invite_accept_decline:P",
+      "taskId": "KP06:speaking:01",
+      "sourceHash": "b31a45feb790baed0ed4ae977ff49f4426ffdce3657699497731dccf98af0fbd",
+      "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/invite_accept_decline:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/congratulate_sympathise_comfort:R",
+      "taskId": "KP06:reading:03",
+      "sourceHash": "c79fe40b4637ba254ca4097dd58c0774812d6f4c8115330be19daddfbbd95701",
+      "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "criterionIds": [
+        "reason",
+        "absent",
+        "invitation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/congratulate_sympathise_comfort:R의 학습 경로를 검수했다. Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:functions/congratulate_sympathise_comfort:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "c79fe40b4637ba254ca4097dd58c0774812d6f4c8115330be19daddfbbd95701",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/congratulate_sympathise_comfort:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/feelings_emotions_character:R",
+      "taskId": "KP06:reading:03",
+      "sourceHash": "91c01b01ccd3b8c05207f496bf45f5bc676394f37698f3f82b8216376936413f",
+      "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "criterionIds": [
+        "reason",
+        "absent",
+        "invitation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/feelings_emotions_character:R의 학습 경로를 검수했다. Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/feelings_emotions_character:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "91c01b01ccd3b8c05207f496bf45f5bc676394f37698f3f82b8216376936413f",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/feelings_emotions_character:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:R",
+      "taskId": "KP06:reading:01",
+      "sourceHash": "5bbb5f7ff3698c2333d1fed008fad86909bc41a4fc888040cb17406d4ad7789a",
+      "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+      "criterionIds": [
+        "actor_past",
+        "actor_future",
+        "duration",
+        "purpose"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/leisure_sport_hobbies_vocab:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:P",
+      "taskId": "KP06:speaking:01",
+      "sourceHash": "5bbb5f7ff3698c2333d1fed008fad86909bc41a4fc888040cb17406d4ad7789a",
+      "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/leisure_sport_hobbies_vocab:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP06:reading:03",
+      "sourceHash": "5c2306d30729dfd7ab50e10d565aed3e8f8e52045e43724fbfff7c3bb72821b0",
+      "taskHash": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "criterionIds": [
+        "reason",
+        "absent",
+        "invitation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "5c2306d30729dfd7ab50e10d565aed3e8f8e52045e43724fbfff7c3bb72821b0",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:phonology/0:R",
+      "taskId": "KP06:listening:02",
+      "sourceHash": "43c6cc70faefe3778804ad6493882d4dc4dee9d9e8a1926c1f94f84e195dac9b",
+      "taskHash": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+      "criterionIds": [
+        "past",
+        "future"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:phonology/0:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "43c6cc70faefe3778804ad6493882d4dc4dee9d9e8a1926c1f94f84e195dac9b",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:phonology/1:R",
+      "taskId": "KP06:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+      "criterionIds": [
+        "past",
+        "future"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:phonology/1:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:register/haeyo_polite:P",
+      "taskId": "KP06:speaking:01",
+      "sourceHash": "e240050d891c89eef08d7b4a33c4832dba7d57dda06badc488efb43f08b57e7a",
+      "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:register/banmal_casual:P",
+      "taskId": "KP06:speaking:02",
+      "sourceHash": "e240050d891c89eef08d7b4a33c4832dba7d57dda06badc488efb43f08b57e7a",
+      "taskHash": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/banmal_casual:P의 학습 경로를 검수했다. Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/explain_reason_cause_effect:R",
+      "taskId": "KP07:reading:01",
+      "sourceHash": "5310c712767f287b7624bed1b2e1582b5dac633b8e8867cfe1ef91a72a7f9963",
+      "taskHash": "17cc15ff07287bfce5acf514becb425a59ab6cf33ccbce8a8ad6ba3ec07a21e2",
+      "criterionIds": [
+        "cause",
+        "result",
+        "uncertainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/explain_reason_cause_effect:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/explain_reason_cause_effect:P",
+      "taskId": "KP07:production:03",
+      "sourceHash": "5310c712767f287b7624bed1b2e1582b5dac633b8e8867cfe1ef91a72a7f9963",
+      "taskHash": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/explain_reason_cause_effect:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/express_opinion_agree_disagree:R",
+      "taskId": "KP07:reading:02",
+      "sourceHash": "2fb43c444ff85d0d0587b62aa8a4dfddf91f683cf3c413d0073baa3047fed23c",
+      "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "criterionIds": [
+        "agreement",
+        "advice",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_opinion_agree_disagree:R의 학습 경로를 검수했다. Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/express_opinion_agree_disagree:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "2fb43c444ff85d0d0587b62aa8a4dfddf91f683cf3c413d0073baa3047fed23c",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_opinion_agree_disagree:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/advise_recommend_warn:R",
+      "taskId": "KP07:reading:02",
+      "sourceHash": "11ab9b62e53e8f4f44e20232e0da09e27e093b29f929ecafe7613ce86674c007",
+      "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "criterionIds": [
+        "agreement",
+        "advice",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/advise_recommend_warn:R의 학습 경로를 검수했다. Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/advise_recommend_warn:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "11ab9b62e53e8f4f44e20232e0da09e27e093b29f929ecafe7613ce86674c007",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/advise_recommend_warn:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/make_change_cancel_appointments:R",
+      "taskId": "KP07:listening:01",
+      "sourceHash": "6ac39e93967f4e160abeceafef658091270a8d74a2868528c0fa563579501f9c",
+      "taskHash": "69dd12ea177bb88df782193153d43758dea5212f1b8bbffc653b2c89d996d25f",
+      "criterionIds": [
+        "reason",
+        "decision",
+        "promise"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/make_change_cancel_appointments:P",
+      "taskId": "KP07:speaking:01",
+      "sourceHash": "6ac39e93967f4e160abeceafef658091270a8d74a2868528c0fa563579501f9c",
+      "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/small_talk_maintain_relationships:R",
+      "taskId": "KP07:reading:02",
+      "sourceHash": "6d84b79a37dd8104ada1e2dd3d6029b4346e9202c6661fa091d2c6b5094568ba",
+      "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "criterionIds": [
+        "agreement",
+        "advice",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/small_talk_maintain_relationships:R의 학습 경로를 검수했다. Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:functions/small_talk_maintain_relationships:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "6d84b79a37dd8104ada1e2dd3d6029b4346e9202c6661fa091d2c6b5094568ba",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/small_talk_maintain_relationships:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/technology_devices_internet:R",
+      "taskId": "KP07:reading:02",
+      "sourceHash": "91024e51d58a873e3718be7b11a997fd3189408984a6e868668df5fe5237de07",
+      "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "criterionIds": [
+        "agreement",
+        "advice",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/technology_devices_internet:R의 학습 경로를 검수했다. Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/technology_devices_internet:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "91024e51d58a873e3718be7b11a997fd3189408984a6e868668df5fe5237de07",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/technology_devices_internet:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/feelings_emotions_character:R",
+      "taskId": "KP07:reading:02",
+      "sourceHash": "6e75341aa7f94029d054f4b430efbc2c94d542aef156ab7f1864d14202ddc89c",
+      "taskHash": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "criterionIds": [
+        "agreement",
+        "advice",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/feelings_emotions_character:R의 학습 경로를 검수했다. Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/feelings_emotions_character:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "6e75341aa7f94029d054f4b430efbc2c94d542aef156ab7f1864d14202ddc89c",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/feelings_emotions_character:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/transport_travel_vocab:R",
+      "taskId": "KP07:listening:03",
+      "sourceHash": "793b0889236eb1aa16e6113dbe7c1f1a6b80ef58343a47c8c26dfee730218c09",
+      "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+      "criterionIds": [
+        "preference",
+        "promise",
+        "necessity"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:vocabDomains/transport_travel_vocab:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "793b0889236eb1aa16e6113dbe7c1f1a6b80ef58343a47c8c26dfee730218c09",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:phonology/0:R",
+      "taskId": "KP07:listening:03",
+      "sourceHash": "96fce2dc2c5eace9bac71d931953e7b1b41e8301214890ac33c5de032ccbf7ab",
+      "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+      "criterionIds": [
+        "preference",
+        "promise",
+        "necessity"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:phonology/0:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "96fce2dc2c5eace9bac71d931953e7b1b41e8301214890ac33c5de032ccbf7ab",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:phonology/1:R",
+      "taskId": "KP07:listening:03",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+      "criterionIds": [
+        "preference",
+        "promise",
+        "necessity"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:phonology/1:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:register/haeyo_polite:P",
+      "taskId": "KP07:speaking:01",
+      "sourceHash": "571ec1e5fec0e4d68143a15dae9c3bc7593f807d2419fd97f0dd060f9acc9967",
+      "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP07:speaking:02",
+      "sourceHash": "571ec1e5fec0e4d68143a15dae9c3bc7593f807d2419fd97f0dd060f9acc9967",
+      "taskHash": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/hapsyo_formal_business:P의 학습 경로를 검수했다. Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/give_follow_instructions_directions:R",
+      "taskId": "KP08:reading:01",
+      "sourceHash": "ff5ced80367143139e3820faada347696545c73d9c8572cf41001213f035fa8e",
+      "taskHash": "caef2b606e46ff2959424ba8755d0e0d11cbaa1d4e127155512771c5d542d20f",
+      "criterionIds": [
+        "state",
+        "sequence",
+        "deadline",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/give_follow_instructions_directions:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/give_follow_instructions_directions:P",
+      "taskId": "KP08:speaking:01",
+      "sourceHash": "ff5ced80367143139e3820faada347696545c73d9c8572cf41001213f035fa8e",
+      "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/give_follow_instructions_directions:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/report_relay_information:R",
+      "taskId": "KP08:listening:01",
+      "sourceHash": "5d2ed04aac49380db3f5c3f43ee746e7f7fb41b704a639fc17778ad31d44e56e",
+      "taskHash": "91b4eb4a4f6139cbb844f94ac819b3d7b65d8ad01195d753020049c0ff1d2638",
+      "criterionIds": [
+        "source",
+        "recipient",
+        "function",
+        "deadline"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/report_relay_information:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/report_relay_information:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "5d2ed04aac49380db3f5c3f43ee746e7f7fb41b704a639fc17778ad31d44e56e",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/report_relay_information:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/congratulate_sympathise_comfort:R",
+      "taskId": "KP08:reading:02",
+      "sourceHash": "a0739d2d504c2295e432ea04596e96502863de652db2b5f77a8d2de760fed974",
+      "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+      "criterionIds": [
+        "source",
+        "problem",
+        "exception",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/congratulate_sympathise_comfort:R의 학습 경로를 검수했다. Notice source, messenger, deadline, technical problem and completed achievement kept distinct. Empathy/congratulations do not authorize deadline extension. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/congratulate_sympathise_comfort:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "a0739d2d504c2295e432ea04596e96502863de652db2b5f77a8d2de760fed974",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/congratulate_sympathise_comfort:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/complain_object_appeal:R",
+      "taskId": "KP08:reading:02",
+      "sourceHash": "2d67bbfe04551efad1cb113b5cad2a94d89e0e9615e2fd40e8fe1e32a63a4085",
+      "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+      "criterionIds": [
+        "source",
+        "problem",
+        "exception",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/complain_object_appeal:R의 학습 경로를 검수했다. Notice source, messenger, deadline, technical problem and completed achievement kept distinct. Empathy/congratulations do not authorize deadline extension. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/complain_object_appeal:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "2d67bbfe04551efad1cb113b5cad2a94d89e0e9615e2fd40e8fe1e32a63a4085",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/complain_object_appeal:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/adjust_register_speech_style:R",
+      "taskId": "KP08:listening:02",
+      "sourceHash": "ee725067580a233c722052b813feb4380eb1e41f0c82f5095da29623bb9bac8a",
+      "taskHash": "d38708cdca354feab2f839c19d887a169a355f632453274ba6327a743cc72175",
+      "criterionIds": [
+        "relation",
+        "reaction",
+        "audience"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/adjust_register_speech_style:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:functions/adjust_register_speech_style:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "ee725067580a233c722052b813feb4380eb1e41f0c82f5095da29623bb9bac8a",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/adjust_register_speech_style:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/public_services_admin_vocab:R",
+      "taskId": "KP08:listening:01",
+      "sourceHash": "d3b351c9b485c5b27039abe6be894ff1306cd7c9b808610e6a1df0d11f96062c",
+      "taskHash": "91b4eb4a4f6139cbb844f94ac819b3d7b65d8ad01195d753020049c0ff1d2638",
+      "criterionIds": [
+        "source",
+        "recipient",
+        "function",
+        "deadline"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/public_services_admin_vocab:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/public_services_admin_vocab:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "d3b351c9b485c5b27039abe6be894ff1306cd7c9b808610e6a1df0d11f96062c",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/public_services_admin_vocab:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/technology_devices_internet:R",
+      "taskId": "KP08:reading:02",
+      "sourceHash": "9b53b2a931e95d9b4dc94628662a5b8d6af774cd09a92b5244c440a231b47f46",
+      "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+      "criterionIds": [
+        "source",
+        "problem",
+        "exception",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/technology_devices_internet:R의 학습 경로를 검수했다. Notice source, messenger, deadline, technical problem and completed achievement kept distinct. Empathy/congratulations do not authorize deadline extension. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/technology_devices_internet:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "9b53b2a931e95d9b4dc94628662a5b8d6af774cd09a92b5244c440a231b47f46",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/technology_devices_internet:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP08:reading:02",
+      "sourceHash": "28483ef428bd9c98ec5a1b5dc8f2eaff1f96f18e643d739a501af50279b74101",
+      "taskHash": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+      "criterionIds": [
+        "source",
+        "problem",
+        "exception",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Notice source, messenger, deadline, technical problem and completed achievement kept distinct. Empathy/congratulations do not authorize deadline extension. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "28483ef428bd9c98ec5a1b5dc8f2eaff1f96f18e643d739a501af50279b74101",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:phonology/0:R",
+      "taskId": "KP08:listening:03",
+      "sourceHash": "8fff54db7bf5cfe2c892d3bb00d31822a3bce173df0ed682762a1c7d64fabd9f",
+      "taskHash": "60892cf040b8c27f54a249535ae416bbe9a4053359c5b4cdd0390947c5867755",
+      "criterionIds": [
+        "state",
+        "progress"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:phonology/0:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "8fff54db7bf5cfe2c892d3bb00d31822a3bce173df0ed682762a1c7d64fabd9f",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:phonology/1:R",
+      "taskId": "KP08:listening:03",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "60892cf040b8c27f54a249535ae416bbe9a4053359c5b4cdd0390947c5867755",
+      "criterionIds": [
+        "state",
+        "progress"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:phonology/1:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:register/haeyo_polite:P",
+      "taskId": "KP08:speaking:01",
+      "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
+      "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:register/banmal_casual:P",
+      "taskId": "KP08:speaking:01",
+      "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
+      "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/banmal_casual:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문과 응답 조건을 직접 비교했다. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP08:speaking:02",
+      "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
+      "taskHash": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/hapsyo_formal_business:P의 학습 경로를 검수했다. State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:register/intimate:R",
+      "taskId": "KP08:reading:03",
+      "sourceHash": "c5e78e0cb69658ddf239f0787df801b37ad7e26fde433f2f51f1db318fc822ba",
+      "taskHash": "8cdf5ccd0718c2dde4421110c35d55c3b4dea94d128a732e3c4e92396e8f9773",
+      "criterionIds": [
+        "relationship",
+        "audience"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/intimate:R의 학습 경로를 검수했다. Intimate register anchored in explicitly long-standing close friendship and private worries, not inferred from casual endings alone. New-member greeting is contrasted, KO/EN/DE context preserved. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
     }
   ]
 }

@@ -338,6 +338,45 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: listener help request, not speaker undertaking. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:reading:04",
+      "sha256": "601bf966333eebcbee4dcc249064ed1a20de1a3b709774431d2f4d4f2bea909f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional counter: size complaint, tag/receipt amounts, unresolved refund, symptom-based lifting request. 의자를/상자를 corrected and reviewed; no diagnosis, real refund rule or assumed authority."
+    },
+    {
+      "taskId": "KP05:writing:03",
+      "sha256": "32e6e9a3a14064109a17ff66b265d975f1f46cf3024253252cd6d54b1c82d1c0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Private formal enquiry to staff, full complaint and requested help; unresolved refund stays unpromised, no invented diagnosis or public disclosure; freeText unscored."
+    },
+    {
+      "taskId": "KP05:reading:05",
+      "sha256": "6d2918b878e7d6b6ba44a4b7500860380bed28c01248a2a85e937d651b9e86ed",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional lodging leaflet: named station, numbered bus, two stops, per-room/night price excludes breakfast, confirmed booking required. No real price or travel recommendation."
     }
   ]
 }

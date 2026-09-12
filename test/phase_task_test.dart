@@ -14,10 +14,10 @@ void main() {
     expect(catalog.forPhase('KP02').length, 32);
     expect(catalog.forPhase('KP03').length, 32);
     expect(catalog.forPhase('KP04').length, 31);
-    expect(catalog.forPhase('KP05').length, 26);
-    expect(catalog.forPhase('KP06').length, 36);
-    expect(catalog.forPhase('KP07').length, 33);
-    expect(catalog.forPhase('KP08').length, 35);
+    expect(catalog.forPhase('KP05').length, 29);
+    expect(catalog.forPhase('KP06').length, 38);
+    expect(catalog.forPhase('KP07').length, 35);
+    expect(catalog.forPhase('KP08').length, 38);
     expect(catalog.forPhase('KP09'), isEmpty);
   });
   test('a correct total never compensates for an unaffordable order', () {

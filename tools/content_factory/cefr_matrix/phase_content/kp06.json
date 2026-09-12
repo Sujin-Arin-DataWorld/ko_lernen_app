@@ -3684,6 +3684,244 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP06:reading:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "축하·공감·초대의 답장",
+        "en": "Congratulations, empathy and an invitation",
+        "de": "Gratulation, Mitgefühl und Einladung"
+      },
+      "teaching": {
+        "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+        "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+        "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n미나: 어제 처음으로 작품을 완성했어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 토요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n미나: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "처음으로 작품을 완성했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나의 친구"
+              },
+              {
+                "id": "1",
+                "text": "미나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n준호: 어제 처음으로 공연을 마쳤어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 일요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n준호: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              },
+              {
+                "id": "0",
+                "text": "처음으로 공연을 마쳤어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호의 친구"
+              },
+              {
+                "id": "1",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:speaking:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "경험을 전하며 축하하고 위로하기",
+        "en": "Relay an experience and respond with care",
+        "de": "Ein Erlebnis weitergeben und Anteil nehmen"
+      },
+      "teaching": {
+        "ko": "간 사람·가는 사람·갈 사람의 끝소리와 시점을 구별해 말해요. 이어서 제공된 경험을 전하고 축하·공감·초대에 답하세요. 첫 장면은 해요체, 둘째 장면은 반말에 합의한 친구예요. 듣고 휴지와 말끝을 고쳐 재녹음하세요. 의미·억양은 미채점이에요.",
+        "en": "Say 간 사람, 가는 사람 and 갈 사람 while preserving their time reference. Then relay the given experience and respond to congratulations, disappointment and an invitation. Use polite speech in the first scene and agreed casual speech in the second. Replay and revise pauses and endings; meaning and intonation remain unscored.",
+        "de": "Sprich 간 사람, 가는 사람 und 갈 사람 mit passendem Zeitbezug. Gib dann das vorgegebene Erlebnis weiter und reagiere auf Gratulation, Enttäuschung und Einladung. Sprich in der ersten Szene höflich, in der zweiten mit vereinbarter vertraulicher Anrede. Höre zu und überarbeite Pausen und Endungen; Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 미나가 어제 첫 작품을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 지수는 지금 가며, 민수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 시험에 합격했다고 해요. 축하하세요. 이어서 이번 토요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 준호가 어제 첫 공연을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 민수는 지금 가며, 지수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 작품을 완성했다고 해요. 축하하세요. 이어서 이번 일요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      }
     }
   ]
 }

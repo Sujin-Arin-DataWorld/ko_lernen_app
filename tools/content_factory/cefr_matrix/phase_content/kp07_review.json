@@ -429,6 +429,32 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: contrast retains actual scheduling constraint. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:reading:02",
+      "sha256": "2b0f734241e638c0d4eeaef0f31ba91cb2972954314f49dfb94e3f0d68942ee9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Partial agreement limited to travel benefit, advice to check transport, shared-file fact distinct from uncertain other-date marking. No total-agreement inference."
+    },
+    {
+      "taskId": "KP07:speaking:02",
+      "sha256": "e649e26eb81497bd01097a47ea0ee066e01a62b94b43aee5e439a77ea5ba261a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Opinion/reason/partial agreement/advice and small talk; explicit choices versus commitments versus tentative intention. Same facts to organiser formally, no stronger certainty; meaning unscored."
     }
   ]
 }

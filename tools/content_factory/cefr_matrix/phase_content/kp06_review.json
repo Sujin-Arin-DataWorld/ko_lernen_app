@@ -468,6 +468,32 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: ongoing now, not yesterday completion. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:reading:03",
+      "sha256": "4f493d4b2c3fe9c3a2333a0e4082670af7d6d45e33bf062f2ecce713353e393b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Success versus friend absence, explicit congratulations/empathy, invitation accepted only by named speaker; absent friend not inferred to accept. 공연을 마쳤어요/작품을 완성했어요 reviewed."
+    },
+    {
+      "taskId": "KP06:speaking:02",
+      "sha256": "5fc3ad87033e92acda9c4aa05d5dd5acee90638a431a1fc63f409a43e3e8d7df",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Past/current/future people distinguished; report given experience, congratulate and comfort without pressuring attendance. Polite peer and explicitly agreed close-friend registers; prosody and meaning unscored."
     }
   ]
 }

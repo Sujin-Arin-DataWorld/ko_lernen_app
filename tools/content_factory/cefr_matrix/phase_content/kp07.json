@@ -3444,6 +3444,244 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP07:reading:02",
+      "phaseId": "KP07",
+      "level": "A2",
+      "objectiveId": "KP07:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부분 동의와 확인할 조언",
+        "en": "Partial agreement and advice to check",
+        "de": "Teilweise Zustimmung und ein Hinweis zur Prüfung"
+      },
+      "teaching": {
+        "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+        "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+        "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동등한 직장 동료의 메시지\n가: 주말은 잘 보냈어요? 저는 산책해서 기분이 좋아요. 공유 일정표 링크를 보니 모임은 월요일이에요. 저는 온라인 모임이 더 편해요.\n나: 저도 이동이 없다는 점에는 동의해요. 하지만 자료를 같이 보는 것은 직접 만나는 편이 좋아요. 버스 시간을 먼저 확인해 보세요. 늦을 수도 있으니까요.\n가: 좋아요. 그런데 파일에 화요일도 보이는 것 같아요. 확실하지 않아서 담당자에게 물어볼게요.",
+        "questions": [
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 동의한 부분은?",
+              "en": "Which point does the second speaker agree with?",
+              "de": "Welchem Punkt stimmt die zweite Person zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 모임을 온라인으로 해야 해요."
+              },
+              {
+                "id": "0",
+                "text": "온라인이면 이동이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "advice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조언은 무엇이에요?",
+              "en": "What is the advice?",
+              "de": "Was wird geraten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "담당자에게 사실을 숨기기"
+              },
+              {
+                "id": "0",
+                "text": "버스 시간을 먼저 확인해 보기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "uncertain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인되지 않은 것은?",
+              "en": "What remains unverified?",
+              "de": "Was ist noch ungeprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화요일 표시의 의미"
+              },
+              {
+                "id": "1",
+                "text": "월요일이라는 공유 일정표의 명시 정보"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동등한 직장 동료의 메시지\n가: 주말은 잘 보냈어요? 저는 산책해서 기분이 좋아요. 공유 일정표 링크를 보니 모임은 수요일이에요. 저는 온라인 모임이 더 편해요.\n나: 저도 이동이 없다는 점에는 동의해요. 하지만 자료를 같이 보는 것은 직접 만나는 편이 좋아요. 기차 시간을 먼저 확인해 보세요. 늦을 수도 있으니까요.\n가: 좋아요. 그런데 파일에 목요일도 보이는 것 같아요. 확실하지 않아서 담당자에게 물어볼게요.",
+        "questions": [
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 동의한 부분은?",
+              "en": "Which point does the second speaker agree with?",
+              "de": "Welchem Punkt stimmt die zweite Person zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "온라인이면 이동이 없어요."
+              },
+              {
+                "id": "1",
+                "text": "모든 모임을 온라인으로 해야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "advice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "조언은 무엇이에요?",
+              "en": "What is the advice?",
+              "de": "Was wird geraten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기차 시간을 먼저 확인해 보기"
+              },
+              {
+                "id": "1",
+                "text": "담당자에게 사실을 숨기기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          },
+          {
+            "id": "uncertain",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인되지 않은 것은?",
+              "en": "What remains unverified?",
+              "de": "Was ist noch ungeprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "수요일이라는 공유 일정표의 명시 정보"
+              },
+              {
+                "id": "0",
+                "text": "목요일 표시의 의미"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의견·이유·조언을 구분하고 부분 동의를 전체 동의로 넓히지 않아요. 공유 파일의 확정 정보와 아직 확인하지 않은 추정을 따로 읽어요.",
+              "en": "Distinguish opinions, reasons and advice; partial agreement is not total agreement. Separate confirmed details in the shared file from an unverified inference.",
+              "de": "Unterscheide Meinung, Begründung und Rat; teilweise Zustimmung ist keine vollständige Zustimmung. Trenne bestätigte Angaben in der geteilten Datei von einer ungeprüften Vermutung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP07:speaking:02",
+      "phaseId": "KP07",
+      "level": "A2",
+      "objectiveId": "KP07:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "의견과 약속을 두 말투로 전달",
+        "en": "Give an opinion and commitment in two registers",
+        "de": "Meinung und Zusage in zwei Sprachstilen"
+      },
+      "teaching": {
+        "ko": "동료와 가볍게 안부를 나눈 뒤 의견과 이유, 부분 동의와 조언을 말해요. 확정 정보와 추정을 구별하세요. 갈래요는 선택, 갈게요는 내 약속, 갈까 봐요는 아직 정하지 않은 생각으로 비교해 녹음해요. 마지막에 담당자에게 같은 사실을 하십시오체로 전달하세요. 의미·억양은 미채점이에요.",
+        "en": "Exchange brief personal news with a peer, then give an opinion, reason, partial agreement and advice. Keep facts separate from inferences. Compare 갈래요 as a choice, 갈게요 as your commitment and 갈까 봐요 as tentative intention. Finally relay the same facts formally to the organiser. Meaning and intonation remain unscored.",
+        "de": "Tausche mit einer gleichgestellten Person kurz Neuigkeiten aus und nenne dann Meinung, Grund, teilweise Zustimmung und Rat. Trenne Fakten von Vermutungen. Vergleiche 갈래요 als Wahl, 갈게요 als eigene Zusage und 갈까 봐요 als vorläufige Absicht. Gib dieselben Fakten danach förmlich an die zuständige Person weiter. Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 해요체: 주말 산책이 즐거웠음. 온라인 모임은 이동이 없어 좋다는 점에 동의하지만 자료 검토는 직접 만나서 하고 싶음. 공유 파일에 월요일이라고 적혀 있음. 화요일 표시는 미확인.\n내 선택: 버스. 내 약속: 담당자에게 확인하고 내일 알림. 동료에게 교통편을 미리 확인해 보라고 권유.\n담당자에게 하십시오체: 확인된 날짜와 모르는 표시를 구별해 문의.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 해요체: 주말 독서가 즐거웠음. 온라인 모임은 이동이 없어 좋다는 점에 동의하지만 자료 검토는 직접 만나서 하고 싶음. 공유 파일에 수요일이라고 적혀 있음. 목요일 표시는 미확인.\n내 선택: 기차. 내 약속: 담당자에게 확인하고 오늘 오후 알림. 동료에게 교통편을 미리 확인해 보라고 권유.\n담당자에게 하십시오체: 확인된 날짜와 모르는 표시를 구별해 문의.",
+        "questions": []
+      }
     }
   ]
 }

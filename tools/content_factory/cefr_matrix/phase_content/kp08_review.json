@@ -455,6 +455,45 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: ongoing transitive action, not resulting state. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:reading:02",
+      "sha256": "8a922c24663cfc977798ede8b6010dfdc5768e4646475fe7ad49f86e52cc0a6d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Notice source, messenger, deadline, technical problem and completed achievement kept distinct. Empathy/congratulations do not authorize deadline extension."
+    },
+    {
+      "taskId": "KP08:speaking:02",
+      "sha256": "5dd825b40cd3f34751fb5309acfdea1f531e380dac84c72f0a1c2c3731f24292",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "State/progressive phrase drill; same source/deadline/technical complaint to agreed casual friend, polite new member and formal organiser. No invented exception or personal data; meaning unscored."
+    },
+    {
+      "taskId": "KP08:reading:03",
+      "sha256": "8cdf5ccd0718c2dde4421110c35d55c3b4dea94d128a732e3c4e92396e8f9773",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Intimate register anchored in explicitly long-standing close friendship and private worries, not inferred from casual endings alone. New-member greeting is contrasted, KO/EN/DE context preserved."
     }
   ]
 }

@@ -10,10 +10,10 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP02 | 54 | 54 | 0 | 미검증 |
 | KP03 | 57 | 57 | 0 | 미검증 |
 | KP04 | 57 | 57 | 0 | 미검증 |
-| KP05 | 57 | 26 | 31 | 미검증 |
-| KP06 | 56 | 36 | 20 | 미검증 |
-| KP07 | 56 | 34 | 22 | 미검증 |
-| KP08 | 61 | 37 | 24 | 미검증 |
+| KP05 | 57 | 57 | 0 | 미검증 |
+| KP06 | 56 | 56 | 0 | 미검증 |
+| KP07 | 56 | 56 | 0 | 미검증 |
+| KP08 | 61 | 61 | 0 | 미검증 |
 | KP09 | 49 | 0 | 49 | 미검증 |
 | KP10 | 62 | 0 | 62 | 미검증 |
 | KP11 | 58 | 0 | 58 | 미검증 |
@@ -39,103 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP05:objective:reading/genre/written_notice_announcement:R`
-- `KP05:objective:functions/express_obligation_permission:R`
-- `KP05:objective:functions/express_obligation_permission:P`
-- `KP05:objective:functions/request_ask_someone_to_do:R`
-- `KP05:objective:functions/request_ask_someone_to_do:P`
-- `KP05:objective:functions/order_buy_pay:R`
-- `KP05:objective:functions/order_buy_pay:P`
-- `KP05:objective:functions/complain_object_appeal:R`
-- `KP05:objective:functions/complain_object_appeal:P`
-- `KP05:objective:functions/compare_contrast_alternatives:R`
-- `KP05:objective:functions/compare_contrast_alternatives:P`
-- `KP05:objective:vocabDomains/clothing_accessories:R`
-- `KP05:objective:vocabDomains/clothing_accessories:P`
-- `KP05:objective:vocabDomains/money_prices_banking:R`
-- `KP05:objective:vocabDomains/money_prices_banking:P`
-- `KP05:objective:vocabDomains/public_services_admin_vocab:R`
-- `KP05:objective:vocabDomains/public_services_admin_vocab:P`
-- `KP05:objective:vocabDomains/body_health_symptoms:R`
-- `KP05:objective:vocabDomains/body_health_symptoms:P`
-- `KP05:objective:vocabDomains/home_objects_furniture:R`
-- `KP05:objective:vocabDomains/home_objects_furniture:P`
-- `KP05:objective:vocabDomains/transport_travel_vocab:R`
-- `KP05:objective:vocabDomains/transport_travel_vocab:P`
-- `KP05:objective:vocabDomains/food_cooking:R`
-- `KP05:objective:vocabDomains/food_cooking:P`
-- `KP05:objective:phonology/0:R`
-- `KP05:objective:phonology/0:P`
-- `KP05:objective:phonology/1:R`
-- `KP05:objective:phonology/1:P`
-- `KP05:objective:register/haeyo_polite:P`
-- `KP05:objective:register/hapsyo_formal_business:P`
-- `KP06:objective:functions/report_relay_information:R`
-- `KP06:objective:functions/report_relay_information:P`
-- `KP06:objective:functions/express_feelings_emotions:R`
-- `KP06:objective:functions/express_feelings_emotions:P`
-- `KP06:objective:functions/invite_accept_decline:R`
-- `KP06:objective:functions/invite_accept_decline:P`
-- `KP06:objective:functions/congratulate_sympathise_comfort:R`
-- `KP06:objective:functions/congratulate_sympathise_comfort:P`
-- `KP06:objective:vocabDomains/feelings_emotions_character:R`
-- `KP06:objective:vocabDomains/feelings_emotions_character:P`
-- `KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:R`
-- `KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:P`
-- `KP06:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP06:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP06:objective:phonology/0:R`
-- `KP06:objective:phonology/0:P`
-- `KP06:objective:phonology/1:R`
-- `KP06:objective:phonology/1:P`
-- `KP06:objective:register/haeyo_polite:P`
-- `KP06:objective:register/banmal_casual:P`
-- `KP07:objective:functions/explain_reason_cause_effect:R`
-- `KP07:objective:functions/explain_reason_cause_effect:P`
-- `KP07:objective:functions/express_opinion_agree_disagree:R`
-- `KP07:objective:functions/express_opinion_agree_disagree:P`
-- `KP07:objective:functions/advise_recommend_warn:R`
-- `KP07:objective:functions/advise_recommend_warn:P`
-- `KP07:objective:functions/make_change_cancel_appointments:R`
-- `KP07:objective:functions/make_change_cancel_appointments:P`
-- `KP07:objective:functions/small_talk_maintain_relationships:R`
-- `KP07:objective:functions/small_talk_maintain_relationships:P`
-- `KP07:objective:vocabDomains/technology_devices_internet:R`
-- `KP07:objective:vocabDomains/technology_devices_internet:P`
-- `KP07:objective:vocabDomains/feelings_emotions_character:R`
-- `KP07:objective:vocabDomains/feelings_emotions_character:P`
-- `KP07:objective:vocabDomains/transport_travel_vocab:R`
-- `KP07:objective:vocabDomains/transport_travel_vocab:P`
-- `KP07:objective:phonology/0:R`
-- `KP07:objective:phonology/0:P`
-- `KP07:objective:phonology/1:R`
-- `KP07:objective:phonology/1:P`
-- `KP07:objective:register/haeyo_polite:P`
-- `KP07:objective:register/hapsyo_formal_business:P`
-- `KP08:objective:functions/give_follow_instructions_directions:R`
-- `KP08:objective:functions/give_follow_instructions_directions:P`
-- `KP08:objective:functions/report_relay_information:R`
-- `KP08:objective:functions/report_relay_information:P`
-- `KP08:objective:functions/congratulate_sympathise_comfort:R`
-- `KP08:objective:functions/congratulate_sympathise_comfort:P`
-- `KP08:objective:functions/complain_object_appeal:R`
-- `KP08:objective:functions/complain_object_appeal:P`
-- `KP08:objective:functions/adjust_register_speech_style:R`
-- `KP08:objective:functions/adjust_register_speech_style:P`
-- `KP08:objective:vocabDomains/public_services_admin_vocab:R`
-- `KP08:objective:vocabDomains/public_services_admin_vocab:P`
-- `KP08:objective:vocabDomains/technology_devices_internet:R`
-- `KP08:objective:vocabDomains/technology_devices_internet:P`
-- `KP08:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP08:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP08:objective:phonology/0:R`
-- `KP08:objective:phonology/0:P`
-- `KP08:objective:phonology/1:R`
-- `KP08:objective:phonology/1:P`
-- `KP08:objective:register/intimate:R`
-- `KP08:objective:register/haeyo_polite:P`
-- `KP08:objective:register/banmal_casual:P`
-- `KP08:objective:register/hapsyo_formal_business:P`
 - `KP09:objective:grammar/G3:-는다:R`
 - `KP09:objective:grammar/G3:-는다:P`
 - `KP09:objective:grammar/G3:-니2:R`

@@ -302,7 +302,10 @@
         "KP05:production:06",
         "KP05:production:07",
         "KP05:production:08",
-        "KP05:production:09"
+        "KP05:production:09",
+        "KP05:reading:04",
+        "KP05:writing:03",
+        "KP05:reading:05"
       ],
       "taskCoverage": "partial"
     },
@@ -366,7 +369,9 @@
         "KP06:production:11",
         "KP06:production:12",
         "KP06:production:13",
-        "KP06:production:14"
+        "KP06:production:14",
+        "KP06:reading:03",
+        "KP06:speaking:02"
       ],
       "taskCoverage": "partial"
     },
@@ -427,7 +432,9 @@
         "KP07:production:10",
         "KP07:production:11",
         "KP07:production:12",
-        "KP07:production:13"
+        "KP07:production:13",
+        "KP07:reading:02",
+        "KP07:speaking:02"
       ],
       "taskCoverage": "partial"
     },
@@ -489,7 +496,10 @@
         "KP08:production:11",
         "KP08:production:12",
         "KP08:production:13",
-        "KP08:production:14"
+        "KP08:production:14",
+        "KP08:reading:02",
+        "KP08:speaking:02",
+        "KP08:reading:03"
       ],
       "taskCoverage": "partial"
     },
@@ -1083,5 +1093,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "cc4fa0b988ddc8930cb7a356a9e7c27a7cb9a9bd272618f73094e577e26d1a41"
+  "phaseTaskSourceSha256": "0c286d683866663975a6d25668538e982be0d348f6557a2aedce319105322c60"
 }
