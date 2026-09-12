@@ -22,7 +22,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_grammar_production_is_separate_from_recognition(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:29]:
+        for phase in phases:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id'] and ':production:' in t['id']]
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
             for task in tasks:
@@ -39,7 +39,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_phases_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:29]:
+        for phase in phases:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
@@ -51,6 +51,10 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_a1_critical_time_quantity_and_polarity_criteria_are_required(self):
         tasks = {t['id']: t for t in build(ROOT)['tasks']}
         expected = {
+            'KP30:listening:01': {'relationship', 'acts', 'proposition', 'honorific', 'modern', 'condition', 'unknown'},
+            'KP30:listening:02': {'structure', 'attention', 'genre', 'agreement'},
+            'KP30:reading:01': {'distance', 'acts', 'written', 'limit'},
+            'KP30:reading:02': {'scope', 'exception', 'current', 'responsibility', 'hearsay', 'genre'},
             'KP29:listening:01': {'self', 'rhetoric', 'quotation', 'forecast', 'declarative', 'reproach'},
             'KP29:listening:02': {'response', 'method', 'withholding', 'structure'},
             'KP29:reading:01': {'dictionary', 'function', 'modern', 'position', 'distribution'},

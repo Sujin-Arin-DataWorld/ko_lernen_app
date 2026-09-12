@@ -18932,6 +18932,882 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 듯하다 sourcecue-based tentativeinterpretation with alternatives, not complete negation or uniqueprovenreading. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:listening/core:R",
+      "taskId": "KP30:listening:01",
+      "sourceHash": "0135d27595a47ae687d0dd2a753f5b1793ed7c3745b4c15e80845699cbed3991",
+      "taskHash": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "criterionIds": [
+        "relationship",
+        "acts",
+        "proposition",
+        "honorific",
+        "modern",
+        "condition",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:listening/additional/1:R",
+      "taskId": "KP30:listening:01",
+      "sourceHash": "1d3fec430eff5559849f6c56b4eb5df9514e9479fd982a91b221a8b15895198a",
+      "taskHash": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "criterionIds": [
+        "relationship",
+        "acts",
+        "proposition",
+        "honorific",
+        "modern",
+        "condition",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP30:listening:02",
+      "sourceHash": "36c5de7a25133d3be5442867511af554e5394b1b72f3195a462cdbdd1058682e",
+      "taskHash": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "criterionIds": [
+        "structure",
+        "attention",
+        "genre",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:reading/core:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "1435c0a85c6e34eb27ea687f394b430bebd97bc56367fcbf692847103c3d1ad2",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:reading/additional/1:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "e0d8fb8c1e03628d866c3936fb24cf8d6cf2f2e5106fda74dfb66d308416b42b",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:reading/genre/literary_text:R",
+      "taskId": "KP30:reading:01",
+      "sourceHash": "fcfa3cddcf2ff3eb79db49e148deddc9a5c543651dcb94d31f3d1c3b5f2bca44",
+      "taskHash": "6254b9bbcbe474cf11c2a9a38881ded7c52474bc86c882458f48860add70c74b",
+      "criterionIds": [
+        "distance",
+        "acts",
+        "written",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actualscenesplusoriginalmultiparagraphstoryandcritique. Traineefeelsreduceddistance, counterpartinnerstateunknown. Nonagreementcoexistswithhospitality; noera/agefabrication. Writtenplainpermissionnotcasualaddress. Criteria-basedstrength andlimitedviewpointweakness. Four requiredperspective/acts/written/limitscriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "38cb7adb82bc950b6de916b937612d14f106837667b125227074bd24c15cf0f0",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:speaking/core:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "38f6dbd66ecd9895764e4ec560848532ed0d9b202d178acedfca999d501281f7",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:speaking/additional/1:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "b67d3d232c938f1b254240fa499c72c8eff4c8e747befd8690a8c6b7b10e6acb",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "f403903245083b51d0839e267f93a486210876f715cd50f74d1bdc86978bb2d8",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:writing/core:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "6091d4f74278214ac6aba41ec3a590635be1b67b88af2649b2ff3045b0ad4096",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:writing/additional/1:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "30804fd224abb6ae0c12ecbd0f331e0adb599805c6c60707c3f1e25b27c73c89",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:writing/genre/review_critique_text:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "a7642d34a8c0cf7aa24a9fb4ccedaf8450e01ee10f3c63d8854685265e54a1ba",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "0a1ff0346e2f59d0a2a5e4aa54cc05651ab0f719e6ce1c533451402e53a52b32",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/adjust_register_speech_style:R",
+      "taskId": "KP30:listening:02",
+      "sourceHash": "6795b10d79f9a7dd4f57ac8ad571608e16505692e1f4f99893a5ed3d9e523720",
+      "taskHash": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "criterionIds": [
+        "structure",
+        "attention",
+        "genre",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/adjust_register_speech_style:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "6795b10d79f9a7dd4f57ac8ad571608e16505692e1f4f99893a5ed3d9e523720",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/mediate_between_parties:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "4f2c292c9e8cfafc415193136d77791e0e4c2d38b22305d40a09c61352206032",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/mediate_between_parties:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "4f2c292c9e8cfafc415193136d77791e0e4c2d38b22305d40a09c61352206032",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/summarise_reconstruct:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "dd79cf0d1d5dbbc84af56f53901cd16ea2d3ef7915c525d7a7444860fe948585",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/summarise_reconstruct:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "dd79cf0d1d5dbbc84af56f53901cd16ea2d3ef7915c525d7a7444860fe948585",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP30:reading:02",
+      "sourceHash": "c3027ab9f223b21d861edb3967999cab3ccd82e43546bf5fe2ac56f477d91f0a",
+      "taskHash": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "current",
+        "responsibility",
+        "hearsay",
+        "genre"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "c3027ab9f223b21d861edb3967999cab3ccd82e43546bf5fe2ac56f477d91f0a",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/etiquette_honorific_lexis:R",
+      "taskId": "KP30:listening:02",
+      "sourceHash": "90a852b5c5c26db6cb711aa56ec3030a307db9e869fa7f724a3624f3c0338e3e",
+      "taskHash": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "criterionIds": [
+        "structure",
+        "attention",
+        "genre",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/etiquette_honorific_lexis:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "90a852b5c5c26db6cb711aa56ec3030a307db9e869fa7f724a3624f3c0338e3e",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP30:reading:01",
+      "sourceHash": "caf3d294e8193f7fa3815932171eb539624351d1cf2616f9bb84a1ae647fa36b",
+      "taskHash": "6254b9bbcbe474cf11c2a9a38881ded7c52474bc86c882458f48860add70c74b",
+      "criterionIds": [
+        "distance",
+        "acts",
+        "written",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actualscenesplusoriginalmultiparagraphstoryandcritique. Traineefeelsreduceddistance, counterpartinnerstateunknown. Nonagreementcoexistswithhospitality; noera/agefabrication. Writtenplainpermissionnotcasualaddress. Criteria-basedstrength andlimitedviewpointweakness. Four requiredperspective/acts/written/limitscriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "caf3d294e8193f7fa3815932171eb539624351d1cf2616f9bb84a1ae647fa36b",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP30:listening:02",
+      "sourceHash": "7402ffabf2d894914268e7c0f0c4bb2198fba2224202ea7724422ad57fc431e6",
+      "taskHash": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "criterionIds": [
+        "structure",
+        "attention",
+        "genre",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "7402ffabf2d894914268e7c0f0c4bb2198fba2224202ea7724422ad57fc431e6",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:phonology/0:R",
+      "taskId": "KP30:listening:01",
+      "sourceHash": "0dc39e0ecd5b5c3b42d0a44ba2f3d78598e20ac172bc388f45d9c3ec3be7260c",
+      "taskHash": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "criterionIds": [
+        "relationship",
+        "acts",
+        "proposition",
+        "honorific",
+        "modern",
+        "condition",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:phonology/0:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "0dc39e0ecd5b5c3b42d0a44ba2f3d78598e20ac172bc388f45d9c3ec3be7260c",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:phonology/1:R",
+      "taskId": "KP30:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "criterionIds": [
+        "structure",
+        "attention",
+        "genre",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:phonology/1:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/hage_familiar:R",
+      "taskId": "KP30:listening:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "criterionIds": [
+        "relationship",
+        "acts",
+        "proposition",
+        "honorific",
+        "modern",
+        "condition",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/hao_semiformal:R",
+      "taskId": "KP30:listening:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "criterionIds": [
+        "relationship",
+        "acts",
+        "proposition",
+        "honorific",
+        "modern",
+        "condition",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/haeyo_polite:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/banmal_casual:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/intimate:P",
+      "taskId": "KP30:speaking:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:register/written_plain_haeche:P",
+      "taskId": "KP30:writing:01",
+      "sourceHash": "c8326fcbad4d1b3391d0aa6ddce2e94b4f3c711d4c1a9fbe644415726271ef8d",
+      "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "criterionIds": [
+        "critique",
+        "report",
+        "presentation",
+        "original",
+        "revision",
+        "audit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-거들랑1:R",
+      "taskId": "KP30:grammar:01",
+      "sourceHash": "d97248a174600ab27c30e3270cb8e5678091317acd623ae024096d046f74ee57",
+      "taskHash": "81900422bd45351583af938d1356fba029f8d50a99db3a3601b677e3711f1df1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 거들랑1 conditional familiar request/proposal, agreedcasualpeers, event notalreadyconfirmed. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-거들랑2:R",
+      "taskId": "KP30:grammar:02",
+      "sourceHash": "62ee8ea6012bca9f487471974e384c471f77a87c00131a918822853478d7810c",
+      "taskHash": "f1d48fcdfe262c7db647e6a82d3f4077cd7cb9d3f663d4f2ae3a8d1d10f49788",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 거들랑2 sentencefinal knownbackground based on priorhearing/reading, notconditionalfuture. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-네1:R",
+      "taskId": "KP30:grammar:03",
+      "sourceHash": "1e1ddc8fd2708db7204606a1e03675deaf169e7cc03ee4036878dbc769c967b8",
+      "taskHash": "376e42ab5cb8217cc779ff8dde331e4a0fe0d2a4fa3a3e535684ce9a2fbef13d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 네1 hage declarative in explicitlyfictionalsenior-apprenticeroles, firstpersonunderstanding/custodyresolve nottaskimposedonother; distinguishnewinfone. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-나2:R",
+      "taskId": "KP30:grammar:04",
+      "sourceHash": "e8f023a38f43548eee078f8a467d7d2b0a02bc4f118408fd2fdcb1e1a9e4f931",
+      "taskHash": "2b3c1d0e10b69add33a19cef7ab9f5697a51edfe02f5cfc42077583f079a8ec6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 나2 hage question inassignedplayroles, opinion/readingstatus queriednotasserted, agealone nolicense. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-게3:R",
+      "taskId": "KP30:grammar:05",
+      "sourceHash": "734e3a803130c7ca9cd2853a1ef0d272c64cf592d9b4fdb8db75161e265648c8",
+      "taskHash": "42c8b1208caede4656a6402daaa16190035ef02d3c77de8f3413ac603a5401e9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 게3 hage reading/checkinstruction inboundedplay, noapproval/copypermission/assignedfinalresponsibility. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-게4:R",
+      "taskId": "KP30:grammar:06",
+      "sourceHash": "6656aa257a8cdb68a9957f451cdb4b5c24c384a20db33bd948cd9d98344f6fd2",
+      "taskHash": "f581bbf265bf7eac22589308a0e4a9680f37a4ede950b3f3839d55e249ec9e59",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 게4 attentioncall 이것보게/여보게 identifieschangedorder/missingname, notordertochange/delete. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구만:R",
+      "taskId": "KP30:grammar:07",
+      "sourceHash": "92b0c9bf4ae7a1c30c39701d36e823ef80128ea01e0b8ccad224df076d522614",
+      "taskHash": "78fcbada823594eb7285c7014ec61567c9078106f2dc1b3ccde135a09dea0381",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는구만 markedexclamation aboutcomplexity/understanding, nofixedage/gender/rank inferred. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구먼:R",
+      "taskId": "KP30:grammar:08",
+      "sourceHash": "68ae1cef87a9710331dcafbe3c38ef5b59003cd0af017cb858bc75fdccdcf5e1",
+      "taskHash": "0e4e9e9a333b20f3ff9b9316fb27bddeb1cfacbfcca37f61039197035784e7ba",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는구먼 noticedmutualunderstanding/manyrecords, nofullagreement/allrecordsreviewed, nofixedpolitenessladderversus구만. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-소:R",
+      "taskId": "KP30:grammar:09",
+      "sourceHash": "d8116b650c5c1cb2ce9a3317a688dc19e36fed414d2b7b75ceb5d3a0b3f361d3",
+      "taskHash": "0587a9dd9aed33a7dd02d1ab8c3f0a6bb6af2f085a6d60ffb5c077379e771a00",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 소 haostatements infictionalequalarchivistroles preserve nonagreement/unreadpolarity, notauthority. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-으오:R",
+      "taskId": "KP30:grammar:10",
+      "sourceHash": "d87f8fef7a4d9896260033575f6e985d3f3b06ee4b8b6ae1f8f359c4fda21f49",
+      "taskHash": "41a38dfecd8f68752c4f98e606eb2c2a8bc6a35aa0ff3d5d7c2c708dd7feabd2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으오 consonantstem읽/받hao instructions inplay, noextracopypermission orreceipt-as-agreement. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-구려2:R",
+      "taskId": "KP30:grammar:11",
+      "sourceHash": "bdb0ba9b2ca692c43c9ce595d91b35b9feefdbf42c45c971a1acc843711e0238",
+      "taskHash": "4e380c9c6212347b348e84d0d9962f8f35ca9732a82f6938843f656f0298eff9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 구려2 actioninvitation enter/rest inplay, notobservationofcompletedentry/rest. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구려:R",
+      "taskId": "KP30:grammar:12",
+      "sourceHash": "a498110b9cc41ac4ed42099eacc3463f0218715deea92d053454d52643ee6fa7",
+      "taskHash": "3fd75ed202a07aff1965373a3f04a8acc085c9eb90ddfa4ff02331323b396205",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는구려 exclamationofunderstanding/lengthening inplay, notcommandtounderstand/prolong. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-그려:R",
+      "taskId": "KP30:grammar:13",
+      "sourceHash": "ac5d9926f82cbd8e2547fccaf53137608dcc07acdeec585628ced3b5ac17a014",
+      "taskHash": "5bcb504761fe663637b42df6acf9650ccb09b69691f3f51eedc97c87d6432f79",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 그려 hagesofteningappendage inplay, understandingnotagreement/approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G2:-네:R",
+      "taskId": "KP30:grammar:14",
+      "sourceHash": "a3db5ba587c0dd954039fd9d15ba642c4bcdc411fb0427cfb1cba8917fff955f",
+      "taskHash": "346a3749c30be2e2194d45c7ca0c3154f41129b8febb8c44d1fd2969b1dae006",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: G2네 contemporarypolite요 notice ofrain/openstate, explicitnewobservation notidentifieddooropener. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G5:-네2:R",
+      "taskId": "KP30:grammar:15",
+      "sourceHash": "43e70314e74d862510a03039f37a3da1866c348237d4a1ea76ca9bded558fdf8",
+      "taskHash": "6c691d151b58a40a3a6bf51312a3898c11edba566c78c6059ecb5604a6fa7127",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: G5네2 evaluativenoticing quiet/carefulplususefulness inagreedcasualpeers, notsarcasm/defaulttotalagreement. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G1:-으시-:R",
+      "taskId": "KP30:grammar:16",
+      "sourceHash": "7fb3fe1f3f7c446546f7a531619cf695850a296873a59df56def7808de4336ce",
+      "taskHash": "e36dfa66584b2ab039840238216e0192778b7489c8e228c1c0ba8391ca2bc3fa",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으시 subjecthonorification independentofcasual/politeaddressee, teacherarrivaldirectexperience versuswaitinghearsay preserved. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-거들랑1:P",
+      "taskId": "KP30:production:01",
+      "sourceHash": "d97248a174600ab27c30e3270cb8e5678091317acd623ae024096d046f74ee57",
+      "taskHash": "9a56126cccc40e349c32a841f8247b4a13dc1ecdd2eea9f482f63030c1494803",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 거들랑1 conditional familiar request/proposal, agreedcasualpeers, event notalreadyconfirmed. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-거들랑2:P",
+      "taskId": "KP30:production:02",
+      "sourceHash": "62ee8ea6012bca9f487471974e384c471f77a87c00131a918822853478d7810c",
+      "taskHash": "1f582cff7514d25544144711e059363f7d9785897b4bcd01644d208fb651d6bf",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 거들랑2 sentencefinal knownbackground based on priorhearing/reading, notconditionalfuture. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-네1:P",
+      "taskId": "KP30:production:03",
+      "sourceHash": "1e1ddc8fd2708db7204606a1e03675deaf169e7cc03ee4036878dbc769c967b8",
+      "taskHash": "5e78f77df0d50804179438e125dde70000e1dbf7a1161e8cf53052865602cf8a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 네1 hage declarative in explicitlyfictionalsenior-apprenticeroles, firstpersonunderstanding/custodyresolve nottaskimposedonother; distinguishnewinfone. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-나2:P",
+      "taskId": "KP30:production:04",
+      "sourceHash": "e8f023a38f43548eee078f8a467d7d2b0a02bc4f118408fd2fdcb1e1a9e4f931",
+      "taskHash": "5cf6615c0a417b29fd13bfe9b18848dc12e5979140b1bced9c93586c2fbfe089",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 나2 hage question inassignedplayroles, opinion/readingstatus queriednotasserted, agealone nolicense. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-게3:P",
+      "taskId": "KP30:production:05",
+      "sourceHash": "734e3a803130c7ca9cd2853a1ef0d272c64cf592d9b4fdb8db75161e265648c8",
+      "taskHash": "9cb0486004b7db217bbcbf415d361509bc24123bc6be8583c4a996cbd9b56700",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 게3 hage reading/checkinstruction inboundedplay, noapproval/copypermission/assignedfinalresponsibility. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-게4:P",
+      "taskId": "KP30:production:06",
+      "sourceHash": "6656aa257a8cdb68a9957f451cdb4b5c24c384a20db33bd948cd9d98344f6fd2",
+      "taskHash": "80359bb7c644c65248332dc320c823e946ce18df2e1dce9f184a45a5288d06c4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 게4 attentioncall 이것보게/여보게 identifieschangedorder/missingname, notordertochange/delete. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구만:P",
+      "taskId": "KP30:production:07",
+      "sourceHash": "92b0c9bf4ae7a1c30c39701d36e823ef80128ea01e0b8ccad224df076d522614",
+      "taskHash": "30202fd99a6d45502c5cb66a55236ca8a6fe4cefd680e304456ff458e78faa19",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는구만 markedexclamation aboutcomplexity/understanding, nofixedage/gender/rank inferred. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구먼:P",
+      "taskId": "KP30:production:08",
+      "sourceHash": "68ae1cef87a9710331dcafbe3c38ef5b59003cd0af017cb858bc75fdccdcf5e1",
+      "taskHash": "fe3b80bdf5157dc2ae389b9e90692e4df84779d3dca30764917603e9ba7d41d9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는구먼 noticedmutualunderstanding/manyrecords, nofullagreement/allrecordsreviewed, nofixedpolitenessladderversus구만. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-소:P",
+      "taskId": "KP30:production:09",
+      "sourceHash": "d8116b650c5c1cb2ce9a3317a688dc19e36fed414d2b7b75ceb5d3a0b3f361d3",
+      "taskHash": "b1aa48535e1addc1e95d6b16586319ef9c99a82df8b2b2e33305d6df1b323f26",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 소 haostatements infictionalequalarchivistroles preserve nonagreement/unreadpolarity, notauthority. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-으오:P",
+      "taskId": "KP30:production:10",
+      "sourceHash": "d87f8fef7a4d9896260033575f6e985d3f3b06ee4b8b6ae1f8f359c4fda21f49",
+      "taskHash": "281e0a15325b597917453cc253bc734792773482f755dd16693a6a0b08610e13",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으오 consonantstem읽/받hao instructions inplay, noextracopypermission orreceipt-as-agreement. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-구려2:P",
+      "taskId": "KP30:production:11",
+      "sourceHash": "bdb0ba9b2ca692c43c9ce595d91b35b9feefdbf42c45c971a1acc843711e0238",
+      "taskHash": "2c5558b1ebd999d817c107e99eedf5d2c57facd3179e6aaf5e338f1a172eb0fa",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 구려2 actioninvitation enter/rest inplay, notobservationofcompletedentry/rest. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-는구려:P",
+      "taskId": "KP30:production:12",
+      "sourceHash": "a498110b9cc41ac4ed42099eacc3463f0218715deea92d053454d52643ee6fa7",
+      "taskHash": "f5888306ac883f35344f7dfb236dd53adb969f0036bd319b62efdb25ecb3995c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는구려 exclamationofunderstanding/lengthening inplay, notcommandtounderstand/prolong. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G6:-그려:P",
+      "taskId": "KP30:production:13",
+      "sourceHash": "ac5d9926f82cbd8e2547fccaf53137608dcc07acdeec585628ced3b5ac17a014",
+      "taskHash": "7cd5b9df884d8808853030ff15f3a141c2a1f457f04589f6354f64e87c988e66",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 그려 hagesofteningappendage inplay, understandingnotagreement/approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G2:-네:P",
+      "taskId": "KP30:production:14",
+      "sourceHash": "a3db5ba587c0dd954039fd9d15ba642c4bcdc411fb0427cfb1cba8917fff955f",
+      "taskHash": "acaff35f6d62f923b0fae8b74b609bb715e97588d5f1f10a34731fa0ae9e6992",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: G2네 contemporarypolite요 notice ofrain/openstate, explicitnewobservation notidentifieddooropener. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G5:-네2:P",
+      "taskId": "KP30:production:15",
+      "sourceHash": "43e70314e74d862510a03039f37a3da1866c348237d4a1ea76ca9bded558fdf8",
+      "taskHash": "b37134c7ab268db49bdb04301ccd7c4716f0f31305218ab6f601c02e8e61986d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: G5네2 evaluativenoticing quiet/carefulplususefulness inagreedcasualpeers, notsarcasm/defaulttotalagreement. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP30:objective:grammar/G1:-으시-:P",
+      "taskId": "KP30:production:16",
+      "sourceHash": "7fb3fe1f3f7c446546f7a531619cf695850a296873a59df56def7808de4336ce",
+      "taskHash": "f2007fd105b84c2b82ec21c1ff29dbb1fe7de7724ac5f08bec840eafd38741e3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으시 subjecthonorification independentofcasual/politeaddressee, teacherarrivaldirectexperience versuswaitinghearsay preserved. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

@@ -348,22 +348,22 @@
 | KP29 | G6:-라2 | 1 | 0 | 0 | 미검증 |
 | KP29 | G6:-으니4 | 1 | 0 | 0 | 미검증 |
 | KP29 | G5:-는 듯하다 | 1 | 0 | 0 | 미검증 |
-| KP30 | G6:-거들랑1 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-거들랑2 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-네1 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-나2 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-게3 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-게4 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-는구만 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-는구먼 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-소 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-으오 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-구려2 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-는구려 | 0 | 0 | 0 | 미검증 |
-| KP30 | G6:-그려 | 0 | 0 | 0 | 미검증 |
-| KP30 | G2:-네 | 0 | 0 | 0 | 미검증 |
-| KP30 | G5:-네2 | 0 | 0 | 0 | 미검증 |
-| KP30 | G1:-으시- | 0 | 0 | 0 | 미검증 |
+| KP30 | G6:-거들랑1 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-거들랑2 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-네1 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-나2 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-게3 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-게4 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-는구만 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-는구먼 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-소 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-으오 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-구려2 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-는구려 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-그려 | 1 | 0 | 0 | 미검증 |
+| KP30 | G2:-네 | 1 | 0 | 0 | 미검증 |
+| KP30 | G5:-네2 | 1 | 0 | 0 | 미검증 |
+| KP30 | G1:-으시- | 1 | 0 | 0 | 미검증 |
 
 ## 직접 검수한 연결 및 제외 근거
 
@@ -699,3 +699,19 @@
 - KP29 / G6:-라2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/7/practice/sourceKo` — “이는 모두 지나간 일이라. 화자는 과거 일이라고 설명했다.”. 옛 말투 평서형으로 과거 사실을 설명한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP29 / G6:-으니4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/8/practice/sourceKo` — “[반말에 합의한 성인 친구의 연극 대사] 어쩌면 그렇게 참을성이 없으니? 지금은 네 행동을 나무라는 말이야.”. 기본 질문형이 뒤 설명과 특정 연극 관계에서 나무람을 수행한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP29 / G5:-는 듯하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/9/practice/sourceKo` — “이 대목은 앞선 판단을 유보하는 듯하다. 마지막 문장의 단서를 근거로 한 해석이다.”. 제한된 텍스트 단서에 근거해 유보를 잠정 해석한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-거들랑1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/0/practice/sourceKo` — “[반말 합의 친구] 소식을 듣거들랑 나에게도 알려 줘.”. 소식을 들을 경우라는 조건과 알림 부탁이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-거들랑2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/1/practice/sourceKo` — “[반말 합의 친구] 나도 그 사정은 잘 알거들랑. 어제 직접 들었어.”. 종결형으로 이미 아는 배경과 직접 들은 근거를 보탠다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-네1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/2/practice/sourceKo` — “[극중 선임 기록관→견습 기록관, 하게체 관계 설정] 나는 그 설명을 이해하겠네.”. 극의 관계와 평서 발화가 하게체 용례임을 뒷받침한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-나2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/3/practice/sourceKo` — “[극중 선임→견습] 자네는 어떻게 생각하나?”. 극중 하게체 관계에서 상대 생각을 묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-게3 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/4/practice/sourceKo` — “[극중 선임→견습] 이 자료부터 읽어 보게. 승인 여부는 별도일세.”. 자료 읽기 지시와 별도 승인을 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-게4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/5/practice/sourceKo` — “[극중 선임→견습] 이것 보게, 순서가 바뀌었네.”. 순서 변화로 주의를 끄는 이것 보게 용례다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-는구만 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/6/practice/sourceKo` — “[극중 말투] 생각보다 일이 복잡하구만.”. 복잡함을 알아차리는 표시적인 구어 감탄이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-는구먼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/7/practice/sourceKo` — “이제야 서로 뜻이 통하는구먼. 서로의 뜻을 이해했다는 말이다.”. 뜻 이해에 대한 감탄이며 실행 동의까지 함축하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-소 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/8/practice/sourceKo` — “[극중 동등한 기록관 둘, 하오체 설정] 나는 그 의견에 동의하지 않소.”. 극중 하오체 관계에서 의견 불동의를 진술한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-으오 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/9/practice/sourceKo` — “[극중 하오체] 이 책을 먼저 읽으오. 복제하라는 말은 아니오.”. 받침 있는 읽다 뒤의 하오체 지시이며 복제 권한은 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-구려2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/10/practice/sourceKo` — “[극중 하오체] 날이 추우니 어서 들어오구려.”. 안으로 들어오는 행동을 권하는 극중 용례다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-는구려 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/11/practice/sourceKo` — “[극중 하오체] 이제야 까닭을 알겠구려.”. 까닭을 알게 된 감탄이며 새 행동 지시가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G6:-그려 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/12/practice/sourceKo` — “[극중 하게체] 오늘은 이야기가 길어졌네그려.”. 하게체 말끝에 그려를 붙여 부드럽게 언급한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G2:-네 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/13/practice/sourceKo` — “밖에 비가 오네요. 창문을 보고 처음 알았어요.”. 현대 해요체에서 새로 관찰한 비 소식에 감탄한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G5:-네2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/14/practice/sourceKo` — “[반말 합의 친구] 이렇게 조용할 수가 없네! 집중하기 좋겠어.”. 친밀한 관계와 뒤의 집중 용이성 평가가 긍정 감탄을 뒷받침한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP30 / G1:-으시- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/15/practice/sourceKo` — “[반말 합의 친구] 선생님이 오셨어. 내가 직접 뵈었어.”. 친구에게 반말하면서 제삼자 선생님 높임과 직접 경험을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

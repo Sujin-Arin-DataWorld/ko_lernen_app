@@ -35,7 +35,7 @@
 | KP27 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP28 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP29 | C2 | 10 | 10 | 10 | 26 | 25 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP30 | C2 | 16 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
+| KP30 | C2 | 16 | 16 | 16 | 38 | 37 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 
 ## 남은 검증
 

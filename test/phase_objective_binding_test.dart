@@ -9,15 +9,14 @@ void main() {
       jsonDecode(await rootBundle.loadString(PhaseTaskCatalog.assetPath))
           as Map<String, dynamic>;
   test(
-    'published objectives preserve absent routes and unscored writing',
+    'all published paths retain unscored writing boundaries',
     () async {
       final catalog = await PhaseTaskCatalog.load();
       expect(
-        catalog.objectives
-            .where((o) => o.phaseId == 'KP30')
-            .every((o) => o.bindings.isEmpty),
+        catalog.objectives.every((o) => o.bindings.isNotEmpty),
         isTrue,
       );
+      expect(catalog.objectives, hasLength(1668));
       final email = catalog.objectives.singleWhere(
         (o) => o.id == 'KP06:objective:writing/genre/email_informal:P',
       );
@@ -32,6 +31,15 @@ void main() {
       );
     },
   );
+  test('absent routes remain in the objective denominator', () async {
+    final raw = await source();
+    final objective = (raw['objectives'] as List).first;
+    objective['bindings'] = <dynamic>[];
+    objective['coverage'] = 'unverified';
+    final catalog = PhaseTaskCatalog.parse(raw);
+    expect(catalog.objectives, hasLength(1668));
+    expect(catalog.objectives.first.bindings, isEmpty);
+  });
   test(
     'missing material, criterion and false scoring scope are rejected',
     () async {

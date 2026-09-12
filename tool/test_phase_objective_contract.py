@@ -11,15 +11,27 @@ class ObjectiveContractTest(unittest.TestCase):
         self.ledger=json.loads((ROOT/'tools/content_factory/cefr_matrix/phase_content/objective_links.json').read_text(encoding='utf-8'))
         self.bundle=build(ROOT)
 
-    def test_grammar_modes_and_unconnected_higher_levels_remain(self):
+    def test_all_phase_paths_preserve_grammar_modes_without_claiming_mastery(self):
         rows=self.bundle['objectives']
         self.assertEqual(len(rows),len(requirements(self.phases)))
         for p in self.phases:
             for g in p['koreanGrammar']:
                 for mode in ('R','P'):
                     self.assertIn(f"{p['id']}:objective:grammar/{g['grammarKey']}:{mode}",{r['id'] for r in rows})
-        self.assertTrue(all(not r['bindings'] for r in rows if r['phaseId']=='KP30'))
+        self.assertEqual(len(rows), 1668)
+        self.assertTrue(all(r['bindings'] for r in rows))
         self.assertTrue(all(r['mastery']=='unverified' for r in rows))
+
+    def test_removed_links_keep_requirements_in_unverified_denominator(self):
+        ledger=copy.deepcopy(self.ledger)
+        target=ledger['links'][0]['objectiveId']
+        ledger['links']=[r for r in ledger['links'] if r['objectiveId']!=target]
+        rows=bind(self.phases,self.bundle['tasks'],ledger)
+        self.assertEqual(len(rows),len(self.bundle['objectives']))
+        row=next(r for r in rows if r['id']==target)
+        self.assertEqual(row['bindings'],[])
+        self.assertEqual(row['coverage'],'unverified')
+        self.assertEqual(row['mastery'],'unverified')
 
     def test_invalid_material_task_criterion_source_and_mode_fail_closed(self):
         for fault in ('source','task','criterion','task-hash','source-hash','mode','duplicate'):

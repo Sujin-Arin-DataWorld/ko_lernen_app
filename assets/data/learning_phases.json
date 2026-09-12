@@ -1706,9 +1706,48 @@
         "c2_05_relationship_narratives"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp30.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP30:grammar:01",
+        "KP30:grammar:02",
+        "KP30:grammar:03",
+        "KP30:grammar:04",
+        "KP30:grammar:05",
+        "KP30:grammar:06",
+        "KP30:grammar:07",
+        "KP30:grammar:08",
+        "KP30:grammar:09",
+        "KP30:grammar:10",
+        "KP30:grammar:11",
+        "KP30:grammar:12",
+        "KP30:grammar:13",
+        "KP30:grammar:14",
+        "KP30:grammar:15",
+        "KP30:grammar:16",
+        "KP30:production:01",
+        "KP30:production:02",
+        "KP30:production:03",
+        "KP30:production:04",
+        "KP30:production:05",
+        "KP30:production:06",
+        "KP30:production:07",
+        "KP30:production:08",
+        "KP30:production:09",
+        "KP30:production:10",
+        "KP30:production:11",
+        "KP30:production:12",
+        "KP30:production:13",
+        "KP30:production:14",
+        "KP30:production:15",
+        "KP30:production:16",
+        "KP30:listening:01",
+        "KP30:listening:02",
+        "KP30:reading:01",
+        "KP30:reading:02",
+        "KP30:writing:01",
+        "KP30:speaking:01"
+      ],
+      "taskCoverage": "partial"
     }
   ],
-  "phaseTaskSourceSha256": "acd92251ea9817b1fada6c6ddc0ac9135ed49eb332b24a439c004d3df634c4f0"
+  "phaseTaskSourceSha256": "86d630f2e17b100a0a6dac1b3dafd8af7f4ea89a1bca6d111f4787c7376e0627"
 }
