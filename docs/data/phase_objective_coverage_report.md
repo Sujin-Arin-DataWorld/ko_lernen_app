@@ -30,7 +30,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP22 | 52 | 52 | 0 | 미검증 |
 | KP23 | 48 | 48 | 0 | 미검증 |
 | KP24 | 58 | 58 | 0 | 미검증 |
-| KP25 | 49 | 0 | 49 | 미검증 |
+| KP25 | 49 | 49 | 0 | 미검증 |
 | KP26 | 48 | 0 | 48 | 미검증 |
 | KP27 | 53 | 0 | 53 | 미검증 |
 | KP28 | 53 | 0 | 53 | 미검증 |
@@ -39,55 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP25:objective:grammar/G6:-는다는:R`
-- `KP25:objective:grammar/G6:-는다는:P`
-- `KP25:objective:grammar/G6:-이라야:R`
-- `KP25:objective:grammar/G6:-이라야:P`
-- `KP25:objective:grammar/G6:-되:R`
-- `KP25:objective:grammar/G6:-되:P`
-- `KP25:objective:grammar/G6:를 막론하고:R`
-- `KP25:objective:grammar/G6:를 막론하고:P`
-- `KP25:objective:grammar/G6:는 마당에:R`
-- `KP25:objective:grammar/G6:는 마당에:P`
-- `KP25:objective:grammar/G6:-느니만큼:R`
-- `KP25:objective:grammar/G6:-느니만큼:P`
-- `KP25:objective:grammar/G6:-건대:R`
-- `KP25:objective:grammar/G6:-건대:P`
-- `KP25:objective:grammar/G2:-기:R`
-- `KP25:objective:grammar/G2:-기:P`
-- `KP25:objective:listening/core:R`
-- `KP25:objective:listening/additional/1:R`
-- `KP25:objective:reading/core:R`
-- `KP25:objective:reading/additional/1:R`
-- `KP25:objective:reading/genre/contract_terms_legal_text:R`
-- `KP25:objective:reading/genre/academic_specialised_text:R`
-- `KP25:objective:speaking/core:P`
-- `KP25:objective:speaking/additional/1:P`
-- `KP25:objective:writing/core:P`
-- `KP25:objective:writing/additional/1:P`
-- `KP25:objective:writing/genre/academic_specialised_text:P`
-- `KP25:objective:writing/genre/report_proposal_official:P`
-- `KP25:objective:functions/define_distinguish_terms:R`
-- `KP25:objective:functions/define_distinguish_terms:P`
-- `KP25:objective:functions/analyse_framing_implicature_presupposition:R`
-- `KP25:objective:functions/analyse_framing_implicature_presupposition:P`
-- `KP25:objective:functions/summarise_reconstruct:R`
-- `KP25:objective:functions/summarise_reconstruct:P`
-- `KP25:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP25:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP25:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP25:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP25:objective:vocabDomains/language_metalanguage:R`
-- `KP25:objective:vocabDomains/language_metalanguage:P`
-- `KP25:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP25:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP25:objective:phonology/0:R`
-- `KP25:objective:phonology/0:P`
-- `KP25:objective:phonology/1:R`
-- `KP25:objective:phonology/1:P`
-- `KP25:objective:register/written_plain_haeche:P`
-- `KP25:objective:register/hapsyo_formal_business:P`
-- `KP25:objective:register/haeyo_polite:P`
 - `KP26:objective:grammar/G6:마는:R`
 - `KP26:objective:grammar/G6:마는:P`
 - `KP26:objective:grammar/G6:-건만:R`

@@ -15793,6 +15793,618 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으시 spiral maintains third-person teacher honorification inside casual friend-directed hearsay, no upgrade to directly witnessed attendance. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:listening/core:R",
+      "taskId": "KP25:listening:01",
+      "sourceHash": "5031cdbc021ab69caac647e0d45150151e0d37aa82cbbe598d49455f464cfd7f",
+      "taskHash": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "criterionIds": [
+        "scope",
+        "necessary",
+        "sufficient",
+        "proviso",
+        "claim",
+        "change",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:listening/additional/1:R",
+      "taskId": "KP25:listening:01",
+      "sourceHash": "9b681874e29a39581c29b73acea7b8334bfa3741d4157c7aa1f27f134b269730",
+      "taskHash": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "criterionIds": [
+        "scope",
+        "necessary",
+        "sufficient",
+        "proviso",
+        "claim",
+        "change",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:reading/core:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "bc53c4bc5d0ac8705e66d14df45236086d2f098610b969afa7e354a6911b012b",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:reading/additional/1:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "1f9ad58f8d34b115f9ec32aca61618085bcd038d6af51d525037216298676d7b",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "b2d37d3f90a8e476e94c6a0840759297d96284e853e956eb2aa9f16e87d196fe",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:reading/genre/academic_specialised_text:R",
+      "taskId": "KP25:reading:02",
+      "sourceHash": "e51094dfc78a953a784944a6ea78fb85cf00d3b85252dcdb85fb398835367f41",
+      "taskHash": "8b9ea5b9cd2a0d56bc32b403514ff01c5b4404ce66f8387a8a976036129cf720",
+      "criterionIds": [
+        "boundary",
+        "count",
+        "causation",
+        "nominal",
+        "norm"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original specialised review distinguishes identical identifiers from equal values, sample counts and limited generalisability, reproduction versus accuracy and goal versus success. No comparison condition or accuracy measure. Explicit actor for identifier matching; noun-chain publication review actor missing. Source critique/recommendation not new norm or delegated power. Five required boundary/count/causal/actor/norm criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:speaking/core:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "562d849363828f0ada02280adf086ec8b0cf53ff58c1a0608510138b7df1307e",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:speaking/additional/1:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "4e33e999ab614a8f88e3e3a1e4fca622917cb4864afbaea37ae54e4833f2fea1",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:writing/core:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "135877dc4c72277971d24e3e82affa70d4ff08e54be177600d69358a5b02a24c",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:writing/additional/1:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "8efba98a8d9206002c2d576a26108911479f06c8f1c2f164f6a1f6b88dc89563",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:writing/genre/academic_specialised_text:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "35db35694b26c1d47cf2a22d2a90a5312f42db47d187c395cfe905997f9d2ede",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "4d5e3910be9202ae5202b7d322105bd55598f66957493c2f56002b46e9a4e5b6",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/define_distinguish_terms:R",
+      "taskId": "KP25:reading:02",
+      "sourceHash": "92eed711ad4911b3b48168718e6fd05b2b1345c41a636d14797eca54a7cac0a5",
+      "taskHash": "8b9ea5b9cd2a0d56bc32b403514ff01c5b4404ce66f8387a8a976036129cf720",
+      "criterionIds": [
+        "boundary",
+        "count",
+        "causation",
+        "nominal",
+        "norm"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original specialised review distinguishes identical identifiers from equal values, sample counts and limited generalisability, reproduction versus accuracy and goal versus success. No comparison condition or accuracy measure. Explicit actor for identifier matching; noun-chain publication review actor missing. Source critique/recommendation not new norm or delegated power. Five required boundary/count/causal/actor/norm criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/define_distinguish_terms:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "92eed711ad4911b3b48168718e6fd05b2b1345c41a636d14797eca54a7cac0a5",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/analyse_framing_implicature_presupposition:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "bdab13b337f2f3df9e99482a6ac05f133fbd8342659c907201b9267b02f04e48",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/analyse_framing_implicature_presupposition:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "bdab13b337f2f3df9e99482a6ac05f133fbd8342659c907201b9267b02f04e48",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/summarise_reconstruct:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "05a332ec4f97b2be6f84602eabf39c999df922a6de9fef7cc0594ef819bd7632",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:functions/summarise_reconstruct:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "05a332ec4f97b2be6f84602eabf39c999df922a6de9fef7cc0594ef819bd7632",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP25:reading:01",
+      "sourceHash": "bf7d3414ac1e6b9059b6d3964844d9dbe169e3e6405f32d4d6a719e52f33d780",
+      "taskHash": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "criterionIds": [
+        "definition",
+        "exception",
+        "boundary",
+        "right",
+        "summary",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "bf7d3414ac1e6b9059b6d3964844d9dbe169e3e6405f32d4d6a719e52f33d780",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP25:listening:01",
+      "sourceHash": "ab38598df42b207138d8734ad1118beef567ab234de360a44d633ca68eae94ef",
+      "taskHash": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "criterionIds": [
+        "scope",
+        "necessary",
+        "sufficient",
+        "proviso",
+        "claim",
+        "change",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "ab38598df42b207138d8734ad1118beef567ab234de360a44d633ca68eae94ef",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP25:reading:02",
+      "sourceHash": "7f6704f6ed90795ab0d05ed5aaeae4413dff503370a9609f818c3e85d5e68ad0",
+      "taskHash": "8b9ea5b9cd2a0d56bc32b403514ff01c5b4404ce66f8387a8a976036129cf720",
+      "criterionIds": [
+        "boundary",
+        "count",
+        "causation",
+        "nominal",
+        "norm"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original specialised review distinguishes identical identifiers from equal values, sample counts and limited generalisability, reproduction versus accuracy and goal versus success. No comparison condition or accuracy measure. Explicit actor for identifier matching; noun-chain publication review actor missing. Source critique/recommendation not new norm or delegated power. Five required boundary/count/causal/actor/norm criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "7f6704f6ed90795ab0d05ed5aaeae4413dff503370a9609f818c3e85d5e68ad0",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP25:reading:02",
+      "sourceHash": "7b38f816312b37219b51f932dc56e6a60a717110b3ee6311dda42430ac93d0cc",
+      "taskHash": "8b9ea5b9cd2a0d56bc32b403514ff01c5b4404ce66f8387a8a976036129cf720",
+      "criterionIds": [
+        "boundary",
+        "count",
+        "causation",
+        "nominal",
+        "norm"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original specialised review distinguishes identical identifiers from equal values, sample counts and limited generalisability, reproduction versus accuracy and goal versus success. No comparison condition or accuracy measure. Explicit actor for identifier matching; noun-chain publication review actor missing. Source critique/recommendation not new norm or delegated power. Five required boundary/count/causal/actor/norm criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "7b38f816312b37219b51f932dc56e6a60a717110b3ee6311dda42430ac93d0cc",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:phonology/0:R",
+      "taskId": "KP25:listening:01",
+      "sourceHash": "629a2f28c5750c7288a14aa408b211367c87c172778b78ae0626052a768b7cf5",
+      "taskHash": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "criterionIds": [
+        "scope",
+        "necessary",
+        "sufficient",
+        "proviso",
+        "claim",
+        "change",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:phonology/0:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "629a2f28c5750c7288a14aa408b211367c87c172778b78ae0626052a768b7cf5",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:phonology/1:R",
+      "taskId": "KP25:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "criterionIds": [
+        "scope",
+        "necessary",
+        "sufficient",
+        "proviso",
+        "claim",
+        "change",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:phonology/1:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:register/written_plain_haeche:P",
+      "taskId": "KP25:writing:01",
+      "sourceHash": "8bdd2f19cce759ab4edc15e4e4df1644de78d92b8f908c45b56d90c10e5d8adc",
+      "taskHash": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "criterionIds": [
+        "summary",
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "8bdd2f19cce759ab4edc15e4e4df1644de78d92b8f908c45b56d90c10e5d8adc",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:register/haeyo_polite:P",
+      "taskId": "KP25:speaking:01",
+      "sourceHash": "8bdd2f19cce759ab4edc15e4e4df1644de78d92b8f908c45b56d90c10e5d8adc",
+      "taskHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-는다는:R",
+      "taskId": "KP25:grammar:01",
+      "sourceHash": "8331210f186ba0b49d55d032321559a294fa4af8bdeb7767b28a0f28a28d3cde",
+      "taskHash": "3f60531510449655b1d79c99c1af69eb611b2df2372d774940c6c1d61338fd39",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Quoted proposition modifies claim/explanation, explicitly unverified/error-free and unsupported cost-half claims remain claims. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-이라야:R",
+      "taskId": "KP25:grammar:02",
+      "sourceHash": "d5e8b91818674dd29f7f807c29aa5a90c7203779e760c4a6bffb0761000fb30a",
+      "taskHash": "b53c0eb7297465475f8dad09a4d996784e281f9c02c96a9c0f66b7e3b4dca9d7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Only registered applicant/designated reviewer necessary conditions; additional review/training remain, not sufficient approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-되:R",
+      "taskId": "KP25:grammar:03",
+      "sourceHash": "9c75bc76f9ed527d07155d7c89718cfff4eee93bcf45958188d2b60cee1f661b",
+      "taskHash": "8d4310262f567c94b098013268929c7c057510bb86305f3c3143ab20b3d0ded7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Public summary excludes identifiers; copy provision excludes original removal. Main permission and limiting proviso both preserved. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:를 막론하고:R",
+      "taskId": "KP25:grammar:04",
+      "sourceHash": "9c2ad9f3949edafbd6eec351842d043f04fb4ae2e403c7d3e765a23a1a2bc50b",
+      "taskHash": "b16a0c105972fa6bee75aa89249601bf799e1e61640bad57d6924ba70ae4d00b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Only named major/affiliation category disregarded; registration/training requirement retained. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:는 마당에:R",
+      "taskId": "KP25:grammar:05",
+      "sourceHash": "e294483afb5511cce18cfdcdc64269d1d286e648631dfb9bae3d7079cdea0218",
+      "taskHash": "40e8f84923dffb202fc0eb051ad6b1bafeef9ff5980fdfd5bdbbc068a3937015",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Already differing definitions/missing evidence is judgement premise, not hypothetical universal rule. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-느니만큼:R",
+      "taskId": "KP25:grammar:06",
+      "sourceHash": "12cbc510cffdd54f9f135bdadbef90146251d51465887ee1a0b310dd204dea45",
+      "taskHash": "f55088f175442796099f2f04d92fd313c21dee9b7abc1223fe763b93f62ae48b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Proportional clarity/scope-check judgement from shared use/large impact, no new institutional power. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-건대:R",
+      "taskId": "KP25:grammar:07",
+      "sourceHash": "7b8ae78f05dec97c6b19770455f1c575222fa976fe78818c6b5cc9b665a426c2",
+      "taskHash": "c07816d9ebfdc67b6738c6a13970df82e2bbbe898a35136a0500ab65a3730831",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Written speaker wish or assessment, not committee decision/court ruling. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G2:-기:R",
+      "taskId": "KP25:grammar:08",
+      "sourceHash": "a4356e634cc8da84655ce83c65ea01abfdafe07ac4030e579c10590a176cc8ed",
+      "taskHash": "ad1578d393ee72ef3b89443f82dec2848ad82ee6971e9d678d1f04235b13feea",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Nominalised action confirms records-team date check or research-team reproduction goal, approval/distribution actor unknown. Goal not successful reproduction. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-는다는:P",
+      "taskId": "KP25:production:01",
+      "sourceHash": "8331210f186ba0b49d55d032321559a294fa4af8bdeb7767b28a0f28a28d3cde",
+      "taskHash": "92df3ae9e583370ff148b7d6e42a915050fa0cfd593ac6067dd9ebf3567f2c9e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Quoted proposition modifies claim/explanation, explicitly unverified/error-free and unsupported cost-half claims remain claims. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-이라야:P",
+      "taskId": "KP25:production:02",
+      "sourceHash": "d5e8b91818674dd29f7f807c29aa5a90c7203779e760c4a6bffb0761000fb30a",
+      "taskHash": "77a9ee390d00d5e7a8d27aaaca02b18906e31da79e400b4de53c1c3015934050",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Only registered applicant/designated reviewer necessary conditions; additional review/training remain, not sufficient approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-되:P",
+      "taskId": "KP25:production:03",
+      "sourceHash": "9c75bc76f9ed527d07155d7c89718cfff4eee93bcf45958188d2b60cee1f661b",
+      "taskHash": "a98ea487f5c6a3caa51819830bbf2a83956261a00095429aa65c67b0e6152341",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Public summary excludes identifiers; copy provision excludes original removal. Main permission and limiting proviso both preserved. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:를 막론하고:P",
+      "taskId": "KP25:production:04",
+      "sourceHash": "9c2ad9f3949edafbd6eec351842d043f04fb4ae2e403c7d3e765a23a1a2bc50b",
+      "taskHash": "ca36c38602f00a3fc5bac7f8608d83909317fcdb46e8827e1f1f4aa3d481dc95",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Only named major/affiliation category disregarded; registration/training requirement retained. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:는 마당에:P",
+      "taskId": "KP25:production:05",
+      "sourceHash": "e294483afb5511cce18cfdcdc64269d1d286e648631dfb9bae3d7079cdea0218",
+      "taskHash": "8fb4874126ac86576947fbc2fd1e5b9b925e0e68527dd7608925b77d07a024b2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Already differing definitions/missing evidence is judgement premise, not hypothetical universal rule. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-느니만큼:P",
+      "taskId": "KP25:production:06",
+      "sourceHash": "12cbc510cffdd54f9f135bdadbef90146251d51465887ee1a0b310dd204dea45",
+      "taskHash": "164207035c6d3e7725a691812d65ad70c7f1bc63eab9e8ed9f25473d1c37cee3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Proportional clarity/scope-check judgement from shared use/large impact, no new institutional power. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G6:-건대:P",
+      "taskId": "KP25:production:07",
+      "sourceHash": "7b8ae78f05dec97c6b19770455f1c575222fa976fe78818c6b5cc9b665a426c2",
+      "taskHash": "5be81349ebbf94c6ba32aa1e543422e66a42651426ffe619bce331fde29cb6ba",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Written speaker wish or assessment, not committee decision/court ruling. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP25:objective:grammar/G2:-기:P",
+      "taskId": "KP25:production:08",
+      "sourceHash": "a4356e634cc8da84655ce83c65ea01abfdafe07ac4030e579c10590a176cc8ed",
+      "taskHash": "8264beed6255a64f9272873c51111abfaa5cdc3ccf1e6c8f0d8e159998c817f0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Nominalised action confirms records-team date check or research-team reproduction goal, approval/distribution actor unknown. Goal not successful reproduction. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

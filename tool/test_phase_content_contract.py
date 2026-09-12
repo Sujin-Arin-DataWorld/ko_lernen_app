@@ -22,7 +22,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_grammar_production_is_separate_from_recognition(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:24]:
+        for phase in phases[:25]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id'] and ':production:' in t['id']]
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
             for task in tasks:
@@ -39,7 +39,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_phases_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:24]:
+        for phase in phases[:25]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
@@ -51,6 +51,9 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_a1_critical_time_quantity_and_polarity_criteria_are_required(self):
         tasks = {t['id']: t for t in build(ROOT)['tasks']}
         expected = {
+            'KP25:listening:01': {'scope', 'necessary', 'sufficient', 'proviso', 'claim', 'change', 'actor'},
+            'KP25:reading:01': {'definition', 'exception', 'boundary', 'right', 'summary', 'revision'},
+            'KP25:reading:02': {'boundary', 'count', 'causation', 'nominal', 'norm'},
             'KP17:listening:01': {'report', 'witness', 'command', 'question', 'turn', 'agreement'},
             'KP18:listening:01': {'metric', 'cause', 'objection', 'scope', 'regret', 'certainty', 'followup'},
             'KP18:reading:01': {'sources', 'measure', 'last', 'scale', 'claim', 'condition', 'purpose'},

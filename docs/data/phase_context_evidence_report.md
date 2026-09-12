@@ -300,14 +300,14 @@
 | KP24 | G5:이라든가 | 1 | 0 | 0 | 미검증 |
 | KP24 | G5:-길래 | 1 | 0 | 0 | 미검증 |
 | KP24 | G1:-으시- | 1 | 0 | 1 | 미검증 |
-| KP25 | G6:-는다는 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:-이라야 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:-되 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:를 막론하고 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:는 마당에 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:-느니만큼 | 0 | 0 | 0 | 미검증 |
-| KP25 | G6:-건대 | 0 | 0 | 0 | 미검증 |
-| KP25 | G2:-기 | 0 | 0 | 0 | 미검증 |
+| KP25 | G6:-는다는 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:-이라야 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:-되 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:를 막론하고 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:는 마당에 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:-느니만큼 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:-건대 | 1 | 0 | 0 | 미검증 |
+| KP25 | G2:-기 | 1 | 0 | 0 | 미검증 |
 | KP26 | G6:마는 | 0 | 0 | 0 | 미검증 |
 | KP26 | G6:-건만 | 0 | 0 | 0 | 미검증 |
 | KP26 | G6:-어 치우다 | 0 | 0 | 0 | 미검증 |
@@ -651,3 +651,11 @@
 - KP24 / G5:따라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/26/dialog/5/ko` — “네, 연령대에 따라 효과가 달라질 수 있어서 그 부분도 밝혀야 합니다.”. 기준에 따라 달라짐이며 오늘따라처럼 특정 시점이 유독 두드러지는 조사 용례가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
 - KP24 / G5:-거라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/1/ko` — “봤어. 그런데 그거 팬이 몰래 찍은 거라며.”. 찍은 것이라는 명사화·전언 결합이며 들어가거라 같은 명령 종결이 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
 - KP24 / G1:-으시- / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/24/dialog/4/ko` — “그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.”. 시 형태는 있지만 여기서 높이는 주체는 대화 상대다. KP24의 친밀한 청자 문체 속 제삼자 주체 높임 보존을 이 구절만으로 충족했다고 하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP25 / G6:-는다는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/0/practice/sourceKo` — “오차가 모두 사라진다는 주장은 아직 검증되지 않았다.”. 명제를 주장의 내용으로 수식하고 미검증 상태를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:-이라야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/1/practice/sourceKo` — “등록 연구원이라야 신청할 수 있다. 신청 후 별도 심사를 받는다.”. 등록이 신청 필요조건이며 별도 심사가 있어 승인 충분조건이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:-되 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/2/practice/sourceKo` — “요약은 공개하되 식별 정보는 제외한다.”. 공개 조치와 식별 정보 제외 단서가 함께 성립한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:를 막론하고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/3/practice/sourceKo` — “전공을 막론하고 등록 연구원은 신청할 수 있다.”. 전공 차이만 무관화하며 등록 요건은 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:는 마당에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/4/practice/sourceKo` — “정의부터 서로 다른 마당에 결과를 한데 묶을 수는 없다.”. 현재 정의 차이를 통합 유보 판단의 전제로 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:-느니만큼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/5/practice/sourceKo` — “여러 기관이 함께 쓰느니만큼 용어의 경계를 명시해야 한다.”. 공동 사용이라는 사정에 상응하는 명확화 요구다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G6:-건대 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/6/practice/sourceKo` — “내가 바라건대 검토가 여기서 멈추지 않았으면 한다.”. 문어적 틀로 화자의 희망을 밝히며 결정은 만들지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP25 / G2:-기 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/7/practice/sourceKo` — “기록팀은 제출 날짜 확인하기를 맡았다. 승인 주체는 적혀 있지 않다.”. 명사화한 날짜 확인 행동의 주체만 명시하며 승인자는 미상이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
