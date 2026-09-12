@@ -713,8 +713,41 @@
         "b1_06_life_capstone"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp12.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP12:grammar:01",
+        "KP12:grammar:02",
+        "KP12:grammar:03",
+        "KP12:grammar:04",
+        "KP12:grammar:05",
+        "KP12:grammar:06",
+        "KP12:grammar:07",
+        "KP12:grammar:08",
+        "KP12:grammar:09",
+        "KP12:grammar:10",
+        "KP12:grammar:11",
+        "KP12:grammar:12",
+        "KP12:grammar:13",
+        "KP12:production:01",
+        "KP12:production:02",
+        "KP12:production:03",
+        "KP12:production:04",
+        "KP12:production:05",
+        "KP12:production:06",
+        "KP12:production:07",
+        "KP12:production:08",
+        "KP12:production:09",
+        "KP12:production:10",
+        "KP12:production:11",
+        "KP12:production:12",
+        "KP12:production:13",
+        "KP12:listening:01",
+        "KP12:reading:01",
+        "KP12:reading:02",
+        "KP12:writing:01",
+        "KP12:speaking:01",
+        "KP12:speaking:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP13",
@@ -1199,5 +1232,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "b885cf70468a5cfacf433df3c3bf44c4a740c1a50221368d730dc47478322a69"
+  "phaseTaskSourceSha256": "e04556f0d88e167f3fb9f1b43cc01d13e7703a91d6508e66c8023dd56c3add4a"
 }

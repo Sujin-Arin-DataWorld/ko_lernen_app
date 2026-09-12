@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP12:grammar:01",
+      "sha256": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:01",
+      "sha256": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:02",
+      "sha256": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Necessary condition, not already fulfilled or sufficient for every other condition. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:02",
+      "sha256": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Necessary condition, not already fulfilled or sufficient for every other condition. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:03",
+      "sha256": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Emphatic necessary condition linked to result, not resolution-only 야지. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:03",
+      "sha256": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Emphatic necessary condition linked to result, not resolution-only 야지. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:04",
+      "sha256": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:04",
+      "sha256": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:05",
+      "sha256": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Condition to realise intention, not permission created by intention. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:05",
+      "sha256": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Condition to realise intention, not permission created by intention. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:06",
+      "sha256": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:06",
+      "sha256": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:07",
+      "sha256": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Explicit purpose, not proof of success or photo-publication permission. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:07",
+      "sha256": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Explicit purpose, not proof of success or photo-publication permission. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:08",
+      "sha256": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:08",
+      "sha256": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:09",
+      "sha256": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:09",
+      "sha256": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:10",
+      "sha256": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Prohibition versus absence of obligation and opposite mandatory action. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:10",
+      "sha256": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Prohibition versus absence of obligation and opposite mandatory action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:11",
+      "sha256": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Wish remains unconfirmed, not someone else’s promise. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:11",
+      "sha256": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Wish remains unconfirmed, not someone else’s promise. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:12",
+      "sha256": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Own intended commitment grounds a request to another, actor and requested action preserved. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:12",
+      "sha256": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Own intended commitment grounds a request to another, actor and requested action preserved. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:13",
+      "sha256": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Receptive sample only."
+    },
+    {
+      "taskId": "KP12:production:13",
+      "sha256": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:listening:01",
+      "sha256": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria."
+    },
+    {
+      "taskId": "KP12:reading:01",
+      "sha256": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test."
+    },
+    {
+      "taskId": "KP12:reading:02",
+      "sha256": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Connected procedure separates peer file check from staff permission, no response stays unapproved, reason notice does not automatically extend deadline. Purpose, authority, silence and extension required."
+    },
+    {
+      "taskId": "KP12:writing:01",
+      "sha256": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored."
+    },
+    {
+      "taskId": "KP12:speaking:01",
+      "sha256": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored."
+    },
+    {
+      "taskId": "KP12:speaking:02",
+      "sha256": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Separate formal job interview with fixed volunteer experience, limited input/seat-guidance role and no approval authority, unavailable teaching day and offered alternative. No invented career, decisions or final schedule; speech unscored."
+    }
+  ]
+}

@@ -11,7 +11,8 @@
     "KP08": "partial",
     "KP09": "partial",
     "KP10": "partial",
-    "KP11": "partial"
+    "KP11": "partial",
+    "KP12": "partial"
   },
   "tasks": [
     {
@@ -40190,6 +40191,3365 @@
         "questions": []
       },
       "contentHash": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2"
+    },
+    {
+      "id": "KP12:grammar:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:01",
+      "requirementKeys": [
+        "G3:-거든1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-거든1",
+        "en": "-거든1",
+        "de": "-거든1"
+      },
+      "teaching": {
+        "ko": "여기서는 뒤 요청이 실행될 조건을 앞에 제시해요. 문장 끝에서 이유를 설명하는 거든요와 구별해요.",
+        "en": "Here, the first clause sets a condition for the request, unlike sentence-final explanatory 거든요.",
+        "de": "Hier nennt der erste Satzteil eine Bedingung für die Bitte; das ist nicht das erklärende 거든요 am Satzende."
+      },
+      "examplesKo": [
+        "시간이 나거든 연락해 주세요.",
+        "자료가 준비되거든 알려 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "시간이 나거든 연락해 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "시간이 나는 경우 연락을 요청함"
+              },
+              {
+                "id": "1",
+                "text": "시간과 상관없이 즉시 연락하라고 명령함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 뒤 요청이 실행될 조건을 앞에 제시해요. 문장 끝에서 이유를 설명하는 거든요와 구별해요.",
+              "en": "Here, the first clause sets a condition for the request, unlike sentence-final explanatory 거든요.",
+              "de": "Hier nennt der erste Satzteil eine Bedingung für die Bitte; das ist nicht das erklärende 거든요 am Satzende."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "자료가 준비되거든 알려 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "자료 준비가 된 경우 알림 요청"
+              },
+              {
+                "id": "1",
+                "text": "자료 준비가 끝났다고 이미 확인함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 뒤 요청이 실행될 조건을 앞에 제시해요. 문장 끝에서 이유를 설명하는 거든요와 구별해요.",
+              "en": "Here, the first clause sets a condition for the request, unlike sentence-final explanatory 거든요.",
+              "de": "Hier nennt der erste Satzteil eine Bedingung für die Bitte; das ist nicht das erklärende 거든요 am Satzende."
+            }
+          }
+        ]
+      },
+      "contentHash": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764"
+    },
+    {
+      "id": "KP12:grammar:02",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:02",
+      "requirementKeys": [
+        "G3:-어야"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야",
+        "en": "-어야",
+        "de": "-어야"
+      },
+      "teaching": {
+        "ko": "결과에 필요한 조건을 나타내요. 필요한 조건 하나를 채웠다고 다른 조건도 모두 충족했다고 보지 않아요.",
+        "en": "State a necessary condition. Meeting one requirement does not imply that every other condition is met.",
+        "de": "Nenne eine notwendige Bedingung. Eine erfüllte Voraussetzung bedeutet nicht, dass alle übrigen erfüllt sind."
+      },
+      "examplesKo": [
+        "예약을 해야 들어갈 수 있어요.",
+        "허가를 받아야 자료를 공개할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "예약을 해야 들어갈 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "입장에 예약이 필요함"
+              },
+              {
+                "id": "1",
+                "text": "예약 없이도 반드시 입장 가능"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "결과에 필요한 조건을 나타내요. 필요한 조건 하나를 채웠다고 다른 조건도 모두 충족했다고 보지 않아요.",
+              "en": "State a necessary condition. Meeting one requirement does not imply that every other condition is met.",
+              "de": "Nenne eine notwendige Bedingung. Eine erfüllte Voraussetzung bedeutet nicht, dass alle übrigen erfüllt sind."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "허가를 받아야 자료를 공개할 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "공개에 허가가 필요함"
+              },
+              {
+                "id": "1",
+                "text": "허가를 이미 받았다고 확정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "결과에 필요한 조건을 나타내요. 필요한 조건 하나를 채웠다고 다른 조건도 모두 충족했다고 보지 않아요.",
+              "en": "State a necessary condition. Meeting one requirement does not imply that every other condition is met.",
+              "de": "Nenne eine notwendige Bedingung. Eine erfüllte Voraussetzung bedeutet nicht, dass alle übrigen erfüllt sind."
+            }
+          }
+        ]
+      },
+      "contentHash": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94"
+    },
+    {
+      "id": "KP12:grammar:03",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:03",
+      "requirementKeys": [
+        "G3:-어야지1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야지1",
+        "en": "-어야지1",
+        "de": "-어야지1"
+      },
+      "teaching": {
+        "ko": "필수 조건을 강조하며 뒤 결과와 연결해요. 여기서는 혼잣말의 결심만을 나타내는 용법과 구별해요.",
+        "en": "Emphasise a necessary condition linked to a result; this is not merely a self-directed resolution.",
+        "de": "Betone eine notwendige Bedingung für das Folgende; hier handelt es sich nicht bloß um einen selbstbezogenen Vorsatz."
+      },
+      "examplesKo": [
+        "서로 믿어야지 함께 일할 수 있어요.",
+        "역할을 정해야지 일을 나눌 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "서로 믿어야지 함께 일할 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 모두 서로 믿는다고 확인"
+              },
+              {
+                "id": "0",
+                "text": "함께 일하기 위한 신뢰의 필요성 강조"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "필수 조건을 강조하며 뒤 결과와 연결해요. 여기서는 혼잣말의 결심만을 나타내는 용법과 구별해요.",
+              "en": "Emphasise a necessary condition linked to a result; this is not merely a self-directed resolution.",
+              "de": "Betone eine notwendige Bedingung für das Folgende; hier handelt es sich nicht bloß um einen selbstbezogenen Vorsatz."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "역할을 정해야지 일을 나눌 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "역할을 정하지 않아야 업무 배분 가능"
+              },
+              {
+                "id": "0",
+                "text": "업무 배분에 역할 결정이 필요함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "필수 조건을 강조하며 뒤 결과와 연결해요. 여기서는 혼잣말의 결심만을 나타내는 용법과 구별해요.",
+              "en": "Emphasise a necessary condition linked to a result; this is not merely a self-directed resolution.",
+              "de": "Betone eine notwendige Bedingung für das Folgende; hier handelt es sich nicht bloß um einen selbstbezogenen Vorsatz."
+            }
+          }
+        ]
+      },
+      "contentHash": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7"
+    },
+    {
+      "id": "KP12:grammar:04",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:04",
+      "requirementKeys": [
+        "G3:-어야겠-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야겠-",
+        "en": "-어야겠-",
+        "de": "-어야겠-"
+      },
+      "teaching": {
+        "ko": "필요를 깨닫고 화자가 자기 결심을 말해요. 다른 사람에게 의무를 넘기거나 이미 실행했다고 바꾸지 않아요.",
+        "en": "The speaker recognises a need and resolves to act; do not transfer the obligation or claim completion.",
+        "de": "Die sprechende Person erkennt eine Notwendigkeit und fasst einen Vorsatz; übertrage die Pflicht nicht und behaupte keinen Abschluss."
+      },
+      "examplesKo": [
+        "이번에는 미리 준비해야겠어요.",
+        "제가 먼저 담당자에게 확인해야겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이번에는 제가 미리 준비해야겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 준비 필요를 깨닫고 결심함"
+              },
+              {
+                "id": "1",
+                "text": "동료가 이미 준비를 끝냈다고 말함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "필요를 깨닫고 화자가 자기 결심을 말해요. 다른 사람에게 의무를 넘기거나 이미 실행했다고 바꾸지 않아요.",
+              "en": "The speaker recognises a need and resolves to act; do not transfer the obligation or claim completion.",
+              "de": "Die sprechende Person erkennt eine Notwendigkeit und fasst einen Vorsatz; übertrage die Pflicht nicht und behaupte keinen Abschluss."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제가 먼저 담당자에게 확인해야겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 먼저 확인하기로 생각함"
+              },
+              {
+                "id": "1",
+                "text": "담당자가 화자의 일을 대신하기로 확정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "필요를 깨닫고 화자가 자기 결심을 말해요. 다른 사람에게 의무를 넘기거나 이미 실행했다고 바꾸지 않아요.",
+              "en": "The speaker recognises a need and resolves to act; do not transfer the obligation or claim completion.",
+              "de": "Die sprechende Person erkennt eine Notwendigkeit und fasst einen Vorsatz; übertrage die Pflicht nicht und behaupte keinen Abschluss."
+            }
+          }
+        ]
+      },
+      "contentHash": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb"
+    },
+    {
+      "id": "KP12:grammar:05",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:05",
+      "requirementKeys": [
+        "G3:-으려면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으려면",
+        "en": "-으려면",
+        "de": "-으려면"
+      },
+      "teaching": {
+        "ko": "하려는 목적을 실현하는 데 필요한 조건을 제시해요. 의도가 있다고 해서 이미 허가나 결과가 생긴 것은 아니에요.",
+        "en": "State a condition needed to achieve an intended goal. Intention itself is not permission or a completed result.",
+        "de": "Nenne eine Voraussetzung zum Erreichen eines beabsichtigten Ziels. Die Absicht allein ist weder Erlaubnis noch Ergebnis."
+      },
+      "examplesKo": [
+        "한국에서 일하려면 한국어가 필요해요.",
+        "함께 발표하려면 역할을 나누어야 해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 공간을 쓰려면 먼저 예약해야 해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "공간 사용 의도에 필요한 예약 조건"
+              },
+              {
+                "id": "1",
+                "text": "예약하지 않아야 사용할 수 있음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하려는 목적을 실현하는 데 필요한 조건을 제시해요. 의도가 있다고 해서 이미 허가나 결과가 생긴 것은 아니에요.",
+              "en": "State a condition needed to achieve an intended goal. Intention itself is not permission or a completed result.",
+              "de": "Nenne eine Voraussetzung zum Erreichen eines beabsichtigten Ziels. Die Absicht allein ist weder Erlaubnis noch Ergebnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "함께 발표하려면 역할을 나누어야 해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "공동 발표에 필요한 역할 분담"
+              },
+              {
+                "id": "1",
+                "text": "발표가 이미 끝났다는 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하려는 목적을 실현하는 데 필요한 조건을 제시해요. 의도가 있다고 해서 이미 허가나 결과가 생긴 것은 아니에요.",
+              "en": "State a condition needed to achieve an intended goal. Intention itself is not permission or a completed result.",
+              "de": "Nenne eine Voraussetzung zum Erreichen eines beabsichtigten Ziels. Die Absicht allein ist weder Erlaubnis noch Ergebnis."
+            }
+          }
+        ]
+      },
+      "contentHash": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07"
+    },
+    {
+      "id": "KP12:grammar:06",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:06",
+      "requirementKeys": [
+        "G3:-도록"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-도록",
+        "en": "-도록",
+        "de": "-도록"
+      },
+      "teaching": {
+        "ko": "뒤 행동이 겨냥하는 목적이나 결과를 말해요. 목적을 세웠다는 사실만으로 실제 달성을 보증하지 않아요.",
+        "en": "State the purpose or intended result of an action. An aim is not proof that it was achieved.",
+        "de": "Nenne Zweck oder angestrebtes Ergebnis einer Handlung. Eine Absicht beweist nicht ihre Verwirklichung."
+      },
+      "examplesKo": [
+        "모두 참여할 수 있도록 시간을 바꿨어요.",
+        "잘 들리도록 문을 닫았어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모두 참여할 수 있도록 시간을 바꿨어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모두 실제로 참석했다고 확정함"
+              },
+              {
+                "id": "0",
+                "text": "모두의 참여 가능성을 위한 시간 변경"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "뒤 행동이 겨냥하는 목적이나 결과를 말해요. 목적을 세웠다는 사실만으로 실제 달성을 보증하지 않아요.",
+              "en": "State the purpose or intended result of an action. An aim is not proof that it was achieved.",
+              "de": "Nenne Zweck oder angestrebtes Ergebnis einer Handlung. Eine Absicht beweist nicht ihre Verwirklichung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "잘 들리도록 문을 닫았어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 사람이 실제로 이해했다는 보증"
+              },
+              {
+                "id": "0",
+                "text": "잘 듣게 하려는 목적의 행동"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "뒤 행동이 겨냥하는 목적이나 결과를 말해요. 목적을 세웠다는 사실만으로 실제 달성을 보증하지 않아요.",
+              "en": "State the purpose or intended result of an action. An aim is not proof that it was achieved.",
+              "de": "Nenne Zweck oder angestrebtes Ergebnis einer Handlung. Eine Absicht beweist nicht ihre Verwirklichung."
+            }
+          }
+        ]
+      },
+      "contentHash": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc"
+    },
+    {
+      "id": "KP12:grammar:07",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:07",
+      "requirementKeys": [
+        "G3:-기 위해"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 위해",
+        "en": "-기 위해",
+        "de": "-기 위해"
+      },
+      "teaching": {
+        "ko": "행동의 목적을 명시해요. 목적은 동기이지 그 결과가 이미 달성됐다는 증거가 아니에요.",
+        "en": "Name the purpose of an action; a purpose is not evidence that the desired outcome is already achieved.",
+        "de": "Nenne den Zweck einer Handlung; der Zweck belegt nicht, dass das gewünschte Ergebnis schon erreicht wurde."
+      },
+      "examplesKo": [
+        "건강을 지키기 위해 운동해요.",
+        "혼란을 줄이기 위해 안내문을 썼어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "기록을 남기기 위해 사진을 찍었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기록 보존이 촬영 목적"
+              },
+              {
+                "id": "1",
+                "text": "촬영했으므로 공개 허가도 받음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동의 목적을 명시해요. 목적은 동기이지 그 결과가 이미 달성됐다는 증거가 아니에요.",
+              "en": "Name the purpose of an action; a purpose is not evidence that the desired outcome is already achieved.",
+              "de": "Nenne den Zweck einer Handlung; der Zweck belegt nicht, dass das gewünschte Ergebnis schon erreicht wurde."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "혼란을 줄이기 위해 안내문을 썼어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "혼란이 완전히 사라졌다고 확인"
+              },
+              {
+                "id": "0",
+                "text": "혼란 감소를 목적으로 작성함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동의 목적을 명시해요. 목적은 동기이지 그 결과가 이미 달성됐다는 증거가 아니에요.",
+              "en": "Name the purpose of an action; a purpose is not evidence that the desired outcome is already achieved.",
+              "de": "Nenne den Zweck einer Handlung; der Zweck belegt nicht, dass das gewünschte Ergebnis schon erreicht wurde."
+            }
+          }
+        ]
+      },
+      "contentHash": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a"
+    },
+    {
+      "id": "KP12:grammar:08",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:08",
+      "requirementKeys": [
+        "G3:-게 하다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-게 하다",
+        "en": "-게 하다",
+        "de": "-게 하다"
+      },
+      "teaching": {
+        "ko": "누군가가 다른 사람의 행동을 유발하거나 허용해요. 문맥에서 지시와 허용을 구별하고 실제 권한을 추가하지 않아요.",
+        "en": "Someone causes or allows another person to act. Distinguish instruction from permission in context and invent no authority.",
+        "de": "Eine Person veranlasst oder erlaubt die Handlung einer anderen. Unterscheide Anweisung und Erlaubnis im Kontext und erfinde keine Befugnis."
+      },
+      "examplesKo": [
+        "선생님은 학생들이 직접 고르게 하셨어요.",
+        "담당자는 참가자들이 먼저 질문하게 했어요. 질문 시간을 준 거예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "교사는 학생들이 주제를 직접 고르게 했어요. 학생들에게 선택을 맡긴 거예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "교사가 학생 대신 모든 주제를 정함"
+              },
+              {
+                "id": "0",
+                "text": "교사가 학생의 직접 선택을 허용함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누군가가 다른 사람의 행동을 유발하거나 허용해요. 문맥에서 지시와 허용을 구별하고 실제 권한을 추가하지 않아요.",
+              "en": "Someone causes or allows another person to act. Distinguish instruction from permission in context and invent no authority.",
+              "de": "Eine Person veranlasst oder erlaubt die Handlung einer anderen. Unterscheide Anweisung und Erlaubnis im Kontext und erfinde keine Befugnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "담당자는 참가자들이 먼저 질문하게 했어요. 질문 시간을 준 거예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참가자에게 먼저 질문할 기회를 줌"
+              },
+              {
+                "id": "1",
+                "text": "참가자의 질문을 금지함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누군가가 다른 사람의 행동을 유발하거나 허용해요. 문맥에서 지시와 허용을 구별하고 실제 권한을 추가하지 않아요.",
+              "en": "Someone causes or allows another person to act. Distinguish instruction from permission in context and invent no authority.",
+              "de": "Eine Person veranlasst oder erlaubt die Handlung einer anderen. Unterscheide Anweisung und Erlaubnis im Kontext und erfinde keine Befugnis."
+            }
+          }
+        ]
+      },
+      "contentHash": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9"
+    },
+    {
+      "id": "KP12:grammar:09",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:09",
+      "requirementKeys": [
+        "G3:-어 드리다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 드리다",
+        "en": "-어 드리다",
+        "de": "-어 드리다"
+      },
+      "teaching": {
+        "ko": "높이는 상대를 위해 하는 행동을 나타내요. 이 예에서는 화자가 행동해요. 주체와 수혜자를 바꾸거나 화자 자신을 높이지 않아요.",
+        "en": "In these examples, the speaker acts for a respected recipient. Preserve actor and beneficiary; the form does not honour the speaker.",
+        "de": "In diesen Beispielen handelt die sprechende Person zugunsten einer respektierten Person. Erhalte Handelnden und Begünstigten; die Form erhöht nicht die sprechende Person selbst."
+      },
+      "examplesKo": [
+        "선생님께 자료를 보내 드렸어요.",
+        "제가 담당자께 일정을 알려 드렸어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "제가 선생님께 자료를 보내 드렸어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 선생님을 위해 보냄"
+              },
+              {
+                "id": "1",
+                "text": "선생님이 화자에게 보내 줌"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "높이는 상대를 위해 하는 행동을 나타내요. 이 예에서는 화자가 행동해요. 주체와 수혜자를 바꾸거나 화자 자신을 높이지 않아요.",
+              "en": "In these examples, the speaker acts for a respected recipient. Preserve actor and beneficiary; the form does not honour the speaker.",
+              "de": "In diesen Beispielen handelt die sprechende Person zugunsten einer respektierten Person. Erhalte Handelnden und Begünstigten; die Form erhöht nicht die sprechende Person selbst."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제가 담당자께 일정을 알려 드렸어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 담당자에게 알림"
+              },
+              {
+                "id": "1",
+                "text": "담당자가 화자에게 알림"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "높이는 상대를 위해 하는 행동을 나타내요. 이 예에서는 화자가 행동해요. 주체와 수혜자를 바꾸거나 화자 자신을 높이지 않아요.",
+              "en": "In these examples, the speaker acts for a respected recipient. Preserve actor and beneficiary; the form does not honour the speaker.",
+              "de": "In diesen Beispielen handelt die sprechende Person zugunsten einer respektierten Person. Erhalte Handelnden und Begünstigten; die Form erhöht nicht die sprechende Person selbst."
+            }
+          }
+        ]
+      },
+      "contentHash": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff"
+    },
+    {
+      "id": "KP12:grammar:10",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:10",
+      "requirementKeys": [
+        "G3:-으면 안 되다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 안 되다",
+        "en": "-으면 안 되다",
+        "de": "-으면 안 되다"
+      },
+      "teaching": {
+        "ko": "행동을 하면 안 된다는 금지·불가예요. 하지 않아도 된다는 의무 없음과 구별해요.",
+        "en": "Express prohibition, not absence of obligation. Must not differs from need not.",
+        "de": "Drücke ein Verbot aus, nicht das Fehlen einer Pflicht. Nicht dürfen ist etwas anderes als nicht müssen."
+      },
+      "examplesKo": [
+        "여기에서 기다리면 안 돼요.",
+        "여기에 물건을 놓으면 안 돼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "허가 없이 사진을 공개하면 안 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "공개는 선택이라 허가가 없어도 됨"
+              },
+              {
+                "id": "0",
+                "text": "허가 없는 공개가 금지됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동을 하면 안 된다는 금지·불가예요. 하지 않아도 된다는 의무 없음과 구별해요.",
+              "en": "Express prohibition, not absence of obligation. Must not differs from need not.",
+              "de": "Drücke ein Verbot aus, nicht das Fehlen einer Pflicht. Nicht dürfen ist etwas anderes als nicht müssen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "여기에 물건을 놓으면 안 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "해당 장소에 물건 두기 금지"
+              },
+              {
+                "id": "1",
+                "text": "반드시 여기에 물건을 두어야 함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동을 하면 안 된다는 금지·불가예요. 하지 않아도 된다는 의무 없음과 구별해요.",
+              "en": "Express prohibition, not absence of obligation. Must not differs from need not.",
+              "de": "Drücke ein Verbot aus, nicht das Fehlen einer Pflicht. Nicht dürfen ist etwas anderes als nicht müssen."
+            }
+          }
+        ]
+      },
+      "contentHash": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378"
+    },
+    {
+      "id": "KP12:grammar:11",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:11",
+      "requirementKeys": [
+        "G3:-으면 좋겠다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 좋겠다",
+        "en": "-으면 좋겠다",
+        "de": "-으면 좋겠다"
+      },
+      "teaching": {
+        "ko": "원하는 상황을 완곡하게 말해요. 희망을 상대의 의무나 이미 정한 약속으로 바꾸지 않아요.",
+        "en": "Express a wish gently; a wish is neither another person’s obligation nor an agreed commitment.",
+        "de": "Äußere einen Wunsch zurückhaltend; er ist weder Pflicht der anderen Person noch vereinbarte Zusage."
+      },
+      "examplesKo": [
+        "모두 함께할 수 있으면 좋겠어요.",
+        "이번 주에 답을 받을 수 있으면 좋겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모두 함께할 수 있으면 좋겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "모두 함께하기를 바람"
+              },
+              {
+                "id": "1",
+                "text": "모두 참석을 이미 확정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원하는 상황을 완곡하게 말해요. 희망을 상대의 의무나 이미 정한 약속으로 바꾸지 않아요.",
+              "en": "Express a wish gently; a wish is neither another person’s obligation nor an agreed commitment.",
+              "de": "Äußere einen Wunsch zurückhaltend; er ist weder Pflicht der anderen Person noch vereinbarte Zusage."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이번 주에 답을 받을 수 있으면 좋겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "상대가 이번 주 회신을 약속함"
+              },
+              {
+                "id": "0",
+                "text": "이번 주 회신을 희망함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "원하는 상황을 완곡하게 말해요. 희망을 상대의 의무나 이미 정한 약속으로 바꾸지 않아요.",
+              "en": "Express a wish gently; a wish is neither another person’s obligation nor an agreed commitment.",
+              "de": "Äußere einen Wunsch zurückhaltend; er ist weder Pflicht der anderen Person noch vereinbarte Zusage."
+            }
+          }
+        ]
+      },
+      "contentHash": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece"
+    },
+    {
+      "id": "KP12:grammar:12",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:12",
+      "requirementKeys": [
+        "G3:-을 테니"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테니",
+        "en": "-을 테니",
+        "de": "-을 테니"
+      },
+      "teaching": {
+        "ko": "화자의 의지나 예상을 바탕으로 뒤 요청을 연결해요. 여기서는 화자의 약속과 청자에게 하는 부탁을 따로 확인해요.",
+        "en": "A speaker’s intention or expectation grounds a request. Here, separate the speaker’s commitment from the request to the listener.",
+        "de": "Absicht oder Erwartung der sprechenden Person begründet eine Bitte. Trenne hier ihre Zusage von der Bitte an die zuhörende Person."
+      },
+      "examplesKo": [
+        "제가 확인할 테니 잠시 기다려 주세요.",
+        "제가 정리할 테니 번호를 알려 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "제가 확인할 테니 잠시 기다려 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "청자가 확인하고 화자가 기다리기로 함"
+              },
+              {
+                "id": "0",
+                "text": "화자가 확인하고 청자에게 기다림 요청"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자의 의지나 예상을 바탕으로 뒤 요청을 연결해요. 여기서는 화자의 약속과 청자에게 하는 부탁을 따로 확인해요.",
+              "en": "A speaker’s intention or expectation grounds a request. Here, separate the speaker’s commitment from the request to the listener.",
+              "de": "Absicht oder Erwartung der sprechenden Person begründet eine Bitte. Trenne hier ihre Zusage von der Bitte an die zuhörende Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제가 정리할 테니 번호를 알려 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 이미 정리를 끝냈다는 뜻"
+              },
+              {
+                "id": "0",
+                "text": "화자는 정리, 청자에게 번호 알림 요청"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자의 의지나 예상을 바탕으로 뒤 요청을 연결해요. 여기서는 화자의 약속과 청자에게 하는 부탁을 따로 확인해요.",
+              "en": "A speaker’s intention or expectation grounds a request. Here, separate the speaker’s commitment from the request to the listener.",
+              "de": "Absicht oder Erwartung der sprechenden Person begründet eine Bitte. Trenne hier ihre Zusage von der Bitte an die zuhörende Person."
+            }
+          }
+        ]
+      },
+      "contentHash": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5"
+    },
+    {
+      "id": "KP12:grammar:13",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:grammar:13",
+      "requirementKeys": [
+        "G3:만 아니면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만 아니면",
+        "en": "만 아니면",
+        "de": "만 아니면"
+      },
+      "teaching": {
+        "ko": "하나의 방해 조건을 제외해 가정해요. 본문에 다른 조건이 있다면 그 조건까지 사라지는 것은 아니에요.",
+        "en": "Suppose one obstacle is absent. Other conditions stated in the text still apply.",
+        "de": "Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin."
+      },
+      "examplesKo": [
+        "비만 아니면 밖에서 할 수 있어요.",
+        "월요일만 아니면 시간을 낼 수 있어요. 최종 일정은 서로 확인해야 해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "비만 아니면 밖에서 할 수 있어요. 장소 예약은 따로 필요해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "비만 안 오면 예약도 자동 면제"
+              },
+              {
+                "id": "0",
+                "text": "비가 아니어도 예약 조건은 남음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하나의 방해 조건을 제외해 가정해요. 본문에 다른 조건이 있다면 그 조건까지 사라지는 것은 아니에요.",
+              "en": "Suppose one obstacle is absent. Other conditions stated in the text still apply.",
+              "de": "Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "월요일만 아니면 시간을 낼 수 있어요. 최종 일정은 서로 확인해야 해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "월요일 외 날짜도 상호 일정 확인 필요"
+              },
+              {
+                "id": "1",
+                "text": "월요일 외 날짜는 모두 이미 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "하나의 방해 조건을 제외해 가정해요. 본문에 다른 조건이 있다면 그 조건까지 사라지는 것은 아니에요.",
+              "en": "Suppose one obstacle is absent. Other conditions stated in the text still apply.",
+              "de": "Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin."
+            }
+          }
+        ]
+      },
+      "contentHash": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f"
+    },
+    {
+      "id": "KP12:production:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:01",
+      "requirementKeys": [
+        "G3:-거든1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-거든1 문장 만들기",
+        "en": "-거든1: write a sentence",
+        "de": "-거든1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "여기서는 뒤 요청이 실행될 조건을 앞에 제시해요. 문장 끝에서 이유를 설명하는 거든요와 구별해요.",
+        "en": "Here, the first clause sets a condition for the request, unlike sentence-final explanatory 거든요.",
+        "de": "Hier nennt der erste Satzteil eine Bedingung für die Bitte; das ist nicht das erklärende 거든요 am Satzende."
+      },
+      "examplesKo": [
+        "시간이 나거든 연락해 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "조건부 부탁 / 시간이 나다 → 연락해 주다 / -거든 / -세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "시간이 나거든 연락해 주세요."
+            ],
+            "rejectedAnswers": [
+              "시간이 없어도 지금 연락하세요."
+            ],
+            "explanation": {
+              "ko": "예: 시간이 나거든 연락해 주세요. 의미가 다른 예: 시간이 없어도 지금 연락하세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 시간이 나거든 연락해 주세요. Meaning or register error: 시간이 없어도 지금 연락하세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 시간이 나거든 연락해 주세요. Fehler bei Bedeutung oder Register: 시간이 없어도 지금 연락하세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "조건부 부탁 / 자료가 준비되다 → 알려 주다 / -거든 / -세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "자료가 준비되거든 알려 주세요."
+            ],
+            "rejectedAnswers": [
+              "자료가 준비되지 않아도 완료라고 알려 주세요."
+            ],
+            "explanation": {
+              "ko": "예: 자료가 준비되거든 알려 주세요. 의미가 다른 예: 자료가 준비되지 않아도 완료라고 알려 주세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 자료가 준비되거든 알려 주세요. Meaning or register error: 자료가 준비되지 않아도 완료라고 알려 주세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 자료가 준비되거든 알려 주세요. Fehler bei Bedeutung oder Register: 자료가 준비되지 않아도 완료라고 알려 주세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306"
+    },
+    {
+      "id": "KP12:production:02",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:02",
+      "requirementKeys": [
+        "G3:-어야"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야 문장 만들기",
+        "en": "-어야: write a sentence",
+        "de": "-어야: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "결과에 필요한 조건을 나타내요. 필요한 조건 하나를 채웠다고 다른 조건도 모두 충족했다고 보지 않아요.",
+        "en": "State a necessary condition. Meeting one requirement does not imply that every other condition is met.",
+        "de": "Nenne eine notwendige Bedingung. Eine erfüllte Voraussetzung bedeutet nicht, dass alle übrigen erfüllt sind."
+      },
+      "examplesKo": [
+        "예약을 해야 들어갈 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "필수 조건 / 예약을 하다 → 들어갈 수 있다 / -어야 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "예약을 해야 들어갈 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "예약을 하지 않아야 들어갈 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 예약을 해야 들어갈 수 있어요. 의미가 다른 예: 예약을 하지 않아야 들어갈 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 예약을 해야 들어갈 수 있어요. Meaning or register error: 예약을 하지 않아야 들어갈 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 예약을 해야 들어갈 수 있어요. Fehler bei Bedeutung oder Register: 예약을 하지 않아야 들어갈 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "필수 조건 / 허가를 받다 → 자료를 공개할 수 있다 / -아야 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "허가를 받아야 자료를 공개할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "허가를 받지 않아도 자료를 공개할 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 허가를 받아야 자료를 공개할 수 있어요. 의미가 다른 예: 허가를 받지 않아도 자료를 공개할 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 허가를 받아야 자료를 공개할 수 있어요. Meaning or register error: 허가를 받지 않아도 자료를 공개할 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 허가를 받아야 자료를 공개할 수 있어요. Fehler bei Bedeutung oder Register: 허가를 받지 않아도 자료를 공개할 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86"
+    },
+    {
+      "id": "KP12:production:03",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:03",
+      "requirementKeys": [
+        "G3:-어야지1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야지1 문장 만들기",
+        "en": "-어야지1: write a sentence",
+        "de": "-어야지1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "필수 조건을 강조하며 뒤 결과와 연결해요. 여기서는 혼잣말의 결심만을 나타내는 용법과 구별해요.",
+        "en": "Emphasise a necessary condition linked to a result; this is not merely a self-directed resolution.",
+        "de": "Betone eine notwendige Bedingung für das Folgende; hier handelt es sich nicht bloß um einen selbstbezogenen Vorsatz."
+      },
+      "examplesKo": [
+        "서로 믿어야지 함께 일할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "필수 조건 강조 / 서로 믿다 → 함께 일할 수 있다 / -어야지 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "서로 믿어야지 함께 일할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "서로 믿지 않아야 함께 일할 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 서로 믿어야지 함께 일할 수 있어요. 의미가 다른 예: 서로 믿지 않아야 함께 일할 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 서로 믿어야지 함께 일할 수 있어요. Meaning or register error: 서로 믿지 않아야 함께 일할 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 서로 믿어야지 함께 일할 수 있어요. Fehler bei Bedeutung oder Register: 서로 믿지 않아야 함께 일할 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "필수 조건 강조 / 역할을 정하다 → 일을 나눌 수 있다 / -어야지 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "역할을 정해야지 일을 나눌 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "역할을 정하지 않아야 일을 나눌 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 역할을 정해야지 일을 나눌 수 있어요. 의미가 다른 예: 역할을 정하지 않아야 일을 나눌 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 역할을 정해야지 일을 나눌 수 있어요. Meaning or register error: 역할을 정하지 않아야 일을 나눌 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 역할을 정해야지 일을 나눌 수 있어요. Fehler bei Bedeutung oder Register: 역할을 정하지 않아야 일을 나눌 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855"
+    },
+    {
+      "id": "KP12:production:04",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:04",
+      "requirementKeys": [
+        "G3:-어야겠-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야겠- 문장 만들기",
+        "en": "-어야겠-: write a sentence",
+        "de": "-어야겠-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "필요를 깨닫고 화자가 자기 결심을 말해요. 다른 사람에게 의무를 넘기거나 이미 실행했다고 바꾸지 않아요.",
+        "en": "The speaker recognises a need and resolves to act; do not transfer the obligation or claim completion.",
+        "de": "Die sprechende Person erkennt eine Notwendigkeit und fasst einen Vorsatz; übertrage die Pflicht nicht und behaupte keinen Abschluss."
+      },
+      "examplesKo": [
+        "이번에는 제가 미리 준비해야겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "내 결심 / 이번에는 제가 미리 준비하다 / -어야겠- / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이번에는 제가 미리 준비해야겠어요."
+            ],
+            "rejectedAnswers": [
+              "이번에는 동료가 이미 준비를 끝냈어요."
+            ],
+            "explanation": {
+              "ko": "예: 이번에는 제가 미리 준비해야겠어요. 의미가 다른 예: 이번에는 동료가 이미 준비를 끝냈어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이번에는 제가 미리 준비해야겠어요. Meaning or register error: 이번에는 동료가 이미 준비를 끝냈어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이번에는 제가 미리 준비해야겠어요. Fehler bei Bedeutung oder Register: 이번에는 동료가 이미 준비를 끝냈어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "내 결심 / 제가 먼저 담당자에게 확인하다 / -어야겠- / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 먼저 담당자에게 확인해야겠어요."
+            ],
+            "rejectedAnswers": [
+              "담당자가 제 일을 대신하기로 했어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 먼저 담당자에게 확인해야겠어요. 의미가 다른 예: 담당자가 제 일을 대신하기로 했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 먼저 담당자에게 확인해야겠어요. Meaning or register error: 담당자가 제 일을 대신하기로 했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 먼저 담당자에게 확인해야겠어요. Fehler bei Bedeutung oder Register: 담당자가 제 일을 대신하기로 했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6"
+    },
+    {
+      "id": "KP12:production:05",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:05",
+      "requirementKeys": [
+        "G3:-으려면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으려면 문장 만들기",
+        "en": "-으려면: write a sentence",
+        "de": "-으려면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "하려는 목적을 실현하는 데 필요한 조건을 제시해요. 의도가 있다고 해서 이미 허가나 결과가 생긴 것은 아니에요.",
+        "en": "State a condition needed to achieve an intended goal. Intention itself is not permission or a completed result.",
+        "de": "Nenne eine Voraussetzung zum Erreichen eines beabsichtigten Ziels. Die Absicht allein ist weder Erlaubnis noch Ergebnis."
+      },
+      "examplesKo": [
+        "이 공간을 쓰려면 먼저 예약해야 해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "의도 실현 조건 / 이 공간을 쓰다 → 먼저 예약해야 하다 / -려면 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 공간을 쓰려면 먼저 예약해야 해요."
+            ],
+            "rejectedAnswers": [
+              "이 공간을 쓰려면 예약하지 않아야 해요."
+            ],
+            "explanation": {
+              "ko": "예: 이 공간을 쓰려면 먼저 예약해야 해요. 의미가 다른 예: 이 공간을 쓰려면 예약하지 않아야 해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 공간을 쓰려면 먼저 예약해야 해요. Meaning or register error: 이 공간을 쓰려면 예약하지 않아야 해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 공간을 쓰려면 먼저 예약해야 해요. Fehler bei Bedeutung oder Register: 이 공간을 쓰려면 예약하지 않아야 해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "의도 실현 조건 / 함께 발표하다 → 역할을 나누어야 하다 / -려면 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "함께 발표하려면 역할을 나누어야 해요."
+            ],
+            "rejectedAnswers": [
+              "함께 발표하려면 역할을 나누면 안 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 함께 발표하려면 역할을 나누어야 해요. 의미가 다른 예: 함께 발표하려면 역할을 나누면 안 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 함께 발표하려면 역할을 나누어야 해요. Meaning or register error: 함께 발표하려면 역할을 나누면 안 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 함께 발표하려면 역할을 나누어야 해요. Fehler bei Bedeutung oder Register: 함께 발표하려면 역할을 나누면 안 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6"
+    },
+    {
+      "id": "KP12:production:06",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:06",
+      "requirementKeys": [
+        "G3:-도록"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-도록 문장 만들기",
+        "en": "-도록: write a sentence",
+        "de": "-도록: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "뒤 행동이 겨냥하는 목적이나 결과를 말해요. 목적을 세웠다는 사실만으로 실제 달성을 보증하지 않아요.",
+        "en": "State the purpose or intended result of an action. An aim is not proof that it was achieved.",
+        "de": "Nenne Zweck oder angestrebtes Ergebnis einer Handlung. Eine Absicht beweist nicht ihre Verwirklichung."
+      },
+      "examplesKo": [
+        "모두 참여할 수 있도록 시간을 바꾸었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "목적 / 모두 참여할 수 있다 → 시간을 바꾸다 / -도록 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "모두 참여할 수 있도록 시간을 바꾸었어요."
+            ],
+            "rejectedAnswers": [
+              "시간을 바꾸어서 모두 참석한 것이 확정됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 모두 참여할 수 있도록 시간을 바꾸었어요. 의미가 다른 예: 시간을 바꾸어서 모두 참석한 것이 확정됐어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 모두 참여할 수 있도록 시간을 바꾸었어요. Meaning or register error: 시간을 바꾸어서 모두 참석한 것이 확정됐어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 모두 참여할 수 있도록 시간을 바꾸었어요. Fehler bei Bedeutung oder Register: 시간을 바꾸어서 모두 참석한 것이 확정됐어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "목적 / 잘 들리다 → 문을 닫다 / -도록 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "잘 들리도록 문을 닫았어요."
+            ],
+            "rejectedAnswers": [
+              "문을 닫아서 모두 이해한 것이 확정됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 잘 들리도록 문을 닫았어요. 의미가 다른 예: 문을 닫아서 모두 이해한 것이 확정됐어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 잘 들리도록 문을 닫았어요. Meaning or register error: 문을 닫아서 모두 이해한 것이 확정됐어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 잘 들리도록 문을 닫았어요. Fehler bei Bedeutung oder Register: 문을 닫아서 모두 이해한 것이 확정됐어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814"
+    },
+    {
+      "id": "KP12:production:07",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:07",
+      "requirementKeys": [
+        "G3:-기 위해"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 위해 문장 만들기",
+        "en": "-기 위해: write a sentence",
+        "de": "-기 위해: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "행동의 목적을 명시해요. 목적은 동기이지 그 결과가 이미 달성됐다는 증거가 아니에요.",
+        "en": "Name the purpose of an action; a purpose is not evidence that the desired outcome is already achieved.",
+        "de": "Nenne den Zweck einer Handlung; der Zweck belegt nicht, dass das gewünschte Ergebnis schon erreicht wurde."
+      },
+      "examplesKo": [
+        "기록을 남기기 위해 사진을 찍었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "목적 / 기록을 남기다 → 사진을 찍다 / -기 위해 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "기록을 남기기 위해 사진을 찍었어요."
+            ],
+            "rejectedAnswers": [
+              "사진을 찍어서 공개 허가를 받았어요."
+            ],
+            "explanation": {
+              "ko": "예: 기록을 남기기 위해 사진을 찍었어요. 의미가 다른 예: 사진을 찍어서 공개 허가를 받았어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 기록을 남기기 위해 사진을 찍었어요. Meaning or register error: 사진을 찍어서 공개 허가를 받았어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 기록을 남기기 위해 사진을 찍었어요. Fehler bei Bedeutung oder Register: 사진을 찍어서 공개 허가를 받았어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "목적 / 혼란을 줄이다 → 안내문을 쓰다 / -기 위해 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "혼란을 줄이기 위해 안내문을 썼어요."
+            ],
+            "rejectedAnswers": [
+              "안내문을 써서 혼란이 완전히 사라졌어요."
+            ],
+            "explanation": {
+              "ko": "예: 혼란을 줄이기 위해 안내문을 썼어요. 의미가 다른 예: 안내문을 써서 혼란이 완전히 사라졌어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 혼란을 줄이기 위해 안내문을 썼어요. Meaning or register error: 안내문을 써서 혼란이 완전히 사라졌어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 혼란을 줄이기 위해 안내문을 썼어요. Fehler bei Bedeutung oder Register: 안내문을 써서 혼란이 완전히 사라졌어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e"
+    },
+    {
+      "id": "KP12:production:08",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:08",
+      "requirementKeys": [
+        "G3:-게 하다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-게 하다 문장 만들기",
+        "en": "-게 하다: write a sentence",
+        "de": "-게 하다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "누군가가 다른 사람의 행동을 유발하거나 허용해요. 문맥에서 지시와 허용을 구별하고 실제 권한을 추가하지 않아요.",
+        "en": "Someone causes or allows another person to act. Distinguish instruction from permission in context and invent no authority.",
+        "de": "Eine Person veranlasst oder erlaubt die Handlung einer anderen. Unterscheide Anweisung und Erlaubnis im Kontext und erfinde keine Befugnis."
+      },
+      "examplesKo": [
+        "교사는 학생들이 주제를 직접 고르게 했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "교사의 허용 / 교사는 학생들이 주제를 직접 고르다 / -게 하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "교사는 학생들이 주제를 직접 고르게 했어요."
+            ],
+            "rejectedAnswers": [
+              "교사는 학생들 대신 주제를 모두 정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 교사는 학생들이 주제를 직접 고르게 했어요. 의미가 다른 예: 교사는 학생들 대신 주제를 모두 정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 교사는 학생들이 주제를 직접 고르게 했어요. Meaning or register error: 교사는 학생들 대신 주제를 모두 정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 교사는 학생들이 주제를 직접 고르게 했어요. Fehler bei Bedeutung oder Register: 교사는 학생들 대신 주제를 모두 정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "담당자의 허용 / 담당자는 참가자들이 먼저 질문하다 / -게 하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "담당자는 참가자들이 먼저 질문하게 했어요."
+            ],
+            "rejectedAnswers": [
+              "담당자는 참가자들이 질문하지 못하게 했어요."
+            ],
+            "explanation": {
+              "ko": "예: 담당자는 참가자들이 먼저 질문하게 했어요. 의미가 다른 예: 담당자는 참가자들이 질문하지 못하게 했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 담당자는 참가자들이 먼저 질문하게 했어요. Meaning or register error: 담당자는 참가자들이 질문하지 못하게 했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 담당자는 참가자들이 먼저 질문하게 했어요. Fehler bei Bedeutung oder Register: 담당자는 참가자들이 질문하지 못하게 했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f"
+    },
+    {
+      "id": "KP12:production:09",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:09",
+      "requirementKeys": [
+        "G3:-어 드리다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 드리다 문장 만들기",
+        "en": "-어 드리다: write a sentence",
+        "de": "-어 드리다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "높이는 상대를 위해 하는 행동을 나타내요. 이 예에서는 화자가 행동해요. 주체와 수혜자를 바꾸거나 화자 자신을 높이지 않아요.",
+        "en": "In these examples, the speaker acts for a respected recipient. Preserve actor and beneficiary; the form does not honour the speaker.",
+        "de": "In diesen Beispielen handelt die sprechende Person zugunsten einer respektierten Person. Erhalte Handelnden und Begünstigten; die Form erhöht nicht die sprechende Person selbst."
+      },
+      "examplesKo": [
+        "제가 선생님께 자료를 보내 드렸어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "행동 주체는 나, 수혜자는 선생님 / 제가 선생님께 자료를 보내다 / -어 드리다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 선생님께 자료를 보내 드렸어요."
+            ],
+            "rejectedAnswers": [
+              "선생님이 저에게 자료를 보내 주셨어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 선생님께 자료를 보내 드렸어요. 의미가 다른 예: 선생님이 저에게 자료를 보내 주셨어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 선생님께 자료를 보내 드렸어요. Meaning or register error: 선생님이 저에게 자료를 보내 주셨어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 선생님께 자료를 보내 드렸어요. Fehler bei Bedeutung oder Register: 선생님이 저에게 자료를 보내 주셨어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "행동 주체는 나, 수혜자는 담당자 / 제가 담당자께 일정을 알리다 / -어 드리다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 담당자께 일정을 알려 드렸어요."
+            ],
+            "rejectedAnswers": [
+              "담당자가 저에게 일정을 알려 주셨어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 담당자께 일정을 알려 드렸어요. 의미가 다른 예: 담당자가 저에게 일정을 알려 주셨어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 담당자께 일정을 알려 드렸어요. Meaning or register error: 담당자가 저에게 일정을 알려 주셨어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 담당자께 일정을 알려 드렸어요. Fehler bei Bedeutung oder Register: 담당자가 저에게 일정을 알려 주셨어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9"
+    },
+    {
+      "id": "KP12:production:10",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:10",
+      "requirementKeys": [
+        "G3:-으면 안 되다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 안 되다 문장 만들기",
+        "en": "-으면 안 되다: write a sentence",
+        "de": "-으면 안 되다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "행동을 하면 안 된다는 금지·불가예요. 하지 않아도 된다는 의무 없음과 구별해요.",
+        "en": "Express prohibition, not absence of obligation. Must not differs from need not.",
+        "de": "Drücke ein Verbot aus, nicht das Fehlen einer Pflicht. Nicht dürfen ist etwas anderes als nicht müssen."
+      },
+      "examplesKo": [
+        "허가 없이 사진을 공개하면 안 돼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "금지 / 허가 없이 사진을 공개하다 / -하면 안 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "허가 없이 사진을 공개하면 안 돼요."
+            ],
+            "rejectedAnswers": [
+              "허가 없이 사진을 공개해도 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 허가 없이 사진을 공개하면 안 돼요. 의미가 다른 예: 허가 없이 사진을 공개해도 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 허가 없이 사진을 공개하면 안 돼요. Meaning or register error: 허가 없이 사진을 공개해도 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 허가 없이 사진을 공개하면 안 돼요. Fehler bei Bedeutung oder Register: 허가 없이 사진을 공개해도 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "금지 / 여기에 물건을 놓다 / -으면 안 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에 물건을 놓으면 안 돼요."
+            ],
+            "rejectedAnswers": [
+              "여기에 물건을 놓아야 해요."
+            ],
+            "explanation": {
+              "ko": "예: 여기에 물건을 놓으면 안 돼요. 의미가 다른 예: 여기에 물건을 놓아야 해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에 물건을 놓으면 안 돼요. Meaning or register error: 여기에 물건을 놓아야 해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에 물건을 놓으면 안 돼요. Fehler bei Bedeutung oder Register: 여기에 물건을 놓아야 해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25"
+    },
+    {
+      "id": "KP12:production:11",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:11",
+      "requirementKeys": [
+        "G3:-으면 좋겠다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 좋겠다 문장 만들기",
+        "en": "-으면 좋겠다: write a sentence",
+        "de": "-으면 좋겠다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "원하는 상황을 완곡하게 말해요. 희망을 상대의 의무나 이미 정한 약속으로 바꾸지 않아요.",
+        "en": "Express a wish gently; a wish is neither another person’s obligation nor an agreed commitment.",
+        "de": "Äußere einen Wunsch zurückhaltend; er ist weder Pflicht der anderen Person noch vereinbarte Zusage."
+      },
+      "examplesKo": [
+        "모두 함께할 수 있으면 좋겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "희망, 확정 아님 / 모두 함께할 수 있다 / -으면 좋겠다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "모두 함께할 수 있으면 좋겠어요."
+            ],
+            "rejectedAnswers": [
+              "모두 함께하기로 확정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 모두 함께할 수 있으면 좋겠어요. 의미가 다른 예: 모두 함께하기로 확정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 모두 함께할 수 있으면 좋겠어요. Meaning or register error: 모두 함께하기로 확정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 모두 함께할 수 있으면 좋겠어요. Fehler bei Bedeutung oder Register: 모두 함께하기로 확정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "희망, 확정 아님 / 이번 주에 답을 받을 수 있다 / -으면 좋겠다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이번 주에 답을 받을 수 있으면 좋겠어요."
+            ],
+            "rejectedAnswers": [
+              "상대가 이번 주에 답하기로 약속했어요."
+            ],
+            "explanation": {
+              "ko": "예: 이번 주에 답을 받을 수 있으면 좋겠어요. 의미가 다른 예: 상대가 이번 주에 답하기로 약속했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이번 주에 답을 받을 수 있으면 좋겠어요. Meaning or register error: 상대가 이번 주에 답하기로 약속했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이번 주에 답을 받을 수 있으면 좋겠어요. Fehler bei Bedeutung oder Register: 상대가 이번 주에 답하기로 약속했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060"
+    },
+    {
+      "id": "KP12:production:12",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:12",
+      "requirementKeys": [
+        "G3:-을 테니"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테니 문장 만들기",
+        "en": "-을 테니: write a sentence",
+        "de": "-을 테니: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "화자의 의지나 예상을 바탕으로 뒤 요청을 연결해요. 여기서는 화자의 약속과 청자에게 하는 부탁을 따로 확인해요.",
+        "en": "A speaker’s intention or expectation grounds a request. Here, separate the speaker’s commitment from the request to the listener.",
+        "de": "Absicht oder Erwartung der sprechenden Person begründet eine Bitte. Trenne hier ihre Zusage von der Bitte an die zuhörende Person."
+      },
+      "examplesKo": [
+        "제가 확인할 테니 잠시 기다려 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "내 약속과 상대 부탁 / 제가 확인하다 → 잠시 기다려 주다 / -할 테니 / -세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 확인할 테니 잠시 기다려 주세요."
+            ],
+            "rejectedAnswers": [
+              "상대가 확인할 테니 제가 기다릴게요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 확인할 테니 잠시 기다려 주세요. 의미가 다른 예: 상대가 확인할 테니 제가 기다릴게요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 확인할 테니 잠시 기다려 주세요. Meaning or register error: 상대가 확인할 테니 제가 기다릴게요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 확인할 테니 잠시 기다려 주세요. Fehler bei Bedeutung oder Register: 상대가 확인할 테니 제가 기다릴게요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "내 약속과 상대 부탁 / 제가 정리하다 → 번호를 알려 주다 / -할 테니 / -세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 정리할 테니 번호를 알려 주세요."
+            ],
+            "rejectedAnswers": [
+              "제가 정리를 이미 다 끝냈어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 정리할 테니 번호를 알려 주세요. 의미가 다른 예: 제가 정리를 이미 다 끝냈어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 정리할 테니 번호를 알려 주세요. Meaning or register error: 제가 정리를 이미 다 끝냈어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 정리할 테니 번호를 알려 주세요. Fehler bei Bedeutung oder Register: 제가 정리를 이미 다 끝냈어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695"
+    },
+    {
+      "id": "KP12:production:13",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:production:13",
+      "requirementKeys": [
+        "G3:만 아니면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만 아니면 문장 만들기",
+        "en": "만 아니면: write a sentence",
+        "de": "만 아니면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "하나의 방해 조건을 제외해 가정해요. 본문에 다른 조건이 있다면 그 조건까지 사라지는 것은 아니에요.",
+        "en": "Suppose one obstacle is absent. Other conditions stated in the text still apply.",
+        "de": "Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin."
+      },
+      "examplesKo": [
+        "비만 아니면 밖에서 할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "방해 조건 하나 제외 / 비 / 만 아니면 / 밖에서 할 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비만 아니면 밖에서 할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "비가 와야만 밖에서 할 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 비만 아니면 밖에서 할 수 있어요. 의미가 다른 예: 비가 와야만 밖에서 할 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 비만 아니면 밖에서 할 수 있어요. Meaning or register error: 비가 와야만 밖에서 할 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 비만 아니면 밖에서 할 수 있어요. Fehler bei Bedeutung oder Register: 비가 와야만 밖에서 할 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "방해 조건 하나 제외 / 월요일 / 만 아니면 / 시간을 낼 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "월요일만 아니면 시간을 낼 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "월요일에만 시간을 낼 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 월요일만 아니면 시간을 낼 수 있어요. 의미가 다른 예: 월요일에만 시간을 낼 수 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 월요일만 아니면 시간을 낼 수 있어요. Meaning or register error: 월요일에만 시간을 낼 수 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 월요일만 아니면 시간을 낼 수 있어요. Fehler bei Bedeutung oder Register: 월요일에만 시간을 낼 수 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488"
+    },
+    {
+      "id": "KP12:listening:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "협의에서 조건과 약속 구분",
+        "en": "Conditions and commitments in negotiation",
+        "de": "Bedingungen und Zusagen in einer Absprache"
+      },
+      "teaching": {
+        "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+        "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+        "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "공동 발표를 준비하는 동등한 동료입니다.\n가: 지민 씨, 월요일까지 자료를 선생님께 보내 드릴 수 있어요? 장소가 바뀌었다는 안내가 늦어서 제가 당황했어요. 교통편도 다시 확인해야 해요.\n나: 월요일에는 다른 업무가 있어서 전체 검토는 어려워요. 화요일이라면 20분 동안 제목과 번호를 확인해 드릴 수 있어요. 선생님께 자료를 보내는 일은 맡아 주실래요?\n가: 네, 제가 선생님께 보내 드릴게요. 전체 검토는 담당자에게 따로 요청하겠어요.\n나: 담당자 허가를 받아야 자료를 공개할 수 있어요. 허가 없이 사진을 올리면 안 돼요. 모두 함께할 수 있으면 좋겠지만 참석은 아직 확인 전이에요.\n가: 알겠어요. 제가 장소를 확인할 테니 잠시 기다려 주세요.",
+        "questions": [
+          {
+            "id": "boundary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 수락한 범위는?",
+              "en": "What has the second colleague accepted?",
+              "de": "Welchen Umfang hat die zweite Person zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "월요일까지 전체 검토와 공개 승인"
+              },
+              {
+                "id": "0",
+                "text": "화요일에 20분 동안 제목과 번호 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "sender",
+            "kind": "choice",
+            "prompt": {
+              "ko": "선생님께 자료를 보낼 사람은?",
+              "en": "Who will send the material to the teacher?",
+              "de": "Wer sendet der Lehrperson das Material?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "선생님 자신"
+              },
+              {
+                "id": "0",
+                "text": "가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "자료 공개에 필요한 것은?",
+              "en": "What is required before publication?",
+              "de": "Was ist vor Veröffentlichung erforderlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "동료의 희망만으로 충분"
+              },
+              {
+                "id": "0",
+                "text": "담당자 허가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모두 참석하기는 어떤 상태예요?",
+              "en": "What is the status of everyone attending?",
+              "de": "Welchen Stand hat die Teilnahme aller?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모두의 확정 약속"
+              },
+              {
+                "id": "0",
+                "text": "희망이며 참석 확인 전"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "complaint",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가가 당황한 이유로 말한 것은?",
+              "en": "What reason does the first colleague give for being unsettled?",
+              "de": "Warum war die erste Person nach eigener Aussage verunsichert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "장소 변경 안내가 늦음"
+              },
+              {
+                "id": "1",
+                "text": "나가 이미 전체 검토를 완료함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "공동 발표를 준비하는 동등한 동료입니다.\n가: 민수 씨, 수요일까지 자료를 선생님께 보내 드릴 수 있어요? 장소가 바뀌었다는 안내가 늦어서 제가 당황했어요. 교통편도 다시 확인해야 해요.\n나: 수요일에는 다른 업무가 있어서 전체 검토는 어려워요. 목요일이라면 30분 동안 제목과 번호를 확인해 드릴 수 있어요. 선생님께 자료를 보내는 일은 맡아 주실래요?\n가: 네, 제가 선생님께 보내 드릴게요. 전체 검토는 담당자에게 따로 요청하겠어요.\n나: 담당자 허가를 받아야 자료를 공개할 수 있어요. 허가 없이 사진을 올리면 안 돼요. 모두 함께할 수 있으면 좋겠지만 참석은 아직 확인 전이에요.\n가: 알겠어요. 제가 장소를 확인할 테니 잠시 기다려 주세요.",
+        "questions": [
+          {
+            "id": "boundary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "나가 수락한 범위는?",
+              "en": "What has the second colleague accepted?",
+              "de": "Welchen Umfang hat die zweite Person zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "목요일에 30분 동안 제목과 번호 확인"
+              },
+              {
+                "id": "1",
+                "text": "수요일까지 전체 검토와 공개 승인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "sender",
+            "kind": "choice",
+            "prompt": {
+              "ko": "선생님께 자료를 보낼 사람은?",
+              "en": "Who will send the material to the teacher?",
+              "de": "Wer sendet der Lehrperson das Material?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "선생님 자신"
+              },
+              {
+                "id": "0",
+                "text": "가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "자료 공개에 필요한 것은?",
+              "en": "What is required before publication?",
+              "de": "Was ist vor Veröffentlichung erforderlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "동료의 희망만으로 충분"
+              },
+              {
+                "id": "0",
+                "text": "담당자 허가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모두 참석하기는 어떤 상태예요?",
+              "en": "What is the status of everyone attending?",
+              "de": "Welchen Stand hat die Teilnahme aller?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "희망이며 참석 확인 전"
+              },
+              {
+                "id": "1",
+                "text": "모두의 확정 약속"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          },
+          {
+            "id": "complaint",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가가 당황한 이유로 말한 것은?",
+              "en": "What reason does the first colleague give for being unsettled?",
+              "de": "Warum war die erste Person nach eigener Aussage verunsichert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "장소 변경 안내가 늦음"
+              },
+              {
+                "id": "1",
+                "text": "나가 이미 전체 검토를 완료함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건·금지·희망·약속의 주체를 따로 확인하세요. 도와주겠다는 말이 승인 권한을 뜻하지는 않아요. 공손한 요청도 청자에게 부담을 주므로 기한과 가능한 대안을 구별해요.",
+              "en": "Identify who is responsible for each condition, prohibition, wish and commitment. Offering help does not confer approval authority. Even a polite request creates work; distinguish the deadline from feasible alternatives.",
+              "de": "Prüfe, wer für Bedingung, Verbot, Wunsch und Zusage zuständig ist. Hilfsbereitschaft verleiht keine Genehmigungsbefugnis. Auch eine höfliche Bitte verursacht Aufwand; unterscheide Frist und machbare Alternativen."
+            }
+          }
+        ]
+      },
+      "contentHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e"
+    },
+    {
+      "id": "KP12:reading:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "공식 요청 메일의 부담과 대안",
+        "en": "Burden and alternatives in a formal request",
+        "de": "Aufwand und Alternativen in einer förmlichen Bitte"
+      },
+      "teaching": {
+        "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+        "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+        "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 이메일\n받는 사람: 한빛센터 담당자\n보낸 사람: 하린, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 월요일에 보내 드리겠습니다. 가능하시다면 수요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
+        "questions": [
+          {
+            "id": "request",
+            "kind": "choice",
+            "prompt": {
+              "ko": "담당자에게 요청한 것은?",
+              "en": "What is requested of the staff member?",
+              "de": "Was wird von der zuständigen Person erbeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "발신자의 모든 일을 즉시 대신하기"
+              },
+              {
+                "id": "0",
+                "text": "장소·이용 조건 확인과 가능한 자료 검토"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "deadline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "검토 기한은 어떤 요청이에요?",
+              "en": "How is the review deadline presented?",
+              "de": "Wie wird die Prüfungsfrist formuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "가능하다면 수요일까지, 어려우면 대안 요청"
+              },
+              {
+                "id": "1",
+                "text": "상대가 이미 확정한 의무"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "beneficiary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "검토 후 자료를 전달받을 사람은?",
+              "en": "Who is intended to receive the reviewed material?",
+              "de": "Wer soll das geprüfte Material erhalten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "하린의 개인 고객이라고 명시됨"
+              },
+              {
+                "id": "0",
+                "text": "선생님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "접수 알림이 공개 허가예요?",
+              "en": "Does receipt notification grant publication permission?",
+              "de": "Erlaubt die Eingangsbestätigung die Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 별도 허가 확인 필요"
+              },
+              {
+                "id": "1",
+                "text": "네. 접수 즉시 자동 승인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 이메일\n받는 사람: 새봄센터 담당자\n보낸 사람: 도윤, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 화요일에 보내 드리겠습니다. 가능하시다면 목요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
+        "questions": [
+          {
+            "id": "request",
+            "kind": "choice",
+            "prompt": {
+              "ko": "담당자에게 요청한 것은?",
+              "en": "What is requested of the staff member?",
+              "de": "Was wird von der zuständigen Person erbeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "장소·이용 조건 확인과 가능한 자료 검토"
+              },
+              {
+                "id": "1",
+                "text": "발신자의 모든 일을 즉시 대신하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "deadline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "검토 기한은 어떤 요청이에요?",
+              "en": "How is the review deadline presented?",
+              "de": "Wie wird die Prüfungsfrist formuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "상대가 이미 확정한 의무"
+              },
+              {
+                "id": "0",
+                "text": "가능하다면 목요일까지, 어려우면 대안 요청"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "beneficiary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "검토 후 자료를 전달받을 사람은?",
+              "en": "Who is intended to receive the reviewed material?",
+              "de": "Wer soll das geprüfte Material erhalten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "도윤의 개인 고객이라고 명시됨"
+              },
+              {
+                "id": "0",
+                "text": "선생님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "접수 알림이 공개 허가예요?",
+              "en": "Does receipt notification grant publication permission?",
+              "de": "Erlaubt die Eingangsbestätigung die Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 별도 허가 확인 필요"
+              },
+              {
+                "id": "1",
+                "text": "네. 접수 즉시 자동 승인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          }
+        ]
+      },
+      "contentHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2"
+    },
+    {
+      "id": "KP12:reading:02",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "도움과 승인 권한이 다른 절차",
+        "en": "A procedure separating help from approval",
+        "de": "Ein Verfahren mit getrennter Hilfe und Genehmigung"
+      },
+      "teaching": {
+        "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+        "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+        "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임의 사진 처리 절차\n1. 신청자가 자료를 준비하면 동료가 제목과 번호를 확인합니다. 잘못된 파일을 보내지 않도록 하는 점검입니다.\n2. 동료 확인을 마친 다음 신청자가 게시 담당자에게 허가를 요청합니다. 동료에게는 공개 승인 권한이 없습니다.\n3. 게시 담당자의 허가를 받아야 공개할 수 있습니다. 답변이 없으면 미승인 상태입니다.\n4. 기한에 맞추기 어려우면 사유와 가능한 대안을 알려 협의합니다. 어려움을 알렸다는 것만으로 기한이 연장되지는 않습니다.",
+        "questions": [
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동료 점검의 목적은?",
+              "en": "What is the peer check for?",
+              "de": "Wozu dient die Prüfung durch ein anderes Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "잘못된 파일 전송 방지"
+              },
+              {
+                "id": "1",
+                "text": "공개 승인 권한 이전"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "authority",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공개를 허가하는 역할은?",
+              "en": "Which role grants publication permission?",
+              "de": "Welche Rolle genehmigt die Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "게시 담당자"
+              },
+              {
+                "id": "1",
+                "text": "제목만 확인한 동료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "silence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "답변이 없을 때 상태는?",
+              "en": "What is the status without a response?",
+              "de": "Welcher Status gilt ohne Antwort?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미승인"
+              },
+              {
+                "id": "1",
+                "text": "자동 승인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "extension",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한 연장이 확정되는 근거는?",
+              "en": "What would establish an extended deadline?",
+              "de": "Was würde eine verlängerte Frist bestätigen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "추가 협의·확인이 필요함"
+              },
+              {
+                "id": "1",
+                "text": "사유를 한 번 알리면 이미 연장됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임의 발표 영상 처리 절차\n1. 신청자가 자료를 준비하면 동료가 제목과 번호를 확인합니다. 잘못된 파일을 보내지 않도록 하는 점검입니다.\n2. 동료 확인을 마친 다음 신청자가 영상 담당자에게 허가를 요청합니다. 동료에게는 공개 승인 권한이 없습니다.\n3. 영상 담당자의 허가를 받아야 공개할 수 있습니다. 답변이 없으면 미승인 상태입니다.\n4. 기한에 맞추기 어려우면 사유와 가능한 대안을 알려 협의합니다. 어려움을 알렸다는 것만으로 기한이 연장되지는 않습니다.",
+        "questions": [
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동료 점검의 목적은?",
+              "en": "What is the peer check for?",
+              "de": "Wozu dient die Prüfung durch ein anderes Mitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "공개 승인 권한 이전"
+              },
+              {
+                "id": "0",
+                "text": "잘못된 파일 전송 방지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "authority",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공개를 허가하는 역할은?",
+              "en": "Which role grants publication permission?",
+              "de": "Welche Rolle genehmigt die Veröffentlichung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "영상 담당자"
+              },
+              {
+                "id": "1",
+                "text": "제목만 확인한 동료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "silence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "답변이 없을 때 상태는?",
+              "en": "What is the status without a response?",
+              "de": "Welcher Status gilt ohne Antwort?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미승인"
+              },
+              {
+                "id": "1",
+                "text": "자동 승인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          },
+          {
+            "id": "extension",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기한 연장이 확정되는 근거는?",
+              "en": "What would establish an extended deadline?",
+              "de": "Was würde eine verlängerte Frist bestätigen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사유를 한 번 알리면 이미 연장됨"
+              },
+              {
+                "id": "0",
+                "text": "추가 협의·확인이 필요함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절차의 단계와 목적, 각 역할의 권한을 구분하세요. 도와주는 사람의 확인과 승인자의 허가는 다른 단계예요. 자료에 없는 자동 승인이나 기한 연장을 만들지 마세요.",
+              "en": "Separate procedural steps, purposes and each role’s authority. A helper’s check and an approver’s permission are different stages. Invent no automatic approval or deadline extension.",
+              "de": "Trenne Verfahrensschritte, Zwecke und Befugnisse der einzelnen Rollen. Die Prüfung durch eine helfende Person und die Genehmigung sind verschiedene Schritte. Erfinde keine automatische Zustimmung oder Fristverlängerung."
+            }
+          }
+        ]
+      },
+      "contentHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2"
+    },
+    {
+      "id": "KP12:writing:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "도움을 요청하고 범위를 정해 수락",
+        "en": "Request help and accept within limits",
+        "de": "Um Hilfe bitten und begrenzt zusagen"
+      },
+      "teaching": {
+        "ko": "가상 역할 카드의 요청과 조건부 수락을 격식 메일로 쓰세요. 문제 사실·영향·요청 조치, 내가 맡는 범위·기한과 상대 확인이 필요한 부분을 구별하세요. 수혜자와 발신자를 바꾸지 말고 스스로를 높이지 마세요. 사유가 기한 연장이나 공개 허가가 되지는 않아요. 읽고 고쳐 쓰며 전체 의미·공손함은 미채점입니다.",
+        "en": "Write a formal email with the request and conditional acceptance in the fictional role card. Separate problem, impact and remedy, your scope and deadline, and matters awaiting confirmation. Preserve sender and beneficiary; do not honour yourself. A reason does not grant an extension or permission. Read and revise; full meaning and politeness remain unscored.",
+        "de": "Schreibe eine förmliche E-Mail mit Bitte und bedingter Zusage aus der fiktiven Rollenkarte. Trenne Problem, Auswirkung und Abhilfe, eigenen Umfang und Termin sowie noch zu bestätigende Punkte. Erhalte Absender und Begünstigte; erhöhe dich nicht selbst. Ein Grund gewährt weder Verlängerung noch Erlaubnis. Lies und überarbeite; Gesamtinhalt und Höflichkeit bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 준비 모임에서 나는 자료 정리 담당, 게시 담당자는 승인 담당. 장소 변경 안내가 늦어 교통편을 다시 확인해야 함. 정확한 장소 확인 요청 필요.\n나는 월요일에 다른 업무 때문에 전체 검토 불가. 화요일라면 20분 동안 제목·번호 확인 가능. 선생님께 자료를 보내는 것은 다른 동료가 맡음. 전체 검토와 공개 승인은 게시 담당자의 확인 필요. 회신 희망은 이번 주이며 약속받지는 않음.\n담당자에게 문제·영향·요청을 말하고, 내가 가능한 일과 기한을 조건부로 수락하는 메일을 쓰세요. 승인이나 기한 연장을 대신 약속하지 마세요.",
+        "questions": [
+          {
+            "id": "email",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "수신자·요청·조건을 갖춘 메일을 쓰세요.",
+              "en": "Write the email with recipient, request and conditions.",
+              "de": "Schreibe die E-Mail mit Empfänger, Bitte und Bedingungen."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 역할 카드의 요청과 조건부 수락을 격식 메일로 쓰세요. 문제 사실·영향·요청 조치, 내가 맡는 범위·기한과 상대 확인이 필요한 부분을 구별하세요. 수혜자와 발신자를 바꾸지 말고 스스로를 높이지 마세요. 사유가 기한 연장이나 공개 허가가 되지는 않아요. 읽고 고쳐 쓰며 전체 의미·공손함은 미채점입니다.",
+              "en": "Write a formal email with the request and conditional acceptance in the fictional role card. Separate problem, impact and remedy, your scope and deadline, and matters awaiting confirmation. Preserve sender and beneficiary; do not honour yourself. A reason does not grant an extension or permission. Read and revise; full meaning and politeness remain unscored.",
+              "de": "Schreibe eine förmliche E-Mail mit Bitte und bedingter Zusage aus der fiktiven Rollenkarte. Trenne Problem, Auswirkung und Abhilfe, eigenen Umfang und Termin sowie noch zu bestätigende Punkte. Erhalte Absender und Begünstigte; erhöhe dich nicht selbst. Ein Grund gewährt weder Verlängerung noch Erlaubnis. Lies und überarbeite; Gesamtinhalt und Höflichkeit bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 준비 모임에서 나는 자료 정리 담당, 영상 담당자는 승인 담당. 장소 변경 안내가 늦어 교통편을 다시 확인해야 함. 정확한 장소 확인 요청 필요.\n나는 수요일에 다른 업무 때문에 전체 검토 불가. 목요일라면 30분 동안 제목·번호 확인 가능. 선생님께 자료를 보내는 것은 다른 동료가 맡음. 전체 검토와 공개 승인은 영상 담당자의 확인 필요. 회신 희망은 이번 주이며 약속받지는 않음.\n담당자에게 문제·영향·요청을 말하고, 내가 가능한 일과 기한을 조건부로 수락하는 메일을 쓰세요. 승인이나 기한 연장을 대신 약속하지 마세요.",
+        "questions": [
+          {
+            "id": "email",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "수신자·요청·조건을 갖춘 메일을 쓰세요.",
+              "en": "Write the email with recipient, request and conditions.",
+              "de": "Schreibe die E-Mail mit Empfänger, Bitte und Bedingungen."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 역할 카드의 요청과 조건부 수락을 격식 메일로 쓰세요. 문제 사실·영향·요청 조치, 내가 맡는 범위·기한과 상대 확인이 필요한 부분을 구별하세요. 수혜자와 발신자를 바꾸지 말고 스스로를 높이지 마세요. 사유가 기한 연장이나 공개 허가가 되지는 않아요. 읽고 고쳐 쓰며 전체 의미·공손함은 미채점입니다.",
+              "en": "Write a formal email with the request and conditional acceptance in the fictional role card. Separate problem, impact and remedy, your scope and deadline, and matters awaiting confirmation. Preserve sender and beneficiary; do not honour yourself. A reason does not grant an extension or permission. Read and revise; full meaning and politeness remain unscored.",
+              "de": "Schreibe eine förmliche E-Mail mit Bitte und bedingter Zusage aus der fiktiven Rollenkarte. Trenne Problem, Auswirkung und Abhilfe, eigenen Umfang und Termin sowie noch zu bestätigende Punkte. Erhalte Absender und Begünstigte; erhöhe dich nicht selbst. Ein Grund gewährt weder Verlängerung noch Erlaubnis. Lies und überarbeite; Gesamtinhalt und Höflichkeit bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "contentHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0"
+    },
+    {
+      "id": "KP12:speaking:01",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부탁의 부담을 협의하고 친구에게 공감",
+        "en": "Negotiate a request and respond to a friend",
+        "de": "Eine Bitte abstimmen und auf eine Sorge eingehen"
+      },
+      "teaching": {
+        "ko": "첫 장면은 동등한 동료와 해요체로 협의해요. 못 하는 이유·가능한 대안·실행 조건을 말하고 도움과 승인을 구별하세요. 두 번째는 오래된 가까운 친구와 사적인 대화로, 서로 반말에 합의했고 개인적인 걱정을 나눠요. 친구의 걱정에 공감하되 권한 없는 약속은 하지 마세요. 녹음을 듣고 조건 뒤 휴지와 부탁의 말끝을 고쳐요. 의미·친밀함·억양은 미채점입니다.",
+        "en": "First negotiate politely with a peer: give a reason, feasible alternative and condition, separating help from approval. Then speak privately with a long-standing close friend who has agreed to casual speech and shared a personal worry. Respond with care without promising beyond your authority. Replay and revise pauses and request endings. Meaning, intimacy and intonation remain unscored.",
+        "de": "Verhandle zuerst höflich mit einer gleichgestellten Person: nenne Grund, machbare Alternative und Bedingung und trenne Hilfe von Genehmigung. Sprich danach privat mit einer langjährig engen befreundeten Person, mit vereinbarter vertraulicher Anrede und persönlicher Sorge. Reagiere einfühlsam, ohne unbefugt etwas zu versprechen. Höre zu und verbessere Pausen und Bitten. Inhalt, Vertrautheit und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 준비 모임에서 나는 자료 정리 담당, 게시 담당자는 승인 담당. 장소 변경 안내가 늦어 교통편을 다시 확인해야 함. 정확한 장소 확인 요청 필요.\n나는 월요일에 다른 업무 때문에 전체 검토 불가. 화요일라면 20분 동안 제목·번호 확인 가능. 선생님께 자료를 보내는 것은 다른 동료가 맡음. 전체 검토와 공개 승인은 게시 담당자의 확인 필요. 회신 희망은 이번 주이며 약속받지는 않음.\n담당자에게 문제·영향·요청을 말하고, 내가 가능한 일과 기한을 조건부로 수락하는 메일을 쓰세요. 승인이나 기한 연장을 대신 약속하지 마세요.\n별도 사적 장면: 가까운 친구가 이번 준비 때문에 걱정되고 지쳤다고 말함. 오늘 잠깐 이야기를 들어 줄 수 있지만 담당자 승인이나 전체 준비 완료를 대신 약속할 권한은 없음.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 준비 모임에서 나는 자료 정리 담당, 영상 담당자는 승인 담당. 장소 변경 안내가 늦어 교통편을 다시 확인해야 함. 정확한 장소 확인 요청 필요.\n나는 수요일에 다른 업무 때문에 전체 검토 불가. 목요일라면 30분 동안 제목·번호 확인 가능. 선생님께 자료를 보내는 것은 다른 동료가 맡음. 전체 검토와 공개 승인은 영상 담당자의 확인 필요. 회신 희망은 이번 주이며 약속받지는 않음.\n담당자에게 문제·영향·요청을 말하고, 내가 가능한 일과 기한을 조건부로 수락하는 메일을 쓰세요. 승인이나 기한 연장을 대신 약속하지 마세요.\n별도 사적 장면: 가까운 친구가 일정 변경 때문에 당황하고 불안하다고 말함. 내일 잠깐 이야기를 들어 줄 수 있지만 담당자 승인이나 기한 연장을 대신 약속할 권한은 없음.",
+        "questions": []
+      },
+      "contentHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919"
+    },
+    {
+      "id": "KP12:speaking:02",
+      "phaseId": "KP12",
+      "level": "B1",
+      "objectiveId": "KP12:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "면접에서 가능한 조건 설명",
+        "en": "Explain feasible conditions in an interview",
+        "de": "Machbare Bedingungen im Vorstellungsgespräch erklären"
+      },
+      "teaching": {
+        "ko": "가상 취업 면접에서 지원자 역할로 주어진 경험·가능 시간·권한의 한계를 공손하고 격식 있게 설명하세요. 감당할 수 없는 조건에는 대안을 제시하고 실제로 없는 경력이나 승인을 만들지 마세요. 녹음을 듣고 문체와 의미 단위의 휴지를 고쳐요. 발화 의미와 면접 적합성은 미채점입니다.",
+        "en": "In the fictional job interview, explain the supplied experience, availability and authority limits politely and formally. Offer an alternative to an unmanageable condition; invent no experience or permission. Replay and revise register and meaning-unit pauses. Speech meaning and interview suitability remain unscored.",
+        "de": "Erkläre im fiktiven Vorstellungsgespräch vorgegebene Erfahrung, Verfügbarkeit und Befugnisgrenzen höflich und förmlich. Biete bei untragbaren Bedingungen eine Alternative und erfinde weder Erfahrung noch Genehmigung. Höre zu und verbessere Sprachstil und Pausen. Inhalt und Eignung für das Gespräch bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 지원자: 안내 보조 업무 지원. 지난 두 달 주 1회 자료 정리 봉사. 접수 내용 입력만 담당했으며 승인 권한 없음. 월요일 근무는 수업 때문에 불가, 화요일 오후 가능. 면접관은 월요일 전체 업무를 맡을 수 있는지, 공개 승인을 해 본 적이 있는지 질문. 경력·한계·대안을 사실대로 답하고 최종 일정은 확인 요청.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 지원자: 행사 보조 업무 지원. 지난 세 달 주 1회 좌석 안내 봉사. 직원이 정한 좌석표 안내만 담당했으며 변경 승인 권한 없음. 수요일 근무는 수업 때문에 불가, 목요일 오전 가능. 면접관은 수요일 전체 업무를 맡을 수 있는지, 좌석 변경 승인을 해 본 적이 있는지 질문. 경력·한계·대안을 사실대로 답하고 최종 일정은 확인 요청.",
+        "questions": []
+      },
+      "contentHash": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501"
     }
   ],
   "objectives": [
@@ -57430,8 +60790,23 @@
       "sourceHash": "656dc106eb0be5e99145191d3264ccbd995f9a807698fabed2ecd5fdb1efd744",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:01",
+          "taskHash": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+          "materialIds": [
+            "KP12:grammar:01/practice/material",
+            "KP12:grammar:01/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:01/practice",
+          "assessmentId": "KP12:grammar:01/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57442,8 +60817,23 @@
       "sourceHash": "656dc106eb0be5e99145191d3264ccbd995f9a807698fabed2ecd5fdb1efd744",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:01",
+          "taskHash": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306",
+          "materialIds": [
+            "KP12:production:01/practice/material",
+            "KP12:production:01/assessment/material"
+          ],
+          "practiceId": "KP12:production:01/practice",
+          "assessmentId": "KP12:production:01/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57454,8 +60844,23 @@
       "sourceHash": "85bb136a77fc75782e02cb38ac72b2bf7fd66ca9e88439d820cce01b3d46c191",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:02",
+          "taskHash": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+          "materialIds": [
+            "KP12:grammar:02/practice/material",
+            "KP12:grammar:02/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:02/practice",
+          "assessmentId": "KP12:grammar:02/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57466,8 +60871,23 @@
       "sourceHash": "85bb136a77fc75782e02cb38ac72b2bf7fd66ca9e88439d820cce01b3d46c191",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:02",
+          "taskHash": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86",
+          "materialIds": [
+            "KP12:production:02/practice/material",
+            "KP12:production:02/assessment/material"
+          ],
+          "practiceId": "KP12:production:02/practice",
+          "assessmentId": "KP12:production:02/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57478,8 +60898,23 @@
       "sourceHash": "0109ae3777a8c51627a92076e7c9219aa86557c2845adc1792b197b8711094ff",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:03",
+          "taskHash": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+          "materialIds": [
+            "KP12:grammar:03/practice/material",
+            "KP12:grammar:03/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:03/practice",
+          "assessmentId": "KP12:grammar:03/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57490,8 +60925,23 @@
       "sourceHash": "0109ae3777a8c51627a92076e7c9219aa86557c2845adc1792b197b8711094ff",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:03",
+          "taskHash": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855",
+          "materialIds": [
+            "KP12:production:03/practice/material",
+            "KP12:production:03/assessment/material"
+          ],
+          "practiceId": "KP12:production:03/practice",
+          "assessmentId": "KP12:production:03/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57502,8 +60952,23 @@
       "sourceHash": "7c8f261d3d1f12e29ac8d4742928c812863d12e24a5852d0afbbe88590654808",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:04",
+          "taskHash": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+          "materialIds": [
+            "KP12:grammar:04/practice/material",
+            "KP12:grammar:04/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:04/practice",
+          "assessmentId": "KP12:grammar:04/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57514,8 +60979,23 @@
       "sourceHash": "7c8f261d3d1f12e29ac8d4742928c812863d12e24a5852d0afbbe88590654808",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:04",
+          "taskHash": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6",
+          "materialIds": [
+            "KP12:production:04/practice/material",
+            "KP12:production:04/assessment/material"
+          ],
+          "practiceId": "KP12:production:04/practice",
+          "assessmentId": "KP12:production:04/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57526,8 +61006,23 @@
       "sourceHash": "8ff8b79d9e1aeded4f769ac43393bde5a7e42ded1ed84398c88563c54b87d79d",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:05",
+          "taskHash": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+          "materialIds": [
+            "KP12:grammar:05/practice/material",
+            "KP12:grammar:05/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:05/practice",
+          "assessmentId": "KP12:grammar:05/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57538,8 +61033,23 @@
       "sourceHash": "8ff8b79d9e1aeded4f769ac43393bde5a7e42ded1ed84398c88563c54b87d79d",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:05",
+          "taskHash": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6",
+          "materialIds": [
+            "KP12:production:05/practice/material",
+            "KP12:production:05/assessment/material"
+          ],
+          "practiceId": "KP12:production:05/practice",
+          "assessmentId": "KP12:production:05/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57550,8 +61060,23 @@
       "sourceHash": "48ddc07db06d67db3309e44b7c0d07057a474bdf2860ab5b31887a449e785c94",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:06",
+          "taskHash": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+          "materialIds": [
+            "KP12:grammar:06/practice/material",
+            "KP12:grammar:06/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:06/practice",
+          "assessmentId": "KP12:grammar:06/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57562,8 +61087,23 @@
       "sourceHash": "48ddc07db06d67db3309e44b7c0d07057a474bdf2860ab5b31887a449e785c94",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:06",
+          "taskHash": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814",
+          "materialIds": [
+            "KP12:production:06/practice/material",
+            "KP12:production:06/assessment/material"
+          ],
+          "practiceId": "KP12:production:06/practice",
+          "assessmentId": "KP12:production:06/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57574,8 +61114,23 @@
       "sourceHash": "f263bf811d92afe96bbe06b4e713ee7c98a57c69e35f7a574414ff9ce2d7db05",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:07",
+          "taskHash": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+          "materialIds": [
+            "KP12:grammar:07/practice/material",
+            "KP12:grammar:07/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:07/practice",
+          "assessmentId": "KP12:grammar:07/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57586,8 +61141,23 @@
       "sourceHash": "f263bf811d92afe96bbe06b4e713ee7c98a57c69e35f7a574414ff9ce2d7db05",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:07",
+          "taskHash": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e",
+          "materialIds": [
+            "KP12:production:07/practice/material",
+            "KP12:production:07/assessment/material"
+          ],
+          "practiceId": "KP12:production:07/practice",
+          "assessmentId": "KP12:production:07/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57598,8 +61168,23 @@
       "sourceHash": "0875ec72450109d61f656e62b6751fe3b3dff675139708db4b0ce3669922e891",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:08",
+          "taskHash": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+          "materialIds": [
+            "KP12:grammar:08/practice/material",
+            "KP12:grammar:08/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:08/practice",
+          "assessmentId": "KP12:grammar:08/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57610,8 +61195,23 @@
       "sourceHash": "0875ec72450109d61f656e62b6751fe3b3dff675139708db4b0ce3669922e891",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:08",
+          "taskHash": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f",
+          "materialIds": [
+            "KP12:production:08/practice/material",
+            "KP12:production:08/assessment/material"
+          ],
+          "practiceId": "KP12:production:08/practice",
+          "assessmentId": "KP12:production:08/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57622,8 +61222,23 @@
       "sourceHash": "819110673ebef84a228cc7e6e6db305a4e260fb4f2e08dd278e1e3a96d9be96d",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:09",
+          "taskHash": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+          "materialIds": [
+            "KP12:grammar:09/practice/material",
+            "KP12:grammar:09/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:09/practice",
+          "assessmentId": "KP12:grammar:09/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57634,8 +61249,23 @@
       "sourceHash": "819110673ebef84a228cc7e6e6db305a4e260fb4f2e08dd278e1e3a96d9be96d",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:09",
+          "taskHash": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9",
+          "materialIds": [
+            "KP12:production:09/practice/material",
+            "KP12:production:09/assessment/material"
+          ],
+          "practiceId": "KP12:production:09/practice",
+          "assessmentId": "KP12:production:09/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57646,8 +61276,23 @@
       "sourceHash": "89beb66f862b0757e76a421d9e293f2643a3bc4864b31c2280f2c496a930de13",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:10",
+          "taskHash": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+          "materialIds": [
+            "KP12:grammar:10/practice/material",
+            "KP12:grammar:10/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:10/practice",
+          "assessmentId": "KP12:grammar:10/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57658,8 +61303,23 @@
       "sourceHash": "89beb66f862b0757e76a421d9e293f2643a3bc4864b31c2280f2c496a930de13",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:10",
+          "taskHash": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25",
+          "materialIds": [
+            "KP12:production:10/practice/material",
+            "KP12:production:10/assessment/material"
+          ],
+          "practiceId": "KP12:production:10/practice",
+          "assessmentId": "KP12:production:10/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57670,8 +61330,23 @@
       "sourceHash": "da6f591363ff21dcb3af0fbbbba40f29ba87a8267da3f9e0f512e321cbec6a37",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:11",
+          "taskHash": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+          "materialIds": [
+            "KP12:grammar:11/practice/material",
+            "KP12:grammar:11/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:11/practice",
+          "assessmentId": "KP12:grammar:11/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57682,8 +61357,23 @@
       "sourceHash": "da6f591363ff21dcb3af0fbbbba40f29ba87a8267da3f9e0f512e321cbec6a37",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:11",
+          "taskHash": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060",
+          "materialIds": [
+            "KP12:production:11/practice/material",
+            "KP12:production:11/assessment/material"
+          ],
+          "practiceId": "KP12:production:11/practice",
+          "assessmentId": "KP12:production:11/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57694,8 +61384,23 @@
       "sourceHash": "35ea5f27305381081f16e8eba87c06406ec5a57a841730744b9908d1ec0c0d0b",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:12",
+          "taskHash": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+          "materialIds": [
+            "KP12:grammar:12/practice/material",
+            "KP12:grammar:12/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:12/practice",
+          "assessmentId": "KP12:grammar:12/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57706,8 +61411,23 @@
       "sourceHash": "35ea5f27305381081f16e8eba87c06406ec5a57a841730744b9908d1ec0c0d0b",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:12",
+          "taskHash": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
+          "materialIds": [
+            "KP12:production:12/practice/material",
+            "KP12:production:12/assessment/material"
+          ],
+          "practiceId": "KP12:production:12/practice",
+          "assessmentId": "KP12:production:12/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57718,8 +61438,23 @@
       "sourceHash": "08aff947b7c4d2eb11d863a19e2a80c3432b0b02c6e2f8b312eedba7cdf1677c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:grammar:13",
+          "taskHash": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+          "materialIds": [
+            "KP12:grammar:13/practice/material",
+            "KP12:grammar:13/assessment/material"
+          ],
+          "practiceId": "KP12:grammar:13/practice",
+          "assessmentId": "KP12:grammar:13/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57730,8 +61465,23 @@
       "sourceHash": "08aff947b7c4d2eb11d863a19e2a80c3432b0b02c6e2f8b312eedba7cdf1677c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:production:13",
+          "taskHash": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
+          "materialIds": [
+            "KP12:production:13/practice/material",
+            "KP12:production:13/assessment/material"
+          ],
+          "practiceId": "KP12:production:13/practice",
+          "assessmentId": "KP12:production:13/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57742,8 +61492,27 @@
       "sourceHash": "af1cd78140eb9bea3f7e1cab889db4b9b47ecb4934a76cf833926b9820c1a574",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57754,8 +61523,26 @@
       "sourceHash": "af36f4c54c095cb354eae1f8c281196f6632b793d5302e4b63353a5fe737a64c",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:01",
+          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "materialIds": [
+            "KP12:reading:01/practice/material",
+            "KP12:reading:01/assessment/material"
+          ],
+          "practiceId": "KP12:reading:01/practice",
+          "assessmentId": "KP12:reading:01/assessment",
+          "criterionIds": [
+            "request",
+            "deadline",
+            "beneficiary",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57766,8 +61553,26 @@
       "sourceHash": "295c1a692d4e656bbabf8e4e4b6613b98b23f9030f26a8d7134e33fdd0a677b7",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:01",
+          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "materialIds": [
+            "KP12:reading:01/practice/material",
+            "KP12:reading:01/assessment/material"
+          ],
+          "practiceId": "KP12:reading:01/practice",
+          "assessmentId": "KP12:reading:01/assessment",
+          "criterionIds": [
+            "request",
+            "deadline",
+            "beneficiary",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57778,8 +61583,26 @@
       "sourceHash": "0834c1ab064421e44117f035e5034dd9460c893d5d25070e784f2c243b5c43bf",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:02",
+          "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+          "materialIds": [
+            "KP12:reading:02/practice/material",
+            "KP12:reading:02/assessment/material"
+          ],
+          "practiceId": "KP12:reading:02/practice",
+          "assessmentId": "KP12:reading:02/assessment",
+          "criterionIds": [
+            "purpose",
+            "authority",
+            "silence",
+            "extension"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57790,8 +61613,21 @@
       "sourceHash": "c04d16962c8af343a533ea58f5d8a324f2118b78ed5f1664ee45315c33c68cf7",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57802,8 +61638,21 @@
       "sourceHash": "bc7fbcbd838180853be38ec5637b593d4b99a965c7aa4a52fc40c997d6d900d4",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:02",
+          "taskHash": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+          "materialIds": [
+            "KP12:speaking:02/practice/material",
+            "KP12:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:02/practice",
+          "assessmentId": "KP12:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57814,8 +61663,23 @@
       "sourceHash": "2dc8a25a4635708da188e800e03d8d8d5c9e2f3a55f03b7f4d94081ba0084b31",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57826,8 +61690,23 @@
       "sourceHash": "c50d812b8c626f17a98f5b5c12c9bbccf7f9611e4213af4348b99f594688c630",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57838,8 +61717,27 @@
       "sourceHash": "cc99024e39f8d1ae79d1fa9a96ae68d5a7be20947c546d70bf7581d7e01149ef",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57850,8 +61748,21 @@
       "sourceHash": "cc99024e39f8d1ae79d1fa9a96ae68d5a7be20947c546d70bf7581d7e01149ef",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57862,8 +61773,27 @@
       "sourceHash": "c7b81a743d407249382467b0d1664652e93871652b53af1910406da8397103f1",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57874,8 +61804,21 @@
       "sourceHash": "c7b81a743d407249382467b0d1664652e93871652b53af1910406da8397103f1",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57886,8 +61829,26 @@
       "sourceHash": "05a71a74f06c6afb92140daa5d6bcdfb0ac11bee715d015621b13d1c7ad1c74b",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:01",
+          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "materialIds": [
+            "KP12:reading:01/practice/material",
+            "KP12:reading:01/assessment/material"
+          ],
+          "practiceId": "KP12:reading:01/practice",
+          "assessmentId": "KP12:reading:01/assessment",
+          "criterionIds": [
+            "request",
+            "deadline",
+            "beneficiary",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57898,8 +61859,23 @@
       "sourceHash": "05a71a74f06c6afb92140daa5d6bcdfb0ac11bee715d015621b13d1c7ad1c74b",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57910,8 +61886,26 @@
       "sourceHash": "da7b734c980455c76028b1b0ca2063880b9eac2f4b5a75f247d9a6c53ca076ef",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:02",
+          "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+          "materialIds": [
+            "KP12:reading:02/practice/material",
+            "KP12:reading:02/assessment/material"
+          ],
+          "practiceId": "KP12:reading:02/practice",
+          "assessmentId": "KP12:reading:02/assessment",
+          "criterionIds": [
+            "purpose",
+            "authority",
+            "silence",
+            "extension"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57922,8 +61916,23 @@
       "sourceHash": "da7b734c980455c76028b1b0ca2063880b9eac2f4b5a75f247d9a6c53ca076ef",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57934,8 +61943,26 @@
       "sourceHash": "1205e4c27d391331587d3985178d652cb5a130528b1493694b90647875669df9",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:02",
+          "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+          "materialIds": [
+            "KP12:reading:02/practice/material",
+            "KP12:reading:02/assessment/material"
+          ],
+          "practiceId": "KP12:reading:02/practice",
+          "assessmentId": "KP12:reading:02/assessment",
+          "criterionIds": [
+            "purpose",
+            "authority",
+            "silence",
+            "extension"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57946,8 +61973,23 @@
       "sourceHash": "1205e4c27d391331587d3985178d652cb5a130528b1493694b90647875669df9",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57958,8 +62000,27 @@
       "sourceHash": "a75ab40064001a657d1ee97c2ac7b41f7b71ba7e0f18a6a83f7a2bf7adc8915f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57970,8 +62031,21 @@
       "sourceHash": "a75ab40064001a657d1ee97c2ac7b41f7b71ba7e0f18a6a83f7a2bf7adc8915f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:02",
+          "taskHash": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+          "materialIds": [
+            "KP12:speaking:02/practice/material",
+            "KP12:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:02/practice",
+          "assessmentId": "KP12:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57982,8 +62056,27 @@
       "sourceHash": "12ff3ec3ae72e329106259801c3d83e3ff1ddbe6d04d83ef3fc7feff9b6b1bfd",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -57994,8 +62087,21 @@
       "sourceHash": "12ff3ec3ae72e329106259801c3d83e3ff1ddbe6d04d83ef3fc7feff9b6b1bfd",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58006,8 +62112,26 @@
       "sourceHash": "f4f897c9914252f269927de45f21fb34ae04b72808622e0790e619fa3cc4a63e",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:reading:01",
+          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "materialIds": [
+            "KP12:reading:01/practice/material",
+            "KP12:reading:01/assessment/material"
+          ],
+          "practiceId": "KP12:reading:01/practice",
+          "assessmentId": "KP12:reading:01/assessment",
+          "criterionIds": [
+            "request",
+            "deadline",
+            "beneficiary",
+            "permission"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58018,8 +62142,21 @@
       "sourceHash": "f4f897c9914252f269927de45f21fb34ae04b72808622e0790e619fa3cc4a63e",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58030,8 +62167,27 @@
       "sourceHash": "46f30d50aee3e06bf231048e76e62e6bc71b535392d7a56b113393a1c6637daa",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58042,8 +62198,21 @@
       "sourceHash": "46f30d50aee3e06bf231048e76e62e6bc71b535392d7a56b113393a1c6637daa",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58054,8 +62223,27 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:listening:01",
+          "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+          "materialIds": [
+            "KP12:listening:01/practice/material",
+            "KP12:listening:01/assessment/material"
+          ],
+          "practiceId": "KP12:listening:01/practice",
+          "assessmentId": "KP12:listening:01/assessment",
+          "criterionIds": [
+            "boundary",
+            "sender",
+            "condition",
+            "wish",
+            "complaint"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58066,8 +62254,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58078,8 +62279,21 @@
       "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58090,8 +62304,23 @@
       "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:writing:01",
+          "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+          "materialIds": [
+            "KP12:writing:01/practice/material",
+            "KP12:writing:01/assessment/material"
+          ],
+          "practiceId": "KP12:writing:01/practice",
+          "assessmentId": "KP12:writing:01/assessment",
+          "criterionIds": [
+            "email"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -58102,8 +62331,21 @@
       "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP12:speaking:01",
+          "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+          "materialIds": [
+            "KP12:speaking:01/practice/material",
+            "KP12:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP12:speaking:01/practice",
+          "assessmentId": "KP12:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -70387,6 +74629,45 @@
         "KP11:speaking:02": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2"
       },
       "contentHash": "66035157d28be1f364f03f9871f580b95ac57dfce612ac6063a76070ca1d9b96"
+    },
+    {
+      "phaseId": "KP12",
+      "status": "partial",
+      "taskHashes": {
+        "KP12:grammar:01": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+        "KP12:grammar:02": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+        "KP12:grammar:03": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+        "KP12:grammar:04": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+        "KP12:grammar:05": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+        "KP12:grammar:06": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+        "KP12:grammar:07": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+        "KP12:grammar:08": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+        "KP12:grammar:09": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+        "KP12:grammar:10": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+        "KP12:grammar:11": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+        "KP12:grammar:12": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+        "KP12:grammar:13": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+        "KP12:production:01": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306",
+        "KP12:production:02": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86",
+        "KP12:production:03": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855",
+        "KP12:production:04": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6",
+        "KP12:production:05": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6",
+        "KP12:production:06": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814",
+        "KP12:production:07": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e",
+        "KP12:production:08": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f",
+        "KP12:production:09": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9",
+        "KP12:production:10": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25",
+        "KP12:production:11": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060",
+        "KP12:production:12": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
+        "KP12:production:13": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
+        "KP12:listening:01": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+        "KP12:reading:01": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+        "KP12:reading:02": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+        "KP12:writing:01": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+        "KP12:speaking:01": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+        "KP12:speaking:02": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501"
+      },
+      "contentHash": "634b08cc7e3c6853a2800b7ab64e4065aecc5feba4541b36d08d591d303a073f"
     }
   ]
 }

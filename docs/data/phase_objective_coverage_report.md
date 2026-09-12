@@ -17,7 +17,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP09 | 49 | 49 | 0 | 미검증 |
 | KP10 | 62 | 62 | 0 | 미검증 |
 | KP11 | 58 | 58 | 0 | 미검증 |
-| KP12 | 57 | 0 | 57 | 미검증 |
+| KP12 | 57 | 57 | 0 | 미검증 |
 | KP13 | 57 | 0 | 57 | 미검증 |
 | KP14 | 48 | 0 | 48 | 미검증 |
 | KP15 | 58 | 0 | 58 | 미검증 |
@@ -39,63 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP12:objective:grammar/G3:-거든1:R`
-- `KP12:objective:grammar/G3:-거든1:P`
-- `KP12:objective:grammar/G3:-어야:R`
-- `KP12:objective:grammar/G3:-어야:P`
-- `KP12:objective:grammar/G3:-어야지1:R`
-- `KP12:objective:grammar/G3:-어야지1:P`
-- `KP12:objective:grammar/G3:-어야겠-:R`
-- `KP12:objective:grammar/G3:-어야겠-:P`
-- `KP12:objective:grammar/G3:-으려면:R`
-- `KP12:objective:grammar/G3:-으려면:P`
-- `KP12:objective:grammar/G3:-도록:R`
-- `KP12:objective:grammar/G3:-도록:P`
-- `KP12:objective:grammar/G3:-기 위해:R`
-- `KP12:objective:grammar/G3:-기 위해:P`
-- `KP12:objective:grammar/G3:-게 하다:R`
-- `KP12:objective:grammar/G3:-게 하다:P`
-- `KP12:objective:grammar/G3:-어 드리다:R`
-- `KP12:objective:grammar/G3:-어 드리다:P`
-- `KP12:objective:grammar/G3:-으면 안 되다:R`
-- `KP12:objective:grammar/G3:-으면 안 되다:P`
-- `KP12:objective:grammar/G3:-으면 좋겠다:R`
-- `KP12:objective:grammar/G3:-으면 좋겠다:P`
-- `KP12:objective:grammar/G3:-을 테니:R`
-- `KP12:objective:grammar/G3:-을 테니:P`
-- `KP12:objective:grammar/G3:만 아니면:R`
-- `KP12:objective:grammar/G3:만 아니면:P`
-- `KP12:objective:listening/core:R`
-- `KP12:objective:reading/core:R`
-- `KP12:objective:reading/genre/email_letter_formal:R`
-- `KP12:objective:reading/genre/explanatory_informational_text:R`
-- `KP12:objective:speaking/core:P`
-- `KP12:objective:speaking/genre/job_interview:P`
-- `KP12:objective:writing/core:P`
-- `KP12:objective:writing/genre/email_letter_formal:P`
-- `KP12:objective:functions/negotiate_compromise_conditions:R`
-- `KP12:objective:functions/negotiate_compromise_conditions:P`
-- `KP12:objective:functions/refuse_set_boundaries:R`
-- `KP12:objective:functions/refuse_set_boundaries:P`
-- `KP12:objective:functions/complain_object_appeal:R`
-- `KP12:objective:functions/complain_object_appeal:P`
-- `KP12:objective:functions/explain_reason_cause_effect:R`
-- `KP12:objective:functions/explain_reason_cause_effect:P`
-- `KP12:objective:vocabDomains/public_services_admin_vocab:R`
-- `KP12:objective:vocabDomains/public_services_admin_vocab:P`
-- `KP12:objective:vocabDomains/professions_workplace:R`
-- `KP12:objective:vocabDomains/professions_workplace:P`
-- `KP12:objective:vocabDomains/feelings_emotions_character:R`
-- `KP12:objective:vocabDomains/feelings_emotions_character:P`
-- `KP12:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP12:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP12:objective:phonology/0:R`
-- `KP12:objective:phonology/0:P`
-- `KP12:objective:phonology/1:R`
-- `KP12:objective:phonology/1:P`
-- `KP12:objective:register/haeyo_polite:P`
-- `KP12:objective:register/hapsyo_formal_business:P`
-- `KP12:objective:register/intimate:P`
 - `KP13:objective:grammar/G3:이라고1:R`
 - `KP13:objective:grammar/G3:이라고1:P`
 - `KP13:objective:grammar/G3:-는다고3:R`

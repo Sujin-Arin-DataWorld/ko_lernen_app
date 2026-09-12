@@ -7203,6 +7203,660 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "해당 자료와 응답 요구의 실제 학습 경로를 검수했다. KO/EN/DE bounded production review: Topic specified, not endorsement or fare-increase decision. Held-out assessment answer absent from practice help; unknown variants unscored. 영역별 전체 숙달이나 자유 의미·억양 자동 평가를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP12:objective:listening/core:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "af1cd78140eb9bea3f7e1cab889db4b9b47ecb4934a76cf833926b9820c1a574",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:reading/core:R",
+      "taskId": "KP12:reading:01",
+      "sourceHash": "af36f4c54c095cb354eae1f8c281196f6632b793d5302e4b63353a5fe737a64c",
+      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "criterionIds": [
+        "request",
+        "deadline",
+        "beneficiary",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:reading/genre/email_letter_formal:R",
+      "taskId": "KP12:reading:01",
+      "sourceHash": "295c1a692d4e656bbabf8e4e4b6613b98b23f9030f26a8d7134e33fdd0a677b7",
+      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "criterionIds": [
+        "request",
+        "deadline",
+        "beneficiary",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:reading/genre/explanatory_informational_text:R",
+      "taskId": "KP12:reading:02",
+      "sourceHash": "0834c1ab064421e44117f035e5034dd9460c893d5d25070e784f2c243b5c43bf",
+      "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+      "criterionIds": [
+        "purpose",
+        "authority",
+        "silence",
+        "extension"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Connected procedure separates peer file check from staff permission, no response stays unapproved, reason notice does not automatically extend deadline. Purpose, authority, silence and extension required. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:writing/core:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "2dc8a25a4635708da188e800e03d8d8d5c9e2f3a55f03b7f4d94081ba0084b31",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:writing/genre/email_letter_formal:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "c50d812b8c626f17a98f5b5c12c9bbccf7f9611e4213af4348b99f594688c630",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:speaking/core:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "c04d16962c8af343a533ea58f5d8a324f2118b78ed5f1664ee45315c33c68cf7",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:speaking/genre/job_interview:P",
+      "taskId": "KP12:speaking:02",
+      "sourceHash": "bc7fbcbd838180853be38ec5637b593d4b99a965c7aa4a52fc40c997d6d900d4",
+      "taskHash": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Separate formal job interview with fixed volunteer experience, limited input/seat-guidance role and no approval authority, unavailable teaching day and offered alternative. No invented career, decisions or final schedule; speech unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/negotiate_compromise_conditions:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "cc99024e39f8d1ae79d1fa9a96ae68d5a7be20947c546d70bf7581d7e01149ef",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/negotiate_compromise_conditions:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "cc99024e39f8d1ae79d1fa9a96ae68d5a7be20947c546d70bf7581d7e01149ef",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/refuse_set_boundaries:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "c7b81a743d407249382467b0d1664652e93871652b53af1910406da8397103f1",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/refuse_set_boundaries:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "c7b81a743d407249382467b0d1664652e93871652b53af1910406da8397103f1",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/complain_object_appeal:R",
+      "taskId": "KP12:reading:01",
+      "sourceHash": "05a71a74f06c6afb92140daa5d6bcdfb0ac11bee715d015621b13d1c7ad1c74b",
+      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "criterionIds": [
+        "request",
+        "deadline",
+        "beneficiary",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/complain_object_appeal:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "05a71a74f06c6afb92140daa5d6bcdfb0ac11bee715d015621b13d1c7ad1c74b",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/explain_reason_cause_effect:R",
+      "taskId": "KP12:reading:02",
+      "sourceHash": "da7b734c980455c76028b1b0ca2063880b9eac2f4b5a75f247d9a6c53ca076ef",
+      "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+      "criterionIds": [
+        "purpose",
+        "authority",
+        "silence",
+        "extension"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Connected procedure separates peer file check from staff permission, no response stays unapproved, reason notice does not automatically extend deadline. Purpose, authority, silence and extension required. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:functions/explain_reason_cause_effect:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "da7b734c980455c76028b1b0ca2063880b9eac2f4b5a75f247d9a6c53ca076ef",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/public_services_admin_vocab:R",
+      "taskId": "KP12:reading:02",
+      "sourceHash": "1205e4c27d391331587d3985178d652cb5a130528b1493694b90647875669df9",
+      "taskHash": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+      "criterionIds": [
+        "purpose",
+        "authority",
+        "silence",
+        "extension"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Connected procedure separates peer file check from staff permission, no response stays unapproved, reason notice does not automatically extend deadline. Purpose, authority, silence and extension required. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/public_services_admin_vocab:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "1205e4c27d391331587d3985178d652cb5a130528b1493694b90647875669df9",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/professions_workplace:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "a75ab40064001a657d1ee97c2ac7b41f7b71ba7e0f18a6a83f7a2bf7adc8915f",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/professions_workplace:P",
+      "taskId": "KP12:speaking:02",
+      "sourceHash": "a75ab40064001a657d1ee97c2ac7b41f7b71ba7e0f18a6a83f7a2bf7adc8915f",
+      "taskHash": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Separate formal job interview with fixed volunteer experience, limited input/seat-guidance role and no approval authority, unavailable teaching day and offered alternative. No invented career, decisions or final schedule; speech unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/feelings_emotions_character:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "12ff3ec3ae72e329106259801c3d83e3ff1ddbe6d04d83ef3fc7feff9b6b1bfd",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/feelings_emotions_character:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "12ff3ec3ae72e329106259801c3d83e3ff1ddbe6d04d83ef3fc7feff9b6b1bfd",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP12:reading:01",
+      "sourceHash": "f4f897c9914252f269927de45f21fb34ae04b72808622e0790e619fa3cc4a63e",
+      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "criterionIds": [
+        "request",
+        "deadline",
+        "beneficiary",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "f4f897c9914252f269927de45f21fb34ae04b72808622e0790e619fa3cc4a63e",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:phonology/0:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "46f30d50aee3e06bf231048e76e62e6bc71b535392d7a56b113393a1c6637daa",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:phonology/0:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "46f30d50aee3e06bf231048e76e62e6bc71b535392d7a56b113393a1c6637daa",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:phonology/1:R",
+      "taskId": "KP12:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "criterionIds": [
+        "boundary",
+        "sender",
+        "condition",
+        "wish",
+        "complaint"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:phonology/1:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:register/haeyo_polite:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP12:writing:01",
+      "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
+      "taskHash": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "criterionIds": [
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:register/intimate:P",
+      "taskId": "KP12:speaking:01",
+      "sourceHash": "2ca128966943e6ce21953e560de894d758d5c974bf3f498263b8a894f289dd8f",
+      "taskHash": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-거든1:R",
+      "taskId": "KP12:grammar:01",
+      "sourceHash": "656dc106eb0be5e99145191d3264ccbd995f9a807698fabed2ecd5fdb1efd744",
+      "taskHash": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야:R",
+      "taskId": "KP12:grammar:02",
+      "sourceHash": "85bb136a77fc75782e02cb38ac72b2bf7fd66ca9e88439d820cce01b3d46c191",
+      "taskHash": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Necessary condition, not already fulfilled or sufficient for every other condition. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야지1:R",
+      "taskId": "KP12:grammar:03",
+      "sourceHash": "0109ae3777a8c51627a92076e7c9219aa86557c2845adc1792b197b8711094ff",
+      "taskHash": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Emphatic necessary condition linked to result, not resolution-only 야지. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야겠-:R",
+      "taskId": "KP12:grammar:04",
+      "sourceHash": "7c8f261d3d1f12e29ac8d4742928c812863d12e24a5852d0afbbe88590654808",
+      "taskHash": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으려면:R",
+      "taskId": "KP12:grammar:05",
+      "sourceHash": "8ff8b79d9e1aeded4f769ac43393bde5a7e42ded1ed84398c88563c54b87d79d",
+      "taskHash": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Condition to realise intention, not permission created by intention. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-도록:R",
+      "taskId": "KP12:grammar:06",
+      "sourceHash": "48ddc07db06d67db3309e44b7c0d07057a474bdf2860ab5b31887a449e785c94",
+      "taskHash": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-기 위해:R",
+      "taskId": "KP12:grammar:07",
+      "sourceHash": "f263bf811d92afe96bbe06b4e713ee7c98a57c69e35f7a574414ff9ce2d7db05",
+      "taskHash": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Explicit purpose, not proof of success or photo-publication permission. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-게 하다:R",
+      "taskId": "KP12:grammar:08",
+      "sourceHash": "0875ec72450109d61f656e62b6751fe3b3dff675139708db4b0ce3669922e891",
+      "taskHash": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어 드리다:R",
+      "taskId": "KP12:grammar:09",
+      "sourceHash": "819110673ebef84a228cc7e6e6db305a4e260fb4f2e08dd278e1e3a96d9be96d",
+      "taskHash": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으면 안 되다:R",
+      "taskId": "KP12:grammar:10",
+      "sourceHash": "89beb66f862b0757e76a421d9e293f2643a3bc4864b31c2280f2c496a930de13",
+      "taskHash": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Prohibition versus absence of obligation and opposite mandatory action. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으면 좋겠다:R",
+      "taskId": "KP12:grammar:11",
+      "sourceHash": "da6f591363ff21dcb3af0fbbbba40f29ba87a8267da3f9e0f512e321cbec6a37",
+      "taskHash": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Wish remains unconfirmed, not someone else’s promise. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-을 테니:R",
+      "taskId": "KP12:grammar:12",
+      "sourceHash": "35ea5f27305381081f16e8eba87c06406ec5a57a841730744b9908d1ec0c0d0b",
+      "taskHash": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Own intended commitment grounds a request to another, actor and requested action preserved. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:만 아니면:R",
+      "taskId": "KP12:grammar:13",
+      "sourceHash": "08aff947b7c4d2eb11d863a19e2a80c3432b0b02c6e2f8b312eedba7cdf1677c",
+      "taskHash": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE meaning checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Receptive sample only. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-거든1:P",
+      "taskId": "KP12:production:01",
+      "sourceHash": "656dc106eb0be5e99145191d3264ccbd995f9a807698fabed2ecd5fdb1efd744",
+      "taskHash": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야:P",
+      "taskId": "KP12:production:02",
+      "sourceHash": "85bb136a77fc75782e02cb38ac72b2bf7fd66ca9e88439d820cce01b3d46c191",
+      "taskHash": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Necessary condition, not already fulfilled or sufficient for every other condition. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야지1:P",
+      "taskId": "KP12:production:03",
+      "sourceHash": "0109ae3777a8c51627a92076e7c9219aa86557c2845adc1792b197b8711094ff",
+      "taskHash": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Emphatic necessary condition linked to result, not resolution-only 야지. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어야겠-:P",
+      "taskId": "KP12:production:04",
+      "sourceHash": "7c8f261d3d1f12e29ac8d4742928c812863d12e24a5852d0afbbe88590654808",
+      "taskHash": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으려면:P",
+      "taskId": "KP12:production:05",
+      "sourceHash": "8ff8b79d9e1aeded4f769ac43393bde5a7e42ded1ed84398c88563c54b87d79d",
+      "taskHash": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Condition to realise intention, not permission created by intention. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-도록:P",
+      "taskId": "KP12:production:06",
+      "sourceHash": "48ddc07db06d67db3309e44b7c0d07057a474bdf2860ab5b31887a449e785c94",
+      "taskHash": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-기 위해:P",
+      "taskId": "KP12:production:07",
+      "sourceHash": "f263bf811d92afe96bbe06b4e713ee7c98a57c69e35f7a574414ff9ce2d7db05",
+      "taskHash": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Explicit purpose, not proof of success or photo-publication permission. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-게 하다:P",
+      "taskId": "KP12:production:08",
+      "sourceHash": "0875ec72450109d61f656e62b6751fe3b3dff675139708db4b0ce3669922e891",
+      "taskHash": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-어 드리다:P",
+      "taskId": "KP12:production:09",
+      "sourceHash": "819110673ebef84a228cc7e6e6db305a4e260fb4f2e08dd278e1e3a96d9be96d",
+      "taskHash": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으면 안 되다:P",
+      "taskId": "KP12:production:10",
+      "sourceHash": "89beb66f862b0757e76a421d9e293f2643a3bc4864b31c2280f2c496a930de13",
+      "taskHash": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Prohibition versus absence of obligation and opposite mandatory action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-으면 좋겠다:P",
+      "taskId": "KP12:production:11",
+      "sourceHash": "da6f591363ff21dcb3af0fbbbba40f29ba87a8267da3f9e0f512e321cbec6a37",
+      "taskHash": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Wish remains unconfirmed, not someone else’s promise. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:-을 테니:P",
+      "taskId": "KP12:production:12",
+      "sourceHash": "35ea5f27305381081f16e8eba87c06406ec5a57a841730744b9908d1ec0c0d0b",
+      "taskHash": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Own intended commitment grounds a request to another, actor and requested action preserved. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP12:objective:grammar/G3:만 아니면:P",
+      "taskId": "KP12:production:13",
+      "sourceHash": "08aff947b7c4d2eb11d863a19e2a80c3432b0b02c6e2f8b312eedba7cdf1677c",
+      "taskHash": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
     }
   ]
 }

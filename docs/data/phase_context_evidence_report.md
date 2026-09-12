@@ -146,19 +146,19 @@
 | KP11 | G3:-어 보이다 | 1 | 0 | 0 | 미검증 |
 | KP11 | G3:-기는 | 1 | 0 | 0 | 미검증 |
 | KP11 | G3:에 대하여 | 1 | 0 | 0 | 미검증 |
-| KP12 | G3:-거든1 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-어야 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-어야지1 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-어야겠- | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-으려면 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-도록 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-기 위해 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-게 하다 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-어 드리다 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-으면 안 되다 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-으면 좋겠다 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:-을 테니 | 0 | 0 | 0 | 미검증 |
-| KP12 | G3:만 아니면 | 0 | 0 | 0 | 미검증 |
+| KP12 | G3:-거든1 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-어야 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-어야지1 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-어야겠- | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-으려면 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-도록 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-기 위해 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-게 하다 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-어 드리다 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-으면 안 되다 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-으면 좋겠다 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:-을 테니 | 1 | 0 | 0 | 미검증 |
+| KP12 | G3:만 아니면 | 1 | 0 | 0 | 미검증 |
 | KP13 | G3:이라고1 | 0 | 0 | 0 | 미검증 |
 | KP13 | G3:-는다고3 | 0 | 0 | 0 | 미검증 |
 | KP13 | G3:-는다고1 | 0 | 0 | 0 | 미검증 |
@@ -472,3 +472,16 @@
 - KP11 / G3:-어 보이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/11/practice/sourceKo` — “이 의자는 편안해 보여요.”. 다음 문장에 앉아 보지 않았다고 명시하여 외관상 인상임을 확인한다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP11 / G3:-기는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/12/practice/sourceKo` — “좋기는 하지만 너무 비싸요.”. 좋음을 일부 인정하되 가격에 대한 유보를 남긴다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP11 / G3:에 대하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp11.json/tasks/13/practice/sourceKo` — “음식 문화에 대하여 이야기했어요.”. 대화의 주제를 지정할 뿐 찬성이나 결정으로 확장하지 않는다. 신규 Phase 원문의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-거든1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/0/practice/sourceKo` — “시간이 나거든 연락해 주세요.”. 연락 부탁이 실행될 시간 여유의 조건이다. 문장 끝 설명 거든요가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-어야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/1/practice/sourceKo` — “예약을 해야 들어갈 수 있어요.”. 입장에 필요한 예약 조건이며 예약 완료를 선언하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-어야지1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/2/practice/sourceKo` — “서로 믿어야지 함께 일할 수 있어요.”. 신뢰를 협업의 필수 조건으로 강조하는 연결이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-어야겠- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/3/practice/sourceKo` — “이번에는 제가 미리 준비해야겠어요.”. 화자 스스로 준비 필요를 깨달은 결심이며 타인의 완료가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-으려면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/4/practice/sourceKo` — “이 공간을 쓰려면 먼저 예약해야 해요.”. 사용 의도를 실현하는 데 필요한 예약 조건이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-도록 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/5/practice/sourceKo` — “모두 참여할 수 있도록 시간을 바꿨어요.”. 시간 변경의 목적을 나타내며 실제 전원 참석을 보증하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-기 위해 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/6/practice/sourceKo` — “기록을 남기기 위해 사진을 찍었어요.”. 기록 보존이 촬영 목적이다. 공개 허가가 있다는 뜻이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-게 하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/7/practice/sourceKo` — “교사는 학생들이 주제를 직접 고르게 했어요.”. 뒤 문장에 선택을 맡겼다고 명시하여 교사의 허용과 학생 선택을 확인한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-어 드리다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/8/practice/sourceKo` — “제가 선생님께 자료를 보내 드렸어요.”. 화자가 행위자이고 높이는 수혜자는 선생님이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-으면 안 되다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/9/practice/sourceKo` — “허가 없이 사진을 공개하면 안 돼요.”. 허가 없는 공개를 금지하며 의무가 없다는 뜻과 다르다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-으면 좋겠다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/10/practice/sourceKo` — “모두 함께할 수 있으면 좋겠어요.”. 함께할 수 있기를 바라는 희망이며 참석 확정이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:-을 테니 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/11/practice/sourceKo` — “제가 확인할 테니 잠시 기다려 주세요.”. 화자의 확인 의지를 근거로 청자에게 기다려 달라고 부탁한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP12 / G3:만 아니면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/12/practice/sourceKo` — “비만 아니면 밖에서 할 수 있어요.”. 뒤 문장에 예약은 별도로 필요하다고 명시하여 비라는 방해 조건만 제외한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
