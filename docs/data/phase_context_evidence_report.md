@@ -271,15 +271,15 @@
 | KP21 | G5:-는 데다가 | 1 | 0 | 0 | 미검증 |
 | KP21 | G5:-느니1 | 1 | 0 | 0 | 미검증 |
 | KP21 | G5:-지1 | 1 | 0 | 0 | 미검증 |
-| KP22 | G5:-을 테다 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-을 테면 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-을 테지만 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-기 나름이다 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-기에 따라 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-은 나머지 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-는 이상 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-다가는 | 0 | 0 | 0 | 미검증 |
-| KP22 | G5:-으면 몰라도 | 0 | 0 | 0 | 미검증 |
+| KP22 | G5:-을 테다 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-을 테면 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-을 테지만 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-기 나름이다 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-기에 따라 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-은 나머지 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-는 이상 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-다가는 | 1 | 0 | 0 | 미검증 |
+| KP22 | G5:-으면 몰라도 | 1 | 0 | 0 | 미검증 |
 | KP23 | G5:-는다기에 | 0 | 0 | 0 | 미검증 |
 | KP23 | G5:-는다니1 | 0 | 0 | 0 | 미검증 |
 | KP23 | G5:-자기에 | 0 | 0 | 0 | 미검증 |
@@ -607,3 +607,12 @@
 - KP21 / G5:-는 데다가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/7/practice/sourceKo` — “시간이 부족한 데다가 자료도 완성되지 않았어요.”. 시간 부족에 자료 미완성 사정을 추가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP21 / G5:-느니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/8/practice/sourceKo` — “성급하게 결론을 내리느니 조금 더 확인하겠어요.”. 성급한 결론을 배제하고 추가 확인을 선택하는 비교다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP21 / G5:-지1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/9/practice/sourceKo` — “이것은 제안이지 확정된 계획은 아닙니다.”. 제안이라는 판단을 세우고 확정 계획 분류는 배제하는 대조 연결이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-을 테다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/0/practice/sourceKo` — “나는 이번에는 끝까지 확인할 테다. 기관의 승인 여부는 아직 모른다.”. 승인 미상과 구별한 개인의 강한 확인 의지다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-을 테면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/1/practice/sourceKo` — “질문할 테면 먼저 자료를 읽어 보세요. 질문 여부는 본인이 정합니다.”. 질문 의향을 조건으로 행동을 제시하며 선택권을 밝힌다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-을 테지만 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/2/practice/sourceKo` — “비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. 아직 견적은 없습니다.”. 견적 없는 비용 증가 예측을 인정하며 다른 검토 논거를 더한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-기 나름이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/3/practice/sourceKo` — “같은 자료도 해석하기 나름입니다.”. 같은 자료의 판단이 해석 방식에 달림을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-기에 따라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/4/practice/sourceKo` — “같은 상황도 생각하기에 따라 다르게 보입니다.”. 생각하는 방식에 따른 관점 변화를 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-은 나머지 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/5/practice/sourceKo` — “너무 서두른 나머지 중요한 항목을 빠뜨렸어요.”. 과도한 서두름이 낳은 누락 결과다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-는 이상 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/6/practice/sourceKo` — “자료를 공개한 이상 질문에도 답해야 합니다.”. 이미 성립한 공개 전제를 근거로 답변 책임을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-다가는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/7/practice/sourceKo` — “이렇게 미루다가는 기한을 놓치겠어요. 아직 기한 전이에요.”. 지속될 미루기의 부정적 미래 위험이며 이미 발생한 실패가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP22 / G5:-으면 몰라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp22.json/tasks/8/practice/sourceKo` — “추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다.”. 추가 근거를 예외로 열어 두면서 현재 단정을 유보한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

@@ -1290,8 +1290,31 @@
         "c1_02_inclusive_sustainable_systems"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp22.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP22:grammar:01",
+        "KP22:grammar:02",
+        "KP22:grammar:03",
+        "KP22:grammar:04",
+        "KP22:grammar:05",
+        "KP22:grammar:06",
+        "KP22:grammar:07",
+        "KP22:grammar:08",
+        "KP22:grammar:09",
+        "KP22:production:01",
+        "KP22:production:02",
+        "KP22:production:03",
+        "KP22:production:04",
+        "KP22:production:05",
+        "KP22:production:06",
+        "KP22:production:07",
+        "KP22:production:08",
+        "KP22:production:09",
+        "KP22:listening:01",
+        "KP22:reading:01",
+        "KP22:writing:01",
+        "KP22:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP23",
@@ -1508,5 +1531,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "703fd041e4a425c1c491cdbbd824bb64f6927761970f8cf25fc0dd28135c1956"
+  "phaseTaskSourceSha256": "c4a34720f125c428e80897e0ecdd33c31923090cc00fee633e623188b9ce85e5"
 }

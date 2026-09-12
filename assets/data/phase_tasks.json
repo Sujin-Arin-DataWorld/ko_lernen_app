@@ -21,7 +21,8 @@
     "KP18": "partial",
     "KP19": "partial",
     "KP20": "partial",
-    "KP21": "partial"
+    "KP21": "partial",
+    "KP22": "partial"
   },
   "tasks": [
     {
@@ -73257,6 +73258,2620 @@
         "questions": []
       },
       "contentHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4"
+    },
+    {
+      "id": "KP22:grammar:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:01",
+      "requirementKeys": [
+        "G5:-을 테다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테다",
+        "en": "-을 테다",
+        "de": "-을 테다"
+      },
+      "teaching": {
+        "ko": "화자가 강한 의지를 나타내는 용례예요. 독백의 -을 테다를 상대에게 명령하거나 기관이 보증한 사실로 읽지 않아요.",
+        "en": "Here the speaker expresses firm personal resolve. A monologic -을 테다 is neither a command to others nor an institutional guarantee.",
+        "de": "Hier drückt die sprechende Person einen festen eigenen Entschluss aus. Das monologische -을 테다 ist weder Befehl noch institutionelle Garantie."
+      },
+      "examplesKo": [
+        "나는 이번에는 끝까지 확인할 테다. 기관의 승인 여부는 아직 모른다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "나는 이번에는 끝까지 확인할 테다. 기관의 승인 여부는 아직 모른다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기관이 결과를 보증함"
+              },
+              {
+                "id": "0",
+                "text": "화자 자신의 확인 결심"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자가 강한 의지를 나타내는 용례예요. 독백의 -을 테다를 상대에게 명령하거나 기관이 보증한 사실로 읽지 않아요.",
+              "en": "Here the speaker expresses firm personal resolve. A monologic -을 테다 is neither a command to others nor an institutional guarantee.",
+              "de": "Hier drückt die sprechende Person einen festen eigenen Entschluss aus. Das monologische -을 테다 ist weder Befehl noch institutionelle Garantie."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "나는 누락된 기록을 다시 찾을 테다. 다른 직원에게 지시한 말은 아니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자 자신의 재탐색 의지"
+              },
+              {
+                "id": "1",
+                "text": "다른 직원에 대한 공식 명령"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화자가 강한 의지를 나타내는 용례예요. 독백의 -을 테다를 상대에게 명령하거나 기관이 보증한 사실로 읽지 않아요.",
+              "en": "Here the speaker expresses firm personal resolve. A monologic -을 테다 is neither a command to others nor an institutional guarantee.",
+              "de": "Hier drückt die sprechende Person einen festen eigenen Entschluss aus. Das monologische -을 테다 ist weder Befehl noch institutionelle Garantie."
+            }
+          }
+        ]
+      },
+      "contentHash": "39e29f9afa10d291bb4466510e6bdc04d4ed98b4e51604a6ef5e652ca3ba6cc8"
+    },
+    {
+      "id": "KP22:grammar:02",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:02",
+      "requirementKeys": [
+        "G5:-을 테면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테면",
+        "en": "-을 테면",
+        "de": "-을 테면"
+      },
+      "teaching": {
+        "ko": "상대의 의지를 조건으로 행동을 제시해요. 도전·맞섬으로 들릴 수 있어 공손한 협의에서는 의향을 확인하는 표현으로 고쳐 말해요. 조건절 자체를 강제 명령으로 읽지 않아요.",
+        "en": "Make the other person’s intention a condition. This can sound challenging; in polite negotiation recast it as an intention check. The conditional itself is not compulsory action.",
+        "de": "Mache die Absicht des Gegenübers zur Bedingung. Das kann herausfordernd klingen; formuliere in höflicher Abstimmung eine Nachfrage zur Absicht. Der Bedingungssatz allein erzwingt keine Handlung."
+      },
+      "examplesKo": [
+        "질문할 테면 먼저 자료를 읽어 보세요. 질문 여부는 본인이 정합니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "질문할 테면 먼저 자료를 읽어 보세요. 질문 여부는 본인이 정합니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "질문을 반드시 하라는 명령"
+              },
+              {
+                "id": "0",
+                "text": "질문할 의향이 있을 때 자료 읽기 제시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대의 의지를 조건으로 행동을 제시해요. 도전·맞섬으로 들릴 수 있어 공손한 협의에서는 의향을 확인하는 표현으로 고쳐 말해요. 조건절 자체를 강제 명령으로 읽지 않아요.",
+              "en": "Make the other person’s intention a condition. This can sound challenging; in polite negotiation recast it as an intention check. The conditional itself is not compulsory action.",
+              "de": "Mache die Absicht des Gegenübers zur Bedingung. Das kann herausfordernd klingen; formuliere in höflicher Abstimmung eine Nachfrage zur Absicht. Der Bedingungssatz allein erzwingt keine Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "참여할 테면 일정을 먼저 확인하세요. 참여는 선택입니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참여 의향을 전제로 일정 확인"
+              },
+              {
+                "id": "1",
+                "text": "참여를 거부할 선택권 없음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대의 의지를 조건으로 행동을 제시해요. 도전·맞섬으로 들릴 수 있어 공손한 협의에서는 의향을 확인하는 표현으로 고쳐 말해요. 조건절 자체를 강제 명령으로 읽지 않아요.",
+              "en": "Make the other person’s intention a condition. This can sound challenging; in polite negotiation recast it as an intention check. The conditional itself is not compulsory action.",
+              "de": "Mache die Absicht des Gegenübers zur Bedingung. Das kann herausfordernd klingen; formuliere in höflicher Abstimmung eine Nachfrage zur Absicht. Der Bedingungssatz allein erzwingt keine Handlung."
+            }
+          }
+        ]
+      },
+      "contentHash": "46e96d9fe90d505b3ed46b98fd6f9418c98961ec27e59fcf997216e84c5e5815"
+    },
+    {
+      "id": "KP22:grammar:03",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:03",
+      "requirementKeys": [
+        "G5:-을 테지만"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테지만",
+        "en": "-을 테지만",
+        "de": "-을 테지만"
+      },
+      "teaching": {
+        "ko": "예상되는 상황을 인정하고 다른 논거를 이어 가요. 예측의 근거가 없으면 확정 결과로 올리지 않아요.",
+        "en": "Admit an anticipated situation and continue with another consideration. Do not promote a prediction to a confirmed outcome without evidence.",
+        "de": "Erkenne einen erwarteten Umstand an und führe einen weiteren Gesichtspunkt an. Mache eine Prognose ohne Beleg nicht zum sicheren Ergebnis."
+      },
+      "examplesKo": [
+        "비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. 아직 견적은 없습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. 아직 견적은 없습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "비용 증가액을 이미 확정"
+              },
+              {
+                "id": "0",
+                "text": "비용 증가 예측과 접근성 검토 필요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "예상되는 상황을 인정하고 다른 논거를 이어 가요. 예측의 근거가 없으면 확정 결과로 올리지 않아요.",
+              "en": "Admit an anticipated situation and continue with another consideration. Do not promote a prediction to a confirmed outcome without evidence.",
+              "de": "Erkenne einen erwarteten Umstand an und führe einen weiteren Gesichtspunkt an. Mache eine Prognose ohne Beleg nicht zum sicheren Ergebnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "질문이 많을 테지만 답변 시간을 마련하겠습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "질문 수를 이미 집계 완료"
+              },
+              {
+                "id": "0",
+                "text": "질문 증가 예상과 답변 준비 약속"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "예상되는 상황을 인정하고 다른 논거를 이어 가요. 예측의 근거가 없으면 확정 결과로 올리지 않아요.",
+              "en": "Admit an anticipated situation and continue with another consideration. Do not promote a prediction to a confirmed outcome without evidence.",
+              "de": "Erkenne einen erwarteten Umstand an und führe einen weiteren Gesichtspunkt an. Mache eine Prognose ohne Beleg nicht zum sicheren Ergebnis."
+            }
+          }
+        ]
+      },
+      "contentHash": "408f809a4436385077246b553d2184693cda78a552b05aa6f371fb9d95e68a28"
+    },
+    {
+      "id": "KP22:grammar:04",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:04",
+      "requirementKeys": [
+        "G5:-기 나름이다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 나름이다",
+        "en": "-기 나름이다",
+        "de": "-기 나름이다"
+      },
+      "teaching": {
+        "ko": "결과가 하는 방법에 달렸다는 의존 관계예요. 어떤 방법이 어떤 결과를 보장하는지는 문맥의 근거로 따로 확인해요.",
+        "en": "Express dependence on how an action is performed. Evidence must separately establish whether a particular method guarantees an outcome.",
+        "de": "Drücke Abhängigkeit von der Vorgehensweise aus. Ob eine bestimmte Methode ein Ergebnis garantiert, muss gesondert belegt sein."
+      },
+      "examplesKo": [
+        "같은 자료도 해석하기 나름입니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 자료도 해석하기 나름입니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "해석 방식에 따라 판단이 달라짐"
+              },
+              {
+                "id": "1",
+                "text": "자료의 뜻은 어떤 해석에서도 동일"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "결과가 하는 방법에 달렸다는 의존 관계예요. 어떤 방법이 어떤 결과를 보장하는지는 문맥의 근거로 따로 확인해요.",
+              "en": "Express dependence on how an action is performed. Evidence must separately establish whether a particular method guarantees an outcome.",
+              "de": "Drücke Abhängigkeit von der Vorgehensweise aus. Ob eine bestimmte Methode ein Ergebnis garantiert, muss gesondert belegt sein."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "참여 기회는 일정을 조정하기 나름이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "일정을 바꿔도 기회가 항상 같음"
+              },
+              {
+                "id": "0",
+                "text": "일정 조정 방식에 따른 기회 차이"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "결과가 하는 방법에 달렸다는 의존 관계예요. 어떤 방법이 어떤 결과를 보장하는지는 문맥의 근거로 따로 확인해요.",
+              "en": "Express dependence on how an action is performed. Evidence must separately establish whether a particular method guarantees an outcome.",
+              "de": "Drücke Abhängigkeit von der Vorgehensweise aus. Ob eine bestimmte Methode ein Ergebnis garantiert, muss gesondert belegt sein."
+            }
+          }
+        ]
+      },
+      "contentHash": "aa51d884397c984a51b60c6c9e4fe85b76e0632214bd3c91273f22a519fbf2e1"
+    },
+    {
+      "id": "KP22:grammar:05",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:05",
+      "requirementKeys": [
+        "G5:-기에 따라"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기에 따라",
+        "en": "-기에 따라",
+        "de": "-기에 따라"
+      },
+      "teaching": {
+        "ko": "생각하거나 행동하는 방식에 따른 변화를 나타내요. -기에의 단순 원인 용례와 구별해요.",
+        "en": "Mark variation according to a way of thinking or acting. Distinguish this from causal -기에 alone.",
+        "de": "Kennzeichne Veränderung je nach Denk- oder Handlungsweise. Unterscheide dies vom bloß kausalen -기에."
+      },
+      "examplesKo": [
+        "같은 상황도 생각하기에 따라 다르게 보입니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 상황도 생각하기에 따라 다르게 보입니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "생각하는 방식에 따른 관점 차이"
+              },
+              {
+                "id": "1",
+                "text": "생각하기 때문에 시각이 항상 같음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "생각하거나 행동하는 방식에 따른 변화를 나타내요. -기에의 단순 원인 용례와 구별해요.",
+              "en": "Mark variation according to a way of thinking or acting. Distinguish this from causal -기에 alone.",
+              "de": "Kennzeichne Veränderung je nach Denk- oder Handlungsweise. Unterscheide dies vom bloß kausalen -기에."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 제도도 운영하기에 따라 효과가 달라질 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "운영 방식과 무관하게 효과가 확정됨"
+              },
+              {
+                "id": "0",
+                "text": "운영 방식에 따른 효과 차이 가능성"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "생각하거나 행동하는 방식에 따른 변화를 나타내요. -기에의 단순 원인 용례와 구별해요.",
+              "en": "Mark variation according to a way of thinking or acting. Distinguish this from causal -기에 alone.",
+              "de": "Kennzeichne Veränderung je nach Denk- oder Handlungsweise. Unterscheide dies vom bloß kausalen -기에."
+            }
+          }
+        ]
+      },
+      "contentHash": "9d69ad510e182ab12c06165fd192e58d5b00dc3cefbda57a481366fdc6c60f7c"
+    },
+    {
+      "id": "KP22:grammar:06",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:06",
+      "requirementKeys": [
+        "G5:-은 나머지"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 나머지",
+        "en": "-은 나머지",
+        "de": "-은 나머지"
+      },
+      "teaching": {
+        "ko": "지나친 행동이나 감정이 낳은 결과를 말해요. 남은 수량을 뜻하는 나머지와 구별해요.",
+        "en": "State a result of excessive action or emotion. Distinguish the noun remainder as a quantity.",
+        "de": "Nenne eine Folge übermäßigen Handelns oder Empfindens. Unterscheide das Nomen Rest als Mengenangabe."
+      },
+      "examplesKo": [
+        "너무 서두른 나머지 중요한 항목을 빠뜨렸어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "너무 서두른 나머지 중요한 항목을 빠뜨렸어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "과도한 서두름으로 누락 발생"
+              },
+              {
+                "id": "1",
+                "text": "남은 항목 수를 셈"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지나친 행동이나 감정이 낳은 결과를 말해요. 남은 수량을 뜻하는 나머지와 구별해요.",
+              "en": "State a result of excessive action or emotion. Distinguish the noun remainder as a quantity.",
+              "de": "Nenne eine Folge übermäßigen Handelns oder Empfindens. Unterscheide das Nomen Rest als Mengenangabe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "너무 걱정한 나머지 확인 전부터 결론을 내렸어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "확인을 모두 마친 뒤 결론"
+              },
+              {
+                "id": "0",
+                "text": "과도한 걱정으로 성급한 결론"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지나친 행동이나 감정이 낳은 결과를 말해요. 남은 수량을 뜻하는 나머지와 구별해요.",
+              "en": "State a result of excessive action or emotion. Distinguish the noun remainder as a quantity.",
+              "de": "Nenne eine Folge übermäßigen Handelns oder Empfindens. Unterscheide das Nomen Rest als Mengenangabe."
+            }
+          }
+        ]
+      },
+      "contentHash": "2cfec3daab80b59e9c4d7b0dd8558920d50e4c40408e262ecf7e377469a4e787"
+    },
+    {
+      "id": "KP22:grammar:07",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:07",
+      "requirementKeys": [
+        "G5:-는 이상"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 이상",
+        "en": "-는 이상",
+        "de": "-는 이상"
+      },
+      "teaching": {
+        "ko": "이미 받아들인 전제에 따르는 책임이나 판단을 제시해요. 자료를 공개했다는 전제가 성립하는 범위를 유지해요.",
+        "en": "Derive responsibility or judgement from an accepted premise. Preserve the scope in which that premise actually holds.",
+        "de": "Leite Verantwortung oder Urteil aus einer anerkannten Prämisse ab. Erhalte den Bereich, in dem diese tatsächlich gilt."
+      },
+      "examplesKo": [
+        "자료를 공개한 이상 질문에도 답해야 합니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "자료를 공개한 이상 질문에도 답해야 합니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "공개 사실을 전제로 한 답변 책임"
+              },
+              {
+                "id": "1",
+                "text": "공개하지 않은 모든 자료도 공개할 의무"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이미 받아들인 전제에 따르는 책임이나 판단을 제시해요. 자료를 공개했다는 전제가 성립하는 범위를 유지해요.",
+              "en": "Derive responsibility or judgement from an accepted premise. Preserve the scope in which that premise actually holds.",
+              "de": "Leite Verantwortung oder Urteil aus einer anerkannten Prämisse ab. Erhalte den Bereich, in dem diese tatsächlich gilt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "시범 운영에 참여하는 이상 기록을 남겨야 합니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "불참자에게도 같은 기록 의무"
+              },
+              {
+                "id": "0",
+                "text": "참여자에게 적용되는 기록 책임"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이미 받아들인 전제에 따르는 책임이나 판단을 제시해요. 자료를 공개했다는 전제가 성립하는 범위를 유지해요.",
+              "en": "Derive responsibility or judgement from an accepted premise. Preserve the scope in which that premise actually holds.",
+              "de": "Leite Verantwortung oder Urteil aus einer anerkannten Prämisse ab. Erhalte den Bereich, in dem diese tatsächlich gilt."
+            }
+          }
+        ]
+      },
+      "contentHash": "36c1311ee6f08faa1f246dca49ef7f990a3f6e38330c5fd09e2860bd26e2a1fc"
+    },
+    {
+      "id": "KP22:grammar:08",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:08",
+      "requirementKeys": [
+        "G5:-다가는"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다가는",
+        "en": "-다가는",
+        "de": "-다가는"
+      },
+      "teaching": {
+        "ko": "행동이 계속될 때 생길 부정적 결과를 경고해요. 경고를 이미 일어난 실패나 화자의 위협으로 바꾸지 않아요.",
+        "en": "Warn of a negative outcome if behaviour continues. Do not turn the warning into an observed failure or the speaker’s threat.",
+        "de": "Warne vor einer negativen Folge bei fortgesetztem Verhalten. Mache daraus weder bereits eingetretenes Scheitern noch eine Drohung der sprechenden Person."
+      },
+      "examplesKo": [
+        "이렇게 미루다가는 기한을 놓치겠어요. 아직 기한 전이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이렇게 미루다가는 기한을 놓치겠어요. 아직 기한 전이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미루기 지속 시 기한 상실 위험"
+              },
+              {
+                "id": "1",
+                "text": "기한을 이미 놓친 사실"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동이 계속될 때 생길 부정적 결과를 경고해요. 경고를 이미 일어난 실패나 화자의 위협으로 바꾸지 않아요.",
+              "en": "Warn of a negative outcome if behaviour continues. Do not turn the warning into an observed failure or the speaker’s threat.",
+              "de": "Warne vor einer negativen Folge bei fortgesetztem Verhalten. Mache daraus weder bereits eingetretenes Scheitern noch eine Drohung der sprechenden Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "확인 없이 계속 배포하다가는 오류가 퍼지겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미확인 배포 지속의 오류 확산 위험"
+              },
+              {
+                "id": "1",
+                "text": "화자가 오류를 퍼뜨리겠다는 위협"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동이 계속될 때 생길 부정적 결과를 경고해요. 경고를 이미 일어난 실패나 화자의 위협으로 바꾸지 않아요.",
+              "en": "Warn of a negative outcome if behaviour continues. Do not turn the warning into an observed failure or the speaker’s threat.",
+              "de": "Warne vor einer negativen Folge bei fortgesetztem Verhalten. Mache daraus weder bereits eingetretenes Scheitern noch eine Drohung der sprechenden Person."
+            }
+          }
+        ]
+      },
+      "contentHash": "0b73c7389d94f7eeea5b62ce96c6a9bfd6afd88ac01858b78ed7921ca5b33c0a"
+    },
+    {
+      "id": "KP22:grammar:09",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:grammar:09",
+      "requirementKeys": [
+        "G5:-으면 몰라도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 몰라도",
+        "en": "-으면 몰라도",
+        "de": "-으면 몰라도"
+      },
+      "teaching": {
+        "ko": "예외적 조건이라면 달리 볼 여지를 두고 현재 판단을 제한해요. 예외 조건의 실제 충족이나 그때의 자동 승인을 확정하지 않아요.",
+        "en": "Leave room for a different judgement under an exceptional condition while limiting the current one. Neither fulfilment nor automatic approval follows.",
+        "de": "Lasse unter einer Ausnahmebedingung ein anderes Urteil offen und begrenze das jetzige. Weder Erfüllung noch automatische Zustimmung folgen daraus."
+      },
+      "examplesKo": [
+        "추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "추가 근거 예외를 열어 둔 현재 유보"
+              },
+              {
+                "id": "1",
+                "text": "추가 근거가 이미 있어 결론 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "예외적 조건이라면 달리 볼 여지를 두고 현재 판단을 제한해요. 예외 조건의 실제 충족이나 그때의 자동 승인을 확정하지 않아요.",
+              "en": "Leave room for a different judgement under an exceptional condition while limiting the current one. Neither fulfilment nor automatic approval follows.",
+              "de": "Lasse unter einer Ausnahmebedingung ein anderes Urteil offen und begrenze das jetzige. Weder Erfüllung noch automatische Zustimmung folgen daraus."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예산 승인 예외를 둔 현재 확약 거절"
+              },
+              {
+                "id": "1",
+                "text": "예산 승인 여부와 무관한 확대 보증"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "예외적 조건이라면 달리 볼 여지를 두고 현재 판단을 제한해요. 예외 조건의 실제 충족이나 그때의 자동 승인을 확정하지 않아요.",
+              "en": "Leave room for a different judgement under an exceptional condition while limiting the current one. Neither fulfilment nor automatic approval follows.",
+              "de": "Lasse unter einer Ausnahmebedingung ein anderes Urteil offen und begrenze das jetzige. Weder Erfüllung noch automatische Zustimmung folgen daraus."
+            }
+          }
+        ]
+      },
+      "contentHash": "d2650795a84ff6b1c5557098646217b57f3e6665d0cbefc7eca3cb7147d3ada7"
+    },
+    {
+      "id": "KP22:production:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:01",
+      "requirementKeys": [
+        "G5:-을 테다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테다 문장 만들기",
+        "en": "-을 테다: write a sentence",
+        "de": "-을 테다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "화자가 강한 의지를 나타내는 용례예요. 독백의 -을 테다를 상대에게 명령하거나 기관이 보증한 사실로 읽지 않아요.",
+        "en": "Here the speaker expresses firm personal resolve. A monologic -을 테다 is neither a command to others nor an institutional guarantee.",
+        "de": "Hier drückt die sprechende Person einen festen eigenen Entschluss aus. Das monologische -을 테다 ist weder Befehl noch institutionelle Garantie."
+      },
+      "examplesKo": [
+        "나는 이번에는 끝까지 확인할 테다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "독백의 개인 결심 / 나는 이번에는 끝까지 확인하다 / -을 테다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "나는 이번에는 끝까지 확인할 테다."
+            ],
+            "rejectedAnswers": [
+              "기관이 결과를 보증했다."
+            ],
+            "explanation": {
+              "ko": "예: 나는 이번에는 끝까지 확인할 테다. 의미가 다른 예: 기관이 결과를 보증했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 나는 이번에는 끝까지 확인할 테다. Meaning or register error: 기관이 결과를 보증했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 나는 이번에는 끝까지 확인할 테다. Fehler bei Bedeutung oder Register: 기관이 결과를 보증했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "독백의 개인 결심 / 나는 누락된 기록을 다시 찾다 / -을 테다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "나는 누락된 기록을 다시 찾을 테다."
+            ],
+            "rejectedAnswers": [
+              "기관이 모든 기록의 발견을 보증했다."
+            ],
+            "explanation": {
+              "ko": "예: 나는 누락된 기록을 다시 찾을 테다. 의미가 다른 예: 기관이 모든 기록의 발견을 보증했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 나는 누락된 기록을 다시 찾을 테다. Meaning or register error: 기관이 모든 기록의 발견을 보증했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 나는 누락된 기록을 다시 찾을 테다. Fehler bei Bedeutung oder Register: 기관이 모든 기록의 발견을 보증했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "9cee80bc471f86b11f609a4af077852df98c24d16749071210fb4c525bc3e9b1"
+    },
+    {
+      "id": "KP22:production:02",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:02",
+      "requirementKeys": [
+        "G5:-을 테면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테면 문장 만들기",
+        "en": "-을 테면: write a sentence",
+        "de": "-을 테면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "상대의 의지를 조건으로 행동을 제시해요. 도전·맞섬으로 들릴 수 있어 공손한 협의에서는 의향을 확인하는 표현으로 고쳐 말해요. 조건절 자체를 강제 명령으로 읽지 않아요.",
+        "en": "Make the other person’s intention a condition. This can sound challenging; in polite negotiation recast it as an intention check. The conditional itself is not compulsory action.",
+        "de": "Mache die Absicht des Gegenübers zur Bedingung. Das kann herausfordernd klingen; formuliere in höflicher Abstimmung eine Nachfrage zur Absicht. Der Bedingungssatz allein erzwingt keine Handlung."
+      },
+      "examplesKo": [
+        "질문할 테면 먼저 자료를 읽어 보세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "질문은 선택 / 질문할 의향이 있다면 / 먼저 자료 읽어 보기 / -을 테면, -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "질문할 테면 먼저 자료를 읽어 보세요."
+            ],
+            "rejectedAnswers": [
+              "질문을 반드시 하세요."
+            ],
+            "explanation": {
+              "ko": "예: 질문할 테면 먼저 자료를 읽어 보세요. 의미가 다른 예: 질문을 반드시 하세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 질문할 테면 먼저 자료를 읽어 보세요. Meaning or register error: 질문을 반드시 하세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 질문할 테면 먼저 자료를 읽어 보세요. Fehler bei Bedeutung oder Register: 질문을 반드시 하세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "참여는 선택 / 참여 의향이 있다면 / 일정 먼저 확인 / -을 테면, -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "참여할 테면 일정을 먼저 확인하세요."
+            ],
+            "rejectedAnswers": [
+              "반드시 참여하세요."
+            ],
+            "explanation": {
+              "ko": "예: 참여할 테면 일정을 먼저 확인하세요. 의미가 다른 예: 반드시 참여하세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 참여할 테면 일정을 먼저 확인하세요. Meaning or register error: 반드시 참여하세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 참여할 테면 일정을 먼저 확인하세요. Fehler bei Bedeutung oder Register: 반드시 참여하세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "d8af7f4e80b2322744aa5e708b6935934f630a563705a4b3ac9ace822048d2c0"
+    },
+    {
+      "id": "KP22:production:03",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:03",
+      "requirementKeys": [
+        "G5:-을 테지만"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 테지만 문장 만들기",
+        "en": "-을 테지만: write a sentence",
+        "de": "-을 테지만: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "예상되는 상황을 인정하고 다른 논거를 이어 가요. 예측의 근거가 없으면 확정 결과로 올리지 않아요.",
+        "en": "Admit an anticipated situation and continue with another consideration. Do not promote a prediction to a confirmed outcome without evidence.",
+        "de": "Erkenne einen erwarteten Umstand an und führe einen weiteren Gesichtspunkt an. Mache eine Prognose ohne Beleg nicht zum sicheren Ergebnis."
+      },
+      "examplesKo": [
+        "비용은 늘어날 테지만 접근성 개선도 검토해야 합니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "비용 증가 예상 / 접근성 개선도 검토 필요 / -을 테지만, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비용은 늘어날 테지만 접근성 개선도 검토해야 합니다."
+            ],
+            "rejectedAnswers": [
+              "비용 증가액은 이미 확정되었습니다."
+            ],
+            "explanation": {
+              "ko": "예: 비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. 의미가 다른 예: 비용 증가액은 이미 확정되었습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. Meaning or register error: 비용 증가액은 이미 확정되었습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. Fehler bei Bedeutung oder Register: 비용 증가액은 이미 확정되었습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "질문 많을 것으로 예상 / 답변 시간 마련 약속 / -을 테지만, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "질문이 많을 테지만 답변 시간을 마련하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "질문 수를 이미 집계했습니다."
+            ],
+            "explanation": {
+              "ko": "예: 질문이 많을 테지만 답변 시간을 마련하겠습니다. 의미가 다른 예: 질문 수를 이미 집계했습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 질문이 많을 테지만 답변 시간을 마련하겠습니다. Meaning or register error: 질문 수를 이미 집계했습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 질문이 많을 테지만 답변 시간을 마련하겠습니다. Fehler bei Bedeutung oder Register: 질문 수를 이미 집계했습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "f41685e4b74336980a6fb8f128bbc29b81343ea4c39c376ad2c8eb40cf17f068"
+    },
+    {
+      "id": "KP22:production:04",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:04",
+      "requirementKeys": [
+        "G5:-기 나름이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 나름이다 문장 만들기",
+        "en": "-기 나름이다: write a sentence",
+        "de": "-기 나름이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "결과가 하는 방법에 달렸다는 의존 관계예요. 어떤 방법이 어떤 결과를 보장하는지는 문맥의 근거로 따로 확인해요.",
+        "en": "Express dependence on how an action is performed. Evidence must separately establish whether a particular method guarantees an outcome.",
+        "de": "Drücke Abhängigkeit von der Vorgehensweise aus. Ob eine bestimmte Methode ein Ergebnis garantiert, muss gesondert belegt sein."
+      },
+      "examplesKo": [
+        "같은 자료도 해석하기 나름입니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "같은 자료도 / 해석 방식에 달림 / 해석하다 / -기 나름이다, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "같은 자료도 해석하기 나름입니다."
+            ],
+            "rejectedAnswers": [
+              "같은 자료는 해석 방식과 무관하게 뜻이 같습니다."
+            ],
+            "explanation": {
+              "ko": "예: 같은 자료도 해석하기 나름입니다. 의미가 다른 예: 같은 자료는 해석 방식과 무관하게 뜻이 같습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 같은 자료도 해석하기 나름입니다. Meaning or register error: 같은 자료는 해석 방식과 무관하게 뜻이 같습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 같은 자료도 해석하기 나름입니다. Fehler bei Bedeutung oder Register: 같은 자료는 해석 방식과 무관하게 뜻이 같습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "참여 기회 / 일정 조정 방식에 달림 / 일정을 조정하다 / -기 나름이다, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "참여 기회는 일정을 조정하기 나름이에요."
+            ],
+            "rejectedAnswers": [
+              "일정을 바꿔도 참여 기회는 항상 같아요."
+            ],
+            "explanation": {
+              "ko": "예: 참여 기회는 일정을 조정하기 나름이에요. 의미가 다른 예: 일정을 바꿔도 참여 기회는 항상 같아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 참여 기회는 일정을 조정하기 나름이에요. Meaning or register error: 일정을 바꿔도 참여 기회는 항상 같아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 참여 기회는 일정을 조정하기 나름이에요. Fehler bei Bedeutung oder Register: 일정을 바꿔도 참여 기회는 항상 같아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "fba2f9baa699fff4a71eb00e26f28c7c6ff2c6b0c4155443bbc9936a3c5880a6"
+    },
+    {
+      "id": "KP22:production:05",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:05",
+      "requirementKeys": [
+        "G5:-기에 따라"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기에 따라 문장 만들기",
+        "en": "-기에 따라: write a sentence",
+        "de": "-기에 따라: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "생각하거나 행동하는 방식에 따른 변화를 나타내요. -기에의 단순 원인 용례와 구별해요.",
+        "en": "Mark variation according to a way of thinking or acting. Distinguish this from causal -기에 alone.",
+        "de": "Kennzeichne Veränderung je nach Denk- oder Handlungsweise. Unterscheide dies vom bloß kausalen -기에."
+      },
+      "examplesKo": [
+        "같은 상황도 생각하기에 따라 다르게 보입니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "같은 상황도 / 생각하는 방식에 따라 / 다르게 보이다 / -기에 따라, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "같은 상황도 생각하기에 따라 다르게 보입니다."
+            ],
+            "rejectedAnswers": [
+              "같은 상황은 생각하는 방식과 무관하게 같게 보입니다."
+            ],
+            "explanation": {
+              "ko": "예: 같은 상황도 생각하기에 따라 다르게 보입니다. 의미가 다른 예: 같은 상황은 생각하는 방식과 무관하게 같게 보입니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 같은 상황도 생각하기에 따라 다르게 보입니다. Meaning or register error: 같은 상황은 생각하는 방식과 무관하게 같게 보입니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 같은 상황도 생각하기에 따라 다르게 보입니다. Fehler bei Bedeutung oder Register: 같은 상황은 생각하는 방식과 무관하게 같게 보입니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "같은 제도도 / 운영 방식에 따라 효과 변화 가능 / -기에 따라, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "같은 제도도 운영하기에 따라 효과가 달라질 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "운영 방식과 무관하게 효과가 확정돼요."
+            ],
+            "explanation": {
+              "ko": "예: 같은 제도도 운영하기에 따라 효과가 달라질 수 있어요. 의미가 다른 예: 운영 방식과 무관하게 효과가 확정돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 같은 제도도 운영하기에 따라 효과가 달라질 수 있어요. Meaning or register error: 운영 방식과 무관하게 효과가 확정돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 같은 제도도 운영하기에 따라 효과가 달라질 수 있어요. Fehler bei Bedeutung oder Register: 운영 방식과 무관하게 효과가 확정돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "ee59e62673788cd82f4d6a6d5c0df1123b83c91418acbd0a1c7d9e5176ff5732"
+    },
+    {
+      "id": "KP22:production:06",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:06",
+      "requirementKeys": [
+        "G5:-은 나머지"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 나머지 문장 만들기",
+        "en": "-은 나머지: write a sentence",
+        "de": "-은 나머지: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "지나친 행동이나 감정이 낳은 결과를 말해요. 남은 수량을 뜻하는 나머지와 구별해요.",
+        "en": "State a result of excessive action or emotion. Distinguish the noun remainder as a quantity.",
+        "de": "Nenne eine Folge übermäßigen Handelns oder Empfindens. Unterscheide das Nomen Rest als Mengenangabe."
+      },
+      "examplesKo": [
+        "너무 서두른 나머지 중요한 항목을 빠뜨렸어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "너무 서두르다 → 중요한 항목 빠뜨리다 / -은 나머지, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "너무 서두른 나머지 중요한 항목을 빠뜨렸어요."
+            ],
+            "rejectedAnswers": [
+              "남은 항목의 수를 셌어요."
+            ],
+            "explanation": {
+              "ko": "예: 너무 서두른 나머지 중요한 항목을 빠뜨렸어요. 의미가 다른 예: 남은 항목의 수를 셌어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 너무 서두른 나머지 중요한 항목을 빠뜨렸어요. Meaning or register error: 남은 항목의 수를 셌어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 너무 서두른 나머지 중요한 항목을 빠뜨렸어요. Fehler bei Bedeutung oder Register: 남은 항목의 수를 셌어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "너무 걱정하다 → 확인 전부터 결론 내리다 / -은 나머지, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "너무 걱정한 나머지 확인 전부터 결론을 내렸어요."
+            ],
+            "rejectedAnswers": [
+              "확인을 모두 마친 뒤 결론을 내렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 너무 걱정한 나머지 확인 전부터 결론을 내렸어요. 의미가 다른 예: 확인을 모두 마친 뒤 결론을 내렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 너무 걱정한 나머지 확인 전부터 결론을 내렸어요. Meaning or register error: 확인을 모두 마친 뒤 결론을 내렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 너무 걱정한 나머지 확인 전부터 결론을 내렸어요. Fehler bei Bedeutung oder Register: 확인을 모두 마친 뒤 결론을 내렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "ce080a57a5632d5631fcfeabe8d25ff67823aae09cfe3916397bfbe36a244ed6"
+    },
+    {
+      "id": "KP22:production:07",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:07",
+      "requirementKeys": [
+        "G5:-는 이상"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 이상 문장 만들기",
+        "en": "-는 이상: write a sentence",
+        "de": "-는 이상: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "이미 받아들인 전제에 따르는 책임이나 판단을 제시해요. 자료를 공개했다는 전제가 성립하는 범위를 유지해요.",
+        "en": "Derive responsibility or judgement from an accepted premise. Preserve the scope in which that premise actually holds.",
+        "de": "Leite Verantwortung oder Urteil aus einer anerkannten Prämisse ab. Erhalte den Bereich, in dem diese tatsächlich gilt."
+      },
+      "examplesKo": [
+        "자료를 공개한 이상 질문에도 답해야 합니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "자료를 이미 공개함 / 질문에도 답할 책임 / -은 이상, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "자료를 공개한 이상 질문에도 답해야 합니다."
+            ],
+            "rejectedAnswers": [
+              "공개하지 않은 모든 자료를 공개해야 합니다."
+            ],
+            "explanation": {
+              "ko": "예: 자료를 공개한 이상 질문에도 답해야 합니다. 의미가 다른 예: 공개하지 않은 모든 자료를 공개해야 합니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 자료를 공개한 이상 질문에도 답해야 합니다. Meaning or register error: 공개하지 않은 모든 자료를 공개해야 합니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 자료를 공개한 이상 질문에도 답해야 합니다. Fehler bei Bedeutung oder Register: 공개하지 않은 모든 자료를 공개해야 합니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "시범 운영 참여자에게 적용 / 참여하다 / 기록 남길 책임 / -는 이상, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "시범 운영에 참여하는 이상 기록을 남겨야 합니다."
+            ],
+            "rejectedAnswers": [
+              "시범 운영 불참자도 기록을 남겨야 합니다."
+            ],
+            "explanation": {
+              "ko": "예: 시범 운영에 참여하는 이상 기록을 남겨야 합니다. 의미가 다른 예: 시범 운영 불참자도 기록을 남겨야 합니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 시범 운영에 참여하는 이상 기록을 남겨야 합니다. Meaning or register error: 시범 운영 불참자도 기록을 남겨야 합니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 시범 운영에 참여하는 이상 기록을 남겨야 합니다. Fehler bei Bedeutung oder Register: 시범 운영 불참자도 기록을 남겨야 합니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "98e20b08c371a017a8e6012b63765339fd6a9845052dc94eb901eb8733fec24a"
+    },
+    {
+      "id": "KP22:production:08",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:08",
+      "requirementKeys": [
+        "G5:-다가는"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다가는 문장 만들기",
+        "en": "-다가는: write a sentence",
+        "de": "-다가는: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "행동이 계속될 때 생길 부정적 결과를 경고해요. 경고를 이미 일어난 실패나 화자의 위협으로 바꾸지 않아요.",
+        "en": "Warn of a negative outcome if behaviour continues. Do not turn the warning into an observed failure or the speaker’s threat.",
+        "de": "Warne vor einer negativen Folge bei fortgesetztem Verhalten. Mache daraus weder bereits eingetretenes Scheitern noch eine Drohung der sprechenden Person."
+      },
+      "examplesKo": [
+        "이렇게 미루다가는 기한을 놓치겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "기한 전 / 이렇게 미루기 계속 → 기한 놓칠 위험 / -다가는, -겠어요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이렇게 미루다가는 기한을 놓치겠어요."
+            ],
+            "rejectedAnswers": [
+              "기한을 이미 놓쳤어요."
+            ],
+            "explanation": {
+              "ko": "예: 이렇게 미루다가는 기한을 놓치겠어요. 의미가 다른 예: 기한을 이미 놓쳤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이렇게 미루다가는 기한을 놓치겠어요. Meaning or register error: 기한을 이미 놓쳤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이렇게 미루다가는 기한을 놓치겠어요. Fehler bei Bedeutung oder Register: 기한을 이미 놓쳤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "경고 / 확인 없이 계속 배포 → 오류 퍼질 위험 / -다가는, -겠어요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "확인 없이 계속 배포하다가는 오류가 퍼지겠어요."
+            ],
+            "rejectedAnswers": [
+              "제가 오류를 퍼뜨리겠어요."
+            ],
+            "explanation": {
+              "ko": "예: 확인 없이 계속 배포하다가는 오류가 퍼지겠어요. 의미가 다른 예: 제가 오류를 퍼뜨리겠어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 확인 없이 계속 배포하다가는 오류가 퍼지겠어요. Meaning or register error: 제가 오류를 퍼뜨리겠어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 확인 없이 계속 배포하다가는 오류가 퍼지겠어요. Fehler bei Bedeutung oder Register: 제가 오류를 퍼뜨리겠어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "e57ae8d7878a98895d97fd09127d344b5292edeb9b5c882f6c8a749fd31cacdc"
+    },
+    {
+      "id": "KP22:production:09",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:production:09",
+      "requirementKeys": [
+        "G5:-으면 몰라도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 몰라도 문장 만들기",
+        "en": "-으면 몰라도: write a sentence",
+        "de": "-으면 몰라도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "예외적 조건이라면 달리 볼 여지를 두고 현재 판단을 제한해요. 예외 조건의 실제 충족이나 그때의 자동 승인을 확정하지 않아요.",
+        "en": "Leave room for a different judgement under an exceptional condition while limiting the current one. Neither fulfilment nor automatic approval follows.",
+        "de": "Lasse unter einer Ausnahmebedingung ein anderes Urteil offen und begrenze das jetzige. Weder Erfüllung noch automatische Zustimmung folgen daraus."
+      },
+      "examplesKo": [
+        "추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "추가 근거 예외 / 지금 단정 어렵다 / -으면 몰라도, 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다."
+            ],
+            "rejectedAnswers": [
+              "추가 근거가 이미 있어서 단정할 수 있습니다."
+            ],
+            "explanation": {
+              "ko": "예: 추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다. 의미가 다른 예: 추가 근거가 이미 있어서 단정할 수 있습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다. Meaning or register error: 추가 근거가 이미 있어서 단정할 수 있습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다. Fehler bei Bedeutung oder Register: 추가 근거가 이미 있어서 단정할 수 있습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "예산 승인 예외 / 지금 확대 약속 불가 / -으면 몰라도, 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요."
+            ],
+            "rejectedAnswers": [
+              "예산 승인과 무관하게 확대를 보증해요."
+            ],
+            "explanation": {
+              "ko": "예: 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 의미가 다른 예: 예산 승인과 무관하게 확대를 보증해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. Meaning or register error: 예산 승인과 무관하게 확대를 보증해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. Fehler bei Bedeutung oder Register: 예산 승인과 무관하게 확대를 보증해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "c886f2d65b0c1c5a0fcdf5a9400c8b7207776b217847164dd7a1825ce8e50d62"
+    },
+    {
+      "id": "KP22:listening:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "결심·예측·기관 권한을 나누어 듣기",
+        "en": "Hear resolve, prediction and institutional authority separately",
+        "de": "Entschluss, Prognose und institutionelle Befugnis getrennt hören"
+      },
+      "teaching": {
+        "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+        "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+        "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 교육 기기 대여 협의. 담당자는 재고 확인·안내만 맡고 예산·확대는 운영위원회가 결정한다. 이용자 대표는 참여를 권할 수 있지만 주민을 대신해 확약할 수 없다.]\n담당자: 현재 교육용 기기 12대가 있다는 것만 확인했습니다. 고장률과 추가 인건비는 아직 모릅니다. 혼자 메모에 “나는 누락된 점검 기록을 끝까지 찾을 테다”라고 썼습니다. 이것은 제 결심이지 기기의 안전이나 예산을 기관이 보증했다는 말은 아닙니다. 월요일에 점검 결과를 보고하겠습니다.\n대표: 그럼 목요일에 확대가 보장된다고 안내해도 되나요?\n담당자: 아니요. 목요일은 위원회가 검토할 날입니다. 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 비용은 늘어날 테지만 대여 기회가 넓어질 가능성도 검토해야 합니다. 둘 다 아직 예측입니다.\n대표: 교육 이수 조건을 빼면 처음 사용하는 사람은 어떻게 되나요? 확인 없이 계속 빌려주다가는 오류가 생기겠어요. 피해가 이미 났다는 뜻이 아니라 예방을 위한 질문이에요.\n담당자: 수정안은 사전 이수 의무를 삭제하고 첫 대여 때 안내를 선택할 수 있게 했습니다. 다만 사용법을 모르는 사람에게는 직원이 확인 기회를 제공해야 합니다. 너무 서두른 나머지 이 차이를 이전 안내에서 빠뜨렸습니다. 이번에는 바로잡겠습니다.\n대표: 저는 사전 이수 의무가 없는 대신 안내 선택권을 보장하는 조건이라면 시범 참여를 권할 수 있어요. 그 선택권까지 없애면 권하지 않겠습니다. 참여할 테면 일정을 먼저 확인하라는 말은 강하게 들릴 수 있네요. “참여하실 생각이면 일정을 함께 확인해 볼까요?”로 바꾸면 의향을 남길 수 있겠어요.\n담당자: 참여하는 이상 대여 기록을 남겨야 한다는 조건도 있습니다. 결과는 운영하기 나름이니 재고·오류 신고·안내 이용 여부를 함께 기록하겠습니다. 지금 합의한 것은 안내 문구 수정과 자료 확인이며 확대 시행은 아닙니다.",
+        "questions": [
+          {
+            "id": "resolve",
+            "kind": "choice",
+            "prompt": {
+              "ko": "끝까지 찾을 테다의 책임 범위는?",
+              "en": "What responsibility does the firm resolve cover?",
+              "de": "Welchen Verantwortungsbereich umfasst der feste Entschluss?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "담당자 자신의 기록 재탐색 결심"
+              },
+              {
+                "id": "1",
+                "text": "기관의 기기·예산 전면 보증"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "date",
+            "kind": "choice",
+            "prompt": {
+              "ko": "위원회 검토일은 무엇을 보장하나요?",
+              "en": "What does the committee review date guarantee?",
+              "de": "Was garantiert der Prüftermin des Ausschusses?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "확대 승인을 보장하지 않음"
+              },
+              {
+                "id": "1",
+                "text": "그날부터 확대 시행 보장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "forecast",
+            "kind": "choice",
+            "prompt": {
+              "ko": "비용·대여 기회의 상태는?",
+              "en": "What is the status of cost and lending opportunity?",
+              "de": "Welchen Status haben Kosten und Ausleihchancen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 측정한 확정 정책 효과"
+              },
+              {
+                "id": "0",
+                "text": "아직 확인 전 예측"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "warning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "다가는 경고의 의미는?",
+              "en": "What does the 다가는 warning mean?",
+              "de": "Was bedeutet die Warnung mit 다가는?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미확인 대여를 계속할 때의 위험"
+              },
+              {
+                "id": "1",
+                "text": "대표가 피해를 일으키겠다는 위협"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 승인이 있으면 몰라도의 한계는?",
+              "en": "What does the budget exception leave open?",
+              "de": "Was lässt die Budgetausnahme offen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "승인 여부 미상, 현재 확약 불가"
+              },
+              {
+                "id": "1",
+                "text": "승인된 예산으로 확대 이미 결정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "boundary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대표의 수락 경계는?",
+              "en": "What is the representative’s acceptance boundary?",
+              "de": "Wo liegt die Zustimmungsgrenze der Vertretung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안내 선택권 보장 시 참여 권고, 제거 시 거절"
+              },
+              {
+                "id": "1",
+                "text": "안내 선택권과 무관하게 주민 참여 확약"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "[가상 교육 기기 대여 협의. 담당자는 재고 확인·안내만 맡고 예산·확대는 운영위원회가 결정한다. 이용자 대표는 참여를 권할 수 있지만 주민을 대신해 확약할 수 없다.]\n담당자: 현재 교육용 기기 16대가 있다는 것만 확인했습니다. 고장률과 추가 인건비는 아직 모릅니다. 혼자 메모에 “나는 누락된 점검 기록을 끝까지 찾을 테다”라고 썼습니다. 이것은 제 결심이지 기기의 안전이나 예산을 기관이 보증했다는 말은 아닙니다. 화요일에 점검 결과를 보고하겠습니다.\n대표: 그럼 금요일에 확대가 보장된다고 안내해도 되나요?\n담당자: 아니요. 금요일은 위원회가 검토할 날입니다. 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 비용은 늘어날 테지만 대여 기회가 넓어질 가능성도 검토해야 합니다. 둘 다 아직 예측입니다.\n대표: 교육 이수 조건을 빼면 처음 사용하는 사람은 어떻게 되나요? 확인 없이 계속 빌려주다가는 오류가 생기겠어요. 피해가 이미 났다는 뜻이 아니라 예방을 위한 질문이에요.\n담당자: 수정안은 사전 이수 의무를 삭제하고 첫 대여 때 안내를 선택할 수 있게 했습니다. 다만 사용법을 모르는 사람에게는 직원이 확인 기회를 제공해야 합니다. 너무 서두른 나머지 이 차이를 이전 안내에서 빠뜨렸습니다. 이번에는 바로잡겠습니다.\n대표: 저는 사전 이수 의무가 없는 대신 안내 선택권을 보장하는 조건이라면 시범 참여를 권할 수 있어요. 그 선택권까지 없애면 권하지 않겠습니다. 참여할 테면 일정을 먼저 확인하라는 말은 강하게 들릴 수 있네요. “참여하실 생각이면 일정을 함께 확인해 볼까요?”로 바꾸면 의향을 남길 수 있겠어요.\n담당자: 참여하는 이상 대여 기록을 남겨야 한다는 조건도 있습니다. 결과는 운영하기 나름이니 재고·오류 신고·안내 이용 여부를 함께 기록하겠습니다. 지금 합의한 것은 안내 문구 수정과 자료 확인이며 확대 시행은 아닙니다.",
+        "questions": [
+          {
+            "id": "resolve",
+            "kind": "choice",
+            "prompt": {
+              "ko": "끝까지 찾을 테다의 책임 범위는?",
+              "en": "What responsibility does the firm resolve cover?",
+              "de": "Welchen Verantwortungsbereich umfasst der feste Entschluss?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기관의 기기·예산 전면 보증"
+              },
+              {
+                "id": "0",
+                "text": "담당자 자신의 기록 재탐색 결심"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "date",
+            "kind": "choice",
+            "prompt": {
+              "ko": "위원회 검토일은 무엇을 보장하나요?",
+              "en": "What does the committee review date guarantee?",
+              "de": "Was garantiert der Prüftermin des Ausschusses?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "그날부터 확대 시행 보장"
+              },
+              {
+                "id": "0",
+                "text": "확대 승인을 보장하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "forecast",
+            "kind": "choice",
+            "prompt": {
+              "ko": "비용·대여 기회의 상태는?",
+              "en": "What is the status of cost and lending opportunity?",
+              "de": "Welchen Status haben Kosten und Ausleihchancen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아직 확인 전 예측"
+              },
+              {
+                "id": "1",
+                "text": "이미 측정한 확정 정책 효과"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "warning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "다가는 경고의 의미는?",
+              "en": "What does the 다가는 warning mean?",
+              "de": "Was bedeutet die Warnung mit 다가는?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미확인 대여를 계속할 때의 위험"
+              },
+              {
+                "id": "1",
+                "text": "대표가 피해를 일으키겠다는 위협"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 승인이 있으면 몰라도의 한계는?",
+              "en": "What does the budget exception leave open?",
+              "de": "Was lässt die Budgetausnahme offen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "승인 여부 미상, 현재 확약 불가"
+              },
+              {
+                "id": "1",
+                "text": "승인된 예산으로 확대 이미 결정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "boundary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대표의 수락 경계는?",
+              "en": "What is the representative’s acceptance boundary?",
+              "de": "Wo liegt die Zustimmungsgrenze der Vertretung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "안내 선택권과 무관하게 주민 참여 확약"
+              },
+              {
+                "id": "0",
+                "text": "안내 선택권 보장 시 참여 권고, 제거 시 거절"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          }
+        ]
+      },
+      "contentHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755"
+    },
+    {
+      "id": "KP22:reading:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "원안·수정안·조건 조항 대조",
+        "en": "Compare original, revision and conditional clauses",
+        "de": "Original, Überarbeitung und Bedingungsklauseln vergleichen"
+      },
+      "teaching": {
+        "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+        "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+        "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 가람배움터의 교육 기기 접근성을 높인다. 현재 재고는 12대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 3일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 5일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 월요일까지 점검하고 위원회는 목요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": [
+          {
+            "id": "deleted",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수정안에서 삭제된 의무는?",
+              "en": "Which duty was removed in the revision?",
+              "de": "Welche Pflicht wurde in der Überarbeitung gestrichen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "대여 기록 작성"
+              },
+              {
+                "id": "0",
+                "text": "사전 교육 이수"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "period",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수정안의 제안 대여 기간은?",
+              "en": "What lending period does the revision propose?",
+              "de": "Welche Leihdauer schlägt die Überarbeitung vor?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "5일"
+              },
+              {
+                "id": "1",
+                "text": "3일"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "indicators",
+            "kind": "choice",
+            "prompt": {
+              "ko": "평가 기준의 변화는?",
+              "en": "How do the evaluation criteria change?",
+              "de": "Wie ändern sich die Bewertungskriterien?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미처리·오류·안내 이용을 더하고 자동 확대 삭제"
+              },
+              {
+                "id": "1",
+                "text": "건수만으로 자동 확대 유지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "premise",
+            "kind": "choice",
+            "prompt": {
+              "ko": "참여하는 이상의 기록 의무 대상은?",
+              "en": "Who is subject to the record duty premised on participation?",
+              "de": "Für wen gilt die an Teilnahme geknüpfte Dokumentationspflicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "현재 모든 성인과 신청 철회자"
+              },
+              {
+                "id": "0",
+                "text": "수정안 승인·시행 시 시범 참여자"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "고장 관련 지연의 예외는?",
+              "en": "What is the exception for failure-related delay?",
+              "de": "Welche Ausnahme gilt bei störungsbedingter Verspätung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "확인 없이 모든 비용 자동 면제"
+              },
+              {
+                "id": "0",
+                "text": "직원 확인 후 일반 연체와 구별"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "uncertainty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "현재 결과와 권고를 바르게 나누면?",
+              "en": "Which distinction between findings and recommendations is correct?",
+              "de": "Welche Trennung von Befund und Empfehlung stimmt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "재고 12대 확인, 정책 효과·확대는 미확정"
+              },
+              {
+                "id": "1",
+                "text": "수정안 승인과 효과 검증 모두 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "재원 확정이 있으면 몰라도의 현재 판단은?",
+              "en": "What current judgement follows the funding exception?",
+              "de": "Welches jetzige Urteil folgt aus der Finanzierungsausnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "재원 확정을 이미 확인하여 확대 의무"
+              },
+              {
+                "id": "0",
+                "text": "무조건 확대 권고 불가, 확정 재원 미상"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 솔빛학습관의 교육 기기 접근성을 높인다. 현재 재고는 16대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 2일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 4일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 화요일까지 점검하고 위원회는 금요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": [
+          {
+            "id": "deleted",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수정안에서 삭제된 의무는?",
+              "en": "Which duty was removed in the revision?",
+              "de": "Welche Pflicht wurde in der Überarbeitung gestrichen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "대여 기록 작성"
+              },
+              {
+                "id": "0",
+                "text": "사전 교육 이수"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "period",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수정안의 제안 대여 기간은?",
+              "en": "What lending period does the revision propose?",
+              "de": "Welche Leihdauer schlägt die Überarbeitung vor?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "2일"
+              },
+              {
+                "id": "0",
+                "text": "4일"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "indicators",
+            "kind": "choice",
+            "prompt": {
+              "ko": "평가 기준의 변화는?",
+              "en": "How do the evaluation criteria change?",
+              "de": "Wie ändern sich die Bewertungskriterien?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미처리·오류·안내 이용을 더하고 자동 확대 삭제"
+              },
+              {
+                "id": "1",
+                "text": "건수만으로 자동 확대 유지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "premise",
+            "kind": "choice",
+            "prompt": {
+              "ko": "참여하는 이상의 기록 의무 대상은?",
+              "en": "Who is subject to the record duty premised on participation?",
+              "de": "Für wen gilt die an Teilnahme geknüpfte Dokumentationspflicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "현재 모든 성인과 신청 철회자"
+              },
+              {
+                "id": "0",
+                "text": "수정안 승인·시행 시 시범 참여자"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "고장 관련 지연의 예외는?",
+              "en": "What is the exception for failure-related delay?",
+              "de": "Welche Ausnahme gilt bei störungsbedingter Verspätung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "직원 확인 후 일반 연체와 구별"
+              },
+              {
+                "id": "1",
+                "text": "확인 없이 모든 비용 자동 면제"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "uncertainty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "현재 결과와 권고를 바르게 나누면?",
+              "en": "Which distinction between findings and recommendations is correct?",
+              "de": "Welche Trennung von Befund und Empfehlung stimmt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "수정안 승인과 효과 검증 모두 완료"
+              },
+              {
+                "id": "0",
+                "text": "재고 16대 확인, 정책 효과·확대는 미확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "재원 확정이 있으면 몰라도의 현재 판단은?",
+              "en": "What current judgement follows the funding exception?",
+              "de": "Welches jetzige Urteil folgt aus der Finanzierungsausnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "무조건 확대 권고 불가, 확정 재원 미상"
+              },
+              {
+                "id": "1",
+                "text": "재원 확정을 이미 확인하여 확대 의무"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.",
+              "en": "Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.",
+              "de": "Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden."
+            }
+          }
+        ]
+      },
+      "contentHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf"
+    },
+    {
+      "id": "KP22:writing:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "실행 조건이 보이는 세 가지 글",
+        "en": "Three texts with explicit implementation conditions",
+        "de": "Drei Texte mit ausdrücklichen Umsetzungsbedingungen"
+      },
+      "teaching": {
+        "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+        "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+        "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 가람배움터의 교육 기기 접근성을 높인다. 현재 재고는 12대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 3일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 5일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 월요일까지 점검하고 위원회는 목요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": [
+          {
+            "id": "proposal",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "조건부 정책 제안서",
+              "en": "Conditional policy proposal",
+              "de": "Bedingter Regelungsvorschlag"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "staff",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "담당자용 실행 메모",
+              "en": "Staff implementation note",
+              "de": "Umsetzungsnotiz für das Personal"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "public",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "시민용 설명과 조건 변경 시 차선책",
+              "en": "Public explanation and fallback after a changed condition",
+              "de": "Öffentliche Erklärung und Alternative bei geänderter Bedingung"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 솔빛학습관의 교육 기기 접근성을 높인다. 현재 재고는 16대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 2일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 4일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 화요일까지 점검하고 위원회는 금요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": [
+          {
+            "id": "proposal",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "조건부 정책 제안서",
+              "en": "Conditional policy proposal",
+              "de": "Bedingter Regelungsvorschlag"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "staff",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "담당자용 실행 메모",
+              "en": "Staff implementation note",
+              "de": "Umsetzungsnotiz für das Personal"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          },
+          {
+            "id": "public",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "시민용 설명과 조건 변경 시 차선책",
+              "en": "Public explanation and fallback after a changed condition",
+              "de": "Öffentliche Erklärung und Alternative bei geänderter Bedingung"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.",
+              "en": "Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.",
+              "de": "Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "contentHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3"
+    },
+    {
+      "id": "KP22:speaking:01",
+      "phaseId": "KP22",
+      "level": "C1",
+      "objectiveId": "KP22:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "조건이 바뀐 협상을 다시 정리하기",
+        "en": "Renegotiate after a condition changes",
+        "de": "Bei geänderter Bedingung neu verhandeln"
+      },
+      "teaching": {
+        "ko": "정책 담당자에게 해요체로 확인된 재고·미상 효과·권한을 먼저 확인하고, 안내 선택권과 예산을 조건으로 수락 범위와 거절 경계를 협상하세요. 상대가 “안내 선택권은 빼죠”라고 조건을 바꾸면 어떤 접근성 결과가 달라지는지 밝히고 다시 협의할 차선책을 제시합니다. 합쇼체 회의 정리에서는 합의·미합의·담당자 행동·위원회 결정을 나눠요. 모어가 다른 동료에게 한국어로 개인 결심이 제도 보증으로, 예외 가능성이 자동 승인으로 바뀌는 두 오류를 짚으세요. -다가는 경고와 -을 테지만 예측을 담아 녹음하고, 위협이나 확약처럼 들리지 않는지 휴지·말끝을 표시해 다시 말하세요. 상대의 선택권을 지키며 -을 테면의 도전적 어감을 의향 확인으로 고쳐 말합니다. 의미·억양은 미채점입니다.",
+        "en": "Politely check verified stock, unknown effects and authority with the policy officer, then negotiate acceptance and refusal boundaries conditional on guidance choice and budget. If they remove the guidance choice, explain the access consequence and offer a fallback for renewed negotiation. In a formal meeting summary separate agreement, disagreement, staff action and committee decision. Explain in Korean two transfer errors to a colleague with another first language: personal resolve becomes institutional assurance; a possible exception becomes automatic approval. Record a 다가는 warning and 테지만 prediction, mark pauses/endings that might sound threatening or guaranteed, and revise. Preserve choice and replace challenging 테면 with a polite intention check. Meaning and intonation remain unscored.",
+        "de": "Kläre mit der zuständigen Person höflich bestätigten Bestand, unbekannte Wirkungen und Befugnisse. Verhandle Zustimmung und Ablehnungsgrenzen unter den Bedingungen Anleitungsauswahl und Budget. Entfällt die freie Wahl der Anleitung, erkläre die Zugangsfolge und biete eine Alternative zur erneuten Abstimmung an. Trenne im förmlichen Sitzungsfazit Einigung, Dissens, Personalhandlung und Ausschussentscheidung. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: persönlicher Entschluss wird institutionelle Zusicherung; mögliche Ausnahme wird automatische Genehmigung. Nimm eine Warnung mit 다가는 und eine Prognose mit 테지만 auf, markiere möglicherweise drohende oder garantierende Pausen und Endungen und überarbeite. Erhalte Wahlfreiheit und ersetze herausforderndes 테면 durch höfliche Absichtsklärung. Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 교육 기기 대여 협의. 담당자는 재고 확인·안내만 맡고 예산·확대는 운영위원회가 결정한다. 이용자 대표는 참여를 권할 수 있지만 주민을 대신해 확약할 수 없다.]\n담당자: 현재 교육용 기기 12대가 있다는 것만 확인했습니다. 고장률과 추가 인건비는 아직 모릅니다. 혼자 메모에 “나는 누락된 점검 기록을 끝까지 찾을 테다”라고 썼습니다. 이것은 제 결심이지 기기의 안전이나 예산을 기관이 보증했다는 말은 아닙니다. 월요일에 점검 결과를 보고하겠습니다.\n대표: 그럼 목요일에 확대가 보장된다고 안내해도 되나요?\n담당자: 아니요. 목요일은 위원회가 검토할 날입니다. 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 비용은 늘어날 테지만 대여 기회가 넓어질 가능성도 검토해야 합니다. 둘 다 아직 예측입니다.\n대표: 교육 이수 조건을 빼면 처음 사용하는 사람은 어떻게 되나요? 확인 없이 계속 빌려주다가는 오류가 생기겠어요. 피해가 이미 났다는 뜻이 아니라 예방을 위한 질문이에요.\n담당자: 수정안은 사전 이수 의무를 삭제하고 첫 대여 때 안내를 선택할 수 있게 했습니다. 다만 사용법을 모르는 사람에게는 직원이 확인 기회를 제공해야 합니다. 너무 서두른 나머지 이 차이를 이전 안내에서 빠뜨렸습니다. 이번에는 바로잡겠습니다.\n대표: 저는 사전 이수 의무가 없는 대신 안내 선택권을 보장하는 조건이라면 시범 참여를 권할 수 있어요. 그 선택권까지 없애면 권하지 않겠습니다. 참여할 테면 일정을 먼저 확인하라는 말은 강하게 들릴 수 있네요. “참여하실 생각이면 일정을 함께 확인해 볼까요?”로 바꾸면 의향을 남길 수 있겠어요.\n담당자: 참여하는 이상 대여 기록을 남겨야 한다는 조건도 있습니다. 결과는 운영하기 나름이니 재고·오류 신고·안내 이용 여부를 함께 기록하겠습니다. 지금 합의한 것은 안내 문구 수정과 자료 확인이며 확대 시행은 아닙니다.\n[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 가람배움터의 교육 기기 접근성을 높인다. 현재 재고는 12대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 3일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 5일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 월요일까지 점검하고 위원회는 목요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 교육 기기 대여 협의. 담당자는 재고 확인·안내만 맡고 예산·확대는 운영위원회가 결정한다. 이용자 대표는 참여를 권할 수 있지만 주민을 대신해 확약할 수 없다.]\n담당자: 현재 교육용 기기 16대가 있다는 것만 확인했습니다. 고장률과 추가 인건비는 아직 모릅니다. 혼자 메모에 “나는 누락된 점검 기록을 끝까지 찾을 테다”라고 썼습니다. 이것은 제 결심이지 기기의 안전이나 예산을 기관이 보증했다는 말은 아닙니다. 화요일에 점검 결과를 보고하겠습니다.\n대표: 그럼 금요일에 확대가 보장된다고 안내해도 되나요?\n담당자: 아니요. 금요일은 위원회가 검토할 날입니다. 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 비용은 늘어날 테지만 대여 기회가 넓어질 가능성도 검토해야 합니다. 둘 다 아직 예측입니다.\n대표: 교육 이수 조건을 빼면 처음 사용하는 사람은 어떻게 되나요? 확인 없이 계속 빌려주다가는 오류가 생기겠어요. 피해가 이미 났다는 뜻이 아니라 예방을 위한 질문이에요.\n담당자: 수정안은 사전 이수 의무를 삭제하고 첫 대여 때 안내를 선택할 수 있게 했습니다. 다만 사용법을 모르는 사람에게는 직원이 확인 기회를 제공해야 합니다. 너무 서두른 나머지 이 차이를 이전 안내에서 빠뜨렸습니다. 이번에는 바로잡겠습니다.\n대표: 저는 사전 이수 의무가 없는 대신 안내 선택권을 보장하는 조건이라면 시범 참여를 권할 수 있어요. 그 선택권까지 없애면 권하지 않겠습니다. 참여할 테면 일정을 먼저 확인하라는 말은 강하게 들릴 수 있네요. “참여하실 생각이면 일정을 함께 확인해 볼까요?”로 바꾸면 의향을 남길 수 있겠어요.\n담당자: 참여하는 이상 대여 기록을 남겨야 한다는 조건도 있습니다. 결과는 운영하기 나름이니 재고·오류 신고·안내 이용 여부를 함께 기록하겠습니다. 지금 합의한 것은 안내 문구 수정과 자료 확인이며 확대 시행은 아닙니다.\n[가상 정책 제안서 원안 — 심의 전 자료]\n목적: 솔빛학습관의 교육 기기 접근성을 높인다. 현재 재고는 16대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 2일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.\n[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]\n목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 4일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 화요일까지 점검하고 위원회는 금요일에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.\n[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]\n이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.\n[위험 평가 및 대안 검토]\n기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.",
+        "questions": []
+      },
+      "contentHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0"
     }
   ],
   "objectives": [
@@ -106037,8 +108652,23 @@
       "sourceHash": "5a6d453b176045579bbba9f71e0abefbbe5ef740fd4955bc22bcb6ddb48dc305",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:01",
+          "taskHash": "39e29f9afa10d291bb4466510e6bdc04d4ed98b4e51604a6ef5e652ca3ba6cc8",
+          "materialIds": [
+            "KP22:grammar:01/practice/material",
+            "KP22:grammar:01/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:01/practice",
+          "assessmentId": "KP22:grammar:01/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106049,8 +108679,23 @@
       "sourceHash": "5a6d453b176045579bbba9f71e0abefbbe5ef740fd4955bc22bcb6ddb48dc305",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:01",
+          "taskHash": "9cee80bc471f86b11f609a4af077852df98c24d16749071210fb4c525bc3e9b1",
+          "materialIds": [
+            "KP22:production:01/practice/material",
+            "KP22:production:01/assessment/material"
+          ],
+          "practiceId": "KP22:production:01/practice",
+          "assessmentId": "KP22:production:01/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106061,8 +108706,23 @@
       "sourceHash": "0de886f9f9d6449fd5d1c29ccc8c257828bfbc0cd42c0b0c9f9731f726af4635",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:02",
+          "taskHash": "46e96d9fe90d505b3ed46b98fd6f9418c98961ec27e59fcf997216e84c5e5815",
+          "materialIds": [
+            "KP22:grammar:02/practice/material",
+            "KP22:grammar:02/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:02/practice",
+          "assessmentId": "KP22:grammar:02/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106073,8 +108733,23 @@
       "sourceHash": "0de886f9f9d6449fd5d1c29ccc8c257828bfbc0cd42c0b0c9f9731f726af4635",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:02",
+          "taskHash": "d8af7f4e80b2322744aa5e708b6935934f630a563705a4b3ac9ace822048d2c0",
+          "materialIds": [
+            "KP22:production:02/practice/material",
+            "KP22:production:02/assessment/material"
+          ],
+          "practiceId": "KP22:production:02/practice",
+          "assessmentId": "KP22:production:02/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106085,8 +108760,23 @@
       "sourceHash": "07790ac2376abf5ffd1947b0d5819300d6499dd49baebc059e94950ddd377794",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:03",
+          "taskHash": "408f809a4436385077246b553d2184693cda78a552b05aa6f371fb9d95e68a28",
+          "materialIds": [
+            "KP22:grammar:03/practice/material",
+            "KP22:grammar:03/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:03/practice",
+          "assessmentId": "KP22:grammar:03/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106097,8 +108787,23 @@
       "sourceHash": "07790ac2376abf5ffd1947b0d5819300d6499dd49baebc059e94950ddd377794",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:03",
+          "taskHash": "f41685e4b74336980a6fb8f128bbc29b81343ea4c39c376ad2c8eb40cf17f068",
+          "materialIds": [
+            "KP22:production:03/practice/material",
+            "KP22:production:03/assessment/material"
+          ],
+          "practiceId": "KP22:production:03/practice",
+          "assessmentId": "KP22:production:03/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106109,8 +108814,23 @@
       "sourceHash": "2a4a43810a8acde051459d0dcd8e698e5fef1376655df641738edca949930a04",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:04",
+          "taskHash": "aa51d884397c984a51b60c6c9e4fe85b76e0632214bd3c91273f22a519fbf2e1",
+          "materialIds": [
+            "KP22:grammar:04/practice/material",
+            "KP22:grammar:04/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:04/practice",
+          "assessmentId": "KP22:grammar:04/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106121,8 +108841,23 @@
       "sourceHash": "2a4a43810a8acde051459d0dcd8e698e5fef1376655df641738edca949930a04",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:04",
+          "taskHash": "fba2f9baa699fff4a71eb00e26f28c7c6ff2c6b0c4155443bbc9936a3c5880a6",
+          "materialIds": [
+            "KP22:production:04/practice/material",
+            "KP22:production:04/assessment/material"
+          ],
+          "practiceId": "KP22:production:04/practice",
+          "assessmentId": "KP22:production:04/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106133,8 +108868,23 @@
       "sourceHash": "63126365a5dd327108eaa29f8059f1febe2d43c493e6dfff42d10391f7c477a9",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:05",
+          "taskHash": "9d69ad510e182ab12c06165fd192e58d5b00dc3cefbda57a481366fdc6c60f7c",
+          "materialIds": [
+            "KP22:grammar:05/practice/material",
+            "KP22:grammar:05/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:05/practice",
+          "assessmentId": "KP22:grammar:05/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106145,8 +108895,23 @@
       "sourceHash": "63126365a5dd327108eaa29f8059f1febe2d43c493e6dfff42d10391f7c477a9",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:05",
+          "taskHash": "ee59e62673788cd82f4d6a6d5c0df1123b83c91418acbd0a1c7d9e5176ff5732",
+          "materialIds": [
+            "KP22:production:05/practice/material",
+            "KP22:production:05/assessment/material"
+          ],
+          "practiceId": "KP22:production:05/practice",
+          "assessmentId": "KP22:production:05/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106157,8 +108922,23 @@
       "sourceHash": "488a7db85df180315e8fe1abe4b9c5b0d4a91dddda161cf625c50f189667750a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:06",
+          "taskHash": "2cfec3daab80b59e9c4d7b0dd8558920d50e4c40408e262ecf7e377469a4e787",
+          "materialIds": [
+            "KP22:grammar:06/practice/material",
+            "KP22:grammar:06/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:06/practice",
+          "assessmentId": "KP22:grammar:06/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106169,8 +108949,23 @@
       "sourceHash": "488a7db85df180315e8fe1abe4b9c5b0d4a91dddda161cf625c50f189667750a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:06",
+          "taskHash": "ce080a57a5632d5631fcfeabe8d25ff67823aae09cfe3916397bfbe36a244ed6",
+          "materialIds": [
+            "KP22:production:06/practice/material",
+            "KP22:production:06/assessment/material"
+          ],
+          "practiceId": "KP22:production:06/practice",
+          "assessmentId": "KP22:production:06/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106181,8 +108976,23 @@
       "sourceHash": "09016e173ec14e911e7a7dfbb425e98f001a5ce160b9562ff88ce203332ccd10",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:07",
+          "taskHash": "36c1311ee6f08faa1f246dca49ef7f990a3f6e38330c5fd09e2860bd26e2a1fc",
+          "materialIds": [
+            "KP22:grammar:07/practice/material",
+            "KP22:grammar:07/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:07/practice",
+          "assessmentId": "KP22:grammar:07/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106193,8 +109003,23 @@
       "sourceHash": "09016e173ec14e911e7a7dfbb425e98f001a5ce160b9562ff88ce203332ccd10",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:07",
+          "taskHash": "98e20b08c371a017a8e6012b63765339fd6a9845052dc94eb901eb8733fec24a",
+          "materialIds": [
+            "KP22:production:07/practice/material",
+            "KP22:production:07/assessment/material"
+          ],
+          "practiceId": "KP22:production:07/practice",
+          "assessmentId": "KP22:production:07/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106205,8 +109030,23 @@
       "sourceHash": "b192d048b66c39a3868e5924c8aca2622beaa1994b1a5a90e4bc3822201cb52d",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:08",
+          "taskHash": "0b73c7389d94f7eeea5b62ce96c6a9bfd6afd88ac01858b78ed7921ca5b33c0a",
+          "materialIds": [
+            "KP22:grammar:08/practice/material",
+            "KP22:grammar:08/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:08/practice",
+          "assessmentId": "KP22:grammar:08/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106217,8 +109057,23 @@
       "sourceHash": "b192d048b66c39a3868e5924c8aca2622beaa1994b1a5a90e4bc3822201cb52d",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:08",
+          "taskHash": "e57ae8d7878a98895d97fd09127d344b5292edeb9b5c882f6c8a749fd31cacdc",
+          "materialIds": [
+            "KP22:production:08/practice/material",
+            "KP22:production:08/assessment/material"
+          ],
+          "practiceId": "KP22:production:08/practice",
+          "assessmentId": "KP22:production:08/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106229,8 +109084,23 @@
       "sourceHash": "7c68b8fbcdd7c309c95a2ae1978aed8937ae2f59eba8338a0b5ac143df9025df",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:grammar:09",
+          "taskHash": "d2650795a84ff6b1c5557098646217b57f3e6665d0cbefc7eca3cb7147d3ada7",
+          "materialIds": [
+            "KP22:grammar:09/practice/material",
+            "KP22:grammar:09/assessment/material"
+          ],
+          "practiceId": "KP22:grammar:09/practice",
+          "assessmentId": "KP22:grammar:09/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106241,8 +109111,23 @@
       "sourceHash": "7c68b8fbcdd7c309c95a2ae1978aed8937ae2f59eba8338a0b5ac143df9025df",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:production:09",
+          "taskHash": "c886f2d65b0c1c5a0fcdf5a9400c8b7207776b217847164dd7a1825ce8e50d62",
+          "materialIds": [
+            "KP22:production:09/practice/material",
+            "KP22:production:09/assessment/material"
+          ],
+          "practiceId": "KP22:production:09/practice",
+          "assessmentId": "KP22:production:09/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106253,8 +109138,28 @@
       "sourceHash": "9d9a78f039d30e1477b1d5367b27820db175893ceb8aa1a57756d473b547cea9",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106265,8 +109170,28 @@
       "sourceHash": "9c761ac29df48fbaec7f3d11d76296a53e4dce02160269f41b4c0238a1bd96e5",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106277,8 +109202,29 @@
       "sourceHash": "c192e8e0196d01f4f3208ae81606060455e8f60b8ab69c01971d140782f7a8f5",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106289,8 +109235,29 @@
       "sourceHash": "52d0db636f234ff308b41966706be0cabe8c04a6400378ad280efb66e7d822be",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106301,8 +109268,29 @@
       "sourceHash": "4bfaace113ca0c36ac66560bc58139977fa636a33fe9207ad6d2f870e1e5b110",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106313,8 +109301,29 @@
       "sourceHash": "355db30af06bf0769359ef644dbe4896f2473fd82d036dc1fbb1ba96dfca93e8",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106325,8 +109334,21 @@
       "sourceHash": "3d960c877388a5bbbc1534dad12a26713edf853c49edc3e02f3010dc41a874bb",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106337,8 +109359,21 @@
       "sourceHash": "56a62e14b8669be84b3a1649baafebabf6497db01c0e926994a8550af8052e4a",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106349,8 +109384,21 @@
       "sourceHash": "ac2f91544c902515a752a4919753bacd38ddfa19622ef2c19c50ffe1ff26942e",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106361,8 +109409,25 @@
       "sourceHash": "c2b4912ad5073cc2879a5dce09efd304318e0ee542a90a4af452b4357d35f6db",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106373,8 +109438,25 @@
       "sourceHash": "d9bf8c180645cf69ee883f212f61b2c52dd4f31eabce71481125475af4a0f1c1",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106385,8 +109467,25 @@
       "sourceHash": "6fa89d4b799125aca3cfb9c7c0ce3ef7896c81f0a1aab440fb2e15ec32fc06ac",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106397,8 +109496,28 @@
       "sourceHash": "7bb9202860fa2892c3b2fea86c4914e6068150b844df235eb617c0b92f33b741",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106409,8 +109528,21 @@
       "sourceHash": "7bb9202860fa2892c3b2fea86c4914e6068150b844df235eb617c0b92f33b741",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106421,8 +109553,29 @@
       "sourceHash": "840435c5b2aa87886061ca356ac0f074ce3a9474032fe8e8fd6c076eb319690a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106433,8 +109586,25 @@
       "sourceHash": "840435c5b2aa87886061ca356ac0f074ce3a9474032fe8e8fd6c076eb319690a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106445,8 +109615,28 @@
       "sourceHash": "bdc463f74352df47ab9dc0c4d34d8879e372b1d89164fb5c0a38e6d546002433",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106457,8 +109647,21 @@
       "sourceHash": "bdc463f74352df47ab9dc0c4d34d8879e372b1d89164fb5c0a38e6d546002433",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106469,8 +109672,28 @@
       "sourceHash": "cc046cd20be5bf1f8fedc89eded254016ea472c8a255f31c404cde18bd532915",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106481,8 +109704,21 @@
       "sourceHash": "cc046cd20be5bf1f8fedc89eded254016ea472c8a255f31c404cde18bd532915",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106493,8 +109729,29 @@
       "sourceHash": "f7d6eb7632fa05e49b173c292ad0f87712f5aa12d4509fcde18216af8984bb9c",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106505,8 +109762,25 @@
       "sourceHash": "f7d6eb7632fa05e49b173c292ad0f87712f5aa12d4509fcde18216af8984bb9c",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106517,8 +109791,29 @@
       "sourceHash": "df1fc21659a70cf78772d49919a87ef56b6bdd47676b4b464e105efcf5b330e6",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106529,8 +109824,25 @@
       "sourceHash": "df1fc21659a70cf78772d49919a87ef56b6bdd47676b4b464e105efcf5b330e6",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106541,8 +109853,29 @@
       "sourceHash": "594b0d4a8ad1e0806937232d4c7cd69b3048cce96dceaa958b7b13191c7efde1",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106553,8 +109886,25 @@
       "sourceHash": "594b0d4a8ad1e0806937232d4c7cd69b3048cce96dceaa958b7b13191c7efde1",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:writing:01",
+          "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+          "materialIds": [
+            "KP22:writing:01/practice/material",
+            "KP22:writing:01/assessment/material"
+          ],
+          "practiceId": "KP22:writing:01/practice",
+          "assessmentId": "KP22:writing:01/assessment",
+          "criterionIds": [
+            "proposal",
+            "staff",
+            "public"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106565,8 +109915,29 @@
       "sourceHash": "d1f545e900a113f5bda59c03d259b2d4018b3ac0394f2a7a9730f8294db442e6",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:reading:01",
+          "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+          "materialIds": [
+            "KP22:reading:01/practice/material",
+            "KP22:reading:01/assessment/material"
+          ],
+          "practiceId": "KP22:reading:01/practice",
+          "assessmentId": "KP22:reading:01/assessment",
+          "criterionIds": [
+            "deleted",
+            "period",
+            "indicators",
+            "premise",
+            "exception",
+            "uncertainty",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106577,8 +109948,21 @@
       "sourceHash": "d1f545e900a113f5bda59c03d259b2d4018b3ac0394f2a7a9730f8294db442e6",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106589,8 +109973,28 @@
       "sourceHash": "dcaaaecab244418db65b939c2a3481a4bf34ce38f2dd603ceda417ce4a72189a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106601,8 +110005,21 @@
       "sourceHash": "dcaaaecab244418db65b939c2a3481a4bf34ce38f2dd603ceda417ce4a72189a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106613,8 +110030,28 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:listening:01",
+          "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+          "materialIds": [
+            "KP22:listening:01/practice/material",
+            "KP22:listening:01/assessment/material"
+          ],
+          "practiceId": "KP22:listening:01/practice",
+          "assessmentId": "KP22:listening:01/assessment",
+          "criterionIds": [
+            "resolve",
+            "date",
+            "forecast",
+            "warning",
+            "exception",
+            "boundary"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106625,8 +110062,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106637,8 +110087,21 @@
       "sourceHash": "d95e8feb1b8723639af799eee1a6018625e56aec6989b8c3155d0536df23cf4f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -106649,8 +110112,21 @@
       "sourceHash": "d95e8feb1b8723639af799eee1a6018625e56aec6989b8c3155d0536df23cf4f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP22:speaking:01",
+          "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+          "materialIds": [
+            "KP22:speaking:01/practice/material",
+            "KP22:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP22:speaking:01/practice",
+          "assessmentId": "KP22:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -112691,6 +116167,35 @@
         "KP21:speaking:01": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4"
       },
       "contentHash": "49dacf2394c7c842c14e54c019c62825e1f329e9ef06874a8c66f6c18f48c8c0"
+    },
+    {
+      "phaseId": "KP22",
+      "status": "partial",
+      "taskHashes": {
+        "KP22:grammar:01": "39e29f9afa10d291bb4466510e6bdc04d4ed98b4e51604a6ef5e652ca3ba6cc8",
+        "KP22:grammar:02": "46e96d9fe90d505b3ed46b98fd6f9418c98961ec27e59fcf997216e84c5e5815",
+        "KP22:grammar:03": "408f809a4436385077246b553d2184693cda78a552b05aa6f371fb9d95e68a28",
+        "KP22:grammar:04": "aa51d884397c984a51b60c6c9e4fe85b76e0632214bd3c91273f22a519fbf2e1",
+        "KP22:grammar:05": "9d69ad510e182ab12c06165fd192e58d5b00dc3cefbda57a481366fdc6c60f7c",
+        "KP22:grammar:06": "2cfec3daab80b59e9c4d7b0dd8558920d50e4c40408e262ecf7e377469a4e787",
+        "KP22:grammar:07": "36c1311ee6f08faa1f246dca49ef7f990a3f6e38330c5fd09e2860bd26e2a1fc",
+        "KP22:grammar:08": "0b73c7389d94f7eeea5b62ce96c6a9bfd6afd88ac01858b78ed7921ca5b33c0a",
+        "KP22:grammar:09": "d2650795a84ff6b1c5557098646217b57f3e6665d0cbefc7eca3cb7147d3ada7",
+        "KP22:production:01": "9cee80bc471f86b11f609a4af077852df98c24d16749071210fb4c525bc3e9b1",
+        "KP22:production:02": "d8af7f4e80b2322744aa5e708b6935934f630a563705a4b3ac9ace822048d2c0",
+        "KP22:production:03": "f41685e4b74336980a6fb8f128bbc29b81343ea4c39c376ad2c8eb40cf17f068",
+        "KP22:production:04": "fba2f9baa699fff4a71eb00e26f28c7c6ff2c6b0c4155443bbc9936a3c5880a6",
+        "KP22:production:05": "ee59e62673788cd82f4d6a6d5c0df1123b83c91418acbd0a1c7d9e5176ff5732",
+        "KP22:production:06": "ce080a57a5632d5631fcfeabe8d25ff67823aae09cfe3916397bfbe36a244ed6",
+        "KP22:production:07": "98e20b08c371a017a8e6012b63765339fd6a9845052dc94eb901eb8733fec24a",
+        "KP22:production:08": "e57ae8d7878a98895d97fd09127d344b5292edeb9b5c882f6c8a749fd31cacdc",
+        "KP22:production:09": "c886f2d65b0c1c5a0fcdf5a9400c8b7207776b217847164dd7a1825ce8e50d62",
+        "KP22:listening:01": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+        "KP22:reading:01": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+        "KP22:writing:01": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+        "KP22:speaking:01": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0"
+      },
+      "contentHash": "3df1478124d162b29768f5f9b49ff0ed105f59eb15a69be7d9299b64ee477bb8"
     }
   ]
 }

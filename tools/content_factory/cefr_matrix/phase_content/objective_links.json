@@ -13847,6 +13847,659 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 지 connective classification contrast proposal versus confirmed plan, procedure criticism versus character attack, not final confirmation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:listening/core:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "9d9a78f039d30e1477b1d5367b27820db175893ceb8aa1a57756d473b547cea9",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:listening/additional/1:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "9c761ac29df48fbaec7f3d11d76296a53e4dce02160269f41b4c0238a1bd96e5",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:reading/core:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "c192e8e0196d01f4f3208ae81606060455e8f60b8ab69c01971d140782f7a8f5",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:reading/additional/1:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "52d0db636f234ff308b41966706be0cabe8c04a6400378ad280efb66e7d822be",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "4bfaace113ca0c36ac66560bc58139977fa636a33fe9207ad6d2f870e1e5b110",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:reading/genre/report_proposal_official:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "355db30af06bf0769359ef644dbe4896f2473fd82d036dc1fbb1ba96dfca93e8",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:speaking/core:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "3d960c877388a5bbbc1534dad12a26713edf853c49edc3e02f3010dc41a874bb",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:speaking/additional/1:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "56a62e14b8669be84b3a1649baafebabf6497db01c0e926994a8550af8052e4a",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "ac2f91544c902515a752a4919753bacd38ddfa19622ef2c19c50ffe1ff26942e",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:writing/core:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "c2b4912ad5073cc2879a5dce09efd304318e0ee542a90a4af452b4357d35f6db",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:writing/additional/1:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "d9bf8c180645cf69ee883f212f61b2c52dd4f31eabce71481125475af4a0f1c1",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "6fa89d4b799125aca3cfb9c7c0ce3ef7896c81f0a1aab440fb2e15ec32fc06ac",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/negotiate_compromise_conditions:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "7bb9202860fa2892c3b2fea86c4914e6068150b844df235eb617c0b92f33b741",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/negotiate_compromise_conditions:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "7bb9202860fa2892c3b2fea86c4914e6068150b844df235eb617c0b92f33b741",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "840435c5b2aa87886061ca356ac0f074ce3a9474032fe8e8fd6c076eb319690a",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "840435c5b2aa87886061ca356ac0f074ce3a9474032fe8e8fd6c076eb319690a",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/refuse_set_boundaries:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "bdc463f74352df47ab9dc0c4d34d8879e372b1d89164fb5c0a38e6d546002433",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/refuse_set_boundaries:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "bdc463f74352df47ab9dc0c4d34d8879e372b1d89164fb5c0a38e6d546002433",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/structure_discourse_open_close_scope:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "cc046cd20be5bf1f8fedc89eded254016ea472c8a255f31c404cde18bd532915",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:functions/structure_discourse_open_close_scope:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "cc046cd20be5bf1f8fedc89eded254016ea472c8a255f31c404cde18bd532915",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "f7d6eb7632fa05e49b173c292ad0f87712f5aa12d4509fcde18216af8984bb9c",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "f7d6eb7632fa05e49b173c292ad0f87712f5aa12d4509fcde18216af8984bb9c",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "df1fc21659a70cf78772d49919a87ef56b6bdd47676b4b464e105efcf5b330e6",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "df1fc21659a70cf78772d49919a87ef56b6bdd47676b4b464e105efcf5b330e6",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "594b0d4a8ad1e0806937232d4c7cd69b3048cce96dceaa958b7b13191c7efde1",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP22:writing:01",
+      "sourceHash": "594b0d4a8ad1e0806937232d4c7cd69b3048cce96dceaa958b7b13191c7efde1",
+      "taskHash": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "criterionIds": [
+        "proposal",
+        "staff",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP22:reading:01",
+      "sourceHash": "d1f545e900a113f5bda59c03d259b2d4018b3ac0394f2a7a9730f8294db442e6",
+      "taskHash": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "criterionIds": [
+        "deleted",
+        "period",
+        "indicators",
+        "premise",
+        "exception",
+        "uncertainty",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "d1f545e900a113f5bda59c03d259b2d4018b3ac0394f2a7a9730f8294db442e6",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:phonology/0:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "dcaaaecab244418db65b939c2a3481a4bf34ce38f2dd603ceda417ce4a72189a",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:phonology/0:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "dcaaaecab244418db65b939c2a3481a4bf34ce38f2dd603ceda417ce4a72189a",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:phonology/1:R",
+      "taskId": "KP22:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "criterionIds": [
+        "resolve",
+        "date",
+        "forecast",
+        "warning",
+        "exception",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:phonology/1:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "d95e8feb1b8723639af799eee1a6018625e56aec6989b8c3155d0536df23cf4f",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:register/haeyo_polite:P",
+      "taskId": "KP22:speaking:01",
+      "sourceHash": "d95e8feb1b8723639af799eee1a6018625e56aec6989b8c3155d0536df23cf4f",
+      "taskHash": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테다:R",
+      "taskId": "KP22:grammar:01",
+      "sourceHash": "5a6d453b176045579bbba9f71e0abefbbe5ef740fd4955bc22bcb6ddb48dc305",
+      "taskHash": "39e29f9afa10d291bb4466510e6bdc04d4ed98b4e51604a6ef5e652ca3ba6cc8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 테다 personal firm resolve in monologue, no institutional assurance or command to other staff. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테면:R",
+      "taskId": "KP22:grammar:02",
+      "sourceHash": "0de886f9f9d6449fd5d1c29ccc8c257828bfbc0cd42c0b0c9f9731f726af4635",
+      "taskHash": "46e96d9fe90d505b3ed46b98fd6f9418c98961ec27e59fcf997216e84c5e5815",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 테면 intention conditional with explicit choice; potentially challenging register acknowledged and polite recast provided in core. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테지만:R",
+      "taskId": "KP22:grammar:03",
+      "sourceHash": "07790ac2376abf5ffd1947b0d5819300d6499dd49baebc059e94950ddd377794",
+      "taskHash": "408f809a4436385077246b553d2184693cda78a552b05aa6f371fb9d95e68a28",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 테지만 predicted cost/questions plus other consideration/commitment, not measured amount or completed count. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-기 나름이다:R",
+      "taskId": "KP22:grammar:04",
+      "sourceHash": "2a4a43810a8acde051459d0dcd8e698e5fef1376655df641738edca949930a04",
+      "taskHash": "aa51d884397c984a51b60c6c9e4fe85b76e0632214bd3c91273f22a519fbf2e1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기 나름이다 dependence on interpretation/schedule adjustment, not invariant outcome or evidence of universal success. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-기에 따라:R",
+      "taskId": "KP22:grammar:05",
+      "sourceHash": "63126365a5dd327108eaa29f8059f1febe2d43c493e6dfff42d10391f7c477a9",
+      "taskHash": "9d69ad510e182ab12c06165fd192e58d5b00dc3cefbda57a481366fdc6c60f7c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기에 따라 variation by thinking/operating a policy; corrected unnatural explanation-recipient draft before review; no fixed outcome. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-은 나머지:R",
+      "taskId": "KP22:grammar:06",
+      "sourceHash": "488a7db85df180315e8fe1abe4b9c5b0d4a91dddda161cf625c50f189667750a",
+      "taskHash": "2cfec3daab80b59e9c4d7b0dd8558920d50e4c40408e262ecf7e377469a4e787",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 은 나머지 excessive haste/worry leading to omission/premature judgement, not remainder quantity or completed verification. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-는 이상:R",
+      "taskId": "KP22:grammar:07",
+      "sourceHash": "09016e173ec14e911e7a7dfbb425e98f001a5ce160b9562ff88ce203332ccd10",
+      "taskHash": "36c1311ee6f08faa1f246dca49ef7f990a3f6e38330c5fd09e2860bd26e2a1fc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 이상 accepted disclosure/participation premise limits answer/record duty; does not impose publication on all data or records on nonparticipants. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-다가는:R",
+      "taskId": "KP22:grammar:08",
+      "sourceHash": "b192d048b66c39a3868e5924c8aca2622beaa1994b1a5a90e4bc3822201cb52d",
+      "taskHash": "0b73c7389d94f7eeea5b62ce96c6a9bfd6afd88ac01858b78ed7921ca5b33c0a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 다가는 continuing postponement/unverified distribution risks missed deadline/spread errors, not past loss or intentional threat. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-으면 몰라도:R",
+      "taskId": "KP22:grammar:09",
+      "sourceHash": "7c68b8fbcdd7c309c95a2ae1978aed8937ae2f59eba8338a0b5ac143df9025df",
+      "taskHash": "d2650795a84ff6b1c5557098646217b57f3e6665d0cbefc7eca3cb7147d3ada7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으면 몰라도 possible new evidence/budget exception with current reservation/refusal, not confirmed condition or automatic approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테다:P",
+      "taskId": "KP22:production:01",
+      "sourceHash": "5a6d453b176045579bbba9f71e0abefbbe5ef740fd4955bc22bcb6ddb48dc305",
+      "taskHash": "9cee80bc471f86b11f609a4af077852df98c24d16749071210fb4c525bc3e9b1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 테다 personal firm resolve in monologue, no institutional assurance or command to other staff. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테면:P",
+      "taskId": "KP22:production:02",
+      "sourceHash": "0de886f9f9d6449fd5d1c29ccc8c257828bfbc0cd42c0b0c9f9731f726af4635",
+      "taskHash": "d8af7f4e80b2322744aa5e708b6935934f630a563705a4b3ac9ace822048d2c0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 테면 intention conditional with explicit choice; potentially challenging register acknowledged and polite recast provided in core. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-을 테지만:P",
+      "taskId": "KP22:production:03",
+      "sourceHash": "07790ac2376abf5ffd1947b0d5819300d6499dd49baebc059e94950ddd377794",
+      "taskHash": "f41685e4b74336980a6fb8f128bbc29b81343ea4c39c376ad2c8eb40cf17f068",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 테지만 predicted cost/questions plus other consideration/commitment, not measured amount or completed count. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-기 나름이다:P",
+      "taskId": "KP22:production:04",
+      "sourceHash": "2a4a43810a8acde051459d0dcd8e698e5fef1376655df641738edca949930a04",
+      "taskHash": "fba2f9baa699fff4a71eb00e26f28c7c6ff2c6b0c4155443bbc9936a3c5880a6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기 나름이다 dependence on interpretation/schedule adjustment, not invariant outcome or evidence of universal success. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-기에 따라:P",
+      "taskId": "KP22:production:05",
+      "sourceHash": "63126365a5dd327108eaa29f8059f1febe2d43c493e6dfff42d10391f7c477a9",
+      "taskHash": "ee59e62673788cd82f4d6a6d5c0df1123b83c91418acbd0a1c7d9e5176ff5732",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기에 따라 variation by thinking/operating a policy; corrected unnatural explanation-recipient draft before review; no fixed outcome. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-은 나머지:P",
+      "taskId": "KP22:production:06",
+      "sourceHash": "488a7db85df180315e8fe1abe4b9c5b0d4a91dddda161cf625c50f189667750a",
+      "taskHash": "ce080a57a5632d5631fcfeabe8d25ff67823aae09cfe3916397bfbe36a244ed6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 은 나머지 excessive haste/worry leading to omission/premature judgement, not remainder quantity or completed verification. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-는 이상:P",
+      "taskId": "KP22:production:07",
+      "sourceHash": "09016e173ec14e911e7a7dfbb425e98f001a5ce160b9562ff88ce203332ccd10",
+      "taskHash": "98e20b08c371a017a8e6012b63765339fd6a9845052dc94eb901eb8733fec24a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 이상 accepted disclosure/participation premise limits answer/record duty; does not impose publication on all data or records on nonparticipants. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-다가는:P",
+      "taskId": "KP22:production:08",
+      "sourceHash": "b192d048b66c39a3868e5924c8aca2622beaa1994b1a5a90e4bc3822201cb52d",
+      "taskHash": "e57ae8d7878a98895d97fd09127d344b5292edeb9b5c882f6c8a749fd31cacdc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 다가는 continuing postponement/unverified distribution risks missed deadline/spread errors, not past loss or intentional threat. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP22:objective:grammar/G5:-으면 몰라도:P",
+      "taskId": "KP22:production:09",
+      "sourceHash": "7c68b8fbcdd7c309c95a2ae1978aed8937ae2f59eba8338a0b5ac143df9025df",
+      "taskHash": "c886f2d65b0c1c5a0fcdf5a9400c8b7207776b217847164dd7a1825ce8e50d62",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으면 몰라도 possible new evidence/budget exception with current reservation/refusal, not confirmed condition or automatic approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

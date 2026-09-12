@@ -27,7 +27,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP19 | 56 | 56 | 0 | 미검증 |
 | KP20 | 52 | 52 | 0 | 미검증 |
 | KP21 | 54 | 54 | 0 | 미검증 |
-| KP22 | 52 | 0 | 52 | 미검증 |
+| KP22 | 52 | 52 | 0 | 미검증 |
 | KP23 | 48 | 0 | 48 | 미검증 |
 | KP24 | 58 | 0 | 58 | 미검증 |
 | KP25 | 49 | 0 | 49 | 미검증 |
@@ -39,58 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP22:objective:grammar/G5:-을 테다:R`
-- `KP22:objective:grammar/G5:-을 테다:P`
-- `KP22:objective:grammar/G5:-을 테면:R`
-- `KP22:objective:grammar/G5:-을 테면:P`
-- `KP22:objective:grammar/G5:-을 테지만:R`
-- `KP22:objective:grammar/G5:-을 테지만:P`
-- `KP22:objective:grammar/G5:-기 나름이다:R`
-- `KP22:objective:grammar/G5:-기 나름이다:P`
-- `KP22:objective:grammar/G5:-기에 따라:R`
-- `KP22:objective:grammar/G5:-기에 따라:P`
-- `KP22:objective:grammar/G5:-은 나머지:R`
-- `KP22:objective:grammar/G5:-은 나머지:P`
-- `KP22:objective:grammar/G5:-는 이상:R`
-- `KP22:objective:grammar/G5:-는 이상:P`
-- `KP22:objective:grammar/G5:-다가는:R`
-- `KP22:objective:grammar/G5:-다가는:P`
-- `KP22:objective:grammar/G5:-으면 몰라도:R`
-- `KP22:objective:grammar/G5:-으면 몰라도:P`
-- `KP22:objective:listening/core:R`
-- `KP22:objective:listening/additional/1:R`
-- `KP22:objective:reading/core:R`
-- `KP22:objective:reading/additional/1:R`
-- `KP22:objective:reading/genre/contract_terms_legal_text:R`
-- `KP22:objective:reading/genre/report_proposal_official:R`
-- `KP22:objective:speaking/core:P`
-- `KP22:objective:speaking/additional/1:P`
-- `KP22:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP22:objective:writing/core:P`
-- `KP22:objective:writing/additional/1:P`
-- `KP22:objective:writing/genre/report_proposal_official:P`
-- `KP22:objective:functions/negotiate_compromise_conditions:R`
-- `KP22:objective:functions/negotiate_compromise_conditions:P`
-- `KP22:objective:functions/evaluate_assess_critique:R`
-- `KP22:objective:functions/evaluate_assess_critique:P`
-- `KP22:objective:functions/refuse_set_boundaries:R`
-- `KP22:objective:functions/refuse_set_boundaries:P`
-- `KP22:objective:functions/structure_discourse_open_close_scope:R`
-- `KP22:objective:functions/structure_discourse_open_close_scope:P`
-- `KP22:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP22:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP22:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP22:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP22:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP22:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP22:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP22:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP22:objective:phonology/0:R`
-- `KP22:objective:phonology/0:P`
-- `KP22:objective:phonology/1:R`
-- `KP22:objective:phonology/1:P`
-- `KP22:objective:register/hapsyo_formal_business:P`
-- `KP22:objective:register/haeyo_polite:P`
 - `KP23:objective:grammar/G5:-는다기에:R`
 - `KP23:objective:grammar/G5:-는다기에:P`
 - `KP23:objective:grammar/G5:-는다니1:R`
