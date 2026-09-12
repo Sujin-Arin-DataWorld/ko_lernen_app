@@ -1062,8 +1062,51 @@
         "b2_06_advanced_capstone"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp18.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP18:grammar:01",
+        "KP18:grammar:02",
+        "KP18:grammar:03",
+        "KP18:grammar:04",
+        "KP18:grammar:05",
+        "KP18:grammar:06",
+        "KP18:grammar:07",
+        "KP18:grammar:08",
+        "KP18:grammar:09",
+        "KP18:grammar:10",
+        "KP18:grammar:11",
+        "KP18:grammar:12",
+        "KP18:grammar:13",
+        "KP18:grammar:14",
+        "KP18:grammar:15",
+        "KP18:grammar:16",
+        "KP18:grammar:17",
+        "KP18:grammar:18",
+        "KP18:grammar:19",
+        "KP18:production:01",
+        "KP18:production:02",
+        "KP18:production:03",
+        "KP18:production:04",
+        "KP18:production:05",
+        "KP18:production:06",
+        "KP18:production:07",
+        "KP18:production:08",
+        "KP18:production:09",
+        "KP18:production:10",
+        "KP18:production:11",
+        "KP18:production:12",
+        "KP18:production:13",
+        "KP18:production:14",
+        "KP18:production:15",
+        "KP18:production:16",
+        "KP18:production:17",
+        "KP18:production:18",
+        "KP18:production:19",
+        "KP18:listening:01",
+        "KP18:reading:01",
+        "KP18:writing:01",
+        "KP18:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP19",
@@ -1387,5 +1430,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "7a4326a08383a75e1cb92f9da037ddec87c5d28dac46b463e2148a123d92aee7"
+  "phaseTaskSourceSha256": "6c12f24d72a5d92fa7f21f64b343a892b5618d99580653e410d2e7118d44ed3f"
 }

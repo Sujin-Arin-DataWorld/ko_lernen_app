@@ -22,7 +22,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_grammar_production_is_separate_from_recognition(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:17]:
+        for phase in phases[:18]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id'] and ':production:' in t['id']]
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
             for task in tasks:
@@ -39,7 +39,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_phases_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:17]:
+        for phase in phases[:18]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
@@ -52,6 +52,8 @@ class PhaseContentContractTest(unittest.TestCase):
         tasks = {t['id']: t for t in build(ROOT)['tasks']}
         expected = {
             'KP17:listening:01': {'report', 'witness', 'command', 'question', 'turn', 'agreement'},
+            'KP18:listening:01': {'metric', 'cause', 'objection', 'scope', 'regret', 'certainty', 'followup'},
+            'KP18:reading:01': {'sources', 'measure', 'last', 'scale', 'claim', 'condition', 'purpose'},
             'KP16:listening:01': {'counterfactual', 'condition', 'concession', 'fallback', 'disclosure', 'contact', 'decision'},
             'KP16:reading:01': {'necessary', 'conclusion', 'exception', 'counterpoint', 'comparison', 'authority'},
             'KP15:listening:01': {'neutral', 'evaluation', 'unexpected', 'overlap', 'near', 'ongoing', 'hypothesis'},

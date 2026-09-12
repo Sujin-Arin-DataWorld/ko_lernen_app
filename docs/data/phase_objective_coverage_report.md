@@ -23,7 +23,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP15 | 58 | 58 | 0 | 미검증 |
 | KP16 | 52 | 52 | 0 | 미검증 |
 | KP17 | 56 | 56 | 0 | 미검증 |
-| KP18 | 66 | 0 | 66 | 미검증 |
+| KP18 | 66 | 66 | 0 | 미검증 |
 | KP19 | 56 | 0 | 56 | 미검증 |
 | KP20 | 52 | 0 | 52 | 미검증 |
 | KP21 | 54 | 0 | 54 | 미검증 |
@@ -39,72 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP18:objective:grammar/G4:-다시피:R`
-- `KP18:objective:grammar/G4:-다시피:P`
-- `KP18:objective:grammar/G4:-거니와:R`
-- `KP18:objective:grammar/G4:-거니와:P`
-- `KP18:objective:grammar/G4:에 의하여:R`
-- `KP18:objective:grammar/G4:에 의하여:P`
-- `KP18:objective:grammar/G4:-으므로:R`
-- `KP18:objective:grammar/G4:-으므로:P`
-- `KP18:objective:grammar/G4:-나 싶다:R`
-- `KP18:objective:grammar/G4:-나 싶다:P`
-- `KP18:objective:grammar/G4:-는 듯:R`
-- `KP18:objective:grammar/G4:-는 듯:P`
-- `KP18:objective:grammar/G4:-을걸:R`
-- `KP18:objective:grammar/G4:-을걸:P`
-- `KP18:objective:grammar/G4:-을 모양이다:R`
-- `KP18:objective:grammar/G4:-을 모양이다:P`
-- `KP18:objective:grammar/G4:까지2:R`
-- `KP18:objective:grammar/G4:까지2:P`
-- `KP18:objective:grammar/G4:마저:R`
-- `KP18:objective:grammar/G4:마저:P`
-- `KP18:objective:grammar/G4:이야:R`
-- `KP18:objective:grammar/G4:이야:P`
-- `KP18:objective:grammar/G4:커녕:R`
-- `KP18:objective:grammar/G4:커녕:P`
-- `KP18:objective:grammar/G4:-을 따름이다:R`
-- `KP18:objective:grammar/G4:-을 따름이다:P`
-- `KP18:objective:grammar/G4:-고자:R`
-- `KP18:objective:grammar/G4:-고자:P`
-- `KP18:objective:grammar/G4:-고도:R`
-- `KP18:objective:grammar/G4:-고도:P`
-- `KP18:objective:grammar/G4:-고 들다:R`
-- `KP18:objective:grammar/G4:-고 들다:P`
-- `KP18:objective:grammar/G4:-고 보다:R`
-- `KP18:objective:grammar/G4:-고 보다:P`
-- `KP18:objective:grammar/G4:-고 해서:R`
-- `KP18:objective:grammar/G4:-고 해서:P`
-- `KP18:objective:grammar/G4:-는 대로:R`
-- `KP18:objective:grammar/G4:-는 대로:P`
-- `KP18:objective:listening/core:R`
-- `KP18:objective:reading/core:R`
-- `KP18:objective:reading/genre/essay_opinion_argumentative:R`
-- `KP18:objective:reading/genre/news_article_report:R`
-- `KP18:objective:speaking/core:P`
-- `KP18:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP18:objective:writing/core:P`
-- `KP18:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP18:objective:functions/persuade_argue_justify:R`
-- `KP18:objective:functions/persuade_argue_justify:P`
-- `KP18:objective:functions/evaluate_assess_critique:R`
-- `KP18:objective:functions/evaluate_assess_critique:P`
-- `KP18:objective:functions/express_certainty_doubt_hedging:R`
-- `KP18:objective:functions/express_certainty_doubt_hedging:P`
-- `KP18:objective:functions/structure_discourse_open_close_scope:R`
-- `KP18:objective:functions/structure_discourse_open_close_scope:P`
-- `KP18:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP18:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP18:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP18:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP18:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP18:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP18:objective:phonology/0:R`
-- `KP18:objective:phonology/0:P`
-- `KP18:objective:phonology/1:R`
-- `KP18:objective:phonology/1:P`
-- `KP18:objective:register/hapsyo_formal_business:P`
-- `KP18:objective:register/haeyo_polite:P`
 - `KP19:objective:grammar/G5:-다4:R`
 - `KP19:objective:grammar/G5:-다4:P`
 - `KP19:objective:grammar/G5:-기에 앞서(서):R`

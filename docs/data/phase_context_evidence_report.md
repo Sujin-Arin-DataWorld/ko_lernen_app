@@ -222,25 +222,25 @@
 | KP17 | G4:-던데1 | 1 | 0 | 0 | 미검증 |
 | KP17 | G4:-는 줄 | 1 | 0 | 0 | 미검증 |
 | KP17 | G4:-어야지2 | 1 | 0 | 0 | 미검증 |
-| KP18 | G4:-다시피 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-거니와 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:에 의하여 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-으므로 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-나 싶다 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-는 듯 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-을걸 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-을 모양이다 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:까지2 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:마저 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:이야 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:커녕 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-을 따름이다 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-고자 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-고도 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-고 들다 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-고 보다 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-고 해서 | 0 | 0 | 0 | 미검증 |
-| KP18 | G4:-는 대로 | 0 | 0 | 0 | 미검증 |
+| KP18 | G4:-다시피 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-거니와 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:에 의하여 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-으므로 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-나 싶다 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-는 듯 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-을걸 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-을 모양이다 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:까지2 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:마저 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:이야 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:커녕 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-을 따름이다 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-고자 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-고도 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-고 들다 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-고 보다 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-고 해서 | 1 | 0 | 0 | 미검증 |
+| KP18 | G4:-는 대로 | 1 | 0 | 0 | 미검증 |
 | KP19 | G5:-다4 | 0 | 0 | 0 | 미검증 |
 | KP19 | G5:-기에 앞서(서) | 0 | 0 | 0 | 미검증 |
 | KP19 | G5:-는 가운데 | 0 | 0 | 0 | 미검증 |
@@ -548,3 +548,22 @@
 - KP17 / G4:-던데1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/10/practice/sourceKo` — “어제는 문이 닫혀 있던데 오늘은 여나요?”. 과거 관찰을 배경으로 현재 정보를 묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP17 / G4:-는 줄 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/11/practice/sourceKo` — “회의가 내일인 줄 알았어요. 공지를 보니 오늘이었어요.”. 과거 믿음과 확인한 실제 일정을 대비해 오해를 정정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP17 / G4:-어야지2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/12/practice/sourceKo` — “서로 돌보는 친구에게: 힘들면 미리 말해야지.”. 친밀한 상호 돌봄 관계에서 미리 알리는 당위를 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-다시피 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/0/practice/sourceKo` — “보시다시피 자료마다 수치가 다릅니다.”. 공유해 보는 자료의 차이를 환기하며 원인을 확정하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-거니와 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/1/practice/sourceKo` — “이 방법은 간단하거니와 비용도 적게 듭니다.”. 간단함에 저비용이라는 별도 장점을 더한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:에 의하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/2/practice/sourceKo` — “신청은 정해진 절차에 의하여 처리됩니다.”. 절차를 처리 근거로 제시하며 승인을 보증하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-으므로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/3/practice/sourceKo` — “자료가 충분하지 않으므로 결론을 유보합니다.”. 자료 부족을 판단 유보의 격식적 이유로 연결한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-나 싶다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/4/practice/sourceKo` — “내 설명이 부족했나 싶어요.”. 설명 부족의 가능성을 조심스럽게 자문한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-는 듯 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/5/practice/sourceKo` — “아무 일도 없었던 듯 조용했습니다.”. 일이 없었던 것 같은 인상과 실제 사건 여부를 나눈다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-을걸 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/6/practice/sourceKo` — “이미 늦었어요. 조금 더 일찍 출발할걸.”. 이미 늦은 맥락에서 과거 미실행 선택을 후회한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-을 모양이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/7/practice/sourceKo` — “하늘이 어두운 걸 보니 비가 올 모양이에요.”. 어두운 하늘을 단서로 미래 비를 예상한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:까지2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/8/practice/sourceKo` — “가장 가까운 친구까지 반대했어요.”. 예상 밖의 가까운 친구도 반대에 포함된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:마저 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/9/practice/sourceKo` — “마지막 기회마저 놓쳤어요.”. 마지막 남은 기회까지 상실했다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:이야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/10/practice/sourceKo` — “다른 것은 몰라도 시간이야 조정할 수 있어요.”. 시간에 한정한 대비와 조정 가능성을 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:커녕 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/11/practice/sourceKo` — “쉬기는커녕 밥 먹을 시간도 없었어요.”. 쉬는 것은 물론 더 기본적인 식사 시간도 없음을 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-을 따름이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/12/practice/sourceKo` — “저는 확인된 사실을 말씀드렸을 따름입니다.”. 자신의 행동을 확인 사실 전달에 한정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-고자 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/13/practice/sourceKo` — “문제의 원인을 밝히고자 조사를 시작했습니다.”. 원인 규명을 조사 시작의 목적으로 둔다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-고도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/14/practice/sourceKo` — “설명을 듣고도 이해하지 못했어요.”. 들었으나 예상한 이해 결과는 없었다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-고 들다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/15/practice/sourceKo` — “그는 설명을 듣지도 않고 따지고 들었어요.”. 설명을 듣기 전부터 집요하게 따지는 태도를 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-고 보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/16/practice/sourceKo` — “급해서 일단 신청하고 봤어요. 조건은 나중에 읽었어요.”. 조건 검토보다 신청 행동이 먼저였음을 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-고 해서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/17/practice/sourceKo` — “날씨도 춥고 해서 실내에서 만났어요.”. 추위를 여러 사정 중 하나로 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP18 / G4:-는 대로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp18.json/tasks/18/practice/sourceKo` — “확인하는 대로 연락드리겠습니다.”. 확인 직후 연락의 조건부 후속 행동을 약속한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
