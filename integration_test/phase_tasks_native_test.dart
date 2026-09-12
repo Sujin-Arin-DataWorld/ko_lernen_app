@@ -172,16 +172,114 @@ void main() {
     skip: restoreOnly || qaLevel != 'A2',
   );
   testWidgets(
+    'selected level structured answer and free draft survive native re-entry',
+    (tester) async {
+      await Storage.init();
+      CourseProgressService.shared.resetForTesting();
+      final catalog = await PhaseTaskCatalog.load();
+      final structured = catalog.tasks.firstWhere(
+        (t) =>
+            t.level == qaLevel &&
+            t.id.contains(':production:') &&
+            t.assessment.questions.every((q) => q.kind == 'boundedSentence'),
+      );
+      final writing = catalog.tasks.firstWhere(
+        (t) =>
+            t.level == qaLevel &&
+            t.skill == 'writing' &&
+            t.assessment.questions.every((q) => q.kind == 'freeText'),
+      );
+      // This verifies transport/storage only; this deliberately generic draft
+      // must never be interpreted as evidence of the source's communicative goal.
+      final draft =
+          '$qaLevel 기기 검증용 초안입니다. 사실과 의견을 나누고 아직 모르는 내용은 확인할 항목으로 남깁니다.';
+      if (!restoreOnly) {
+        await tester.pumpWidget(
+          host(
+            PhaseTaskRoute(structured.phaseId, structured.id, assessment: true),
+          ),
+        );
+        await waitFor(tester, find.text(structured.title.en));
+        for (final q in structured.assessment.questions) {
+          final field = find.byKey(
+            ValueKey('${structured.id}:true:${q.id}-field'),
+          );
+          await tester.scrollUntilVisible(
+            field,
+            250,
+            scrollable: find.byType(Scrollable).first,
+          );
+          await tester.enterText(field, q.acceptedAnswers.first);
+        }
+        await tap(tester, 'Check and save answers');
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpWidget(
+          host(PhaseTaskRoute(writing.phaseId, writing.id, assessment: true)),
+        );
+        await waitFor(tester, find.text(writing.title.en));
+        for (final q in writing.assessment.questions) {
+          final field = find.byKey(
+            ValueKey('${writing.id}:true:${q.id}-field'),
+          );
+          await tester.scrollUntilVisible(
+            field,
+            250,
+            scrollable: find.byType(Scrollable).first,
+          );
+          await tester.enterText(field, draft);
+        }
+        await tap(tester, 'Check and save answers');
+      }
+      await (await SharedPreferences.getInstance()).reload();
+      CourseProgressService.shared.resetForTesting();
+      final saved = await CourseProgressService.shared.readForDisplay();
+      expect(saved, isNotNull);
+      expect(saved!.phaseTaskEvidence.any(structured.passedBy), isTrue);
+      final free = saved.phaseTaskEvidence.where((e) => e.taskId == writing.id);
+      expect(free, isNotEmpty);
+      expect(
+        free.every((e) => e.score == null && e.passedCriterionIds.isEmpty),
+        isTrue,
+      );
+      expect(
+        jsonEncode(free.map((e) => e.toJson()).toList()),
+        isNot(contains(draft)),
+      );
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpWidget(
+        host(PhaseTaskRoute(writing.phaseId, writing.id, assessment: true)),
+      );
+      await waitFor(tester, find.text(writing.title.en));
+      for (final q in writing.assessment.questions) {
+        final field = find.byKey(ValueKey('${writing.id}:true:${q.id}-field'));
+        await tester.scrollUntilVisible(
+          field,
+          250,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(tester.widget<TextFormField>(field).initialValue, draft);
+      }
+      debugPrint(
+        'PHASE_LEVEL_INPUT_RESTORED $qaLevel ${structured.id} ${writing.id} fresh=$restoreOnly',
+      );
+    },
+    // A1/A2 have explicit authored input cases above. This adds source-level
+    // B1-C2 routing coverage rather than silently exercising an A1 screen.
+    skip: qaLevel == 'A1' || qaLevel == 'A2',
+  );
+
+  testWidgets(
     'native recording and replay keep speech meaning unscored',
     (tester) async {
       await Storage.init();
       CourseProgressService.shared.resetForTesting();
-      await tester.pumpWidget(
-        host(
-          const PhaseTaskRoute('KP02', 'KP02:speaking:01', assessment: true),
-        ),
+      final task = (await PhaseTaskCatalog.load()).tasks.firstWhere(
+        (t) => t.level == qaLevel && t.skill == 'speaking',
       );
-      await waitFor(tester, find.text('Explain yesterday and a route'));
+      await tester.pumpWidget(
+        host(PhaseTaskRoute(task.phaseId, task.id, assessment: true)),
+      );
+      await waitFor(tester, find.text(task.title.en));
       await tap(tester, 'Record');
       await waitFor(tester, find.text('Stop recording'));
       await tester.pump(const Duration(seconds: 3));
@@ -195,10 +293,9 @@ void main() {
       );
       final saved = await CourseProgressService.shared.readForDisplay();
       final evidence = saved!.phaseTaskEvidence.where(
-        (e) => e.taskId == 'KP02:speaking:01',
+        (e) => e.taskId == task.id,
       );
       expect(evidence, isNotEmpty);
-      final task = (await PhaseTaskCatalog.load()).byId('KP02:speaking:01');
       expect(
         evidence.every((e) => !task.passedBy(e) && e.score == null),
         isTrue,
