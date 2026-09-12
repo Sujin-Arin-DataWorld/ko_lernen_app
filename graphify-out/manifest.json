@@ -1416,9 +1416,9 @@
     "semantic_hash": ""
   },
   "lib/screens/grammar_screen.dart": {
-    "mtime": 1788987817.125657,
-    "seen": 1788995056.917204,
-    "ast_hash": "4326059ec990673437c88e97bbe942a9",
+    "mtime": 1789205476.676915,
+    "seen": 1789206082.386109,
+    "ast_hash": "fc980ae36cf84567070869f97c92eeca",
     "semantic_hash": ""
   },
   "lib/screens/gye_create_screen.dart": {
@@ -1668,9 +1668,9 @@
     "semantic_hash": ""
   },
   "lib/screens/smalltalk_screen.dart": {
-    "mtime": 1788987817.1782749,
-    "seen": 1788995056.9173496,
-    "ast_hash": "c37d8496c0a909c920187e5fcd89e5e5",
+    "mtime": 1789205476.714337,
+    "seen": 1789206082.3976443,
+    "ast_hash": "896c9ab4a9aad0914fe613923f8252b1",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_catalog_screen.dart": {
@@ -4014,9 +4014,9 @@
     "semantic_hash": ""
   },
   "test/course_practice_screen_test.dart": {
-    "mtime": 1788987817.6534226,
-    "seen": 1788995056.918457,
-    "ast_hash": "6e34c526ebf510dd24c07d09cd7924cf",
+    "mtime": 1789203543.5704489,
+    "seen": 1789206082.4881153,
+    "ast_hash": "528018566e9e1e48b7c562b66889db37",
     "semantic_hash": ""
   },
   "test/course_progress_evidence_note_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789180882.6852374,
-    "seen": 1789200604.482024,
-    "ast_hash": "473d254abe6424f2da7b031ea027335e",
+    "mtime": 1789201500.0673852,
+    "seen": 1789206082.8088355,
+    "ast_hash": "e8a3a5849086fc94102de78a46f439b4",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16173,6 +16173,12 @@
     "mtime": 1789199541.390495,
     "seen": 1789200604.2121365,
     "ast_hash": "aebfa7cc008105b16d98ffb75262f7c4",
+    "semantic_hash": ""
+  },
+  "test/grammar_smalltalk_evidence_recovery_test.dart": {
+    "mtime": 1789205459.9736316,
+    "seen": 1789206082.5137184,
+    "ast_hash": "fe6f3f56e213f61a0bb2e84072952426",
     "semantic_hash": ""
   }
 }

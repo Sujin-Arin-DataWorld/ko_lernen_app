@@ -2090,3 +2090,101 @@ process-death, Hanok integration, signed-device and operational readiness remain
 open global-launch requirements, not silently satisfied by this task.
 
 **Task 42 local verification:** Native cloze and audited scenario course failures reproduced before repair (4 failing cases). Final scoped regression 2364 tests in 162 files, 0 configured skips; full analysis clean and both independent axes approved actual final hashes. Cloze first-answer and audited scenario quest evidence now retain confirmed observations before authoritative completion, with duplicate/stale/reset/route and invalid-routing fences. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external quest-course-evidence-20260912/verification.json. Grammar/smalltalk retained retries, favorites/likes, process-death, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
+
+
+### Task 43: Retain grammar and smalltalk assessment evidence across retries
+
+Baseline: 8114b39f0a664bed5267ab105508cace50a7789c.
+Root: C:/dev/hangulsori/ko_lernen_app_worktrees/global-launch-readiness-20260909
+Evidence: C:/dev/hangulsori/_codex_artifacts/global-launch-readiness-20260909/grammar-smalltalk-evidence-20260912
+Report: same SDD directory, task-43-report.md.
+
+## Problem
+
+Grammar checkpoint submission constructs a new logical attempt for every tap
+and calls the legacy best-effort reporter. Smalltalk relationship assessment
+likewise rebuilds a reporter request after a failed write. Both detect failure,
+but neither retains the canonical CourseContentAttempt receipt. A native write
+whose outcome is unknown can therefore be replayed as a new observation; a
+different answer can replace the accepted pending result. Grammar sheet state
+and smalltalk card state also need lifetime and origin checks across awaits.
+
+## Requirements
+
+- [x] Before production repair, reproduce the actual linked grammar and
+  smalltalk native preference failures. Exercise rejected and unknown committed
+  outcomes with real assessment links, canonical setters and reload failure;
+  prove the parent retry/first-answer or lifetime defect with semantic evidence,
+  not just an absent widget or a mocked reporter callback. Keep unique raw logs.
+- [x] Retain the first accepted answer, question/content/link/context/concept,
+  correctness/error reason and one canonical CourseContentAttempt through every
+  retry. Do not rebuild receipt ID/time or let a different answer replace it.
+  Confirm storage before authoritative completion/feedback/mission credit.
+  Exactly-once means one observation for the exact concept/attempt, not an
+  assumed global evidence-row count. Native false and committed/uncommitted
+  unknown outcomes must recover without duplicate durable observations.
+- [x] Grammar checkpoint sheet must show localized pending/failure/retry and
+  usable dismissal. Preserve target-bound retained state while the parent
+  route remains active, including dismiss/reopen after uncertain save; no dead
+  sheet setState, stale callback replacement, overlapping submissions or credit
+  on reset/parent route retirement. Preserve existing injected recorder API for
+  test callers without using it as native persistence proof. Normal study,
+  plans, filters, bookmark and feedback behavior remain outside this change.
+- [x] Smalltalk relationship assessment must retain the exact phrase result
+  across retry, preserve the live card/guide state, and bind callbacks to their
+  source phrase and lifetime. A stale card/callback, filter or feed transition,
+  reset, explicit leave or route pop must not publish a result for another
+  phrase or admit later writes. Pending UI must have a usable way out; avoid
+  nested navigation owners or resetting the card to re-answer on storage retry.
+- [x] Preserve current assessment eligibility: exact route provenance, assess
+  links, one concept and smalltalk speechStyle restriction. Keep free browse,
+  injected non-course previews and non-assess routes non-authoritative. Invalid
+  supplied route must never become global evidence; test wrong initial ID,
+  unit/kind/link as applicable. Use existing course-context helpers and strict
+  attempt contract. Within the validated route's unit, each offered target must
+  use its own exact returned assessment link when creating a typed context;
+  reusing the initial target's link for a different card is rejected by the
+  canonical service. Verify distinct offered targets independently and never
+  reconstruct eligibility from an invalid supplied route. Preserve the source
+  route for admission and derive target context only from its validated map.
+  Do not change global reporter, mastery/placement policy,
+  content data, SRS policy, server rules, or schemas.
+- [x] Verify native false/throw, committed/uncommitted unknown with unavailable
+  reload, receipt identity/counts, different-answer callbacks while pending,
+  duplicate/stale callbacks, real sheet/card/route lifetime, reset and no
+  premature authoritative feedback/credit. Initialize course queue in widget
+  test zone and use actual catalog-linked fixtures. Adapt obsolete reporter
+  assertions to stronger canonical evidence assertions, retain semantics. Run
+  focused relevant guards and one full analyzer on final bytes, freeze exact
+  machine-generated source hashes and report all failed and passing evidence.
+- [x] Complete independent Standards and Spec reviews, root import-impact
+  regression, source/assets/paid Graph preservation, free Graphify/prune,
+  verified local commit and external readiness record updates. Broader global
+  launch readiness remains active, not proved by this task.
+
+## Scope and workflow
+
+Owned production: lib/screens/grammar_screen.dart and
+lib/screens/smalltalk_screen.dart. Narrow existing helper extension needs a
+concrete reason and root notification before edit. Relevant tests may change.
+Do not expand to grammar-plan persistence, bookmarks/likes, all other course
+callers, process-death recovery, assets, pubspec/SDK/workflows or redesign.
+
+Start with a brief read-only design checkpoint identifying state ownership and
+dismiss/reopen semantics. Then failure-first implementation, one Flutter process
+at a time, --no-pub, no source edits while tests/analyzer run, unique logs.
+Use bounded pumps with real taps for navigation; do not suppress hit-test
+warnings or make timeouts pass by deleting assertions. Report compactly.
+
+Root owns finalization. Worker must not spawn agents, commit, push, merge,
+Graphify, build, upload, call paid/network providers, change console/device
+state, touch protected android/key.properties or restart the preview server.
+Freeze report table must list actual hashes of every changed Dart file. Write
+flat owned-paths.json array containing those paths plus the root-owned PLAN
+docs/superpowers/plans/2026-09-09-global-launch-readiness.md, no ignored report.
+
+Retention is for this running process. Favorites/likes, process-death resume,
+independent Hanok integration and signed-device/operational readiness remain
+open, and deployment remains held by the user.
+
+**Task 43 local verification:** Native grammar and smalltalk assessment course failures reproduced before repair (6 failing cases). Final scoped regression 1496 tests in 75 files, 0 configured skips; full analysis clean and both independent axes approved actual final hashes. Grammar and smalltalk assessments retain the first accepted result and canonical receipt across persistence retries before authoritative completion, with target, sheet/card, duplicate/stale/reset/route and eligibility fences. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external grammar-smalltalk-evidence-20260912/verification.json. Favorites/likes, grammar-plan persistence, process-death, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.

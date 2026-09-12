@@ -44,6 +44,7 @@ import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/liked_content_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -77,22 +78,48 @@ class GrammarCheckpointAttempt {
   final MasteryErrorReason? errorReason;
 }
 
+final class _RetainedGrammarCheckpoint {
+  _RetainedGrammarCheckpoint({
+    required this.target,
+    required this.question,
+    required this.answerId,
+    required this.assessmentLink,
+    required this.sourceContext,
+  }) : legacyAttempt = GrammarCheckpointAttempt(
+         targetId: target.id,
+         correct: question.isCorrect(answerId),
+         courseContext: CoursePracticeContext.fromLink(assessmentLink),
+         conceptId: assessmentLink.conceptIds.single,
+         errorReason: question.isCorrect(answerId)
+             ? null
+             : MasteryErrorReason.unknown,
+       ),
+       courseAttempt = CourseContentAttempt(
+         kind: CurriculumContentKind.grammar,
+         contentId: target.id,
+         isCorrect: question.isCorrect(answerId),
+         isApplicable: true,
+         courseContext: CoursePracticeContext.fromLink(assessmentLink),
+         conceptId: assessmentLink.conceptIds.single,
+         errorReason: question.isCorrect(answerId)
+             ? null
+             : MasteryErrorReason.unknown,
+       );
+
+  final Grammar target;
+  final GrammarCheckpointQuestion question;
+  final String answerId;
+  final ContentLink assessmentLink;
+  final CoursePracticeContext sourceContext;
+  final GrammarCheckpointAttempt legacyAttempt;
+  final CourseContentAttempt courseAttempt;
+  bool saving = false;
+  bool failed = false;
+  bool expired = false;
+}
+
 typedef GrammarCheckpointRecorder =
     Future<void> Function(GrammarCheckpointAttempt attempt);
-
-Future<void> _recordGrammarCheckpoint(GrammarCheckpointAttempt attempt) async {
-  final update = await CourseActivityReporter.recordContentAttempt(
-    CurriculumContentKind.grammar,
-    attempt.targetId,
-    attempt.correct,
-    courseContext: attempt.courseContext,
-    conceptId: attempt.conceptId,
-    errorReason: attempt.errorReason,
-  );
-  if (update == null) {
-    throw StateError('Grammar checkpoint was not persisted.');
-  }
-}
 
 class GrammarScreen extends StatefulWidget {
   const GrammarScreen({super.key, this.courseContext, this.checkpointRecorder});
@@ -119,9 +146,16 @@ class _GrammarScreenState extends State<GrammarScreen>
   Set<String>? _courseContentIds;
   Map<String, ContentLink> _courseAssessmentLinks =
       const <String, ContentLink>{};
+  CoursePracticeContext? _courseAssessmentSourceContext;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   final Map<String, String> _submittedAnswers = <String, String>{};
+  final Map<String, _RetainedGrammarCheckpoint> _pendingCheckpoints =
+      <String, _RetainedGrammarCheckpoint>{};
+  final Map<String, VoidCallback> _checkpointSheetRefreshes =
+      <String, VoidCallback>{};
+  final LocalDataLifetimeLease _checkpointLifetime =
+      LocalDataLifetime.capture();
   final Set<String> _sessionSeen = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
@@ -214,6 +248,8 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   @override
   void dispose() {
+    _checkpointSheetRefreshes.clear();
+    _pendingCheckpoints.clear();
     _abandonTracker.dispose();
     super.dispose();
   }
@@ -290,6 +326,9 @@ class _GrammarScreenState extends State<GrammarScreen>
         _planDayCompletedForVisit = followingPlan && planCompletedToday;
         _courseContentIds = courseContentIds;
         _courseAssessmentLinks = courseAssessmentLinks;
+        _courseAssessmentSourceContext = courseAssessmentLinks.isEmpty
+            ? null
+            : courseContext;
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _level = useLevel;
@@ -411,8 +450,21 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool _hasSavedCheckpoint(Grammar grammar) =>
       _submittedAnswers.containsKey(grammar.id);
 
+  bool get _courseAssessmentSourceIsCurrent {
+    final source = _courseAssessmentSourceContext;
+    final current = widget.courseContext;
+    return source != null &&
+        current != null &&
+        current.courseUnitId == source.courseUnitId &&
+        current.contentKind == source.contentKind &&
+        current.initialContentId == source.initialContentId &&
+        current.contentLinkId == source.contentLinkId;
+  }
+
   ContentLink? _assessmentLinkFor(Grammar grammar) =>
-      _courseAssessmentLinks[grammar.id];
+      _courseAssessmentSourceIsCurrent
+      ? _courseAssessmentLinks[grammar.id]
+      : null;
 
   bool _canRecordCheckpoint(Grammar grammar) {
     if (!_isCoursePractice || _hasSavedCheckpoint(grammar)) return false;
@@ -769,107 +821,157 @@ class _GrammarScreenState extends State<GrammarScreen>
     Grammar target,
     ContentLink assessmentLink,
   ) async {
-    final question = _checkpointQuestionFor(target);
+    if (!mounted ||
+        !_checkpointLifetime.isCurrent ||
+        !(ModalRoute.of(context)?.isActive ?? true)) {
+      return;
+    }
+    final existingPending = _pendingCheckpoints[target.id];
+    final question =
+        existingPending?.question ?? _checkpointQuestionFor(target);
     if (!question.canRecordEvidence || assessmentLink.conceptIds.length != 1) {
       return;
     }
     final grammarById = {for (final grammar in _all) grammar.id: grammar};
-    final savedAnswer = _submittedAnswers[target.id];
     final t = AppL10n.of(context);
+    VoidCallback? activeSheetRefresh;
 
-    await showSoriSheet<void>(
-      context: context,
-      builder: (sheetContext) {
-        String? selectedAnswer = savedAnswer;
-        var isSaving = false;
+    try {
+      await showSoriSheet<void>(
+        context: context,
+        builder: (sheetContext) {
+          return StatefulBuilder(
+            builder: (sheetContext, setLocal) {
+              final savedAnswer = _submittedAnswers[target.id];
+              final pending = _pendingCheckpoints[target.id];
+              final selectedAnswer = savedAnswer ?? pending?.answerId;
+              final isComplete = savedAnswer != null;
+              final isSaving = pending?.saving ?? false;
+              final saveFailed = pending?.failed ?? false;
+              final isCorrect =
+                  isComplete && question.isCorrect(selectedAnswer!);
 
-        return StatefulBuilder(
-          builder: (sheetContext, setLocal) {
-            final isComplete = selectedAnswer != null;
-            final isCorrect = isComplete && question.isCorrect(selectedAnswer!);
-
-            Future<void> submit(String answerId) async {
-              if (isComplete || isSaving || !sheetContext.mounted) {
-                return;
-              }
-              setLocal(() => isSaving = true);
-              final correct = question.isCorrect(answerId);
-              final attempt = GrammarCheckpointAttempt(
-                targetId: target.id,
-                correct: correct,
-                courseContext: widget.courseContext,
-                conceptId: assessmentLink.conceptIds.single,
-                errorReason: correct ? null : MasteryErrorReason.unknown,
-              );
-              try {
-                await (widget.checkpointRecorder ?? _recordGrammarCheckpoint)(
-                  attempt,
-                );
-              } catch (_) {
+              void refreshSheet() {
                 if (sheetContext.mounted) {
-                  setLocal(() => isSaving = false);
+                  setLocal(() {});
                 }
-                if (mounted) {
-                  _showCheckpointSaveError();
-                }
-                return;
               }
-              if (mounted) {
-                setState(() => _submittedAnswers[target.id] = answerId);
-              }
-              if (sheetContext.mounted) {
-                setLocal(() {
-                  isSaving = false;
-                  selectedAnswer = answerId;
-                });
-              }
-            }
 
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  t.courseCheckpointGrammarPrompt,
-                  style: SoriTextTheme.of(sheetContext).h3,
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriPhraseWrap(
-                  target.exampleKorean,
-                  style: SoriTextTheme.of(
-                    sheetContext,
-                  ).h3.copyWith(height: 1.45),
-                ),
-                const SizedBox(height: Spacing.lg),
-                for (final optionId in question.optionIds)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: Spacing.sm),
-                    child: SoriButton.outlined(
-                      label: grammarById[optionId]?.pattern ?? optionId,
-                      fullWidth: true,
-                      accent: isComplete && optionId == target.id
-                          ? SoriColors.success
-                          : null,
-                      destructive:
-                          isComplete &&
-                          !isCorrect &&
-                          optionId == selectedAnswer,
-                      onTap: isComplete || isSaving
-                          ? null
-                          : () => submit(optionId),
-                    ),
-                  ),
-                if (isComplete) ...[
-                  const SizedBox(height: Spacing.sm),
+              activeSheetRefresh = refreshSheet;
+              _checkpointSheetRefreshes[target.id] = refreshSheet;
+
+              Future<void> submit(String answerId) async {
+                final sourceContext = widget.courseContext;
+                if (isComplete ||
+                    isSaving ||
+                    !sheetContext.mounted ||
+                    sourceContext == null ||
+                    !_canAdmitGrammarCheckpoint(
+                      target,
+                      assessmentLink,
+                      sourceContext,
+                    )) {
+                  return;
+                }
+                var retained = _pendingCheckpoints[target.id];
+                if (retained != null) {
+                  return;
+                }
+                retained = _RetainedGrammarCheckpoint(
+                  target: target,
+                  question: question,
+                  answerId: answerId,
+                  assessmentLink: assessmentLink,
+                  sourceContext: sourceContext,
+                );
+                setState(() => _pendingCheckpoints[target.id] = retained!);
+                await _saveGrammarCheckpoint(retained);
+              }
+
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
-                    isCorrect
-                        ? t.courseCheckpointCorrect
-                        : t.courseCheckpointIncorrect,
-                    style: SoriTextTheme.of(sheetContext).label.copyWith(
-                      color: isCorrect ? SoriColors.success : SoriColors.danger,
-                    ),
+                    t.courseCheckpointGrammarPrompt,
+                    style: SoriTextTheme.of(sheetContext).h3,
                   ),
-                  if (savedAnswer != null) ...[
+                  const SizedBox(height: Spacing.sm),
+                  SoriPhraseWrap(
+                    target.exampleKorean,
+                    style: SoriTextTheme.of(
+                      sheetContext,
+                    ).h3.copyWith(height: 1.45),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  for (final optionId in question.optionIds)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.sm),
+                      child: SoriButton.outlined(
+                        label: grammarById[optionId]?.pattern ?? optionId,
+                        fullWidth: true,
+                        accent: isComplete && optionId == target.id
+                            ? SoriColors.success
+                            : null,
+                        destructive:
+                            isComplete &&
+                            !isCorrect &&
+                            optionId == selectedAnswer,
+                        onTap: isComplete || isSaving || pending != null
+                            ? null
+                            : () => submit(optionId),
+                      ),
+                    ),
+                  if (isSaving) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Row(
+                      key: const Key('grammar-checkpoint-saving'),
+                      children: [
+                        const SizedBox.square(
+                          dimension: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(child: Text(t.onboardingV2Saving)),
+                      ],
+                    ),
+                  ],
+                  if (saveFailed) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      t.courseCheckpointSaveError,
+                      key: const Key('grammar-checkpoint-save-error'),
+                      style: SoriTextTheme.of(
+                        sheetContext,
+                      ).bodySmall.copyWith(color: SoriColors.danger),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    SoriButton.outlined(
+                      key: const Key('grammar-checkpoint-retry'),
+                      label: pending?.expired == true ? t.btnClose : t.btnRetry,
+                      fullWidth: true,
+                      onTap: pending == null || pending.saving
+                          ? null
+                          : pending.expired
+                          ? () => _closeExpiredGrammarCheckpoint(
+                              pending,
+                              sheetContext,
+                            )
+                          : () => _saveGrammarCheckpoint(pending),
+                    ),
+                  ],
+                  if (isComplete) ...[
+                    const SizedBox(height: Spacing.sm),
+                    Text(
+                      isCorrect
+                          ? t.courseCheckpointCorrect
+                          : t.courseCheckpointIncorrect,
+                      style: SoriTextTheme.of(sheetContext).label.copyWith(
+                        color: isCorrect
+                            ? SoriColors.success
+                            : SoriColors.danger,
+                      ),
+                    ),
                     const SizedBox(height: Spacing.xs),
                     Text(
                       t.courseCheckpointSaved,
@@ -877,12 +979,137 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                   ],
                 ],
-              ],
-            );
-          },
-        );
-      },
-    );
+              );
+            },
+          );
+        },
+      );
+    } finally {
+      if (identical(_checkpointSheetRefreshes[target.id], activeSheetRefresh)) {
+        _checkpointSheetRefreshes.remove(target.id);
+      }
+    }
+  }
+
+  bool _canAdmitGrammarCheckpoint(
+    Grammar target,
+    ContentLink assessmentLink,
+    CoursePracticeContext sourceContext,
+  ) {
+    final currentLink = _assessmentLinkFor(target);
+    final liveSource = widget.courseContext;
+    return mounted &&
+        _checkpointLifetime.isCurrent &&
+        (ModalRoute.of(context)?.isActive ?? true) &&
+        !_submittedAnswers.containsKey(target.id) &&
+        !_pendingCheckpoints.containsKey(target.id) &&
+        liveSource != null &&
+        liveSource.courseUnitId == sourceContext.courseUnitId &&
+        liveSource.contentKind == sourceContext.contentKind &&
+        liveSource.initialContentId == sourceContext.initialContentId &&
+        liveSource.contentLinkId == sourceContext.contentLinkId &&
+        currentLink?.id == assessmentLink.id &&
+        currentLink?.courseUnitId == assessmentLink.courseUnitId &&
+        currentLink?.contentKind == CurriculumContentKind.grammar &&
+        currentLink?.contentId == target.id &&
+        currentLink?.role == ContentLinkRole.assess &&
+        currentLink?.conceptIds.length == 1;
+  }
+
+  bool _grammarCheckpointOriginIsCurrent(_RetainedGrammarCheckpoint pending) {
+    final source = widget.courseContext;
+    final currentLink = _assessmentLinkFor(pending.target);
+    return mounted &&
+        (ModalRoute.of(context)?.isActive ?? true) &&
+        identical(_pendingCheckpoints[pending.target.id], pending) &&
+        source != null &&
+        source.courseUnitId == pending.sourceContext.courseUnitId &&
+        source.contentKind == pending.sourceContext.contentKind &&
+        source.initialContentId == pending.sourceContext.initialContentId &&
+        source.contentLinkId == pending.sourceContext.contentLinkId &&
+        currentLink?.id == pending.assessmentLink.id &&
+        currentLink?.courseUnitId == pending.assessmentLink.courseUnitId &&
+        currentLink?.contentKind == CurriculumContentKind.grammar &&
+        currentLink?.contentId == pending.target.id &&
+        currentLink?.role == ContentLinkRole.assess &&
+        currentLink?.conceptIds.length == 1;
+  }
+
+  bool _grammarCheckpointIsCurrent(_RetainedGrammarCheckpoint pending) =>
+      _checkpointLifetime.isCurrent &&
+      _grammarCheckpointOriginIsCurrent(pending);
+
+  Future<void> _saveGrammarCheckpoint(
+    _RetainedGrammarCheckpoint pending,
+  ) async {
+    if (!_grammarCheckpointIsCurrent(pending) || pending.saving) {
+      return;
+    }
+    setState(() {
+      pending.saving = true;
+      pending.failed = false;
+      pending.expired = false;
+    });
+    _checkpointSheetRefreshes[pending.target.id]?.call();
+    try {
+      final recorder = widget.checkpointRecorder;
+      if (recorder == null) {
+        await pending.courseAttempt.save();
+      } else {
+        await recorder(pending.legacyAttempt);
+      }
+      if (!_grammarCheckpointIsCurrent(pending)) {
+        _expireGrammarCheckpointIfCurrent(pending);
+        return;
+      }
+      setState(() {
+        _submittedAnswers[pending.target.id] = pending.answerId;
+        _pendingCheckpoints.remove(pending.target.id);
+        pending.saving = false;
+      });
+      _checkpointSheetRefreshes[pending.target.id]?.call();
+    } catch (error, stackTrace) {
+      debugPrint(
+        'Grammar checkpoint save failed for ${pending.target.id}: $error',
+      );
+      debugPrintStack(stackTrace: stackTrace);
+      if (_grammarCheckpointOriginIsCurrent(pending)) {
+        setState(() {
+          pending.saving = false;
+          pending.failed = true;
+          pending.expired = !_checkpointLifetime.isCurrent;
+        });
+        _checkpointSheetRefreshes[pending.target.id]?.call();
+        _showCheckpointSaveError();
+      }
+    }
+  }
+
+  void _expireGrammarCheckpointIfCurrent(_RetainedGrammarCheckpoint pending) {
+    if (_checkpointLifetime.isCurrent ||
+        !_grammarCheckpointOriginIsCurrent(pending)) {
+      return;
+    }
+    setState(() {
+      pending.saving = false;
+      pending.failed = true;
+      pending.expired = true;
+    });
+    _checkpointSheetRefreshes[pending.target.id]?.call();
+  }
+
+  void _closeExpiredGrammarCheckpoint(
+    _RetainedGrammarCheckpoint pending,
+    BuildContext sheetContext,
+  ) {
+    if (!pending.expired ||
+        !identical(_pendingCheckpoints[pending.target.id], pending)) {
+      return;
+    }
+    setState(() => _pendingCheckpoints.remove(pending.target.id));
+    if (sheetContext.mounted) {
+      Navigator.of(sheetContext).maybePop();
+    }
   }
 
   void _showCheckpointSaveError() {
