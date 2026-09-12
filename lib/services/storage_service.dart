@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/scenario_corpus_generation.dart';
+import '../models/grammar_study_plan.dart';
 
 import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
@@ -346,6 +347,126 @@ enum StudyLogDateRestoreResult {
 
 /// Outcome of one grammar-plan cloud restore attempt.
 enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
+
+class GrammarPlanConflictException implements Exception {
+  const GrammarPlanConflictException(this.level);
+
+  final String level;
+
+  @override
+  String toString() => 'Grammar plan changed while saving $level.';
+}
+
+class GrammarPlanRecoveryValueException implements Exception {
+  const GrammarPlanRecoveryValueException();
+
+  @override
+  String toString() => 'The stored grammar plan cannot be safely updated.';
+}
+
+/// One screen-owned, retryable grammar-plan mutation.
+///
+/// The accepted semantic target is frozen at admission. Native calls finish on
+/// every attempt; a later explicit [save] reconciles an indeterminate reply.
+final class GrammarPlanWriteOperation {
+  GrammarPlanWriteOperation._({
+    required GrammarStudyPlan plan,
+    required this.selectedLevel,
+    required this.requiresSelectedLevel,
+    this._assertCurrentOwner,
+  }) : plan = _freezePlan(plan),
+       _lifetime = LocalDataLifetime.capture(),
+       _revision = Storage._admitGrammarPlanOperation(),
+       _baselineRaw = Storage.grammarPlanRawJson,
+       _baselineSelectedLevel = Storage.grammarPlanLevel,
+       _baselineSelectedLevelRevision =
+           Storage._confirmedGrammarPlanLevelRevision;
+
+  factory GrammarPlanWriteOperation.start({
+    required GrammarStudyPlan plan,
+    void Function()? assertCurrentOwner,
+  }) {
+    assertCurrentOwner?.call();
+    return GrammarPlanWriteOperation._(
+      plan: plan,
+      selectedLevel: plan.level,
+      requiresSelectedLevel: true,
+      assertCurrentOwner: assertCurrentOwner,
+    );
+  }
+
+  factory GrammarPlanWriteOperation.completeDay({
+    required GrammarStudyPlan plan,
+    void Function()? assertCurrentOwner,
+  }) {
+    assertCurrentOwner?.call();
+    return GrammarPlanWriteOperation._(
+      plan: plan,
+      selectedLevel: null,
+      requiresSelectedLevel: false,
+      assertCurrentOwner: assertCurrentOwner,
+    );
+  }
+
+  final GrammarStudyPlan plan;
+  final String? selectedLevel;
+  final bool requiresSelectedLevel;
+  final void Function()? _assertCurrentOwner;
+  final LocalDataLifetimeLease _lifetime;
+  final int _revision;
+  final String _baselineRaw;
+  final String? _baselineSelectedLevel;
+  final int _baselineSelectedLevelRevision;
+  String? _candidateRaw;
+  bool _planConfirmed = false;
+  bool _selectedLevelConfirmed = false;
+  bool _completed = false;
+  bool _retired = false;
+  Future<void>? _activeSave;
+
+  Future<void> save() {
+    _assertCurrent();
+    final active = _activeSave;
+    if (active != null) {
+      return active;
+    }
+    if (_completed) {
+      return Future<void>.value();
+    }
+    late final Future<void> result;
+    result = Storage._saveGrammarPlanOperation(this).whenComplete(() {
+      if (identical(result, _activeSave)) {
+        _activeSave = null;
+      }
+    });
+    _activeSave = result;
+    return result;
+  }
+
+  void retire() {
+    _retired = true;
+  }
+
+  void _assertCurrent() {
+    _assertCurrentOwner?.call();
+    if (_retired || !_lifetime.isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (Storage._learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  static GrammarStudyPlan _freezePlan(GrammarStudyPlan plan) =>
+      GrammarStudyPlan(
+        level: plan.level,
+        itemsPerDay: plan.itemsPerDay,
+        servedIdsByDate: Map<String, List<String>>.unmodifiable({
+          for (final entry in plan.servedIdsByDate.entries)
+            entry.key: List<String>.unmodifiable(entry.value),
+        }),
+      );
+}
 
 /// Injectable boolean preference boundary used by strict onboarding commits.
 ///
@@ -1002,6 +1123,7 @@ class Storage {
   static Future<void> _xpRewardMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
   static Future<void> _vocabProgressMutation = Future<void>.value();
+  static Future<void>? _grammarPlanMutation;
   static Future<void>? _learningResetMutation;
   static Future<void> _consentedFirstLearningActionClaimMutation =
       Future<void>.value();
@@ -1025,6 +1147,14 @@ class Storage {
   static int _vocabProgressMutationCount = 0;
   static int _vocabProgressMutationGeneration = 0;
   static int _vocabProgressAttemptEpoch = 0;
+  static int _grammarPlanMutationCount = 0;
+  static int _grammarPlanMutationGeneration = 0;
+  static int _grammarPlanAdmissionRevision = 0;
+  static int _confirmedGrammarPlanLevelRevision = 0;
+  static bool _grammarPlanConfirmedViewInitialized = false;
+  static String _confirmedGrammarPlanRaw = '';
+  static String? _confirmedGrammarPlanLevel;
+  static final Set<String> _unconfirmedGrammarPlanLevels = <String>{};
   static final Map<String, int> _confirmedVocabInts = <String, int>{};
   static List<String>? _confirmedVokSeenIds;
   static String? _confirmedWrongCountRaw;
@@ -1081,6 +1211,10 @@ class Storage {
     if (_vocabProgressMutationCount > 0) {
       drains.add(_vocabProgressMutation);
     }
+    final grammarPlanMutation = _grammarPlanMutation;
+    if (_grammarPlanMutationCount > 0 && grammarPlanMutation != null) {
+      drains.add(grammarPlanMutation);
+    }
     final learningReset = _learningResetMutation;
     if (_learningResetCount > 0 && learningReset != null) {
       drains.add(
@@ -1121,6 +1255,7 @@ class Storage {
     _xpRewardMutation = Future<void>.value();
     _srsReviewMutation = Future<void>.value();
     _vocabProgressMutation = Future<void>.value();
+    _grammarPlanMutation = null;
     _learningResetMutation = null;
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
@@ -1141,6 +1276,14 @@ class Storage {
     _vocabProgressMutationCount = 0;
     _vocabProgressMutationGeneration++;
     _vocabProgressAttemptEpoch++;
+    _grammarPlanMutationCount = 0;
+    _grammarPlanMutationGeneration++;
+    _grammarPlanAdmissionRevision++;
+    _confirmedGrammarPlanLevelRevision = _grammarPlanAdmissionRevision;
+    _grammarPlanConfirmedViewInitialized = false;
+    _confirmedGrammarPlanRaw = '';
+    _confirmedGrammarPlanLevel = null;
+    _unconfirmedGrammarPlanLevels.clear();
     _confirmedVocabInts.clear();
     _confirmedVokSeenIds = null;
     _confirmedWrongCountRaw = null;
@@ -1178,6 +1321,12 @@ class Storage {
     _confirmedWrongCountRaw = null;
     _pendingVocabPreferenceWrite = null;
     _quarantinedVocabPreferenceWrites.clear();
+    _grammarPlanConfirmedViewInitialized = false;
+    _grammarPlanAdmissionRevision++;
+    _confirmedGrammarPlanLevelRevision = _grammarPlanAdmissionRevision;
+    _confirmedGrammarPlanRaw = '';
+    _confirmedGrammarPlanLevel = null;
+    _unconfirmedGrammarPlanLevels.clear();
     _invalidateSrsCache();
     _invalidatePackCache();
     _courseMasteryCache = null;
@@ -1194,6 +1343,70 @@ class Storage {
 
   static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
   static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+
+  static int _admitGrammarPlanOperation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    _captureGrammarPlanConfirmedView();
+    return ++_grammarPlanAdmissionRevision;
+  }
+
+  static void _captureGrammarPlanConfirmedView() {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return;
+    }
+    try {
+      _confirmedGrammarPlanRaw = _s('kl_gram_plan_v1');
+    } on Object {
+      // A legacy wrong-typed value is recovery data. Keep it on disk for the
+      // restore/semantic writer to reject without exposing it as confirmed.
+      _confirmedGrammarPlanRaw = '';
+    }
+    try {
+      _confirmedGrammarPlanLevel = _optionalLearnerLevelCode(
+        grammarPlanLevelPreferenceKey,
+      );
+    } on Object {
+      _confirmedGrammarPlanLevel = null;
+    }
+    _grammarPlanConfirmedViewInitialized = true;
+  }
+
+  static Future<T> _enqueueGrammarPlanMutation<T>(
+    Future<T> Function() mutation,
+  ) {
+    if (_learningResetCount > 0) {
+      return Future<T>.error(const StaleLocalDataLifetimeException());
+    }
+    final generation = _grammarPlanMutationGeneration;
+    final previous = _grammarPlanMutation;
+    _grammarPlanMutationCount++;
+    late final Future<T> result;
+    if (previous == null) {
+      try {
+        result = mutation();
+      } on Object catch (error, stackTrace) {
+        result = Future<T>.error(error, stackTrace);
+      }
+    } else {
+      result = previous.then<T>((_) => mutation());
+    }
+    final tail = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    _grammarPlanMutation = tail;
+    tail.whenComplete(() {
+      if (generation == _grammarPlanMutationGeneration) {
+        _grammarPlanMutationCount--;
+        if (identical(tail, _grammarPlanMutation)) {
+          _grammarPlanMutation = null;
+        }
+      }
+    });
+    return result;
+  }
 
   static Future<T> _enqueueXpRewardMutation<T>(Future<T> Function() mutation) {
     if (_learningResetCount > 0) {
@@ -2674,9 +2887,25 @@ class Storage {
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
   static List<String> get grammarHard => _l('kl_gram_hard');
-  static String get grammarPlanRawJson => _s('kl_gram_plan_v1');
-  static Future<void> setGrammarPlanRawJson(String json) =>
-      _ss('kl_gram_plan_v1', json);
+  static String get grammarPlanRawJson {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return _confirmedGrammarPlanRaw;
+    }
+    return _s('kl_gram_plan_v1');
+  }
+
+  static Future<void> setGrammarPlanRawJson(String json) {
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      await _ssStrict(
+        'kl_gram_plan_v1',
+        json,
+        preferences: _grammarPlanStringStore(),
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = json;
+    });
+  }
 
   /// §A5 (Fable R1, 2026-09-05): which plan level the grammar-screen
   /// onboarding sheet last started/changed to. Screen state (`_planLevel`)
@@ -2687,16 +2916,323 @@ class Storage {
   /// [LearnerLevel] code. This never changes [userLevelCode] itself.
   static const String grammarPlanLevelPreferenceKey = 'kl_gram_plan_level_v1';
 
-  static String? get grammarPlanLevel =>
-      _optionalLearnerLevelCode(grammarPlanLevelPreferenceKey);
+  static String? get grammarPlanLevel {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return _confirmedGrammarPlanLevel;
+    }
+    return _optionalLearnerLevelCode(grammarPlanLevelPreferenceKey);
+  }
 
   static Future<void> setGrammarPlanLevel(String? level) async {
-    if (level == null) {
-      await _prefs?.remove(grammarPlanLevelPreferenceKey);
+    final normalized = level == null ? null : _requiredLearnerLevelCode(level);
+    _captureGrammarPlanConfirmedView();
+    final revision = ++_grammarPlanAdmissionRevision;
+    await _enqueueGrammarPlanMutation(() async {
+      final store = _grammarPlanStringStore();
+      final current = await _reloadGrammarPlanSelectedLevelState(store);
+      final currentLevel = current.isPresent ? current.value : null;
+      if (currentLevel == normalized) {
+        _confirmedGrammarPlanLevel = normalized;
+        _confirmedGrammarPlanLevelRevision = revision;
+        return;
+      }
+      if (normalized == null) {
+        await _removeStringStrict(
+          grammarPlanLevelPreferenceKey,
+          preferences: store,
+          assertCurrentWrite: null,
+        );
+      } else {
+        await _ssStrict(
+          grammarPlanLevelPreferenceKey,
+          normalized,
+          preferences: store,
+          beforeState: current,
+        );
+      }
+      _confirmedGrammarPlanLevel = normalized;
+      _confirmedGrammarPlanLevelRevision = revision;
+    });
+  }
+
+  static PreferenceStringStore _grammarPlanStringStore() {
+    final store =
+        _grammarPlanStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw const PreferenceWriteException('kl_gram_plan_v1');
+    }
+    return store;
+  }
+
+  static Future<void> _saveGrammarPlanOperation(
+    GrammarPlanWriteOperation operation,
+  ) => _enqueueGrammarPlanMutation(() async {
+    operation._assertCurrent();
+    final store = _grammarPlanStringStore();
+    if (!operation._planConfirmed) {
+      await _saveGrammarPlanLeg(operation, store);
+    } else {
+      final current = await _reloadGrammarPlanState(store);
+      final target = _grammarPlanTargetCanonical(current, operation.plan.level);
+      if (target != _grammarPlanCanonical(operation.plan.toJson())) {
+        throw GrammarPlanConflictException(operation.plan.level);
+      }
+      operation._candidateRaw = current.value;
+    }
+    operation._assertCurrent();
+    if (operation.requiresSelectedLevel && !operation._selectedLevelConfirmed) {
+      await _saveGrammarPlanSelectedLevelLeg(operation, store);
+    }
+    operation._assertCurrent();
+    _unconfirmedGrammarPlanLevels.remove(operation.plan.level);
+    _publishGrammarPlanConfirmedCandidate(operation._candidateRaw!);
+    if (operation.requiresSelectedLevel) {
+      _confirmedGrammarPlanLevel = operation.selectedLevel;
+    }
+    operation._completed = true;
+  });
+
+  static Future<void> _saveGrammarPlanLeg(
+    GrammarPlanWriteOperation operation,
+    PreferenceStringStore store,
+  ) async {
+    final current = await _reloadGrammarPlanState(store);
+    final desired = _grammarPlanCanonical(operation.plan.toJson());
+    final target = _grammarPlanTargetCanonical(current, operation.plan.level);
+    if (target == desired) {
+      operation._candidateRaw = current.value;
+      operation._planConfirmed = true;
+      _unconfirmedGrammarPlanLevels.add(operation.plan.level);
       return;
     }
-    await _ss(grammarPlanLevelPreferenceKey, _requiredLearnerLevelCode(level));
+    final baseline = _grammarPlanTargetCanonicalFromRaw(
+      operation._baselineRaw,
+      operation.plan.level,
+    );
+    if (target != baseline) {
+      throw GrammarPlanConflictException(operation.plan.level);
+    }
+    final container = _grammarPlanContainer(current);
+    final existingTarget = _grammarPlanValidatedTarget(
+      container,
+      operation.plan.level,
+    );
+    container[operation.plan.level] = <String, Object?>{
+      ...?existingTarget,
+      ...operation.plan.toJson(),
+    };
+    final candidate = jsonEncode(container);
+    operation._candidateRaw = candidate;
+    operation._assertCurrent();
+    _unconfirmedGrammarPlanLevels.add(operation.plan.level);
+    await _ssStrict(
+      'kl_gram_plan_v1',
+      candidate,
+      preferences: store,
+      beforeState: current,
+      assertCurrentWrite: operation._assertCurrent,
+    );
+    operation._planConfirmed = true;
   }
+
+  static void _publishGrammarPlanConfirmedCandidate(String candidateRaw) {
+    if (_unconfirmedGrammarPlanLevels.isEmpty) {
+      _confirmedGrammarPlanRaw = candidateRaw;
+      return;
+    }
+    final candidate = _grammarPlanContainer(
+      _StringPreferenceState._(isPresent: true, value: candidateRaw),
+    );
+    Map<String, Object?> confirmed;
+    try {
+      confirmed = _confirmedGrammarPlanRaw.isEmpty
+          ? <String, Object?>{}
+          : _grammarPlanContainer(
+              _StringPreferenceState._(
+                isPresent: true,
+                value: _confirmedGrammarPlanRaw,
+              ),
+            );
+    } on GrammarPlanRecoveryValueException {
+      confirmed = <String, Object?>{};
+    }
+    for (final level in _unconfirmedGrammarPlanLevels) {
+      if (confirmed.containsKey(level)) {
+        candidate[level] = confirmed[level];
+      } else {
+        candidate.remove(level);
+      }
+    }
+    if (_grammarPlanCanonical(candidate) == _grammarPlanCanonical(confirmed)) {
+      return;
+    }
+    _confirmedGrammarPlanRaw = jsonEncode(candidate);
+  }
+
+  static Future<void> _saveGrammarPlanSelectedLevelLeg(
+    GrammarPlanWriteOperation operation,
+    PreferenceStringStore store,
+  ) async {
+    final current = await _reloadGrammarPlanSelectedLevelState(store);
+    final desired = operation.selectedLevel;
+    final currentLevel = current.isPresent ? current.value : null;
+    if (currentLevel == desired) {
+      operation._selectedLevelConfirmed = true;
+      _confirmedGrammarPlanLevelRevision = operation._revision;
+      return;
+    }
+    if (currentLevel != operation._baselineSelectedLevel) {
+      final wasConfirmedByEarlierAdmission =
+          _confirmedGrammarPlanLevelRevision >
+              operation._baselineSelectedLevelRevision &&
+          _confirmedGrammarPlanLevelRevision < operation._revision;
+      if (!wasConfirmedByEarlierAdmission) {
+        throw GrammarPlanConflictException(operation.plan.level);
+      }
+    }
+    operation._assertCurrent();
+    if (desired == null) {
+      await _removeStringStrict(
+        grammarPlanLevelPreferenceKey,
+        preferences: store,
+        assertCurrentWrite: operation._assertCurrent,
+      );
+    } else {
+      await _ssStrict(
+        grammarPlanLevelPreferenceKey,
+        desired,
+        preferences: store,
+        beforeState: current,
+        assertCurrentWrite: operation._assertCurrent,
+      );
+    }
+    operation._selectedLevelConfirmed = true;
+    _confirmedGrammarPlanLevelRevision = operation._revision;
+  }
+
+  static Future<_StringPreferenceState> _reloadGrammarPlanState(
+    PreferenceStringStore store,
+  ) async {
+    const key = 'kl_gram_plan_v1';
+    try {
+      await store.reload();
+      final state = _StringPreferenceState.read(store, key);
+      if (state.isPresent) {
+        _grammarPlanContainer(state);
+      }
+      _unknownStrictKeys.remove(key);
+      return state;
+    } on GrammarPlanRecoveryValueException {
+      rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<_StringPreferenceState> _reloadGrammarPlanSelectedLevelState(
+    PreferenceStringStore store,
+  ) async {
+    try {
+      await store.reload();
+      final state = _StringPreferenceState.read(
+        store,
+        grammarPlanLevelPreferenceKey,
+      );
+      _unknownStrictKeys.remove(grammarPlanLevelPreferenceKey);
+      return state;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(grammarPlanLevelPreferenceKey);
+      throw PreferenceOutcomeUnknownException(
+        grammarPlanLevelPreferenceKey,
+        cause: error,
+      );
+    }
+  }
+
+  static Map<String, Object?> _grammarPlanContainer(
+    _StringPreferenceState state,
+  ) {
+    if (!state.isPresent || state.value!.trim().isEmpty) {
+      return <String, Object?>{};
+    }
+    try {
+      final decoded = jsonDecode(state.value!);
+      if (decoded is! Map) {
+        throw const GrammarPlanRecoveryValueException();
+      }
+      return <String, Object?>{
+        for (final entry in decoded.entries) entry.key.toString(): entry.value,
+      };
+    } on GrammarPlanRecoveryValueException {
+      rethrow;
+    } on Object {
+      throw const GrammarPlanRecoveryValueException();
+    }
+  }
+
+  static String? _grammarPlanTargetCanonical(
+    _StringPreferenceState state,
+    String level,
+  ) {
+    final container = _grammarPlanContainer(state);
+    final target = _grammarPlanValidatedTarget(container, level);
+    if (target == null) {
+      return null;
+    }
+    final decoded = GrammarStudyPlan.fromJson(<String, dynamic>{...target});
+    final normalized = decoded.level.isEmpty
+        ? decoded.copyWith(level: level)
+        : decoded;
+    return _grammarPlanCanonical(normalized.toJson());
+  }
+
+  static Map<String, Object?>? _grammarPlanValidatedTarget(
+    Map<String, Object?> container,
+    String level,
+  ) {
+    final raw = container[level];
+    if (raw == null) {
+      return null;
+    }
+    if (raw is! Map) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final target = <String, Object?>{
+      for (final entry in raw.entries) entry.key.toString(): entry.value,
+    };
+    final storedLevel = target['level'];
+    if (storedLevel != null &&
+        (storedLevel is! String ||
+            (storedLevel.isNotEmpty &&
+                storedLevel.toLowerCase() != level.toLowerCase()))) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final itemsPerDay = target['itemsPerDay'];
+    if (itemsPerDay != null &&
+        (itemsPerDay is! num || itemsPerDay.toInt() <= 0)) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final served = target['servedIdsByDate'];
+    if (served != null && served is! Map) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    if (served is Map && served.values.any((value) => value is! List)) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    return target;
+  }
+
+  static String? _grammarPlanTargetCanonicalFromRaw(String raw, String level) {
+    final state = raw.isEmpty
+        ? const _StringPreferenceState.absent()
+        : _StringPreferenceState._(isPresent: true, value: raw);
+    return _grammarPlanTargetCanonical(state, level);
+  }
+
+  static String? _grammarPlanCanonical(Object? value) =>
+      value == null ? null : jsonEncode(value);
 
   /// Strict cloud-restore-only writer. A fresh local value wins after the
   /// reload boundary; the caller's session guard is then checked immediately
@@ -2704,55 +3240,47 @@ class Storage {
   static Future<GrammarPlanRestoreResult> setGrammarPlanRawJsonForRestore(
     String json, {
     void Function()? assertCurrentWrite,
-  }) async {
-    const key = 'kl_gram_plan_v1';
-    final store =
-        _grammarPlanStoreForTesting ??
-        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
-    if (store == null) {
-      throw const PreferenceWriteException(key);
-    }
+  }) {
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      const key = 'kl_gram_plan_v1';
+      final store = _grammarPlanStringStore();
 
-    try {
-      final initial = _StringPreferenceState.read(store, key);
-      if (initial.isPresent && initial.value!.isNotEmpty) {
+      try {
+        if (_unknownStrictKeys.contains(key)) {
+          await _refreshUnknownStringKeys(store, [key]);
+        } else {
+          await store.reload();
+        }
+      } on PreferenceOutcomeUnknownException {
+        rethrow;
+      } on Object catch (error) {
+        _unknownStrictKeys.add(key);
+        throw PreferenceOutcomeUnknownException(key, cause: error);
+      }
+
+      late final _StringPreferenceState before;
+      try {
+        before = _StringPreferenceState.read(store, key);
+      } on Object catch (error) {
+        debugPrint('Storage: malformed grammar plan during restore: $error');
+        return GrammarPlanRestoreResult.skippedRecoveryValue;
+      }
+      if (before.isPresent && before.value!.isNotEmpty) {
+        _publishGrammarPlanConfirmedCandidate(before.value!);
         return GrammarPlanRestoreResult.skippedExisting;
       }
-    } on Object catch (error) {
-      debugPrint('Storage: malformed grammar plan during restore: $error');
-      return GrammarPlanRestoreResult.skippedRecoveryValue;
-    }
-
-    try {
-      if (_unknownStrictKeys.contains(key)) {
-        await _refreshUnknownStringKeys(store, [key]);
-      }
-      await store.reload();
-    } on PreferenceOutcomeUnknownException {
-      rethrow;
-    } on Object catch (error) {
-      _unknownStrictKeys.add(key);
-      throw PreferenceOutcomeUnknownException(key, cause: error);
-    }
-
-    late final _StringPreferenceState before;
-    try {
-      before = _StringPreferenceState.read(store, key);
-    } on Object catch (error) {
-      debugPrint('Storage: malformed grammar plan during restore: $error');
-      return GrammarPlanRestoreResult.skippedRecoveryValue;
-    }
-    if (before.isPresent && before.value!.isNotEmpty) {
-      return GrammarPlanRestoreResult.skippedExisting;
-    }
-    await _ssStrict(
-      key,
-      json,
-      preferences: store,
-      beforeState: before,
-      assertCurrentWrite: assertCurrentWrite,
-    );
-    return GrammarPlanRestoreResult.written;
+      await _ssStrict(
+        key,
+        json,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = json;
+      return GrammarPlanRestoreResult.written;
+    });
   }
 
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
@@ -6409,6 +6937,8 @@ class Storage {
           if (_xpRewardMutationCount > 0) _xpRewardMutation,
           if (_srsReviewMutationCount > 0) _srsReviewMutation,
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
+          if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)
+            _grammarPlanMutation!,
         ]);
         await reset();
       } finally {

@@ -2188,3 +2188,98 @@ independent Hanok integration and signed-device/operational readiness remain
 open, and deployment remains held by the user.
 
 **Task 43 local verification:** Native grammar and smalltalk assessment course failures reproduced before repair (6 failing cases). Final scoped regression 1496 tests in 75 files, 0 configured skips; full analysis clean and both independent axes approved actual final hashes. Grammar and smalltalk assessments retain the first accepted result and canonical receipt across persistence retries before authoritative completion, with target, sheet/card, duplicate/stale/reset/route and eligibility fences. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external grammar-smalltalk-evidence-20260912/verification.json. Favorites/likes, grammar-plan persistence, process-death, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
+
+
+### Task 44: Confirm grammar-plan persistence before starting or completing a day
+
+Baseline: dc55d70aa102e4233773b829f57253505e56328e.
+Root: C:/dev/hangulsori/ko_lernen_app_worktrees/global-launch-readiness-20260909
+Evidence: C:/dev/hangulsori/_codex_artifacts/global-launch-readiness-20260909/grammar-plan-persistence-20260912
+Report: same SDD directory, task-44-report.md.
+
+## Problem
+
+Storage.setGrammarPlanRawJson and setGrammarPlanLevel use legacy writers that
+ignore native false replies. Grammar onboarding saves a plan and its selected
+level in two calls, then starts the deck. Day completion saves servedIdsByDate,
+then emits completion/analytics and offers the next quiz. Failed native writes
+can therefore be shown as successful. Retrying after an unknown write must not
+recompute the day, replace an accepted plan selection, or overwrite newer plans.
+
+## Requirements
+
+- [x] Before production edits, reproduce actual native plan-blob and selected-
+  level rejection and day-completion rejection on baseline. Include committed
+  and uncommitted unknown replies with reload unavailable where behavior
+  differs. Use production SharedPreferences setters, real screen interactions
+  and semantic disk/state assertions, not a mocked completion callback. Record
+  unique raw logs and pre-repair production hashes; exclude harness failures.
+- [x] Use confirmed persistence for local grammar-plan writes. A retained
+  operation freezes the accepted plan level/pace and, for completion, original
+  day and served IDs. Repeated save reconciles the same intended operation;
+  confirmed legs are not blindly replayed and completion never advances twice.
+  Serialize related mutations and prevent older retries from replacing newer
+  plan state. Preserve other levels and malformed recovery data. Plan start is
+  authoritative only when both its plan and selected-level writes are confirmed.
+  A null selected level must still remove the key, with confirmed semantics.
+- [x] Provide localized pending/error/retry and usable leave/dismissal for plan
+  onboarding and day completion. Own retained state above transient sheets so
+  dismiss/reopen while saving or after failure retains the same accepted intent
+  and the current sheet receives results. Do not emit completion feedback,
+  analytics, abandon completion, next-quiz navigation, or replace the deck before
+  required persistence is confirmed. Lock conflicting changes only while needed;
+  stale/different callbacks and duplicate taps cannot replace pending intent.
+- [x] Capture local-data and screen/source lifetime at admission, before awaits.
+  Reset, route retirement and replacement course/free-browse context cannot
+  publish late completion or admit stale later writes. Coordinate admitted plan
+  writes with existing reset/restore boundaries; never acquire a fresh lease to
+  revive old work. Already-issued native calls cannot be cancelled, but must not
+  trigger later legs/UI in a retired lifetime. Keep queued work in its owning
+  test zone. Test real parent pop and modal reopen before native release.
+- [x] Preserve deterministic grammar plan slicing, itemsPerDay choices, daily
+  idempotence, selected level separate from userLevelCode, course-assessment
+  provenance from Task43, and free-browse/plan distinction. Preserve existing raw
+  setter passthrough and cloud restore fresh-local-value precedence; keep legacy
+  keys/formats and unknown-field recovery where applicable. Do not change SRS,
+  course mastery, content/assets, likes/bookmarks, schemas, SDK or server policy.
+  Process-death recovery across the whole app remains a separate open scope;
+  do not claim multi-key native storage is physically atomic.
+- [x] Verify all changed behavior with native false/throw/unknown outcomes,
+  absent storage, retries, retained payload/date/IDs, no premature authoritative
+  output, same/different target concurrency, reset and real route/sheet lifetime.
+  Keep relevant grammar-plan/cloud-restore/reset/course guards. Use bounded
+  widget pumps (no pumpAndSettle on Sori screens), real tappable controls and
+  AppL10n copy. Brace all new if/else. One Flutter process, --no-pub, no source
+  edits during tests/analyzer. Run one full analyzer after final source changes,
+  freeze machine-generated hashes for every changed Dart file and report failed
+  as well as passing evidence without replacing raw logs.
+- [x] Complete independent Standards and Spec reviews, root impact regression,
+  source/assets/paid Graph preservation, free Graphify/prune, verified local
+  commit and external readiness updates. Global-launch readiness stays active;
+  this task cannot establish device, deployment or operational readiness.
+
+## Scope and workflow
+
+Allowed production: lib/screens/grammar_screen.dart, narrowly relevant grammar-
+plan/reset/restore integration in lib/services/storage_service.dart, and one
+small grammar-plan persistence owner if needed. Existing pure slicing in
+lib/services/grammar_plan_service.dart should remain unchanged unless necessary.
+Relevant tests may change. Reuse suitable existing localized generic copy; add
+DE/EN localization only if no truthful existing copy exists and notify root.
+
+Begin with a short read-only design checkpoint explaining mutation ownership,
+partial-start/unknown reconciliation, concurrency with raw setters/cloud restore,
+and reset drain behavior. Root rules on ambiguities before production repair.
+Then reproduce failures and implement. Do not expand into all storage writers.
+
+Root is sole finalizer. Worker must not spawn agents, commit, push, merge,
+Graphify, build, upload, invoke paid/network providers, touch console/device,
+protected android/key.properties or the preview server. Write flat owned-paths.json
+containing changed Dart plus docs/superpowers/plans/2026-09-09-global-launch-readiness.md;
+do not include the ignored report. Final report hash table uses exact lines
+`| path.dart | sha256 |` with both values in Markdown backticks.
+
+Favorites/likes, broad process-death resume, independent Hanok integration and
+signed-device/operational readiness remain open; deployment is held.
+
+**Task 44 local verification:** Native grammar-plan start/selected-level/day failures reproduced before repair (5 failing cases). Final scoped regression 5340 tests in 457 files, 16 configured skips; full analysis clean and both independent axes approved actual final hashes. Grammar-plan starts and served days retain their accepted intent across confirmed persistence retries before authoritative UI completion, with partial/unknown recovery, source/sheet/duplicate/reset/route fences and existing restore behavior preserved. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external grammar-plan-persistence-20260912/verification.json. Favorites/likes, broad process-death resume, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.

@@ -156,6 +156,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       <String, VoidCallback>{};
   final LocalDataLifetimeLease _checkpointLifetime =
       LocalDataLifetime.capture();
+  final LocalDataLifetimeLease _planLifetime = LocalDataLifetime.capture();
   final Set<String> _sessionSeen = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
@@ -165,6 +166,18 @@ class _GrammarScreenState extends State<GrammarScreen>
   bool _planCompletionInFlight = false;
   bool _planCompletionShown = false;
   bool _planDayCompletedForVisit = false;
+  GrammarPlanWriteOperation? _pendingPlanStart;
+  GrammarPlanWriteOperation? _pendingPlanCompletion;
+  bool _planStartSaving = false;
+  bool _planStartSaveFailed = false;
+  bool _planCompletionSaving = false;
+  bool _planCompletionSaveFailed = false;
+  int _planSourceRevision = 0;
+  int? _pendingPlanStartSourceRevision;
+  int? _pendingPlanCompletionSourceRevision;
+  VoidCallback? _planStartSheetRefresh;
+  VoidCallback? _planCompletionSheetRefresh;
+  BuildContext? _planStartSheetContext;
 
   /// 지시서 1.11 — 온보딩 시트에서 고른 플랜 레벨. `Storage.grammarPlanLevel`
   /// 로 영속되어(Fable R1) 화면을 나갔다 다시 들어와도 그대로 이어진다. null이면
@@ -248,10 +261,52 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   @override
   void dispose() {
+    _pendingPlanStart?.retire();
+    _pendingPlanCompletion?.retire();
+    _planStartSheetRefresh = null;
+    _planCompletionSheetRefresh = null;
     _checkpointSheetRefreshes.clear();
     _pendingCheckpoints.clear();
     _abandonTracker.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant GrammarScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.courseContext != widget.courseContext) {
+      _retirePlanOperationsForSourceChange();
+    }
+  }
+
+  bool _planOperationOwnerIsCurrent(int sourceRevision) {
+    if (!mounted ||
+        !_planLifetime.isCurrent ||
+        sourceRevision != _planSourceRevision ||
+        _isCoursePractice) {
+      return false;
+    }
+    return ModalRoute.of(context)?.isActive ?? false;
+  }
+
+  void _assertPlanOperationOwnerCurrent(int sourceRevision) {
+    if (!_planOperationOwnerIsCurrent(sourceRevision)) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  void _retirePlanOperationsForSourceChange() {
+    _planSourceRevision++;
+    _pendingPlanStart?.retire();
+    _pendingPlanCompletion?.retire();
+    _pendingPlanStart = null;
+    _pendingPlanCompletion = null;
+    _pendingPlanStartSourceRevision = null;
+    _pendingPlanCompletionSourceRevision = null;
+    _planStartSaving = false;
+    _planCompletionSaving = false;
+    _planStartSaveFailed = false;
+    _planCompletionSaveFailed = false;
   }
 
   Future<void> _load() async {
@@ -633,22 +688,35 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _showPlanOnboardingSheet({
     bool allowLegacyBrowseOnDismissal = false,
   }) async {
-    if (!mounted || _planOnboardingInFlight) return;
+    if (!mounted ||
+        !_planLifetime.isCurrent ||
+        _planOnboardingInFlight ||
+        _pendingPlanCompletion != null ||
+        !(ModalRoute.of(context)?.isActive ?? false)) {
+      return;
+    }
+    final sourceRevision = _planSourceRevision;
     _planOnboardingInFlight = true;
-    var started = false;
     try {
       final t = AppL10n.of(context);
-      var planLevel = _planLevel ?? _userLevelForPlan;
+      var planLevel =
+          _pendingPlanStart?.plan.level ?? _planLevel ?? _userLevelForPlan;
       var itemsPerDay =
+          _pendingPlanStart?.plan.itemsPerDay ??
           _plans[planLevel]?.itemsPerDay ??
           GrammarPlanService.defaultItemsPerDay;
-      var isStarting = false;
-      await showSoriSheet<void>(
+      final started = await showSoriSheet<bool>(
         context: context,
         builder: (sheetContext) => KeyedSubtree(
           key: const Key('grammar-plan-onboarding-sheet'),
           child: StatefulBuilder(
             builder: (sheetContext, setSheetState) {
+              _planStartSheetContext = sheetContext;
+              _planStartSheetRefresh = () {
+                if (sheetContext.mounted) {
+                  setSheetState(() {});
+                }
+              };
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -662,7 +730,10 @@ class _GrammarScreenState extends State<GrammarScreen>
                     key: const Key('grammar-plan-level-bar'),
                     selected: planLevel,
                     onChanged: (level) {
-                      if (isStarting || level == null || level == planLevel) {
+                      if (_pendingPlanStart != null ||
+                          _planStartSaving ||
+                          level == null ||
+                          level == planLevel) {
                         return;
                       }
                       setSheetState(() {
@@ -701,7 +772,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                               variant: SoriChipVariant.soft,
                               minInteractiveHeight:
                                   SoriLayout.chromeRowTouchHeight,
-                              onTap: isStarting
+                              onTap:
+                                  _pendingPlanStart != null || _planStartSaving
                                   ? null
                                   : () {
                                       if (itemsPerDay == n) {
@@ -716,58 +788,115 @@ class _GrammarScreenState extends State<GrammarScreen>
                     ),
                   ),
                   const SizedBox(height: Spacing.lg),
+                  if (_planStartSaving)
+                    KeyedSubtree(
+                      key: const Key('grammar-plan-save-pending'),
+                      child: Text(t.onboardingV2Saving),
+                    ),
+                  if (_planStartSaveFailed)
+                    KeyedSubtree(
+                      key: const Key('grammar-plan-save-error'),
+                      child: Text(t.courseCheckpointSaveError),
+                    ),
+                  if (_planStartSaving || _planStartSaveFailed)
+                    const SizedBox(height: Spacing.md),
                   SoriButton.filled(
-                    label: t.grammarPlanStartCta,
+                    key: _planStartSaveFailed
+                        ? const Key('grammar-plan-save-retry')
+                        : null,
+                    label: _planStartSaveFailed
+                        ? t.btnRetry
+                        : t.grammarPlanStartCta,
                     fullWidth: true,
-                    onTap: isStarting
+                    onTap: _planStartSaving
                         ? null
                         : () async {
-                            setSheetState(() => isStarting = true);
-                            final chosenLevel = planLevel;
-                            final next = Map<String, GrammarStudyPlan>.of(
-                              _plans,
-                            );
-                            final existing = next[chosenLevel];
-                            final existingFinished =
-                                existing != null &&
-                                GrammarPlanService.todaysSlice(
-                                  curatedRows:
-                                      GrammarPlanService.curatedRowsForLevel(
-                                        _all,
-                                        chosenLevel,
-                                      ),
-                                  plan: existing,
-                                ).isEmpty;
-                            // 이미 있는(끝나지 않은) 플랜을 고르면 진행을
-                            // 이어간다 — 리셋은 새 레벨이거나 그 레벨을 이미
-                            // 다 끝냈을 때만(지시서 1.11).
-                            final plan = existing == null || existingFinished
-                                ? GrammarStudyPlan(
-                                    level: chosenLevel,
-                                    itemsPerDay: itemsPerDay,
-                                    servedIdsByDate: const {},
-                                  )
-                                : existing.copyWith(itemsPerDay: itemsPerDay);
-                            next[chosenLevel] = plan;
-                            try {
-                              await Storage.setGrammarPlanRawJson(
-                                GrammarPlanService.encodePlans(next),
+                            if (!_planOperationOwnerIsCurrent(sourceRevision)) {
+                              return;
+                            }
+                            var operation = _pendingPlanStart;
+                            if (operation == null) {
+                              if (!sheetContext.mounted ||
+                                  !identical(
+                                    _planStartSheetContext,
+                                    sheetContext,
+                                  )) {
+                                return;
+                              }
+                              final chosenLevel = planLevel;
+                              final existing = _plans[chosenLevel];
+                              final existingFinished =
+                                  existing != null &&
+                                  GrammarPlanService.todaysSlice(
+                                    curatedRows:
+                                        GrammarPlanService.curatedRowsForLevel(
+                                          _all,
+                                          chosenLevel,
+                                        ),
+                                    plan: existing,
+                                  ).isEmpty;
+                              final plan = existing == null || existingFinished
+                                  ? GrammarStudyPlan(
+                                      level: chosenLevel,
+                                      itemsPerDay: itemsPerDay,
+                                      servedIdsByDate: const {},
+                                    )
+                                  : existing.copyWith(itemsPerDay: itemsPerDay);
+                              operation = GrammarPlanWriteOperation.start(
+                                plan: plan,
+                                assertCurrentOwner: () =>
+                                    _assertPlanOperationOwnerCurrent(
+                                      sourceRevision,
+                                    ),
                               );
-                              await Storage.setGrammarPlanLevel(chosenLevel);
-                            } catch (_) {
-                              if (mounted && sheetContext.mounted) {
-                                setSheetState(() => isStarting = false);
+                              _pendingPlanStart = operation;
+                              _pendingPlanStartSourceRevision =
+                                  _planSourceRevision;
+                            }
+                            _planStartSaving = true;
+                            _planStartSaveFailed = false;
+                            _planStartSheetRefresh?.call();
+                            try {
+                              await operation.save();
+                            } on Object catch (error) {
+                              debugPrint(
+                                'Grammar plan start persistence failed: $error',
+                              );
+                              _planStartSaving = false;
+                              if (_planOperationOwnerIsCurrent(
+                                _pendingPlanStartSourceRevision ?? -1,
+                              )) {
+                                _planStartSaveFailed = true;
+                                _planStartSheetRefresh?.call();
                               }
                               return;
                             }
-                            if (!mounted || !sheetContext.mounted) return;
-                            started = true;
+                            _planStartSaving = false;
+                            if (!mounted ||
+                                _pendingPlanStartSourceRevision !=
+                                    _planSourceRevision ||
+                                !(ModalRoute.of(context)?.isActive ?? true)) {
+                              return;
+                            }
+                            final confirmedPlans =
+                                GrammarPlanService.decodePlans(
+                                  Storage.grammarPlanRawJson,
+                                );
+                            final confirmedPlan =
+                                confirmedPlans[operation.plan.level] ??
+                                operation.plan;
                             setState(() {
-                              _plans = next;
-                              _planLevel = chosenLevel;
-                              _applyPlanSlice(plan);
+                              _plans = confirmedPlans;
+                              _planLevel = operation!.plan.level;
+                              _applyPlanSlice(confirmedPlan);
+                              _pendingPlanStart = null;
+                              _pendingPlanStartSourceRevision = null;
+                              _planStartSaveFailed = false;
                             });
-                            Navigator.of(sheetContext).pop();
+                            final activeSheet = _planStartSheetContext;
+                            if (activeSheet != null && activeSheet.mounted) {
+                              Navigator.of(activeSheet).pop(true);
+                            }
                           },
                   ),
                 ],
@@ -776,10 +905,20 @@ class _GrammarScreenState extends State<GrammarScreen>
           ),
         ),
       );
-      if (mounted && allowLegacyBrowseOnDismissal && !started) {
+      if (mounted &&
+          _pendingPlanStart != null &&
+          sourceRevision == _planSourceRevision) {
+        setState(() {});
+      }
+      if (mounted &&
+          allowLegacyBrowseOnDismissal &&
+          started != true &&
+          _pendingPlanStart == null) {
         setState(() => _legacyBrowseForVisit = true);
       }
     } finally {
+      _planStartSheetRefresh = null;
+      _planStartSheetContext = null;
       _planOnboardingInFlight = false;
     }
   }
@@ -799,6 +938,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _browseAllGrammar() {
+    _retirePlanOperationsForSourceChange();
     setState(() {
       _legacyBrowseForVisit = true;
       _planDayCompletedForVisit = false;
@@ -1190,15 +1330,21 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   Future<void> _completePlanDayIfNeeded() async {
     if (_planCompletionInFlight || _planCompletionShown) return;
-    final plan = _isFollowingPlan ? _activePlan : null;
-    if (plan == null || _filtered.isEmpty) return;
-    final today = Storage.todayIso();
-    if (plan.servedIdsByDate.containsKey(today)) {
-      _planCompletionShown = true;
+    final operationSourceRevision =
+        _pendingPlanCompletionSourceRevision ?? _planSourceRevision;
+    if (!_planOperationOwnerIsCurrent(operationSourceRevision)) {
       return;
     }
-    _planCompletionInFlight = true;
-    try {
+    final plan = _isFollowingPlan ? _activePlan : null;
+    if (plan == null || _filtered.isEmpty) return;
+    var operation = _pendingPlanCompletion;
+    var shouldStartSave = false;
+    if (operation == null) {
+      final today = Storage.todayIso();
+      if (plan.servedIdsByDate.containsKey(today)) {
+        _planCompletionShown = true;
+        return;
+      }
       final servedIds = _filtered
           .map((grammar) => grammar.id)
           .toList(growable: false);
@@ -1207,75 +1353,185 @@ class _GrammarScreenState extends State<GrammarScreen>
         dateIso: today,
         servedIds: servedIds,
       );
-      final next = Map<String, GrammarStudyPlan>.of(_plans)
-        ..[plan.level] = updated;
-      await Storage.setGrammarPlanRawJson(GrammarPlanService.encodePlans(next));
-      if (!mounted) return;
-      _planCompletionShown = true;
-      _recordSessionCompleted();
-      setState(() {
-        _plans = next;
-        _planDayCompletedForVisit = true;
-      });
+      operation = GrammarPlanWriteOperation.completeDay(
+        plan: updated,
+        assertCurrentOwner: () =>
+            _assertPlanOperationOwnerCurrent(operationSourceRevision),
+      );
+      _pendingPlanCompletion = operation;
+      _pendingPlanCompletionSourceRevision = operationSourceRevision;
+      shouldStartSave = true;
+    }
+    _planCompletionInFlight = true;
+    try {
       final t = AppL10n.of(context);
-      await showSoriSheet<void>(
+      final sheet = showSoriSheet<void>(
         context: context,
-        builder: (sheetContext) => KeyedSubtree(
-          key: const Key('grammar-plan-completion-sheet'),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                t.grammarPlanCompletionTitle,
-                style: SoriTextTheme.of(sheetContext).h2,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.grammarPlanCompletionBody,
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(sheetContext).body,
-              ),
-              const SizedBox(height: Spacing.lg),
-              SoriButton.filled(
-                label: t.grammarPlanCompletionCta,
-                fullWidth: true,
-                onTap: () {
-                  Navigator.of(sheetContext).pop();
-                  Navigator.of(context).pushNamed(
-                    '/grammar_choice_quiz',
-                    arguments: <String, dynamic>{
-                      'level': plan.level,
-                      'allowedTargetIds': servedIds.toSet(),
-                      'planDayLabel': t.grammarPlanDayHeader(
-                        plan.completedDays + 1,
-                        GrammarPlanService.totalDays(
-                          _curatedRowsForPlan(plan),
-                          plan.itemsPerDay,
-                        ),
-                      ),
+        builder: (sheetContext) => StatefulBuilder(
+          builder: (sheetContext, setSheetState) {
+            _planCompletionSheetRefresh = () {
+              if (sheetContext.mounted) {
+                setSheetState(() {});
+              }
+            };
+            if (_planCompletionSaving) {
+              return KeyedSubtree(
+                key: const Key('grammar-plan-save-pending'),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(t.onboardingV2Saving),
+                    const SizedBox(height: Spacing.lg),
+                    SoriButton.outlined(
+                      label: t.btnClose,
+                      fullWidth: true,
+                      onTap: () => Navigator.of(sheetContext).pop(),
+                    ),
+                  ],
+                ),
+              );
+            }
+            if (_planCompletionSaveFailed) {
+              return KeyedSubtree(
+                key: const Key('grammar-plan-save-error'),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(t.courseCheckpointSaveError),
+                    const SizedBox(height: Spacing.lg),
+                    SoriButton.filled(
+                      key: const Key('grammar-plan-save-retry'),
+                      label: t.btnRetry,
+                      fullWidth: true,
+                      onTap: () {
+                        unawaited(_savePendingPlanCompletion(operation!));
+                      },
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    SoriButton.outlined(
+                      label: t.btnClose,
+                      fullWidth: true,
+                      onTap: () => Navigator.of(sheetContext).pop(),
+                    ),
+                  ],
+                ),
+              );
+            }
+            final completed = operation!.plan;
+            final servedIds = completed.servedIdsByDate.values.last;
+            return KeyedSubtree(
+              key: const Key('grammar-plan-completion-sheet'),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    t.grammarPlanCompletionTitle,
+                    style: SoriTextTheme.of(sheetContext).h2,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    t.grammarPlanCompletionBody,
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(sheetContext).body,
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  SoriButton.filled(
+                    label: t.grammarPlanCompletionCta,
+                    fullWidth: true,
+                    onTap: () {
+                      Navigator.of(sheetContext).pop();
+                      Navigator.of(context).pushNamed(
+                        '/grammar_choice_quiz',
+                        arguments: <String, dynamic>{
+                          'level': completed.level,
+                          'allowedTargetIds': servedIds.toSet(),
+                          'planDayLabel': t.grammarPlanDayHeader(
+                            completed.completedDays,
+                            GrammarPlanService.totalDays(
+                              _curatedRowsForPlan(completed),
+                              completed.itemsPerDay,
+                            ),
+                          ),
+                        },
+                      );
                     },
-                  );
-                },
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton.outlined(
+                    label: t.grammarPlanCompletionSkip,
+                    fullWidth: true,
+                    onTap: () => Navigator.of(sheetContext).pop(),
+                  ),
+                ],
               ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.grammarPlanCompletionSkip,
-                fullWidth: true,
-                onTap: () => Navigator.of(sheetContext).pop(),
-              ),
-            ],
-          ),
+            );
+          },
         ),
       );
-      if (!mounted) return;
+      if (shouldStartSave) {
+        unawaited(_savePendingPlanCompletion(operation));
+      }
+      await sheet;
+      if (!mounted || !_planCompletionShown) {
+        return;
+      }
       setState(() {
         _sessionSeen.clear();
         _feedbackCompletion.reset();
       });
     } finally {
+      _planCompletionSheetRefresh = null;
       _planCompletionInFlight = false;
     }
+  }
+
+  Future<void> _savePendingPlanCompletion(
+    GrammarPlanWriteOperation operation,
+  ) async {
+    if (_planCompletionSaving || _planCompletionShown) {
+      return;
+    }
+    _planCompletionSaving = true;
+    _planCompletionSaveFailed = false;
+    _planCompletionSheetRefresh?.call();
+    try {
+      await operation.save();
+    } on Object catch (error) {
+      debugPrint('Grammar plan completion persistence failed: $error');
+      _planCompletionSaving = false;
+      if (_planOperationOwnerIsCurrent(
+        _pendingPlanCompletionSourceRevision ?? -1,
+      )) {
+        _planCompletionSaveFailed = true;
+        _planCompletionSheetRefresh?.call();
+      }
+      return;
+    }
+    _planCompletionSaving = false;
+    if (!_planOperationOwnerIsCurrent(
+      _pendingPlanCompletionSourceRevision ?? -1,
+    )) {
+      return;
+    }
+    final confirmedPlans = GrammarPlanService.decodePlans(
+      Storage.grammarPlanRawJson,
+    );
+    if (!confirmedPlans.containsKey(operation.plan.level)) {
+      _planCompletionSaveFailed = true;
+      _planCompletionSheetRefresh?.call();
+      return;
+    }
+    _planCompletionShown = true;
+    _recordSessionCompleted();
+    setState(() {
+      _plans = confirmedPlans;
+      _planDayCompletedForVisit = true;
+      _pendingPlanCompletion = null;
+      _pendingPlanCompletionSourceRevision = null;
+      _planCompletionSaveFailed = false;
+    });
+    _planCompletionSheetRefresh?.call();
   }
 
   // 칩 목록은 **_applyFilters 가 실제로 훑는 집합**에서 뽑는다.
@@ -1349,9 +1605,12 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   Widget _legacyFilterChrome(AppL10n t) {
+    final resumePendingPlan = _pendingPlanStart != null;
     return SoriChromeRow(
       key: const Key('grammar-filter-row'),
-      onFilterTap: () => _showLevelFilter(t),
+      onFilterTap: resumePendingPlan
+          ? () => _showPlanOnboardingSheet(allowLegacyBrowseOnDismissal: true)
+          : () => _showLevelFilter(t),
       filterSemanticLabel: t.filterLevel,
       meta: Text(
         '${_level == 'Alle' ? t.filterAll : _level} · ${_levelCount(_level)}',
@@ -1361,7 +1620,9 @@ class _GrammarScreenState extends State<GrammarScreen>
         icon: const Icon(Icons.filter_list_rounded),
         tooltip: t.filterTitle,
         constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-        onPressed: _showFilterSheet,
+        onPressed: resumePendingPlan
+            ? () => _showPlanOnboardingSheet(allowLegacyBrowseOnDismissal: true)
+            : _showFilterSheet,
       ),
     );
   }

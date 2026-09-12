@@ -1416,9 +1416,9 @@
     "semantic_hash": ""
   },
   "lib/screens/grammar_screen.dart": {
-    "mtime": 1789205476.676915,
-    "seen": 1789206082.386109,
-    "ast_hash": "fc980ae36cf84567070869f97c92eeca",
+    "mtime": 1789209236.1396387,
+    "seen": 1789216598.1970925,
+    "ast_hash": "3bf945ea4e76e874f3e3db1d58641cb4",
     "semantic_hash": ""
   },
   "lib/screens/gye_create_screen.dart": {
@@ -2586,9 +2586,9 @@
     "semantic_hash": ""
   },
   "lib/services/storage_service.dart": {
-    "mtime": 1789114213.465922,
-    "seen": 1789115375.118764,
-    "ast_hash": "2a2f067cf9366566e5e4c85050a4e6bb",
+    "mtime": 1789209416.104835,
+    "seen": 1789216598.2420678,
+    "ast_hash": "81b81d2cf1f86e37a0ebce832647052d",
     "semantic_hash": ""
   },
   "lib/services/stroke_matcher.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789201500.0673852,
-    "seen": 1789206082.8088355,
-    "ast_hash": "e8a3a5849086fc94102de78a46f439b4",
+    "mtime": 1789206455.3539639,
+    "seen": 1789216598.6239324,
+    "ast_hash": "c1e9461b0b23020229fc0d8f4b2b27ca",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16179,6 +16179,12 @@
     "mtime": 1789205459.9736316,
     "seen": 1789206082.5137184,
     "ast_hash": "fe6f3f56e213f61a0bb2e84072952426",
+    "semantic_hash": ""
+  },
+  "test/grammar_plan_confirmed_persistence_test.dart": {
+    "mtime": 1789209322.2295756,
+    "seen": 1789216598.3192585,
+    "ast_hash": "ecb29137c95db7fb97a5008c9d823990",
     "semantic_hash": ""
   }
 }
