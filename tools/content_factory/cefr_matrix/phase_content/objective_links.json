@@ -16995,6 +16995,640 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 버리다 completed tearing/deletion with explicitly subsequent regret/relief; emotion not mechanically inferred from ending. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:listening/core:R",
+      "taskId": "KP27:listening:01",
+      "sourceHash": "c8693b079db909fd19d4b7252b8c3d961fb870fdc1a52acf61d9b64edf6e4282",
+      "taskHash": "67787106ad390a96233ed6ef350bdf04dfab642b5a4c52248c2fba7b2824a625",
+      "criterionIds": [
+        "resolve",
+        "acceptance",
+        "reasons",
+        "intention",
+        "obstacle",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional equal-participant environmental meeting,12stock8checkedWednesday versus15stock9checkedFriday. No measured environmental effect/cost, no delegated implementation approval. Personal time resolve versus worker consent and checked scope; distinct objections missing time consent versus missing cost evidence. Intention of comfort explicitly contrasts harmful impact without erasing impact; blocked explanation versus then-repeated interruptions, interrupter identity unknown. Only re-review date decided. Six required responsibility/conditions/reasons/intention/obstacle/decision distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:listening/additional/1:R",
+      "taskId": "KP27:listening:01",
+      "sourceHash": "f968ca7fb90f6d35117a445572318ccfcef33fac77e22e0f96982976de6a54e4",
+      "taskHash": "67787106ad390a96233ed6ef350bdf04dfab642b5a4c52248c2fba7b2824a625",
+      "criterionIds": [
+        "resolve",
+        "acceptance",
+        "reasons",
+        "intention",
+        "obstacle",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional equal-participant environmental meeting,12stock8checkedWednesday versus15stock9checkedFriday. No measured environmental effect/cost, no delegated implementation approval. Personal time resolve versus worker consent and checked scope; distinct objections missing time consent versus missing cost evidence. Intention of comfort explicitly contrasts harmful impact without erasing impact; blocked explanation versus then-repeated interruptions, interrupter identity unknown. Only re-review date decided. Six required responsibility/conditions/reasons/intention/obstacle/decision distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP27:listening:02",
+      "sourceHash": "8addec19f4269e7e0e99321b92834b5a6dded1d15aeeada6f3d8ae78779d1554",
+      "taskHash": "417b067fa39df5c85328aa00850d11844d95a71f69fb9a965a3ead81cd5ba94c",
+      "criterionIds": [
+        "sequence",
+        "force",
+        "repair",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate sustained lecture resolve vsconditions→contextual cost comparison→reproach/intention→implementation boundaries. 망정 limited personal travel cost vs더라도 potential professional disadvantage prevents fixed expression-force hierarchy. Privacy/consent retained; satisfying one objection does not remove another. Four required structure/force/repair/limit criteria. Actual intonation not certified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:reading/core:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "bcbf0cf2b6e9b81cb192681295c797daa14c9c80b794dd4cb1bc96b2e31d7656",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:reading/additional/1:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "11241d54cff281ae12b58e090a99c50ea5b9c2e086134501cad19a45602d5cb0",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:reading/genre/essay_opinion_argumentative:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "29191dec4a454c5dac6bf53ac63aef0e2865b6de3b820eab19bdbd6239378560",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:speaking/core:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "14a1b7c4f8b878cd0ca1b7bb0a332feacf9de930b198eecf24b00194aaee2825",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:speaking/additional/1:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "1a71371b88ebf4c5c0c5e86e8242e32defe664f7014d5e445951b64acb00bc3c",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "ddd8694c69b37ea1cbf8fe3ab802076879d41f13bde9085ea30ceecaedcbe0b8",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:writing/core:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "6459828c674b8d2382e4c0e0295f84efc6c571de02610134a01ab12b0af1317d",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:writing/additional/1:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "3ccf99a7d1a81b2c811eafb965e9a642df02d8fb3f92fe9376eeb6057a135238",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "180804448d3e4c590b69ce6589b60c05bb74368cf9e0256252b64cd334864f74",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/persuade_argue_justify:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "836513126b752deb29f383aa182ada3fe78c877a6d61442cfb333d27be171df4",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/persuade_argue_justify:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "836513126b752deb29f383aa182ada3fe78c877a6d61442cfb333d27be171df4",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/negotiate_compromise_conditions:R",
+      "taskId": "KP27:listening:01",
+      "sourceHash": "b73e1f7dd75a1a2f7b2d9d9b4e939793b438d4c98e6d8a7b36b4675a4d53c877",
+      "taskHash": "67787106ad390a96233ed6ef350bdf04dfab642b5a4c52248c2fba7b2824a625",
+      "criterionIds": [
+        "resolve",
+        "acceptance",
+        "reasons",
+        "intention",
+        "obstacle",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional equal-participant environmental meeting,12stock8checkedWednesday versus15stock9checkedFriday. No measured environmental effect/cost, no delegated implementation approval. Personal time resolve versus worker consent and checked scope; distinct objections missing time consent versus missing cost evidence. Intention of comfort explicitly contrasts harmful impact without erasing impact; blocked explanation versus then-repeated interruptions, interrupter identity unknown. Only re-review date decided. Six required responsibility/conditions/reasons/intention/obstacle/decision distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/negotiate_compromise_conditions:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "b73e1f7dd75a1a2f7b2d9d9b4e939793b438d4c98e6d8a7b36b4675a4d53c877",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "626ee71703a23c6bef5f9dc67f0a7a5dae276cf87934e506e44da8018caa6f01",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "626ee71703a23c6bef5f9dc67f0a7a5dae276cf87934e506e44da8018caa6f01",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "b4c8337456c49921737b09b2c091b7e2ed972a6ef208cdd0ec994d523d3e0678",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "b4c8337456c49921737b09b2c091b7e2ed972a6ef208cdd0ec994d523d3e0678",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP27:listening:02",
+      "sourceHash": "0517ff96af60f2675efaa127ecf22f36072a92b7e7811618536aab26d03c7cbc",
+      "taskHash": "417b067fa39df5c85328aa00850d11844d95a71f69fb9a965a3ead81cd5ba94c",
+      "criterionIds": [
+        "sequence",
+        "force",
+        "repair",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate sustained lecture resolve vsconditions→contextual cost comparison→reproach/intention→implementation boundaries. 망정 limited personal travel cost vs더라도 potential professional disadvantage prevents fixed expression-force hierarchy. Privacy/consent retained; satisfying one objection does not remove another. Four required structure/force/repair/limit criteria. Actual intonation not certified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "0517ff96af60f2675efaa127ecf22f36072a92b7e7811618536aab26d03c7cbc",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP27:reading:01",
+      "sourceHash": "2dabb74ca809f2227eb006a80f42c6bd44e9c326a8ff06aa7f19568ef53102d5",
+      "taskHash": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "criterionIds": [
+        "shared",
+        "counter",
+        "strength",
+        "authority",
+        "condition",
+        "sense"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "2dabb74ca809f2227eb006a80f42c6bd44e9c326a8ff06aa7f19568ef53102d5",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:phonology/0:R",
+      "taskId": "KP27:listening:01",
+      "sourceHash": "394e0b53f7757b636ea377f21f5cd242c9dba8364e3377be79caac1de8535ff2",
+      "taskHash": "67787106ad390a96233ed6ef350bdf04dfab642b5a4c52248c2fba7b2824a625",
+      "criterionIds": [
+        "resolve",
+        "acceptance",
+        "reasons",
+        "intention",
+        "obstacle",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: fictional equal-participant environmental meeting,12stock8checkedWednesday versus15stock9checkedFriday. No measured environmental effect/cost, no delegated implementation approval. Personal time resolve versus worker consent and checked scope; distinct objections missing time consent versus missing cost evidence. Intention of comfort explicitly contrasts harmful impact without erasing impact; blocked explanation versus then-repeated interruptions, interrupter identity unknown. Only re-review date decided. Six required responsibility/conditions/reasons/intention/obstacle/decision distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:phonology/0:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "394e0b53f7757b636ea377f21f5cd242c9dba8364e3377be79caac1de8535ff2",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:phonology/1:R",
+      "taskId": "KP27:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "417b067fa39df5c85328aa00850d11844d95a71f69fb9a965a3ead81cd5ba94c",
+      "criterionIds": [
+        "sequence",
+        "force",
+        "repair",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate sustained lecture resolve vsconditions→contextual cost comparison→reproach/intention→implementation boundaries. 망정 limited personal travel cost vs더라도 potential professional disadvantage prevents fixed expression-force hierarchy. Privacy/consent retained; satisfying one objection does not remove another. Four required structure/force/repair/limit criteria. Actual intonation not certified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:phonology/1:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:register/haeyo_polite:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "86e63890a9edfcb4fd496bb08253ff7e69bce3b2e4a1ba410e5de869c5ec2339",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP27:speaking:01",
+      "sourceHash": "86e63890a9edfcb4fd496bb08253ff7e69bce3b2e4a1ba410e5de869c5ec2339",
+      "taskHash": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:register/written_plain_haeche:P",
+      "taskId": "KP27:writing:01",
+      "sourceHash": "86e63890a9edfcb4fd496bb08253ff7e69bce3b2e4a1ba410e5de869c5ec2339",
+      "taskHash": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "criterionIds": [
+        "opposition",
+        "position"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-은들:R",
+      "taskId": "KP27:grammar:01",
+      "sourceHash": "e7c19ebfb178fdde34fe13e715353b837b8dc02f5c80104d4c68c2a0a3a08437",
+      "taskHash": "64525ea48b12ef7a425fdd205daa510b6648603706ca0bac6cfd7867827e204e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 은들 rhetorical non-restoration/non-entailment despite regret/more people; no guaranteed recovery or popularity-truth equivalence. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을망정:R",
+      "taskId": "KP27:grammar:02",
+      "sourceHash": "7dfdd1a6a7f64ab1f06bb9827da1b08fdc5ad369ee46c9dcb8adf5b8aeb32930",
+      "taskHash": "536a15358afd827931ef8204dbf61bfb5a28bc396930194f2696a1eb41bd3dcf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을망정 personal loss/delay accepted while factual speech/consent maintained, not forced sacrifice or exemption. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-는 한이 있어도:R",
+      "taskId": "KP27:grammar:03",
+      "sourceHash": "4e31feb27896b89262c2be39f0e31e0e69e6289ba3b44f7dca8ee8605198d29e",
+      "taskHash": "3cecc0f4a6cf52927e4a9310e45aefecf3f9c579521c23c6091664b4d8683e20",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 한이 있어도 speaker time/rewriting commitment, explicit no imposition on others. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-기로서니:R",
+      "taskId": "KP27:grammar:04",
+      "sourceHash": "6bc1c2542ff258992b341a3c593350e22dcfcbe0bdd294c12ccebec49a22ac1e",
+      "taskHash": "e1d8d5e496dc9a62eda01e76c025fa8f328a264c764783345d408b01cff944f4",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기로서니 conceded busyness/cost does not justify unverified assertion/omitted consent; marked quoted reproach and peer repair. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-는다고1:R",
+      "taskId": "KP27:grammar:05",
+      "sourceHash": "129f1cb0e5df408258c927988af61aef3eb63a971dc1ecd191e2d7aa643dd6ca",
+      "taskHash": "b45a99f6a085607e06f34bcabecd55483f183e4649e7f2e2e2acac7d077398ca",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는다고1 explicitly confirmed intended comforting/helping purpose contrasted with unintended hurt/reduced choice, not G3reason or deliberate harm. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-자면1:R",
+      "taskId": "KP27:grammar:06",
+      "sourceHash": "32695f65a142dce0516fdbc9c9c4814572ede0457903b71c6cd3d20d1270b46f",
+      "taskHash": "0e51bcbae057be6870850087128294cdda19e3b9dadb0a6d4b6ac21b7a5a30a9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 자면1 intended explanation/common ground requires context/listening, not accomplished explanation or identical refusal reasons. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-자니3:R",
+      "taskId": "KP27:grammar:07",
+      "sourceHash": "c31f5e80a664ea87e19d6bf3b93469a562ead5e799234c469e7c9dec461977bb",
+      "taskHash": "c102e85935e696049e86d207820da9f800bcebefe86cfeb4c2228c2c87415aed",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 자니3 contemplated maintenance/cancellation causes worry, explicitly undecided, not occurred damage/cancellation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-으려도:R",
+      "taskId": "KP27:grammar:08",
+      "sourceHash": "03530df6fad41dc2b064253abb30e31758c44cba6f277f0377f9871b66036e14",
+      "taskHash": "d0a269aa308ff2bc019dde80766d1b7fc02d164f0d3bdb66229636491903c1a1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으려도 intended explanation/check blocked by denied opportunity/original access, not voluntary refusal or successful check. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을라치면:R",
+      "taskId": "KP27:grammar:09",
+      "sourceHash": "f36c8776fe49c2a2675244e193ba030def8a693a0fa6bc0fb51a0220c24f9675",
+      "taskHash": "a2eb76829e2984bb210b3b975e6c900a7406b7badd3b00710d107e076e237f63",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을라치면 narrated-day recurrent interruption at attempted start; no universal future claim or answered questions. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을 바에:R",
+      "taskId": "KP27:grammar:10",
+      "sourceHash": "ac3a1316091197ddd64cbf6ccd62df986ea6b2c663c9ddb431da3d45377c0374",
+      "taskHash": "b44cb1b312bce2fbcd94e08dcb5edd6274b6f830cc5ceae869dc605f44a5a75e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 바에 speaker chooses rechecking over giving up/shortening over source deletion; not command or reversed alternative. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G4:-더라도:R",
+      "taskId": "KP27:grammar:11",
+      "sourceHash": "c388f8bb3aad1a57f4160e4d8045908f1d9d2f8047936418eed8632747dc931e",
+      "taskHash": "e6105d78b68754ac49dd3b34a28350f5583dcc7fd9706cb02269a731980f913e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 더라도 changed outcome/delay leaves disclosure proviso/consent check intact; force compared through contextual costs, not fixed form ranking. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-은들:P",
+      "taskId": "KP27:production:01",
+      "sourceHash": "e7c19ebfb178fdde34fe13e715353b837b8dc02f5c80104d4c68c2a0a3a08437",
+      "taskHash": "4061c84ea0697d95a69a075d016708e684baef85416ca96859b00cf4dcf9f6d5",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 은들 rhetorical non-restoration/non-entailment despite regret/more people; no guaranteed recovery or popularity-truth equivalence. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을망정:P",
+      "taskId": "KP27:production:02",
+      "sourceHash": "7dfdd1a6a7f64ab1f06bb9827da1b08fdc5ad369ee46c9dcb8adf5b8aeb32930",
+      "taskHash": "2e767577ea0cfa6a32a494d5fce274cad1dd696d3f9cf2fa30b41d5a65206efb",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을망정 personal loss/delay accepted while factual speech/consent maintained, not forced sacrifice or exemption. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-는 한이 있어도:P",
+      "taskId": "KP27:production:03",
+      "sourceHash": "4e31feb27896b89262c2be39f0e31e0e69e6289ba3b44f7dca8ee8605198d29e",
+      "taskHash": "e9f05e3330d56edd6915ea745a5060feef491ca39db12bbf1043de1dba2ba0fa",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 한이 있어도 speaker time/rewriting commitment, explicit no imposition on others. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-기로서니:P",
+      "taskId": "KP27:production:04",
+      "sourceHash": "6bc1c2542ff258992b341a3c593350e22dcfcbe0bdd294c12ccebec49a22ac1e",
+      "taskHash": "d7635f88e97661057981248ada6a064cb4b5dc41325cff4b890b76fdaff4eb61",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기로서니 conceded busyness/cost does not justify unverified assertion/omitted consent; marked quoted reproach and peer repair. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-는다고1:P",
+      "taskId": "KP27:production:05",
+      "sourceHash": "129f1cb0e5df408258c927988af61aef3eb63a971dc1ecd191e2d7aa643dd6ca",
+      "taskHash": "fd137514a0bbf743340e28c7639021933817b8da1e61178e4472133e956a055b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는다고1 explicitly confirmed intended comforting/helping purpose contrasted with unintended hurt/reduced choice, not G3reason or deliberate harm. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-자면1:P",
+      "taskId": "KP27:production:06",
+      "sourceHash": "32695f65a142dce0516fdbc9c9c4814572ede0457903b71c6cd3d20d1270b46f",
+      "taskHash": "a4c74ac87a9db59f3de6f184264c441f27eb650924dcbbf9cae7fdd8375d6155",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 자면1 intended explanation/common ground requires context/listening, not accomplished explanation or identical refusal reasons. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-자니3:P",
+      "taskId": "KP27:production:07",
+      "sourceHash": "c31f5e80a664ea87e19d6bf3b93469a562ead5e799234c469e7c9dec461977bb",
+      "taskHash": "a3725a1157637b357db9945ace76331a722bb4ad88ca74a893e591a8633c4aed",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 자니3 contemplated maintenance/cancellation causes worry, explicitly undecided, not occurred damage/cancellation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-으려도:P",
+      "taskId": "KP27:production:08",
+      "sourceHash": "03530df6fad41dc2b064253abb30e31758c44cba6f277f0377f9871b66036e14",
+      "taskHash": "3d50dda10bd8400c9eb5240de625e46d70e299e717fe2cb6b9df4f0d506ac0ee",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으려도 intended explanation/check blocked by denied opportunity/original access, not voluntary refusal or successful check. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을라치면:P",
+      "taskId": "KP27:production:09",
+      "sourceHash": "f36c8776fe49c2a2675244e193ba030def8a693a0fa6bc0fb51a0220c24f9675",
+      "taskHash": "2321cb52a42d9b1990e16b608a547dddb38b90cf375f7371bdf502e99573dfe0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을라치면 narrated-day recurrent interruption at attempted start; no universal future claim or answered questions. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G6:-을 바에:P",
+      "taskId": "KP27:production:10",
+      "sourceHash": "ac3a1316091197ddd64cbf6ccd62df986ea6b2c663c9ddb431da3d45377c0374",
+      "taskHash": "d40f600a11881ef5b5cdb28c80d906d2ca61fdb0291c7dc6fd9273ff4df68036",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 바에 speaker chooses rechecking over giving up/shortening over source deletion; not command or reversed alternative. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP27:objective:grammar/G4:-더라도:P",
+      "taskId": "KP27:production:11",
+      "sourceHash": "c388f8bb3aad1a57f4160e4d8045908f1d9d2f8047936418eed8632747dc931e",
+      "taskHash": "fdf3fcddfc489307d145e6a437d27541affbb41fc488c5c8a4c8851b31d887f9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더라도 changed outcome/delay leaves disclosure proviso/consent check intact; force compared through contextual costs, not fixed form ranking. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

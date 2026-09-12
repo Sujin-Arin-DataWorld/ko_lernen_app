@@ -32,66 +32,13 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP24 | 58 | 58 | 0 | 미검증 |
 | KP25 | 49 | 49 | 0 | 미검증 |
 | KP26 | 48 | 48 | 0 | 미검증 |
-| KP27 | 53 | 0 | 53 | 미검증 |
+| KP27 | 53 | 53 | 0 | 미검증 |
 | KP28 | 53 | 0 | 53 | 미검증 |
 | KP29 | 55 | 0 | 55 | 미검증 |
 | KP30 | 71 | 0 | 71 | 미검증 |
 
 ## 미연결 요구
 
-- `KP27:objective:grammar/G6:-은들:R`
-- `KP27:objective:grammar/G6:-은들:P`
-- `KP27:objective:grammar/G6:-을망정:R`
-- `KP27:objective:grammar/G6:-을망정:P`
-- `KP27:objective:grammar/G6:-는 한이 있어도:R`
-- `KP27:objective:grammar/G6:-는 한이 있어도:P`
-- `KP27:objective:grammar/G6:-기로서니:R`
-- `KP27:objective:grammar/G6:-기로서니:P`
-- `KP27:objective:grammar/G6:-는다고1:R`
-- `KP27:objective:grammar/G6:-는다고1:P`
-- `KP27:objective:grammar/G6:-자면1:R`
-- `KP27:objective:grammar/G6:-자면1:P`
-- `KP27:objective:grammar/G6:-자니3:R`
-- `KP27:objective:grammar/G6:-자니3:P`
-- `KP27:objective:grammar/G6:-으려도:R`
-- `KP27:objective:grammar/G6:-으려도:P`
-- `KP27:objective:grammar/G6:-을라치면:R`
-- `KP27:objective:grammar/G6:-을라치면:P`
-- `KP27:objective:grammar/G6:-을 바에:R`
-- `KP27:objective:grammar/G6:-을 바에:P`
-- `KP27:objective:grammar/G4:-더라도:R`
-- `KP27:objective:grammar/G4:-더라도:P`
-- `KP27:objective:listening/core:R`
-- `KP27:objective:listening/additional/1:R`
-- `KP27:objective:listening/genre/lecture_speech_monologue:R`
-- `KP27:objective:reading/core:R`
-- `KP27:objective:reading/additional/1:R`
-- `KP27:objective:reading/genre/essay_opinion_argumentative:R`
-- `KP27:objective:speaking/core:P`
-- `KP27:objective:speaking/additional/1:P`
-- `KP27:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP27:objective:writing/core:P`
-- `KP27:objective:writing/additional/1:P`
-- `KP27:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP27:objective:functions/persuade_argue_justify:R`
-- `KP27:objective:functions/persuade_argue_justify:P`
-- `KP27:objective:functions/negotiate_compromise_conditions:R`
-- `KP27:objective:functions/negotiate_compromise_conditions:P`
-- `KP27:objective:functions/compare_contrast_alternatives:R`
-- `KP27:objective:functions/compare_contrast_alternatives:P`
-- `KP27:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP27:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP27:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP27:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP27:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP27:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP27:objective:phonology/0:R`
-- `KP27:objective:phonology/0:P`
-- `KP27:objective:phonology/1:R`
-- `KP27:objective:phonology/1:P`
-- `KP27:objective:register/haeyo_polite:P`
-- `KP27:objective:register/hapsyo_formal_business:P`
-- `KP27:objective:register/written_plain_haeche:P`
 - `KP28:objective:grammar/G6:이라고2:R`
 - `KP28:objective:grammar/G6:이라고2:P`
 - `KP28:objective:grammar/G6:이라고는:R`

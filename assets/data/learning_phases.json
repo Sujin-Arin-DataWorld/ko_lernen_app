@@ -1543,8 +1543,36 @@
         "c2_04_sanction_accountability"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp27.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP27:grammar:01",
+        "KP27:grammar:02",
+        "KP27:grammar:03",
+        "KP27:grammar:04",
+        "KP27:grammar:05",
+        "KP27:grammar:06",
+        "KP27:grammar:07",
+        "KP27:grammar:08",
+        "KP27:grammar:09",
+        "KP27:grammar:10",
+        "KP27:grammar:11",
+        "KP27:production:01",
+        "KP27:production:02",
+        "KP27:production:03",
+        "KP27:production:04",
+        "KP27:production:05",
+        "KP27:production:06",
+        "KP27:production:07",
+        "KP27:production:08",
+        "KP27:production:09",
+        "KP27:production:10",
+        "KP27:production:11",
+        "KP27:listening:01",
+        "KP27:listening:02",
+        "KP27:reading:01",
+        "KP27:writing:01",
+        "KP27:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP28",
@@ -1627,5 +1655,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "d39a039004019e6e0ac7df6d9db1af12e19bca00073d14cc1029c0d3266bedff"
+  "phaseTaskSourceSha256": "a5c00cf398c201c775ac7a737486d63ef13f803273b2fd0f8e1e01684538eac0"
 }

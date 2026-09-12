@@ -316,17 +316,17 @@
 | KP26 | G6:-디1 | 1 | 0 | 0 | 미검증 |
 | KP26 | G6:-노라면 | 1 | 0 | 0 | 미검증 |
 | KP26 | G4:-어 버리다 | 1 | 0 | 0 | 미검증 |
-| KP27 | G6:-은들 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-을망정 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-는 한이 있어도 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-기로서니 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-는다고1 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-자면1 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-자니3 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-으려도 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-을라치면 | 0 | 0 | 0 | 미검증 |
-| KP27 | G6:-을 바에 | 0 | 0 | 0 | 미검증 |
-| KP27 | G4:-더라도 | 0 | 0 | 0 | 미검증 |
+| KP27 | G6:-은들 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-을망정 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-는 한이 있어도 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-기로서니 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-는다고1 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-자면1 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-자니3 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-으려도 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-을라치면 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-을 바에 | 1 | 0 | 0 | 미검증 |
+| KP27 | G4:-더라도 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고2 | 0 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고는 | 0 | 0 | 0 | 미검증 |
 | KP28 | G6:깨나 | 0 | 0 | 0 | 미검증 |
@@ -667,3 +667,14 @@
 - KP26 / G6:-디1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/5/practice/sourceKo` — “깊디깊은 침묵이 방 안에 내려앉았다.”. 형용사 반복으로 침묵의 문학적 정도를 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP26 / G6:-노라면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/6/practice/sourceKo` — “옛길을 걷노라면 잊었던 장면이 떠오른다.”. 걷는 지속 행동 가운데 생기는 기억 경험을 문학적으로 서술한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP26 / G4:-어 버리다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/7/practice/sourceKo` — “편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다.”. 찢기 완료와 화자가 뒤에 명시한 후회가 구별된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-은들 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/0/practice/sourceKo` — “이제 와서 후회한들 이미 버린 자료가 돌아오겠습니까?”. 후회 가정도 이미 버린 자료를 되돌리지 못한다는 수사 질문이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-을망정 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/1/practice/sourceKo` — “손해를 볼망정 확인한 사실만 말하겠습니다.”. 화자가 손해를 감수해도 사실 진술 원칙을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-는 한이 있어도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/2/practice/sourceKo` — “시간이 더 드는 한이 있어도 근거를 확인하겠습니다. 제 시간에 관한 결심입니다.”. 자기 시간의 대가를 감수하며 확인 결론을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-기로서니 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/3/practice/sourceKo` — “아무리 바쁘기로서니 확인도 없이 단정해서야 되겠습니까?”. 바쁨을 인정해도 미확인 단정은 정당화되지 않는다는 질책이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-는다고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/4/practice/sourceKo` — “분위기를 풀어 준다고 한 말이 도리어 상처가 되었다. 화자는 위로할 의도였다고 밝혔다.”. 위로할 목적이 명시되어 이 급의 의도와 반대 결과를 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-자면1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/5/practice/sourceKo` — “차이를 제대로 설명하자면 맥락부터 살펴야 합니다.”. 의도한 설명을 실행하기 위한 조건으로 맥락 확인을 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-자니3 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/6/practice/sourceKo` — “그대로 두자니 문제가 커질 것 같았습니다. 아직 정하지 않았습니다.”. 미결 선택에서 예상되는 난처함이며 이미 생긴 결과가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-으려도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/7/practice/sourceKo` — “다시 설명하려도 발언 기회가 주어지지 않았습니다.”. 설명 의도에도 실행을 막는 기회 부재가 있다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-을라치면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/8/practice/sourceKo` — “그날 설명을 시작할라치면 누군가 말을 끊었습니다.”. 그날 설명 시작 시도마다 서술된 반복 방해다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G6:-을 바에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/9/practice/sourceKo` — “이대로 포기할 바에 차라리 다시 확인하겠습니다.”. 피하려는 포기 선택보다 재확인을 택하는 화자의 입장이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP27 / G4:-더라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/10/practice/sourceKo` — “결과가 달라지더라도 확인한 근거는 공개하겠습니다. 식별 정보는 제외합니다.”. 결과 변화에도 공개 결론을 유지하며 식별 정보 제외 단서를 보존한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
