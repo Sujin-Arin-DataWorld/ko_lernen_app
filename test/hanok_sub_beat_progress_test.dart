@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/hanok_growth.dart';
+import 'package:ko_lernen_app/models/ildu_world_state.dart';
 import 'package:ko_lernen_app/services/canonical_course_segment_loader.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_segment_catalog.dart';
@@ -54,71 +55,68 @@ void main() {
   });
 
   group('canDoSegmentEvidenceProgress against the real trust pipeline', () {
-    test(
-      'reaches exactly 1.0 only once the segment is also verified',
-      () async {
-        final fixture = await _fixture();
-        const segmentId = 'segment_a1_01_greetings_hangul';
+    test('reaches exactly 1.0 only once the segment is also verified', () async {
+      final fixture = await _fixture();
+      const segmentId = 'segment_a1_01_greetings_hangul';
 
-        final before = canDoSegmentEvidenceProgress(
-          segmentId: segmentId,
-          evidence: const [],
-          projectStepEvidence: const [],
-          segmentCatalog: fixture.segments,
-          assessmentCatalog: fixture.productive,
-        );
-        expect(before.satisfied, 0);
-        expect(before.total, greaterThan(0));
-        expect(before.fraction, 0.0);
+      final before = canDoSegmentEvidenceProgress(
+        segmentId: segmentId,
+        evidence: const [],
+        projectStepEvidence: const [],
+        segmentCatalog: fixture.segments,
+        assessmentCatalog: fixture.productive,
+      );
+      expect(before.satisfied, 0);
+      expect(before.total, greaterThan(0));
+      expect(before.fraction, 0.0);
 
-        final service = CourseMasteryService(fixture.curriculum);
-        await service.applyReconciledSnapshot(
-          const CourseMasterySnapshot(
-            placementLevel: 'a1',
-            completedUnitIds: ['a1_01_greetings_hangul'],
-          ),
-          expectedGeneration: null,
-        );
-        final definition = fixture
-            .productive
-            .definitionsById['assess_a1_01_greetings_hangul_guided_production_v1']!;
-        final update = await service.recordProductiveAssessment(
-          result: const ProductiveTextAssessmentEngine().evaluate(
-            definition: definition,
-            input: definition.authoredContextExamples.single,
-            occurredAt: DateTime.utc(2026, 8, 16, 10),
-          ),
-          assessmentCatalog: fixture.productive,
-          segmentCatalog: fixture.segments,
-        );
+      final service = CourseMasteryService(fixture.curriculum);
+      await service.applyReconciledSnapshot(
+        const CourseMasterySnapshot(
+          placementLevel: 'a1',
+          completedUnitIds: ['a1_01_greetings_hangul'],
+        ),
+        expectedGeneration: null,
+      );
+      final definition = fixture
+          .productive
+          .definitionsById['assess_a1_01_greetings_hangul_guided_production_v1']!;
+      final update = await service.recordProductiveAssessment(
+        result: const ProductiveTextAssessmentEngine().evaluate(
+          definition: definition,
+          input: definition.authoredContextExamples.single,
+          occurredAt: DateTime.utc(2026, 8, 16, 10),
+        ),
+        assessmentCatalog: fixture.productive,
+        segmentCatalog: fixture.segments,
+      );
 
-        final after = canDoSegmentEvidenceProgress(
-          segmentId: segmentId,
-          evidence: update.snapshot.productiveEvidence,
-          projectStepEvidence: update.snapshot.productiveProjectStepEvidence,
-          segmentCatalog: fixture.segments,
-          assessmentCatalog: fixture.productive,
-        );
-        expect(after.satisfied, after.total);
-        expect(after.fraction, 1.0);
+      final after = canDoSegmentEvidenceProgress(
+        segmentId: segmentId,
+        evidence: update.snapshot.productiveEvidence,
+        projectStepEvidence: update.snapshot.productiveProjectStepEvidence,
+        segmentCatalog: fixture.segments,
+        assessmentCatalog: fixture.productive,
+      );
+      expect(after.satisfied, after.total);
+      expect(after.fraction, 1.0);
 
-        final verified = verifiedCanDoSegmentIds(
-          evidence: update.snapshot.productiveEvidence,
-          projectStepEvidence: update.snapshot.productiveProjectStepEvidence,
-          segmentCatalog: fixture.segments,
-          assessmentCatalog: fixture.productive,
-        );
-        expect(
-          verified.contains(segmentId),
-          after.fraction == 1.0,
-          reason:
-              'canDoSegmentEvidenceProgress must reach 1.0 exactly when '
-              'verifiedCanDoSegmentIds independently agrees the segment is '
-              'verified -- two readings of the same trusted evidence must '
-              'never disagree.',
-        );
-      },
-    );
+      final verified = verifiedCanDoSegmentIds(
+        evidence: update.snapshot.productiveEvidence,
+        projectStepEvidence: update.snapshot.productiveProjectStepEvidence,
+        segmentCatalog: fixture.segments,
+        assessmentCatalog: fixture.productive,
+      );
+      expect(
+        verified.contains(segmentId),
+        after.fraction == 1.0,
+        reason:
+            'canDoSegmentEvidenceProgress must reach 1.0 exactly when '
+            'verifiedCanDoSegmentIds independently agrees the segment is '
+            'verified -- two readings of the same trusted evidence must '
+            'never disagree.',
+      );
+    });
 
     test('an unrelated segment id yields none, not a crash', () async {
       final fixture = await _fixture();
@@ -216,7 +214,9 @@ final class _Fixture {
         segmentCatalog: segments,
         assessmentCatalog: productive,
         grantCatalog: grants,
-        state: HanokState.fresh(manifestVersion: grants.manifestVersion),
+        state: IlDuWorldState.fresh(
+          sourceManifestVersion: grants.manifestVersion,
+        ),
         asOf: DateTime.utc(2026, 8, 16, 12),
       );
 }

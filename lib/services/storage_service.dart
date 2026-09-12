@@ -3243,8 +3243,7 @@ class Storage {
   static const String legacyCourseMasteryPreferenceKey = 'kl_course_mastery_v1';
   static const String courseMasterySnapshotPreferenceKey =
       'kl_course_mastery_v2';
-  static const String hanokStatePreferenceKey = 'kl_hanok_state_v1';
-  static const String hanokCutoverPreferenceKey = 'kl_hanok_cutover_v2';
+  static const String ilduWorldStatePreferenceKey = 'kl_ildu_world_state_v1';
 
   /// Backward-compatible spelling for callers that already write the
   /// canonical snapshot. The v1 key is migration input only.
@@ -3319,48 +3318,18 @@ class Storage {
   /// value. It now returns only the canonical v2 state.
   static String get courseMasteryRawJson => courseMasterySnapshotRawJson;
 
-  /// Presentation-only Living Hanok V1 state.
-  ///
-  /// Earned grants are intentionally not stored here. They are projected from
-  /// canonical productive CourseMastery evidence by the Hanok domain service.
-  static String get hanokStateRawJson => _s(hanokStatePreferenceKey);
+  static String get ilduWorldStateRawJson => _s(ilduWorldStatePreferenceKey);
 
-  static String get hanokCutoverRawValue => _s(hanokCutoverPreferenceKey);
-
-  static Future<void> setHanokStateRawJsonStrict(
+  static Future<void> setIlDuWorldStateRawJsonStrict(
     String json, {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
   }) => _ssStrict(
-    hanokStatePreferenceKey,
+    ilduWorldStatePreferenceKey,
     json,
     preferences: preferences,
     assertCurrentWrite: assertCurrentWrite,
   );
-
-  static Future<void> setHanokCutoverRawValueStrict(
-    String value, {
-    PreferenceStringStore? preferences,
-    void Function()? assertCurrentWrite,
-  }) => _ssStrict(
-    hanokCutoverPreferenceKey,
-    value,
-    preferences: preferences,
-    assertCurrentWrite: assertCurrentWrite,
-  );
-
-  /// Removes only presentation ledgers superseded by Living Hanok V1.
-  /// Room-v3 layouts, owned decorations, Gye, CourseMastery, SRS, and stamps
-  /// deliberately remain untouched.
-  static Future<void> clearLegacyHanokPresentationState() async {
-    final preferences = _prefs;
-    if (preferences == null) {
-      throw PreferenceWriteException(hanokStatePreferenceKey);
-    }
-    final store = _SharedPreferenceRemovalStore(preferences);
-    await _removeValueStrict(store, 'kl_hanok_stages_seen_v1');
-    await _removeValueStrict(store, _personalHanokMilestonesSeenKey);
-  }
 
   static Future<void> setPlacementLevelCode(String code) async {
     final normalized = _requiredLearnerLevelCode(code);
@@ -4483,61 +4452,12 @@ class Storage {
   // Übergangsszene nur einmal pro Stage auszuspielen.
   // ─────────────────────────────────────────────────────────────────────
 
-  static List<String> get seenHanokStages => _l('kl_hanok_stages_seen_v1');
-
-  static bool hasSeenHanokStage(String stageName) =>
-      seenHanokStages.contains(stageName);
-
-  static Future<void> markHanokStageSeen(String stageName) async {
-    final list = seenHanokStages;
-    if (list.contains(stageName)) return;
-    list.add(stageName);
-    await _sl('kl_hanok_stages_seen_v1', list);
-  }
-
   // ── Personal Hanok map construction-reveal ledger ──────────────────────
   //
   // This is deliberately a local UX ledger, never a learning-progress or
   // reward source. A missing key is meaningful: the first map visit quietly
   // baselines existing construction so an upgraded learner is not shown a
   // backlog of historic building animations.
-  static const String _personalHanokMilestonesSeenKey =
-      'kl_personal_hanok_milestones_seen_v1';
-
-  static ({bool isInitialized, List<String> seen})
-  get personalHanokMilestoneRevealSnapshot => (
-    isInitialized:
-        _prefs?.containsKey(_personalHanokMilestonesSeenKey) ?? false,
-    seen: _l(_personalHanokMilestonesSeenKey),
-  );
-
-  static Future<void> initializePersonalHanokMilestoneReveals(
-    Iterable<String> milestones,
-  ) async {
-    if (_prefs?.containsKey(_personalHanokMilestonesSeenKey) ?? false) {
-      return;
-    }
-    final seen = <String>[];
-    for (final milestone in milestones) {
-      if (!seen.contains(milestone)) {
-        seen.add(milestone);
-      }
-    }
-    await _sl(_personalHanokMilestonesSeenKey, seen);
-  }
-
-  static Future<void> markPersonalHanokMilestoneRevealSeen(
-    String milestone,
-  ) async {
-    final snapshot = personalHanokMilestoneRevealSnapshot;
-    final seen = List<String>.from(snapshot.seen);
-    if (seen.contains(milestone)) {
-      return;
-    }
-    seen.add(milestone);
-    await _sl(_personalHanokMilestonesSeenKey, seen);
-  }
-
   // ───────── Reset ─────────
   static Future<void> resetAll({PreferenceRemovalStore? preferences}) async {
     final store =

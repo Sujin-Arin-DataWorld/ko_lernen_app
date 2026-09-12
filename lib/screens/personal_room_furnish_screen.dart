@@ -7,13 +7,10 @@ import '../data/personal_room_catalog.dart';
 import '../data/sticker_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../l10n/sticker_localizations.dart';
-import '../models/personal_hanok.dart';
 import '../models/personal_room.dart';
 import '../models/room_layout.dart';
 import '../services/analytics_service.dart';
 import '../services/decoration_reward_service.dart';
-import '../services/hanok_stage_service.dart';
-import '../services/hanok_structure_projection_service.dart';
 import '../services/room_layout_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -22,7 +19,6 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
-import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/free_room_layer.dart';
 import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/placed_decoration.dart';
@@ -35,15 +31,10 @@ import '../widgets/sori/window_class.dart';
 
 /// A collectible interior in the private Hanok estate.
 ///
-/// It only reads the already-earned Hanok projection to gate entry. Learning
-/// progress, reward ownership, and all community/Gye state remain outside this
-/// screen and its local placement service.
+/// Learning progress, reward ownership, and all community/Gye state remain
+/// outside this screen and its local placement service.
 class PersonalRoomFurnishScreen extends StatefulWidget {
   final PersonalRoomSurface surface;
-  final Future<LevelRatios> Function()? loadRatios;
-  final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
-  loadProjection;
-  final bool enforceUnlock;
   final Future<RoomLayoutMutation> Function(
     PersonalRoomSurface surface,
     RoomAssetKind kind,
@@ -59,9 +50,6 @@ class PersonalRoomFurnishScreen extends StatefulWidget {
   const PersonalRoomFurnishScreen({
     super.key,
     required this.surface,
-    this.loadRatios,
-    this.loadProjection,
-    this.enforceUnlock = true,
     this.addLayoutItem,
     this.updateLayoutItem,
   });
@@ -72,7 +60,7 @@ class PersonalRoomFurnishScreen extends StatefulWidget {
 }
 
 class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
-  PersonalHanokProjection? _projection;
+  bool _loaded = false;
   RoomLayouts _layouts = const {};
   bool _layoutWritable = true;
   String? _selectedId;
@@ -88,35 +76,12 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     _load();
   }
 
-  Future<void> _load() async {
-    final loadRatios = widget.loadRatios ?? HanokStageService.levelRatios;
-    PersonalHanokProjection projection;
-    try {
-      final ratios = await loadRatios();
-      final loadProjection =
-          widget.loadProjection ??
-          HanokStructureProjectionService.loadForRatios;
-      projection = await loadProjection(ratios);
-    } catch (_) {
-      projection = PersonalHanokProjection.from(
-        const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-      );
-    }
-    if (!mounted) {
-      return;
-    }
+  void _load() {
     setState(() {
-      _projection = projection;
-      // A direct route to a room still under construction must remain a pure
-      // progress view. In particular, it must not revive or normalize local
-      // placement state before its Hanok milestone is reached.
-      if (!widget.enforceUnlock || projection.isUnlocked(_room.requires)) {
-        _reloadLayouts();
-        unawaited(DecorationRewardService.maybeLogRewardUnused());
-      } else {
-        _layouts = const {};
-      }
+      _reloadLayouts();
+      _loaded = true;
     });
+    unawaited(DecorationRewardService.maybeLogRewardUnused());
   }
 
   void _reloadLayouts() {
@@ -128,10 +93,6 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
       _selectedId = null;
     }
   }
-
-  bool get _isUnlocked =>
-      !widget.enforceUnlock ||
-      (_projection?.isUnlocked(_room.requires) ?? false);
 
   RoomLayoutItem? get _selectedItem {
     final selectedId = _selectedId;
@@ -300,7 +261,6 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
-    final projection = _projection;
     return Scaffold(
       appBar: SoriAppBar(
         title: _roomTitle(t, widget.surface),
@@ -324,17 +284,8 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
       ),
       body: SoriScreenBackground(
         child: SafeArea(
-          child: projection == null
+          child: !_loaded
               ? const AppLoading()
-              : !_isUnlocked
-              ? SoriEmptyState(
-                  icon: Icons.construction_rounded,
-                  title: t.personalRoomLockedTitle,
-                  body: t.personalRoomLockedBody,
-                  ctaLabel: t.personalRoomReturnToMap,
-                  onCta: () =>
-                      Navigator.of(context).pushReplacementNamed('/hanok'),
-                )
               : SoriContentClamp(
                   maxWidth: SoriMaxWidth.prose,
                   base: const EdgeInsets.fromLTRB(

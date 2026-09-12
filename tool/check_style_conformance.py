@@ -50,7 +50,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import style_lock  # noqa: E402
-from hanok_v1_asset_contract import CHROMA_KEY_ALPHA_MIN, is_chroma_key_rgb  # noqa: E402
+from image_asset_contract import CHROMA_KEY_ALPHA_MIN, is_chroma_key_rgb  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -64,12 +64,9 @@ BRIGHTNESS_LIMIT = 0.75
 # Measured 2026-08-18: decoration_pond.png (F-B, lily pads) is 69.8% "green
 # rim" by this heuristic, decoration_sonamu.png (F-B, pine tree) 13.0%,
 # decoration_kkachi_nest.png (F-B, nest in foliage) 2.6% -- all real,
-# approved, shipped art, not despill failure. F-C-estate has the same
-# problem at smaller scale: anchae's roof moss/shadow tones measure 0.26%
-# even on the shipped, approved final PNG (matches
-# tool/derive_estate_building_stages.py's own build gate, which explicitly
-# excludes "그림자/이끼 녹색조" from ITS chroma check for the same reason).
-GREEN_RIM_EXEMPT_FAMILIES = {"F-B", "F-C-estate"}
+# approved, shipped art, not despill failure. F-D-ildoo has the same issue:
+# its trees, roof shadows, and landscaping contain intentional green tones.
+GREEN_RIM_EXEMPT_FAMILIES = {"F-B", "F-D-ildoo"}
 
 # A single coincidental near-#00FF00 pixel in hand-authored/original art
 # (never despill-generated) isn't residue -- real despill failures cluster in

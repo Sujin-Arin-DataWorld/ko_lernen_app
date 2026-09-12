@@ -144,17 +144,13 @@ class SyntheticDriftTest(unittest.TestCase):
         finally:
             drifted.unlink()
 
-    def test_estate_family_drift_is_also_rejected(self) -> None:
+    def test_ildu_family_drift_is_also_rejected(self) -> None:
         lock = style_lock.load_style_lock()
-        # rear_garden sits near the top of F-C-estate's satMean range
-        # (measured 0.525 of [0.24, 0.65]) -- a low-baseline file like sadang
-        # (0.264) can absorb a 1.6x/1.4x drift and stay in-range, which would
-        # make this test flaky by anchor choice rather than prove anything.
-        anchor = ROOT / "assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png"
+        anchor = ROOT / "assets/illustrations/personal_hanok_v3/world/sarangchae.png"
         self.assertTrue(anchor.exists())
         drifted = _drift_saturation_value(anchor, sat_mult=1.6, val_mult=1.4)
         try:
-            result = gate.check(drifted, lock, "F-C-estate")
+            result = gate.check(drifted, lock, "F-D-ildoo")
             self.assertFalse(result["ok"], result["failures"])
         finally:
             drifted.unlink()

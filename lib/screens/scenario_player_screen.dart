@@ -14,14 +14,13 @@ import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
 import '../models/hanok_competence.dart';
-import '../models/personal_hanok.dart';
+import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
-import '../services/hanok_stage_service.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
@@ -1140,26 +1139,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
     if (courseUpdate == null) return null;
     final catalog = await CurriculumCatalog.load();
-    final ratios = await HanokStageService.levelRatios();
     final beforeSnapshot =
         courseUpdate.previousSnapshot ?? courseUpdate.snapshot;
 
-    PersonalHanokProjection project(CourseMasterySnapshot snapshot) =>
-        PersonalHanokProjection.from(
-          ratios,
-          competence: HanokCompetenceProjection.fromSnapshot(
-            snapshot: snapshot,
-            courseUnits: catalog.courseUnits,
-          ),
-        );
+    HanokStage stageFor(CourseMasterySnapshot snapshot) =>
+        HanokCompetenceProjection.fromSnapshot(
+          snapshot: snapshot,
+          courseUnits: catalog.courseUnits,
+        ).stage;
 
     return ScenarioCanDoResult.fromSnapshot(
       snapshot: courseUpdate.snapshot,
       scenarioId: s.id,
       courseUnits: catalog.courseUnits,
       contentLinks: catalog.contentLinks,
-      structureStageBefore: project(beforeSnapshot).structureStage,
-      structureStageAfter: project(courseUpdate.snapshot).structureStage,
+      structureStageBefore: stageFor(beforeSnapshot),
+      structureStageAfter: stageFor(courseUpdate.snapshot),
     );
   }
 

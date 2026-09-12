@@ -36,24 +36,13 @@ void main() {
   });
 
   test(
-    'payment and level-history gates are gone while Hanok rooms and '
-    'progression rewards stay learning-gated (Jin 2026-09-06)',
+    'payment gates stay absent while retired Hanok V1 surfaces stay removed',
     () {
-      // Jin ruling 2026-09-06: subscription/paywall removal and open learning
-      // content stay, but the learning-progress Hanok construction/reward
-      // gating that 50a8d025 also removed is restored to main's behavior.
-      // Hanok rooms are a CEFR-progress reward, not paid content.
       final ildu = File(
         'lib/services/ildu_world_projection_adapter.dart',
       ).readAsStringSync();
       final room = File(
         'lib/screens/personal_room_furnish_screen.dart',
-      ).readAsStringSync();
-      final hanokCatalog = File(
-        'lib/data/personal_hanok_catalog.dart',
-      ).readAsStringSync();
-      final hanokMap = File(
-        'lib/widgets/sori/personal_hanok_map.dart',
       ).readAsStringSync();
       final de = File('lib/l10n/app_de.arb').readAsStringSync();
       final en = File('lib/l10n/app_en.arb').readAsStringSync();
@@ -62,14 +51,24 @@ void main() {
       expect(de, isNot(contains('ab A2 freigeschaltet')));
       expect(en, isNot(contains('unlock from A2')));
 
-      // Progression gating for Hanok surfaces is present (not force-opened).
-      expect(ildu, isNot(contains('bool isAvailable(IlDuWorldEra _) => true;')));
-      expect(room, contains('enforceUnlock'));
-      expect(room, contains('isUnlocked(_room.requires)'));
-      expect(hanokCatalog, contains('projection.isUnlocked'));
-      expect(hanokMap, contains('projection.isUnlocked'));
-      expect(de, contains('"personalRoomLockedTitle"'));
-      expect(en, contains('"personalRoomReturnToMap"'));
+      // The V3 world remains fail-closed without verified evidence, while the
+      // only shipped private room is a local furnishing surface.
+      expect(
+        ildu,
+        isNot(contains('bool isAvailable(IlDuWorldEra _) => true;')),
+      );
+      expect(ildu, contains('hasVerifiedEvidence'));
+      expect(room, contains('personalRoomFor(widget.surface)'));
+      expect(
+        File('lib/data/personal_hanok_catalog.dart').existsSync(),
+        isFalse,
+      );
+      expect(
+        File('lib/widgets/sori/personal_hanok_map.dart').existsSync(),
+        isFalse,
+      );
+      expect(de, isNot(contains('"personalRoomLockedTitle"')));
+      expect(en, isNot(contains('"personalRoomReturnToMap"')));
     },
   );
 

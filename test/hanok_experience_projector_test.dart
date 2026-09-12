@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/hanok_growth.dart';
+import 'package:ko_lernen_app/models/ildu_world_state.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/models/room_layout.dart';
 import 'package:ko_lernen_app/services/canonical_course_segment_loader.dart';
@@ -237,8 +238,8 @@ void main() {
         segmentCatalog: fixture.segments,
         assessmentCatalog: fixture.productive,
         grantCatalog: nonConstructionCatalog,
-        state: HanokState.fresh(
-          manifestVersion: nonConstructionCatalog.manifestVersion,
+        state: IlDuWorldState.fresh(
+          sourceManifestVersion: nonConstructionCatalog.manifestVersion,
         ),
         asOf: DateTime.utc(2026, 8, 16, 12),
       );
@@ -314,7 +315,9 @@ final class _Fixture {
         segmentCatalog: segments,
         assessmentCatalog: productive,
         grantCatalog: grants,
-        state: HanokState.fresh(manifestVersion: grants.manifestVersion),
+        state: IlDuWorldState.fresh(
+          sourceManifestVersion: grants.manifestVersion,
+        ),
         asOf: DateTime.utc(2026, 8, 16, 12),
       );
 }

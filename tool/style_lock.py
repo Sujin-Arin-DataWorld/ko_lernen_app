@@ -7,7 +7,7 @@ module's sibling tool/check_style_lock_docs.py enforces on the older docs):
     STYLE_LOCK.json  >  docs/HANOK_ASSET_INVENTORY_2026-08-17.md  >  docs/ASSET_GENERATION_BIBLE.md
 
 Nothing here mutates the file; this is a thin, validated accessor so other
-tools (asset_recipe.py, check_style_conformance.py) don't each re-parse and
+tools (such as check_style_conformance.py) don't each re-parse and
 re-guess the schema.
 
 Usage:

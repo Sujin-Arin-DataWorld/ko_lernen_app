@@ -12,6 +12,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/chip.dart';
 import '../../widgets/sori/external_link.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/localized_copy.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/sheet.dart';
@@ -1114,7 +1115,7 @@ Future<void> _showGatePreview(
                 child: AspectRatio(
                   aspectRatio: 1100 / 733,
                   child: Image.asset(
-                    'assets/illustrations/personal_hanok_v3/world/main-gate.png',
+                    kIlDuV3PreviewAsset,
                     key: const ValueKey('onboarding-v2-gate-preview-image'),
                     fit: BoxFit.contain,
                     semanticLabel: t.onboardingV2GatePreviewTitle,
