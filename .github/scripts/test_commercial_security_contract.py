@@ -68,7 +68,7 @@ class CommercialSecurityContractTest(unittest.TestCase):
         phase = workflow.split('  phase-ios-tests:\n', 1)[1].split('  release-internal:\n', 1)[0]
         _, privacy = self.ios_jobs()
         self.assertNotIn('flutter drive', privacy)
-        self.assertIn('timeout-minutes: 180', phase)
+        self.assertIn('timeout-minutes: 300', phase)
         self.assertIn("github.event_name == 'workflow_dispatch'", phase)
         self.assertIn('macos-15-intel', phase)
         self.assertIn('bash ios/ci_scripts/ci_post_clone.sh', phase)

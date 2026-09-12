@@ -22,7 +22,7 @@ import 'support/phase_native_configuration.dart';
 /// evidence after launching a fresh app process, without submitting another task.
 /// PHASE_NATIVE_MIC requires OS permission to be granted on the QA device.
 /// Emulator PCM delivery proves plugin operation, not physical microphone quality.
-void main() {
+Future<void> main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   final configuration = PhaseNativeConfiguration.fromRoute(
     // TestWidgetsFlutterBinding replaces its dispatcher route with '/'. Read
@@ -347,24 +347,23 @@ void main() {
     expect(tester.widget<TextFormField>(field).initialValue, '지금 도서관에 있어요.');
   }, skip: !restoreOnly);
 
-  testWidgets(
-    'published Phase audio resolves and finishes native playback',
-    (tester) async {
-      await Storage.init();
-      await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      );
-      final catalog = await PhaseTaskCatalog.load();
-      final level = qaLevel;
-      final listening = catalog.tasks
-          .where((t) => t.skill == 'listening' && t.level == level)
-          .toList();
-      expect(
-        listening,
-        isNotEmpty,
-        reason: 'No published listening tasks for $level',
-      );
-      for (final task in listening) {
+  if (!restoreOnly && const bool.fromEnvironment('PHASE_NATIVE_TTS')) {
+    final listening = (await PhaseTaskCatalog.load()).tasks
+        .where((t) => t.skill == 'listening' && t.level == qaLevel)
+        .toList();
+    test('the selected level has published listening tasks', () {
+      expect(listening, isNotEmpty);
+    });
+    // C1 through KP22 alone contains 18 minutes of actual MP3 audio. Each task
+    // gets its own clock and result so later packets cannot hide a failed one.
+    for (final task in listening) {
+      testWidgets('native playback ${task.id}', (tester) async {
+        await Storage.init();
+        if (Firebase.apps.isEmpty) {
+          await Firebase.initializeApp(
+            options: DefaultFirebaseOptions.currentPlatform,
+          );
+        }
         for (final packet in [task.practice, task.assessment]) {
           // Uses reviewed public content only, never a learner recording/answer.
           final played = await TtsService.speakPassage(
@@ -376,9 +375,7 @@ void main() {
             'PHASE_AUDIO_COMPLETED ${task.id} ${packet == task.assessment ? 'assessment' : 'practice'}',
           );
         }
-      }
-    },
-    skip: restoreOnly || !const bool.fromEnvironment('PHASE_NATIVE_TTS'),
-    timeout: const Timeout(Duration(minutes: 15)),
-  );
+      }, timeout: const Timeout(Duration(minutes: 10)));
+    }
+  }
 }

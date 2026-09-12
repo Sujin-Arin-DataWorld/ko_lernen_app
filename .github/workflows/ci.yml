@@ -471,7 +471,9 @@ jobs:
       github.event_name == 'workflow_dispatch' &&
       inputs.phase_native_level != 'off' && inputs.phase_native_level != ''
     runs-on: macos-15-intel
-    timeout-minutes: 180
+    # One cold Xcode build plus all six levels of real-time audio when selected.
+    # C1 through KP22 alone measures 18 minutes; each task has a shorter deadline.
+    timeout-minutes: 300
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
