@@ -92,4 +92,4 @@ def report(objectives):
     for row in objectives:
         if not row['bindings']:
             lines.append(f"- `{row['id']}`")
-    return '\n'.join(lines)+'\n'
+    return '\n'.join(lines).rstrip()+'\n'

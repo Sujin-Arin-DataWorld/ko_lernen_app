@@ -520,26 +520,36 @@ jobs:
           # Boot and install the Phase host before granting its microphone access.
           simulator_id="$(xcrun simctl list devices available -j | python3 -c 'import json,sys; devices=json.load(sys.stdin)["devices"]; candidates=[d for runtime, group in devices.items() if "iOS-" in runtime for d in group if d["isAvailable"] and d["name"].startswith("iPhone")]; candidates.sort(key=lambda d: d["state"] != "Booted"); print(candidates[0]["udid"])')"
           xcrun simctl bootstatus "$simulator_id" -b
-          flutter build ios --simulator --debug --no-pub --verbose \
+          flutter build ios --simulator --debug --no-pub --config-only \
             --target=integration_test/phase_tasks_native_test.dart \
             --dart-define=PHASE_NATIVE_MIC=true --dart-define=PHASE_NATIVE_TTS=true \
+            2>&1 | tee "$RUNNER_TEMP/phase-native-config.log"
+          # Use the concrete Intel destination and test build graph already used
+          # by privacy CI. Generic Flutter builds omitted Pods-Runner from their
+          # dependency graph and then failed while linking its framework.
+          xcodebuild build-for-testing -workspace ios/Runner.xcworkspace -scheme Runner \
+            -configuration Debug -destination "platform=iOS Simulator,id=$simulator_id,arch=x86_64" \
+            CODE_SIGNING_ALLOWED=NO ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES \
+            BUILD_DIR="$PWD/build/ios" FLUTTER_BUILD_MODE=debug \
             2>&1 | tee "$RUNNER_TEMP/phase-native-build.log"
-          xcrun simctl install "$simulator_id" build/ios/iphonesimulator/Runner.app
+          xcrun simctl install "$simulator_id" build/ios/Debug-iphonesimulator/Runner.app
           xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
           for qa_level in "${qa_levels[@]}"; do
             flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
-              --use-application-binary=build/ios/iphonesimulator/Runner.app \
+              --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
               --route="/phase-qa/$qa_level" \
               --driver=test_driver/phase_tasks_driver.dart \
               --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
               2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-driver.log"
+            cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-receipt.json"
             xcrun simctl terminate "$simulator_id" com.hangulsori.app
             flutter drive --no-pub --no-dds --no-uninstall-first \
-              --use-application-binary=build/ios/iphonesimulator/Runner.app \
+              --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
               --route="/phase-qa/$qa_level/restore" \
               --driver=test_driver/phase_tasks_driver.dart \
               --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
               2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-restore.log"
+            cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-restore-receipt.json"
           done
       - name: Retain Phase native results
         if: always()
@@ -547,9 +557,11 @@ jobs:
         with:
           name: phase-native-results
           path: |
+            ${{ runner.temp }}/phase-native-config.log
             ${{ runner.temp }}/phase-native-build.log
             ${{ runner.temp }}/phase-native-*-driver.log
             ${{ runner.temp }}/phase-native-*-restore.log
+            ${{ runner.temp }}/phase-native-*-receipt.json
           if-no-files-found: error
           retention-days: 3
 
