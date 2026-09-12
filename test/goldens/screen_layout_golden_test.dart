@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -185,6 +186,7 @@ void main() {
                     ),
                     context,
                   ),
+                  precacheImage(const AssetImage(kIlDuV3PreviewAsset), context),
                 ]);
               });
               await tester.pump();
