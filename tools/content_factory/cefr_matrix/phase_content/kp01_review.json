@@ -247,6 +247,162 @@
         "answer-rubric"
       ],
       "note": "Required known name is entered; unknown optional data stays blank by choice; missing required contact detail is requested, not invented. Passing the clarification task does not declare the underlying form complete."
+    },
+    {
+      "taskId": "KP01:production:01",
+      "sha256": "e72709beb75c92e8a6d33a2a5ae5f30d1d0628f93403bf18627bf5beb63b4fe6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: copula affiliation, not negative identity. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:02",
+      "sha256": "71fdd4d45b3fb691c68d9058bce6e85a193aa7673ac65321823eeb0b5f8231e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: negative copula with subject-specific particles. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:03",
+      "sha256": "48007bf55fd761c572bf3e4847a4f00beab1cdaaf83d9567631127837e12c0e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:04",
+      "sha256": "2aba010fc4877d5f39f6d4056722491c104baf06afb78cf8121f3c7e97241545",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: nominative actor, not object. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:05",
+      "sha256": "d3f4197b83c8a27644521cd7931a652d16525ca6f1c3ba85009c2bb5aa3ed1db",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: object particle for drinking/reading. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:06",
+      "sha256": "c8ef60e3ad990f059cac588561963aee1c850e7a56199ff11e7e11f0d3150728",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:07",
+      "sha256": "c3e0b813a9798308cad125fba3148cb13a25673a69d5e8ce27bb9dac366738cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:08",
+      "sha256": "436ecd9c0f8b75eb1cc4555ee53ea12908cbe4e8b3dd70bd9d2506d653d2b5b1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: companion marker, not exclusion. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:09",
+      "sha256": "1a329c11dbeb8a28bc69a8d01d7173a1b545af22979498538cb4db80fbd63c59",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: colloquial conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:10",
+      "sha256": "11beb8ce23ccaaf5c242fce22f9d5be73c8aee79c80fdbb8bfa1ecdab54ea42e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: polite endings with adjective conjugation. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:11",
+      "sha256": "d04a5236df40194c85631d765be024b3f0a68dcae6e6efb050b8513737ad5aa5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: formal statement, not question. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:production:12",
+      "sha256": "ec381b42e48ce67c28d40c27486c6a8d8422496e78fa3e9a44711694c985af0e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: unknown identity asked, not asserted. Bounded sentence only; unlisted appropriate wording remains unscored."
     }
   ]
 }

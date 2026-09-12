@@ -113,6 +113,32 @@ void main() {
         scrollable: find.byType(Scrollable).first,
       );
       expect(tester.widget<TextFormField>(field).initialValue, draft);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpWidget(
+        host(
+          PhaseTaskScreen(
+            arguments: const PhaseTaskRoute('KP06', 'KP06:writing:02'),
+            loader: () async => catalog,
+            saveAttempt: (result) async => saved = result,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tap(tester, find.widgetWithText(ChoiceChip, 'Assess'));
+      await tester.scrollUntilVisible(
+        field,
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(
+        tester
+            .widget<EditableText>(
+              find.descendant(of: field, matching: find.byType(EditableText)),
+            )
+            .controller
+            .text,
+        draft,
+      );
     },
   );
   testWidgets(

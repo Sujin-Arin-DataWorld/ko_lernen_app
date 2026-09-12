@@ -1755,6 +1755,512 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이다:P",
+      "taskId": "KP01:production:01",
+      "sourceHash": "62442fda47e5004f289b87f24627e24811c7166e1a3a7a32c4b40ec35980389c",
+      "taskHash": "e72709beb75c92e8a6d33a2a5ae5f30d1d0628f93403bf18627bf5beb63b4fe6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. copula affiliation, not negative identity. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이 아니다:P",
+      "taskId": "KP01:production:02",
+      "sourceHash": "4491668e2d23ecc5717c53567500eaad2dfff6158f0eae0cd0d82d5bde6a8b0d",
+      "taskHash": "71fdd4d45b3fb691c68d9058bce6e85a193aa7673ac65321823eeb0b5f8231e1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. negative copula with subject-specific particles. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:은1:P",
+      "taskId": "KP01:production:03",
+      "sourceHash": "c811eb8f45aeeb6d687981a67077ed7e120f77dd1f0d4c067a428038d0f9bcda",
+      "taskHash": "48007bf55fd761c572bf3e4847a4f00beab1cdaaf83d9567631127837e12c0e1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrastive topic retains the second person occupation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이:P",
+      "taskId": "KP01:production:04",
+      "sourceHash": "ebf3fd6f0eab1c49c292843ecb3daf3e4e1410e022d6cfa3e20cf8675b9e1183",
+      "taskHash": "2aba010fc4877d5f39f6d4056722491c104baf06afb78cf8121f3c7e97241545",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. nominative actor, not object. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:을1:P",
+      "taskId": "KP01:production:05",
+      "sourceHash": "0ed5d3211f2d47e362e6f8f65224a20ca1d2ab702d60908e05ee2d606afe8d8a",
+      "taskHash": "d3f4197b83c8a27644521cd7931a652d16525ca6f1c3ba85009c2bb5aa3ed1db",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. object particle for drinking/reading. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:의:P",
+      "taskId": "KP01:production:06",
+      "sourceHash": "e94c5f75015e412085401d52d2d8bf105de663a3ddab4494ae7a3e9e81770ed0",
+      "taskHash": "c8ef60e3ad990f059cac588561963aee1c850e7a56199ff11e7e11f0d3150728",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. named possessor, not learner ownership. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:과:P",
+      "taskId": "KP01:production:07",
+      "sourceHash": "a7559907e18a7e3461ebbd9f30f605a8063a1e211b5786a67baffcecc3c7c94f",
+      "taskHash": "c3e0b813a9798308cad125fba3148cb13a25673a69d5e8ce27bb9dac366738cd",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이랑:P",
+      "taskId": "KP01:production:08",
+      "sourceHash": "67df1ce323bb53e5e9822bc691ef44a187c7aa9492d6e362c280733de13ced2f",
+      "taskHash": "436ecd9c0f8b75eb1cc4555ee53ea12908cbe4e8b3dd70bd9d2506d653d2b5b1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. companion marker, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:하고:P",
+      "taskId": "KP01:production:09",
+      "sourceHash": "5c33067e8c7f199a737c6c6f0f92461d8d72d2bdb4bb20edd787e147492a2228",
+      "taskHash": "1a329c11dbeb8a28bc69a8d01d7173a1b545af22979498538cb4db80fbd63c59",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. colloquial conjunction includes both items. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-어2:P",
+      "taskId": "KP01:production:10",
+      "sourceHash": "4eae6d2e498489d809908c9c708bc7f8678dbbe487364781107d43fc58eb1d44",
+      "taskHash": "11beb8ce23ccaaf5c242fce22f9d5be73c8aee79c80fdbb8bfa1ecdab54ea42e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite endings with adjective conjugation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-습니다:P",
+      "taskId": "KP01:production:11",
+      "sourceHash": "15d73d2b9ad023d51ed1dfb1457daf49f02806fc96ed3aff6220063cc6e08935",
+      "taskHash": "d04a5236df40194c85631d765be024b3f0a68dcae6e6efb050b8513737ad5aa5",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal statement, not question. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-습니까:P",
+      "taskId": "KP01:production:12",
+      "sourceHash": "0814308c8bb258df516e78a957bc7de33575e991bb5e508a548828403ab6aa9e",
+      "taskHash": "ec381b42e48ce67c28d40c27486c6a8d8422496e78fa3e9a44711694c985af0e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. unknown identity asked, not asserted. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:에:P",
+      "taskId": "KP02:production:01",
+      "sourceHash": "f0336194991db06a95cdb0e3d5db07e30ea5eb3aafb8914c82f25a0aaa2f627e",
+      "taskHash": "e73a345c25c82aeae003172c647850a7c9e0cdc6566a50e7e2cf053073d8c6ce",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. destination, not action location. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:에서:P",
+      "taskId": "KP02:production:02",
+      "sourceHash": "42c1a59d031a1c9d3ce486a2aea406e3fc72d073e926675eb8792c14d7e4cfaf",
+      "taskHash": "90af0180485ca20500fae98d41e171d394021c16fea57b29e6c86608d8f46b0b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. action location, not destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:부터:P",
+      "taskId": "KP02:production:03",
+      "sourceHash": "810eeb0fe510eea269a2bcc1316a12c25fa2b7f82322a75b4093a4d2cfebd260",
+      "taskHash": "b2af2ae96193fea1cbb256d90ea5acbe6e2d894860e86df25552ba140c47b517",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. start, not end. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:까지:P",
+      "taskId": "KP02:production:04",
+      "sourceHash": "e6cc98d0a4c3ee1db312b854a35e7727899a4b9dca42b57d1c3420b40cfc5b4e",
+      "taskHash": "c7b895471619e70dc5d2039d2e9ec14012b6086dd5fb581486f8f6208b7bbc9e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. end, not start. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:으로:P",
+      "taskId": "KP02:production:05",
+      "sourceHash": "5c241d199d2b24da849c8aed6d1cb7079ba7fb46dacc909be974bdec48dd6d25",
+      "taskHash": "b1640a43965cf4979adbda3c471db69d8d41e21e599cde4f1d455f1a93dfd41e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. transport means with ㄹ exception 로. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-었-:P",
+      "taskId": "KP02:production:06",
+      "sourceHash": "2f39a9e6b1046b6d2c7ce2630459ba715efc49940eb4f369e029df3da55f4558",
+      "taskHash": "4164b20cf9ca950bf567edfe601eb076e6cdb941d7e48a88e89bfbf202eed1b3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. completed yesterday, not tomorrow. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-고3:P",
+      "taskId": "KP02:production:07",
+      "sourceHash": "07f86a2c6aa81cbb683373c2b683c61e03eac2c80f9139a9c21ef96cae8d60b0",
+      "taskHash": "68a44af7339d75c296fea669606dffe0b55dc4393965bf8a8d9583ac022a1aae",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. two actions preserve explicit order. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-지 않다:P",
+      "taskId": "KP02:production:08",
+      "sourceHash": "9bb8a75d6426441bfa8a7a42ddb7f98a10c103a2bd2c5cd1ee6740ae35de7ede",
+      "taskHash": "63eb7592160cebd59363b55740ddc2bc6bcb5ebaa1f38c856aaa870875fde17e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. explicit negative statement. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-지 못하다:P",
+      "taskId": "KP02:production:09",
+      "sourceHash": "d1c402a4953038695a9975094131be6cee57d7016d2f694457dd9bebb2823c49",
+      "taskHash": "a082ae8a3e3a6676de9c0bb591469295f073a981d1ebff2548386cbd654ae8de",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. situational inability, not completion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:도:P",
+      "taskId": "KP02:production:10",
+      "sourceHash": "90a09b5a6f2acf4674fa96e58fa2f7155e4457d13cbf78614c46f765281ad647",
+      "taskHash": "a7d95cc5afdfe72c40dcacd0ad201250ee7026b1cb9135fbf5c9123daa7e56a6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. inclusion, not exclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:만:P",
+      "taskId": "KP02:production:11",
+      "sourceHash": "5f26fcfb005cc898ad9a5e7c6f2ad7eb64242d6974eaa6f7874b6c9f243f0c9f",
+      "taskHash": "574180ec43984e565b34b78a8568d6af92551265ee62985335a525fe862fbfee",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. exclusion, not inclusion. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:에게:P",
+      "taskId": "KP03:production:01",
+      "sourceHash": "f9c686e6c67baf5f071a7311f5433d769c0ba79f62ff3b86116a9c5e10f5d4bc",
+      "taskHash": "5bd4f79129703adfedb06ba02c198ed898a3a6e5987e66ce3712e03f417c0db8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. recipient of giving, not source of receiving. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:한테:P",
+      "taskId": "KP03:production:02",
+      "sourceHash": "e23b839eee21c3d059277d64eff767ffec38dce3b8ca3c94e109108b764284e1",
+      "taskHash": "e8c8af5cfdc821416887e3bf4eef4bafe799b0c312ef514b26178363f1e96342",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. call recipient, not caller. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으러:P",
+      "taskId": "KP03:production:03",
+      "sourceHash": "3f4f475034966389c596abe5e925d7780a05439d62d2c86a04ee7e9e9af59e49",
+      "taskHash": "82e28ecdcac8421bb7d803891830b1dbe103670ad25aa64072fabdd5824ce68b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. motion purpose with correct object/destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으려고1:P",
+      "taskId": "KP03:production:04",
+      "sourceHash": "6993ac642e7fe39a64f6181144af9465b2ce63b09551223d233ab55d3bb73196",
+      "taskHash": "8839eb8b6b8be322e4f3f352696c51efb332f03673054974c92335229997947d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. intended purpose preserves object and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-고 싶다:P",
+      "taskId": "KP03:production:05",
+      "sourceHash": "f1803463b64e22b5de5984cdbe403f34db6d361d1d0133b3219ce73a30d9a1f5",
+      "taskHash": "a027c116dedf6bdd5ad771ccf0e0ecfbc58c4fa87e17b3d3ce448e96a1653f02",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. own desire, not ongoing action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-고 있다:P",
+      "taskId": "KP03:production:06",
+      "sourceHash": "16d2a21352e507988be0eb09798b98ab40bc55a80aae034e84cf09a70aa4562e",
+      "taskHash": "37032232fabf099fec7ad68bf4cba3e3378b9eaaa08f91b3f017874f112ad6ab",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ongoing event, not completed yesterday. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-을 수 있다:P",
+      "taskId": "KP03:production:07",
+      "sourceHash": "d9b138f9755723c20a0804d88008c461c76ff14e8e015e91a47f71820505a3d0",
+      "taskHash": "98016f5bf4e78afac3b9a221eeb564bc782cb295d51447d2276aea95f1698ab2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ability positive, not inability. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-겠-:P",
+      "taskId": "KP03:production:08",
+      "sourceHash": "aa88a2466f251c2361b64ad980bfaf8e1295121d118422db419c45bfbbda8651",
+      "taskHash": "cda41331840a8a3220495ddbeee6bc7f085e9e2fc992ad3e063f049ae0433980",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. voluntary first-person commitment, not past action. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으세요:P",
+      "taskId": "KP03:production:09",
+      "sourceHash": "6e0084d955e6e1d5374889ce75cd6621a3c2bfb81554ba5a0100dcc1d2bb4d34",
+      "taskHash": "5c5562eadae3f1395c8d7a52d50c3c05c8ec3ade8b4d713411dc8b3bde23739d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite request, not unlicensed casual command. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으십시오:P",
+      "taskId": "KP03:production:10",
+      "sourceHash": "9a32be47c637433e1104d01d0661fad94d6d23160619ae47948d981d02caa4e0",
+      "taskHash": "15ec1b6f2a02f4d16f044b9f7c46f32782c388b0e0acdd1ebdc01e4cb419fb87",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. formal directive, not declarative report. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-을까:P",
+      "taskId": "KP03:production:11",
+      "sourceHash": "36b91ebdaa9903025d6eb06657e329a417786018166f64a92213d4265011a385",
+      "taskHash": "99254e81faec2fcf0343b3e17b3829da07494a035e0096b4ad6354d5efe81829",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. open shared proposal, not obligation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-읍시다:P",
+      "taskId": "KP03:production:12",
+      "sourceHash": "621d3746dc4fd130ac7d48be334a3bc7ca2194ecbff3a986de27c5a2c1ee185a",
+      "taskHash": "d8ec07cc3a72eacbd47df350a20df3f15393b54e9b6ceedcbc1d61c2be019668",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. shared team proposal, not command only to listener. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-으시-:P",
+      "taskId": "KP04:production:01",
+      "sourceHash": "6003ed446067f1aa36b74bd74ed88a5fef9ada49b6d0371b1d706756e7e4ca5e",
+      "taskHash": "0e545db8261a81618f74ce4440218eb05d89c2205e825b53f7a6ff2b32eceab1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. subject honorific separately from listener politeness. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:께서:P",
+      "taskId": "KP04:production:02",
+      "sourceHash": "5966b5fb8d6d7f3ae7f07edd552a8f087b3635795b02725b50de5ca04a21d48e",
+      "taskHash": "10f93bbe95e379c0cd0204d4ddbbfdbb64eb37368d979da83ee4a2b628fd95d6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. honored subject, not honored recipient. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-어서:P",
+      "taskId": "KP04:production:03",
+      "sourceHash": "ca3947a33bd39d2342cdd492528b1a711a2f7f4ceae64d03f0048a3a9a46f920",
+      "taskHash": "9ff977b6a002435e5f210abf7c5dcb87711ca0672cd470066ac0398588d4597a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. cause and result direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-으니까:P",
+      "taskId": "KP04:production:04",
+      "sourceHash": "4715343006f1d06a5d6d48bdb8cd1c766e2b600e34b308b870067f06e8480605",
+      "taskHash": "cd97a2328e853c1fab5c9423ac85c922441c9bb71f7ffe1acc60e381a93a1dae",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. ground for request preserves polarity and destination. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-지만:P",
+      "taskId": "KP04:production:05",
+      "sourceHash": "802de124968b3adcb60db0fc0955fd5f8e01f123b7c278cb3ea20d7a47e3a985",
+      "taskHash": "382b1c0631941427b2beff99ab2d3449ef5ee772b28dde31407928d24ddb5928",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrast preserves both stated qualities. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:보다:P",
+      "taskId": "KP04:production:06",
+      "sourceHash": "93847fdcaeb583318b81b3db1e74b7a2db94499fefdc1e8140008d9123ed80f0",
+      "taskHash": "ca15529a82b5516fca0af6ebcd2c8072fa6da0668b0b864cafc2eb3c3fcc70de",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. comparison direction. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-고4:P",
+      "taskId": "KP04:production:07",
+      "sourceHash": "7c0d0e7d61e764c2f2f0efe83ab4547f3e4b0e6fd11b5d857056c8c36363ed9d",
+      "taskHash": "e40f23d9e73f33eb13a0b7c3dde30ad4fea640e330dcc3b7fdaa0b6679cb2c9f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. sentence-final added information, not opposite quality. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-기 전에:P",
+      "taskId": "KP04:production:08",
+      "sourceHash": "41950434b50ebe136662be67928445d770279719f385d2350dbaade217069b6e",
+      "taskHash": "94f7b57bdb8bb32a1f2fd57d4d500a3683e07ed365805cb4f014e0d315f1c911",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. before-order, not after. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-은 후에:P",
+      "taskId": "KP04:production:09",
+      "sourceHash": "3cdc6077b6b9d650205553e00e8f153fdf33ad9e68c00a7369a9210950b0aa70",
+      "taskHash": "d70552f0b36523319dcf7dba63a8e0e7a452bab8356859589db3b4ce0385cbe8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. after-order, not before. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-어야 되다:P",
+      "taskId": "KP04:production:10",
+      "sourceHash": "529bd4068f20dc92b82d420b7ff726ba3f40775fb423429cb679b2d076a4686d",
+      "taskHash": "ef2a408491adeaab198b6678ad70ff156992850f3f60f5a7e2991cd70699bde5",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. requirement, not mere permission. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-겠-:P",
+      "taskId": "KP04:production:11",
+      "sourceHash": "6fda8ee555d2ad748789238684f37eba18c8b11feed1a8a864d0949ef6055163",
+      "taskHash": "b09c6b5b35f94d0b8f5508c747d72ec8c00ecf043e08ec8c637c128ebcb9ecea",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. evidence-based inference, not first-person resolve. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
     }
   ]
 }

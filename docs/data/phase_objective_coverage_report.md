@@ -6,10 +6,10 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 | Phase | 필수 요구 | 경로 연결 | 미연결 | 전체 숙달 |
 |---|---:|---:|---:|---|
-| KP01 | 58 | 16 | 42 | 미검증 |
-| KP02 | 54 | 15 | 39 | 미검증 |
-| KP03 | 57 | 16 | 41 | 미검증 |
-| KP04 | 57 | 15 | 42 | 미검증 |
+| KP01 | 58 | 28 | 30 | 미검증 |
+| KP02 | 54 | 26 | 28 | 미검증 |
+| KP03 | 57 | 28 | 29 | 미검증 |
+| KP04 | 57 | 26 | 31 | 미검증 |
 | KP05 | 57 | 17 | 40 | 미검증 |
 | KP06 | 56 | 22 | 34 | 미검증 |
 | KP07 | 56 | 21 | 35 | 미검증 |
@@ -39,18 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP01:objective:grammar/G1:이다:P`
-- `KP01:objective:grammar/G1:이 아니다:P`
-- `KP01:objective:grammar/G1:은1:P`
-- `KP01:objective:grammar/G1:이:P`
-- `KP01:objective:grammar/G1:을1:P`
-- `KP01:objective:grammar/G1:의:P`
-- `KP01:objective:grammar/G1:과:P`
-- `KP01:objective:grammar/G1:이랑:P`
-- `KP01:objective:grammar/G1:하고:P`
-- `KP01:objective:grammar/G1:-어2:P`
-- `KP01:objective:grammar/G1:-습니다:P`
-- `KP01:objective:grammar/G1:-습니까:P`
 - `KP01:objective:listening/genre/dialogue_face_to_face:R`
 - `KP01:objective:reading/genre/sign_notice_short:R`
 - `KP01:objective:speaking/genre/dialogue_face_to_face:P`
@@ -81,17 +69,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP01:objective:phonology/1:P`
 - `KP01:objective:register/hapsyo_formal_business:R`
 - `KP01:objective:register/haeyo_polite:P`
-- `KP02:objective:grammar/G1:에:P`
-- `KP02:objective:grammar/G1:에서:P`
-- `KP02:objective:grammar/G1:부터:P`
-- `KP02:objective:grammar/G1:까지:P`
-- `KP02:objective:grammar/G1:으로:P`
-- `KP02:objective:grammar/G1:-었-:P`
-- `KP02:objective:grammar/G1:-고3:P`
-- `KP02:objective:grammar/G1:-지 않다:P`
-- `KP02:objective:grammar/G1:-지 못하다:P`
-- `KP02:objective:grammar/G1:도:P`
-- `KP02:objective:grammar/G1:만:P`
 - `KP02:objective:listening/genre/public_announcement_spoken:R`
 - `KP02:objective:listening/genre/phone_call:R`
 - `KP02:objective:reading/genre/menu_pricelist_timetable:R`
@@ -120,18 +97,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP02:objective:phonology/1:R`
 - `KP02:objective:phonology/1:P`
 - `KP02:objective:register/haeyo_polite:P`
-- `KP03:objective:grammar/G1:에게:P`
-- `KP03:objective:grammar/G1:한테:P`
-- `KP03:objective:grammar/G1:-으러:P`
-- `KP03:objective:grammar/G1:-으려고1:P`
-- `KP03:objective:grammar/G1:-고 싶다:P`
-- `KP03:objective:grammar/G1:-고 있다:P`
-- `KP03:objective:grammar/G1:-을 수 있다:P`
-- `KP03:objective:grammar/G1:-겠-:P`
-- `KP03:objective:grammar/G1:-으세요:P`
-- `KP03:objective:grammar/G1:-으십시오:P`
-- `KP03:objective:grammar/G1:-을까:P`
-- `KP03:objective:grammar/G1:-읍시다:P`
 - `KP03:objective:listening/genre/service_encounter_counter:R`
 - `KP03:objective:reading/genre/menu_pricelist_timetable:R`
 - `KP03:objective:speaking/genre/service_encounter_counter:P`
@@ -161,17 +126,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP03:objective:phonology/1:R`
 - `KP03:objective:phonology/1:P`
 - `KP03:objective:register/haeyo_polite:P`
-- `KP04:objective:grammar/G1:-으시-:P`
-- `KP04:objective:grammar/G1:께서:P`
-- `KP04:objective:grammar/G1:-어서:P`
-- `KP04:objective:grammar/G1:-으니까:P`
-- `KP04:objective:grammar/G1:-지만:P`
-- `KP04:objective:grammar/G1:보다:P`
-- `KP04:objective:grammar/G1:-고4:P`
-- `KP04:objective:grammar/G1:-기 전에:P`
-- `KP04:objective:grammar/G1:-은 후에:P`
-- `KP04:objective:grammar/G1:-어야 되다:P`
-- `KP04:objective:grammar/G1:-겠-:P`
 - `KP04:objective:listening/genre/song_lyric_line:R`
 - `KP04:objective:listening/genre/dialogue_face_to_face:R`
 - `KP04:objective:speaking/genre/dialogue_face_to_face:P`

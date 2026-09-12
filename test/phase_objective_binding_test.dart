@@ -25,8 +25,10 @@ void main() {
       expect(
         catalog.objectives
             .singleWhere((o) => o.id == 'KP01:objective:grammar/G1:이다:P')
-            .bindings,
-        isEmpty,
+            .bindings
+            .single
+            .taskId,
+        'KP01:production:01',
       );
     },
   );

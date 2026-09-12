@@ -208,6 +208,149 @@
         "answer-rubric"
       ],
       "note": "Original lyric is a spoken reading, not sung-rhythm assessment; emotion metaphor separated from literal room/weather claims."
+    },
+    {
+      "taskId": "KP04:production:01",
+      "sha256": "0e545db8261a81618f74ce4440218eb05d89c2205e825b53f7a6ff2b32eceab1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: subject honorific separately from listener politeness. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:02",
+      "sha256": "10f93bbe95e379c0cd0204d4ddbbfdbb64eb37368d979da83ee4a2b628fd95d6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: honored subject, not honored recipient. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:03",
+      "sha256": "9ff977b6a002435e5f210abf7c5dcb87711ca0672cd470066ac0398588d4597a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: cause and result direction. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:04",
+      "sha256": "cd97a2328e853c1fab5c9423ac85c922441c9bb71f7ffe1acc60e381a93a1dae",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: ground for request preserves polarity and destination. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:05",
+      "sha256": "382b1c0631941427b2beff99ab2d3449ef5ee772b28dde31407928d24ddb5928",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: contrast preserves both stated qualities. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:06",
+      "sha256": "ca15529a82b5516fca0af6ebcd2c8072fa6da0668b0b864cafc2eb3c3fcc70de",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: comparison direction. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:07",
+      "sha256": "e40f23d9e73f33eb13a0b7c3dde30ad4fea640e330dcc3b7fdaa0b6679cb2c9f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: sentence-final added information, not opposite quality. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:08",
+      "sha256": "94f7b57bdb8bb32a1f2fd57d4d500a3683e07ed365805cb4f014e0d315f1c911",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: before-order, not after. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:09",
+      "sha256": "d70552f0b36523319dcf7dba63a8e0e7a452bab8356859589db3b4ce0385cbe8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: after-order, not before. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:10",
+      "sha256": "ef2a408491adeaab198b6678ad70ff156992850f3f60f5a7e2991cd70699bde5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: requirement, not mere permission. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:production:11",
+      "sha256": "b09c6b5b35f94d0b8f5508c747d72ec8c00ecf043e08ec8c637c128ebcb9ecea",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: evidence-based inference, not first-person resolve. Bounded sentence only; unlisted appropriate wording remains unscored."
     }
   ]
 }

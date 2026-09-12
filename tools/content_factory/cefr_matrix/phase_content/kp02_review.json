@@ -234,6 +234,149 @@
         "answer-rubric"
       ],
       "note": "Connected phrases distinguish home/school and arrival/end times; phonetic linking is coached, only place and time choices are scored. Reviewed source and answer directions in both modes."
+    },
+    {
+      "taskId": "KP02:production:01",
+      "sha256": "e73a345c25c82aeae003172c647850a7c9e0cdc6566a50e7e2cf053073d8c6ce",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: destination, not action location. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:02",
+      "sha256": "90af0180485ca20500fae98d41e171d394021c16fea57b29e6c86608d8f46b0b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: action location, not destination. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:03",
+      "sha256": "b2af2ae96193fea1cbb256d90ea5acbe6e2d894860e86df25552ba140c47b517",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: start, not end. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:04",
+      "sha256": "c7b895471619e70dc5d2039d2e9ec14012b6086dd5fb581486f8f6208b7bbc9e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: end, not start. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:05",
+      "sha256": "b1640a43965cf4979adbda3c471db69d8d41e21e599cde4f1d455f1a93dfd41e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: transport means with ㄹ exception 로. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:06",
+      "sha256": "4164b20cf9ca950bf567edfe601eb076e6cdb941d7e48a88e89bfbf202eed1b3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: completed yesterday, not tomorrow. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:07",
+      "sha256": "68a44af7339d75c296fea669606dffe0b55dc4393965bf8a8d9583ac022a1aae",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: two actions preserve explicit order. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:08",
+      "sha256": "63eb7592160cebd59363b55740ddc2bc6bcb5ebaa1f38c856aaa870875fde17e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: explicit negative statement. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:09",
+      "sha256": "a082ae8a3e3a6676de9c0bb591469295f073a981d1ebff2548386cbd654ae8de",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: situational inability, not completion. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:10",
+      "sha256": "a7d95cc5afdfe72c40dcacd0ad201250ee7026b1cb9135fbf5c9123daa7e56a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: inclusion, not exclusion. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:production:11",
+      "sha256": "574180ec43984e565b34b78a8568d6af92551265ee62985335a525fe862fbfee",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: exclusion, not inclusion. Bounded sentence only; unlisted appropriate wording remains unscored."
     }
   ]
 }

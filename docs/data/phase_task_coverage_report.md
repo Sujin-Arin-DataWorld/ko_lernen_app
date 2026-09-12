@@ -6,10 +6,10 @@
 
 | Phase | 레벨 | 원본 문법 키 | R 연결 키 | P 연결 키 | 과제 | 구조화 채점 과제 | 자유 응답 미검증 | 전체 숙달 |
 |---|---|---:|---:|---:|---:|---:|---|---|
-| KP01 | A1 | 12 | 12 | 0 | 19 | 18 | writing, speaking, writing | 미검증 |
-| KP02 | A1 | 11 | 11 | 0 | 18 | 17 | writing, speaking, writing | 미검증 |
-| KP03 | A1 | 12 | 12 | 0 | 17 | 16 | writing, speaking | 미검증 |
-| KP04 | A1 | 11 | 11 | 0 | 16 | 15 | writing, speaking | 미검증 |
+| KP01 | A1 | 12 | 12 | 12 | 31 | 30 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP02 | A1 | 11 | 11 | 11 | 29 | 28 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP03 | A1 | 12 | 12 | 12 | 29 | 28 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP04 | A1 | 11 | 11 | 11 | 27 | 26 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
 | KP05 | A2 | 9 | 9 | 0 | 17 | 15 | writing, speaking, writing, speaking | 미검증 |
 | KP06 | A2 | 14 | 14 | 0 | 22 | 21 | writing, speaking, writing, writing | 미검증 |
 | KP07 | A2 | 13 | 13 | 0 | 20 | 19 | writing, speaking, writing | 미검증 |

@@ -48,7 +48,19 @@
         "KP01:speaking:01",
         "KP01:reading:02",
         "KP01:listening:02",
-        "KP01:writing:02"
+        "KP01:writing:02",
+        "KP01:production:01",
+        "KP01:production:02",
+        "KP01:production:03",
+        "KP01:production:04",
+        "KP01:production:05",
+        "KP01:production:06",
+        "KP01:production:07",
+        "KP01:production:08",
+        "KP01:production:09",
+        "KP01:production:10",
+        "KP01:production:11",
+        "KP01:production:12"
       ],
       "taskCoverage": "partial"
     },
@@ -95,7 +107,18 @@
         "KP02:speaking:01",
         "KP02:listening:02",
         "KP02:writing:02",
-        "KP02:listening:03"
+        "KP02:listening:03",
+        "KP02:production:01",
+        "KP02:production:02",
+        "KP02:production:03",
+        "KP02:production:04",
+        "KP02:production:05",
+        "KP02:production:06",
+        "KP02:production:07",
+        "KP02:production:08",
+        "KP02:production:09",
+        "KP02:production:10",
+        "KP02:production:11"
       ],
       "taskCoverage": "partial"
     },
@@ -144,7 +167,19 @@
         "KP03:reading:01",
         "KP03:writing:01",
         "KP03:speaking:01",
-        "KP03:listening:02"
+        "KP03:listening:02",
+        "KP03:production:01",
+        "KP03:production:02",
+        "KP03:production:03",
+        "KP03:production:04",
+        "KP03:production:05",
+        "KP03:production:06",
+        "KP03:production:07",
+        "KP03:production:08",
+        "KP03:production:09",
+        "KP03:production:10",
+        "KP03:production:11",
+        "KP03:production:12"
       ],
       "taskCoverage": "partial"
     },
@@ -189,7 +224,18 @@
         "KP04:reading:01",
         "KP04:writing:01",
         "KP04:speaking:01",
-        "KP04:listening:02"
+        "KP04:listening:02",
+        "KP04:production:01",
+        "KP04:production:02",
+        "KP04:production:03",
+        "KP04:production:04",
+        "KP04:production:05",
+        "KP04:production:06",
+        "KP04:production:07",
+        "KP04:production:08",
+        "KP04:production:09",
+        "KP04:production:10",
+        "KP04:production:11"
       ],
       "taskCoverage": "partial"
     },
@@ -975,5 +1021,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "879d7beafc2f6abdc7cb211645d264b4e52ac14713fff26443aed5450cb085ce"
+  "phaseTaskSourceSha256": "064f670123d4662d82fee66719a8b5b92567ec65697cc922bd77e0930ecc7fa4"
 }

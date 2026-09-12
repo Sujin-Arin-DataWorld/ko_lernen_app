@@ -2422,6 +2422,1026 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP01:production:01",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:01",
+      "requirementKeys": [
+        "G1:이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이다 문장 만들기",
+        "en": "이다: write a sentence",
+        "de": "이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사에 이에요/예요를 붙여 정체를 말해요. 받침이 있으면 이에요, 없으면 예요를 써요.",
+        "en": "Use 이에요 after a consonant and 예요 after a vowel to identify someone or something.",
+        "de": "Mit 이에요 nach einem Konsonanten und 예요 nach einem Vokal sagst du, wer oder was jemand ist."
+      },
+      "examplesKo": [
+        "저는 학생이에요.",
+        "저는 의사예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "미나 / 의사 / 해요체 소개",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "미나는 의사예요."
+            ],
+            "rejectedAnswers": [
+              "미나는 의사가 아니에요."
+            ],
+            "explanation": {
+              "ko": "예: 미나는 의사예요. 의미가 다른 예: 미나는 의사가 아니에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 미나는 의사예요. Meaning or register error: 미나는 의사가 아니에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 미나는 의사예요. Fehler bei Bedeutung oder Register: 미나는 의사가 아니에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "준호 / 학생 / 해요체 소개",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "준호는 학생이에요."
+            ],
+            "rejectedAnswers": [
+              "준호는 선생님이에요."
+            ],
+            "explanation": {
+              "ko": "예: 준호는 학생이에요. 의미가 다른 예: 준호는 선생님이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 준호는 학생이에요. Meaning or register error: 준호는 선생님이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 준호는 학생이에요. Fehler bei Bedeutung oder Register: 준호는 선생님이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:02",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:02",
+      "requirementKeys": [
+        "G1:이 아니다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이 아니다 문장 만들기",
+        "en": "이 아니다: write a sentence",
+        "de": "이 아니다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사의 정체를 부정할 때 이/가 아니에요를 써요. 받침 뒤에는 이, 모음 뒤에는 가를 붙여요.",
+        "en": "Use 이/가 아니에요 to say that someone or something is not the named identity.",
+        "de": "Mit 이/가 아니에요 verneinst du eine Identität: 이 nach einem Konsonanten, 가 nach einem Vokal."
+      },
+      "examplesKo": [
+        "저는 선생님이 아니에요.",
+        "저는 의사가 아니에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나 / 학생 아님 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 학생이 아니에요."
+            ],
+            "rejectedAnswers": [
+              "저는 학생이에요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 학생이 아니에요. 의미가 다른 예: 저는 학생이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 학생이 아니에요. Meaning or register error: 저는 학생이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 학생이 아니에요. Fehler bei Bedeutung oder Register: 저는 학생이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나 / 의사 아님 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 의사가 아니에요."
+            ],
+            "rejectedAnswers": [
+              "저는 의사예요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 의사가 아니에요. 의미가 다른 예: 저는 의사예요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 의사가 아니에요. Meaning or register error: 저는 의사예요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 의사가 아니에요. Fehler bei Bedeutung oder Register: 저는 의사예요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:03",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:03",
+      "requirementKeys": [
+        "G1:은1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "은/는 문장 만들기",
+        "en": "은/는: write a sentence",
+        "de": "은/는: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "은/는은 이야기의 화제나 대조되는 대상을 표시해요. 받침 뒤에는 은, 모음 뒤에는 는을 써요.",
+        "en": "은/는 marks a topic or contrast. Use 은 after a consonant and 는 after a vowel.",
+        "de": "은/는 markiert ein Thema oder einen Gegensatz: 은 nach einem Konsonanten, 는 nach einem Vokal."
+      },
+      "examplesKo": [
+        "저는 학생이에요. 동생은 회사원이에요.",
+        "민수는 학생이에요. 지현은 선생님이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "민수: 학생. 대조할 사람 지아: 의사. 지아에 관해 해요체로 쓰기",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지아는 의사예요."
+            ],
+            "rejectedAnswers": [
+              "지아는 학생이에요."
+            ],
+            "explanation": {
+              "ko": "예: 지아는 의사예요. 의미가 다른 예: 지아는 학생이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지아는 의사예요. Meaning or register error: 지아는 학생이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지아는 의사예요. Fehler bei Bedeutung oder Register: 지아는 학생이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "유나: 선생님. 대조할 사람 준호: 회사원. 준호에 관해 해요체로 쓰기",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "준호는 회사원이에요."
+            ],
+            "rejectedAnswers": [
+              "준호는 선생님이에요."
+            ],
+            "explanation": {
+              "ko": "예: 준호는 회사원이에요. 의미가 다른 예: 준호는 선생님이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 준호는 회사원이에요. Meaning or register error: 준호는 선생님이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 준호는 회사원이에요. Fehler bei Bedeutung oder Register: 준호는 선생님이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:04",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:04",
+      "requirementKeys": [
+        "G1:이"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이/가 문장 만들기",
+        "en": "이/가: write a sentence",
+        "de": "이/가: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "이/가는 누가 또는 무엇이 해당하는지 표시해요. 받침 뒤에는 이, 모음 뒤에는 가를 써요.",
+        "en": "이/가 identifies the subject. Use 이 after a consonant and 가 after a vowel.",
+        "de": "이/가 kennzeichnet das Subjekt: 이 nach einem Konsonanten, 가 nach einem Vokal."
+      },
+      "examplesKo": [
+        "친구가 와요.",
+        "선생님이 와요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "누가 와요? → 친구 / 오다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구가 와요."
+            ],
+            "rejectedAnswers": [
+              "친구를 와요."
+            ],
+            "explanation": {
+              "ko": "예: 친구가 와요. 의미가 다른 예: 친구를 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구가 와요. Meaning or register error: 친구를 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구가 와요. Fehler bei Bedeutung oder Register: 친구를 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "누가 공부해요? → 학생 / 공부하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학생이 공부해요."
+            ],
+            "rejectedAnswers": [
+              "학생을 공부해요."
+            ],
+            "explanation": {
+              "ko": "예: 학생이 공부해요. 의미가 다른 예: 학생을 공부해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 학생이 공부해요. Meaning or register error: 학생을 공부해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 학생이 공부해요. Fehler bei Bedeutung oder Register: 학생을 공부해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:05",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:05",
+      "requirementKeys": [
+        "G1:을1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "을/를 문장 만들기",
+        "en": "을/를: write a sentence",
+        "de": "을/를: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "을/를은 행동의 대상을 표시해요. 받침 뒤에는 ‘을’, 모음 뒤에는 ‘를’을 써요.",
+        "en": "을/를 marks the object of an action: 을 after a consonant, 를 after a vowel.",
+        "de": "을/를 markiert das Objekt einer Handlung: 을 nach einem Konsonanten, 를 nach einem Vokal."
+      },
+      "examplesKo": [
+        "커피를 마셔요.",
+        "물을 마셔요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나 / 물 / 마시다 / 해요체. 목적어 조사 포함",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 물을 마셔요."
+            ],
+            "rejectedAnswers": [
+              "저는 물이 마셔요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 물을 마셔요. 의미가 다른 예: 저는 물이 마셔요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 물을 마셔요. Meaning or register error: 저는 물이 마셔요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 물을 마셔요. Fehler bei Bedeutung oder Register: 저는 물이 마셔요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나 / 책 / 읽다 / 해요체. 목적어 조사 포함",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 책을 읽어요."
+            ],
+            "rejectedAnswers": [
+              "저는 책이 읽어요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 책을 읽어요. 의미가 다른 예: 저는 책이 읽어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 책을 읽어요. Meaning or register error: 저는 책이 읽어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 책을 읽어요. Fehler bei Bedeutung oder Register: 저는 책이 읽어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:06",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:06",
+      "requirementKeys": [
+        "G1:의"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "의 문장 만들기",
+        "en": "의: write a sentence",
+        "de": "의: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "의는 앞 명사와 뒤 명사의 소유·소속 관계를 나타내요.",
+        "en": "의 links nouns to express possession or affiliation.",
+        "de": "의 verbindet Nomen und drückt Besitz oder Zugehörigkeit aus."
+      },
+      "examplesKo": [
+        "민수의 책이에요.",
+        "선생님의 가방이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가방의 주인: 지아. 이것 / 지아 / 가방 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이것은 지아의 가방이에요."
+            ],
+            "rejectedAnswers": [
+              "이것은 제 가방이에요."
+            ],
+            "explanation": {
+              "ko": "예: 이것은 지아의 가방이에요. 의미가 다른 예: 이것은 제 가방이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이것은 지아의 가방이에요. Meaning or register error: 이것은 제 가방이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이것은 지아의 가방이에요. Fehler bei Bedeutung oder Register: 이것은 제 가방이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "공책의 주인: 민수. 이것 / 민수 / 공책 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이것은 민수의 공책이에요."
+            ],
+            "rejectedAnswers": [
+              "이것은 제 공책이에요."
+            ],
+            "explanation": {
+              "ko": "예: 이것은 민수의 공책이에요. 의미가 다른 예: 이것은 제 공책이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이것은 민수의 공책이에요. Meaning or register error: 이것은 제 공책이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이것은 민수의 공책이에요. Fehler bei Bedeutung oder Register: 이것은 제 공책이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:07",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:07",
+      "requirementKeys": [
+        "G1:과"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "과/와 문장 만들기",
+        "en": "과/와: write a sentence",
+        "de": "과/와: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "과/와는 명사를 연결해요. 받침 뒤에는 과, 모음 뒤에는 와를 써요.",
+        "en": "과/와 joins nouns: 과 after a consonant, 와 after a vowel.",
+        "de": "과/와 verbindet Nomen: 과 nach einem Konsonanten, 와 nach einem Vokal."
+      },
+      "examplesKo": [
+        "책과 공책이에요.",
+        "의자와 책상이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "책 + 연필 / 있다 / 과·와로 연결 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "책과 연필이 있어요."
+            ],
+            "rejectedAnswers": [
+              "책만 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 책과 연필이 있어요. 의미가 다른 예: 책만 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 책과 연필이 있어요. Meaning or register error: 책만 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 책과 연필이 있어요. Fehler bei Bedeutung oder Register: 책만 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "사과 + 빵 / 있다 / 과·와로 연결 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "사과와 빵이 있어요."
+            ],
+            "rejectedAnswers": [
+              "사과만 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 사과와 빵이 있어요. 의미가 다른 예: 사과만 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 사과와 빵이 있어요. Meaning or register error: 사과만 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 사과와 빵이 있어요. Fehler bei Bedeutung oder Register: 사과만 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:08",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:08",
+      "requirementKeys": [
+        "G1:이랑"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이랑/랑 문장 만들기",
+        "en": "이랑/랑: write a sentence",
+        "de": "이랑/랑: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "대화에서 명사를 연결하거나 함께하는 사람을 말해요. 받침 뒤에는 이랑, 모음 뒤에는 랑을 써요.",
+        "en": "In conversation, 이랑/랑 joins nouns or names a companion: 이랑 after a consonant, 랑 after a vowel.",
+        "de": "Im Gespräch verbindet 이랑/랑 Nomen oder nennt eine Begleitung: 이랑 nach einem Konsonanten, 랑 nach einem Vokal."
+      },
+      "examplesKo": [
+        "동생이랑 가요.",
+        "친구랑 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동행: 친구 / 이야기하다 / 이랑·랑 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구랑 이야기해요."
+            ],
+            "rejectedAnswers": [
+              "친구만 이야기해요."
+            ],
+            "explanation": {
+              "ko": "예: 친구랑 이야기해요. 의미가 다른 예: 친구만 이야기해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구랑 이야기해요. Meaning or register error: 친구만 이야기해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구랑 이야기해요. Fehler bei Bedeutung oder Register: 친구만 이야기해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동행: 동생 / 공부하다 / 이랑·랑 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생이랑 공부해요."
+            ],
+            "rejectedAnswers": [
+              "동생만 공부해요."
+            ],
+            "explanation": {
+              "ko": "예: 동생이랑 공부해요. 의미가 다른 예: 동생만 공부해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생이랑 공부해요. Meaning or register error: 동생만 공부해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생이랑 공부해요. Fehler bei Bedeutung oder Register: 동생만 공부해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:09",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:09",
+      "requirementKeys": [
+        "G1:하고"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "하고 문장 만들기",
+        "en": "하고: write a sentence",
+        "de": "하고: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "하고는 대화에서 명사를 연결해요. 여기서는 두 물건을 함께 말해요.",
+        "en": "하고 joins nouns in conversation. Here it names two objects together.",
+        "de": "하고 verbindet Nomen im Gespräch. Hier werden zwei Gegenstände zusammen genannt."
+      },
+      "examplesKo": [
+        "책하고 공책이에요.",
+        "물하고 커피예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "빵 + 물 / 있다 / 하고로 연결 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵하고 물이 있어요."
+            ],
+            "rejectedAnswers": [
+              "빵만 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 빵하고 물이 있어요. 의미가 다른 예: 빵만 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵하고 물이 있어요. Meaning or register error: 빵만 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵하고 물이 있어요. Fehler bei Bedeutung oder Register: 빵만 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "공책 + 연필 / 있다 / 하고로 연결 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "공책하고 연필이 있어요."
+            ],
+            "rejectedAnswers": [
+              "공책만 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 공책하고 연필이 있어요. 의미가 다른 예: 공책만 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 공책하고 연필이 있어요. Meaning or register error: 공책만 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 공책하고 연필이 있어요. Fehler bei Bedeutung oder Register: 공책만 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:10",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:10",
+      "requirementKeys": [
+        "G1:-어2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-아/어요 문장 만들기",
+        "en": "-아/어요: write a sentence",
+        "de": "-아/어요: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "일상 대화에서 -아/어요로 공손하게 상태나 행동을 말해요. 좋아요와 먹어요처럼 활용해요.",
+        "en": "Use -아/어요 for polite everyday statements, as in 좋아요 and 먹어요.",
+        "de": "Mit -아/어요 sprichst du im Alltag höflich, zum Beispiel 좋아요 und 먹어요."
+      },
+      "examplesKo": [
+        "날씨가 좋아요.",
+        "밥을 먹어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "물 / 차갑다 / 공손한 해요체 평서문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "물이 차가워요."
+            ],
+            "rejectedAnswers": [
+              "물이 차갑다."
+            ],
+            "explanation": {
+              "ko": "예: 물이 차가워요. 의미가 다른 예: 물이 차갑다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 물이 차가워요. Meaning or register error: 물이 차갑다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 물이 차가워요. Fehler bei Bedeutung oder Register: 물이 차갑다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "방 / 조용하다 / 공손한 해요체 평서문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "방이 조용해요."
+            ],
+            "rejectedAnswers": [
+              "방이 조용하다."
+            ],
+            "explanation": {
+              "ko": "예: 방이 조용해요. 의미가 다른 예: 방이 조용하다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 방이 조용해요. Meaning or register error: 방이 조용하다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 방이 조용해요. Fehler bei Bedeutung oder Register: 방이 조용하다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:11",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:11",
+      "requirementKeys": [
+        "G1:-습니다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-습니다/ㅂ니다 문장 만들기",
+        "en": "-습니다/ㅂ니다: write a sentence",
+        "de": "-습니다/ㅂ니다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "격식을 갖춘 발표에서는 -습니다/ㅂ니다로 말해요. 받침이 없는 가다에는 갑니다, 먹다에는 먹습니다를 써요.",
+        "en": "-습니다/ㅂ니다 is a formal statement ending: 가다 becomes 갑니다, 먹다 becomes 먹습니다.",
+        "de": "-습니다/ㅂ니다 ist eine formell-höfliche Aussageendung: aus 가다 wird 갑니다, aus 먹다 wird 먹습니다."
+      },
+      "examplesKo": [
+        "저는 학교에 갑니다.",
+        "저는 밥을 먹습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "격식 있는 자기소개: 나 / 학생 / 하십시오체 평서문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 학생입니다."
+            ],
+            "rejectedAnswers": [
+              "저는 학생입니까?"
+            ],
+            "explanation": {
+              "ko": "예: 저는 학생입니다. 의미가 다른 예: 저는 학생입니까? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 학생입니다. Meaning or register error: 저는 학생입니까? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 학생입니다. Fehler bei Bedeutung oder Register: 저는 학생입니까? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "격식 있는 자기소개: 나 / 의사 / 하십시오체 평서문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 의사입니다."
+            ],
+            "rejectedAnswers": [
+              "저는 의사입니까?"
+            ],
+            "explanation": {
+              "ko": "예: 저는 의사입니다. 의미가 다른 예: 저는 의사입니까? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 의사입니다. Meaning or register error: 저는 의사입니까? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 의사입니다. Fehler bei Bedeutung oder Register: 저는 의사입니까? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:production:12",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:production:12",
+      "requirementKeys": [
+        "G1:-습니까"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-습니까/ㅂ니까 문장 만들기",
+        "en": "-습니까/ㅂ니까: write a sentence",
+        "de": "-습니까/ㅂ니까: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "격식을 갖춘 질문에 -습니까/ㅂ니까를 써요. 받침이 없는 가다에는 갑니까, 먹다에는 먹습니까를 써요.",
+        "en": "-습니까/ㅂ니까 forms a formal question: 가다 becomes 갑니까, 먹다 becomes 먹습니까.",
+        "de": "-습니까/ㅂ니까 bildet formell-höfliche Fragen: aus 가다 wird 갑니까, aus 먹다 wird 먹습니까."
+      },
+      "examplesKo": [
+        "학교에 갑니까?",
+        "밥을 먹습니까?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "격식 있는 첫 만남: 상대가 학생인지 모름 / 학생이다 / 하십시오체 질문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학생입니까?"
+            ],
+            "rejectedAnswers": [
+              "학생입니다."
+            ],
+            "explanation": {
+              "ko": "예: 학생입니까? 의미가 다른 예: 학생입니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 학생입니까? Meaning or register error: 학생입니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 학생입니까? Fehler bei Bedeutung oder Register: 학생입니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "격식 있는 첫 만남: 상대가 선생님인지 모름 / 선생님이다 / 하십시오체 질문",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "선생님입니까?"
+            ],
+            "rejectedAnswers": [
+              "선생님입니다."
+            ],
+            "explanation": {
+              "ko": "예: 선생님입니까? 의미가 다른 예: 선생님입니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 선생님입니까? Meaning or register error: 선생님입니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 선생님입니까? Fehler bei Bedeutung oder Register: 선생님입니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
     }
   ]
 }
