@@ -232,19 +232,11 @@ Future<void> _startProductionApplication(
 /// 로고가 이미 화면에 떠 있는 동안 진행된다. 순서는 기존 의존성(마이그레이션
 /// → 스트릭, Storage.init() 이후)만 유지하면 되고 실패해도 앱은 이미 떠 있다.
 Future<void> _finishStartupInBackground() async {
-  // Start cloud and the onboarding kill switch immediately behind the first
-  // frame; local reconciliation below must not delay the remote release gate.
-  unawaited(_startCloudServices());
-
   // 로컬 스키마 점검 — Storage.init() 직후, 어떤 학습 데이터에 손대기 전에.
   // 로컬 전용이라 빠르고 네트워크를 타지 않는다. 실패해도 앱은 뜨며, 그 경우
-  // 학습 데이터 쓰기만 잠긴다(DataMigrationService 가 처리).
-  DataMigrationResult? migration;
-  try {
-    migration = await DataMigrationService.run();
-  } catch (error) {
-    debugPrint('Data migration skipped: $error');
-  }
+  // 학습 데이터 쓰기만 잠긴다(DataMigrationService 가 처리). CloudAutoSync 는
+  // 이 게이트 뒤에서만 시작해야 V1→V3 가져오기와 같은 로컬 변환을 덮지 않는다.
+  final migration = await runStartupMigrationBeforeCloudServices();
 
   await runPostMigrationStudyLogMaintenance(migration);
 
@@ -299,6 +291,29 @@ Future<void> _finishStartupInBackground() async {
   // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
   // ignore: discarded_futures, unawaited_futures
   _recordStartupDiagnostics(migration);
+}
+
+/// Finishes the local schema transaction before any cloud reconciliation can
+/// read or write the same preferences.
+///
+/// Cloud startup remains best-effort and unawaited after this boundary, so a
+/// Firebase outage cannot hold up the remaining local startup work.
+@visibleForTesting
+Future<DataMigrationResult?> runStartupMigrationBeforeCloudServices({
+  Future<DataMigrationResult> Function()? migrate,
+  Future<void> Function()? startCloudServices,
+  void Function(Object error)? onMigrationFailure,
+}) async {
+  DataMigrationResult? migration;
+  try {
+    migration = await (migrate ?? DataMigrationService.run)();
+  } catch (error) {
+    (onMigrationFailure ??
+            (Object failure) => debugPrint('Data migration skipped: $failure'))
+        .call(error);
+  }
+  unawaited((startCloudServices ?? _startCloudServices)());
+  return migration;
 }
 
 /// Führt nichtkritische Pflege erst nach einer erfolgreichen Migration aus.
