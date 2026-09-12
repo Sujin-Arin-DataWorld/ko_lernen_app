@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,23 +49,31 @@ void main() {
 
   Future<void> tap(WidgetTester tester, String text) async {
     FocusManager.instance.primaryFocus?.unfocus();
-    await tester.pump();
-    for (var n = 0; n < 100 && tester.view.viewInsets.bottom > 0; n++) {
+    await SystemChannels.textInput.invokeMethod<void>('TextInput.hide');
+    var stableFrames = 0;
+    for (var n = 0; n < 100 && stableFrames < 5; n++) {
       await tester.pump(const Duration(milliseconds: 100));
+      stableFrames = tester.view.viewInsets.bottom == 0 ? stableFrames + 1 : 0;
     }
     expect(
-      tester.view.viewInsets.bottom,
-      0,
+      stableFrames,
+      5,
       reason: 'Native keyboard must finish hiding before scrolling to $text',
     );
     final target = find.text(text);
-    await tester.scrollUntilVisible(
-      target,
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.ensureVisible(target);
-    await tester.pumpAndSettle();
+    // A native inset/selection update can relayout a lazy list after scrolling.
+    // Stabilise visibility before the single tap, never retry a submission.
+    for (var n = 0; n < 4; n++) {
+      await tester.scrollUntilVisible(
+        target,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(target);
+      await tester.pumpAndSettle();
+      if (target.hitTestable().evaluate().length == 1) break;
+    }
+    expect(target.hitTestable(), findsOneWidget);
     await tester.tap(target);
     await tester.pumpAndSettle();
   }
