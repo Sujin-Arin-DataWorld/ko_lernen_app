@@ -29,8 +29,6 @@ class StyleLockLoaderTest(unittest.TestCase):
             {
                 "F-A",
                 "F-B",
-                "F-C-estate",
-                "F-C-a1states",
                 "F-D-ildoo",
                 "F-D-share",
                 "F-E-scene-poster",
@@ -69,12 +67,8 @@ class StyleLockLoaderTest(unittest.TestCase):
             "F-B",
         )
         self.assertEqual(
-            style_lock.family_for_slug(lock, "sotdaeulmun_s1_platform"),
-            "F-C-estate",
-        )
-        self.assertEqual(
-            style_lock.family_for_slug(lock, "16_landscape_move_in.webp"),
-            "F-C-a1states",
+            style_lock.family_for_slug(lock, "sarangchae"),
+            "F-D-ildoo",
         )
         self.assertEqual(
             style_lock.family_for_slug(lock, "scene_style_anchor_airport.png"),
@@ -196,10 +190,6 @@ class StyleLockLoaderTest(unittest.TestCase):
         self.assertIn("denied", style_lock.model_routing_error(lock, "F-A", "Seedream V4.5") or "")
         self.assertIsNone(style_lock.model_routing_error(lock, "F-A", "GPT Image 2"))
         self.assertIn("Seedream V4.5", style_lock.denied_models(lock, "F-B"))
-        self.assertIn(
-            "empty modelRouting",
-            style_lock.model_routing_error(lock, "F-C-a1states", "GPT Image 2") or "",
-        )
         skeleton = lock["families"]["F-A"]["promptSkeleton"]
         self.assertIn("{SUBJECT}", skeleton)
         self.assertIn("CAMERA AND LIGHT", skeleton)

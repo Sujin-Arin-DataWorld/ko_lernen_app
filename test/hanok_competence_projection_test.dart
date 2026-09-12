@@ -4,8 +4,8 @@ import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/hanok_stage.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/hanok_competence_projection_service.dart';
 
 const _text = CurriculumText(ko: '장면', de: 'Szene', en: 'Scene');
 
@@ -13,6 +13,8 @@ CourseUnit _unit(String id, String level, int order) =>
     CourseUnit(id: id, level: level, order: order, title: _text, canDo: _text);
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test(
     'counts only completed known units, never bypasses or browse history',
     () {
@@ -44,71 +46,57 @@ void main() {
     },
   );
 
-  test(
-    'a completed course path can raise structure without changing study',
-    () {
-      final units = [
-        for (var index = 1; index <= 4; index++)
-          _unit('a1_$index', 'a1', index),
-        for (var index = 1; index <= 4; index++)
-          _unit('a2_$index', 'a2', index),
-      ];
-      final competence = HanokCompetenceProjection.fromSnapshot(
-        snapshot: const CourseMasterySnapshot(
-          completedUnitIds: ['a1_1', 'a1_2', 'a1_3', 'a1_4', 'a2_1'],
-        ),
-        courseUnits: units,
-      );
-      final personal = PersonalHanokProjection.from(
-        const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-        competence: competence,
-      );
+  test('a completed course path raises structure from competence alone', () {
+    final units = [
+      for (var index = 1; index <= 4; index++) _unit('a1_$index', 'a1', index),
+      for (var index = 1; index <= 4; index++) _unit('a2_$index', 'a2', index),
+    ];
+    final competence = HanokCompetenceProjection.fromSnapshot(
+      snapshot: const CourseMasterySnapshot(
+        completedUnitIds: ['a1_1', 'a1_2', 'a1_3', 'a1_4', 'a2_1'],
+      ),
+      courseUnits: units,
+    );
+    expect(competence.stage, HanokStage.tileRoofPartial);
+  });
 
-      expect(competence.stage, HanokStage.tileRoofPartial);
-      expect(personal.legacyStage, HanokStage.empty);
-      expect(personal.structureStage, HanokStage.tileRoofPartial);
-      expect(personal.studyFraction, 0);
-    },
-  );
-
-  test('never pools partial pack and course levels into a new structure', () {
+  test('never pools partial course levels into a new structure', () {
     final competence = HanokCompetenceProjection.fromSnapshot(
       snapshot: const CourseMasterySnapshot(completedUnitIds: ['a2_01']),
       courseUnits: [_unit('a1_01', 'a1', 1), _unit('a2_01', 'a2', 1)],
     );
-    final personal = PersonalHanokProjection.from(
-      const LevelRatios(a1: 1, a2: 0, b1: 0, b2: 0),
-      competence: competence,
-    );
-
     expect(competence.stage, HanokStage.empty);
-    expect(personal.structureStage, HanokStage.thatchRoof);
-    expect(personal.usesCompoundMap, isFalse);
   });
 
-  test(
-    'a complete course path opens the same map milestones as legacy study',
-    () {
-      final units = [
-        _unit('a1_01', 'a1', 1),
-        _unit('a2_01', 'a2', 1),
-        for (var index = 1; index <= 4; index++)
-          _unit('b1_$index', 'b1', index),
-      ];
-      final competence = HanokCompetenceProjection.fromSnapshot(
-        snapshot: const CourseMasterySnapshot(
-          completedUnitIds: ['a1_01', 'a2_01', 'b1_1'],
-        ),
-        courseUnits: units,
-      );
-      final personal = PersonalHanokProjection.from(
-        const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-        competence: competence,
-      );
+  test('a complete course path reaches the matching competence stage', () {
+    final units = [
+      _unit('a1_01', 'a1', 1),
+      _unit('a2_01', 'a2', 1),
+      for (var index = 1; index <= 4; index++) _unit('b1_$index', 'b1', index),
+    ];
+    final competence = HanokCompetenceProjection.fromSnapshot(
+      snapshot: const CourseMasterySnapshot(
+        completedUnitIds: ['a1_01', 'a2_01', 'b1_1'],
+      ),
+      courseUnits: units,
+    );
+    expect(competence.stage, HanokStage.gate);
+  });
 
-      expect(competence.stage, HanokStage.gate);
-      expect(personal.usesCompoundMap, isTrue);
-      expect(personal.isUnlocked(PersonalHanokMilestone.sotdaeulmun), isTrue);
-    },
-  );
+  test('loadCurrent ignores pack progress and placement bypasses', () async {
+    final fixtureCatalog = await CurriculumCatalog.load();
+    final unit = fixtureCatalog.courseUnits.firstWhere(
+      (candidate) => candidate.level == 'a1',
+    );
+    final result = await HanokCompetenceProjectionService.loadCurrent(
+      catalogLoader: () async => fixtureCatalog,
+      snapshotReader: (_) => CourseMasterySnapshot(
+        completedUnitIds: [unit.id],
+        bypassedPrerequisiteUnitIds: [unit.id],
+      ),
+    );
+
+    expect(result.completedUnitCount, 0);
+    expect(result.stage, HanokStage.empty);
+  });
 }

@@ -47,6 +47,7 @@ class OnboardingV2JourneyScreen extends StatefulWidget {
 class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   OnboardingJourneyState? _state;
   Object? _loadError;
+  bool _loadInFlight = false;
   bool _busy = false;
   final Stopwatch _journeyStopwatch = Stopwatch();
   final Set<OnboardingPurpose> _pendingPurposes = {};
@@ -77,9 +78,10 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   }
 
   Future<void> _load() async {
-    if (mounted) {
-      setState(() => _loadError = null);
+    if (_loadInFlight) {
+      return;
     }
+    _loadInFlight = true;
     try {
       final initialResolution = widget.initialResolution;
       final resolution = !_usedInitialResolution && initialResolution != null
@@ -119,6 +121,8 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       if (mounted) {
         setState(() => _loadError = error);
       }
+    } finally {
+      _loadInFlight = false;
     }
   }
 
@@ -141,7 +145,10 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     if (leftObservedStory) {
       _recordStoryExit(storyExit ?? OnboardingStoryExit.dropped);
     }
-    setState(() => _state = next);
+    setState(() {
+      _loadError = null;
+      _state = next;
+    });
     if (next.phase == OnboardingPhase.story &&
         _observedStoryPage != next.storyPage) {
       _observedStoryPage = next.storyPage;

@@ -661,7 +661,6 @@
       "level": {}
     }
   },
-  "statsTitle": "Statistik",
   "statsSubtitle": "Dein Lernfortschritt",
   "statsDays": "Tage",
   "statsThisWeek": "Diese Woche",
@@ -1070,9 +1069,6 @@
       }
     }
   },
-  "hanokCinematicIntro": "Dein Hanok wächst.",
-  "hanokA1MapLabel": "Dein Hanok im Bau",
-  "hanokA1MapUnavailable": "Hanok-Illustration nicht verfügbar",
   "hanokStageEmpty": "Bauplatz vorbereiten",
   "hanokStageFoundation": "Sockel legen",
   "hanokStagePillars": "Säulen aufstellen",
@@ -3624,37 +3620,6 @@
       }
     }
   },
-  "hanokNarrativeVerified": "Bau: {stage}. Bestätigt: {canDo}",
-  "@hanokNarrativeVerified": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      },
-      "canDo": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokNarrativeNext": "Bau: {stage}. Als Nächstes: {canDo}",
-  "@hanokNarrativeNext": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      },
-      "canDo": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokNarrativeStarting": "Bau: {stage}. Beginne mit deiner ersten Szene.",
-  "hanokNarrativeMaterialSource": "Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.",
-  "@hanokNarrativeStarting": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      }
-    }
-  },
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },
@@ -3753,72 +3718,11 @@
     }
   },
   "ilduWorldSaveError": "Die Hofgestaltung konnte nicht lokal gespeichert werden.",
-  "hanokWorldEarlyEyebrow": "Dein Hof · A1",
-  "hanokWorldEarlyTitle": "Deine erste Szene ist der Anfang deines Hanok.",
-  "hanokWorldEarlyBody": "Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.",
-  "hanokWorldEarlyVerifiedBody": "Dein Fundament steht: {canDo}",
-  "@hanokWorldEarlyVerifiedBody": {
-    "placeholders": {
-      "canDo": {}
-    }
-  },
-  "hanokWorldMapEyebrow": "Dein begehbarer Hof",
-  "hanokWorldMapTitle": "Wohin möchtest du gehen?",
-  "hanokWorldMapBody": "Jedes Gebäude führt zu einem Teil von Hangul Sori.",
-  "hanokWorldOpenNextScene": "Nächste Szene ansehen",
-  "hanokWorldNextBeamTitle": "Nächster Bauabschnitt",
-  "hanokWorldExploreHouse": "Mein Haus erkunden",
-  "hanokWorldSafeSceneProgress": "{current} von {total} Szenarien sicher gemeistert",
-  "@hanokWorldSafeSceneProgress": {
-    "placeholders": {
-      "current": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "hanokWorldIntro": "Setz dein Lernen dort fort, wo dein Hanok wächst. Jedes gebaute Gebäude führt dich zu einem Bereich von Hangul Sori.",
   "hanokWorldLegacyTitle": "Dein Hof wächst",
   "hanokWorldLegacyBody": "Schließe A1 und A2 ab. Mit deinem ersten Fortschritt in B1 öffnet sich die große Hanok-Karte.",
-  "hanokWorldMapHint": "Tippe auf die Karte, um dein Hanok zu öffnen.",
   "hanokWorldOpenSarangbang": "Im Sarangbang lernen",
   "hanokWorldProgress": "Baufortschritt deiner Hanok",
-  "hanokWorldGyeBridgeTitle": "Der Gye-Hof",
-  "hanokWorldGyeBridgeBody": "Der Gye-Hof ist von deiner privaten Hanok getrennt. Dort triffst du deine Lerngruppe.",
-  "hanokWorldGyeBridgeOpen": "Gye-Hof besuchen",
-  "hanokWorldPlacesTitle": "Orte als Liste anzeigen",
-  "hanokWorldPlacesBody": "Wähle einen verfügbaren Ort aus.",
-  "hanokMapPlaceSarangbang": "Heute lernen",
-  "hanokMapPlaceDaecheong": "Dein Weg",
-  "hanokMapPlaceHaengrang": "Üben",
-  "hanokMapPlaceAnchae": "Wörter",
-  "hanokMapPlaceHuwon": "Aufgaben",
-  "hanokMapPlaceSadang": "Erfolge",
-  "hanokZoneSarangbang": "Deine heutige Szene",
-  "hanokZoneDaecheong": "Dein Weg",
-  "hanokZoneHaengrang": "Üben",
-  "hanokZoneAnchae": "Meine Wörter",
-  "hanokZoneHuwon": "Aufgaben",
-  "hanokZoneSadang": "Erfolge",
-  "hanokWorldPurposeSarangbang": "Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.",
-  "hanokWorldPurposeDaecheong": "Sieh deinen Lernpfad und wähle die nächste freigeschaltete Mission.",
-  "hanokWorldPurposeHaengrang": "Wähle eine gezielte Übung oder ein kurzes Spiel.",
-  "hanokWorldPurposeAnchae": "Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.",
-  "hanokWorldPurposeHuwon": "Wähle das Zeichen des Tages oder eine Quest.",
-  "hanokWorldPurposeSadang": "Sieh dir die Meilensteine deines Lernwegs an.",
-  "hanokWorldPurposeGyeRoad": "Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.",
-  "hanokWorldSelectPlaceTitle": "Verfügbaren Ort wählen",
-  "hanokWorldSelectPlaceBody": "Tippe auf ein Gebäude auf der Karte oder wähle es aus der Liste.",
-  "hanokWorldPlaceReadyBody": "{place} ist jetzt verfügbar.",
-  "@hanokWorldPlaceReadyBody": {
-    "placeholders": {
-      "place": {
-        "type": "String"
-      }
-    }
-  },
   "hanokWorldOpenPlace": "Nach {place} gehen",
   "@hanokWorldOpenPlace": {
     "placeholders": {
@@ -3827,35 +3731,6 @@
       }
     }
   },
-  "hanokWorldTodayMarker": "Heutiges Lernen",
-  "hanokWorldTodaySceneDetail": "{minutes} Minuten · „{expression}“ sagen",
-  "@hanokWorldTodaySceneDetail": {
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      },
-      "expression": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokWorldGoThere": "Dorthin gehen",
-  "hanokWorldRevealTitle": "{place} ist fertig gebaut",
-  "@hanokWorldRevealTitle": {
-    "placeholders": {
-      "place": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokWorldRevealBody": "Dein Hanok ist um einen Bereich gewachsen.",
-  "hanokWorldRevealContinue": "Weiter zur Karte",
-  "hanokVenueFurnishRoom": "Diesen Raum einrichten",
-  "hanokVenueAnbangBody": "Hier findest du gespeicherte Wörter, Bücher und eigene Lernsammlungen.",
-  "hanokVenueDaecheongBody": "Setz deinen Lernweg fort oder richte den Raum ein.",
-  "hanokVenueHaengrangBody": "Im Eingangsflügel kannst du eine weitere Übungsrunde starten.",
-  "hanokVenueHuwonBody": "Im hinteren Garten findest du das Zeichen des Tages und neue Quests.",
-  "hanokVenueSadangBody": "Im Ahnenschrein siehst du die Meilensteine deines Lernwegs.",
   "@_sarangbang_study": {
     "description": "Sarangbang als Kontext für die bestehende Tagesempfehlung."
   },
@@ -3898,9 +3773,6 @@
   "personalRoomAnbangBody": "Ein ruhiger Innenraum für die Wörter und Momente, die du bewahrst.",
   "personalRoomDaecheongBody": "Eine offene Halle, in der dein Lernweg weitergeht.",
   "personalRoomEmptyHint": "Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.",
-  "personalRoomLockedTitle": "Dieser Raum wird noch gebaut",
-  "personalRoomLockedBody": "Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.",
-  "personalRoomReturnToMap": "Zurück zur Hanok-Karte",
   "personalRoomAnbangStudy": "Meine Sammlung entdecken",
   "personalRoomDaecheongStudy": "Lernweg fortsetzen",
   "personalRoomEditorHint": "Ziehe ein Stück frei durch den Raum. Mit zwei Fingern kannst du es drehen und vergrößern. Die Werkzeugleiste funktioniert auch ohne Gesten.",
@@ -4942,8 +4814,6 @@
   "onboardingV2GatePreviewClose": "Zurück zur Reise",
   "onboardingV2GiftOpening": "Das Bojagi öffnet sich …",
   "onboardingV2DoorMeaning": "Tür",
-  "onboardingV2HanokGrowthBeforeSemantics": "Hanok vor dem Einbau der Changho-Fenster und -Türen.",
-  "onboardingV2HanokGrowthAfterSemantics": "Hanok mit neu eingesetzten Changho-Fenstern und -Türen.",
   "onboardingV2DiscoverGift": "Geschenk entdecken",
   "onboardingV2ReplayDemo": "Demo wiederholen",
   "phaseTasksTitle": "Phase-Aufgaben",

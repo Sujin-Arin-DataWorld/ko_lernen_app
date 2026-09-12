@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import '../../models/hanok_stage.dart';
 import 'tokens.dart';
 
-/// Phase 3 (stately-rising-jongga) — 단계별 한옥 마당 배경 위젯.
+/// 공유 마당 배경 위젯.
 ///
-/// 1순위: `assets/illustrations/hanok_stages/stage_{slug}_{brightness}.png`
-/// 2순위: `assets/illustrations/hanok/madang(light).png` (Phase 2 까지의 배경)
-/// 3순위: Theme gradient (PNG 둘 다 실패)
+/// 한옥 V1 단계 자산을 사용하지 않고, 공용 마당 자산이 없으면
+/// 테마 그라데이션으로 안전하게 폴백한다.
 ///
 /// **변경 없는 v4 home_screen 과의 호환**: `child` 슬롯에 home content 를
 /// 그대로 stack 한다. errorBuilder 가 PNG 실패 시 단색 gradient 로 떨어져
@@ -34,19 +33,12 @@ class MadangBackground extends StatelessWidget {
     final isDark = brightness == Brightness.dark;
     final variant = isDark ? 'dark' : 'light';
 
-    final stageAsset =
-        'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_$variant.png';
     final fallbackAsset = 'assets/illustrations/hanok/madang($variant).png';
 
     return Stack(
       fit: StackFit.expand,
       children: [
-        // ── BG image with cascading fallback ──
-        _BackgroundLayer(
-          stageAsset: stageAsset,
-          fallbackAsset: fallbackAsset,
-          isDark: isDark,
-        ),
+        _BackgroundLayer(fallbackAsset: fallbackAsset, isDark: isDark),
         if (child != null) child!,
         if (showStageBadge)
           Positioned(
@@ -60,50 +52,36 @@ class MadangBackground extends StatelessWidget {
 }
 
 class _BackgroundLayer extends StatelessWidget {
-  final String stageAsset;
   final String fallbackAsset;
   final bool isDark;
-  const _BackgroundLayer({
-    required this.stageAsset,
-    required this.fallbackAsset,
-    required this.isDark,
-  });
+  const _BackgroundLayer({required this.fallbackAsset, required this.isDark});
 
   @override
   Widget build(BuildContext context) {
-    // 1차: stage PNG (가장 정확한 단계 표현)
+    // 공용 마당 PNG → 테마 그라데이션.
     return Image.asset(
-      stageAsset,
+      fallbackAsset,
       fit: BoxFit.cover,
       gaplessPlayback: true,
-      errorBuilder: (ctx, _, __) => Image.asset(
-        // 2차: 기존 madang PNG
-        fallbackAsset,
-        fit: BoxFit.cover,
-        gaplessPlayback: true,
-        errorBuilder: (ctx, _, __) {
-          // 3차: 단색 gradient — v4 home 의 기존 분위기 유지
-          return DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: isDark
-                    ? const [
-                        Color(0xFF14201E),
-                        Color(0xFF0E1815),
-                        Color(0xFF0A1310),
-                      ]
-                    : const [
-                        Color(0xFFFAF6EC),
-                        Color(0xFFF4ECDA),
-                        Color(0xFFEEDFC2),
-                      ],
-                stops: const [0.0, 0.55, 1.0],
-              ),
-            ),
-          );
-        },
+      errorBuilder: (ctx, _, __) => DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: isDark
+                ? const [
+                    Color(0xFF14201E),
+                    Color(0xFF0E1815),
+                    Color(0xFF0A1310),
+                  ]
+                : const [
+                    Color(0xFFFAF6EC),
+                    Color(0xFFF4ECDA),
+                    Color(0xFFEEDFC2),
+                  ],
+            stops: const [0.0, 0.55, 1.0],
+          ),
+        ),
       ),
     );
   }

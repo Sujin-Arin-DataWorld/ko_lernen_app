@@ -122,16 +122,25 @@ class CiScopeTest(unittest.TestCase):
             self.assert_enabled([path], "app")
         self.assert_enabled(["docs/screenshots/sori-stage-today-390.png"], "app")
 
-    def test_hanok_provenance_docs_are_not_skipped(self):
-        # docs/assets/ carries the provenance JSON and estate/A1 kit stage
-        # specs test/hanok_v1_asset_provenance_test.dart asserts against — a
-        # provenance-only change must still run the app gate.
-        self.assert_enabled(
-            ["docs/assets/HANOK_V1_ASSET_PROVENANCE.json"], "app"
-        )
-        self.assert_enabled(
-            ["docs/assets/hanok_estate_kit/anchae_stages.json"], "app"
-        )
+    def test_live_asset_contracts_select_app(self):
+        for path in (
+            "docs/assets/STYLE_LOCK.json",
+            "docs/assets/CARD_STYLE_BASELINE.json",
+            "docs/assets/VOCAB_PACK_CARD_MANIFEST.json",
+            "docs/assets/PHASE_ARTWORK_PRODUCTION.json",
+            "docs/assets/SFX_README.md",
+            "docs/assets/recipes/listening-card.md",
+        ):
+            self.assert_enabled([path], "app")
+
+    def test_retired_hanok_provenance_is_docs_only(self):
+        for path in (
+            "docs/assets/HANOK_V1_ASSET_PROVENANCE.json",
+            "docs/assets/hanok_a1_kit/stage_01.json",
+            "docs/assets/hanok_a2_overlays/overlays.json",
+            "docs/assets/hanok_estate_kit/anchae_stages.json",
+        ):
+            self.assert_enabled([path])
 
     def test_curriculum_audit_inputs_and_outputs_select_validation(self):
         for path in [

@@ -661,7 +661,6 @@
       "level": {}
     }
   },
-  "statsTitle": "Statistics",
   "statsSubtitle": "Your learning progress",
   "statsDays": "Days",
   "statsThisWeek": "This week",
@@ -1063,9 +1062,6 @@
       }
     }
   },
-  "hanokCinematicIntro": "Your hanok is growing.",
-  "hanokA1MapLabel": "Your hanok under construction",
-  "hanokA1MapUnavailable": "Hanok illustration unavailable",
   "hanokStageEmpty": "Preparing the plot",
   "hanokStageFoundation": "Laying foundation stones",
   "hanokStagePillars": "Raising pillars",
@@ -3478,37 +3474,6 @@
       }
     }
   },
-  "hanokNarrativeVerified": "Structure: {stage}. Verified: {canDo}",
-  "@hanokNarrativeVerified": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      },
-      "canDo": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokNarrativeNext": "Structure: {stage}. Next: {canDo}",
-  "@hanokNarrativeNext": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      },
-      "canDo": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokNarrativeStarting": "Structure: {stage}. Begin with your first scene.",
-  "hanokNarrativeMaterialSource": "Learning path scenes shape the structure. Packs, reviews, and quests add materials and decor.",
-  "@hanokNarrativeStarting": {
-    "placeholders": {
-      "stage": {
-        "type": "String"
-      }
-    }
-  },
   "@_p1_sarangbang": {
     "description": "ADR-002 P1 — 사랑방 슬롯 배치 화면."
   },
@@ -3607,72 +3572,11 @@
     }
   },
   "ilduWorldSaveError": "Your courtyard layout could not be saved locally.",
-  "hanokWorldEarlyEyebrow": "Your courtyard · A1",
-  "hanokWorldEarlyTitle": "Your first scene is the start of your Hanok.",
-  "hanokWorldEarlyBody": "Every everyday sentence you can use confidently strengthens your foundation.",
-  "hanokWorldEarlyVerifiedBody": "Your foundation stands: {canDo}",
-  "@hanokWorldEarlyVerifiedBody": {
-    "placeholders": {
-      "canDo": {}
-    }
-  },
-  "hanokWorldMapEyebrow": "Your walkable courtyard",
-  "hanokWorldMapTitle": "Where would you like to go?",
-  "hanokWorldMapBody": "Each building takes you to a part of Hangul Sori.",
-  "hanokWorldOpenNextScene": "See the next scene",
-  "hanokWorldNextBeamTitle": "Next building step",
-  "hanokWorldExploreHouse": "Explore my house",
-  "hanokWorldSafeSceneProgress": "{current} of {total} scenarios mastered",
-  "@hanokWorldSafeSceneProgress": {
-    "placeholders": {
-      "current": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "hanokWorldIntro": "Continue learning as your Hanok grows. Each completed building leads to an area of Hangul Sori.",
   "hanokWorldLegacyTitle": "Your courtyard is growing",
   "hanokWorldLegacyBody": "Finish A1 and A2. Your first B1 progress opens the full Hanok map.",
-  "hanokWorldMapHint": "Tap the map to open your hanok.",
   "hanokWorldOpenSarangbang": "Study in the Sarangbang",
   "hanokWorldProgress": "Your Hanok construction progress",
-  "hanokWorldGyeBridgeTitle": "The Gye courtyard",
-  "hanokWorldGyeBridgeBody": "The Gye courtyard is separate from your private Hanok. Meet your learning group there.",
-  "hanokWorldGyeBridgeOpen": "Visit the Gye courtyard",
-  "hanokWorldPlacesTitle": "Show places as a list",
-  "hanokWorldPlacesBody": "Choose an available place from this list.",
-  "hanokMapPlaceSarangbang": "Study today",
-  "hanokMapPlaceDaecheong": "Your path",
-  "hanokMapPlaceHaengrang": "Practice",
-  "hanokMapPlaceAnchae": "Words",
-  "hanokMapPlaceHuwon": "Tasks",
-  "hanokMapPlaceSadang": "Achievements",
-  "hanokZoneSarangbang": "Your scene today",
-  "hanokZoneDaecheong": "Your path",
-  "hanokZoneHaengrang": "Practice",
-  "hanokZoneAnchae": "My words",
-  "hanokZoneHuwon": "Tasks",
-  "hanokZoneSadang": "Achievements",
-  "hanokWorldPurposeSarangbang": "Return to today's scene and the expressions you have earned.",
-  "hanokWorldPurposeDaecheong": "View your learning path and choose the next available mission.",
-  "hanokWorldPurposeHaengrang": "Choose a focused practice or a short game.",
-  "hanokWorldPurposeAnchae": "Open your saved words, books, and personal learning collection.",
-  "hanokWorldPurposeHuwon": "Choose the letter of the day or a quest.",
-  "hanokWorldPurposeSadang": "View the milestones in your learning path.",
-  "hanokWorldPurposeGyeRoad": "The shared Gye courtyard stays separate from your private Hanok.",
-  "hanokWorldSelectPlaceTitle": "Choose an available place",
-  "hanokWorldSelectPlaceBody": "Tap a building on the map or choose one from the list.",
-  "hanokWorldPlaceReadyBody": "{place} is now available.",
-  "@hanokWorldPlaceReadyBody": {
-    "placeholders": {
-      "place": {
-        "type": "String"
-      }
-    }
-  },
   "hanokWorldOpenPlace": "Enter {place}",
   "@hanokWorldOpenPlace": {
     "placeholders": {
@@ -3681,35 +3585,6 @@
       }
     }
   },
-  "hanokWorldTodayMarker": "Today's study",
-  "hanokWorldTodaySceneDetail": "{minutes} minutes · say “{expression}”",
-  "@hanokWorldTodaySceneDetail": {
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      },
-      "expression": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokWorldGoThere": "Go there",
-  "hanokWorldRevealTitle": "{place} is complete",
-  "@hanokWorldRevealTitle": {
-    "placeholders": {
-      "place": {
-        "type": "String"
-      }
-    }
-  },
-  "hanokWorldRevealBody": "Your Hanok has grown by one area.",
-  "hanokWorldRevealContinue": "Continue to the map",
-  "hanokVenueFurnishRoom": "Furnish this room",
-  "hanokVenueAnbangBody": "Find your saved words, books, and learning collections here.",
-  "hanokVenueDaecheongBody": "Continue your learning path or furnish this room.",
-  "hanokVenueHaengrangBody": "Start another practice round in the entrance wing.",
-  "hanokVenueHuwonBody": "Use the rear garden for the letter of the day or a new quest.",
-  "hanokVenueSadangBody": "View the milestones in your learning path in the shrine.",
   "@_sarangbang_study": {
     "description": "Sarangbang as the context for the existing daily recommendation."
   },
@@ -3752,9 +3627,6 @@
   "personalRoomAnbangBody": "A quiet inner room for the words and moments you keep.",
   "personalRoomDaecheongBody": "An open hall where your learning path can continue.",
   "personalRoomEmptyHint": "Open a Bojagi bundle to add your first room piece.",
-  "personalRoomLockedTitle": "This room is still being built",
-  "personalRoomLockedBody": "Continue the learning path to open this part of your Hanok.",
-  "personalRoomReturnToMap": "Back to the Hanok map",
   "personalRoomAnbangStudy": "Explore my collection",
   "personalRoomDaecheongStudy": "Continue the learning path",
   "personalRoomEditorHint": "Drag a piece anywhere in the room. Use two fingers to rotate and resize it. The toolbar also works without gestures.",
@@ -4778,8 +4650,6 @@
   "onboardingV2GatePreviewClose": "Back to the journey",
   "onboardingV2GiftOpening": "Unwrapping …",
   "onboardingV2DoorMeaning": "door",
-  "onboardingV2HanokGrowthBeforeSemantics": "Hanok before its Changho windows and doors are installed.",
-  "onboardingV2HanokGrowthAfterSemantics": "Hanok with its new Changho windows and doors installed.",
   "onboardingV2DiscoverGift": "Discover your gift",
   "onboardingV2ReplayDemo": "Replay demo",
   "phaseTasksTitle": "Phase tasks",

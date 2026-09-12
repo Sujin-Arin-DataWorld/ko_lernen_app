@@ -22,6 +22,7 @@ const BACKUP_FIELDS = Object.freeze([
   "custom_packs_json",
   "bookshelf_json",
   "course_mastery_json",
+  "ildu_world_state_json",
   "hanok_state_json",
   "updated_at",
 ]);

@@ -8,5 +8,5 @@ import 'personal_room_furnish_screen.dart';
 /// with the later 안채·대청마루 interiors.
 class SarangbangFurnishScreen extends PersonalRoomFurnishScreen {
   const SarangbangFurnishScreen({super.key})
-    : super(surface: PersonalRoomSurface.sarangbang, enforceUnlock: false);
+    : super(surface: PersonalRoomSurface.sarangbang);
 }

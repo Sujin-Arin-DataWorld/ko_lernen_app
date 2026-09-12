@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../data/quest_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_stage.dart';
 import '../models/pack_progress.dart';
@@ -12,14 +11,13 @@ import '../models/curriculum.dart';
 import '../models/learner_level.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
-import '../services/hanok_stage_service.dart';
-import '../services/hanok_structure_projection_service.dart';
+import '../services/hanok_competence_projection_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/decoration_layer.dart';
 import '../widgets/sori/cultural_help.dart';
+import '../widgets/sori/hanok_v3_preview.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
@@ -75,7 +73,8 @@ String pathCourseVisibleLevel({
 ///   1. 상단: 한옥 12단계 (현재 단계 이미지 + 전체 클리어 진행률)
 ///   2. 본문: 레벨(A1~C2)별 단어팩 노드 — 완료(체크)/현재("Jetzt")/잠금(자물쇠).
 ///
-/// 데이터: [HanokStageService.currentStage] + [PackProgressService.loadLevelView]
+/// 데이터: [HanokCompetenceProjectionService.loadCurrent] +
+/// [PackProgressService.loadLevelView]
 /// (둘 다 기존 서비스 — 새 저장소 없음). 노드 탭 → `/vocab/pack`.
 ///
 /// **레벨 스코프**: 경로 본문(코스 미션 + 단어팩 노드)은 학습자가 온보딩에서
@@ -264,8 +263,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       }
       return;
     }
-    final stage =
-        (await HanokStructureProjectionService.loadCurrent()).structureStage;
+    final stage = (await HanokCompetenceProjectionService.loadCurrent()).stage;
     final selectedLevel = pathLegacyBrowseVisibleLevel(
       browseLevelCode: Storage.browseLevelCode,
       placementLevelCode: Storage.placementLevelCode,
@@ -856,73 +854,7 @@ class _HanokHeader extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Image.asset(
-                  'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_light.png',
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          SoriColors.primarySoft,
-                          SoriColors.lightSurfaceAlt,
-                        ],
-                      ),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Icon(
-                      Icons.temple_buddhist_outlined,
-                      size: 56,
-                      color: SoriColors.primary,
-                    ),
-                  ),
-                ),
-                // 완료한 특별 퀘스트의 장식을 한옥 위에 합성 — "내 학습이
-                // 마당을 꾸민다" 원설계 부활(2026-07-30, Jin 승인). 완료 0개면
-                // SizedBox.shrink. 좌표는 마당 시안값 — 실기기 육안 튜닝 대상.
-                CulturalGlossaryBuilder(
-                  builder: (context, glossary) {
-                    final inspectableSlugs =
-                        glossary?.decorationSlugs ?? const {};
-                    final completedSlugs = Storage.questCompletions.keys
-                        .map((id) => kQuestById[id]?.decorationSlug)
-                        .whereType<String>()
-                        .toSet();
-                    final hasInspectableObject = completedSlugs.any(
-                      inspectableSlugs.contains,
-                    );
-                    return Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        DecorationLayer(
-                          inspectableDecorationSlugs: inspectableSlugs,
-                          onInspectDecoration: (slug) {
-                            unawaited(markCulturalObjectHintSeen());
-                            unawaited(
-                              showCulturalDecorationSheet(context, slug),
-                            );
-                          },
-                        ),
-                        if (hasInspectableObject)
-                          const PositionedDirectional(
-                            start: Spacing.sm,
-                            end: Spacing.sm,
-                            top: Spacing.sm,
-                            child: Align(
-                              alignment: AlignmentDirectional.topCenter,
-                              child: CulturalObjectHint(enabled: true),
-                            ),
-                          ),
-                      ],
-                    );
-                  },
-                ),
-              ],
-            ),
+            child: HanokV3Preview(message: t.soriStageHanokUpdating),
           ),
           Padding(
             padding: const EdgeInsets.all(Spacing.lg),

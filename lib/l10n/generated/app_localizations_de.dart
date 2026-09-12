@@ -1291,9 +1291,6 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get statsTitle => 'Statistik';
-
-  @override
   String get statsSubtitle => 'Dein Lernfortschritt';
 
   @override
@@ -2064,15 +2061,6 @@ class AppL10nDe extends AppL10n {
   String dojangStampLocked(String stamp) {
     return '$stamp, noch nicht gesammelt';
   }
-
-  @override
-  String get hanokCinematicIntro => 'Dein Hanok wächst.';
-
-  @override
-  String get hanokA1MapLabel => 'Dein Hanok im Bau';
-
-  @override
-  String get hanokA1MapUnavailable => 'Hanok-Illustration nicht verfügbar';
 
   @override
   String get hanokStageEmpty => 'Bauplatz vorbereiten';
@@ -7351,25 +7339,6 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String hanokNarrativeVerified(String stage, String canDo) {
-    return 'Bau: $stage. Bestätigt: $canDo';
-  }
-
-  @override
-  String hanokNarrativeNext(String stage, String canDo) {
-    return 'Bau: $stage. Als Nächstes: $canDo';
-  }
-
-  @override
-  String hanokNarrativeStarting(String stage) {
-    return 'Bau: $stage. Beginne mit deiner ersten Szene.';
-  }
-
-  @override
-  String get hanokNarrativeMaterialSource =>
-      'Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.';
-
-  @override
   String get sarangbangTitle => 'Studierstube';
 
   @override
@@ -7558,46 +7527,6 @@ class AppL10nDe extends AppL10n {
       'Die Hofgestaltung konnte nicht lokal gespeichert werden.';
 
   @override
-  String get hanokWorldEarlyEyebrow => 'Dein Hof · A1';
-
-  @override
-  String get hanokWorldEarlyTitle =>
-      'Deine erste Szene ist der Anfang deines Hanok.';
-
-  @override
-  String get hanokWorldEarlyBody =>
-      'Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.';
-
-  @override
-  String hanokWorldEarlyVerifiedBody(Object canDo) {
-    return 'Dein Fundament steht: $canDo';
-  }
-
-  @override
-  String get hanokWorldMapEyebrow => 'Dein begehbarer Hof';
-
-  @override
-  String get hanokWorldMapTitle => 'Wohin möchtest du gehen?';
-
-  @override
-  String get hanokWorldMapBody =>
-      'Jedes Gebäude führt zu einem Teil von Hangul Sori.';
-
-  @override
-  String get hanokWorldOpenNextScene => 'Nächste Szene ansehen';
-
-  @override
-  String get hanokWorldNextBeamTitle => 'Nächster Bauabschnitt';
-
-  @override
-  String get hanokWorldExploreHouse => 'Mein Haus erkunden';
-
-  @override
-  String hanokWorldSafeSceneProgress(int current, int total) {
-    return '$current von $total Szenarien sicher gemeistert';
-  }
-
-  @override
   String get hanokWorldIntro =>
       'Setz dein Lernen dort fort, wo dein Hanok wächst. Jedes gebaute Gebäude führt dich zu einem Bereich von Hangul Sori.';
 
@@ -7609,157 +7538,15 @@ class AppL10nDe extends AppL10n {
       'Schließe A1 und A2 ab. Mit deinem ersten Fortschritt in B1 öffnet sich die große Hanok-Karte.';
 
   @override
-  String get hanokWorldMapHint =>
-      'Tippe auf die Karte, um dein Hanok zu öffnen.';
-
-  @override
   String get hanokWorldOpenSarangbang => 'Im Sarangbang lernen';
 
   @override
   String get hanokWorldProgress => 'Baufortschritt deiner Hanok';
 
   @override
-  String get hanokWorldGyeBridgeTitle => 'Der Gye-Hof';
-
-  @override
-  String get hanokWorldGyeBridgeBody =>
-      'Der Gye-Hof ist von deiner privaten Hanok getrennt. Dort triffst du deine Lerngruppe.';
-
-  @override
-  String get hanokWorldGyeBridgeOpen => 'Gye-Hof besuchen';
-
-  @override
-  String get hanokWorldPlacesTitle => 'Orte als Liste anzeigen';
-
-  @override
-  String get hanokWorldPlacesBody => 'Wähle einen verfügbaren Ort aus.';
-
-  @override
-  String get hanokMapPlaceSarangbang => 'Heute lernen';
-
-  @override
-  String get hanokMapPlaceDaecheong => 'Dein Weg';
-
-  @override
-  String get hanokMapPlaceHaengrang => 'Üben';
-
-  @override
-  String get hanokMapPlaceAnchae => 'Wörter';
-
-  @override
-  String get hanokMapPlaceHuwon => 'Aufgaben';
-
-  @override
-  String get hanokMapPlaceSadang => 'Erfolge';
-
-  @override
-  String get hanokZoneSarangbang => 'Deine heutige Szene';
-
-  @override
-  String get hanokZoneDaecheong => 'Dein Weg';
-
-  @override
-  String get hanokZoneHaengrang => 'Üben';
-
-  @override
-  String get hanokZoneAnchae => 'Meine Wörter';
-
-  @override
-  String get hanokZoneHuwon => 'Aufgaben';
-
-  @override
-  String get hanokZoneSadang => 'Erfolge';
-
-  @override
-  String get hanokWorldPurposeSarangbang =>
-      'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.';
-
-  @override
-  String get hanokWorldPurposeDaecheong =>
-      'Sieh deinen Lernpfad und wähle die nächste freigeschaltete Mission.';
-
-  @override
-  String get hanokWorldPurposeHaengrang =>
-      'Wähle eine gezielte Übung oder ein kurzes Spiel.';
-
-  @override
-  String get hanokWorldPurposeAnchae =>
-      'Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.';
-
-  @override
-  String get hanokWorldPurposeHuwon =>
-      'Wähle das Zeichen des Tages oder eine Quest.';
-
-  @override
-  String get hanokWorldPurposeSadang =>
-      'Sieh dir die Meilensteine deines Lernwegs an.';
-
-  @override
-  String get hanokWorldPurposeGyeRoad =>
-      'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.';
-
-  @override
-  String get hanokWorldSelectPlaceTitle => 'Verfügbaren Ort wählen';
-
-  @override
-  String get hanokWorldSelectPlaceBody =>
-      'Tippe auf ein Gebäude auf der Karte oder wähle es aus der Liste.';
-
-  @override
-  String hanokWorldPlaceReadyBody(String place) {
-    return '$place ist jetzt verfügbar.';
-  }
-
-  @override
   String hanokWorldOpenPlace(String place) {
     return 'Nach $place gehen';
   }
-
-  @override
-  String get hanokWorldTodayMarker => 'Heutiges Lernen';
-
-  @override
-  String hanokWorldTodaySceneDetail(int minutes, String expression) {
-    return '$minutes Minuten · „$expression“ sagen';
-  }
-
-  @override
-  String get hanokWorldGoThere => 'Dorthin gehen';
-
-  @override
-  String hanokWorldRevealTitle(String place) {
-    return '$place ist fertig gebaut';
-  }
-
-  @override
-  String get hanokWorldRevealBody =>
-      'Dein Hanok ist um einen Bereich gewachsen.';
-
-  @override
-  String get hanokWorldRevealContinue => 'Weiter zur Karte';
-
-  @override
-  String get hanokVenueFurnishRoom => 'Diesen Raum einrichten';
-
-  @override
-  String get hanokVenueAnbangBody =>
-      'Hier findest du gespeicherte Wörter, Bücher und eigene Lernsammlungen.';
-
-  @override
-  String get hanokVenueDaecheongBody =>
-      'Setz deinen Lernweg fort oder richte den Raum ein.';
-
-  @override
-  String get hanokVenueHaengrangBody =>
-      'Im Eingangsflügel kannst du eine weitere Übungsrunde starten.';
-
-  @override
-  String get hanokVenueHuwonBody =>
-      'Im hinteren Garten findest du das Zeichen des Tages und neue Quests.';
-
-  @override
-  String get hanokVenueSadangBody =>
-      'Im Ahnenschrein siehst du die Meilensteine deines Lernwegs.';
 
   @override
   String get sarangbangStudyTitle => 'Sarangbang';
@@ -7845,16 +7632,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get personalRoomEmptyHint =>
       'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.';
-
-  @override
-  String get personalRoomLockedTitle => 'Dieser Raum wird noch gebaut';
-
-  @override
-  String get personalRoomLockedBody =>
-      'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.';
-
-  @override
-  String get personalRoomReturnToMap => 'Zurück zur Hanok-Karte';
 
   @override
   String get personalRoomAnbangStudy => 'Meine Sammlung entdecken';
@@ -10423,14 +10200,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2DoorMeaning => 'Tür';
-
-  @override
-  String get onboardingV2HanokGrowthBeforeSemantics =>
-      'Hanok vor dem Einbau der Changho-Fenster und -Türen.';
-
-  @override
-  String get onboardingV2HanokGrowthAfterSemantics =>
-      'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.';
 
   @override
   String get onboardingV2DiscoverGift => 'Geschenk entdecken';

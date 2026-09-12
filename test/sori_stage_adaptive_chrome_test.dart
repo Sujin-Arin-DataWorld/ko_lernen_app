@@ -5,13 +5,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
@@ -45,70 +44,56 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets(
-    'Gye scrolls its own sliver chrome inside SafeArea '
-    '(§W-G G5.1 dropped the shared SoriMinHeightScroll contract, mirrors '
-    'the Hanok tab below)',
-    (tester) async {
-      _setViewport(tester, const Size(390, 844));
-      await tester.pumpWidget(
-        _responsiveApp(
-          locale: const Locale('en'),
-          textScale: 1,
-          safeInsets: _safeInsets,
-          home: const SoriStageGyeScreen(active: false),
-        ),
-      );
-      await tester.pump();
+  testWidgets('Gye scrolls its own sliver chrome inside SafeArea '
+      '(§W-G G5.1 dropped the shared SoriMinHeightScroll contract, mirrors '
+      'the Hanok tab below)', (tester) async {
+    _setViewport(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _responsiveApp(
+        locale: const Locale('en'),
+        textScale: 1,
+        safeInsets: _safeInsets,
+        home: const SoriStageGyeScreen(active: false),
+      ),
+    );
+    await tester.pump();
 
-      // §W-G G5.1: the old fixed-chrome `Column` (`SoriStageSafeViewport` →
-      // `SoriMinHeightScroll`) is gone — the tab now scrolls a single
-      // `CustomScrollView` inside `SafeArea`, exactly like Hanok already
-      // does below.
-      expect(find.byType(SoriMinHeightScroll), findsNothing);
-      expect(find.byType(SafeArea), findsWidgets);
-      expect(find.byType(CustomScrollView), findsOneWidget);
-      expect(tester.takeException(), isNull);
-    },
-  );
+    // §W-G G5.1: the old fixed-chrome `Column` (`SoriStageSafeViewport` →
+    // `SoriMinHeightScroll`) is gone — the tab now scrolls a single
+    // `CustomScrollView` inside `SafeArea`, exactly like Hanok already
+    // does below.
+    expect(find.byType(SoriMinHeightScroll), findsNothing);
+    expect(find.byType(SafeArea), findsWidgets);
+    expect(find.byType(CustomScrollView), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
-  testWidgets(
-    'Hanok scrolls its own sliver chrome inside SafeArea '
-    '(§W-F F1 dropped the shared SoriMinHeightScroll contract)',
-    (tester) async {
-      _setViewport(tester, const Size(390, 844));
-      await tester.pumpWidget(
-        _responsiveApp(
-          locale: const Locale('de'),
-          textScale: 1,
-          safeInsets: _safeInsets,
-          home: const SoriStageHanokScreen(
-            active: false,
-            // §W-F F1: the tab's own `CustomScrollView` now wraps this in a
-            // `SliverToBoxAdapter`, which — unlike the old bounded
-            // `Expanded` slot — gives an unbounded height. `SizedBox.expand`
-            // (the previous stand-in here) asks to be as big as possible
-            // under that constraint and throws; a bounded stand-in, as the
-            // shortcut tests already use, is the correct double for a
-            // sliver-hosted seam.
-            worldForTesting: ColoredBox(color: Colors.transparent),
-          ),
-        ),
-      );
-      await tester.pump();
+  testWidgets('Hanok scrolls its own sliver chrome inside SafeArea '
+      '(§W-F F1 dropped the shared SoriMinHeightScroll contract)', (
+    tester,
+  ) async {
+    _setViewport(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _responsiveApp(
+        locale: const Locale('de'),
+        textScale: 1,
+        safeInsets: _safeInsets,
+        home: const SoriStageHanokScreen(active: false),
+      ),
+    );
+    await tester.pump();
 
-      // The Gye/Today tabs above still measure their fixed chrome height via
-      // `SoriMinHeightScroll` inside `SafeArea`. Hanok no longer needs that
-      // contract at all: its `CustomScrollView` scrolls within whatever
-      // bounded space `SafeArea` gives it directly, so a header/map/place
-      // list taller than the viewport scrolls instead of overflowing, with
-      // no explicit minimum-height forwarding required.
-      expect(find.byType(SoriMinHeightScroll), findsNothing);
-      expect(find.byType(SafeArea), findsWidgets);
-      expect(find.byType(CustomScrollView), findsOneWidget);
-      expect(tester.takeException(), isNull);
-    },
-  );
+    // The Gye/Today tabs above still measure their fixed chrome height via
+    // `SoriMinHeightScroll` inside `SafeArea`. Hanok no longer needs that
+    // contract at all: its `CustomScrollView` scrolls within whatever
+    // bounded space `SafeArea` gives it directly, so a header/map/place
+    // list taller than the viewport scrolls instead of overflowing, with
+    // no explicit minimum-height forwarding required.
+    expect(find.byType(SoriMinHeightScroll), findsNothing);
+    expect(find.byType(SafeArea), findsWidgets);
+    expect(find.byType(CustomScrollView), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
   for (final locale in const <Locale>[Locale('de'), Locale('en')]) {
     for (final size in _viewports) {
@@ -124,12 +109,10 @@ void main() {
             _responsiveApp(
               locale: locale,
               textScale: textScale,
-              // §W-G G5.1: `GyeTabScreen(embedded: true)` now returns a
-              // sliver group (it no longer carries its own `Scaffold` +
-              // `CustomScrollView`, exactly like `HanokWorldScreen(embedded:
-              // true)`) — a real caller (`SoriStageGyeScreen`) hosts it
-              // inside its own `CustomScrollView`, so this harness does the
-              // same instead of using it as a screen root directly.
+              // §W-G G5.1: `GyeTabScreen(embedded: true)` returns a sliver
+              // group rather than its own `Scaffold`/`CustomScrollView`. A
+              // real caller (`SoriStageGyeScreen`) hosts it inside one shared
+              // `CustomScrollView`, so this harness does the same.
               home: Scaffold(
                 body: CustomScrollView(
                   slivers: [
@@ -325,10 +308,7 @@ void main() {
         locale: const Locale('de'),
         textScale: 2,
         safeInsets: _safeInsets,
-        home: SoriStageHanokScreen(
-          loadSnapshot: () async => _snapshot(),
-          worldForTesting: const ColoredBox(color: Colors.transparent),
-        ),
+        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
       ),
     );
     await tester.pump();
@@ -370,9 +350,7 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 12,
   ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 1,
   stampCount: 0,

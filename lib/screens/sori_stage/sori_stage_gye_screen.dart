@@ -18,13 +18,9 @@ import '../gye_tab_screen.dart';
 /// `ListView`를 그려 이중 스크롤이었다(§W-G G 브리프). 이제 Hanok 탭처럼
 /// 헤더·스텝퍼·계 목록이 전부 슬리버로 한 `CustomScrollView`를 공유한다 —
 /// `GyeTabScreen(embedded: true)`가 스스로 슬리버를 반환한다
-/// (`buildEmbedded`, `HanokWorldScreen`과 같은 계약, §W-F F2).
+/// (`buildEmbedded`, 다른 Sori Stage 탭과 같은 계약, §W-F F2).
 class SoriStageGyeScreen extends StatelessWidget {
-  const SoriStageGyeScreen({
-    super.key,
-    this.active = true,
-    this.loadGyeMetas,
-  });
+  const SoriStageGyeScreen({super.key, this.active = true, this.loadGyeMetas});
 
   /// The shell keeps every tab alive; other tabs refresh their own
   /// progression on activation. This tab has no such refresh-on-activation
