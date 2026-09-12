@@ -14,7 +14,7 @@
 | KP06 | A2 | 14 | 14 | 14 | 38 | 36 | writing, speaking, writing, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
 | KP07 | A2 | 13 | 13 | 13 | 35 | 33 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
 | KP08 | A2 | 14 | 14 | 14 | 38 | 36 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP09 | B1 | 11 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
+| KP09 | B1 | 11 | 11 | 11 | 28 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
 | KP10 | B1 | 17 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP11 | B1 | 14 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP12 | B1 | 13 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |

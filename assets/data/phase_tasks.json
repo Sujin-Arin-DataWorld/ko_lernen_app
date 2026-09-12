@@ -8,7 +8,8 @@
     "KP05": "partial",
     "KP06": "partial",
     "KP07": "partial",
-    "KP08": "partial"
+    "KP08": "partial",
+    "KP09": "partial"
   },
   "tasks": [
     {
@@ -29456,6 +29457,2941 @@
         ]
       },
       "contentHash": "99546bda2c7267e4765d8d78163b616c841e8881c383301006fb1a1dfb2c3422"
+    },
+    {
+      "id": "KP09:grammar:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:01",
+      "requirementKeys": [
+        "G3:-는다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다",
+        "en": "-는다",
+        "de": "-는다"
+      },
+      "teaching": {
+        "ko": "동사의 -ㄴ다·-는다는 여기서 독백·서술의 평서형이에요. 미래 약속이나 청유로 바꾸지 않아요. 가까운 사이에서도 모든 상황에 쓰는 말끝은 아니에요.",
+        "en": "Here, verb endings -ㄴ다/-는다 mark a statement in narration or self-talk, not a promise or suggestion. They are not appropriate in every close relationship or situation.",
+        "de": "Hier kennzeichnen -ㄴ다/-는다 bei Verben eine Aussage in Erzählung oder Selbstgespräch, keine Zusage oder Aufforderung. Sie passen auch unter Vertrauten nicht in jede Situation."
+      },
+      "examplesKo": [
+        "나는 이제 집에 간다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "나는 지금 옛 사진을 본다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자는 지금 사진을 보는 일을 서술해요."
+              },
+              {
+                "id": "1",
+                "text": "화자가 상대에게 사진을 보라고 명령해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -ㄴ다·-는다는 여기서 독백·서술의 평서형이에요. 미래 약속이나 청유로 바꾸지 않아요. 가까운 사이에서도 모든 상황에 쓰는 말끝은 아니에요.",
+              "en": "Here, verb endings -ㄴ다/-는다 mark a statement in narration or self-talk, not a promise or suggestion. They are not appropriate in every close relationship or situation.",
+              "de": "Hier kennzeichnen -ㄴ다/-는다 bei Verben eine Aussage in Erzählung oder Selbstgespräch, keine Zusage oder Aufforderung. Sie passen auch unter Vertrauten nicht in jede Situation."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "나는 이제 집에 간다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 상대에게 같이 가자고 제안해요."
+              },
+              {
+                "id": "0",
+                "text": "화자는 자기의 현재 행동을 서술해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -ㄴ다·-는다는 여기서 독백·서술의 평서형이에요. 미래 약속이나 청유로 바꾸지 않아요. 가까운 사이에서도 모든 상황에 쓰는 말끝은 아니에요.",
+              "en": "Here, verb endings -ㄴ다/-는다 mark a statement in narration or self-talk, not a promise or suggestion. They are not appropriate in every close relationship or situation.",
+              "de": "Hier kennzeichnen -ㄴ다/-는다 bei Verben eine Aussage in Erzählung oder Selbstgespräch, keine Zusage oder Aufforderung. Sie passen auch unter Vertrauten nicht in jede Situation."
+            }
+          }
+        ]
+      },
+      "contentHash": "5ac045d2fd416bb2f1441ed6b46080a85633f0a94d9e608bde877e19500973e0"
+    },
+    {
+      "id": "KP09:grammar:02",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:02",
+      "requirementKeys": [
+        "G3:-니2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-니2",
+        "en": "-니2",
+        "de": "-니2"
+      },
+      "teaching": {
+        "ko": "여기의 -니는 친밀한 상대에게 묻는 의문 말끝이에요. 이유 연결 -니와 구별하고 합의된 관계에서 사용해요.",
+        "en": "Here, -니 ends a question to a familiar person. Distinguish it from a causal connective and use it only in the stated relationship.",
+        "de": "Hier beendet -니 eine Frage an eine vertraute Person. Unterscheide es von einer kausalen Verbindung und beachte die vorgegebene Beziehung."
+      },
+      "examplesKo": [
+        "너는 어떻게 생각하니?",
+        "반말에 합의한 친구에게: 요즘 무엇을 준비하니?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "반말에 합의한 친구에게: 그때 어디에 살았니?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그때 살던 곳을 물어요."
+              },
+              {
+                "id": "1",
+                "text": "거기에 살았기 때문에라는 이유를 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기의 -니는 친밀한 상대에게 묻는 의문 말끝이에요. 이유 연결 -니와 구별하고 합의된 관계에서 사용해요.",
+              "en": "Here, -니 ends a question to a familiar person. Distinguish it from a causal connective and use it only in the stated relationship.",
+              "de": "Hier beendet -니 eine Frage an eine vertraute Person. Unterscheide es von einer kausalen Verbindung und beachte die vorgegebene Beziehung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "반말에 합의한 친구에게: 요즘 무엇을 준비하니?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "현재 준비하는 일을 물어요."
+              },
+              {
+                "id": "1",
+                "text": "준비가 끝났다고 단정해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기의 -니는 친밀한 상대에게 묻는 의문 말끝이에요. 이유 연결 -니와 구별하고 합의된 관계에서 사용해요.",
+              "en": "Here, -니 ends a question to a familiar person. Distinguish it from a causal connective and use it only in the stated relationship.",
+              "de": "Hier beendet -니 eine Frage an eine vertraute Person. Unterscheide es von einer kausalen Verbindung und beachte die vorgegebene Beziehung."
+            }
+          }
+        ]
+      },
+      "contentHash": "e39607c02bcdc418149bef386872799c8c136acf212ce328f6ac0ac766f63322"
+    },
+    {
+      "id": "KP09:grammar:03",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:03",
+      "requirementKeys": [
+        "G3:-자3"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-자3",
+        "en": "-자3",
+        "de": "-자3"
+      },
+      "teaching": {
+        "ko": "문장 끝의 -자는 함께할 행동을 제안해요. 이때 행동 주체는 듣는 사람만이 아니에요. 시간 연결 -자와 구별해요.",
+        "en": "Sentence-final -자 proposes a shared action. It is not an order only to the listener and differs from the temporal connective -자.",
+        "de": "Am Satzende schlägt -자 eine gemeinsame Handlung vor. Es ist keine Anweisung nur an die zuhörende Person und unterscheidet sich von der zeitlichen Verbindung -자."
+      },
+      "examplesKo": [
+        "조금 쉬었다가 다시 하자.",
+        "친한 친구에게: 조금 쉬었다가 다시 하자."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "친한 친구에게: 옛 사진을 같이 보자.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자와 친구가 함께 사진을 보자는 제안이에요."
+              },
+              {
+                "id": "1",
+                "text": "친구 혼자 사진을 보라는 지시예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "문장 끝의 -자는 함께할 행동을 제안해요. 이때 행동 주체는 듣는 사람만이 아니에요. 시간 연결 -자와 구별해요.",
+              "en": "Sentence-final -자 proposes a shared action. It is not an order only to the listener and differs from the temporal connective -자.",
+              "de": "Am Satzende schlägt -자 eine gemeinsame Handlung vor. Es ist keine Anweisung nur an die zuhörende Person und unterscheidet sich von der zeitlichen Verbindung -자."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친한 친구에게: 조금 쉬었다가 다시 하자.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "함께 쉰 뒤 다시 하자는 제안이에요."
+              },
+              {
+                "id": "1",
+                "text": "상대만 쉬고 화자는 계속하겠다는 뜻이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "문장 끝의 -자는 함께할 행동을 제안해요. 이때 행동 주체는 듣는 사람만이 아니에요. 시간 연결 -자와 구별해요.",
+              "en": "Sentence-final -자 proposes a shared action. It is not an order only to the listener and differs from the temporal connective -자.",
+              "de": "Am Satzende schlägt -자 eine gemeinsame Handlung vor. Es ist keine Anweisung nur an die zuhörende Person und unterscheidet sich von der zeitlichen Verbindung -자."
+            }
+          }
+        ]
+      },
+      "contentHash": "8a87c901b424b20861cb9989fd69b98baec570d2c4c6574539dfea2ec5191fd5"
+    },
+    {
+      "id": "KP09:grammar:04",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:04",
+      "requirementKeys": [
+        "G3:-는구나"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는구나",
+        "en": "-는구나",
+        "de": "-는구나"
+      },
+      "teaching": {
+        "ko": "-는구나·-구나는 새로 알거나 느낀 사실에 대한 반응이에요. 질문이 아니며, 친구가 말하지 않은 감정을 마음대로 만들어 넣지 않아요.",
+        "en": "-는구나/-구나 responds to a new realization. It is not a question and does not license inventing feelings the other person never expressed.",
+        "de": "-는구나/-구나 reagiert auf eine neue Erkenntnis. Es ist keine Frage und erlaubt nicht, der anderen Person ungenannte Gefühle zuzuschreiben."
+      },
+      "examplesKo": [
+        "네가 그때 많이 힘들었구나.",
+        "가: 요즘 새 일을 배우느라 바빠.\n나: 새 일을 배우는구나."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가: 그때 혼자라서 많이 외로웠어.\n나: 많이 외로웠구나.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구가 외롭지 않았다고 반박해요."
+              },
+              {
+                "id": "0",
+                "text": "친구가 말한 외로움을 받아들이는 반응이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는구나·-구나는 새로 알거나 느낀 사실에 대한 반응이에요. 질문이 아니며, 친구가 말하지 않은 감정을 마음대로 만들어 넣지 않아요.",
+              "en": "-는구나/-구나 responds to a new realization. It is not a question and does not license inventing feelings the other person never expressed.",
+              "de": "-는구나/-구나 reagiert auf eine neue Erkenntnis. Es ist keine Frage und erlaubt nicht, der anderen Person ungenannte Gefühle zuzuschreiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가: 요즘 새 일을 배우느라 바빠.\n나: 새 일을 배우는구나.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지금 하는 일을 새로 알고 반응해요."
+              },
+              {
+                "id": "1",
+                "text": "일을 이미 다 배웠다고 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는구나·-구나는 새로 알거나 느낀 사실에 대한 반응이에요. 질문이 아니며, 친구가 말하지 않은 감정을 마음대로 만들어 넣지 않아요.",
+              "en": "-는구나/-구나 responds to a new realization. It is not a question and does not license inventing feelings the other person never expressed.",
+              "de": "-는구나/-구나 reagiert auf eine neue Erkenntnis. Es ist keine Frage und erlaubt nicht, der anderen Person ungenannte Gefühle zuzuschreiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "ccce278ab7105c3e6c77e0c8c58ef81070824436606bfb5b5c0511523fa1d03d"
+    },
+    {
+      "id": "KP09:grammar:05",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:05",
+      "requirementKeys": [
+        "G3:-던-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-던-",
+        "en": "-던-",
+        "de": "-던-"
+      },
+      "teaching": {
+        "ko": "-던은 경험하거나 반복하던 대상을 회상해 꾸며요. 문맥 없이 항상 완료·미완료 한쪽으로만 정하지 않아요. 이 과제에서는 예전에 반복한 경험을 확인해요.",
+        "en": "-던 recalls an experienced or repeated situation. It does not always mark only completion or non-completion. These examples establish a repeated past experience explicitly.",
+        "de": "-던 erinnert an Erlebtes oder Wiederholtes. Es kennzeichnet nicht immer nur Abschluss oder Unvollständigkeit. In diesen Beispielen ist eine wiederholte frühere Erfahrung ausdrücklich angegeben."
+      },
+      "examplesKo": [
+        "어릴 때 살던 집을 찾아갔어요.",
+        "어릴 때 살던 집을 찾아갔다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학생 때 매일 가던 카페를 다시 찾았다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예전에 반복해서 갔던 카페예요."
+              },
+              {
+                "id": "1",
+                "text": "내일 처음 갈 카페예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-던은 경험하거나 반복하던 대상을 회상해 꾸며요. 문맥 없이 항상 완료·미완료 한쪽으로만 정하지 않아요. 이 과제에서는 예전에 반복한 경험을 확인해요.",
+              "en": "-던 recalls an experienced or repeated situation. It does not always mark only completion or non-completion. These examples establish a repeated past experience explicitly.",
+              "de": "-던 erinnert an Erlebtes oder Wiederholtes. Es kennzeichnet nicht immer nur Abschluss oder Unvollständigkeit. In diesen Beispielen ist eine wiederholte frühere Erfahrung ausdrücklich angegeben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "어릴 때 살던 집을 찾아갔다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "어린 시절 살았던 집을 회상해요."
+              },
+              {
+                "id": "1",
+                "text": "앞으로 처음 살 집을 소개해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-던은 경험하거나 반복하던 대상을 회상해 꾸며요. 문맥 없이 항상 완료·미완료 한쪽으로만 정하지 않아요. 이 과제에서는 예전에 반복한 경험을 확인해요.",
+              "en": "-던 recalls an experienced or repeated situation. It does not always mark only completion or non-completion. These examples establish a repeated past experience explicitly.",
+              "de": "-던 erinnert an Erlebtes oder Wiederholtes. Es kennzeichnet nicht immer nur Abschluss oder Unvollständigkeit. In diesen Beispielen ist eine wiederholte frühere Erfahrung ausdrücklich angegeben."
+            }
+          }
+        ]
+      },
+      "contentHash": "9f50b39cfc173b71cbbda8b147698cfed585ca41e45cb7435f9cd59b2e881dc1"
+    },
+    {
+      "id": "KP09:grammar:06",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:06",
+      "requirementKeys": [
+        "G3:-던데2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-던데2",
+        "en": "-던데2",
+        "de": "-던데2"
+      },
+      "teaching": {
+        "ko": "여기서는 자신이 직접 경험한 일에 대한 감탄·인상을 문장 끝 -던데(요)로 회상해요. 전해 들은 소문과 구별하며 모든 -던데 용법을 같은 감탄으로 보지 않아요.",
+        "en": "Here, sentence-final -던데(요) recalls an impression from direct experience. Distinguish it from hearsay; not every use of -던데 has this exclamatory function.",
+        "de": "Hier erinnert -던데(요) am Satzende an einen Eindruck aus eigener Erfahrung. Unterscheide ihn vom Hörensagen; nicht jede Verwendung von -던데 ist eine solche Ausrufefunktion."
+      },
+      "examplesKo": [
+        "그 식당 음식이 정말 맛있던데요.",
+        "지난주에 직접 봤어. 그 공연 정말 멋있던데!"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "어제 직접 가 봤어요. 그 식당 음식이 정말 맛있던데요!",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "먹어 보지 않고 소문만 전해요."
+              },
+              {
+                "id": "0",
+                "text": "직접 먹어 본 인상을 회상해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 자신이 직접 경험한 일에 대한 감탄·인상을 문장 끝 -던데(요)로 회상해요. 전해 들은 소문과 구별하며 모든 -던데 용법을 같은 감탄으로 보지 않아요.",
+              "en": "Here, sentence-final -던데(요) recalls an impression from direct experience. Distinguish it from hearsay; not every use of -던데 has this exclamatory function.",
+              "de": "Hier erinnert -던데(요) am Satzende an einen Eindruck aus eigener Erfahrung. Unterscheide ihn vom Hörensagen; nicht jede Verwendung von -던데 ist eine solche Ausrufefunktion."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지난주에 직접 봤어. 그 공연 정말 멋있던데!",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "직접 본 공연의 인상을 말해요."
+              },
+              {
+                "id": "1",
+                "text": "아직 보지 않은 공연의 결과를 확정해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 자신이 직접 경험한 일에 대한 감탄·인상을 문장 끝 -던데(요)로 회상해요. 전해 들은 소문과 구별하며 모든 -던데 용법을 같은 감탄으로 보지 않아요.",
+              "en": "Here, sentence-final -던데(요) recalls an impression from direct experience. Distinguish it from hearsay; not every use of -던데 has this exclamatory function.",
+              "de": "Hier erinnert -던데(요) am Satzende an einen Eindruck aus eigener Erfahrung. Unterscheide ihn vom Hörensagen; nicht jede Verwendung von -던데 ist eine solche Ausrufefunktion."
+            }
+          }
+        ]
+      },
+      "contentHash": "c4b67ff102eecc9b288ec1bfe606a28293d8fca3a8b3a859b73bba61049411b0"
+    },
+    {
+      "id": "KP09:grammar:07",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:07",
+      "requirementKeys": [
+        "G3:아1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "아1",
+        "en": "아1",
+        "de": "아1"
+      },
+      "teaching": {
+        "ko": "이름 뒤 -아·-야는 가까운 상대를 부르는 호격 조사예요. 받침 뒤에는 아, 모음 뒤에는 야를 써요. 감탄사 아와 구별하고 처음 만난 사람에게 임의로 쓰지 않아요.",
+        "en": "After a name, -아/-야 addresses a familiar person: 아 after a final consonant, 야 after a vowel. This is not the interjection 아, and familiarity must be established.",
+        "de": "Nach einem Namen spricht -아/-야 eine vertraute Person an: 아 nach Endkonsonant, 야 nach Vokal. Das ist nicht der Ausruf 아; die Vertrautheit muss feststehen."
+      },
+      "examplesKo": [
+        "민수야, 잠깐 이야기할까?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지민아, 그 사진 기억나?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지민을 직접 불러 말을 걸어요."
+              },
+              {
+                "id": "1",
+                "text": "지민의 말을 다른 사람에게 인용해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이름 뒤 -아·-야는 가까운 상대를 부르는 호격 조사예요. 받침 뒤에는 아, 모음 뒤에는 야를 써요. 감탄사 아와 구별하고 처음 만난 사람에게 임의로 쓰지 않아요.",
+              "en": "After a name, -아/-야 addresses a familiar person: 아 after a final consonant, 야 after a vowel. This is not the interjection 아, and familiarity must be established.",
+              "de": "Nach einem Namen spricht -아/-야 eine vertraute Person an: 아 nach Endkonsonant, 야 nach Vokal. Das ist nicht der Ausruf 아; die Vertrautheit muss feststehen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민수야, 잠깐 이야기할까?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "민수를 직접 부르는 말이에요."
+              },
+              {
+                "id": "1",
+                "text": "민수라는 장소로 가자는 말이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이름 뒤 -아·-야는 가까운 상대를 부르는 호격 조사예요. 받침 뒤에는 아, 모음 뒤에는 야를 써요. 감탄사 아와 구별하고 처음 만난 사람에게 임의로 쓰지 않아요.",
+              "en": "After a name, -아/-야 addresses a familiar person: 아 after a final consonant, 야 after a vowel. This is not the interjection 아, and familiarity must be established.",
+              "de": "Nach einem Namen spricht -아/-야 eine vertraute Person an: 아 nach Endkonsonant, 야 nach Vokal. Das ist nicht der Ausruf 아; die Vertrautheit muss feststehen."
+            }
+          }
+        ]
+      },
+      "contentHash": "a48d7ea4f69cded819e807d80d69a3c6cb46b231e8a687ec6930610443ccab73"
+    },
+    {
+      "id": "KP09:grammar:08",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:08",
+      "requirementKeys": [
+        "G3:요1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "요1",
+        "en": "요1",
+        "de": "요1"
+      },
+      "teaching": {
+        "ko": "조사 요는 저요·어제요처럼 짧은 응답에도 공손함을 더해요. 누구인지·언제인지 같은 정보는 요가 아니라 앞말에서 읽어요.",
+        "en": "The particle 요 adds politeness to short replies such as 저요 or 어제요. The preceding word supplies the person or time information.",
+        "de": "Die Partikel 요 macht auch kurze Antworten wie 저요 oder 어제요 höflich. Wer oder wann gemeint ist, steht im Wort davor."
+      },
+      "examplesKo": [
+        "저요, 질문이 하나 있어요.",
+        "진행자: 언제 도착했어요?\n참가자: 어제요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "교사: 누가 먼저 말할래요?\n학생: 저요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학생이 교사를 가리켜 명령해요."
+              },
+              {
+                "id": "0",
+                "text": "학생이 자신을 가리키며 공손하게 답해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조사 요는 저요·어제요처럼 짧은 응답에도 공손함을 더해요. 누구인지·언제인지 같은 정보는 요가 아니라 앞말에서 읽어요.",
+              "en": "The particle 요 adds politeness to short replies such as 저요 or 어제요. The preceding word supplies the person or time information.",
+              "de": "Die Partikel 요 macht auch kurze Antworten wie 저요 oder 어제요 höflich. Wer oder wann gemeint ist, steht im Wort davor."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "진행자: 언제 도착했어요?\n참가자: 어제요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "요가 내일이라는 시간을 뜻해요."
+              },
+              {
+                "id": "0",
+                "text": "도착 시각 정보는 어제이고 요는 공손함을 더해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조사 요는 저요·어제요처럼 짧은 응답에도 공손함을 더해요. 누구인지·언제인지 같은 정보는 요가 아니라 앞말에서 읽어요.",
+              "en": "The particle 요 adds politeness to short replies such as 저요 or 어제요. The preceding word supplies the person or time information.",
+              "de": "Die Partikel 요 macht auch kurze Antworten wie 저요 oder 어제요 höflich. Wer oder wann gemeint ist, steht im Wort davor."
+            }
+          }
+        ]
+      },
+      "contentHash": "c7c27fc617c9edc4688b04273da92884f084fe1e51cd06a72792b89082a63220"
+    },
+    {
+      "id": "KP09:grammar:09",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:09",
+      "requirementKeys": [
+        "G3:-었었-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-었었-",
+        "en": "-었었-",
+        "de": "-었었-"
+      },
+      "teaching": {
+        "ko": "-았/었었-은 현재와 달라진 이전 상황을 회상하거나 더 이전의 과거를 드러낼 수 있어요. 여기서는 지금의 상태를 문맥에 따로 제시해 대비해요. 영어 과거완료와 자동으로 같다고 보지 않아요.",
+        "en": "-았/었었- can recall an earlier situation that has changed or mark a more remote past. These examples state the current contrast explicitly; it is not automatically equivalent to English past perfect.",
+        "de": "-았/었었- kann an eine inzwischen veränderte Lage erinnern oder eine weiter zurückliegende Vergangenheit markieren. Der heutige Gegensatz steht hier ausdrücklich im Kontext; es ist nicht automatisch das Plusquamperfekt."
+      },
+      "examplesKo": [
+        "예전에는 이 동네에 살았었어요.",
+        "한때 주말마다 수영했었어. 요즘은 걷기만 해."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "예전에는 이 동네에 살았었어. 지금은 다른 도시에서 살아.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예전 거주지와 현재 거주지가 달라요."
+              },
+              {
+                "id": "1",
+                "text": "지금도 같은 동네에 산다고 확정해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-았/었었-은 현재와 달라진 이전 상황을 회상하거나 더 이전의 과거를 드러낼 수 있어요. 여기서는 지금의 상태를 문맥에 따로 제시해 대비해요. 영어 과거완료와 자동으로 같다고 보지 않아요.",
+              "en": "-았/었었- can recall an earlier situation that has changed or mark a more remote past. These examples state the current contrast explicitly; it is not automatically equivalent to English past perfect.",
+              "de": "-았/었었- kann an eine inzwischen veränderte Lage erinnern oder eine weiter zurückliegende Vergangenheit markieren. Der heutige Gegensatz steht hier ausdrücklich im Kontext; es ist nicht automatisch das Plusquamperfekt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "한때 주말마다 수영했었어. 요즘은 걷기만 해.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "과거의 수영 습관과 현재의 걷기를 대비해요."
+              },
+              {
+                "id": "1",
+                "text": "현재도 주말마다 수영한다고 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-았/었었-은 현재와 달라진 이전 상황을 회상하거나 더 이전의 과거를 드러낼 수 있어요. 여기서는 지금의 상태를 문맥에 따로 제시해 대비해요. 영어 과거완료와 자동으로 같다고 보지 않아요.",
+              "en": "-았/었었- can recall an earlier situation that has changed or mark a more remote past. These examples state the current contrast explicitly; it is not automatically equivalent to English past perfect.",
+              "de": "-았/었었- kann an eine inzwischen veränderte Lage erinnern oder eine weiter zurückliegende Vergangenheit markieren. Der heutige Gegensatz steht hier ausdrücklich im Kontext; es ist nicht automatisch das Plusquamperfekt."
+            }
+          }
+        ]
+      },
+      "contentHash": "900c05dc3621027ab293d08cbf9b077b46d6ac5a1debc8c15d32182454884b2d"
+    },
+    {
+      "id": "KP09:grammar:10",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:10",
+      "requirementKeys": [
+        "G3:-는 중이다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 중이다",
+        "en": "-는 중이다",
+        "de": "-는 중이다"
+      },
+      "teaching": {
+        "ko": "-는 중이다는 기준 시점에 과정이 진행 중임을 나타내요. 시작할 희망이나 완료 결과로 바꾸지 않아요.",
+        "en": "-는 중이다 marks a process in progress at the reference time, not a wish to start or a completed result.",
+        "de": "-는 중이다 bezeichnet einen zum Bezugszeitpunkt laufenden Vorgang, keinen bloßen Wunsch und kein abgeschlossenes Ergebnis."
+      },
+      "examplesKo": [
+        "지금 회의하는 중이에요.",
+        "지금 발표 자료를 고치는 중이야."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지금 이사 준비를 하는 중이야.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이사를 이미 끝냈어요."
+              },
+              {
+                "id": "0",
+                "text": "이사 준비가 지금 진행 중이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 중이다는 기준 시점에 과정이 진행 중임을 나타내요. 시작할 희망이나 완료 결과로 바꾸지 않아요.",
+              "en": "-는 중이다 marks a process in progress at the reference time, not a wish to start or a completed result.",
+              "de": "-는 중이다 bezeichnet einen zum Bezugszeitpunkt laufenden Vorgang, keinen bloßen Wunsch und kein abgeschlossenes Ergebnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지금 발표 자료를 고치는 중이야.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "발표가 이미 끝났어요."
+              },
+              {
+                "id": "0",
+                "text": "자료 수정이 지금 진행 중이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 중이다는 기준 시점에 과정이 진행 중임을 나타내요. 시작할 희망이나 완료 결과로 바꾸지 않아요.",
+              "en": "-는 중이다 marks a process in progress at the reference time, not a wish to start or a completed result.",
+              "de": "-는 중이다 bezeichnet einen zum Bezugszeitpunkt laufenden Vorgang, keinen bloßen Wunsch und kein abgeschlossenes Ergebnis."
+            }
+          }
+        ]
+      },
+      "contentHash": "2128e962dd8584c9d66ffc0c55d70b47456af8f4c05f0186a93b4546e62b6308"
+    },
+    {
+      "id": "KP09:grammar:11",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:grammar:11",
+      "requirementKeys": [
+        "G3:-고 싶어 하다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 싶어 하다",
+        "en": "-고 싶어 하다",
+        "de": "-고 싶어 하다"
+      },
+      "teaching": {
+        "ko": "-고 싶어 하다는 다른 사람의 바람을 관찰·전달할 때 써요. 원하는 행동을 이미 했다고 바꾸지 않고, 화자 자신의 바람과 구별해요.",
+        "en": "-고 싶어 하다 reports another person’s wish. A wish is not a completed action and must not be reassigned to the speaker.",
+        "de": "-고 싶어 하다 gibt den Wunsch einer anderen Person wieder. Ein Wunsch ist keine vollendete Handlung und darf nicht der sprechenden Person zugeschrieben werden."
+      },
+      "examplesKo": [
+        "아이는 밖에서 놀고 싶어 해요.",
+        "친구는 그 공연을 보고 싶어 해. 표는 아직 없어."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동생은 제주도에 가고 싶어 해. 아직 간 적은 없어.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "제주도 여행은 동생의 아직 실현되지 않은 바람이에요."
+              },
+              {
+                "id": "1",
+                "text": "화자가 이미 제주도에 다녀왔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 싶어 하다는 다른 사람의 바람을 관찰·전달할 때 써요. 원하는 행동을 이미 했다고 바꾸지 않고, 화자 자신의 바람과 구별해요.",
+              "en": "-고 싶어 하다 reports another person’s wish. A wish is not a completed action and must not be reassigned to the speaker.",
+              "de": "-고 싶어 하다 gibt den Wunsch einer anderen Person wieder. Ein Wunsch ist keine vollendete Handlung und darf nicht der sprechenden Person zugeschrieben werden."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구는 그 공연을 보고 싶어 해. 표는 아직 없어.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "친구가 공연 관람을 원하지만 확정되지 않았어요."
+              },
+              {
+                "id": "1",
+                "text": "친구가 공연을 이미 봤어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 싶어 하다는 다른 사람의 바람을 관찰·전달할 때 써요. 원하는 행동을 이미 했다고 바꾸지 않고, 화자 자신의 바람과 구별해요.",
+              "en": "-고 싶어 하다 reports another person’s wish. A wish is not a completed action and must not be reassigned to the speaker.",
+              "de": "-고 싶어 하다 gibt den Wunsch einer anderen Person wieder. Ein Wunsch ist keine vollendete Handlung und darf nicht der sprechenden Person zugeschrieben werden."
+            }
+          }
+        ]
+      },
+      "contentHash": "36b2a2b8660b19f1bfd55a0143003ab0174a7151298619aa03954d78b54cd304"
+    },
+    {
+      "id": "KP09:production:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:01",
+      "requirementKeys": [
+        "G3:-는다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다 문장 만들기",
+        "en": "-는다: write a sentence",
+        "de": "-는다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "동사의 -ㄴ다·-는다는 여기서 독백·서술의 평서형이에요. 미래 약속이나 청유로 바꾸지 않아요. 가까운 사이에서도 모든 상황에 쓰는 말끝은 아니에요.",
+        "en": "Here, verb endings -ㄴ다/-는다 mark a statement in narration or self-talk, not a promise or suggestion. They are not appropriate in every close relationship or situation.",
+        "de": "Hier kennzeichnen -ㄴ다/-는다 bei Verben eine Aussage in Erzählung oder Selbstgespräch, keine Zusage oder Aufforderung. Sie passen auch unter Vertrauten nicht in jede Situation."
+      },
+      "examplesKo": [
+        "나는 지금 옛 사진을 본다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "독백의 평서문: 나는 / 지금 / 옛 사진을 보다 / -ㄴ다·-는다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "나는 지금 옛 사진을 본다."
+            ],
+            "rejectedAnswers": [
+              "옛 사진을 같이 보자."
+            ],
+            "explanation": {
+              "ko": "예: 나는 지금 옛 사진을 본다. 의미가 다른 예: 옛 사진을 같이 보자. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 나는 지금 옛 사진을 본다. Meaning or register error: 옛 사진을 같이 보자. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 나는 지금 옛 사진을 본다. Fehler bei Bedeutung oder Register: 옛 사진을 같이 보자. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "독백의 평서문: 나는 / 이제 / 집에 가다 / -ㄴ다·-는다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "나는 이제 집에 간다."
+            ],
+            "rejectedAnswers": [
+              "집에 같이 가자."
+            ],
+            "explanation": {
+              "ko": "예: 나는 이제 집에 간다. 의미가 다른 예: 집에 같이 가자. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 나는 이제 집에 간다. Meaning or register error: 집에 같이 가자. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 나는 이제 집에 간다. Fehler bei Bedeutung oder Register: 집에 같이 가자. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "0e51a09b640e5beff209ee982279367fbb1a2cf6e31dd61e44abc34fe928afa9"
+    },
+    {
+      "id": "KP09:production:02",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:02",
+      "requirementKeys": [
+        "G3:-니2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-니2 문장 만들기",
+        "en": "-니2: write a sentence",
+        "de": "-니2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "여기의 -니는 친밀한 상대에게 묻는 의문 말끝이에요. 이유 연결 -니와 구별하고 합의된 관계에서 사용해요.",
+        "en": "Here, -니 ends a question to a familiar person. Distinguish it from a causal connective and use it only in the stated relationship.",
+        "de": "Hier beendet -니 eine Frage an eine vertraute Person. Unterscheide es von einer kausalen Verbindung und beachte die vorgegebene Beziehung."
+      },
+      "examplesKo": [
+        "그때 어디에 살았니?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "반말에 합의한 친구에게 질문: 그때 / 어디에 살다 / 과거형 -니?",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그때 어디에 살았니?"
+            ],
+            "rejectedAnswers": [
+              "그때 거기에 살았으니."
+            ],
+            "explanation": {
+              "ko": "예: 그때 어디에 살았니? 의미가 다른 예: 그때 거기에 살았으니. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그때 어디에 살았니? Meaning or register error: 그때 거기에 살았으니. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그때 어디에 살았니? Fehler bei Bedeutung oder Register: 그때 거기에 살았으니. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "반말에 합의한 친구에게 질문: 요즘 / 무엇을 준비하다 / -니?",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "요즘 무엇을 준비하니?"
+            ],
+            "rejectedAnswers": [
+              "요즘 그것을 준비하자."
+            ],
+            "explanation": {
+              "ko": "예: 요즘 무엇을 준비하니? 의미가 다른 예: 요즘 그것을 준비하자. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 요즘 무엇을 준비하니? Meaning or register error: 요즘 그것을 준비하자. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 요즘 무엇을 준비하니? Fehler bei Bedeutung oder Register: 요즘 그것을 준비하자. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "2bb2ab619cf782ec9d6a0d92cadf84a7067cd5ab68c6ae54eabfe805ea9b43a7"
+    },
+    {
+      "id": "KP09:production:03",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:03",
+      "requirementKeys": [
+        "G3:-자3"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-자3 문장 만들기",
+        "en": "-자3: write a sentence",
+        "de": "-자3: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "문장 끝의 -자는 함께할 행동을 제안해요. 이때 행동 주체는 듣는 사람만이 아니에요. 시간 연결 -자와 구별해요.",
+        "en": "Sentence-final -자 proposes a shared action. It is not an order only to the listener and differs from the temporal connective -자.",
+        "de": "Am Satzende schlägt -자 eine gemeinsame Handlung vor. Es ist keine Anweisung nur an die zuhörende Person und unterscheidet sich von der zeitlichen Verbindung -자."
+      },
+      "examplesKo": [
+        "옛 사진을 같이 보자."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "친한 동료와 공동 제안: 옛 사진을 같이 보다 / -자",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "옛 사진을 같이 보자."
+            ],
+            "rejectedAnswers": [
+              "옛 사진을 혼자 봐."
+            ],
+            "explanation": {
+              "ko": "예: 옛 사진을 같이 보자. 의미가 다른 예: 옛 사진을 혼자 봐. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 옛 사진을 같이 보자. Meaning or register error: 옛 사진을 혼자 봐. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 옛 사진을 같이 보자. Fehler bei Bedeutung oder Register: 옛 사진을 혼자 봐. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "친한 동료와 공동 제안: 조금 쉬었다가 다시 하다 / -자",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "조금 쉬었다가 다시 하자."
+            ],
+            "rejectedAnswers": [
+              "너만 쉬었다가 다시 해."
+            ],
+            "explanation": {
+              "ko": "예: 조금 쉬었다가 다시 하자. 의미가 다른 예: 너만 쉬었다가 다시 해. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 조금 쉬었다가 다시 하자. Meaning or register error: 너만 쉬었다가 다시 해. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 조금 쉬었다가 다시 하자. Fehler bei Bedeutung oder Register: 너만 쉬었다가 다시 해. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "cf33fd47610b484bdd9e65448f21fb5eb7cbaaf7c89dda7890d4620453811866"
+    },
+    {
+      "id": "KP09:production:04",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:04",
+      "requirementKeys": [
+        "G3:-는구나"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는구나 문장 만들기",
+        "en": "-는구나: write a sentence",
+        "de": "-는구나: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-는구나·-구나는 새로 알거나 느낀 사실에 대한 반응이에요. 질문이 아니며, 친구가 말하지 않은 감정을 마음대로 만들어 넣지 않아요.",
+        "en": "-는구나/-구나 responds to a new realization. It is not a question and does not license inventing feelings the other person never expressed.",
+        "de": "-는구나/-구나 reagiert auf eine neue Erkenntnis. Es ist keine Frage und erlaubt nicht, der anderen Person ungenannte Gefühle zuzuschreiben."
+      },
+      "examplesKo": [
+        "많이 외로웠구나."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "친구가 그때 많이 외로웠다고 말했음 / 많이 외롭다 / 과거형 -구나로 호응",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "많이 외로웠구나."
+            ],
+            "rejectedAnswers": [
+              "많이 외롭지 않았구나."
+            ],
+            "explanation": {
+              "ko": "예: 많이 외로웠구나. 의미가 다른 예: 많이 외롭지 않았구나. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 많이 외로웠구나. Meaning or register error: 많이 외롭지 않았구나. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 많이 외로웠구나. Fehler bei Bedeutung oder Register: 많이 외롭지 않았구나. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "친구가 요즘 새 일을 배운다고 말했음 / 새 일을 배우다 / -는구나로 호응",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "새 일을 배우는구나."
+            ],
+            "rejectedAnswers": [
+              "새 일을 다 배웠구나."
+            ],
+            "explanation": {
+              "ko": "예: 새 일을 배우는구나. 의미가 다른 예: 새 일을 다 배웠구나. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 새 일을 배우는구나. Meaning or register error: 새 일을 다 배웠구나. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 새 일을 배우는구나. Fehler bei Bedeutung oder Register: 새 일을 다 배웠구나. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "81fb8d0b605ca3c0f1c8c9baa92181b4b76da0c3557f833e54d81b4eae0315d2"
+    },
+    {
+      "id": "KP09:production:05",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:05",
+      "requirementKeys": [
+        "G3:-던-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-던- 문장 만들기",
+        "en": "-던-: write a sentence",
+        "de": "-던-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-던은 경험하거나 반복하던 대상을 회상해 꾸며요. 문맥 없이 항상 완료·미완료 한쪽으로만 정하지 않아요. 이 과제에서는 예전에 반복한 경험을 확인해요.",
+        "en": "-던 recalls an experienced or repeated situation. It does not always mark only completion or non-completion. These examples establish a repeated past experience explicitly.",
+        "de": "-던 erinnert an Erlebtes oder Wiederholtes. Es kennzeichnet nicht immer nur Abschluss oder Unvollständigkeit. In diesen Beispielen ist eine wiederholte frühere Erfahrung ausdrücklich angegeben."
+      },
+      "examplesKo": [
+        "학생 때 매일 가던 카페를 다시 찾았어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "과거 반복 회상: 학생 때 매일 가다 / 카페 / 다시 찾다 / -던 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학생 때 매일 가던 카페를 다시 찾았어요."
+            ],
+            "rejectedAnswers": [
+              "내일 처음 갈 카페를 찾았어요."
+            ],
+            "explanation": {
+              "ko": "예: 학생 때 매일 가던 카페를 다시 찾았어요. 의미가 다른 예: 내일 처음 갈 카페를 찾았어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 학생 때 매일 가던 카페를 다시 찾았어요. Meaning or register error: 내일 처음 갈 카페를 찾았어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 학생 때 매일 가던 카페를 다시 찾았어요. Fehler bei Bedeutung oder Register: 내일 처음 갈 카페를 찾았어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "과거 거주 회상: 어릴 때 살다 / 집 / 찾아가다 / -던 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어릴 때 살던 집을 찾아갔어요."
+            ],
+            "rejectedAnswers": [
+              "앞으로 살 집을 찾아갔어요."
+            ],
+            "explanation": {
+              "ko": "예: 어릴 때 살던 집을 찾아갔어요. 의미가 다른 예: 앞으로 살 집을 찾아갔어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어릴 때 살던 집을 찾아갔어요. Meaning or register error: 앞으로 살 집을 찾아갔어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어릴 때 살던 집을 찾아갔어요. Fehler bei Bedeutung oder Register: 앞으로 살 집을 찾아갔어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "0c46728493f85fa5a9b563441d288e32f26ab8fd6dbe92b7aeba08333329d72d"
+    },
+    {
+      "id": "KP09:production:06",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:06",
+      "requirementKeys": [
+        "G3:-던데2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-던데2 문장 만들기",
+        "en": "-던데2: write a sentence",
+        "de": "-던데2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "여기서는 자신이 직접 경험한 일에 대한 감탄·인상을 문장 끝 -던데(요)로 회상해요. 전해 들은 소문과 구별하며 모든 -던데 용법을 같은 감탄으로 보지 않아요.",
+        "en": "Here, sentence-final -던데(요) recalls an impression from direct experience. Distinguish it from hearsay; not every use of -던데 has this exclamatory function.",
+        "de": "Hier erinnert -던데(요) am Satzende an einen Eindruck aus eigener Erfahrung. Unterscheide ihn vom Hörensagen; nicht jede Verwendung von -던데 ist eine solche Ausrufefunktion."
+      },
+      "examplesKo": [
+        "그 식당 음식이 정말 맛있던데요!"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "직접 먹어 본 긍정적 인상 회상 / 그 식당 음식 / 정말 맛있다 / 문장 끝 -던데요!",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그 식당 음식이 정말 맛있던데요!"
+            ],
+            "rejectedAnswers": [
+              "그 식당 음식이 맛있다는 소문만 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 그 식당 음식이 정말 맛있던데요! 의미가 다른 예: 그 식당 음식이 맛있다는 소문만 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그 식당 음식이 정말 맛있던데요! Meaning or register error: 그 식당 음식이 맛있다는 소문만 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그 식당 음식이 정말 맛있던데요! Fehler bei Bedeutung oder Register: 그 식당 음식이 맛있다는 소문만 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "직접 본 긍정적 인상 회상 / 그 공연 / 정말 멋있다 / 문장 끝 -던데요!",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그 공연이 정말 멋있던데요!"
+            ],
+            "rejectedAnswers": [
+              "그 공연이 멋있다는 소문만 들었어요."
+            ],
+            "explanation": {
+              "ko": "예: 그 공연이 정말 멋있던데요! 의미가 다른 예: 그 공연이 멋있다는 소문만 들었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그 공연이 정말 멋있던데요! Meaning or register error: 그 공연이 멋있다는 소문만 들었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그 공연이 정말 멋있던데요! Fehler bei Bedeutung oder Register: 그 공연이 멋있다는 소문만 들었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "d70ed5e7cbb94ce64a9b9a432fd9ee1c08bda9d5e92e14ccae8958d1623e2a4c"
+    },
+    {
+      "id": "KP09:production:07",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:07",
+      "requirementKeys": [
+        "G3:아1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "아1 문장 만들기",
+        "en": "아1: write a sentence",
+        "de": "아1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "이름 뒤 -아·-야는 가까운 상대를 부르는 호격 조사예요. 받침 뒤에는 아, 모음 뒤에는 야를 써요. 감탄사 아와 구별하고 처음 만난 사람에게 임의로 쓰지 않아요.",
+        "en": "After a name, -아/-야 addresses a familiar person: 아 after a final consonant, 야 after a vowel. This is not the interjection 아, and familiarity must be established.",
+        "de": "Nach einem Namen spricht -아/-야 eine vertraute Person an: 아 nach Endkonsonant, 야 nach Vokal. Das ist nicht der Ausruf 아; die Vertrautheit muss feststehen."
+      },
+      "examplesKo": [
+        "지민아, 잠깐 이야기할까?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가까운 친구 지민을 이름으로 부른 뒤 잠깐 이야기할까? / 호격 조사",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지민아, 잠깐 이야기할까?"
+            ],
+            "rejectedAnswers": [
+              "지민야, 잠깐 이야기할까?"
+            ],
+            "explanation": {
+              "ko": "예: 지민아, 잠깐 이야기할까? 의미가 다른 예: 지민야, 잠깐 이야기할까? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지민아, 잠깐 이야기할까? Meaning or register error: 지민야, 잠깐 이야기할까? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지민아, 잠깐 이야기할까? Fehler bei Bedeutung oder Register: 지민야, 잠깐 이야기할까? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가까운 친구 민수를 이름으로 부른 뒤 잠깐 이야기할까? / 호격 조사",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "민수야, 잠깐 이야기할까?"
+            ],
+            "rejectedAnswers": [
+              "민수아, 잠깐 이야기할까?"
+            ],
+            "explanation": {
+              "ko": "예: 민수야, 잠깐 이야기할까? 의미가 다른 예: 민수아, 잠깐 이야기할까? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 민수야, 잠깐 이야기할까? Meaning or register error: 민수아, 잠깐 이야기할까? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 민수야, 잠깐 이야기할까? Fehler bei Bedeutung oder Register: 민수아, 잠깐 이야기할까? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "c4ee57bf6dff72a88bae68ed8e57d6d9c6c3fc310661122727bfddc250d9bc61"
+    },
+    {
+      "id": "KP09:production:08",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:08",
+      "requirementKeys": [
+        "G3:요1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "요1 문장 만들기",
+        "en": "요1: write a sentence",
+        "de": "요1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "조사 요는 저요·어제요처럼 짧은 응답에도 공손함을 더해요. 누구인지·언제인지 같은 정보는 요가 아니라 앞말에서 읽어요.",
+        "en": "The particle 요 adds politeness to short replies such as 저요 or 어제요. The preceding word supplies the person or time information.",
+        "de": "Die Partikel 요 macht auch kurze Antworten wie 저요 oder 어제요 höflich. Wer oder wann gemeint ist, steht im Wort davor."
+      },
+      "examplesKo": [
+        "저요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "교사의 누가 할래요?에 나라고 짧고 공손하게 답하기 / 저 + 요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저요."
+            ],
+            "rejectedAnswers": [
+              "너요."
+            ],
+            "explanation": {
+              "ko": "예: 저요. 의미가 다른 예: 너요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저요. Meaning or register error: 너요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저요. Fehler bei Bedeutung oder Register: 너요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "진행자의 언제 도착했어요?에 어제라고 짧고 공손하게 답하기 / 어제 + 요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제요."
+            ],
+            "rejectedAnswers": [
+              "내일요."
+            ],
+            "explanation": {
+              "ko": "예: 어제요. 의미가 다른 예: 내일요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제요. Meaning or register error: 내일요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제요. Fehler bei Bedeutung oder Register: 내일요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "c9db4cd2eba02e5c5c3e29e863ff44b4e54d2526e20496b27b163a72d23c46df"
+    },
+    {
+      "id": "KP09:production:09",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:09",
+      "requirementKeys": [
+        "G3:-었었-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-었었- 문장 만들기",
+        "en": "-었었-: write a sentence",
+        "de": "-었었-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-았/었었-은 현재와 달라진 이전 상황을 회상하거나 더 이전의 과거를 드러낼 수 있어요. 여기서는 지금의 상태를 문맥에 따로 제시해 대비해요. 영어 과거완료와 자동으로 같다고 보지 않아요.",
+        "en": "-았/었었- can recall an earlier situation that has changed or mark a more remote past. These examples state the current contrast explicitly; it is not automatically equivalent to English past perfect.",
+        "de": "-았/었었- kann an eine inzwischen veränderte Lage erinnern oder eine weiter zurückliegende Vergangenheit markieren. Der heutige Gegensatz steht hier ausdrücklich im Kontext; es ist nicht automatisch das Plusquamperfekt."
+      },
+      "examplesKo": [
+        "예전에는 이 동네에 살았었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "지금은 다른 도시에 삶 / 예전에는 이 동네에 살다 / -았었- / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "예전에는 이 동네에 살았었어요."
+            ],
+            "rejectedAnswers": [
+              "지금도 이 동네에 살아요."
+            ],
+            "explanation": {
+              "ko": "예: 예전에는 이 동네에 살았었어요. 의미가 다른 예: 지금도 이 동네에 살아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 예전에는 이 동네에 살았었어요. Meaning or register error: 지금도 이 동네에 살아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 예전에는 이 동네에 살았었어요. Fehler bei Bedeutung oder Register: 지금도 이 동네에 살아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "지금은 걷기만 함 / 예전에는 주말마다 수영하다 / -였었- / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "예전에는 주말마다 수영했었어요."
+            ],
+            "rejectedAnswers": [
+              "지금도 주말마다 수영해요."
+            ],
+            "explanation": {
+              "ko": "예: 예전에는 주말마다 수영했었어요. 의미가 다른 예: 지금도 주말마다 수영해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 예전에는 주말마다 수영했었어요. Meaning or register error: 지금도 주말마다 수영해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 예전에는 주말마다 수영했었어요. Fehler bei Bedeutung oder Register: 지금도 주말마다 수영해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "b0dda4ca2eef23582e2736b6dc0e14feb28ea18e689d1970b5873a15d91407ff"
+    },
+    {
+      "id": "KP09:production:10",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:10",
+      "requirementKeys": [
+        "G3:-는 중이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 중이다 문장 만들기",
+        "en": "-는 중이다: write a sentence",
+        "de": "-는 중이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-는 중이다는 기준 시점에 과정이 진행 중임을 나타내요. 시작할 희망이나 완료 결과로 바꾸지 않아요.",
+        "en": "-는 중이다 marks a process in progress at the reference time, not a wish to start or a completed result.",
+        "de": "-는 중이다 bezeichnet einen zum Bezugszeitpunkt laufenden Vorgang, keinen bloßen Wunsch und kein abgeschlossenes Ergebnis."
+      },
+      "examplesKo": [
+        "지금 이사 준비를 하는 중이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "기준 시점: 지금 / 이사 준비를 하다 / -는 중이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 이사 준비를 하는 중이에요."
+            ],
+            "rejectedAnswers": [
+              "이사 준비를 다 끝냈어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 이사 준비를 하는 중이에요. 의미가 다른 예: 이사 준비를 다 끝냈어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 이사 준비를 하는 중이에요. Meaning or register error: 이사 준비를 다 끝냈어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 이사 준비를 하는 중이에요. Fehler bei Bedeutung oder Register: 이사 준비를 다 끝냈어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "기준 시점: 지금 / 발표 자료를 고치다 / -는 중이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 발표 자료를 고치는 중이에요."
+            ],
+            "rejectedAnswers": [
+              "발표 자료를 다 고쳤어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 발표 자료를 고치는 중이에요. 의미가 다른 예: 발표 자료를 다 고쳤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 발표 자료를 고치는 중이에요. Meaning or register error: 발표 자료를 다 고쳤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 발표 자료를 고치는 중이에요. Fehler bei Bedeutung oder Register: 발표 자료를 다 고쳤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "5a33f5f4a5dc7d1bf7d26c5fe9dd5755369fe908816d987d344038ae78ad3555"
+    },
+    {
+      "id": "KP09:production:11",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:production:11",
+      "requirementKeys": [
+        "G3:-고 싶어 하다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 싶어 하다 문장 만들기",
+        "en": "-고 싶어 하다: write a sentence",
+        "de": "-고 싶어 하다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 싶어 하다는 다른 사람의 바람을 관찰·전달할 때 써요. 원하는 행동을 이미 했다고 바꾸지 않고, 화자 자신의 바람과 구별해요.",
+        "en": "-고 싶어 하다 reports another person’s wish. A wish is not a completed action and must not be reassigned to the speaker.",
+        "de": "-고 싶어 하다 gibt den Wunsch einer anderen Person wieder. Ein Wunsch ist keine vollendete Handlung und darf nicht der sprechenden Person zugeschrieben werden."
+      },
+      "examplesKo": [
+        "동생은 제주도에 가고 싶어 해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "다른 사람의 아직 실현되지 않은 바람 / 동생 / 제주도에 가다 / -고 싶어 하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생은 제주도에 가고 싶어 해요."
+            ],
+            "rejectedAnswers": [
+              "동생은 제주도에 갔어요."
+            ],
+            "explanation": {
+              "ko": "예: 동생은 제주도에 가고 싶어 해요. 의미가 다른 예: 동생은 제주도에 갔어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생은 제주도에 가고 싶어 해요. Meaning or register error: 동생은 제주도에 갔어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생은 제주도에 가고 싶어 해요. Fehler bei Bedeutung oder Register: 동생은 제주도에 갔어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "다른 사람의 아직 실현되지 않은 바람 / 친구 / 그 공연을 보다 / -고 싶어 하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구는 그 공연을 보고 싶어 해요."
+            ],
+            "rejectedAnswers": [
+              "친구는 그 공연을 봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 친구는 그 공연을 보고 싶어 해요. 의미가 다른 예: 친구는 그 공연을 봤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구는 그 공연을 보고 싶어 해요. Meaning or register error: 친구는 그 공연을 봤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구는 그 공연을 보고 싶어 해요. Fehler bei Bedeutung oder Register: 친구는 그 공연을 봤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "1042924510524b963c61fef9f4694f91bee840dd0d67c3720b263f495ee40bdd"
+    },
+    {
+      "id": "KP09:listening:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "옛집의 기억과 지금의 생활",
+        "en": "A former home and life now",
+        "de": "Früheres Zuhause und heutiger Alltag"
+      },
+      "teaching": {
+        "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+        "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+        "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "가: 지민아, 그때 어디에 살았니?\n나: 예전에는 부산에 살았었어. 지금은 서울에서 살아. 그때 매일 가던 도서관이 생각나. 혼자 지낼 때는 좀 외로웠어.\n가: 많이 외로웠구나. 지금은 어때?\n나: 여기서는 친구들과 자주 만나. 지금은 이사 준비를 하는 중이야. 동생은 제주도에 가고 싶어 해. 아직 한 적은 없어.\n가: 그렇구나. 준비가 끝나면 같이 사진을 보자.",
+        "questions": [
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예전에 살던 곳은?",
+              "en": "Where did the speaker live before?",
+              "de": "Wo wohnte die Person früher?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "서울"
+              },
+              {
+                "id": "0",
+                "text": "부산"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "ongoing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "지금 진행 중인 일은?",
+              "en": "What is happening now?",
+              "de": "Was läuft gerade?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "동생의 바람이 이미 실현됨"
+              },
+              {
+                "id": "0",
+                "text": "이사 준비를 하는 중"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동생에 대해 확인된 내용은?",
+              "en": "What is established about the sibling?",
+              "de": "Was steht über das Geschwister fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "원하던 일을 이미 여러 번 함"
+              },
+              {
+                "id": "0",
+                "text": "제주도에 가고 싶어 하지만 아직 경험하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가가 외로웠구나라고 한 근거는?",
+              "en": "What supports the response about loneliness?",
+              "de": "Worauf beruht die Reaktion auf die Einsamkeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "나가 혼자 지낼 때 외로웠다고 말함"
+              },
+              {
+                "id": "1",
+                "text": "가가 현재 상황을 보고 임의로 단정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "가: 민수야, 그때 어디에 살았니?\n나: 예전에는 대구에 살았었어. 지금은 인천에서 살아. 그때 매일 가던 도서관이 생각나. 혼자 지낼 때는 좀 외로웠어.\n가: 많이 외로웠구나. 지금은 어때?\n나: 여기서는 친구들과 자주 만나. 지금은 발표 자료를 고치는 중이야. 동생은 도예를 배우고 싶어 해. 아직 한 적은 없어.\n가: 그렇구나. 준비가 끝나면 같이 사진을 보자.",
+        "questions": [
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예전에 살던 곳은?",
+              "en": "Where did the speaker live before?",
+              "de": "Wo wohnte die Person früher?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "대구"
+              },
+              {
+                "id": "1",
+                "text": "인천"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "ongoing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "지금 진행 중인 일은?",
+              "en": "What is happening now?",
+              "de": "Was läuft gerade?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "동생의 바람이 이미 실현됨"
+              },
+              {
+                "id": "0",
+                "text": "발표 자료를 고치는 중"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동생에 대해 확인된 내용은?",
+              "en": "What is established about the sibling?",
+              "de": "Was steht über das Geschwister fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "원하던 일을 이미 여러 번 함"
+              },
+              {
+                "id": "0",
+                "text": "도예를 배우고 싶어 하지만 아직 경험하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          },
+          {
+            "id": "response",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가가 외로웠구나라고 한 근거는?",
+              "en": "What supports the response about loneliness?",
+              "de": "Worauf beruht die Reaktion auf die Einsamkeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가가 현재 상황을 보고 임의로 단정함"
+              },
+              {
+                "id": "0",
+                "text": "나가 혼자 지낼 때 외로웠다고 말함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "누가 직접 겪었는지, 예전과 지금이 어떻게 다른지 확인하세요. 진행 중인 일과 아직 실현되지 않은 바람을 나눠 들어요. 친구가 말한 감정에 호응하되 말하지 않은 감정을 단정하지 마세요. 회상 어미를 과장하지 않고 의미 단위로 쉬어 들어 보세요.",
+              "en": "Check who experienced the event and how past and present differ. Separate an ongoing activity from an unrealised wish. Respond to the feeling the friend actually expressed. Listen for pauses between meaning units without overemphasising retrospective endings.",
+              "de": "Prüfe, wer etwas selbst erlebt hat und was früher anders war als heute. Unterscheide laufende Handlung und noch unerfüllten Wunsch. Gehe auf das tatsächlich genannte Gefühl ein. Achte auf Pausen zwischen Sinneinheiten, ohne die Erinnerungsendungen übermäßig zu betonen."
+            }
+          }
+        ]
+      },
+      "contentHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42"
+    },
+    {
+      "id": "KP09:listening:02",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "첫 활동을 돌아보는 짧은 강연",
+        "en": "A short talk about a first activity",
+        "de": "Ein kurzer Vortrag über den ersten Einsatz"
+      },
+      "teaching": {
+        "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+        "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+        "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "새 회원을 위한 짧은 경험 발표입니다. 저는 2022년에 마을 도서관에서 책 정리 활동을 처음 시작했었습니다. 그때 매주 만나던 동료가 지금도 기억납니다. 처음에는 서툴러서 속상했습니다. 동료가 괜찮아요, 천천히 해요라고 말해 주었습니다. 그 말 덕분에 마음이 놓였습니다. 지금은 그곳을 떠나 새 회원 교육 자료를 만드는 중입니다. 제 친구도 같은 활동을 하고 싶어 하지만 아직 신청하지는 않았습니다.",
+        "questions": [
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "시간 순서에 맞는 것은?",
+              "en": "Which sequence matches the talk?",
+              "de": "Welche zeitliche Reihenfolge stimmt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "교육 자료 완성 → 내년에 첫 활동 시작"
+              },
+              {
+                "id": "0",
+                "text": "마을 도서관에서 활동 시작 → 지금 교육 자료 제작"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "천천히 해요라고 말한 사람은?",
+              "en": "Who said to take it slowly?",
+              "de": "Wer sagte, man solle sich Zeit lassen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그때 함께 활동하던 동료"
+              },
+              {
+                "id": "1",
+                "text": "아직 신청하지 않은 친구"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "emotion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마음이 놓인 계기는?",
+              "en": "What brought relief?",
+              "de": "Was sorgte für Erleichterung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "동료의 격려"
+              },
+              {
+                "id": "1",
+                "text": "친구의 신청 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "친구에 대해 말할 수 있는 것은?",
+              "en": "What can be said about the friend?",
+              "de": "Was lässt sich über die befreundete Person sagen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "활동을 원하지만 아직 신청하지 않음"
+              },
+              {
+                "id": "1",
+                "text": "이미 활동 교육을 마침"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "새 회원을 위한 짧은 경험 발표입니다. 저는 2023년에 동네 문화센터에서 공연 안내 활동을 처음 시작했었습니다. 그때 매주 만나던 동료가 지금도 기억납니다. 처음에는 서툴러서 속상했습니다. 동료가 괜찮아요, 천천히 해요라고 말해 주었습니다. 그 말 덕분에 마음이 놓였습니다. 지금은 그곳을 떠나 새 회원 교육 자료를 만드는 중입니다. 제 친구도 같은 활동을 하고 싶어 하지만 아직 신청하지는 않았습니다.",
+        "questions": [
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "시간 순서에 맞는 것은?",
+              "en": "Which sequence matches the talk?",
+              "de": "Welche zeitliche Reihenfolge stimmt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "교육 자료 완성 → 내년에 첫 활동 시작"
+              },
+              {
+                "id": "0",
+                "text": "동네 문화센터에서 활동 시작 → 지금 교육 자료 제작"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "천천히 해요라고 말한 사람은?",
+              "en": "Who said to take it slowly?",
+              "de": "Wer sagte, man solle sich Zeit lassen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아직 신청하지 않은 친구"
+              },
+              {
+                "id": "0",
+                "text": "그때 함께 활동하던 동료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "emotion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마음이 놓인 계기는?",
+              "en": "What brought relief?",
+              "de": "Was sorgte für Erleichterung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "동료의 격려"
+              },
+              {
+                "id": "1",
+                "text": "친구의 신청 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "친구에 대해 말할 수 있는 것은?",
+              "en": "What can be said about the friend?",
+              "de": "Was lässt sich über die befreundete Person sagen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 활동 교육을 마침"
+              },
+              {
+                "id": "0",
+                "text": "활동을 원하지만 아직 신청하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회고 강연의 시간 순서를 정리하고 화자의 직접 경험과 다른 사람의 바람을 구별하세요. 인용된 말이 누구의 말인지 맥락에서 확인해요.",
+              "en": "Reconstruct the timeline of the retrospective talk. Distinguish the speaker’s experience from another person’s wish and identify who said the quoted words.",
+              "de": "Ordne den Rückblick zeitlich. Unterscheide eigene Erlebnisse der sprechenden Person vom Wunsch einer anderen und prüfe, von wem zitierte Worte stammen."
+            }
+          }
+        ]
+      },
+      "contentHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0"
+    },
+    {
+      "id": "KP09:reading:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "회고 게시글과 공감 댓글",
+        "en": "A retrospective post and an empathetic comment",
+        "de": "Rückblick und mitfühlender Kommentar"
+      },
+      "teaching": {
+        "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+        "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+        "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "공개 회고 게시글 — 도윤\n처음 독서 모임 활동을 할 때 나는 대전에 살았었다. 매주 가던 모임에서 실수를 하면 얼굴이 빨개졌다. 동료가 누구나 처음은 있어요라고 말해 주었다. 지금 나는 그 경험을 글로 정리하는 중이다. 친구는 다음 모임에 오고 싶어 한다. 아직 참석 여부는 정하지 않았다.\n댓글 — 수아: 실수해서 당황했던 마음은 이해해요. 모임 운영 방식은 제가 잘 몰라서 판단하기 어려워요.",
+        "questions": [
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "누구나 처음은 있어요의 출처는?",
+              "en": "Who said that everyone has a first time?",
+              "de": "Von wem stammt der Satz, dass jeder einmal anfängt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "활동 당시 동료"
+              },
+              {
+                "id": "1",
+                "text": "댓글 작성자 수아"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "now",
+            "kind": "choice",
+            "prompt": {
+              "ko": "글쓴이가 현재 하는 일은?",
+              "en": "What is the author doing now?",
+              "de": "Was macht die schreibende Person gerade?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "경험을 글로 정리하는 중"
+              },
+              {
+                "id": "1",
+                "text": "친구의 참석을 확정하는 중"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "comment",
+            "kind": "choice",
+            "prompt": {
+              "ko": "댓글의 태도는?",
+              "en": "What is the commenter’s position?",
+              "de": "Welche Haltung zeigt der Kommentar?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모임 운영 방식 전부에 찬성"
+              },
+              {
+                "id": "0",
+                "text": "감정에는 공감하지만 운영 방식 판단은 유보"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "친구의 상태를 정확히 요약하면?",
+              "en": "Which summary accurately describes the friend?",
+              "de": "Welche Zusammenfassung beschreibt die befreundete Person richtig?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참석하고 싶지만 결정 전"
+              },
+              {
+                "id": "1",
+                "text": "참석을 확정했고 이미 다녀옴"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "공개 회고 게시글 — 하린\n처음 사진 모임 활동을 할 때 나는 광주에 살았었다. 매주 가던 모임에서 실수를 하면 얼굴이 빨개졌다. 동료가 누구나 처음은 있어요라고 말해 주었다. 지금 나는 그 경험을 글로 정리하는 중이다. 친구는 다음 모임에 오고 싶어 한다. 아직 참석 여부는 정하지 않았다.\n댓글 — 수아: 실수해서 당황했던 마음은 이해해요. 모임 운영 방식은 제가 잘 몰라서 판단하기 어려워요.",
+        "questions": [
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "누구나 처음은 있어요의 출처는?",
+              "en": "Who said that everyone has a first time?",
+              "de": "Von wem stammt der Satz, dass jeder einmal anfängt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "활동 당시 동료"
+              },
+              {
+                "id": "1",
+                "text": "댓글 작성자 수아"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "now",
+            "kind": "choice",
+            "prompt": {
+              "ko": "글쓴이가 현재 하는 일은?",
+              "en": "What is the author doing now?",
+              "de": "Was macht die schreibende Person gerade?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구의 참석을 확정하는 중"
+              },
+              {
+                "id": "0",
+                "text": "경험을 글로 정리하는 중"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "comment",
+            "kind": "choice",
+            "prompt": {
+              "ko": "댓글의 태도는?",
+              "en": "What is the commenter’s position?",
+              "de": "Welche Haltung zeigt der Kommentar?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "감정에는 공감하지만 운영 방식 판단은 유보"
+              },
+              {
+                "id": "1",
+                "text": "모임 운영 방식 전부에 찬성"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          },
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "친구의 상태를 정확히 요약하면?",
+              "en": "Which summary accurately describes the friend?",
+              "de": "Welche Zusammenfassung beschreibt die befreundete Person richtig?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참석하고 싶지만 결정 전"
+              },
+              {
+                "id": "1",
+                "text": "참석을 확정했고 이미 다녀옴"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "게시글 본문과 댓글의 화자를 구별하세요. 직접 겪은 일, 인용한 말, 현재의 일과 희망을 따로 요약해요. 공감의 댓글을 본문의 모든 주장에 대한 동의로 바꾸지 마세요.",
+              "en": "Separate the author of the post from the commenters. Summarise experience, quoted words, present activity and wishes separately. An empathetic comment does not endorse every claim in the post.",
+              "de": "Unterscheide Beitrag und Kommentar nach ihren Verfassern. Fasse Erlebnis, Zitat, laufende Tätigkeit und Wunsch getrennt zusammen. Ein mitfühlender Kommentar bestätigt nicht jede Aussage im Beitrag."
+            }
+          }
+        ]
+      },
+      "contentHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d"
+    },
+    {
+      "id": "KP09:writing:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "그때와 지금을 잇는 회고문",
+        "en": "A narrative connecting then and now",
+        "de": "Ein Rückblick von damals bis heute"
+      },
+      "teaching": {
+        "ko": "가상 인물의 사건을 시간 순서에 맞춰 서사문으로 쓰세요. 당시 감정과 그 근거, 다른 사람이 실제로 한 말, 지금 달라진 점을 포함하세요. 본문은 서술체로, 직접 인용은 제공된 말투로 구별하고 희망을 확정 사실로 쓰지 마세요. 쓴 글을 근거와 대조해 고쳐 쓰세요. 전체 글의 의미와 문체는 미채점입니다.",
+        "en": "Write a narrative from the fictional facts in chronological order. Include the past feeling and its cause, what another person actually said and the change today. Use narrative style for the text and the supplied register for quotations. Keep wishes tentative. Compare and revise; the full text’s meaning and style remain unscored.",
+        "de": "Schreibe anhand der fiktiven Angaben eine zeitlich geordnete Erzählung. Nenne das damalige Gefühl samt Grund, tatsächlich Gesagtes und die heutige Veränderung. Trenne Erzählstil und vorgegebenen Stil direkter Zitate. Stelle Wünsche nicht als Tatsachen dar. Vergleiche und überarbeite; Inhalt und Stil des Gesamttextes bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 인물의 1인칭 회고\n2021년: 전주 거주. 매주 합창 연습. 첫날 실수해서 당황함. 가까운 친구가 반말로 천천히 같이 하자라고 말해 마음이 놓임.\n현재: 다른 도시 거주. 새 모임을 찾는 중. 친구는 노래를 배우고 싶어 하지만 아직 결정 전.\n제공된 사건을 서술체 본문과 직접 인용으로 구별해 한 편의 이야기로 쓰세요.",
+        "questions": [
+          {
+            "id": "narrative",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "회고문을 쓰고 근거와 대조해 고치세요.",
+              "en": "Write and revise the narrative against the facts.",
+              "de": "Schreibe den Rückblick und überarbeite ihn anhand der Angaben."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 인물의 사건을 시간 순서에 맞춰 서사문으로 쓰세요. 당시 감정과 그 근거, 다른 사람이 실제로 한 말, 지금 달라진 점을 포함하세요. 본문은 서술체로, 직접 인용은 제공된 말투로 구별하고 희망을 확정 사실로 쓰지 마세요. 쓴 글을 근거와 대조해 고쳐 쓰세요. 전체 글의 의미와 문체는 미채점입니다.",
+              "en": "Write a narrative from the fictional facts in chronological order. Include the past feeling and its cause, what another person actually said and the change today. Use narrative style for the text and the supplied register for quotations. Keep wishes tentative. Compare and revise; the full text’s meaning and style remain unscored.",
+              "de": "Schreibe anhand der fiktiven Angaben eine zeitlich geordnete Erzählung. Nenne das damalige Gefühl samt Grund, tatsächlich Gesagtes und die heutige Veränderung. Trenne Erzählstil und vorgegebenen Stil direkter Zitate. Stelle Wünsche nicht als Tatsachen dar. Vergleiche und überarbeite; Inhalt und Stil des Gesamttextes bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 인물의 1인칭 회고\n2022년: 춘천 거주. 매주 연극 연습. 첫날 실수해서 당황함. 가까운 친구가 반말로 괜찮아, 다시 해 보자라고 말해 마음이 놓임.\n현재: 다른 도시 거주. 옛 사진을 정리하는 중. 친구는 연극을 보고 싶어 하지만 아직 결정 전.\n제공된 사건을 서술체 본문과 직접 인용으로 구별해 한 편의 이야기로 쓰세요.",
+        "questions": [
+          {
+            "id": "narrative",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "회고문을 쓰고 근거와 대조해 고치세요.",
+              "en": "Write and revise the narrative against the facts.",
+              "de": "Schreibe den Rückblick und überarbeite ihn anhand der Angaben."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 인물의 사건을 시간 순서에 맞춰 서사문으로 쓰세요. 당시 감정과 그 근거, 다른 사람이 실제로 한 말, 지금 달라진 점을 포함하세요. 본문은 서술체로, 직접 인용은 제공된 말투로 구별하고 희망을 확정 사실로 쓰지 마세요. 쓴 글을 근거와 대조해 고쳐 쓰세요. 전체 글의 의미와 문체는 미채점입니다.",
+              "en": "Write a narrative from the fictional facts in chronological order. Include the past feeling and its cause, what another person actually said and the change today. Use narrative style for the text and the supplied register for quotations. Keep wishes tentative. Compare and revise; the full text’s meaning and style remain unscored.",
+              "de": "Schreibe anhand der fiktiven Angaben eine zeitlich geordnete Erzählung. Nenne das damalige Gefühl samt Grund, tatsächlich Gesagtes und die heutige Veränderung. Trenne Erzählstil und vorgegebenen Stil direkter Zitate. Stelle Wünsche nicht als Tatsachen dar. Vergleiche und überarbeite; Inhalt und Stil des Gesamttextes bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "contentHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd"
+    },
+    {
+      "id": "KP09:speaking:01",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "친구의 기억에 호응하고 되묻기",
+        "en": "Respond to a friend’s memory and ask back",
+        "de": "Auf die Erinnerung eines Freundes eingehen und nachfragen"
+      },
+      "teaching": {
+        "ko": "오래된 가까운 친구와 사적으로 이야기하며 반말을 쓰기로 한 장면입니다. 과거·현재·친구의 희망을 구별하고, 말해 준 감정에 호응한 뒤 기억을 되물으세요. 이어 새 회원에게 같은 사실을 해요체로 전달하세요. 녹음을 듣고 회상 어미와 의미 단위의 휴지를 고쳐 재녹음하세요. 의미·관계 적합성·억양은 미채점입니다.",
+        "en": "In this private conversation, long-standing close friends have agreed to use casual speech. Separate past, present and the friend’s wish; acknowledge the stated feeling and ask about the memory. Then relay the same facts politely to a new member. Replay and revise endings and pauses. Meaning, relationship fit and intonation remain unscored.",
+        "de": "In diesem privaten Gespräch sprechen langjährige enge Freunde vereinbart vertraulich. Trenne Vergangenheit, Gegenwart und den Wunsch der anderen Person; greife das genannte Gefühl auf und frage nach der Erinnerung. Gib dieselben Fakten danach einem neuen Mitglied höflich weiter. Höre die Aufnahme an und verbessere Endungen und Pausen. Inhalt, Angemessenheit und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "내 역할: 예전에는 부산에 살았고 매일 도서관에 갔음. 지금은 서울에서 이사 준비 중. 동생은 제주도에 가고 싶지만 아직 안 감.\n가까운 친구 지민: 그때 혼자라서 외로웠어.\n지민을 이름으로 부르고 감정에 호응한 뒤 당시 함께 가던 장소를 질문. 이어 새 회원에게 해요체로 확인된 사실만 전달.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "내 역할: 예전에는 대구에 살았고 매주 문화센터에 갔음. 지금은 인천에서 발표 준비 중. 동생은 도예를 배우고 싶지만 아직 안 배움.\n가까운 친구 민수: 그때 실수해서 당황했어.\n민수를 이름으로 부르고 감정에 호응한 뒤 당시 함께 하던 활동을 질문. 이어 새 회원에게 해요체로 확인된 사실만 전달.",
+        "questions": []
+      },
+      "contentHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89"
+    },
+    {
+      "id": "KP09:speaking:02",
+      "phaseId": "KP09",
+      "level": "B1",
+      "objectiveId": "KP09:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "가상 지원자의 경험 면접",
+        "en": "An experience interview with a fictional applicant",
+        "de": "Vorstellungsgespräch mit fiktiven Erfahrungen"
+      },
+      "teaching": {
+        "ko": "취업 면접의 가상 지원자 역할입니다. 제공된 경험·기간·역할·현재 준비만 말하고 자격증이나 성과를 만들지 마세요. 면접관에게 공손한 해요체 또는 격식체로 사건과 배운 점을 구별해 답하세요. 녹음을 듣고 말투와 휴지를 고쳐 재녹음하세요. 경력의 진실성·의미·말투 평가는 자동 채점하지 않습니다.",
+        "en": "Play the fictional job applicant. Use only the supplied experience, duration, role and current preparation; invent no qualifications or achievements. Answer the interviewer politely or formally, separating events from lessons learned. Replay and revise register and pauses. Truth of experience, meaning and register are not automatically scored.",
+        "de": "Übernimm die Rolle einer fiktiven Bewerbungsperson. Verwende nur die vorgegebenen Erfahrungen, Zeiträume, Aufgaben und aktuellen Vorbereitungen; erfinde keine Abschlüsse oder Erfolge. Antworte der interviewenden Person höflich oder förmlich und trenne Ereignis und daraus Gelerntes. Höre zu und verbessere Sprachstil und Pausen. Wahrheitsgehalt, Inhalt und Sprachstil werden nicht automatisch bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 지원 분야: 도서관 안내 보조. 과거: 두 달 동안 주 1회 도서 정리 봉사. 역할: 직원이 정한 분류표에 맞춰 책 정리, 대출 결정 권한 없음. 처음 표지를 잘못 읽었지만 직원에게 확인해 수정. 배운 점: 모르는 내용은 확인하고 처리. 현재: 안내 표현을 공부하는 중.\n면접관 질문: 어떤 경험을 하셨나요? 실수했을 때 어떻게 하셨나요? 지금 무엇을 준비하시나요?",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 지원 분야: 문화센터 안내 보조. 과거: 세 달 동안 주 1회 행사 안내 봉사. 역할: 직원이 정한 좌석표를 안내, 좌석 변경 결정 권한 없음. 처음 번호를 잘못 읽었지만 직원에게 확인해 수정. 배운 점: 모르는 내용은 확인하고 처리. 현재: 시설 안내 자료를 읽는 중.\n면접관 질문: 어떤 경험을 하셨나요? 실수했을 때 어떻게 하셨나요? 지금 무엇을 준비하시나요?",
+        "questions": []
+      },
+      "contentHash": "2544458abf1363c76956c81870e9b2f68f1d847154a52180ff9c2ef74fa5509b"
     }
   ],
   "objectives": [
@@ -42063,8 +44999,23 @@
       "sourceHash": "cb27fc72148fb1ae410380034af1d225dada4fae962d371205ac09aa951b5b51",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:01",
+          "taskHash": "5ac045d2fd416bb2f1441ed6b46080a85633f0a94d9e608bde877e19500973e0",
+          "materialIds": [
+            "KP09:grammar:01/practice/material",
+            "KP09:grammar:01/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:01/practice",
+          "assessmentId": "KP09:grammar:01/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42075,8 +45026,23 @@
       "sourceHash": "cb27fc72148fb1ae410380034af1d225dada4fae962d371205ac09aa951b5b51",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:01",
+          "taskHash": "0e51a09b640e5beff209ee982279367fbb1a2cf6e31dd61e44abc34fe928afa9",
+          "materialIds": [
+            "KP09:production:01/practice/material",
+            "KP09:production:01/assessment/material"
+          ],
+          "practiceId": "KP09:production:01/practice",
+          "assessmentId": "KP09:production:01/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42087,8 +45053,23 @@
       "sourceHash": "55d9e3452c8e4a576e6ff0c447158973da91ae484ab84ef0a4e47ed37e15f790",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:02",
+          "taskHash": "e39607c02bcdc418149bef386872799c8c136acf212ce328f6ac0ac766f63322",
+          "materialIds": [
+            "KP09:grammar:02/practice/material",
+            "KP09:grammar:02/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:02/practice",
+          "assessmentId": "KP09:grammar:02/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42099,8 +45080,23 @@
       "sourceHash": "55d9e3452c8e4a576e6ff0c447158973da91ae484ab84ef0a4e47ed37e15f790",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:02",
+          "taskHash": "2bb2ab619cf782ec9d6a0d92cadf84a7067cd5ab68c6ae54eabfe805ea9b43a7",
+          "materialIds": [
+            "KP09:production:02/practice/material",
+            "KP09:production:02/assessment/material"
+          ],
+          "practiceId": "KP09:production:02/practice",
+          "assessmentId": "KP09:production:02/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42111,8 +45107,23 @@
       "sourceHash": "29208973514d03ac9a0cdfaab151e53070c80589dea8e958bfae4c8443cdc8e0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:03",
+          "taskHash": "8a87c901b424b20861cb9989fd69b98baec570d2c4c6574539dfea2ec5191fd5",
+          "materialIds": [
+            "KP09:grammar:03/practice/material",
+            "KP09:grammar:03/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:03/practice",
+          "assessmentId": "KP09:grammar:03/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42123,8 +45134,23 @@
       "sourceHash": "29208973514d03ac9a0cdfaab151e53070c80589dea8e958bfae4c8443cdc8e0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:03",
+          "taskHash": "cf33fd47610b484bdd9e65448f21fb5eb7cbaaf7c89dda7890d4620453811866",
+          "materialIds": [
+            "KP09:production:03/practice/material",
+            "KP09:production:03/assessment/material"
+          ],
+          "practiceId": "KP09:production:03/practice",
+          "assessmentId": "KP09:production:03/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42135,8 +45161,23 @@
       "sourceHash": "5a3d48ef9974e65ae691332b1e8bce9af5ff0076d37c3fae76d51650cab7e838",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:04",
+          "taskHash": "ccce278ab7105c3e6c77e0c8c58ef81070824436606bfb5b5c0511523fa1d03d",
+          "materialIds": [
+            "KP09:grammar:04/practice/material",
+            "KP09:grammar:04/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:04/practice",
+          "assessmentId": "KP09:grammar:04/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42147,8 +45188,23 @@
       "sourceHash": "5a3d48ef9974e65ae691332b1e8bce9af5ff0076d37c3fae76d51650cab7e838",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:04",
+          "taskHash": "81fb8d0b605ca3c0f1c8c9baa92181b4b76da0c3557f833e54d81b4eae0315d2",
+          "materialIds": [
+            "KP09:production:04/practice/material",
+            "KP09:production:04/assessment/material"
+          ],
+          "practiceId": "KP09:production:04/practice",
+          "assessmentId": "KP09:production:04/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42159,8 +45215,23 @@
       "sourceHash": "d959eed5e478d21514e4a04bf4dc71cf64e50851b22e34e72f90a3c4ee2c6742",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:05",
+          "taskHash": "9f50b39cfc173b71cbbda8b147698cfed585ca41e45cb7435f9cd59b2e881dc1",
+          "materialIds": [
+            "KP09:grammar:05/practice/material",
+            "KP09:grammar:05/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:05/practice",
+          "assessmentId": "KP09:grammar:05/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42171,8 +45242,23 @@
       "sourceHash": "d959eed5e478d21514e4a04bf4dc71cf64e50851b22e34e72f90a3c4ee2c6742",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:05",
+          "taskHash": "0c46728493f85fa5a9b563441d288e32f26ab8fd6dbe92b7aeba08333329d72d",
+          "materialIds": [
+            "KP09:production:05/practice/material",
+            "KP09:production:05/assessment/material"
+          ],
+          "practiceId": "KP09:production:05/practice",
+          "assessmentId": "KP09:production:05/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42183,8 +45269,23 @@
       "sourceHash": "7ffeeb97c218218ee2140b68ffcd273d99757aeb0f5d6996df09cb8b4b0b202f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:06",
+          "taskHash": "c4b67ff102eecc9b288ec1bfe606a28293d8fca3a8b3a859b73bba61049411b0",
+          "materialIds": [
+            "KP09:grammar:06/practice/material",
+            "KP09:grammar:06/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:06/practice",
+          "assessmentId": "KP09:grammar:06/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42195,8 +45296,23 @@
       "sourceHash": "7ffeeb97c218218ee2140b68ffcd273d99757aeb0f5d6996df09cb8b4b0b202f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:06",
+          "taskHash": "d70ed5e7cbb94ce64a9b9a432fd9ee1c08bda9d5e92e14ccae8958d1623e2a4c",
+          "materialIds": [
+            "KP09:production:06/practice/material",
+            "KP09:production:06/assessment/material"
+          ],
+          "practiceId": "KP09:production:06/practice",
+          "assessmentId": "KP09:production:06/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42207,8 +45323,23 @@
       "sourceHash": "f41904b3139e7294dbe39715108016ef58a112d151931b6aeea3eb84e7665ff2",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:07",
+          "taskHash": "a48d7ea4f69cded819e807d80d69a3c6cb46b231e8a687ec6930610443ccab73",
+          "materialIds": [
+            "KP09:grammar:07/practice/material",
+            "KP09:grammar:07/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:07/practice",
+          "assessmentId": "KP09:grammar:07/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42219,8 +45350,23 @@
       "sourceHash": "f41904b3139e7294dbe39715108016ef58a112d151931b6aeea3eb84e7665ff2",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:07",
+          "taskHash": "c4ee57bf6dff72a88bae68ed8e57d6d9c6c3fc310661122727bfddc250d9bc61",
+          "materialIds": [
+            "KP09:production:07/practice/material",
+            "KP09:production:07/assessment/material"
+          ],
+          "practiceId": "KP09:production:07/practice",
+          "assessmentId": "KP09:production:07/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42231,8 +45377,23 @@
       "sourceHash": "fcab0f752cbc07a9a0261bae1236e1ec5e319e3b7c2c42914ba4ea05e82f711e",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:08",
+          "taskHash": "c7c27fc617c9edc4688b04273da92884f084fe1e51cd06a72792b89082a63220",
+          "materialIds": [
+            "KP09:grammar:08/practice/material",
+            "KP09:grammar:08/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:08/practice",
+          "assessmentId": "KP09:grammar:08/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42243,8 +45404,23 @@
       "sourceHash": "fcab0f752cbc07a9a0261bae1236e1ec5e319e3b7c2c42914ba4ea05e82f711e",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:08",
+          "taskHash": "c9db4cd2eba02e5c5c3e29e863ff44b4e54d2526e20496b27b163a72d23c46df",
+          "materialIds": [
+            "KP09:production:08/practice/material",
+            "KP09:production:08/assessment/material"
+          ],
+          "practiceId": "KP09:production:08/practice",
+          "assessmentId": "KP09:production:08/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42255,8 +45431,23 @@
       "sourceHash": "f87fced25c284214b1a6fdc060c3ebfa3e285dea8d08ab0f3a3e0277c69840ae",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:09",
+          "taskHash": "900c05dc3621027ab293d08cbf9b077b46d6ac5a1debc8c15d32182454884b2d",
+          "materialIds": [
+            "KP09:grammar:09/practice/material",
+            "KP09:grammar:09/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:09/practice",
+          "assessmentId": "KP09:grammar:09/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42267,8 +45458,23 @@
       "sourceHash": "f87fced25c284214b1a6fdc060c3ebfa3e285dea8d08ab0f3a3e0277c69840ae",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:09",
+          "taskHash": "b0dda4ca2eef23582e2736b6dc0e14feb28ea18e689d1970b5873a15d91407ff",
+          "materialIds": [
+            "KP09:production:09/practice/material",
+            "KP09:production:09/assessment/material"
+          ],
+          "practiceId": "KP09:production:09/practice",
+          "assessmentId": "KP09:production:09/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42279,8 +45485,23 @@
       "sourceHash": "512b1c420bc86480eb5cea9fcd6aa3d4b263ac94d5c52e778814e1db05e090f2",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:10",
+          "taskHash": "2128e962dd8584c9d66ffc0c55d70b47456af8f4c05f0186a93b4546e62b6308",
+          "materialIds": [
+            "KP09:grammar:10/practice/material",
+            "KP09:grammar:10/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:10/practice",
+          "assessmentId": "KP09:grammar:10/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42291,8 +45512,23 @@
       "sourceHash": "512b1c420bc86480eb5cea9fcd6aa3d4b263ac94d5c52e778814e1db05e090f2",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:10",
+          "taskHash": "5a33f5f4a5dc7d1bf7d26c5fe9dd5755369fe908816d987d344038ae78ad3555",
+          "materialIds": [
+            "KP09:production:10/practice/material",
+            "KP09:production:10/assessment/material"
+          ],
+          "practiceId": "KP09:production:10/practice",
+          "assessmentId": "KP09:production:10/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42303,8 +45539,23 @@
       "sourceHash": "8d036374334539901cb1f1fde60915f762aa3166e17baa179080575f8eb41fab",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:grammar:11",
+          "taskHash": "36b2a2b8660b19f1bfd55a0143003ab0174a7151298619aa03954d78b54cd304",
+          "materialIds": [
+            "KP09:grammar:11/practice/material",
+            "KP09:grammar:11/assessment/material"
+          ],
+          "practiceId": "KP09:grammar:11/practice",
+          "assessmentId": "KP09:grammar:11/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42315,8 +45566,23 @@
       "sourceHash": "8d036374334539901cb1f1fde60915f762aa3166e17baa179080575f8eb41fab",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:production:11",
+          "taskHash": "1042924510524b963c61fef9f4694f91bee840dd0d67c3720b263f495ee40bdd",
+          "materialIds": [
+            "KP09:production:11/practice/material",
+            "KP09:production:11/assessment/material"
+          ],
+          "practiceId": "KP09:production:11/practice",
+          "assessmentId": "KP09:production:11/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42327,8 +45593,26 @@
       "sourceHash": "53de10395615295984d61b44e9827ad35b18acc756644c9d65ee6e07d8f8ae5c",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:01",
+          "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+          "materialIds": [
+            "KP09:listening:01/practice/material",
+            "KP09:listening:01/assessment/material"
+          ],
+          "practiceId": "KP09:listening:01/practice",
+          "assessmentId": "KP09:listening:01/assessment",
+          "criterionIds": [
+            "past",
+            "ongoing",
+            "wish",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42339,8 +45623,26 @@
       "sourceHash": "17fdb796d1368f0f5d20bca43cd12ef3399c1f953289cd228cca6f2ea5e13cd3",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:02",
+          "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+          "materialIds": [
+            "KP09:listening:02/practice/material",
+            "KP09:listening:02/assessment/material"
+          ],
+          "practiceId": "KP09:listening:02/practice",
+          "assessmentId": "KP09:listening:02/assessment",
+          "criterionIds": [
+            "sequence",
+            "source",
+            "emotion",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42351,8 +45653,26 @@
       "sourceHash": "3979f6c35c587de9c97ee115125d10916adc0251ee61bdbd3675be921d62c30f",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:reading:01",
+          "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+          "materialIds": [
+            "KP09:reading:01/practice/material",
+            "KP09:reading:01/assessment/material"
+          ],
+          "practiceId": "KP09:reading:01/practice",
+          "assessmentId": "KP09:reading:01/assessment",
+          "criterionIds": [
+            "quote",
+            "now",
+            "comment",
+            "wish"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42363,8 +45683,26 @@
       "sourceHash": "2b62a67f2cacfa5c76fd60b05c806d3f2cfa14cf9d6447f4e6d8bc1656f54918",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:reading:01",
+          "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+          "materialIds": [
+            "KP09:reading:01/practice/material",
+            "KP09:reading:01/assessment/material"
+          ],
+          "practiceId": "KP09:reading:01/practice",
+          "assessmentId": "KP09:reading:01/assessment",
+          "criterionIds": [
+            "quote",
+            "now",
+            "comment",
+            "wish"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42375,8 +45713,21 @@
       "sourceHash": "1734cc6ff42b2a5e6273fcf0fcfec037be94ebe3f9a03a267c87fc80d8d907ee",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42387,8 +45738,21 @@
       "sourceHash": "2f26f0a157dd5cb117cca12bf6c6d08803930688bcb6bb54a45ea5129c955678",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:02",
+          "taskHash": "2544458abf1363c76956c81870e9b2f68f1d847154a52180ff9c2ef74fa5509b",
+          "materialIds": [
+            "KP09:speaking:02/practice/material",
+            "KP09:speaking:02/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:02/practice",
+          "assessmentId": "KP09:speaking:02/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42399,8 +45763,23 @@
       "sourceHash": "0ef514ce48f2a8b7bc48e63bd5035395038080ab9577bc858f1296ea4697d23c",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:writing:01",
+          "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+          "materialIds": [
+            "KP09:writing:01/practice/material",
+            "KP09:writing:01/assessment/material"
+          ],
+          "practiceId": "KP09:writing:01/practice",
+          "assessmentId": "KP09:writing:01/assessment",
+          "criterionIds": [
+            "narrative"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42411,8 +45790,23 @@
       "sourceHash": "4194c35b59ca99126ec3935e3d117325ab56efdbeb23f356b7d39525859eaa6a",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:writing:01",
+          "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+          "materialIds": [
+            "KP09:writing:01/practice/material",
+            "KP09:writing:01/assessment/material"
+          ],
+          "practiceId": "KP09:writing:01/practice",
+          "assessmentId": "KP09:writing:01/assessment",
+          "criterionIds": [
+            "narrative"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42423,8 +45817,26 @@
       "sourceHash": "7c52424d4de0db2717b27e249b2089e41548b56172f76f35057d55b0571270ed",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:02",
+          "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+          "materialIds": [
+            "KP09:listening:02/practice/material",
+            "KP09:listening:02/assessment/material"
+          ],
+          "practiceId": "KP09:listening:02/practice",
+          "assessmentId": "KP09:listening:02/assessment",
+          "criterionIds": [
+            "sequence",
+            "source",
+            "emotion",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42435,8 +45847,23 @@
       "sourceHash": "7c52424d4de0db2717b27e249b2089e41548b56172f76f35057d55b0571270ed",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:writing:01",
+          "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+          "materialIds": [
+            "KP09:writing:01/practice/material",
+            "KP09:writing:01/assessment/material"
+          ],
+          "practiceId": "KP09:writing:01/practice",
+          "assessmentId": "KP09:writing:01/assessment",
+          "criterionIds": [
+            "narrative"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42447,8 +45874,26 @@
       "sourceHash": "0580bc9b2160de46595425a326ac1f1144058c1d608918451d1fc28290040541",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:01",
+          "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+          "materialIds": [
+            "KP09:listening:01/practice/material",
+            "KP09:listening:01/assessment/material"
+          ],
+          "practiceId": "KP09:listening:01/practice",
+          "assessmentId": "KP09:listening:01/assessment",
+          "criterionIds": [
+            "past",
+            "ongoing",
+            "wish",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42459,8 +45904,21 @@
       "sourceHash": "0580bc9b2160de46595425a326ac1f1144058c1d608918451d1fc28290040541",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42471,8 +45929,26 @@
       "sourceHash": "a6c5b625bf4540e8d13137618de76f1a1e983adf2123483bdc9008a27f1b8848",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:reading:01",
+          "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+          "materialIds": [
+            "KP09:reading:01/practice/material",
+            "KP09:reading:01/assessment/material"
+          ],
+          "practiceId": "KP09:reading:01/practice",
+          "assessmentId": "KP09:reading:01/assessment",
+          "criterionIds": [
+            "quote",
+            "now",
+            "comment",
+            "wish"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42483,8 +45959,21 @@
       "sourceHash": "a6c5b625bf4540e8d13137618de76f1a1e983adf2123483bdc9008a27f1b8848",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42495,8 +45984,26 @@
       "sourceHash": "0eebbbf05f10c974eeb00d7e6e93b4e8cd77671c972c03e53fd458cf3fffe204",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:reading:01",
+          "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+          "materialIds": [
+            "KP09:reading:01/practice/material",
+            "KP09:reading:01/assessment/material"
+          ],
+          "practiceId": "KP09:reading:01/practice",
+          "assessmentId": "KP09:reading:01/assessment",
+          "criterionIds": [
+            "quote",
+            "now",
+            "comment",
+            "wish"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42507,8 +46014,23 @@
       "sourceHash": "0eebbbf05f10c974eeb00d7e6e93b4e8cd77671c972c03e53fd458cf3fffe204",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:writing:01",
+          "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+          "materialIds": [
+            "KP09:writing:01/practice/material",
+            "KP09:writing:01/assessment/material"
+          ],
+          "practiceId": "KP09:writing:01/practice",
+          "assessmentId": "KP09:writing:01/assessment",
+          "criterionIds": [
+            "narrative"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42519,8 +46041,26 @@
       "sourceHash": "812c36f9378912e57c016b2fba1497936aa295457fe8d0c5a9740e8f630dbc7d",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:reading:01",
+          "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+          "materialIds": [
+            "KP09:reading:01/practice/material",
+            "KP09:reading:01/assessment/material"
+          ],
+          "practiceId": "KP09:reading:01/practice",
+          "assessmentId": "KP09:reading:01/assessment",
+          "criterionIds": [
+            "quote",
+            "now",
+            "comment",
+            "wish"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42531,8 +46071,23 @@
       "sourceHash": "812c36f9378912e57c016b2fba1497936aa295457fe8d0c5a9740e8f630dbc7d",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:writing:01",
+          "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+          "materialIds": [
+            "KP09:writing:01/practice/material",
+            "KP09:writing:01/assessment/material"
+          ],
+          "practiceId": "KP09:writing:01/practice",
+          "assessmentId": "KP09:writing:01/assessment",
+          "criterionIds": [
+            "narrative"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42543,8 +46098,26 @@
       "sourceHash": "1e662645526a3eb5062012729cdaedd38d348a1ac8f7a4e4bcc4bc51a1739e74",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:02",
+          "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+          "materialIds": [
+            "KP09:listening:02/practice/material",
+            "KP09:listening:02/assessment/material"
+          ],
+          "practiceId": "KP09:listening:02/practice",
+          "assessmentId": "KP09:listening:02/assessment",
+          "criterionIds": [
+            "sequence",
+            "source",
+            "emotion",
+            "limit"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42555,8 +46128,21 @@
       "sourceHash": "1e662645526a3eb5062012729cdaedd38d348a1ac8f7a4e4bcc4bc51a1739e74",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42567,8 +46153,26 @@
       "sourceHash": "2053ff8408b37e5718743a915853399ee991113c130f71a39a73df951759a792",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:01",
+          "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+          "materialIds": [
+            "KP09:listening:01/practice/material",
+            "KP09:listening:01/assessment/material"
+          ],
+          "practiceId": "KP09:listening:01/practice",
+          "assessmentId": "KP09:listening:01/assessment",
+          "criterionIds": [
+            "past",
+            "ongoing",
+            "wish",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42579,8 +46183,21 @@
       "sourceHash": "2053ff8408b37e5718743a915853399ee991113c130f71a39a73df951759a792",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42591,8 +46208,26 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:listening:01",
+          "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+          "materialIds": [
+            "KP09:listening:01/practice/material",
+            "KP09:listening:01/assessment/material"
+          ],
+          "practiceId": "KP09:listening:01/practice",
+          "assessmentId": "KP09:listening:01/assessment",
+          "criterionIds": [
+            "past",
+            "ongoing",
+            "wish",
+            "response"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42603,8 +46238,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42615,8 +46263,21 @@
       "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42627,8 +46288,21 @@
       "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -42639,8 +46313,21 @@
       "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP09:speaking:01",
+          "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+          "materialIds": [
+            "KP09:speaking:01/practice/material",
+            "KP09:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP09:speaking:01/practice",
+          "assessmentId": "KP09:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -56924,6 +60611,41 @@
         "KP08:production:14": "99546bda2c7267e4765d8d78163b616c841e8881c383301006fb1a1dfb2c3422"
       },
       "contentHash": "018c5c396ea4bf632a3146e07be9cf6bf1c7798f404cf45788d0a3fe26a43bb1"
+    },
+    {
+      "phaseId": "KP09",
+      "status": "partial",
+      "taskHashes": {
+        "KP09:grammar:01": "5ac045d2fd416bb2f1441ed6b46080a85633f0a94d9e608bde877e19500973e0",
+        "KP09:grammar:02": "e39607c02bcdc418149bef386872799c8c136acf212ce328f6ac0ac766f63322",
+        "KP09:grammar:03": "8a87c901b424b20861cb9989fd69b98baec570d2c4c6574539dfea2ec5191fd5",
+        "KP09:grammar:04": "ccce278ab7105c3e6c77e0c8c58ef81070824436606bfb5b5c0511523fa1d03d",
+        "KP09:grammar:05": "9f50b39cfc173b71cbbda8b147698cfed585ca41e45cb7435f9cd59b2e881dc1",
+        "KP09:grammar:06": "c4b67ff102eecc9b288ec1bfe606a28293d8fca3a8b3a859b73bba61049411b0",
+        "KP09:grammar:07": "a48d7ea4f69cded819e807d80d69a3c6cb46b231e8a687ec6930610443ccab73",
+        "KP09:grammar:08": "c7c27fc617c9edc4688b04273da92884f084fe1e51cd06a72792b89082a63220",
+        "KP09:grammar:09": "900c05dc3621027ab293d08cbf9b077b46d6ac5a1debc8c15d32182454884b2d",
+        "KP09:grammar:10": "2128e962dd8584c9d66ffc0c55d70b47456af8f4c05f0186a93b4546e62b6308",
+        "KP09:grammar:11": "36b2a2b8660b19f1bfd55a0143003ab0174a7151298619aa03954d78b54cd304",
+        "KP09:production:01": "0e51a09b640e5beff209ee982279367fbb1a2cf6e31dd61e44abc34fe928afa9",
+        "KP09:production:02": "2bb2ab619cf782ec9d6a0d92cadf84a7067cd5ab68c6ae54eabfe805ea9b43a7",
+        "KP09:production:03": "cf33fd47610b484bdd9e65448f21fb5eb7cbaaf7c89dda7890d4620453811866",
+        "KP09:production:04": "81fb8d0b605ca3c0f1c8c9baa92181b4b76da0c3557f833e54d81b4eae0315d2",
+        "KP09:production:05": "0c46728493f85fa5a9b563441d288e32f26ab8fd6dbe92b7aeba08333329d72d",
+        "KP09:production:06": "d70ed5e7cbb94ce64a9b9a432fd9ee1c08bda9d5e92e14ccae8958d1623e2a4c",
+        "KP09:production:07": "c4ee57bf6dff72a88bae68ed8e57d6d9c6c3fc310661122727bfddc250d9bc61",
+        "KP09:production:08": "c9db4cd2eba02e5c5c3e29e863ff44b4e54d2526e20496b27b163a72d23c46df",
+        "KP09:production:09": "b0dda4ca2eef23582e2736b6dc0e14feb28ea18e689d1970b5873a15d91407ff",
+        "KP09:production:10": "5a33f5f4a5dc7d1bf7d26c5fe9dd5755369fe908816d987d344038ae78ad3555",
+        "KP09:production:11": "1042924510524b963c61fef9f4694f91bee840dd0d67c3720b263f495ee40bdd",
+        "KP09:listening:01": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+        "KP09:listening:02": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+        "KP09:reading:01": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+        "KP09:writing:01": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+        "KP09:speaking:01": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+        "KP09:speaking:02": "2544458abf1363c76956c81870e9b2f68f1d847154a52180ff9c2ef74fa5509b"
+      },
+      "contentHash": "7affcfad86588c3a00426f5c48a43946fb3ca956900e453bd6b84e6ab0d52fef"
     }
   ]
 }

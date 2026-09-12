@@ -14,7 +14,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP06 | 56 | 56 | 0 | 미검증 |
 | KP07 | 56 | 56 | 0 | 미검증 |
 | KP08 | 61 | 61 | 0 | 미검증 |
-| KP09 | 49 | 0 | 49 | 미검증 |
+| KP09 | 49 | 49 | 0 | 미검증 |
 | KP10 | 62 | 0 | 62 | 미검증 |
 | KP11 | 58 | 0 | 58 | 미검증 |
 | KP12 | 57 | 0 | 57 | 미검증 |
@@ -39,55 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP09:objective:grammar/G3:-는다:R`
-- `KP09:objective:grammar/G3:-는다:P`
-- `KP09:objective:grammar/G3:-니2:R`
-- `KP09:objective:grammar/G3:-니2:P`
-- `KP09:objective:grammar/G3:-자3:R`
-- `KP09:objective:grammar/G3:-자3:P`
-- `KP09:objective:grammar/G3:-는구나:R`
-- `KP09:objective:grammar/G3:-는구나:P`
-- `KP09:objective:grammar/G3:-던-:R`
-- `KP09:objective:grammar/G3:-던-:P`
-- `KP09:objective:grammar/G3:-던데2:R`
-- `KP09:objective:grammar/G3:-던데2:P`
-- `KP09:objective:grammar/G3:아1:R`
-- `KP09:objective:grammar/G3:아1:P`
-- `KP09:objective:grammar/G3:요1:R`
-- `KP09:objective:grammar/G3:요1:P`
-- `KP09:objective:grammar/G3:-었었-:R`
-- `KP09:objective:grammar/G3:-었었-:P`
-- `KP09:objective:grammar/G3:-는 중이다:R`
-- `KP09:objective:grammar/G3:-는 중이다:P`
-- `KP09:objective:grammar/G3:-고 싶어 하다:R`
-- `KP09:objective:grammar/G3:-고 싶어 하다:P`
-- `KP09:objective:listening/core:R`
-- `KP09:objective:listening/genre/lecture_speech_monologue:R`
-- `KP09:objective:reading/core:R`
-- `KP09:objective:reading/genre/social_media_post_comment:R`
-- `KP09:objective:speaking/core:P`
-- `KP09:objective:speaking/genre/job_interview:P`
-- `KP09:objective:writing/core:P`
-- `KP09:objective:writing/genre/narrative_story_diary:P`
-- `KP09:objective:functions/narrate_experience_events:R`
-- `KP09:objective:functions/narrate_experience_events:P`
-- `KP09:objective:functions/express_feelings_emotions:R`
-- `KP09:objective:functions/express_feelings_emotions:P`
-- `KP09:objective:functions/adjust_register_speech_style:R`
-- `KP09:objective:functions/adjust_register_speech_style:P`
-- `KP09:objective:vocabDomains/feelings_emotions_character:R`
-- `KP09:objective:vocabDomains/feelings_emotions_character:P`
-- `KP09:objective:vocabDomains/language_metalanguage:R`
-- `KP09:objective:vocabDomains/language_metalanguage:P`
-- `KP09:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP09:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP09:objective:phonology/0:R`
-- `KP09:objective:phonology/0:P`
-- `KP09:objective:phonology/1:R`
-- `KP09:objective:phonology/1:P`
-- `KP09:objective:register/banmal_casual:P`
-- `KP09:objective:register/intimate:P`
-- `KP09:objective:register/haeyo_polite:P`
 - `KP10:objective:grammar/G3:-다가1(2):R`
 - `KP10:objective:grammar/G3:-다가1(2):P`
 - `KP10:objective:grammar/G3:-으려다가:R`

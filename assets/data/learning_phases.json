@@ -527,8 +527,37 @@
         "b1_04_relationships"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp09.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP09:grammar:01",
+        "KP09:grammar:02",
+        "KP09:grammar:03",
+        "KP09:grammar:04",
+        "KP09:grammar:05",
+        "KP09:grammar:06",
+        "KP09:grammar:07",
+        "KP09:grammar:08",
+        "KP09:grammar:09",
+        "KP09:grammar:10",
+        "KP09:grammar:11",
+        "KP09:production:01",
+        "KP09:production:02",
+        "KP09:production:03",
+        "KP09:production:04",
+        "KP09:production:05",
+        "KP09:production:06",
+        "KP09:production:07",
+        "KP09:production:08",
+        "KP09:production:09",
+        "KP09:production:10",
+        "KP09:production:11",
+        "KP09:listening:01",
+        "KP09:listening:02",
+        "KP09:reading:01",
+        "KP09:writing:01",
+        "KP09:speaking:01",
+        "KP09:speaking:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP10",
@@ -1093,5 +1122,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "c9f34e26de4b734fb36a306d582f40b7dd2a8a96d29afa5d344b3bda3994c1a7"
+  "phaseTaskSourceSha256": "d93505accf62712e05fb64a765bf52299d2815879547e3d8da4b648105d0e39a"
 }

@@ -81,6 +81,11 @@ void main() {
         final field = find.byKey(
           ValueKey('KP02:writing:01:true:${entry.key}-field'),
         );
+        await tester.scrollUntilVisible(
+          field,
+          250,
+          scrollable: find.byType(Scrollable).first,
+        );
         await tester.ensureVisible(field);
         await tester.enterText(field, entry.value);
         await tester.pumpAndSettle();

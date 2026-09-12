@@ -66,7 +66,7 @@ def grammar_task(phase_id, index, key, teaching, practice, assessment):
     return task(phase_id, f'grammar:{index:02}', 'reading',
                 loc(grammar['form'], grammar['form'], grammar['form']), teaching,
                 make(practice), make(assessment), keys=[key],
-                examples=[grammar['example']['ko'], assessment[0]])
+                examples=list(dict.fromkeys([grammar['example']['ko'], assessment[0]])))
 
 
 def write_source(phase_id, tasks):

@@ -5274,6 +5274,561 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 register/intimate:R의 학습 경로를 검수했다. Intimate register anchored in explicitly long-standing close friendship and private worries, not inferred from casual endings alone. New-member greeting is contrasted, KO/EN/DE context preserved. 어휘 전수·자유 의미·음운/억양 능력 전체의 평가 완료는 이 연결로 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP09:objective:listening/core:R",
+      "taskId": "KP09:listening:01",
+      "sourceHash": "53de10395615295984d61b44e9827ad35b18acc756644c9d65ee6e07d8f8ae5c",
+      "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+      "criterionIds": [
+        "past",
+        "ongoing",
+        "wish",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Close-friend dialogue: former/current city, ongoing process, sibling unfulfilled wish, explicitly stated feeling and repair question. Reviewed generated option inflections; source and quoted people preserved. Pauses are practice, not automated prosody mastery. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP09:listening:02",
+      "sourceHash": "17fdb796d1368f0f5d20bca43cd12ef3399c1f953289cd228cca6f2ea5e13cd3",
+      "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+      "criterionIds": [
+        "sequence",
+        "source",
+        "emotion",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual short orientation experience talk: year/place/role, former colleague quote, stated relief, current material creation, friend not yet registered. Timeline/source/emotion/limit required. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:reading/core:R",
+      "taskId": "KP09:reading:01",
+      "sourceHash": "3979f6c35c587de9c97ee115125d10916adc0251ee61bdbd3675be921d62c30f",
+      "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "criterionIds": [
+        "quote",
+        "now",
+        "comment",
+        "wish"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:reading/genre/social_media_post_comment:R",
+      "taskId": "KP09:reading:01",
+      "sourceHash": "2b62a67f2cacfa5c76fd60b05c806d3f2cfa14cf9d6447f4e6d8bc1656f54918",
+      "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "criterionIds": [
+        "quote",
+        "now",
+        "comment",
+        "wish"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:writing/core:P",
+      "taskId": "KP09:writing:01",
+      "sourceHash": "0ef514ce48f2a8b7bc48e63bd5035395038080ab9577bc858f1296ea4697d23c",
+      "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "criterionIds": [
+        "narrative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:writing/genre/narrative_story_diary:P",
+      "taskId": "KP09:writing:01",
+      "sourceHash": "4194c35b59ca99126ec3935e3d117325ab56efdbeb23f356b7d39525859eaa6a",
+      "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "criterionIds": [
+        "narrative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:speaking/core:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "1734cc6ff42b2a5e6273fcf0fcfec037be94ebe3f9a03a267c87fc80d8d907ee",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:speaking/genre/job_interview:P",
+      "taskId": "KP09:speaking:02",
+      "sourceHash": "2f26f0a157dd5cb117cca12bf6c6d08803930688bcb6bb54a45ea5129c955678",
+      "taskHash": "2544458abf1363c76956c81870e9b2f68f1d847154a52180ff9c2ef74fa5509b",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Separate fictional job-interview role with bounded durations, staff-defined responsibilities and no decision authority. No invented certificate/achievement. Polite/formal speech and review rubric; speech meaning unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/narrate_experience_events:R",
+      "taskId": "KP09:listening:02",
+      "sourceHash": "7c52424d4de0db2717b27e249b2089e41548b56172f76f35057d55b0571270ed",
+      "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+      "criterionIds": [
+        "sequence",
+        "source",
+        "emotion",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual short orientation experience talk: year/place/role, former colleague quote, stated relief, current material creation, friend not yet registered. Timeline/source/emotion/limit required. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/narrate_experience_events:P",
+      "taskId": "KP09:writing:01",
+      "sourceHash": "7c52424d4de0db2717b27e249b2089e41548b56172f76f35057d55b0571270ed",
+      "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "criterionIds": [
+        "narrative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/express_feelings_emotions:R",
+      "taskId": "KP09:listening:01",
+      "sourceHash": "0580bc9b2160de46595425a326ac1f1144058c1d608918451d1fc28290040541",
+      "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+      "criterionIds": [
+        "past",
+        "ongoing",
+        "wish",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Close-friend dialogue: former/current city, ongoing process, sibling unfulfilled wish, explicitly stated feeling and repair question. Reviewed generated option inflections; source and quoted people preserved. Pauses are practice, not automated prosody mastery. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/express_feelings_emotions:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "0580bc9b2160de46595425a326ac1f1144058c1d608918451d1fc28290040541",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/adjust_register_speech_style:R",
+      "taskId": "KP09:reading:01",
+      "sourceHash": "a6c5b625bf4540e8d13137618de76f1a1e983adf2123483bdc9008a27f1b8848",
+      "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "criterionIds": [
+        "quote",
+        "now",
+        "comment",
+        "wish"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:functions/adjust_register_speech_style:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "a6c5b625bf4540e8d13137618de76f1a1e983adf2123483bdc9008a27f1b8848",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/feelings_emotions_character:R",
+      "taskId": "KP09:reading:01",
+      "sourceHash": "0eebbbf05f10c974eeb00d7e6e93b4e8cd77671c972c03e53fd458cf3fffe204",
+      "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "criterionIds": [
+        "quote",
+        "now",
+        "comment",
+        "wish"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/feelings_emotions_character:P",
+      "taskId": "KP09:writing:01",
+      "sourceHash": "0eebbbf05f10c974eeb00d7e6e93b4e8cd77671c972c03e53fd458cf3fffe204",
+      "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "criterionIds": [
+        "narrative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP09:reading:01",
+      "sourceHash": "812c36f9378912e57c016b2fba1497936aa295457fe8d0c5a9740e8f630dbc7d",
+      "taskHash": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "criterionIds": [
+        "quote",
+        "now",
+        "comment",
+        "wish"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP09:writing:01",
+      "sourceHash": "812c36f9378912e57c016b2fba1497936aa295457fe8d0c5a9740e8f630dbc7d",
+      "taskHash": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "criterionIds": [
+        "narrative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP09:listening:02",
+      "sourceHash": "1e662645526a3eb5062012729cdaedd38d348a1ac8f7a4e4bcc4bc51a1739e74",
+      "taskHash": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+      "criterionIds": [
+        "sequence",
+        "source",
+        "emotion",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Actual short orientation experience talk: year/place/role, former colleague quote, stated relief, current material creation, friend not yet registered. Timeline/source/emotion/limit required. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "1e662645526a3eb5062012729cdaedd38d348a1ac8f7a4e4bcc4bc51a1739e74",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:phonology/0:R",
+      "taskId": "KP09:listening:01",
+      "sourceHash": "2053ff8408b37e5718743a915853399ee991113c130f71a39a73df951759a792",
+      "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+      "criterionIds": [
+        "past",
+        "ongoing",
+        "wish",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Close-friend dialogue: former/current city, ongoing process, sibling unfulfilled wish, explicitly stated feeling and repair question. Reviewed generated option inflections; source and quoted people preserved. Pauses are practice, not automated prosody mastery. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:phonology/0:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "2053ff8408b37e5718743a915853399ee991113c130f71a39a73df951759a792",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:phonology/1:R",
+      "taskId": "KP09:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+      "criterionIds": [
+        "past",
+        "ongoing",
+        "wish",
+        "response"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Close-friend dialogue: former/current city, ongoing process, sibling unfulfilled wish, explicitly stated feeling and repair question. Reviewed generated option inflections; source and quoted people preserved. Pauses are practice, not automated prosody mastery. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:phonology/1:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:register/banmal_casual:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:register/intimate:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:register/haeyo_polite:P",
+      "taskId": "KP09:speaking:01",
+      "sourceHash": "d0cdbda1a2f6ec2c0ada40eaf72df71ce6ba2bf0ba0696b495626f874d70a8bc",
+      "taskHash": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는다:R",
+      "taskId": "KP09:grammar:01",
+      "sourceHash": "cb27fc72148fb1ae410380034af1d225dada4fae962d371205ac09aa951b5b51",
+      "taskHash": "5ac045d2fd416bb2f1441ed6b46080a85633f0a94d9e608bde877e19500973e0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Verb plain statement in self-talk; no imperative/promise substitution. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-니2:R",
+      "taskId": "KP09:grammar:02",
+      "sourceHash": "55d9e3452c8e4a576e6ff0c447158973da91ae484ab84ef0a4e47ed37e15f790",
+      "taskHash": "e39607c02bcdc418149bef386872799c8c136acf212ce328f6ac0ac766f63322",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Question-final 니 in explicitly agreed casual relationship, not causal connective. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-자3:R",
+      "taskId": "KP09:grammar:03",
+      "sourceHash": "29208973514d03ac9a0cdfaab151e53070c80589dea8e958bfae4c8443cdc8e0",
+      "taskHash": "8a87c901b424b20861cb9989fd69b98baec570d2c4c6574539dfea2ec5191fd5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Shared proposal 자, not listener-only instruction or temporal connective. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는구나:R",
+      "taskId": "KP09:grammar:04",
+      "sourceHash": "5a3d48ef9974e65ae691332b1e8bce9af5ff0076d37c3fae76d51650cab7e838",
+      "taskHash": "ccce278ab7105c3e6c77e0c8c58ef81070824436606bfb5b5c0511523fa1d03d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Realization responds to stated loneliness/current learning, not invented feeling or completion. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-던-:R",
+      "taskId": "KP09:grammar:05",
+      "sourceHash": "d959eed5e478d21514e4a04bf4dc71cf64e50851b22e34e72f90a3c4ee2c6742",
+      "taskHash": "9f50b39cfc173b71cbbda8b147698cfed585ca41e45cb7435f9cd59b2e881dc1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. 던 recalls explicitly repeated/experienced past; no universal incomplete-only claim. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-던데2:R",
+      "taskId": "KP09:grammar:06",
+      "sourceHash": "7ffeeb97c218218ee2140b68ffcd273d99757aeb0f5d6996df09cb8b4b0b202f",
+      "taskHash": "c4b67ff102eecc9b288ec1bfe606a28293d8fca3a8b3a859b73bba61049411b0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Sentence-final experiential impression 던데2, direct visit/viewing specified, no hearsay. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:아1:R",
+      "taskId": "KP09:grammar:07",
+      "sourceHash": "f41904b3139e7294dbe39715108016ef58a112d151931b6aeea3eb84e7665ff2",
+      "taskHash": "a48d7ea4f69cded819e807d80d69a3c6cb46b231e8a687ec6930610443ccab73",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Vocative 아 after final consonant, 야 after vowel, established familiarity. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:요1:R",
+      "taskId": "KP09:grammar:08",
+      "sourceHash": "fcab0f752cbc07a9a0261bae1236e1ec5e319e3b7c2c42914ba4ea05e82f711e",
+      "taskHash": "c7c27fc617c9edc4688b04273da92884f084fe1e51cd06a72792b89082a63220",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Politeness particle 요; preceding word carries person/time, not future conversion. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-었었-:R",
+      "taskId": "KP09:grammar:09",
+      "sourceHash": "f87fced25c284214b1a6fdc060c3ebfa3e285dea8d08ab0f3a3e0277c69840ae",
+      "taskHash": "900c05dc3621027ab293d08cbf9b077b46d6ac5a1debc8c15d32182454884b2d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Earlier past contrasted with explicit current situation; no automatic English past-perfect equivalence. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는 중이다:R",
+      "taskId": "KP09:grammar:10",
+      "sourceHash": "512b1c420bc86480eb5cea9fcd6aa3d4b263ac94d5c52e778814e1db05e090f2",
+      "taskHash": "2128e962dd8584c9d66ffc0c55d70b47456af8f4c05f0186a93b4546e62b6308",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Reference-time process ongoing, not already completed. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-고 싶어 하다:R",
+      "taskId": "KP09:grammar:11",
+      "sourceHash": "8d036374334539901cb1f1fde60915f762aa3166e17baa179080575f8eb41fab",
+      "taskHash": "36b2a2b8660b19f1bfd55a0143003ab0174a7151298619aa03954d78b54cd304",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Other-person wish remains unfulfilled and belongs to sibling/friend, not speaker. Receptive meaning sample only. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는다:P",
+      "taskId": "KP09:production:01",
+      "sourceHash": "cb27fc72148fb1ae410380034af1d225dada4fae962d371205ac09aa951b5b51",
+      "taskHash": "0e51a09b640e5beff209ee982279367fbb1a2cf6e31dd61e44abc34fe928afa9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Verb plain statement in self-talk; no imperative/promise substitution. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-니2:P",
+      "taskId": "KP09:production:02",
+      "sourceHash": "55d9e3452c8e4a576e6ff0c447158973da91ae484ab84ef0a4e47ed37e15f790",
+      "taskHash": "2bb2ab619cf782ec9d6a0d92cadf84a7067cd5ab68c6ae54eabfe805ea9b43a7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Question-final 니 in explicitly agreed casual relationship, not causal connective. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-자3:P",
+      "taskId": "KP09:production:03",
+      "sourceHash": "29208973514d03ac9a0cdfaab151e53070c80589dea8e958bfae4c8443cdc8e0",
+      "taskHash": "cf33fd47610b484bdd9e65448f21fb5eb7cbaaf7c89dda7890d4620453811866",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Shared proposal 자, not listener-only instruction or temporal connective. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는구나:P",
+      "taskId": "KP09:production:04",
+      "sourceHash": "5a3d48ef9974e65ae691332b1e8bce9af5ff0076d37c3fae76d51650cab7e838",
+      "taskHash": "81fb8d0b605ca3c0f1c8c9baa92181b4b76da0c3557f833e54d81b4eae0315d2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Realization responds to stated loneliness/current learning, not invented feeling or completion. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-던-:P",
+      "taskId": "KP09:production:05",
+      "sourceHash": "d959eed5e478d21514e4a04bf4dc71cf64e50851b22e34e72f90a3c4ee2c6742",
+      "taskHash": "0c46728493f85fa5a9b563441d288e32f26ab8fd6dbe92b7aeba08333329d72d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. 던 recalls explicitly repeated/experienced past; no universal incomplete-only claim. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-던데2:P",
+      "taskId": "KP09:production:06",
+      "sourceHash": "7ffeeb97c218218ee2140b68ffcd273d99757aeb0f5d6996df09cb8b4b0b202f",
+      "taskHash": "d70ed5e7cbb94ce64a9b9a432fd9ee1c08bda9d5e92e14ccae8958d1623e2a4c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Sentence-final experiential impression 던데2, direct visit/viewing specified, no hearsay. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:아1:P",
+      "taskId": "KP09:production:07",
+      "sourceHash": "f41904b3139e7294dbe39715108016ef58a112d151931b6aeea3eb84e7665ff2",
+      "taskHash": "c4ee57bf6dff72a88bae68ed8e57d6d9c6c3fc310661122727bfddc250d9bc61",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Vocative 아 after final consonant, 야 after vowel, established familiarity. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:요1:P",
+      "taskId": "KP09:production:08",
+      "sourceHash": "fcab0f752cbc07a9a0261bae1236e1ec5e319e3b7c2c42914ba4ea05e82f711e",
+      "taskHash": "c9db4cd2eba02e5c5c3e29e863ff44b4e54d2526e20496b27b163a72d23c46df",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Politeness particle 요; preceding word carries person/time, not future conversion. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-었었-:P",
+      "taskId": "KP09:production:09",
+      "sourceHash": "f87fced25c284214b1a6fdc060c3ebfa3e285dea8d08ab0f3a3e0277c69840ae",
+      "taskHash": "b0dda4ca2eef23582e2736b6dc0e14feb28ea18e689d1970b5873a15d91407ff",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Earlier past contrasted with explicit current situation; no automatic English past-perfect equivalence. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-는 중이다:P",
+      "taskId": "KP09:production:10",
+      "sourceHash": "512b1c420bc86480eb5cea9fcd6aa3d4b263ac94d5c52e778814e1db05e090f2",
+      "taskHash": "5a33f5f4a5dc7d1bf7d26c5fe9dd5755369fe908816d987d344038ae78ad3555",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Reference-time process ongoing, not already completed. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
+    },
+    {
+      "objectiveId": "KP09:objective:grammar/G3:-고 싶어 하다:P",
+      "taskId": "KP09:production:11",
+      "sourceHash": "8d036374334539901cb1f1fde60915f762aa3166e17baa179080575f8eb41fab",
+      "taskHash": "1042924510524b963c61fef9f4694f91bee840dd0d67c3720b263f495ee40bdd",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문과 응답 지시의 실제 요구를 비교해 연결했다. KO, EN and DE individually compared. Other-person wish remains unfulfilled and belongs to sibling/friend, not speaker. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored. 전체 문법·어휘·억양·자유 언어 숙달을 인정하는 근거가 아니라 해당 요구를 연습할 경로다."
     }
   ]
 }

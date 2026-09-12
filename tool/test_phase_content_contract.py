@@ -19,10 +19,10 @@ class PhaseContentContractTest(unittest.TestCase):
         self.assertEqual(len({k for t in tasks for k in t['requirementKeys']}), 12)
         self.assertEqual(bundle['publications']['KP01'], 'partial')
 
-    def test_a1_a2_grammar_production_is_separate_from_recognition(self):
+    def test_published_grammar_production_is_separate_from_recognition(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:8]:
+        for phase in phases[:9]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id'] and ':production:' in t['id']]
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
             for task in tasks:
@@ -36,10 +36,10 @@ class PhaseContentContractTest(unittest.TestCase):
                 for answer in task['assessment']['questions'][0]['acceptedAnswers']:
                     self.assertNotIn(answer, '\n'.join(task['examplesKo']))
 
-    def test_published_a1_a2_keep_required_grammar_and_four_skill_paths(self):
+    def test_published_phases_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:8]:
+        for phase in phases[:9]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
