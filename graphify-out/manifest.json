@@ -318,15 +318,15 @@
     "semantic_hash": ""
   },
   "functions/gye/cloud_backup_deletion_runtime.js": {
-    "mtime": 1789091376.8401256,
-    "seen": 1789092808.1488476,
-    "ast_hash": "511c7f00cda8edbec34c6d54ce4e976f",
+    "mtime": 1789231780.4018857,
+    "seen": 1789232566.8201663,
+    "ast_hash": "2830906e63d26ee3b40a07fdb54b890f",
     "semantic_hash": ""
   },
   "functions/gye/cloud_backup_deletion_runtime.test.js": {
-    "mtime": 1789091376.8412747,
-    "seen": 1789092808.1488512,
-    "ast_hash": "d316ea61c95e478edc619085ffbab1cf",
+    "mtime": 1789231780.4041061,
+    "seen": 1789232566.8201723,
+    "ast_hash": "c0db4bb4823a9b8a8e06b5079bf16fb4",
     "semantic_hash": ""
   },
   "functions/gye/deletion_adapters.js": {
@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "lib/main.dart": {
-    "mtime": 1789093653.659606,
-    "seen": 1789100958.5974965,
-    "ast_hash": "661832f553314d61d4f9cfe4bf2fadc0",
+    "mtime": 1789231796.8980885,
+    "seen": 1789232566.9259698,
+    "ast_hash": "69e1b6d6c8901f0e02f9ab258cf4fddd",
     "semantic_hash": ""
   },
   "lib/models/book_page.dart": {
@@ -10062,9 +10062,9 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1789091378.8487508,
-    "seen": 1789092808.1524887,
-    "ast_hash": "0ab7f0ed0ec109054de3846b5da67764",
+    "mtime": 1789231553.4202566,
+    "seen": 1789232568.6404877,
+    "ast_hash": "b2d2688d345ecbec9f2cce40a187324f",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
@@ -11328,9 +11328,9 @@
     "semantic_hash": ""
   },
   "test/startup_maintenance_test.dart": {
-    "mtime": 1789091379.187754,
-    "seen": 1789092808.1506286,
-    "ast_hash": "514175ecb9a1610c71dcbe3aa27efc79",
+    "mtime": 1789231796.911455,
+    "seen": 1789232567.698027,
+    "ast_hash": "6a0e6ff5e427e04232977768f458bc73",
     "semantic_hash": ""
   },
   "test/storage_reset_drain_zone_test.dart": {
