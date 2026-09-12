@@ -31,7 +31,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP23 | 48 | 48 | 0 | 미검증 |
 | KP24 | 58 | 58 | 0 | 미검증 |
 | KP25 | 49 | 49 | 0 | 미검증 |
-| KP26 | 48 | 0 | 48 | 미검증 |
+| KP26 | 48 | 48 | 0 | 미검증 |
 | KP27 | 53 | 0 | 53 | 미검증 |
 | KP28 | 53 | 0 | 53 | 미검증 |
 | KP29 | 55 | 0 | 55 | 미검증 |
@@ -39,54 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP26:objective:grammar/G6:마는:R`
-- `KP26:objective:grammar/G6:마는:P`
-- `KP26:objective:grammar/G6:-건만:R`
-- `KP26:objective:grammar/G6:-건만:P`
-- `KP26:objective:grammar/G6:-어 치우다:R`
-- `KP26:objective:grammar/G6:-어 치우다:P`
-- `KP26:objective:grammar/G6:-기 일쑤이다:R`
-- `KP26:objective:grammar/G6:-기 일쑤이다:P`
-- `KP26:objective:grammar/G6:-기 짝이 없다:R`
-- `KP26:objective:grammar/G6:-기 짝이 없다:P`
-- `KP26:objective:grammar/G6:-디1:R`
-- `KP26:objective:grammar/G6:-디1:P`
-- `KP26:objective:grammar/G6:-노라면:R`
-- `KP26:objective:grammar/G6:-노라면:P`
-- `KP26:objective:grammar/G4:-어 버리다:R`
-- `KP26:objective:grammar/G4:-어 버리다:P`
-- `KP26:objective:listening/core:R`
-- `KP26:objective:listening/additional/1:R`
-- `KP26:objective:reading/core:R`
-- `KP26:objective:reading/additional/1:R`
-- `KP26:objective:reading/genre/literary_text:R`
-- `KP26:objective:reading/genre/news_article_report:R`
-- `KP26:objective:speaking/core:P`
-- `KP26:objective:speaking/additional/1:P`
-- `KP26:objective:writing/core:P`
-- `KP26:objective:writing/additional/1:P`
-- `KP26:objective:writing/genre/review_critique_text:P`
-- `KP26:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP26:objective:functions/evaluate_assess_critique:R`
-- `KP26:objective:functions/evaluate_assess_critique:P`
-- `KP26:objective:functions/analyse_framing_implicature_presupposition:R`
-- `KP26:objective:functions/analyse_framing_implicature_presupposition:P`
-- `KP26:objective:functions/reformulate_paraphrase_rewrite:R`
-- `KP26:objective:functions/reformulate_paraphrase_rewrite:P`
-- `KP26:objective:vocabDomains/arts_history_memory_lexis:R`
-- `KP26:objective:vocabDomains/arts_history_memory_lexis:P`
-- `KP26:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP26:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP26:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP26:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP26:objective:phonology/0:R`
-- `KP26:objective:phonology/0:P`
-- `KP26:objective:phonology/1:R`
-- `KP26:objective:phonology/1:P`
-- `KP26:objective:register/haeyo_polite:P`
-- `KP26:objective:register/banmal_casual:P`
-- `KP26:objective:register/intimate:P`
-- `KP26:objective:register/written_plain_haeche:P`
 - `KP27:objective:grammar/G6:-은들:R`
 - `KP27:objective:grammar/G6:-은들:P`
 - `KP27:objective:grammar/G6:-을망정:R`

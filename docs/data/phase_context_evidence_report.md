@@ -308,14 +308,14 @@
 | KP25 | G6:-느니만큼 | 1 | 0 | 0 | 미검증 |
 | KP25 | G6:-건대 | 1 | 0 | 0 | 미검증 |
 | KP25 | G2:-기 | 1 | 0 | 0 | 미검증 |
-| KP26 | G6:마는 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-건만 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-어 치우다 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-기 일쑤이다 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-기 짝이 없다 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-디1 | 0 | 0 | 0 | 미검증 |
-| KP26 | G6:-노라면 | 0 | 0 | 0 | 미검증 |
-| KP26 | G4:-어 버리다 | 0 | 0 | 0 | 미검증 |
+| KP26 | G6:마는 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-건만 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-어 치우다 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-기 일쑤이다 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-기 짝이 없다 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-디1 | 1 | 0 | 0 | 미검증 |
+| KP26 | G6:-노라면 | 1 | 0 | 0 | 미검증 |
+| KP26 | G4:-어 버리다 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-은들 | 0 | 0 | 0 | 미검증 |
 | KP27 | G6:-을망정 | 0 | 0 | 0 | 미검증 |
 | KP27 | G6:-는 한이 있어도 | 0 | 0 | 0 | 미검증 |
@@ -659,3 +659,11 @@
 - KP25 / G6:-느니만큼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/5/practice/sourceKo` — “여러 기관이 함께 쓰느니만큼 용어의 경계를 명시해야 한다.”. 공동 사용이라는 사정에 상응하는 명확화 요구다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP25 / G6:-건대 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/6/practice/sourceKo` — “내가 바라건대 검토가 여기서 멈추지 않았으면 한다.”. 문어적 틀로 화자의 희망을 밝히며 결정은 만들지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP25 / G2:-기 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/7/practice/sourceKo` — “기록팀은 제출 날짜 확인하기를 맡았다. 승인 주체는 적혀 있지 않다.”. 명사화한 날짜 확인 행동의 주체만 명시하며 승인자는 미상이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:마는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/0/practice/sourceKo` — “뜻은 좋다마는 방법에는 동의하기 어렵다.”. 뜻을 긍정하는 앞 진술을 인정하면서 방법에 대한 유보를 덧붙인다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-건만 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/1/practice/sourceKo` — “밤새 기다렸건만 아무도 오지 않았다.”. 기다림의 기대와 오지 않은 현실의 문학적 대조다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-어 치우다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/2/practice/sourceKo` — “그는 남은 정리를 한꺼번에 해 치웠다. 후회는 없었다고 말했다.”. 정리 완료를 단호하게 말하며 후회는 뒤에서 명시적으로 부정된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-기 일쑤이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/3/practice/sourceKo` — “맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다.”. 오해의 잦은 경향과 가능한 예외를 함께 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-기 짝이 없다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/4/practice/sourceKo` — “확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다.”. 화자의 매우 강한 태도 평가를 출처와 함께 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-디1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/5/practice/sourceKo` — “깊디깊은 침묵이 방 안에 내려앉았다.”. 형용사 반복으로 침묵의 문학적 정도를 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G6:-노라면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/6/practice/sourceKo` — “옛길을 걷노라면 잊었던 장면이 떠오른다.”. 걷는 지속 행동 가운데 생기는 기억 경험을 문학적으로 서술한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP26 / G4:-어 버리다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp26.json/tasks/7/practice/sourceKo` — “편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다.”. 찢기 완료와 화자가 뒤에 명시한 후회가 구별된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

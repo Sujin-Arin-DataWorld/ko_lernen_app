@@ -25,7 +25,8 @@
     "KP22": "partial",
     "KP23": "partial",
     "KP24": "partial",
-    "KP25": "partial"
+    "KP25": "partial",
+    "KP26": "partial"
   },
   "tasks": [
     {
@@ -84558,6 +84559,2587 @@
         "questions": []
       },
       "contentHash": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd"
+    },
+    {
+      "id": "KP26:grammar:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:01",
+      "requirementKeys": [
+        "G6:마는"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "마는",
+        "en": "마는",
+        "de": "마는"
+      },
+      "teaching": {
+        "ko": "앞 진술을 인정한 채 어긋나는 평가를 덧붙이는 조사예요. 앞 내용 전체를 부정하지 않아요.",
+        "en": "This particle adds a contrary evaluation while conceding the first statement, without negating it entirely.",
+        "de": "Diese Partikel ergänzt eine gegenläufige Bewertung bei zugestandener erster Aussage, ohne sie vollständig zu verneinen."
+      },
+      "examplesKo": [
+        "뜻은 좋다마는 방법에는 동의하기 어렵다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "뜻은 좋다마는 방법에는 동의하기 어렵다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "뜻도 방법도 전면 부정"
+              },
+              {
+                "id": "0",
+                "text": "뜻의 긍정과 방법의 유보 공존"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 진술을 인정한 채 어긋나는 평가를 덧붙이는 조사예요. 앞 내용 전체를 부정하지 않아요.",
+              "en": "This particle adds a contrary evaluation while conceding the first statement, without negating it entirely.",
+              "de": "Diese Partikel ergänzt eine gegenläufige Bewertung bei zugestandener erster Aussage, ohne sie vollständig zu verneinen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "설명은 들었다마는 의문은 남아 있다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "청취 사실과 남은 의문"
+              },
+              {
+                "id": "1",
+                "text": "설명을 전혀 듣지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 진술을 인정한 채 어긋나는 평가를 덧붙이는 조사예요. 앞 내용 전체를 부정하지 않아요.",
+              "en": "This particle adds a contrary evaluation while conceding the first statement, without negating it entirely.",
+              "de": "Diese Partikel ergänzt eine gegenläufige Bewertung bei zugestandener erster Aussage, ohne sie vollständig zu verneinen."
+            }
+          }
+        ]
+      },
+      "contentHash": "f3f5590839dac463a554833650e61c3847b4fdb99f9e56135d3fa56c1754dfb7"
+    },
+    {
+      "id": "KP26:grammar:02",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:02",
+      "requirementKeys": [
+        "G6:-건만"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-건만",
+        "en": "-건만",
+        "de": "-건만"
+      },
+      "teaching": {
+        "ko": "기대와 현실의 어긋남을 문학적으로 드러내요. 결과의 원인이나 다른 인물의 의도까지 말하지는 않아요.",
+        "en": "Express a literary mismatch of expectation and outcome, without establishing causes or another character’s intent.",
+        "de": "Zeige literarisch die Abweichung zwischen Erwartung und Ergebnis, ohne Ursache oder Figurenabsicht festzustellen."
+      },
+      "examplesKo": [
+        "밤새 기다렸건만 아무도 오지 않았다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "밤새 기다렸건만 아무도 오지 않았다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "누군가 고의로 약속을 어겼다고 입증"
+              },
+              {
+                "id": "0",
+                "text": "기대와 달리 아무도 오지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기대와 현실의 어긋남을 문학적으로 드러내요. 결과의 원인이나 다른 인물의 의도까지 말하지는 않아요.",
+              "en": "Express a literary mismatch of expectation and outcome, without establishing causes or another character’s intent.",
+              "de": "Zeige literarisch die Abweichung zwischen Erwartung und Ergebnis, ohne Ursache oder Figurenabsicht festzustellen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "여러 번 읽었건만 뜻은 여전히 모호했다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "반복 독서로 뜻이 완전히 명확해짐"
+              },
+              {
+                "id": "0",
+                "text": "반복 독서와 기대에 못 미친 이해"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기대와 현실의 어긋남을 문학적으로 드러내요. 결과의 원인이나 다른 인물의 의도까지 말하지는 않아요.",
+              "en": "Express a literary mismatch of expectation and outcome, without establishing causes or another character’s intent.",
+              "de": "Zeige literarisch die Abweichung zwischen Erwartung und Ergebnis, ohne Ursache oder Figurenabsicht festzustellen."
+            }
+          }
+        ]
+      },
+      "contentHash": "a8a7c915b78ebf00f7b4ae60ab66131ebf9679d65f2ee5f53b263f9166057cf5"
+    },
+    {
+      "id": "KP26:grammar:03",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:03",
+      "requirementKeys": [
+        "G6:-어 치우다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 치우다",
+        "en": "-어 치우다",
+        "de": "-어 치우다"
+      },
+      "teaching": {
+        "ko": "일을 끝내거나 제거한 완료를 단호하게 표현해요. 후회·분노 여부는 문맥으로 확인합니다.",
+        "en": "Express decisive completion or removal. Context determines whether regret or anger is present.",
+        "de": "Drücke entschlossenen Abschluss oder Beseitigung aus. Reue oder Ärger ergeben sich erst aus dem Kontext."
+      },
+      "examplesKo": [
+        "그는 남은 정리를 한꺼번에 해 치웠다. 후회는 없었다고 말했다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "그는 남은 정리를 한꺼번에 해 치웠다. 후회는 없었다고 말했다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "정리가 미완료이고 후회가 확정"
+              },
+              {
+                "id": "0",
+                "text": "정리 완료와 명시된 무후회"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "일을 끝내거나 제거한 완료를 단호하게 표현해요. 후회·분노 여부는 문맥으로 확인합니다.",
+              "en": "Express decisive completion or removal. Context determines whether regret or anger is present.",
+              "de": "Drücke entschlossenen Abschluss oder Beseitigung aus. Reue oder Ärger ergeben sich erst aus dem Kontext."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "그는 쌓인 상자를 모두 치워 버리고 청소까지 해 치웠다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "제거와 청소 완료"
+              },
+              {
+                "id": "1",
+                "text": "청소할 의향만 제시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "일을 끝내거나 제거한 완료를 단호하게 표현해요. 후회·분노 여부는 문맥으로 확인합니다.",
+              "en": "Express decisive completion or removal. Context determines whether regret or anger is present.",
+              "de": "Drücke entschlossenen Abschluss oder Beseitigung aus. Reue oder Ärger ergeben sich erst aus dem Kontext."
+            }
+          }
+        ]
+      },
+      "contentHash": "089a307eebecfe7152aef63a732b2e803e08812590534dececa8569f5a18d298"
+    },
+    {
+      "id": "KP26:grammar:04",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:04",
+      "requirementKeys": [
+        "G6:-기 일쑤이다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 일쑤이다",
+        "en": "-기 일쑤이다",
+        "de": "-기 일쑤이다"
+      },
+      "teaching": {
+        "ko": "대체로 좋지 않은 일이 자주 반복됨을 평가해요. 항상·모든 경우라는 전칭 명제는 아닙니다.",
+        "en": "Evaluate a frequent, usually undesirable pattern, not a universal claim about every instance.",
+        "de": "Bewerte eine häufige, meist unerwünschte Wiederholung, nicht jeden einzelnen Fall ausnahmslos."
+      },
+      "examplesKo": [
+        "맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "항상 누구나 반드시 오해"
+              },
+              {
+                "id": "0",
+                "text": "잦은 오해 경향, 예외 가능"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "대체로 좋지 않은 일이 자주 반복됨을 평가해요. 항상·모든 경우라는 전칭 명제는 아닙니다.",
+              "en": "Evaluate a frequent, usually undesirable pattern, not a universal claim about every instance.",
+              "de": "Bewerte eine häufige, meist unerwünschte Wiederholung, nicht jeden einzelnen Fall ausnahmslos."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "급히 쓰면 날짜를 빠뜨리기 일쑤이다. 이번에는 적었다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "누락 경향과 이번 예외"
+              },
+              {
+                "id": "1",
+                "text": "이번에도 날짜 누락 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "대체로 좋지 않은 일이 자주 반복됨을 평가해요. 항상·모든 경우라는 전칭 명제는 아닙니다.",
+              "en": "Evaluate a frequent, usually undesirable pattern, not a universal claim about every instance.",
+              "de": "Bewerte eine häufige, meist unerwünschte Wiederholung, nicht jeden einzelnen Fall ausnahmslos."
+            }
+          }
+        ]
+      },
+      "contentHash": "2ad7757956069f771df85e088b5146ff784620e6078c260b45b6112d93261053"
+    },
+    {
+      "id": "KP26:grammar:05",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:05",
+      "requirementKeys": [
+        "G6:-기 짝이 없다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 짝이 없다",
+        "en": "-기 짝이 없다",
+        "de": "-기 짝이 없다"
+      },
+      "teaching": {
+        "ko": "평가의 정도를 매우 강하게 강조해요. 평가자의 기준과 사실 보고를 구별합니다.",
+        "en": "Strongly intensify an evaluation. Distinguish the evaluator’s standard from factual reporting.",
+        "de": "Verstärke eine Bewertung stark. Trenne den Maßstab der wertenden Person vom Tatsachenbericht."
+      },
+      "examplesKo": [
+        "확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "법적 책임 확정 판결"
+              },
+              {
+                "id": "0",
+                "text": "화자의 매우 강한 태도 평가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "평가의 정도를 매우 강하게 강조해요. 평가자의 기준과 사실 보고를 구별합니다.",
+              "en": "Strongly intensify an evaluation. Distinguish the evaluator’s standard from factual reporting.",
+              "de": "Verstärke eine Bewertung stark. Trenne den Maßstab der wertenden Person vom Tatsachenbericht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "화자는 빈 의자가 쓸쓸하기 짝이 없었다고 썼다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "의자 자체가 감정을 느꼈음"
+              },
+              {
+                "id": "0",
+                "text": "화자의 극심한 쓸쓸함 표현"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "평가의 정도를 매우 강하게 강조해요. 평가자의 기준과 사실 보고를 구별합니다.",
+              "en": "Strongly intensify an evaluation. Distinguish the evaluator’s standard from factual reporting.",
+              "de": "Verstärke eine Bewertung stark. Trenne den Maßstab der wertenden Person vom Tatsachenbericht."
+            }
+          }
+        ]
+      },
+      "contentHash": "65be2d1f204aaaa8bb41910449bd5f158d2462a2f25bfa6174c3337f7eeccae5"
+    },
+    {
+      "id": "KP26:grammar:06",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:06",
+      "requirementKeys": [
+        "G6:-디1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-디1",
+        "en": "-디1",
+        "de": "-디1"
+      },
+      "teaching": {
+        "ko": "형용사 반복으로 정도를 강조하는 문학적 표현입니다. 정도 강조를 사건 횟수나 시간 측정값으로 읽지 않아요.",
+        "en": "A literary adjective repetition intensifies degree, not event frequency or a measured duration.",
+        "de": "Literarische Adjektivwiederholung verstärkt den Grad, nicht Ereigniszahl oder gemessene Dauer."
+      },
+      "examplesKo": [
+        "깊디깊은 침묵이 방 안에 내려앉았다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "깊디깊은 침묵이 방 안에 내려앉았다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "침묵이 정확히 두 번 발생"
+              },
+              {
+                "id": "0",
+                "text": "침묵의 정도를 문학적으로 강조"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "형용사 반복으로 정도를 강조하는 문학적 표현입니다. 정도 강조를 사건 횟수나 시간 측정값으로 읽지 않아요.",
+              "en": "A literary adjective repetition intensifies degree, not event frequency or a measured duration.",
+              "de": "Literarische Adjektivwiederholung verstärkt den Grad, nicht Ereigniszahl oder gemessene Dauer."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "길디긴 복도가 눈앞에 놓여 있었다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "복도 길이의 정확한 수치 제시"
+              },
+              {
+                "id": "0",
+                "text": "길이에 대한 강한 인상"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "형용사 반복으로 정도를 강조하는 문학적 표현입니다. 정도 강조를 사건 횟수나 시간 측정값으로 읽지 않아요.",
+              "en": "A literary adjective repetition intensifies degree, not event frequency or a measured duration.",
+              "de": "Literarische Adjektivwiederholung verstärkt den Grad, nicht Ereigniszahl oder gemessene Dauer."
+            }
+          }
+        ]
+      },
+      "contentHash": "66c078bf621d72870d7cb746b352752b96dc78589512543ee5df055cc1a80517"
+    },
+    {
+      "id": "KP26:grammar:07",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:07",
+      "requirementKeys": [
+        "G6:-노라면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-노라면",
+        "en": "-노라면",
+        "de": "-노라면"
+      },
+      "teaching": {
+        "ko": "행동이 이어지는 가운데 생기는 경험을 서술해요. 문학적 회고 형식이며 명령이나 완료 보고가 아닙니다.",
+        "en": "Describe an experience arising during a continuing action, in literary recollection, not a command or completion report.",
+        "de": "Beschreibe literarisch eine Erfahrung während fortgesetzten Handelns, keinen Befehl oder Abschlussbericht."
+      },
+      "examplesKo": [
+        "옛길을 걷노라면 잊었던 장면이 떠오른다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "옛길을 걷노라면 잊었던 장면이 떠오른다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "걷는 동안 기억이 떠오르는 경험"
+              },
+              {
+                "id": "1",
+                "text": "옛길을 반드시 걸으라는 명령"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동이 이어지는 가운데 생기는 경험을 서술해요. 문학적 회고 형식이며 명령이나 완료 보고가 아닙니다.",
+              "en": "Describe an experience arising during a continuing action, in literary recollection, not a command or completion report.",
+              "de": "Beschreibe literarisch eine Erfahrung während fortgesetzten Handelns, keinen Befehl oder Abschlussbericht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "낡은 기록을 읽노라면 그날의 소리가 떠오른다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "그날 소리가 현재 실제로 재생됨"
+              },
+              {
+                "id": "0",
+                "text": "읽는 가운데 소리 기억 환기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동이 이어지는 가운데 생기는 경험을 서술해요. 문학적 회고 형식이며 명령이나 완료 보고가 아닙니다.",
+              "en": "Describe an experience arising during a continuing action, in literary recollection, not a command or completion report.",
+              "de": "Beschreibe literarisch eine Erfahrung während fortgesetzten Handelns, keinen Befehl oder Abschlussbericht."
+            }
+          }
+        ]
+      },
+      "contentHash": "7ac246d536d0161869ea03b92f256a367cc102820a81718939f310afb53c1924"
+    },
+    {
+      "id": "KP26:grammar:08",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:grammar:08",
+      "requirementKeys": [
+        "G4:-어 버리다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 버리다",
+        "en": "-어 버리다",
+        "de": "-어 버리다"
+      },
+      "teaching": {
+        "ko": "완료한 사건에 대한 정서가 실릴 수 있지만 후회인지 후련함인지는 문맥에서 확인해요.",
+        "en": "Completion may carry emotion, but context determines regret or relief.",
+        "de": "Abschluss kann emotional gefärbt sein; erst der Kontext zeigt Reue oder Erleichterung."
+      },
+      "examplesKo": [
+        "편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "찢기 미완료, 후회 없음"
+              },
+              {
+                "id": "0",
+                "text": "찢기 완료, 뒤 진술에 명시된 후회"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "완료한 사건에 대한 정서가 실릴 수 있지만 후회인지 후련함인지는 문맥에서 확인해요.",
+              "en": "Completion may carry emotion, but context determines regret or relief.",
+              "de": "Abschluss kann emotional gefärbt sein; erst der Kontext zeigt Reue oder Erleichterung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "초안을 지워 버렸다. 화자는 홀가분했다고 말했다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "삭제 완료, 뒤 진술에 명시된 홀가분함"
+              },
+              {
+                "id": "1",
+                "text": "버리다만으로 반드시 후회"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "완료한 사건에 대한 정서가 실릴 수 있지만 후회인지 후련함인지는 문맥에서 확인해요.",
+              "en": "Completion may carry emotion, but context determines regret or relief.",
+              "de": "Abschluss kann emotional gefärbt sein; erst der Kontext zeigt Reue oder Erleichterung."
+            }
+          }
+        ]
+      },
+      "contentHash": "3b34e25e7112fdb37d0fbc6c6802ccd589f68d16d95df90e82cca8d39d5ecd2a"
+    },
+    {
+      "id": "KP26:production:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:01",
+      "requirementKeys": [
+        "G6:마는"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "마는 문장 만들기",
+        "en": "마는: write a sentence",
+        "de": "마는: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "앞 진술을 인정한 채 어긋나는 평가를 덧붙이는 조사예요. 앞 내용 전체를 부정하지 않아요.",
+        "en": "This particle adds a contrary evaluation while conceding the first statement, without negating it entirely.",
+        "de": "Diese Partikel ergänzt eine gegenläufige Bewertung bei zugestandener erster Aussage, ohne sie vollständig zu verneinen."
+      },
+      "examplesKo": [
+        "뜻은 좋다마는 방법에는 동의하기 어렵다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "뜻은 긍정 / 방법 동의 유보 / 좋다마는",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "뜻은 좋다마는 방법에는 동의하기 어렵다."
+            ],
+            "rejectedAnswers": [
+              "뜻도 방법도 모두 잘못되었다."
+            ],
+            "explanation": {
+              "ko": "예: 뜻은 좋다마는 방법에는 동의하기 어렵다. 의미가 다른 예: 뜻도 방법도 모두 잘못되었다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 뜻은 좋다마는 방법에는 동의하기 어렵다. Meaning or register error: 뜻도 방법도 모두 잘못되었다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 뜻은 좋다마는 방법에는 동의하기 어렵다. Fehler bei Bedeutung oder Register: 뜻도 방법도 모두 잘못되었다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "설명 청취 사실 / 의문 남음 / 들었다마는",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "설명은 들었다마는 의문은 남아 있다."
+            ],
+            "rejectedAnswers": [
+              "설명은 듣지 못했다."
+            ],
+            "explanation": {
+              "ko": "예: 설명은 들었다마는 의문은 남아 있다. 의미가 다른 예: 설명은 듣지 못했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 설명은 들었다마는 의문은 남아 있다. Meaning or register error: 설명은 듣지 못했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 설명은 들었다마는 의문은 남아 있다. Fehler bei Bedeutung oder Register: 설명은 듣지 못했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "7d029aec0863b72f35b15b6017a76fced68edfbaccceb111172ef21779bccd29"
+    },
+    {
+      "id": "KP26:production:02",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:02",
+      "requirementKeys": [
+        "G6:-건만"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-건만 문장 만들기",
+        "en": "-건만: write a sentence",
+        "de": "-건만: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "기대와 현실의 어긋남을 문학적으로 드러내요. 결과의 원인이나 다른 인물의 의도까지 말하지는 않아요.",
+        "en": "Express a literary mismatch of expectation and outcome, without establishing causes or another character’s intent.",
+        "de": "Zeige literarisch die Abweichung zwischen Erwartung und Ergebnis, ohne Ursache oder Figurenabsicht festzustellen."
+      },
+      "examplesKo": [
+        "밤새 기다렸건만 아무도 오지 않았다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "밤새 기다림 / 아무도 안 옴 / 기다렸건만",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "밤새 기다렸건만 아무도 오지 않았다."
+            ],
+            "rejectedAnswers": [
+              "밤새 기다렸더니 모두 왔다."
+            ],
+            "explanation": {
+              "ko": "예: 밤새 기다렸건만 아무도 오지 않았다. 의미가 다른 예: 밤새 기다렸더니 모두 왔다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 밤새 기다렸건만 아무도 오지 않았다. Meaning or register error: 밤새 기다렸더니 모두 왔다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 밤새 기다렸건만 아무도 오지 않았다. Fehler bei Bedeutung oder Register: 밤새 기다렸더니 모두 왔다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "여러 번 읽음 / 뜻 여전히 모호 / 읽었건만",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여러 번 읽었건만 뜻은 여전히 모호했다."
+            ],
+            "rejectedAnswers": [
+              "여러 번 읽어 뜻이 명확해졌다."
+            ],
+            "explanation": {
+              "ko": "예: 여러 번 읽었건만 뜻은 여전히 모호했다. 의미가 다른 예: 여러 번 읽어 뜻이 명확해졌다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여러 번 읽었건만 뜻은 여전히 모호했다. Meaning or register error: 여러 번 읽어 뜻이 명확해졌다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여러 번 읽었건만 뜻은 여전히 모호했다. Fehler bei Bedeutung oder Register: 여러 번 읽어 뜻이 명확해졌다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "f8dabe0a92ef20b979f35fc2e5c2d46bfa620bc2a159f5ba1cc6e7501abaad00"
+    },
+    {
+      "id": "KP26:production:03",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:03",
+      "requirementKeys": [
+        "G6:-어 치우다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 치우다 문장 만들기",
+        "en": "-어 치우다: write a sentence",
+        "de": "-어 치우다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "일을 끝내거나 제거한 완료를 단호하게 표현해요. 후회·분노 여부는 문맥으로 확인합니다.",
+        "en": "Express decisive completion or removal. Context determines whether regret or anger is present.",
+        "de": "Drücke entschlossenen Abschluss oder Beseitigung aus. Reue oder Ärger ergeben sich erst aus dem Kontext."
+      },
+      "examplesKo": [
+        "그는 남은 정리를 한꺼번에 해 치웠다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "그 / 남은 정리 / 한꺼번에 완료 / 해 치웠다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그는 남은 정리를 한꺼번에 해 치웠다."
+            ],
+            "rejectedAnswers": [
+              "그는 남은 정리를 아직 끝내지 못했다."
+            ],
+            "explanation": {
+              "ko": "예: 그는 남은 정리를 한꺼번에 해 치웠다. 의미가 다른 예: 그는 남은 정리를 아직 끝내지 못했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그는 남은 정리를 한꺼번에 해 치웠다. Meaning or register error: 그는 남은 정리를 아직 끝내지 못했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그는 남은 정리를 한꺼번에 해 치웠다. Fehler bei Bedeutung oder Register: 그는 남은 정리를 아직 끝내지 못했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "그 / 쌓인 상자 제거 후 청소까지 완료 / 해 치웠다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "그는 쌓인 상자를 모두 치워 버리고 청소까지 해 치웠다."
+            ],
+            "rejectedAnswers": [
+              "그는 상자를 그대로 두고 청소도 하지 않았다."
+            ],
+            "explanation": {
+              "ko": "예: 그는 쌓인 상자를 모두 치워 버리고 청소까지 해 치웠다. 의미가 다른 예: 그는 상자를 그대로 두고 청소도 하지 않았다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 그는 쌓인 상자를 모두 치워 버리고 청소까지 해 치웠다. Meaning or register error: 그는 상자를 그대로 두고 청소도 하지 않았다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 그는 쌓인 상자를 모두 치워 버리고 청소까지 해 치웠다. Fehler bei Bedeutung oder Register: 그는 상자를 그대로 두고 청소도 하지 않았다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "d58f59caba9048819171c2a124f3e282fda66247ce15a6e11cf884b85b927ae8"
+    },
+    {
+      "id": "KP26:production:04",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:04",
+      "requirementKeys": [
+        "G6:-기 일쑤이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 일쑤이다 문장 만들기",
+        "en": "-기 일쑤이다: write a sentence",
+        "de": "-기 일쑤이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "대체로 좋지 않은 일이 자주 반복됨을 평가해요. 항상·모든 경우라는 전칭 명제는 아닙니다.",
+        "en": "Evaluate a frequent, usually undesirable pattern, not a universal claim about every instance.",
+        "de": "Bewerte eine häufige, meist unerwünschte Wiederholung, nicht jeden einzelnen Fall ausnahmslos."
+      },
+      "examplesKo": [
+        "맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "맥락 생략 시 오해 잦음 / 일쑤이다 / 예외도 있음",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다."
+            ],
+            "rejectedAnswers": [
+              "맥락을 빼면 누구나 항상 오해한다."
+            ],
+            "explanation": {
+              "ko": "예: 맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다. 의미가 다른 예: 맥락을 빼면 누구나 항상 오해한다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다. Meaning or register error: 맥락을 빼면 누구나 항상 오해한다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 맥락을 빼면 뜻을 오해하기 일쑤이다. 그렇지 않은 때도 있다. Fehler bei Bedeutung oder Register: 맥락을 빼면 누구나 항상 오해한다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "급히 쓸 때 날짜 누락 잦음 / 일쑤이다 / 이번에는 적음",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "급히 쓰면 날짜를 빠뜨리기 일쑤이다. 이번에는 적었다."
+            ],
+            "rejectedAnswers": [
+              "이번에도 날짜를 빠뜨렸다."
+            ],
+            "explanation": {
+              "ko": "예: 급히 쓰면 날짜를 빠뜨리기 일쑤이다. 이번에는 적었다. 의미가 다른 예: 이번에도 날짜를 빠뜨렸다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 급히 쓰면 날짜를 빠뜨리기 일쑤이다. 이번에는 적었다. Meaning or register error: 이번에도 날짜를 빠뜨렸다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 급히 쓰면 날짜를 빠뜨리기 일쑤이다. 이번에는 적었다. Fehler bei Bedeutung oder Register: 이번에도 날짜를 빠뜨렸다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "35b76d35cbf4d3eac73f4be06a1af11394882a9643025d86e6ed94f9b6cb21df"
+    },
+    {
+      "id": "KP26:production:05",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:05",
+      "requirementKeys": [
+        "G6:-기 짝이 없다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 짝이 없다 문장 만들기",
+        "en": "-기 짝이 없다: write a sentence",
+        "de": "-기 짝이 없다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "평가의 정도를 매우 강하게 강조해요. 평가자의 기준과 사실 보고를 구별합니다.",
+        "en": "Strongly intensify an evaluation. Distinguish the evaluator’s standard from factual reporting.",
+        "de": "Verstärke eine Bewertung stark. Trenne den Maßstab der wertenden Person vom Tatsachenbericht."
+      },
+      "examplesKo": [
+        "확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "화자의 글 / 확인 없이 단정한 태도 / 무책임하기 짝이 없다고",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다."
+            ],
+            "rejectedAnswers": [
+              "법원은 그 태도의 위법성을 확정했다."
+            ],
+            "explanation": {
+              "ko": "예: 확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다. 의미가 다른 예: 법원은 그 태도의 위법성을 확정했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다. Meaning or register error: 법원은 그 태도의 위법성을 확정했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 확인도 없이 단정한 태도는 무책임하기 짝이 없다고 화자는 적었다. Fehler bei Bedeutung oder Register: 법원은 그 태도의 위법성을 확정했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "화자의 글 / 빈 의자 / 쓸쓸하기 짝이 없었다고",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "화자는 빈 의자가 쓸쓸하기 짝이 없었다고 썼다."
+            ],
+            "rejectedAnswers": [
+              "빈 의자가 실제로 슬픔을 느꼈다."
+            ],
+            "explanation": {
+              "ko": "예: 화자는 빈 의자가 쓸쓸하기 짝이 없었다고 썼다. 의미가 다른 예: 빈 의자가 실제로 슬픔을 느꼈다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 화자는 빈 의자가 쓸쓸하기 짝이 없었다고 썼다. Meaning or register error: 빈 의자가 실제로 슬픔을 느꼈다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 화자는 빈 의자가 쓸쓸하기 짝이 없었다고 썼다. Fehler bei Bedeutung oder Register: 빈 의자가 실제로 슬픔을 느꼈다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "8c93a4f2a899b8b2ed47c0eea7946d47b046437307388c662db7d0724e3dcb60"
+    },
+    {
+      "id": "KP26:production:06",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:06",
+      "requirementKeys": [
+        "G6:-디1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-디1 문장 만들기",
+        "en": "-디1: write a sentence",
+        "de": "-디1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "형용사 반복으로 정도를 강조하는 문학적 표현입니다. 정도 강조를 사건 횟수나 시간 측정값으로 읽지 않아요.",
+        "en": "A literary adjective repetition intensifies degree, not event frequency or a measured duration.",
+        "de": "Literarische Adjektivwiederholung verstärkt den Grad, nicht Ereigniszahl oder gemessene Dauer."
+      },
+      "examplesKo": [
+        "깊디깊은 침묵이 방 안에 내려앉았다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "침묵의 정도 강조 / 깊디깊은 / 방 안에 내려앉았다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "깊디깊은 침묵이 방 안에 내려앉았다."
+            ],
+            "rejectedAnswers": [
+              "침묵이 정확히 두 번 발생했다."
+            ],
+            "explanation": {
+              "ko": "예: 깊디깊은 침묵이 방 안에 내려앉았다. 의미가 다른 예: 침묵이 정확히 두 번 발생했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 깊디깊은 침묵이 방 안에 내려앉았다. Meaning or register error: 침묵이 정확히 두 번 발생했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 깊디깊은 침묵이 방 안에 내려앉았다. Fehler bei Bedeutung oder Register: 침묵이 정확히 두 번 발생했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "복도 길이 인상 강조 / 길디긴 / 눈앞에 놓여 있었다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "길디긴 복도가 눈앞에 놓여 있었다."
+            ],
+            "rejectedAnswers": [
+              "복도의 길이는 정확히 이 미터였다."
+            ],
+            "explanation": {
+              "ko": "예: 길디긴 복도가 눈앞에 놓여 있었다. 의미가 다른 예: 복도의 길이는 정확히 이 미터였다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 길디긴 복도가 눈앞에 놓여 있었다. Meaning or register error: 복도의 길이는 정확히 이 미터였다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 길디긴 복도가 눈앞에 놓여 있었다. Fehler bei Bedeutung oder Register: 복도의 길이는 정확히 이 미터였다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "a5e701adb6525f2cf895c3ea11723d4ee7058de64b18847d5d6f6a0da273d3ba"
+    },
+    {
+      "id": "KP26:production:07",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:07",
+      "requirementKeys": [
+        "G6:-노라면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-노라면 문장 만들기",
+        "en": "-노라면: write a sentence",
+        "de": "-노라면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "행동이 이어지는 가운데 생기는 경험을 서술해요. 문학적 회고 형식이며 명령이나 완료 보고가 아닙니다.",
+        "en": "Describe an experience arising during a continuing action, in literary recollection, not a command or completion report.",
+        "de": "Beschreibe literarisch eine Erfahrung während fortgesetzten Handelns, keinen Befehl oder Abschlussbericht."
+      },
+      "examplesKo": [
+        "옛길을 걷노라면 잊었던 장면이 떠오른다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "옛길 걷는 중 잊었던 장면 환기 / 걷노라면",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "옛길을 걷노라면 잊었던 장면이 떠오른다."
+            ],
+            "rejectedAnswers": [
+              "옛길을 반드시 걸어야 한다."
+            ],
+            "explanation": {
+              "ko": "예: 옛길을 걷노라면 잊었던 장면이 떠오른다. 의미가 다른 예: 옛길을 반드시 걸어야 한다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 옛길을 걷노라면 잊었던 장면이 떠오른다. Meaning or register error: 옛길을 반드시 걸어야 한다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 옛길을 걷노라면 잊었던 장면이 떠오른다. Fehler bei Bedeutung oder Register: 옛길을 반드시 걸어야 한다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "낡은 기록 읽는 중 그날 소리 환기 / 읽노라면",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "낡은 기록을 읽노라면 그날의 소리가 떠오른다."
+            ],
+            "rejectedAnswers": [
+              "그날의 소리가 현재 실제로 재생되고 있다."
+            ],
+            "explanation": {
+              "ko": "예: 낡은 기록을 읽노라면 그날의 소리가 떠오른다. 의미가 다른 예: 그날의 소리가 현재 실제로 재생되고 있다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 낡은 기록을 읽노라면 그날의 소리가 떠오른다. Meaning or register error: 그날의 소리가 현재 실제로 재생되고 있다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 낡은 기록을 읽노라면 그날의 소리가 떠오른다. Fehler bei Bedeutung oder Register: 그날의 소리가 현재 실제로 재생되고 있다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "78dd472d35719fd134dc85b480a622bda8e30a2aec7de243bb8b9c198f6f650f"
+    },
+    {
+      "id": "KP26:production:08",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:production:08",
+      "requirementKeys": [
+        "G4:-어 버리다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 버리다 문장 만들기",
+        "en": "-어 버리다: write a sentence",
+        "de": "-어 버리다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "완료한 사건에 대한 정서가 실릴 수 있지만 후회인지 후련함인지는 문맥에서 확인해요.",
+        "en": "Completion may carry emotion, but context determines regret or relief.",
+        "de": "Abschluss kann emotional gefärbt sein; erst der Kontext zeigt Reue oder Erleichterung."
+      },
+      "examplesKo": [
+        "편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "편지 찢기 완료 / 화자가 후회한다고 말함 / 찢어 버렸다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다."
+            ],
+            "rejectedAnswers": [
+              "편지를 찢었지만 화자는 후회하지 않는다고 말했다."
+            ],
+            "explanation": {
+              "ko": "예: 편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다. 의미가 다른 예: 편지를 찢었지만 화자는 후회하지 않는다고 말했다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다. Meaning or register error: 편지를 찢었지만 화자는 후회하지 않는다고 말했다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 편지를 찢어 버렸다. 화자는 그 일을 후회한다고 말했다. Fehler bei Bedeutung oder Register: 편지를 찢었지만 화자는 후회하지 않는다고 말했다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "초안 삭제 완료 / 화자가 홀가분했다고 말함 / 지워 버렸다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "초안을 지워 버렸다. 화자는 홀가분했다고 말했다."
+            ],
+            "rejectedAnswers": [
+              "초안을 아직 지우지 않았다."
+            ],
+            "explanation": {
+              "ko": "예: 초안을 지워 버렸다. 화자는 홀가분했다고 말했다. 의미가 다른 예: 초안을 아직 지우지 않았다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 초안을 지워 버렸다. 화자는 홀가분했다고 말했다. Meaning or register error: 초안을 아직 지우지 않았다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 초안을 지워 버렸다. 화자는 홀가분했다고 말했다. Fehler bei Bedeutung oder Register: 초안을 아직 지우지 않았다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "contentHash": "819f3d4e08bac15345bfb29949eb5957a8f6fc3c4647c221124b1211a50e51f9"
+    },
+    {
+      "id": "KP26:listening:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "서사 낭독과 일상 회고 비교",
+        "en": "Compare narrative reading and everyday recollection",
+        "de": "Erzählvortrag und alltäglichen Rückblick vergleichen"
+      },
+      "teaching": {
+        "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+        "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+        "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 가람독서회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 화요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 월요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 3장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n화요일 밤이 지나고 수요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[일상 회고 대화. 서로 반말하기로 합의한 동등한 성인 친구 둘.]\n독자 하나: 나는 월요일에 편지 3장을 받았고, 화요일 밤에 기다렸어. 아무도 안 왔어. 왜 안 왔는지는 아직 몰라. 수요일 아침에 정리를 끝냈고 편지도 찢었어. 그 두 일의 순서와 정확한 시각은 안 적었어. 찢은 일은 나중에 후회했어.\n독자 둘: 소설에서는 깊디깊다거나 쓸쓸하기 짝이 없다고 하니까 더 강하게 느껴져. 그럼 작가가 모두를 비난한 거야?\n독자 하나: 그건 단정하지 말자. 소설 속 나는 자기 방법을 평가해. 실제 저자의 모든 생각은 모르지. 일쑤였다는 말도 매번 그랬다는 기록은 아니야. 문학적 과장이 실제 분노를 증명하는 건 아니고.\n독자 둘: 절제해서 읽을 때와 휴지를 길게 두어 읽을 때 여운이 다르겠네. 그렇다고 녹음에 없는 감정을 정답처럼 붙이면 안 되겠어.\n독자 하나: 맞아. 목소리와 텍스트를 나란히 보고, 확인한 휴지만 적자. 다른 독자가 다르게 느낄 여지는 남기자.",
+        "questions": [
+          {
+            "id": "chronology",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확정할 수 있는 큰 사건 순서는?",
+              "en": "Which broad chronology is established?",
+              "de": "Welche grobe Ereignisfolge steht fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "빈 의자 회고 → 편지 수령이 실제 사건 순서"
+              },
+              {
+                "id": "0",
+                "text": "편지 수령 → 기다림 → 다음 아침 정리·찢기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "미상으로 남는 시간 정보는?",
+              "en": "Which timing information remains unknown?",
+              "de": "Welche Zeitangabe bleibt unbekannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "다음 아침 두 행동의 순서와 정확한 시각"
+              },
+              {
+                "id": "1",
+                "text": "편지 수령이 기다림보다 앞선 사실"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "evaluation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "쓸쓸하기 짝이 없다는 무엇인가요?",
+              "en": "What is the extreme loneliness statement?",
+              "de": "Was ist die Aussage äußerster Trostlosigkeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그때의 화자가 남긴 강한 평가"
+              },
+              {
+                "id": "1",
+                "text": "의자의 측정된 객관적 감정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "habit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일쑤였다가 보장하지 않는 것은?",
+              "en": "What does the habitual expression not guarantee?",
+              "de": "Was garantiert der Gewohnheitsausdruck nicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "이번에도 날짜를 놓쳤다는 사실"
+              },
+              {
+                "id": "1",
+                "text": "과거의 잦은 경향이라는 평가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "regret",
+            "kind": "choice",
+            "prompt": {
+              "ko": "찢기 후회의 근거는?",
+              "en": "What supports regret about tearing?",
+              "de": "Was belegt die Reue über das Zerreißen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "뒤의 명시적인 후회 진술"
+              },
+              {
+                "id": "1",
+                "text": "버리다 형태만으로 언제나 후회"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "voice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "낭독 해석에서 지켜야 할 한계는?",
+              "en": "What limit applies to interpreting the reading?",
+              "de": "Welche Grenze gilt für die Deutung des Vorlesens?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "실제 들은 휴지와 텍스트를 대조, 없는 의도 미확정"
+              },
+              {
+                "id": "1",
+                "text": "희귀 말끝만으로 실제 저자의 분노 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 솔빛문학회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 금요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 목요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 4장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n금요일 밤이 지나고 토요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[일상 회고 대화. 서로 반말하기로 합의한 동등한 성인 친구 둘.]\n독자 하나: 나는 목요일에 편지 4장을 받았고, 금요일 밤에 기다렸어. 아무도 안 왔어. 왜 안 왔는지는 아직 몰라. 토요일 아침에 정리를 끝냈고 편지도 찢었어. 그 두 일의 순서와 정확한 시각은 안 적었어. 찢은 일은 나중에 후회했어.\n독자 둘: 소설에서는 깊디깊다거나 쓸쓸하기 짝이 없다고 하니까 더 강하게 느껴져. 그럼 작가가 모두를 비난한 거야?\n독자 하나: 그건 단정하지 말자. 소설 속 나는 자기 방법을 평가해. 실제 저자의 모든 생각은 모르지. 일쑤였다는 말도 매번 그랬다는 기록은 아니야. 문학적 과장이 실제 분노를 증명하는 건 아니고.\n독자 둘: 절제해서 읽을 때와 휴지를 길게 두어 읽을 때 여운이 다르겠네. 그렇다고 녹음에 없는 감정을 정답처럼 붙이면 안 되겠어.\n독자 하나: 맞아. 목소리와 텍스트를 나란히 보고, 확인한 휴지만 적자. 다른 독자가 다르게 느낄 여지는 남기자.",
+        "questions": [
+          {
+            "id": "chronology",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확정할 수 있는 큰 사건 순서는?",
+              "en": "Which broad chronology is established?",
+              "de": "Welche grobe Ereignisfolge steht fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "빈 의자 회고 → 편지 수령이 실제 사건 순서"
+              },
+              {
+                "id": "0",
+                "text": "편지 수령 → 기다림 → 다음 아침 정리·찢기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "미상으로 남는 시간 정보는?",
+              "en": "Which timing information remains unknown?",
+              "de": "Welche Zeitangabe bleibt unbekannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "다음 아침 두 행동의 순서와 정확한 시각"
+              },
+              {
+                "id": "1",
+                "text": "편지 수령이 기다림보다 앞선 사실"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "evaluation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "쓸쓸하기 짝이 없다는 무엇인가요?",
+              "en": "What is the extreme loneliness statement?",
+              "de": "Was ist die Aussage äußerster Trostlosigkeit?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그때의 화자가 남긴 강한 평가"
+              },
+              {
+                "id": "1",
+                "text": "의자의 측정된 객관적 감정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "habit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일쑤였다가 보장하지 않는 것은?",
+              "en": "What does the habitual expression not guarantee?",
+              "de": "Was garantiert der Gewohnheitsausdruck nicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "과거의 잦은 경향이라는 평가"
+              },
+              {
+                "id": "0",
+                "text": "이번에도 날짜를 놓쳤다는 사실"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "regret",
+            "kind": "choice",
+            "prompt": {
+              "ko": "찢기 후회의 근거는?",
+              "en": "What supports regret about tearing?",
+              "de": "Was belegt die Reue über das Zerreißen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "버리다 형태만으로 언제나 후회"
+              },
+              {
+                "id": "0",
+                "text": "뒤의 명시적인 후회 진술"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "voice",
+            "kind": "choice",
+            "prompt": {
+              "ko": "낭독 해석에서 지켜야 할 한계는?",
+              "en": "What limit applies to interpreting the reading?",
+              "de": "Welche Grenze gilt für die Deutung des Vorlesens?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "실제 들은 휴지와 텍스트를 대조, 없는 의도 미확정"
+              },
+              {
+                "id": "1",
+                "text": "희귀 말끝만으로 실제 저자의 분노 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "contentHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4"
+    },
+    {
+      "id": "KP26:reading:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "회고 순서·사건 순서·두 비평",
+        "en": "Narration order, chronology and two critiques",
+        "de": "Erzählfolge, Ereignisfolge und zwei Kritiken"
+      },
+      "teaching": {
+        "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+        "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+        "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 가람독서회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 화요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 월요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 3장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n화요일 밤이 지나고 수요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.",
+        "questions": [
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "서술의 첫 초점과 사건의 첫 항목은?",
+              "en": "What starts the narration and the event sequence?",
+              "de": "Was steht am Anfang von Erzählung und Ereignisfolge?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "편지 찢기 / 실제 저자의 분노"
+              },
+              {
+                "id": "0",
+                "text": "현재 빈 의자 회고 / 이전 날 편지 수령"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "completion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "해 치웠다가 직접 뒷받침하는 것은?",
+              "en": "What does decisive finishing directly support?",
+              "de": "Was stützt das entschlossene Fertigstellen direkt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "정리 완료와 단호한 표현"
+              },
+              {
+                "id": "1",
+                "text": "인물의 모든 행동이 성급함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "counterreading",
+            "kind": "choice",
+            "prompt": {
+              "ko": "B가 남긴 반대 해석은?",
+              "en": "Which alternative reading does B retain?",
+              "de": "Welche Gegenlesart lässt B offen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "강한 평가와 시간 빈칸이 기억 한계를 드러냄"
+              },
+              {
+                "id": "1",
+                "text": "작가의 기만 의도를 입증함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "neutral",
+            "kind": "choice",
+            "prompt": {
+              "ko": "중립 기록에서 유지할 것은?",
+              "en": "What must a neutral account retain?",
+              "de": "Was muss ein neutraler Bericht erhalten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "사건 극성·시간 범위·전언 출처"
+              },
+              {
+                "id": "1",
+                "text": "강조를 없애며 불참 이유를 새로 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "symbol",
+            "kind": "choice",
+            "prompt": {
+              "ko": "봉투 상징에 관한 허용 범위는?",
+              "en": "What is permissible about envelope symbolism?",
+              "de": "Was ist zur Umschlagsymbolik zulässig?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "보관은 반드시 화해 의도의 증거"
+              },
+              {
+                "id": "0",
+                "text": "해석 가능, 보관 동기는 미상"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 솔빛문학회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 금요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 목요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 4장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n금요일 밤이 지나고 토요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.",
+        "questions": [
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "서술의 첫 초점과 사건의 첫 항목은?",
+              "en": "What starts the narration and the event sequence?",
+              "de": "Was steht am Anfang von Erzählung und Ereignisfolge?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "편지 찢기 / 실제 저자의 분노"
+              },
+              {
+                "id": "0",
+                "text": "현재 빈 의자 회고 / 이전 날 편지 수령"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "completion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "해 치웠다가 직접 뒷받침하는 것은?",
+              "en": "What does decisive finishing directly support?",
+              "de": "Was stützt das entschlossene Fertigstellen direkt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "정리 완료와 단호한 표현"
+              },
+              {
+                "id": "1",
+                "text": "인물의 모든 행동이 성급함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "counterreading",
+            "kind": "choice",
+            "prompt": {
+              "ko": "B가 남긴 반대 해석은?",
+              "en": "Which alternative reading does B retain?",
+              "de": "Welche Gegenlesart lässt B offen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "강한 평가와 시간 빈칸이 기억 한계를 드러냄"
+              },
+              {
+                "id": "1",
+                "text": "작가의 기만 의도를 입증함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "neutral",
+            "kind": "choice",
+            "prompt": {
+              "ko": "중립 기록에서 유지할 것은?",
+              "en": "What must a neutral account retain?",
+              "de": "Was muss ein neutraler Bericht erhalten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "강조를 없애며 불참 이유를 새로 확정"
+              },
+              {
+                "id": "0",
+                "text": "사건 극성·시간 범위·전언 출처"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "symbol",
+            "kind": "choice",
+            "prompt": {
+              "ko": "봉투 상징에 관한 허용 범위는?",
+              "en": "What is permissible about envelope symbolism?",
+              "de": "Was ist zur Umschlagsymbolik zulässig?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "해석 가능, 보관 동기는 미상"
+              },
+              {
+                "id": "1",
+                "text": "보관은 반드시 화해 의도의 증거"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "contentHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050"
+    },
+    {
+      "id": "KP26:reading:02",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "문화 기사의 관찰·인용·해석",
+        "en": "Observation, quotation and interpretation in arts reporting",
+        "de": "Beobachtung, Zitat und Deutung im Kulturbericht"
+      },
+      "teaching": {
+        "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+        "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+        "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 문화 기사: 가람독서회의 창작 단편 토론]\n기자는 독서 모임에서 두 비평문을 함께 읽고 참가자들이 해석을 비교하는 장면을 직접 보았다고 썼다. 참석 인원과 토론 날짜는 기사에 없다. 작품 속 편지 3장과 화요일의 기다림은 허구의 서사이지 기자가 확인한 실제 사건이 아니다.\n참가자 하나는 “쓸쓸하기 짝이 없다는 문장이 독자를 한쪽 감정으로 몰아가는 것 같아요”라고 말했다. 참가자 둘은 “강한 말과 빈칸이 함께 있어 기억의 한계를 보게 돼요”라고 답했다. 기사는 이 두 발언을 인용한다. 둘 중 어느 쪽에 모든 참석자가 동의했는지는 보도하지 않았다.\n기자는 두 발언의 대비가 작품의 여운을 남기는 방식에 관한 논점을 드러낸다고 해석했다. 이 문장은 기자의 분석이다. 작품이 지역의 역사적 기억을 재현한다는 홍보 표현도 소개했지만 작품의 사건이 실제 역사라는 추가 근거를 제시하지 않았다. 상징의 해석과 역사적 사실 확인은 같은 작업이 아니다.\n[검토 대상 제목]\n모든 독자가 작가의 고의적 감정 조작을 확인했다.\n[정정안]\n두 독자가 강한 평가 표현의 효과를 다르게 해석했다. 전원 동의나 작가의 동기는 확인되지 않았다.",
+        "questions": [
+          {
+            "id": "witness",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기자의 직접 관찰로 보도된 것은?",
+              "en": "What is reported as the journalist’s observation?",
+              "de": "Was wird als direkte Beobachtung berichtet?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "모임의 비평 비교 장면"
+              },
+              {
+                "id": "1",
+                "text": "소설 속 편지 찢기 사건"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감정을 몰아가는 것 같다는 지위는?",
+              "en": "What is the status of the emotional-steering comment?",
+              "de": "Welchen Status hat die Bemerkung zur Gefühlslenkung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참가자 한 명의 잠정 해석"
+              },
+              {
+                "id": "1",
+                "text": "전원의 동의로 확인된 작가 의도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "reporter",
+            "kind": "choice",
+            "prompt": {
+              "ko": "여운의 논점을 드러낸다는 것은?",
+              "en": "What is the point about lingering effects?",
+              "de": "Was ist die Aussage zur nachwirkenden Wirkung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기사에 없는 참석자 전원의 인용"
+              },
+              {
+                "id": "0",
+                "text": "기자의 분석"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "headline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제목이 덧붙인 미확인 내용은?",
+              "en": "What unverified content does the headline add?",
+              "de": "Was fügt die Überschrift unbelegt hinzu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 해석이 다르다는 사실"
+              },
+              {
+                "id": "0",
+                "text": "전원 확인과 작가의 고의"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[가상 문화 기사: 솔빛문학회의 창작 단편 토론]\n기자는 독서 모임에서 두 비평문을 함께 읽고 참가자들이 해석을 비교하는 장면을 직접 보았다고 썼다. 참석 인원과 토론 날짜는 기사에 없다. 작품 속 편지 4장과 금요일의 기다림은 허구의 서사이지 기자가 확인한 실제 사건이 아니다.\n참가자 하나는 “쓸쓸하기 짝이 없다는 문장이 독자를 한쪽 감정으로 몰아가는 것 같아요”라고 말했다. 참가자 둘은 “강한 말과 빈칸이 함께 있어 기억의 한계를 보게 돼요”라고 답했다. 기사는 이 두 발언을 인용한다. 둘 중 어느 쪽에 모든 참석자가 동의했는지는 보도하지 않았다.\n기자는 두 발언의 대비가 작품의 여운을 남기는 방식에 관한 논점을 드러낸다고 해석했다. 이 문장은 기자의 분석이다. 작품이 지역의 역사적 기억을 재현한다는 홍보 표현도 소개했지만 작품의 사건이 실제 역사라는 추가 근거를 제시하지 않았다. 상징의 해석과 역사적 사실 확인은 같은 작업이 아니다.\n[검토 대상 제목]\n모든 독자가 작가의 고의적 감정 조작을 확인했다.\n[정정안]\n두 독자가 강한 평가 표현의 효과를 다르게 해석했다. 전원 동의나 작가의 동기는 확인되지 않았다.",
+        "questions": [
+          {
+            "id": "witness",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기자의 직접 관찰로 보도된 것은?",
+              "en": "What is reported as the journalist’s observation?",
+              "de": "Was wird als direkte Beobachtung berichtet?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "모임의 비평 비교 장면"
+              },
+              {
+                "id": "1",
+                "text": "소설 속 편지 찢기 사건"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감정을 몰아가는 것 같다는 지위는?",
+              "en": "What is the status of the emotional-steering comment?",
+              "de": "Welchen Status hat die Bemerkung zur Gefühlslenkung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "참가자 한 명의 잠정 해석"
+              },
+              {
+                "id": "1",
+                "text": "전원의 동의로 확인된 작가 의도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "reporter",
+            "kind": "choice",
+            "prompt": {
+              "ko": "여운의 논점을 드러낸다는 것은?",
+              "en": "What is the point about lingering effects?",
+              "de": "Was ist die Aussage zur nachwirkenden Wirkung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기자의 분석"
+              },
+              {
+                "id": "1",
+                "text": "기사에 없는 참석자 전원의 인용"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          },
+          {
+            "id": "headline",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제목이 덧붙인 미확인 내용은?",
+              "en": "What unverified content does the headline add?",
+              "de": "Was fügt die Überschrift unbelegt hinzu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 해석이 다르다는 사실"
+              },
+              {
+                "id": "0",
+                "text": "전원 확인과 작가의 고의"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "사건·회고 순서·평가를 나누고 근거 구절을 찾으세요. 완료는 감정 자체가 아니며 반복 경향은 항상과 다릅니다. 서술자·인물·기사 작성자·실제 저자를 구별하고 미상 시각과 의도는 남깁니다.",
+              "en": "Separate events, narration order and evaluation, citing passages. Completion is not emotion itself and frequency is not always. Distinguish narrator, character, journalist and real author; leave unknown times and intentions open.",
+              "de": "Trenne Ereignisse, Erzählfolge und Wertung mit Textbelegen. Abschluss ist nicht selbst ein Gefühl, Häufigkeit nicht immer. Unterscheide Erzählinstanz, Figur, Journalismus und reale Autorschaft; lasse unbekannte Zeiten und Absichten offen."
+            }
+          }
+        ]
+      },
+      "contentHash": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8"
+    },
+    {
+      "id": "KP26:writing:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "문체를 바꾸며 사건을 보존하는 비평",
+        "en": "Criticism preserving events across styles",
+        "de": "Kritik mit erhaltenen Ereignissen bei Stilwechsel"
+      },
+      "teaching": {
+        "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+        "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+        "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 가람독서회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 화요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 월요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 3장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n화요일 밤이 지나고 수요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.\n[가상 문화 기사: 가람독서회의 창작 단편 토론]\n기자는 독서 모임에서 두 비평문을 함께 읽고 참가자들이 해석을 비교하는 장면을 직접 보았다고 썼다. 참석 인원과 토론 날짜는 기사에 없다. 작품 속 편지 3장과 화요일의 기다림은 허구의 서사이지 기자가 확인한 실제 사건이 아니다.\n참가자 하나는 “쓸쓸하기 짝이 없다는 문장이 독자를 한쪽 감정으로 몰아가는 것 같아요”라고 말했다. 참가자 둘은 “강한 말과 빈칸이 함께 있어 기억의 한계를 보게 돼요”라고 답했다. 기사는 이 두 발언을 인용한다. 둘 중 어느 쪽에 모든 참석자가 동의했는지는 보도하지 않았다.\n기자는 두 발언의 대비가 작품의 여운을 남기는 방식에 관한 논점을 드러낸다고 해석했다. 이 문장은 기자의 분석이다. 작품이 지역의 역사적 기억을 재현한다는 홍보 표현도 소개했지만 작품의 사건이 실제 역사라는 추가 근거를 제시하지 않았다. 상징의 해석과 역사적 사실 확인은 같은 작업이 아니다.\n[검토 대상 제목]\n모든 독자가 작가의 고의적 감정 조작을 확인했다.\n[정정안]\n두 독자가 강한 평가 표현의 효과를 다르게 해석했다. 전원 동의나 작가의 동기는 확인되지 않았다.",
+        "questions": [
+          {
+            "id": "review",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "근거 있는 작품 리뷰",
+              "en": "Evidence-based literary review",
+              "de": "Textgestützte Rezension"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          },
+          {
+            "id": "versions",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "두 평가 버전·중립 재서술·변화 해설",
+              "en": "Two evaluations, neutral recasting and commentary",
+              "de": "Zwei Wertungen, neutrale Fassung und Kommentar"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          },
+          {
+            "id": "argument",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "반론을 갖춘 과장 효과 의견문",
+              "en": "Argument on exaggeration with a counterargument",
+              "de": "Erörterung zur Übertreibung mit Einwand"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 솔빛문학회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 금요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 목요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 4장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n금요일 밤이 지나고 토요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.\n[가상 문화 기사: 솔빛문학회의 창작 단편 토론]\n기자는 독서 모임에서 두 비평문을 함께 읽고 참가자들이 해석을 비교하는 장면을 직접 보았다고 썼다. 참석 인원과 토론 날짜는 기사에 없다. 작품 속 편지 4장과 금요일의 기다림은 허구의 서사이지 기자가 확인한 실제 사건이 아니다.\n참가자 하나는 “쓸쓸하기 짝이 없다는 문장이 독자를 한쪽 감정으로 몰아가는 것 같아요”라고 말했다. 참가자 둘은 “강한 말과 빈칸이 함께 있어 기억의 한계를 보게 돼요”라고 답했다. 기사는 이 두 발언을 인용한다. 둘 중 어느 쪽에 모든 참석자가 동의했는지는 보도하지 않았다.\n기자는 두 발언의 대비가 작품의 여운을 남기는 방식에 관한 논점을 드러낸다고 해석했다. 이 문장은 기자의 분석이다. 작품이 지역의 역사적 기억을 재현한다는 홍보 표현도 소개했지만 작품의 사건이 실제 역사라는 추가 근거를 제시하지 않았다. 상징의 해석과 역사적 사실 확인은 같은 작업이 아니다.\n[검토 대상 제목]\n모든 독자가 작가의 고의적 감정 조작을 확인했다.\n[정정안]\n두 독자가 강한 평가 표현의 효과를 다르게 해석했다. 전원 동의나 작가의 동기는 확인되지 않았다.",
+        "questions": [
+          {
+            "id": "review",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "근거 있는 작품 리뷰",
+              "en": "Evidence-based literary review",
+              "de": "Textgestützte Rezension"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          },
+          {
+            "id": "versions",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "두 평가 버전·중립 재서술·변화 해설",
+              "en": "Two evaluations, neutral recasting and commentary",
+              "de": "Zwei Wertungen, neutrale Fassung und Kommentar"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          },
+          {
+            "id": "argument",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "반론을 갖춘 과장 효과 의견문",
+              "en": "Argument on exaggeration with a counterargument",
+              "de": "Erörterung zur Übertreibung mit Einwand"
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "세 편의 완결된 글을 쓰세요. 첫째 평가 기준·장점·한계와 근거 구절을 갖춘 작품 리뷰입니다. 사건 시간표와 회고 순서를 나란히 표시하고 미상 시간은 남겨 두세요. 둘째 비평 단락을 강한 평가와 절제된 평가의 두 버전으로 쓰고, 어떤 구절이 달라진 함축을 지지하는지 설명합니다. 이어 한 단락을 중립적 사건 보고로 바꾸되 극성·시간·전언 출처를 지키고 빠진 문체 효과를 명시하세요. 셋째 과장이 기억의 한계를 드러내는지 가리는지 논하는 의견문을 쓰고 가장 강한 반론을 공정하게 다룹니다. 빈 봉투의 동기, 실제 작가 의도, 전원 동의를 추가하지 마세요. 기사의 과장 제목도 정정하고 원문과 다시 대조해 재작성하세요. 자유 의미·비평의 설득력은 미채점입니다.",
+              "en": "Write three complete responses. First review the work with criteria, strengths, limits and cited passages. Place event chronology beside narration order, retaining unknown times. Second write strong and restrained versions of a critical paragraph and explain source support for changed implications; then recast one paragraph as neutral reporting, preserving polarity, time and hearsay and identifying lost stylistic effects. Third argue whether exaggeration reveals or conceals the limits of memory, treating the strongest objection fairly. Do not add envelope motives, the real author’s intent or unanimous agreement. Correct the article’s exaggerated headline and revise against the sources. Free meaning and critical persuasiveness remain unscored.",
+              "de": "Schreibe drei vollständige Antworten. Rezensiere zuerst das Werk mit Kriterien, Stärken, Grenzen und Textbelegen. Stelle Ereignisfolge und Erzählfolge nebeneinander und lasse unbekannte Zeiten offen. Schreibe zweitens einen stark und einen zurückhaltend wertenden kritischen Absatz und erkläre Textbelege für veränderte Implikationen; formuliere danach einen Absatz als neutralen Bericht um, mit erhaltener Polarität, Zeit und Quellenangabe und benannten verlorenen Stileffekten. Erörtere drittens, ob Übertreibung Erinnerungsgrenzen zeigt oder verdeckt, und behandle den stärksten Einwand fair. Ergänze weder Umschlagmotive noch reale Autorenabsicht oder Einstimmigkeit. Korrigiere die übertriebene Überschrift und überarbeite anhand der Quellen. Inhalt und Überzeugungskraft bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "contentHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50"
+    },
+    {
+      "id": "KP26:speaking:01",
+      "phaseId": "KP26",
+      "level": "C2",
+      "objectiveId": "KP26:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "두 해석과 두 낭독을 비교하는 대화",
+        "en": "Discuss two readings and two deliveries",
+        "de": "Zwei Lesarten und Vortragsweisen besprechen"
+      },
+      "teaching": {
+        "ko": "반말에 합의한 가까운 독자에게 두 비평을 공정하게 소개하고 네 해석의 기준과 구절을 설명하세요. 다른 독자에게는 같은 내용을 해요체로 바꾸되 사건·시간·출처는 유지합니다. 불편한 평가 표현을 인물 전체나 작가의 속마음 판단으로 넓히지 말고 상대에게 다른 읽기를 확인할 기회를 주세요. 같은 단락을 절제된 낭독과 표현적 낭독으로 각각 녹음하고 재생해 실제 들린 휴지·강조와 텍스트의 근거를 나란히 메모합니다. 듣지 못한 감정은 미상이고 표현적 목소리도 실제 분노를 증명하지 않아요. 모어가 다른 동료에게 한국어로 일쑤를 항상으로 바꾸는 오류와 버리다를 무조건 후회로 옮기는 오류를 짚으세요. 원래 화행과 의미 단위를 지켜 다시 말합니다. 자유 해석·낭독 효과는 미채점입니다.",
+        "en": "Fairly present both critiques to a close reader with whom casual speech is agreed, giving criteria and passages for your reading. Recast politely for another reader without changing events, time or attribution. Do not extend an uncomfortable evaluation into judgement of the whole character or author’s mind; invite a different reading. Record restrained and expressive readings of the same paragraph, replay and note actually heard pauses and emphasis alongside textual evidence. Unheard emotions remain unknown and expressive delivery does not prove real anger. Explain in Korean to a colleague with another first language why frequent does not mean always and 버리다 does not always mean regret. Rephrase preserving speech act and meaning units. Interpretation and reading effects remain unscored.",
+        "de": "Stelle einer vertrauten Person mit vereinbartem informellem Register beide Kritiken fair vor und begründe deine Lesart mit Kriterien und Textstellen. Formuliere für weitere Leser höflich um, ohne Ereignisse, Zeit und Quellen zu verändern. Erweitere unangenehme Wertungen nicht zum Urteil über die ganze Figur oder den Geist des Autors; ermögliche andere Lesarten. Nimm denselben Absatz zurückhaltend und ausdrucksvoll auf, höre ihn an und notiere tatsächlich gehörte Pausen und Betonung neben Textbelegen. Ungehörte Gefühle bleiben offen; ausdrucksvoller Vortrag beweist keinen wirklichen Ärger. Erkläre einer Person anderer Erstsprache auf Koreanisch, warum häufig nicht immer und 버리다 nicht stets Reue bedeutet. Formuliere mit erhaltenem Sprechakt und Sinneinheiten erneut. Deutung und Vortragswirkung bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 가람독서회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 화요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 월요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 3장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n화요일 밤이 지나고 수요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "[창작 단편: 빛이 바랜 봉투 — 솔빛문학회 읽기 자료]\n나는 지금 빈 의자부터 떠올린다. 금요일 밤새 기다렸건만 아무도 오지 않았다. 깊디깊은 침묵이 방 안에 내려앉았다. 의자가 쓸쓸하기 짝이 없었다고 적은 것은 그때의 나다. 의자의 객관적 성질을 측정한 말은 아니다.\n이야기를 목요일로 돌리자. 그날 오후 나는 모임 날짜가 적힌 편지 4장을 받았다. 날짜를 제대로 대조했는지는 지금 기억나지 않는다. 급히 읽으면 날짜를 놓치기 일쑤였지만 이번에도 그랬다고 확정할 자료는 없다. 상대가 일부러 나를 기다리게 했다는 증거도 없다.\n금요일 밤이 지나고 토요일 아침, 나는 남은 정리를 한꺼번에 해 치웠다. 봉투는 상자에 넣어 두었다. 편지를 찢어 버린 것은 사실이다. 정확히 몇 시였는지는 적지 않았다. 나는 나중에 그 일을 후회한다고 말했다. 정리를 마친 사실과 편지를 찢은 사실은 적었지만 그날 아침 둘 중 무엇을 먼저 했는지는 여기 쓰지 않는다.\n지금 옛길을 걷노라면 그 장면이 떠오른다. 뜻은 좋다마는 그때의 내 방법에는 동의하기 어렵다. 이 문장의 나는 과거의 자신을 평가한다. 누군가의 진심까지 안다는 말은 아니다. 편지를 받았다는 사실, 아무도 오지 않았다는 경험, 훗날의 후회가 한 장면처럼 겹쳐 보이지만 서로 다른 시간의 진술이다.\n[독자를 위한 열린 질문]\n빈 봉투를 상징으로 읽을 수는 있다. 그러나 봉투를 남긴 이유가 화해인지 집착인지는 본문에 없다. 역사적 기억을 재현하는 작품이라는 홍보 문구가 붙더라도 이 허구의 사건이 실제 지역사에서 일어났다고 보증하지 않는다. 행간을 읽는 일은 빈칸을 새 사실로 채우는 일과 다르다.\n[비평 A: 회고의 거리]\n이 작품의 장점은 현재의 회고, 기다린 밤, 편지 수령, 다음 아침을 뒤섞으면서도 날짜 표지로 사건의 큰 순서를 복원하게 한다는 데 있다. 평가 기준은 회고의 재현과 사실 추적 가능성의 공존이다. -건만은 기다림의 반기대를, -디는 침묵의 정도를 강화한다. -어 치우다는 정리 완료의 단호함을 보태지만 인물의 성급함 전체를 입증하지는 않는다. 후회는 -어 버리다만으로 정해지는 것이 아니라 뒤 진술에서 확인된다.\n[비평 B: 과장의 부담]\n쓸쓸하기 짝이 없다는 말은 독자가 슬픔을 강하게 읽도록 이끈다. 그래서 평가를 먼저 받아들이고 시간의 빈칸을 놓칠 위험이 있다. 이것은 표현의 효과에 관한 비판이며 작가가 독자를 고의로 속였다는 혐의는 아니다. 반대 해석도 가능하다. 강한 평가와 정확한 시각의 부재를 나란히 놓은 구성이 기억의 한계를 드러낸다고 볼 수 있다. 색안경을 끼었다는 인물 비난 대신 어느 구절이 어떤 해석을 유도하는지 따져야 한다.\n[중립적 사건 기록]\n편지를 받은 날은 기다린 밤의 전날이다. 기다린 밤에는 아무도 오지 않았다고 화자가 말한다. 다음 아침 정리 완료와 편지 찢기가 서술되며 둘의 내부 순서는 미상이다. 화자는 훗날 찢기를 후회한다고 말했다. 불참 이유와 편지 발신자의 의도는 제시되지 않았다.\n[비교 메모]\n중립 기록은 정도 강조와 반기대의 문체 효과를 줄였지만 사건의 극성과 전언 출처를 바꾸지 않았다. 이 손실을 설명할 수는 있어도 중립 기록이 모든 문학적 기능을 완전히 대체한다고 할 수는 없다.",
+        "questions": []
+      },
+      "contentHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339"
     }
   ],
   "objectives": [
@@ -123208,8 +125790,23 @@
       "sourceHash": "593d2a4f0e2db4247ddd74c26939eced4346fd55ef9fbec55a56c32035ad297b",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:01",
+          "taskHash": "f3f5590839dac463a554833650e61c3847b4fdb99f9e56135d3fa56c1754dfb7",
+          "materialIds": [
+            "KP26:grammar:01/practice/material",
+            "KP26:grammar:01/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:01/practice",
+          "assessmentId": "KP26:grammar:01/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123220,8 +125817,23 @@
       "sourceHash": "593d2a4f0e2db4247ddd74c26939eced4346fd55ef9fbec55a56c32035ad297b",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:01",
+          "taskHash": "7d029aec0863b72f35b15b6017a76fced68edfbaccceb111172ef21779bccd29",
+          "materialIds": [
+            "KP26:production:01/practice/material",
+            "KP26:production:01/assessment/material"
+          ],
+          "practiceId": "KP26:production:01/practice",
+          "assessmentId": "KP26:production:01/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123232,8 +125844,23 @@
       "sourceHash": "a8525ae249bf4b1d48aa46daea352d124ffff1af323e4a295dd094ebb9fb9ef2",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:02",
+          "taskHash": "a8a7c915b78ebf00f7b4ae60ab66131ebf9679d65f2ee5f53b263f9166057cf5",
+          "materialIds": [
+            "KP26:grammar:02/practice/material",
+            "KP26:grammar:02/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:02/practice",
+          "assessmentId": "KP26:grammar:02/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123244,8 +125871,23 @@
       "sourceHash": "a8525ae249bf4b1d48aa46daea352d124ffff1af323e4a295dd094ebb9fb9ef2",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:02",
+          "taskHash": "f8dabe0a92ef20b979f35fc2e5c2d46bfa620bc2a159f5ba1cc6e7501abaad00",
+          "materialIds": [
+            "KP26:production:02/practice/material",
+            "KP26:production:02/assessment/material"
+          ],
+          "practiceId": "KP26:production:02/practice",
+          "assessmentId": "KP26:production:02/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123256,8 +125898,23 @@
       "sourceHash": "efdc01ac140269b34a109c69c79efc3dfdb6e03a49d78d039051e8a32d091d9a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:03",
+          "taskHash": "089a307eebecfe7152aef63a732b2e803e08812590534dececa8569f5a18d298",
+          "materialIds": [
+            "KP26:grammar:03/practice/material",
+            "KP26:grammar:03/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:03/practice",
+          "assessmentId": "KP26:grammar:03/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123268,8 +125925,23 @@
       "sourceHash": "efdc01ac140269b34a109c69c79efc3dfdb6e03a49d78d039051e8a32d091d9a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:03",
+          "taskHash": "d58f59caba9048819171c2a124f3e282fda66247ce15a6e11cf884b85b927ae8",
+          "materialIds": [
+            "KP26:production:03/practice/material",
+            "KP26:production:03/assessment/material"
+          ],
+          "practiceId": "KP26:production:03/practice",
+          "assessmentId": "KP26:production:03/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123280,8 +125952,23 @@
       "sourceHash": "873798afe58968d7a1340e1ea7e60116ca0112f36bfd4579d1a47e0fd48d7057",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:04",
+          "taskHash": "2ad7757956069f771df85e088b5146ff784620e6078c260b45b6112d93261053",
+          "materialIds": [
+            "KP26:grammar:04/practice/material",
+            "KP26:grammar:04/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:04/practice",
+          "assessmentId": "KP26:grammar:04/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123292,8 +125979,23 @@
       "sourceHash": "873798afe58968d7a1340e1ea7e60116ca0112f36bfd4579d1a47e0fd48d7057",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:04",
+          "taskHash": "35b76d35cbf4d3eac73f4be06a1af11394882a9643025d86e6ed94f9b6cb21df",
+          "materialIds": [
+            "KP26:production:04/practice/material",
+            "KP26:production:04/assessment/material"
+          ],
+          "practiceId": "KP26:production:04/practice",
+          "assessmentId": "KP26:production:04/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123304,8 +126006,23 @@
       "sourceHash": "ea49ab15b29b9bbf497f0fd99526360bef2dfb9efc936c080e61f97537f086e6",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:05",
+          "taskHash": "65be2d1f204aaaa8bb41910449bd5f158d2462a2f25bfa6174c3337f7eeccae5",
+          "materialIds": [
+            "KP26:grammar:05/practice/material",
+            "KP26:grammar:05/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:05/practice",
+          "assessmentId": "KP26:grammar:05/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123316,8 +126033,23 @@
       "sourceHash": "ea49ab15b29b9bbf497f0fd99526360bef2dfb9efc936c080e61f97537f086e6",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:05",
+          "taskHash": "8c93a4f2a899b8b2ed47c0eea7946d47b046437307388c662db7d0724e3dcb60",
+          "materialIds": [
+            "KP26:production:05/practice/material",
+            "KP26:production:05/assessment/material"
+          ],
+          "practiceId": "KP26:production:05/practice",
+          "assessmentId": "KP26:production:05/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123328,8 +126060,23 @@
       "sourceHash": "930e86c34824e1db553ca4d261113a4660501010e61bc6874837870964964d5b",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:06",
+          "taskHash": "66c078bf621d72870d7cb746b352752b96dc78589512543ee5df055cc1a80517",
+          "materialIds": [
+            "KP26:grammar:06/practice/material",
+            "KP26:grammar:06/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:06/practice",
+          "assessmentId": "KP26:grammar:06/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123340,8 +126087,23 @@
       "sourceHash": "930e86c34824e1db553ca4d261113a4660501010e61bc6874837870964964d5b",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:06",
+          "taskHash": "a5e701adb6525f2cf895c3ea11723d4ee7058de64b18847d5d6f6a0da273d3ba",
+          "materialIds": [
+            "KP26:production:06/practice/material",
+            "KP26:production:06/assessment/material"
+          ],
+          "practiceId": "KP26:production:06/practice",
+          "assessmentId": "KP26:production:06/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123352,8 +126114,23 @@
       "sourceHash": "343cb9c19b7b251b7466db6af523d08a42187b76defe53f5b7e3f7d42e130d45",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:07",
+          "taskHash": "7ac246d536d0161869ea03b92f256a367cc102820a81718939f310afb53c1924",
+          "materialIds": [
+            "KP26:grammar:07/practice/material",
+            "KP26:grammar:07/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:07/practice",
+          "assessmentId": "KP26:grammar:07/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123364,8 +126141,23 @@
       "sourceHash": "343cb9c19b7b251b7466db6af523d08a42187b76defe53f5b7e3f7d42e130d45",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:07",
+          "taskHash": "78dd472d35719fd134dc85b480a622bda8e30a2aec7de243bb8b9c198f6f650f",
+          "materialIds": [
+            "KP26:production:07/practice/material",
+            "KP26:production:07/assessment/material"
+          ],
+          "practiceId": "KP26:production:07/practice",
+          "assessmentId": "KP26:production:07/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123376,8 +126168,23 @@
       "sourceHash": "1ffe37d2ad37c168c1befa59d166beefa521a60e4ed176c3f0c0534c252f1fe2",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:grammar:08",
+          "taskHash": "3b34e25e7112fdb37d0fbc6c6802ccd589f68d16d95df90e82cca8d39d5ecd2a",
+          "materialIds": [
+            "KP26:grammar:08/practice/material",
+            "KP26:grammar:08/assessment/material"
+          ],
+          "practiceId": "KP26:grammar:08/practice",
+          "assessmentId": "KP26:grammar:08/assessment",
+          "criterionIds": [
+            "meaning"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123388,8 +126195,23 @@
       "sourceHash": "1ffe37d2ad37c168c1befa59d166beefa521a60e4ed176c3f0c0534c252f1fe2",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:production:08",
+          "taskHash": "819f3d4e08bac15345bfb29949eb5957a8f6fc3c4647c221124b1211a50e51f9",
+          "materialIds": [
+            "KP26:production:08/practice/material",
+            "KP26:production:08/assessment/material"
+          ],
+          "practiceId": "KP26:production:08/practice",
+          "assessmentId": "KP26:production:08/assessment",
+          "criterionIds": [
+            "sentence"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123400,8 +126222,28 @@
       "sourceHash": "887d431c9ea84dfe67a22ae55e1ebbbb988149b6f5fc02a75f9e7c21de10c73b",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:listening:01",
+          "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+          "materialIds": [
+            "KP26:listening:01/practice/material",
+            "KP26:listening:01/assessment/material"
+          ],
+          "practiceId": "KP26:listening:01/practice",
+          "assessmentId": "KP26:listening:01/assessment",
+          "criterionIds": [
+            "chronology",
+            "unknown",
+            "evaluation",
+            "habit",
+            "regret",
+            "voice"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123412,8 +126254,28 @@
       "sourceHash": "f858cd07881de3dcafd377e9f61ec82ffbaccc9a0adccfde03523062442312a4",
       "mode": "R",
       "skill": "listening",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:listening:01",
+          "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+          "materialIds": [
+            "KP26:listening:01/practice/material",
+            "KP26:listening:01/assessment/material"
+          ],
+          "practiceId": "KP26:listening:01/practice",
+          "assessmentId": "KP26:listening:01/assessment",
+          "criterionIds": [
+            "chronology",
+            "unknown",
+            "evaluation",
+            "habit",
+            "regret",
+            "voice"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123424,8 +126286,27 @@
       "sourceHash": "20cb5f97caa184ac7ba3c388f2fc30b02121a3b7fc6fde2e99a46eabb18ae773",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123436,8 +126317,27 @@
       "sourceHash": "d5b180d9b8be60817a0eb8e7975530335fa2117ddd75f1c3fbdb92c30fc4a7bf",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123448,8 +126348,27 @@
       "sourceHash": "08b21ef8a4af41fd32c6436ff3ffe7f25d1d6e5acf392fa09709cb33583f569a",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123460,8 +126379,26 @@
       "sourceHash": "dee30e0b9065db172e02769039f3a4d12cc3213254c346a27eada295cecad790",
       "mode": "R",
       "skill": "reading",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:02",
+          "taskHash": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+          "materialIds": [
+            "KP26:reading:02/practice/material",
+            "KP26:reading:02/assessment/material"
+          ],
+          "practiceId": "KP26:reading:02/practice",
+          "assessmentId": "KP26:reading:02/assessment",
+          "criterionIds": [
+            "witness",
+            "quote",
+            "reporter",
+            "headline"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123472,8 +126409,21 @@
       "sourceHash": "9100f666d2c7e3879c6b3bb90e550d9e39344dd439ad11f28013a6c4bf1af788",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123484,8 +126434,21 @@
       "sourceHash": "ffd7e7b014ba110a51d510f00d3ce52ccef591bd54efbb3f8c72051a94d98ba5",
       "mode": "P",
       "skill": "speaking",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123496,8 +126459,25 @@
       "sourceHash": "f59e6ecacd5ca7e76ec083376d4913d8b085b8a8772e8673bedfc10e4ef47cf4",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123508,8 +126488,25 @@
       "sourceHash": "68f1dd255324cd9e1021d38174f1abe5cbbbd9f1f4f2e95284f67babb8008915",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123520,8 +126517,25 @@
       "sourceHash": "37c5ac42a62033fc887654c9bf67e5a02c97a280411bdfa7b59817f08b5cd429",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123532,8 +126546,25 @@
       "sourceHash": "af20391901cfda31c0a647f485ca82acd4e6666fdee26c24a5d3774ec461a1d0",
       "mode": "P",
       "skill": "writing",
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123544,8 +126575,27 @@
       "sourceHash": "b39fd3c1849dde44c198a294fdecbe9e600bb6a34145e2310d60a220228310f4",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123556,8 +126606,25 @@
       "sourceHash": "b39fd3c1849dde44c198a294fdecbe9e600bb6a34145e2310d60a220228310f4",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123568,8 +126635,26 @@
       "sourceHash": "35a9c9eb72ab7d6b1cf82fbab5d16a2e670616efe2c9ac21ed53e2bcf4c601f0",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:02",
+          "taskHash": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+          "materialIds": [
+            "KP26:reading:02/practice/material",
+            "KP26:reading:02/assessment/material"
+          ],
+          "practiceId": "KP26:reading:02/practice",
+          "assessmentId": "KP26:reading:02/assessment",
+          "criterionIds": [
+            "witness",
+            "quote",
+            "reporter",
+            "headline"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123580,8 +126665,25 @@
       "sourceHash": "35a9c9eb72ab7d6b1cf82fbab5d16a2e670616efe2c9ac21ed53e2bcf4c601f0",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123592,8 +126694,27 @@
       "sourceHash": "02061257a5d5aa862d506d5605268d43f475c377e8b70da66df26e3e1c52c92a",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123604,8 +126725,25 @@
       "sourceHash": "02061257a5d5aa862d506d5605268d43f475c377e8b70da66df26e3e1c52c92a",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123616,8 +126754,27 @@
       "sourceHash": "69919f21d4f834f60cddb2e691bb75ddec6656f4ec2ef8bc0d2f495385dac241",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123628,8 +126785,25 @@
       "sourceHash": "69919f21d4f834f60cddb2e691bb75ddec6656f4ec2ef8bc0d2f495385dac241",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123640,8 +126814,27 @@
       "sourceHash": "af9e5ed6a113ee3ed2be170b8ddeff6c9a5ef3f0d931d6259af4dc21badcccb5",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123652,8 +126845,21 @@
       "sourceHash": "af9e5ed6a113ee3ed2be170b8ddeff6c9a5ef3f0d931d6259af4dc21badcccb5",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123664,8 +126870,27 @@
       "sourceHash": "616a6e36d877bf358f20f191df3f787ecc45e6508d0fcd5995d5f4312b6b2d26",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:reading:01",
+          "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+          "materialIds": [
+            "KP26:reading:01/practice/material",
+            "KP26:reading:01/assessment/material"
+          ],
+          "practiceId": "KP26:reading:01/practice",
+          "assessmentId": "KP26:reading:01/assessment",
+          "criterionIds": [
+            "order",
+            "completion",
+            "counterreading",
+            "neutral",
+            "symbol"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123676,8 +126901,25 @@
       "sourceHash": "616a6e36d877bf358f20f191df3f787ecc45e6508d0fcd5995d5f4312b6b2d26",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123688,8 +126930,28 @@
       "sourceHash": "a4279c6a481831f34ec4e779f1454b9d7d8da9049ea0676be4e7f850597a8c95",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:listening:01",
+          "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+          "materialIds": [
+            "KP26:listening:01/practice/material",
+            "KP26:listening:01/assessment/material"
+          ],
+          "practiceId": "KP26:listening:01/practice",
+          "assessmentId": "KP26:listening:01/assessment",
+          "criterionIds": [
+            "chronology",
+            "unknown",
+            "evaluation",
+            "habit",
+            "regret",
+            "voice"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123700,8 +126962,21 @@
       "sourceHash": "a4279c6a481831f34ec4e779f1454b9d7d8da9049ea0676be4e7f850597a8c95",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123712,8 +126987,28 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "R",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:listening:01",
+          "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+          "materialIds": [
+            "KP26:listening:01/practice/material",
+            "KP26:listening:01/assessment/material"
+          ],
+          "practiceId": "KP26:listening:01/practice",
+          "assessmentId": "KP26:listening:01/assessment",
+          "criterionIds": [
+            "chronology",
+            "unknown",
+            "evaluation",
+            "habit",
+            "regret",
+            "voice"
+          ],
+          "evaluationScope": "structured_only"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123724,8 +127019,21 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123736,8 +127044,21 @@
       "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123748,8 +127069,21 @@
       "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123760,8 +127094,21 @@
       "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:speaking:01",
+          "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+          "materialIds": [
+            "KP26:speaking:01/practice/material",
+            "KP26:speaking:01/assessment/material"
+          ],
+          "practiceId": "KP26:speaking:01/practice",
+          "assessmentId": "KP26:speaking:01/assessment",
+          "criterionIds": [],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -123772,8 +127119,25 @@
       "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
       "mode": "P",
       "skill": null,
-      "bindings": [],
-      "coverage": "unverified",
+      "bindings": [
+        {
+          "taskId": "KP26:writing:01",
+          "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+          "materialIds": [
+            "KP26:writing:01/practice/material",
+            "KP26:writing:01/assessment/material"
+          ],
+          "practiceId": "KP26:writing:01/practice",
+          "assessmentId": "KP26:writing:01/assessment",
+          "criterionIds": [
+            "review",
+            "versions",
+            "argument"
+          ],
+          "evaluationScope": "includes_unscored"
+        }
+      ],
+      "coverage": "task_path_connected",
       "mastery": "unverified"
     },
     {
@@ -127499,6 +130863,34 @@
         "KP25:speaking:01": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd"
       },
       "contentHash": "fa50c265ba8805dc246320ed9e3d574d28a960eb07b16c50ac748b02fb490fa4"
+    },
+    {
+      "phaseId": "KP26",
+      "status": "partial",
+      "taskHashes": {
+        "KP26:grammar:01": "f3f5590839dac463a554833650e61c3847b4fdb99f9e56135d3fa56c1754dfb7",
+        "KP26:grammar:02": "a8a7c915b78ebf00f7b4ae60ab66131ebf9679d65f2ee5f53b263f9166057cf5",
+        "KP26:grammar:03": "089a307eebecfe7152aef63a732b2e803e08812590534dececa8569f5a18d298",
+        "KP26:grammar:04": "2ad7757956069f771df85e088b5146ff784620e6078c260b45b6112d93261053",
+        "KP26:grammar:05": "65be2d1f204aaaa8bb41910449bd5f158d2462a2f25bfa6174c3337f7eeccae5",
+        "KP26:grammar:06": "66c078bf621d72870d7cb746b352752b96dc78589512543ee5df055cc1a80517",
+        "KP26:grammar:07": "7ac246d536d0161869ea03b92f256a367cc102820a81718939f310afb53c1924",
+        "KP26:grammar:08": "3b34e25e7112fdb37d0fbc6c6802ccd589f68d16d95df90e82cca8d39d5ecd2a",
+        "KP26:production:01": "7d029aec0863b72f35b15b6017a76fced68edfbaccceb111172ef21779bccd29",
+        "KP26:production:02": "f8dabe0a92ef20b979f35fc2e5c2d46bfa620bc2a159f5ba1cc6e7501abaad00",
+        "KP26:production:03": "d58f59caba9048819171c2a124f3e282fda66247ce15a6e11cf884b85b927ae8",
+        "KP26:production:04": "35b76d35cbf4d3eac73f4be06a1af11394882a9643025d86e6ed94f9b6cb21df",
+        "KP26:production:05": "8c93a4f2a899b8b2ed47c0eea7946d47b046437307388c662db7d0724e3dcb60",
+        "KP26:production:06": "a5e701adb6525f2cf895c3ea11723d4ee7058de64b18847d5d6f6a0da273d3ba",
+        "KP26:production:07": "78dd472d35719fd134dc85b480a622bda8e30a2aec7de243bb8b9c198f6f650f",
+        "KP26:production:08": "819f3d4e08bac15345bfb29949eb5957a8f6fc3c4647c221124b1211a50e51f9",
+        "KP26:listening:01": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+        "KP26:reading:01": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+        "KP26:reading:02": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+        "KP26:writing:01": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+        "KP26:speaking:01": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339"
+      },
+      "contentHash": "93a3525941a82bc0ddd55d4acc6befed73737d8b31cffae93ea1050354118e48"
     }
   ]
 }

@@ -1493,8 +1493,30 @@
         "c2_05_relationship_narratives"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp26.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP26:grammar:01",
+        "KP26:grammar:02",
+        "KP26:grammar:03",
+        "KP26:grammar:04",
+        "KP26:grammar:05",
+        "KP26:grammar:06",
+        "KP26:grammar:07",
+        "KP26:grammar:08",
+        "KP26:production:01",
+        "KP26:production:02",
+        "KP26:production:03",
+        "KP26:production:04",
+        "KP26:production:05",
+        "KP26:production:06",
+        "KP26:production:07",
+        "KP26:production:08",
+        "KP26:listening:01",
+        "KP26:reading:01",
+        "KP26:reading:02",
+        "KP26:writing:01",
+        "KP26:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP27",
@@ -1605,5 +1627,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "a51fd5c04fde12995530f5fc435b9522396e0d1d0348f4182a64d90b9a3bdd0e"
+  "phaseTaskSourceSha256": "d39a039004019e6e0ac7df6d9db1af12e19bca00073d14cc1029c0d3266bedff"
 }

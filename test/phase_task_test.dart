@@ -35,7 +35,8 @@ void main() {
     expect(catalog.forPhase('KP23').length, 21);
     expect(catalog.forPhase('KP24').length, 29);
     expect(catalog.forPhase('KP25').length, 21);
-    expect(catalog.forPhase('KP26'), isEmpty);
+    expect(catalog.forPhase('KP26').length, 21);
+    expect(catalog.forPhase('KP27'), isEmpty);
   });
   test('a correct total never compensates for an unaffordable order', () {
     final menu = catalog.byId('KP03:reading:01');

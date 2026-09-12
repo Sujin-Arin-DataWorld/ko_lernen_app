@@ -16405,6 +16405,596 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Nominalised action confirms records-team date check or research-team reproduction goal, approval/distribution actor unknown. Goal not successful reproduction. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:listening/core:R",
+      "taskId": "KP26:listening:01",
+      "sourceHash": "887d431c9ea84dfe67a22ae55e1ebbbb988149b6f5fc02a75f9e7c21de10c73b",
+      "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+      "criterionIds": [
+        "chronology",
+        "unknown",
+        "evaluation",
+        "habit",
+        "regret",
+        "voice"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original narrative reading PLUS distinct everyday recollection, mutually agreed casual adult peers. Monday receipt3letters→Tuesday waiting→Wednesday morning versusThursday4→Friday→Saturday; internal morning order/time unknown. Narration begins present empty-chair memory then reverses; narrator evaluation not object property, habitual date omission not current proof, later regret explicit. Six required chronology/unknown/evaluation/habit/regret/voice criteria. Neutral TTS does not certify expressive-vs-restrained prosody or actual author anger; learner records comparative readings, those effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:listening/additional/1:R",
+      "taskId": "KP26:listening:01",
+      "sourceHash": "f858cd07881de3dcafd377e9f61ec82ffbaccc9a0adccfde03523062442312a4",
+      "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+      "criterionIds": [
+        "chronology",
+        "unknown",
+        "evaluation",
+        "habit",
+        "regret",
+        "voice"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original narrative reading PLUS distinct everyday recollection, mutually agreed casual adult peers. Monday receipt3letters→Tuesday waiting→Wednesday morning versusThursday4→Friday→Saturday; internal morning order/time unknown. Narration begins present empty-chair memory then reverses; narrator evaluation not object property, habitual date omission not current proof, later regret explicit. Six required chronology/unknown/evaluation/habit/regret/voice criteria. Neutral TTS does not certify expressive-vs-restrained prosody or actual author anger; learner records comparative readings, those effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:reading/core:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "20cb5f97caa184ac7ba3c388f2fc30b02121a3b7fc6fde2e99a46eabb18ae773",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:reading/additional/1:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "d5b180d9b8be60817a0eb8e7975530335fa2117ddd75f1c3fbdb92c30fc4a7bf",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:reading/genre/literary_text:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "08b21ef8a4af41fd32c6436ff3ffe7f25d1d6e5acf392fa09709cb33583f569a",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:reading/genre/news_article_report:R",
+      "taskId": "KP26:reading:02",
+      "sourceHash": "dee30e0b9065db172e02769039f3a4d12cc3213254c346a27eada295cecad790",
+      "taskHash": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+      "criterionIds": [
+        "witness",
+        "quote",
+        "reporter",
+        "headline"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictional arts report distinguishes journalist-observed group discussion from fictional letters/waiting; two attributed reader quotes, reporter interpretation and promotional claim. No attendee count/date or unanimity. Headline invents collective confirmation and author intention; correction preserves two differing readings. Four required observation/quote/reporter/headline criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:speaking/core:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "9100f666d2c7e3879c6b3bb90e550d9e39344dd439ad11f28013a6c4bf1af788",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:speaking/additional/1:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "ffd7e7b014ba110a51d510f00d3ce52ccef591bd54efbb3f8c72051a94d98ba5",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:writing/core:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "f59e6ecacd5ca7e76ec083376d4913d8b085b8a8772e8673bedfc10e4ef47cf4",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:writing/additional/1:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "68f1dd255324cd9e1021d38174f1abe5cbbbd9f1f4f2e95284f67babb8008915",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:writing/genre/review_critique_text:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "37c5ac42a62033fc887654c9bf67e5a02c97a280411bdfa7b59817f08b5cd429",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "af20391901cfda31c0a647f485ca82acd4e6666fdee26c24a5d3774ec461a1d0",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "b39fd3c1849dde44c198a294fdecbe9e600bb6a34145e2310d60a220228310f4",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "b39fd3c1849dde44c198a294fdecbe9e600bb6a34145e2310d60a220228310f4",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/analyse_framing_implicature_presupposition:R",
+      "taskId": "KP26:reading:02",
+      "sourceHash": "35a9c9eb72ab7d6b1cf82fbab5d16a2e670616efe2c9ac21ed53e2bcf4c601f0",
+      "taskHash": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+      "criterionIds": [
+        "witness",
+        "quote",
+        "reporter",
+        "headline"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate fictional arts report distinguishes journalist-observed group discussion from fictional letters/waiting; two attributed reader quotes, reporter interpretation and promotional claim. No attendee count/date or unanimity. Headline invents collective confirmation and author intention; correction preserves two differing readings. Four required observation/quote/reporter/headline criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/analyse_framing_implicature_presupposition:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "35a9c9eb72ab7d6b1cf82fbab5d16a2e670616efe2c9ac21ed53e2bcf4c601f0",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "02061257a5d5aa862d506d5605268d43f475c377e8b70da66df26e3e1c52c92a",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "02061257a5d5aa862d506d5605268d43f475c377e8b70da66df26e3e1c52c92a",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/arts_history_memory_lexis:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "69919f21d4f834f60cddb2e691bb75ddec6656f4ec2ef8bc0d2f495385dac241",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/arts_history_memory_lexis:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "69919f21d4f834f60cddb2e691bb75ddec6656f4ec2ef8bc0d2f495385dac241",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "af9e5ed6a113ee3ed2be170b8ddeff6c9a5ef3f0d931d6259af4dc21badcccb5",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "af9e5ed6a113ee3ed2be170b8ddeff6c9a5ef3f0d931d6259af4dc21badcccb5",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP26:reading:01",
+      "sourceHash": "616a6e36d877bf358f20f191df3f787ecc45e6508d0fcd5995d5f4312b6b2d26",
+      "taskHash": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "criterionIds": [
+        "order",
+        "completion",
+        "counterreading",
+        "neutral",
+        "symbol"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "616a6e36d877bf358f20f191df3f787ecc45e6508d0fcd5995d5f4312b6b2d26",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:phonology/0:R",
+      "taskId": "KP26:listening:01",
+      "sourceHash": "a4279c6a481831f34ec4e779f1454b9d7d8da9049ea0676be4e7f850597a8c95",
+      "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+      "criterionIds": [
+        "chronology",
+        "unknown",
+        "evaluation",
+        "habit",
+        "regret",
+        "voice"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original narrative reading PLUS distinct everyday recollection, mutually agreed casual adult peers. Monday receipt3letters→Tuesday waiting→Wednesday morning versusThursday4→Friday→Saturday; internal morning order/time unknown. Narration begins present empty-chair memory then reverses; narrator evaluation not object property, habitual date omission not current proof, later regret explicit. Six required chronology/unknown/evaluation/habit/regret/voice criteria. Neutral TTS does not certify expressive-vs-restrained prosody or actual author anger; learner records comparative readings, those effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:phonology/0:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "a4279c6a481831f34ec4e779f1454b9d7d8da9049ea0676be4e7f850597a8c95",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:phonology/1:R",
+      "taskId": "KP26:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+      "criterionIds": [
+        "chronology",
+        "unknown",
+        "evaluation",
+        "habit",
+        "regret",
+        "voice"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original narrative reading PLUS distinct everyday recollection, mutually agreed casual adult peers. Monday receipt3letters→Tuesday waiting→Wednesday morning versusThursday4→Friday→Saturday; internal morning order/time unknown. Narration begins present empty-chair memory then reverses; narrator evaluation not object property, habitual date omission not current proof, later regret explicit. Six required chronology/unknown/evaluation/habit/regret/voice criteria. Neutral TTS does not certify expressive-vs-restrained prosody or actual author anger; learner records comparative readings, those effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:phonology/1:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:register/haeyo_polite:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:register/banmal_casual:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:register/intimate:P",
+      "taskId": "KP26:speaking:01",
+      "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
+      "taskHash": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:register/written_plain_haeche:P",
+      "taskId": "KP26:writing:01",
+      "sourceHash": "d199effca4d4d387ca31537fe5a27cf89e76e0371af804fa87bd1baabc48d919",
+      "taskHash": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "criterionIds": [
+        "review",
+        "versions",
+        "argument"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:마는:R",
+      "taskId": "KP26:grammar:01",
+      "sourceHash": "593d2a4f0e2db4247ddd74c26939eced4346fd55ef9fbec55a56c32035ad297b",
+      "taskHash": "f3f5590839dac463a554833650e61c3847b4fdb99f9e56135d3fa56c1754dfb7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 마는 particle concedes positive intent/heard explanation with contrary method judgement/remaining doubt; first proposition not negated. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-건만:R",
+      "taskId": "KP26:grammar:02",
+      "sourceHash": "a8525ae249bf4b1d48aa46daea352d124ffff1af323e4a295dd094ebb9fb9ef2",
+      "taskHash": "a8a7c915b78ebf00f7b4ae60ab66131ebf9679d65f2ee5f53b263f9166057cf5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 건만 literary counterexpectation waiting without arrivals/repeated reading without clarity; no invented deliberate betrayal. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-어 치우다:R",
+      "taskId": "KP26:grammar:03",
+      "sourceHash": "efdc01ac140269b34a109c69c79efc3dfdb6e03a49d78d039051e8a32d091d9a",
+      "taskHash": "089a307eebecfe7152aef63a732b2e803e08812590534dececa8569f5a18d298",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 치우다 decisive completion of tidying/cleaning, no automatic regret; explicit no-regret statement kept. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-기 일쑤이다:R",
+      "taskId": "KP26:grammar:04",
+      "sourceHash": "873798afe58968d7a1340e1ea7e60116ca0112f36bfd4579d1a47e0fd48d7057",
+      "taskHash": "2ad7757956069f771df85e088b5146ff784620e6078c260b45b6112d93261053",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기 일쑤이다 frequent undesirable pattern with explicit exceptions, current date omission not entailed. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-기 짝이 없다:R",
+      "taskId": "KP26:grammar:05",
+      "sourceHash": "ea49ab15b29b9bbf497f0fd99526360bef2dfb9efc936c080e61f97537f086e6",
+      "taskHash": "65be2d1f204aaaa8bb41910449bd5f158d2462a2f25bfa6174c3337f7eeccae5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기 짝이 없다 strong narrator evaluation of conduct/empty chair, not legal adjudication or a chair experiencing emotion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-디1:R",
+      "taskId": "KP26:grammar:06",
+      "sourceHash": "930e86c34824e1db553ca4d261113a4660501010e61bc6874837870964964d5b",
+      "taskHash": "66c078bf621d72870d7cb746b352752b96dc78589512543ee5df055cc1a80517",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 디1 literary adjectival intensity 깊디깊은/길디긴, not exact event count/duration/length. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-노라면:R",
+      "taskId": "KP26:grammar:07",
+      "sourceHash": "343cb9c19b7b251b7466db6af523d08a42187b76defe53f5b7e3f7d42e130d45",
+      "taskHash": "7ac246d536d0161869ea03b92f256a367cc102820a81718939f310afb53c1924",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 노라면 literary ongoing walking/reading evokes memory, not command or present physical sound playback. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G4:-어 버리다:R",
+      "taskId": "KP26:grammar:08",
+      "sourceHash": "1ffe37d2ad37c168c1befa59d166beefa521a60e4ed176c3f0c0534c252f1fe2",
+      "taskHash": "3b34e25e7112fdb37d0fbc6c6802ccd589f68d16d95df90e82cca8d39d5ecd2a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 버리다 completed tearing/deletion with explicitly subsequent regret/relief; emotion not mechanically inferred from ending. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:마는:P",
+      "taskId": "KP26:production:01",
+      "sourceHash": "593d2a4f0e2db4247ddd74c26939eced4346fd55ef9fbec55a56c32035ad297b",
+      "taskHash": "7d029aec0863b72f35b15b6017a76fced68edfbaccceb111172ef21779bccd29",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 마는 particle concedes positive intent/heard explanation with contrary method judgement/remaining doubt; first proposition not negated. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-건만:P",
+      "taskId": "KP26:production:02",
+      "sourceHash": "a8525ae249bf4b1d48aa46daea352d124ffff1af323e4a295dd094ebb9fb9ef2",
+      "taskHash": "f8dabe0a92ef20b979f35fc2e5c2d46bfa620bc2a159f5ba1cc6e7501abaad00",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 건만 literary counterexpectation waiting without arrivals/repeated reading without clarity; no invented deliberate betrayal. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-어 치우다:P",
+      "taskId": "KP26:production:03",
+      "sourceHash": "efdc01ac140269b34a109c69c79efc3dfdb6e03a49d78d039051e8a32d091d9a",
+      "taskHash": "d58f59caba9048819171c2a124f3e282fda66247ce15a6e11cf884b85b927ae8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 치우다 decisive completion of tidying/cleaning, no automatic regret; explicit no-regret statement kept. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-기 일쑤이다:P",
+      "taskId": "KP26:production:04",
+      "sourceHash": "873798afe58968d7a1340e1ea7e60116ca0112f36bfd4579d1a47e0fd48d7057",
+      "taskHash": "35b76d35cbf4d3eac73f4be06a1af11394882a9643025d86e6ed94f9b6cb21df",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기 일쑤이다 frequent undesirable pattern with explicit exceptions, current date omission not entailed. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-기 짝이 없다:P",
+      "taskId": "KP26:production:05",
+      "sourceHash": "ea49ab15b29b9bbf497f0fd99526360bef2dfb9efc936c080e61f97537f086e6",
+      "taskHash": "8c93a4f2a899b8b2ed47c0eea7946d47b046437307388c662db7d0724e3dcb60",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기 짝이 없다 strong narrator evaluation of conduct/empty chair, not legal adjudication or a chair experiencing emotion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-디1:P",
+      "taskId": "KP26:production:06",
+      "sourceHash": "930e86c34824e1db553ca4d261113a4660501010e61bc6874837870964964d5b",
+      "taskHash": "a5e701adb6525f2cf895c3ea11723d4ee7058de64b18847d5d6f6a0da273d3ba",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 디1 literary adjectival intensity 깊디깊은/길디긴, not exact event count/duration/length. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G6:-노라면:P",
+      "taskId": "KP26:production:07",
+      "sourceHash": "343cb9c19b7b251b7466db6af523d08a42187b76defe53f5b7e3f7d42e130d45",
+      "taskHash": "78dd472d35719fd134dc85b480a622bda8e30a2aec7de243bb8b9c198f6f650f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 노라면 literary ongoing walking/reading evokes memory, not command or present physical sound playback. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP26:objective:grammar/G4:-어 버리다:P",
+      "taskId": "KP26:production:08",
+      "sourceHash": "1ffe37d2ad37c168c1befa59d166beefa521a60e4ed176c3f0c0534c252f1fe2",
+      "taskHash": "819f3d4e08bac15345bfb29949eb5957a8f6fc3c4647c221124b1211a50e51f9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 버리다 completed tearing/deletion with explicitly subsequent regret/relief; emotion not mechanically inferred from ending. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }
