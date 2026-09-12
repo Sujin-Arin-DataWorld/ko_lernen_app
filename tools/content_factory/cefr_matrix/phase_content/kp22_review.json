@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP22:grammar:01",
+      "sha256": "39e29f9afa10d291bb4466510e6bdc04d4ed98b4e51604a6ef5e652ca3ba6cc8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 테다 personal firm resolve in monologue, no institutional assurance or command to other staff. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:01",
+      "sha256": "9cee80bc471f86b11f609a4af077852df98c24d16749071210fb4c525bc3e9b1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 테다 personal firm resolve in monologue, no institutional assurance or command to other staff. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:02",
+      "sha256": "46e96d9fe90d505b3ed46b98fd6f9418c98961ec27e59fcf997216e84c5e5815",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 테면 intention conditional with explicit choice; potentially challenging register acknowledged and polite recast provided in core. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:02",
+      "sha256": "d8af7f4e80b2322744aa5e708b6935934f630a563705a4b3ac9ace822048d2c0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 테면 intention conditional with explicit choice; potentially challenging register acknowledged and polite recast provided in core. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:03",
+      "sha256": "408f809a4436385077246b553d2184693cda78a552b05aa6f371fb9d95e68a28",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 테지만 predicted cost/questions plus other consideration/commitment, not measured amount or completed count. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:03",
+      "sha256": "f41685e4b74336980a6fb8f128bbc29b81343ea4c39c376ad2c8eb40cf17f068",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 테지만 predicted cost/questions plus other consideration/commitment, not measured amount or completed count. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:04",
+      "sha256": "aa51d884397c984a51b60c6c9e4fe85b76e0632214bd3c91273f22a519fbf2e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기 나름이다 dependence on interpretation/schedule adjustment, not invariant outcome or evidence of universal success. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:04",
+      "sha256": "fba2f9baa699fff4a71eb00e26f28c7c6ff2c6b0c4155443bbc9936a3c5880a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기 나름이다 dependence on interpretation/schedule adjustment, not invariant outcome or evidence of universal success. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:05",
+      "sha256": "9d69ad510e182ab12c06165fd192e58d5b00dc3cefbda57a481366fdc6c60f7c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기에 따라 variation by thinking/operating a policy; corrected unnatural explanation-recipient draft before review; no fixed outcome. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:05",
+      "sha256": "ee59e62673788cd82f4d6a6d5c0df1123b83c91418acbd0a1c7d9e5176ff5732",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기에 따라 variation by thinking/operating a policy; corrected unnatural explanation-recipient draft before review; no fixed outcome. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:06",
+      "sha256": "2cfec3daab80b59e9c4d7b0dd8558920d50e4c40408e262ecf7e377469a4e787",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 은 나머지 excessive haste/worry leading to omission/premature judgement, not remainder quantity or completed verification. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:06",
+      "sha256": "ce080a57a5632d5631fcfeabe8d25ff67823aae09cfe3916397bfbe36a244ed6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 은 나머지 excessive haste/worry leading to omission/premature judgement, not remainder quantity or completed verification. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:07",
+      "sha256": "36c1311ee6f08faa1f246dca49ef7f990a3f6e38330c5fd09e2860bd26e2a1fc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 이상 accepted disclosure/participation premise limits answer/record duty; does not impose publication on all data or records on nonparticipants. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:07",
+      "sha256": "98e20b08c371a017a8e6012b63765339fd6a9845052dc94eb901eb8733fec24a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 이상 accepted disclosure/participation premise limits answer/record duty; does not impose publication on all data or records on nonparticipants. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:08",
+      "sha256": "0b73c7389d94f7eeea5b62ce96c6a9bfd6afd88ac01858b78ed7921ca5b33c0a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 다가는 continuing postponement/unverified distribution risks missed deadline/spread errors, not past loss or intentional threat. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:08",
+      "sha256": "e57ae8d7878a98895d97fd09127d344b5292edeb9b5c882f6c8a749fd31cacdc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 다가는 continuing postponement/unverified distribution risks missed deadline/spread errors, not past loss or intentional threat. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:grammar:09",
+      "sha256": "d2650795a84ff6b1c5557098646217b57f3e6665d0cbefc7eca3cb7147d3ada7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으면 몰라도 possible new evidence/budget exception with current reservation/refusal, not confirmed condition or automatic approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP22:production:09",
+      "sha256": "c886f2d65b0c1c5a0fcdf5a9400c8b7207776b217847164dd7a1825ce8e50d62",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으면 몰라도 possible new evidence/budget exception with current reservation/refusal, not confirmed condition or automatic approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP22:listening:01",
+      "sha256": "617bb88652aea3c1b06e366945b0e47e6c531ae14c16ae83fa3c31691f13c755",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: fictional equipment discussions12 versus16 stock, personal search resolve versus unconfirmed institutional budget/safety, separate check and committee-review dates. Review not implementation guarantee; cost/opportunity forecasts unmeasured. Warning not threat or observed harm. Earlier training omission corrected, voluntary guidance retained, no representative power to bind residents. Changed guidance condition triggers explicit refusal boundary. Six required responsibility/forecast/condition contrasts."
+    },
+    {
+      "taskId": "KP22:reading:01",
+      "sha256": "4fb86d0915861b3e9fa38a85821ab8a52f684c16522c6f4ffc9dc37e77e2b7bf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: two complete unapproved proposals, old3/new5 days versus old2/new4. Revision deletes mandatory pretraining and automatic expansion, adds unmet requests/errors/guidance indicators to lending count. Separate fictional clauses apply only if approved, preserve withdrawal/guidance choice, participant records, held faulty devices and staff-confirmed delay exception. No unspecified replacement or fee waiver. Stock observed, effect and funding unknown, same access/cost/error criteria for alternatives. Seven required scope/revision/exception/authority contrasts."
+    },
+    {
+      "taskId": "KP22:writing:01",
+      "sha256": "9524c825024ec24b4378c3832c8433b28c01af2fd71ee13ec3a3b34dbb5082f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: three mandatory full texts: conditional proposal, staff implementation note, public explanation. Preserve deleted conditions as deleted, stock versus prediction, roles/dates, indicators, pending approval, exceptions and unknown costs. Changed guidance choice requires reassessed recommendation/fallback, no invented waiver/replacement. Source comparison and revision. Free meaning and argument unscored."
+    },
+    {
+      "taskId": "KP22:speaking:01",
+      "sha256": "476db51cea971ad86e37f186771c18de95670b27bcb4828287e496305973fdc0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: polite stakeholder negotiation conditioned on budget/guidance; explicit changed condition, access consequence, revised acceptance/refusal and fallback. Formal meeting preserves shared/unresolved scope and institutional authority. Korean mediation personal-resolve versus assurance, possible exception versus approval. Record/replay 다가는 warning and 테지만 prediction, polite recast of potentially challenging 테면. Meaning/intonation unscored."
+    }
+  ]
+}

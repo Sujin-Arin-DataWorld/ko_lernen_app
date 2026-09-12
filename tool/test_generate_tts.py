@@ -1,4 +1,5 @@
 import json
+import io
 import os
 import subprocess
 import sys
@@ -1274,6 +1275,24 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(destination, f"gs://{generate_tts.BUCKET}/tts/v3/{voice}/")
         sources = argv[3:-3]
         self.assertEqual(len(sources), 2)
+
+
+class PhaseAudioScopeTests(unittest.TestCase):
+    def test_exact_reviewed_phase_scope_and_unknown_phase_rejection(self):
+        pairs = generate_tts.collect_phase_audio('KP01')
+        self.assertEqual(len(pairs), 6)
+        self.assertTrue(all(voice == 'female' for voice, _ in pairs))
+        self.assertLessEqual(set(pairs), set(generate_tts.collect()))
+        with self.assertRaises(ValueError):
+            generate_tts.collect_phase_audio('KP99')
+
+    def test_phase_scope_cannot_delete_other_audio_or_mix_scopes(self):
+        for args in [
+            ['--verify-storage', '--phase-id', 'KP01', '--delete-stale'],
+            ['--dry-run', '--phase-id', 'KP01', '--scenario-pending-manifest', 'x'],
+        ]:
+            with self.assertRaises(SystemExit), patch('sys.stderr', new=io.StringIO()):
+                generate_tts._parse_args(args)
 
 
 if __name__ == "__main__":

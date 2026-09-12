@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP12:grammar:01",
+      "sha256": "5bdbb1917858291167d3b4d6d658d4e2882e678de02e90613d5eef6d88088f46",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:01",
+      "sha256": "9b0ddb4ace4819b7830cc530380937354cb3713785a0c5daae786fc57e75e306",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:02",
+      "sha256": "cec328afda865e03c2f4e5dff9eb02a63632a875eee58eec23978eec12aa5199",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Necessary condition, not already fulfilled or sufficient for every other condition. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:02",
+      "sha256": "725da13045e947e8a831c0fc2e9d8b0142b036136f780acca743d743b697fb86",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Necessary condition, not already fulfilled or sufficient for every other condition. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:03",
+      "sha256": "74ae8a2662896cad0eb3a6a9a068c76750d7953232303d754f66b5c89ae1a684",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Emphatic necessary condition linked to result, not resolution-only 야지. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:03",
+      "sha256": "8a8f0a7f7a38fff425b48fb6a281a6e6558faaaf1ca4a5a50cf63e260793f855",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Emphatic necessary condition linked to result, not resolution-only 야지. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:04",
+      "sha256": "89c0028418f0d36bfff56b25b05b21a9682f14175aa88e0e926b252f9cf976e4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:04",
+      "sha256": "7a97317dca3534ed1c152111b89189c4daedda2cded6e46bf2a28238c090f6c6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:05",
+      "sha256": "4e8857acde18e3e96e1817ba4bc759ced0430237306b5d1ab7e67ec484ce104e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Condition to realise intention, not permission created by intention. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:05",
+      "sha256": "f718c06ae4d5fb9beddce5291fe7e3c4b684c07634ecf5e106f66b19f89556a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Condition to realise intention, not permission created by intention. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:06",
+      "sha256": "6e0330d278836b155abac26de179aacc4a4407c5d26e0377b715952a8507b01e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:06",
+      "sha256": "6a99b05bbeefe90a10453517b5364c4ec66b3fefa865809811185a3eaec65814",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:07",
+      "sha256": "679b4bedca8df24b98876602bbb48090a8d1ee436f65bfb92be2d2205bfcf03f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Explicit purpose, not proof of success or photo-publication permission. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:07",
+      "sha256": "00ace520cd10f2ab78db421a3a814d1e8d7dbd1c43a1a86f94c10d4cbd61c20e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Explicit purpose, not proof of success or photo-publication permission. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:08",
+      "sha256": "b374dec90389a6214168929e6234ac9595d83a66c1004ccf8b797a1cbb1df531",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:08",
+      "sha256": "01bca7b11efa0cc11730e95e36ecc58bfb629056cce50a28a88a744a90a65c7f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:09",
+      "sha256": "daf6d41a6d55e00170510617b5817da4338fc7dd1f4bef887518e25a9dbc6175",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:09",
+      "sha256": "7a3186e5ac2b45a96fbe65ce9cdcdc0afbd20d1ee4432800bc1dbd0704d101a9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:10",
+      "sha256": "5dbed1b37d1dba5b79c0209f945cbf36683019d460af23437434b11ca8222a77",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Prohibition versus absence of obligation and opposite mandatory action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:10",
+      "sha256": "8dbb4f3c9da24d50cd6bcb44866d4736384b4af2a86d0a210658c64d7fd75d25",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Prohibition versus absence of obligation and opposite mandatory action. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:11",
+      "sha256": "5c268a7db65bcdcea45a846f85f6d5bd0dca1b1d892bdacff37e575df5031113",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Wish remains unconfirmed, not someone else’s promise. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:11",
+      "sha256": "eceb1413f5a8e620c561d6cbb0548b7e337fb6b506523925ce227a33d85c9060",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Wish remains unconfirmed, not someone else’s promise. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:12",
+      "sha256": "5daafdc6091f950d7c9265c1f0d4c1ef190672303f04347d92276b5ce0c97739",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Own intended commitment grounds a request to another, actor and requested action preserved. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:12",
+      "sha256": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Own intended commitment grounds a request to another, actor and requested action preserved. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:grammar:13",
+      "sha256": "4d932d99265b5c22f12c9c29235b8420c8c8d9f982d2c39f7389428ea3884589",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP12:production:13",
+      "sha256": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded response checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Distinct prompts and no assessment answer in own study examples; unknown variants unscored."
+    },
+    {
+      "taskId": "KP12:listening:01",
+      "sha256": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Defined equal colleagues: late location notice and travel burden, rejected full review, alternative day/minutes/title-number-only review, speaker 가 sends to teacher, staff approval separate, attendance a wish. Actors and permission preserved; required scope/sender/condition/wish/complaint criteria."
+    },
+    {
+      "taskId": "KP12:reading:01",
+      "sha256": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test."
+    },
+    {
+      "taskId": "KP12:reading:02",
+      "sha256": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Connected procedure separates peer file check from staff permission, no response stays unapproved, reason notice does not automatically extend deadline. Purpose, authority, silence and extension required."
+    },
+    {
+      "taskId": "KP12:writing:01",
+      "sha256": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Required full formal email from fictional role card, limited review acceptance plus location complaint, third-party teacher recipient and separate sender colleague, unanswered desired reply date. No invented permission or self-honorification; free meaning/politeness unscored."
+    },
+    {
+      "taskId": "KP12:speaking:01",
+      "sha256": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer polite negotiation with reason/alternative/condition plus separately defined long-standing close-friend private worry and agreed casual speech. Empathy does not confer approval or complete all work. Request pauses/replay rubric; meaning/intimacy/intonation unscored."
+    },
+    {
+      "taskId": "KP12:speaking:02",
+      "sha256": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Separate formal job interview with fixed volunteer experience, limited input/seat-guidance role and no approval authority, unavailable teaching day and offered alternative. No invented career, decisions or final schedule; speech unscored."
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP01:grammar:01",
+      "sha256": "c658e4faf67fa819020b9cee3dd9342f9f52cfd9e28a4df42c814f5f98941692",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:02",
+      "sha256": "77ee8d52b1b7082a275ef5b230b8965e9dd3189f44cc576da0f1174d07b14f8f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:03",
+      "sha256": "e2423ce8509fb283a45748e1b2771b5449b0a634eecdaf8e0c9e8710a4374b59",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:04",
+      "sha256": "5a18f97fbb99120d66c413b0817fad82ea4e8c320ebe4118d761bca3720d1e2e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:05",
+      "sha256": "b779911342456bb8c371c538314b88ec75d253b83a767c6859dccd9b0623e8d3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:grammar:06",
+      "sha256": "c66499fc41477db946d7c1fca5e5a51b7fa56c35901c6352fcdf19ea05badb38",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:07",
+      "sha256": "99a2c209f53dd63c17f739ef39bec7131a345ea1eb5e1efd4a88e14785efd9a9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다."
+    },
+    {
+      "taskId": "KP01:grammar:08",
+      "sha256": "87a31a1c052ade4ddb32fbce3054bcb280922de58c43d00a2344c6613cd62c6c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다."
+    },
+    {
+      "taskId": "KP01:grammar:09",
+      "sha256": "bfc73ca62ecbae41100dfed38ec7442b5915748cb65b71b1c22a8f03f2cd4f53",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:10",
+      "sha256": "df7a5098f1cecd7348fa3945373407ec0904f1c7ed390c611942b2e2a1b92b88",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다."
+    },
+    {
+      "taskId": "KP01:grammar:11",
+      "sha256": "7d4a9e4b7236823e137c64e44137fe34731f4536c89ad2b0d5a4eb80d9c62cd3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:grammar:12",
+      "sha256": "255727c5093a0a5de059ae2192ca2e86b5224b12136c3361bb5378604844e6da",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다."
+    },
+    {
+      "taskId": "KP01:reading:01",
+      "sha256": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:listening:01",
+      "sha256": "a995013dcd94e61eb4099ec35e625769106c5521f0c8201b4a779df7556bd906",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:writing:01",
+      "sha256": "04dc99063c515a64012a94e14ea8eb7368b5102f972d3852ac5811bb3421b423",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정."
+    },
+    {
+      "taskId": "KP01:speaking:01",
+      "sha256": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:reading:02",
+      "sha256": "2454c82d55ac13db9cf44147b466bc15615050a365bb97308a6c1a5bec067770",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Checked classroom/library location, permission and prohibition separately; all three criteria required."
+    },
+    {
+      "taskId": "KP01:listening:02",
+      "sha256": "993356a538fe43de11ae2dc12386edf836c366ecd3aa2b1cd0fee2492094402d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Reviewed distinct word orders and final-name consonants. Lax/tense/aspirated explanation is separate from binary voicing; rendered TTS audio still needs playback QA."
+    },
+    {
+      "taskId": "KP01:writing:02",
+      "sha256": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Required known name is entered; unknown optional data stays blank by choice; missing required contact detail is requested, not invented. Passing the clarification task does not declare the underlying form complete."
+    },
+    {
+      "taskId": "KP01:production:01",
+      "sha256": "aa0b66277dd262430fd3fa625962eec37ded99c1a3b80774897ebf0c13e5f9bd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: copula affiliation, not negative identity. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:02",
+      "sha256": "e9f936033b615d4978dce2e4301158a76d4acff23dff4a3c07e36f9c4a9b1e5c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: negative copula with subject-specific particles. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:03",
+      "sha256": "b65cb94b0fe668ac4636097b6c61ae258042dc4234ad55d7b70989064fe11864",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:04",
+      "sha256": "deb33ee795052441a081e6359dcd3ede1ef296c48859debb1bdc281825b0f78a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: nominative actor, not object. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:05",
+      "sha256": "ba2de1705bff81eb1cbd5f1638c66922404e7ac4c762153b9d26624da1287d80",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: object particle for drinking/reading. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:06",
+      "sha256": "439d1f2419ac0558fe129dedf80090b42d5349b8db216f545e8e46e93f615da6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:07",
+      "sha256": "4e22b59d8fdba30e171e2b3a9f29a8dcf5ccd0837f74b342b12973b7d6896cc0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:08",
+      "sha256": "2c51c676fed56f2af9613dbbbbb3c939746a416aefeb758885d9e5538bf31afe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: companion marker, not exclusion. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:09",
+      "sha256": "f774ea9bf862b0cc64ba5106e0a27ca09a98f9199c839d66d6e367a202529443",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: colloquial conjunction includes both items. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:10",
+      "sha256": "39dc182e92680af10443dc11a85c959f88b00b161cf650af975b86684e14ae39",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: polite endings with adjective conjugation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:11",
+      "sha256": "be099a4e67fb8099187d0b3c87bfb5402313d650714fb93b224648be3be36b2e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: formal statement, not question. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:production:12",
+      "sha256": "49f6f0ed0bf263b8e40c621603a19b93a9b033f07b26a597f92e10a9b7f052a5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: unknown identity asked, not asserted. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP01:listening:03",
+      "sha256": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "연습 대화의 모음 끝 직업 의사에 예요를 적용해 의사예요로 수정했다. 회사원이에요 및 인물·관계·방 번호·정답과 KO/EN/DE 안내는 직접 재확인했다."
+    },
+    {
+      "taskId": "KP01:speaking:02",
+      "sha256": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored."
+    }
+  ]
+}

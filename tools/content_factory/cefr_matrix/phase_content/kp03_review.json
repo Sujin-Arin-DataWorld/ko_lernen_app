@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP03:grammar:01",
+      "sha256": "ab625120923ee6f3e7d9ad369cf20f91fde320be2ce10e6095e1d138d3c86b98",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for giver/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:02",
+      "sha256": "f85de13608ce017a3021c387fe840aa2a944375b1e7a086fe638b8a088f77e99",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for caller/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:03",
+      "sha256": "782784c6ba32d5ff6bcb46935bd3bdce79463ac83708d9b1b5ad6a703363b0dd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for movement purpose versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:04",
+      "sha256": "0325b960074f821c60cf982771015f1a668925f688c0f70523d507114164d877",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for intention versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:05",
+      "sha256": "b59ace30c99d2725be4f3d18ea8126445f843aed1348cee1f456415c7a53c962",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for wish versus availability. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:06",
+      "sha256": "04f9762b898ba2589df7064510b8688309b62492e9c718551aa509707abc8a99",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for ongoing versus completed. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:07",
+      "sha256": "e8952eaf1c17178e51f5575a2491ea5608bd1693830267e0e12246b6e2803a17",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for ability versus actual action. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:08",
+      "sha256": "fab949eea54170256e40a71d8ba97208625c98571fceb2d027870e3ea1050a1e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for commitment versus guess. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:09",
+      "sha256": "a0c1bfe11a328c47bc5e927464ee023b8795627ba06a178040874da62578257f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for listener request versus speaker action. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:10",
+      "sha256": "15b8f3ff639dcef08a0097cc7d502ba1bcea173971de38994e63d6e730ac427a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for formal instruction versus completed report. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:11",
+      "sha256": "cf67104d31ead15219c99ed3c5fa6808cac23f6711d18ad7f0ba5bd0c89f3c10",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for proposal versus confirmed agreement. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:grammar:12",
+      "sha256": "64c1240c151b50c62864ac5338fe153920a15e615acfdb978031e80b6c6b1548",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for inclusive proposal versus listener-only demand. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP03:listening:01",
+      "sha256": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Original wish/unavailability and actual quantity distinguished: juice unavailable, one water; milk unavailable, three teas."
+    },
+    {
+      "taskId": "KP03:reading:01",
+      "sha256": "24b6cb6b1d1b64f9f513de82f829f52367faca8120f0d831cb9899516f7946b5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Recomputed totals 7000/8000 budget and 10000/9000 budget. Quantity, total and affordability all required; Korean particle corrected."
+    },
+    {
+      "taskId": "KP03:writing:01",
+      "sha256": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Reviewed time/place/activity in two proposals; alternatives retain -(으)ㄹ까요 and no invented agreement or obligation."
+    },
+    {
+      "taskId": "KP03:speaking:01",
+      "sha256": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Staff request and classmate proposal kept as separate roles; absent agreement is explicit; speech unscored."
+    },
+    {
+      "taskId": "KP03:listening:02",
+      "sha256": "9826c2957f3d97ade69b8b97db5c03233ad4fcddf5fdc01f4c81006604837914",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Request and inclusive proposal endings are heard in reversed presentation order. Listener action versus shared action is evaluated; intonation production remains unscored."
+    },
+    {
+      "taskId": "KP03:production:01",
+      "sha256": "589abe7fc4efd8408c2dc8b57fd9e91c230902e65d309eb9cd4bc3f5ce2e443c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: recipient of giving, not source of receiving. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:02",
+      "sha256": "48dff2862b567b39040f92049220ce8c19e6adbca02632c6f4059d32e1ce6fa5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: call recipient, not caller. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:03",
+      "sha256": "286750a0fd3974baee44b96634bf8d9b130283e49f26e712ea147276950ea106",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: motion purpose with correct object/destination. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:04",
+      "sha256": "2b7f864521e249dd2d928dddf912f3079eb0c314a8e05d64fcdce37cc1bedd0e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: intended purpose preserves object and destination. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:05",
+      "sha256": "3f1b441e6904ad912e5efff4ee98af9761e3f9521612abbc4cead028a6e0c051",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: own desire, not ongoing action. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:06",
+      "sha256": "17d7c19a3a2e32a595b47212e063b8cfb8c0a77a0447f32719d73620e64e3847",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: ongoing event, not completed yesterday. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:07",
+      "sha256": "119a699bbaa38de5d6dd119a4065071dba220d09a01560420dc057235c186581",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: ability positive, not inability. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:08",
+      "sha256": "5cc60f349d684b4bb77f935cc837acae509552f97868685d16f106593c0afa8a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: voluntary first-person commitment, not past action. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:09",
+      "sha256": "e242f9c248f263227932209b4da9b534a15e9de603553db3dccb069bd2181e1a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: polite request, not unlicensed casual command. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:10",
+      "sha256": "b2dc88d5e54ac6b50a8b0868413a6761f622e54f64553868e90f7b24b000a8bd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: formal directive, not declarative report. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:11",
+      "sha256": "0ad604f22b10fa8ab3ba71bb1890e984d878217744367e150ff84004c315ec2a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: open shared proposal, not obligation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:production:12",
+      "sha256": "b21b8f06e1ab27b1bbe121e6480e71a30bf0e5654e3ae6fefb1961b6ab8ef9c8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and independent practice/assessment reviewed: shared team proposal, not command only to listener. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+    },
+    {
+      "taskId": "KP03:reading:02",
+      "sha256": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim."
+    },
+    {
+      "taskId": "KP03:speaking:02",
+      "sha256": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody."
+    },
+    {
+      "taskId": "KP03:reading:03",
+      "sha256": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다."
+    }
+  ]
+}

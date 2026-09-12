@@ -1,0 +1,499 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP30:grammar:01",
+      "sha256": "81900422bd45351583af938d1356fba029f8d50a99db3a3601b677e3711f1df1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 거들랑1 conditional familiar request/proposal, agreedcasualpeers, event notalreadyconfirmed. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:01",
+      "sha256": "9a56126cccc40e349c32a841f8247b4a13dc1ecdd2eea9f482f63030c1494803",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 거들랑1 conditional familiar request/proposal, agreedcasualpeers, event notalreadyconfirmed. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:02",
+      "sha256": "f1d48fcdfe262c7db647e6a82d3f4077cd7cb9d3f663d4f2ae3a8d1d10f49788",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 거들랑2 sentencefinal knownbackground based on priorhearing/reading, notconditionalfuture. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:02",
+      "sha256": "1f582cff7514d25544144711e059363f7d9785897b4bcd01644d208fb651d6bf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 거들랑2 sentencefinal knownbackground based on priorhearing/reading, notconditionalfuture. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:03",
+      "sha256": "376e42ab5cb8217cc779ff8dde331e4a0fe0d2a4fa3a3e535684ce9a2fbef13d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 네1 hage declarative in explicitlyfictionalsenior-apprenticeroles, firstpersonunderstanding/custodyresolve nottaskimposedonother; distinguishnewinfone. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:03",
+      "sha256": "5e78f77df0d50804179438e125dde70000e1dbf7a1161e8cf53052865602cf8a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 네1 hage declarative in explicitlyfictionalsenior-apprenticeroles, firstpersonunderstanding/custodyresolve nottaskimposedonother; distinguishnewinfone. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:04",
+      "sha256": "2b3c1d0e10b69add33a19cef7ab9f5697a51edfe02f5cfc42077583f079a8ec6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 나2 hage question inassignedplayroles, opinion/readingstatus queriednotasserted, agealone nolicense. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:04",
+      "sha256": "5cf6615c0a417b29fd13bfe9b18848dc12e5979140b1bced9c93586c2fbfe089",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 나2 hage question inassignedplayroles, opinion/readingstatus queriednotasserted, agealone nolicense. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:05",
+      "sha256": "42c8b1208caede4656a6402daaa16190035ef02d3c77de8f3413ac603a5401e9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 게3 hage reading/checkinstruction inboundedplay, noapproval/copypermission/assignedfinalresponsibility. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:05",
+      "sha256": "9cb0486004b7db217bbcbf415d361509bc24123bc6be8583c4a996cbd9b56700",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 게3 hage reading/checkinstruction inboundedplay, noapproval/copypermission/assignedfinalresponsibility. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:06",
+      "sha256": "f581bbf265bf7eac22589308a0e4a9680f37a4ede950b3f3839d55e249ec9e59",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 게4 attentioncall 이것보게/여보게 identifieschangedorder/missingname, notordertochange/delete. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:06",
+      "sha256": "80359bb7c644c65248332dc320c823e946ce18df2e1dce9f184a45a5288d06c4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 게4 attentioncall 이것보게/여보게 identifieschangedorder/missingname, notordertochange/delete. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:07",
+      "sha256": "78fcbada823594eb7285c7014ec61567c9078106f2dc1b3ccde135a09dea0381",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는구만 markedexclamation aboutcomplexity/understanding, nofixedage/gender/rank inferred. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:07",
+      "sha256": "30202fd99a6d45502c5cb66a55236ca8a6fe4cefd680e304456ff458e78faa19",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는구만 markedexclamation aboutcomplexity/understanding, nofixedage/gender/rank inferred. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:08",
+      "sha256": "0e4e9e9a333b20f3ff9b9316fb27bddeb1cfacbfcca37f61039197035784e7ba",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는구먼 noticedmutualunderstanding/manyrecords, nofullagreement/allrecordsreviewed, nofixedpolitenessladderversus구만. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:08",
+      "sha256": "fe3b80bdf5157dc2ae389b9e90692e4df84779d3dca30764917603e9ba7d41d9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는구먼 noticedmutualunderstanding/manyrecords, nofullagreement/allrecordsreviewed, nofixedpolitenessladderversus구만. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:09",
+      "sha256": "0587a9dd9aed33a7dd02d1ab8c3f0a6bb6af2f085a6d60ffb5c077379e771a00",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 소 haostatements infictionalequalarchivistroles preserve nonagreement/unreadpolarity, notauthority. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:09",
+      "sha256": "b1aa48535e1addc1e95d6b16586319ef9c99a82df8b2b2e33305d6df1b323f26",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 소 haostatements infictionalequalarchivistroles preserve nonagreement/unreadpolarity, notauthority. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:10",
+      "sha256": "41a38dfecd8f68752c4f98e606eb2c2a8bc6a35aa0ff3d5d7c2c708dd7feabd2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으오 consonantstem읽/받hao instructions inplay, noextracopypermission orreceipt-as-agreement. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:10",
+      "sha256": "281e0a15325b597917453cc253bc734792773482f755dd16693a6a0b08610e13",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으오 consonantstem읽/받hao instructions inplay, noextracopypermission orreceipt-as-agreement. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:11",
+      "sha256": "4e380c9c6212347b348e84d0d9962f8f35ca9732a82f6938843f656f0298eff9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 구려2 actioninvitation enter/rest inplay, notobservationofcompletedentry/rest. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:11",
+      "sha256": "2c5558b1ebd999d817c107e99eedf5d2c57facd3179e6aaf5e338f1a172eb0fa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 구려2 actioninvitation enter/rest inplay, notobservationofcompletedentry/rest. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:12",
+      "sha256": "3fd75ed202a07aff1965373a3f04a8acc085c9eb90ddfa4ff02331323b396205",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는구려 exclamationofunderstanding/lengthening inplay, notcommandtounderstand/prolong. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:12",
+      "sha256": "f5888306ac883f35344f7dfb236dd53adb969f0036bd319b62efdb25ecb3995c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는구려 exclamationofunderstanding/lengthening inplay, notcommandtounderstand/prolong. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:13",
+      "sha256": "5bcb504761fe663637b42df6acf9650ccb09b69691f3f51eedc97c87d6432f79",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 그려 hagesofteningappendage inplay, understandingnotagreement/approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:13",
+      "sha256": "7cd5b9df884d8808853030ff15f3a141c2a1f457f04589f6354f64e87c988e66",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 그려 hagesofteningappendage inplay, understandingnotagreement/approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:14",
+      "sha256": "346a3749c30be2e2194d45c7ca0c3154f41129b8febb8c44d1fd2969b1dae006",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: G2네 contemporarypolite요 notice ofrain/openstate, explicitnewobservation notidentifieddooropener. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:14",
+      "sha256": "acaff35f6d62f923b0fae8b74b609bb715e97588d5f1f10a34731fa0ae9e6992",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: G2네 contemporarypolite요 notice ofrain/openstate, explicitnewobservation notidentifieddooropener. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:15",
+      "sha256": "6c691d151b58a40a3a6bf51312a3898c11edba566c78c6059ecb5604a6fa7127",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: G5네2 evaluativenoticing quiet/carefulplususefulness inagreedcasualpeers, notsarcasm/defaulttotalagreement. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:15",
+      "sha256": "b37134c7ab268db49bdb04301ccd7c4716f0f31305218ab6f601c02e8e61986d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: G5네2 evaluativenoticing quiet/carefulplususefulness inagreedcasualpeers, notsarcasm/defaulttotalagreement. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:grammar:16",
+      "sha256": "e36dfa66584b2ab039840238216e0192778b7489c8e228c1c0ba8391ca2bc3fa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으시 subjecthonorification independentofcasual/politeaddressee, teacherarrivaldirectexperience versuswaitinghearsay preserved. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP30:production:16",
+      "sha256": "f2007fd105b84c2b82ec21c1ff29dbb1fe7de7724ac5f08bec840eafd38741e3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으시 subjecthonorification independentofcasual/politeaddressee, teacherarrivaldirectexperience versuswaitinghearsay preserved. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP30:listening:01",
+      "sha256": "b5798165257e44245e220115eff5581d056d6bb1e8a858da1e9b6fb4f3c70e8b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: fiveactualscenes,6Wednesdayclassroom versus9Fridaymeetingroom. Hage senior-apprentice andhao equalarchivists explicitlyfictionalrolecontracts; modernintergenerationalpeers mutuallyhaeyo, casualadultfriendsbyagreement, formalpublicannouncement. Nohistoricalauthenticity/agegenderfixedvoiceclaim. Instruction/attention/invitation/exclamation distinguished; permittedlocalviewing excludescopying inallscenes. Conditional/background거들랑, thirdpersonhonorification+hearsaypreserved. Seven requiredcontext/act/scope/honorific/modern/condition/unknowncriteria. Hage/haorecognitiononly objectives, grammarPonlyboundedquotedplaylines."
+    },
+    {
+      "taskId": "KP30:listening:02",
+      "sha256": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate longlecture relation/act→haocontrasts→proposition/genre→honorification/source. Readingvsattention게, imperative구려2vsexclamation는구려, hage네vsnoticed네요; genresameproposition doesnotcreateequallegalauthority. Understandingnotpermission, datehearsayunknown. Fourrequiredstructure/attention/genre/agreementcriteria; prosodyandgenerationalvoice notcertified."
+    },
+    {
+      "taskId": "KP30:reading:01",
+      "sha256": "6254b9bbcbe474cf11c2a9a38881ded7c52474bc86c882458f48860add70c74b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: actualscenesplusoriginalmultiparagraphstoryandcritique. Traineefeelsreduceddistance, counterpartinnerstateunknown. Nonagreementcoexistswithhospitality; noera/agefabrication. Writtenplainpermissionnotcasualaddress. Criteria-basedstrength andlimitedviewpointweakness. Four requiredperspective/acts/written/limitscriteria."
+    },
+    {
+      "taskId": "KP30:reading:02",
+      "sha256": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate fictionaltermswithapprovedusers,6/9items designatedroom, nooriginalremoval/copying. Exceptiononlyseparateissuedpermissiondocumentwithinitem/methodscope, noneprovided. Guideresponsiblestatecheckonly, finalapprovalactorunknown; teacherattendancehearsaynotcontractguarantee. Contemporarynotice/formalscript/specialistcomparison andfourmeaning-changingbadrewritecontrasts. Sixrequiredscope/exception/current/responsibility/hearsay/genrecriteria."
+    },
+    {
+      "taskId": "KP30:writing:01",
+      "sha256": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification."
+    },
+    {
+      "taskId": "KP30:speaking:01",
+      "sha256": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: samecontent toagreedclosecontact/newpeer/publicaudience withcasual/haeyo/hapsyo, independentteacherhonorification/hearsay. Listenoldforms→modernreconstruction, anyrareproductionboundedtoassignedplayonly; noagegenderimitation. Mediatetwopartiesunderstandingversuspermission andknownlimits, presentationpoints/evidence/limits, unknownquestionsretained. Koreanmediationhonorific→guarantee/styleauthority→approvalerrors, recordreplayrevise. Meaning/prosodyunscored."
+    }
+  ]
+}

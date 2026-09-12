@@ -118,7 +118,7 @@ abstract class AppL10n {
   /// No description provided for @learningPhasePracticeScope.
   ///
   /// In de, this message translates to:
-  /// **'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.'**
+  /// **'Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.'**
   String get learningPhasePracticeScope;
 
   /// No description provided for @learningPhaseImagePreparing.
@@ -17321,6 +17321,144 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Demo wiederholen'**
   String get onboardingV2ReplayDemo;
+
+  /// No description provided for @phaseTasksTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Phase-Aufgaben'**
+  String get phaseTasksTitle;
+
+  /// No description provided for @phaseTasksScope.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungen und strukturierte Bewertungen. Freie Antworten werden nicht automatisch als beherrscht gewertet.'**
+  String get phaseTasksScope;
+
+  /// No description provided for @phaseTaskPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get phaseTaskPractice;
+
+  /// No description provided for @phaseTaskAssessment.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewerten'**
+  String get phaseTaskAssessment;
+
+  /// No description provided for @phaseTaskSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworten prüfen und speichern'**
+  String get phaseTaskSubmit;
+
+  /// No description provided for @phaseTaskRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal versuchen'**
+  String get phaseTaskRetry;
+
+  /// No description provided for @phaseTaskPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertete Kriterien erfüllt'**
+  String get phaseTaskPassed;
+
+  /// No description provided for @phaseTaskNeedsPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch üben: Prüfe die Erklärungen.'**
+  String get phaseTaskNeedsPractice;
+
+  /// No description provided for @phaseTaskUnscored.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch gespeichert · Bedeutung nicht automatisch bewertet'**
+  String get phaseTaskUnscored;
+
+  /// No description provided for @phaseTaskPlay.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get phaseTaskPlay;
+
+  /// No description provided for @phaseTaskRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnehmen'**
+  String get phaseTaskRecord;
+
+  /// No description provided for @phaseTaskStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme beenden'**
+  String get phaseTaskStop;
+
+  /// No description provided for @phaseTaskReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme anhören'**
+  String get phaseTaskReplay;
+
+  /// No description provided for @phaseTaskError.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hat nicht geklappt. Prüfe Ton, Mikrofon und Verbindung und versuche es erneut.'**
+  String get phaseTaskError;
+
+  /// No description provided for @phaseTaskAccountChanged.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Konto hat sich geändert. Öffne die Aufgabe erneut.'**
+  String get phaseTaskAccountChanged;
+
+  /// No description provided for @phaseTaskRecordingNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.'**
+  String get phaseTaskRecordingNotice;
+
+  /// No description provided for @phaseTaskHistory.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertete Kriterien bereits erfüllt'**
+  String get phaseTaskHistory;
+
+  /// No description provided for @phaseTaskAudioRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre zuerst die Aufnahme an.'**
+  String get phaseTaskAudioRequired;
+
+  /// No description provided for @phaseTaskPracticeComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung gespeichert. Der Punktwert gilt für diese Übung.'**
+  String get phaseTaskPracticeComplete;
+
+  /// No description provided for @phaseTaskCriterionPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Kriterium erfüllt'**
+  String get phaseTaskCriterionPassed;
+
+  /// No description provided for @phaseTaskCriterionRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Pflichtkriterium'**
+  String get phaseTaskCriterionRequired;
+
+  /// No description provided for @phaseTaskCriterionUnscored.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Formulierung ist nicht automatisch bewertbar.'**
+  String get phaseTaskCriterionUnscored;
+
+  /// No description provided for @phaseTaskEarlierRevision.
+  ///
+  /// In de, this message translates to:
+  /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
+  String get phaseTaskEarlierRevision;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

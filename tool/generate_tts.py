@@ -787,6 +787,27 @@ def upload_chunks(
                 attempt += 1
 
 
+def collect_phase_audio(phase_id=None):
+    """Exact Korean runtime audio from individually reviewed Phase tasks."""
+    from pathlib import Path
+    try:
+        from tool.build_phase_tasks import build
+    except ModuleNotFoundError:
+        from build_phase_tasks import build
+    bundle = build(Path(ROOT))
+    if phase_id is not None and phase_id not in bundle['publications']:
+        raise ValueError('No published tasks for this Phase')
+    pairs = {}
+    for task in bundle['tasks']:
+        if phase_id is not None and task['phaseId'] != phase_id:
+            continue
+        for mode in ('practice', 'assessment'):
+            packet = task[mode]
+            if packet['sourceKind'] == 'audio':
+                pairs[('female', packet['sourceKo'].strip())] = None
+    return list(pairs)
+
+
 def collect():
     """(voice, text) 쌍을 dedup 수집.
 
@@ -1080,6 +1101,8 @@ def collect():
                     if answer and example:
                         add_auto(f"{answer}. {re.sub('◯+', answer, example)}")
 
+    for pair in collect_phase_audio():
+        texts[pair] = None
     return list(texts.keys())
 
 
@@ -1524,7 +1547,10 @@ def _parse_args(argv=None):
         action="store_true",
         help="With --delete-stale, actually delete the listed objects (default: dry-run).",
     )
+    parser.add_argument('--phase-id', help='Limit dry-run, synthesis or Storage verification to one reviewed Phase.')
     args = parser.parse_args(argv)
+    if args.phase_id and (args.scenario_pending_manifest or args.demo or args.write_first_line_manifest or args.check_first_line_manifest or args.download_first_line_bundle or args.delete_stale or args.confirm_delete):
+        parser.error('--phase-id cannot be combined with another scope or deletion')
     if args.verification_output and not (
         args.verify_storage and args.scenario_pending_manifest
     ):
@@ -1622,7 +1648,9 @@ def main(argv=None):
         return 0
 
     scenario_manifest = None
-    if args.scenario_pending_manifest:
+    if args.phase_id:
+        pairs = collect_phase_audio(args.phase_id)
+    elif args.scenario_pending_manifest:
         try:
             pairs, scenario_manifest = load_scenario_pending_manifest(
                 args.scenario_pending_manifest

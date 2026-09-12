@@ -1,0 +1,132 @@
+"""KP29 rhetorical voices with checked dictionary-use contrasts; unsigned."""
+from phase_task_authoring import choice, free_text, grammar_task, loc, packet, task, write_source
+from author_phase_a1_production import production
+
+
+def kp29():
+    rows=[
+      ('G6:-으리라',loc('문학적 예측이나 의지를 드러내요. 앞으로의 기대를 이미 검증한 사건으로 바꾸지 않습니다.','Express literary prediction or resolve, without turning a future expectation into a verified event.','Drücke literarische Vorhersage oder Entschlossenheit aus, ohne eine Erwartung zum bestätigten Ereignis zu machen.'),('언젠가는 이 차이를 이해하리라. 이것은 화자의 기대다.','앞으로 이해하리라는 화자의 기대','이미 이해를 검증한 사실'),('나는 끝까지 기록을 지키리라. 화자는 자기 결의를 밝혔다.','화자의 기록 보존 결의','다른 사람에게 보존 명령')),
+      ('G6:-으리오',loc('반문으로 가능성 부정을 강조할 수 있어요. 이 용례는 명단을 요구하는 질문이 아니며, 문학에만 쓰인다는 규칙도 아닙니다.','A rhetorical question can stress impossibility. This example does not request a list, nor is the form restricted exclusively to literature.','Eine Gegenfrage kann Unmöglichkeit betonen. Dieses Beispiel verlangt keine Namensliste; die Form ist auch nicht ausschließlich literarisch.'),('그 마음을 누가 쉽게 알리오. 화자는 쉽게 알 수 없다는 뜻으로 혼잣말했다.','쉽게 앎의 어려움을 강조한 혼잣말','아는 사람 명단을 청자에게 요청'),('이 사정을 어찌 모르리오. 화자는 자신도 안다는 뜻으로 말했다.','모를 수 없다는 반문으로 앎 강조','상황을 전혀 모른다고 고백')),
+      ('G6:-으련마는',loc('실현될 법한 가능성과 어긋난 실제 행동을 대비해요. 예상된 일이 실제 발생했다고 단정하지 않습니다.','Contrast a plausible possibility with a contrary actual action, without asserting that the expected event occurred.','Kontrastiere plausible Möglichkeit und gegenläufiges tatsächliches Handeln, ohne das erwartete Ereignis als eingetreten zu behaupten.'),('조금만 더 기다리면 소식이 오련마는 그는 자리를 떴다.','소식 가능성과 실제 떠남의 대비','소식이 실제 도착했음 확정'),('다시 읽으면 뜻이 보이련마는 그는 책을 덮었다.','이해 가능성과 실제 읽기 중단','뜻을 완전히 이해했다는 보고')),
+      ('G6:-으리라고',loc('다른 사람의 예측·의지를 인용합니다. 믿는 주체와 인용하는 주체의 보증 책임을 나누어요.','Quote someone’s prediction or resolve. Separate the believer’s commitment from the reporter’s guarantee.','Zitiere Vorhersage oder Entschluss und trenne die Überzeugung der Figur von einer Gewähr der berichtenden Person.'),('그는 언젠가 진실이 드러나리라고 믿었다. 서술자는 그 믿음을 옮긴다.','그의 미래 믿음 인용','서술자가 진실 규명을 검증 완료'),('그는 기록이 남으리라고 말했다. 실제 보존 결과는 아직 모른다.','그의 예측 발언, 결과 미상','기록 보존 성공 확정')),
+      ('G6:-으리라는',loc('인용한 예측이 명사를 꾸밉니다. 기대를 비판하는 문장에서 기대 내용의 참까지 인정하지 않아요.','A quoted prediction modifies a noun. Criticising an expectation does not endorse its content as true.','Eine zitierte Vorhersage bestimmt ein Nomen. Kritik an einer Erwartung bestätigt deren Inhalt nicht als wahr.'),('문제가 저절로 풀리리라는 기대에는 근거가 없다.','자동 해결 기대의 근거 부족','자동 해결을 검증한 결론'),('모두가 동의하리라는 가정부터 검토해야 한다.','전원 동의 가정의 검토 필요','전원 동의 사실 확정')),
+      ('G6:-던가2',loc('자신의 불확실한 기억을 되짚는 자기 질문입니다. 청자에게 기억을 확인하는 다른 용례와 장면을 구별해요.','A self-directed question searches uncertain memory. Distinguish it from questions checking a listener’s recollection.','Eine Selbstfrage sucht unsichere Erinnerung. Unterscheide sie von Rückfragen nach der Erinnerung anderer.'),('[혼잣말] 내가 그 자료를 어디에 두었던가? 아무에게도 답을 요구하지 않았다.','자기 기억 탐색','청자에게 자료 위치 보고 명령'),('[혼잣말] 내가 그때 무슨 말을 했던가? 정확한 말은 떠오르지 않았다.','자기 발언 기억이 불확실함','그때 아무 말도 하지 않았음 확정')),
+      ('G6:-는가2',loc('핵심 문제를 제기하는 수사 의문은 뒤의 논증과 함께 읽어요. 모든 같은 종결형이 수사 질문인 것은 아닙니다.','Read a rhetorical problem-posing question with the argument that follows. Not every identical ending is rhetorical.','Lies eine rhetorische Problemfrage mit der folgenden Argumentation. Nicht jedes gleichlautende Satzende ist rhetorisch.'),('과연 그것만으로 충분한가? 이 질문은 근거의 부족을 문제 삼는다.','충분성에 대한 문제 제기','이미 충분함이 검증됨'),('우리는 무엇을 근거로 판단하는가? 글은 이어 근거 기준을 논한다.','판단 근거를 중심 논점으로 제시','청자의 개인정보를 즉시 요구')),
+      ('G6:-라2',loc('예스러운 평서 종결형으로 사실을 설명합니다. 명령형 -라와 같게 읽지 않고 현대 평서문으로 풉니다.','An archaic declarative ending explains a fact. Distinguish imperative 라 and recast as a modern statement.','Ein altertümliches Aussagesatzende erklärt einen Sachverhalt. Unterscheide imperatives 라 und formuliere als moderne Aussage.'),('이는 모두 지나간 일이라. 화자는 과거 일이라고 설명했다.','지나간 일이라는 평서','앞으로 일을 실행하라는 명령'),('그것은 아직 정해진 바가 아니라. 화자는 미결이라고 설명했다.','아직 결정되지 않았다는 평서','지금 반드시 정하라는 명령')),
+      ('G6:-으니4',loc('기본 기능은 아주낮춤 질문입니다. 이 연극 장면에서는 뒤의 설명이 나무람을 명시해요. 모든 -으니 질문을 비난으로 분류하지 않습니다.','Its basic function is a very familiar question. In this play, the follow-up explicitly marks reproach; not every 으니 question is accusatory.','Grundfunktion ist eine stark vertrauliche Frage. Im Stück kennzeichnet die Folgeäußerung ausdrücklich Tadel; nicht jede 으니-Frage ist vorwurfsvoll.'),('[반말에 합의한 성인 친구의 연극 대사] 어쩌면 그렇게 참을성이 없으니? 지금은 네 행동을 나무라는 말이야.','뒤 발화가 명시한 행동 질책','으니 질문은 언제나 객관적 진단'),('[반말에 합의한 성인 친구의 연극 대사] 확인도 안 했는데 무슨 말이 그렇게 많으니? 확인 없이 단정한 행동을 지적하는 거야.','확인 없는 단정에 관한 질책','상대의 모든 발언을 영구 금지')),
+      ('G5:-는 듯하다',loc('제한된 단서에 따른 해석을 제시합니다. 수사적 확신과 달리 보이는 근거와 유보를 유지해요.','Offer an interpretation based on limited cues, preserving evidence and reservation rather than rhetorical certainty.','Äußere eine Deutung aus begrenzten Hinweisen und erhalte Beleg und Vorbehalt statt rhetorischer Gewissheit.'),('이 대목은 앞선 판단을 유보하는 듯하다. 마지막 문장의 단서를 근거로 한 해석이다.','단서에 근거한 잠정 해석','화자의 모든 판단을 완전히 부정한 사실'),('이 표현은 결론을 열어 두는 듯하다. 다른 읽기도 가능하다.','열린 결론이라는 잠정 읽기','열린 결론의 유일 해석 확정')),
+    ]
+    tasks=[grammar_task('KP29',i,*r) for i,r in enumerate(rows,1)]
+    prod=[
+      ('G6:-으리라',('문학적 기대 / 언젠가 이 차이 이해 / 이해하리라','언젠가는 이 차이를 이해하리라.','이미 이 차이의 이해를 검증했다.'),('자기 보존 결의 / 나 끝까지 기록 지키다 / 지키리라','나는 끝까지 기록을 지키리라.','모든 동료는 내 기록을 지켜야 한다.')),
+      ('G6:-으리오',('쉽게 알 수 없다는 혼잣말 반문 / 그 마음 누가 쉽게 알다 / 알리오','그 마음을 누가 쉽게 알리오.','그 마음을 아는 사람 명단을 제출하세요.'),('자신도 안다는 혼잣말 반문 / 이 사정 어찌 모르다 / 모르리오','이 사정을 어찌 모르리오.','나는 이 사정을 전혀 모른다.')),
+      ('G6:-으련마는',('더 기다리면 소식 가능 / 그는 떠남 / 오련마는','조금만 더 기다리면 소식이 오련마는 그는 자리를 떴다.','소식이 실제로 온 뒤 그는 떠났다.'),('다시 읽으면 뜻 이해 가능 / 그는 책 덮음 / 보이련마는','다시 읽으면 뜻이 보이련마는 그는 책을 덮었다.','뜻을 완전히 이해하고 책을 덮었다.')),
+      ('G6:-으리라고',('그의 미래 믿음 / 언젠가 진실 드러남 / 드러나리라고 믿었다','그는 언젠가 진실이 드러나리라고 믿었다.','진실이 이미 드러났음을 서술자가 검증했다.'),('그의 예측 발언 / 기록 남음 / 남으리라고 말했다','그는 기록이 남으리라고 말했다.','기록이 모두 보존되었음이 확인되었다.')),
+      ('G6:-으리라는',('문제 저절로 풀릴 기대 / 근거 없음 / 풀리리라는','문제가 저절로 풀리리라는 기대에는 근거가 없다.','문제가 저절로 풀릴 것이 입증되었다.'),('모두 동의 가정 / 먼저 검토 필요 / 동의하리라는','모두가 동의하리라는 가정부터 검토해야 한다.','모두의 동의가 이미 확정되었다.')),
+      ('G6:-던가2',('혼잣말 자기 기억 / 내가 그 자료 어디 둠 / 두었던가','내가 그 자료를 어디에 두었던가?','당신은 자료 위치를 즉시 보고하세요.'),('혼잣말 자기 발언 기억 / 내가 그때 무슨 말 함 / 했던가','내가 그때 무슨 말을 했던가?','나는 그때 아무 말도 하지 않았다.')),
+      ('G6:-는가2',('근거 충분성 문제 제기 / 과연 그것만으로 충분 / 충분한가','과연 그것만으로 충분한가?','그것만으로 충분함이 검증되었다.'),('논점 제기 / 우리 무엇 근거로 판단 / 판단하는가','우리는 무엇을 근거로 판단하는가?','당신의 개인정보를 제출하라.')),
+      ('G6:-라2',('예스러운 평서 / 이는 모두 지나간 일 / 일이라','이는 모두 지나간 일이라.','이 일을 앞으로 실행하라.'),('예스러운 평서 / 그것 아직 정해진 바 아님 / 아니라','그것은 아직 정해진 바가 아니라.','그것을 지금 정하라.')),
+      ('G6:-으니4',('연극 속 반말 친구 질책 대사만 재현 / 어쩌면 그렇게 참을성 없다 / 없으니','어쩌면 그렇게 참을성이 없으니?','상대에게 참을성이 항상 충분함이 확인되었다.'),('연극 속 행동 질책 대사만 재현 / 확인 안 했는데 무슨 말 그렇게 많다 / 많으니','확인도 안 했는데 무슨 말이 그렇게 많으니?','앞으로 모든 발언을 영원히 금지한다.')),
+      ('G5:-는 듯하다',('마지막 문장 단서 근거 잠정 해석 / 이 대목 앞선 판단 유보 / 유보하는 듯하다','이 대목은 앞선 판단을 유보하는 듯하다.','이 대목은 모든 판단을 확정적으로 부정한다.'),('다른 읽기 남긴 잠정 해석 / 이 표현 결론 열어 둠 / 두는 듯하다','이 표현은 결론을 열어 두는 듯하다.','이 표현의 유일한 해석이 검증되었다.')),
+    ]
+    tasks+=production('KP29',tasks,prod)
+    h=loc('목소리의 주체와 질문의 수신자를 찾으세요. 예측·인용된 기대·자기 질문·문제 제기·질책을 뒤 발화와 장르로 구별합니다. 강한 문체가 실제 근거를 늘리지는 않아요.','Identify whose voice speaks and who is asked. Distinguish prediction, quoted expectation, self-question, problem-posing and reproach through genre and subsequent discourse. Strong style adds no factual evidence.','Bestimme sprechende Stimme und Frageadressat. Trenne Prognose, zitierte Erwartung, Selbstfrage, Problemstellung und Tadel anhand von Genre und Folgeäußerungen. Nachdrücklicher Stil schafft keine zusätzlichen Belege.')
+    p=('가람기억실',12,3,9)
+    a=('솔빛문헌실',16,4,12)
+    def monologue(args):
+        text=f'''[창작 독백: {args[0]}의 문턱. 연기자가 서술자의 목소리를 읽는다.]
+나는 문턱에 서서 혼잣말한다. 내가 그 자료를 어디에 두었던가? 여기에는 답할 청중을 부르지 않았다. 기억이 불확실할 뿐, 자료가 영원히 사라졌다는 사실까지 확인한 것은 아니다.
+그 마음을 누가 쉽게 알리오. 쉽게 알 수 없다는 반문이다. 그렇다고 아무런 해석도 할 수 없다고 말한 것은 아니다. 나는 단정의 속도를 늦추려 한다. 이는 모두 지나간 일이라. 이 예스러운 평서는 지나간 일을 설명하며 누구에게 무엇을 하라고 명령하지 않는다.
+그는 언젠가 진실이 드러나리라고 믿었다. 그라는 인물의 기대를 나는 옮긴다. 서술자가 진실의 규명을 검증했다는 말은 아니다. 문제가 저절로 풀리리라는 기대에는 근거가 없다. 한 기대를 인용하고 그 근거를 문제 삼는 문장이다.
+조금만 더 기다리면 소식이 오련마는 그는 자리를 떴다. 소식이 실제 도착했는지는 이 작품에 없다. 언젠가는 이 차이를 이해하리라. 이것은 현재 화자의 미래 기대이며 결과 보고가 아니다. 결말은 열려 있다.
+[연극 속 별도 대화: 반말에 합의한 동등한 성인 친구]
+친구 하나: 어쩌면 그렇게 참을성이 없으니? 지금은 네 행동을 나무라는 말이야.
+친구 둘: 내 모든 성격을 정한 것처럼 들려. 어떤 행동이 문제였는지 말해 줄래?
+친구 하나: 확인 전에 결론부터 말한 행동을 지적한 거야. 사람 전체를 단정하는 표현은 고칠게.
+[낭독 비교 지시]
+독백의 -으리오와 자기 질문은 실제 청자의 응답을 기다리는 정보 질문과 다르다. 연극 대사의 나무람은 뒤 설명으로 확인된다. 목소리만으로 모든 종결형을 동일하게 분류하지 않는다.'''
+        if args[0] == '솔빛문헌실':
+            text=text.replace('내가 그 자료를 어디에 두었던가?', '내가 그때 무슨 말을 했던가?').replace('자료가 영원히 사라졌다는 사실', '아무 말도 하지 않았다는 사실')
+            text=text.replace('그는 언젠가 진실이 드러나리라고 믿었다.', '그는 기록이 남으리라고 믿었다.').replace('진실의 규명을 검증했다', '기록의 보존을 검증했다')
+            text=text.replace('조금만 더 기다리면 소식이 오련마는 그는 자리를 떴다. 소식이 실제 도착했는지는 이 작품에 없다.', '다시 읽으면 뜻이 보이련마는 그는 책을 덮었다. 뜻을 실제 이해했는지는 이 작품에 없다.')
+        return text
+    def listen(args):
+        return packet(monologue(args),[
+          choice('self',loc('기억을 더듬는 질문의 수신자는?','Who is addressed by the memory question?','An wen richtet sich die Erinnerungsfrage?'),['혼잣말하는 자신','즉시 보고 의무를 받은 청중'],h),
+          choice('rhetoric',loc('누가 쉽게 알리오가 직접 뜻하는 것은?','What does the rhetorical question directly convey?','Was drückt die rhetorische Frage unmittelbar aus?'),['쉽게 단정할 수 없음','모든 해석이 영원히 불가능'],h),
+          choice('quotation',loc('예측을 믿었다는 인용의 주체는?','Whose belief is reported?','Wessen Überzeugung wird wiedergegeben?'),['그라는 인물의 기대, 서술자 검증 아님','서술자가 확인한 규명 결과'],h),
+          choice('forecast',loc('예측과 대조되는 확인된 사건은?','Which event is established in the contrast?','Welches Ereignis steht im Gegensatz fest?'),(['그가 떠남, 소식 도착 여부 미상','소식이 반드시 도착함'] if args[0]=='가람기억실' else ['그가 책을 덮음, 이해 여부 미상','뜻을 완전히 이해함']),h),
+          choice('declarative',loc('일이라의 기능은?','What is the function of 일이라?','Welche Funktion hat 일이라?'),['예스러운 평서','새 행동 명령'],h),
+          choice('reproach',loc('없으니의 나무람 근거는?','What establishes reproach in 없으니?','Was belegt den Tadel bei 없으니?'),['뒤에 명시한 행동 지적','모든 으니 질문의 고정 의미'],h),
+        ],'audio')
+    tasks.append(task('KP29','listening:01','listening',loc('독백·예측 인용·질책의 목소리','Voices of monologue, quoted prediction and reproach','Stimmen von Monolog, zitierter Prognose und Tadel'),h,listen(p),listen(a)))
+    def lecture(args):
+        name,total,excluded,remaining=args
+        text=f'''[가상 학술 강연: {name}의 문장 해석]
+오늘의 논점은 강한 문학적 목소리와 확인 근거를 구별하는 것입니다. 과연 그것만으로 충분한가? 이 질문으로 문제를 제기한 뒤 근거의 기준을 논하겠습니다. 이는 지금 청중에게 정답을 외치라고 요구하는 발언이 아닙니다.
+자료는 창작 단락의 시험 표지 {total}개입니다. 같은 위치의 중복 표지 {excluded}개를 제외하고 {remaining}개를 남겼습니다. 표지 개수는 해석의 정확도나 현대 한국어 전체의 빈도를 나타내지 않습니다. 서술자·인물·인용자의 책임을 각각 표시하고, 실제 응답이 이어지는지 확인하는 방법을 썼습니다.
+여기서 정보 질문 하나를 드리겠습니다. 여러분이 받은 발췌문에는 실제 소식 도착이 적혀 있습니까? 청중 응답: 아니요, 떠났다는 말만 있습니다. 감사합니다. 방금 질문은 청중이 자료를 확인해 답하도록 한 것입니다. 앞의 충분성 질문과 독백 속 두었던가는 같은 의문 표지로 모두 묶을 수 없습니다.
+해석 A는 마지막 미래 기대가 확신을 강화한다고 봅니다. 해석 B는 그 앞에 놓인 근거 부족과 미상 결과가 비평적 거리를 남긴다고 봅니다. 둘 다 텍스트 근거가 있으며, 어느 쪽이 모든 독자의 반응을 설명하는지는 조사하지 않았습니다. 이 표현은 결론을 열어 두는 듯하다는 잠정 해석은 무지나 전면 부정과 다릅니다.
+결론으로 문체를 현대적으로 풀 때 주장·출처·예측 강도와 남은 단서를 유지해야 합니다. 전문어를 줄이는 일은 의미를 줄이는 일과 다릅니다. 새로운 자료가 있으면 판단을 조정할 수 있지만 현재 수치만으로 유일한 해석이 검증되었다고 말할 수는 없습니다.'''
+        if name == '솔빛문헌실':
+            text=text.replace('실제 소식 도착', '실제 뜻 이해').replace('떠났다는 말', '책을 덮었다는 말').replace('두었던가', '했던가')
+        return text
+    def academic_listen(args):
+        return packet(lecture(args),[
+          choice('response',loc('실제 청중 응답을 요구한 질문은?','Which question actually invites an audience answer?','Welche Frage erwartet eine Antwort des Publikums?'),(['발췌문에 소식 도착이 적혔는지 확인','독백 속 내가 어디 두었던가'] if args[0]=='가람기억실' else ['발췌문에 실제 뜻 이해가 적혔는지 확인','독백 속 내가 무슨 말을 했던가']),h),
+          choice('method',loc('표지 수치의 의미는?','What do the marker counts mean?','Was bedeuten die Markierungszahlen?'),[f'중복 제외 {args[3]}개, 해당 시험 자료 범위','한국어 전체 용례 빈도와 해석 정확도'],h),
+          choice('withholding',loc('해석 유보의 이유는?','Why is judgement withheld?','Warum bleibt das Urteil vorbehalten?'),['상반된 근거와 독자 반응 조사 부재','아무 근거도 없고 모든 해석이 거짓'],h),
+          choice('structure',loc('강연의 논지 흐름은?','How does the lecture develop?','Wie entwickelt sich die Argumentation?'),['문제 제기 → 자료·방법 → 실제 질문 → 상반 해석 → 재서술 조건','모든 의문형을 정보 질문으로 확정'],h),
+        ],'audio')
+    tasks.append(task('KP29','listening:02','listening',loc('학술 질문과 독백 질문의 응답 비교','Compare responses to academic and private questions','Antworten auf fachliche Fragen und Selbstfragen vergleichen'),h,academic_listen(p),academic_listen(a)))
+    dictionary='''[국립국어원 한국어기초사전 설명과 이 자료의 용례 비교 — 설명은 요약, 예문은 별도 창작]
+-으리오: 불가능을 반문으로 강조하며, 사용 참고에 구어 혼잣말도 제시된다. 문학 전용이라는 뜻은 아니다. 출처: https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=79283
+-라2: 옛 말투의 평서형이다. 같은 표기의 명령형과 구별한다. 출처: https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=79275
+-으니4: 아주낮춤의 질문형이다. 질책은 이 과제의 후속 대사가 제공하는 문맥 기능이다. 출처: https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=80851
+위 설명과 창작 용례를 비교해 기본 기능과 이번 장면의 기능을 따로 적는다. 한 장면의 말투를 현대 일상 전체의 사용 빈도로 일반화하지 않는다.'''
+    def literary_read(args):
+        return packet(monologue(args)+'\n'+dictionary,[
+          choice('dictionary',loc('사전 참고와 어긋나는 일반화는?','Which generalisation contradicts the dictionary note?','Welche Verallgemeinerung widerspricht dem Wörterbuchhinweis?'),['으리오는 문학에만 쓰인다','이 독백에서 반문으로 쓰였다'],h),
+          choice('function',loc('으니4의 기본 기능과 이번 장면 기능은?','What are 으니4’s basic and contextual functions?','Was sind Grund- und Kontextfunktion von 으니4?'),['질문 / 후속 대사로 확인되는 나무람','모든 문맥에서 인격 비난'],h),
+          choice('modern',loc('이는 모두 지나간 일이라의 현대 평서는?','What modern statement preserves the archaic line?','Welche moderne Aussage erhält den altertümlichen Satz?'),['이것은 모두 지나간 일이다','이 일을 앞으로 실행하라'],h),
+          choice('position',loc('그의 믿음과 서술자의 위치는?','How do character belief and narrator position differ?','Wie unterscheiden sich Figurenüberzeugung und Erzählerposition?'),['기대를 옮김, 규명 결과는 보증하지 않음','인용하면 서술자가 사실을 자동 인증'],h),
+          choice('distribution',loc('이번 용례가 보여 주지 못하는 것은?','What does this example not establish?','Was belegt dieses Beispiel nicht?'),['현대 한국어 전체의 용례 분포','이 장면의 말과 뒤 설명'],h),
+        ])
+    tasks.append(task('KP29','reading:01','reading',loc('사전 설명과 실제 문학 용례의 거리','Dictionary descriptions and literary examples','Wörterbuchbeschreibung und literarische Verwendung'),h,literary_read(p),literary_read(a)))
+    def specialised(args):
+        return lecture(args)+'''\n[전문 논평 A]
+문학적 예측의 강도를 기준으로 보면 마지막 이해하리라는 확신을 드러내는 목소리다. 앞의 기대가 확인되지 않은 장면과 대비되어 결말에 전진하는 힘을 준다는 해석이 가능하다. 그러나 이것은 문체 효과의 평가이며 미래 이해의 실제 성공을 입증하는 결과가 아니다.
+[전문 논평 B]
+출처와 단서의 유지에 무게를 두면, 인물의 기대가 인용되고 예측된 결과가 끝내 확인되지 않는 구조가 두드러진다. 결말의 예측에도 비평적 거리가 남는다는 해석이 설득력을 얻을 수 있다. A의 확신 효과를 부정할 필요는 없지만 그것만으로 모든 의문이 해소되었다고 할 수는 없다.
+[대중 비평 초안 — 검토 대상]
+학자들이 미래의 진실 규명을 입증했다. 독백의 질문은 모든 독자에게 답변 의무를 준다.
+[재서술 메모]
+이 초안은 문학적 목소리를 실제 사실 보증으로, 자기 질문을 청자의 의무로 바꾸었다. 낯선 종결형을 쉬운 말로 풀어도 인용의 주체와 예측, 다른 해석의 여지를 남겨야 한다. 시대적 맥락이나 관습적 표현을 설명하면 시야를 넓힐 수 있지만 작품에 없는 시대와 작가 이력을 새로 만들어서는 안 된다.'''
+    def specialist_read(args):
+        return packet(specialised(args),[
+          choice('criteria',loc('두 논평의 평가 기준 차이는?','How do the commentaries’ criteria differ?','Wie unterscheiden sich die Bewertungskriterien?'),['확신의 목소리 / 출처와 단서 유지','진실 규명 성공 / 거짓말 적발'],h),
+          choice('counter',loc('B가 A에 대해 인정하는 것은?','What does B concede to A?','Was gesteht B A zu?'),['확신 효과 가능성, 모든 의문 해소는 아님','A에 아무 근거도 없음'],h),
+          choice('source',loc('대중 비평 초안의 첫 오류는?','What is the public draft’s first error?','Was ist der erste Fehler des öffentlichen Entwurfs?'),['문학적 예측을 실제 규명 결과로 승격','전문 용어만 쉬운 말로 변경'],h),
+          choice('audience',loc('자기 질문을 바꿀 때 지켜야 할 것은?','What must recasting a self-question preserve?','Was muss die Umformulierung einer Selbstfrage erhalten?'),['청중 답변 의무를 새로 만들지 않음','모든 독자에게 즉시 답변 강제'],h),
+          choice('limits',loc('자료 수치에서 유보할 결론은?','Which conclusion must remain unverified by the counts?','Welcher Schluss bleibt durch die Zahlen unbelegt?'),['유일 해석의 정확도와 전원 독자 반응','표지의 중복 제외 건수'],h),
+        ])
+    tasks.append(task('KP29','reading:02','reading',loc('상반된 전문 해석과 대중 비평의 과잉','Competing commentaries and public overstatement','Gegenläufige Fachdeutungen und öffentliche Übertreibung'),h,specialist_read(p),specialist_read(a)))
+    rubric=loc('동일한 논지를 세 글로 쓰세요. 첫째 주장·시험 자료·중복 제외 방법·남은 수치·해석 한계를 가진 절제된 전문 요약문입니다. 둘째 수사적 질문을 활용한 논설문으로, A의 확신 효과와 B의 거리 효과를 공정하게 소개하고 가장 강한 반론에 답합니다. 셋째 대중 독자용 비평으로 전문어를 줄이되 인용 주체·예측 강도·미상 결과·대안 읽기를 복원합니다. 각 글에 자기 질문과 청중 질문의 차이를 보존하고 말투 변경이 만드는 효과를 구체 문장으로 설명하세요. 사전 요약의 기본 기능과 이번 용례의 기능을 비교하고 모든 으니를 비난, 모든 라를 명령으로 만든 초안을 고칩니다. 작품의 실제 시대·작가 이력·독자 반응은 미상입니다. 원문과 대조해 주장·근거·확신이 과장된 곳을 다시 쓰세요. 자유 논증·문체 효과는 미채점입니다.',
+      'Express the same argument in three complete texts. First write a restrained specialist summary with claim, test material, duplicate-removal method, remaining counts and interpretive limits. Second write a rhetorical essay fairly presenting A’s confidence effect and B’s distancing effect and answering the strongest objection. Third recast for public readers, reducing terminology while restoring quoted speakers, predictive force, unknown outcomes and alternative readings. Preserve self-question versus audience question and explain stylistic changes through specific sentences. Compare basic dictionary functions with these examples and repair drafts treating all 으니 as blame and all 라 as commands. The work’s actual period, author biography and audience response remain unknown. Revise exaggerated claims, grounds and confidence against sources. Argument and stylistic effects remain unscored.',
+      'Formuliere denselben Gedankengang in drei vollständigen Texten. Schreibe zuerst eine zurückhaltende Fachzusammenfassung mit These, Versuchsmaterial, Dublettenmethode, Restzahlen und Deutungsgrenzen. Schreibe zweitens eine rhetorische Erörterung mit fairer Darstellung von As Gewissheits- und Bs Distanzeffekt und Antwort auf den stärksten Einwand. Formuliere drittens für ein breites Publikum um: weniger Fachwörter, aber erhaltene zitierte Stimmen, Prognosestärke, unbekannte Ergebnisse und Alternativlesarten. Trenne Selbst- und Publikumsfragen und erläutere Stiländerungen an konkreten Sätzen. Vergleiche Wörterbuchgrundfunktionen mit diesen Beispielen und korrigiere pauschales 으니 als Vorwurf und 라 als Befehl. Tatsächliche Epoche, Autorenbiografie und Publikumsreaktion bleiben unbekannt. Überarbeite übersteigerte Thesen, Belege und Gewissheit anhand der Quellen. Argumentation und Stilwirkung bleiben unbewertet.')
+    def writing(args):
+        return packet(specialised(args)+'\n'+monologue(args)+'\n'+dictionary,[
+          free_text('specialist',loc('절제된 전문 요약문','Restrained specialist summary','Zurückhaltende Fachzusammenfassung'),rubric),
+          free_text('rhetorical',loc('반론을 갖춘 수사적 논설문','Rhetorical essay with an objection','Rhetorische Erörterung mit Einwand'),rubric),
+          free_text('public',loc('대중 비평과 문체 효과 설명','Public critique and explanation of style','Öffentliche Kritik mit Stilkommentar'),rubric),
+        ],'form')
+    tasks.append(task('KP29','writing:01','writing',loc('전문 글·수사 논설·대중 비평','Specialist prose, rhetorical essay and public critique','Fachtext, rhetorische Erörterung und öffentliche Kritik'),rubric,writing(p),writing(a)))
+    speech=loc('공적 청중에게 합쇼체로 두 전문 해석을 근거와 함께 소개하고 판단을 유보하는 이유를 설명하세요. 비전문 동료에게는 같은 내용을 해요체로 바꾸어 질문과 주장, 자기 질문과 실제 청중 응답 요청을 구별합니다. 청중 동의를 미리 가정하지 말고 해석 유보를 전면 부정으로 바꾸지 않아요. 같은 단락의 -으리오·-는가·-으니를 장르와 후속 발화에 맞춰 녹음·재생하고, 모든 질문을 같은 상승 억양이나 비난으로 처리한 부분을 수정합니다. 연극의 나무람은 일상 동료에게 권장하는 기본 말투가 아닙니다. 모어가 다른 동료에게 한국어로 예측 인용을 사실 보증으로, 자기 질문을 청자의 의무로 바꾼 오류를 설명하세요. 미상 결과와 원래 화행을 지켜 다시 말합니다. 의미·낭독 효과는 미채점입니다.',
+      'Formally present both specialist readings with evidence to a public audience and justify withholding judgement. Recast politely for a non-specialist peer, distinguishing questions from claims and self-questions from real audience requests. Do not presume agreement or turn reservation into total denial. Record and replay 으리오, 는가 and 으니 in the paragraph according to genre and follow-up; revise automatic rising intonation or blame assigned to every question. The play’s reproach is not the default recommended tone to colleagues. In Korean explain to a colleague with another first language errors upgrading quoted predictions to guarantees and self-questions to listener duties. Rephrase with unknown outcomes and original speech acts intact. Meaning and delivery effects remain unscored.',
+      'Stelle einem öffentlichen Publikum beide Fachdeutungen förmlich mit Belegen vor und begründe dein vorbehaltenes Urteil. Formuliere für eine fachfremde Person höflich um und trenne Fragen von Behauptungen sowie Selbstfragen von tatsächlichen Publikumsfragen. Setze Zustimmung nicht voraus und mache Vorbehalt nicht zur Totalverneinung. Nimm 으리오, 는가 und 으니 passend zu Genre und Folgeäußerung auf und höre sie an; verbessere pauschal steigende Intonation oder Vorwürfe bei jeder Frage. Der Tadel im Stück ist kein empfohlener Standardton unter Kollegen. Erkläre einer Person anderer Erstsprache auf Koreanisch Fehler, die zitierte Prognosen zu Garantien und Selbstfragen zu Hörerpflichten machen. Formuliere mit offenen Ergebnissen und erhaltenen Sprechakten erneut. Bedeutung und Vortragswirkung bleiben unbewertet.')
+    tasks.append(task('KP29','speaking:01','speaking',loc('판단 유보와 청중에 맞는 목소리','Withheld judgement and audience-sensitive voice','Vorbehaltenes Urteil und publikumsbezogene Stimme'),speech,packet(specialised(p)+'\n'+monologue(p),[]),packet(specialised(a)+'\n'+monologue(a),[])))
+    return tasks
+
+
+if __name__=='__main__':
+    write_source('KP29',kp29())

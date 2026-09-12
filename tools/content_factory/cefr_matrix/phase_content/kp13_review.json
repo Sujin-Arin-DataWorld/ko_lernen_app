@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP13:grammar:01",
+      "sha256": "cb8f66229558d98e0392b42ab5a31d8414bf20e58c7fb8993bad43d49ebfd578",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Direct quotation preserves original speaker and words, not reporter observation. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:01",
+      "sha256": "2a310b30bf49debf2227d5141650d4573fb0f53f3a38d4c9ed8c1ce732287226",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Direct quotation preserves original speaker and words, not reporter observation. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:02",
+      "sha256": "c2e7c3f8666c5533dfd690f9dbe28ee5cfa0084ff2d1911c80c7a4e78aa8acf5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:02",
+      "sha256": "51742df13e797a9abf143b1560ad16a896c67df433a3cac0f2221f5ffb475d00",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:03",
+      "sha256": "9a68b181d4aa08e6f799d7e2c9f9d28bcb32cb982141c0f32ca43838762d1c37",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:03",
+      "sha256": "d076e876479ebfcf3975d9c5ab3526747f52c0bd2fe09580cdbe8b6be9266b53",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:04",
+      "sha256": "59359b11652161e1f8aab1aaabf79def8307d699b0d9403af8dd3f972103ef84",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Examples of multiple reported statements, no false universal attribution to each participant. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:04",
+      "sha256": "1616634c8fbf8a60658035a430bb3f52dcdaef53962ec6941034811d644ce805",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Examples of multiple reported statements, no false universal attribution to each participant. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:05",
+      "sha256": "d74a4a15627b69c42b15d79dc4bbddcb5f4a34a9ac8ddc24ffe279af45920db3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:05",
+      "sha256": "9767724a8e2873c09a350ebad9e4761c69992f3cfb425967f716b9d95ed6b676",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:06",
+      "sha256": "d3b82ddd7c4efa26457231167c105faec9d949c682f9973635fcc9b8707c7ddc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Information source from institution, not sending direction reversed. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:06",
+      "sha256": "5efba9cf6a4d65b3ce01ce14f510468362206c699f109c017565b6dd4af2f5b0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Information source from institution, not sending direction reversed. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:07",
+      "sha256": "5bc2b04720467389529eb6c6f61b45de8a8318a74d41b7a92c8fe9a50410c5dc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Final explanatory 거든2, not conditional connective 거든1. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:07",
+      "sha256": "053d3e2319ef778b93c52deaca693e89a8be175318f1c05fc0d83bae102e5ce9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Final explanatory 거든2, not conditional connective 거든1. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:08",
+      "sha256": "76b3ff2d0f58d8c72a522e86f36abe1ba080a2160f9907869c94f0cfe29be85a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:08",
+      "sha256": "0810c431c55d155cd5a14f70284e3e0a3c3f648d408326d1ce87a80305c523ad",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:09",
+      "sha256": "2eb29dd7ad44342fd6568ff97641b3790b9183cec336594786e94d16d27a08b1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Circumstantial inference from lights/bag, not direct departure observation. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:09",
+      "sha256": "4d7e7320a76613c3037011f7a593bad435322810213461e5d77ed4260e952596",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Circumstantial inference from lights/bag, not direct departure observation. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:10",
+      "sha256": "3ffa5b73406887d301daf5ac9e103d3bf1dc3195ed887a1ef73056ae2935258e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Inference from absent reply/exiting people, not direct answer or official end notice. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:10",
+      "sha256": "9b9957f770b6a2d94f8e23addbf8f2b4f65dc956645daa37827d90edd8f45232",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Inference from absent reply/exiting people, not direct answer or official end notice. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:11",
+      "sha256": "171d58be6562bf16c93a2cc17e1686409d606d497be84af50cf4277b6711c682",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:11",
+      "sha256": "e8449ab9eada66922374d1f80ac7bec6d9a6838a58db10197bff90a3f5a53438",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:12",
+      "sha256": "8139df8a00a60056cd3a1cb1402239a202adac965d889f75c0faf9f491802697",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Expected background plus tentative suggestion, not completed observation/action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:12",
+      "sha256": "5a909f010a210260af407e817ef5333a97b16ada33fc029da4d5a61d75779607",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Expected background plus tentative suggestion, not completed observation/action. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:13",
+      "sha256": "dfb8022b1e7242b201c01324a2224a187b1beb139dfd453b52701618ec0498a4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP13:production:13",
+      "sha256": "1fd999047ad68bbd8a6d32179bfa7a3e813cc09fe7cb811a0f6cbba6467472e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:listening:01",
+      "sha256": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria."
+    },
+    {
+      "taskId": "KP13:reading:01",
+      "sha256": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference."
+    },
+    {
+      "taskId": "KP13:reading:02",
+      "sha256": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote."
+    },
+    {
+      "taskId": "KP13:writing:01",
+      "sha256": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored."
+    },
+    {
+      "taskId": "KP13:speaking:01",
+      "sha256": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored."
+    },
+    {
+      "taskId": "KP13:speaking:02",
+      "sha256": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored."
+    }
+  ]
+}

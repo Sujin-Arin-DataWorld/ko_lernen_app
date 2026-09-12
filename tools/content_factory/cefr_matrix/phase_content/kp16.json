@@ -1,0 +1,3071 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP16",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP16:grammar:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:01",
+      "requirementKeys": [
+        "G4:-는다면1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다면1",
+        "en": "-는다면1",
+        "de": "-는다면1"
+      },
+      "teaching": {
+        "ko": "조건을 가정해 뒤 가능성을 검토해요. 형태만으로 현실성이나 실현 여부가 정해지지 않으므로 자료에 적힌 실제 조건과 상상을 구별해요.",
+        "en": "Consider a possibility under an assumed condition. The form alone does not determine whether it is realistic or fulfilled; use the stated context.",
+        "de": "Prüfe eine Möglichkeit unter einer angenommenen Bedingung. Die Form allein bestimmt weder Realitätsnähe noch Erfüllung; beachte den angegebenen Kontext."
+      },
+      "examplesKo": [
+        "아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지원 증가와 전원 참여가 이미 확정됨"
+              },
+              {
+                "id": "0",
+                "text": "지원 증가를 가정한 가능성, 아직 미정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건을 가정해 뒤 가능성을 검토해요. 형태만으로 현실성이나 실현 여부가 정해지지 않으므로 자료에 적힌 실제 조건과 상상을 구별해요.",
+              "en": "Consider a possibility under an assumed condition. The form alone does not determine whether it is realistic or fulfilled; use the stated context.",
+              "de": "Prüfe eine Möglichkeit unter einer angenommenen Bedingung. Die Form allein bestimmt weder Realitätsnähe noch Erfüllung; beachte den angegebenen Kontext."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "현재 추가 공간은 없습니다. 방이 하나 더 있다면 따로 모일 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "추가 방이 이미 예약돼 있음"
+              },
+              {
+                "id": "0",
+                "text": "현재 없는 추가 공간을 가정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조건을 가정해 뒤 가능성을 검토해요. 형태만으로 현실성이나 실현 여부가 정해지지 않으므로 자료에 적힌 실제 조건과 상상을 구별해요.",
+              "en": "Consider a possibility under an assumed condition. The form alone does not determine whether it is realistic or fulfilled; use the stated context.",
+              "de": "Prüfe eine Möglichkeit unter einer angenommenen Bedingung. Die Form allein bestimmt weder Realitätsnähe noch Erfüllung; beachte den angegebenen Kontext."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:02",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:02",
+      "requirementKeys": [
+        "G4:만 같아도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만 같아도",
+        "en": "만 같아도",
+        "de": "만 같아도"
+      },
+      "teaching": {
+        "ko": "비교 대상을 최소한의 만족 기준으로 삼아요. 지난번과 같기만 해도 좋겠다는 바람을 이번 결과의 확정으로 바꾸지 않아요.",
+        "en": "Treat the comparison as a sufficient minimum. A wish to match last time is not a confirmed current result.",
+        "de": "Setze den Vergleich als ausreichendes Mindestmaß an. Der Wunsch nach einem Ergebnis wie beim letzten Mal ist kein bestätigtes Ergebnis."
+      },
+      "examplesKo": [
+        "지난번만 같아도 충분히 만족하겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지난번만 같아도 충분히 만족하겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지난번 수준이면 만족할 것이라는 기준"
+              },
+              {
+                "id": "1",
+                "text": "지난번보다 반드시 두 배 좋아야만 만족"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "비교 대상을 최소한의 만족 기준으로 삼아요. 지난번과 같기만 해도 좋겠다는 바람을 이번 결과의 확정으로 바꾸지 않아요.",
+              "en": "Treat the comparison as a sufficient minimum. A wish to match last time is not a confirmed current result.",
+              "de": "Setze den Vergleich als ausreichendes Mindestmaß an. Der Wunsch nach einem Ergebnis wie beim letzten Mal ist kein bestätigtes Ergebnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 예시만 같아도 도움이 되겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예시 수준만 되어도 도움이 될 것이라는 기대"
+              },
+              {
+                "id": "1",
+                "text": "이번 결과가 이미 예시와 같다고 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "비교 대상을 최소한의 만족 기준으로 삼아요. 지난번과 같기만 해도 좋겠다는 바람을 이번 결과의 확정으로 바꾸지 않아요.",
+              "en": "Treat the comparison as a sufficient minimum. A wish to match last time is not a confirmed current result.",
+              "de": "Setze den Vergleich als ausreichendes Mindestmaß an. Der Wunsch nach einem Ergebnis wie beim letzten Mal ist kein bestätigtes Ergebnis."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:03",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:03",
+      "requirementKeys": [
+        "G4:-더라도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-더라도",
+        "en": "-더라도",
+        "de": "-더라도"
+      },
+      "teaching": {
+        "ko": "앞 조건을 양보해도 뒤 결론을 유지해요. 시간이 더 걸려도 확인하겠다는 말은 지연 자체를 원한다거나 모든 요청을 수락한다는 뜻이 아니에요.",
+        "en": "Maintain the conclusion even after conceding a condition. Checking despite extra time does not mean wanting delay or accepting every request.",
+        "de": "Halte an der Folgerung trotz zugestandener Bedingung fest. Eine Prüfung trotz Mehrzeit bedeutet weder gewünschten Aufschub noch Zustimmung zu jeder Bitte."
+      },
+      "examplesKo": [
+        "시간이 더 걸리더라도 정확히 확인하겠습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "시간이 더 걸리더라도 정확히 확인하겠습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "시간이 늘어도 정확한 확인은 유지"
+              },
+              {
+                "id": "1",
+                "text": "시간이 늘면 확인을 생략"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건을 양보해도 뒤 결론을 유지해요. 시간이 더 걸려도 확인하겠다는 말은 지연 자체를 원한다거나 모든 요청을 수락한다는 뜻이 아니에요.",
+              "en": "Maintain the conclusion even after conceding a condition. Checking despite extra time does not mean wanting delay or accepting every request.",
+              "de": "Halte an der Folgerung trotz zugestandener Bedingung fest. Eine Prüfung trotz Mehrzeit bedeutet weder gewünschten Aufschub noch Zustimmung zu jeder Bitte."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "비용이 줄더라도 안전 확인은 생략하지 않겠습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "비용이 줄면 확인 의무도 없어짐"
+              },
+              {
+                "id": "0",
+                "text": "비용 감소와 무관하게 안전 확인 유지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건을 양보해도 뒤 결론을 유지해요. 시간이 더 걸려도 확인하겠다는 말은 지연 자체를 원한다거나 모든 요청을 수락한다는 뜻이 아니에요.",
+              "en": "Maintain the conclusion even after conceding a condition. Checking despite extra time does not mean wanting delay or accepting every request.",
+              "de": "Halte an der Folgerung trotz zugestandener Bedingung fest. Eine Prüfung trotz Mehrzeit bedeutet weder gewünschten Aufschub noch Zustimmung zu jeder Bitte."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:04",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:04",
+      "requirementKeys": [
+        "G4:-을래야"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을래야",
+        "en": "-을래야",
+        "de": "-을래야"
+      },
+      "teaching": {
+        "ko": "구어의 도울래야는 이 과제에서 알아듣기만 연습해요. 표준형 도우려야로 고쳐 쓰며, 하려 해도 여건 때문에 못 한다는 뜻을 유지해요.",
+        "en": "Practise recognising colloquial 도울래야 here. For production use the standard 도우려야, retaining inability despite trying or intending to act.",
+        "de": "Übe hier das Verstehen des umgangssprachlichen 도울래야. Verwende beim Schreiben die Standardform 도우려야 und erhalte das Nichtkönnen trotz Absicht oder Versuch."
+      },
+      "examplesKo": [
+        "구어: 시간이 없어서 도울래야 도울 수가 없었어요. 표준형: 시간이 없어서 도우려야 도울 수가 없었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "구어: 시간이 없어서 도울래야 도울 수가 없었어요. 표준형: 시간이 없어서 도우려야 도울 수가 없었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "도울 시간이 충분해 이미 도움을 마침"
+              },
+              {
+                "id": "0",
+                "text": "돕고 싶어도 시간 때문에 돕지 못함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "구어의 도울래야는 이 과제에서 알아듣기만 연습해요. 표준형 도우려야로 고쳐 쓰며, 하려 해도 여건 때문에 못 한다는 뜻을 유지해요.",
+              "en": "Practise recognising colloquial 도울래야 here. For production use the standard 도우려야, retaining inability despite trying or intending to act.",
+              "de": "Übe hier das Verstehen des umgangssprachlichen 도울래야. Verwende beim Schreiben die Standardform 도우려야 und erhalte das Nichtkönnen trotz Absicht oder Versuch."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "구어: 화면이 꺼져서 읽을래야 읽을 수가 없었어요. 표준형: 화면이 꺼져서 읽으려야 읽을 수가 없었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "읽으려 해도 꺼진 화면 때문에 읽지 못함"
+              },
+              {
+                "id": "1",
+                "text": "화면 내용을 이미 모두 읽고 확인함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "구어의 도울래야는 이 과제에서 알아듣기만 연습해요. 표준형 도우려야로 고쳐 쓰며, 하려 해도 여건 때문에 못 한다는 뜻을 유지해요.",
+              "en": "Practise recognising colloquial 도울래야 here. For production use the standard 도우려야, retaining inability despite trying or intending to act.",
+              "de": "Übe hier das Verstehen des umgangssprachlichen 도울래야. Verwende beim Schreiben die Standardform 도우려야 und erhalte das Nichtkönnen trotz Absicht oder Versuch."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:05",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:05",
+      "requirementKeys": [
+        "G4:-든지2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-든지2",
+        "en": "-든지2",
+        "de": "-든지2"
+      },
+      "teaching": {
+        "ko": "행동의 대안을 제시해 상대가 선택하게 해요. 던지의 회상과 구별하고 두 일을 반드시 모두 해야 한다고 늘리지 않아요.",
+        "en": "Offer alternative actions for the listener to choose. Distinguish this from retrospective 던지; do not require both actions.",
+        "de": "Biete Handlungsalternativen zur Wahl. Unterscheide sie vom rückblickenden 던지 und verlange nicht beide Handlungen."
+      },
+      "examplesKo": [
+        "메일을 보내든지 직접 전화해 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "메일을 보내든지 직접 전화해 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메일이나 전화 중 방법 선택"
+              },
+              {
+                "id": "1",
+                "text": "메일과 전화를 반드시 모두 해야 함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동의 대안을 제시해 상대가 선택하게 해요. 던지의 회상과 구별하고 두 일을 반드시 모두 해야 한다고 늘리지 않아요.",
+              "en": "Offer alternative actions for the listener to choose. Distinguish this from retrospective 던지; do not require both actions.",
+              "de": "Biete Handlungsalternativen zur Wahl. Unterscheide sie vom rückblickenden 던지 und verlange nicht beide Handlungen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "여기서 기다리든지 내일 다시 와 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지금 기다리고 내일도 반드시 방문"
+              },
+              {
+                "id": "0",
+                "text": "기다리기와 내일 방문 중 선택"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "행동의 대안을 제시해 상대가 선택하게 해요. 던지의 회상과 구별하고 두 일을 반드시 모두 해야 한다고 늘리지 않아요.",
+              "en": "Offer alternative actions for the listener to choose. Distinguish this from retrospective 던지; do not require both actions.",
+              "de": "Biete Handlungsalternativen zur Wahl. Unterscheide sie vom rückblickenden 던지 und verlange nicht beide Handlungen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:06",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:06",
+      "requirementKeys": [
+        "G4:이든"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이든",
+        "en": "이든",
+        "de": "이든"
+      },
+      "teaching": {
+        "ko": "어느 대상을 고르더라도 뒤 요구는 유지돼요. 방식 선택이 자유롭다는 말이 다른 조건까지 없앤다는 뜻은 아니에요.",
+        "en": "Keep the following requirement whichever option is chosen. Freedom of method does not remove other conditions.",
+        "de": "Erhalte die folgende Anforderung unabhängig von der gewählten Option. Methodenfreiheit hebt andere Bedingungen nicht auf."
+      },
+      "examplesKo": [
+        "어떤 방식이든 먼저 이야기해 봅시다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "어떤 방식이든 먼저 이야기해 봅시다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "방식에 관계없이 먼저 논의"
+              },
+              {
+                "id": "1",
+                "text": "방식을 고르면 논의 없이 바로 시행"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "어느 대상을 고르더라도 뒤 요구는 유지돼요. 방식 선택이 자유롭다는 말이 다른 조건까지 없앤다는 뜻은 아니에요.",
+              "en": "Keep the following requirement whichever option is chosen. Freedom of method does not remove other conditions.",
+              "de": "Erhalte die folgende Anforderung unabhängig von der gewählten Option. Methodenfreiheit hebt andere Bedingungen nicht auf."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "어느 장소이든 출입 조건은 확인해야 합니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "장소를 정하면 모든 출입 조건 면제"
+              },
+              {
+                "id": "0",
+                "text": "어느 장소를 골라도 출입 조건 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "어느 대상을 고르더라도 뒤 요구는 유지돼요. 방식 선택이 자유롭다는 말이 다른 조건까지 없앤다는 뜻은 아니에요.",
+              "en": "Keep the following requirement whichever option is chosen. Freedom of method does not remove other conditions.",
+              "de": "Erhalte die folgende Anforderung unabhängig von der gewählten Option. Methodenfreiheit hebt andere Bedingungen nicht auf."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:07",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:07",
+      "requirementKeys": [
+        "G4:이나마"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이나마",
+        "en": "이나마",
+        "de": "이나마"
+      },
+      "teaching": {
+        "ko": "충분하지 않더라도 있는 도움이나 시간을 긍정적으로 인정해요. 제한된 양을 충분한 전체 지원이나 무제한 약속으로 바꾸지 않아요.",
+        "en": "Value the help or time available even if limited. Do not turn a modest contribution into full support or an unlimited promise.",
+        "de": "Würdige verfügbare Hilfe oder Zeit trotz Begrenzung. Mache aus einem kleinen Beitrag keine vollständige Unterstützung oder unbegrenzte Zusage."
+      },
+      "examplesKo": [
+        "작은 도움이나마 보태고 싶어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "작은 도움이나마 보태고 싶어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "작더라도 도움이 되고 싶은 바람"
+              },
+              {
+                "id": "1",
+                "text": "필요한 지원 전체를 이미 제공함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "충분하지 않더라도 있는 도움이나 시간을 긍정적으로 인정해요. 제한된 양을 충분한 전체 지원이나 무제한 약속으로 바꾸지 않아요.",
+              "en": "Value the help or time available even if limited. Do not turn a modest contribution into full support or an unlimited promise.",
+              "de": "Würdige verfügbare Hilfe oder Zeit trotz Begrenzung. Mache aus einem kleinen Beitrag keine vollständige Unterstützung oder unbegrenzte Zusage."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "짧은 시간이나마 의견을 나눌 수 있어 다행이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "무제한으로 대화 시간을 보장함"
+              },
+              {
+                "id": "0",
+                "text": "짧은 시간의 대화 기회를 긍정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "충분하지 않더라도 있는 도움이나 시간을 긍정적으로 인정해요. 제한된 양을 충분한 전체 지원이나 무제한 약속으로 바꾸지 않아요.",
+              "en": "Value the help or time available even if limited. Do not turn a modest contribution into full support or an unlimited promise.",
+              "de": "Würdige verfügbare Hilfe oder Zeit trotz Begrenzung. Mache aus einem kleinen Beitrag keine vollständige Unterstützung oder unbegrenzte Zusage."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:08",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:08",
+      "requirementKeys": [
+        "G4:이라도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이라도",
+        "en": "이라도",
+        "de": "이라도"
+      },
+      "teaching": {
+        "ko": "더 좋은 선택이 어렵다면 차선책도 받아들여요. 내일도 괜찮다는 수용은 상대가 내일로 확정했다는 뜻은 아니에요.",
+        "en": "Accept a fallback when the preferred option is difficult. Acceptability tomorrow does not mean the other person has confirmed it.",
+        "de": "Akzeptiere eine Ausweichlösung, wenn die bevorzugte Wahl schwierig ist. Morgen wäre möglich heißt nicht, dass die andere Person zugesagt hat."
+      },
+      "examplesKo": [
+        "오늘이 어렵다면 내일이라도 괜찮아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오늘이 어렵다면 내일이라도 괜찮아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오늘 대신 내일도 수용 가능"
+              },
+              {
+                "id": "1",
+                "text": "상대가 내일로 이미 확정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "더 좋은 선택이 어렵다면 차선책도 받아들여요. 내일도 괜찮다는 수용은 상대가 내일로 확정했다는 뜻은 아니에요.",
+              "en": "Accept a fallback when the preferred option is difficult. Acceptability tomorrow does not mean the other person has confirmed it.",
+              "de": "Akzeptiere eine Ausweichlösung, wenn die bevorzugte Wahl schwierig ist. Morgen wäre möglich heißt nicht, dass die andere Person zugesagt hat."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "원본이 없다면 사본이라도 먼저 볼게요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "원본 대신 사본을 우선 보는 차선책"
+              },
+              {
+                "id": "1",
+                "text": "사본이 원본과 같은 효력이라고 확정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "더 좋은 선택이 어렵다면 차선책도 받아들여요. 내일도 괜찮다는 수용은 상대가 내일로 확정했다는 뜻은 아니에요.",
+              "en": "Accept a fallback when the preferred option is difficult. Acceptability tomorrow does not mean the other person has confirmed it.",
+              "de": "Akzeptiere eine Ausweichlösung, wenn die bevorzugte Wahl schwierig ist. Morgen wäre möglich heißt nicht, dass die andere Person zugesagt hat."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:09",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:09",
+      "requirementKeys": [
+        "G4:이면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이면",
+        "en": "이면",
+        "de": "이면"
+      },
+      "teaching": {
+        "ko": "특정 범주의 때나 대상을 지정해 일반적인 경향을 말해요. 주말의 경향을 오늘이 주말이라는 사실이나 예외 없는 법칙으로 바꾸지 않아요.",
+        "en": "Specify a category of time or entity for a general tendency. A weekend pattern does not establish that today is a weekend or that there are no exceptions.",
+        "de": "Bezeichne eine Zeit- oder Personenkategorie für eine allgemeine Tendenz. Ein Wochenendmuster beweist weder, dass heute Wochenende ist, noch dass es keine Ausnahmen gibt."
+      },
+      "examplesKo": [
+        "주말이면 이곳은 사람들로 붐벼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "주말이면 이곳은 사람들로 붐벼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "오늘이 반드시 주말이라고 확인"
+              },
+              {
+                "id": "0",
+                "text": "주말이라는 때에 보이는 일반적 경향"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "특정 범주의 때나 대상을 지정해 일반적인 경향을 말해요. 주말의 경향을 오늘이 주말이라는 사실이나 예외 없는 법칙으로 바꾸지 않아요.",
+              "en": "Specify a category of time or entity for a general tendency. A weekend pattern does not establish that today is a weekend or that there are no exceptions.",
+              "de": "Bezeichne eine Zeit- oder Personenkategorie für eine allgemeine Tendenz. Ein Wochenendmuster beweist weder, dass heute Wochenende ist, noch dass es keine Ausnahmen gibt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "방학이면 이 방을 찾는 학생이 많아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 방학의 모든 학생이 반드시 방문"
+              },
+              {
+                "id": "0",
+                "text": "방학이라는 기간의 일반적 경향"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "특정 범주의 때나 대상을 지정해 일반적인 경향을 말해요. 주말의 경향을 오늘이 주말이라는 사실이나 예외 없는 법칙으로 바꾸지 않아요.",
+              "en": "Specify a category of time or entity for a general tendency. A weekend pattern does not establish that today is a weekend or that there are no exceptions.",
+              "de": "Bezeichne eine Zeit- oder Personenkategorie für eine allgemeine Tendenz. Ein Wochenendmuster beweist weder, dass heute Wochenende ist, noch dass es keine Ausnahmen gibt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:10",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:10",
+      "requirementKeys": [
+        "G4:치고"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "치고",
+        "en": "치고",
+        "de": "치고"
+      },
+      "teaching": {
+        "ko": "범주에 대한 기대와 실제 결과를 비교해 평가해요. 첫 시도치고 좋다는 말은 전체 작품 중 최고라는 뜻이 아니에요.",
+        "en": "Evaluate the result against expectations for its category. Good for a first attempt does not mean best among all works.",
+        "de": "Bewerte ein Ergebnis anhand der Erwartung an seine Kategorie. Gut für einen ersten Versuch bedeutet nicht das Beste unter allen Werken."
+      },
+      "examplesKo": [
+        "처음 만든 것치고 꽤 잘했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "처음 만든 것치고 꽤 잘했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 전문가의 작품보다 우수하다고 확정"
+              },
+              {
+                "id": "0",
+                "text": "첫 시도에 대한 기대보다 좋은 평가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "범주에 대한 기대와 실제 결과를 비교해 평가해요. 첫 시도치고 좋다는 말은 전체 작품 중 최고라는 뜻이 아니에요.",
+              "en": "Evaluate the result against expectations for its category. Good for a first attempt does not mean best among all works.",
+              "de": "Bewerte ein Ergebnis anhand der Erwartung an seine Kategorie. Gut für einen ersten Versuch bedeutet nicht das Beste unter allen Werken."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "짧은 안내문치고 내용이 자세해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 필요한 정보가 빠짐없이 있다는 보증"
+              },
+              {
+                "id": "0",
+                "text": "짧은 안내문이라는 범주에 비해 자세함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "범주에 대한 기대와 실제 결과를 비교해 평가해요. 첫 시도치고 좋다는 말은 전체 작품 중 최고라는 뜻이 아니에요.",
+              "en": "Evaluate the result against expectations for its category. Good for a first attempt does not mean best among all works.",
+              "de": "Bewerte ein Ergebnis anhand der Erwartung an seine Kategorie. Gut für einen ersten Versuch bedeutet nicht das Beste unter allen Werken."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:11",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:11",
+      "requirementKeys": [
+        "G4:-는 한"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 한",
+        "en": "-는 한",
+        "de": "-는 한"
+      },
+      "teaching": {
+        "ko": "앞 조건이 유지되는 범위 안에서 뒤 결론도 유지돼요. 조건이 사라지면 같은 결론을 자동 적용하지 않아요.",
+        "en": "Maintain a conclusion for as long as the stated condition holds. Do not apply it automatically once the condition no longer holds.",
+        "de": "Halte die Schlussfolgerung aufrecht, solange die genannte Bedingung gilt. Wende sie nach Wegfall der Bedingung nicht automatisch weiter an."
+      },
+      "examplesKo": [
+        "자료가 부족한 한 단정할 수 없습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "자료가 부족한 한 단정할 수 없습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "자료 부족이 계속되는 범위에서는 단정 불가"
+              },
+              {
+                "id": "1",
+                "text": "자료가 충분해져도 영원히 단정 불가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건이 유지되는 범위 안에서 뒤 결론도 유지돼요. 조건이 사라지면 같은 결론을 자동 적용하지 않아요.",
+              "en": "Maintain a conclusion for as long as the stated condition holds. Do not apply it automatically once the condition no longer holds.",
+              "de": "Halte die Schlussfolgerung aufrecht, solange die genannte Bedingung gilt. Wende sie nach Wegfall der Bedingung nicht automatisch weiter an."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "허가가 없는 한 외부에 전달할 수 없습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "허가가 없는 동안에는 외부 전달 불가"
+              },
+              {
+                "id": "1",
+                "text": "허가를 받으면 다른 조건 없이 무제한 공개"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건이 유지되는 범위 안에서 뒤 결론도 유지돼요. 조건이 사라지면 같은 결론을 자동 적용하지 않아요.",
+              "en": "Maintain a conclusion for as long as the stated condition holds. Do not apply it automatically once the condition no longer holds.",
+              "de": "Halte die Schlussfolgerung aufrecht, solange die genannte Bedingung gilt. Wende sie nach Wegfall der Bedingung nicht automatisch weiter an."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:grammar:12",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:grammar:12",
+      "requirementKeys": [
+        "G4:-는다거나2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다거나2",
+        "en": "-는다거나2",
+        "de": "-는다거나2"
+      },
+      "teaching": {
+        "ko": "가능한 행동을 예로 열거해요. 모든 선택지를 빠짐없이 제시한 목록이나 이미 누가 했다는 인용이 아니에요.",
+        "en": "List examples of possible actions, not an exhaustive list or a quotation of what someone already did.",
+        "de": "Nenne Beispiele möglicher Handlungen, keine vollständige Liste und kein Zitat bereits ausgeführter Handlungen."
+      },
+      "examplesKo": [
+        "직접 만난다거나 전화로 이야기하는 방법이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "직접 만난다거나 전화로 이야기하는 방법이 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 방법을 모두 이미 실행했다고 보고"
+              },
+              {
+                "id": "0",
+                "text": "만남과 전화는 가능한 방법의 예"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가능한 행동을 예로 열거해요. 모든 선택지를 빠짐없이 제시한 목록이나 이미 누가 했다는 인용이 아니에요.",
+              "en": "List examples of possible actions, not an exhaustive list or a quotation of what someone already did.",
+              "de": "Nenne Beispiele möglicher Handlungen, keine vollständige Liste und kein Zitat bereits ausgeführter Handlungen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "요약과 표는 검토할 방법의 예"
+              },
+              {
+                "id": "1",
+                "text": "요약문과 표 제출이 모두 확정 의무"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가능한 행동을 예로 열거해요. 모든 선택지를 빠짐없이 제시한 목록이나 이미 누가 했다는 인용이 아니에요.",
+              "en": "List examples of possible actions, not an exhaustive list or a quotation of what someone already did.",
+              "de": "Nenne Beispiele möglicher Handlungen, keine vollständige Liste und kein Zitat bereits ausgeführter Handlungen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:01",
+      "requirementKeys": [
+        "G4:-는다면1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다면1 문장 만들기",
+        "en": "-는다면1: write a sentence",
+        "de": "-는다면1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "조건을 가정해 뒤 가능성을 검토해요. 형태만으로 현실성이나 실현 여부가 정해지지 않으므로 자료에 적힌 실제 조건과 상상을 구별해요.",
+        "en": "Consider a possibility under an assumed condition. The form alone does not determine whether it is realistic or fulfilled; use the stated context.",
+        "de": "Prüfe eine Möglichkeit unter einer angenommenen Bedingung. Die Form allein bestimmt weder Realitätsnähe noch Erfüllung; beachte den angegebenen Kontext."
+      },
+      "examplesKo": [
+        "아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "미정인 조건 / 아직 미정인 지원이 늘어나다 → 더 많은 사람이 참여할 수 있다 / -ㄴ다면 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "지원 증가와 전원 참여가 이미 확정됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요. 의미가 다른 예: 지원 증가와 전원 참여가 이미 확정됐어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요. Meaning or register error: 지원 증가와 전원 참여가 이미 확정됐어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요. Fehler bei Bedeutung oder Register: 지원 증가와 전원 참여가 이미 확정됐어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "현재 추가 공간은 없음 / 방이 하나 더 있다 → 따로 모일 수 있다 / -다면 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "방이 하나 더 있다면 따로 모일 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "추가 방이 이미 예약돼 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 방이 하나 더 있다면 따로 모일 수 있어요. 의미가 다른 예: 추가 방이 이미 예약돼 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 방이 하나 더 있다면 따로 모일 수 있어요. Meaning or register error: 추가 방이 이미 예약돼 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 방이 하나 더 있다면 따로 모일 수 있어요. Fehler bei Bedeutung oder Register: 추가 방이 이미 예약돼 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:02",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:02",
+      "requirementKeys": [
+        "G4:만 같아도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만 같아도 문장 만들기",
+        "en": "만 같아도: write a sentence",
+        "de": "만 같아도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "비교 대상을 최소한의 만족 기준으로 삼아요. 지난번과 같기만 해도 좋겠다는 바람을 이번 결과의 확정으로 바꾸지 않아요.",
+        "en": "Treat the comparison as a sufficient minimum. A wish to match last time is not a confirmed current result.",
+        "de": "Setze den Vergleich als ausreichendes Mindestmaß an. Der Wunsch nach einem Ergebnis wie beim letzten Mal ist kein bestätigtes Ergebnis."
+      },
+      "examplesKo": [
+        "지난번만 같아도 충분히 만족하겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "최소 만족 기준 / 지난번 + 만 같아도 / 충분히 만족하겠다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지난번만 같아도 충분히 만족하겠어요."
+            ],
+            "rejectedAnswers": [
+              "지난번보다 반드시 두 배 좋아야 만족하겠어요."
+            ],
+            "explanation": {
+              "ko": "예: 지난번만 같아도 충분히 만족하겠어요. 의미가 다른 예: 지난번보다 반드시 두 배 좋아야 만족하겠어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지난번만 같아도 충분히 만족하겠어요. Meaning or register error: 지난번보다 반드시 두 배 좋아야 만족하겠어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지난번만 같아도 충분히 만족하겠어요. Fehler bei Bedeutung oder Register: 지난번보다 반드시 두 배 좋아야 만족하겠어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "최소 도움 기준 / 이 예시 + 만 같아도 / 도움이 되겠다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 예시만 같아도 도움이 되겠어요."
+            ],
+            "rejectedAnswers": [
+              "이번 결과는 이미 예시와 같아요."
+            ],
+            "explanation": {
+              "ko": "예: 이 예시만 같아도 도움이 되겠어요. 의미가 다른 예: 이번 결과는 이미 예시와 같아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 예시만 같아도 도움이 되겠어요. Meaning or register error: 이번 결과는 이미 예시와 같아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 예시만 같아도 도움이 되겠어요. Fehler bei Bedeutung oder Register: 이번 결과는 이미 예시와 같아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:03",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:03",
+      "requirementKeys": [
+        "G4:-더라도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-더라도 문장 만들기",
+        "en": "-더라도: write a sentence",
+        "de": "-더라도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "앞 조건을 양보해도 뒤 결론을 유지해요. 시간이 더 걸려도 확인하겠다는 말은 지연 자체를 원한다거나 모든 요청을 수락한다는 뜻이 아니에요.",
+        "en": "Maintain the conclusion even after conceding a condition. Checking despite extra time does not mean wanting delay or accepting every request.",
+        "de": "Halte an der Folgerung trotz zugestandener Bedingung fest. Eine Prüfung trotz Mehrzeit bedeutet weder gewünschten Aufschub noch Zustimmung zu jeder Bitte."
+      },
+      "examplesKo": [
+        "시간이 더 걸리더라도 정확히 확인하겠습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "양보 뒤 결론 유지 / 시간이 더 걸리다 → 정확히 확인하겠다 / -더라도 / 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "시간이 더 걸리더라도 정확히 확인하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "시간이 더 걸리면 확인을 생략하겠습니다."
+            ],
+            "explanation": {
+              "ko": "예: 시간이 더 걸리더라도 정확히 확인하겠습니다. 의미가 다른 예: 시간이 더 걸리면 확인을 생략하겠습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 시간이 더 걸리더라도 정확히 확인하겠습니다. Meaning or register error: 시간이 더 걸리면 확인을 생략하겠습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 시간이 더 걸리더라도 정확히 확인하겠습니다. Fehler bei Bedeutung oder Register: 시간이 더 걸리면 확인을 생략하겠습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "양보 뒤 결론 유지 / 비용이 줄다 → 안전 확인은 생략하지 않겠다 / -더라도 / 합쇼체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비용이 줄더라도 안전 확인은 생략하지 않겠습니다."
+            ],
+            "rejectedAnswers": [
+              "비용이 줄면 안전 확인을 생략하겠습니다."
+            ],
+            "explanation": {
+              "ko": "예: 비용이 줄더라도 안전 확인은 생략하지 않겠습니다. 의미가 다른 예: 비용이 줄면 안전 확인을 생략하겠습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 비용이 줄더라도 안전 확인은 생략하지 않겠습니다. Meaning or register error: 비용이 줄면 안전 확인을 생략하겠습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 비용이 줄더라도 안전 확인은 생략하지 않겠습니다. Fehler bei Bedeutung oder Register: 비용이 줄면 안전 확인을 생략하겠습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:04",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:04",
+      "requirementKeys": [
+        "G4:-을래야"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을래야 문장 만들기",
+        "en": "-을래야: write a sentence",
+        "de": "-을래야: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "구어의 도울래야는 이 과제에서 알아듣기만 연습해요. 표준형 도우려야로 고쳐 쓰며, 하려 해도 여건 때문에 못 한다는 뜻을 유지해요.",
+        "en": "Practise recognising colloquial 도울래야 here. For production use the standard 도우려야, retaining inability despite trying or intending to act.",
+        "de": "Übe hier das Verstehen des umgangssprachlichen 도울래야. Verwende beim Schreiben die Standardform 도우려야 und erhalte das Nichtkönnen trotz Absicht oder Versuch."
+      },
+      "examplesKo": [
+        "시간이 없어서 도우려야 도울 수가 없었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "구어 도울래야를 표준형으로 / 시간이 없어서 / 돕다 + -으려야 / 도울 수가 없다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "시간이 없어서 도우려야 도울 수가 없었어요."
+            ],
+            "rejectedAnswers": [
+              "시간이 충분해서 이미 도움을 마쳤어요."
+            ],
+            "explanation": {
+              "ko": "예: 시간이 없어서 도우려야 도울 수가 없었어요. 의미가 다른 예: 시간이 충분해서 이미 도움을 마쳤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 시간이 없어서 도우려야 도울 수가 없었어요. Meaning or register error: 시간이 충분해서 이미 도움을 마쳤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 시간이 없어서 도우려야 도울 수가 없었어요. Fehler bei Bedeutung oder Register: 시간이 충분해서 이미 도움을 마쳤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "구어 읽을래야를 표준형으로 / 화면이 꺼져서 / 읽다 + -으려야 / 읽을 수가 없다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "화면이 꺼져서 읽으려야 읽을 수가 없었어요."
+            ],
+            "rejectedAnswers": [
+              "화면을 모두 읽고 확인했어요."
+            ],
+            "explanation": {
+              "ko": "예: 화면이 꺼져서 읽으려야 읽을 수가 없었어요. 의미가 다른 예: 화면을 모두 읽고 확인했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 화면이 꺼져서 읽으려야 읽을 수가 없었어요. Meaning or register error: 화면을 모두 읽고 확인했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 화면이 꺼져서 읽으려야 읽을 수가 없었어요. Fehler bei Bedeutung oder Register: 화면을 모두 읽고 확인했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:05",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:05",
+      "requirementKeys": [
+        "G4:-든지2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-든지2 문장 만들기",
+        "en": "-든지2: write a sentence",
+        "de": "-든지2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "행동의 대안을 제시해 상대가 선택하게 해요. 던지의 회상과 구별하고 두 일을 반드시 모두 해야 한다고 늘리지 않아요.",
+        "en": "Offer alternative actions for the listener to choose. Distinguish this from retrospective 던지; do not require both actions.",
+        "de": "Biete Handlungsalternativen zur Wahl. Unterscheide sie vom rückblickenden 던지 und verlange nicht beide Handlungen."
+      },
+      "examplesKo": [
+        "메일을 보내든지 직접 전화해 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "두 행동 중 선택 / 메일을 보내다 → 직접 전화해 주세요 / -든지",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "메일을 보내든지 직접 전화해 주세요."
+            ],
+            "rejectedAnswers": [
+              "메일도 보내고 전화도 반드시 해 주세요."
+            ],
+            "explanation": {
+              "ko": "예: 메일을 보내든지 직접 전화해 주세요. 의미가 다른 예: 메일도 보내고 전화도 반드시 해 주세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 메일을 보내든지 직접 전화해 주세요. Meaning or register error: 메일도 보내고 전화도 반드시 해 주세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 메일을 보내든지 직접 전화해 주세요. Fehler bei Bedeutung oder Register: 메일도 보내고 전화도 반드시 해 주세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "두 행동 중 선택 / 여기서 기다리다 → 내일 다시 와 주세요 / -든지",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기서 기다리든지 내일 다시 와 주세요."
+            ],
+            "rejectedAnswers": [
+              "여기서 기다리고 내일도 반드시 다시 와 주세요."
+            ],
+            "explanation": {
+              "ko": "예: 여기서 기다리든지 내일 다시 와 주세요. 의미가 다른 예: 여기서 기다리고 내일도 반드시 다시 와 주세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기서 기다리든지 내일 다시 와 주세요. Meaning or register error: 여기서 기다리고 내일도 반드시 다시 와 주세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기서 기다리든지 내일 다시 와 주세요. Fehler bei Bedeutung oder Register: 여기서 기다리고 내일도 반드시 다시 와 주세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:06",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:06",
+      "requirementKeys": [
+        "G4:이든"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이든 문장 만들기",
+        "en": "이든: write a sentence",
+        "de": "이든: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "어느 대상을 고르더라도 뒤 요구는 유지돼요. 방식 선택이 자유롭다는 말이 다른 조건까지 없앤다는 뜻은 아니에요.",
+        "en": "Keep the following requirement whichever option is chosen. Freedom of method does not remove other conditions.",
+        "de": "Erhalte die folgende Anforderung unabhängig von der gewählten Option. Methodenfreiheit hebt andere Bedingungen nicht auf."
+      },
+      "examplesKo": [
+        "어떤 방식이든 먼저 이야기해 봅시다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "자유 선택에도 논의 유지 / 어떤 방식 + 이든 / 먼저 이야기해 봅시다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어떤 방식이든 먼저 이야기해 봅시다."
+            ],
+            "rejectedAnswers": [
+              "방식을 고르면 논의 없이 바로 시행합시다."
+            ],
+            "explanation": {
+              "ko": "예: 어떤 방식이든 먼저 이야기해 봅시다. 의미가 다른 예: 방식을 고르면 논의 없이 바로 시행합시다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어떤 방식이든 먼저 이야기해 봅시다. Meaning or register error: 방식을 고르면 논의 없이 바로 시행합시다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어떤 방식이든 먼저 이야기해 봅시다. Fehler bei Bedeutung oder Register: 방식을 고르면 논의 없이 바로 시행합시다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "자유 선택에도 조건 확인 유지 / 어느 장소 + 이든 / 출입 조건은 확인해야 합니다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어느 장소이든 출입 조건은 확인해야 합니다."
+            ],
+            "rejectedAnswers": [
+              "장소를 정하면 출입 조건을 모두 면제합니다."
+            ],
+            "explanation": {
+              "ko": "예: 어느 장소이든 출입 조건은 확인해야 합니다. 의미가 다른 예: 장소를 정하면 출입 조건을 모두 면제합니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어느 장소이든 출입 조건은 확인해야 합니다. Meaning or register error: 장소를 정하면 출입 조건을 모두 면제합니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어느 장소이든 출입 조건은 확인해야 합니다. Fehler bei Bedeutung oder Register: 장소를 정하면 출입 조건을 모두 면제합니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:07",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:07",
+      "requirementKeys": [
+        "G4:이나마"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이나마 문장 만들기",
+        "en": "이나마: write a sentence",
+        "de": "이나마: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "충분하지 않더라도 있는 도움이나 시간을 긍정적으로 인정해요. 제한된 양을 충분한 전체 지원이나 무제한 약속으로 바꾸지 않아요.",
+        "en": "Value the help or time available even if limited. Do not turn a modest contribution into full support or an unlimited promise.",
+        "de": "Würdige verfügbare Hilfe oder Zeit trotz Begrenzung. Mache aus einem kleinen Beitrag keine vollständige Unterstützung oder unbegrenzte Zusage."
+      },
+      "examplesKo": [
+        "작은 도움이나마 보태고 싶어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "제한된 도움 긍정 / 작은 도움 + 이나마 / 보태고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "작은 도움이나마 보태고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "필요한 지원 전체를 이미 제공했어요."
+            ],
+            "explanation": {
+              "ko": "예: 작은 도움이나마 보태고 싶어요. 의미가 다른 예: 필요한 지원 전체를 이미 제공했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 작은 도움이나마 보태고 싶어요. Meaning or register error: 필요한 지원 전체를 이미 제공했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 작은 도움이나마 보태고 싶어요. Fehler bei Bedeutung oder Register: 필요한 지원 전체를 이미 제공했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "제한된 시간 긍정 / 짧은 시간 + 이나마 / 의견을 나눌 수 있어 다행이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "짧은 시간이나마 의견을 나눌 수 있어 다행이에요."
+            ],
+            "rejectedAnswers": [
+              "무제한으로 이야기할 시간을 보장해요."
+            ],
+            "explanation": {
+              "ko": "예: 짧은 시간이나마 의견을 나눌 수 있어 다행이에요. 의미가 다른 예: 무제한으로 이야기할 시간을 보장해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 짧은 시간이나마 의견을 나눌 수 있어 다행이에요. Meaning or register error: 무제한으로 이야기할 시간을 보장해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 짧은 시간이나마 의견을 나눌 수 있어 다행이에요. Fehler bei Bedeutung oder Register: 무제한으로 이야기할 시간을 보장해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:08",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:08",
+      "requirementKeys": [
+        "G4:이라도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이라도 문장 만들기",
+        "en": "이라도: write a sentence",
+        "de": "이라도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "더 좋은 선택이 어렵다면 차선책도 받아들여요. 내일도 괜찮다는 수용은 상대가 내일로 확정했다는 뜻은 아니에요.",
+        "en": "Accept a fallback when the preferred option is difficult. Acceptability tomorrow does not mean the other person has confirmed it.",
+        "de": "Akzeptiere eine Ausweichlösung, wenn die bevorzugte Wahl schwierig ist. Morgen wäre möglich heißt nicht, dass die andere Person zugesagt hat."
+      },
+      "examplesKo": [
+        "오늘이 어렵다면 내일이라도 괜찮아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "차선 수용 / 오늘이 어렵다면 / 내일 + 이라도 / 괜찮다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘이 어렵다면 내일이라도 괜찮아요."
+            ],
+            "rejectedAnswers": [
+              "상대가 내일로 이미 확정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘이 어렵다면 내일이라도 괜찮아요. 의미가 다른 예: 상대가 내일로 이미 확정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘이 어렵다면 내일이라도 괜찮아요. Meaning or register error: 상대가 내일로 이미 확정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘이 어렵다면 내일이라도 괜찮아요. Fehler bei Bedeutung oder Register: 상대가 내일로 이미 확정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "차선 수용 / 원본이 없다면 / 사본 + 이라도 / 먼저 볼게요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "원본이 없다면 사본이라도 먼저 볼게요."
+            ],
+            "rejectedAnswers": [
+              "사본은 원본과 같은 효력이 확정됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 원본이 없다면 사본이라도 먼저 볼게요. 의미가 다른 예: 사본은 원본과 같은 효력이 확정됐어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 원본이 없다면 사본이라도 먼저 볼게요. Meaning or register error: 사본은 원본과 같은 효력이 확정됐어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 원본이 없다면 사본이라도 먼저 볼게요. Fehler bei Bedeutung oder Register: 사본은 원본과 같은 효력이 확정됐어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:09",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:09",
+      "requirementKeys": [
+        "G4:이면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이면 문장 만들기",
+        "en": "이면: write a sentence",
+        "de": "이면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "특정 범주의 때나 대상을 지정해 일반적인 경향을 말해요. 주말의 경향을 오늘이 주말이라는 사실이나 예외 없는 법칙으로 바꾸지 않아요.",
+        "en": "Specify a category of time or entity for a general tendency. A weekend pattern does not establish that today is a weekend or that there are no exceptions.",
+        "de": "Bezeichne eine Zeit- oder Personenkategorie für eine allgemeine Tendenz. Ein Wochenendmuster beweist weder, dass heute Wochenende ist, noch dass es keine Ausnahmen gibt."
+      },
+      "examplesKo": [
+        "주말이면 이곳은 사람들로 붐벼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "때 범주의 경향 / 주말 + 이면 / 이곳은 사람들로 붐비다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "주말이면 이곳은 사람들로 붐벼요."
+            ],
+            "rejectedAnswers": [
+              "오늘은 반드시 주말이에요."
+            ],
+            "explanation": {
+              "ko": "예: 주말이면 이곳은 사람들로 붐벼요. 의미가 다른 예: 오늘은 반드시 주말이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 주말이면 이곳은 사람들로 붐벼요. Meaning or register error: 오늘은 반드시 주말이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 주말이면 이곳은 사람들로 붐벼요. Fehler bei Bedeutung oder Register: 오늘은 반드시 주말이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "때 범주의 경향 / 방학 + 이면 / 이 방을 찾는 학생이 많다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "방학이면 이 방을 찾는 학생이 많아요."
+            ],
+            "rejectedAnswers": [
+              "모든 학생이 모든 방학에 반드시 방문해요."
+            ],
+            "explanation": {
+              "ko": "예: 방학이면 이 방을 찾는 학생이 많아요. 의미가 다른 예: 모든 학생이 모든 방학에 반드시 방문해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 방학이면 이 방을 찾는 학생이 많아요. Meaning or register error: 모든 학생이 모든 방학에 반드시 방문해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 방학이면 이 방을 찾는 학생이 많아요. Fehler bei Bedeutung oder Register: 모든 학생이 모든 방학에 반드시 방문해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:10",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:10",
+      "requirementKeys": [
+        "G4:치고"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "치고 문장 만들기",
+        "en": "치고: write a sentence",
+        "de": "치고: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "범주에 대한 기대와 실제 결과를 비교해 평가해요. 첫 시도치고 좋다는 말은 전체 작품 중 최고라는 뜻이 아니에요.",
+        "en": "Evaluate the result against expectations for its category. Good for a first attempt does not mean best among all works.",
+        "de": "Bewerte ein Ergebnis anhand der Erwartung an seine Kategorie. Gut für einen ersten Versuch bedeutet nicht das Beste unter allen Werken."
+      },
+      "examplesKo": [
+        "처음 만든 것치고 꽤 잘했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "범주 기대와 비교 / 처음 만든 것 + 치고 / 꽤 잘하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "처음 만든 것치고 꽤 잘했어요."
+            ],
+            "rejectedAnswers": [
+              "모든 전문가의 작품보다 우수해요."
+            ],
+            "explanation": {
+              "ko": "예: 처음 만든 것치고 꽤 잘했어요. 의미가 다른 예: 모든 전문가의 작품보다 우수해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 처음 만든 것치고 꽤 잘했어요. Meaning or register error: 모든 전문가의 작품보다 우수해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 처음 만든 것치고 꽤 잘했어요. Fehler bei Bedeutung oder Register: 모든 전문가의 작품보다 우수해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "범주 기대와 비교 / 짧은 안내문 + 치고 / 내용이 자세하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "짧은 안내문치고 내용이 자세해요."
+            ],
+            "rejectedAnswers": [
+              "필요한 모든 정보가 빠짐없이 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 짧은 안내문치고 내용이 자세해요. 의미가 다른 예: 필요한 모든 정보가 빠짐없이 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 짧은 안내문치고 내용이 자세해요. Meaning or register error: 필요한 모든 정보가 빠짐없이 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 짧은 안내문치고 내용이 자세해요. Fehler bei Bedeutung oder Register: 필요한 모든 정보가 빠짐없이 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:11",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:11",
+      "requirementKeys": [
+        "G4:-는 한"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 한 문장 만들기",
+        "en": "-는 한: write a sentence",
+        "de": "-는 한: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "앞 조건이 유지되는 범위 안에서 뒤 결론도 유지돼요. 조건이 사라지면 같은 결론을 자동 적용하지 않아요.",
+        "en": "Maintain a conclusion for as long as the stated condition holds. Do not apply it automatically once the condition no longer holds.",
+        "de": "Halte die Schlussfolgerung aufrecht, solange die genannte Bedingung gilt. Wende sie nach Wegfall der Bedingung nicht automatisch weiter an."
+      },
+      "examplesKo": [
+        "자료가 부족한 한 단정할 수 없습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "조건 범위 / 자료가 부족하다 → 단정할 수 없습니다 / -ㄴ 한",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "자료가 부족한 한 단정할 수 없습니다."
+            ],
+            "rejectedAnswers": [
+              "자료가 충분해져도 영원히 단정할 수 없습니다."
+            ],
+            "explanation": {
+              "ko": "예: 자료가 부족한 한 단정할 수 없습니다. 의미가 다른 예: 자료가 충분해져도 영원히 단정할 수 없습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 자료가 부족한 한 단정할 수 없습니다. Meaning or register error: 자료가 충분해져도 영원히 단정할 수 없습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 자료가 부족한 한 단정할 수 없습니다. Fehler bei Bedeutung oder Register: 자료가 충분해져도 영원히 단정할 수 없습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "조건 범위 / 허가가 없다 → 외부에 전달할 수 없습니다 / -는 한",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "허가가 없는 한 외부에 전달할 수 없습니다."
+            ],
+            "rejectedAnswers": [
+              "허가만 받으면 모든 자료를 무제한 공개할 수 있습니다."
+            ],
+            "explanation": {
+              "ko": "예: 허가가 없는 한 외부에 전달할 수 없습니다. 의미가 다른 예: 허가만 받으면 모든 자료를 무제한 공개할 수 있습니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 허가가 없는 한 외부에 전달할 수 없습니다. Meaning or register error: 허가만 받으면 모든 자료를 무제한 공개할 수 있습니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 허가가 없는 한 외부에 전달할 수 없습니다. Fehler bei Bedeutung oder Register: 허가만 받으면 모든 자료를 무제한 공개할 수 있습니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:production:12",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:production:12",
+      "requirementKeys": [
+        "G4:-는다거나2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는다거나2 문장 만들기",
+        "en": "-는다거나2: write a sentence",
+        "de": "-는다거나2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "가능한 행동을 예로 열거해요. 모든 선택지를 빠짐없이 제시한 목록이나 이미 누가 했다는 인용이 아니에요.",
+        "en": "List examples of possible actions, not an exhaustive list or a quotation of what someone already did.",
+        "de": "Nenne Beispiele möglicher Handlungen, keine vollständige Liste und kein Zitat bereits ausgeführter Handlungen."
+      },
+      "examplesKo": [
+        "직접 만난다거나 전화로 이야기하는 방법이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "행동 예시 / 직접 만나다 → 전화로 이야기하는 방법이 있어요 / -ㄴ다거나",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "직접 만난다거나 전화로 이야기하는 방법이 있어요."
+            ],
+            "rejectedAnswers": [
+              "두 방법을 이미 모두 실행했어요."
+            ],
+            "explanation": {
+              "ko": "예: 직접 만난다거나 전화로 이야기하는 방법이 있어요. 의미가 다른 예: 두 방법을 이미 모두 실행했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 직접 만난다거나 전화로 이야기하는 방법이 있어요. Meaning or register error: 두 방법을 이미 모두 실행했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 직접 만난다거나 전화로 이야기하는 방법이 있어요. Fehler bei Bedeutung oder Register: 두 방법을 이미 모두 실행했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "행동 예시 / 요약을 쓰다 → 표로 정리하는 방법을 생각해 보세요 / -ㄴ다거나",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요."
+            ],
+            "rejectedAnswers": [
+              "요약과 표는 모두 반드시 제출해야 합니다."
+            ],
+            "explanation": {
+              "ko": "예: 요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요. 의미가 다른 예: 요약과 표는 모두 반드시 제출해야 합니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요. Meaning or register error: 요약과 표는 모두 반드시 제출해야 합니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요. Fehler bei Bedeutung oder Register: 요약과 표는 모두 반드시 제출해야 합니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:listening:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "정원·시간·공개 조건의 협의",
+        "en": "Negotiate capacity, time and disclosure conditions",
+        "de": "Kapazität, Zeit und Weitergabe aushandeln"
+      },
+      "teaching": {
+        "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+        "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+        "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "가상 준비 모임의 협의입니다. 두 사람은 동등한 동료이며 장소를 최종 승인할 권한은 없습니다.\n가: 현재 금요일에 쓸 수 있는 방은 하나이고 정원은 스무명이에요. 저는 시간 약속을 지키는 것이 중요해요.\n나: 저는 더 많은 사람이 의견을 나누는 것이 중요해요. 방이 하나 더 있다면 두 모임으로 나눌 수 있겠지만 지금 추가 방은 없어요.\n가: 시간이 더 걸리더라도 안전 확인은 생략하지 않을게요. 정원을 지키는 한 이 방을 신청하는 데는 동의할 수 있어요.\n나: 작은 모임이나마 먼저 열면 도움이 되겠어요. 금요일이 어렵다면 월요일이라도 검토해 볼 수 있어요. 다만 그날 방이 있는지는 아직 몰라요.\n가: 직접 만난다거나 온라인으로 의견을 듣는 방법도 있겠네요. 어느 방식이든 기록 공개는 별도 동의가 필요해요.\n나: 맞아요. 요약만 공개하더라도 동의는 받아야 해요. 동의가 없는 한 공개할 수 없어요. 제가 장소 담당자에게 메일을 보내든지 전화해서 가능한 시간을 확인할게요. 지금 장소나 공개를 확정한 것은 아니에요.",
+        "questions": [
+          {
+            "id": "counterfactual",
+            "kind": "choice",
+            "prompt": {
+              "ko": "현재 사실과 다른 가정은?",
+              "en": "Which assumption differs from current facts?",
+              "de": "Welche Annahme widerspricht dem aktuellen Stand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "추가 방이 하나 더 있다는 가정"
+              },
+              {
+                "id": "1",
+                "text": "현재 방 한 개가 있다는 정보"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가의 방 신청 수락 조건은?",
+              "en": "Under what condition does A accept applying?",
+              "de": "Unter welcher Bedingung stimmt A dem Antrag zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "정원 준수"
+              },
+              {
+                "id": "1",
+                "text": "참가 인원 무제한"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "concession",
+            "kind": "choice",
+            "prompt": {
+              "ko": "시간이 늘어도 유지할 것은?",
+              "en": "What remains required despite extra time?",
+              "de": "Was bleibt trotz zusätzlicher Zeit erforderlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안전 확인"
+              },
+              {
+                "id": "1",
+                "text": "안전 확인 생략"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "fallback",
+            "kind": "choice",
+            "prompt": {
+              "ko": "차선 날짜의 상태는?",
+              "en": "What is the status of the fallback date?",
+              "de": "Welchen Status hat der Ausweichtermin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "월요일 검토 가능, 방 유무 미확인"
+              },
+              {
+                "id": "1",
+                "text": "월요일 장소 최종 승인 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "disclosure",
+            "kind": "choice",
+            "prompt": {
+              "ko": "요약만 공개할 때도 필요한 것은?",
+              "en": "What is still needed for a summary alone?",
+              "de": "Was wird auch für eine bloße Zusammenfassung benötigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "별도 동의"
+              },
+              {
+                "id": "1",
+                "text": "아무 조건 없이 자동 공개"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "contact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "메일이나 전화는 어떤 관계예요?",
+              "en": "How are email and phone related?",
+              "de": "In welchem Verhältnis stehen E-Mail und Telefon?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "둘 다 이미 수행 완료"
+              },
+              {
+                "id": "0",
+                "text": "선택 가능한 확인 수단"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "decision",
+            "kind": "choice",
+            "prompt": {
+              "ko": "두 사람의 권한과 합의 상태는?",
+              "en": "What authority and agreement do they have?",
+              "de": "Welche Befugnis und Einigung haben beide?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "최종 승인 권한 없음, 확인 후 협의 필요"
+              },
+              {
+                "id": "1",
+                "text": "장소와 공개를 모두 최종 승인함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "가상 준비 모임의 협의입니다. 두 사람은 동등한 동료이며 장소를 최종 승인할 권한은 없습니다.\n가: 현재 화요일에 쓸 수 있는 방은 하나이고 정원은 열다섯명이에요. 저는 시간 약속을 지키는 것이 중요해요.\n나: 저는 더 많은 사람이 의견을 나누는 것이 중요해요. 방이 하나 더 있다면 두 모임으로 나눌 수 있겠지만 지금 추가 방은 없어요.\n가: 시간이 더 걸리더라도 안전 확인은 생략하지 않을게요. 정원을 지키는 한 이 방을 신청하는 데는 동의할 수 있어요.\n나: 작은 모임이나마 먼저 열면 도움이 되겠어요. 화요일이 어렵다면 목요일이라도 검토해 볼 수 있어요. 다만 그날 방이 있는지는 아직 몰라요.\n가: 직접 만난다거나 온라인으로 의견을 듣는 방법도 있겠네요. 어느 방식이든 기록 공개는 별도 동의가 필요해요.\n나: 맞아요. 요약만 공개하더라도 동의는 받아야 해요. 동의가 없는 한 공개할 수 없어요. 제가 장소 담당자에게 메일을 보내든지 전화해서 가능한 시간을 확인할게요. 지금 장소나 공개를 확정한 것은 아니에요.",
+        "questions": [
+          {
+            "id": "counterfactual",
+            "kind": "choice",
+            "prompt": {
+              "ko": "현재 사실과 다른 가정은?",
+              "en": "Which assumption differs from current facts?",
+              "de": "Welche Annahme widerspricht dem aktuellen Stand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "현재 방 한 개가 있다는 정보"
+              },
+              {
+                "id": "0",
+                "text": "추가 방이 하나 더 있다는 가정"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가의 방 신청 수락 조건은?",
+              "en": "Under what condition does A accept applying?",
+              "de": "Unter welcher Bedingung stimmt A dem Antrag zu?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "참가 인원 무제한"
+              },
+              {
+                "id": "0",
+                "text": "정원 준수"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "concession",
+            "kind": "choice",
+            "prompt": {
+              "ko": "시간이 늘어도 유지할 것은?",
+              "en": "What remains required despite extra time?",
+              "de": "Was bleibt trotz zusätzlicher Zeit erforderlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "안전 확인 생략"
+              },
+              {
+                "id": "0",
+                "text": "안전 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "fallback",
+            "kind": "choice",
+            "prompt": {
+              "ko": "차선 날짜의 상태는?",
+              "en": "What is the status of the fallback date?",
+              "de": "Welchen Status hat der Ausweichtermin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "목요일 검토 가능, 방 유무 미확인"
+              },
+              {
+                "id": "1",
+                "text": "목요일 장소 최종 승인 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "disclosure",
+            "kind": "choice",
+            "prompt": {
+              "ko": "요약만 공개할 때도 필요한 것은?",
+              "en": "What is still needed for a summary alone?",
+              "de": "Was wird auch für eine bloße Zusammenfassung benötigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아무 조건 없이 자동 공개"
+              },
+              {
+                "id": "0",
+                "text": "별도 동의"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "contact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "메일이나 전화는 어떤 관계예요?",
+              "en": "How are email and phone related?",
+              "de": "In welchem Verhältnis stehen E-Mail und Telefon?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "선택 가능한 확인 수단"
+              },
+              {
+                "id": "1",
+                "text": "둘 다 이미 수행 완료"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "decision",
+            "kind": "choice",
+            "prompt": {
+              "ko": "두 사람의 권한과 합의 상태는?",
+              "en": "What authority and agreement do they have?",
+              "de": "Welche Befugnis und Einigung haben beide?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "최종 승인 권한 없음, 확인 후 협의 필요"
+              },
+              {
+                "id": "1",
+                "text": "장소와 공개를 모두 최종 승인함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:reading:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "약관의 제한과 의견문의 양보",
+        "en": "Limits in terms and concessions in an opinion essay",
+        "de": "Grenzen in Bedingungen und Zugeständnisse im Meinungstext"
+      },
+      "teaching": {
+        "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+        "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+        "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 금요일의 방 하나를 신청할 수 있다. 정원은 20명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 월요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 월요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.",
+        "questions": [
+          {
+            "id": "necessary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "정원 준수가 보장하는 범위는?",
+              "en": "What does respecting capacity allow?",
+              "de": "Was ermöglicht die Einhaltung der Kapazität?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "신청 없이 이용이 자동 보장됨"
+              },
+              {
+                "id": "0",
+                "text": "신청 검토 대상이 됨, 승인 보장은 아님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "conclusion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일정이 늦어질 때 유지되는 결론은?",
+              "en": "What still holds if the schedule slips?",
+              "de": "Was gilt bei einer Terminverschiebung weiterhin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "늦어진 만큼 안전 확인 면제"
+              },
+              {
+                "id": "0",
+                "text": "안전 확인은 생략 불가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동의 없이 공개 가능한 예외는?",
+              "en": "What exception permits publication without consent?",
+              "de": "Welche Ausnahme erlaubt eine Veröffentlichung ohne Zustimmung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "개인 발언을 포함한 모든 요약본"
+              },
+              {
+                "id": "0",
+                "text": "이름·개인 발언이 없는 날짜·장소 안내"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "counterpoint",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 많은 참여가 필요하다는 반론에 대한 응답은?",
+              "en": "How does the essay respond to the broader-participation objection?",
+              "de": "Wie antwortet der Text auf den Einwand breiterer Teilnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "필요를 인정하되 현재 없는 추가 방을 현실 대안으로 삼지 않음"
+              },
+              {
+                "id": "1",
+                "text": "참여 확대가 전혀 가치 없다고 주장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "comparison",
+            "kind": "choice",
+            "prompt": {
+              "ko": "온라인 대안에도 남는 한계는?",
+              "en": "What limitation remains for the online option?",
+              "de": "Welche Grenze bleibt bei der Online-Alternative?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "누구나 동일하게 참여할 수 있다는 보장"
+              },
+              {
+                "id": "0",
+                "text": "화면 이용이 어려운 사람의 참여 어려움"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "authority",
+            "kind": "choice",
+            "prompt": {
+              "ko": "최종 승인 권한은 누구에게 있어요?",
+              "en": "Who has final approval authority?",
+              "de": "Wer hat die endgültige Genehmigungsbefugnis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "운영팀"
+              },
+              {
+                "id": "1",
+                "text": "의견문 작성자"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 화요일의 방 하나를 신청할 수 있다. 정원은 15명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 목요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 목요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.",
+        "questions": [
+          {
+            "id": "necessary",
+            "kind": "choice",
+            "prompt": {
+              "ko": "정원 준수가 보장하는 범위는?",
+              "en": "What does respecting capacity allow?",
+              "de": "Was ermöglicht die Einhaltung der Kapazität?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "신청 없이 이용이 자동 보장됨"
+              },
+              {
+                "id": "0",
+                "text": "신청 검토 대상이 됨, 승인 보장은 아님"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "conclusion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일정이 늦어질 때 유지되는 결론은?",
+              "en": "What still holds if the schedule slips?",
+              "de": "Was gilt bei einer Terminverschiebung weiterhin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안전 확인은 생략 불가"
+              },
+              {
+                "id": "1",
+                "text": "늦어진 만큼 안전 확인 면제"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동의 없이 공개 가능한 예외는?",
+              "en": "What exception permits publication without consent?",
+              "de": "Welche Ausnahme erlaubt eine Veröffentlichung ohne Zustimmung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "개인 발언을 포함한 모든 요약본"
+              },
+              {
+                "id": "0",
+                "text": "이름·개인 발언이 없는 날짜·장소 안내"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "counterpoint",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 많은 참여가 필요하다는 반론에 대한 응답은?",
+              "en": "How does the essay respond to the broader-participation objection?",
+              "de": "Wie antwortet der Text auf den Einwand breiterer Teilnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "참여 확대가 전혀 가치 없다고 주장"
+              },
+              {
+                "id": "0",
+                "text": "필요를 인정하되 현재 없는 추가 방을 현실 대안으로 삼지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "comparison",
+            "kind": "choice",
+            "prompt": {
+              "ko": "온라인 대안에도 남는 한계는?",
+              "en": "What limitation remains for the online option?",
+              "de": "Welche Grenze bleibt bei der Online-Alternative?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "누구나 동일하게 참여할 수 있다는 보장"
+              },
+              {
+                "id": "0",
+                "text": "화면 이용이 어려운 사람의 참여 어려움"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          },
+          {
+            "id": "authority",
+            "kind": "choice",
+            "prompt": {
+              "ko": "최종 승인 권한은 누구에게 있어요?",
+              "en": "Who has final approval authority?",
+              "de": "Wer hat die endgültige Genehmigungsbefugnis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "의견문 작성자"
+              },
+              {
+                "id": "0",
+                "text": "운영팀"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "실제로 가능한 조건, 현재 사실과 다른 가정, 양보해도 유지되는 결론, 차선책을 구분하세요. 검토·제안·잠정 수용을 최종 합의로 바꾸지 않아요. 원문에 남은 예외와 상대의 선택권을 보존하세요.",
+              "en": "Separate feasible conditions, counterfactual assumptions, conclusions maintained despite concessions and fallbacks. Review, proposals and provisional acceptance are not final agreement. Preserve exceptions and the other person’s choice.",
+              "de": "Trenne tatsächlich mögliche Bedingungen, Annahmen entgegen dem aktuellen Stand, trotz Zugeständnissen geltende Folgerungen und Ausweichlösungen. Prüfung, Vorschlag und vorläufige Zustimmung sind keine endgültige Einigung. Erhalte Ausnahmen und Wahlfreiheit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:writing:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "조건을 바꿔도 모순 없는 의견문",
+        "en": "An opinion essay with consistent conditions",
+        "de": "Ein Meinungstext mit widerspruchsfreien Bedingungen"
+      },
+      "teaching": {
+        "ko": "현재 가능한 현장 모임과 온라인 의견 수렴을 같은 기준으로 비교해 의견문을 쓰세요. 주장·근거·참여 확대 반론·응답·차선책을 연결하고 이동 부담과 접근성의 한계를 함께 밝히세요. 정원·안전 확인·동의 조건과 공개 예외를 정확히 유지해요. 없는 추가 방이나 미확인 날짜를 확정하지 말고, 운영팀의 승인과 자신의 제안을 구별하세요. 상대 입장을 약화한 곳과 모순된 조건을 찾아 고쳐 쓰세요. 전체 의미·논증은 미채점입니다.",
+        "en": "Write an opinion essay comparing the available in-person meeting and online consultation on common criteria. Connect claim, evidence, broader-participation objection, response and fallback, including travel and access limits. Preserve capacity, safety, consent and the disclosure exception. Do not confirm an unavailable extra room or unknown date; distinguish your proposal from approval. Revise weakened counterarguments or inconsistent conditions. Full meaning and argumentation remain unscored.",
+        "de": "Vergleiche im Meinungstext das verfügbare Präsenztreffen und die Online-Beteiligung nach gemeinsamen Kriterien. Verbinde These, Belege, Einwand breiterer Teilnahme, Antwort und Ausweichlösung samt Anreise- und Zugangsgrenzen. Erhalte Kapazität, Sicherheit, Zustimmung und Ausnahme zur Weitergabe. Bestätige weder einen nicht verfügbaren Zusatzraum noch einen unbekannten Termin; trenne Vorschlag und Genehmigung. Korrigiere abgeschwächte Gegenargumente und widersprüchliche Bedingungen. Gesamtinhalt und Argumentation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 금요일의 방 하나를 신청할 수 있다. 정원은 20명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 월요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 월요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.",
+        "questions": [
+          {
+            "id": "essay",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "조건과 반론을 보존한 의견문을 쓰세요.",
+              "en": "Write an opinion essay preserving conditions and counterarguments.",
+              "de": "Schreibe einen Meinungstext mit unveränderten Bedingungen und Gegenargumenten."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "현재 가능한 현장 모임과 온라인 의견 수렴을 같은 기준으로 비교해 의견문을 쓰세요. 주장·근거·참여 확대 반론·응답·차선책을 연결하고 이동 부담과 접근성의 한계를 함께 밝히세요. 정원·안전 확인·동의 조건과 공개 예외를 정확히 유지해요. 없는 추가 방이나 미확인 날짜를 확정하지 말고, 운영팀의 승인과 자신의 제안을 구별하세요. 상대 입장을 약화한 곳과 모순된 조건을 찾아 고쳐 쓰세요. 전체 의미·논증은 미채점입니다.",
+              "en": "Write an opinion essay comparing the available in-person meeting and online consultation on common criteria. Connect claim, evidence, broader-participation objection, response and fallback, including travel and access limits. Preserve capacity, safety, consent and the disclosure exception. Do not confirm an unavailable extra room or unknown date; distinguish your proposal from approval. Revise weakened counterarguments or inconsistent conditions. Full meaning and argumentation remain unscored.",
+              "de": "Vergleiche im Meinungstext das verfügbare Präsenztreffen und die Online-Beteiligung nach gemeinsamen Kriterien. Verbinde These, Belege, Einwand breiterer Teilnahme, Antwort und Ausweichlösung samt Anreise- und Zugangsgrenzen. Erhalte Kapazität, Sicherheit, Zustimmung und Ausnahme zur Weitergabe. Bestätige weder einen nicht verfügbaren Zusatzraum noch einen unbekannten Termin; trenne Vorschlag und Genehmigung. Korrigiere abgeschwächte Gegenargumente und widersprüchliche Bedingungen. Gesamtinhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 화요일의 방 하나를 신청할 수 있다. 정원은 15명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 목요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 목요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.",
+        "questions": [
+          {
+            "id": "essay",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "조건과 반론을 보존한 의견문을 쓰세요.",
+              "en": "Write an opinion essay preserving conditions and counterarguments.",
+              "de": "Schreibe einen Meinungstext mit unveränderten Bedingungen und Gegenargumenten."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "현재 가능한 현장 모임과 온라인 의견 수렴을 같은 기준으로 비교해 의견문을 쓰세요. 주장·근거·참여 확대 반론·응답·차선책을 연결하고 이동 부담과 접근성의 한계를 함께 밝히세요. 정원·안전 확인·동의 조건과 공개 예외를 정확히 유지해요. 없는 추가 방이나 미확인 날짜를 확정하지 말고, 운영팀의 승인과 자신의 제안을 구별하세요. 상대 입장을 약화한 곳과 모순된 조건을 찾아 고쳐 쓰세요. 전체 의미·논증은 미채점입니다.",
+              "en": "Write an opinion essay comparing the available in-person meeting and online consultation on common criteria. Connect claim, evidence, broader-participation objection, response and fallback, including travel and access limits. Preserve capacity, safety, consent and the disclosure exception. Do not confirm an unavailable extra room or unknown date; distinguish your proposal from approval. Revise weakened counterarguments or inconsistent conditions. Full meaning and argumentation remain unscored.",
+              "de": "Vergleiche im Meinungstext das verfügbare Präsenztreffen und die Online-Beteiligung nach gemeinsamen Kriterien. Verbinde These, Belege, Einwand breiterer Teilnahme, Antwort und Ausweichlösung samt Anreise- und Zugangsgrenzen. Erhalte Kapazität, Sicherheit, Zustimmung und Ausnahme zur Weitergabe. Bestätige weder einen nicht verfügbaren Zusatzraum noch einen unbekannten Termin; trenne Vorschlag und Genehmigung. Korrigiere abgeschwächte Gegenargumente und widersprüchliche Bedingungen. Gesamtinhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP16:speaking:01",
+      "phaseId": "KP16",
+      "level": "B2",
+      "objectiveId": "KP16:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "상충하는 조건의 협의와 회의 정리",
+        "en": "Negotiate conflicting interests and summarise the meeting",
+        "de": "Gegensätzliche Bedingungen verhandeln und das Gespräch zusammenfassen"
+      },
+      "teaching": {
+        "ko": "동등한 동료 A는 시간 약속, B는 참여 확대를 중시해요. 두 역할을 나눠 해요체로 조건·양보·거절·차선책을 협의하세요. 없는 추가 방을 가정할 수는 있지만 실제 이용 가능하다고 말하지 마세요. 이어 합쇼체 회의 정리에서 결정한 확인 업무, 잠정 수용, 미합의점, 운영팀의 승인 권한을 구별하세요. -더라도 뒤에도 유지되는 결론과 -든지의 선택을 따로 끊어 말하고 녹음을 고쳐요. 의미·억양·협상 능력은 미채점입니다.",
+        "en": "Equal colleague A prioritises keeping the time commitment; B prioritises wider participation. Voice both roles politely to negotiate conditions, concessions, refusal and fallback. An extra room may be imagined but is not available. Then formally summarise agreed verification work, provisional acceptance, unresolved points and the team’s approval authority. Keep the conclusion after -더라도 distinct from alternatives with -든지; replay and revise. Meaning, intonation and negotiation ability remain unscored.",
+        "de": "Gleichgestellte Person A legt Wert auf Termineinhaltung, B auf breitere Teilnahme. Sprich beide Rollen höflich und verhandle Bedingungen, Zugeständnisse, Ablehnung und Ausweichlösung. Ein Zusatzraum darf vorgestellt, aber nicht als verfügbar behauptet werden. Fasse danach förmlich vereinbarte Prüfaufgaben, vorläufige Zustimmung, offene Punkte und Genehmigungsbefugnis zusammen. Trenne die trotz -더라도 geltende Folgerung von Alternativen mit -든지; höre zu und verbessere. Inhalt, Intonation und Verhandlungskompetenz bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 금요일의 방 하나를 신청할 수 있다. 정원은 20명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 월요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 월요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.\nA와 B가 합의한 일: B가 장소 담당자에게 가능한 시간 확인. 아직 장소·일정·기록 공개는 미합의.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 약관\n제1조: 등록 모임은 화요일의 방 하나를 신청할 수 있다. 정원은 15명이다. 정원을 지키는 한 신청을 검토한다. 신청 접수는 승인이나 이용 보장을 뜻하지 않는다.\n제2조: 일정이 늦어지더라도 안전 확인은 생략할 수 없다.\n제3조: 참석자의 발언 기록은 별도 동의가 없는 한 공개할 수 없다. 다만 이름과 개인 발언이 전혀 없는 모임 날짜·장소 안내는 공개할 수 있다. 요약본이라도 개인 발언을 포함하면 동의를 받아야 한다.\n제4조: 장소 담당자는 가능한 시간을 확인해 답할 책임이 있으며 최종 승인은 운영팀이 한다. 목요일의 빈방 여부는 아직 미상이다.\n\n가상 의견문 — 작은 모임부터 시작하자는 제안\n나는 현재 가능한 작은 모임을 먼저 검토하자고 제안한다. 시간이 정해져 있으면 약속을 지키는 데 도움이 되고, 작은 모임이나마 서로 의견을 나눌 기회가 생기기 때문이다. 더 많은 사람이 참여해야 한다는 반론은 타당하다. 그러나 지금 추가 방은 없으므로 방이 두 개라는 가정을 현재 대안처럼 제시해서는 안 된다.\n현장 소규모 모임과 온라인 의견 수렴을 비교하면 이동 부담은 온라인이 적지만 화면 이용이 어려운 사람은 참여하기 어렵다. 현장 모임은 정원의 제한이 있다. 어느 방식이 모든 사람에게 나은지는 자료가 부족하다. 현장 신청이 어렵다면 목요일이라도 확인하거나 온라인 의견 수렴을 검토하자. 요약 공개가 마음에 들더라도 개인 발언 동의 조건은 유지해야 한다. 날짜·장소만 알리는 예외와 개인 발언 요약을 혼동해서는 안 된다. 이 글은 제안이며 운영팀의 승인을 대신하지 않는다.\nA와 B가 합의한 일: B가 장소 담당자에게 가능한 시간 확인. 아직 장소·일정·기록 공개는 미합의.",
+        "questions": []
+      }
+    }
+  ]
+}

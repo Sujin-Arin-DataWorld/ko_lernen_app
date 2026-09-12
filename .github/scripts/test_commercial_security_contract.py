@@ -63,6 +63,30 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("xcodebuild test", simulator)
         self.assertIn("-only-testing:RunnerTests", simulator)
 
+    def test_phase_device_checks_have_their_own_clock_and_installed_permissions(self):
+        workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
+        phase = workflow.split('  phase-ios-tests:\n', 1)[1].split('  release-internal:\n', 1)[0]
+        _, privacy = self.ios_jobs()
+        self.assertNotIn('flutter drive', privacy)
+        self.assertIn('timeout-minutes: 300', phase)
+        self.assertIn("github.event_name == 'workflow_dispatch'", phase)
+        self.assertIn('macos-15-intel', phase)
+        self.assertIn('bash ios/ci_scripts/ci_post_clone.sh', phase)
+        self.assertLess(phase.index('xcrun simctl install'), phase.index('grant microphone'))
+        self.assertEqual(phase.count('flutter build ios --simulator'), 1)
+        self.assertLess(phase.index('flutter build ios --simulator'), phase.index('for qa_level'))
+        self.assertIn('--config-only', phase)
+        self.assertIn('xcodebuild build-for-testing -workspace ios/Runner.xcworkspace', phase)
+        self.assertIn('ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES', phase)
+        self.assertEqual(phase.count('--use-application-binary=build/ios/Debug-iphonesimulator/Runner.app'), 2)
+        self.assertIn('phase-native-$qa_level-receipt.json', phase)
+        self.assertIn('--route="/phase-qa/$qa_level"', phase)
+        self.assertIn('--route="/phase-qa/$qa_level/restore"', phase)
+        self.assertLess(phase.index('xcrun simctl terminate'), phase.index('--route="/phase-qa/$qa_level/restore"'))
+        self.assertIn('qa_levels=(A1 A2 B1 B2 C1 C2)', phase)
+        self.assertIn('phase-native-results', phase)
+        self.assertNotIn('continue-on-error', phase)
+
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
         self.assertRegex(release, r"(?m)^    runs-on: macos-15$")

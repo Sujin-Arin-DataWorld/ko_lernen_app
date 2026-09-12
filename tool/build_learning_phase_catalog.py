@@ -9,6 +9,11 @@ import argparse
 import hashlib
 import json
 import re
+
+try:
+    from tool import build_phase_tasks
+except ModuleNotFoundError:
+    import build_phase_tasks
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +36,12 @@ def build(root: Path = ROOT) -> dict:
         raise ValueError("Source and bindings must contain KP01–KP30 once, in order")
     if {level: sum(p["level"] == level for p in phases) for level in LEVEL_COUNTS} != LEVEL_COUNTS:
         raise ValueError("Phase level distribution changed; review the live catalog")
+    task_asset = root / "assets/data/phase_tasks.json"
+    tasks = None
+    if task_asset.is_file():
+        tasks = build_phase_tasks.build(root)
+        if json.loads(task_asset.read_text(encoding="utf-8")) != tasks:
+            raise ValueError("Phase task asset is stale")
     output = []
     for phase, binding in zip(phases, bindings):
         ids = binding["practiceUnitIds"]
@@ -67,12 +78,19 @@ def build(root: Path = ROOT) -> dict:
             "practiceFocus": binding["practiceFocus"], "practiceUnitIds": ids,
             "illustrationAsset": asset,
         })
-    return {
-        "schemaVersion": 1,
+    if tasks is not None:
+        for phase in output:
+            phase["taskIds"] = [t["id"] for t in tasks["tasks"] if t["phaseId"] == phase["id"]]
+            phase["taskCoverage"] = "partial" if phase["taskIds"] else "related_practice_only"
+    result = {
+        "schemaVersion": 2 if tasks is not None else 1,
         "sourceSha256": hashlib.sha256((root / SOURCE).read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
-        "coverage": "related_practice_only",
+        "coverage": "phase_tasks_partial" if tasks is not None else "related_practice_only",
         "phases": output,
     }
+    if tasks is not None:
+        result["phaseTaskSourceSha256"] = build_phase_tasks.fingerprint(tasks)
+    return result
 
 
 def render(root: Path = ROOT) -> str:

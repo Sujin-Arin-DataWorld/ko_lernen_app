@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP16:grammar:01",
+      "sha256": "043c0c95413552383b68471e2130c06b80e545f683e88fb2bb7eba0d2d22fc4b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Hypothetical condition differs by explicit context: undetermined support versus currently nonexistent extra room; form alone does not mark counterfactuality. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:01",
+      "sha256": "b26fc629d6ae2f4e6526aabc079006f4fc1377e6e999f5b7c3ec44fed7740c95",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Hypothetical condition differs by explicit context: undetermined support versus currently nonexistent extra room; form alone does not mark counterfactuality. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:02",
+      "sha256": "3f9d8e541367295fadf3621430bd300818194fe45975e766fecc259d41520c29",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Comparison as sufficient minimum with 만 같아도, expectation not confirmed result or doubled requirement. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:02",
+      "sha256": "aae7c4bfdd184741d1d1c764ea7cbf54a85d8fc4fa0adacf7e46a0c501fb585a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Comparison as sufficient minimum with 만 같아도, expectation not confirmed result or doubled requirement. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:03",
+      "sha256": "e7e45140edb129b1ac0bb4360c2398a4a784848556b80b6fda9fad1e161365f4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 더라도 concession leaves accuracy/safety conclusion intact, not blanket acceptance or desire for delay. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:03",
+      "sha256": "3337e7bc15bce4fa5b64a0774ba350e233c334360033397ab3849cd6837f413d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 더라도 concession leaves accuracy/safety conclusion intact, not blanket acceptance or desire for delay. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:04",
+      "sha256": "a00f7e26860e6b2246b4fb6c00164cb7efd36324737be3ae2349581aa4814e86",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Recognise colloquial 도울래야/읽을래야; bounded production expressly requires standard 도우려야/읽으려야, preserving inability due to time/screen. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:04",
+      "sha256": "912fce899bbeab066b75409905ebb42ecc4599310873642611a900761b6d0bf2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Recognise colloquial 도울래야/읽을래야; bounded production expressly requires standard 도우려야/읽으려야, preserving inability due to time/screen. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:05",
+      "sha256": "bbaa2ec0731a79ff7d8474d935a755b124513754149595638fff16644d4c1b93",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 든지 alternatives for email/phone or wait/return, no cumulative obligation and no past 던지 confusion. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:05",
+      "sha256": "1d575c3ab40870077119347ff0c177853ec031c0333a0a8bb873cfed7440bf39",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 든지 alternatives for email/phone or wait/return, no cumulative obligation and no past 던지 confusion. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:06",
+      "sha256": "004ca9ee2718d21ff66e32533dcd1d46e5236a9729ceec2654c9853a0ce6b470",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이든 free selection retains discussion/access checking, not removal of conditions. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:06",
+      "sha256": "77a2363d344257c5892dafe22ec47d4eb84c9960a302f2b5f8072ab812221e87",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이든 free selection retains discussion/access checking, not removal of conditions. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:07",
+      "sha256": "ac7001d2e3fbe55823e8e9b8adad50a68e2545acfd11e6f0c51f6ad69579c989",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이나마 values modest help/brief opportunity, not total support or unlimited promise. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:07",
+      "sha256": "34e47da333b1eacbdccecbeda273ff1072382fe32ee9eeb66d898bb1d59eae6b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이나마 values modest help/brief opportunity, not total support or unlimited promise. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:08",
+      "sha256": "e57a88f00aab8297ebd618f2f7374cb706bb84ac22d5317d4fd03cc7b7a02b84",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라도 fallback acceptability for tomorrow/copy, not counterpart confirmation or invented legal equivalence. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:08",
+      "sha256": "823382ae122344f1641729e726214ce47a81a8a9a397f003c1b1fde7f4dd44cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라도 fallback acceptability for tomorrow/copy, not counterpart confirmation or invented legal equivalence. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:09",
+      "sha256": "81fa0ffbfac334579bedaf04cd13c0dd9104ca6ca26daaeced77bb7ac338b3f0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이면 specifies weekend/vacation category for tendency, not today’s date or exceptionless universal. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:09",
+      "sha256": "97fb53769fc9bbeaf2b4b1c79dd656933a42bd8983d3112a955e9d3bc06d8d92",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이면 specifies weekend/vacation category for tendency, not today’s date or exceptionless universal. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:10",
+      "sha256": "9652e913dd8f85395acd0acfe288e3c35ab128498b034790beadd88e16a91880",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 치고 category-relative evaluation first attempt/short notice, not absolute superiority or completeness. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:10",
+      "sha256": "94e2aece278f0c5b90e0f7ed5ec722b4257948780453134ec3d1d4b24cb77f9b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 치고 category-relative evaluation first attempt/short notice, not absolute superiority or completeness. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:11",
+      "sha256": "5347d206d3e63170b08d3bede19bd50110625fbfb744fc21cfc2d3f4797db537",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 한 condition bounds conclusion; lack of materials/permission persists, not forever after change or automatic unlimited permission. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:11",
+      "sha256": "f8c9ef64d2a95f18bb0fafe35d76f0992dec27e78782c8c62c435ef4b9ba93dd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 한 condition bounds conclusion; lack of materials/permission persists, not forever after change or automatic unlimited permission. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:grammar:12",
+      "sha256": "960f73dd7d9faabc073fa50f3d3932ecf28f66454a3940024da8f9f42a2a7b51",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Action-example 다거나 lists possible meeting/call or summary/table, not exhaustive obligations or reported completed actions. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP16:production:12",
+      "sha256": "41bc2470a9a2b599fc8efe09ab357debf56e4771cc0fe496cfeb3d16868af6de",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Action-example 다거나 lists possible meeting/call or summary/table, not exhaustive obligations or reported completed actions. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP16:listening:01",
+      "sha256": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions."
+    },
+    {
+      "taskId": "KP16:reading:01",
+      "sha256": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected."
+    },
+    {
+      "taskId": "KP16:writing:01",
+      "sha256": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied."
+    },
+    {
+      "taskId": "KP16:speaking:01",
+      "sha256": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score."
+    }
+  ]
+}

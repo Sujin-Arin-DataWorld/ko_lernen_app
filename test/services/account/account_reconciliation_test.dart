@@ -445,14 +445,14 @@ void main() {
           'profile': {'xp': 4},
         });
         expect(result.value!.fields, isNot(contains('course_mastery_json')));
-        expect(result.value!.courseMastery!.version, 4);
+        expect(result.value!.courseMastery!.version, 5);
         expect(result.value!.courseMastery!.currentCourseUnitId, 'unit-root');
         expect(
           jsonDecode(
             result.value!.toCloudDocument()['course_mastery_json'] as String,
           ),
           {
-            'version': 4,
+            'version': 5,
             'curriculumGeneration': 'legacy_413_v1',
             'placementLevel': 'a1',
             'currentCourseUnitId': 'unit-root',
@@ -464,6 +464,7 @@ void main() {
             'productiveProjectStepEvidence': <Object?>[],
             'archivedProductiveEvidence': <Object?>[],
             'archivedProductiveProjectStepEvidence': <Object?>[],
+            'phaseTaskEvidence': <Object?>[],
           },
         );
       },
@@ -1347,13 +1348,13 @@ void main() {
         courseProgress: _courseProgressForLocalCapture(),
       );
 
-      expect(local.courseMastery?.version, 4);
+      expect(local.courseMastery?.version, 5);
       expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
       expect(
         local.localCourseMasteryGeneration,
         Storage.courseMasterySnapshotRawJson,
       );
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":5'));
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.browseLevelCode, 'b2');
       expect(Storage.userLevelCode, 'a2');
@@ -1374,7 +1375,7 @@ void main() {
         courseProgress: _courseProgressForLocalCapture(),
       );
 
-      expect(local.courseMastery?.version, 4);
+      expect(local.courseMastery?.version, 5);
       expect(local.courseMastery?.placementLevel, 'a1');
       expect(local.courseMastery?.currentCourseUnitId, 'unit-root');
       expect(

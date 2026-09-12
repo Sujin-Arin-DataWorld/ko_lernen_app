@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP09:grammar:01",
+      "sha256": "543d63e548eb83663ade92dbd5ad4c9c3f514252fd90fa898fceb0a068b58060",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Verb plain statement in self-talk; no imperative/promise substitution. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:01",
+      "sha256": "0e51a09b640e5beff209ee982279367fbb1a2cf6e31dd61e44abc34fe928afa9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Verb plain statement in self-talk; no imperative/promise substitution. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:02",
+      "sha256": "c6d0e752cd3bda0c4be377d469e6df160a8833c4a879f0baccf4439d6d6e9e4a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Question-final 니 in explicitly agreed casual relationship, not causal connective. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:02",
+      "sha256": "2bb2ab619cf782ec9d6a0d92cadf84a7067cd5ab68c6ae54eabfe805ea9b43a7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Question-final 니 in explicitly agreed casual relationship, not causal connective. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:03",
+      "sha256": "2ff77b4e6ec74ccda1aaeede889b416c08fb6417f3364cfb7a05bd32a17082f1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Shared proposal 자, not listener-only instruction or temporal connective. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:03",
+      "sha256": "cf33fd47610b484bdd9e65448f21fb5eb7cbaaf7c89dda7890d4620453811866",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Shared proposal 자, not listener-only instruction or temporal connective. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:04",
+      "sha256": "d083659421539672a22b0a990892eccf0aac66f3c59e5419a582b2b96bfbe68b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Realization responds to stated loneliness/current learning, not invented feeling or completion. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:04",
+      "sha256": "81fb8d0b605ca3c0f1c8c9baa92181b4b76da0c3557f833e54d81b4eae0315d2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Realization responds to stated loneliness/current learning, not invented feeling or completion. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:05",
+      "sha256": "837e4fc6afc3edfa19ff4bd3383f0a5422fcf35439356146d186056cd786e92f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. 던 recalls explicitly repeated/experienced past; no universal incomplete-only claim. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:05",
+      "sha256": "0c46728493f85fa5a9b563441d288e32f26ab8fd6dbe92b7aeba08333329d72d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. 던 recalls explicitly repeated/experienced past; no universal incomplete-only claim. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:06",
+      "sha256": "9354fa1f9dbf9e770d4c5e42ce71872ee914dab9cc3ebf2aaddb2dbc716a33c9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Sentence-final experiential impression 던데2, direct visit/viewing specified, no hearsay. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:06",
+      "sha256": "d70ed5e7cbb94ce64a9b9a432fd9ee1c08bda9d5e92e14ccae8958d1623e2a4c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Sentence-final experiential impression 던데2, direct visit/viewing specified, no hearsay. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:07",
+      "sha256": "c8d5ef9d81a82c80dee5c8557445c382202988cd15b08b80342cc43234c273b2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Vocative 아 after final consonant, 야 after vowel, established familiarity. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:07",
+      "sha256": "c4ee57bf6dff72a88bae68ed8e57d6d9c6c3fc310661122727bfddc250d9bc61",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Vocative 아 after final consonant, 야 after vowel, established familiarity. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:08",
+      "sha256": "0fb3542ebcbffdc711900cc53167c2599b06adfc21e34e0bd4ba084294452e23",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Politeness particle 요; preceding word carries person/time, not future conversion. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:08",
+      "sha256": "c9db4cd2eba02e5c5c3e29e863ff44b4e54d2526e20496b27b163a72d23c46df",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Politeness particle 요; preceding word carries person/time, not future conversion. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:09",
+      "sha256": "3bbc4aba0e0eb66764406f02d31ec0e64078ee92081a14c36aa991ad7ef96774",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Earlier past contrasted with explicit current situation; no automatic English past-perfect equivalence. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:09",
+      "sha256": "b0dda4ca2eef23582e2736b6dc0e14feb28ea18e689d1970b5873a15d91407ff",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Earlier past contrasted with explicit current situation; no automatic English past-perfect equivalence. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:10",
+      "sha256": "dbdffd004439798658831f14fe53cd825570255c71bb248d59be553620bab7f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Reference-time process ongoing, not already completed. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:10",
+      "sha256": "5a33f5f4a5dc7d1bf7d26c5fe9dd5755369fe908816d987d344038ae78ad3555",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Reference-time process ongoing, not already completed. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:grammar:11",
+      "sha256": "b135e5bcaabd432bff4de0f077091223384bda46e075f60250e0667de9ba1787",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Other-person wish remains unfulfilled and belongs to sibling/friend, not speaker. Receptive meaning sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP09:production:11",
+      "sha256": "1042924510524b963c61fef9f4694f91bee840dd0d67c3720b263f495ee40bdd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO, EN and DE individually compared. Other-person wish remains unfulfilled and belongs to sibling/friend, not speaker. Distinct practice/assessment slot conditions; practice-only help example, full bounded sentence, unknown alternative unscored."
+    },
+    {
+      "taskId": "KP09:listening:01",
+      "sha256": "6c616a2e74f1d1df0896955eb9cef84775442a46a7ddcf57b7627945815eee42",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Close-friend dialogue: former/current city, ongoing process, sibling unfulfilled wish, explicitly stated feeling and repair question. Reviewed generated option inflections; source and quoted people preserved. Pauses are practice, not automated prosody mastery."
+    },
+    {
+      "taskId": "KP09:listening:02",
+      "sha256": "c89a2e1ba74fbe4b02b6393d06eab69f95f8438def4f12dbffb513916fa264d0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual short orientation experience talk: year/place/role, former colleague quote, stated relief, current material creation, friend not yet registered. Timeline/source/emotion/limit required."
+    },
+    {
+      "taskId": "KP09:reading:01",
+      "sha256": "dbaeb099ea525088eca4e7fe66983fd2481dfc346b867c99e456c50f9c7a853d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual retrospective SNS post and comment. Direct experience versus colleague quotation, current drafting, friend undecided. Comment empathises with feeling but withholds judgement on organisation."
+    },
+    {
+      "taskId": "KP09:writing:01",
+      "sha256": "982352b2ae16f51df4cfe70df366f84ae6218946354c1566540694dcc5b783cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Full narrative from fictional temporal facts, stated emotions/causes and exact quote. Narrative and dialogue registers separated; wish not commitment. Required freeText, no key; meaning/style unscored."
+    },
+    {
+      "taskId": "KP09:speaking:01",
+      "sha256": "31326130a6b30023a15fde59c6fe2d441208dd9212d2fcb05c2583bd267b0c89",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Defined long-standing close-friend private context and agreed casual speech, vocative and feeling response, follow-up memory question, same facts relayed politely to new member. Audio replay/revision rubric, meaning/register/intonation unscored."
+    },
+    {
+      "taskId": "KP09:speaking:02",
+      "sha256": "2544458abf1363c76956c81870e9b2f68f1d847154a52180ff9c2ef74fa5509b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Separate fictional job-interview role with bounded durations, staff-defined responsibilities and no decision authority. No invented certificate/achievement. Polite/formal speech and review rubric; speech meaning unscored."
+    }
+  ]
+}

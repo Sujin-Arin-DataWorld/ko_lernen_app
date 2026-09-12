@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP23:grammar:01",
+      "sha256": "86137c1c1389816c6e4223302c3ed1ce8584ee09fd5e33815911585c6ed6809c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는다기에 third-party statement gives speaker reason for sending/checking; no independent verification implied. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:01",
+      "sha256": "9ee46ec67a3ba32803409f8d6abf958552042c36cac953532af6685653f72491",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는다기에 third-party statement gives speaker reason for sending/checking; no independent verification implied. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:02",
+      "sha256": "289d7339dce6a0fb798112873de008ab70fcb6ddbe044226d7735a06dab8597d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는다니1 inventory command-content-question variant 으라니: close-peer question asks missing recipient/object, not new order or 다니1 surprise; core gives polite recast. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:02",
+      "sha256": "ca02f21ced7696da51e122479daffbc519ac0ea9f08a253a8dc8c9b3db1a5e0e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는다니1 inventory command-content-question variant 으라니: close-peer question asks missing recipient/object, not new order or 다니1 surprise; core gives polite recast. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:03",
+      "sha256": "28ff1b83b746e041610db735774bb166aea9a6ef2d2a92d9ab0ab333c9e8de31",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 자기에 reported joint review/comparison proposal motivates speaker attendance/preparation, not command or reversed actor. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:03",
+      "sha256": "6db6562207e774b4c9c3e0f2e38d16c48953b667545f44cce462264f2885a5b7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 자기에 reported joint review/comparison proposal motivates speaker attendance/preparation, not command or reversed actor. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:04",
+      "sha256": "b894c9b79a0ab8bc870376be3f63032e8d82ed92ac2227577b70796e884ee2ec",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 더라고 direct comparison/reading of two tables/manuscript establishes only inspected difference, not hearsay. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:04",
+      "sha256": "a6a3dce624f5cf3c19c8b71a982b778cc4454776b576403cf20e3a34062f593b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 더라고 direct comparison/reading of two tables/manuscript establishes only inspected difference, not hearsay. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:05",
+      "sha256": "0b1a621d6f02521cd691dcb2c9cf8eae97b66d29a344fdd6e0c88c997975949b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 데/데요 recollected direct visit/listening distinct from hearsay 대/대요; less-common register acknowledged and paraphrased 더라고요. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:05",
+      "sha256": "623fb4dc43880f7558b6dae38f169930a3396ddd25f9ff1724723a7b66d6f540",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 데/데요 recollected direct visit/listening distinct from hearsay 대/대요; less-common register acknowledged and paraphrased 더라고요. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:06",
+      "sha256": "7fb61d8f1ce5dfba92933965a02f4803abbc229f38e830a6a91737f18761a487",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 다니1 exclamatory reaction to reported workload/completion, not personal full inspection or missing-content question. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:06",
+      "sha256": "597296d5a0297de80305c8a18234afbb812635ac504a42b6e674c31ca0df5c15",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 다니1 exclamatory reaction to reported workload/completion, not personal full inspection or missing-content question. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:07",
+      "sha256": "df03df68f7befd1dbac8c5c47c37fa83957a08da44efa5fc06c99431977875c4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는다는 것이 intended assistance/clarity versus increased work/confusion, not achieved benefit or malicious initial intention. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:07",
+      "sha256": "7113255d498e919b6ac85c4fb0567938ef189c49808ede531f844d19ff216ea8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는다는 것이 intended assistance/clarity versus increased work/confusion, not achieved benefit or malicious initial intention. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:grammar:08",
+      "sha256": "4404ea7b8c0372567dc2e8f72c440a227a736f9b8687eccb0664b553caeb9a21",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 를 가지고 statement/article as judgement grounds, insufficient for intention/agreement certainty, not physical carrying. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP23:production:08",
+      "sha256": "ca90d20fbacd4bcc71b93ddd95b56f39f36847fcdd1be14eb4d6ecba84495a25",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 를 가지고 statement/article as judgement grounds, insufficient for intention/agreement certainty, not physical carrying. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP23:listening:01",
+      "sha256": "3ab98d4690ef8015815d51de7eabea518db11a9a273f3d340173bc39dee97217",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: three distinct fictional recordings8Monday versus11Tuesday, origin→middle→last chain; last heard middle only. Original orders internal upload and asking committee about external permission, not external publication. Same-source repetition not independent approval; anonymous confirmation origin/identity explicitly unknown. Operations internal-sharing versus exhibition public-audience definitions distinct. Missing account/access list requires checking. Six mandatory chain/act/independence/definition criteria. Corrected inflected origin name before review."
+    },
+    {
+      "taskId": "KP23:listening:02",
+      "sha256": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: separate extended lecture source chain→speech act→term scope→correction limits. Repeated origin not new evidence, personal relay promise not approval power, admiration not full inspection. Unverified permission does not entail permanent prohibition. Three mandatory discourse/evidential contrasts."
+    },
+    {
+      "taskId": "KP23:reading:01",
+      "sha256": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual fictional headline/body and two interviews, editor converts permission question to confirmed publication without committee record. Middle directly heard origin and compared only two drafts; last heard middle and anonymous claim, personally recalled quiet visit only. Reaction not inspection, omitted question mark acknowledged while intent/result distinguished. Two group meanings of publicness not flattened. Seven mandatory headline/witness/source/reaction/recollection/intention/unknown criteria."
+    },
+    {
+      "taskId": "KP23:writing:01",
+      "sha256": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: complete briefing report plus independent correction field, proposition-level sources and reconstructible chain, disagreement and checking plan retained. Proposed versus completed verification separated; no invented permanent ban, committee answer, account or access list. Distinct actor roles, reactions and experience; source-bound revision. Free meaning and argument unscored."
+    },
+    {
+      "taskId": "KP23:speaking:01",
+      "sha256": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored."
+    }
+  ]
+}

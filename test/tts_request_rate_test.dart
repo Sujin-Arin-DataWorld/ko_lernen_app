@@ -659,6 +659,69 @@ void main() {
     expect(errors.single, contains('timed out'));
   });
 
+  testWidgets(
+    'long passage timeout is request-local and still needs completion',
+    (tester) async {
+      final platform = _FakePlatform();
+      final engine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => TtsAudio.path('$text.mp3'),
+        platform: platform,
+      );
+      bool? result;
+      final long = engine.speak(
+        text: 'passage',
+        voice: 'female',
+        baseRate: 0.42,
+        requestCompletionTimeout: const Duration(minutes: 3),
+      );
+      long.then((value) => result = value);
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 45));
+      expect(
+        result,
+        isNull,
+        reason: 'A 45-second recording is not a timeout or success yet',
+      );
+      platform.fileSessions['passage.mp3']!.complete(true);
+      await tester.pump();
+      expect(await long, isTrue);
+
+      final short = engine.speak(text: 'word', voice: 'female', baseRate: 0.42);
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 31));
+      expect(
+        await short,
+        isFalse,
+        reason: 'The next short request retains its own watchdog',
+      );
+      await engine.dispose();
+    },
+  );
+
+  testWidgets('stopping a long passage cancels its watchdog without success', (
+    tester,
+  ) async {
+    final platform = _FakePlatform();
+    final errors = <String>[];
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (text, voice) async => TtsAudio.path('passage.mp3'),
+      platform: platform,
+      errorReporter: errors.add,
+    );
+    final pending = engine.speak(
+      text: 'passage',
+      voice: 'female',
+      baseRate: 0.42,
+      requestCompletionTimeout: const Duration(minutes: 3),
+    );
+    await tester.pump();
+    await engine.stop();
+    expect(await pending, isFalse);
+    await tester.pump(const Duration(minutes: 4));
+    expect(errors, isEmpty);
+    await engine.dispose();
+  });
+
   test('stale timed-out completion cannot stop newer audio', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(

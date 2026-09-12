@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP20:grammar:01",
+      "sha256": "20b346f673ea0ab02464007b268d568dd285d8fe02701fa22bcd97ac08f50939",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 듯하다 observational inference about guidance/term difficulty, not sole-cause proof or universal tested comprehension. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:01",
+      "sha256": "ce3d8141c86a5a143332579649df89fa16226115c629ff71aed1ec45e2d652e7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 듯하다 observational inference about guidance/term difficulty, not sole-cause proof or universal tested comprehension. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:02",
+      "sha256": "f3a6decdbad6ed7697d7bd88b2860febbd1a200ff30099c74813027fa5a3fd28",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 법하다 plausible confusion from circumstances, not observed universal confusion, permission or obligation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:02",
+      "sha256": "a05587130f6fb425fb3c305f4fe0ebacc2523bceb063104df6599b73e019b353",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 법하다 plausible confusion from circumstances, not observed universal confusion, permission or obligation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:03",
+      "sha256": "c33b820d8539fe954a9aa2b13e5df591818ce9747d19711cdffb86b88a8126d2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으려나 보다 tentative intention from collecting data/searching rooms, not directly confirmed approval/schedule. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:03",
+      "sha256": "9577579cf5edb383bc6ed4d24baa1da12c493df9b0364bac4946144410710853",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으려나 보다 tentative intention from collecting data/searching rooms, not directly confirmed approval/schedule. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:04",
+      "sha256": "93151d3c429367cf22d46924076adab7000e6f8f5be4d4b60a928a612bb85083",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 만하다 review/discussion worth, not predicted adoption, proven effectiveness or obligation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:04",
+      "sha256": "414eeb990f07811e497a295b34e1df3746ce5c8ad3347c45d427e26224479207",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 만하다 review/discussion worth, not predicted adoption, proven effectiveness or obligation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:05",
+      "sha256": "f804ed3a650e7b0626e72538844eb201c52aac2544dc242f69632121843d307b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 게 마련이다 attributed general expectation, not evidence that every case was observed or exceptions impossible. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:05",
+      "sha256": "2923658b5d16197dba580a121e181af16c046ed6c49ef17c16ecb2caab0695d7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 게 마련이다 attributed general expectation, not evidence that every case was observed or exceptions impossible. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:06",
+      "sha256": "31264e27db1b7c324b33773299765e42973d732188411618b21042b9568b4be4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기가 쉽다 conditional susceptibility to misunderstanding/confusion, not guaranteed failure or convenient action performance. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:06",
+      "sha256": "88c7888efdb607d4ef6eb313751a06d49340689cc0bf487ea1593d9dd463f38d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기가 쉽다 conditional susceptibility to misunderstanding/confusion, not guaranteed failure or convenient action performance. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:07",
+      "sha256": "df14eef59be9638804a6182de74fed2a1ccc3895edf2d4244c8a329b95a0064c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 법이다 attributed general principle/tendency, not a step-by-step method or experimentally verified necessity. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:07",
+      "sha256": "0f93dd77342ac264a160f305438c897d549ac85b4881b7ac92f31c7bb70080c0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 법이다 attributed general principle/tendency, not a step-by-step method or experimentally verified necessity. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:08",
+      "sha256": "14c17112bda8f86fc30fa604883d61c21f099ad6eee6f4569ba26421dcde5f86",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는가 written open question about scope/interpretation, not an affirmative finding. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:08",
+      "sha256": "35f56008852fd692b399dba038a182369883d43ffc994a1f40102a61c0d28f24",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는가 written open question about scope/interpretation, not an affirmative finding. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:grammar:09",
+      "sha256": "09b00341119d288df11394ed1cdf2e27c2e689c1fbd27d4d80094a15c6b7490c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 것 같다 polite tentative judgement about data need/criteria difference, not confirmed insufficiency or known discrepancy. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP20:production:09",
+      "sha256": "d4151ca3ff874221d4f71568379e8876bd59e0d947fb53c76594b5d8b36b5b80",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 것 같다 polite tentative judgement about data need/criteria difference, not confirmed insufficiency or known discrepancy. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP20:listening:01",
+      "sha256": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria."
+    },
+    {
+      "taskId": "KP20:reading:01",
+      "sha256": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts."
+    },
+    {
+      "taskId": "KP20:writing:01",
+      "sha256": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored."
+    },
+    {
+      "taskId": "KP20:speaking:01",
+      "sha256": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored."
+    }
+  ]
+}

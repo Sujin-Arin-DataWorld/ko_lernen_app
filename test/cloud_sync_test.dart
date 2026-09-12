@@ -517,7 +517,7 @@ void main() {
       });
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        4,
+        5,
       );
       expect(payload, isNot(contains('browse_level')));
     },
@@ -583,14 +583,14 @@ void main() {
 
       final payload = await CloudSync.buildBackupPayload();
 
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":5'));
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.browseLevelCode, 'b2');
       expect(Storage.userLevelCode, 'a2');
       expect(payload['course_mastery_json'], isA<String>());
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        4,
+        5,
       );
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['evidence'],
@@ -617,7 +617,7 @@ void main() {
           jsonDecode(payload['course_mastery_json'] as String)
               as Map<String, dynamic>;
 
-      expect(durable['version'], 4);
+      expect(durable['version'], 5);
       expect(durable['productiveEvidence'], isEmpty);
       expect(captured, durable);
     },
@@ -638,7 +638,7 @@ void main() {
       final canonical =
           jsonDecode(Storage.courseMasterySnapshotRawJson)
               as Map<String, dynamic>;
-      expect(canonical['version'], 4);
+      expect(canonical['version'], 5);
       expect(canonical['placementLevel'], 'a1');
       expect(canonical['currentCourseUnitId'], 'a1_01_greetings_hangul');
       expect(Storage.browseLevelCode, 'b2');
@@ -1162,7 +1162,7 @@ void main() {
       final local = _courseSnapshotJson(evidenceId: 'local-evidence');
       final future = jsonEncode({
         ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
-        'version': 5,
+        'version': 6,
       });
       final unknownUnit = _courseSnapshotJson(
         currentCourseUnitId: 'unknown-course-unit',

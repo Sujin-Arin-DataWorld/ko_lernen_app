@@ -1,0 +1,3683 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP02",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP02:grammar:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:01",
+      "requirementKeys": [
+        "G1:에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에",
+        "en": "에",
+        "de": "에"
+      },
+      "teaching": {
+        "ko": "에로 시각이나 목적지를 표시해요. 행동이 일어나는 곳은 에서로 나타내요.",
+        "en": "에 marks a time or destination; 에서 marks where an activity happens.",
+        "de": "에 bezeichnet eine Zeit oder ein Ziel; 에서 den Ort einer Tätigkeit."
+      },
+      "examplesKo": [
+        "두 시에 학교에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "두 시에 학교에 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가는 시각은 학교예요."
+              },
+              {
+                "id": "0",
+                "text": "가는 시각은 두 시예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에로 시각이나 목적지를 표시해요. 행동이 일어나는 곳은 에서로 나타내요.",
+              "en": "에 marks a time or destination; 에서 marks where an activity happens.",
+              "de": "에 bezeichnet eine Zeit oder ein Ziel; 에서 den Ort einer Tätigkeit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "네 시에 도서관에 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "도서관이 목적지예요."
+              },
+              {
+                "id": "1",
+                "text": "네 시가 목적지예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에로 시각이나 목적지를 표시해요. 행동이 일어나는 곳은 에서로 나타내요.",
+              "en": "에 marks a time or destination; 에서 marks where an activity happens.",
+              "de": "에 bezeichnet eine Zeit oder ein Ziel; 에서 den Ort einer Tätigkeit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:02",
+      "requirementKeys": [
+        "G1:에서"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에서",
+        "en": "에서",
+        "de": "에서"
+      },
+      "teaching": {
+        "ko": "에서 앞의 장소에서 행동이 일어나요. 도착할 목적지만 나타내는 에와 구별해요.",
+        "en": "에서 locates an activity, rather than only naming its destination.",
+        "de": "에서 zeigt, wo eine Tätigkeit stattfindet, nicht nur ihr Ziel."
+      },
+      "examplesKo": [
+        "집에서 한국어를 공부해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "집에서 한국어를 공부해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학교에서 공부해요."
+              },
+              {
+                "id": "0",
+                "text": "공부하는 곳은 집이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에서 앞의 장소에서 행동이 일어나요. 도착할 목적지만 나타내는 에와 구별해요.",
+              "en": "에서 locates an activity, rather than only naming its destination.",
+              "de": "에서 zeigt, wo eine Tätigkeit stattfindet, nicht nur ihr Ziel."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "교실에서 친구를 만나요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구 집에서 만나요."
+              },
+              {
+                "id": "0",
+                "text": "만나는 곳은 교실이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에서 앞의 장소에서 행동이 일어나요. 도착할 목적지만 나타내는 에와 구별해요.",
+              "en": "에서 locates an activity, rather than only naming its destination.",
+              "de": "에서 zeigt, wo eine Tätigkeit stattfindet, nicht nur ihr Ziel."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:03",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:03",
+      "requirementKeys": [
+        "G1:부터"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부터",
+        "en": "부터",
+        "de": "부터"
+      },
+      "teaching": {
+        "ko": "부터는 시작점이에요. 끝점은 까지로 나타내요.",
+        "en": "부터 marks the start; 까지 marks the end.",
+        "de": "부터 bezeichnet den Anfang, 까지 das Ende."
+      },
+      "examplesKo": [
+        "수업은 열 시부터 열두 시까지예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "수업은 열 시부터 열두 시까지예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업은 열 시에 시작해요."
+              },
+              {
+                "id": "1",
+                "text": "수업은 열두 시에 시작해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "부터는 시작점이에요. 끝점은 까지로 나타내요.",
+              "en": "부터 marks the start; 까지 marks the end.",
+              "de": "부터 bezeichnet den Anfang, 까지 das Ende."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "도서관은 두 시부터 여섯 시까지 열어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "여섯 시에 문을 열어요."
+              },
+              {
+                "id": "0",
+                "text": "두 시에 문을 열어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "부터는 시작점이에요. 끝점은 까지로 나타내요.",
+              "en": "부터 marks the start; 까지 marks the end.",
+              "de": "부터 bezeichnet den Anfang, 까지 das Ende."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:04",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:04",
+      "requirementKeys": [
+        "G1:까지"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "까지",
+        "en": "까지",
+        "de": "까지"
+      },
+      "teaching": {
+        "ko": "까지는 끝점이에요. 시작 시각과 끝 시각을 바꾸지 않아요.",
+        "en": "까지 marks an endpoint. Keep the starting and ending times separate.",
+        "de": "까지 bezeichnet den Endpunkt. Verwechsle Anfang und Ende nicht."
+      },
+      "examplesKo": [
+        "오전 아홉 시부터 오후 한 시까지 일해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오전 아홉 시부터 오후 한 시까지 일해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "일이 끝나는 시각은 오전 아홉 시예요."
+              },
+              {
+                "id": "0",
+                "text": "일이 끝나는 시각은 오후 한 시예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "까지는 끝점이에요. 시작 시각과 끝 시각을 바꾸지 않아요.",
+              "en": "까지 marks an endpoint. Keep the starting and ending times separate.",
+              "de": "까지 bezeichnet den Endpunkt. Verwechsle Anfang und Ende nicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "버스는 역에서 학교까지 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "역이 이 노선의 끝이에요."
+              },
+              {
+                "id": "0",
+                "text": "학교가 이 노선의 끝이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "까지는 끝점이에요. 시작 시각과 끝 시각을 바꾸지 않아요.",
+              "en": "까지 marks an endpoint. Keep the starting and ending times separate.",
+              "de": "까지 bezeichnet den Endpunkt. Verwechsle Anfang und Ende nicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:05",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:05",
+      "requirementKeys": [
+        "G1:으로"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "으로",
+        "en": "으로",
+        "de": "으로"
+      },
+      "teaching": {
+        "ko": "이동 수단에는 (으)로를 붙여요. 버스로, 지하철로처럼 써요. 목적지는 에로 나타내요.",
+        "en": "Use (으)로 for transport and 에 for a destination.",
+        "de": "Mit (으)로 nennst du das Verkehrsmittel, mit 에 das Ziel."
+      },
+      "examplesKo": [
+        "학교에 버스로 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학교에 버스로 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이동 수단은 학교예요."
+              },
+              {
+                "id": "0",
+                "text": "이동 수단은 버스예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이동 수단에는 (으)로를 붙여요. 버스로, 지하철로처럼 써요. 목적지는 에로 나타내요.",
+              "en": "Use (으)로 for transport and 에 for a destination.",
+              "de": "Mit (으)로 nennst du das Verkehrsmittel, mit 에 das Ziel."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "도서관에 지하철로 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지하철을 타요."
+              },
+              {
+                "id": "1",
+                "text": "도서관이라는 버스를 타요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "이동 수단에는 (으)로를 붙여요. 버스로, 지하철로처럼 써요. 목적지는 에로 나타내요.",
+              "en": "Use (으)로 for transport and 에 for a destination.",
+              "de": "Mit (으)로 nennst du das Verkehrsmittel, mit 에 das Ziel."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:06",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:06",
+      "requirementKeys": [
+        "G1:-었-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-었-",
+        "en": "-었-",
+        "de": "-었-"
+      },
+      "teaching": {
+        "ko": "-았/었-은 과거를 나타내요. 어제 한 일을 지금 하는 일과 구별해요.",
+        "en": "-았/었- marks the past. Distinguish yesterday’s action from an action in progress now.",
+        "de": "-았/었- bezeichnet Vergangenes. Unterscheide eine gestrige Handlung von dem, was gerade geschieht."
+      },
+      "examplesKo": [
+        "어제 친구를 만났어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "어제 친구를 만났어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구를 내일 만날 거예요."
+              },
+              {
+                "id": "0",
+                "text": "만난 일은 어제예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-았/었-은 과거를 나타내요. 어제 한 일을 지금 하는 일과 구별해요.",
+              "en": "-았/었- marks the past. Distinguish yesterday’s action from an action in progress now.",
+              "de": "-았/었- bezeichnet Vergangenes. Unterscheide eine gestrige Handlung von dem, was gerade geschieht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지난 토요일에 학교에 갔어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지금 학교에 가고 있어요."
+              },
+              {
+                "id": "0",
+                "text": "학교에 간 일은 이미 끝났어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-았/었-은 과거를 나타내요. 어제 한 일을 지금 하는 일과 구별해요.",
+              "en": "-았/었- marks the past. Distinguish yesterday’s action from an action in progress now.",
+              "de": "-았/었- bezeichnet Vergangenes. Unterscheide eine gestrige Handlung von dem, was gerade geschieht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:07",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:07",
+      "requirementKeys": [
+        "G1:-고3"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고3",
+        "en": "-고3",
+        "de": "-고3"
+      },
+      "teaching": {
+        "ko": "-고로 두 행동을 연결해요. 여기서는 말한 순서대로 일어난 행동이에요.",
+        "en": "-고 connects actions. In these examples, the actions happened in the order given.",
+        "de": "-고 verbindet Handlungen. In diesen Beispielen fanden sie in der genannten Reihenfolge statt."
+      },
+      "examplesKo": [
+        "아침을 먹고 학교에 갔어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "아침을 먹고 학교에 갔어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학교에 가지 않았어요."
+              },
+              {
+                "id": "0",
+                "text": "아침을 먹었고 학교에도 갔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고로 두 행동을 연결해요. 여기서는 말한 순서대로 일어난 행동이에요.",
+              "en": "-고 connects actions. In these examples, the actions happened in the order given.",
+              "de": "-고 verbindet Handlungen. In diesen Beispielen fanden sie in der genannten Reihenfolge statt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "책을 읽고 메모를 썼어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "메모만 쓰고 책은 읽지 않았어요."
+              },
+              {
+                "id": "0",
+                "text": "책을 읽었고 메모도 썼어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고로 두 행동을 연결해요. 여기서는 말한 순서대로 일어난 행동이에요.",
+              "en": "-고 connects actions. In these examples, the actions happened in the order given.",
+              "de": "-고 verbindet Handlungen. In diesen Beispielen fanden sie in der genannten Reihenfolge statt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:08",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:08",
+      "requirementKeys": [
+        "G1:-지 않다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 않다",
+        "en": "-지 않다",
+        "de": "-지 않다"
+      },
+      "teaching": {
+        "ko": "-지 않다는 행동이나 상태를 부정해요. 부정만으로 할 능력이 없다는 뜻이 되지는 않아요.",
+        "en": "-지 않다 negates an action or state; negation alone does not establish inability.",
+        "de": "-지 않다 verneint eine Handlung oder einen Zustand. Daraus folgt allein noch kein Unvermögen."
+      },
+      "examplesKo": [
+        "갈 수 있지만 오늘은 학교에 가지 않아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "갈 수 있지만 오늘은 학교에 가지 않아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "갈 수 없어서 못 가요."
+              },
+              {
+                "id": "0",
+                "text": "갈 수 있어도 오늘은 안 가요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 않다는 행동이나 상태를 부정해요. 부정만으로 할 능력이 없다는 뜻이 되지는 않아요.",
+              "en": "-지 않다 negates an action or state; negation alone does not establish inability.",
+              "de": "-지 않다 verneint eine Handlung oder einen Zustand. Daraus folgt allein noch kein Unvermögen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "마실 수 있지만 지금은 커피를 마시지 않아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지금 커피를 안 마셔요."
+              },
+              {
+                "id": "1",
+                "text": "커피를 마실 능력이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 않다는 행동이나 상태를 부정해요. 부정만으로 할 능력이 없다는 뜻이 되지는 않아요.",
+              "en": "-지 않다 negates an action or state; negation alone does not establish inability.",
+              "de": "-지 않다 verneint eine Handlung oder einen Zustand. Daraus folgt allein noch kein Unvermögen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:09",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:09",
+      "requirementKeys": [
+        "G1:-지 못하다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 못하다",
+        "en": "-지 못하다",
+        "de": "-지 못하다"
+      },
+      "teaching": {
+        "ko": "-지 못하다는 능력이나 사정 때문에 할 수 없음을 나타내요. 자발적으로 안 하는 것과 구별해요.",
+        "en": "-지 못하다 expresses inability or a preventing circumstance, rather than a free choice not to act.",
+        "de": "-지 못하다 drückt Unvermögen oder einen hindernden Umstand aus, nicht bloß eine freiwillige Entscheidung."
+      },
+      "examplesKo": [
+        "버스가 없어서 학교에 가지 못했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "버스가 없어서 학교에 가지 못했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "버스가 없어서 갈 수 없었어요."
+              },
+              {
+                "id": "1",
+                "text": "갈 수 있었지만 그냥 안 갔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 못하다는 능력이나 사정 때문에 할 수 없음을 나타내요. 자발적으로 안 하는 것과 구별해요.",
+              "en": "-지 못하다 expresses inability or a preventing circumstance, rather than a free choice not to act.",
+              "de": "-지 못하다 drückt Unvermögen oder einen hindernden Umstand aus, nicht bloß eine freiwillige Entscheidung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "아파서 어제 일하지 못했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "건강했지만 쉬기로 했어요."
+              },
+              {
+                "id": "0",
+                "text": "몸 상태 때문에 일할 수 없었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 못하다는 능력이나 사정 때문에 할 수 없음을 나타내요. 자발적으로 안 하는 것과 구별해요.",
+              "en": "-지 못하다 expresses inability or a preventing circumstance, rather than a free choice not to act.",
+              "de": "-지 못하다 drückt Unvermögen oder einen hindernden Umstand aus, nicht bloß eine freiwillige Entscheidung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:10",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:10",
+      "requirementKeys": [
+        "G1:도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "도",
+        "en": "도",
+        "de": "도"
+      },
+      "teaching": {
+        "ko": "도는 앞서 말한 대상에 같은 정보를 더해요. 저도는 다른 사람과 나에게 모두 해당한다는 뜻이에요.",
+        "en": "도 adds someone or something that shares the preceding property.",
+        "de": "도 fügt jemanden oder etwas hinzu, auf den dieselbe Aussage zutrifft."
+      },
+      "examplesKo": [
+        "유나는 학생이에요. 저도 학생이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "유나는 학생이에요. 저도 학생이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "유나와 저는 둘 다 학생이에요."
+              },
+              {
+                "id": "1",
+                "text": "저만 학생이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "도는 앞서 말한 대상에 같은 정보를 더해요. 저도는 다른 사람과 나에게 모두 해당한다는 뜻이에요.",
+              "en": "도 adds someone or something that shares the preceding property.",
+              "de": "도 fügt jemanden oder etwas hinzu, auf den dieselbe Aussage zutrifft."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민수는 버스로 가요. 지수도 버스로 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지수만 버스를 타요."
+              },
+              {
+                "id": "0",
+                "text": "두 사람 모두 버스를 타요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "도는 앞서 말한 대상에 같은 정보를 더해요. 저도는 다른 사람과 나에게 모두 해당한다는 뜻이에요.",
+              "en": "도 adds someone or something that shares the preceding property.",
+              "de": "도 fügt jemanden oder etwas hinzu, auf den dieselbe Aussage zutrifft."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:grammar:11",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:grammar:11",
+      "requirementKeys": [
+        "G1:만"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만",
+        "en": "만",
+        "de": "만"
+      },
+      "teaching": {
+        "ko": "만은 범위를 제한해요. 물만은 다른 음료를 포함하지 않아요.",
+        "en": "만 limits the scope: 물만 excludes other drinks.",
+        "de": "만 begrenzt den Umfang: 물만 schließt andere Getränke aus."
+      },
+      "examplesKo": [
+        "오늘은 물만 마셨어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오늘은 물만 마셨어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "물과 주스를 마셨어요."
+              },
+              {
+                "id": "0",
+                "text": "오늘 마신 음료는 물뿐이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "만은 범위를 제한해요. 물만은 다른 음료를 포함하지 않아요.",
+              "en": "만 limits the scope: 물만 excludes other drinks.",
+              "de": "만 begrenzt den Umfang: 물만 schließt andere Getränke aus."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "오늘은 한국어만 공부해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오늘 공부하는 언어는 한국어뿐이에요."
+              },
+              {
+                "id": "1",
+                "text": "한국어와 영어를 공부해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "만은 범위를 제한해요. 물만은 다른 음료를 포함하지 않아요.",
+              "en": "만 limits the scope: 물만 excludes other drinks.",
+              "de": "만 begrenzt den Umfang: 물만 schließt andere Getränke aus."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:listening:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "출발과 도착 안내 듣기",
+        "en": "Listen for departure and arrival",
+        "de": "Abfahrt und Ankunft verstehen"
+      },
+      "teaching": {
+        "ko": "출발·도착·수업 시작·수업 종료 시각을 구별하세요. 출발 장소와 교통수단까지 여섯 정보가 모두 맞아야 통과해요.",
+        "en": "Distinguish departure, arrival, class start and class end. All six facts, including starting place and transport, are required.",
+        "de": "Unterscheide Abfahrt, Ankunft, Unterrichtsbeginn und Unterrichtsende. Alle sechs Angaben einschließlich Startort und Verkehrsmittel müssen stimmen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "안녕하세요. 내일 아홉 시에 역에서 출발해요. 버스로 학교에 가요. 아홉 시 반에 학교에 도착해요. 수업은 열 시부터 열두 시까지예요.",
+        "questions": [
+          {
+            "id": "start",
+            "kind": "choice",
+            "prompt": {
+              "ko": "출발 시각은 언제예요?",
+              "en": "When do they depart?",
+              "de": "Wann fahren sie ab?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아홉 시"
+              },
+              {
+                "id": "1",
+                "text": "열 시"
+              },
+              {
+                "id": "2",
+                "text": "열두 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "출발 시각은 아홉 시입니다. 끝나는 시각과 구별해요.",
+              "en": "The stated departure time is 아홉 시.",
+              "de": "Die genannte Abfahrtszeit ist 아홉 시."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "학교에 언제 도착해요?",
+              "en": "When do they arrive at school?",
+              "de": "Wann kommen sie an der Schule an?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아홉 시 반"
+              },
+              {
+                "id": "2",
+                "text": "열 시"
+              },
+              {
+                "id": "1",
+                "text": "열두 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "학교 도착 시각은 아홉 시 반입니다.",
+              "en": "They arrive at school at 아홉 시 반.",
+              "de": "Sie kommen um 아홉 시 반 an der Schule an."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어디에서 출발해요?",
+              "en": "Where do they depart from?",
+              "de": "Wo fahren sie ab?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "2",
+                "text": "도서관"
+              },
+              {
+                "id": "1",
+                "text": "학교"
+              },
+              {
+                "id": "0",
+                "text": "역"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "역에서 출발해요. 학교는 목적지예요.",
+              "en": "They depart from 역; school is the destination.",
+              "de": "Sie fahren bei 역 ab; die Schule ist das Ziel."
+            }
+          },
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무엇을 타요?",
+              "en": "Which transport do they take?",
+              "de": "Welches Verkehrsmittel nehmen sie?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지하철"
+              },
+              {
+                "id": "0",
+                "text": "버스"
+              },
+              {
+                "id": "2",
+                "text": "택시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "버스로 이동해요.",
+              "en": "They travel by 버스.",
+              "de": "Sie fahren mit 버스."
+            }
+          },
+          {
+            "id": "class_start",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 시작해요?",
+              "en": "When does class start?",
+              "de": "Wann beginnt der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "열 시"
+              },
+              {
+                "id": "1",
+                "text": "열두 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "열 시부터이므로 그때 시작해요.",
+              "en": "열 시부터 marks the start.",
+              "de": "열 시부터 bezeichnet den Beginn."
+            }
+          },
+          {
+            "id": "class_end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 끝나요?",
+              "en": "When does class end?",
+              "de": "Wann endet der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "열두 시"
+              },
+              {
+                "id": "1",
+                "text": "열 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "열두 시까지이므로 그때 끝나요.",
+              "en": "열두 시까지 marks the end.",
+              "de": "열두 시까지 bezeichnet das Ende."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "안녕하세요. 토요일 두 시에 도서관에서 출발해요. 지하철로 학교에 가요. 두 시 반에 학교에 도착해요. 수업은 세 시부터 다섯 시까지예요.",
+        "questions": [
+          {
+            "id": "start",
+            "kind": "choice",
+            "prompt": {
+              "ko": "출발 시각은 언제예요?",
+              "en": "When do they depart?",
+              "de": "Wann fahren sie ab?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "세 시"
+              },
+              {
+                "id": "0",
+                "text": "두 시"
+              },
+              {
+                "id": "2",
+                "text": "다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "출발 시각은 두 시입니다. 끝나는 시각과 구별해요.",
+              "en": "The stated departure time is 두 시.",
+              "de": "Die genannte Abfahrtszeit ist 두 시."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "학교에 언제 도착해요?",
+              "en": "When do they arrive at school?",
+              "de": "Wann kommen sie an der Schule an?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "세 시"
+              },
+              {
+                "id": "2",
+                "text": "다섯 시"
+              },
+              {
+                "id": "0",
+                "text": "두 시 반"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "학교 도착 시각은 두 시 반입니다.",
+              "en": "They arrive at school at 두 시 반.",
+              "de": "Sie kommen um 두 시 반 an der Schule an."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어디에서 출발해요?",
+              "en": "Where do they depart from?",
+              "de": "Wo fahren sie ab?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학교"
+              },
+              {
+                "id": "2",
+                "text": "역"
+              },
+              {
+                "id": "0",
+                "text": "도서관"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "도서관에서 출발해요. 학교는 목적지예요.",
+              "en": "They depart from 도서관; school is the destination.",
+              "de": "Sie fahren bei 도서관 ab; die Schule ist das Ziel."
+            }
+          },
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무엇을 타요?",
+              "en": "Which transport do they take?",
+              "de": "Welches Verkehrsmittel nehmen sie?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지하철"
+              },
+              {
+                "id": "2",
+                "text": "택시"
+              },
+              {
+                "id": "1",
+                "text": "버스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지하철로 이동해요.",
+              "en": "They travel by 지하철.",
+              "de": "Sie fahren mit 지하철."
+            }
+          },
+          {
+            "id": "class_start",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 시작해요?",
+              "en": "When does class start?",
+              "de": "Wann beginnt der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "세 시"
+              },
+              {
+                "id": "1",
+                "text": "다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "세 시부터이므로 그때 시작해요.",
+              "en": "세 시부터 marks the start.",
+              "de": "세 시부터 bezeichnet den Beginn."
+            }
+          },
+          {
+            "id": "class_end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 끝나요?",
+              "en": "When does class end?",
+              "de": "Wann endet der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "다섯 시"
+              },
+              {
+                "id": "1",
+                "text": "세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다섯 시까지이므로 그때 끝나요.",
+              "en": "다섯 시까지 marks the end.",
+              "de": "다섯 시까지 bezeichnet das Ende."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:reading:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "시간표로 방문 시간 정하기",
+        "en": "Plan a visit from a timetable",
+        "de": "Mit dem Stundenplan einen Besuch planen"
+      },
+      "teaching": {
+        "ko": "수업 시각과 도서관 운영 시간을 함께 읽어요. 표에 없는 시각은 만들지 않아요.",
+        "en": "Use both class times and library hours. Do not invent missing times.",
+        "de": "Lies Unterrichtszeiten und Öffnungszeiten zusammen. Ergänze keine nicht angegebenen Zeiten."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "도서관: 09:00–18:00\n한국어 수업: 10:00–12:00, 201호\n학교와 도서관 사이: 걸어서 5분",
+        "questions": [
+          {
+            "id": "visit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업과 겹치지 않고 도서관이 열린 시각은?",
+              "en": "Which visit fits class and library opening times?",
+              "de": "Welcher Bibliotheksbesuch passt zum Unterricht und zu den Öffnungszeiten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "11:00"
+              },
+              {
+                "id": "0",
+                "text": "14:00"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "14:00에는 도서관이 열려 있고 수업이 없어요.",
+              "en": "At 14:00, the library is open and class is not in session.",
+              "de": "Um 14:00 ist die Bibliothek geöffnet und es findet kein Unterricht statt."
+            }
+          },
+          {
+            "id": "classroom",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 어디에서 해요?",
+              "en": "Where is the class?",
+              "de": "Wo findet der Unterricht statt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "도서관"
+              },
+              {
+                "id": "0",
+                "text": "201호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "수업 장소는 201호예요.",
+              "en": "Class is in room 201.",
+              "de": "Der Unterricht findet in Raum 201 statt."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 끝나요?",
+              "en": "When does class end?",
+              "de": "Wann endet der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "12:00"
+              },
+              {
+                "id": "1",
+                "text": "10:00"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "수업은 12:00에 끝나요.",
+              "en": "Class ends at 12:00.",
+              "de": "Der Unterricht endet um 12:00."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "도서관: 13:00–19:00\n한국어 수업: 15:00–17:00, 302호\n학교와 도서관 사이: 걸어서 5분",
+        "questions": [
+          {
+            "id": "visit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업과 겹치지 않고 도서관이 열린 시각은?",
+              "en": "Which visit fits class and library opening times?",
+              "de": "Welcher Bibliotheksbesuch passt zum Unterricht und zu den Öffnungszeiten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "14:00"
+              },
+              {
+                "id": "1",
+                "text": "16:00"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "14:00에는 도서관이 열려 있고 수업이 없어요.",
+              "en": "At 14:00, the library is open and class is not in session.",
+              "de": "Um 14:00 ist die Bibliothek geöffnet und es findet kein Unterricht statt."
+            }
+          },
+          {
+            "id": "classroom",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 어디에서 해요?",
+              "en": "Where is the class?",
+              "de": "Wo findet der Unterricht statt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "302호"
+              },
+              {
+                "id": "1",
+                "text": "도서관"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "수업 장소는 302호예요.",
+              "en": "Class is in room 302.",
+              "de": "Der Unterricht findet in Raum 302 statt."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업은 언제 끝나요?",
+              "en": "When does class end?",
+              "de": "Wann endet der Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "17:00"
+              },
+              {
+                "id": "1",
+                "text": "15:00"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "수업은 17:00에 끝나요.",
+              "en": "Class ends at 17:00.",
+              "de": "Der Unterricht endet um 17:00."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:writing:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "위치와 도착 시각 문자",
+        "en": "Send location and arrival time",
+        "de": "Standort und Ankunft mitteilen"
+      },
+      "teaching": {
+        "ko": "가상 인물의 정보로 두 문장을 쓰세요. 위치에는 에 있어요, 도착 시각에는 에 도착해요를 써 보세요. 다른 자연스러운 문장은 자동 채점 범위 밖일 수 있어요.",
+        "en": "Write two sentences using the fictional facts. Try 에 있어요 for location and 에 도착해요 for arrival. Other natural wording may remain unscored.",
+        "de": "Schreibe zwei Sätze mit den fiktiven Angaben. Verwende etwa 에 있어요 für den Standort und 에 도착해요 für die Ankunft. Andere natürliche Formulierungen können unbewertet bleiben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 상황\n지금 위치: 역\n학교 도착 예정: 세 시\n지금 하는 일: 버스 기다리기\n상대: 같은 반 친구",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "지금 어디에 있는지 한 문장으로 쓰세요.",
+              "en": "Write one sentence giving your current location.",
+              "de": "Schreibe einen Satz über deinen aktuellen Aufenthaltsort."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 지금 역에 있어요.",
+              "지금 역에 있어요.",
+              "역에 있어요."
+            ],
+            "rejectedAnswers": [
+              "역에서 있어요.",
+              "학교에 있어요."
+            ],
+            "explanation": {
+              "ko": "현재 위치는 역에 있어요로 나타내요.",
+              "en": "Use 역에 있어요 for the current location.",
+              "de": "Den Aufenthaltsort gibst du mit 역에 있어요 an."
+            }
+          },
+          {
+            "id": "arrival",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "도착 시각을 한 문장으로 알리세요.",
+              "en": "Give your arrival time in one sentence.",
+              "de": "Nenne deine Ankunftszeit in einem Satz."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "세 시에 학교에 도착해요.",
+              "학교에 세 시에 도착해요."
+            ],
+            "rejectedAnswers": [
+              "네 시에 학교에 도착해요."
+            ],
+            "explanation": {
+              "ko": "예정된 도착 시각은 세 시예요.",
+              "en": "The stated arrival time is 세 시.",
+              "de": "Die angegebene Ankunftszeit ist 세 시."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 상황\n지금 위치: 도서관\n학교 도착 예정: 다섯 시\n지금 하는 일: 책 반납하기\n상대: 같은 반 친구",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "지금 어디에 있는지 한 문장으로 쓰세요.",
+              "en": "Write one sentence giving your current location.",
+              "de": "Schreibe einen Satz über deinen aktuellen Aufenthaltsort."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 지금 도서관에 있어요.",
+              "지금 도서관에 있어요.",
+              "도서관에 있어요."
+            ],
+            "rejectedAnswers": [
+              "도서관에서 있어요.",
+              "학교에 있어요."
+            ],
+            "explanation": {
+              "ko": "현재 위치는 도서관에 있어요로 나타내요.",
+              "en": "Use 도서관에 있어요 for the current location.",
+              "de": "Den Aufenthaltsort gibst du mit 도서관에 있어요 an."
+            }
+          },
+          {
+            "id": "arrival",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "도착 시각을 한 문장으로 알리세요.",
+              "en": "Give your arrival time in one sentence.",
+              "de": "Nenne deine Ankunftszeit in einem Satz."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "다섯 시에 학교에 도착해요.",
+              "학교에 다섯 시에 도착해요."
+            ],
+            "rejectedAnswers": [
+              "여섯 시에 학교에 도착해요."
+            ],
+            "explanation": {
+              "ko": "예정된 도착 시각은 다섯 시예요.",
+              "en": "The stated arrival time is 다섯 시.",
+              "de": "Die angegebene Ankunftszeit ist 다섯 시."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:speaking:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "어제 한 일과 길 설명",
+        "en": "Explain yesterday and a route",
+        "de": "Über gestern sprechen und den Weg erklären"
+      },
+      "teaching": {
+        "ko": "가상 정보를 보고 어제 한 일과 못 한 일, 오늘 갈 길을 녹음하세요. 과거·부정, 출발지·목적지·수단을 확인하고 다시 녹음해 보세요. 발화 의미는 자동 채점하지 않아요.",
+        "en": "Record the fictional past actions and today’s route. Review past/negative forms, start, destination and transport, then re-record. Speech meaning is not automatically scored.",
+        "de": "Sprich anhand der fiktiven Angaben über gestern und den heutigen Weg. Prüfe Vergangenheit, Verneinung, Start, Ziel und Verkehrsmittel und nimm dich erneut auf. Die Aussage wird nicht automatisch bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "어제: 도서관에서 공부했어요. 비가 와서 운동하지 못했어요.\n오늘: 집 → 버스 → 학교.\n친구에게 세 가지 정보를 말해 보세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "어제: 집에서 책을 읽었어요. 아파서 학교에 가지 못했어요.\n오늘: 도서관 → 지하철 → 학교.\n친구에게 세 가지 정보를 말해 보세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP02:listening:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "전화로 바뀐 수업 확인하기",
+        "en": "Confirm a class change by phone",
+        "de": "Eine Unterrichtsänderung am Telefon bestätigen"
+      },
+      "teaching": {
+        "ko": "전화 목적, 새 시각, 확인한 교실을 들어요. 못 들은 정보는 다시 묻고 기존 시각과 새 시각을 구별해요.",
+        "en": "Listen for the purpose, new time and confirmed room. Ask again about unclear information and distinguish old and new times.",
+        "de": "Achte auf Anlass, neue Zeit und bestätigten Raum. Frage bei Unklarheiten nach und trenne bisherige und neue Uhrzeit."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "직원: 안녕하세요. 한국어 학교입니다. 수업 시간을 알려 드리려고 전화했어요.\n학생: 월요일 두 시 수업이에요?\n직원: 네. 세 시로 바뀌었어요. 교실은 201호예요.\n학생: 교실 번호를 다시 말씀해 주세요.\n직원: 201호입니다.\n학생: 네, 월요일 세 시, 201호 맞지요?\n직원: 네, 맞아요.",
+        "questions": [
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "전화한 이유는?",
+              "en": "Why did the staff member call?",
+              "de": "Warum ruft die Person von der Schule an?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업 시간 변경 안내"
+              },
+              {
+                "id": "1",
+                "text": "새 학생 등록"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 수업 시간을 알려 드리려고 전화했다고 말해요.",
+              "en": "The caller says the call is about the class time.",
+              "de": "Die anrufende Person nennt die Unterrichtszeit als Anlass."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 수업 시각은?",
+              "en": "What is the new class time?",
+              "de": "Wann beginnt der Unterricht jetzt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 시"
+              },
+              {
+                "id": "0",
+                "text": "세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "두 시에서 세 시로 바뀌었어요.",
+              "en": "The time changes from 두 시 to 세 시.",
+              "de": "Die Zeit ändert sich von 두 시 auf 세 시."
+            }
+          },
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인된 교실은?",
+              "en": "Which room is confirmed?",
+              "de": "Welcher Raum wird bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "210호"
+              },
+              {
+                "id": "0",
+                "text": "201호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다시 물어보고 201호라고 확인해요. 못 들은 번호를 추측하지 않아요.",
+              "en": "The student asks again and confirms room 201, rather than guessing.",
+              "de": "Die lernende Person fragt nach und bestätigt Raum 201, statt zu raten."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "직원: 안녕하세요. 한국어 학교입니다. 수업 시간을 알려 드리려고 전화했어요.\n학생: 목요일 네 시 수업이에요?\n직원: 네. 다섯 시로 바뀌었어요. 교실은 302호예요.\n학생: 교실 번호를 다시 말씀해 주세요.\n직원: 302호입니다.\n학생: 네, 목요일 다섯 시, 302호 맞지요?\n직원: 네, 맞아요.",
+        "questions": [
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "전화한 이유는?",
+              "en": "Why did the staff member call?",
+              "de": "Warum ruft die Person von der Schule an?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업 시간 변경 안내"
+              },
+              {
+                "id": "1",
+                "text": "새 학생 등록"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 수업 시간을 알려 드리려고 전화했다고 말해요.",
+              "en": "The caller says the call is about the class time.",
+              "de": "Die anrufende Person nennt die Unterrichtszeit als Anlass."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 수업 시각은?",
+              "en": "What is the new class time?",
+              "de": "Wann beginnt der Unterricht jetzt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네 시"
+              },
+              {
+                "id": "0",
+                "text": "다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "네 시에서 다섯 시로 바뀌었어요.",
+              "en": "The time changes from 네 시 to 다섯 시.",
+              "de": "Die Zeit ändert sich von 네 시 auf 다섯 시."
+            }
+          },
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인된 교실은?",
+              "en": "Which room is confirmed?",
+              "de": "Welcher Raum wird bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "320호"
+              },
+              {
+                "id": "0",
+                "text": "302호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다시 물어보고 302호라고 확인해요. 못 들은 번호를 추측하지 않아요.",
+              "en": "The student asks again and confirms room 302, rather than guessing.",
+              "de": "Die lernende Person fragt nach und bestätigt Raum 302, statt zu raten."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:writing:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:writing:02",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "물건 위치와 다음 행동 메모",
+        "en": "Leave a location and action note",
+        "de": "Ort und nächsten Schritt notieren"
+      },
+      "teaching": {
+        "ko": "가상 정보로 짧은 메모를 쓰세요. 받는 사람, 물건 위치, 부탁을 확인해요. 다른 자유 표현의 의미는 자동 채점 범위 밖일 수 있어요.",
+        "en": "Write a short note using the fictional facts. Check the recipient, location and request. Other free wording may remain unscored.",
+        "de": "Schreibe eine kurze Notiz mit den fiktiven Angaben. Prüfe Empfänger, Ort und Bitte. Andere freie Formulierungen können unbewertet bleiben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 유나\n물건: 책\n물건 위치: 교실\n다음 행동 요청: 학교에 가져다 주기",
+        "questions": [
+          {
+            "id": "information",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "받는 사람과 물건 위치를 쓰세요.",
+              "en": "Address the recipient and state the item’s location.",
+              "de": "Sprich die Person an und nenne den Ort des Gegenstands."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "유나 씨, 책은 교실에 있어요.",
+              "유나 씨, 책은 지금 교실에 있어요."
+            ],
+            "rejectedAnswers": [
+              "유나 씨, 책은 집에 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 유나 씨, 책은 교실에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
+              "en": "Example: 유나 씨, 책은 교실에 있어요. Keep the item’s location.",
+              "de": "Beispiel: 유나 씨, 책은 교실에 있어요. Behalte den Ort des Gegenstands bei."
+            }
+          },
+          {
+            "id": "action",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "다음에 해 줄 행동을 부탁하세요.",
+              "en": "Request the next action.",
+              "de": "Bitte um den nächsten Schritt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학교에 가져다 주세요.",
+              "그리고 학교에 가져다 주세요."
+            ],
+            "rejectedAnswers": [
+              "학교에 가져다 주지 마세요."
+            ],
+            "explanation": {
+              "ko": "예: 학교에 가져다 주세요. 부탁을 금지로 바꾸면 뜻이 달라져요.",
+              "en": "Example: 학교에 가져다 주세요. A prohibition would reverse the intended action.",
+              "de": "Beispiel: 학교에 가져다 주세요. Ein Verbot würde die beabsichtigte Handlung umkehren."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 민수\n물건: 가방\n물건 위치: 도서관\n다음 행동 요청: 집에 가져다 주기",
+        "questions": [
+          {
+            "id": "information",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "받는 사람과 물건 위치를 쓰세요.",
+              "en": "Address the recipient and state the item’s location.",
+              "de": "Sprich die Person an und nenne den Ort des Gegenstands."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "민수 씨, 가방은 도서관에 있어요.",
+              "민수 씨, 가방은 지금 도서관에 있어요."
+            ],
+            "rejectedAnswers": [
+              "민수 씨, 가방은 역에 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 민수 씨, 가방은 도서관에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
+              "en": "Example: 민수 씨, 가방은 도서관에 있어요. Keep the item’s location.",
+              "de": "Beispiel: 민수 씨, 가방은 도서관에 있어요. Behalte den Ort des Gegenstands bei."
+            }
+          },
+          {
+            "id": "action",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "다음에 해 줄 행동을 부탁하세요.",
+              "en": "Request the next action.",
+              "de": "Bitte um den nächsten Schritt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "집에 가져다 주세요.",
+              "그리고 집에 가져다 주세요."
+            ],
+            "rejectedAnswers": [
+              "집에 가져다 주지 마세요."
+            ],
+            "explanation": {
+              "ko": "예: 집에 가져다 주세요. 부탁을 금지로 바꾸면 뜻이 달라져요.",
+              "en": "Example: 집에 가져다 주세요. A prohibition would reverse the intended action.",
+              "de": "Beispiel: 집에 가져다 주세요. Ein Verbot würde die beabsichtigte Handlung umkehren."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:listening:03",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:listening:03",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이어지는 소리 속 장소와 시각",
+        "en": "Hear places and times in connected speech",
+        "de": "Ort und Zeit in verbundener Sprache hören"
+      },
+      "teaching": {
+        "ko": "집에·학교에서·아홉 시까지를 낱글자로 끊지 않고 들어요. 받침과 뒤 모음이 이어지는 부분을 들은 뒤 문장 전체를 의미 단위로 다시 말해 보세요. 선택 응답만 채점해요.",
+        "en": "Listen to 집에, 학교에서 and 아홉 시까지 as connected phrases. Notice final consonants linking to following vowels, then repeat whole meaning groups. Only the choices are scored.",
+        "de": "Höre 집에, 학교에서 und 아홉 시까지 als zusammenhängende Wortgruppen. Achte auf Endkonsonanten vor folgenden Vokalen und sprich sinnvolle Wortgruppen nach. Nur die Auswahlantworten werden bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "여덟 시에 집에 가요. 집에서 아홉 시까지 공부해요.",
+        "questions": [
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공부하는 곳은?",
+              "en": "Where does the speaker study?",
+              "de": "Wo lernt die Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학교"
+              },
+              {
+                "id": "0",
+                "text": "집"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공부해요 앞의 장소와 에서를 한 의미 단위로 들어요.",
+              "en": "Hear the place and 에서 as part of the study phrase.",
+              "de": "Höre Ort und 에서 als Teil der Wortgruppe mit 공부해요."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공부가 끝나는 시각은?",
+              "en": "When does studying end?",
+              "de": "Wann endet das Lernen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "여덟 시"
+              },
+              {
+                "id": "0",
+                "text": "아홉 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "아홉 시까지가 끝을 나타내요. 낱말 사이 소리가 이어져도 시각을 바꾸지 않아요.",
+              "en": "아홉 시까지 gives the endpoint. Linking between words does not change the time.",
+              "de": "아홉 시까지 bezeichnet das Ende. Lautverbindungen ändern die Zeitangabe nicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "아홉 시에 학교에 가요. 학교에서 열 시까지 공부해요.",
+        "questions": [
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공부하는 곳은?",
+              "en": "Where does the speaker study?",
+              "de": "Wo lernt die Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "학교"
+              },
+              {
+                "id": "1",
+                "text": "집"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공부해요 앞의 장소와 에서를 한 의미 단위로 들어요.",
+              "en": "Hear the place and 에서 as part of the study phrase.",
+              "de": "Höre Ort und 에서 als Teil der Wortgruppe mit 공부해요."
+            }
+          },
+          {
+            "id": "end",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공부가 끝나는 시각은?",
+              "en": "When does studying end?",
+              "de": "Wann endet das Lernen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아홉 시"
+              },
+              {
+                "id": "0",
+                "text": "열 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "열 시까지가 끝을 나타내요. 낱말 사이 소리가 이어져도 시각을 바꾸지 않아요.",
+              "en": "열 시까지 gives the endpoint. Linking between words does not change the time.",
+              "de": "열 시까지 bezeichnet das Ende. Lautverbindungen ändern die Zeitangabe nicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:listening:04",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:listening:04",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "교실 변경 안내 방송",
+        "en": "A classroom-change announcement",
+        "de": "Durchsage zum Raumwechsel"
+      },
+      "teaching": {
+        "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+        "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+        "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 101호에서 201호로 바뀌었습니다. 수업은 아홉 시부터 열한 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "questions": [
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 수업 교실은?",
+              "en": "Which room is used today?",
+              "de": "In welchem Raum ist der Unterricht heute?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "201호"
+              },
+              {
+                "id": "1",
+                "text": "101호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업 시간은?",
+              "en": "When does class run?",
+              "de": "Von wann bis wann ist Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "열한 시부터 아홉 시까지"
+              },
+              {
+                "id": "0",
+                "text": "아홉 시부터 열한 시까지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "질문은 어디에서 해요?",
+              "en": "Where can you ask a question?",
+              "de": "Wo kannst du nachfragen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안내 데스크"
+              },
+              {
+                "id": "1",
+                "text": "집"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 202호에서 302호로 바뀌었습니다. 수업은 두 시부터 네 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "questions": [
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 수업 교실은?",
+              "en": "Which room is used today?",
+              "de": "In welchem Raum ist der Unterricht heute?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "202호"
+              },
+              {
+                "id": "0",
+                "text": "302호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업 시간은?",
+              "en": "When does class run?",
+              "de": "Von wann bis wann ist Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "두 시부터 네 시까지"
+              },
+              {
+                "id": "1",
+                "text": "네 시부터 두 시까지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "질문은 어디에서 해요?",
+              "en": "Where can you ask a question?",
+              "de": "Wo kannst du nachfragen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "집"
+              },
+              {
+                "id": "0",
+                "text": "안내 데스크"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:reading:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "집 안 물건과 어제의 일",
+        "en": "Objects at home and yesterday’s events",
+        "de": "Gegenstände zu Hause und gestrige Ereignisse"
+      },
+      "teaching": {
+        "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+        "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+        "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "미나 씨에게\n공책은 책상 위에 있어요. 방은 작지만 조용해요. 어제 도서관에서 책을 빌렸어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건이 있는 곳은?",
+              "en": "Where is the object?",
+              "de": "Wo liegt der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "침대 밑"
+              },
+              {
+                "id": "0",
+                "text": "책상 위"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 일은?",
+              "en": "Which action is already completed?",
+              "de": "Was ist bereits geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "오늘 집에서 공부했어요"
+              },
+              {
+                "id": "0",
+                "text": "도서관에서 책을 빌렸어요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건을 못 찾으면 어떻게 해요?",
+              "en": "What should you do if you cannot find it?",
+              "de": "Was sollst du tun, wenn du den Gegenstand nicht findest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메모를 쓴 사람에게 전화해요."
+              },
+              {
+                "id": "1",
+                "text": "물건을 버려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민수 씨에게\n가방은 소파 옆에 있어요. 방은 작지만 조용해요. 어제 가게에서 물을 샀어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건이 있는 곳은?",
+              "en": "Where is the object?",
+              "de": "Wo liegt der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "소파 옆"
+              },
+              {
+                "id": "1",
+                "text": "침대 밑"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 일은?",
+              "en": "Which action is already completed?",
+              "de": "Was ist bereits geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "오늘 집에서 공부했어요"
+              },
+              {
+                "id": "0",
+                "text": "가게에서 물을 샀어요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건을 못 찾으면 어떻게 해요?",
+              "en": "What should you do if you cannot find it?",
+              "de": "Was sollst du tun, wenn du den Gegenstand nicht findest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메모를 쓴 사람에게 전화해요."
+              },
+              {
+                "id": "1",
+                "text": "물건을 버려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:speaking:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "위치·일과를 확인하는 음성 메시지",
+        "en": "A voice message confirming location and routine",
+        "de": "Sprachnachricht zu Ort und Tagesablauf"
+      },
+      "teaching": {
+        "ko": "물건 위치, 어제 한 일, 오늘 교통편과 시각을 말한 뒤 상대에게 확인 질문을 하세요. 집에·학교에서를 이어 말하고 의미 단위 사이에서 쉬어요. 녹음을 다시 듣고 수정해요. 의미와 발음은 미채점이에요.",
+        "en": "State the object’s location, yesterday’s action, today’s transport and times, then ask for confirmation. Connect the sounds in 집에 and 학교에서 and pause between meaningful units. Replay and revise; meaning and pronunciation remain unscored.",
+        "de": "Nenne Gegenstandsort, gestrige Tätigkeit sowie heutiges Verkehrsmittel und Uhrzeiten und frage dann nach. Verbinde die Laute in 집에 und 학교에서 und mache Pausen zwischen Sinneinheiten. Höre zu und überarbeite; Inhalt und Aussprache bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n가방: 책상 위. 방: 작고 조용함. 어제: 집에서 쉼. 오늘: 버스로 학교에 감. 학교에서 아홉 시부터 열한 시까지 공부한 뒤 집에 감.\n상대도 열한 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n공책: 소파 옆. 방: 크고 밝음. 어제: 집에서 책을 읽음. 오늘: 지하철로 학교에 감. 학교에서 두 시부터 네 시까지 공부한 뒤 집에 감.\n상대도 네 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP02:production:01",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:01",
+      "requirementKeys": [
+        "G1:에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에 문장 만들기",
+        "en": "에: write a sentence",
+        "de": "에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "에로 시각이나 목적지를 표시해요. 행동이 일어나는 곳은 에서로 나타내요.",
+        "en": "에 marks a time or destination; 에서 marks where an activity happens.",
+        "de": "에 bezeichnet eine Zeit oder ein Ziel; 에서 den Ort einer Tätigkeit."
+      },
+      "examplesKo": [
+        "도서관에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "목적지: 도서관 / 가다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "도서관에 가요."
+            ],
+            "rejectedAnswers": [
+              "도서관에서 가요."
+            ],
+            "explanation": {
+              "ko": "예: 도서관에 가요. 의미가 다른 예: 도서관에서 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 도서관에 가요. Meaning or register error: 도서관에서 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 도서관에 가요. Fehler bei Bedeutung oder Register: 도서관에서 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "목적지: 학교 / 가다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학교에 가요."
+            ],
+            "rejectedAnswers": [
+              "학교에서 가요."
+            ],
+            "explanation": {
+              "ko": "예: 학교에 가요. 의미가 다른 예: 학교에서 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 학교에 가요. Meaning or register error: 학교에서 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 학교에 가요. Fehler bei Bedeutung oder Register: 학교에서 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:02",
+      "requirementKeys": [
+        "G1:에서"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에서 문장 만들기",
+        "en": "에서: write a sentence",
+        "de": "에서: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "에서 앞의 장소에서 행동이 일어나요. 도착할 목적지만 나타내는 에와 구별해요.",
+        "en": "에서 locates an activity, rather than only naming its destination.",
+        "de": "에서 zeigt, wo eine Tätigkeit stattfindet, nicht nur ihr Ziel."
+      },
+      "examplesKo": [
+        "교실에서 공부해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "행동 장소: 교실 / 공부하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "교실에서 공부해요."
+            ],
+            "rejectedAnswers": [
+              "교실에 공부해요."
+            ],
+            "explanation": {
+              "ko": "예: 교실에서 공부해요. 의미가 다른 예: 교실에 공부해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 교실에서 공부해요. Meaning or register error: 교실에 공부해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 교실에서 공부해요. Fehler bei Bedeutung oder Register: 교실에 공부해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "행동 장소: 집 / 일하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "집에서 일해요."
+            ],
+            "rejectedAnswers": [
+              "집에 일해요."
+            ],
+            "explanation": {
+              "ko": "예: 집에서 일해요. 의미가 다른 예: 집에 일해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 집에서 일해요. Meaning or register error: 집에 일해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 집에서 일해요. Fehler bei Bedeutung oder Register: 집에 일해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:03",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:03",
+      "requirementKeys": [
+        "G1:부터"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부터 문장 만들기",
+        "en": "부터: write a sentence",
+        "de": "부터: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "부터는 시작점이에요. 끝점은 까지로 나타내요.",
+        "en": "부터 marks the start; 까지 marks the end.",
+        "de": "부터 bezeichnet den Anfang, 까지 das Ende."
+      },
+      "examplesKo": [
+        "열 시부터 수업이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "수업 시작: 열 시 / 수업이 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "열 시부터 수업이 있어요."
+            ],
+            "rejectedAnswers": [
+              "열 시까지 수업이 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 열 시부터 수업이 있어요. 의미가 다른 예: 열 시까지 수업이 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 열 시부터 수업이 있어요. Meaning or register error: 열 시까지 수업이 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 열 시부터 수업이 있어요. Fehler bei Bedeutung oder Register: 열 시까지 수업이 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "수업 시작: 두 시 / 수업이 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "두 시부터 수업이 있어요."
+            ],
+            "rejectedAnswers": [
+              "두 시까지 수업이 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 두 시부터 수업이 있어요. 의미가 다른 예: 두 시까지 수업이 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 두 시부터 수업이 있어요. Meaning or register error: 두 시까지 수업이 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 두 시부터 수업이 있어요. Fehler bei Bedeutung oder Register: 두 시까지 수업이 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:04",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:04",
+      "requirementKeys": [
+        "G1:까지"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "까지 문장 만들기",
+        "en": "까지: write a sentence",
+        "de": "까지: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "까지는 끝점이에요. 시작 시각과 끝 시각을 바꾸지 않아요.",
+        "en": "까지 marks an endpoint. Keep the starting and ending times separate.",
+        "de": "까지 bezeichnet den Endpunkt. Verwechsle Anfang und Ende nicht."
+      },
+      "examplesKo": [
+        "네 시까지 일해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "일이 끝나는 시각: 네 시 / 일하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "네 시까지 일해요."
+            ],
+            "rejectedAnswers": [
+              "네 시부터 일해요."
+            ],
+            "explanation": {
+              "ko": "예: 네 시까지 일해요. 의미가 다른 예: 네 시부터 일해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 네 시까지 일해요. Meaning or register error: 네 시부터 일해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 네 시까지 일해요. Fehler bei Bedeutung oder Register: 네 시부터 일해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "공부가 끝나는 시각: 여섯 시 / 공부하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여섯 시까지 공부해요."
+            ],
+            "rejectedAnswers": [
+              "여섯 시부터 공부해요."
+            ],
+            "explanation": {
+              "ko": "예: 여섯 시까지 공부해요. 의미가 다른 예: 여섯 시부터 공부해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여섯 시까지 공부해요. Meaning or register error: 여섯 시부터 공부해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여섯 시까지 공부해요. Fehler bei Bedeutung oder Register: 여섯 시부터 공부해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:05",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:05",
+      "requirementKeys": [
+        "G1:으로"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "으로 문장 만들기",
+        "en": "으로: write a sentence",
+        "de": "으로: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "이동 수단에는 (으)로를 붙여요. 버스로, 지하철로처럼 써요. 목적지는 에로 나타내요.",
+        "en": "Use (으)로 for transport and 에 for a destination.",
+        "de": "Mit (으)로 nennst du das Verkehrsmittel, mit 에 das Ziel."
+      },
+      "examplesKo": [
+        "지하철로 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "교통수단: 지하철 / 가다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지하철로 가요."
+            ],
+            "rejectedAnswers": [
+              "지하철에서 가요."
+            ],
+            "explanation": {
+              "ko": "예: 지하철로 가요. 의미가 다른 예: 지하철에서 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지하철로 가요. Meaning or register error: 지하철에서 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지하철로 가요. Fehler bei Bedeutung oder Register: 지하철에서 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "교통수단: 택시 / 가다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "택시로 가요."
+            ],
+            "rejectedAnswers": [
+              "택시에서 가요."
+            ],
+            "explanation": {
+              "ko": "예: 택시로 가요. 의미가 다른 예: 택시에서 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 택시로 가요. Meaning or register error: 택시에서 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 택시로 가요. Fehler bei Bedeutung oder Register: 택시에서 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:06",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:06",
+      "requirementKeys": [
+        "G1:-었-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-었- 문장 만들기",
+        "en": "-었-: write a sentence",
+        "de": "-었-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-았/었-은 과거를 나타내요. 어제 한 일을 지금 하는 일과 구별해요.",
+        "en": "-았/었- marks the past. Distinguish yesterday’s action from an action in progress now.",
+        "de": "-았/었- bezeichnet Vergangenes. Unterscheide eine gestrige Handlung von dem, was gerade geschieht."
+      },
+      "examplesKo": [
+        "어제 집에서 쉬었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "이미 한 일: 어제 / 집에서 / 쉬다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제 집에서 쉬었어요."
+            ],
+            "rejectedAnswers": [
+              "내일 집에서 쉬어요."
+            ],
+            "explanation": {
+              "ko": "예: 어제 집에서 쉬었어요. 의미가 다른 예: 내일 집에서 쉬어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제 집에서 쉬었어요. Meaning or register error: 내일 집에서 쉬어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제 집에서 쉬었어요. Fehler bei Bedeutung oder Register: 내일 집에서 쉬어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "이미 한 일: 어제 / 학교에서 / 공부하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제 학교에서 공부했어요."
+            ],
+            "rejectedAnswers": [
+              "내일 학교에서 공부해요."
+            ],
+            "explanation": {
+              "ko": "예: 어제 학교에서 공부했어요. 의미가 다른 예: 내일 학교에서 공부해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제 학교에서 공부했어요. Meaning or register error: 내일 학교에서 공부해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제 학교에서 공부했어요. Fehler bei Bedeutung oder Register: 내일 학교에서 공부해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:07",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:07",
+      "requirementKeys": [
+        "G1:-고3"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고3 문장 만들기",
+        "en": "-고3: write a sentence",
+        "de": "-고3: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고로 두 행동을 연결해요. 여기서는 말한 순서대로 일어난 행동이에요.",
+        "en": "-고 connects actions. In these examples, the actions happened in the order given.",
+        "de": "-고 verbindet Handlungen. In diesen Beispielen fanden sie in der genannten Reihenfolge statt."
+      },
+      "examplesKo": [
+        "점심을 먹고 도서관에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "순서: 점심을 먹다 → 도서관에 가다 / -고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "점심을 먹고 도서관에 가요."
+            ],
+            "rejectedAnswers": [
+              "도서관에 가고 점심을 먹어요."
+            ],
+            "explanation": {
+              "ko": "예: 점심을 먹고 도서관에 가요. 의미가 다른 예: 도서관에 가고 점심을 먹어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 점심을 먹고 도서관에 가요. Meaning or register error: 도서관에 가고 점심을 먹어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 점심을 먹고 도서관에 가요. Fehler bei Bedeutung oder Register: 도서관에 가고 점심을 먹어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "순서: 책을 읽다 → 숙제를 하다 / -고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "책을 읽고 숙제를 해요."
+            ],
+            "rejectedAnswers": [
+              "숙제를 하고 책을 읽어요."
+            ],
+            "explanation": {
+              "ko": "예: 책을 읽고 숙제를 해요. 의미가 다른 예: 숙제를 하고 책을 읽어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 책을 읽고 숙제를 해요. Meaning or register error: 숙제를 하고 책을 읽어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 책을 읽고 숙제를 해요. Fehler bei Bedeutung oder Register: 숙제를 하고 책을 읽어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:08",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:08",
+      "requirementKeys": [
+        "G1:-지 않다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 않다 문장 만들기",
+        "en": "-지 않다: write a sentence",
+        "de": "-지 않다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-지 않다는 행동이나 상태를 부정해요. 부정만으로 할 능력이 없다는 뜻이 되지는 않아요.",
+        "en": "-지 않다 negates an action or state; negation alone does not establish inability.",
+        "de": "-지 않다 verneint eine Handlung oder einen Zustand. Daraus folgt allein noch kein Unvermögen."
+      },
+      "examplesKo": [
+        "오늘은 커피를 마시지 않아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "오늘 / 커피를 마시다의 부정 / -지 않다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘은 커피를 마시지 않아요."
+            ],
+            "rejectedAnswers": [
+              "오늘은 커피를 마셔요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘은 커피를 마시지 않아요. 의미가 다른 예: 오늘은 커피를 마셔요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘은 커피를 마시지 않아요. Meaning or register error: 오늘은 커피를 마셔요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘은 커피를 마시지 않아요. Fehler bei Bedeutung oder Register: 오늘은 커피를 마셔요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "오늘 / 일하다의 부정 / -지 않다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘은 일하지 않아요."
+            ],
+            "rejectedAnswers": [
+              "오늘은 일해요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘은 일하지 않아요. 의미가 다른 예: 오늘은 일해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘은 일하지 않아요. Meaning or register error: 오늘은 일해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘은 일하지 않아요. Fehler bei Bedeutung oder Register: 오늘은 일해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:09",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:09",
+      "requirementKeys": [
+        "G1:-지 못하다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 못하다 문장 만들기",
+        "en": "-지 못하다: write a sentence",
+        "de": "-지 못하다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-지 못하다는 능력이나 사정 때문에 할 수 없음을 나타내요. 자발적으로 안 하는 것과 구별해요.",
+        "en": "-지 못하다 expresses inability or a preventing circumstance, rather than a free choice not to act.",
+        "de": "-지 못하다 drückt Unvermögen oder einen hindernden Umstand aus, nicht bloß eine freiwillige Entscheidung."
+      },
+      "examplesKo": [
+        "오늘은 가지 못해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "오늘 / 사정 때문에 갈 수 없음 / 가다 + -지 못하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘은 가지 못해요."
+            ],
+            "rejectedAnswers": [
+              "오늘은 가요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘은 가지 못해요. 의미가 다른 예: 오늘은 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘은 가지 못해요. Meaning or register error: 오늘은 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘은 가지 못해요. Fehler bei Bedeutung oder Register: 오늘은 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "오늘 / 사정 때문에 만날 수 없음 / 만나다 + -지 못하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘은 만나지 못해요."
+            ],
+            "rejectedAnswers": [
+              "오늘은 만나요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘은 만나지 못해요. 의미가 다른 예: 오늘은 만나요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘은 만나지 못해요. Meaning or register error: 오늘은 만나요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘은 만나지 못해요. Fehler bei Bedeutung oder Register: 오늘은 만나요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:10",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:10",
+      "requirementKeys": [
+        "G1:도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "도 문장 만들기",
+        "en": "도: write a sentence",
+        "de": "도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "도는 앞서 말한 대상에 같은 정보를 더해요. 저도는 다른 사람과 나에게 모두 해당한다는 뜻이에요.",
+        "en": "도 adds someone or something that shares the preceding property.",
+        "de": "도 fügt jemanden oder etwas hinzu, auf den dieselbe Aussage zutrifft."
+      },
+      "examplesKo": [
+        "저도 학생이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "지아는 학생. 나 역시 학생 / 도 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저도 학생이에요."
+            ],
+            "rejectedAnswers": [
+              "저만 학생이에요."
+            ],
+            "explanation": {
+              "ko": "예: 저도 학생이에요. 의미가 다른 예: 저만 학생이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저도 학생이에요. Meaning or register error: 저만 학생이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저도 학생이에요. Fehler bei Bedeutung oder Register: 저만 학생이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "민수는 회사원. 나 역시 회사원 / 도 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저도 회사원이에요."
+            ],
+            "rejectedAnswers": [
+              "저만 회사원이에요."
+            ],
+            "explanation": {
+              "ko": "예: 저도 회사원이에요. 의미가 다른 예: 저만 회사원이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저도 회사원이에요. Meaning or register error: 저만 회사원이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저도 회사원이에요. Fehler bei Bedeutung oder Register: 저만 회사원이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:production:11",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:production:11",
+      "requirementKeys": [
+        "G1:만"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만 문장 만들기",
+        "en": "만: write a sentence",
+        "de": "만: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "만은 범위를 제한해요. 물만은 다른 음료를 포함하지 않아요.",
+        "en": "만 limits the scope: 물만 excludes other drinks.",
+        "de": "만 begrenzt den Umfang: 물만 schließt andere Getränke aus."
+      },
+      "examplesKo": [
+        "물만 마셔요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "마시는 것: 물 하나뿐 / 만 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "물만 마셔요."
+            ],
+            "rejectedAnswers": [
+              "물도 마셔요."
+            ],
+            "explanation": {
+              "ko": "예: 물만 마셔요. 의미가 다른 예: 물도 마셔요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 물만 마셔요. Meaning or register error: 물도 마셔요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 물만 마셔요. Fehler bei Bedeutung oder Register: 물도 마셔요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "읽는 것: 이 책 하나뿐 / 만 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 책만 읽어요."
+            ],
+            "rejectedAnswers": [
+              "이 책도 읽어요."
+            ],
+            "explanation": {
+              "ko": "예: 이 책만 읽어요. 의미가 다른 예: 이 책도 읽어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 책만 읽어요. Meaning or register error: 이 책도 읽어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 책만 읽어요. Fehler bei Bedeutung oder Register: 이 책도 읽어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

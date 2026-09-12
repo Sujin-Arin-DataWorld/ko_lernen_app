@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP27:grammar:01",
+      "sha256": "64525ea48b12ef7a425fdd205daa510b6648603706ca0bac6cfd7867827e204e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 은들 rhetorical non-restoration/non-entailment despite regret/more people; no guaranteed recovery or popularity-truth equivalence. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:01",
+      "sha256": "4061c84ea0697d95a69a075d016708e684baef85416ca96859b00cf4dcf9f6d5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 은들 rhetorical non-restoration/non-entailment despite regret/more people; no guaranteed recovery or popularity-truth equivalence. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:02",
+      "sha256": "536a15358afd827931ef8204dbf61bfb5a28bc396930194f2696a1eb41bd3dcf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을망정 personal loss/delay accepted while factual speech/consent maintained, not forced sacrifice or exemption. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:02",
+      "sha256": "2e767577ea0cfa6a32a494d5fce274cad1dd696d3f9cf2fa30b41d5a65206efb",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을망정 personal loss/delay accepted while factual speech/consent maintained, not forced sacrifice or exemption. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:03",
+      "sha256": "3cecc0f4a6cf52927e4a9310e45aefecf3f9c579521c23c6091664b4d8683e20",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 한이 있어도 speaker time/rewriting commitment, explicit no imposition on others. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:03",
+      "sha256": "e9f05e3330d56edd6915ea745a5060feef491ca39db12bbf1043de1dba2ba0fa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 한이 있어도 speaker time/rewriting commitment, explicit no imposition on others. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:04",
+      "sha256": "e1d8d5e496dc9a62eda01e76c025fa8f328a264c764783345d408b01cff944f4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기로서니 conceded busyness/cost does not justify unverified assertion/omitted consent; marked quoted reproach and peer repair. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:04",
+      "sha256": "d7635f88e97661057981248ada6a064cb4b5dc41325cff4b890b76fdaff4eb61",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기로서니 conceded busyness/cost does not justify unverified assertion/omitted consent; marked quoted reproach and peer repair. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:05",
+      "sha256": "b45a99f6a085607e06f34bcabecd55483f183e4649e7f2e2e2acac7d077398ca",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는다고1 explicitly confirmed intended comforting/helping purpose contrasted with unintended hurt/reduced choice, not G3reason or deliberate harm. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:05",
+      "sha256": "fd137514a0bbf743340e28c7639021933817b8da1e61178e4472133e956a055b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는다고1 explicitly confirmed intended comforting/helping purpose contrasted with unintended hurt/reduced choice, not G3reason or deliberate harm. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:06",
+      "sha256": "0e51bcbae057be6870850087128294cdda19e3b9dadb0a6d4b6ac21b7a5a30a9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 자면1 intended explanation/common ground requires context/listening, not accomplished explanation or identical refusal reasons. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:06",
+      "sha256": "a4c74ac87a9db59f3de6f184264c441f27eb650924dcbbf9cae7fdd8375d6155",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 자면1 intended explanation/common ground requires context/listening, not accomplished explanation or identical refusal reasons. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:07",
+      "sha256": "c102e85935e696049e86d207820da9f800bcebefe86cfeb4c2228c2c87415aed",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 자니3 contemplated maintenance/cancellation causes worry, explicitly undecided, not occurred damage/cancellation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:07",
+      "sha256": "a3725a1157637b357db9945ace76331a722bb4ad88ca74a893e591a8633c4aed",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 자니3 contemplated maintenance/cancellation causes worry, explicitly undecided, not occurred damage/cancellation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:08",
+      "sha256": "d0a269aa308ff2bc019dde80766d1b7fc02d164f0d3bdb66229636491903c1a1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으려도 intended explanation/check blocked by denied opportunity/original access, not voluntary refusal or successful check. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:08",
+      "sha256": "3d50dda10bd8400c9eb5240de625e46d70e299e717fe2cb6b9df4f0d506ac0ee",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으려도 intended explanation/check blocked by denied opportunity/original access, not voluntary refusal or successful check. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:09",
+      "sha256": "a2eb76829e2984bb210b3b975e6c900a7406b7badd3b00710d107e076e237f63",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을라치면 narrated-day recurrent interruption at attempted start; no universal future claim or answered questions. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:09",
+      "sha256": "2321cb52a42d9b1990e16b608a547dddb38b90cf375f7371bdf502e99573dfe0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을라치면 narrated-day recurrent interruption at attempted start; no universal future claim or answered questions. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:10",
+      "sha256": "b44cb1b312bce2fbcd94e08dcb5edd6274b6f830cc5ceae869dc605f44a5a75e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 바에 speaker chooses rechecking over giving up/shortening over source deletion; not command or reversed alternative. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:10",
+      "sha256": "d40f600a11881ef5b5cdb28c80d906d2ca61fdb0291c7dc6fd9273ff4df68036",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 바에 speaker chooses rechecking over giving up/shortening over source deletion; not command or reversed alternative. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:grammar:11",
+      "sha256": "e6105d78b68754ac49dd3b34a28350f5583dcc7fd9706cb02269a731980f913e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 더라도 changed outcome/delay leaves disclosure proviso/consent check intact; force compared through contextual costs, not fixed form ranking. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP27:production:11",
+      "sha256": "fdf3fcddfc489307d145e6a437d27541affbb41fc488c5c8a4c8851b31d887f9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 더라도 changed outcome/delay leaves disclosure proviso/consent check intact; force compared through contextual costs, not fixed form ranking. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP27:listening:01",
+      "sha256": "67787106ad390a96233ed6ef350bdf04dfab642b5a4c52248c2fba7b2824a625",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: fictional equal-participant environmental meeting,12stock8checkedWednesday versus15stock9checkedFriday. No measured environmental effect/cost, no delegated implementation approval. Personal time resolve versus worker consent and checked scope; distinct objections missing time consent versus missing cost evidence. Intention of comfort explicitly contrasts harmful impact without erasing impact; blocked explanation versus then-repeated interruptions, interrupter identity unknown. Only re-review date decided. Six required responsibility/conditions/reasons/intention/obstacle/decision distinctions."
+    },
+    {
+      "taskId": "KP27:listening:02",
+      "sha256": "417b067fa39df5c85328aa00850d11844d95a71f69fb9a965a3ead81cd5ba94c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate sustained lecture resolve vsconditions→contextual cost comparison→reproach/intention→implementation boundaries. 망정 limited personal travel cost vs더라도 potential professional disadvantage prevents fixed expression-force hierarchy. Privacy/consent retained; satisfying one objection does not remove another. Four required structure/force/repair/limit criteria. Actual intonation not certified."
+    },
+    {
+      "taskId": "KP27:reading:01",
+      "sha256": "68fb89bb8437ba55a81c31bc16579c7a56ce0dc60c46001a5cd27e55242dd7c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: meeting transcript plus two complete original essays with criteria, strongest objection and matching reply. A limited checked consensual trial yet defers untilcostgrounding; B costfirst acknowledges time choice but denies unsupported offset. Commonfacts distinctvalues, publicresolve creates no authority, educational ethical debate not quantitative environmental recommendation. Six critical criteria include G6intention sense and conditional non-equivalence."
+    },
+    {
+      "taskId": "KP27:writing:01",
+      "sha256": "ab23ecb39f1ea1c19b51fcbbdf5151104ac1dbc907bef96a7247859d220fc2e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: two complete required opposing/own essays, strongest faircase, shared facts vschanged values, checkedcounts and unknown effect/cost, principle vsown sacrifice vsothersconsent, contextual force contrast, changed-condition counterexamples, mediation alternatives and source-based revision. Free argument/meaning unscored."
+    },
+    {
+      "taskId": "KP27:speaking:01",
+      "sha256": "1806639753ab182b0c4229eeaba44eec899dcd6a376935d261794efbb481e8dd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: polite equal-peer condition clarification then formal meeting summary, time objection and cost objection remain separate. Samecriteria limitedtrial/deferment, no forced sacrifice, reproach repaired to action/evidence issue. Korean mediation rhetorical hypothetical-to-promise and intent-to-deliberate-harm errors; replay/revise clause boundaries and emphasis, unapprovedroles/decision remain unknown. Meaning/prosody/negotiation unscored."
+    }
+  ]
+}

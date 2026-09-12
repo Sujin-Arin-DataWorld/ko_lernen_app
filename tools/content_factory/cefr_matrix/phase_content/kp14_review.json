@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP14:grammar:01",
+      "sha256": "56ef8eb2187e0c01ef4b3419ad2dfe03e7082cf35118569c7e34bc84ed59876a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Embedded unresolved question: method suitability or included people, never a concluded universal claim. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:01",
+      "sha256": "cc3df2c7a17437a53d4bf764436758294f1e070692e5e2595bcb0b91d8c64150",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Embedded unresolved question: method suitability or included people, never a concluded universal claim. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:02",
+      "sha256": "685cdb4aa7aaab01e4c26a1536e6f473345ebdfd7e1d6f56dd634d9a2eb8e2c5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Previously explained reference with 듯이; retain checking condition/source, not omission or guaranteed identical result. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:02",
+      "sha256": "d791da0aa645410032a0df9e26e80abddf83fab643ef3c484815a7ac48cdc27d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Previously explained reference with 듯이; retain checking condition/source, not omission or guaranteed identical result. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:03",
+      "sha256": "45059d4e4d440af3dab713a5c158ba5731962e72ada9d12c4aa520ec8a001017",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Predicate coordination: free and member-only; anonymous and internal-only. No causal widening of access. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:03",
+      "sha256": "063a90f5fdc92a42091d17dd37f273ad1d64c233ec4c28af75a9a96af28eaee0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Predicate coordination: free and member-only; anonymous and internal-only. No causal widening of access. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:04",
+      "sha256": "247800963d6c4fcbc57fd5318b5692e8fd6d9de648c1c0b6a80b241a81b6af3c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Noun enumeration 학생이며 교사며 / 책이며 노트며, multiple groups/items, not dual role of one person. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:04",
+      "sha256": "13ec127b0b0ad78c6f0ff8db8a808366b6f76979a3e04927504e83ab4583bd26",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Noun enumeration 학생이며 교사며 / 책이며 노트며, multiple groups/items, not dual role of one person. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:05",
+      "sha256": "509b5a96044d7ed22710a200168be0a9e9fcf495f729f9df6f2a54c62c56899d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Capacity 으로서 with survey staff or representative; role does not create approval authority. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:05",
+      "sha256": "d0f0f0dc8c642857304973b61c28997da63017567202afd6934ad0087edf9f2f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Capacity 으로서 with survey staff or representative; role does not create approval authority. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:06",
+      "sha256": "2c42d1f7bc1fbb47ff82a53932bced0415c3f76c2e1bcaf9ea0f664619f8a351",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Means 으로써 with questionnaire/conversation, not role; wrong 서 form expressly rejected. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:06",
+      "sha256": "a8ac460ca86c9b68f9556c0e87b740064591e81731202eedf3c4e32b08994990",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Means 으로써 with questionnaire/conversation, not role; wrong 서 form expressly rejected. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:07",
+      "sha256": "01d05c608f18901c516eb790f2b9cff9a1e69f72d6ac7ee6510aaaef5ab0d8c5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Local report/terms definition 이란 with inclusion and exclusion; no universal definition extension. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:07",
+      "sha256": "7b123ae67c301ff87c0d24ad9af5890101e6bab65be11358fadeaa0dba762a55",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Local report/terms definition 이란 with inclusion and exclusion; no universal definition extension. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:08",
+      "sha256": "373ad8de0841cd1a33af1d8513d7cf4a2c9fd3962a649069e804d4a69d0a8490",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Variation by participant count/application type, not independence of criterion or scientific causal proof. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:08",
+      "sha256": "bff754b8bdfdf822cbadbaa5d382332ae773b8f24bc372fc9f6f61a47b9b0ee3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Variation by participant count/application type, not independence of criterion or scientific causal proof. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:09",
+      "sha256": "4e9d16b1eaa58962d7acc32cb114e5494050857037bd76132a15e705fb8d77ab",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Comparison of respondent counts, preserves reference period and count versus rate/denominator distinction. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:09",
+      "sha256": "25b0534957967c30417ffd08dc98f16ac8f0531af844c0edf8c6a7a3b2c32626",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Comparison of respondent counts, preserves reference period and count versus rate/denominator distinction. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:grammar:10",
+      "sha256": "c3200eaa8f0916b71460096deeecfc1b693becc02c43fa0985123a88580994b3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Co-variation in supplied data, not mere simultaneity or causal experiment; direction preserved. Practice-only study example. Receptive sample, not all-language mastery."
+    },
+    {
+      "taskId": "KP14:production:10",
+      "sha256": "2d0bccc6da7a8d47d8982e7ede54b95973e59837a3c3f3448098065990846c04",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Co-variation in supplied data, not mere simultaneity or causal experiment; direction preserved. Held-out conditions and critical rejection; unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP14:listening:01",
+      "sha256": "f8e71b06fee3581d0354b9eb58a5aff4662290a70539a1418cbba070bb6cc06a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional data briefing: participation=submitted survey, visit excluded; role as survey staff versus questionnaire means; response counts with absent visitor denominator; time/satisfaction co-variation versus same-day sign installation; uncontrolled confounds; review request not implementation commitment. Seven required criteria."
+    },
+    {
+      "taskId": "KP14:reading:01",
+      "sha256": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding."
+    },
+    {
+      "taskId": "KP14:reading:02",
+      "sha256": "64708ef1ef26de382fc9a160c7eed164363a315d8ebe42b84ac895ef75157b9d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual fictional terms with definitions of member/visitor/material, private files excluded; external sharing ban with explicitly labelled public-summary exception; desk receipt role versus email means; no publication approval authority; request right and verify/respond duty, receipt not correction completion."
+    },
+    {
+      "taskId": "KP14:writing:01",
+      "sha256": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score."
+    },
+    {
+      "taskId": "KP14:speaking:01",
+      "sha256": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment."
+    }
+  ]
+}
