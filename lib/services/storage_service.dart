@@ -15,6 +15,10 @@ import '../models/personal_room.dart';
 import 'local_data_lifetime.dart';
 import 'media_mutation_lock.dart';
 import 'srs_commit_journal.dart';
+import 'pack_completion_record.dart';
+import 'pack_completion_owner.dart';
+
+part 'pack_completion_storage.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -1078,7 +1082,7 @@ class VocabProgressAttempt {
 enum _VocabPreferenceKind { integer, string, stringList }
 
 class _PendingVocabPreferenceWrite {
-  const _PendingVocabPreferenceWrite({
+  _PendingVocabPreferenceWrite({
     required this.generation,
     required this.key,
     required this.kind,
@@ -1086,7 +1090,7 @@ class _PendingVocabPreferenceWrite {
     required this.before,
     required this.after,
     required this.assertOriginCurrent,
-    required this.confirm,
+    required this._confirm,
   });
 
   final int generation;
@@ -1096,7 +1100,15 @@ class _PendingVocabPreferenceWrite {
   final Object before;
   final Object after;
   final void Function() assertOriginCurrent;
-  final void Function() confirm;
+  final void Function() _confirm;
+  bool sharedCacheReloaded = false;
+
+  void confirm() {
+    _confirm();
+    if (sharedCacheReloaded) {
+      Storage._confirmedVocabAfterReloadKeys.add(key);
+    }
+  }
 }
 
 class _PronunciationProgressRecord {
@@ -1200,6 +1212,7 @@ class Storage {
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _xpRewardMutation = Future<void>.value();
+  static Future<void> _packProgressMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
   static Future<void> _vocabProgressMutation = Future<void>.value();
   static Future<void>? _grammarPlanMutation;
@@ -1616,6 +1629,11 @@ class Storage {
   static String? _confirmedGrammarPlanLevel;
   static final Set<String> _unconfirmedGrammarPlanLevels = <String>{};
   static final Map<String, int> _confirmedVocabInts = <String, int>{};
+  static final Set<String> _confirmedVocabAfterReloadKeys = <String>{};
+  // These intervals own actual cache reads, not a logical learning generation.
+  // Reset may retire a writer while an old read still targets the same cache.
+  static final Map<SharedPreferences, int> _packCompletionReloads =
+      Map.identity();
   static List<String>? _confirmedVokSeenIds;
   static String? _confirmedWrongCountRaw;
   static _PendingVocabPreferenceWrite? _pendingVocabPreferenceWrite;
@@ -1653,6 +1671,7 @@ class Storage {
       }
     }
     _prefs ??= await SharedPreferences.getInstance();
+    PackCompletionStorage.initialize();
     if (!_srsRecoveryInitialized) {
       _initializeSrsRecoveryView();
     }
@@ -1663,6 +1682,9 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
+    PackCompletionStorage.resetForTesting();
+    _packProgressMutation = Future<void>.value();
+    _packProgressMutationCount = 0;
     final drains = <Future<void>>[];
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
@@ -1766,6 +1788,7 @@ class Storage {
     _confirmedGrammarPlanLevel = null;
     _unconfirmedGrammarPlanLevels.clear();
     _confirmedVocabInts.clear();
+    _confirmedVocabAfterReloadKeys.clear();
     _confirmedVokSeenIds = null;
     _confirmedWrongCountRaw = null;
     _pendingVocabPreferenceWrite = null;
@@ -1808,6 +1831,7 @@ class Storage {
     _confirmedRewardLists.clear();
     _vocabProgressAttemptEpoch++;
     _confirmedVocabInts.clear();
+    _confirmedVocabAfterReloadKeys.clear();
     _confirmedVokSeenIds = null;
     _confirmedWrongCountRaw = null;
     _pendingVocabPreferenceWrite = null;
@@ -1830,13 +1854,22 @@ class Storage {
   }
 
   // ───────── Generic helpers ─────────
-  static int _i(String k) => _prefs?.getInt(k) ?? 0;
-  static String _s(String k) => _prefs?.getString(k) ?? '';
+  static int _i(String k) => (PackCompletionStorage.read(k) as int?) ?? 0;
+  static String _s(String k) =>
+      (PackCompletionStorage.read(k) as String?) ?? '';
   static double _d(String k, [double dflt = 0]) => _prefs?.getDouble(k) ?? dflt;
-  static List<String> _l(String k) => _prefs?.getStringList(k) ?? [];
+  static List<String> _l(String k) =>
+      (PackCompletionStorage.read(k) as List?)?.cast<String>().toList() ?? [];
 
-  static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
-  static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+  static Future<void> _si(String k, int v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setInt(k, v);
+      });
+
+  static Future<void> _ss(String k, String v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setString(k, v);
+      });
 
   static int _admitGrammarPlanOperation() {
     if (_learningResetCount > 0) {
@@ -1906,6 +1939,7 @@ class Storage {
     if (_learningResetCount > 0) {
       return Future<T>.error(const StaleLocalDataLifetimeException());
     }
+    PackCompletionStorage.assertAdmission();
     final generation = _xpRewardMutationGeneration;
     // SharedPreferences updates its in-memory cache when a setter is invoked,
     // before its returned Future completes. Existing game screens rely on that
@@ -2132,6 +2166,23 @@ class Storage {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
     _StringPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _ssStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _ssStrictImpl(
+    String key,
+    String value, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+    _StringPreferenceState? beforeState,
   }) async {
     final store =
         preferences ??
@@ -2172,6 +2223,23 @@ class Storage {
     PreferenceIntStore? preferences,
     void Function()? assertCurrentWrite,
     _IntPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _siStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _siStrictImpl(
+    String key,
+    int value, {
+    PreferenceIntStore? preferences,
+    void Function()? assertCurrentWrite,
+    _IntPreferenceState? beforeState,
   }) async {
     final store =
         preferences ??
@@ -2203,6 +2271,23 @@ class Storage {
   }
 
   static Future<void> _slStrict(
+    String key,
+    List<String> value, {
+    PreferenceStringListStore? preferences,
+    void Function()? assertCurrentWrite,
+    _StringListPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _slStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _slStrictImpl(
     String key,
     List<String> value, {
     PreferenceStringListStore? preferences,
@@ -2530,6 +2615,21 @@ class Storage {
     PreferenceStringStore? preferences,
     bool Function(String value)? matches,
     void Function()? assertCurrentWrite,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _removeStringStrictImpl(
+      key,
+      preferences: preferences,
+      matches: matches,
+      assertCurrentWrite: assertCurrentWrite,
+    ),
+  );
+
+  static Future<String?> _removeStringStrictImpl(
+    String key, {
+    PreferenceStringStore? preferences,
+    bool Function(String value)? matches,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -2644,8 +2744,10 @@ class Storage {
   }
 
   static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
-  static Future<void> _sl(String k, List<String> v) async =>
-      _prefs?.setStringList(k, v);
+  static Future<void> _sl(String k, List<String> v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setStringList(k, v);
+      });
 
   static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
   static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
@@ -2675,7 +2777,8 @@ class Storage {
       _unknownStrictKeys.contains(key);
 
   static int _readConfirmedVocabInt(String key) {
-    if (_vocabWriteIsUnconfirmed(key)) {
+    if (_vocabWriteIsUnconfirmed(key) ||
+        _confirmedVocabAfterReloadKeys.contains(key)) {
       return _confirmedVocabInts[key] ?? 0;
     }
     final value = _i(key);
@@ -2688,7 +2791,8 @@ class Storage {
   static int get vokSkipped => _readConfirmedVocabInt(_vokSkippedKey);
   static int get vokLastIdx => _readConfirmedVocabInt(_vokLastIdxKey);
   static List<String> get vokSeenIds {
-    if (_vocabWriteIsUnconfirmed(_vokSeenIdsKey)) {
+    if (_vocabWriteIsUnconfirmed(_vokSeenIdsKey) ||
+        _confirmedVocabAfterReloadKeys.contains(_vokSeenIdsKey)) {
       return List<String>.of(_confirmedVokSeenIds ?? const <String>[]);
     }
     final value = _l(_vokSeenIdsKey);
@@ -3047,6 +3151,13 @@ class Storage {
       }
       return current;
     }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _IntPreferenceState._(
+        isPresent: true,
+        value: _confirmedVocabInts[key]!,
+      );
+    }
     return _prepareIntMutation(store, key);
   }
 
@@ -3066,6 +3177,13 @@ class Storage {
       }
       return current;
     }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _StringPreferenceState._(
+        isPresent: true,
+        value: _confirmedWrongCountRaw!,
+      );
+    }
     return _prepareStringMutation(store, key);
   }
 
@@ -3084,6 +3202,13 @@ class Storage {
         throw PreferenceOutcomeUnknownException(key);
       }
       return current;
+    }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _StringListPreferenceState._(
+        isPresent: true,
+        value: _confirmedVokSeenIds!,
+      );
     }
     return _prepareStringListMutation(store, key);
   }
@@ -3125,6 +3250,9 @@ class Storage {
         _confirmedVocabInts[key] = value;
         markSaved();
       },
+    );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
     );
     _pendingVocabPreferenceWrite = pending;
     try {
@@ -3196,6 +3324,9 @@ class Storage {
         markSaved();
       },
     );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
+    );
     _pendingVocabPreferenceWrite = pending;
     try {
       await _ssStrict(
@@ -3261,6 +3392,9 @@ class Storage {
         _confirmedVokSeenIds = List<String>.unmodifiable(value);
         markSaved();
       },
+    );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
     );
     _pendingVocabPreferenceWrite = pending;
     try {
@@ -4417,7 +4551,9 @@ class Storage {
       _ss('kl_reward_claim_v1', json);
 
   static Future<void> clearDecorationRewardClaimJournal() async {
-    await _prefs?.remove('kl_reward_claim_v1');
+    await PackCompletionStorage.trackWrite('kl_reward_claim_v1', () async {
+      await _prefs?.remove('kl_reward_claim_v1');
+    });
   }
 
   /// 꾸러미 하나를 소비한다. 없으면 false.
@@ -5692,7 +5828,8 @@ class Storage {
   }
 
   static String _readConfirmedWrongCountRaw() {
-    if (_vocabWriteIsUnconfirmed(_wrongCountKey)) {
+    if (_vocabWriteIsUnconfirmed(_wrongCountKey) ||
+        _confirmedVocabAfterReloadKeys.contains(_wrongCountKey)) {
       return _confirmedWrongCountRaw ?? '';
     }
     final raw = _s(_wrongCountKey);
@@ -5943,12 +6080,13 @@ class Storage {
     await _removeValueStrict(store, _personalHanokMilestonesSeenKey);
   }
 
-  static Future<void> setPlacementLevelCode(String code) async {
-    final normalized = _requiredLearnerLevelCode(code);
-    await _ss(placementLevelPreferenceKey, normalized);
-    // Compatibility mirror only. Browse-level writes must not do this.
-    await setUserLevelCode(normalized);
-  }
+  static Future<void> setPlacementLevelCode(String code) =>
+      PackCompletionStorage.trackWrite(placementLevelPreferenceKey, () async {
+        final normalized = _requiredLearnerLevelCode(code);
+        await _ss(placementLevelPreferenceKey, normalized);
+        // Compatibility mirror only. Browse-level writes must not do this.
+        await setUserLevelCode(normalized);
+      });
 
   /// Reconciliation-only course mirror write. The root account/library level
   /// has its own merge semantics and must not be overwritten by course restore.
@@ -5996,16 +6134,19 @@ class Storage {
     String json, {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
-  }) async {
-    // The cache changes only after strict storage confirms the requested value.
-    await _ssStrict(
-      courseMasterySnapshotPreferenceKey,
-      json,
-      preferences: preferences,
-      assertCurrentWrite: assertCurrentWrite,
-    );
-    _courseMasteryCache = json;
-  }
+  }) => PackCompletionStorage.trackWrite(
+    courseMasterySnapshotPreferenceKey,
+    () async {
+      // The cache changes only after strict storage confirms the requested value.
+      await _ssStrict(
+        courseMasterySnapshotPreferenceKey,
+        json,
+        preferences: preferences,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+      _courseMasteryCache = json;
+    },
+  );
 
   /// Replaces the canonical course graph and its scalar compatibility mirrors
   /// as one recoverable local operation.
@@ -6023,91 +6164,96 @@ class Storage {
     required bool mirrorLegacyUserLevel,
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
-  }) async {
-    if (canonicalSnapshotJson.trim().isEmpty) {
-      throw ArgumentError.value(
-        canonicalSnapshotJson,
-        'canonicalSnapshotJson',
-        'must not be empty',
-      );
-    }
-    final placement = placementLevelCode == null
-        ? null
-        : _requiredLearnerLevelCode(placementLevelCode);
-    final unit = currentCourseUnitId?.trim();
-    if (unit != null && unit.isEmpty) {
-      throw ArgumentError.value(
-        currentCourseUnitId,
-        'currentCourseUnitId',
-        'must not be empty',
-      );
-    }
-    final browse = browseLevelCode == null
-        ? null
-        : _requiredLearnerLevelCode(browseLevelCode);
-
-    final store = _stringStore(preferences);
-    final targets = <String, String?>{
-      placementLevelPreferenceKey: placement,
-      if (mirrorLegacyUserLevel && placement != null)
-        'kl_user_level': placement,
-      if (browse != null) browseLevelPreferenceKey: browse,
-      courseUnitPreferenceKey: unit,
-      // The validated graph is the commit marker and must remain last.
-      courseMasterySnapshotPreferenceKey: canonicalSnapshotJson,
-    };
-    final before = <String, _StringPreferenceState>{};
-    for (final key in targets.keys) {
-      before[key] = await _prepareStringMutation(store, key);
-    }
-    assertCurrentWrite?.call();
-
-    final attempted = <String>[];
-    Object? primaryFailure;
-    StackTrace? primaryStack;
-    try {
-      for (final entry in targets.entries) {
-        final target = entry.value == null
-            ? const _StringPreferenceState.absent()
-            : _StringPreferenceState._(isPresent: true, value: entry.value);
-        if (before[entry.key] == target) continue;
-        attempted.add(entry.key);
-        await _writeStringStateStrict(store, entry.key, target);
+  }) => PackCompletionStorage.trackWrite(
+    courseMasterySnapshotPreferenceKey,
+    () async {
+      if (canonicalSnapshotJson.trim().isEmpty) {
+        throw ArgumentError.value(
+          canonicalSnapshotJson,
+          'canonicalSnapshotJson',
+          'must not be empty',
+        );
       }
-      _courseMasteryCache = canonicalSnapshotJson;
-      return;
-    } on Object catch (error, stack) {
-      primaryFailure = error;
-      primaryStack = stack;
-    }
+      final placement = placementLevelCode == null
+          ? null
+          : _requiredLearnerLevelCode(placementLevelCode);
+      final unit = currentCourseUnitId?.trim();
+      if (unit != null && unit.isEmpty) {
+        throw ArgumentError.value(
+          currentCourseUnitId,
+          'currentCourseUnitId',
+          'must not be empty',
+        );
+      }
+      final browse = browseLevelCode == null
+          ? null
+          : _requiredLearnerLevelCode(browseLevelCode);
 
-    final rollbackFailures = <Object>[];
-    try {
-      await _refreshUnknownStringKeys(store, attempted);
-    } on Object catch (error) {
-      rollbackFailures.add(error);
-    }
-    for (final key in attempted.reversed) {
+      final store = _stringStore(preferences);
+      final targets = <String, String?>{
+        placementLevelPreferenceKey: placement,
+        if (mirrorLegacyUserLevel && placement != null)
+          'kl_user_level': placement,
+        if (browse != null) browseLevelPreferenceKey: browse,
+        courseUnitPreferenceKey: unit,
+        // The validated graph is the commit marker and must remain last.
+        courseMasterySnapshotPreferenceKey: canonicalSnapshotJson,
+      };
+      final before = <String, _StringPreferenceState>{};
+      for (final key in targets.keys) {
+        before[key] = await _prepareStringMutation(store, key);
+      }
+      assertCurrentWrite?.call();
+
+      final attempted = <String>[];
+      Object? primaryFailure;
+      StackTrace? primaryStack;
       try {
-        final current = _StringPreferenceState.read(store, key);
-        final original = before[key]!;
-        if (current != original) {
-          await _writeStringStateStrict(store, key, original);
+        for (final entry in targets.entries) {
+          final target = entry.value == null
+              ? const _StringPreferenceState.absent()
+              : _StringPreferenceState._(isPresent: true, value: entry.value);
+          if (before[entry.key] == target) continue;
+          attempted.add(entry.key);
+          await _writeStringStateStrict(store, entry.key, target);
         }
+        _courseMasteryCache = canonicalSnapshotJson;
+        return;
+      } on Object catch (error, stack) {
+        primaryFailure = error;
+        primaryStack = stack;
+      }
+
+      final rollbackFailures = <Object>[];
+      try {
+        await _refreshUnknownStringKeys(store, attempted);
       } on Object catch (error) {
         rollbackFailures.add(error);
       }
-    }
-    if (rollbackFailures.isNotEmpty) {
-      _unknownStrictKeys.addAll(attempted);
-      _courseMasteryCache = null;
-      throw PreferenceOutcomeUnknownException(
-        attempted.isEmpty ? courseMasterySnapshotPreferenceKey : attempted.last,
-        cause: <Object>[primaryFailure, ...rollbackFailures],
-      );
-    }
-    Error.throwWithStackTrace(primaryFailure, primaryStack);
-  }
+      for (final key in attempted.reversed) {
+        try {
+          final current = _StringPreferenceState.read(store, key);
+          final original = before[key]!;
+          if (current != original) {
+            await _writeStringStateStrict(store, key, original);
+          }
+        } on Object catch (error) {
+          rollbackFailures.add(error);
+        }
+      }
+      if (rollbackFailures.isNotEmpty) {
+        _unknownStrictKeys.addAll(attempted);
+        _courseMasteryCache = null;
+        throw PreferenceOutcomeUnknownException(
+          attempted.isEmpty
+              ? courseMasterySnapshotPreferenceKey
+              : attempted.last,
+          cause: <Object>[primaryFailure, ...rollbackFailures],
+        );
+      }
+      Error.throwWithStackTrace(primaryFailure, primaryStack);
+    },
+  );
 
   static Future<void> _writeStringStateStrict(
     PreferenceStringStore store,
@@ -6138,6 +6284,42 @@ class Storage {
   }
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
+  static Future<void> get packCompletionXpDrain => _xpRewardMutation;
+
+  /// A native reload can replace a setter's optimistic cache before its reply.
+  /// Mark both existing and newly admitted writes throughout the actual read.
+  /// Only their native confirmation may retain a value; getter observations
+  /// and a caller timeout never acquire or release this authority.
+  static Future<void> reloadForPackCompletion(
+    SharedPreferences preferences,
+  ) async {
+    _packCompletionReloads.update(
+      preferences,
+      (count) => count + 1,
+      ifAbsent: () => 1,
+    );
+    try {
+      if (identical(preferences, _prefs)) {
+        _pendingVocabPreferenceWrite?.sharedCacheReloaded = true;
+      }
+      await preferences.reload();
+    } finally {
+      final remaining = _packCompletionReloads[preferences]! - 1;
+      if (remaining == 0) {
+        _packCompletionReloads.remove(preferences);
+      } else {
+        _packCompletionReloads[preferences] = remaining;
+      }
+    }
+  }
+
+  static void refreshPackCompletionCaches() {
+    _invalidatePackCache();
+    _courseMasteryCache = null;
+    _confirmedXpRewardLedger = null;
+    _confirmedRewardLists.clear();
+  }
+
   static int get xp {
     final ledger = _readXpRewardLedger(strict: false);
     return ledger == null ? _i('kl_xp') : _effectiveXpTotal(ledger);
@@ -6172,6 +6354,50 @@ class Storage {
     return _isCanonicalStudyLogDate(date)
         ? _OrdinaryXpDay(date: date, xp: _i('kl_xp_today_raw'))
         : null;
+  }
+
+  static _XpRewardLedger _ordinaryXpAfter(
+    _XpRewardLedger ledger,
+    int earnedXp,
+    String earnedOn, {
+    _DailyChallengeState? daily,
+    int? wins,
+  }) {
+    final total = ledger.totalXp + earnedXp;
+    if (total < 0) {
+      throw ArgumentError.value(earnedXp, 'amount', 'XP cannot be negative.');
+    }
+    final previous = _ordinaryXpDay(ledger);
+    final _OrdinaryXpDay day;
+    if (previous == null || previous.date.compareTo(earnedOn) < 0) {
+      day = _OrdinaryXpDay(date: earnedOn, xp: earnedXp);
+    } else if (previous.date == earnedOn) {
+      day = _OrdinaryXpDay(date: previous.date, xp: previous.xp + earnedXp);
+    } else {
+      // A retry from an earlier day may change total XP, but cannot replace
+      // the newer day's already-earned amount.
+      day = previous;
+    }
+    return ledger.copyWith(
+      totalXp: total,
+      ordinaryDay: day,
+      dailyChallenge: daily,
+      kkeunmariWins: wins,
+    );
+  }
+
+  /// Prepared inside terminal admission after the ordinary reward owner drains.
+  static String preparePackCompletionXp(int amount, String earnedOn) {
+    final ledger =
+        _readXpRewardLedger(strict: true) ??
+        _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+    return _ordinaryXpAfter(
+      ledger,
+      amount,
+      earnedOn,
+      daily: ledger.dailyChallenge,
+      wins: ledger.kkeunmariWins,
+    ).encode();
   }
 
   static Future<void> _saveOrdinaryXpAward(XpAwardAttempt attempt) async {
@@ -6232,30 +6458,12 @@ class Storage {
         daily = _DailyChallengeState(last, streak < 1 ? 1 : streak);
       }
     }
-    final total = ledger.totalXp + earnedXp;
-    if (total < 0) {
-      throw ArgumentError.value(
-        attempt.amount,
-        'amount',
-        'XP cannot be negative.',
-      );
-    }
-    final previous = _ordinaryXpDay(ledger);
-    final _OrdinaryXpDay day;
-    if (previous == null || previous.date.compareTo(attempt._earnedOn) < 0) {
-      day = _OrdinaryXpDay(date: attempt._earnedOn, xp: earnedXp);
-    } else if (previous.date == attempt._earnedOn) {
-      day = _OrdinaryXpDay(date: previous.date, xp: previous.xp + earnedXp);
-    } else {
-      // A retry from an earlier day may change total XP, but cannot replace
-      // the newer day's already-earned amount.
-      day = previous;
-    }
-    final updated = ledger.copyWith(
-      totalXp: total,
-      ordinaryDay: day,
-      dailyChallenge: daily,
-      kkeunmariWins: wins,
+    final updated = _ordinaryXpAfter(
+      ledger,
+      earnedXp,
+      attempt._earnedOn,
+      daily: daily,
+      wins: wins,
     );
     attempt._earnedXp = earnedXp;
     final pending = _PendingOrdinaryXpWrite(
@@ -6758,6 +6966,33 @@ class Storage {
   // raw JSON Maps; `PackProgressService` dekodiert.
   // ─────────────────────────────────────────────────────────────────────
 
+  static int _packProgressMutationCount = 0;
+
+  static Future<void> get packCompletionPackDrain => _packProgressMutation;
+
+  static Future<void> _enqueuePackProgressMutation(
+    Future<void> Function() work,
+  ) {
+    PackCompletionStorage.assertAdmission();
+    final immediate = _packProgressMutationCount++ == 0;
+    final operation = immediate
+        ? Future<void>.sync(work)
+        : _packProgressMutation.then((_) => work());
+    operation.then<void>(
+      (_) {
+        _packProgressMutationCount--;
+      },
+      onError: (Object _, StackTrace __) {
+        _packProgressMutationCount--;
+      },
+    );
+    _packProgressMutation = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return operation;
+  }
+
   static const String _packProgressKey = 'kl_pack_progress_v1';
   static Map<String, dynamic>? _packCache;
 
@@ -6858,6 +7093,7 @@ class Storage {
   /// 격리를 해제하고 팩 진행도를 빈 상태로 다시 시작한다.
   /// 사용자가 명시적으로 "새로 시작"을 택했을 때만. 격리본은 남긴다.
   static Future<void> resetQuarantinedPackProgress() async {
+    await PackCompletionStorage.retire();
     _packQuarantined = false;
     _packCache = <String, dynamic>{};
     await _ss(_packProgressKey, jsonEncode(const <String, dynamic>{}));
@@ -6922,7 +7158,7 @@ class Storage {
   static Future<void> setPackProgressJson(
     String packId,
     Map<String, dynamic> json,
-  ) async {
+  ) => _enqueuePackProgressMutation(() async {
     // ⚠️ 먼저 로드한다. 예전에는 `_packCache ?? {}` 로 시작해서, 캐시가 아직
     // 비어 있는 콜드 스타트에 이 함수가 먼저 불리면 **저장된 나머지 팩 진행도를
     // 통째로 덮어썼다**(읽기 전 쓰기 = 전면 손실). 로드는 캐시가 있으면 no-op 다.
@@ -6934,12 +7170,12 @@ class Storage {
       return;
     }
     await _ss(_packProgressKey, jsonEncode(cache));
-  }
+  });
 
   /// Mehrere Packs gleichzeitig schreiben (Migration / Cloud-restore).
   static Future<void> setManyPackProgressJson(
     Map<String, Map<String, dynamic>> entries,
-  ) async {
+  ) => _enqueuePackProgressMutation(() async {
     // 위와 같은 이유로 먼저 로드한다.
     _loadPackJson();
     final cache = _packCache ?? <String, dynamic>{};
@@ -6949,12 +7185,12 @@ class Storage {
       return;
     }
     await _ss(_packProgressKey, jsonEncode(cache));
-  }
+  });
 
   static Future<void> setAllPackProgressJsonStrict(
     Map<String, Map<String, dynamic>> entries, {
     PreferenceStringStore? preferences,
-  }) async {
+  }) => PackCompletionStorage.trackWrite(_packProgressKey, () async {
     final encoded = jsonEncode(entries);
     await _ssStrict(_packProgressKey, encoded, preferences: preferences);
     // 원본을 통째로 교체하는 복원 경로다 — 손상 격리를 여기서 해제한다.
@@ -6963,7 +7199,7 @@ class Storage {
       for (final entry in entries.entries)
         entry.key: Map<String, dynamic>.from(entry.value),
     };
-  }
+  });
 
   /// Test-only: Pack-Cache invalidieren.
   @visibleForTesting
@@ -7398,6 +7634,7 @@ class Storage {
         store,
         allowJournalPreservingReset: true,
       );
+      await PackCompletionStorage.retire(preferences: store);
       await _retireSrsJournalForReset(store);
       LocalDataLifetime.invalidate();
       try {
@@ -7433,6 +7670,7 @@ class Storage {
         allowAccountDeletionCheckpoint:
             canonicalizeAccountDeletionCheckpoint != null,
       );
+      await PackCompletionStorage.retire(preferences: store);
       await _retireSrsJournalForReset(store);
       // Invalidate before checkpoint canonicalization and preference removal.
       LocalDataLifetime.invalidate();
@@ -7523,6 +7761,9 @@ class Storage {
     operation = () async {
       try {
         await Future.wait([
+          if (_packProgressMutationCount > 0) _packProgressMutation,
+          if (PackCompletionStorage.hasNativeWrites)
+            PackCompletionStorage.drainNative(),
           if (_xpRewardMutationCount > 0) _xpRewardMutation,
           if (_srsReviewMutationCount > 0) _srsReviewMutation,
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,

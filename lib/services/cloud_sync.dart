@@ -66,6 +66,7 @@ class CloudSync {
     CourseMasteryLocalCapture? courseMasteryCapture,
     HanokStateLocalCapture? hanokStateCapture,
   }) async {
+    PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
     final payload = <String, dynamic>{
       'vok': {
@@ -336,6 +337,8 @@ class CloudSync {
     })?
     hanokStateMerger,
   }) async {
+    await PackCompletionStorage.retire(beforeRetire: beforeWrite);
+    PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
     final vok = _map(data['vok']);
     final wrongCountJson = _structuredJson(

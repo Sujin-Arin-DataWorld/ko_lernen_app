@@ -9,6 +9,20 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get packCompletionRetired =>
+      'Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.';
+
+  @override
+  String get packCompletionPending =>
+      'Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.';
+
+  @override
+  String get packCompletionSaved => 'Dein Pack-Ergebnis ist gespeichert.';
+
+  @override
+  String get packCompletionView => 'Ergebnis ansehen';
+
+  @override
   String get srsRecoveryPending =>
       'Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.';
 

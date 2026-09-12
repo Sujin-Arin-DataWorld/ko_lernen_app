@@ -1,4 +1,9 @@
 {
+  "packCompletionRetired": "This result is no longer active. Return to your vocabulary packs.",
+  "packCompletionPending": "Your pack result is still being saved. You can retry saving it.",
+  "packCompletionSaved": "Your pack result is saved.",
+  "packCompletionView": "View result",
+
   "srsRecoveryPending": "Your last review is still being saved. Review progress will stay paused until it is recovered.",
   "srsRecoveryBlocked": "Your last review could not be recovered yet. Finish any pending account recovery, then try again.",
   "srsRecoveryRetry": "Retry saving review",

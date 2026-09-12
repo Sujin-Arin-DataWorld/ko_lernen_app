@@ -9,6 +9,20 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get packCompletionRetired =>
+      'This result is no longer active. Return to your vocabulary packs.';
+
+  @override
+  String get packCompletionPending =>
+      'Your pack result is still being saved. You can retry saving it.';
+
+  @override
+  String get packCompletionSaved => 'Your pack result is saved.';
+
+  @override
+  String get packCompletionView => 'View result';
+
+  @override
   String get srsRecoveryPending =>
       'Your last review is still being saved. Review progress will stay paused until it is recovered.';
 

@@ -33,6 +33,7 @@ abstract final class LearningDataExportService {
   static const String mimeType = 'application/json';
 
   static LearningDataExportPackage buildPackage({DateTime? exportedAt}) {
+    PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
     final at = (exportedAt ?? DateTime.now()).toUtc();
     final data = <String, dynamic>{

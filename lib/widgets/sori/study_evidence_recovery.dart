@@ -125,16 +125,25 @@ mixin StudyEvidenceRecovery<T extends StatefulWidget> on State<T> {
         : AppError(
             message: t.courseCheckpointSaveError,
             messageLiveRegion: true,
-            retryLabel: _evidenceExpired || _evidenceRetired
+            retryLabel:
+                _evidenceExpired ||
+                    _evidenceRetired ||
+                    !_evidenceLifetime.isCurrent
                 ? t.btnClose
                 : t.btnRetry,
-            onRetry: _evidenceExpired || _evidenceRetired
-                ? () => Navigator.of(context).maybePop()
-                : () {
-                    if (identical(completion, _evidenceCompletion)) {
-                      unawaited(_retryEvidence());
-                    }
-                  },
+            onRetry: () {
+              if (!mounted || !_evidenceRouteIsActive) {
+                return;
+              }
+              // The reset may finish after this error or callback was built.
+              if (_evidenceExpired ||
+                  _evidenceRetired ||
+                  !_evidenceLifetime.isCurrent) {
+                unawaited(Navigator.of(context).maybePop());
+              } else if (identical(completion, _evidenceCompletion)) {
+                unawaited(_retryEvidence());
+              }
+            },
           );
   }
 

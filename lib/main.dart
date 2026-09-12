@@ -1,3 +1,6 @@
+import 'widgets/sori/pack_completion_recovery_banner.dart';
+import 'services/pack_completion_owner.dart';
+import 'services/vocab_pack_finish_coordinator.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -276,6 +279,8 @@ Future<void> finishPostMigrationStartup(
 }) async {
   // The native recovery owns a separate admission gate. Its bounded wait
   // cannot hold first frame or delay unrelated startup services indefinitely.
+  DefaultVocabPackFinishOperations.initializeRecovery();
+  unawaited(PackCompletionStorage.retry());
   unawaited(Storage.retrySrsRecovery());
   await runPostMigrationStudyLogMaintenance(migration);
 
@@ -389,7 +394,14 @@ Future<void> _startCloudServices() async {
         debugPrint('App Check activation failed; continuing without it.');
       }
     },
-    ensureSignedIn: AuthService.ensureSignedIn,
+    ensureSignedIn: () async {
+      try {
+        await AuthService.ensureSignedIn();
+      } finally {
+        PackCompletionOwner.authenticationInitialized = true;
+        unawaited(PackCompletionStorage.retry());
+      }
+    },
     currentUserId: () => AuthService.current?.uid,
     restorePendingAccountState: AuthService.restorePendingAccountState,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
@@ -599,6 +611,7 @@ class KoLernenApp extends StatefulWidget {
 }
 
 class _KoLernenAppState extends State<KoLernenApp> {
+  final _packRecoveryNavigator = GlobalKey<NavigatorState>();
   final _resumeDeliveryNotifier = ContentFeedbackResumeDeliveryNotifier();
 
   @override
@@ -612,6 +625,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
     return ListenableBuilder(
       listenable: Listenable.merge([localeNotifier, paletteVariantNotifier]),
       builder: (_, __) => MaterialApp(
+        navigatorKey: _packRecoveryNavigator,
         title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
         // Dark Mode deaktiviert (v2.0): App immer im Light-Theme.
@@ -647,8 +661,22 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
                 // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
                 // 고장과 구분이 안 된다.
-                child: SrsRecoveryBanner(
-                  child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+                child: PackCompletionRecoveryBanner(
+                  onViewResult: () {
+                    final record = PackCompletionStorage.result;
+                    if (record != null) {
+                      _packRecoveryNavigator.currentState?.push(
+                        SoriTransitions.page(
+                          (_) => VocabPackResultScreen.fromRecovered(record),
+                        ),
+                      );
+                    }
+                  },
+                  child: SrsRecoveryBanner(
+                    child: TtsUnavailableBanner(
+                      child: child ?? const SizedBox(),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -660,6 +688,21 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
         initialRoute: '/splash',
         onGenerateRoute: (settings) {
+          final name = settings.name ?? '';
+          if (PackCompletionStorage.invalid &&
+              name != '/' &&
+              name != '/splash' &&
+              name != '/intro' &&
+              name != '/quick_onboarding' &&
+              name != '/character_selection' &&
+              !name.startsWith('/onboarding') &&
+              !name.startsWith('/settings') &&
+              !name.startsWith('/privacy')) {
+            return SoriTransitions.page(
+              (_) => const PackCompletionRecoveryScreen(),
+              settings: settings,
+            );
+          }
           switch (settings.name) {
             case '/splash':
               return SoriTransitions.page(

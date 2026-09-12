@@ -1452,7 +1452,6 @@ class AccountDeletionReceiptRecoveryCoordinator {
       Error.throwWithStackTrace(error, stackTrace);
     }
   }
-
 }
 
 class _FirebaseAccountDeletionOperations implements AccountDeletionOperations {
@@ -2489,6 +2488,10 @@ class AuthService {
       allowCloudBackupDeletionJournal: true,
       onAdmitted: () async {
         final preferences = await SharedPreferences.getInstance();
+        await preferences.reload();
+        if (preferences.containsKey(AccountSwitchJournal.storageKey)) {
+          await PackCompletionStorage.retire();
+        }
         return _accountSwitchCoordinator(
           preferences,
           courseMasteryMerger: courseMasteryMerger,
@@ -2508,6 +2511,7 @@ class AuthService {
       identity: const _FirebaseAccountSwitchIdentity(),
       journalStore: SharedPreferencesAccountSwitchJournalStore(preferences),
       localPreflight: () async {
+        await PackCompletionStorage.retire();
         await LocalAccountReconciliationStore.load();
       },
       ownershipTransition: ({required oldUid, required transition}) =>
@@ -2525,26 +2529,27 @@ class AuthService {
             required catalog,
           }) {
             return FirebaseAccountReconciliationAdapter(
-              uid: targetUid,
-              fenceUid: targetUid,
-              session: session,
-              sessions: cloudWriteSessionController,
-              remote: FirebaseAccountReconciliationRemote.firestore(
-                firestore: FirebaseFirestore.instance,
-                fenceUid: targetUid,
-              ),
-            ).coordinator(
-                journalStore: SharedPreferencesAccountTransitionJournalStore(
-                  preferences,
-                  storageKey: AccountSwitchJournal.reconciliationStorageKey,
-                ),
-                courseMasteryMerger: courseMasteryMerger,
-              )
-              .reconcile(
-                session: session,
-                operationId: operationId,
-                catalog: catalog,
-              );
+                  uid: targetUid,
+                  fenceUid: targetUid,
+                  session: session,
+                  sessions: cloudWriteSessionController,
+                  remote: FirebaseAccountReconciliationRemote.firestore(
+                    firestore: FirebaseFirestore.instance,
+                    fenceUid: targetUid,
+                  ),
+                )
+                .coordinator(
+                  journalStore: SharedPreferencesAccountTransitionJournalStore(
+                    preferences,
+                    storageKey: AccountSwitchJournal.reconciliationStorageKey,
+                  ),
+                  courseMasteryMerger: courseMasteryMerger,
+                )
+                .reconcile(
+                  session: session,
+                  operationId: operationId,
+                  catalog: catalog,
+                );
           },
       activateBackfill: (uid) async {
         await _firstDurableLinkActivation.activate(

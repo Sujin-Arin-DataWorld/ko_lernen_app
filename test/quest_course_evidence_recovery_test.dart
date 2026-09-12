@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/pack_completion_record.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -574,31 +575,56 @@ void main() {
       );
       await _advanceToAuditedQuest(tester);
       final quest = tester.widget<SatzBauenQuest>(find.byType(SatzBauenQuest));
-      quest.onComplete(const QuestResult(passed: true, firstTry: true));
-      await _pumpUntil(tester, () => writeEntered.isCompleted);
+      Future<void>? reset;
+      var resetDone = false;
+      try {
+        quest.onComplete(const QuestResult(passed: true, firstTry: true));
+        await _pumpUntil(tester, () => writeEntered.isCompleted);
 
-      final priorLifetime = LocalDataLifetime.capture();
-      final reset = Storage.resetAllStrict();
-      await _pumpUntil(tester, () => !priorLifetime.isCurrent);
-      releaseWrite.complete();
-      await _flush(tester);
-      await reset;
+        final priorLifetime = LocalDataLifetime.capture();
+        reset = Storage.resetAllStrict();
+        unawaited(reset.then((_) => resetDone = true));
+        await tester.pump();
+        expect(resetDone, isFalse);
+        expect(priorLifetime.isCurrent, isTrue);
+        expect(
+          () => CourseProgressService.shared.refresh(),
+          throwsA(isA<PackCompletionPendingException>()),
+        );
+        releaseWrite.complete();
+        await _pumpUntil(tester, () => resetDone);
+        await reset;
+        expect(priorLifetime.isCurrent, isFalse);
+        expect(
+          platform.values[Storage.courseMasterySnapshotPreferenceKey],
+          isNull,
+        );
 
-      expect(platform.writes[Storage.courseMasterySnapshotPreferenceKey], 1);
-      final t = AppL10n.of(tester.element(find.byType(ScenarioPlayerScreen)));
-      expect(find.byType(AppError), findsOneWidget);
-      tester.widget<AppError>(find.byType(AppError)).onRetry!();
-      await tester.pump(const Duration(milliseconds: 400));
-      await tester.pump(const Duration(milliseconds: 400));
-      expect(find.text(t.homeActionConfirmTitle), findsOneWidget);
-      await tester.ensureVisible(find.text(t.homeActionConfirmStay));
-      await tester.tap(find.text(t.homeActionConfirmStay));
-      await tester.pump(const Duration(milliseconds: 400));
-      await tester.pump(const Duration(milliseconds: 400));
-      expect(find.text(t.homeActionConfirmTitle), findsNothing);
-      quest.onContinue!();
-      await _flush(tester);
-      expect(resultPersistenceCalls, 0);
+        expect(platform.writes[Storage.courseMasterySnapshotPreferenceKey], 1);
+        final t = AppL10n.of(tester.element(find.byType(ScenarioPlayerScreen)));
+        expect(find.byType(AppError), findsOneWidget);
+        tester.widget<AppError>(find.byType(AppError)).onRetry!();
+        await tester.pump(const Duration(milliseconds: 400));
+        await tester.pump(const Duration(milliseconds: 400));
+        expect(find.text(t.homeActionConfirmTitle), findsOneWidget);
+        await tester.ensureVisible(find.text(t.homeActionConfirmStay));
+        await tester.tap(find.text(t.homeActionConfirmStay));
+        await tester.pump(const Duration(milliseconds: 400));
+        await tester.pump(const Duration(milliseconds: 400));
+        expect(find.text(t.homeActionConfirmTitle), findsNothing);
+        quest.onContinue!();
+        await _flush(tester);
+        expect(resultPersistenceCalls, 0);
+      } finally {
+        if (!releaseWrite.isCompleted) {
+          releaseWrite.complete();
+        }
+        // A failed assertion must not strand the next test's init drain.
+        await _flush(tester);
+        if (reset != null) {
+          await reset;
+        }
+      }
     },
   );
 

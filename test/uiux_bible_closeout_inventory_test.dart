@@ -146,9 +146,10 @@ void main() {
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
     // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
-    expect(actual, hasLength(143));
+    // Task47 adds pack_completion_recovery_banner to Study and evidence.
+    expect(actual, hasLength(144));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(143));
+    expect(listed, hasLength(144));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

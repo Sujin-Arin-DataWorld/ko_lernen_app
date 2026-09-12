@@ -64,6 +64,12 @@ class CourseProgressService {
   Future<CourseMasteryService>? _serviceFuture;
   Future<void> _tail = Future<void>.value();
 
+  Future<void> get packCompletionDrain => _tail;
+
+  void invalidatePackCompletionCache() {
+    _serviceFuture = null;
+  }
+
   /// Test-only: drops the cached service and its serialization queue so the
   /// next call rebuilds both from scratch in the caller's current Zone.
   ///
@@ -114,6 +120,7 @@ class CourseProgressService {
   });
 
   Future<T> _serialized<T>(Future<T> Function(CourseMasteryService) action) {
+    PackCompletionStorage.assertAdmission();
     return _serializedOperation(() async => action(await _service()));
   }
 
@@ -131,7 +138,8 @@ class CourseProgressService {
   /// Read-only screen load. Unlike [refresh], this never synthesizes or
   /// persists a canonical snapshot when the learner has not started a course.
   Future<CourseMasterySnapshot?> readForDisplay() =>
-      _serialized((service) async {
+      _serializedOperation(() async {
+        final service = await _service();
         await service.confirmDurableState();
         return service.readForDisplay();
       });

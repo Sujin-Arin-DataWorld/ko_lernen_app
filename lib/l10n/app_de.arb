@@ -1,4 +1,9 @@
 {
+  "packCompletionRetired": "Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.",
+  "packCompletionPending": "Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.",
+  "packCompletionSaved": "Dein Pack-Ergebnis ist gespeichert.",
+  "packCompletionView": "Ergebnis ansehen",
+
   "srsRecoveryPending": "Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.",
   "srsRecoveryBlocked": "Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.",
   "srsRecoveryRetry": "Wiederholung erneut speichern",

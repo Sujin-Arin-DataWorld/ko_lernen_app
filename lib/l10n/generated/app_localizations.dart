@@ -97,6 +97,30 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @packCompletionRetired.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.'**
+  String get packCompletionRetired;
+
+  /// No description provided for @packCompletionPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.'**
+  String get packCompletionPending;
+
+  /// No description provided for @packCompletionSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pack-Ergebnis ist gespeichert.'**
+  String get packCompletionSaved;
+
+  /// No description provided for @packCompletionView.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get packCompletionView;
+
   /// No description provided for @srsRecoveryPending.
   ///
   /// In de, this message translates to:

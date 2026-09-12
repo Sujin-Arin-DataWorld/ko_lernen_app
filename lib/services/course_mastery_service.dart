@@ -122,6 +122,34 @@ class CourseMasteryService {
   final PreferenceStringStore? snapshotPreferences;
   CourseMasterySnapshot _snapshot = const CourseMasterySnapshot.empty();
   bool _loaded = false;
+  bool _preparingPackCompletion = false;
+
+  /// Uses the same validation/evidence/advancement reducer as live evidence,
+  /// on a private service instance and without initializing native storage.
+  Future<CourseMasterySnapshot> preparePackCompletion({
+    required CoursePracticeContext context,
+    required double score,
+    required DateTime occurredAt,
+    required String completionId,
+  }) async {
+    _preparingPackCompletion = true;
+    try {
+      readForDisplay();
+      final update = await recordContentAttempt(
+        CurriculumContentKind.vocab,
+        context.initialContentId,
+        score >= .70,
+        courseContext: context,
+        score: score,
+        occurredAt: occurredAt,
+        errorReason: score >= .70 ? null : MasteryErrorReason.vocabularyRecall,
+        evidenceReceipt: CourseContentEvidenceReceipt(completionId),
+      );
+      return update.snapshot;
+    } finally {
+      _preparingPackCompletion = false;
+    }
+  }
 
   CourseMasterySnapshot get snapshot => _snapshot;
   CourseUnit? get currentUnit => _snapshot.currentCourseUnitId == null
@@ -1248,11 +1276,16 @@ class CourseMasteryService {
       scenarioCheckpoints: _boundedCheckpoints(candidate.scenarioCheckpoints),
     );
     final advanced = _advanceIfPassed(candidate);
-    await _persistSnapshot(
-      advanced,
-      mirrorLegacyUserLevel: true,
-      assertCurrentWrite: assertCurrentWrite,
-    );
+    if (!_preparingPackCompletion) {
+      await _persistSnapshot(
+        advanced,
+        mirrorLegacyUserLevel: true,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+    } else {
+      _ensureCatalogUsable();
+      _validateSnapshot(advanced);
+    }
     _snapshot = advanced;
     final newlyUnlocked =
         advanced.currentCourseUnitId != candidate.currentCourseUnitId

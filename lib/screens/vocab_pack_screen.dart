@@ -1,3 +1,6 @@
+import 'vocab_pack_result_screen.dart';
+import '../services/pack_completion_record.dart';
+import '../widgets/sori/pack_completion_recovery_banner.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -251,6 +254,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
   @override
   void dispose() {
+    PackCompletionStorage.status.removeListener(_completionChanged);
     _choiceOwner.dispose();
     _cancelAdvanceTimer();
     _abandonTracker.dispose();
@@ -281,10 +285,14 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     _finishCoordinator = VocabPackFinishCoordinator(
       widget.finishOperations ?? DefaultVocabPackFinishOperations(),
     );
+    DefaultVocabPackFinishOperations.initializeRecovery();
+    PackCompletionStorage.status.addListener(_completionChanged);
     _load();
     // 첫 진입 시 3단계 코치마크 1회 표시.
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!mounted) {
+      if (!mounted ||
+          PackCompletionStorage.record != null ||
+          PackCompletionStorage.pending) {
         return;
       }
       if (!Storage.tutVocabPackSeen) {
@@ -312,7 +320,29 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     }
   }
 
+  bool _recoveryResultPresented = false;
+  PackCompletionRecord? _presentedRecoveredResult;
+
+  void _completionChanged() {
+    if (PackCompletionStorage.result != null) {
+      _recoveryResultPresented = true;
+    }
+    if (mounted) {
+      setState(() {});
+      if (_pack == null &&
+          !_recoveryResultPresented &&
+          !PackCompletionStorage.pending &&
+          PackCompletionStorage.result == null) {
+        unawaited(_load());
+      }
+    }
+  }
+
   Future<void> _load() async {
+    if (PackCompletionStorage.pending || PackCompletionStorage.result != null) {
+      _loading = false;
+      return;
+    }
     if (!studyEvidenceAcceptsInput ||
         _finishing ||
         (_loadGeneration > 0 && _error == null && _likeSourceIsCurrent)) {
@@ -568,7 +598,9 @@ class _VocabPackScreenState extends State<VocabPackScreen>
   /// 여러 번 불러도 멱등 — 세션당 완주 시 1회(_advanceLearn) + 이탈 시 1회
   /// (dispose) = 최대 2회.
   void _persistLearnProgress() {
-    if (!studyEvidenceMayFlushAcceptedProgress) {
+    if (!studyEvidenceMayFlushAcceptedProgress ||
+        _finishRequest != null ||
+        PackCompletionStorage.admissionClosed) {
       return;
     }
     final pack = _pack;
@@ -1059,21 +1091,26 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     }
     Navigator.of(context).pushReplacementNamed(
       '/vocab/result',
-      arguments: vocabPackResultArguments(
-        packId: pack.id,
-        packLevel: pack.level,
-        bossAccuracy: request.bossAccuracy,
-        bossCorrect: request.bossCorrect,
-        bossTotal: request.bossTotal,
-        quizCorrect: request.quizCorrect,
-        quizTotal: request.quizTotal,
-        justCleared: outcome.justCleared,
-        nextUnlockedPackId: outcome.nextUnlockedPackId,
-        feedbackCompletion: feedbackCompletion,
-        courseContext: request.courseContext,
-        showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
-        recallSession: _recallSession,
-      ),
+      arguments: <String, dynamic>{
+        ...vocabPackResultArguments(
+          packId: pack.id,
+          packLevel: pack.level,
+          bossAccuracy: request.bossAccuracy,
+          bossCorrect: request.bossCorrect,
+          bossTotal: request.bossTotal,
+          quizCorrect: request.quizCorrect,
+          quizTotal: request.quizTotal,
+          justCleared: outcome.justCleared,
+          nextUnlockedPackId: outcome.nextUnlockedPackId,
+          feedbackCompletion: feedbackCompletion,
+          courseContext: request.courseContext,
+          showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
+          recallSession: _recallSession,
+        ),
+        if (PackCompletionStorage.result?.id == request.completionId)
+          'durableCompletionId': request.completionId,
+        'originalXp': request.xpAward,
+      },
     );
   }
 
@@ -1137,6 +1174,18 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
   @override
   Widget build(BuildContext context) {
+    if (_finishRequest == null) {
+      // Optional practice keeps this route underneath it. Acknowledgement may
+      // remove the journal, but the child's current owner/retirement guards
+      // still govern this already-presented result until the route is left.
+      final result = _presentedRecoveredResult ??= PackCompletionStorage.result;
+      if (result != null) {
+        return VocabPackResultScreen.fromRecovered(result);
+      }
+      if (PackCompletionStorage.pending) {
+        return const PackCompletionRecoveryScreen();
+      }
+    }
     final t = AppL10n.of(context);
     final recovery = studyEvidenceRecoveryFrame(t.vocabPackPlayTitle);
     if (recovery != null) {

@@ -6,21 +6,43 @@ import 'package:shared_preferences_platform_interface/shared_preferences_platfor
 
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/pack_completion_owner.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/services/learning_data_export_service.dart';
 
 import 'support/reward_preferences_platform.dart';
 
+class _DelayedReadPlatform extends RewardPreferencesPlatform {
+  final reads = <({Completer<void> entered, Completer<void> release})>[];
+
+  ({Completer<void> entered, Completer<void> release}) holdNextRead() {
+    final read = (entered: Completer<void>(), release: Completer<void>());
+    reads.add(read);
+    return read;
+  }
+
+  @override
+  Future<Map<String, Object>> getAll() async {
+    final read = reads.isEmpty ? null : reads.removeAt(0);
+    final snapshot = await super.getAll();
+    if (read != null) {
+      read.entered.complete();
+      await read.release.future;
+    }
+    return snapshot;
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final originalPlatform = SharedPreferencesStorePlatform.instance;
-  late RewardPreferencesPlatform platform;
+  late _DelayedReadPlatform platform;
 
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(const <String, Object>{});
-    platform = RewardPreferencesPlatform();
+    platform = _DelayedReadPlatform();
     SharedPreferencesStorePlatform.instance = platform;
     await Storage.init();
   });
@@ -182,6 +204,510 @@ void main() {
       ]);
     },
   );
+
+  for (final field in ['integer', 'seen', 'wrong-count']) {
+    for (final writeFirst in [false, true]) {
+      test(
+        'writer enters during delayed retirement read: $field writeFirst=$writeFirst',
+        () async {
+          final key = switch (field) {
+            'integer' => 'kl_vok_correct',
+            'seen' => 'kl_vok_seen_ids',
+            _ => 'kl_wrong_count_v1',
+          };
+          final initial = switch (field) {
+            'integer' => 5,
+            'seen' => <String>['local'],
+            _ => '{"word":2}',
+          };
+          platform.values[key] = initial;
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.reload();
+          final read = platform.holdNextRead();
+          final retiring = PackCompletionStorage.retire();
+          final entered = Completer<void>();
+          final release = Completer<void>();
+          Future<bool>? saving;
+          VocabProgressAttempt attempt(String id) => switch (field) {
+            'integer' => VocabProgressAttempt(correctDelta: 1),
+            'seen' => VocabProgressAttempt(seenId: id),
+            _ => VocabProgressAttempt(wrongCountId: 'word'),
+          };
+          try {
+            await read.entered.future;
+            platform
+              ..rejectKey = key
+              ..writeEntered = entered
+              ..releaseWrite = release
+              ..commitBeforeFailure = true
+              ..successfulReply = true;
+            saving = attempt('learned').save();
+            await entered.future;
+            if (writeFirst) {
+              release.complete();
+              await saving;
+            }
+            read.release.complete();
+            await retiring;
+            expect(
+              prefs.get(key),
+              initial,
+              reason: 'Held native snapshot really displaced the cache.',
+            );
+            if (!writeFirst) {
+              release.complete();
+              await saving;
+            }
+            if (field == 'wrong-count') {
+              expect(Storage.wrongCountRawJson, '{"word":3}');
+            }
+            platform
+              ..rejectKey = null
+              ..releaseWrite = null;
+            await attempt('next').save();
+            switch (field) {
+              case 'integer':
+                expect(platform.values[key], 7);
+                expect(Storage.vokCorrect, 7);
+              case 'seen':
+                expect(platform.values[key], ['local', 'learned', 'next']);
+                expect(Storage.vokSeenIds, ['local', 'learned', 'next']);
+              case 'wrong-count':
+                expect(platform.values[key], '{"word":4}');
+                expect(Storage.wrongCountOf('word'), 4);
+            }
+          } finally {
+            if (!read.release.isCompleted) {
+              read.release.complete();
+            }
+            if (!release.isCompleted) {
+              release.complete();
+            }
+            await retiring;
+            await saving;
+          }
+        },
+      );
+    }
+
+    test(
+      'retirement reload preserves confirmed $field and queued successor',
+      () async {
+        final key = switch (field) {
+          'integer' => 'kl_vok_correct',
+          'seen' => 'kl_vok_seen_ids',
+          _ => 'kl_wrong_count_v1',
+        };
+        final initial = switch (field) {
+          'integer' => 5,
+          'seen' => <String>['local'],
+          _ => '{"word":2}',
+        };
+        platform.values[key] = initial;
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.reload();
+        final entered = Completer<void>();
+        final release = Completer<void>();
+        platform
+          ..rejectKey = key
+          ..writeEntered = entered
+          ..releaseWrite = release
+          ..commitBeforeFailure = true
+          ..successfulReply = true;
+        VocabProgressAttempt attempt(String id) => switch (field) {
+          'integer' => VocabProgressAttempt(correctDelta: 1),
+          'seen' => VocabProgressAttempt(seenId: id),
+          _ => VocabProgressAttempt(wrongCountId: 'word'),
+        };
+        final first = attempt('learned').save();
+        try {
+          await entered.future;
+          await PackCompletionStorage.retire();
+          expect(
+            prefs.get(key),
+            initial,
+            reason: 'Native reload displaced the optimistic setter.',
+          );
+          final next = attempt('cloud').save();
+          release.complete();
+          await first;
+          platform
+            ..rejectKey = null
+            ..releaseWrite = null;
+          await next;
+          switch (field) {
+            case 'integer':
+              expect(Storage.vokCorrect, 7);
+              expect(platform.values[key], 7);
+            case 'seen':
+              expect(Storage.vokSeenIds, ['local', 'learned', 'cloud']);
+              expect(platform.values[key], ['local', 'learned', 'cloud']);
+            case 'wrong-count':
+              expect(Storage.wrongCountOf('word'), 4);
+              expect(Storage.wrongCountRawJson, '{"word":4}');
+              expect(platform.values[key], '{"word":4}');
+          }
+          // Explicit external replacement retires the retained confirmed value.
+          platform.values[key] = initial;
+          await prefs.reload();
+          Storage.resetCachesAfterExternalWrite();
+          switch (field) {
+            case 'integer':
+              expect(Storage.vokCorrect, 5);
+            case 'seen':
+              expect(Storage.vokSeenIds, ['local']);
+            case 'wrong-count':
+              expect(Storage.wrongCountOf('word'), 2);
+          }
+          platform.values.remove(key);
+          await prefs.reload();
+          Storage.resetCachesAfterExternalWrite();
+          switch (field) {
+            case 'integer':
+              expect(Storage.vokCorrect, 0);
+            case 'seen':
+              expect(Storage.vokSeenIds, isEmpty);
+            case 'wrong-count':
+              expect(Storage.wrongCountRawJson, isEmpty);
+          }
+        } finally {
+          if (!release.isCompleted) {
+            release.complete();
+          }
+          await first;
+        }
+      },
+    );
+  }
+
+  test(
+    'a successor field entering an unresolved read keeps its confirmed union',
+    () async {
+      platform.values.addAll({
+        'kl_vok_correct': 5,
+        'kl_vok_seen_ids': <String>['local'],
+      });
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final firstEntered = Completer<void>();
+      final firstRelease = Completer<void>();
+      final nextEntered = Completer<void>();
+      final nextRelease = Completer<void>();
+      platform
+        ..rejectKey = 'kl_vok_correct'
+        ..writeEntered = firstEntered
+        ..releaseWrite = firstRelease
+        ..commitBeforeFailure = true
+        ..successfulReply = true;
+      final first = VocabProgressAttempt(correctDelta: 1).save();
+      final read = platform.holdNextRead();
+      Future<void>? reloading;
+      Future<bool>? next;
+      try {
+        await firstEntered.future;
+        reloading = Storage.reloadForPackCompletion(prefs);
+        await read.entered.future;
+        firstRelease.complete();
+        await first;
+        platform
+          ..rejectKey = 'kl_vok_seen_ids'
+          ..writeEntered = nextEntered
+          ..releaseWrite = nextRelease;
+        next = VocabProgressAttempt(seenId: 'learned').save();
+        await nextEntered.future;
+        read.release.complete();
+        await reloading;
+        nextRelease.complete();
+        await next;
+        platform
+          ..rejectKey = null
+          ..releaseWrite = null;
+        await VocabProgressAttempt(correctDelta: 1, seenId: 'next').save();
+        expect(Storage.vokCorrect, 7);
+        expect(platform.values['kl_vok_correct'], 7);
+        expect(Storage.vokSeenIds, ['local', 'learned', 'next']);
+        expect(platform.values['kl_vok_seen_ids'], [
+          'local',
+          'learned',
+          'next',
+        ]);
+      } finally {
+        if (!firstRelease.isCompleted) {
+          firstRelease.complete();
+        }
+        if (!nextRelease.isCompleted) {
+          nextRelease.complete();
+        }
+        if (!read.release.isCompleted) {
+          read.release.complete();
+        }
+        await first;
+        await next;
+        await reloading;
+      }
+    },
+  );
+
+  test(
+    'a second overlapping native read remains owned after the first settles',
+    () async {
+      platform.values['kl_vok_correct'] = 5;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final firstRead = platform.holdNextRead();
+      final first = Storage.reloadForPackCompletion(prefs);
+      await firstRead.entered.future;
+      final secondRead = platform.holdNextRead();
+      final second = Storage.reloadForPackCompletion(prefs);
+      try {
+        await secondRead.entered.future;
+        firstRead.release.complete();
+        await first;
+        await VocabProgressAttempt(correctDelta: 1).save();
+        secondRead.release.complete();
+        await second;
+        expect(prefs.getInt('kl_vok_correct'), 5);
+        expect(Storage.vokCorrect, 6);
+        await VocabProgressAttempt(correctDelta: 1).save();
+        expect(platform.values['kl_vok_correct'], 7);
+      } finally {
+        if (!firstRead.release.isCompleted) {
+          firstRead.release.complete();
+        }
+        if (!secondRead.release.isCompleted) {
+          secondRead.release.complete();
+        }
+        await first;
+        await second;
+      }
+    },
+  );
+
+  test(
+    'caller timeout and logical invalidation do not retire the actual cache read',
+    () async {
+      platform.values['kl_vok_correct'] = 5;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final read = platform.holdNextRead();
+      final reloading = Storage.reloadForPackCompletion(prefs);
+      try {
+        await read.entered.future;
+        await expectLater(
+          reloading.timeout(Duration.zero),
+          throwsA(isA<TimeoutException>()),
+        );
+        Storage.resetCachesAfterExternalWrite();
+        await VocabProgressAttempt(correctDelta: 1).save();
+        read.release.complete();
+        await reloading;
+        expect(prefs.getInt('kl_vok_correct'), 5);
+        expect(Storage.vokCorrect, 6);
+        await VocabProgressAttempt(correctDelta: 1).save();
+        expect(platform.values['kl_vok_correct'], 7);
+        platform.values.remove('kl_vok_correct');
+        await prefs.reload();
+        Storage.resetCachesAfterExternalWrite();
+        expect(Storage.vokCorrect, 0);
+      } finally {
+        if (!read.release.isCompleted) {
+          read.release.complete();
+        }
+        await reloading;
+      }
+    },
+  );
+
+  for (final reply in ['false', 'unknown-applied', 'unknown-unapplied']) {
+    test(
+      'writer entering delayed read preserves absent before-state for $reply',
+      () async {
+        final prefs = await SharedPreferences.getInstance();
+        final read = platform.holdNextRead();
+        final reloading = Storage.reloadForPackCompletion(prefs);
+        final entered = Completer<void>();
+        final release = Completer<void>();
+        Future<Object?>? saving;
+        final attempt = VocabProgressAttempt(correctDelta: 1);
+        try {
+          await read.entered.future;
+          platform
+            ..rejectKey = 'kl_vok_correct'
+            ..writeEntered = entered
+            ..releaseWrite = release
+            ..throwReply = reply.startsWith('unknown')
+            ..failReloadAfterWrite = reply.startsWith('unknown')
+            ..commitBeforeFailure = reply == 'unknown-applied';
+          saving = attempt.save().then<Object?>(
+            (value) => value,
+            onError: (Object error) => error,
+          );
+          await entered.future;
+          read.release.complete();
+          await reloading;
+          release.complete();
+          expect(
+            await saving,
+            reply == 'false'
+                ? isA<PreferenceWriteException>()
+                : isA<PreferenceOutcomeUnknownException>(),
+          );
+          expect(Storage.vokCorrect, 0);
+          expect(
+            platform.values.containsKey('kl_vok_correct'),
+            reply == 'unknown-applied',
+          );
+          platform
+            ..rejectKey = null
+            ..releaseWrite = null
+            ..unavailable = false;
+          expect(await attempt.save(), isTrue);
+          expect(Storage.vokCorrect, 1);
+          expect(platform.values['kl_vok_correct'], 1);
+          expect(
+            platform.writes['kl_vok_correct'],
+            reply == 'unknown-applied' ? 1 : 2,
+          );
+        } finally {
+          if (!read.release.isCompleted) {
+            read.release.complete();
+          }
+          if (!release.isCompleted) {
+            release.complete();
+          }
+          await reloading;
+          await saving;
+        }
+      },
+    );
+  }
+
+  test(
+    'an old cache read cannot pin a write on a replacement cache instance',
+    () async {
+      final oldPrefs = await SharedPreferences.getInstance();
+      final oldPlatform = platform;
+      final read = oldPlatform.holdNextRead();
+      final reloading = Storage.reloadForPackCompletion(oldPrefs);
+      try {
+        await read.entered.future;
+        Storage.resetForTesting();
+        SharedPreferences.setMockInitialValues(const <String, Object>{});
+        platform = _DelayedReadPlatform()..values['kl_vok_correct'] = 5;
+        SharedPreferencesStorePlatform.instance = platform;
+        await Storage.init();
+        final newPrefs = await SharedPreferences.getInstance();
+        expect(identical(oldPrefs, newPrefs), isFalse);
+        await VocabProgressAttempt(correctDelta: 1).save();
+        read.release.complete();
+        await reloading;
+        expect(Storage.vokCorrect, 6);
+        // No Task47 read touched this cache, so this confirmed value is not pinned.
+        platform.values['kl_vok_correct'] = 2;
+        await newPrefs.reload();
+        expect(Storage.vokCorrect, 2);
+      } finally {
+        if (!read.release.isCompleted) {
+          read.release.complete();
+        }
+        await reloading;
+      }
+    },
+  );
+
+  test(
+    'a failed native read releases its interval without pinning later writes',
+    () async {
+      final prefs = await SharedPreferences.getInstance();
+      platform.unavailable = true;
+      await expectLater(
+        Storage.reloadForPackCompletion(prefs),
+        throwsStateError,
+      );
+      platform.unavailable = false;
+      await VocabProgressAttempt(correctDelta: 1).save();
+      platform.values['kl_vok_correct'] = 2;
+      await prefs.reload();
+      expect(Storage.vokCorrect, 2);
+    },
+  );
+
+  for (final reply in [
+    'false',
+    'unknown-applied',
+    'unknown-unapplied',
+    'retired',
+  ]) {
+    test('displaced pending value stays unconfirmed for $reply', () async {
+      platform.values['kl_vok_correct'] = 5;
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final entered = Completer<void>();
+      final release = Completer<void>();
+      platform
+        ..rejectKey = 'kl_vok_correct'
+        ..writeEntered = entered
+        ..releaseWrite = release
+        ..throwReply = reply.startsWith('unknown')
+        ..failReloadAfterWrite = reply.startsWith('unknown')
+        ..successfulReply = reply == 'retired'
+        ..commitBeforeFailure =
+            reply == 'unknown-applied' || reply == 'retired';
+      final attempt = VocabProgressAttempt(correctDelta: 1);
+      final outcome = attempt.save().then<Object?>(
+        (value) => value,
+        onError: (Object error) => error,
+      );
+      try {
+        await entered.future;
+        // Owner validation uses the same shared-cache preservation boundary.
+        await PackCompletionOwner.confirm();
+        expect(Storage.vokCorrect, 5);
+        if (reply == 'retired') {
+          Storage.resetCachesAfterExternalWrite();
+        }
+        release.complete();
+        final result = await outcome;
+        expect(
+          result,
+          reply == 'retired'
+              ? isA<StaleLocalDataLifetimeException>()
+              : reply == 'false'
+              ? isA<PreferenceWriteException>()
+              : isA<PreferenceOutcomeUnknownException>(),
+        );
+        if (reply != 'retired') {
+          expect(Storage.vokCorrect, 5);
+        }
+        platform
+          ..rejectKey = null
+          ..releaseWrite = null
+          ..unavailable = false;
+        if (reply == 'retired') {
+          platform.values['kl_vok_correct'] = 2;
+          await prefs.reload();
+          expect(
+            Storage.vokCorrect,
+            2,
+            reason: 'An old completion cannot repin a retired baseline.',
+          );
+        } else {
+          expect(await attempt.save(), isTrue);
+          expect(Storage.vokCorrect, 6);
+          expect(platform.values['kl_vok_correct'], 6);
+          expect(
+            platform.writes['kl_vok_correct'],
+            reply == 'unknown-applied' ? 1 : 2,
+          );
+        }
+      } finally {
+        if (!release.isCompleted) {
+          release.complete();
+        }
+        await outcome;
+      }
+    });
+  }
 
   test('cloud write fence is checked again at queued execution', () async {
     final entered = Completer<void>();
@@ -560,7 +1086,7 @@ void main() {
       await entered.future;
       Storage.resetForTesting();
       SharedPreferences.setMockInitialValues(const <String, Object>{});
-      platform = RewardPreferencesPlatform()..values['kl_vok_correct'] = 9;
+      platform = _DelayedReadPlatform()..values['kl_vok_correct'] = 9;
       SharedPreferencesStorePlatform.instance = platform;
       var initialized = false;
       final initializing = Storage.init().then((_) => initialized = true);
