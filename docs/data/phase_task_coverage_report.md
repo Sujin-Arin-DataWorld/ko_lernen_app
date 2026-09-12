@@ -20,7 +20,7 @@
 | KP12 | B1 | 13 | 13 | 13 | 32 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
 | KP13 | B1 | 13 | 13 | 13 | 32 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
 | KP14 | B2 | 10 | 10 | 10 | 25 | 24 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP15 | B2 | 15 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
+| KP15 | B2 | 15 | 15 | 15 | 34 | 33 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP16 | B2 | 12 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP17 | B2 | 13 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP18 | B2 | 19 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |

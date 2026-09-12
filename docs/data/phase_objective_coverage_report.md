@@ -20,7 +20,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP12 | 57 | 57 | 0 | 미검증 |
 | KP13 | 57 | 57 | 0 | 미검증 |
 | KP14 | 48 | 48 | 0 | 미검증 |
-| KP15 | 58 | 0 | 58 | 미검증 |
+| KP15 | 58 | 58 | 0 | 미검증 |
 | KP16 | 52 | 0 | 52 | 미검증 |
 | KP17 | 56 | 0 | 56 | 미검증 |
 | KP18 | 66 | 0 | 66 | 미검증 |
@@ -39,64 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP15:objective:grammar/G4:-더니:R`
-- `KP15:objective:grammar/G4:-더니:P`
-- `KP15:objective:grammar/G4:-고서:R`
-- `KP15:objective:grammar/G4:-고서:P`
-- `KP15:objective:grammar/G4:-기에:R`
-- `KP15:objective:grammar/G4:-기에:P`
-- `KP15:objective:grammar/G4:-는 바람에:R`
-- `KP15:objective:grammar/G4:-는 바람에:P`
-- `KP15:objective:grammar/G4:-는 탓에:R`
-- `KP15:objective:grammar/G4:-는 탓에:P`
-- `KP15:objective:grammar/G4:-는 통에:R`
-- `KP15:objective:grammar/G4:-는 통에:P`
-- `KP15:objective:grammar/G4:으로 인하여:R`
-- `KP15:objective:grammar/G4:으로 인하여:P`
-- `KP15:objective:grammar/G4:-는 사이에:R`
-- `KP15:objective:grammar/G4:-는 사이에:P`
-- `KP15:objective:grammar/G4:-는 김에:R`
-- `KP15:objective:grammar/G4:-는 김에:P`
-- `KP15:objective:grammar/G4:-어 대다:R`
-- `KP15:objective:grammar/G4:-어 대다:P`
-- `KP15:objective:grammar/G4:-어 버리다:R`
-- `KP15:objective:grammar/G4:-어 버리다:P`
-- `KP15:objective:grammar/G4:-을 뻔하다:R`
-- `KP15:objective:grammar/G4:-을 뻔하다:P`
-- `KP15:objective:grammar/G4:-어서인지:R`
-- `KP15:objective:grammar/G4:-어서인지:P`
-- `KP15:objective:grammar/G1:-고 있다:R`
-- `KP15:objective:grammar/G1:-고 있다:P`
-- `KP15:objective:grammar/G2:-어 있다:R`
-- `KP15:objective:grammar/G2:-어 있다:P`
-- `KP15:objective:listening/core:R`
-- `KP15:objective:reading/core:R`
-- `KP15:objective:reading/genre/news_article_report:R`
-- `KP15:objective:reading/genre/report_proposal_official:R`
-- `KP15:objective:speaking/core:P`
-- `KP15:objective:writing/core:P`
-- `KP15:objective:writing/genre/report_proposal_official:P`
-- `KP15:objective:writing/genre/email_letter_formal:P`
-- `KP15:objective:functions/evaluate_assess_critique:R`
-- `KP15:objective:functions/evaluate_assess_critique:P`
-- `KP15:objective:functions/complain_object_appeal:R`
-- `KP15:objective:functions/complain_object_appeal:P`
-- `KP15:objective:functions/express_certainty_doubt_hedging:R`
-- `KP15:objective:functions/express_certainty_doubt_hedging:P`
-- `KP15:objective:functions/structure_discourse_open_close_scope:R`
-- `KP15:objective:functions/structure_discourse_open_close_scope:P`
-- `KP15:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP15:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP15:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP15:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP15:objective:vocabDomains/professions_workplace:R`
-- `KP15:objective:vocabDomains/professions_workplace:P`
-- `KP15:objective:phonology/0:R`
-- `KP15:objective:phonology/0:P`
-- `KP15:objective:phonology/1:R`
-- `KP15:objective:phonology/1:P`
-- `KP15:objective:register/hapsyo_formal_business:P`
-- `KP15:objective:register/haeyo_polite:P`
 - `KP16:objective:grammar/G4:-는다면1:R`
 - `KP16:objective:grammar/G4:-는다면1:P`
 - `KP16:objective:grammar/G4:만 같아도:R`

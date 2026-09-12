@@ -182,21 +182,21 @@
 | KP14 | G4:에 따라 | 1 | 0 | 0 | 미검증 |
 | KP14 | G4:에 비하여 | 1 | 0 | 0 | 미검증 |
 | KP14 | G4:-을수록 | 1 | 0 | 0 | 미검증 |
-| KP15 | G4:-더니 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-고서 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-기에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-는 바람에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-는 탓에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-는 통에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:으로 인하여 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-는 사이에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-는 김에 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-어 대다 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-어 버리다 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-을 뻔하다 | 0 | 0 | 0 | 미검증 |
-| KP15 | G4:-어서인지 | 0 | 0 | 0 | 미검증 |
-| KP15 | G1:-고 있다 | 0 | 0 | 0 | 미검증 |
-| KP15 | G2:-어 있다 | 0 | 0 | 0 | 미검증 |
+| KP15 | G4:-더니 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-고서 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-기에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-는 바람에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-는 탓에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-는 통에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:으로 인하여 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-는 사이에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-는 김에 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-어 대다 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-어 버리다 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-을 뻔하다 | 1 | 0 | 0 | 미검증 |
+| KP15 | G4:-어서인지 | 1 | 0 | 0 | 미검증 |
+| KP15 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
+| KP15 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:-는다면1 | 0 | 0 | 0 | 미검증 |
 | KP16 | G4:만 같아도 | 0 | 0 | 0 | 미검증 |
 | KP16 | G4:-더라도 | 0 | 0 | 0 | 미검증 |
@@ -508,3 +508,18 @@
 - KP14 / G4:에 따라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/7/practice/sourceKo` — “참가 인원에 따라 장소를 정합니다.”. 인원을 장소 선택의 기준으로 삼는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP14 / G4:에 비하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/8/practice/sourceKo` — “응답자는 지난해에 비하여 열 명 늘었습니다.”. 지난해를 기준으로 사람 수를 비교하며 응답률을 말하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP14 / G4:-을수록 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/9/practice/sourceKo` — “이 표에서는 이용 시간이 길수록 만족 점수가 높았습니다.”. 표 안에서 시간과 점수의 방향 있는 관계를 말하며 단순 동시 발생과 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-더니 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/0/practice/sourceKo` — “아침에는 비가 오더니 오후에는 맑아졌어요.”. 앞서 관찰한 비와 뒤의 맑아진 날씨를 대조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-고서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/1/practice/sourceKo` — “자료를 확인하고서 의견을 냈어요.”. 확인 완료 다음 의견 제시라는 순서를 나타낸다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-기에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/2/practice/sourceKo` — “설명이 부족하기에 다시 물었습니다.”. 설명 부족이라는 판단을 재질문의 이유로 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-는 바람에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/3/practice/sourceKo` — “기차가 늦는 바람에 약속에 늦었어요.”. 예상하지 못한 지연이 원치 않은 결과로 이어진 맥락이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-는 탓에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/4/practice/sourceKo` — “준비가 부족한 탓에 진행이 늦어졌어요.”. 준비 부족을 지연 원인으로 삼으며 부정적 평가를 담는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-는 통에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/5/practice/sourceKo` — “모두 한꺼번에 말하는 통에 설명을 듣지 못했어요.”. 겹쳐 말하는 어수선한 상황에서 청취하지 못한 결과이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:으로 인하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/6/practice/sourceKo` — “폭우로 인하여 행사가 연기되었습니다.”. 격식 원인 연결이며 형태 자체가 인물의 잘못을 지목하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-는 사이에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/7/practice/sourceKo` — “잠깐 자리를 비우는 사이에 회의가 끝났어요.”. 부재라는 시간 안의 회의 종료를 나타내며 인과는 주장하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-는 김에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/8/practice/sourceKo` — “시내에 가는 김에 서류도 내고 왔어요.”. 계획된 방문 기회에 추가 행동을 했다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-어 대다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/9/practice/sourceKo` — “모두 질문을 해 대서 설명이 끊겼어요.”. 되풀이한 질문과 그에 대한 불편한 태도를 나타낸다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-어 버리다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/10/practice/sourceKo` — “필요한 메모를 지워 버렸어요.”. 원치 않은 삭제 행동이 이미 완료되었다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-을 뻔하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/11/practice/sourceKo` — “길이 미끄러워 넘어질 뻔했지만 난간을 잡았어요.”. 넘어질 위험은 있었지만 난간을 잡아 실제 넘어짐을 피했다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G4:-어서인지 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/12/practice/sourceKo` — “밤을 새워서인지 집중이 잘 안 돼요.”. 집중 어려움의 이유를 조심스럽게 밤샘으로 추정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G1:-고 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/13/practice/sourceKo` — “담당자가 오류를 확인하고 있어요.”. B2 나선 복습 자료에서 진행 중인 확인을 완료와 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP15 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/14/practice/sourceKo` — “기록에는 창문이 열려 있다고 나와 있어요.”. B2 나선 복습 자료에서 기록된 열린 결과 상태를 행위자 추측과 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

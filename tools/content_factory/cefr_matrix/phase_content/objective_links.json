@@ -9082,6 +9082,707 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Co-variation in supplied data, not mere simultaneity or causal experiment; direction preserved. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:listening/core:R",
+      "taskId": "KP15:listening:01",
+      "sourceHash": "0dc9cf055272f0a74d6939721658a4e5ee2ccdf0c5a76c1a391708e56adc0ab6",
+      "taskHash": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "criterionIds": [
+        "neutral",
+        "evaluation",
+        "unexpected",
+        "overlap",
+        "near",
+        "ongoing",
+        "hypothesis"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional work report contrasts formal weather announcement, unexpected outage, participant blame, overlapping speech and staff repetition evaluation. Distinguishes avoided fall, completed personal memo deletion, preserved official record, ongoing check and uncertain notice-change cause. Seven required contrasts; loudness not stance criterion. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:reading/core:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "f6d4cc76839310c32abfc5621a42ac1c8499f910c2fa5cab545172ded89d308d",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:reading/genre/news_article_report:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "141c6fff6556d315f6907822658bc2d301cd2b77c5487a81d3bc5711c56cccc3",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:reading/genre/report_proposal_official:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "e80fa73f81deb5b9525dac8db25c903c91e5355d5bfadd35fedc69426ba38978",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:speaking/core:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "d9471acd9aef1e1f45755ca06ac13864704034830e4cff74f31f8a71f45e5bd8",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:writing/core:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "43eef3cec8b279004b3f9957aca646987d282b61775f5adafaaa7afbb99e780c",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "6e0638052294dc0d33b996cf2aa6767f8e8944caadfb69e2511080da47608026",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:writing/genre/email_letter_formal:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "dcdfbffef1297e1843b2907a4b6514a1a3a0946a8b91a8f80ed238799a1a4127",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "7e97a91abfeb70df25fddaeb19d13ca903d3276755de0b88bad84566c2263318",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "7e97a91abfeb70df25fddaeb19d13ca903d3276755de0b88bad84566c2263318",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/complain_object_appeal:R",
+      "taskId": "KP15:listening:01",
+      "sourceHash": "d13890ec5c8c6531c31e879d1a62137908c0a95d2663346661e95cc8a19b52e5",
+      "taskHash": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "criterionIds": [
+        "neutral",
+        "evaluation",
+        "unexpected",
+        "overlap",
+        "near",
+        "ongoing",
+        "hypothesis"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional work report contrasts formal weather announcement, unexpected outage, participant blame, overlapping speech and staff repetition evaluation. Distinguishes avoided fall, completed personal memo deletion, preserved official record, ongoing check and uncertain notice-change cause. Seven required contrasts; loudness not stance criterion. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/complain_object_appeal:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "d13890ec5c8c6531c31e879d1a62137908c0a95d2663346661e95cc8a19b52e5",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/express_certainty_doubt_hedging:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "d9c94418f31356bf3cd5f8f3a0dbd4b315f9fbf64f03140d079faf5b9080507d",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/express_certainty_doubt_hedging:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "d9c94418f31356bf3cd5f8f3a0dbd4b315f9fbf64f03140d079faf5b9080507d",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/structure_discourse_open_close_scope:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "60d2913728b2bea8df455b3099bc78145a37d34e028cd6d01fe20d5c616a312c",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:functions/structure_discourse_open_close_scope:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "60d2913728b2bea8df455b3099bc78145a37d34e028cd6d01fe20d5c616a312c",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "22d899733994f12ea3c7cf049982c75f933d5c3de1fe51dadfc97970f6bbd47e",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "22d899733994f12ea3c7cf049982c75f933d5c3de1fe51dadfc97970f6bbd47e",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "a1b38538934b5649dcefff3d0a06cf844b77d370d32be0308a2a7143b1def428",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP15:writing:01",
+      "sourceHash": "a1b38538934b5649dcefff3d0a06cf844b77d370d32be0308a2a7143b1def428",
+      "taskHash": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "criterionIds": [
+        "report",
+        "email"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/professions_workplace:R",
+      "taskId": "KP15:reading:01",
+      "sourceHash": "bfd007914ad0613610218ad72e7168028dcabe18a38ee28b7cbb39c0943a5991",
+      "taskHash": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "criterionIds": [
+        "shared",
+        "attribution",
+        "system",
+        "record",
+        "responsibility",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:vocabDomains/professions_workplace:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "bfd007914ad0613610218ad72e7168028dcabe18a38ee28b7cbb39c0943a5991",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:phonology/0:R",
+      "taskId": "KP15:listening:01",
+      "sourceHash": "5c3310c6ec19bace1df861ee7984b1c3ce9b59b466be37a0a371fe9b962ea5f5",
+      "taskHash": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "criterionIds": [
+        "neutral",
+        "evaluation",
+        "unexpected",
+        "overlap",
+        "near",
+        "ongoing",
+        "hypothesis"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional work report contrasts formal weather announcement, unexpected outage, participant blame, overlapping speech and staff repetition evaluation. Distinguishes avoided fall, completed personal memo deletion, preserved official record, ongoing check and uncertain notice-change cause. Seven required contrasts; loudness not stance criterion. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:phonology/0:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "5c3310c6ec19bace1df861ee7984b1c3ce9b59b466be37a0a371fe9b962ea5f5",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:phonology/1:R",
+      "taskId": "KP15:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "criterionIds": [
+        "neutral",
+        "evaluation",
+        "unexpected",
+        "overlap",
+        "near",
+        "ongoing",
+        "hypothesis"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional work report contrasts formal weather announcement, unexpected outage, participant blame, overlapping speech and staff repetition evaluation. Distinguishes avoided fall, completed personal memo deletion, preserved official record, ongoing check and uncertain notice-change cause. Seven required contrasts; loudness not stance criterion. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:phonology/1:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "249cb27490d6cc17e4f625cbf737431aac28100eaf5a547339db58039fb69f7b",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:register/haeyo_polite:P",
+      "taskId": "KP15:speaking:01",
+      "sourceHash": "249cb27490d6cc17e4f625cbf737431aac28100eaf5a547339db58039fb69f7b",
+      "taskHash": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-더니:R",
+      "taskId": "KP15:grammar:01",
+      "sourceHash": "7293750388b31fddc7489c54f6429370ba2dc2f33b758743bc59e36a9daeca51",
+      "taskHash": "26d3bed917723b9887a13694125231fcf28c507ec7e6c8775c4183517fe52d39",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Observed weather/crowd state followed by change with 더니; chronology not causal inversion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-고서:R",
+      "taskId": "KP15:grammar:02",
+      "sourceHash": "be9c2d6a402e93f2297106785b5eb7a323961155739448d670ef47bf4ac6485f",
+      "taskHash": "fab015049906d843c3c2812d34c436b7cdcb500ff74d8ff18f1579ca55e7312f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Completed check/number recording precedes opinion/hang-up with 고서, not reversed order or truth guarantee. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-기에:R",
+      "taskId": "KP15:grammar:03",
+      "sourceHash": "41498b10cb8ceb4726428ef77f714770bb0e468ce1abda8ecb37fcb89d215a7d",
+      "taskHash": "365a398a0aab0031bac31aab43c04023625b5dee89d95145411a0543d1fbb307",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Reason for renewed question/original-source check with 기에; judgement versus observation preserved. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 바람에:R",
+      "taskId": "KP15:grammar:04",
+      "sourceHash": "f6d7b8b50af49239af0ff3ce7da0d187faa63c2b82f7f67f7d2de6c1b183813d",
+      "taskHash": "b2acd1f88513a66c99ab041ebb7f5963b40ebe2a5cb90e148abcb06c18e86089",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Unexpected train delay/outage with adverse consequence in this context, not universal blame semantics. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 탓에:R",
+      "taskId": "KP15:grammar:05",
+      "sourceHash": "2eb70b303731510e0357a5aa1379c618f28f8653d3324670a5c07a0172ee109e",
+      "taskHash": "7be01df2cce0619d4aa2ee216b6e55a31bcad5ea5792e58ed6125c70c5ece522",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 탓에 encodes negative evaluation of preparation/notice delay, not verified investigation or legal liability. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 통에:R",
+      "taskId": "KP15:grammar:06",
+      "sourceHash": "9f6b3d15312663c296236f106e33d4005e814e289016b8c12b01b3b05c7d0a0a",
+      "taskHash": "cf004762910ceb2363df1bf8605a94217ccf0455f27576d625e4aca17aa79fb6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 통에 situates effects amid overlapping speech/crowd commotion; no invented individual intent. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:으로 인하여:R",
+      "taskId": "KP15:grammar:07",
+      "sourceHash": "cdbe5636ecd9da5c27c1fe975479a4ec4c77543fa45cf7d2262b3b7def85fa9b",
+      "taskHash": "73a639dfe9397f4f912f8b2751e4e395286b18043185b95518190a422f34e1fd",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Formal 인하여 does not itself blame; weather/outage causal claim still requires source verification. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 사이에:R",
+      "taskId": "KP15:grammar:08",
+      "sourceHash": "71c85bd780a64cc4c0d59072db56e6d042bc2101d9417de97a691ba202439428",
+      "taskHash": "a7157bb472f61bb5919274c52a25f8fe370455e99c9c2ac1ff49edba87948d3f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 사이에 locates event within absence/phone-call period; temporal overlap not intention or cause. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 김에:R",
+      "taskId": "KP15:grammar:09",
+      "sourceHash": "e9563db1b11b1f4516009bd3569f15f04c32e1399863bb663c54ed68ec4dc5e6",
+      "taskHash": "1de0eb6d496b5226a7f5ea417724741b90c372b439ecc4d83763df64dda16e16",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 김에 adds intentional document delivery/record check to existing trip opportunity, not cancellation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어 대다:R",
+      "taskId": "KP15:grammar:10",
+      "sourceHash": "7851577c2ebce1172b7fdf98526d34b8f58a88edf6298464c29db0c744f62150",
+      "taskHash": "6866b92c570a0636bd9a06eb1d9e255688e92f37f7f080e56504b509fb5bda1e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 대다 repeated questions/notifications and possible disapproval, not malicious intent inference. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어 버리다:R",
+      "taskId": "KP15:grammar:11",
+      "sourceHash": "3803e3385d188a651d01af8672b8b0c5aecddf4c70825576103b95fd80acf095",
+      "taskHash": "3feb6fbdfcc8c2e08090e8b86838462b12a79bdb99e43c4376b9384d13d449b7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 버리다 completed unwanted memo deletion/note tearing; contextual attitude, not merely intention. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-을 뻔하다:R",
+      "taskId": "KP15:grammar:12",
+      "sourceHash": "0fc584609311720a2e8180e04d8e4599f7c281894dc7ae56aad24d6306370a9f",
+      "taskHash": "f445bcd2c625a46be4773219e70fcc44685d6f7b8a4bc76e9032ad2c4cfcffa3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 뻔하다 near fall prevented by rail / wrong number corrected before sending; event did not occur. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어서인지:R",
+      "taskId": "KP15:grammar:13",
+      "sourceHash": "a935ffc9c4d0a4b3dbc91f4a58be4b4fe6449e5293f4914df68651f38886c24d",
+      "taskHash": "a8cd3d180d4c1b996f4b331790cbeb055b13e948391fae4a31e5a5dd4f6c2a9e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어서인지 uncertain causal inference about sleeplessness/notice change, not verified sole cause or reversed cause. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G1:-고 있다:R",
+      "taskId": "KP15:grammar:14",
+      "sourceHash": "45b50a9a684cc8a6677d946f2d65a30a2f019147db9d7eb50aff2ed5fff9fb7a",
+      "taskHash": "032f53a6df58dd5e743129429bc1b20e982b0bdd724364eddb93fd5e5ea0f1c8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Spiral 고 있다 ongoing error check/drafting, no completed resolution or approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G2:-어 있다:R",
+      "taskId": "KP15:grammar:15",
+      "sourceHash": "002c354cb3ba0cbdaf943b1c7d17e13600ab75a09607b32a40db4f676ec40f31",
+      "taskHash": "e654b8ae378fcffd5a6c0bf1fdd578658e41dbfe719d25f04eb2c954429fa71a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Spiral 어 있다 resultant open/closed state in record/photo, not actor identity, intention or current action. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-더니:P",
+      "taskId": "KP15:production:01",
+      "sourceHash": "7293750388b31fddc7489c54f6429370ba2dc2f33b758743bc59e36a9daeca51",
+      "taskHash": "3a42174e5623e08995f6b6e55f8194e5c953a945591b05dc213d7f5c5fbae2d4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Observed weather/crowd state followed by change with 더니; chronology not causal inversion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-고서:P",
+      "taskId": "KP15:production:02",
+      "sourceHash": "be9c2d6a402e93f2297106785b5eb7a323961155739448d670ef47bf4ac6485f",
+      "taskHash": "ca4c3da23cbf33f0a0beeb8c1ac387ab601a385e0762b5d741b51dbf366dbd22",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Completed check/number recording precedes opinion/hang-up with 고서, not reversed order or truth guarantee. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-기에:P",
+      "taskId": "KP15:production:03",
+      "sourceHash": "41498b10cb8ceb4726428ef77f714770bb0e468ce1abda8ecb37fcb89d215a7d",
+      "taskHash": "daab3fe6f8f94b6f5f288ac9f1ac2721af1523a5005d1218fdaeddfeb20eb113",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Reason for renewed question/original-source check with 기에; judgement versus observation preserved. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 바람에:P",
+      "taskId": "KP15:production:04",
+      "sourceHash": "f6d7b8b50af49239af0ff3ce7da0d187faa63c2b82f7f67f7d2de6c1b183813d",
+      "taskHash": "4ff87e5d6a29286a8f8a4d6115f6cf555716b61a1f3610e2c80335b3289bb48b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Unexpected train delay/outage with adverse consequence in this context, not universal blame semantics. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 탓에:P",
+      "taskId": "KP15:production:05",
+      "sourceHash": "2eb70b303731510e0357a5aa1379c618f28f8653d3324670a5c07a0172ee109e",
+      "taskHash": "1bb53d0f19afae38e7e1e06b45fba58bfada300648cf7a720eb1d30b09af5b41",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 탓에 encodes negative evaluation of preparation/notice delay, not verified investigation or legal liability. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 통에:P",
+      "taskId": "KP15:production:06",
+      "sourceHash": "9f6b3d15312663c296236f106e33d4005e814e289016b8c12b01b3b05c7d0a0a",
+      "taskHash": "f4c6ed0fb7f4de3519b051103ffd05d9f4882fffb484bca84443277b13c04eee",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 통에 situates effects amid overlapping speech/crowd commotion; no invented individual intent. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:으로 인하여:P",
+      "taskId": "KP15:production:07",
+      "sourceHash": "cdbe5636ecd9da5c27c1fe975479a4ec4c77543fa45cf7d2262b3b7def85fa9b",
+      "taskHash": "6706d3ab418dd355fc16382cd7eeac5356f0ac25715c8984c7f0d02c7d2d5780",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Formal 인하여 does not itself blame; weather/outage causal claim still requires source verification. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 사이에:P",
+      "taskId": "KP15:production:08",
+      "sourceHash": "71c85bd780a64cc4c0d59072db56e6d042bc2101d9417de97a691ba202439428",
+      "taskHash": "d91e551c9e51ac9a68b4fbceab16324a4a2f0d307856c418bc2ac4cf83dc0d7c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 사이에 locates event within absence/phone-call period; temporal overlap not intention or cause. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-는 김에:P",
+      "taskId": "KP15:production:09",
+      "sourceHash": "e9563db1b11b1f4516009bd3569f15f04c32e1399863bb663c54ed68ec4dc5e6",
+      "taskHash": "950394d10e73a946c998a38987b326c9a38ed757ac525297a0613af24c896b9b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 김에 adds intentional document delivery/record check to existing trip opportunity, not cancellation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어 대다:P",
+      "taskId": "KP15:production:10",
+      "sourceHash": "7851577c2ebce1172b7fdf98526d34b8f58a88edf6298464c29db0c744f62150",
+      "taskHash": "df2d01dfc000d160d6b2fe9487de2352219059abc9b9590bb51ee2b561ddeb78",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 대다 repeated questions/notifications and possible disapproval, not malicious intent inference. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어 버리다:P",
+      "taskId": "KP15:production:11",
+      "sourceHash": "3803e3385d188a651d01af8672b8b0c5aecddf4c70825576103b95fd80acf095",
+      "taskHash": "93006f6066ef3acad99c9bf5378cab87b0990f085cb48e2e864ee20abf2cd92f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 버리다 completed unwanted memo deletion/note tearing; contextual attitude, not merely intention. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-을 뻔하다:P",
+      "taskId": "KP15:production:12",
+      "sourceHash": "0fc584609311720a2e8180e04d8e4599f7c281894dc7ae56aad24d6306370a9f",
+      "taskHash": "de01a02123e3384924a6da12d9f21c0d4520e0891f4068e1186160baa4ba58b0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 뻔하다 near fall prevented by rail / wrong number corrected before sending; event did not occur. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G4:-어서인지:P",
+      "taskId": "KP15:production:13",
+      "sourceHash": "a935ffc9c4d0a4b3dbc91f4a58be4b4fe6449e5293f4914df68651f38886c24d",
+      "taskHash": "4973c34f4cb0f643efbff259bcc6b57fe72754ada24a418ee0650857aaf7b974",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어서인지 uncertain causal inference about sleeplessness/notice change, not verified sole cause or reversed cause. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G1:-고 있다:P",
+      "taskId": "KP15:production:14",
+      "sourceHash": "45b50a9a684cc8a6677d946f2d65a30a2f019147db9d7eb50aff2ed5fff9fb7a",
+      "taskHash": "74a6b48ca363fd42c6eae5ee8dce849d9581f128ea64e08be4a0a9bd05fe7ccc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Spiral 고 있다 ongoing error check/drafting, no completed resolution or approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP15:objective:grammar/G2:-어 있다:P",
+      "taskId": "KP15:production:15",
+      "sourceHash": "002c354cb3ba0cbdaf943b1c7d17e13600ab75a09607b32a40db4f676ec40f31",
+      "taskHash": "72cadd65fa5542248ea6e591125e5f67dd336f58f48d4c356e08da07717a9eef",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Spiral 어 있다 resultant open/closed state in record/photo, not actor identity, intention or current action. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }
