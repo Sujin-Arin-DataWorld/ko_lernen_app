@@ -2263,12 +2263,6 @@ abstract class AppL10n {
   /// **'Kein Problem. Üb Stufe {level} noch einmal.'**
   String chosungRoundReview(Object level);
 
-  /// No description provided for @statsTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Statistik'**
-  String get statsTitle;
-
   /// No description provided for @statsSubtitle.
   ///
   /// In de, this message translates to:
@@ -3546,24 +3540,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{stamp}, noch nicht gesammelt'**
   String dojangStampLocked(String stamp);
-
-  /// No description provided for @hanokCinematicIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hanok wächst.'**
-  String get hanokCinematicIntro;
-
-  /// No description provided for @hanokA1MapLabel.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hanok im Bau'**
-  String get hanokA1MapLabel;
-
-  /// No description provided for @hanokA1MapUnavailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Hanok-Illustration nicht verfügbar'**
-  String get hanokA1MapUnavailable;
 
   /// No description provided for @hanokStageEmpty.
   ///
@@ -12684,30 +12660,6 @@ abstract class AppL10n {
   /// **'{count} Wiederholungen bleiben nach deiner ersten Handlung bereit.'**
   String homeFocusLaterBody(int count);
 
-  /// No description provided for @hanokNarrativeVerified.
-  ///
-  /// In de, this message translates to:
-  /// **'Bau: {stage}. Bestätigt: {canDo}'**
-  String hanokNarrativeVerified(String stage, String canDo);
-
-  /// No description provided for @hanokNarrativeNext.
-  ///
-  /// In de, this message translates to:
-  /// **'Bau: {stage}. Als Nächstes: {canDo}'**
-  String hanokNarrativeNext(String stage, String canDo);
-
-  /// No description provided for @hanokNarrativeStarting.
-  ///
-  /// In de, this message translates to:
-  /// **'Bau: {stage}. Beginne mit deiner ersten Szene.'**
-  String hanokNarrativeStarting(String stage);
-
-  /// No description provided for @hanokNarrativeMaterialSource.
-  ///
-  /// In de, this message translates to:
-  /// **'Lernpfad-Szenen formen die Struktur. Pakete, Wiederholungen und Quests fügen Material und Dekor hinzu.'**
-  String get hanokNarrativeMaterialSource;
-
   /// No description provided for @sarangbangTitle.
   ///
   /// In de, this message translates to:
@@ -13038,72 +12990,6 @@ abstract class AppL10n {
   /// **'Die Hofgestaltung konnte nicht lokal gespeichert werden.'**
   String get ilduWorldSaveError;
 
-  /// No description provided for @hanokWorldEarlyEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hof · A1'**
-  String get hanokWorldEarlyEyebrow;
-
-  /// No description provided for @hanokWorldEarlyTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine erste Szene ist der Anfang deines Hanok.'**
-  String get hanokWorldEarlyTitle;
-
-  /// No description provided for @hanokWorldEarlyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.'**
-  String get hanokWorldEarlyBody;
-
-  /// No description provided for @hanokWorldEarlyVerifiedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Fundament steht: {canDo}'**
-  String hanokWorldEarlyVerifiedBody(Object canDo);
-
-  /// No description provided for @hanokWorldMapEyebrow.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein begehbarer Hof'**
-  String get hanokWorldMapEyebrow;
-
-  /// No description provided for @hanokWorldMapTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Wohin möchtest du gehen?'**
-  String get hanokWorldMapTitle;
-
-  /// No description provided for @hanokWorldMapBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Jedes Gebäude führt zu einem Teil von Hangul Sori.'**
-  String get hanokWorldMapBody;
-
-  /// No description provided for @hanokWorldOpenNextScene.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächste Szene ansehen'**
-  String get hanokWorldOpenNextScene;
-
-  /// No description provided for @hanokWorldNextBeamTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Nächster Bauabschnitt'**
-  String get hanokWorldNextBeamTitle;
-
-  /// No description provided for @hanokWorldExploreHouse.
-  ///
-  /// In de, this message translates to:
-  /// **'Mein Haus erkunden'**
-  String get hanokWorldExploreHouse;
-
-  /// No description provided for @hanokWorldSafeSceneProgress.
-  ///
-  /// In de, this message translates to:
-  /// **'{current} von {total} Szenarien sicher gemeistert'**
-  String hanokWorldSafeSceneProgress(int current, int total);
-
   /// No description provided for @hanokWorldIntro.
   ///
   /// In de, this message translates to:
@@ -13122,12 +13008,6 @@ abstract class AppL10n {
   /// **'Schließe A1 und A2 ab. Mit deinem ersten Fortschritt in B1 öffnet sich die große Hanok-Karte.'**
   String get hanokWorldLegacyBody;
 
-  /// No description provided for @hanokWorldMapHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippe auf die Karte, um dein Hanok zu öffnen.'**
-  String get hanokWorldMapHint;
-
   /// No description provided for @hanokWorldOpenSarangbang.
   ///
   /// In de, this message translates to:
@@ -13140,245 +13020,11 @@ abstract class AppL10n {
   /// **'Baufortschritt deiner Hanok'**
   String get hanokWorldProgress;
 
-  /// No description provided for @hanokWorldGyeBridgeTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Der Gye-Hof'**
-  String get hanokWorldGyeBridgeTitle;
-
-  /// No description provided for @hanokWorldGyeBridgeBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Der Gye-Hof ist von deiner privaten Hanok getrennt. Dort triffst du deine Lerngruppe.'**
-  String get hanokWorldGyeBridgeBody;
-
-  /// No description provided for @hanokWorldGyeBridgeOpen.
-  ///
-  /// In de, this message translates to:
-  /// **'Gye-Hof besuchen'**
-  String get hanokWorldGyeBridgeOpen;
-
-  /// No description provided for @hanokWorldPlacesTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Orte als Liste anzeigen'**
-  String get hanokWorldPlacesTitle;
-
-  /// No description provided for @hanokWorldPlacesBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle einen verfügbaren Ort aus.'**
-  String get hanokWorldPlacesBody;
-
-  /// No description provided for @hanokMapPlaceSarangbang.
-  ///
-  /// In de, this message translates to:
-  /// **'Heute lernen'**
-  String get hanokMapPlaceSarangbang;
-
-  /// No description provided for @hanokMapPlaceDaecheong.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Weg'**
-  String get hanokMapPlaceDaecheong;
-
-  /// No description provided for @hanokMapPlaceHaengrang.
-  ///
-  /// In de, this message translates to:
-  /// **'Üben'**
-  String get hanokMapPlaceHaengrang;
-
-  /// No description provided for @hanokMapPlaceAnchae.
-  ///
-  /// In de, this message translates to:
-  /// **'Wörter'**
-  String get hanokMapPlaceAnchae;
-
-  /// No description provided for @hanokMapPlaceHuwon.
-  ///
-  /// In de, this message translates to:
-  /// **'Aufgaben'**
-  String get hanokMapPlaceHuwon;
-
-  /// No description provided for @hanokMapPlaceSadang.
-  ///
-  /// In de, this message translates to:
-  /// **'Erfolge'**
-  String get hanokMapPlaceSadang;
-
-  /// No description provided for @hanokZoneSarangbang.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine heutige Szene'**
-  String get hanokZoneSarangbang;
-
-  /// No description provided for @hanokZoneDaecheong.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Weg'**
-  String get hanokZoneDaecheong;
-
-  /// No description provided for @hanokZoneHaengrang.
-  ///
-  /// In de, this message translates to:
-  /// **'Üben'**
-  String get hanokZoneHaengrang;
-
-  /// No description provided for @hanokZoneAnchae.
-  ///
-  /// In de, this message translates to:
-  /// **'Meine Wörter'**
-  String get hanokZoneAnchae;
-
-  /// No description provided for @hanokZoneHuwon.
-  ///
-  /// In de, this message translates to:
-  /// **'Aufgaben'**
-  String get hanokZoneHuwon;
-
-  /// No description provided for @hanokZoneSadang.
-  ///
-  /// In de, this message translates to:
-  /// **'Erfolge'**
-  String get hanokZoneSadang;
-
-  /// No description provided for @hanokWorldPurposeSarangbang.
-  ///
-  /// In de, this message translates to:
-  /// **'Kehre zu deiner heutigen Szene und den erarbeiteten Ausdrücken zurück.'**
-  String get hanokWorldPurposeSarangbang;
-
-  /// No description provided for @hanokWorldPurposeDaecheong.
-  ///
-  /// In de, this message translates to:
-  /// **'Sieh deinen Lernpfad und wähle die nächste freigeschaltete Mission.'**
-  String get hanokWorldPurposeDaecheong;
-
-  /// No description provided for @hanokWorldPurposeHaengrang.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle eine gezielte Übung oder ein kurzes Spiel.'**
-  String get hanokWorldPurposeHaengrang;
-
-  /// No description provided for @hanokWorldPurposeAnchae.
-  ///
-  /// In de, this message translates to:
-  /// **'Öffne gespeicherte Wörter, Bücher und deine persönliche Lernsammlung.'**
-  String get hanokWorldPurposeAnchae;
-
-  /// No description provided for @hanokWorldPurposeHuwon.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle das Zeichen des Tages oder eine Quest.'**
-  String get hanokWorldPurposeHuwon;
-
-  /// No description provided for @hanokWorldPurposeSadang.
-  ///
-  /// In de, this message translates to:
-  /// **'Sieh dir die Meilensteine deines Lernwegs an.'**
-  String get hanokWorldPurposeSadang;
-
-  /// No description provided for @hanokWorldPurposeGyeRoad.
-  ///
-  /// In de, this message translates to:
-  /// **'Der gemeinsame Gye-Hof bleibt von deiner privaten Hanok getrennt.'**
-  String get hanokWorldPurposeGyeRoad;
-
-  /// No description provided for @hanokWorldSelectPlaceTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Verfügbaren Ort wählen'**
-  String get hanokWorldSelectPlaceTitle;
-
-  /// No description provided for @hanokWorldSelectPlaceBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Tippe auf ein Gebäude auf der Karte oder wähle es aus der Liste.'**
-  String get hanokWorldSelectPlaceBody;
-
-  /// No description provided for @hanokWorldPlaceReadyBody.
-  ///
-  /// In de, this message translates to:
-  /// **'{place} ist jetzt verfügbar.'**
-  String hanokWorldPlaceReadyBody(String place);
-
   /// No description provided for @hanokWorldOpenPlace.
   ///
   /// In de, this message translates to:
   /// **'Nach {place} gehen'**
   String hanokWorldOpenPlace(String place);
-
-  /// No description provided for @hanokWorldTodayMarker.
-  ///
-  /// In de, this message translates to:
-  /// **'Heutiges Lernen'**
-  String get hanokWorldTodayMarker;
-
-  /// No description provided for @hanokWorldTodaySceneDetail.
-  ///
-  /// In de, this message translates to:
-  /// **'{minutes} Minuten · „{expression}“ sagen'**
-  String hanokWorldTodaySceneDetail(int minutes, String expression);
-
-  /// No description provided for @hanokWorldGoThere.
-  ///
-  /// In de, this message translates to:
-  /// **'Dorthin gehen'**
-  String get hanokWorldGoThere;
-
-  /// No description provided for @hanokWorldRevealTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'{place} ist fertig gebaut'**
-  String hanokWorldRevealTitle(String place);
-
-  /// No description provided for @hanokWorldRevealBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hanok ist um einen Bereich gewachsen.'**
-  String get hanokWorldRevealBody;
-
-  /// No description provided for @hanokWorldRevealContinue.
-  ///
-  /// In de, this message translates to:
-  /// **'Weiter zur Karte'**
-  String get hanokWorldRevealContinue;
-
-  /// No description provided for @hanokVenueFurnishRoom.
-  ///
-  /// In de, this message translates to:
-  /// **'Diesen Raum einrichten'**
-  String get hanokVenueFurnishRoom;
-
-  /// No description provided for @hanokVenueAnbangBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Hier findest du gespeicherte Wörter, Bücher und eigene Lernsammlungen.'**
-  String get hanokVenueAnbangBody;
-
-  /// No description provided for @hanokVenueDaecheongBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Setz deinen Lernweg fort oder richte den Raum ein.'**
-  String get hanokVenueDaecheongBody;
-
-  /// No description provided for @hanokVenueHaengrangBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Im Eingangsflügel kannst du eine weitere Übungsrunde starten.'**
-  String get hanokVenueHaengrangBody;
-
-  /// No description provided for @hanokVenueHuwonBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Im hinteren Garten findest du das Zeichen des Tages und neue Quests.'**
-  String get hanokVenueHuwonBody;
-
-  /// No description provided for @hanokVenueSadangBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Im Ahnenschrein siehst du die Meilensteine deines Lernwegs.'**
-  String get hanokVenueSadangBody;
 
   /// No description provided for @sarangbangStudyTitle.
   ///
@@ -13487,24 +13133,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Öffne ein Bojagi-Bündel, um dein erstes Einrichtungsstück zu erhalten.'**
   String get personalRoomEmptyHint;
-
-  /// No description provided for @personalRoomLockedTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dieser Raum wird noch gebaut'**
-  String get personalRoomLockedTitle;
-
-  /// No description provided for @personalRoomLockedBody.
-  ///
-  /// In de, this message translates to:
-  /// **'Lerne auf deinem Lernweg weiter, um diesen Teil deiner Hanok zu öffnen.'**
-  String get personalRoomLockedBody;
-
-  /// No description provided for @personalRoomReturnToMap.
-  ///
-  /// In de, this message translates to:
-  /// **'Zurück zur Hanok-Karte'**
-  String get personalRoomReturnToMap;
 
   /// No description provided for @personalRoomAnbangStudy.
   ///
@@ -17681,18 +17309,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tür'**
   String get onboardingV2DoorMeaning;
-
-  /// No description provided for @onboardingV2HanokGrowthBeforeSemantics.
-  ///
-  /// In de, this message translates to:
-  /// **'Hanok vor dem Einbau der Changho-Fenster und -Türen.'**
-  String get onboardingV2HanokGrowthBeforeSemantics;
-
-  /// No description provided for @onboardingV2HanokGrowthAfterSemantics.
-  ///
-  /// In de, this message translates to:
-  /// **'Hanok mit neu eingesetzten Changho-Fenstern und -Türen.'**
-  String get onboardingV2HanokGrowthAfterSemantics;
 
   /// No description provided for @onboardingV2DiscoverGift.
   ///

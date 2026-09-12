@@ -24,6 +24,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/cultural_help.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/hanok_stage_names.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/mascot_preference.dart';
@@ -1055,116 +1056,75 @@ class _HanokProgress extends StatelessWidget {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
-    final built = snapshot.hanok.unlocked.length;
-    final total = snapshot.hanok.constructionTotal;
-    final stage = snapshot.hanok.structureStage;
-    // §W-D D2.4: 0단계는 배너가 텅 비어 보인다 — 다음 단계 PNG를 살짝
-    // 겹쳐 "이게 다음에 온다"는 고스트 예고. 파일이 없으면 조용히 생략.
-    final ghostStage = stage == HanokStage.empty
-        ? HanokStage.values[stage.ordinal + 1]
-        : null;
-    return InkWell(
-      onTap: () => Navigator.of(context).pushNamed('/hanok'),
-      borderRadius: BorderRadius.circular(SoriRadius.lg),
-      child: Container(
-        // §W-D D2.4: clipBehavior 를 여기 두면 Container 의 자체 ClipPath 가
-        // boxShadow 까지 잘라낸다(illustrated_card.dart 의 동일 회피 패턴) —
-        // 클립은 아래 이미지 전용 ClipRRect 하나로만 국한한다.
-        decoration: BoxDecoration(
-          color: SoriColors.lightSurfaceRaised,
-          border: Border.all(color: s.border),
-          borderRadius: BorderRadius.circular(SoriRadius.lg),
-          boxShadow: SoriElevation.low,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // §P3-3a: 아이콘 텍스트 → 한옥 스테이지 배너 (기존 12장 리졸버
-            // 규약 `hanok_stages/stage_{slug}_light.png` 재사용 — 신규 매핑
-            // 함수 발명 금지). 미존재 시 기존 아이콘 행으로 강등.
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(SoriRadius.lg),
-              ),
-              child: AspectRatio(
-                aspectRatio: 16 / 5,
-                child: Stack(
-                  fit: StackFit.expand,
+    final built = snapshot.hanokCompetence.completedUnitCount;
+    final total = snapshot.hanokCompetence.totalUnitCount;
+    final stage = snapshot.hanokCompetence.stage;
+    return Container(
+      // §W-D D2.4: clipBehavior 를 여기 두면 Container 의 자체 ClipPath 가
+      // boxShadow 까지 잘라낸다(illustrated_card.dart 의 동일 회피 패턴) —
+      // 클립은 아래 이미지 전용 ClipRRect 하나로만 국한한다.
+      decoration: BoxDecoration(
+        color: SoriColors.lightSurfaceRaised,
+        border: Border.all(color: s.border),
+        borderRadius: BorderRadius.circular(SoriRadius.lg),
+        boxShadow: SoriElevation.low,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(SoriRadius.lg),
+            ),
+            child: AspectRatio(
+              aspectRatio: 16 / 5,
+              child: HanokV3Preview(message: t.soriStageHanokUpdating),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(t.soriStageHanokNow, style: tt.h3),
+                const SizedBox(height: Spacing.md),
+                SoriProgressMeter.segments(
+                  filled: built,
+                  total: total,
+                  height: 12,
+                  color: SoriColors.primaryDark,
+                  label: t.soriStageHanokPieces(built, total),
+                ),
+                const SizedBox(height: Spacing.lg),
+                Row(
                   children: [
-                    Image.asset(
-                      'assets/illustrations/hanok_stages/'
-                      'stage_${stage.assetSlug}_light.png',
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, _, _) => const ColoredBox(
-                        color: SoriColors.primarySoft,
-                        child: Center(
-                          child: Icon(
-                            Icons.home_work_outlined,
-                            size: 34,
-                            color: SoriColors.primaryDark,
+                    _nextPieceThumb(s, stage),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            t.soriStageNextPiece,
+                            style: tt.label.copyWith(color: s.textMuted),
                           ),
-                        ),
+                          Text(
+                            // §P3-3a: enum 원문("empty") 노출 수리 —
+                            // exhaustive DE/EN 매핑 (hanok_stage_names.dart).
+                            hanokStageDisplayName(t, stage),
+                            style: tt.body,
+                          ),
+                          _hanokStageTermLine(context, t, stage),
+                        ],
                       ),
                     ),
-                    if (ghostStage != null)
-                      Opacity(
-                        opacity: 0.22,
-                        child: Image.asset(
-                          'assets/illustrations/hanok_stages/'
-                          'stage_${ghostStage.assetSlug}_light.png',
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                        ),
-                      ),
                   ],
                 ),
-              ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(Spacing.xl),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(t.soriStageHanokNow, style: tt.h3),
-                  const SizedBox(height: Spacing.md),
-                  SoriProgressMeter.segments(
-                    filled: built,
-                    total: total,
-                    height: 12,
-                    color: SoriColors.primaryDark,
-                    label: t.soriStageHanokPieces(built, total),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  Row(
-                    children: [
-                      _nextPieceThumb(s, stage),
-                      const SizedBox(width: Spacing.md),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              t.soriStageNextPiece,
-                              style: tt.label.copyWith(color: s.textMuted),
-                            ),
-                            Text(
-                              // §P3-3a: enum 원문("empty") 노출 수리 —
-                              // exhaustive DE/EN 매핑 (hanok_stage_names.dart).
-                              hanokStageDisplayName(t, stage),
-                              style: tt.body,
-                            ),
-                            _hanokStageTermLine(context, t, stage),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

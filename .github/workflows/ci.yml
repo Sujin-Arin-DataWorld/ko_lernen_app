@@ -24,7 +24,12 @@ on:
       - 'docs/support.html'
       - 'docs/terms.html'
       - 'docs/data/cultural_glossary.json'
-      - 'docs/assets/**'
+      - 'docs/assets/STYLE_LOCK.json'
+      - 'docs/assets/CARD_STYLE_BASELINE.json'
+      - 'docs/assets/VOCAB_PACK_CARD_MANIFEST.json'
+      - 'docs/assets/PHASE_ARTWORK_PRODUCTION.json'
+      - 'docs/assets/SFX_README.md'
+      - 'docs/assets/recipes/**'
       - 'docs/screenshots/**'
       - 'docs/SESSION_CHANGES_2026-07-31.md'
       - 'docs/CNAME'
@@ -47,7 +52,12 @@ on:
       - 'docs/support.html'
       - 'docs/terms.html'
       - 'docs/data/cultural_glossary.json'
-      - 'docs/assets/**'
+      - 'docs/assets/STYLE_LOCK.json'
+      - 'docs/assets/CARD_STYLE_BASELINE.json'
+      - 'docs/assets/VOCAB_PACK_CARD_MANIFEST.json'
+      - 'docs/assets/PHASE_ARTWORK_PRODUCTION.json'
+      - 'docs/assets/SFX_README.md'
+      - 'docs/assets/recipes/**'
       - 'docs/screenshots/**'
       - 'docs/SESSION_CHANGES_2026-07-31.md'
       - 'docs/CNAME'
@@ -849,9 +859,7 @@ jobs:
         working-directory: functions/auth_cleanup
         run: npm test
 
-  # tool/*.py의 이미지 파이프라인 유닛 테스트. tool/__init__.py가 이걸 위해
-  # 존재하지만 지금까지 CI 어디서도 돌지 않았다 — docs/assets/**(원장·스테이지
-  # 스펙)나 tool/**가 바뀌어도 app 스코프로 잡히므로 이 잡이 그 신호를 받는다.
+  # tool/*.py 이미지 파이프라인과 실제 번들 자산 계약을 검증한다.
   asset-gates:
     name: Asset pipeline gates
     needs: changes

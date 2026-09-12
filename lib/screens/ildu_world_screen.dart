@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import '../data/ildu_turntable_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_world_manifest.dart';
-import '../models/personal_hanok.dart';
-import '../services/hanok_structure_projection_service.dart';
 import '../services/ildu_anchor_placement_service.dart';
 import '../services/ildu_decoration_placement_service.dart';
 import '../services/ildu_world_projection_adapter.dart';
@@ -18,11 +16,14 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
 
 typedef IlDuManifestLoader = Future<IlDuWorldManifest> Function();
-typedef IlDuLegacyProjectionLoader = Future<PersonalHanokProjection> Function();
+typedef IlDuProjectionLoader = Future<IlDuWorldProjection> Function();
+
+Future<IlDuWorldProjection> _loadUnavailableIlDuProjection() async =>
+    const IlDuWorldProjection(era: IlDuWorldEra.a1, hasVerifiedEvidence: false);
 
 class IlDuWorldScreen extends StatefulWidget {
   final IlDuManifestLoader? loadManifest;
-  final IlDuLegacyProjectionLoader? loadProjection;
+  final IlDuProjectionLoader? loadProjection;
   final IlDuDecorationPlacementStore decorationStore;
   final IlDuAnchorPlacementStore anchorPlacementStore;
 
@@ -79,11 +80,10 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     try {
       final results = await Future.wait<Object>([
         (widget.loadManifest ?? IlDuWorldManifest.load)(),
-        (widget.loadProjection ??
-            HanokStructureProjectionService.loadCurrent)(),
+        (widget.loadProjection ?? _loadUnavailableIlDuProjection)(),
       ]);
       final manifest = results[0] as IlDuWorldManifest;
-      final legacyProjection = results[1] as PersonalHanokProjection;
+      final projection = results[1] as IlDuWorldProjection;
       final savedPlacements = await Future.wait<Object>([
         widget.decorationStore.load(manifest),
         widget.anchorPlacementStore.load(manifest),
@@ -98,9 +98,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       }
       setState(() {
         _manifest = manifest;
-        _projection = const IlDuWorldProjectionAdapter().fromPersonalHanok(
-          legacyProjection,
-        );
+        _projection = projection;
         _placements = placements;
         _anchorPlacements = anchorPlacements;
         _anchorDirections = <String, int>{

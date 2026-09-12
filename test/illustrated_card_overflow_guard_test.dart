@@ -4,10 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -198,9 +197,7 @@ SoriStageProgressionSnapshot _snapshot(
   Map<String, SoriActivityProgress> activityProgress,
 ) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 0,
   stampCount: 0,

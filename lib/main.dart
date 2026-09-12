@@ -47,7 +47,6 @@ import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'models/curriculum.dart';
 import 'models/guide_contract.dart';
-import 'models/personal_room.dart';
 import 'models/scenario.dart';
 import 'screens/splash_screen.dart';
 import 'screens/daily_char_sheet.dart';
@@ -96,8 +95,7 @@ import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
-import 'screens/ildu_world_screen.dart';
-import 'screens/personal_room_furnish_screen.dart';
+import 'screens/hanok_preview_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
@@ -1098,24 +1096,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/hanok':
-              return SoriTransitions.page(
-                (_) => const IlDuWorldScreen(),
-                settings: settings,
-              );
             case '/hanok/anbang':
-              return SoriTransitions.page(
-                (_) => const PersonalRoomFurnishScreen(
-                  surface: PersonalRoomSurface.anbang,
-                ),
-                settings: settings,
-              );
             case '/hanok/daecheong':
-              return SoriTransitions.page(
-                (_) => const PersonalRoomFurnishScreen(
-                  surface: PersonalRoomSurface.daecheongmaru,
-                ),
-                settings: settings,
-              );
+              return buildHanokPreviewRoute(settings);
             case '/sarangbang':
               return SoriTransitions.page(
                 (_) => const SarangbangStudyScreen(),

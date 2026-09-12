@@ -3,20 +3,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_preview_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
-import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/sarangbang_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
@@ -51,16 +49,10 @@ void main() {
     'app shell': const AppShell(),
     'intro gate': const IntroGateScreen(),
     'home': const SoriStageTodayScreen(),
-    'personal hanok world': const HanokWorldScreen(),
+    'hanok preview': const HanokPreviewScreen(),
     'practice hub': const PracticeHubScreen(),
     'sarangbang study': const SarangbangStudyScreen(),
     'sarangbang furnish': const SarangbangFurnishScreen(),
-    'anbang furnish': const PersonalRoomFurnishScreen(
-      surface: PersonalRoomSurface.anbang,
-    ),
-    'daecheong furnish': const PersonalRoomFurnishScreen(
-      surface: PersonalRoomSurface.daecheongmaru,
-    ),
     'learning path': const LearningPathScreen(),
     'vocab (packs grid)': const VocabPacksScreen(),
     'vocab (legacy)': const LegacyVocabScreen(),

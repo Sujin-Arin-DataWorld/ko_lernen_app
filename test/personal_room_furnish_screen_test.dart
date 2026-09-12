@@ -9,17 +9,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
-import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/models/hanok_competence.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/models/room_layout.dart';
 import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/room_layout_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
@@ -47,36 +42,11 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('locked anbang never exposes a placement write surface', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        PersonalRoomFurnishScreen(
-          surface: PersonalRoomSurface.anbang,
-          loadRatios: () async =>
-              const LevelRatios(a1: 1, a2: 1, b1: 1, b2: .24),
-          loadProjection: _legacyProjection,
-        ),
-      ),
-    );
-    await tester.pump();
-
-    expect(find.byType(RoomLayer), findsNothing);
-    expect(find.text('This room is still being built'), findsOneWidget);
-  });
-
   testWidgets('keeps the unlocked room interactive through the shared scene', (
     tester,
   ) async {
     await tester.pumpWidget(
-      _host(
-        PersonalRoomFurnishScreen(
-          surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-          loadProjection: _legacyProjection,
-        ),
-      ),
+      _host(PersonalRoomFurnishScreen(surface: PersonalRoomSurface.sarangbang)),
     );
     await tester.pump();
 
@@ -115,9 +85,6 @@ void main() {
         _host(
           PersonalRoomFurnishScreen(
             surface: PersonalRoomSurface.sarangbang,
-            loadRatios: () async =>
-                const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-            loadProjection: _legacyProjection,
             updateLayoutItem: (surface, item) {
               submitted = item;
               return SynchronousFuture(
@@ -204,9 +171,6 @@ void main() {
         _host(
           PersonalRoomFurnishScreen(
             surface: PersonalRoomSurface.sarangbang,
-            loadRatios: () async =>
-                const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-            loadProjection: _legacyProjection,
             updateLayoutItem: (surface, item) {
               submitted.add(item);
               return SynchronousFuture(
@@ -257,25 +221,6 @@ void main() {
     },
   );
 
-  testWidgets('unlocks a room from verified course structure alone', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        PersonalRoomFurnishScreen(
-          surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-          loadProjection: (_) async => _courseSarangbangProjection(),
-        ),
-      ),
-    );
-    await tester.pump();
-
-    expect(find.byType(PersonalRoomScene), findsOneWidget);
-    expect(find.byType(FreeRoomLayer), findsOneWidget);
-    expect(find.byType(RoomLayer), findsNothing);
-  });
-
   testWidgets('a future layout version keeps its migrated fallback read only', (
     tester,
   ) async {
@@ -291,13 +236,7 @@ void main() {
     });
     await Storage.init();
     await tester.pumpWidget(
-      _host(
-        PersonalRoomFurnishScreen(
-          surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-          loadProjection: _legacyProjection,
-        ),
-      ),
+      _host(PersonalRoomFurnishScreen(surface: PersonalRoomSurface.sarangbang)),
     );
     await tester.pump();
     await tester.pump();
@@ -320,8 +259,6 @@ void main() {
       _host(
         PersonalRoomFurnishScreen(
           surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-          loadProjection: _legacyProjection,
           addLayoutItem: (surface, kind, assetId) {
             final item = RoomLayoutItem(
               instanceId: 'sticker:$assetId:1',
@@ -399,13 +336,7 @@ void main() {
     });
     await Storage.init();
     await tester.pumpWidget(
-      _host(
-        PersonalRoomFurnishScreen(
-          surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-          loadProjection: _legacyProjection,
-        ),
-      ),
+      _host(PersonalRoomFurnishScreen(surface: PersonalRoomSurface.sarangbang)),
     );
     await tester.pump();
     await tester.pump();
@@ -434,44 +365,6 @@ void main() {
       findsNWidgets(DancheongMotif.values.length),
     );
   });
-
-  testWidgets(
-    'an unlocked room outside kRoomFurnishingPool never gains another '
-    'room\'s furniture (PR-D room-scoping fix)',
-    (tester) async {
-      CulturalGlossaryRepository.setLoaderForTesting(
-        () async => culturalCatalog,
-      );
-      addTearDown(CulturalGlossaryRepository.resetForTesting);
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues({
-        'kl_user_level': 'a1',
-        'kl_owned_decor': kDecorationRewardPool,
-      });
-      await Storage.init();
-      await tester.pumpWidget(
-        _host(
-          PersonalRoomFurnishScreen(
-            surface: PersonalRoomSurface.anbang,
-            loadRatios: () async =>
-                const LevelRatios(a1: 1, a2: 1, b1: 1, b2: .25),
-            loadProjection: _legacyProjection,
-          ),
-        ),
-      );
-      await tester.pump();
-      await tester.pump();
-      await tester.scrollUntilVisible(
-        find.byKey(const ValueKey('room-inventory-tab-decoration')),
-        400,
-        scrollable: find.byType(Scrollable).first,
-      );
-
-      // Only the 11 kDecorationRewardPool items -- none of A2 sarangbang's
-      // 12 kRoomFurnishingPool items, since anbang has no pool entry yet.
-      expect(find.byType(SoriDecorationImage), findsNWidgets(11));
-    },
-  );
 
   testWidgets('an older save callback cannot overwrite a newer drag draft', (
     tester,
@@ -502,8 +395,6 @@ void main() {
       _host(
         PersonalRoomFurnishScreen(
           surface: PersonalRoomSurface.sarangbang,
-          loadRatios: () async => const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-          loadProjection: _legacyProjection,
           updateLayoutItem: (_, item) {
             submitted.add(item);
             final completer = Completer<RoomLayoutMutation>();
@@ -588,12 +479,7 @@ void main() {
       await Storage.init();
       await tester.pumpWidget(
         _host(
-          PersonalRoomFurnishScreen(
-            surface: PersonalRoomSurface.sarangbang,
-            loadRatios: () async =>
-                const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0),
-            loadProjection: _legacyProjection,
-          ),
+          PersonalRoomFurnishScreen(surface: PersonalRoomSurface.sarangbang),
           textScaler: TextScaler.linear(2),
           size: const Size(320, 640),
           safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
@@ -659,41 +545,3 @@ Widget _host(
     child: child,
   ),
 );
-
-const _text = CurriculumText(ko: '?λ㈃', de: 'Szene', en: 'Scene');
-
-PersonalHanokProjection _courseSarangbangProjection() =>
-    PersonalHanokProjection.from(
-      const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-      competence: HanokCompetenceProjection.fromSnapshot(
-        snapshot: const CourseMasterySnapshot(
-          completedUnitIds: ['a1_01', 'a2_01', 'b1_01'],
-        ),
-        courseUnits: const [
-          CourseUnit(
-            id: 'a1_01',
-            level: 'a1',
-            order: 1,
-            title: _text,
-            canDo: _text,
-          ),
-          CourseUnit(
-            id: 'a2_01',
-            level: 'a2',
-            order: 1,
-            title: _text,
-            canDo: _text,
-          ),
-          CourseUnit(
-            id: 'b1_01',
-            level: 'b1',
-            order: 1,
-            title: _text,
-            canDo: _text,
-          ),
-        ],
-      ),
-    );
-
-Future<PersonalHanokProjection> _legacyProjection(LevelRatios ratios) async =>
-    PersonalHanokProjection.from(ratios);

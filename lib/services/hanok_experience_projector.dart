@@ -1,6 +1,7 @@
 import '../models/can_do_segment.dart';
 import '../models/course_mastery.dart';
 import '../models/hanok_growth.dart';
+import '../models/ildu_world_state.dart';
 import '../models/learner_level.dart';
 import '../models/personal_room.dart';
 import '../models/room_layout.dart';
@@ -8,7 +9,7 @@ import 'course_segment_catalog.dart';
 import 'hanok_grant_catalog.dart';
 import 'productive_assessment_service.dart';
 
-/// Pure Living Hanok V1 projection.
+/// Pure verified-learning projection for the IlDu V3 world.
 ///
 /// Permanent ownership comes only from trusted productive segment evidence.
 /// CourseUnit completion opens reassessment but cannot earn a grant by itself.
@@ -20,7 +21,7 @@ final class HanokExperienceProjector {
     required CourseSegmentCatalog segmentCatalog,
     required ProductiveAssessmentCatalog assessmentCatalog,
     required HanokGrantCatalog grantCatalog,
-    required HanokState state,
+    required IlDuWorldState state,
     required DateTime asOf,
     RoomLayouts roomLayouts = const {},
   }) {
@@ -78,7 +79,7 @@ final class HanokExperienceProjector {
       }
     }
     final activeLoadout = <HanokDesignSlot, HanokGrantDefinition>{};
-    for (final entry in state.activeLoadout.entries) {
+    for (final entry in state.activeDesignSelections.entries) {
       final slot = HanokDesignSlot.fromCode(entry.key);
       final grant = grantCatalog.grantsById[entry.value.grantId];
       if (slot != null &&
@@ -136,7 +137,7 @@ final class HanokExperienceProjector {
       openedVenues: openedVenues,
       availableDesignOptions: options,
       activeLoadout: activeLoadout,
-      weatheringTier: state.careState.weatheringAt(asOf),
+      weatheringTier: state.carePreferences.weatheringAt(asOf),
       nextGrant: nextGrant,
       nextGrantProgress: nextGrant == null
           ? 0.0
@@ -160,7 +161,7 @@ final class HanokExperienceProjector {
     required CourseSegmentCatalog segmentCatalog,
     required ProductiveAssessmentCatalog assessmentCatalog,
     required HanokGrantCatalog grantCatalog,
-    required HanokState state,
+    required IlDuWorldState state,
     required DateTime asOf,
   }) {
     final beforeProjection = project(

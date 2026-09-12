@@ -8,9 +8,9 @@ import '../models/course_mission_brief.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/gye.dart';
-import '../models/hanok_build_narrative.dart';
+import '../models/hanok_competence.dart';
+import '../models/hanok_learning_receipt.dart';
 import '../models/hanok_stage.dart';
-import '../models/personal_hanok.dart';
 import '../models/personal_room.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
@@ -22,7 +22,6 @@ import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/gye_weekly_promise_navigation.dart';
-import '../services/hanok_stage_service.dart';
 import '../services/mission_recommender.dart';
 import '../services/today_learning_snapshot.dart';
 import '../theme.dart';
@@ -35,7 +34,7 @@ import 'discover_screen.dart';
 import 'first_voice_success_screen.dart';
 import 'gye_screen.dart';
 import 'gye_tab_screen.dart';
-import 'hanok_world_screen.dart';
+import 'hanok_preview_screen.dart';
 import 'learning_path_screen.dart';
 import 'practice_hub_screen.dart';
 import 'profile_screen.dart';
@@ -262,41 +261,9 @@ CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   isCurrent: true,
 );
 
-Widget _earlyHanok() {
-  final projection = PersonalHanokProjection.from(
-    const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
-  );
-  return HanokWorldScreen.preview(
-    projection: projection,
-    narrative: HanokBuildNarrative(
-      projection: projection,
-      verifiedUnit: _greetingUnit,
-      safeSceneCount: 1,
-      safeScenesTowardNextBeam: 1,
-      scenesPerBeam: 2,
-      plannedBeamCount: 1,
-    ),
-    onOpenZone: (_) {},
-  );
-}
+Widget _earlyHanok() => const HanokPreviewScreen();
 
-Widget _hanokMap() {
-  final projection = PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
-  );
-  return HanokWorldScreen.preview(
-    projection: projection,
-    narrative: HanokBuildNarrative(
-      projection: projection,
-      receipt: const HanokLearningReceipt(
-        nextScenarioId: 'bunshik_tteokbokki',
-        nextExpressionKo: '안 맵게 해 주세요.',
-      ),
-    ),
-    selectedZone: PersonalHanokZone.sarangbang,
-    onOpenZone: (_) {},
-  );
-}
+Widget _hanokMap() => const HanokPreviewScreen();
 
 Widget _sarangbang() => SarangbangStudyScreen.preview(
   todaySnapshot: const TodayLearningSnapshot(
@@ -334,9 +301,7 @@ Future<SoriStageProgressionSnapshot> _loadOfflineTodayPreview() async =>
         unavailableReason: TodayLearningUnavailableReason.offline,
         unavailableSources: {TodayLearningSource.course},
       ),
-      hanok: PersonalHanokProjection.from(
-        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-      ),
+      hanokCompetence: const HanokCompetenceProjection.empty(),
       quests: const [],
       pendingBojagiCount: 0,
       stampCount: 4,
