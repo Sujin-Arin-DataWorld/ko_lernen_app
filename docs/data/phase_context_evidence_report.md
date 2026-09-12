@@ -14,96 +14,96 @@
 | KP01 | G1:이 | 1 | 0 | 0 | 미검증 |
 | KP01 | G1:을1 | 1 | 0 | 0 | 미검증 |
 | KP01 | G1:의 | 1 | 0 | 0 | 미검증 |
-| KP01 | G1:과 | 0 | 0 | 0 | 미검증 |
-| KP01 | G1:이랑 | 0 | 0 | 0 | 미검증 |
+| KP01 | G1:과 | 1 | 0 | 0 | 미검증 |
+| KP01 | G1:이랑 | 1 | 0 | 0 | 미검증 |
 | KP01 | G1:하고 | 1 | 0 | 0 | 미검증 |
-| KP01 | G1:-어2 | 0 | 0 | 0 | 미검증 |
+| KP01 | G1:-어2 | 1 | 0 | 0 | 미검증 |
 | KP01 | G1:-습니다 | 1 | 0 | 0 | 미검증 |
-| KP01 | G1:-습니까 | 0 | 0 | 0 | 미검증 |
+| KP01 | G1:-습니까 | 1 | 0 | 0 | 미검증 |
 | KP02 | G1:에 | 1 | 0 | 0 | 미검증 |
 | KP02 | G1:에서 | 1 | 0 | 0 | 미검증 |
-| KP02 | G1:부터 | 0 | 0 | 0 | 미검증 |
+| KP02 | G1:부터 | 1 | 0 | 0 | 미검증 |
 | KP02 | G1:까지 | 1 | 0 | 0 | 미검증 |
-| KP02 | G1:으로 | 0 | 0 | 1 | 미검증 |
+| KP02 | G1:으로 | 1 | 0 | 1 | 미검증 |
 | KP02 | G1:-었- | 1 | 0 | 0 | 미검증 |
 | KP02 | G1:-고3 | 1 | 0 | 0 | 미검증 |
-| KP02 | G1:-지 않다 | 0 | 0 | 1 | 미검증 |
-| KP02 | G1:-지 못하다 | 0 | 0 | 1 | 미검증 |
+| KP02 | G1:-지 않다 | 1 | 0 | 1 | 미검증 |
+| KP02 | G1:-지 못하다 | 1 | 0 | 1 | 미검증 |
 | KP02 | G1:도 | 1 | 0 | 0 | 미검증 |
 | KP02 | G1:만 | 1 | 0 | 0 | 미검증 |
-| KP03 | G1:에게 | 0 | 0 | 0 | 미검증 |
+| KP03 | G1:에게 | 1 | 0 | 0 | 미검증 |
 | KP03 | G1:한테 | 1 | 0 | 0 | 미검증 |
-| KP03 | G1:-으러 | 0 | 0 | 0 | 미검증 |
-| KP03 | G1:-으려고1 | 0 | 0 | 0 | 미검증 |
+| KP03 | G1:-으러 | 1 | 0 | 0 | 미검증 |
+| KP03 | G1:-으려고1 | 1 | 0 | 0 | 미검증 |
 | KP03 | G1:-고 싶다 | 1 | 0 | 0 | 미검증 |
 | KP03 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
 | KP03 | G1:-을 수 있다 | 1 | 0 | 0 | 미검증 |
-| KP03 | G1:-겠- | 0 | 0 | 1 | 미검증 |
+| KP03 | G1:-겠- | 1 | 0 | 1 | 미검증 |
 | KP03 | G1:-으세요 | 1 | 0 | 1 | 미검증 |
-| KP03 | G1:-으십시오 | 0 | 0 | 0 | 미검증 |
+| KP03 | G1:-으십시오 | 1 | 0 | 0 | 미검증 |
 | KP03 | G1:-을까 | 1 | 0 | 0 | 미검증 |
-| KP03 | G1:-읍시다 | 0 | 0 | 0 | 미검증 |
+| KP03 | G1:-읍시다 | 1 | 0 | 0 | 미검증 |
 | KP04 | G1:-으시- | 1 | 0 | 0 | 미검증 |
-| KP04 | G1:께서 | 0 | 0 | 0 | 미검증 |
-| KP04 | G1:-어서 | 0 | 0 | 1 | 미검증 |
-| KP04 | G1:-으니까 | 0 | 0 | 0 | 미검증 |
-| KP04 | G1:-지만 | 0 | 0 | 0 | 미검증 |
-| KP04 | G1:보다 | 0 | 0 | 0 | 미검증 |
-| KP04 | G1:-고4 | 0 | 0 | 0 | 미검증 |
-| KP04 | G1:-기 전에 | 0 | 0 | 1 | 미검증 |
-| KP04 | G1:-은 후에 | 0 | 0 | 1 | 미검증 |
-| KP04 | G1:-어야 되다 | 0 | 0 | 0 | 미검증 |
+| KP04 | G1:께서 | 1 | 0 | 0 | 미검증 |
+| KP04 | G1:-어서 | 1 | 0 | 1 | 미검증 |
+| KP04 | G1:-으니까 | 1 | 0 | 0 | 미검증 |
+| KP04 | G1:-지만 | 1 | 0 | 0 | 미검증 |
+| KP04 | G1:보다 | 1 | 0 | 0 | 미검증 |
+| KP04 | G1:-고4 | 1 | 0 | 0 | 미검증 |
+| KP04 | G1:-기 전에 | 1 | 0 | 1 | 미검증 |
+| KP04 | G1:-은 후에 | 1 | 0 | 1 | 미검증 |
+| KP04 | G1:-어야 되다 | 1 | 0 | 0 | 미검증 |
 | KP04 | G1:-겠- | 1 | 0 | 1 | 미검증 |
 | KP05 | G2:-으면 | 1 | 0 | 0 | 미검증 |
-| KP05 | G2:-거나 | 0 | 0 | 0 | 미검증 |
-| KP05 | G2:이나 | 0 | 0 | 1 | 미검증 |
-| KP05 | G2:마다 | 0 | 0 | 1 | 미검증 |
-| KP05 | G2:밖에 | 0 | 0 | 0 | 미검증 |
-| KP05 | G2:처럼 | 0 | 0 | 0 | 미검증 |
+| KP05 | G2:-거나 | 1 | 0 | 0 | 미검증 |
+| KP05 | G2:이나 | 1 | 0 | 1 | 미검증 |
+| KP05 | G2:마다 | 1 | 0 | 1 | 미검증 |
+| KP05 | G2:밖에 | 1 | 0 | 0 | 미검증 |
+| KP05 | G2:처럼 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:-어도 되다 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:-지 말다 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:-어 주다 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-는2 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-은2 | 0 | 0 | 0 | 미검증 |
+| KP06 | G2:-은2 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-은3 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-을2 | 0 | 0 | 0 | 미검증 |
-| KP06 | G2:-는 것 | 0 | 0 | 0 | 미검증 |
+| KP06 | G2:-을2 | 1 | 0 | 0 | 미검증 |
+| KP06 | G2:-는 것 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-기 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-을 때 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-는 동안에 | 0 | 0 | 0 | 미검증 |
+| KP06 | G2:-는 동안에 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-은 지2 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-은 적이 있다 | 0 | 0 | 1 | 미검증 |
+| KP06 | G2:-은 적이 있다 | 1 | 0 | 1 | 미검증 |
 | KP06 | G2:-어 보다 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-으면서 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-다가1(1) | 0 | 0 | 0 | 미검증 |
+| KP06 | G2:-다가1(1) | 1 | 0 | 0 | 미검증 |
 | KP06 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
 | KP07 | G2:-는데1 | 1 | 0 | 0 | 미검증 |
-| KP07 | G2:-게2 | 0 | 0 | 1 | 미검증 |
-| KP07 | G2:-기 때문에 | 0 | 0 | 0 | 미검증 |
-| KP07 | G2:-기로 하다 | 0 | 0 | 1 | 미검증 |
+| KP07 | G2:-게2 | 1 | 0 | 1 | 미검증 |
+| KP07 | G2:-기 때문에 | 1 | 0 | 0 | 미검증 |
+| KP07 | G2:-기로 하다 | 1 | 0 | 1 | 미검증 |
 | KP07 | G2:-는 것 같다 | 1 | 0 | 0 | 미검증 |
-| KP07 | G2:-을 수밖에 없다 | 0 | 0 | 1 | 미검증 |
+| KP07 | G2:-을 수밖에 없다 | 1 | 0 | 1 | 미검증 |
 | KP07 | G2:-을게 | 1 | 0 | 0 | 미검증 |
 | KP07 | G2:-을래 | 1 | 0 | 0 | 미검증 |
-| KP07 | G2:-을까 보다 | 0 | 0 | 1 | 미검증 |
-| KP07 | G2:-게 되다 | 0 | 0 | 0 | 미검증 |
-| KP07 | G1:-고4 | 0 | 0 | 0 | 미검증 |
+| KP07 | G2:-을까 보다 | 1 | 0 | 1 | 미검증 |
+| KP07 | G2:-게 되다 | 1 | 0 | 0 | 미검증 |
+| KP07 | G1:-고4 | 1 | 0 | 0 | 미검증 |
 | KP07 | G1:-어서 | 1 | 0 | 0 | 미검증 |
-| KP07 | G1:-지만 | 0 | 0 | 0 | 미검증 |
-| KP08 | G2:-음 | 0 | 0 | 0 | 미검증 |
+| KP07 | G1:-지만 | 1 | 0 | 0 | 미검증 |
+| KP08 | G2:-음 | 1 | 0 | 0 | 미검증 |
 | KP08 | G2:께 | 1 | 0 | 0 | 미검증 |
-| KP08 | G2:에게로 | 0 | 0 | 0 | 미검증 |
-| KP08 | G2:에게서 | 0 | 0 | 0 | 미검증 |
-| KP08 | G2:한테서 | 0 | 0 | 0 | 미검증 |
-| KP08 | G2:에다가 | 0 | 0 | 0 | 미검증 |
-| KP08 | G2:에서부터(서부터) | 0 | 0 | 0 | 미검증 |
+| KP08 | G2:에게로 | 1 | 0 | 0 | 미검증 |
+| KP08 | G2:에게서 | 1 | 0 | 0 | 미검증 |
+| KP08 | G2:한테서 | 1 | 0 | 0 | 미검증 |
+| KP08 | G2:에다가 | 1 | 0 | 0 | 미검증 |
+| KP08 | G2:에서부터(서부터) | 1 | 0 | 0 | 미검증 |
 | KP08 | G2:-네 | 1 | 0 | 0 | 미검증 |
 | KP08 | G2:-는군 | 1 | 0 | 0 | 미검증 |
-| KP08 | G2:-는데2 | 0 | 0 | 1 | 미검증 |
+| KP08 | G2:-는데2 | 1 | 0 | 1 | 미검증 |
 | KP08 | G2:-지 | 1 | 0 | 0 | 미검증 |
 | KP08 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
-| KP08 | G2:-을 것1 | 0 | 0 | 1 | 미검증 |
-| KP08 | G1:-고 있다 | 0 | 0 | 0 | 미검증 |
+| KP08 | G2:-을 것1 | 1 | 0 | 1 | 미검증 |
+| KP08 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
 | KP09 | G3:-는다 | 1 | 0 | 0 | 미검증 |
 | KP09 | G3:-니2 | 1 | 0 | 0 | 미검증 |
 | KP09 | G3:-자3 | 1 | 0 | 0 | 미검증 |
@@ -302,13 +302,13 @@
 | KP24 | G1:-으시- | 1 | 0 | 1 | 미검증 |
 | KP25 | G6:-는다는 | 1 | 0 | 0 | 미검증 |
 | KP25 | G6:-이라야 | 1 | 0 | 0 | 미검증 |
-| KP25 | G6:-되 | 1 | 0 | 0 | 미검증 |
-| KP25 | G6:를 막론하고 | 1 | 0 | 0 | 미검증 |
+| KP25 | G6:-되 | 3 | 0 | 0 | 미검증 |
+| KP25 | G6:를 막론하고 | 1 | 0 | 1 | 미검증 |
 | KP25 | G6:는 마당에 | 1 | 0 | 0 | 미검증 |
 | KP25 | G6:-느니만큼 | 1 | 0 | 0 | 미검증 |
 | KP25 | G6:-건대 | 1 | 0 | 0 | 미검증 |
-| KP25 | G2:-기 | 1 | 0 | 0 | 미검증 |
-| KP26 | G6:마는 | 1 | 0 | 0 | 미검증 |
+| KP25 | G2:-기 | 2 | 0 | 0 | 미검증 |
+| KP26 | G6:마는 | 1 | 0 | 1 | 미검증 |
 | KP26 | G6:-건만 | 1 | 0 | 0 | 미검증 |
 | KP26 | G6:-어 치우다 | 1 | 0 | 0 | 미검증 |
 | KP26 | G6:-기 일쑤이다 | 1 | 0 | 0 | 미검증 |
@@ -317,16 +317,16 @@
 | KP26 | G6:-노라면 | 1 | 0 | 0 | 미검증 |
 | KP26 | G4:-어 버리다 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-은들 | 1 | 0 | 0 | 미검증 |
-| KP27 | G6:-을망정 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-을망정 | 1 | 0 | 1 | 미검증 |
 | KP27 | G6:-는 한이 있어도 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-기로서니 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-는다고1 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-자면1 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-자니3 | 1 | 0 | 0 | 미검증 |
-| KP27 | G6:-으려도 | 1 | 0 | 0 | 미검증 |
+| KP27 | G6:-으려도 | 1 | 0 | 1 | 미검증 |
 | KP27 | G6:-을라치면 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-을 바에 | 1 | 0 | 0 | 미검증 |
-| KP27 | G4:-더라도 | 1 | 0 | 0 | 미검증 |
+| KP27 | G4:-더라도 | 2 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고2 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고는 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:깨나 | 1 | 0 | 0 | 미검증 |
@@ -338,7 +338,7 @@
 | KP28 | G6:-던2 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:-으래서야 | 1 | 0 | 0 | 미검증 |
 | KP28 | G3:이라고1 | 1 | 0 | 0 | 미검증 |
-| KP29 | G6:-으리라 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으리라 | 1 | 0 | 1 | 미검증 |
 | KP29 | G6:-으리오 | 1 | 0 | 0 | 미검증 |
 | KP29 | G6:-으련마는 | 1 | 0 | 0 | 미검증 |
 | KP29 | G6:-으리라고 | 1 | 0 | 0 | 미검증 |
@@ -350,7 +350,7 @@
 | KP29 | G5:-는 듯하다 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-거들랑1 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-거들랑2 | 1 | 0 | 0 | 미검증 |
-| KP30 | G6:-네1 | 1 | 0 | 0 | 미검증 |
+| KP30 | G6:-네1 | 1 | 0 | 1 | 미검증 |
 | KP30 | G6:-나2 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-게3 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-게4 | 1 | 0 | 0 | 미검증 |
@@ -361,9 +361,9 @@
 | KP30 | G6:-구려2 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-는구려 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-그려 | 1 | 0 | 0 | 미검증 |
-| KP30 | G2:-네 | 1 | 0 | 0 | 미검증 |
+| KP30 | G2:-네 | 2 | 0 | 0 | 미검증 |
 | KP30 | G5:-네2 | 1 | 0 | 0 | 미검증 |
-| KP30 | G1:-으시- | 1 | 0 | 0 | 미검증 |
+| KP30 | G1:-으시- | 2 | 0 | 0 | 미검증 |
 
 ## 직접 검수한 연결 및 제외 근거
 
@@ -715,3 +715,66 @@
 - KP30 / G2:-네 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/13/practice/sourceKo` — “밖에 비가 오네요. 창문을 보고 처음 알았어요.”. 현대 해요체에서 새로 관찰한 비 소식에 감탄한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP30 / G5:-네2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/14/practice/sourceKo` — “[반말 합의 친구] 이렇게 조용할 수가 없네! 집중하기 좋겠어.”. 친밀한 관계와 뒤의 집중 용이성 평가가 긍정 감탄을 뒷받침한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP30 / G1:-으시- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp30.json/tasks/15/practice/sourceKo` — “[반말 합의 친구] 선생님이 오셨어. 내가 직접 뵈었어.”. 친구에게 반말하면서 제삼자 선생님 높임과 직접 경험을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP01 / G1:과 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp01.json/tasks/6/practice/sourceKo` — “책과 공책이에요.”. 책과 공책 두 명사를 열거하며 받침 뒤 과를 쓴다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP01 / G1:이랑 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp01.json/tasks/7/practice/sourceKo` — “동생이랑 가요.”. 누구와 함께 가는지 질문에 동생을 동행자로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP01 / G1:-어2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp01.json/tasks/9/practice/sourceKo` — “좋아요.”. 처음 만난 동료에게 날씨 상태를 해요체로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP01 / G1:-습니까 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp01.json/tasks/11/practice/sourceKo` — “학교에 갑니까?”. 격식 있는 질문과 네 갑니다 응답이 평서문과 질문을 구별한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP02 / G1:부터 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp02.json/tasks/2/practice/sourceKo` — “수업은 열 시부터 열두 시까지예요.”. 수업 시간의 시작 열 시와 끝 열두 시를 구별한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP02 / G1:으로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp02.json/tasks/4/practice/sourceKo` — “학교에 버스로 가요.”. 버스를 이동 수단으로 제시하며 목적지 학교와 구별한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP02 / G1:-지 않다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp02.json/tasks/7/practice/sourceKo` — “갈 수 있지만 오늘은 학교에 가지 않아요.”. 갈 능력은 있으나 오늘 가지 않는 부정이므로 불가능과 다르다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP02 / G1:-지 못하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp02.json/tasks/8/practice/sourceKo` — “버스가 없어서 학교에 가지 못했어요.”. 버스 부재로 실제 이동이 불가능했던 맥락이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:에게 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/0/practice/sourceKo` — “민수가 유나에게 책을 줘요.”. 민수는 주는 사람이고 유나는 받는 사람이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:-으러 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/2/practice/sourceKo` — “책을 사러 서점에 가요.”. 서점 이동의 목적이 책 구매이며 구매 완료는 주장하지 않는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:-으려고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/3/practice/sourceKo` — “한국어를 배우려고 수업에 가요.”. 수업에 가는 의도를 한국어 학습으로 밝힌다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:-겠- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/7/practice/sourceKo` — “제가 내일 전화하겠습니다.”. 제가와 미래 행동이 결합한 화자의 의지이며 타인 행동 추측이 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:-으십시오 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/9/practice/sourceKo` — “문 앞에서 기다리십시오.”. 안내가 청자에게 기다리는 행동을 격식 있게 요청한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP03 / G1:-읍시다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp03.json/tasks/11/practice/sourceKo` — “내일 같이 공부합시다.”. 동급 학급 동료에게 화자도 함께 공부할 것을 제안한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:께서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/1/practice/sourceKo` — “선생님께서 오세요.”. 선생님을 문장의 높임 주어로 표시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-어서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/2/practice/sourceKo` — “비가 와서 집에 있어요.”. 집에 있는 이유를 비가 오는 상황으로 설명한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-으니까 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/3/practice/sourceKo` — “추우니까 안에 들어가세요.”. 추위를 근거로 청자에게 실내 이동을 권한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-지만 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/4/practice/sourceKo` — “오늘은 춥지만 날씨가 맑아요.”. 추위와 맑음을 대조하며 둘 중 하나를 부정하지 않는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/5/practice/sourceKo` — “오늘은 어제보다 추워요.”. 어제가 비교 기준이고 오늘의 추위가 더 크다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-고4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/6/practice/sourceKo` — “창문도 크고요.”. 조용하다는 앞 진술에 창문 크기 정보를 문장 끝 고요로 덧붙인다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-기 전에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/7/practice/sourceKo` — “자기 전에 물을 마셔요.”. 잠자기보다 물 마시기가 먼저인 동작 순서를 나타낸다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-은 후에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/8/practice/sourceKo` — “밥을 먹은 후에 약을 먹어요.”. 동사 먹다의 관형형으로 식사 완료 뒤 복약 순서를 명시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP04 / G1:-어야 되다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp04.json/tasks/9/practice/sourceKo` — “내일 아홉 시까지 학교에 가야 돼요.”. 학교 이동에 기한과 필요 의무가 있으며 단순 희망이 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP05 / G2:-거나 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp05.json/tasks/1/practice/sourceKo` — “책을 읽거나 음악을 들으세요.”. 기다리는 동안 가능한 두 행동을 선택 대안으로 제시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP05 / G2:이나 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp05.json/tasks/2/practice/sourceKo` — “차나 커피를 하나 고르세요.”. 둘을 모두 고르는 것이 아니라 두 명사 중 하나를 고른다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP05 / G2:마다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp05.json/tasks/3/practice/sourceKo` — “월요일마다 문을 닫아요.”. 특정 한 주가 아니라 매주 월요일의 반복이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP05 / G2:밖에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp05.json/tasks/4/practice/sourceKo` — “빈자리가 하나밖에 없어요.”. 없다와 결합해 남은 수를 하나로 제한하며 0개가 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP05 / G2:처럼 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp05.json/tasks/5/practice/sourceKo` — “예시처럼 이름을 크게 써 주세요.”. 예시를 이름 표기의 비교 모델로 삼는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-은2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/1/practice/sourceKo` — “지난주에 만든 컵을 가져왔어요.”. 완료된 제작 동작으로 컵을 한정한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-을2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/3/practice/sourceKo` — “내일 배울 노래가 어려워요.”. 배울 노래는 미래 학습 대상이며 이미 배운 노래가 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-는 것 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/4/practice/sourceKo` — “저는 사진 찍는 것을 좋아해요.”. 사진 촬영 행위 전체를 좋아하다의 목적으로 명사화한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-는 동안에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/7/practice/sourceKo` — “버스를 기다리는 동안에 책을 읽었어요.”. 독서가 버스 대기 시간과 겹친다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-은 적이 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/9/practice/sourceKo` — “공연에서 노래한 적이 있어요.”. 공연 가창 경험이 있음을 밝히며 횟수와 현재 상태는 정하지 않는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP06 / G2:-다가1(1) / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp06.json/tasks/12/practice/sourceKo` — “책을 읽다가 잠이 들었어요.”. 후속 문장이 책을 다 못 읽었다고 확인해 중단과 전환을 뒷받침한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-게2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/1/practice/sourceKo` — “뒤에서도 들을 수 있게 크게 말해 주세요.”. 뒷사람도 듣도록 하는 목적이 큰 소리 요청과 연결된다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-기 때문에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/2/practice/sourceKo` — “길이 막히기 때문에 버스가 늦어요.”. 교통 정체를 지연 원인으로 제시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-기로 하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/3/practice/sourceKo` — “우리는 토요일에 만나기로 했어요.”. 우리가 함께 정한 만남의 결정이며 이미 만난 완료 사실은 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-을 수밖에 없다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/5/practice/sourceKo` — “막차가 끊겼고 택시도 없어서 걸어갈 수밖에 없어요.”. 두 이동 대안의 부재가 걷기 외 선택지가 없음을 뒷받침한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-을까 보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/8/practice/sourceKo` — “이번에는 기차를 탈까 봐요.”. 앞문장의 미결정과 결합해 잠정 의향이며 우려나 확정 계획이 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G2:-게 되다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/9/practice/sourceKo` — “공사 때문에 다른 교실에서 공부하게 됐어요.”. 외부 공사로 생긴 변화이며 자발적인 선택을 덧붙이지 않는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G1:-고4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/10/practice/sourceKo` — “할 일도 많고요.”. 시간이 없다는 말에 할 일도 많다는 설명을 문장 끝 고요로 추가한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP07 / G1:-지만 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp07.json/tasks/12/practice/sourceKo` — “가고 싶지만 오늘은 시간이 없어요.”. 가고 싶은 희망과 실제 시간 부족을 대조한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:-음 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/0/practice/sourceKo` — “오늘 오후 수업 없음.”. 공지에서 없다를 명사형 없음으로 마무리한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:에게로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/2/practice/sourceKo` — “아이가 안내원에게로 갔어요.”. 안내원은 이동의 사람 목적지이며 출발점이 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:에게서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/3/practice/sourceKo` — “유나가 민수에게서 공지를 받았어요.”. 민수는 전달 출처이고 유나는 수신자이며 원저자를 단정하지 않는다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:한테서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/4/practice/sourceKo` — “지수한테서 문자가 왔어.”. 편한 말투로 문자 전달 출처를 지수로 표시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:에다가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/5/practice/sourceKo` — “책상에다가 신청서를 놓으세요.”. 책상 표면을 신청서 놓기 위치로 지정한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:에서부터(서부터) / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/6/practice/sourceKo` — “역에서부터 센터까지 걸었어요.”. 역을 걷기 시작점으로, 센터를 도착점으로 제시한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:-는데2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/9/practice/sourceKo` — “이 공연, 재미있는데요!”. 생각보다 좋다는 앞문장이 발견한 감탄을 뒷받침하며 단순 연결 어미가 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G2:-을 것1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/12/practice/sourceKo` — “신청서는 금요일까지 제출할 것.”. 공지의 지시형 종결로 제출 기한을 명시하며 추측이 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP08 / G1:-고 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/13/practice/sourceKo` — “직원이 창문을 닫고 있어요.”. 닫는 행위가 진행 중이며 이미 닫힌 결과 상태가 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
+- KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/2/dialog/4/ko` — “단일화하되”. 대외 보상 책임의 단일화는 유지하면서 내부 원인은 각각 추적한다는 제한·병행 조건이다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/3/ko` — “정확히 쓰되”. 의무·처벌의 정확성을 유지하며 수정·도움 요청도 함께 안내하자는 단서다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/27/dialog/3/ko` — “떠넘기기”. 책임 떠넘기기 행위를 명사화해 십상이다의 대상으로 삼는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP26 / G6:마는 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/11/dialog/1/ko` — “부분은 있지만”. 대조 의미가 있어도 지만은 마는과 다른 형식이므로 정확한 문법 용례로 세지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP27 / G6:-을망정 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/26/dialog/5/ko` — “남아 있었기에 망정이지”. 다행이라는 기에 망정이지 구성이다. 불리함을 감수하는 을망정 구성과 구별한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP27 / G4:-더라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/20/dialog/4/ko` — “길다고 치더라도”. 기다림이 길다고 가정하더라도 기대가 사라지는 것은 아니라는 양보이다. 다고 치다 안에 실현된 더라도만 인정한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP27 / G6:-으려도 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/0/ko` — “허위 신청을 줄이려면”. 줄이려면은 목표 달성의 조건이며 시도에도 불구한 장애를 뜻하는 으려도가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP29 / G6:-으리라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/0/dialog/5/ko` — “기준이 필요하겠군요”. 겠군요로 결론을 받아들이는 발화이며 문어 예측·의지 으리라가 나오지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP30 / G6:-네1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 해체 대화에서 뒤늦게 깨닫는 네이다. 하게체 종결 네1을 재사용한 근거가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP30 / G2:-네 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 친한 공동 대표 대화에서 상대의 말을 듣고 자신의 누락을 새로 깨닫는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP30 / G1:-으시- / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/14/dialog/0/ko` — “찬성하십니까?”. 설문 청자를 찬성하다의 주어로 높이는 시가 격식 질문에 결합했다. 설문 평가 전제의 타당성을 인정하는 것은 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.

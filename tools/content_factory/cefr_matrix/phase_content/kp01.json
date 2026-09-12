@@ -595,7 +595,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "과/와",
@@ -614,7 +614,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "책___ 공책이에요.",
+        "sourceKo": "교실 준비물 안내: 책과 공책이에요.\n읽은 내용을 완성하세요: 책___ 공책이에요.",
         "questions": [
           {
             "id": "answer",
@@ -648,7 +648,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "의자___ 책상이에요.",
+        "sourceKo": "민수: 교실에 무엇이 있어요?\n유나: 의자___ 책상이에요.",
         "questions": [
           {
             "id": "answer",
@@ -692,7 +692,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이랑/랑",
@@ -711,7 +711,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "동생___ 가요.",
+        "sourceKo": "민수: 누구랑 가요?\n유나: 동생이랑 가요.\n읽은 내용을 완성하세요: 동생___ 가요.",
         "questions": [
           {
             "id": "answer",
@@ -745,7 +745,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "친구___ 가요.",
+        "sourceKo": "지수: 혼자 가요?\n미나: 아니요. 친구___ 가요.",
         "questions": [
           {
             "id": "answer",
@@ -886,7 +886,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-아/어요",
@@ -905,7 +905,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "좋다 → 일상적인 공손한 말끝",
+        "sourceKo": "민수: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 동료에게 공손하게 답해요. 좋다 →",
         "questions": [
           {
             "id": "answer",
@@ -939,7 +939,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "먹다 → 일상적인 공손한 말끝",
+        "sourceKo": "처음 만난 동료: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n먹다를 일상적인 공손한 말끝으로 바꾸세요.",
         "questions": [
           {
             "id": "answer",
@@ -1080,7 +1080,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-습니까/ㅂ니까",
@@ -1099,7 +1099,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "가다 → 격식을 갖춘 질문",
+        "sourceKo": "격식 있는 교실 대화\n교사: 학교에 갑니까?\n학생: 네, 갑니다.\n가다를 격식을 갖춘 질문으로 바꾸세요.",
         "questions": [
           {
             "id": "answer",
@@ -1133,7 +1133,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "먹다 → 격식을 갖춘 질문",
+        "sourceKo": "격식 있는 식사 확인\n담당자: 아침에 밥을 ___\n학생: 네, 먹습니다.\n먹다를 격식을 갖춘 질문으로 바꾸세요.",
         "questions": [
           {
             "id": "answer",
@@ -2431,7 +2431,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "첫 만남에서 다시 묻고 확인하기",
@@ -2448,7 +2448,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사이에요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",

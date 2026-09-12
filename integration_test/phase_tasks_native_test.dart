@@ -374,6 +374,7 @@ void main() {
             voice: 'female',
           ).timeout(const Duration(minutes: 5));
           expect(played, isTrue, reason: '${task.id}: ${TtsService.lastError}');
+          completedAudioPackets++;
           debugPrint(
             'PHASE_AUDIO_COMPLETED ${task.id} ${packet == task.assessment ? 'assessment' : 'practice'}',
           );

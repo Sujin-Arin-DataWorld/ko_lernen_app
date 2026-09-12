@@ -72,7 +72,7 @@
       "objectiveId": "KP01:objective:grammar/G1:과:R",
       "taskId": "KP01:grammar:07",
       "sourceHash": "a7559907e18a7e3461ebbd9f30f605a8063a1e211b5786a67baffcecc3c7c94f",
-      "taskHash": "77f3018cd78598fac54620c998bceb1599da38148e576f43a7d810c0d7d5c65e",
+      "taskHash": "99a2c209f53dd63c17f739ef39bec7131a345ea1eb5e1efd4a88e14785efd9a9",
       "criterionIds": [
         "answer"
       ],
@@ -83,7 +83,7 @@
       "objectiveId": "KP01:objective:grammar/G1:이랑:R",
       "taskId": "KP01:grammar:08",
       "sourceHash": "67df1ce323bb53e5e9822bc691ef44a187c7aa9492d6e362c280733de13ced2f",
-      "taskHash": "8217f516c972a215a107d9864a8295ac8c927e19a2c2fca18bfecd3345e37a69",
+      "taskHash": "87a31a1c052ade4ddb32fbce3054bcb280922de58c43d00a2344c6613cd62c6c",
       "criterionIds": [
         "answer"
       ],
@@ -105,7 +105,7 @@
       "objectiveId": "KP01:objective:grammar/G1:-어2:R",
       "taskId": "KP01:grammar:10",
       "sourceHash": "4eae6d2e498489d809908c9c708bc7f8678dbbe487364781107d43fc58eb1d44",
-      "taskHash": "a8445256efb27bd13fb2b616e6e71a62786096e828ab2c21fe49ec636c240fbe",
+      "taskHash": "df7a5098f1cecd7348fa3945373407ec0904f1c7ed390c611942b2e2a1b92b88",
       "criterionIds": [
         "answer"
       ],
@@ -127,7 +127,7 @@
       "objectiveId": "KP01:objective:grammar/G1:-습니까:R",
       "taskId": "KP01:grammar:12",
       "sourceHash": "0814308c8bb258df516e78a957bc7de33575e991bb5e508a548828403ab6aa9e",
-      "taskHash": "fb2c5bba5c87bb23089d8a180aab23c5e3f0892f1820bb09e50b50042bf766df",
+      "taskHash": "255727c5093a0a5de059ae2192ca2e86b5224b12136c3361bb5378604844e6da",
       "criterionIds": [
         "answer"
       ],
@@ -2266,7 +2266,7 @@
       "objectiveId": "KP01:objective:listening/genre/dialogue_face_to_face:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "11bb85b088f49dc281f45f13fc76cd51e1e1bbd7e91cb153e153b46dc97113c4",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2317,7 +2317,7 @@
       "objectiveId": "KP01:objective:functions/greet_introduce_self:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2342,7 +2342,7 @@
       "objectiveId": "KP01:objective:functions/ask_give_personal_information:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2367,7 +2367,7 @@
       "objectiveId": "KP01:objective:functions/ask_for_information_confirm:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2392,7 +2392,7 @@
       "objectiveId": "KP01:objective:functions/thank_apologise_respond:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2417,7 +2417,7 @@
       "objectiveId": "KP01:objective:functions/clarify_repair_ask_to_repeat:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2442,7 +2442,7 @@
       "objectiveId": "KP01:objective:vocabDomains/family_kinship_address_terms:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2467,7 +2467,7 @@
       "objectiveId": "KP01:objective:vocabDomains/professions_workplace:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2514,7 +2514,7 @@
       "objectiveId": "KP01:objective:vocabDomains/etiquette_honorific_lexis:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2539,7 +2539,7 @@
       "objectiveId": "KP01:objective:vocabDomains/fixed_expressions_collocations:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2585,7 +2585,7 @@
       "objectiveId": "KP01:objective:phonology/1:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
-      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
       "criterionIds": [
         "repair",
         "relationship",

@@ -9,7 +9,8 @@ def kp01():
         'Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.',
         'Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort.')
     def dialogue(name, sibling, job, room):
-        return packet(f'학생: 안녕하세요. 저는 {name}예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. {name}예요.\n동료: 네, {name} 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 {sibling}이에요. 직업은 {job}이에요.\n동료: 한국어 수업은 어디예요?\n학생: {room}호예요.\n동료: {room}호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.', [
+        job_copula = "이에요" if (ord(job[-1]) - 0xAC00) % 28 else "예요"
+        return packet(f'학생: 안녕하세요. 저는 {name}예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. {name}예요.\n동료: 네, {name} 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 {sibling}이에요. 직업은 {job}{job_copula}.\n동료: 한국어 수업은 어디예요?\n학생: {room}호예요.\n동료: {room}호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.', [
             choice('repair', loc('동료가 다시 물은 것은?', 'What did the classmate ask to hear again?', 'Was wollte die andere Person noch einmal hören?'), ['이름', '직업'], teaching),
             choice('relationship', loc('소개한 가족은 누구예요?', 'Which relative was introduced?', 'Welches Familienmitglied wurde vorgestellt?'), [sibling, '부모님'], teaching),
             choice('job', loc('가족의 직업은?', 'What is the relative’s job?', 'Welchen Beruf hat das Familienmitglied?'), [job, '학생'], teaching),
