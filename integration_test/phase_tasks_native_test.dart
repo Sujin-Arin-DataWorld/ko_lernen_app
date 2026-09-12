@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -12,6 +13,7 @@ import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'support/phase_native_configuration.dart';
 
 /// Run on a dedicated QA emulator/device. Uses real preferences and plugins;
 /// initializes Firebase only for PHASE_NATIVE_TTS and does not certify the
@@ -21,13 +23,22 @@ import 'package:ko_lernen_app/theme.dart';
 /// Emulator PCM delivery proves plugin operation, not physical microphone quality.
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  const restoreOnly = bool.fromEnvironment('PHASE_NATIVE_RESTORE_ONLY');
-  const qaLevel = String.fromEnvironment(
-    'PHASE_NATIVE_LEVEL',
-    defaultValue: 'A1',
+  final configuration = PhaseNativeConfiguration.fromRoute(
+    // TestWidgetsFlutterBinding replaces its dispatcher route with '/'. Read
+    // the engine route so a reused QA binary honours the actual launch mode.
+    ui.PlatformDispatcher.instance.defaultRouteName,
+    defaultLevel: const String.fromEnvironment(
+      'PHASE_NATIVE_LEVEL',
+      defaultValue: 'A1',
+    ),
+    defaultRestoreOnly: const bool.fromEnvironment('PHASE_NATIVE_RESTORE_ONLY'),
   );
+  final restoreOnly = configuration.restoreOnly;
+  final qaLevel = configuration.level;
+  debugPrint('PHASE_NATIVE_CONFIGURATION $qaLevel restore=$restoreOnly');
 
   Widget host(PhaseTaskRoute route) => MaterialApp(
+    initialRoute: '/',
     theme: AppTheme.dark,
     locale: const Locale('en'),
     localizationsDelegates: AppL10n.localizationsDelegates,
@@ -335,10 +346,7 @@ void main() {
         options: DefaultFirebaseOptions.currentPlatform,
       );
       final catalog = await PhaseTaskCatalog.load();
-      const level = String.fromEnvironment(
-        'PHASE_NATIVE_LEVEL',
-        defaultValue: 'A1',
-      );
+      final level = qaLevel;
       final listening = catalog.tasks
           .where((t) => t.skill == 'listening' && t.level == level)
           .toList();
@@ -361,7 +369,7 @@ void main() {
         }
       }
     },
-    skip: !const bool.fromEnvironment('PHASE_NATIVE_TTS'),
+    skip: restoreOnly || !const bool.fromEnvironment('PHASE_NATIVE_TTS'),
     timeout: const Timeout(Duration(minutes: 15)),
   );
 }
