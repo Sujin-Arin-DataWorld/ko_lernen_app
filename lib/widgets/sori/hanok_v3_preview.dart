@@ -7,9 +7,14 @@ const String kIlDuV3PreviewAsset =
     'assets/illustrations/hanok/ildu_v3_preview.png';
 
 class HanokV3Preview extends StatelessWidget {
-  const HanokV3Preview({super.key, required this.message});
+  const HanokV3Preview({
+    super.key,
+    required this.message,
+    this.fit = BoxFit.contain,
+  });
 
   final String message;
+  final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class HanokV3Preview extends StatelessWidget {
       asset: kIlDuV3PreviewAsset,
       message: message,
       alignment: Alignment.center,
-      assetFit: BoxFit.contain,
+      assetFit: fit,
       backdropColor: surfaces.surfaceAlt,
     );
   }

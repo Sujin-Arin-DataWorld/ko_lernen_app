@@ -1078,7 +1078,10 @@ class _HanokProgress extends StatelessWidget {
             ),
             child: AspectRatio(
               aspectRatio: 16 / 5,
-              child: HanokV3Preview(message: t.soriStageHanokUpdating),
+              child: HanokV3Preview(
+                message: t.soriStageHanokUpdating,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
