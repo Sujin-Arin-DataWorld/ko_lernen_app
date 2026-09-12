@@ -1653,8 +1653,35 @@
         "c2_06_fandom_discourse_power"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp29.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP29:grammar:01",
+        "KP29:grammar:02",
+        "KP29:grammar:03",
+        "KP29:grammar:04",
+        "KP29:grammar:05",
+        "KP29:grammar:06",
+        "KP29:grammar:07",
+        "KP29:grammar:08",
+        "KP29:grammar:09",
+        "KP29:grammar:10",
+        "KP29:production:01",
+        "KP29:production:02",
+        "KP29:production:03",
+        "KP29:production:04",
+        "KP29:production:05",
+        "KP29:production:06",
+        "KP29:production:07",
+        "KP29:production:08",
+        "KP29:production:09",
+        "KP29:production:10",
+        "KP29:listening:01",
+        "KP29:listening:02",
+        "KP29:reading:01",
+        "KP29:reading:02",
+        "KP29:writing:01",
+        "KP29:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP30",
@@ -1683,5 +1710,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "9f5bdb44630031d636dbd6e1f112044984d2d4a850521b74435980df68977b14"
+  "phaseTaskSourceSha256": "acd92251ea9817b1fada6c6ddc0ac9135ed49eb332b24a439c004d3df634c4f0"
 }

@@ -18258,6 +18258,680 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라고1 neutral author/host label quotation, no dismissive context; temporary conclusion/review note not upgraded to final approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:listening/core:R",
+      "taskId": "KP29:listening:01",
+      "sourceHash": "e40a7f8650106848b8bb79cf338d67a82b295c7641b80d44f36df22d271ce2e4",
+      "taskHash": "54ba060b180f76124288339b1c5f2a86de60ec1ab64866b15f48ae48ec554f6c",
+      "criterionIds": [
+        "self",
+        "rhetoric",
+        "quotation",
+        "forecast",
+        "declarative",
+        "reproach"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original monologue plus separately marked mutuallycasualadultpeerplay. Practice uncertain materiallocation/charactertruthbelief/leavingbeforepossiblearrival; assessment uncertainownwords/recordpreservationbelief/bookclosingbeforepossibleunderstanding. Future result unknown, rhetoricalselfquestion notlistenerduty, raredeclarative notorder, reproach establishedbyfollowup and repairedtoaction. Six required speaker/polarity/quotation/forecast/declarative/contextcriteria. Actual vocalemotion notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:listening/additional/1:R",
+      "taskId": "KP29:listening:02",
+      "sourceHash": "2060268be9d647b109a968e6f626d37e7e63ba954f75b4103d05967cad839c87",
+      "taskHash": "e775e79333c7422f49619cb0732317d380ea7303bcce9900449d098c39d4b16b",
+      "criterionIds": [
+        "response",
+        "method",
+        "withholding",
+        "structure"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture12-3=9 versus16-4=12testmarkers, not languagefrequency/accuracy. Initialproblemposing rhetoricalquestion vsactualsourcecheck answeredbyaudience, matched arrival/leaving versusunderstanding/bookclosing sources. Opposingconfidence/distance readings havegrounds but audienceeffect unmeasured; withholding notignorance/totaldenial. Four required response/method/reservation/structurecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:reading/core:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "3e9be216beb004ac97e0a8e1abc0c7d4cbf34ab0736c844386fbab439da03cf3",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:reading/additional/1:R",
+      "taskId": "KP29:reading:01",
+      "sourceHash": "e360df2776928c9f7e9a46737a192e1b26090a8c835b8ec1d2b3eb5f33ff1ccc",
+      "taskHash": "ba9027c081451cb4ed0e3204057137a022f6c1d1106dc5156bf612326090243e",
+      "criterionIds": [
+        "dictionary",
+        "function",
+        "modern",
+        "position",
+        "distribution"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original fiction plus shortparaphrases of directlyfetched NIKLKoreanBasicDictionary79283,79275,80851 withexactURLs. Basicfunction vscontext, spoken selftalk note preventsliterature-only inference, 으니 question notalwaysreproach, 라2 archaicdeclarative vsimperative. No borrowed dictionaryexamples. Five required dictionary/function/modern/paraphrase/distributioncriteria, noall-modern-use claim. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:reading/genre/literary_text:R",
+      "taskId": "KP29:reading:01",
+      "sourceHash": "08184e033a557059d3d67b94d5bfd26a8da659dd7603c61bf57367217d499c2a",
+      "taskHash": "ba9027c081451cb4ed0e3204057137a022f6c1d1106dc5156bf612326090243e",
+      "criterionIds": [
+        "dictionary",
+        "function",
+        "modern",
+        "position",
+        "distribution"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original fiction plus shortparaphrases of directlyfetched NIKLKoreanBasicDictionary79283,79275,80851 withexactURLs. Basicfunction vscontext, spoken selftalk note preventsliterature-only inference, 으니 question notalwaysreproach, 라2 archaicdeclarative vsimperative. No borrowed dictionaryexamples. Five required dictionary/function/modern/paraphrase/distributioncriteria, noall-modern-use claim. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:reading/genre/academic_specialised_text:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "b2b844795f4ec4a172a9e34ab9f57a45d5d9dbb23debd5832899b94326b4fb0c",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:speaking/core:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "e66515cdb93e834ae228fc64952f4f2bacdd5c03f2962b72cbf893d8de862eaf",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:speaking/additional/1:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "6f1b2e0a3d5bbfe1f5b7af46a9c0b0ed372190e27c91d50770c0a2773b0b391d",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:writing/core:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "6806c282db0162828e162d4b11d9011e1324e8fe8ddb8740a14c59077f28679a",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:writing/additional/1:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "4d9692011be57195d9f2d08d7359fbc5202739a7c4df539e01f47c5c80da51a5",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:writing/genre/academic_specialised_text:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "5fee5d6874b038d77b911f3a1857bd094292477333520dcf056644e302369f1d",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "5e66c95dec2e77e06b61a048d88d6224933701eb0f4cf2e4cc7b05f39d2694a2",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "1810c0cfe3dc4e874ad205c4b192e9b75e28bd800c2eb398eb1c3dc043b24dc5",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "1810c0cfe3dc4e874ad205c4b192e9b75e28bd800c2eb398eb1c3dc043b24dc5",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/express_certainty_doubt_hedging:R",
+      "taskId": "KP29:listening:02",
+      "sourceHash": "dbd16da7ecf21b91288ba7201e49d018c9de488d1afa3ad1840f259d420d2260",
+      "taskHash": "e775e79333c7422f49619cb0732317d380ea7303bcce9900449d098c39d4b16b",
+      "criterionIds": [
+        "response",
+        "method",
+        "withholding",
+        "structure"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture12-3=9 versus16-4=12testmarkers, not languagefrequency/accuracy. Initialproblemposing rhetoricalquestion vsactualsourcecheck answeredbyaudience, matched arrival/leaving versusunderstanding/bookclosing sources. Opposingconfidence/distance readings havegrounds but audienceeffect unmeasured; withholding notignorance/totaldenial. Four required response/method/reservation/structurecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/express_certainty_doubt_hedging:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "dbd16da7ecf21b91288ba7201e49d018c9de488d1afa3ad1840f259d420d2260",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/persuade_argue_justify:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "caf9fc672278949e097e61c4ba6c9502e3d62dd0a6643418e510c362f7d45f13",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/persuade_argue_justify:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "caf9fc672278949e097e61c4ba6c9502e3d62dd0a6643418e510c362f7d45f13",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "b00fd4766662ad76835cc6a0558f9ddd16ccc07202c21a84ed8fa2c2adc2c2ac",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "b00fd4766662ad76835cc6a0558f9ddd16ccc07202c21a84ed8fa2c2adc2c2ac",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/arts_history_memory_lexis:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "d4010d6c5a26d8dc3a64ab1a7b9bb3bba186ff43acff0b76219cf4d6719bb8fc",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/arts_history_memory_lexis:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "d4010d6c5a26d8dc3a64ab1a7b9bb3bba186ff43acff0b76219cf4d6719bb8fc",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "75062400684cac857b9d082e0c181942002e2225296f5ba77e1d0146bff4ce04",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "75062400684cac857b9d082e0c181942002e2225296f5ba77e1d0146bff4ce04",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP29:reading:01",
+      "sourceHash": "20f5caa00fabb43639bc5c82de4b7b6a37739616be0636caedf9c6dd9b68cf48",
+      "taskHash": "ba9027c081451cb4ed0e3204057137a022f6c1d1106dc5156bf612326090243e",
+      "criterionIds": [
+        "dictionary",
+        "function",
+        "modern",
+        "position",
+        "distribution"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original fiction plus shortparaphrases of directlyfetched NIKLKoreanBasicDictionary79283,79275,80851 withexactURLs. Basicfunction vscontext, spoken selftalk note preventsliterature-only inference, 으니 question notalwaysreproach, 라2 archaicdeclarative vsimperative. No borrowed dictionaryexamples. Five required dictionary/function/modern/paraphrase/distributioncriteria, noall-modern-use claim. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "20f5caa00fabb43639bc5c82de4b7b6a37739616be0636caedf9c6dd9b68cf48",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP29:reading:02",
+      "sourceHash": "e503568af236de445bcde91683997a92c06a5b7e2d19d3a1996eb5a0e367270c",
+      "taskHash": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "criterionIds": [
+        "criteria",
+        "counter",
+        "source",
+        "audience",
+        "limits"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "e503568af236de445bcde91683997a92c06a5b7e2d19d3a1996eb5a0e367270c",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:phonology/0:R",
+      "taskId": "KP29:listening:01",
+      "sourceHash": "936b4b01cca13e48c7320adae1aabd441dd243b32ce25ada9e3650245ab5253b",
+      "taskHash": "54ba060b180f76124288339b1c5f2a86de60ec1ab64866b15f48ae48ec554f6c",
+      "criterionIds": [
+        "self",
+        "rhetoric",
+        "quotation",
+        "forecast",
+        "declarative",
+        "reproach"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original monologue plus separately marked mutuallycasualadultpeerplay. Practice uncertain materiallocation/charactertruthbelief/leavingbeforepossiblearrival; assessment uncertainownwords/recordpreservationbelief/bookclosingbeforepossibleunderstanding. Future result unknown, rhetoricalselfquestion notlistenerduty, raredeclarative notorder, reproach establishedbyfollowup and repairedtoaction. Six required speaker/polarity/quotation/forecast/declarative/contextcriteria. Actual vocalemotion notcertified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:phonology/0:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "936b4b01cca13e48c7320adae1aabd441dd243b32ce25ada9e3650245ab5253b",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:phonology/1:R",
+      "taskId": "KP29:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "e775e79333c7422f49619cb0732317d380ea7303bcce9900449d098c39d4b16b",
+      "criterionIds": [
+        "response",
+        "method",
+        "withholding",
+        "structure"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate academiclecture12-3=9 versus16-4=12testmarkers, not languagefrequency/accuracy. Initialproblemposing rhetoricalquestion vsactualsourcecheck answeredbyaudience, matched arrival/leaving versusunderstanding/bookclosing sources. Opposingconfidence/distance readings havegrounds but audienceeffect unmeasured; withholding notignorance/totaldenial. Four required response/method/reservation/structurecriteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:phonology/1:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:register/written_plain_haeche:P",
+      "taskId": "KP29:writing:01",
+      "sourceHash": "ab2c85e5b94e3ffda84d6af9f66d4fb1e3d237aa3de0359b4ed1dd6e4fe207ea",
+      "taskHash": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "criterionIds": [
+        "specialist",
+        "rhetorical",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "ab2c85e5b94e3ffda84d6af9f66d4fb1e3d237aa3de0359b4ed1dd6e4fe207ea",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:register/haeyo_polite:P",
+      "taskId": "KP29:speaking:01",
+      "sourceHash": "ab2c85e5b94e3ffda84d6af9f66d4fb1e3d237aa3de0359b4ed1dd6e4fe207ea",
+      "taskHash": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라:R",
+      "taskId": "KP29:grammar:01",
+      "sourceHash": "546b2d67be1d909e14edfbed72d7f6889b47b9e593b619ddb5db8df4ff2b08bb",
+      "taskHash": "e4212a70ce940f2bfbc1b85e8dd51db08029da11ba146afb8accec6d934fcba7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으리라 speaker futureexpectation/selfresolve, not accomplished verification or command to others. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리오:R",
+      "taskId": "KP29:grammar:02",
+      "sourceHash": "b4e42cbd852e31f2cd5df2e9e0ef69fcc428a74a6475793e119d21ce65f0c61d",
+      "taskHash": "747f0b7d8e87d3be2ff48a4ad529387d0e7b6b49ddbaf7e667a5eb0f3ae3a922",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으리오 explicitly selfdirected rhetorical difficultknowing versus cannot-not-know; polarity respected, not name-list request. Dictionary79283 permits spoken selftalk, not literature-only. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으련마는:R",
+      "taskId": "KP29:grammar:03",
+      "sourceHash": "ef8a05f3d8dcbd413d42d2dc7a9f49c2a1d253d4c60ab3e66784d5fb5b68965e",
+      "taskHash": "d015ad16c79172365fc6d4a7df45bc4cbb0643b4ceaaff94d2527e342fd0df8a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으련마는 plausible arrival/understanding contrasted with actual leaving/bookclosing; expectedresult remainsunknown. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라고:R",
+      "taskId": "KP29:grammar:04",
+      "sourceHash": "cc6216ce21c9c3aca02a2898c591768855c28c36f02f6556cec31f7f42e4df91",
+      "taskHash": "1501a6109726ba1d73efcd023ad7e585cd00b0a9572c72c082fce8e2bbd8b8a1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으리라고 character futurebelief/report, narrator notguarantor; unconfirmed discovery/preservation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라는:R",
+      "taskId": "KP29:grammar:05",
+      "sourceHash": "169797bc564c1ff3d8cf58bc647c6790093d3c0efa17d95322fe2d9f9dbbc3a9",
+      "taskHash": "3e7c2f92a8fc7de42ecae7d905e83062eae5f6f76eff2c88e0e457e74ff266bf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으리라는 quoted forecast modifies unsupported expectation/unverified unanimous-assent assumption, not truth endorsement. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-던가2:R",
+      "taskId": "KP29:grammar:06",
+      "sourceHash": "babf2e50ff283e2753b331712055ae2f7f79a22e8d077715105b949f24c3e8ad",
+      "taskHash": "347575fab82f5a60dbd47249e47a1ee33d459e182703bb56ba7321ff4bef5ee7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 던가2 explicit selfmemory search location/utterance, no listenerduty or inference noevent occurred. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-는가2:R",
+      "taskId": "KP29:grammar:07",
+      "sourceHash": "2ffe262d29a938886f843af4ad337fbd9b58b9c018e7406bf44440796e1dd0ff",
+      "taskHash": "dc638c4dcafbdad0b036b031207d1b9d47ac3148c96ffe2fd0b6908e1c88ad04",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는가2 rhetorical problem of sufficientgrounds/judgementcriteria with following argument; no general everyquestion-is-rhetorical claim. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-라2:R",
+      "taskId": "KP29:grammar:08",
+      "sourceHash": "3bf53dd4ac5b54219ce29e35f5558880cff0e784663d5e688ed21e68a8b7c7e1",
+      "taskHash": "42a25cc5e03ed01d60b144297a2bdac213b6104009b221e4b3e9bcdbcc1e1e4a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 라2 archaicdeclarative past/pending fact, not same-spelled imperative. Officialdictionary79275 checked. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으니4:R",
+      "taskId": "KP29:grammar:09",
+      "sourceHash": "6571c0bf78314ab8f46fdae3df25428d31971a4360236476666dfa4020706ff5",
+      "taskHash": "722418fe7c06f0b961c9ab5205a83665ed77e1c60832fbc89d81bb9add7745ce",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으니4 officialdictionary80851 basic familiarquestion, thisfictionalpeerplay explicitlymarks behavioralreproach in followup. No fixeddiagnosis/blame meaning or recommendation to peers. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G5:-는 듯하다:R",
+      "taskId": "KP29:grammar:10",
+      "sourceHash": "79c7b809529765beb9d3f26af9f7fe3a1aa9c8aee3e31cdaa86dd0b116177d8d",
+      "taskHash": "f4b3c604a19c632c26f445997b9197d20f9c6d91c8a83bca02040c0d2e199520",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 듯하다 sourcecue-based tentativeinterpretation with alternatives, not complete negation or uniqueprovenreading. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라:P",
+      "taskId": "KP29:production:01",
+      "sourceHash": "546b2d67be1d909e14edfbed72d7f6889b47b9e593b619ddb5db8df4ff2b08bb",
+      "taskHash": "cda4ab64b8433bf80f75808a92c5b42f69e0496f9b028c30a206180718da1dfa",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으리라 speaker futureexpectation/selfresolve, not accomplished verification or command to others. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리오:P",
+      "taskId": "KP29:production:02",
+      "sourceHash": "b4e42cbd852e31f2cd5df2e9e0ef69fcc428a74a6475793e119d21ce65f0c61d",
+      "taskHash": "69ba857415c9491d4e6a45289c5688b658bbd3a823926cb0d2eb072535017019",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으리오 explicitly selfdirected rhetorical difficultknowing versus cannot-not-know; polarity respected, not name-list request. Dictionary79283 permits spoken selftalk, not literature-only. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으련마는:P",
+      "taskId": "KP29:production:03",
+      "sourceHash": "ef8a05f3d8dcbd413d42d2dc7a9f49c2a1d253d4c60ab3e66784d5fb5b68965e",
+      "taskHash": "11f5c10c119e39ec850249b23cdc48ea463dd58d54e660c672048066580878e9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으련마는 plausible arrival/understanding contrasted with actual leaving/bookclosing; expectedresult remainsunknown. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라고:P",
+      "taskId": "KP29:production:04",
+      "sourceHash": "cc6216ce21c9c3aca02a2898c591768855c28c36f02f6556cec31f7f42e4df91",
+      "taskHash": "284b879d5eff7fe194b45e42b8cbf9abe8f2e62c961ea8bf3d0e5e1b2cbe7220",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으리라고 character futurebelief/report, narrator notguarantor; unconfirmed discovery/preservation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으리라는:P",
+      "taskId": "KP29:production:05",
+      "sourceHash": "169797bc564c1ff3d8cf58bc647c6790093d3c0efa17d95322fe2d9f9dbbc3a9",
+      "taskHash": "a215c593e477af82ff48dffff00e8ed6cb6634bf0c0473a5d7630be3690e2b9f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으리라는 quoted forecast modifies unsupported expectation/unverified unanimous-assent assumption, not truth endorsement. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-던가2:P",
+      "taskId": "KP29:production:06",
+      "sourceHash": "babf2e50ff283e2753b331712055ae2f7f79a22e8d077715105b949f24c3e8ad",
+      "taskHash": "4641a8f0359a65e582158fb95142d542001b0471d6084138571e8d296a4269e8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 던가2 explicit selfmemory search location/utterance, no listenerduty or inference noevent occurred. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-는가2:P",
+      "taskId": "KP29:production:07",
+      "sourceHash": "2ffe262d29a938886f843af4ad337fbd9b58b9c018e7406bf44440796e1dd0ff",
+      "taskHash": "d2e18dd5c25504ca1ba5e127ac70d81af55e0c31129589cd8d219a6b6ec22994",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는가2 rhetorical problem of sufficientgrounds/judgementcriteria with following argument; no general everyquestion-is-rhetorical claim. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-라2:P",
+      "taskId": "KP29:production:08",
+      "sourceHash": "3bf53dd4ac5b54219ce29e35f5558880cff0e784663d5e688ed21e68a8b7c7e1",
+      "taskHash": "213e961c4da3a23fea32b54d385440f57be79d4abbb655f396bde3f2f8f64cbc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 라2 archaicdeclarative past/pending fact, not same-spelled imperative. Officialdictionary79275 checked. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G6:-으니4:P",
+      "taskId": "KP29:production:09",
+      "sourceHash": "6571c0bf78314ab8f46fdae3df25428d31971a4360236476666dfa4020706ff5",
+      "taskHash": "09f219a6480f417efff7e7d04e4dc6cb008a3d26a0eaa3f6c58c8fe6556a0b17",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으니4 officialdictionary80851 basic familiarquestion, thisfictionalpeerplay explicitlymarks behavioralreproach in followup. No fixeddiagnosis/blame meaning or recommendation to peers. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP29:objective:grammar/G5:-는 듯하다:P",
+      "taskId": "KP29:production:10",
+      "sourceHash": "79c7b809529765beb9d3f26af9f7fe3a1aa9c8aee3e31cdaa86dd0b116177d8d",
+      "taskHash": "8cc69072cb1ef2a278bfb48efba7052429e46e3beda4f13bd6624058b4191568",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 듯하다 sourcecue-based tentativeinterpretation with alternatives, not complete negation or uniqueprovenreading. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

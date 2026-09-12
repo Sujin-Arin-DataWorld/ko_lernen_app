@@ -338,16 +338,16 @@
 | KP28 | G6:-던2 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:-으래서야 | 1 | 0 | 0 | 미검증 |
 | KP28 | G3:이라고1 | 1 | 0 | 0 | 미검증 |
-| KP29 | G6:-으리라 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-으리오 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-으련마는 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-으리라고 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-으리라는 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-던가2 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-는가2 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-라2 | 0 | 0 | 0 | 미검증 |
-| KP29 | G6:-으니4 | 0 | 0 | 0 | 미검증 |
-| KP29 | G5:-는 듯하다 | 0 | 0 | 0 | 미검증 |
+| KP29 | G6:-으리라 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으리오 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으련마는 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으리라고 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으리라는 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-던가2 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-는가2 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-라2 | 1 | 0 | 0 | 미검증 |
+| KP29 | G6:-으니4 | 1 | 0 | 0 | 미검증 |
+| KP29 | G5:-는 듯하다 | 1 | 0 | 0 | 미검증 |
 | KP30 | G6:-거들랑1 | 0 | 0 | 0 | 미검증 |
 | KP30 | G6:-거들랑2 | 0 | 0 | 0 | 미검증 |
 | KP30 | G6:-네1 | 0 | 0 | 0 | 미검증 |
@@ -689,3 +689,13 @@
 - KP28 / G6:-던2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/8/practice/sourceKo` — “[반말에 합의한 친구] 그 사람이 어제 뭐라고 하던?”. 상대가 들은 과거 발언을 친밀한 종결 질문으로 되묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP28 / G6:-으래서야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/9/practice/sourceKo` — “확인할 시간도 없이 결정하래서야 되겠습니까?”. 전달된 무시간 결정 요구의 타당성을 반문한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP28 / G3:이라고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/10/practice/sourceKo` — “작성자는 이를 잠정 결론이라고 불렀다. 그 명칭을 그대로 옮긴다.”. 평가 아닌 명칭 인용이며 폄하와 동일시하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으리라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/0/practice/sourceKo` — “언젠가는 이 차이를 이해하리라. 이것은 화자의 기대다.”. 미래 이해에 관한 화자의 문학적 기대를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으리오 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/1/practice/sourceKo` — “그 마음을 누가 쉽게 알리오. 화자는 쉽게 알 수 없다는 뜻으로 혼잣말했다.”. 쉽게 알기 어려움을 강조하는 혼잣말 반문임을 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으련마는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/2/practice/sourceKo` — “조금만 더 기다리면 소식이 오련마는 그는 자리를 떴다.”. 실현 가능성 예측과 실제 떠남을 대조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으리라고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/3/practice/sourceKo` — “그는 언젠가 진실이 드러나리라고 믿었다. 서술자는 그 믿음을 옮긴다.”. 인물의 미래 믿음을 서술자가 인용한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으리라는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/4/practice/sourceKo` — “문제가 저절로 풀리리라는 기대에는 근거가 없다.”. 예측 명제가 기대를 수식하고 그 근거 부족을 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-던가2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/5/practice/sourceKo` — “[혼잣말] 내가 그 자료를 어디에 두었던가? 아무에게도 답을 요구하지 않았다.”. 자기의 불확실한 기억을 탐색하는 혼잣말이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-는가2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/6/practice/sourceKo` — “과연 그것만으로 충분한가? 이 질문은 근거의 부족을 문제 삼는다.”. 뒤 설명이 충분성에 관한 수사적 문제 제기를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-라2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/7/practice/sourceKo` — “이는 모두 지나간 일이라. 화자는 과거 일이라고 설명했다.”. 옛 말투 평서형으로 과거 사실을 설명한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G6:-으니4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/8/practice/sourceKo` — “[반말에 합의한 성인 친구의 연극 대사] 어쩌면 그렇게 참을성이 없으니? 지금은 네 행동을 나무라는 말이야.”. 기본 질문형이 뒤 설명과 특정 연극 관계에서 나무람을 수행한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP29 / G5:-는 듯하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp29.json/tasks/9/practice/sourceKo` — “이 대목은 앞선 판단을 유보하는 듯하다. 마지막 문장의 단서를 근거로 한 해석이다.”. 제한된 텍스트 단서에 근거해 유보를 잠정 해석한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
