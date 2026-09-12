@@ -1,0 +1,2058 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical_scenario_revision_review_index",
+  "generationId": "canonical_120_v1",
+  "candidateSetSha256": "63dc5ea8743ec7f95fed04c5efb2a32dd2445c310444e87237414c0ced980060",
+  "candidateCount": 120,
+  "countsByLevel": {
+    "a1": 20,
+    "a2": 20,
+    "b1": 20,
+    "b2": 20,
+    "c1": 20,
+    "c2": 20
+  },
+  "requiredReviewer": "Jin",
+  "reviewStatus": "human_gate",
+  "runtimeWriteIncluded": false,
+  "ttsGenerationIncluded": false,
+  "firebaseWriteIncluded": false,
+  "deploymentIncluded": false,
+  "scenarios": [
+    {
+      "scenarioId": "airport_arrival",
+      "level": "a1",
+      "titleKo": "공항에서 첫 인사",
+      "relationship": "처음 만난 입국 담당자와 여행자",
+      "playerGoal": "짧게 대답하고 감사 인사를 한다",
+      "courseUnitId": "a1_01_greetings_hangul",
+      "candidateSha256": "cdd57204e0d1b5ba9043356d75427ec9e8195269645077736d1a183c6f84ba9a",
+      "candidateFileSha256": "2ae403c61785275b0718d51b63fb4083a1de58b1f2249f932125bb0f5b0bc8ff",
+      "briefSha256": "51c85996ff7cc7e597d1313811bec6f6157d7d4ae25748a7bf38afa036b59b01",
+      "mustIncludeKo": [
+        "한국이 처음이에요"
+      ],
+      "mustAvoidKo": [
+        "주소가 어떻게 되세요",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "bakery_payment_bag",
+      "level": "a1",
+      "titleKo": "빵집에서 봉투 묻고 답하기",
+      "relationship": "손님과 직원",
+      "playerGoal": "필요 여부를 짧게 말하고 결제한다",
+      "courseUnitId": "a1_14_payment_delivery",
+      "candidateSha256": "9fa0643e5e5c2ea66b1ed4a4422bc8b642aff1a3596dc3dcd9f584931c88dbf2",
+      "candidateFileSha256": "ab2b7d0f732fdf91d5a6f54b619b7d2f8aa8667ddc502e817f1ec9cc74d3d08d",
+      "briefSha256": "5a42e767480ca2149e36d38875218c1a631483dbb3ccdb67e5e74f9f7bdc6c78",
+      "mustIncludeKo": [
+        "봉투 필요하세요?",
+        "아니요, 괜찮아요"
+      ],
+      "mustAvoidKo": [
+        "자동 결제",
+        "주소",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "bakery_queue",
+      "level": "a1",
+      "titleKo": "빵집에서 줄을 잘못 섰을 때",
+      "relationship": "처음 보는 크리스티안과 수진",
+      "playerGoal": "실수를 알아차리고 짧게 사과한 뒤 뒤로 간다",
+      "courseUnitId": "a1_08_clarify_repair",
+      "candidateSha256": "26910ffaf17b12e5e41e7e22571b5dc9d082f497553d1d22fd4630ddc56b8f63",
+      "candidateFileSha256": "4393519c0f1077e1b71fa9df51df0fb9dde7f39d386d15b4bcd0325d2ad1053b",
+      "briefSha256": "dab09dc678a916b9d8a3faaac9703619e26a085cee264db3fec2a5117134bb12",
+      "mustIncludeKo": [
+        "여기 줄 서 있는데요",
+        "아, 죄송합니다. 줄 서 계신지 몰랐어요"
+      ],
+      "mustAvoidKo": [
+        "대리 수치"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "break_glass_apology",
+      "level": "a1",
+      "titleKo": "실수로 잔을 깨뜨렸을 때",
+      "relationship": "아직 조심스러운 친구 크리스티안과 수진",
+      "playerGoal": "바로 사과하고 다친 사람이 없는지 확인한다",
+      "courseUnitId": "a1_10_health_safety",
+      "candidateSha256": "b6b59f934374fadca46ced198ee98661ec093e6318d84a1c5fef13b9fbe73358",
+      "candidateFileSha256": "00ffe7df0f70914d14add0c6e4f99ad4be80c3ab2d4c4dff6c64dece1fe41d0d",
+      "briefSha256": "b7623df9c4ed9f8c5bee255c7a027666f0714570fa33adc118d94e4b249d9ba9",
+      "mustIncludeKo": [
+        "죄송해요. 잔을 깼어요",
+        "괜찮아요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "bunshik_tteokbokki",
+      "level": "a1",
+      "titleKo": "분식집에서 떡볶이 주문하기",
+      "relationship": "손님과 식당 직원",
+      "playerGoal": "원하는 음식과 맛을 말한다",
+      "courseUnitId": "a1_04_order_request_object",
+      "candidateSha256": "3384b15b17e6ccf8c6d875b03754bf70500dd1952e8700aa8af3a513a0df4e51",
+      "candidateFileSha256": "e138f43151ee9f30074a2c9dd3a44b64093caf2420d2f370751fe2dfd4da92e4",
+      "briefSha256": "88991d851cb6536eb78ad737b6bebc5b90f81c50145425148e3e66c578cdb624",
+      "mustIncludeKo": [
+        "떡볶이 하나 주세요"
+      ],
+      "mustAvoidKo": [
+        "자동 결제"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "cafe_dessert_sold_out",
+      "level": "a1",
+      "titleKo": "카페 디저트가 없을 때",
+      "relationship": "손님과 카페 직원",
+      "playerGoal": "없는 메뉴를 확인하고 다른 것을 고른다",
+      "courseUnitId": "a1_12_daily_negation",
+      "candidateSha256": "a368379ef0a7dce4852591852039d58a5f3fc1a964f11e622c245696ad643061",
+      "candidateFileSha256": "cde6fef6be138693434706e1930ab4be8cbe7bb59f61254790c1fd5a65c03913",
+      "briefSha256": "73b12be79a8a8145708de5754ef4c202042317900c0b543edf71951119994a67",
+      "mustIncludeKo": [
+        "딸기 케이크 있어요?",
+        "오늘은 없어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "clarify_repeat",
+      "level": "a1",
+      "titleKo": "지하철 출구를 다시 묻기",
+      "relationship": "여행자와 역 직원",
+      "playerGoal": "다시 천천히 말해 달라고 한다",
+      "courseUnitId": "a1_08_clarify_repair",
+      "candidateSha256": "6a05b1c6a11d57346114b3165b4baf965792785351cfc17866ca66e60d949453",
+      "candidateFileSha256": "0786dbddfd3825fd1d2d768dbb0b81ff5aad6eed5b71e0feeaa50c2a1fc05d00",
+      "briefSha256": "28e82f9d964441e2ed47d069c567c9883eac53041cbe51eb72e03a3d0a587580",
+      "mustIncludeKo": [
+        "다시 말씀해 주세요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "dance_class_register",
+      "level": "a1",
+      "titleKo": "댄스 수업에서 말투 알아듣기",
+      "relationship": "강사와 처음 온 레나, 친한 마야",
+      "playerGoal": "두 말투를 알아듣고 자기 자리를 확인한다",
+      "courseUnitId": "a1_13_register_switching",
+      "candidateSha256": "17bcbccc118504b7fba5ff0852cbca5102e481a62fc7ca046e66108534f95442",
+      "candidateFileSha256": "cb09c622496f14e1c6d54a29610842743c24e559026c69b5121a1179ea059189",
+      "briefSha256": "88310446ebe9e7081b8b5c21cde0478dedfec2bcaa7aa39195ed19015bdc664e",
+      "mustIncludeKo": [
+        "여기 서세요",
+        "여기 서"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "favorite_korean_music",
+      "level": "a1",
+      "titleKo": "좋아하는 한국 음악 묻기",
+      "relationship": "막 친해지기 시작한 레나와 마야",
+      "playerGoal": "한국 음악을 좋아한다고 말하고 가수를 묻는다",
+      "courseUnitId": "a1_11_titles_relationships",
+      "candidateSha256": "21a183547cb7e32c45726729e43959e464ddc0dcbd113e61c31c198e09a74db2",
+      "candidateFileSha256": "e58dbe45e49bc53587371ee0feffc37ae6378c7d489bb19b4fce27486f002849",
+      "briefSha256": "ed34f252cdb15af2f463a1e74785d6d0705a2b45a95c4e8b7f311250c9f1dfa8",
+      "mustIncludeKo": [
+        "한국 음악도 좋아해요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "first_class_meeting",
+      "level": "a1",
+      "titleKo": "첫 수업에서 옆자리 학생 만나기",
+      "relationship": "처음 만난 크리스티안과 레나",
+      "playerGoal": "자기소개하고 수업 책을 확인한다",
+      "courseUnitId": "a1_15_first_class_work",
+      "candidateSha256": "ebde269ca49c6bd955818058ef0dbf5bac7a69214c49caf5c76465cf41a07ab5",
+      "candidateFileSha256": "146b66185902e75583fbf90446de1ea5f35bdab6777bbb2efe2cafad3f39b1bd",
+      "briefSha256": "e1a2338e722166c82720b3c66b0769ce99d867d79b31840e33049ec53020049b",
+      "mustIncludeKo": [
+        "오늘 첫 수업이에요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "home_morning_routine",
+      "level": "a1",
+      "titleKo": "아침 준비하며 물건 찾기",
+      "relationship": "친한 교환학생 친구 크리스티안과 레나",
+      "playerGoal": "물건이 어디 있는지 묻는다",
+      "courseUnitId": "a1_09_home_daily_life",
+      "candidateSha256": "920bffcdc40e3b5107b60cba0f3de0a6e24ffed48dd6462aa1f714c6b8fb9d71",
+      "candidateFileSha256": "f60454fff0d94d59f3273a346ffd744035f7f611627d0525db746e8525938b79",
+      "briefSha256": "0565be65faaa1435874ea1611808c0deea9f75ef1e972ad4ed8edc41726f0dfd",
+      "mustIncludeKo": [
+        "교통카드 어디 있어?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "introduce_yourself",
+      "level": "a1",
+      "titleKo": "처음 만나 자기소개하기",
+      "relationship": "처음 만난 크리스티안과 수진",
+      "playerGoal": "이름과 출신을 말한다",
+      "courseUnitId": "a1_02_self_intro_identity",
+      "candidateSha256": "f9aef4eeaac27071e925db506341facbee2daac803c157c99773010e9d00197c",
+      "candidateFileSha256": "03d366afa86f2cc7ac0b051991159871de2d582bf086db21f1fa6e046f898967",
+      "briefSha256": "422c0d43f798efcd3cbad69beab4ec32ad02efbd0ce746453e1d523ffbcfa758",
+      "mustIncludeKo": [
+        "저는 크리스티안이에요",
+        "독일에서 왔어요"
+      ],
+      "mustAvoidKo": [
+        "연락처를 보내겠습니다",
+        "주소"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "kakao_contact_after_class",
+      "level": "a1",
+      "titleKo": "수업 뒤 카카오톡으로 연락하기",
+      "relationship": "처음 친해진 레나와 마야",
+      "playerGoal": "QR 코드를 찍고 친구 추가가 됐는지 확인한다",
+      "courseUnitId": "a1_07_contact_address",
+      "candidateSha256": "b756db1fce342ae73e5a278f40e7b6c2add6baa0a335f8b598f0b05a4a6fbf11",
+      "candidateFileSha256": "2c86d442407af8492ed2bf7d177b07cb929a72d72a67160936b74ae1bb55c3dc",
+      "briefSha256": "25421fa1f6c419a5c358ed532a0b6598adad4dbba4381a6a327697e8c097a5b6",
+      "mustIncludeKo": [
+        "카카오톡으로 연락할까요?"
+      ],
+      "mustAvoidKo": [
+        "주소",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "korea_stay_smalltalk",
+      "level": "a1",
+      "titleKo": "한국 생활이 어떤지 묻기",
+      "relationship": "막 알게 된 레나와 마야",
+      "playerGoal": "온 시기와 느낌 하나를 짧게 말한다",
+      "courseUnitId": "a1_11_titles_relationships",
+      "candidateSha256": "46a3e8c9eea758860fc066979ce94b16a19f52df6ff509bebb600f31a96b33ab",
+      "candidateFileSha256": "bb585c90f09728a708f4f26ed1d7892a02c8c4afb103fe6fc60ff2777c3ecc42",
+      "briefSha256": "0c20e15e0686e1b25471d4b5db56822bc4a5d1293e4614af6ef3ddc5746dafcc",
+      "mustIncludeKo": [
+        "한국에 언제 왔어요?",
+        "한국 생활은 어때요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "mart_grocery",
+      "level": "a1",
+      "titleKo": "마트에서 두부 찾기",
+      "relationship": "손님과 마트 직원",
+      "playerGoal": "원하는 물건의 위치를 묻는다",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "candidateSha256": "416ad44c621e28c628051dd94b24f7753d0794791cd0e650546e95185c8a6670",
+      "candidateFileSha256": "6cca0f04a713dc7225474b4beb865a6e4df0a37f7c934e17dc5b04842792c764",
+      "briefSha256": "e0c7df8d0ed05f0c81d8a2b15ef836e1f19030d55e68d80700d1bcdce4aa9f0b",
+      "mustIncludeKo": [
+        "두부는 어디에 있어요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "meeting_time",
+      "level": "a1",
+      "titleKo": "약속 시간을 다시 확인하기",
+      "relationship": "아직 존댓말을 쓰는 크리스티안과 수진",
+      "playerGoal": "정확한 시간을 묻고 확인한다",
+      "courseUnitId": "a1_05_numbers_time",
+      "candidateSha256": "c54f97474bd092cb58a64a99909328b835824c6addbc8fa329fc4d011c3aa078",
+      "candidateFileSha256": "c4595a846b766f62fe5295c7d41947e9ba46290c65f9187efcc802c6ddc3e975",
+      "briefSha256": "6b12c40eafa2a960345e40a0018d8db8623d9569a6d32a6f894bb2eda865ec39",
+      "mustIncludeKo": [
+        "오늘 몇 시에 만나요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "subway_step_apology",
+      "level": "a1",
+      "titleKo": "지하철에서 발을 밟았을 때",
+      "relationship": "서로 모르는 승객 두 사람",
+      "playerGoal": "즉시 짧게 사과하고 몸을 비킨다",
+      "courseUnitId": "a1_10_health_safety",
+      "candidateSha256": "3ae0192865d6d9bf1fcacd92b891f9f53a8d772948e6be2541b5112df7bb4dc1",
+      "candidateFileSha256": "9b88c331a15df84101971936bf2fca80f1a688df4ab92015be885095c640eac3",
+      "briefSha256": "d57c6de9ca197f6e32a7a96796bf27122bd084b8e8a2016c257fe72854d24cba",
+      "mustIncludeKo": [
+        "앗, 죄송합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "survival_day_capstone",
+      "level": "a1",
+      "titleKo": "한국에서 보낸 첫 주말 아침",
+      "relationship": "친한 교환학생 친구 크리스티안과 레나",
+      "playerGoal": "오늘 할 일과 필요한 물건 하나를 말한다",
+      "courseUnitId": "a1_16_survival_capstone",
+      "candidateSha256": "d7f87f4056e1bad186408f12e7f558148d7be6eed3673f7434995a8ae9c7b15e",
+      "candidateFileSha256": "eb9fda09a0620b1aa93ef96392bbdddaf76c5e23708e7e6058eb31bf80093e49",
+      "briefSha256": "ba50e434f76d9a3696972ca067bfb4b90a53401de59ddbef6b30ae34c26c0fc4",
+      "mustIncludeKo": [
+        "몇 시에 나가?",
+        "우산 있어?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "taxi_kakao",
+      "level": "a1",
+      "titleKo": "택시에서 여기 세워 달라고 말하기",
+      "relationship": "승객과 택시 기사",
+      "playerGoal": "내릴 곳을 짧게 말한다",
+      "courseUnitId": "a1_06_transport_directions",
+      "candidateSha256": "cf1704c39df1b975a932f4b591c6a6c2401234f94562e42fa00f5896fa05e9db",
+      "candidateFileSha256": "0eae6eb5cf6712545f19bcbae94a4984cf8f9b92e3da3eb44d9f89e80fa3d893",
+      "briefSha256": "91aeddef1f991f79b40b0529d1bbaeaf8cd1888c8c0f203de57bd02ccd48479b",
+      "mustIncludeKo": [
+        "여기 세워 주세요"
+      ],
+      "mustAvoidKo": [
+        "자동 결제",
+        "빨리 가 드릴까요?",
+        "주소가 어떻게 되세요",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "umbrella_weather",
+      "level": "a1",
+      "titleKo": "비 오는 날 우산 같이 쓰기",
+      "relationship": "친해지는 중인 크리스티안과 수진",
+      "playerGoal": "비가 오는지 확인하고 어떻게 갈지 묻는다",
+      "courseUnitId": "a1_09_home_daily_life",
+      "candidateSha256": "15f5152f908c567c948f604336bde7fc1353a6076adb2a1a79b256dcf58f9548",
+      "candidateFileSha256": "5e7448133e027292b365b28b47bb9d9bc20d638c803b6b75ee382568bc341c76",
+      "briefSha256": "94567135d362f7458e6fc7dd66df490138ee25ffd0c8d246f660eb1b6960976d",
+      "mustIncludeKo": [
+        "비 와요?",
+        "같이 써요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "clothing_refund_size",
+      "level": "a2",
+      "titleKo": "옷 사이즈를 바꾸기",
+      "relationship": "손님과 매장 직원",
+      "playerGoal": "사이즈 문제를 설명하고 교환 가능한지 묻는다",
+      "courseUnitId": "a2_05_delivery_services",
+      "candidateSha256": "bed31341c5ba1bfedd278149d314704e4b29bbf213a80d8257fe8f59f4f38b29",
+      "candidateFileSha256": "1ef7812d1c04e150ee89f3beac2bf836dd1077a92cd323ab9c99f4bbaabe68ec",
+      "briefSha256": "3abb86f11a859c997a9c831bc92d4f4bc75735f7ef14784a7154557178db28a2",
+      "mustIncludeKo": [
+        "사이즈가 작아서 바꾸고 싶어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "convenience_parcel_pickup",
+      "level": "a2",
+      "titleKo": "편의점 택배 찾기",
+      "relationship": "손님과 편의점 직원",
+      "playerGoal": "알림을 보여 주고 필요한 확인 정보를 말한다",
+      "courseUnitId": "a2_05_delivery_services",
+      "candidateSha256": "6e8636a3d52a47ba32e3ff091b8a6a54cf5c0256dc87d334a690171ebe6bbfdc",
+      "candidateFileSha256": "f653d8c388c6113707f3d3b5924f8308e1d67b755044ac82368236d9544b0414",
+      "briefSha256": "58f6b81bdc94ee0dfcb73eca0cf64bb0b8f670ee383968a70050cdf038ee3695",
+      "mustIncludeKo": [
+        "택배 찾으러 왔어요"
+      ],
+      "mustAvoidKo": [
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "delivery_dinner_spicy",
+      "level": "a2",
+      "titleKo": "배달 음식이 너무 매울 때",
+      "relationship": "친구 수진과 크리스티안",
+      "playerGoal": "얼마나 매운지 말하고 덜 맵게 먹을 방법을 묻는다",
+      "courseUnitId": "a2_04_feelings_health",
+      "candidateSha256": "edd02d17ff54c5440eb844240f47b89cdd887a0b6629b1103c33e33cc88a8f84",
+      "candidateFileSha256": "964c236b5bb148d3a7b51cd2187572d3067b7cd267ecaf4b86e31dd3890aa705",
+      "briefSha256": "df8031fb6672fd57e343e481c11dd8cd8283b6f46811e3c68f5f50dcb749d264",
+      "mustIncludeKo": [
+        "생각보다 너무 매워요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "email_attachment_twice",
+      "level": "a2",
+      "titleKo": "첨부파일을 두 번 빠뜨린 이메일",
+      "relationship": "신입 마야와 친절하지만 바쁜 동료",
+      "playerGoal": "실수를 숨기지 않고 짧게 사과한 뒤 이번에는 파일을 확인해 보낸다",
+      "courseUnitId": "a2_06_study_work",
+      "candidateSha256": "3d84d2c697b17d9c53613219cadfb9c2925a7bde6aa84238112757cccae99663",
+      "candidateFileSha256": "b6cfd8ccfecec5411927bda39e618b8b6d793b8075e0853f1916653058fad744",
+      "briefSha256": "e183b9fa6b54e6825fdb62ede409536b2e160fd8fdb1d3d06f68b38b4a052dfc",
+      "mustIncludeKo": [
+        "첨부파일",
+        "또 안 붙였어요"
+      ],
+      "mustAvoidKo": [
+        "오히려 망쳤다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "favorite_drama_chat",
+      "level": "a2",
+      "titleKo": "한국 생활과 좋아하는 드라마 이야기하기",
+      "relationship": "친해지는 중인 마야와 수진",
+      "playerGoal": "한국에 온 기간, 생활 느낌, 좋아하는 작품의 이유 하나를 말한다",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "candidateSha256": "d23cdf76974fdcb5c12f0bfa40f6c411b027aedc649c1626f955be8c5665ae74",
+      "candidateFileSha256": "0b258adad8b3cea705f9c8e1d0b4dd109ddbdbd6b5ee6a52aa12f6fdd42a3c3b",
+      "briefSha256": "132ff85a2642bc60f176ae73f5d36e5ea923fe25215205e61ba8044416fc3509",
+      "mustIncludeKo": [
+        "한국에 온 지 얼마나 됐어요?",
+        "한국 생활은 어때요?",
+        "좋아하는 드라마 있어요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "forgot_house_key",
+      "level": "a2",
+      "titleKo": "집 열쇠를 두고 나온 날",
+      "relationship": "친한 크리스티안과 레나",
+      "playerGoal": "무엇을 두고 왔는지 말하고 잠깐 기다려 달라고 한다",
+      "courseUnitId": "a2_08_home_money",
+      "candidateSha256": "18602702fa7066519310e83b82e2a5ac395c5101eaaa89b844e86c91aaa37b70",
+      "candidateFileSha256": "e4cf83732decc4f0bf52aa6e167521631a25d0a9142bc31c9dea96b739e3a03e",
+      "briefSha256": "6a57ce0ffd96f31537d8d9e3280803445e5a7cc0f6aab2daaa826ed22a6debe6",
+      "mustIncludeKo": [
+        "열쇠를 방에 두고 왔어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "forgot_presentation_cable",
+      "level": "a2",
+      "titleKo": "발표 케이블을 안 가져왔을 때",
+      "relationship": "조별 과제 동료 크리스티안과 레나",
+      "playerGoal": "빠뜨린 물건을 말하고 대안을 찾는다",
+      "courseUnitId": "a2_06_study_work",
+      "candidateSha256": "2a4b2d9b8349aa7c9300ac45122ea768938db019c2de236a63249746cfbf5b10",
+      "candidateFileSha256": "bee54249ebf19c28175e2d0dd6ffc701c2a4c435efb2dc1c7fde661c6ab6003a",
+      "briefSha256": "5b3ffc040a562f39901b2a58546c954e86f119973e817d28a85cd2af677215ba",
+      "mustIncludeKo": [
+        "케이블을 안 가져왔어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "friend_cancelled_plan",
+      "level": "a2",
+      "titleKo": "갑자기 약속을 취소했을 때",
+      "relationship": "친한 마야와 레나",
+      "playerGoal": "취소 이유를 짧게 말하고 미안함을 표현한다",
+      "courseUnitId": "a2_03_chat_relationships",
+      "candidateSha256": "1507e92e44e0947aa2b96f0dea5d3004f9ef4fb55609acf07108ca2e0656302e",
+      "candidateFileSha256": "7499a94be789f30751b8d5ce6752c766e2841e5a56cba5a6347bda478532fedd",
+      "briefSha256": "b44b3a7fb5b68e89ba5b72f41ec098d8f47255b63829b01053b6e50800284f49",
+      "mustIncludeKo": [
+        "갑자기 취소해서 미안해",
+        "조금 서운했어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "group_chat_photo_permission",
+      "level": "a2",
+      "titleKo": "단체 사진을 올리기 전에 묻기",
+      "relationship": "친구 마야와 레나",
+      "playerGoal": "자기 얼굴이 나온 사진의 게시 범위를 확인한다",
+      "courseUnitId": "a2_03_chat_relationships",
+      "candidateSha256": "e34526c021f7d98e3878f989380cd11ec6b3b879d8cf25022b233065f74f95fc",
+      "candidateFileSha256": "7e8fcd539ae6973878b13fedd76a122aa5d68956fbf8a5364d394c9647b8625a",
+      "briefSha256": "80fbb124dbda6cf2217a56b1d2d3e3c6f33e7871fd643b45150d0b1cc9fc26b2",
+      "mustIncludeKo": [
+        "이 사진 올려도 돼?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "gym_class_cancel",
+      "level": "a2",
+      "titleKo": "운동 수업을 취소하기",
+      "relationship": "회원과 직원",
+      "playerGoal": "간단한 이유를 말하고 다음 주로 바꿀 수 있는지 묻는다",
+      "courseUnitId": "a2_04_feelings_health",
+      "candidateSha256": "26df042466fe9e855faf714744ec65bd4dcd9b437d6177cb33e2e02671ffb334",
+      "candidateFileSha256": "f4ef07ad21f48fa1981feecd723959430a2bacdb58b60f0f5eb2e116ce2bcf67",
+      "briefSha256": "76fc47feace857d2d39818c41e06964f86478dfe4a49122781f4d022837716cf",
+      "mustIncludeKo": [
+        "발목이 아파서 오늘 수업을 못 가요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "jeju_bus_missed",
+      "level": "a2",
+      "titleKo": "제주에서 막차를 놓쳤을 때",
+      "relationship": "여행 중인 레나와 다니엘",
+      "playerGoal": "지금 가능한 이동 방법 하나를 묻는다",
+      "courseUnitId": "a2_07_travel_repair",
+      "candidateSha256": "5e81a2eb0caf74feef48c0ada0a7c56143251e485ed64080de8ba1b5adb10351",
+      "candidateFileSha256": "d0a9555daf93a0b50ad33fe74f9f522a48137e647dbab1231e2f401c4f5f5743",
+      "briefSha256": "66748c61911a10df6cf064dd7822aec2922bdd836b5fed82adf091b30c5bff48",
+      "mustIncludeKo": [
+        "막차를 놓쳤어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "library_card_problem",
+      "level": "a2",
+      "titleKo": "도서관 카드가 인식되지 않을 때",
+      "relationship": "이용자와 도서관 직원",
+      "playerGoal": "무슨 문제가 생겼는지 말하고 다시 사용할 방법을 묻는다",
+      "courseUnitId": "a2_08_home_money",
+      "candidateSha256": "fcd4d83fc61e70635f5d4e3a8e74dbd9315fe8b75c9095fc686895eafd9a69f2",
+      "candidateFileSha256": "7c7fcef35e4f33f6aa731466d19635ab6f9302b150429b4f469ba87c845a8593",
+      "briefSha256": "8396ac45c1923a35fea3c5fe410c9d3901e3dd9bfef0817c51f177aa6c8cfbb6",
+      "mustIncludeKo": [
+        "카드가 안 돼요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "package_wrong_door",
+      "level": "a2",
+      "titleKo": "택배가 옆집 앞에 놓였을 때",
+      "relationship": "처음 대화하는 이웃과 크리스티안",
+      "playerGoal": "자기 택배인지 확인하고 가져가도 되는지 묻는다",
+      "courseUnitId": "a2_05_delivery_services",
+      "candidateSha256": "8f807511ce26ee66d0afee733576e75eef7919161ee79255a9e511f59288b377",
+      "candidateFileSha256": "3d0c45811a62e7bf31398b5d1fb5ee60aceda5354b0f715fefd126fc039b28eb",
+      "briefSha256": "f02993c885fa2de1817ce3242be253204300b3021b57cee3c479046226b3e8c0",
+      "mustIncludeKo": [
+        "제 택배가 여기 온 것 같아요"
+      ],
+      "mustAvoidKo": [
+        "주소가 어떻게 되세요",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "pharmacy_cold_medicine",
+      "level": "a2",
+      "titleKo": "약국에서 감기 증상 말하기",
+      "relationship": "손님과 약사",
+      "playerGoal": "증상과 시작 시점을 말하고 약 복용법을 확인한다",
+      "courseUnitId": "a2_04_feelings_health",
+      "candidateSha256": "16e9b646e3038708869862593aa3527cb9c34a3b6091d67ef78d8ba34906d171",
+      "candidateFileSha256": "655eb2453d6d4ac9f26a49e8979dc635bc9f258c3556845f5be542c7d2512c83",
+      "briefSha256": "ed561f0e6898da4b7beceb0ffa6331e93b5a910c10f889960b31e0dee510294c",
+      "mustIncludeKo": [
+        "어제부터 목이 아파요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "plans_with_friend",
+      "level": "a2",
+      "titleKo": "주말에 전시 보러 가기",
+      "relationship": "친구가 된 크리스티안과 수진",
+      "playerGoal": "가능한 날을 물어 새 약속을 잡는다",
+      "courseUnitId": "a2_02_plans_proposals",
+      "candidateSha256": "5456a891a2b2b0a39aa4d91274be50c2b2ba54098a549f36987d85faa2e7d3c6",
+      "candidateFileSha256": "98ad6dd909fc428888df90e9f92e5750400046234073d536dd81b86efef0d303",
+      "briefSha256": "9818ed6b53957725e904835df6e5a141320ffe8e9296654711670eb7adcbfb04",
+      "mustIncludeKo": [
+        "일요일은 어때요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "running_late",
+      "level": "a2",
+      "titleKo": "늦는다고 카카오톡 보내기",
+      "relationship": "친한 레나와 마야",
+      "playerGoal": "늦는 이유와 시간을 알리고 만날 곳을 확인한다",
+      "courseUnitId": "a2_03_chat_relationships",
+      "candidateSha256": "115f24fee0a1114b73441b99f37a65e2860a227cb011f9ce8b79e564f6ba54d0",
+      "candidateFileSha256": "b48689f45f186e6100360ccc9149431e38531fb0d41371b394c83b359048163e",
+      "briefSha256": "8d1d0b397de1b76b0c84aef941ec247366e90d1050b0b38941e4473b554ce053",
+      "mustIncludeKo": [
+        "지하철이 늦어서 십 분쯤 늦을 것 같아"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "samgyeopsal_first_time",
+      "level": "a2",
+      "titleKo": "삼겹살집에서 굽는 순서 묻기",
+      "relationship": "친구 크리스티안과 수진",
+      "playerGoal": "굽는 방법을 묻고 한 가지 선호를 말한다",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "candidateSha256": "4491a028bf20fb00f59f23357793fd4f8f16a96cf661ed4310ac289919daa3ab",
+      "candidateFileSha256": "cf0bc9bfccca8d5aa81a0c27bf73df14275eb7791490962c432648a47ea6df09",
+      "briefSha256": "3e7475669fde8089767c7fdd7586693f62164bca62da1ccd6d8a9c9a6021f5a5",
+      "mustIncludeKo": [
+        "이제 먹어도 돼요?"
+      ],
+      "mustAvoidKo": [
+        "한국인은 원래"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "shared_document_old_version",
+      "level": "a2",
+      "titleKo": "공유 문서의 예전 버전을 고쳤을 때",
+      "relationship": "조별 과제 동료 크리스티안과 레나",
+      "playerGoal": "왜 변경 내용이 안 보이는지 설명하고 파일을 다시 올린다",
+      "courseUnitId": "a2_06_study_work",
+      "candidateSha256": "92c42b3f783f8c4222d753385c61b6369a67836e2b9159ee460049f5100b0d59",
+      "candidateFileSha256": "8cf29d62eb0afba09147790d50ddfbd1838d4b5e84b328cda30a92a294487c6a",
+      "briefSha256": "3c1f57f459779a0ff17b8656703b76e140f11a608794d82bf67a37341c57ab8c",
+      "mustIncludeKo": [
+        "예전 파일을 고쳤어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "taxi_slow_down",
+      "level": "a2",
+      "titleKo": "택시가 무서울 만큼 빠를 때",
+      "relationship": "승객과 택시 기사",
+      "playerGoal": "속도를 낮춰 달라고 공손하지만 분명하게 요청한다",
+      "courseUnitId": "a2_07_travel_repair",
+      "candidateSha256": "f5d9bd0cbe1a690522ed6d2fd112a808cefc07d78fd54d30a31deb84bb23bbe5",
+      "candidateFileSha256": "2319dac568261c6c15a97022e89e2703429b281f3531d2ce4430d5f491f8a0c7",
+      "briefSha256": "503b5ce18ce3a21d3e26b27154c3c0f0ec0c80e9c11eb85a242d8e518de82779",
+      "mustIncludeKo": [
+        "기사님, 천천히 좀 가 주실 수 있을까요?"
+      ],
+      "mustAvoidKo": [
+        "자동 결제",
+        "빨리 가 드릴까요?",
+        "주소",
+        "전화번호"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "train_seat_swap",
+      "level": "a2",
+      "titleKo": "기차 좌석을 잘못 앉았을 때",
+      "relationship": "서로 모르는 승객과 다니엘",
+      "playerGoal": "표를 다시 보고 사과한 뒤 자기 자리로 옮긴다",
+      "courseUnitId": "a2_07_travel_repair",
+      "candidateSha256": "0c27c25476b8840581dde90d05c1ebc5319c129b3a2247e5ca06781c2baadabb",
+      "candidateFileSha256": "3b61ea4f9f2d3c475016b6b153e701a5c0f8737fd0580089fb73d7b05c481ad2",
+      "briefSha256": "d1bf79c76bcc8c2870a47cc2d73c53bf390e1fb462e782b125c2a25eb8e5b585",
+      "mustIncludeKo": [
+        "제가 좌석 번호를 잘못 봤어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ai_summary_wrong_fact",
+      "level": "b1",
+      "titleKo": "AI 요약에 틀린 내용이 섞였을 때",
+      "relationship": "조별 과제 동료 크리스티안과 현아",
+      "playerGoal": "도구를 쓴 사실과 확인하지 않은 부분을 인정한다",
+      "courseUnitId": "b1_06_life_capstone",
+      "candidateSha256": "f9c672721f2dfa3b4dfe1d4ce5f2623d324a19959ef89abf33e9fb15c335a612",
+      "candidateFileSha256": "0d5ff60085abda7136cfe3f22d836c97a56e8ed5729508011d4d9c02026d6ae4",
+      "briefSha256": "bf926f4d3f6b5862d9ec259d6af7add9f05909c41dd97bee1e14212e1ec7632b",
+      "mustIncludeKo": [
+        "원문을 다시 확인하지 않았어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "apartment_recycling_mixup",
+      "level": "b1",
+      "titleKo": "분리배출을 잘못해서 이웃이 말했을 때",
+      "relationship": "한국 생활이 익숙해지는 크리스티안과 이웃",
+      "playerGoal": "몰랐던 점을 인정하고 기준을 묻는다",
+      "courseUnitId": "b1_06_life_capstone",
+      "candidateSha256": "864ed8c1660a6e59b94a7168ba89895c581abee15b7f82d415b9b92e3369d7de",
+      "candidateFileSha256": "d06ad3cbf4a9033e75d2d61dd56b8fb5f3a002c874d0952e4233a21035bf25e3",
+      "briefSha256": "9e2f16c8a83b84d17283c458221c6bcf1a1ad90c2916d84e34d3da75f6ddddd5",
+      "mustIncludeKo": [
+        "종이인 줄 알고 여기 넣었어요"
+      ],
+      "mustAvoidKo": [
+        "한국인은 원래"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "birthday_expectation_gap",
+      "level": "b1",
+      "titleKo": "생일을 크게 챙길 줄 몰랐을 때",
+      "relationship": "친한 크리스티안과 수진",
+      "playerGoal": "자기 선호가 상대를 거절한 뜻이 아니었음을 설명한다",
+      "courseUnitId": "b1_01_experience_reasons",
+      "candidateSha256": "5549e54b32e1d92a3b7cb1f045df7c6fd4d9d3853aefb0f2c7892de49556b568",
+      "candidateFileSha256": "fa9a9d99c7acb7442f9019cdecedbb2a3699a3b76ef5cd74934fe17103ffa504",
+      "briefSha256": "8a5ed2e3e54d5d1e5502ab012e5cca2915abd2be2cccaa77abc2c1129d341d94",
+      "mustIncludeKo": [
+        "축하가 싫었던 건 아니에요"
+      ],
+      "mustAvoidKo": [
+        "한국인은 원래",
+        "독일인은 원래"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "cancelled_trip_hurt_feelings",
+      "level": "b1",
+      "titleKo": "여행 약속을 혼자 바꿔 서운할 때",
+      "relationship": "친한 레나와 다니엘",
+      "playerGoal": "일정이 바뀐 이유를 설명하고 결정 과정을 사과한다",
+      "courseUnitId": "b1_04_relationships",
+      "candidateSha256": "ad78198cec988596b1af91107f995aa97b009ca84d94600383a98b4a0d8bfccf",
+      "candidateFileSha256": "69a5728d3629f9bf57cea24345d4e189a4e628ef1ea397d4e88ff40ca2329710",
+      "briefSha256": "f20559a0c1c0c0fec1bba10ca98f4da54709809a25674b0aa81428f2385c4fd0",
+      "mustIncludeKo": [
+        "시간보다 나한테 먼저 말하지 않은 게 서운했어"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "community_festival_shift",
+      "level": "b1",
+      "titleKo": "동네 축제 봉사 시간을 바꿔야 할 때",
+      "relationship": "봉사자 레나와 담당자",
+      "playerGoal": "변경 이유를 말하고 다른 시간대를 제안한다",
+      "courseUnitId": "b1_03_work_softening",
+      "candidateSha256": "69a0875d83a13e0dddcb557ae9df22dfca13a75f9c6b00e2ff58b4b7e89a7692",
+      "candidateFileSha256": "cbbbcd652ce687e23e845cfd6927c93c6c446f9662478cd614fdbd0dff089c0f",
+      "briefSha256": "90d72f845b85477406e5346bebea9eabf2f66192a5642e76340aef9bb35fbd57",
+      "mustIncludeKo": [
+        "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "company_instagram_wrong_account",
+      "level": "b1",
+      "titleKo": "회사 인스타 계정으로 개인 글을 올렸을 때",
+      "relationship": "신입 마야와 팀 동료",
+      "playerGoal": "실수의 경위를 숨기지 않고 삭제·보고·재발 방지 순서를 제안한다",
+      "courseUnitId": "b1_03_work_softening",
+      "candidateSha256": "4dbdd911730f8d4d359094646f949fda10639845c57ee1763a01a740926a6002",
+      "candidateFileSha256": "37da3900eb1f96500fdcd526fa993dd3684c035cc6235c73b36ee840d8049407",
+      "briefSha256": "952b6302bf97df90890925d0448f92d2446a70686254768bb44d9afa16b58092",
+      "mustIncludeKo": [
+        "회사 인스타그램 계정",
+        "개인 계정으로 들어간 줄 알았어요"
+      ],
+      "mustAvoidKo": [
+        "오히려 망쳤다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "date_or_friendly_coffee",
+      "level": "b1",
+      "titleKo": "이 커피 약속이 데이트인지 헷갈릴 때",
+      "relationship": "친구가 되었지만 서로 호감이 있는 크리스티안과 수진",
+      "playerGoal": "상대를 몰아붙이지 않고 오늘 만남을 어떻게 생각했는지 묻는다",
+      "courseUnitId": "b1_04_relationships",
+      "candidateSha256": "a3cbf751e46150798cadb5b419f8f791ab75902db7df71e886db17eb3d37519c",
+      "candidateFileSha256": "d7295f14993dfbbf5e0d480740c454e0e7a835afe64c290d899ce5b1a6f8efb0",
+      "briefSha256": "b1e0123f7c117aa799ccdb6fb131f1619d605d0b015f7708f22c083a07e6ff2e",
+      "mustIncludeKo": [
+        "저는 오늘 둘이 만나서 좋았어요"
+      ],
+      "mustAvoidKo": [
+        "운명",
+        "첫눈에 반했"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "food_delivery_wrong_order",
+      "level": "b1",
+      "titleKo": "배달 음식이 다른 메뉴로 왔을 때",
+      "relationship": "고객과 상담 직원",
+      "playerGoal": "사진과 주문 내역을 근거로 문제를 설명하고 원하는 해결을 말한다",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "candidateSha256": "dec8dc157b3b0f446f5f0edac2e246eb5f7f89a7724b51c423efc887d298c47e",
+      "candidateFileSha256": "1a2df9d8d27f3704bd7c72e50f351673085b92cac262c8d0df7ab200cb3e2499",
+      "briefSha256": "88319e1b13f983561d9b9e178852900b50f11dcfa64f082b0f90bb2a2dee187f",
+      "mustIncludeKo": [
+        "제가 주문한 메뉴가 아니라 다른 음식이 왔어요"
+      ],
+      "mustAvoidKo": [
+        "무조건 보상"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "jeju_rain_plan_change",
+      "level": "b1",
+      "titleKo": "제주 여행 일정이 비 때문에 꼬였을 때",
+      "relationship": "함께 여행하는 레나와 다니엘",
+      "playerGoal": "실망한 마음과 이유를 말하고 대안을 비교한다",
+      "courseUnitId": "b1_01_experience_reasons",
+      "candidateSha256": "82286f741decb7430c3cebb06861597822145b0b8ea6a92212aaa2fd932621cc",
+      "candidateFileSha256": "b08e0565ab264e8e4995757a1f9ff93f31d310e52fb8bb8e43be7175204c1597",
+      "briefSha256": "0e510e09c6090a54c1f2c174a26469875fd39b27e5f931649103e9ee13947376",
+      "mustIncludeKo": [
+        "바람이 너무 세서 배가 취소됐대"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ktx_sold_out_alternative",
+      "level": "b1",
+      "titleKo": "KTX가 매진됐을 때 다른 방법 찾기",
+      "relationship": "함께 여행하는 다니엘과 현아",
+      "playerGoal": "각 선택의 시간과 불편을 비교해 의견을 말한다",
+      "courseUnitId": "b1_01_experience_reasons",
+      "candidateSha256": "5be90708b9652e28adfd40ff7208a5734bb1ad3a2a4bef3178069ee9659398cb",
+      "candidateFileSha256": "8a4c47e182d4280ce95b8d28f5d76eef6ded552f04af186b662e89c296b0cc69",
+      "briefSha256": "9c71a499d880456b7840ceb4b1937c1e233ce4b211db7e55715b45e82834eb9b",
+      "mustIncludeKo": [
+        "버스는 바로 탈 수 있지만 도착하면 더 피곤할 것 같아"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "noisy_neighbor_evening",
+      "level": "b1",
+      "titleKo": "늦은 밤 이웃집 음악이 클 때",
+      "relationship": "처음 대화하는 수진과 이웃",
+      "playerGoal": "비난하지 않고 지금 들리는 문제와 필요한 변화를 말한다",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "candidateSha256": "3fe4e745bb5a1a7ef4ad57de138c09cdb1f8660cd5cc4d0d7e13bfa87e9dc52a",
+      "candidateFileSha256": "41c2c077298a7d215ddec36f3fb348f597c16bce4eb9f87e6efbe10dfe792ba8",
+      "briefSha256": "51132fedd1ca4d4625dc172fe78cbfdfc4362c74640a0bdd198e7cfe0ecd2944",
+      "mustIncludeKo": [
+        "음악 소리가 방까지 들려서요"
+      ],
+      "mustAvoidKo": [
+        "항상 시끄러워요"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "park_pet_manners",
+      "level": "b1",
+      "titleKo": "공원에서 목줄이 긴 강아지를 만났을 때",
+      "relationship": "러너 다니엘과 반려견을 데리고 나온 이웃",
+      "playerGoal": "놀란 이유와 필요한 행동을 구체적으로 말한다",
+      "courseUnitId": "b1_06_life_capstone",
+      "candidateSha256": "73e89bf2aa57011b5f5d05165c527c107e51ccf4c253da7a754c9bf3e504d678",
+      "candidateFileSha256": "68509504d0d5667858a04bc23d57222e74dc5d194d8c0fd045f4a4957f07b513",
+      "briefSha256": "6280104b915bb43c08f34b262fdf3b57539591bd1fcf27f973c9aa05580a79f2",
+      "mustIncludeKo": [
+        "줄이 길어서 넘어질 뻔했어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "reel_caption_misunderstanding",
+      "level": "b1",
+      "titleKo": "릴스 자막이 가게를 비꼰 것처럼 보였을 때",
+      "relationship": "프로젝트 동료 마야와 다니엘",
+      "playerGoal": "의도와 실제 효과의 차이를 인정하고 수정안을 제안한다",
+      "courseUnitId": "b1_02_indirect_speech",
+      "candidateSha256": "b90883d7df246ee9d520f5164b57e23f68ce4beb9b86a967bc77b7d4d9858c25",
+      "candidateFileSha256": "3f7ad917d07919d01901fae402b09846abfd7d6e551a9e91037b4c749b50c04b",
+      "briefSha256": "0e166c86a0a541eea2ff79647ef70e3eb0b52a930247d37e0eb3a7a0700b238d",
+      "mustIncludeKo": [
+        "웃기려고 쓴 건데 가게를 비꼬는 것처럼 보여"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "running_injury_training_plan",
+      "level": "b1",
+      "titleKo": "달리다 무릎이 아픈데 대회를 앞뒀을 때",
+      "relationship": "러닝 친구 다니엘과 현아",
+      "playerGoal": "대회를 포기하기 싫은 이유를 말하고 현실적인 계획을 찾는다",
+      "courseUnitId": "b1_01_experience_reasons",
+      "candidateSha256": "da6ba296d09549bde7be31ba7683db560e09968094e271c6d1d223aef193091b",
+      "candidateFileSha256": "bd640ffdf6991683344e893dc5be05b386e3d9e55396077585cf7a99ad979fa5",
+      "briefSha256": "47925eb739a311129edef8748b468d971d1e0ab52cae4dfa5f07a18be4c58b57",
+      "mustIncludeKo": [
+        "대회가 얼마 안 남아서 쉬기가 불안해"
+      ],
+      "mustAvoidKo": [
+        "무조건 괜찮아"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "secondhand_hidden_defect",
+      "level": "b1",
+      "titleKo": "중고 거래 물건에 설명 없는 흠집이 있을 때",
+      "relationship": "처음 만난 판매자와 다니엘",
+      "playerGoal": "확인한 사실을 말하고 가격 조정이나 거래 취소를 요청한다",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "candidateSha256": "667f45c74fa2c084fbaf502609a94dc8f9551bb11e4f26e8597981665d2a9fba",
+      "candidateFileSha256": "8c8a678b9e50f16986d25ece51195f793238bdc23970da6c6d8821692087ba1a",
+      "briefSha256": "22e8eae993166b8b7cbdb0d81294bbb7cd5f79fe588d932c56a5721355139b41",
+      "mustIncludeKo": [
+        "글에는 이 흠집이 없었는데요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "shared_cup_recycling",
+      "level": "b1",
+      "titleKo": "공용 주방 일회용 컵을 줄이기",
+      "relationship": "동료 마야와 안드레아",
+      "playerGoal": "실제로 바꿀 수 있는 한 가지 행동과 이유를 말한다",
+      "courseUnitId": "b1_06_life_capstone",
+      "candidateSha256": "ef730f79488935d8ea86fe9c197a8c5ca087884503ef5eb1d3c43b45f3d9dd86",
+      "candidateFileSha256": "89da11a3f951f31223b211ba639a520c2d33703a6065b4d3813df919bd33869e",
+      "briefSha256": "92bdaae0fd64e3db3decf0efa922dd2644c2106a054d3b1bdf2e602d64f41491",
+      "mustIncludeKo": [
+        "내부 회의부터 개인 컵을 써 보면 어때요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "speech_level_after_friendship",
+      "level": "b1",
+      "titleKo": "친해진 뒤 말을 놓을지 묻기",
+      "relationship": "몇 달째 친구로 지낸 레나와 마야",
+      "playerGoal": "말투를 바꾸는 것이 편한지 솔직히 답한다",
+      "courseUnitId": "b1_04_relationships",
+      "candidateSha256": "4afd8e3538e598a5caa41d6d079163b1bc3d8a3a7b2b52e07f146ce98343412d",
+      "candidateFileSha256": "8e9572c24551591a3dd4302c8113aa7e389559463955b52c0e15ccff01853b9f",
+      "briefSha256": "e0fb62bfa99a56111c8ccd9b493675d1049f03f524f068719839ecbd9bda1d58",
+      "mustIncludeKo": [
+        "우리 이제 말 놓을까?"
+      ],
+      "mustAvoidKo": [
+        "독일어 du와 똑같"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "subscription_cancel_charge",
+      "level": "b1",
+      "titleKo": "구독을 해지했는데 결제됐을 때",
+      "relationship": "이용자와 상담 직원",
+      "playerGoal": "해지 시점과 결제 내역을 순서대로 설명한다",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "candidateSha256": "c3491163873e13503040f33e7da432a1a6b205bf61e325d67d5841ee28af4aaf",
+      "candidateFileSha256": "37b8e75cc4b9bba02f94aaa8635b6f269cc73ff7d34a294ede21ab519627bc79",
+      "briefSha256": "7067e75e06bae75fcf43ef56fc72ea9d9153bcb00e95dcca38b59c53a6ec2311",
+      "mustIncludeKo": [
+        "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요"
+      ],
+      "mustAvoidKo": [
+        "사기"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "team_update_indirect_speech",
+      "level": "b1",
+      "titleKo": "회의 시간이 바뀌었다고 전달하기",
+      "relationship": "신입 마야와 같은 팀 동료",
+      "playerGoal": "출처와 미확정 상태를 구분해 동료에게 전한다",
+      "courseUnitId": "b1_02_indirect_speech",
+      "candidateSha256": "1e029b3f10f7a298613d9f5f8fb01074ffeab812494c2347e276bc379001e330",
+      "candidateFileSha256": "ae16567ed9da18984adf3eefb0d6ffc9959666b87ff9c905e994597264671a36",
+      "briefSha256": "7a10640207bffda5f4b4ac455daf622fd88974ca94c79095caa2283f6b35d361",
+      "mustIncludeKo": [
+        "시간이 바뀔 수도 있다고 연락이 왔어요",
+        "아직 확정된 건 아니에요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "work_message_too_direct",
+      "level": "b1",
+      "titleKo": "메신저 답장이 너무 딱딱하게 보였을 때",
+      "relationship": "신입 마야와 선배 안드레아",
+      "playerGoal": "의도와 다르게 들린 부분을 찾아 더 자연스럽게 고친다",
+      "courseUnitId": "b1_03_work_softening",
+      "candidateSha256": "26902a485e49e19318449f962eb0501d55ac3eba20efbe1b927e1d93e7b9ff22",
+      "candidateFileSha256": "eebe3e6e4523e123b2b04d8e3bc7f679897fede7606a60014e757f25e728706a",
+      "briefSha256": "909e593c6b6c03508f2e7d0da99b159db8c7fa498159ba5adbb00c46ad057792",
+      "mustIncludeKo": [
+        "오늘 안에 가능하실까요?"
+      ],
+      "mustAvoidKo": [
+        "무조건",
+        "당장"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "accessible_festival_route",
+      "level": "b2",
+      "titleKo": "축제 동선을 휠체어도 이용할 수 있게 바꾸기",
+      "relationship": "기획자 마야와 주민 참여자",
+      "playerGoal": "홍보 효과를 잃지 않으면서 포토존 위치를 바꾸자고 설득한다",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "candidateSha256": "3cf8819f99967f311546760a51611209218c16b297b7da721b7f98feaa7e8250",
+      "candidateFileSha256": "c3cacbde71ca08a9bc31b67a9cccd98e5bfb8c011ea0ac67f3bb4a70e33012b2",
+      "briefSha256": "95fe1992b584f1b0cb41746cbdc885b97447639bad31807897ce9d51d808d813",
+      "mustIncludeKo": [
+        "포토존을 유지하되 경사로 앞은 비워야 해요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ai_image_disclosure",
+      "level": "b2",
+      "titleKo": "AI로 만든 이미지를 광고에 쓸 때",
+      "relationship": "마야와 수진, 프로젝트 동료",
+      "playerGoal": "일정 이점을 인정하면서 출처와 사용 조건을 먼저 확인하자고 제안한다",
+      "courseUnitId": "b2_02_professional_opinion",
+      "candidateSha256": "145cd9e44d6b3d6252045373c12812069c24b23beb3e185e4e3197ab2d886967",
+      "candidateFileSha256": "ad728c35a2082479b428a436691244837614b54ffbf20f4e91dad4abb254c858",
+      "briefSha256": "2b2dfbc6697ccf50d754e8bf18a61f178ac2649ee97912f3dfdd63d6907de5ba",
+      "mustIncludeKo": [
+        "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "brand_private_account_boundary",
+      "level": "b2",
+      "titleKo": "회사 계정과 개인 계정의 경계를 정하기",
+      "relationship": "마야와 안드레아",
+      "playerGoal": "친근한 콘텐츠 장점을 인정하면서 승인 대상과 개인 의견 표시를 구분한다",
+      "courseUnitId": "b2_03_precise_requests",
+      "candidateSha256": "3b6088138147a3d6b799b9d6e6c2ad7250f2b73427abf28fd880f785c465baee",
+      "candidateFileSha256": "66f5a452a31c4ed5385e35295d11aefcdfb8b4efb327ac8051ff41fe4968287a",
+      "briefSha256": "affbcf735cf7cdfcbda991de494d250777863b7d5035f463f8a7c3fec59dd1c7",
+      "mustIncludeKo": [
+        "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "community_event_compromise",
+      "level": "b2",
+      "titleKo": "동네 행사 시간과 소음을 절충하기",
+      "relationship": "행사 기획자와 인근 주민, 참여자 현아",
+      "playerGoal": "행사 취지를 지키면서 종료 시간과 음향 조건을 제안한다",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "candidateSha256": "b27a889341bce13914c25c28e07b15d5d379d5ed4d1c5f62f964610500390382",
+      "candidateFileSha256": "41f66289355025c23330f6bf931373caeb56f6004bdc3be20c82c40704529a97",
+      "briefSha256": "5c129e9aaf32f5e97a37cec6492d10fc4ab67975149bb0f653d38504c074969d",
+      "mustIncludeKo": [
+        "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "delivery_refund_evidence",
+      "level": "b2",
+      "titleKo": "배달 지연 환불 범위를 협의하기",
+      "relationship": "이용자 수진과 상담 직원",
+      "playerGoal": "확인 가능한 지연과 상태를 말하고 합리적인 환불 범위를 묻는다",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "candidateSha256": "8e808c270e523236f91c84e0688f8b6ae0633999349d2acabb8bbe3c7a1dec0a",
+      "candidateFileSha256": "86cf30417fbcf1cc7bd1417e27542f3772082782d11726d35293fac16b5a826b",
+      "briefSha256": "87e121aa21416064d5f37d9030cb3ac49724f871cfac228482c01296031d09f1",
+      "mustIncludeKo": [
+        "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "direct_feedback_misread",
+      "level": "b2",
+      "titleKo": "솔직한 피드백이 무례하게 들렸을 때",
+      "relationship": "프로젝트 동료 다니엘과 마야",
+      "playerGoal": "의도만 변명하지 않고 어떤 표현이 강했는지 확인한다",
+      "courseUnitId": "b2_02_professional_opinion",
+      "candidateSha256": "1caaf704892c0b54daf9d2feb095f19b9cd1ae8723b2f9de1bb3d67320fe576b",
+      "candidateFileSha256": "a054545ddd55b6cdaba2950a558d5c86266f28c1795ea5f6922cee4ffb986f77",
+      "briefSha256": "3f53d08282ab87d257d6c97bf951d72633d85e3236454ede438fe4eaa5c0ef41",
+      "mustIncludeKo": [
+        "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나"
+      ],
+      "mustAvoidKo": [
+        "독일인은 직설적",
+        "미국인은"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "feedback_specific_example",
+      "level": "b2",
+      "titleKo": "모호한 업무 피드백을 구체화하기",
+      "relationship": "신입 마야와 선배 안드레아",
+      "playerGoal": "방어적으로 들리지 않게 기대 행동과 우선순위를 확인한다",
+      "courseUnitId": "b2_03_precise_requests",
+      "candidateSha256": "238f2809b953928307d5b42b86d5c952fcc9a621c199499930d0e5a25cb77258",
+      "candidateFileSha256": "9ec9d4026b2b9f8191d777a955a1c5ae86e5edd3a8ab15b1a19f0f8410958cfa",
+      "briefSha256": "b00ccd8231973bcdce8d0c9245b85561cb15818b0746117bf7f15b7b8ec23b5e",
+      "mustIncludeKo": [
+        "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "filming_permission",
+      "level": "b2",
+      "titleKo": "가게 안을 촬영하기 전에 허락받기",
+      "relationship": "영상 제작자 다니엘과 카페 직원",
+      "playerGoal": "촬영 목적과 범위를 설명하고 실제 선택권을 열어 둔 채 허락을 구한다",
+      "courseUnitId": "b2_01_formal_opening",
+      "candidateSha256": "20cfffeafb098fe145ec595ef7ab0104ecf051ba8fe5a58e88af550142948f87",
+      "candidateFileSha256": "13a2ff6ef9e023b4418d640c6c6c0517e17959ff3d20fd03f05afca8748b3847",
+      "briefSha256": "e75fe379d3d0b8dfb9bf413fc053bfdcbe87270fa24b7f07785653169d70bc6c",
+      "mustIncludeKo": [
+        "가게 안을 잠깐 촬영해도 괜찮으세요?",
+        "손님 얼굴은 안 나오게 찍을게요"
+      ],
+      "mustAvoidKo": [
+        "그냥 찍어도 되죠"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "freelance_scope_change",
+      "level": "b2",
+      "titleKo": "수정 요청이 계약 범위를 넘었을 때",
+      "relationship": "프리랜서 다니엘과 고객사 담당자",
+      "playerGoal": "가능한 수정과 새 촬영의 차이를 설명하고 일정·비용 재협의를 요청한다",
+      "courseUnitId": "b2_03_precise_requests",
+      "candidateSha256": "5ab132380322dce311f3e082894ddaf159c1d3979e621a705b5a41322160b057",
+      "candidateFileSha256": "8f7d16c906bd65be3b8a8cf19532431058e0a91d6c11c8cf42a940d73021438d",
+      "briefSha256": "4ce16b902540c649d9a2315b610a826b573c7b7f6b744f0772d6e47f5d1ab409",
+      "mustIncludeKo": [
+        "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다"
+      ],
+      "mustAvoidKo": [
+        "제 권한을 넘어서"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "fremdschaemen_live",
+      "level": "b2",
+      "titleKo": "친구의 과한 라이브 방송을 보며 민망할 때",
+      "relationship": "친한 마야와 레나",
+      "playerGoal": "친구를 조롱하지 않으면서 어떤 행동이 불편했는지 말한다",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "candidateSha256": "279f1016988a8294a059a946aba4cc9070bf27291e8587f4f4653eab3962bb0e",
+      "candidateFileSha256": "2ed94c0a4cfaf6bc55c778541db42eb5a991baab1f75124f9f7f7aa9e1f10e3a",
+      "briefSha256": "edd0afec16a39774c34fd2fd89749515708445a7eb2164b6de6c9fccfa421f48",
+      "mustIncludeKo": [
+        "내가 다 민망",
+        "보는 내가 다 부끄러"
+      ],
+      "mustAvoidKo": [
+        "대리 수치가 느껴지다",
+        "남사스럽다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "library_quiet_zone_conflict",
+      "level": "b2",
+      "titleKo": "도서관 통화 구역을 두고 갈등할 때",
+      "relationship": "학생 레나와 다른 이용자",
+      "playerGoal": "표시를 못 본 점을 인정하면서 당장 이동할 곳을 찾는다",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "candidateSha256": "829fc493e1e8549cb9d1729db8c31ccfa86338289f99256995fbe912317cb9d8",
+      "candidateFileSha256": "665cf088a5c7a480933dd5eac5a274cf11b25c2cb09c40a9002262ce3412deb3",
+      "briefSha256": "2e076920186c4bd7accaa8d86f3deaeea22897d77c77ce48d5be4b23632cef73",
+      "mustIncludeKo": [
+        "통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "meeting_disagreement_evidence",
+      "level": "b2",
+      "titleKo": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기",
+      "relationship": "마야와 안드레아를 포함한 동료",
+      "playerGoal": "조회 수의 장점을 인정하면서 다른 지표도 봐야 한다고 주장한다",
+      "courseUnitId": "b2_02_professional_opinion",
+      "candidateSha256": "e21e27744bad217f0723e34fe0729ba9347d2a803e8dbf0175a3e9885dfbc89c",
+      "candidateFileSha256": "dc870d7b20cc08911718c1e2339f161d1a8180dfdd1652924e63d6eddc4bc25b",
+      "briefSha256": "365f3676ffbbcd663a32c8ee977462c3a95a558fff3d4cd415b16f3e3548c1e9",
+      "mustIncludeKo": [
+        "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "meeting_opening_context",
+      "level": "b2",
+      "titleKo": "처음 참석한 회의에서 목적 확인하기",
+      "relationship": "처음 함께 일하는 마야와 안드레아",
+      "playerGoal": "회의를 끊지 않으면서 범위와 기대 결과를 확인한다",
+      "courseUnitId": "b2_01_formal_opening",
+      "candidateSha256": "f700d3543ee21b6df2a2c8772283d82061b384f8a0eb893d5ace85447c55fa04",
+      "candidateFileSha256": "d474de3e6ac004e9eb1a866b95a16161f64b2382a3fe46cfae9865b8caf84514",
+      "briefSha256": "10cbe3195f405568e9770b15124f5b34b8082296a15b1c58b3aa43bbbcc67f19",
+      "mustIncludeKo": [
+        "오늘 회의에서 어디까지 결정하면 될까요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "neighborhood_filming_notice",
+      "level": "b2",
+      "titleKo": "골목 촬영 전에 주민에게 알리기",
+      "relationship": "영상 제작자 다니엘과 주민",
+      "playerGoal": "촬영 시간과 화면 범위를 설명하고 불편한 지점을 조정한다",
+      "courseUnitId": "b2_03_precise_requests",
+      "candidateSha256": "85cb4574d57c0e420e5b8bfa7d6924000c2490a34feb438a9305e95194c957e8",
+      "candidateFileSha256": "1079d16d4424a7e62644eb3e7fecbbb60136a8c852bb21c6ef6f9aee5902a38f",
+      "briefSha256": "d9bf1d6ee1277ee3b7be2ea9de7976d02477fd3aff2bd3e4809f0c6681d52441",
+      "mustIncludeKo": [
+        "현관이 화면에 들어가지 않도록 각도를 바꾸겠습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "partner_family_titles",
+      "level": "b2",
+      "titleKo": "연인의 가족을 처음 만날 때 호칭 정하기",
+      "relationship": "연애를 시작한 크리스티안과 수진",
+      "playerGoal": "관계를 존중하면서 실제로 쓸 호칭과 말투를 확인한다",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "candidateSha256": "cdac92f5ae101ac0d3df1976449cbc43f8884707d95703135bc2e28296594ef4",
+      "candidateFileSha256": "f35da6bffcfa2b07ead2a11a329274558e648df69e526018a152f475ae7857ba",
+      "briefSha256": "951de603b6db7029e748b07bb842f6597841d5d203a416493806946db544da00",
+      "mustIncludeKo": [
+        "부모님을 어떻게 부르는 게 편할까요?"
+      ],
+      "mustAvoidKo": [
+        "한국에서는 무조건"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "portfolio_interview_gap",
+      "level": "b2",
+      "titleKo": "면접에서 포트폴리오 공백 설명하기",
+      "relationship": "지원자 마야와 면접관",
+      "playerGoal": "과장 없이 그 기간의 학습과 단기 프로젝트를 업무 역량에 연결한다",
+      "courseUnitId": "b2_05_interview",
+      "candidateSha256": "0018ad5b7f8727059a66d3c3f3795aba1b9c71d941865b6ad1a1b73e3ff77046",
+      "candidateFileSha256": "5ac91679184607cf1744b7684d3d0ec9114fe300e16917a62812769ab07f74ee",
+      "briefSha256": "866857213730f50009e6215d7105aa2d68259e49c6701869099625dd10cefb09",
+      "mustIncludeKo": [
+        "정규직으로 일한 기간은 아니지만"
+      ],
+      "mustAvoidKo": [
+        "팀을 총괄했습니다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "recycling_policy_pilot",
+      "level": "b2",
+      "titleKo": "아파트 음식물 쓰레기 방식을 바꾸기",
+      "relationship": "주민 수진과 이웃들",
+      "playerGoal": "환경 효과와 접근성 문제를 모두 반영한 시험 운영을 제안한다",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "candidateSha256": "74f948b04e37e71a607e1ac2b4c6e0d5cd5a10a96089b5cab740431644fd5838",
+      "candidateFileSha256": "8f86b9f5b88bea69b41277666ad31836474e1370733655b79ce3a25b4e0a1d6d",
+      "briefSha256": "114bed3908bb5e137a878ceb2a83726877f8b7b7ebd3b254efe37ddd96f15a88",
+      "mustIncludeKo": [
+        "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "rental_repair_deposit",
+      "level": "b2",
+      "titleKo": "퇴거 전 수리비 책임을 협의하기",
+      "relationship": "세입자 크리스티안과 집주인",
+      "playerGoal": "입주 당시 사진과 현재 상태를 비교해 전액 부담에 이의를 제기한다",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "candidateSha256": "00a3cce39989aac5730d2977b7d1d4de2ecd7952f0a50bd080f04ed218257d90",
+      "candidateFileSha256": "fd070f61d7d4dca982614bc5aa64a32fd869d9be2dec1b82a1c6aaf807a97965",
+      "briefSha256": "a6a3e005f841ef5e0f725825ba089267cb2c0df8ae6398dfb9a047585344cb72",
+      "mustIncludeKo": [
+        "입주할 때 찍은 사진에도 비슷한 자국이 있어요"
+      ],
+      "mustAvoidKo": [
+        "법적으로 무조건"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "train_delay_connection",
+      "level": "b2",
+      "titleKo": "기차 지연으로 환승이 어려울 때",
+      "relationship": "여행자 다니엘과 직원",
+      "playerGoal": "현재 확정된 지연과 연결편 조건을 설명하고 가능한 변경을 묻는다",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "candidateSha256": "73dd78098abc034c5bf074cc3193c7eade114aaf010e414e5ef2bba7fafb37d0",
+      "candidateFileSha256": "b6b1803c5c0cf52a797b23882a7bd1826ee52cc5a74a185c8baa50ce3e9166f0",
+      "briefSha256": "12923062c65f99a82d9291861ff2f0279bf9fa55374c550a7bcfe69e19b0099b",
+      "mustIncludeKo": [
+        "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?"
+      ],
+      "mustAvoidKo": [
+        "당연히 보상"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "wedding_invitation_expectation",
+      "level": "b2",
+      "titleKo": "결혼식 초대의 뜻을 오해했을 때",
+      "relationship": "동료 마야와 안드레아",
+      "playerGoal": "초대의 의미와 참석이 어려운 상황에서의 답장을 묻는다",
+      "courseUnitId": "b2_01_formal_opening",
+      "candidateSha256": "71e1e32f62053ea65ca81ce09c9158a553e6c565525d6516c24905e5fb6ef207",
+      "candidateFileSha256": "ef8818c86351f806f06776207ffe7a96d35274b66d1d0f4f69818e85b7df22fe",
+      "briefSha256": "47bc32c57c9078c1c5770faf9736a731e53c04531fb438f8910dee127793b98b",
+      "mustIncludeKo": [
+        "초대받았다고 꼭 가야 하는 건 아니죠?"
+      ],
+      "mustAvoidKo": [
+        "한국인은 원래",
+        "한국에서는 항상"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "after_hours_messages",
+      "level": "c1",
+      "titleKo": "퇴근 후 연락의 경계를 팀에서 정하기",
+      "relationship": "팀 리더 안드레아와 팀원 마야",
+      "playerGoal": "업무 긴급도와 개인 경계를 구분할 수 있는 규칙을 제안한다",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "candidateSha256": "1e922ae7d7b777c84489fddc416dabae4f512c8ec1ead0fd8ffba334243060c9",
+      "candidateFileSha256": "efb7bcf3dba9272124c05a97e3c3bcac9aa6b1d6e54325a1797ec8bc74938e76",
+      "briefSha256": "38fefa33b989559f7c1f3fa7025d60b398b1dd1eb87b0b93f4f6cafa2644b065",
+      "mustIncludeKo": [
+        "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요"
+      ],
+      "mustAvoidKo": [
+        "퇴근 후 연락은 무조건 금지"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ai_interview_screening_transparency",
+      "level": "c1",
+      "titleKo": "AI 면접 평가를 지원자에게 어떻게 알릴지",
+      "relationship": "리더 안드레아와 데이터 분석가 수진",
+      "playerGoal": "영업 비밀을 공개하지 않아도 평가 범위와 이의 제기 방법은 알려야 한다고 주장한다",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "candidateSha256": "62b9318482b97d30a1de8495b5d0a2e5243eba0dca1ec8cd2facafc7a537d30f",
+      "candidateFileSha256": "b5d6a9d7bde45a2807012d0f66c8f4b30a2068715f023a48afdc5c0f7c9a1ed5",
+      "briefSha256": "444e38fbea5de5b394d9900d6c461eb95f5d4c5826b01448b9de2c62f48b022f",
+      "mustIncludeKo": [
+        "모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ai_translation_voice_loss",
+      "level": "c1",
+      "titleKo": "AI 번역이 인터뷰이의 말투를 지웠을 때",
+      "relationship": "영상 제작자 다니엘과 연구자 현아",
+      "playerGoal": "읽기 쉬움과 화자의 책임 수준을 함께 보존하는 수정 원칙을 제안한다",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "candidateSha256": "1cc7f3e7befaa3e8994d63cfd628db2029350ca0c549be2664bb2a38660389b2",
+      "candidateFileSha256": "ae620dc28da622e69ebc7b85d9f85b66e9535c93fb367b5b47b3b15f0e7de22a",
+      "briefSha256": "badeac29c10be1af053d588d2b5988e28e803e4d34e1a25559af5133b3eb2eec",
+      "mustIncludeKo": [
+        "문장을 매끄럽게 만든다고 화자가 직접 확인한 사실처럼 바꾸면 안 돼요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "anonymous_survey_trust",
+      "level": "c1",
+      "titleKo": "익명 직원 설문이 정말 익명인지 묻기",
+      "relationship": "재무 리더 안드레아와 데이터 분석가 수진",
+      "playerGoal": "분석 가치와 재식별 위험을 비교해 항목 축소를 제안한다",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "candidateSha256": "e141464ea737e1c9f985dc7399f74dfa0210183628016806fcac383382b6c455",
+      "candidateFileSha256": "8e0cdf1675c019ced0d79e8810119971bb08d5edaa9e0bfa11574ece7f3ef867",
+      "briefSha256": "ecb8331eb292891245423145b1a4a516f8d12e2aa66ed1eac87eb24b558eb201",
+      "mustIncludeKo": [
+        "이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "deepfake_verification",
+      "level": "c1",
+      "titleKo": "딥페이크 의심 영상을 보도하기 전",
+      "relationship": "편집자와 데이터 분석가 수진",
+      "playerGoal": "보도 가치와 오보 위험을 분리해 검증 순서를 제시한다",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "candidateSha256": "361e2352136131541392e4ad30ccc550b5d695e12ff792fabf6e0dc0d4802b65",
+      "candidateFileSha256": "9e594b165165f90de176dfb6e148c032cc48cf6728641f54818dabc4abc3190c",
+      "briefSha256": "02376643356c996bf3f692415be8e59ea279d09eba0274ea9796cd08604c88d1",
+      "mustIncludeKo": [
+        "영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다"
+      ],
+      "mustAvoidKo": [
+        "가짜가 분명"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "delivery_rider_safety_tradeoff",
+      "level": "c1",
+      "titleKo": "빠른 배달과 라이더 안전을 함께 논의하기",
+      "relationship": "플랫폼 담당자, 라이더, 이용자 대표 현아",
+      "playerGoal": "개인 운전 습관만 탓하지 않고 보상 구조와 표시 방식의 영향을 묻는다",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "candidateSha256": "935b0a3d8612bf9ea9b35cac50121e473d82ae1b73263793a563961369403df5",
+      "candidateFileSha256": "e2c357fc3f6a7e31a10533828bb16038590d1d72612a879bd8dd0784ecc8550d",
+      "briefSha256": "885b9f1ace25f3d8a0b6b475f2f4b9df23bc70660930e0b8611aadfe43d059c6",
+      "mustIncludeKo": [
+        "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "fan_translation_credit",
+      "level": "c1",
+      "titleKo": "팬 번역의 노동과 공로를 어떻게 표시할지",
+      "relationship": "마야와 자막 번역 참여자들",
+      "playerGoal": "팬 활동의 자발성과 노동 가치를 함께 인정하는 조건을 제안한다",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "candidateSha256": "419b54833d9cdd3e5670c2db77dd1d2483fa2b3612232b5e6ea2ac900ed0c911",
+      "candidateFileSha256": "4c606a7cd63da881f8de59245929a1dd84409664742245a0c364358c3b544d7c",
+      "briefSha256": "26d8cd0f0b85258f678262e1dfbb8a9c150fc90e5738d0a00a60ac92b005ee90",
+      "mustIncludeKo": [
+        "자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "gentrification_storefront",
+      "level": "c1",
+      "titleKo": "골목이 유명해진 뒤 임대료가 오를 때",
+      "relationship": "연구자 현아와 가게 운영자, 주민",
+      "playerGoal": "활성화 성공과 퇴출 위험을 같은 인과 안에서 설명한다",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "candidateSha256": "78f66247ca6f3cb1199c99d7708db5e1c30be0587c644fdb136c099ab8c73adc",
+      "candidateFileSha256": "cdda2bbbdd2c629238f6b09bcff26222dff330b9fdc95d90f578a5157b43350f",
+      "briefSha256": "49996ff7965accd55e60ebe13b7ee4788df35bfafb11e738c56b3728a24a4687",
+      "mustIncludeKo": [
+        "사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "heatwave_shelter_access",
+      "level": "c1",
+      "titleKo": "폭염 쉼터가 있어도 이용하기 어려울 때",
+      "relationship": "현아와 주민, 담당자",
+      "playerGoal": "시설 개수보다 실제 접근 조건을 근거로 개선 우선순위를 제안한다",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "candidateSha256": "da8eb012ca0e91d57473b123d5b39f8a5e5603090ca3ab9a4f72dbd26da50f00",
+      "candidateFileSha256": "5adc3cd513618f2def99ba953ffc63b35f15c1a48ee288a0b83a5357cfe7d565",
+      "briefSha256": "e79386bb4387ed49d2bd4452100858f57d8cdbd2529fe367f9f738238086593f",
+      "mustIncludeKo": [
+        "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "kiosk_generation_access",
+      "level": "c1",
+      "titleKo": "무인 주문기가 세대별로 다르게 어려울 때",
+      "relationship": "데이터 분석가 수진과 매장 담당자",
+      "playerGoal": "평균 지표가 가리는 이용자 집단을 찾아 보완 서비스를 제안한다",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "candidateSha256": "9ea2529b30e9fee11c9ea581fd6dc35401d5d59b02e2fd3ae66a749799db8be3",
+      "candidateFileSha256": "59121acf068b899cfb33793c472e2fa410562ce910b46d92593e77920ec3cb0b",
+      "briefSha256": "3cd969617cc9c56140faf37a04a8f3c5e338a7143b028c1c46a20c98ab8de4d8",
+      "mustIncludeKo": [
+        "평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "museum_label_multiple_views",
+      "level": "c1",
+      "titleKo": "박물관 설명문에 누구의 관점을 담을지",
+      "relationship": "현아와 큐레이터 역할의 담당자",
+      "playerGoal": "한 문구에 모든 역사를 넣지 않으면서 상반된 관점을 드러낼 방법을 제안한다",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "candidateSha256": "cb60622d819c1ce48486a1bf34c45b48be18292ebea0028b05f9126aeb1b6c9a",
+      "candidateFileSha256": "13ac1460fc3c21da80dfa3923b7fea88698b0af3f574d47a3bf60b788c2618ce",
+      "briefSha256": "8955574240d30d17bd941bab6cd9dab06da9cc80504a3dac55fb5c4e0b1144d9",
+      "mustIncludeKo": [
+        "발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "nightlife_noise_balance",
+      "level": "c1",
+      "titleKo": "야간 상권과 주민 수면권을 함께 다루기",
+      "relationship": "현아, 상인, 주민, 담당자",
+      "playerGoal": "영업시간 일괄 단축 외의 공간·시간별 대안을 제시한다",
+      "courseUnitId": "c1_04_play_time_policy",
+      "candidateSha256": "6865177e95d97f8bfe29c3db0117a10f98c82e66be6e39798b0190639ca01533",
+      "candidateFileSha256": "4d0b3dbd36233aee84dab43e039b74210b889961b85c05661b22f542971c0457",
+      "briefSha256": "42c34ed028985712867c28b784f95a0e594a1fcfa983bed4fb856138e3d295f1",
+      "mustIncludeKo": [
+        "영업시간만 줄이면 소음이 다른 골목으로 이동할 가능성도 있습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "platform_moderation_appeal",
+      "level": "c1",
+      "titleKo": "커뮤니티 글이 자동으로 숨겨졌을 때",
+      "relationship": "운영자 수진과 주민 이용자",
+      "playerGoal": "안전 필터의 목적을 인정하면서 이의 제기와 재검토 경로를 제안한다",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "candidateSha256": "8d6e3fb9ca912129dc2fb4047aedc00dad106d3465071dd23d7a38549ef25106",
+      "candidateFileSha256": "5adcfb11e724087b3305c1eb22473094f50cfca49faa075f74548853485ec660",
+      "briefSha256": "a327f9022b9227d95fbb4c0b4a24b05faf4f79698329ee92976b4a5ee92f4f57",
+      "mustIncludeKo": [
+        "필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "public_consultation_access",
+      "level": "c1",
+      "titleKo": "주민 의견 수렴이 실제 참여가 되려면",
+      "relationship": "연구자 현아와 공무원, 주민",
+      "playerGoal": "참여 숫자와 대표성을 구분해 보완 방식을 제안한다",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "candidateSha256": "fe2c94ec772f03cf45f7e0398539c510b018cf1183b5dbcfbf207794f2860098",
+      "candidateFileSha256": "7414d639155debca132c611aac1ba6f7042cf793778325b1f14b0ae4c19bca93",
+      "briefSha256": "15721dfc86eec2dbf9ccd38b6276f456b43cdb6c9cdf752771c599710461d53b",
+      "mustIncludeKo": [
+        "응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "research_limits_presentation",
+      "level": "c1",
+      "titleKo": "연구 결과의 한계를 발표에서 숨기지 않기",
+      "relationship": "현아와 지도 교수",
+      "playerGoal": "연구의 가치를 유지하면서 주장 범위를 좁힌다",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "candidateSha256": "154829fa74aed3d200c27d135c9ff2e36c6a112199fdcfd1d5f553f1830702ef",
+      "candidateFileSha256": "363338f2bc05ed4ba7b8736a2bb0f10f7ecc65011ecfa1135950ee0b29f427c2",
+      "briefSha256": "9bae1c0fd55c7f29eedec6a5bf78c7b210dd11ccdfb8dd3ad4ad14bc2014f138",
+      "mustIncludeKo": [
+        "이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "school_phone_rule",
+      "level": "c1",
+      "titleKo": "학교 스마트폰 규제를 설계할 때",
+      "relationship": "교사, 학생 대표, 학부모와 관찰자 현아",
+      "playerGoal": "전면 허용과 전면 금지 사이에서 목적별 규칙을 제안한다",
+      "courseUnitId": "c1_04_play_time_policy",
+      "candidateSha256": "a65b6450647faec01d4c347de67709871173bb11184d178ee63edc113cd126d9",
+      "candidateFileSha256": "c69bed381ec950c8bcafc199df8cd20f13571ef2d5f0d4cc80edec4d24687b31",
+      "briefSha256": "03d10ea8bf39e7cdb834e5df090441634b24c83acd57d4612ff43aa4bb6eefc1",
+      "mustIncludeKo": [
+        "집중을 높이겠다는 목적은 타당하지만 일괄 수거가 유일한 방법인지는 따져 봐야 합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "tradition_reinterpreted_stage",
+      "level": "c1",
+      "titleKo": "전통 공연을 현대적으로 바꿀 때",
+      "relationship": "기획자 마야와 연구자 현아",
+      "playerGoal": "변화를 반대하지 않으면서 무엇이 원형이고 무엇이 새 해석인지 분명히 하자고 제안한다",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "candidateSha256": "31f93dc2cf0a69696a617f448491c576f5322b20129187624ae77c9eae4acc4e",
+      "candidateFileSha256": "6e2c9550f758e6804cc8433ba08d4b0b18a5df7f14e8e64a8d997549a51ea652",
+      "briefSha256": "0f062b17026e92236e9eaf3eb6394a899e030061fbbe90dd89fecb0a1560b38d",
+      "mustIncludeKo": [
+        "새롭게 해석한 부분과 전승된 형식을 구분해서 보여 주면 좋겠어요"
+      ],
+      "mustAvoidKo": [
+        "전통을 망친다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "training_data_copyright",
+      "level": "c1",
+      "titleKo": "AI 학습 데이터의 출처를 설명해야 할 때",
+      "relationship": "마야, 다니엘, 법무가 아닌 프로젝트 담당자",
+      "playerGoal": "법적 결론을 지어내지 않고 출처 확인 전 최종 사용을 보류하자고 제안한다",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "candidateSha256": "19767ab9a5526a72a5633b3a5f75eb2ce02beda0d2bdae4bc74b1ba2d12bdd9d",
+      "candidateFileSha256": "8b62aa777e7598ba651e12f6151e93318d71e326a756efa369dc6fbd666042fb",
+      "briefSha256": "b86cd33b42fe980eb469a345a28eb4acf79d1a65e8a3c24d6f7fb6453d7e8614",
+      "mustIncludeKo": [
+        "지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다"
+      ],
+      "mustAvoidKo": [
+        "불법이 확실"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "workload_allocation_hidden_labor",
+      "level": "c1",
+      "titleKo": "눈에 잘 안 보이는 업무까지 나누기",
+      "relationship": "팀 리더 안드레아와 마야, 동료",
+      "playerGoal": "개인의 불만이 아니라 반복된 업무 기록으로 부담을 설명한다",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "candidateSha256": "e63b8d00ed458dc48cf0822b31c3b74c03434e0d9290ba880c19732b4c14aa51",
+      "candidateFileSha256": "33e0e1726aa56788800c983712e0ed9dad097bb882c4d19c800073d907f6986b",
+      "briefSha256": "1a6162744b6b04dc34af1cd93b5d70747adb84206ab63b28fd0b9d312731660f",
+      "mustIncludeKo": [
+        "산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "youth_housing_plain_language",
+      "level": "c1",
+      "titleKo": "청년 주거 지원 안내가 너무 어려울 때",
+      "relationship": "데이터 분석가 수진과 공공기관 담당자",
+      "playerGoal": "정보를 줄이지 않으면서 판단 순서를 바꾸고 예시를 추가하자고 제안한다",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "candidateSha256": "f6f3998b17c5e049b4959bd6dbd646241e5ab27d482e8ffc5c082f11afdf76e5",
+      "candidateFileSha256": "f65a729c6b63f3c68e4d87b84e4f20e7065e1e7ad5fede9e08ce84dd5bc3a0df",
+      "briefSha256": "481a465ffe3c2b9b8a69ef311a2af5e3f6e61f5d59551f6103fa4c717e919205",
+      "mustIncludeKo": [
+        "조건을 삭제하자는 게 아니라 사용자가 판단하는 순서대로 다시 보여 주자는 뜻입니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "ai_hiring_appeal",
+      "level": "c2",
+      "titleKo": "AI 채용 탈락에 이의를 제기할 권리",
+      "relationship": "재무 리더 안드레아와 데이터 분석가 수진, 지원자 대표",
+      "playerGoal": "영업 비밀을 침해하지 않는 범위에서 설명과 재심 기준을 설계한다",
+      "courseUnitId": "c2_03_automation_redress",
+      "candidateSha256": "0856ba2cb84b3e617ccb1757f8d9cf1f0940788d3214322db023eac60d49e719",
+      "candidateFileSha256": "e23c5b1e42157f6f17b584d5697333c7010938852d9434ebb8a1fcfc88b7fa76",
+      "briefSha256": "02343b299c73f9b0fd1840f3c225e18e296463e7040f92d5dbafd0bd27db59db",
+      "mustIncludeKo": [
+        "모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "automated_benefit_denial",
+      "level": "c2",
+      "titleKo": "복지 신청이 자동으로 거절됐을 때 책임을 묻기",
+      "relationship": "분석가 수진과 기관 담당자, 당사자 대표",
+      "playerGoal": "모델 정확도와 개별 구제 가능성을 분리해 설명 의무와 재검토 절차를 요구한다",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "candidateSha256": "d22e9f51251901314ef187cdca112ceeb14f8316e51669cc4d522c181f9a9257",
+      "candidateFileSha256": "0e922f0b27b1ec45c55fde955c3db18d8b55d33098d0c842558319b5a43ed056",
+      "briefSha256": "a1fcc67d7714397e18817715f340d057d1c5fa6072a204c2b2ef0f2359452719",
+      "mustIncludeKo": [
+        "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "autonomous_delivery_liability",
+      "level": "c2",
+      "titleKo": "자율 배송 사고의 책임을 한 사람에게 돌릴 수 있는가",
+      "relationship": "플랫폼 담당자, 운영사, 시민 대표 현아",
+      "playerGoal": "마지막으로 버튼을 누른 운영자만 탓하는 프레임을 비판하고 책임 층위를 나눈다",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "candidateSha256": "81b5648ddf74751948aae438c660bc458e73a47331b5d8387cac0d9addff6f4a",
+      "candidateFileSha256": "a3effe7a062e4c732924d17d31ca000cfb94ffab4964c47d3cc169d57daf06f3",
+      "briefSha256": "e075b69324cabafb356ccf7f40ee67f171ef8e90708cc1fa9404061dea488ad5",
+      "mustIncludeKo": [
+        "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "causal_claim_headline",
+      "level": "c2",
+      "titleKo": "상관관계를 원인처럼 쓴 기사 제목",
+      "relationship": "데이터 분석가 수진과 편집자",
+      "playerGoal": "연구 설계가 허용하는 주장과 독자가 받을 인상을 비교해 제목을 수정한다",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "candidateSha256": "cb5949e643104929bcc63636ec57ba68a58c1ada99844e606a50aa75e1bdd865",
+      "candidateFileSha256": "6c0a3f64854e513aadfb2eb9e9714da102c6fe5971c234074c0d6967480baf5a",
+      "briefSha256": "be696108c2d3e6d33ad53ba786314c63a2b02c6cf8da192c539d605cbd1ba157",
+      "mustIncludeKo": [
+        "함께 나타났다는 결과를 앱이 개선했다는 원인 주장으로 바꾸면 연구 범위를 넘어섭니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "central_local_disaster_responsibility",
+      "level": "c2",
+      "titleKo": "재난 대응 실패의 중앙·지방 책임을 나누기",
+      "relationship": "중앙·지방 담당자와 시민 대표 현아",
+      "playerGoal": "하나의 실패 원인으로 축소하지 않고 정보·권한·실행의 연결 고리를 재구성한다",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "candidateSha256": "4959a41b7aa6f7c696e6104cca7bd4d7667aa49b0c19ae7729b2664f3d3e36ff",
+      "candidateFileSha256": "657e8f2ab6cbbae4f0bfaebb36a3366bdd228b1055ac41d1423d9dd93e1a725f",
+      "briefSha256": "73a3456161876dcef3511f47e84e1ae4302a73c2412f0044d1232da52fc8bba1",
+      "mustIncludeKo": [
+        "경보가 늦은 문제와 경보 이후 대피 결정이 지연된 문제를 한 책임으로 뭉뚱그릴 수는 없습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "climate_model_local_decision",
+      "level": "c2",
+      "titleKo": "기후 모델의 불확실성을 지역 결정에 쓰기",
+      "relationship": "연구자 현아와 도시 담당자",
+      "playerGoal": "불확실성을 무행동의 이유로 쓰지 않고 시나리오별 후회 비용을 비교한다",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "candidateSha256": "668b8967991bd24515e7e1039615013a607c85a9c2086189abfa39fb874c67c6",
+      "candidateFileSha256": "eefe212e664343b8a7b7754b1c75ad5c24efdf399bd76de9f50542260340c5b8",
+      "briefSha256": "a620fd7bec1b00503b28cc6a253cfcb04becf45fe7a920968af56f20aff4305e",
+      "mustIncludeKo": [
+        "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "diaspora_name_identity",
+      "level": "c2",
+      "titleKo": "이름의 발음과 소속감을 스스로 정할 권리",
+      "relationship": "기획자 마야와 참가자 대표",
+      "playerGoal": "검색 가능성과 자기 명명권을 양자택일로 만들지 않는 표시 방식을 제안한다",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "candidateSha256": "ace366a8c10f14e719e38b8626bd16603736b3742cddc5db5d14389bafe34106",
+      "candidateFileSha256": "21302da27ad86d43bf240a7beb8b665be6db9020805bde63ddade2d9372b4163",
+      "briefSha256": "23eb70f91152901a14ef920d750373991610c4b7662e3a851ad413aa008ce3cf",
+      "mustIncludeKo": [
+        "검색을 쉽게 만드는 표기와 당사자가 불리고 싶은 이름을 같은 칸에 억지로 맞출 필요는 없습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "emergency_price_controls",
+      "level": "c2",
+      "titleKo": "재난 시 생필품 가격 제한의 역효과를 논의하기",
+      "relationship": "재무 전문가 안드레아와 공공 담당자",
+      "playerGoal": "가격 억제 목적을 인정하면서 공급·배급·기간 조건을 함께 설계한다",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "candidateSha256": "e794f3c4f2433ea1c19a75ccba5c495928c6080bc0bea1cc03dd45235a3bd666",
+      "candidateFileSha256": "ded99d5fbd367a675240d6097cf34b2d3945e397bc8444e873118933f9c0e0ab",
+      "briefSha256": "c8954d4b4bc9f5cbda80bd75e145eafbd9375547f0021ccb975b3651a0affa3e",
+      "mustIncludeKo": [
+        "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "fact_check_label_power",
+      "level": "c2",
+      "titleKo": "팩트체크 라벨이 논쟁을 끝내는 권력이 될 때",
+      "relationship": "연구자 현아와 플랫폼 담당자",
+      "playerGoal": "검증 가능한 명제와 해석·예측을 구분하는 라벨 체계를 제안한다",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "candidateSha256": "e95d1a44b35cb8750693b4595eddc4a1985a875d9f3d3f055fb3f8d713d515b7",
+      "candidateFileSha256": "bf1bddd3b66711456b15503a837ffcc104f3f4758ca30635813a4b9e65347fa6",
+      "briefSha256": "882624815b43b65f268aa3218cfcd07d14eed9e140fb5f1746679e53372dab01",
+      "mustIncludeKo": [
+        "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "family_memory_conflict",
+      "level": "c2",
+      "titleKo": "가족이 같은 과거를 다르게 기억할 때",
+      "relationship": "연인 크리스티안과 수진",
+      "playerGoal": "누가 사실을 왜곡한다고 단정하지 않고 기억의 관점과 권력 차이를 묻는다",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "candidateSha256": "60ce09dfa3b25d1c7a01def4fe74318f1dc8c372b1a02800605a8c711a0799d1",
+      "candidateFileSha256": "bcb4009f084e8c8ab995386ebc8a77a6411e56289746d9e1b216ec7cbc92986c",
+      "briefSha256": "6d7ab34b4680d855f34d212625eb591773185f54c6a654b0117af8226f816b91",
+      "mustIncludeKo": [
+        "같은 일을 기억해도 누구에게 선택권이 있었는지에 따라 이야기가 달라질 수 있겠네요"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "hidden_gem_local_impact",
+      "level": "c2",
+      "titleKo": "‘숨은 명소’ 영상이 지역을 바꾼 뒤",
+      "relationship": "영상 제작자 다니엘, 연구자 현아, 주민",
+      "playerGoal": "좋은 의도와 긍정적 효과를 방패로 삼지 않고 영상의 프레이밍과 후속 책임을 논의한다",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "candidateSha256": "9f35ddd037c8623da4c8ebff1745f88814b5b3c71b2f4a73af1652c3ba494843",
+      "candidateFileSha256": "6737440e46a21c791cb717dd74054ecc97689387417032fda3c091258b33e1ee",
+      "briefSha256": "0f3ebb36e3945f0372dfbdc91b9cdb9808b3c5586bc2f317e0ea393b25cb0c82",
+      "mustIncludeKo": [
+        "숨은 명소",
+        "지역",
+        "좋은 의도로 만든 영상이라는 설명만으로 이후의 영향을 지울 수는 없습니다"
+      ],
+      "mustAvoidKo": [
+        "핫플로 만들어 줬는데"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "housing_tax_intergenerational",
+      "level": "c2",
+      "titleKo": "주택 보유세 논쟁의 세대 프레임",
+      "relationship": "진행자와 연구자 현아",
+      "playerGoal": "세대 경험을 인정하면서 단일 집단처럼 묶는 프레임의 한계를 지적한다",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "candidateSha256": "034bccd2f6c5b448d576cdc63657199e25d1a252dc2eafc3d9b1c3b593a57121",
+      "candidateFileSha256": "edbe4f5e4b39ba2e1954173bd827270aa38a2dda3095509cd93060a632032455",
+      "briefSha256": "914a47edb426008e8fdc0a0386e248d4491b7fcac5ff306b0d41e67594893185",
+      "mustIncludeKo": [
+        "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "medical_uncertainty_consent",
+      "level": "c2",
+      "titleKo": "불확실한 치료 효과를 동의 과정에서 설명하기",
+      "relationship": "연구자와 참여자 대표 수진",
+      "playerGoal": "희망을 꺾거나 효과를 과장하지 않고 절대 위험과 대안을 설명한다",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "candidateSha256": "855d61d53a15913405798e6ce61c95ddb1807db8b4e44d78b5fa4ec06f4580f2",
+      "candidateFileSha256": "01d559febeb31b6d8291e77238452e34a669905f1c88245340fef8629cef6e2f",
+      "briefSha256": "b85f982abeae370f2e8c8204b06f38139957346d1c08a10e490e008c3cd8b389",
+      "mustIncludeKo": [
+        "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다"
+      ],
+      "mustAvoidKo": [
+        "안전합니다"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "passive_voice_accountability",
+      "level": "c2",
+      "titleKo": "보도자료의 수동태가 책임 주체를 지울 때",
+      "relationship": "편집자와 담당자, 분석가 수진",
+      "playerGoal": "확정되지 않은 개인 책임을 만들지 않으면서 기관의 행동 주체와 조사 상태를 드러낸다",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "candidateSha256": "52c7a8a4b0b82b13729ecb66e14b9edef622cfeb5ca224003181606e10c8617c",
+      "candidateFileSha256": "ad440e630e32c7d8614ed57c449d8172064ec07386fdd053f1bdb4544caa1abd",
+      "briefSha256": "7939f6b41ac0c526ef56dffe8d4fd4354d14a785010076c83a6579f7232be7af",
+      "mustIncludeKo": [
+        "행위자를 확정할 수 없다는 것과 기관이 아무 행동 주체도 아닌 것처럼 쓰는 것은 다릅니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "poll_question_framing",
+      "level": "c2",
+      "titleKo": "여론조사 질문이 원하는 답을 만들 때",
+      "relationship": "분석가 수진과 편집자",
+      "playerGoal": "문항의 전제와 응답 효과를 분석하고 중립적 대안과 분할 문항을 제안한다",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "candidateSha256": "9deb8cd330a09f87c73568b7efd1c85d8d6f8ca3a0ea35d64c935c7969dadb91",
+      "candidateFileSha256": "9cd205264e82892bfd8c0f19dc048ec83feef1c431dd373d330fcbba76d8c59a",
+      "briefSha256": "007fe2ffa9d65d79369c44f55f808d7de76fb7de29b75e6ecbc85268385a57a5",
+      "mustIncludeKo": [
+        "질문 안에 이미 낭비라는 평가를 넣으면 응답은 정책보다 그 전제에 반응할 수 있습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "protest_order_and_rights",
+      "level": "c2",
+      "titleKo": "집회 질서와 표현의 자유를 같은 틀에서 논증하기",
+      "relationship": "연구자 현아와 정책 담당자, 시민",
+      "playerGoal": "불편의 실재를 인정하면서 제한의 필요성·비례성·대안을 단계적으로 따진다",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "candidateSha256": "2549eae69d5dbd99435acef85a6f36b4d0767ba2e54c6cff611be816acd5612d",
+      "candidateFileSha256": "5cd23fbf0b10207db135162b48a37c960d58499c9fa46795b56231acaba2680a",
+      "briefSha256": "2019adbd7eeb7fc60882fc034f3257b5563c2068d436bc8f604db6a0be98f275",
+      "mustIncludeKo": [
+        "불편이 발생했다는 사실만으로 표현의 자유를 광범위하게 제한할 근거가 곧바로 생기는 것은 아닙니다"
+      ],
+      "mustAvoidKo": [
+        "법적으로 당연"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "relationship_story_reframing",
+      "level": "c2",
+      "titleKo": "연애의 시작을 서로 다르게 말할 때",
+      "relationship": "연인 크리스티안과 수진",
+      "playerGoal": "낭만적 농담의 의도와 상대가 잃었다고 느낀 서사를 조정한다",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "candidateSha256": "ca3f99cf388a5cb36006276b978097dbb253d0e3e111c1a60b03316604f605c1",
+      "candidateFileSha256": "c9da522e0ec33681955024ea49438c48058245193457f3cd7cbe2a2799baae33",
+      "briefSha256": "a712063d7617e7884a51809d106d91d6cc67cd074f613c95f4a32824a85974f5",
+      "mustIncludeKo": [
+        "첫눈에 시작됐다는 말이 우리 사이에 쌓인 시간을 지우는 것처럼 들렸구나"
+      ],
+      "mustAvoidKo": [
+        "운명이라 어쩔 수 없"
+      ],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "replication_failure_response",
+      "level": "c2",
+      "titleKo": "연구 재현에 실패했을 때 원 논문을 평가하기",
+      "relationship": "연구자 현아와 교수, 동료",
+      "playerGoal": "원 연구가 거짓이라고 단정하지 않고 표본·맥락·방법 차이와 누적 증거를 평가한다",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "candidateSha256": "a3376fa91d06bc2c30f69408beb7329255472d38e66e4f726861dd388da9311d",
+      "candidateFileSha256": "965527a6281dc58aac6a7600ce39f12d79d15070e9c7f4ce0c34618a2210a49d",
+      "briefSha256": "95d96786eac25cf9e295db0b8045fc56836a84d3cb0415487af768b6022fed90",
+      "mustIncludeKo": [
+        "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "we_translation_identity",
+      "level": "c2",
+      "titleKo": "‘우리’가 포함하고 배제하는 사람을 번역하기",
+      "relationship": "서로 편하게 말하는 현아와 다니엘",
+      "playerGoal": "지시 대상을 명확히 하면서 원문의 연대와 거리 효과를 보존한다",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "candidateSha256": "85729d02f0caf3e7225f5b1a5db00e5ef0b1317c045aeb3914f99ffb83fb94a9",
+      "candidateFileSha256": "ef0e5f493eb398a2a9b37f7167fefe4abcb24d968c5ae9932e4aaa5ce53703a9",
+      "briefSha256": "e4cb88a6cbcf7a3f16c55241972dc43562ce70f74bf92b967ab9f423c73adf38",
+      "mustIncludeKo": [
+        "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    },
+    {
+      "scenarioId": "welfare_fraud_presumption",
+      "level": "c2",
+      "titleKo": "부정 수급 방지 담론이 신청자를 의심하게 만들 때",
+      "relationship": "기관 담당자와 시민 대표 수진",
+      "playerGoal": "감시 필요를 부정하지 않으면서 문구의 전제와 접근 장벽을 분석한다",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "candidateSha256": "31159ef2443faa95c728bfdb999bd0b1085df5d65932cf07f8d1e7de7d39cfb4",
+      "candidateFileSha256": "4bd135d3345759fedd0a47d13041d995b5851da27dc47e04b305be111c05a105",
+      "briefSha256": "c1ab65505369c5d95c97fd1987246d8434c1ca47ea4bf28b3ec03475e572bfd4",
+      "mustIncludeKo": [
+        "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다"
+      ],
+      "mustAvoidKo": [],
+      "reviewStatus": "human_gate"
+    }
+  ]
+}

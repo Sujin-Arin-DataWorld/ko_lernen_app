@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_persona_salvage_source_evidence",
+  "sourceWorktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/scenario-persona-repair",
+  "sourceBranch": "session/scenario-persona-repair-2026-08-26",
+  "sourceCommit": "c89907e64bd8d3702f185799eb0e25ba7968148d",
+  "capturedAt": "2026-09-01",
+  "reviewBaseCommit": "3ef403d9fa6d8d622ec7237fc718356cfdfaf1bf",
+  "sourceFilesTrackedByGit": false,
+  "contentImported": false,
+  "runtimeWriteAuthorized": false,
+  "graphifyAudit": {
+    "query": "current 120 canonical scenario shards fingerprints mustAvoid content review tooling taxi_kakao payment rule tests and offline audit flow",
+    "queryCompleted": true,
+    "updateCompleted": true,
+    "updateBaseCommit": "3ef403d9fa6d8d622ec7237fc718356cfdfaf1bf",
+    "canonicalRefreshPullRequest": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/245",
+    "generatedOutputDisposition": "excluded_from_this_pr_canonical_refresh_is_reviewed_separately_in_pr_245"
+  },
+  "files": [
+    {
+      "path": "tools/content_factory/manage_scenario_revisions.py",
+      "sizeBytes": 7306,
+      "sha256": "3783e14c1c2720f1db69fb7f1ef4c58452a6a82f2a8dcdd03bb5751304dbbd08",
+      "disposition": "rebuilt_against_current_120"
+    },
+    {
+      "path": "tools/content_factory/prompts/scenario_persona_repair_v1.md",
+      "sizeBytes": 4719,
+      "sha256": "665d972085e468d6bc5e1b3698897c30b4f672e2d7cd0db6ab77b9412e60f2ec",
+      "disposition": "rebuilt_against_current_120"
+    },
+    {
+      "path": "tools/content_factory/review/cloze_naturalness_20260826.json",
+      "sizeBytes": 4889,
+      "sha256": "12a2e0fd4666701afd9769257757dd4997e1c43697cd5d136b88bab264e31f17",
+      "disposition": "hash_only_separate_cloze_scope"
+    },
+    {
+      "path": "tools/content_factory/review/scenario_persona_a1_001.json",
+      "sizeBytes": 261545,
+      "sha256": "4e67f00374caf143f320841c03b27de94044e2dac5df106a8fd4b213a31c6fe7",
+      "disposition": "hash_only_obsolete_413_packet"
+    },
+    {
+      "path": "tools/content_factory/review/scenario_persona_a1_001.md",
+      "sizeBytes": 115017,
+      "sha256": "7776aa4e6e6a17f1d8b945186c606ace5602292adb74736522bdb6b97c83cf13",
+      "disposition": "hash_only_obsolete_413_packet"
+    },
+    {
+      "path": "tools/content_factory/review/scenario_persona_a1_001_overlay.json",
+      "sizeBytes": 54050,
+      "sha256": "340ccca3fc03d6f8644a4cef652e3c7fa84644d35f38a8fa09025281d38696c6",
+      "disposition": "hash_only_obsolete_overlay"
+    },
+    {
+      "path": "tools/content_factory/review/scenario_theme_audit_20260826.json",
+      "sizeBytes": 234492,
+      "sha256": "87c9fb208389d31b3981958a3a45836094b12c019793a071eef1511323f14d59",
+      "disposition": "hash_only_obsolete_413_audit"
+    },
+    {
+      "path": "tools/content_factory/scenario_revision_pipeline.py",
+      "sizeBytes": 35521,
+      "sha256": "054f851cd0222ac745dbce2ac603e3c5cbc4494ab4fee62afdb532df79e5a7f2",
+      "disposition": "rebuilt_against_current_120"
+    },
+    {
+      "path": "tools/content_factory/test_cloze_copy_review.py",
+      "sizeBytes": 2167,
+      "sha256": "2fcebf5232ed87555c9d8967a4cc3dc6cc81098265f6077ffd9f11e1d1f7d1cf",
+      "disposition": "hash_only_separate_cloze_scope"
+    },
+    {
+      "path": "tools/content_factory/test_scenario_revision_pipeline.py",
+      "sizeBytes": 12791,
+      "sha256": "0e7407a18d323de4a43d42c74e75f310e73e4fd02b901293e3a578bcf0fcbf88",
+      "disposition": "rebuilt_as_current_tests"
+    },
+    {
+      "path": "tools/content_factory/validate_cloze_copy_review.py",
+      "sizeBytes": 5759,
+      "sha256": "2980b33b0cade92d3427934663d30929a8f988b3af01a2dac290cf42865e5b3d",
+      "disposition": "hash_only_separate_cloze_scope"
+    }
+  ]
+}
