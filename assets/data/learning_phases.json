@@ -1187,8 +1187,31 @@
         "c1_03_media_evidence_literacy"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp20.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP20:grammar:01",
+        "KP20:grammar:02",
+        "KP20:grammar:03",
+        "KP20:grammar:04",
+        "KP20:grammar:05",
+        "KP20:grammar:06",
+        "KP20:grammar:07",
+        "KP20:grammar:08",
+        "KP20:grammar:09",
+        "KP20:production:01",
+        "KP20:production:02",
+        "KP20:production:03",
+        "KP20:production:04",
+        "KP20:production:05",
+        "KP20:production:06",
+        "KP20:production:07",
+        "KP20:production:08",
+        "KP20:production:09",
+        "KP20:listening:01",
+        "KP20:reading:01",
+        "KP20:writing:01",
+        "KP20:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP21",
@@ -1459,5 +1482,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "bda8517d982e0df86648fd7384e531da3d4034cd66fce240d36e798f74049c39"
+  "phaseTaskSourceSha256": "fa87f2402a3fc84207e6c1925ee60870525c7117f86ab4fc9b32da3a41d6b816"
 }

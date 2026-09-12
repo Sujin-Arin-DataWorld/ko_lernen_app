@@ -25,7 +25,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP17 | 56 | 56 | 0 | 미검증 |
 | KP18 | 66 | 66 | 0 | 미검증 |
 | KP19 | 56 | 56 | 0 | 미검증 |
-| KP20 | 52 | 0 | 52 | 미검증 |
+| KP20 | 52 | 52 | 0 | 미검증 |
 | KP21 | 54 | 0 | 54 | 미검증 |
 | KP22 | 52 | 0 | 52 | 미검증 |
 | KP23 | 48 | 0 | 48 | 미검증 |
@@ -39,58 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP20:objective:grammar/G5:-는 듯하다:R`
-- `KP20:objective:grammar/G5:-는 듯하다:P`
-- `KP20:objective:grammar/G5:-을 법하다:R`
-- `KP20:objective:grammar/G5:-을 법하다:P`
-- `KP20:objective:grammar/G5:-으려나 보다:R`
-- `KP20:objective:grammar/G5:-으려나 보다:P`
-- `KP20:objective:grammar/G5:-을 만하다:R`
-- `KP20:objective:grammar/G5:-을 만하다:P`
-- `KP20:objective:grammar/G5:-게 마련이다:R`
-- `KP20:objective:grammar/G5:-게 마련이다:P`
-- `KP20:objective:grammar/G5:-기가 쉽다:R`
-- `KP20:objective:grammar/G5:-기가 쉽다:P`
-- `KP20:objective:grammar/G5:-는 법이다:R`
-- `KP20:objective:grammar/G5:-는 법이다:P`
-- `KP20:objective:grammar/G5:-는가1:R`
-- `KP20:objective:grammar/G5:-는가1:P`
-- `KP20:objective:grammar/G2:-는 것 같다:R`
-- `KP20:objective:grammar/G2:-는 것 같다:P`
-- `KP20:objective:listening/core:R`
-- `KP20:objective:listening/additional/1:R`
-- `KP20:objective:reading/core:R`
-- `KP20:objective:reading/additional/1:R`
-- `KP20:objective:reading/genre/academic_specialised_text:R`
-- `KP20:objective:reading/genre/news_article_report:R`
-- `KP20:objective:speaking/core:P`
-- `KP20:objective:speaking/additional/1:P`
-- `KP20:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP20:objective:writing/core:P`
-- `KP20:objective:writing/additional/1:P`
-- `KP20:objective:writing/genre/academic_specialised_text:P`
-- `KP20:objective:functions/express_certainty_doubt_hedging:R`
-- `KP20:objective:functions/express_certainty_doubt_hedging:P`
-- `KP20:objective:functions/evaluate_assess_critique:R`
-- `KP20:objective:functions/evaluate_assess_critique:P`
-- `KP20:objective:functions/compare_contrast_alternatives:R`
-- `KP20:objective:functions/compare_contrast_alternatives:P`
-- `KP20:objective:functions/define_distinguish_terms:R`
-- `KP20:objective:functions/define_distinguish_terms:P`
-- `KP20:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP20:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP20:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP20:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP20:objective:vocabDomains/language_metalanguage:R`
-- `KP20:objective:vocabDomains/language_metalanguage:P`
-- `KP20:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP20:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP20:objective:phonology/0:R`
-- `KP20:objective:phonology/0:P`
-- `KP20:objective:phonology/1:R`
-- `KP20:objective:phonology/1:P`
-- `KP20:objective:register/haeyo_polite:P`
-- `KP20:objective:register/hapsyo_formal_business:P`
 - `KP21:objective:grammar/G5:-는데도:R`
 - `KP21:objective:grammar/G5:-는데도:P`
 - `KP21:objective:grammar/G5:-는데도 불구하고:R`

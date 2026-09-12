@@ -12525,6 +12525,665 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 있다 resulting closed/on state persists after experiment/check; distinct from ongoing closing/turning-on action. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:listening/core:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "147ae721ac52f39a2dbf9161f3e297b1b73203793d034ffed3e84b79f4cc4985",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:listening/additional/1:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "d851165e095c99f0114deb128f4d51648ca6d7b5513a258fd625367037a5253a",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:reading/core:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "b39adbbb2dfefc1063a27b4d86cff7e9435211c9d03c9c221363c2a38ff08dd9",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:reading/additional/1:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "0e1d1195e2e49b4260c2d9d682adbf7528d188a105a60fe8dbf39b587314f100",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:reading/genre/academic_specialised_text:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "c57211b1ccb9ea12557bf41651d708993c603affdf5897142f3ec4b93a1c9895",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:reading/genre/news_article_report:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "5fd09188365ffd7ff13596921e5024957b39539e83b43a766935199d1264c195",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:speaking/core:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "a5eacb94f7da9f984a0edaa9e92bc976fbad7b6442be6d75e9c0769ec02563b6",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:speaking/additional/1:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "0f5b327e89dc6f908ed67129e55da5c75f42283718e0c6f394008e380e4ed5c0",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "09ab35231fbc36d5efa41d794c20a2248d2fa428e995a1cfbbfa68b9036a32bd",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:writing/core:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "31834da66aba061178a9a2639a38435913e2565e03cdc90283e95a827e18ab06",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:writing/additional/1:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "aab6903bf202590a755e7a6e4db645310a18d89805e519691bd5a40f2a55e53b",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:writing/genre/academic_specialised_text:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "bf406494f1405e16da7ed156b562cdca4565e1595c964300ebcce7d0f5d9e2fb",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/express_certainty_doubt_hedging:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "9ebe3ff2a7d34f99d0d36d47cbff255a16b63201626200762c9e50c4e97f2ede",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/express_certainty_doubt_hedging:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "9ebe3ff2a7d34f99d0d36d47cbff255a16b63201626200762c9e50c4e97f2ede",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "a9be54b828451160669d6ba5a4fa610209ce71b57ff5a54c2b2c23c74a7668c8",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "a9be54b828451160669d6ba5a4fa610209ce71b57ff5a54c2b2c23c74a7668c8",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "100f5e6b08d25d9489a1ee1b4d1fd024d0d6a60359db4b1d8a209fabfbf45de6",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "100f5e6b08d25d9489a1ee1b4d1fd024d0d6a60359db4b1d8a209fabfbf45de6",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/define_distinguish_terms:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "32e0ca85e50f2567d93ce96da7dbd91a34e3c90f60d986eb8172ff18d126f8fd",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:functions/define_distinguish_terms:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "32e0ca85e50f2567d93ce96da7dbd91a34e3c90f60d986eb8172ff18d126f8fd",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "800ba5b1f7bb417344687bebddc6679650c20ad38037793c4927ee9fcff1427d",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "800ba5b1f7bb417344687bebddc6679650c20ad38037793c4927ee9fcff1427d",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "f9a3e461fed1dcdec5d2f9a2b776283d6eaaf73ee37657a1455b4c2534e48d5d",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "f9a3e461fed1dcdec5d2f9a2b776283d6eaaf73ee37657a1455b4c2534e48d5d",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP20:reading:01",
+      "sourceHash": "949f633ccb39a62b7c5d82a8e8f2440a6d1b4e7ff4a3fab585c31cfdb5fb0590",
+      "taskHash": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
+      "criterionIds": [
+        "sample",
+        "cause",
+        "measure",
+        "frequency",
+        "axes",
+        "preserve",
+        "source"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original abstract, overclaiming report and distinct commentary. Self-report definition, volunteers/single facility/no comparison arm, unknown nonparticipants and other changes; confirmed positive count not universal cause. Reporter alone claims mandatory adoption, no extra source. Commentary separates possibility/value/obligation/frequency and compares immediate full adoption versus limited follow-up under common verification/choice criteria with unknown costs. Seven required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP20:writing:01",
+      "sourceHash": "949f633ccb39a62b7c5d82a8e8f2440a6d1b4e7ff4a3fab585c31cfdb5fb0590",
+      "taskHash": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
+      "criterionIds": [
+        "specialist",
+        "public"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory complete free fields, specialist and public summaries. Keep confirmed counts firm while reserving uncertain cause, preserve sample/selection bias/unmeasured outcomes, propose possible counterevidence without claiming it occurred. Explicitly compare full adoption and limited follow-up under same effect-verification/choice criteria. Source comparison and revision with certainty/frequency/obligation separately calibrated; full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "100f2792388664a4db16592001163d417bcddd7a7ce17e974c091e6db25e23fb",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "100f2792388664a4db16592001163d417bcddd7a7ce17e974c091e6db25e23fb",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:phonology/0:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "3e4d18dc4ca34c28748bbf7c80688446517c7cf7e10c4afaa76f34e412efb0fe",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:phonology/0:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "3e4d18dc4ca34c28748bbf7c80688446517c7cf7e10c4afaa76f34e412efb0fe",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:phonology/1:R",
+      "taskId": "KP20:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
+      "criterionIds": [
+        "observation",
+        "certainty",
+        "remainder",
+        "value",
+        "tendency",
+        "intent",
+        "counterevidence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional expert/host interview,20/12 display-fatigue self-reports versus24/15 recycling-ease reports. Separate actual response count from unmeasured objective fatigue/waste and unsupported sole cause. Host raises certainty/scope/frequency with no new evidence; expert preserves valid count while correcting all/always/must. Unknown remaining answers not automatically adverse, review worth separate obligation, expected tendency separate law, intended follow-up inferred not approved. Comparable nonreplication can weaken scope, no invented result. Seven required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:phonology/1:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:register/haeyo_polite:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "333f0b303b9424e3bc3779646e972ebd32b44c97b64173b0b40614ccc122c99c",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP20:speaking:01",
+      "sourceHash": "333f0b303b9424e3bc3779646e972ebd32b44c97b64173b0b40614ccc122c99c",
+      "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는 듯하다:R",
+      "taskId": "KP20:grammar:01",
+      "sourceHash": "50101e9da955b704df9aea505efabdb81c329568cd289d48ebfd5f4c62e0f603",
+      "taskHash": "20b346f673ea0ab02464007b268d568dd285d8fe02701fa22bcd97ac08f50939",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 듯하다 observational inference about guidance/term difficulty, not sole-cause proof or universal tested comprehension. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-을 법하다:R",
+      "taskId": "KP20:grammar:02",
+      "sourceHash": "2dd863bcf7acc47c82c131e0c210323fce0a60644e53b9979e61f565c10a18c5",
+      "taskHash": "f3a6decdbad6ed7697d7bd88b2860febbd1a200ff30099c74813027fa5a3fd28",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 법하다 plausible confusion from circumstances, not observed universal confusion, permission or obligation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-으려나 보다:R",
+      "taskId": "KP20:grammar:03",
+      "sourceHash": "2ba8a8bc97236a082f743ed6134be391d734321e72c085eb2790b679b3e0b2a0",
+      "taskHash": "c33b820d8539fe954a9aa2b13e5df591818ce9747d19711cdffb86b88a8126d2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으려나 보다 tentative intention from collecting data/searching rooms, not directly confirmed approval/schedule. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-을 만하다:R",
+      "taskId": "KP20:grammar:04",
+      "sourceHash": "454c4251be0ed6baf5a7c9989cbb460abddde3a30fcec289d24c3f454a8e6100",
+      "taskHash": "93151d3c429367cf22d46924076adab7000e6f8f5be4d4b60a928a612bb85083",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을 만하다 review/discussion worth, not predicted adoption, proven effectiveness or obligation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-게 마련이다:R",
+      "taskId": "KP20:grammar:05",
+      "sourceHash": "8a7e2c8f86f1239e53516c67dda297c6e18143eb34e485e855c1a96bd3ca8b8f",
+      "taskHash": "f804ed3a650e7b0626e72538844eb201c52aac2544dc242f69632121843d307b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 게 마련이다 attributed general expectation, not evidence that every case was observed or exceptions impossible. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-기가 쉽다:R",
+      "taskId": "KP20:grammar:06",
+      "sourceHash": "99759156126fa30ef1100ed38b349c5da5a003ae9d79647d56e342a313eb6a3c",
+      "taskHash": "31264e27db1b7c324b33773299765e42973d732188411618b21042b9568b4be4",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기가 쉽다 conditional susceptibility to misunderstanding/confusion, not guaranteed failure or convenient action performance. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는 법이다:R",
+      "taskId": "KP20:grammar:07",
+      "sourceHash": "087e7f60ba8f8fbe35c13f5b64c2185e0e57ddeb2e158435a9e079a950ea78c2",
+      "taskHash": "df14eef59be9638804a6182de74fed2a1ccc3895edf2d4244c8a329b95a0064c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 법이다 attributed general principle/tendency, not a step-by-step method or experimentally verified necessity. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는가1:R",
+      "taskId": "KP20:grammar:08",
+      "sourceHash": "9c05bcbb9ba9d539abd0e9eb88dca9a3a25272a089ef7c4b0c7d4f9080955693",
+      "taskHash": "14c17112bda8f86fc30fa604883d61c21f099ad6eee6f4569ba26421dcde5f86",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는가 written open question about scope/interpretation, not an affirmative finding. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G2:-는 것 같다:R",
+      "taskId": "KP20:grammar:09",
+      "sourceHash": "4f74b78a00684493f1468b080bd0ae91da2bf1bd4284d54976383261afbba380",
+      "taskHash": "09b00341119d288df11394ed1cdf2e27c2e689c1fbd27d4d80094a15c6b7490c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 것 같다 polite tentative judgement about data need/criteria difference, not confirmed insufficiency or known discrepancy. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는 듯하다:P",
+      "taskId": "KP20:production:01",
+      "sourceHash": "50101e9da955b704df9aea505efabdb81c329568cd289d48ebfd5f4c62e0f603",
+      "taskHash": "ce3d8141c86a5a143332579649df89fa16226115c629ff71aed1ec45e2d652e7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 듯하다 observational inference about guidance/term difficulty, not sole-cause proof or universal tested comprehension. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-을 법하다:P",
+      "taskId": "KP20:production:02",
+      "sourceHash": "2dd863bcf7acc47c82c131e0c210323fce0a60644e53b9979e61f565c10a18c5",
+      "taskHash": "a05587130f6fb425fb3c305f4fe0ebacc2523bceb063104df6599b73e019b353",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 법하다 plausible confusion from circumstances, not observed universal confusion, permission or obligation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-으려나 보다:P",
+      "taskId": "KP20:production:03",
+      "sourceHash": "2ba8a8bc97236a082f743ed6134be391d734321e72c085eb2790b679b3e0b2a0",
+      "taskHash": "9577579cf5edb383bc6ed4d24baa1da12c493df9b0364bac4946144410710853",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으려나 보다 tentative intention from collecting data/searching rooms, not directly confirmed approval/schedule. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-을 만하다:P",
+      "taskId": "KP20:production:04",
+      "sourceHash": "454c4251be0ed6baf5a7c9989cbb460abddde3a30fcec289d24c3f454a8e6100",
+      "taskHash": "414eeb990f07811e497a295b34e1df3746ce5c8ad3347c45d427e26224479207",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을 만하다 review/discussion worth, not predicted adoption, proven effectiveness or obligation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-게 마련이다:P",
+      "taskId": "KP20:production:05",
+      "sourceHash": "8a7e2c8f86f1239e53516c67dda297c6e18143eb34e485e855c1a96bd3ca8b8f",
+      "taskHash": "2923658b5d16197dba580a121e181af16c046ed6c49ef17c16ecb2caab0695d7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 게 마련이다 attributed general expectation, not evidence that every case was observed or exceptions impossible. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-기가 쉽다:P",
+      "taskId": "KP20:production:06",
+      "sourceHash": "99759156126fa30ef1100ed38b349c5da5a003ae9d79647d56e342a313eb6a3c",
+      "taskHash": "88c7888efdb607d4ef6eb313751a06d49340689cc0bf487ea1593d9dd463f38d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기가 쉽다 conditional susceptibility to misunderstanding/confusion, not guaranteed failure or convenient action performance. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는 법이다:P",
+      "taskId": "KP20:production:07",
+      "sourceHash": "087e7f60ba8f8fbe35c13f5b64c2185e0e57ddeb2e158435a9e079a950ea78c2",
+      "taskHash": "0f93dd77342ac264a160f305438c897d549ac85b4881b7ac92f31c7bb70080c0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 법이다 attributed general principle/tendency, not a step-by-step method or experimentally verified necessity. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G5:-는가1:P",
+      "taskId": "KP20:production:08",
+      "sourceHash": "9c05bcbb9ba9d539abd0e9eb88dca9a3a25272a089ef7c4b0c7d4f9080955693",
+      "taskHash": "35f56008852fd692b399dba038a182369883d43ffc994a1f40102a61c0d28f24",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는가 written open question about scope/interpretation, not an affirmative finding. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP20:objective:grammar/G2:-는 것 같다:P",
+      "taskId": "KP20:production:09",
+      "sourceHash": "4f74b78a00684493f1468b080bd0ae91da2bf1bd4284d54976383261afbba380",
+      "taskHash": "d4151ca3ff874221d4f71568379e8876bd59e0d947fb53c76594b5d8b36b5b80",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 것 같다 polite tentative judgement about data need/criteria difference, not confirmed insufficiency or known discrepancy. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

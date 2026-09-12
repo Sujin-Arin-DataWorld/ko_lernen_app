@@ -1,0 +1,114 @@
+"""KP20 uncertainty, value and the limits of generalisation; unsigned source."""
+from phase_task_authoring import choice, free_text, grammar_task, loc, packet, task, write_source
+from author_phase_a1_production import production
+
+
+def kp20():
+    rows=[
+      ('G5:-는 듯하다',loc('관찰에서 추정한 내용을 유보해 말해요. 차이가 맥락에서 비롯된 듯하다는 말은 원인을 실험으로 확정했다는 뜻이 아니에요.','State an inference from observation with reservation. A difference seeming to arise from context is not an experimentally established cause.','Formuliere einen Schluss aus Beobachtungen mit Vorbehalt. Ein scheinbar kontextbedingter Unterschied ist keine experimentell belegte Ursache.'),
+       ('이 차이는 안내 방식에서 비롯된 듯합니다. 아직 다른 조건은 비교하지 않았습니다.','안내 방식의 영향이라는 잠정 추론','안내 방식만이 원인임을 입증'),
+       ('참여자들은 새 용어를 어려워하는 듯합니다. 이해도 검사는 하지 않았습니다.','관찰에 근거한 어려움의 추정','모든 참여자의 이해 부족을 검사로 확정')),
+      ('G5:-을 법하다',loc('정황상 충분히 가능한 반응을 추정해요. 오해할 법하다는 평가는 실제 오해 발생이나 오해해도 된다는 허락과 달라요.','Judge a response plausible in the circumstances. Misunderstanding being understandable is neither an observed occurrence nor permission to misunderstand.','Schätze eine Reaktion als unter den Umständen plausibel ein. Ein nachvollziehbares Missverständnis ist weder ein beobachtetes Ereignis noch eine Erlaubnis.'),
+       ('설명을 처음 들으면 헷갈릴 법도 해요.','첫 설명에서 혼동이 생길 개연성','처음 듣는 사람 전원이 이미 혼동함'),
+       ('그렇게 짧게 말하면 오해할 법도 해요.','짧은 설명으로 오해할 가능성이 충분함','상대에게 오해하라고 지시함')),
+      ('G5:-으려나 보다',loc('관찰한 행동에서 앞으로의 의도를 조심스럽게 짐작해요. 준비 행동을 보고 짐작하는 것과 당사자가 계획을 확정한 것은 달라요.','Tentatively infer an intention from observed preparation. Observing preparations differs from the person confirming a plan.','Vermute vorsichtig eine Absicht aus beobachteter Vorbereitung. Vorbereitung zu sehen ist keine bestätigte Planung der betreffenden Person.'),
+       ('자료를 다시 모으는 걸 보니 조사하려나 봐요. 직접 묻지는 않았어요.','자료 수집을 근거로 조사 의도 추측','당사자가 조사 일정을 확정해 줌'),
+       ('회의실을 알아보는 걸 보니 모임을 열려나 봐요. 아직 공지는 없어요.','회의실 탐색을 근거로 모임 의도 추측','모임 날짜와 장소가 공지로 확정됨')),
+      ('G5:-을 만하다',loc('가치나 충분한 정도를 평가하는 용례예요. 검토할 만하다는 말은 검토 가치가 있다는 뜻이며 채택 가능성이 높거나 채택할 의무가 있다는 뜻은 아니에요.','Here evaluate worth or sufficient merit. Being worth reviewing does not mean likely to be adopted or obligatory.','Bewerte hier Wert oder ausreichenden Nutzen. Prüfenswert bedeutet weder wahrscheinliche Annahme noch eine Verpflichtung.'),
+       ('이 대안은 자세히 검토할 만합니다. 효과는 아직 모릅니다.','자세히 검토할 가치가 있음','효과가 입증돼 반드시 채택해야 함'),
+       ('이 사례는 수업에서 토론할 만해요. 정답 사례라는 뜻은 아니에요.','토론 자료로 삼을 가치가 있음','모범 정답으로 이미 인증됨')),
+      ('G5:-게 마련이다',loc('일반적으로 예상되는 경향을 제시해요. 화자가 당연하게 여기는 진술이라도 예외 없는 법칙으로 검증된 것은 아니므로 근거와 적용 조건을 따져요.','Present an expected general tendency. Even if the speaker treats it as natural, check evidence and conditions instead of assuming an exceptionless verified law.','Nenne eine allgemein erwartete Tendenz. Auch wenn die sprechende Person sie als selbstverständlich darstellt, prüfe Belege und Bedingungen statt ein ausnahmslos belegtes Gesetz anzunehmen.'),
+       ('급하게 읽으면 중요한 조건을 놓치게 마련이라고 그는 말했다.','화자가 제시한 일반 경향','이 자료가 모든 급한 독자의 실패를 검증함'),
+       ('처음 쓰는 도구에는 질문이 생기게 마련이라고 동료가 말했다.','처음 사용 시 질문이 생긴다는 일반적 기대','질문하지 않는 사용자는 존재할 수 없다는 실험 증명')),
+      ('G5:-기가 쉽다',loc('특정 상황에서 일이 일어날 가능성이 높다는 경향을 말해요. 여기서는 일을 수행하기 편하다는 뜻보다 오해·혼동이 생기기 쉽다는 뜻이에요.','Describe a tendency for an event to occur under certain conditions. Here the focus is susceptibility to confusion, not ease of performing a task.','Beschreibe die Neigung zu einem Ereignis unter bestimmten Bedingungen. Hier geht es um die Anfälligkeit für Missverständnisse, nicht um eine bequem ausführbare Aufgabe.'),
+       ('문맥을 빼면 의도를 오해하기 쉽습니다.','문맥 부재에서 오해가 생기기 쉬움','문맥을 빼면 의도를 항상 정확히 이해함'),
+       ('단위가 없으면 두 수치를 혼동하기 쉽습니다.','단위 누락에서 수치 혼동 위험 증가','단위가 없어도 모든 수치를 확실히 구별')),
+      ('G5:-는 법이다',loc('화자가 일반 원칙이나 당연한 경향으로 제시해요. 방법을 뜻하는 -는 법과 구별하고, 화자의 일반화를 객관적으로 검증된 필연성으로 올리지 않아요.','Present a speaker’s general principle or expected tendency. Distinguish -는 법 meaning a method and do not promote a generalisation to objectively verified necessity.','Stelle ein allgemeines Prinzip oder eine erwartete Tendenz aus Sicht der sprechenden Person dar. Unterscheide -는 법 als Methode und mache aus der Verallgemeinerung keine objektiv belegte Notwendigkeit.'),
+       ('오래 익힌 습관은 쉽게 바뀌지 않는 법이라고 그는 말했다.','습관 변화에 관한 화자의 일반화','습관을 바꾸는 구체적 방법 안내'),
+       ('익숙한 표현도 맥락에 따라 다르게 들리는 법이라고 설명했다.','맥락에 따른 해석 차이라는 일반 원칙 제시','모든 표현을 똑같이 듣는 방법 설명')),
+      ('G5:-는가1',loc('문어 논증에서 검토할 질문을 제기해요. 의문을 제시한 것을 긍정 결론이나 사실 확인으로 바꾸지 않아요.','Raise a question for examination in written argument. Posing it is not a positive conclusion or factual confirmation.','Stelle in schriftlicher Argumentation eine Prüfungsfrage. Die Frage ist weder ein bejahendes Fazit noch eine Tatsachenbestätigung.'),
+       ('이 설명이 모든 사례에 적용되는가? 아직 검토가 필요하다.','적용 범위를 묻는 미결 의문','모든 사례에 적용된다는 확정'),
+       ('이 수치가 실제 변화를 보여 주는가? 기준부터 살펴보자.','수치의 해석을 검토하는 의문','실제 변화가 이미 입증됐다는 선언')),
+      ('G2:-는 것 같다',loc('동료에게 자료의 상태를 조심스럽게 평가해요. 더 필요한 것 같다는 판단과 자료가 충분하다는 확정을 구별해요.','Tentatively assess the data with a colleague. Thinking more is needed differs from confirming sufficiency.','Bewerte die Daten gegenüber einer gleichgestellten Person vorsichtig. Vermuteter Mehrbedarf unterscheidet sich von bestätigter Vollständigkeit.'),
+       ('이 결론에는 자료가 더 필요한 것 같아요.','추가 자료 필요성에 대한 유보된 판단','현재 자료가 충분하다고 확정'),
+       ('두 표의 기준이 다른 것 같아요. 원문을 확인해 볼게요.','기준 차이를 추측하며 확인 예정','기준 차이를 이미 확인 완료')),
+    ]
+    tasks=[grammar_task('KP20',i,*r) for i,r in enumerate(rows,1)]
+    prod=[
+      ('G5:-는 듯하다',('유보된 원인 추론 / 이 차이는 안내 방식에서 비롯되다 / -은 듯하다, 합쇼체','이 차이는 안내 방식에서 비롯된 듯합니다.','안내 방식만이 원인이라고 입증했습니다.'),('검사 전 관찰 추론 / 참여자들은 새 용어를 어려워하다 / -는 듯하다, 합쇼체','참여자들은 새 용어를 어려워하는 듯합니다.','참여자 전원이 이해하지 못한 것을 검사로 확정했습니다.')),
+      ('G5:-을 법하다',('정황상 가능한 혼동 / 설명을 처음 듣다 → 헷갈리다 / -을 법도 하다, 해요체','설명을 처음 들으면 헷갈릴 법도 해요.','처음 들은 사람 전원이 혼동했어요.'),('정황상 가능한 오해 / 그렇게 짧게 말하다 → 오해하다 / -을 법도 하다, 해요체','그렇게 짧게 말하면 오해할 법도 해요.','그 설명을 반드시 오해해야 해요.')),
+      ('G5:-으려나 보다',('관찰에서 의도 추측 / 자료를 다시 모으는 걸 보니 / 조사하다 / -으려나 보다, 해요체','자료를 다시 모으는 걸 보니 조사하려나 봐요.','당사자가 조사 일정을 확정했어요.'),('관찰에서 의도 추측 / 회의실을 알아보는 걸 보니 / 모임을 열다 / -으려나 보다, 해요체','회의실을 알아보는 걸 보니 모임을 열려나 봐요.','모임 일정을 이미 공지했어요.')),
+      ('G5:-을 만하다',('가치 평가 / 이 대안은 자세히 검토하다 / -을 만하다, 합쇼체','이 대안은 자세히 검토할 만합니다.','이 대안은 반드시 채택해야 합니다.'),('가치 평가 / 이 사례는 수업에서 토론하다 / -을 만하다, 해요체','이 사례는 수업에서 토론할 만해요.','이 사례는 검증된 정답이에요.')),
+      ('G5:-게 마련이다',('일반 경향 주장임을 명시 / 급하게 읽으면 중요한 조건을 놓치다 / -게 마련이라고 그는 말했다','급하게 읽으면 중요한 조건을 놓치게 마련이라고 그는 말했다.','모든 급한 독자가 조건을 놓친다고 실험으로 증명했다.'),('일반 기대 주장임을 명시 / 처음 쓰는 도구에는 질문이 생기다 / -게 마련이라고 동료가 말했다','처음 쓰는 도구에는 질문이 생기게 마련이라고 동료가 말했다.','질문 없는 사용자는 존재하지 않는다고 증명했다.')),
+      ('G5:-기가 쉽다',('조건부 경향 / 문맥을 빼다 → 의도를 오해하다 / -기가 쉽다, 합쇼체','문맥을 빼면 의도를 오해하기가 쉽습니다.','문맥을 빼면 의도를 항상 정확히 이해합니다.'),('조건부 경향 / 단위가 없다 → 두 수치를 혼동하다 / -기가 쉽다, 합쇼체','단위가 없으면 두 수치를 혼동하기가 쉽습니다.','단위가 없어도 모든 수치를 확실히 구별합니다.')),
+      ('G5:-는 법이다',('화자의 일반화 / 오래 익힌 습관은 쉽게 바뀌지 않다 / -는 법이라고 그는 말했다','오래 익힌 습관은 쉽게 바뀌지 않는 법이라고 그는 말했다.','습관을 바꾸는 방법을 단계별로 설명했다.'),('화자의 일반 원칙 / 익숙한 표현도 맥락에 따라 다르게 들리다 / -는 법이라고 설명했다','익숙한 표현도 맥락에 따라 다르게 들리는 법이라고 설명했다.','모든 표현을 똑같이 듣는 방법을 설명했다.')),
+      ('G5:-는가1',('문어 검토 질문 / 이 설명이 모든 사례에 적용되다 / -는가?','이 설명이 모든 사례에 적용되는가?','이 설명은 모든 사례에 적용된다.'),('문어 검토 질문 / 이 수치가 실제 변화를 보여 주다 / -는가?','이 수치가 실제 변화를 보여 주는가?','이 수치가 실제 변화를 입증했다.')),
+      ('G2:-는 것 같다',('유보된 필요성 / 이 결론에는 자료가 더 필요하다 / -은 것 같다, 해요체','이 결론에는 자료가 더 필요한 것 같아요.','지금 자료가 충분하다고 확정했어요.'),('유보된 차이 판단 / 두 표의 기준이 다르다 / -은 것 같다, 해요체','두 표의 기준이 다른 것 같아요.','기준 차이를 이미 확인했어요.')),
+    ]
+    tasks+=production('KP20',tasks,prod)
+    h=loc('확인된 응답 수와 자기 보고, 연구자의 가설, 진행자·기자의 일반화를 분리하세요. 표본 밖으로 넓힌 범위나 새 증거 없이 높인 확신을 찾고, 가능성·가치·의무·빈도를 같은 축으로 평가하지 마세요. 반증 가능한 조건을 제안하되 자료에 없는 결과를 만들지 않아요.',
+      'Separate verified response counts and self-reports from a researcher’s hypothesis and a host’s or journalist’s generalisation. Find extensions beyond the sample and certainty increased without new evidence. Keep possibility, value, obligation and frequency distinct. Suggest conditions that could challenge the hypothesis without inventing results.',
+      'Trenne bestätigte Antwortzahlen und Selbstauskünfte von Forschungshypothesen und Verallgemeinerungen durch Moderation oder Presse. Erkenne Erweiterungen über die Stichprobe und stärkere Gewissheit ohne neue Belege. Halte Möglichkeit, Wert, Pflicht und Häufigkeit auseinander. Nenne mögliche Gegenbelege, ohne Ergebnisse zu erfinden.')
+    def sources(site,number,positive,intervention,response,outcome):
+        return f'''학습용 창작 연구 초록 — {site}
+목적: {intervention} 뒤 이용자가 느낀 변화를 탐색한다. 이 초록에서 자기 보고는 참여자가 자신의 경험을 말한 응답이며 기기로 확인한 효과와 구별한다.
+방법: 한 시설에서 참여를 자원한 성인 {number}명에게 도입 전후의 느낌을 물었다. 무작위 배정이나 비교 집단은 없었다. 효과를 나타낼 별도의 객관적 지표는 측정하지 않았으며 조사에 참여하지 않은 이용자의 경험도 모른다.
+결과: {number}명 중 {positive}명이 “{response}”고 답했다. 나머지 응답의 세부 내용은 이 초록에 제시하지 않았다. 따라서 나머지 전원이 반대 효과를 보고했다고 해석할 수 없다.
+해석: 연구자는 안내 변화가 경험에 영향을 준 듯하다고 보았다. 이는 자기 보고에 근거한 잠정 가설이다. 조사 기간의 다른 변화나 자원 참여자의 표본 편향을 배제하지 못했다. 자기 보고상의 변화와 {outcome}는 별개이며 후자는 이 조사에서 측정하지 않았다. 비슷한 조건의 다른 집단에서 같은 경향이 나타나지 않는다면 가설의 적용 범위를 다시 검토해야 한다. 비교 집단을 둔 후속 조사는 제안 단계다.
+
+별도 창작 보도문 — 작은 변화가 모두에게 효과
+{site}의 새 안내는 모든 이용자에게 언제나 효과가 있는 것으로 밝혀졌다. 조사에서 {positive}명이 좋아졌다고 답했으니 새 안내가 유일한 원인이다. 익숙하지 않은 제도에는 불편이 생기게 마련이지만 이번 결과가 모든 걱정을 없앴다. 기자는 해당 방식을 모든 시설에 즉시 의무화해야 한다고 주장했다. 보도문은 초록 외의 추가 자료를 제시하지 않았다.
+
+별도 동료 논평
+이 제안은 검토할 만하다. 이것은 검토 가치에 대한 판단이며 효과가 확실하다는 뜻은 아니다. 다른 시설에도 도움이 될 법하지만 가능성만으로 시행 의무가 생기지는 않는다. 비용과 이용자의 선택권도 평가 기준이다. 즉시 전면 도입안과 범위를 제한한 후속 조사안을 비교할 수 있다. 전자는 기대한 혜택을 빨리 제공할 수 있으나 검증되지 않은 효과를 확대할 위험이 있다. 후자는 확인 기회를 늘리지만 추가 시간과 비용이 들며 그 크기는 미상이다. 효과 검증과 선택권이라는 같은 기준으로 두 안을 평가해야 한다. 가능성·확신·당위는 양태의 서로 다른 기능이다. 효과의 발생 빈도는 이번 표본 밖에서 알 수 없으므로 “항상”으로 표현해서는 안 된다. 자료를 더 모으는 연구팀을 보고 다시 조사하려나 보다 하고 추측할 수는 있으나, 그 행동만으로 후속 조사의 승인이나 일정을 확정할 수 없다.'''
+    def interview(site,number,positive,intervention,response,outcome):
+        text=f'''학습용 가상 전문가 인터뷰입니다. 연구자와 진행자는 동등한 동료입니다.
+진행자: {site}의 {intervention} 조사에서 무엇을 확인했나요?
+연구자: 자원해서 참여한 {number}명 가운데 {positive}명이 “{response}”고 답했어요. 이것이 관찰한 응답 수예요. {outcome}를 측정한 것은 아니에요. 비교 집단이 없고 다른 변화도 조사하지 못했어요.
+진행자: 그렇다면 새 안내 때문에 모두에게 항상 효과가 있다는 거군요.
+연구자: 그 정도로 넓힐 근거는 없어요. 새 증거를 추가하신 것도 아니고요. 안내 방식이 경험에 영향을 준 듯하다는 잠정 가설만 제시했어요. 표본 밖 사람이나 매번의 효과는 알 수 없어요. 나머지 응답의 세부 내용도 여기서는 제시하지 않았으니 모두 나빠졌다고 할 수는 없어요.
+진행자: 그래도 검토할 만하다면 시행해야 하는 것 아닌가요?
+연구자: 검토할 가치와 시행 의무는 달라요. 가능성이 있다는 말도 효과가 입증됐다는 뜻은 아니고요. 비용과 선택권을 함께 살펴볼 수 있겠어요.
+진행자: 처음 쓰는 제도에는 질문이 생기게 마련이죠. 동료들이 자료를 모으는 걸 보니 다시 조사하려나 봐요.
+연구자: 첫 말씀은 일반 경향에 대한 기대예요. 예외가 없다는 관찰 결과는 아니에요. 둘째는 동료의 의도에 대한 추측이고 아직 일정은 확인하지 않았어요. 비슷한 조건의 다른 집단에서 같은 경향이 나타나지 않는다면 가설을 다시 검토할 수 있어요. 지금은 판단을 유보하되 확인한 응답 수까지 부정하지는 맙시다.'''
+        return packet(text,[
+          choice('observation',loc('실제로 관찰한 결과는?', 'What was actually observed?', 'Was wurde tatsächlich beobachtet?'),[f'{number}명 중 {positive}명의 자기 보고','모든 시설의 객관적 효과와 유일한 원인'],h),
+          choice('certainty',loc('진행자의 재진술에서 달라진 것은?', 'What changed in the host’s restatement?', 'Was änderte die Wiedergabe der Moderation?'),['추가 증거 없이 모든 사람·항상·인과로 확대','비교 집단의 새 증거를 제시해 확신 조절'],h),
+          choice('remainder',loc('나머지 응답에 대해 알 수 있는 것은?', 'What is known about the remaining responses?', 'Was ist über die übrigen Antworten bekannt?'),['세부 내용이 없어 반대 효과로 단정 불가','나머지 전원이 악화를 보고함'],h),
+          choice('value',loc('검토할 만하다는 평가는?', 'What does worth reviewing evaluate?', 'Was bewertet prüfenswert?'),['검토 가치, 시행 의무와 별개','효과 확정과 즉시 시행 의무'],h),
+          choice('tendency',loc('질문이 생기게 마련이라는 말은?', 'What kind of claim is 질문이 생기게 마련?', 'Welche Aussageart ist 질문이 생기게 마련?'),['화자가 제시한 일반 경향','예외 없는 관찰 결과'],h),
+          choice('intent',loc('다시 조사하려나 봐요의 근거와 한계는?', 'What supports and limits the inferred research intention?', 'Was stützt und begrenzt die vermutete Forschungsabsicht?'),['자료 수집 행동을 본 추측, 일정 미확인','담당자가 승인된 일정을 직접 통보'],h),
+          choice('counterevidence',loc('가설을 재검토할 조건은?', 'What would prompt revisiting the hypothesis?', 'Was würde eine Überprüfung der Hypothese veranlassen?'),['비슷한 다른 집단에서 경향이 재현되지 않음','검증 없이 기자의 표현만 더 강해짐'],h),
+        ],'audio')
+    p=('가람학습관',20,12,'화면 안내 문구 변경','화면을 읽을 때 덜 피곤해졌다','객관적으로 측정한 피로 변화')
+    a=('솔빛문화관',24,15,'분리배출 표지 변경','분리배출이 쉬워졌다','실제 폐기물 감소량')
+    tasks.append(task('KP20','listening:01','listening',loc('가설을 확정으로 바꾼 재진술 찾기','Hear a hypothesis turned into certainty','Eine als Gewissheit wiedergegebene Hypothese erkennen'),h,interview(*p),interview(*a)))
+    def reading(args):
+        return packet(sources(*args),[
+          choice('sample',loc('초록의 조사 범위는?', 'What is the abstract’s sample scope?', 'Welchen Stichprobenumfang hat das Abstract?'),[f'한 시설의 자원 참여 성인 {args[1]}명','모든 시설의 무작위 이용자 전수'],h),
+          choice('cause',loc('기사의 유일한 원인 주장이 넘은 근거는?', 'Why does the article’s sole-cause claim exceed the evidence?', 'Warum geht die alleinige Ursache im Artikel über die Belege hinaus?'),['비교 집단과 다른 변화 검토가 없음','다른 조건을 모두 통제한 실험이 있음'],h),
+          choice('measure',loc('초록에서 측정하지 않은 것은?', 'What was not measured in the abstract?', 'Was wurde im Abstract nicht gemessen?'),[args[5],'해당 변화를 느꼈다고 답한 사람 수'],h),
+          choice('frequency',loc('항상이라는 빈도 표현은?', 'What is the status of the frequency claim always?', 'Welchen Status hat die Häufigkeitsangabe immer?'),['표본 밖에서 확인되지 않은 확대','연구가 모든 경우를 관찰한 결과'],h),
+          choice('axes',loc('논평의 가능성·가치·의무 관계는?', 'How does the commentary relate possibility, value and obligation?', 'Wie verbindet der Kommentar Möglichkeit, Wert und Pflicht?'),['서로 다른 판단 축으로 나누어 평가','가능하면 항상 가치 있고 의무라고 결론'],h),
+          choice('preserve',loc('과장을 고칠 때 보존할 핵심은?', 'What should be preserved when correcting overstatement?', 'Was muss bei der Korrektur der Übertreibung erhalten bleiben?'),[f'{args[1]}명 중 {args[2]}명의 응답과 제한된 가설','자료 전체가 무의미하므로 확인한 수치도 부정'],h),
+          choice('source',loc('의무화 주장의 출처는?', 'Who makes the mandatory-adoption claim?', 'Von wem stammt die Forderung nach verpflichtender Einführung?'),['추가 자료를 제시하지 않은 기자','시행 의무를 입증한 연구 결과'],h),
+        ])
+    tasks.append(task('KP20','reading:01','reading',loc('연구 초록·보도·논평의 판단 축','Judgement dimensions in an abstract, article and commentary','Urteilsdimensionen in Abstract, Bericht und Kommentar'),h,reading(p),reading(a)))
+    rubric=loc('첫 글은 전문 요약문입니다. 목적·표본·방법·응답 수·잠정 가설·표본 편향·미측정 결과를 구별하고, 어떤 후속 관찰이 가설을 약화할지 쓰세요. 확신·발생 빈도·시행 당위를 별도로 조절하세요. 즉시 전면 도입과 제한된 후속 조사를 효과 검증·선택권이라는 같은 기준으로 비교하세요. 둘째 글은 대중 독자용 요약입니다. 쉬운 말로 바꾸되 자기 보고를 객관적 효과로, 일부 응답을 모두·항상으로, 가능성을 의무로 바꾸지 마세요. 두 글에서 확인한 수치는 분명히 쓰고 불확실한 인과만 유보하세요. 기사의 과장을 근거 구절과 대조해 고쳐 쓰세요. 전체 의미와 논증은 미채점입니다.',
+      'First write a specialist summary separating purpose, sample, method, response count, tentative hypothesis, selection bias and unmeasured outcomes. State what further observation could weaken the hypothesis. Calibrate certainty, frequency and obligation separately. Compare immediate full adoption and a limited follow-up using the same criteria of effect verification and user choice. Then write a general-reader version in plain language without turning self-report into objective effect, some responses into everyone/always or possibility into obligation. Keep confirmed figures clear and reserve judgement about uncertain causation. Compare the article’s overstatement with source passages and revise. Full meaning and argument remain unscored.',
+      'Schreibe zuerst eine Fachzusammenfassung und trenne Zweck, Stichprobe, Methode, Antwortzahl, vorläufige Hypothese, Auswahlverzerrung und ungemessene Ergebnisse. Nenne eine weitere Beobachtung, die die Hypothese schwächen könnte. Stimme Gewissheit, Häufigkeit und Pflicht getrennt ab. Vergleiche sofortige volle Einführung und begrenzte Folgeprüfung anhand derselben Kriterien Wirkungsprüfung und Wahlfreiheit. Schreibe danach eine allgemein verständliche Fassung, ohne Selbstauskunft zum objektiven Effekt, einige Antworten zu alle/immer oder Möglichkeit zur Pflicht zu machen. Benenne bestätigte Zahlen klar und halte nur unsichere Kausalität offen. Vergleiche die Übertreibung mit Belegstellen und überarbeite. Inhalt und Argumentation bleiben unbewertet.')
+    def writing(args):
+        return packet(sources(*args),[
+          free_text('specialist',loc('잠정 결론과 반증 가능성을 전문 요약문으로 쓰세요.','Write a specialist summary with a tentative conclusion and possible counterevidence.','Schreibe eine Fachzusammenfassung mit vorläufigem Fazit und möglichen Gegenbelegen.'),rubric),
+          free_text('public',loc('같은 근거를 대중 독자에게 쉬운 말로 요약하세요.','Summarise the same evidence for general readers.','Fasse dieselben Belege allgemein verständlich zusammen.'),rubric),
+        ],'form')
+    tasks.append(task('KP20','writing:01','writing',loc('전문 요약과 대중 요약의 확신 맞추기','Calibrate certainty in specialist and public summaries','Gewissheit in Fach- und Publikumsfassung abstimmen'),rubric,writing(p),writing(a)))
+    speech=loc('동등한 동료에게 해요체로 응답 수와 가설을 나누어 설명하세요. 동료가 “모든 사람에게 항상 효과가 있으니 반드시 도입해야 해요”라고 하면 원 주장 중 효과 기대는 보존하되, 모든 사람·항상·반드시의 근거를 각각 물으세요. 답변 자료가 없으면 제한된 공동 결론과 확인 질문을 제시하세요. 검토할 가치와 효과 발생 가능성을 다른 문장으로 말하고 -는 듯해요·-는 것 같아요의 유보가 확인된 수치까지 흐리지 않게 하세요. 이어 합쇼체 공개 브리핑에서 요점·근거·한계 순으로 설명하고, 모어가 다른 동료에게 가능성에서 의무로 바뀐 점과 자기 보고가 사실 효과로 바뀐 점을 한국어로 짚으세요. 녹음을 듣고 유보·일반화·결론의 휴지와 강조를 고쳐요. 의미·억양은 미채점입니다.',
+      'Politely explain the response count and hypothesis separately to an equal colleague. If they claim it always works for everyone and must be adopted, retain their expectation of benefit but ask separately for evidence for everyone, always and must. Without further data, propose a limited joint conclusion and checking questions. Put review value and likelihood of effect in different sentences; cautious endings must not blur verified figures. Then give a formal public briefing in point–evidence–limits order. Explain in Korean two transfer shifts to a colleague with another first language: possibility becoming obligation and self-report becoming objective effect. Replay and revise pauses and focus around reservations, generalisations and conclusions. Meaning and intonation remain unscored.',
+      'Erkläre einer gleichgestellten Person höflich Antwortzahl und Hypothese getrennt. Behauptet sie, es wirke immer bei allen und müsse eingeführt werden, erhalte die Erwartung eines Vorteils, frage aber getrennt nach Belegen für alle, immer und müssen. Schlage ohne weitere Daten ein begrenztes gemeinsames Fazit und Prüffragen vor. Formuliere Prüfwert und Wirkungschance in getrennten Sätzen; vorsichtige Endungen dürfen bestätigte Zahlen nicht verwischen. Berichte danach förmlich in der Reihenfolge Kernpunkt–Beleg–Grenzen. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Verschiebungen: Möglichkeit wird Pflicht und Selbstauskunft objektiver Effekt. Höre zu und verbessere Pausen und Betonung bei Vorbehalt, Verallgemeinerung und Fazit. Inhalt und Intonation bleiben unbewertet.')
+    tasks.append(task('KP20','speaking:01','speaking',loc('질문으로 일반화의 범위 좁히기','Use questions to narrow a generalisation','Verallgemeinerungen durch Rückfragen begrenzen'),speech,packet(sources(*p),[]),packet(sources(*a),[])))
+    return tasks
+
+
+if __name__=='__main__':
+    write_source('KP20',kp20())

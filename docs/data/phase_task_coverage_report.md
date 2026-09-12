@@ -25,7 +25,7 @@
 | KP17 | B2 | 13 | 13 | 13 | 31 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP18 | B2 | 19 | 19 | 19 | 42 | 41 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP19 | C1 | 11 | 11 | 11 | 28 | 27 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP20 | C1 | 9 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
+| KP20 | C1 | 9 | 9 | 9 | 22 | 21 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP21 | C1 | 10 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP22 | C1 | 9 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP23 | C1 | 8 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |

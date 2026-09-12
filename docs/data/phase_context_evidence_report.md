@@ -252,15 +252,15 @@
 | KP19 | G5:에 관하여 | 1 | 0 | 0 | 미검증 |
 | KP19 | G5:-어 내다 | 1 | 0 | 0 | 미검증 |
 | KP19 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
-| KP20 | G5:-는 듯하다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-을 법하다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-으려나 보다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-을 만하다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-게 마련이다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-기가 쉽다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-는 법이다 | 0 | 0 | 0 | 미검증 |
-| KP20 | G5:-는가1 | 0 | 0 | 0 | 미검증 |
-| KP20 | G2:-는 것 같다 | 0 | 0 | 0 | 미검증 |
+| KP20 | G5:-는 듯하다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-을 법하다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-으려나 보다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-을 만하다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-게 마련이다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-기가 쉽다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-는 법이다 | 1 | 0 | 0 | 미검증 |
+| KP20 | G5:-는가1 | 1 | 0 | 0 | 미검증 |
+| KP20 | G2:-는 것 같다 | 1 | 0 | 0 | 미검증 |
 | KP21 | G5:-는데도 | 0 | 0 | 0 | 미검증 |
 | KP21 | G5:-는데도 불구하고 | 0 | 0 | 0 | 미검증 |
 | KP21 | G5:에도 불구하고 | 0 | 0 | 0 | 미검증 |
@@ -588,3 +588,12 @@
 - KP19 / G5:에 관하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/8/practice/sourceKo` — “자료의 이용 조건에 관하여 설명하겠습니다.”. 이용 조건을 설명 범위로 명시하며 허가하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP19 / G5:-어 내다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/9/practice/sourceKo` — “연구팀은 여러 번 대조한 끝에 중복 기록을 찾아냈다.”. 반복 대조의 노력 끝에 중복 발견 성과를 달성한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP19 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/10/practice/sourceKo` — “실험이 끝난 뒤에도 문이 닫혀 있었다.”. 실험 후에도 닫힌 결과 상태가 지속된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-는 듯하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/0/practice/sourceKo` — “이 차이는 안내 방식에서 비롯된 듯합니다. 아직 다른 조건은 비교하지 않았습니다.”. 비교하지 못한 조건을 밝히며 안내 방식에 관한 잠정 원인 추론을 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-을 법하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/1/practice/sourceKo` — “설명을 처음 들으면 헷갈릴 법도 해요.”. 처음 듣는 조건에서 혼동이 생길 만한 개연성을 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-으려나 보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/2/practice/sourceKo` — “자료를 다시 모으는 걸 보니 조사하려나 봐요. 직접 묻지는 않았어요.”. 자료 수집 행동에서 조사 의도를 추측하며 직접 확인하지 않았음을 밝힌다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-을 만하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/3/practice/sourceKo` — “이 대안은 자세히 검토할 만합니다. 효과는 아직 모릅니다.”. 효과 확인과 구분해 검토 가치를 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-게 마련이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/4/practice/sourceKo` — “급하게 읽으면 중요한 조건을 놓치게 마련이라고 그는 말했다.”. 조건 누락을 일반 경향으로 제시한 화자의 발언을 인용한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-기가 쉽다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/5/practice/sourceKo` — “문맥을 빼면 의도를 오해하기 쉽습니다.”. 문맥 부재라는 조건에서 오해가 생길 경향을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-는 법이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/6/practice/sourceKo` — “오래 익힌 습관은 쉽게 바뀌지 않는 법이라고 그는 말했다.”. 습관의 지속을 일반 원칙으로 제시한 발언이며 방법 설명이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G5:-는가1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/7/practice/sourceKo` — “이 설명이 모든 사례에 적용되는가? 아직 검토가 필요하다.”. 모든 사례 적용 여부를 문어 의문으로 제기하고 미결 상태를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP20 / G2:-는 것 같다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/8/practice/sourceKo` — “이 결론에는 자료가 더 필요한 것 같아요.”. 추가 자료 필요성에 대한 낮은 확신의 평가다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
