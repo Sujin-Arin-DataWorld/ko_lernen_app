@@ -241,17 +241,17 @@
 | KP18 | G4:-고 보다 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-고 해서 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-는 대로 | 1 | 0 | 0 | 미검증 |
-| KP19 | G5:-다4 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-기에 앞서(서) | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-는 가운데 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-는 동시에 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-은 채로 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-고는 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-기가 바쁘게 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-었던 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:에 관하여 | 0 | 0 | 0 | 미검증 |
-| KP19 | G5:-어 내다 | 0 | 0 | 0 | 미검증 |
-| KP19 | G2:-어 있다 | 0 | 0 | 0 | 미검증 |
+| KP19 | G5:-다4 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-기에 앞서(서) | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-는 가운데 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-는 동시에 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-은 채로 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-고는 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-기가 바쁘게 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-었던 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:에 관하여 | 1 | 0 | 0 | 미검증 |
+| KP19 | G5:-어 내다 | 1 | 0 | 0 | 미검증 |
+| KP19 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
 | KP20 | G5:-는 듯하다 | 0 | 0 | 0 | 미검증 |
 | KP20 | G5:-을 법하다 | 0 | 0 | 0 | 미검증 |
 | KP20 | G5:-으려나 보다 | 0 | 0 | 0 | 미검증 |
@@ -577,3 +577,14 @@
 - KP18 / G4:-나 싶다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/20/dialog/5/ko` — “잠깐, 지갑이 없어. 아까 커피 마신 자리에 두고 왔나 봐.”. 이 원문은 추측 -나 보다이며 -나 싶다 용례는 없다. 뜻이 비슷하다고 요구 형태의 근거로 바꾸지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP17 / G4:-는대2 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/22/dialog/1/ko` — “지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.”. -다는은 문자를 수식하는 인용 관형형이다. 축약 전언 종결 -대요의 실제 용례는 아니다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP18 / G4:-을 따름이다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/24/dialog/6/ko` — “네, 시간이 조금 더 걸릴 뿐이고 효과는 똑같습니다.”. 원문은 제한 표현 -뿐이다이며 -을 따름이다의 형태 용례가 아니다. 약물 효과 주장의 타당성을 검수한 것으로도 사용하지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
+- KP19 / G5:-다4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/0/practice/sourceKo` — “조사 보고서: 이 연구는 두 지역의 이용 기록을 비교한다.”. 연구 범위를 문어 평서문으로 서술하며 독자에게 명령하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-기에 앞서(서) / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/1/practice/sourceKo` — “자료를 공개하기에 앞서 이용 조건을 확인했다.”. 공개보다 먼저 조건을 확인하는 준비 순서다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-는 가운데 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/2/practice/sourceKo` — “논의가 계속되는 가운데 새 자료가 공개됐다.”. 진행 중인 논의를 배경으로 새 자료가 공개된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-는 동시에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/3/practice/sourceKo` — “이 장치는 기록을 남기는 동시에 접근을 제한한다.”. 기록과 접근 제한이라는 두 기능의 동시성을 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-은 채로 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/4/practice/sourceKo` — “원인을 확인하지 못한 채 회의가 끝났다.”. 원인 미확인 상태가 유지된 채 회의가 종료된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-고는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/5/practice/sourceKo` — “연구원은 표를 읽고는 잠시 말을 멈췄다.”. 표를 읽은 뒤 나타난 반응을 부각한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-기가 바쁘게 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/6/practice/sourceKo` — “발표가 끝나기가 바쁘게 질문이 이어졌다.”. 발표 종료 직후 질문이 즉시 이어진다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-었던 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/7/practice/sourceKo` — “작년에 폐쇄됐던 공간을 이번 달에 다시 열었다.”. 작년 폐쇄 경험과 이번 달 재개방을 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:에 관하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/8/practice/sourceKo` — “자료의 이용 조건에 관하여 설명하겠습니다.”. 이용 조건을 설명 범위로 명시하며 허가하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G5:-어 내다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/9/practice/sourceKo` — “연구팀은 여러 번 대조한 끝에 중복 기록을 찾아냈다.”. 반복 대조의 노력 끝에 중복 발견 성과를 달성한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP19 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/10/practice/sourceKo` — “실험이 끝난 뒤에도 문이 닫혀 있었다.”. 실험 후에도 닫힌 결과 상태가 지속된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

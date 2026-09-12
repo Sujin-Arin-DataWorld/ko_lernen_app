@@ -11842,6 +11842,689 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 대로 immediate follow-up conditional on verification/response arrival, not a fixed time or completed action. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:listening/core:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "51063440a2d2b00b707d2ef526ecb70735c31b4320a6a96b716347387a65da07",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:listening/additional/1:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "0656f9c438ff8767aae82cc63daf131d89b7ac5364865cc29eb3b03664ed7ba0",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:reading/core:R",
+      "taskId": "KP19:reading:01",
+      "sourceHash": "0ce8d40485dc94ed25b08d1f994374babfa5cc9d36d12d281246e39d8b0a93a6",
+      "taskHash": "51aa1b29cfc0c44c02b230bf762eb9ab51e0dd25ffc201bab30047f3fa45c348",
+      "criterionIds": [
+        "definition",
+        "time",
+        "outcome",
+        "style",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual original academic explanation with local definitions/inclusion/exclusion and argument limit. Sequence, concurrent work, additional records outside unreviewed scope, achieved duplicate detection versus unresolved measurement cause, closed locker resulting state. 다 is written declarative not reader command. Generalisation beyond window/accuracy rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:reading/additional/1:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "07267f7670b3de888dd51b1e877dd242f01df80a25fda7640c0005d7d1c5b059",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:reading/genre/academic_specialised_text:R",
+      "taskId": "KP19:reading:01",
+      "sourceHash": "fb86c82e198e5fae7a6d151c3d4f161f02b2307d554f28417025cf4ff2ee5fb4",
+      "taskHash": "51aa1b29cfc0c44c02b230bf762eb9ab51e0dd25ffc201bab30047f3fa45c348",
+      "criterionIds": [
+        "definition",
+        "time",
+        "outcome",
+        "style",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual original academic explanation with local definitions/inclusion/exclusion and argument limit. Sequence, concurrent work, additional records outside unreviewed scope, achieved duplicate detection versus unresolved measurement cause, closed locker resulting state. 다 is written declarative not reader command. Generalisation beyond window/accuracy rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:reading/genre/report_proposal_official:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "79de5d507f900b733e8918c2f32d55be3b1f9b536cc10c7f05e772fb7ab3de3c",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:speaking/core:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "a12e2f18dc6470233b9b3174ae8fe9c44e0c48d4645a078723b651f2efb1f83f",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:speaking/additional/1:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "6bea02da6f663fe4ab3d03d326c68a186387f69813f1a5a34268d219f5b7d80a",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:writing/core:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "122ed36b7ad68cca6b1fb2ded1c4757d2909871ed55d011efea4a743a34a8160",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:writing/additional/1:P",
+      "taskId": "KP19:writing:02",
+      "sourceHash": "3dd3d14645d80bf3e0e2e78cf6cd945283c1bdbaff8f59e2234a1ac976aaf10c",
+      "taskHash": "98698dcafabbf2d0d1419c62bec2754c6bfd471240db2c3d5531bb9165a814cd",
+      "criterionIds": [
+        "note"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: required colleague note plus explanation of reordered information in same free field. Reader-first checking instruction, known actors restored, unknowns retained, polite style, scope/order/concurrency/results unchanged. Comparison/revision disallows turning recommendation into command/approval; semantic content unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:writing/genre/academic_specialised_text:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "d4aa406e68461101679f0ce01ee3c04f31b5990e7d7512b025d5939c656fb0bd",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "d0ff3109b28a20939c17c99478cd5bbb8a6ccc9d1b29e046defabff5abc9cd57",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/summarise_reconstruct:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "67ade523d02b6e6c2ab2646b1d400071b5a26ba8c1fae75db6c265af65b7d827",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/summarise_reconstruct:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "67ade523d02b6e6c2ab2646b1d400071b5a26ba8c1fae75db6c265af65b7d827",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "2c69ce066a4db507e915dc5b528d499c4480acc60543677c64e2a9f5a6d357ef",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP19:writing:02",
+      "sourceHash": "2c69ce066a4db507e915dc5b528d499c4480acc60543677c64e2a9f5a6d357ef",
+      "taskHash": "98698dcafabbf2d0d1419c62bec2754c6bfd471240db2c3d5531bb9165a814cd",
+      "criterionIds": [
+        "note"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: required colleague note plus explanation of reordered information in same free field. Reader-first checking instruction, known actors restored, unknowns retained, polite style, scope/order/concurrency/results unchanged. Comparison/revision disallows turning recommendation into command/approval; semantic content unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/define_distinguish_terms:R",
+      "taskId": "KP19:reading:01",
+      "sourceHash": "4030af60dbcecb1ad3b404cd5f5d43369892de3813d0caeea8e64a3903bd1296",
+      "taskHash": "51aa1b29cfc0c44c02b230bf762eb9ab51e0dd25ffc201bab30047f3fa45c348",
+      "criterionIds": [
+        "definition",
+        "time",
+        "outcome",
+        "style",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual original academic explanation with local definitions/inclusion/exclusion and argument limit. Sequence, concurrent work, additional records outside unreviewed scope, achieved duplicate detection versus unresolved measurement cause, closed locker resulting state. 다 is written declarative not reader command. Generalisation beyond window/accuracy rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/define_distinguish_terms:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "4030af60dbcecb1ad3b404cd5f5d43369892de3813d0caeea8e64a3903bd1296",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/structure_discourse_open_close_scope:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "edc0234e77adf335022a6ca4769806fdaaaaae1590c3a42821b8adb65283239e",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:functions/structure_discourse_open_close_scope:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "edc0234e77adf335022a6ca4769806fdaaaaae1590c3a42821b8adb65283239e",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP19:reading:01",
+      "sourceHash": "67bdb1ea9866ea53bbe90977999174968834121addb29849e075ae37b47cf2f5",
+      "taskHash": "51aa1b29cfc0c44c02b230bf762eb9ab51e0dd25ffc201bab30047f3fa45c348",
+      "criterionIds": [
+        "definition",
+        "time",
+        "outcome",
+        "style",
+        "limit"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual original academic explanation with local definitions/inclusion/exclusion and argument limit. Sequence, concurrent work, additional records outside unreviewed scope, achieved duplicate detection versus unresolved measurement cause, closed locker resulting state. 다 is written declarative not reader command. Generalisation beyond window/accuracy rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "67bdb1ea9866ea53bbe90977999174968834121addb29849e075ae37b47cf2f5",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "b507cd95b28b90ea6a4e1885b6436b5165f8776f6b8d50243a4fd762abd57876",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP19:writing:01",
+      "sourceHash": "b507cd95b28b90ea6a4e1885b6436b5165f8776f6b8d50243a4fd762abd57876",
+      "taskHash": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "criterionIds": [
+        "report",
+        "abstract"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP19:reading:02",
+      "sourceHash": "ac32486a44001cf97b89ba9cf91cbcfb11ced5e4116c9ac3259389307ed32a02",
+      "taskHash": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "criterionIds": [
+        "count",
+        "agency",
+        "nominal",
+        "unsupported",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP19:writing:02",
+      "sourceHash": "ac32486a44001cf97b89ba9cf91cbcfb11ced5e4116c9ac3259389307ed32a02",
+      "taskHash": "98698dcafabbf2d0d1419c62bec2754c6bfd471240db2c3d5531bb9165a814cd",
+      "criterionIds": [
+        "note"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: required colleague note plus explanation of reordered information in same free field. Reader-first checking instruction, known actors restored, unknowns retained, polite style, scope/order/concurrency/results unchanged. Comparison/revision disallows turning recommendation into command/approval; semantic content unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "0424ea857af8c54503849e29f45f1555908bd2131e806be7ffd4cc8d6ee5ac8a",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "0424ea857af8c54503849e29f45f1555908bd2131e806be7ffd4cc8d6ee5ac8a",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:phonology/0:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "b63bb850e10d19736d61bf7f4d9dc7f72ab3ee3e1fc2b5fa604840648ae95561",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:phonology/0:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "b63bb850e10d19736d61bf7f4d9dc7f72ab3ee3e1fc2b5fa604840648ae95561",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:phonology/1:R",
+      "taskId": "KP19:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "criterionIds": [
+        "claim",
+        "before",
+        "simultaneous",
+        "additional",
+        "state",
+        "transition",
+        "actor"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:phonology/1:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "f2b9cdca50cb85b845efb9bf2c54ed968acbf9a05b640c3eabd032accd1c2d3e",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:register/haeyo_polite:P",
+      "taskId": "KP19:speaking:01",
+      "sourceHash": "f2b9cdca50cb85b845efb9bf2c54ed968acbf9a05b640c3eabd032accd1c2d3e",
+      "taskHash": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-다4:R",
+      "taskId": "KP19:grammar:01",
+      "sourceHash": "5c19031be3b64df230e9349e76c7b77e18978e2fe16f523b75b452c001f8cba6",
+      "taskHash": "56c41b695b118eeb4919b1074a349776a94960533438b4b9cc9bf1e74c36d74c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Report/news declarative 다 versus a command to the reader; impersonal style is not a truth guarantee. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-기에 앞서(서):R",
+      "taskId": "KP19:grammar:02",
+      "sourceHash": "ac4299b8746842334629e13ccf79520886194f80b189603058045cc3eb8d43b3",
+      "taskHash": "526ba1c100d8dff171f293b252528cb61c55c466006b8b2b4e37f2500bad6c3f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기에 앞서 preparation/criteria review precedes main action, not retrospective permission. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-는 가운데:R",
+      "taskId": "KP19:grammar:03",
+      "sourceHash": "7661895604669c11289f9033c24189ff6e725d0d8166019bc42da3e4f5489f62",
+      "taskHash": "76946a741b6ee0e12db13a03520a1b25530258efe5824bb77cf0bf0d8f63db2a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 가운데 ongoing background to arrival/disclosure/replacement; no implied completion, consent or cause. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-는 동시에:R",
+      "taskId": "KP19:grammar:04",
+      "sourceHash": "e34c0057587d42dbb0a8b7b27d53282ab3d6f0909cbaf2a28a025fc4eeb87a5b",
+      "taskHash": "d197274e7aa8af699a9a6ec908a013e890ee692657b16c8fa3fa67d6e5c8b91a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 동시에 concurrent functions/work rather than serial completion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-은 채로:R",
+      "taskId": "KP19:grammar:05",
+      "sourceHash": "d85cdeb6a668e83a56838027fef93b62eaa11a1021248badea00cb9b9fcdab2b",
+      "taskHash": "4e81d0c4288fd3b31544b56a342dc5dafaa7848047325c717fe709e8a5d8867e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 은 채(로) maintains unresolved/powered-on state during another event; ending meeting does not resolve cause. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-고는:R",
+      "taskId": "KP19:grammar:06",
+      "sourceHash": "eb8b3c62b4072fae7dae41d23b195c2f95c09e483dfc9512395d78ad521d45bd",
+      "taskHash": "563357ae16e67474383a45566df0e6e01307b0104e0a2f4ee4b82dd16903423e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 고는 highlights a single response after reading/checking, distinguished from habitual 고는 하다. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-기가 바쁘게:R",
+      "taskId": "KP19:grammar:07",
+      "sourceHash": "317a97192dd334b0d7dfdadf1ee54b3d848572f4d8561cabf7031a5b9c88662b",
+      "taskHash": "190be96ec69937bca6241684b7dac9788965192ef21ae503b98dae07998e6111",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기가 바쁘게 immediately follows a completed preceding event, not busy schedule or reverse order. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-었던:R",
+      "taskId": "KP19:grammar:08",
+      "sourceHash": "94bf3ba1d1be5ac5ce56cf69004e41d7bf1abf3c27cd7d32ef5f244352b3c738",
+      "taskHash": "93caf4bfe098e6308e01c2a11f1c7e2c1ece7328a9ad487555bc954985ac2bf0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 었던 recalls a completed earlier state/experience, not guaranteed present continuation or approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:에 관하여:R",
+      "taskId": "KP19:grammar:09",
+      "sourceHash": "6cde48f47f27a448bc81e2edd1fdbf4f79710066ee7877e523e0fab9560c0c92",
+      "taskHash": "90d0781ce45f566281d852146839ac5075f935e06af0dee855c5325830b2b31f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 에 관하여 scope of explanation/question, not unrestricted access or deletion outcome. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-어 내다:R",
+      "taskId": "KP19:grammar:10",
+      "sourceHash": "894a955f821d7a3490da46b5e5c67b6d86f290c70a4f509808e7b72c4f6e61f8",
+      "taskHash": "de0437e6c6b4aab5e495054d474dbcf6c6e38415e4633bfb9714ba03dc811311",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 내다 outcome achieved through repeated comparison/discussion, not intention or approval beyond draft completion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G2:-어 있다:R",
+      "taskId": "KP19:grammar:11",
+      "sourceHash": "8bf98a81ace3cac4f24a5d0ff2e0b988998fdce3566fbc80526779adb5eb8a95",
+      "taskHash": "4a339805c99ec416b5d45f547a79fcadd3c70e02a2a669e1b78a0a30aad98f98",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어 있다 resulting closed/on state persists after experiment/check; distinct from ongoing closing/turning-on action. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-다4:P",
+      "taskId": "KP19:production:01",
+      "sourceHash": "5c19031be3b64df230e9349e76c7b77e18978e2fe16f523b75b452c001f8cba6",
+      "taskHash": "2ab88d01aae47fa2fe6492f33fae1ce9f42f1449744cbe5f1f18ccc9a1d78f11",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Report/news declarative 다 versus a command to the reader; impersonal style is not a truth guarantee. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-기에 앞서(서):P",
+      "taskId": "KP19:production:02",
+      "sourceHash": "ac4299b8746842334629e13ccf79520886194f80b189603058045cc3eb8d43b3",
+      "taskHash": "56aa1e216a7b10d44e36a2c63370fca2d8a963b1f06b18aa90a2f159cc147e48",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기에 앞서 preparation/criteria review precedes main action, not retrospective permission. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-는 가운데:P",
+      "taskId": "KP19:production:03",
+      "sourceHash": "7661895604669c11289f9033c24189ff6e725d0d8166019bc42da3e4f5489f62",
+      "taskHash": "6a832512fe517865523c1a7bd47c487b17d18a2a0b4990f3902dddb3f9216ca0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 가운데 ongoing background to arrival/disclosure/replacement; no implied completion, consent or cause. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-는 동시에:P",
+      "taskId": "KP19:production:04",
+      "sourceHash": "e34c0057587d42dbb0a8b7b27d53282ab3d6f0909cbaf2a28a025fc4eeb87a5b",
+      "taskHash": "93c50fa4eba2ef42926c76e2b281095fda9eb2add393ab85b4d22228ea2bfa92",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 동시에 concurrent functions/work rather than serial completion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-은 채로:P",
+      "taskId": "KP19:production:05",
+      "sourceHash": "d85cdeb6a668e83a56838027fef93b62eaa11a1021248badea00cb9b9fcdab2b",
+      "taskHash": "55badd681abbf93646ae557699c8616175d50858e6052b266f1f7fe601d46bff",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 은 채(로) maintains unresolved/powered-on state during another event; ending meeting does not resolve cause. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-고는:P",
+      "taskId": "KP19:production:06",
+      "sourceHash": "eb8b3c62b4072fae7dae41d23b195c2f95c09e483dfc9512395d78ad521d45bd",
+      "taskHash": "a3b8751ee333a81cde3d86454760676e7863a8486622daefe9161159fdf92cf6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 고는 highlights a single response after reading/checking, distinguished from habitual 고는 하다. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-기가 바쁘게:P",
+      "taskId": "KP19:production:07",
+      "sourceHash": "317a97192dd334b0d7dfdadf1ee54b3d848572f4d8561cabf7031a5b9c88662b",
+      "taskHash": "dd1460652368c25f3304f611a8be379ec78ab726654c07922bddd39e834ecef8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기가 바쁘게 immediately follows a completed preceding event, not busy schedule or reverse order. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-었던:P",
+      "taskId": "KP19:production:08",
+      "sourceHash": "94bf3ba1d1be5ac5ce56cf69004e41d7bf1abf3c27cd7d32ef5f244352b3c738",
+      "taskHash": "f5da85ef0feba6dee6fbe89f10a4c10ad6009a1ebc41326bafa9bef0b545cdb6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 었던 recalls a completed earlier state/experience, not guaranteed present continuation or approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:에 관하여:P",
+      "taskId": "KP19:production:09",
+      "sourceHash": "6cde48f47f27a448bc81e2edd1fdbf4f79710066ee7877e523e0fab9560c0c92",
+      "taskHash": "701a73c8fab8a08851d33531144d9af7398f8e0f6b945ef6db8e1deb2db7d425",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 에 관하여 scope of explanation/question, not unrestricted access or deletion outcome. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G5:-어 내다:P",
+      "taskId": "KP19:production:10",
+      "sourceHash": "894a955f821d7a3490da46b5e5c67b6d86f290c70a4f509808e7b72c4f6e61f8",
+      "taskHash": "5975372408b84b1e92cc47a7c75538dc65fa77203f3a79aadce3e35cafdf5e6a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 내다 outcome achieved through repeated comparison/discussion, not intention or approval beyond draft completion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP19:objective:grammar/G2:-어 있다:P",
+      "taskId": "KP19:production:11",
+      "sourceHash": "8bf98a81ace3cac4f24a5d0ff2e0b988998fdce3566fbc80526779adb5eb8a95",
+      "taskHash": "00e8dfd9bb86780a0d183ab005cbf9fd65935a8df888fe7a49b9c012e2077ec6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어 있다 resulting closed/on state persists after experiment/check; distinct from ongoing closing/turning-on action. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

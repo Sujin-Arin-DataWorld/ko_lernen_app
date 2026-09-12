@@ -1131,8 +1131,37 @@
         "c1_01_evidence_public_reasoning"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp19.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP19:grammar:01",
+        "KP19:grammar:02",
+        "KP19:grammar:03",
+        "KP19:grammar:04",
+        "KP19:grammar:05",
+        "KP19:grammar:06",
+        "KP19:grammar:07",
+        "KP19:grammar:08",
+        "KP19:grammar:09",
+        "KP19:grammar:10",
+        "KP19:grammar:11",
+        "KP19:production:01",
+        "KP19:production:02",
+        "KP19:production:03",
+        "KP19:production:04",
+        "KP19:production:05",
+        "KP19:production:06",
+        "KP19:production:07",
+        "KP19:production:08",
+        "KP19:production:09",
+        "KP19:production:10",
+        "KP19:production:11",
+        "KP19:listening:01",
+        "KP19:reading:01",
+        "KP19:reading:02",
+        "KP19:writing:01",
+        "KP19:writing:02",
+        "KP19:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP20",
@@ -1430,5 +1459,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "6c12f24d72a5d92fa7f21f64b343a892b5618d99580653e410d2e7118d44ed3f"
+  "phaseTaskSourceSha256": "bda8517d982e0df86648fd7384e531da3d4034cd66fce240d36e798f74049c39"
 }

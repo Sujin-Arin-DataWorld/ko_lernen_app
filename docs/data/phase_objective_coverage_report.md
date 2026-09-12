@@ -24,7 +24,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP16 | 52 | 52 | 0 | 미검증 |
 | KP17 | 56 | 56 | 0 | 미검증 |
 | KP18 | 66 | 66 | 0 | 미검증 |
-| KP19 | 56 | 0 | 56 | 미검증 |
+| KP19 | 56 | 56 | 0 | 미검증 |
 | KP20 | 52 | 0 | 52 | 미검증 |
 | KP21 | 54 | 0 | 54 | 미검증 |
 | KP22 | 52 | 0 | 52 | 미검증 |
@@ -39,62 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP19:objective:grammar/G5:-다4:R`
-- `KP19:objective:grammar/G5:-다4:P`
-- `KP19:objective:grammar/G5:-기에 앞서(서):R`
-- `KP19:objective:grammar/G5:-기에 앞서(서):P`
-- `KP19:objective:grammar/G5:-는 가운데:R`
-- `KP19:objective:grammar/G5:-는 가운데:P`
-- `KP19:objective:grammar/G5:-는 동시에:R`
-- `KP19:objective:grammar/G5:-는 동시에:P`
-- `KP19:objective:grammar/G5:-은 채로:R`
-- `KP19:objective:grammar/G5:-은 채로:P`
-- `KP19:objective:grammar/G5:-고는:R`
-- `KP19:objective:grammar/G5:-고는:P`
-- `KP19:objective:grammar/G5:-기가 바쁘게:R`
-- `KP19:objective:grammar/G5:-기가 바쁘게:P`
-- `KP19:objective:grammar/G5:-었던:R`
-- `KP19:objective:grammar/G5:-었던:P`
-- `KP19:objective:grammar/G5:에 관하여:R`
-- `KP19:objective:grammar/G5:에 관하여:P`
-- `KP19:objective:grammar/G5:-어 내다:R`
-- `KP19:objective:grammar/G5:-어 내다:P`
-- `KP19:objective:grammar/G2:-어 있다:R`
-- `KP19:objective:grammar/G2:-어 있다:P`
-- `KP19:objective:listening/core:R`
-- `KP19:objective:listening/additional/1:R`
-- `KP19:objective:reading/core:R`
-- `KP19:objective:reading/additional/1:R`
-- `KP19:objective:reading/genre/academic_specialised_text:R`
-- `KP19:objective:reading/genre/report_proposal_official:R`
-- `KP19:objective:speaking/core:P`
-- `KP19:objective:speaking/additional/1:P`
-- `KP19:objective:writing/core:P`
-- `KP19:objective:writing/additional/1:P`
-- `KP19:objective:writing/genre/academic_specialised_text:P`
-- `KP19:objective:writing/genre/report_proposal_official:P`
-- `KP19:objective:functions/summarise_reconstruct:R`
-- `KP19:objective:functions/summarise_reconstruct:P`
-- `KP19:objective:functions/reformulate_paraphrase_rewrite:R`
-- `KP19:objective:functions/reformulate_paraphrase_rewrite:P`
-- `KP19:objective:functions/define_distinguish_terms:R`
-- `KP19:objective:functions/define_distinguish_terms:P`
-- `KP19:objective:functions/structure_discourse_open_close_scope:R`
-- `KP19:objective:functions/structure_discourse_open_close_scope:P`
-- `KP19:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP19:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP19:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP19:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP19:objective:vocabDomains/language_metalanguage:R`
-- `KP19:objective:vocabDomains/language_metalanguage:P`
-- `KP19:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP19:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP19:objective:phonology/0:R`
-- `KP19:objective:phonology/0:P`
-- `KP19:objective:phonology/1:R`
-- `KP19:objective:phonology/1:P`
-- `KP19:objective:register/hapsyo_formal_business:P`
-- `KP19:objective:register/haeyo_polite:P`
 - `KP20:objective:grammar/G5:-는 듯하다:R`
 - `KP20:objective:grammar/G5:-는 듯하다:P`
 - `KP20:objective:grammar/G5:-을 법하다:R`

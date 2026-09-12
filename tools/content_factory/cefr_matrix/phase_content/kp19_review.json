@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP19:grammar:01",
+      "sha256": "56c41b695b118eeb4919b1074a349776a94960533438b4b9cc9bf1e74c36d74c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Report/news declarative 다 versus a command to the reader; impersonal style is not a truth guarantee. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:01",
+      "sha256": "2ab88d01aae47fa2fe6492f33fae1ce9f42f1449744cbe5f1f18ccc9a1d78f11",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Report/news declarative 다 versus a command to the reader; impersonal style is not a truth guarantee. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:02",
+      "sha256": "526ba1c100d8dff171f293b252528cb61c55c466006b8b2b4e37f2500bad6c3f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기에 앞서 preparation/criteria review precedes main action, not retrospective permission. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:02",
+      "sha256": "56aa1e216a7b10d44e36a2c63370fca2d8a963b1f06b18aa90a2f159cc147e48",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기에 앞서 preparation/criteria review precedes main action, not retrospective permission. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:03",
+      "sha256": "76946a741b6ee0e12db13a03520a1b25530258efe5824bb77cf0bf0d8f63db2a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 가운데 ongoing background to arrival/disclosure/replacement; no implied completion, consent or cause. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:03",
+      "sha256": "6a832512fe517865523c1a7bd47c487b17d18a2a0b4990f3902dddb3f9216ca0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 가운데 ongoing background to arrival/disclosure/replacement; no implied completion, consent or cause. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:04",
+      "sha256": "d197274e7aa8af699a9a6ec908a013e890ee692657b16c8fa3fa67d6e5c8b91a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 동시에 concurrent functions/work rather than serial completion. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:04",
+      "sha256": "93c50fa4eba2ef42926c76e2b281095fda9eb2add393ab85b4d22228ea2bfa92",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 동시에 concurrent functions/work rather than serial completion. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:05",
+      "sha256": "4e81d0c4288fd3b31544b56a342dc5dafaa7848047325c717fe709e8a5d8867e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 은 채(로) maintains unresolved/powered-on state during another event; ending meeting does not resolve cause. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:05",
+      "sha256": "55badd681abbf93646ae557699c8616175d50858e6052b266f1f7fe601d46bff",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 은 채(로) maintains unresolved/powered-on state during another event; ending meeting does not resolve cause. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:06",
+      "sha256": "563357ae16e67474383a45566df0e6e01307b0104e0a2f4ee4b82dd16903423e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고는 highlights a single response after reading/checking, distinguished from habitual 고는 하다. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:06",
+      "sha256": "a3b8751ee333a81cde3d86454760676e7863a8486622daefe9161159fdf92cf6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고는 highlights a single response after reading/checking, distinguished from habitual 고는 하다. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:07",
+      "sha256": "190be96ec69937bca6241684b7dac9788965192ef21ae503b98dae07998e6111",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기가 바쁘게 immediately follows a completed preceding event, not busy schedule or reverse order. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:07",
+      "sha256": "dd1460652368c25f3304f611a8be379ec78ab726654c07922bddd39e834ecef8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기가 바쁘게 immediately follows a completed preceding event, not busy schedule or reverse order. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:08",
+      "sha256": "93caf4bfe098e6308e01c2a11f1c7e2c1ece7328a9ad487555bc954985ac2bf0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 었던 recalls a completed earlier state/experience, not guaranteed present continuation or approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:08",
+      "sha256": "f5da85ef0feba6dee6fbe89f10a4c10ad6009a1ebc41326bafa9bef0b545cdb6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 었던 recalls a completed earlier state/experience, not guaranteed present continuation or approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:09",
+      "sha256": "90d0781ce45f566281d852146839ac5075f935e06af0dee855c5325830b2b31f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 에 관하여 scope of explanation/question, not unrestricted access or deletion outcome. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:09",
+      "sha256": "701a73c8fab8a08851d33531144d9af7398f8e0f6b945ef6db8e1deb2db7d425",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 에 관하여 scope of explanation/question, not unrestricted access or deletion outcome. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:10",
+      "sha256": "de0437e6c6b4aab5e495054d474dbcf6c6e38415e4633bfb9714ba03dc811311",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 내다 outcome achieved through repeated comparison/discussion, not intention or approval beyond draft completion. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:10",
+      "sha256": "5975372408b84b1e92cc47a7c75538dc65fa77203f3a79aadce3e35cafdf5e6a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 내다 outcome achieved through repeated comparison/discussion, not intention or approval beyond draft completion. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:grammar:11",
+      "sha256": "4a339805c99ec416b5d45f547a79fcadd3c70e02a2a669e1b78a0a30aad98f98",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 있다 resulting closed/on state persists after experiment/check; distinct from ongoing closing/turning-on action. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP19:production:11",
+      "sha256": "00e8dfd9bb86780a0d183ab005cbf9fd65935a8df888fe7a49b9c012e2077ec6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 있다 resulting closed/on state persists after experiment/check; distinct from ongoing closing/turning-on action. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP19:listening:01",
+      "sha256": "c48e455152d3e5e1219f1809472d8f2f849124bf87720f4ced8261f568245ec4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: original specialist presentation and equal colleague questions. Two distinct data sites/windows/counts24-3=21 versus35-5=30. Main reproducible selection claim not accuracy proof, definition by record identifier not identical values, criteria before comparison, concurrent role-specific work, arrival during meeting yet excluded, unknown cause/locker actor, shift to disclosure not causal evidence. Seven required criteria including unverified summary decision."
+    },
+    {
+      "taskId": "KP19:reading:01",
+      "sha256": "51aa1b29cfc0c44c02b230bf762eb9ab51e0dd25ffc201bab30047f3fa45c348",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual original academic explanation with local definitions/inclusion/exclusion and argument limit. Sequence, concurrent work, additional records outside unreviewed scope, achieved duplicate detection versus unresolved measurement cause, closed locker resulting state. 다 is written declarative not reader command. Generalisation beyond window/accuracy rejected."
+    },
+    {
+      "taskId": "KP19:reading:02",
+      "sha256": "28185e6b280eaf13deef22b6daf22e927278ee662fa689f5d36e9e583c04802a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual headed report and two distinct abstracts with source-comparison memo. Initial/duplicate/final counts verified, research team detects and data staff record reasons. Nominalised abstract A hides actors; B restores only attested roles, unknown decision-maker stays unknown. Both abstracts add unverified disclosure-hold claim absent from report; inference cannot promote it. Five required contrasts."
+    },
+    {
+      "taskId": "KP19:writing:01",
+      "sha256": "a120937a0dda0a683e2e5f5d5a3147418b136edea32a0b995863e3b2d9bec960",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: two mandatory full free responses, process report and specialist abstract. Preserve source counts, methods, chronology/concurrency/result state, actor roles and evidence boundaries; mark added disclosure decision unverified. Headings and written style with original-source revision; full semantic/argument quality unscored."
+    },
+    {
+      "taskId": "KP19:writing:02",
+      "sha256": "98698dcafabbf2d0d1419c62bec2754c6bfd471240db2c3d5531bb9165a814cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: required colleague note plus explanation of reordered information in same free field. Reader-first checking instruction, known actors restored, unknowns retained, polite style, scope/order/concurrency/results unchanged. Comparison/revision disallows turning recommendation into command/approval; semantic content unscored."
+    },
+    {
+      "taskId": "KP19:speaking:01",
+      "sha256": "d79fbcd5faeb587cf2bf1bf111d398e71166b647abeaa57c8f579b94d653d232",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: polite equal colleague explanation and actual non-specialist question about identical values versus identifier duplicates, then formal public briefing with term inclusion boundaries and claim/limits intact. Korean mediation of two transfer risks, hidden agency and temporal-causal overreach. Meaning-unit pauses, replay/revision; meaning/intonation unscored."
+    }
+  ]
+}
