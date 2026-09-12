@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는2",
@@ -26,8 +26,7 @@
         "de": "Verb + -는 bestimmt ein Nomen durch eine gegenwärtige Handlung. Kläre im Kontext, wer handelt."
       },
       "examplesKo": [
-        "저기 책을 읽는 사람이 제 친구예요.",
-        "저기 그림을 그리는 사람이 준호예요."
+        "지금 노래하는 사람이 소라예요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은2",
@@ -123,8 +122,7 @@
         "de": "Bei diesen Verben beschreibt -(으)ㄴ eine vergangene, ausgeführte Handlung, keinen Zukunftsplan."
       },
       "examplesKo": [
-        "어제 산 책이 재미있어요.",
-        "어제 찍은 사진을 보여 줄게요."
+        "지난주에 만든 컵을 가져왔어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은3",
@@ -220,8 +218,7 @@
         "de": "Bei Adjektiven beschreibt -(으)ㄴ eine Eigenschaft oder einen Zustand. 작은 bedeutet nicht von sich aus früher klein."
       },
       "examplesKo": [
-        "작은 방을 찾고 있어요.",
-        "조용한 카페에서 책을 읽어요."
+        "밝은 방에서 그림을 그려요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을2",
@@ -317,8 +314,7 @@
         "de": "Hier bestimmt Verb + -(으)ㄹ ein Nomen durch eine künftige Handlung. Sie ist noch nicht abgeschlossen."
       },
       "examplesKo": [
-        "내일 만날 사람이 있어요.",
-        "다음 주에 만들 가방의 색을 골랐어요."
+        "내일 배울 노래가 어려워요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 것",
@@ -414,8 +410,7 @@
         "de": "-는 것 macht eine Handlung zur Nominalgruppe. Unterscheide die Vorliebe für eine Tätigkeit von der für eine Person."
       },
       "examplesKo": [
-        "사진 찍는 것을 좋아해요.",
-        "미나는 혼자 걷는 것을 좋아해요."
+        "저는 사진 찍는 것을 좋아해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기",
@@ -511,8 +506,7 @@
         "de": "-기 nominalisiert eine Handlung, die so Thema oder Objekt sein kann. Gemeint ist eine Tätigkeit, keine Person."
       },
       "examplesKo": [
-        "걷기가 좋아요.",
-        "제 취미는 자전거 타기예요."
+        "이 모임에서는 책 읽기가 중요해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 때",
@@ -608,8 +602,7 @@
         "de": "-(으)ㄹ 때 nennt einen Zeitpunkt oder eine Situation. Unterscheide wann von wie lange."
       },
       "examplesKo": [
-        "시간이 있을 때 운동해요.",
-        "친구를 만날 때 이 책을 줄 거예요."
+        "쉬는 시간이 있을 때 사진을 봐요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 동안에",
@@ -705,8 +698,7 @@
         "de": "-는 동안에 ordnet ein anderes Ereignis in die Dauer einer laufenden Tätigkeit ein."
       },
       "examplesKo": [
-        "친구를 기다리는 동안에 책을 읽었어요.",
-        "빵을 굽는 동안에 차를 준비했어요."
+        "버스를 기다리는 동안에 책을 읽었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은 지2",
@@ -802,8 +794,7 @@
         "de": "-(으)ㄴ 지 misst die seit einem Ereignis oder Beginn vergangene Zeit, keine ununterbrochene Tätigkeit."
       },
       "examplesKo": [
-        "한국어를 배운 지 일 년 됐어요.",
-        "이 모임에 가입한 지 일 년 됐어요."
+        "수영을 배운 지 두 달 됐어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은 적이 있다",
@@ -899,8 +890,7 @@
         "de": "-(으)ㄴ 적이 있다 bezeichnet eine mindestens einmalige Erfahrung. Es nennt weder die genaue Häufigkeit noch eine gerade laufende Handlung."
       },
       "examplesKo": [
-        "제주도에 간 적이 있어요.",
-        "혼자 여행한 적이 없어요."
+        "공연에서 노래한 적이 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 보다",
@@ -996,8 +986,7 @@
         "de": "-아/어 보다 bezeichnet das Ausprobieren. Eine Aufforderung dazu belegt noch keine ausgeführte Handlung."
       },
       "examplesKo": [
-        "이 음식을 한번 먹어 보세요.",
-        "새로운 길로 걸어 봤어요."
+        "이 악기를 한번 연주해 보세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으면서",
@@ -1093,8 +1082,7 @@
         "de": "Hier verbindet -(으)면서 zwei gleichzeitige Handlungen derselben Person, keine Abfolge."
       },
       "examplesKo": [
-        "음악을 들으면서 요리해요.",
-        "노래를 부르면서 걸었어요."
+        "음악을 들으면서 청소했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-다가1(1)",
@@ -1190,8 +1178,7 @@
         "de": "-다가 führt ein Ereignis während einer anderen Tätigkeit ein. Setze deren Abschluss nicht voraus."
       },
       "examplesKo": [
-        "집에 가다가 친구를 만났어요.",
-        "그림을 그리다가 전화가 왔어요. 그림은 아직 미완성이에요."
+        "책을 읽다가 잠이 들었어요. 책은 다 못 읽었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1274,7 +1261,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 있다",
@@ -1287,8 +1274,7 @@
         "de": "-고 있다 beschreibt eine laufende Handlung. Unterscheide sie von der seit dem Lernbeginn vergangenen Zeit."
       },
       "examplesKo": [
-        "지금 새 노래를 연습하고 있어요.",
-        "그림을 배운 지 일 년 됐어요. 지금 꽃을 그리고 있어요."
+        "노래를 배운 지 한 달 됐어요. 지금 그 노래를 연습하고 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

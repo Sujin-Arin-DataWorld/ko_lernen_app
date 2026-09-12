@@ -78,6 +78,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_practice_and_assessment_are_independent(self):
         for task in build(ROOT)['tasks']:
             self.assertNotEqual(task['practice']['sourceKo'], task['assessment']['sourceKo'])
+            self.assertNotIn(task['assessment']['sourceKo'], '\n'.join(task['examplesKo']), task['id'])
 
     def test_free_writing_has_no_automatic_key_and_remains_required(self):
         task = copy.deepcopy(next(t for t in build(ROOT)['tasks'] if t['skill'] == 'writing'))
@@ -90,6 +91,12 @@ class PhaseContentContractTest(unittest.TestCase):
             bad['assessment']['questions'][0].update(mutation)
             with self.assertRaises(ValueError):
                 validate_task(bad)
+
+    def test_assessment_in_study_examples_is_rejected(self):
+        task = copy.deepcopy(build(ROOT)['tasks'][0])
+        task['examplesKo'] = [task['assessment']['sourceKo']]
+        with self.assertRaisesRegex(ValueError, 'Study examples reveal'):
+            validate_task(task)
 
     def test_generated_output_is_fresh(self):
         self.assertEqual(json.loads((ROOT / 'assets/data/phase_tasks.json').read_text(encoding='utf-8')), build(ROOT))

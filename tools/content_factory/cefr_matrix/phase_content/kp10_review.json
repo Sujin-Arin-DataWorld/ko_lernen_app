@@ -3,7 +3,7 @@
   "reviews": [
     {
       "taskId": "KP10:grammar:01",
-      "sha256": "c98563108d0f04c5e1343c9e54528d12f9cfbbede95adb46d800ea5809e38bb8",
+      "sha256": "a0c3b4b5a4f9949314afb328aa8350ba91cea94195b3ef5d9ee1360ed98d9af8",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -12,7 +12,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Actual ongoing reading/writing interrupted, not intention only. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Actual ongoing reading/writing interrupted, not intention only. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:01",
@@ -29,7 +29,7 @@
     },
     {
       "taskId": "KP10:grammar:02",
-      "sha256": "b365eaae0227e35c3d984127093c4c761b20583a9f9a15328b85269845b7311e",
+      "sha256": "73fad5acfb263d1a69d978fab876915eab79ae7a75d81429447027c561f30cf9",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -38,7 +38,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Intention changed before the intended action is asserted complete. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Intention changed before the intended action is asserted complete. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:02",
@@ -55,7 +55,7 @@
     },
     {
       "taskId": "KP10:grammar:03",
-      "sha256": "dbd1792b8f20110a07164594e5c749b3c92e1947e2d65a2296a88a89864e6fef",
+      "sha256": "2873619452cad5e5b62eae1c985c24108baed9559175ff7a5a7ba5634cb8be90",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -64,7 +64,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Result discovered after opening/asking; no prior prediction as observation. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Result discovered after opening/asking; no prior prediction as observation. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:03",
@@ -81,7 +81,7 @@
     },
     {
       "taskId": "KP10:grammar:04",
-      "sha256": "9276d9d4e5c0a5762c30cdc415da2abf4505b73a268ed436202ad54f86f3f6f2",
+      "sha256": "a4e718398d3fbbe666e3da5afc8dec175e2a646ee1d364d4c3fa1c0d85deaf83",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -90,7 +90,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Same actor occupied with searching/meeting cannot answer/eat; no blanket because mapping. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Same actor occupied with searching/meeting cannot answer/eat; no blanket because mapping. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:04",
@@ -107,7 +107,7 @@
     },
     {
       "taskId": "KP10:grammar:05",
-      "sha256": "8f63eab92224d7a2a750a0bda063c26d8716d97b25e7f26f7bf0d66bd0a70987",
+      "sha256": "e3d0a823580f14f88334254d25585fd6112cdef3ad01d905e0bacba7f7b3a978",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -116,7 +116,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Fetched water/copied materials transferred to subsequent use at another place. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Fetched water/copied materials transferred to subsequent use at another place. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:05",
@@ -133,7 +133,7 @@
     },
     {
       "taskId": "KP10:grammar:06",
-      "sha256": "773ef5be51bb557c8b2d202ed8b7ba52b51a3e2afd7d83202965143a0c6448dc",
+      "sha256": "a2723088a4f557a04cee1a597c0bb61a513a76a4ff4dfe5d46beca98f8686399",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -142,7 +142,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Immediate succession preserves order, does not prove causal connection. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Immediate succession preserves order, does not prove causal connection. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:06",
@@ -159,7 +159,7 @@
     },
     {
       "taskId": "KP10:grammar:07",
-      "sha256": "8336cae966d4b81600270ed538b2871bfca0a34ee3d3181efd790cc15b9c04eb",
+      "sha256": "c7f947c3b7b1215eeeee0363cc35a691ab2e1a3a3d9822922bb233059213ea17",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -168,7 +168,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Completion used as reference point, distinct from ongoing action or guaranteed success. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Completion used as reference point, distinct from ongoing action or guaranteed success. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:07",
@@ -185,7 +185,7 @@
     },
     {
       "taskId": "KP10:grammar:08",
-      "sha256": "cd4846967b8aa9c01644f44c7ea0c5acaa59bfc1c76426b13ce6c3823e014149",
+      "sha256": "9988e339d88abac0d6b2cab50c74aa4a627f1e3ff597413142da1567d976beff",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -194,7 +194,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Actual undesired deletion/deadline lapse, not fear without occurrence. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Actual undesired deletion/deadline lapse, not fear without occurrence. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:08",
@@ -211,7 +211,7 @@
     },
     {
       "taskId": "KP10:grammar:09",
-      "sha256": "2299fc3355bb219124680a2a979c07b10ae9be894e5830a5cbee68516b716bbb",
+      "sha256": "3bb0ff5c9f6eab03a384b9c931c66513219a4ad146cb72117ce67a8f61d72bcf",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -220,7 +220,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Change continuing forward from present, no physical displacement. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Change continuing forward from present, no physical displacement. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:09",
@@ -237,7 +237,7 @@
     },
     {
       "taskId": "KP10:grammar:10",
-      "sha256": "81dd8969d19f23e8f572f29a1d14275281d1028346abe673c0d09049d313a519",
+      "sha256": "1445695f7f62c8530aa76bd307f43320a05b134b85588eeabd2a7d74af24bba0",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -246,7 +246,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Process continuing from past to present, not movement of an object. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Process continuing from past to present, not movement of an object. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:10",
@@ -263,7 +263,7 @@
     },
     {
       "taskId": "KP10:grammar:11",
-      "sha256": "499eb004cc9239906cbf005470a552a5329a488478797e83b280bdbac30e1330",
+      "sha256": "3a29631cdce745b8da9fd55c967c2768966150f7548390a6551c5d9e5d4ed640",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -272,7 +272,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Result deliberately left in place; stated ventilation/visibility purpose preserved. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Result deliberately left in place; stated ventilation/visibility purpose preserved. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:11",
@@ -289,7 +289,7 @@
     },
     {
       "taskId": "KP10:grammar:12",
-      "sha256": "d141d3ebd1b2506c6164a54889967079785b87389b8e5d6f77750f63ebf8edb5",
+      "sha256": "6e80c76619386c9c984394e22ce607d0968b289e6a192bada99a4ab23bb07431",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -298,7 +298,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Preparation for explicit later need: meeting material or application number. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Preparation for explicit later need: meeting material or application number. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:12",
@@ -315,7 +315,7 @@
     },
     {
       "taskId": "KP10:grammar:13",
-      "sha256": "b67f5d9d2a5858d8272dd9eee954e7a2fa69fb227f874914bd445e387cac5ad9",
+      "sha256": "83905c9019a3219cfbeae52c9e466a5ff19e8c5cd0334e9ba40f1b87eba22e6a",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -324,7 +324,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Adjective state change, not all German werden/passive/future usages. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Adjective state change, not all German werden/passive/future usages. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:13",
@@ -341,7 +341,7 @@
     },
     {
       "taskId": "KP10:grammar:14",
-      "sha256": "960c4bea85cb2b5ccb5457ac105b04c03afc6ece23ea90b3945803a9f0508d57",
+      "sha256": "c3294055ad3e9680c58e17010c265108cb330648b03610e801e18c52edd58516",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -350,7 +350,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Reported result of consultation/checking, no reversed sequence or unconfirmed refund. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Reported result of consultation/checking, no reversed sequence or unconfirmed refund. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:14",
@@ -367,7 +367,7 @@
     },
     {
       "taskId": "KP10:grammar:15",
-      "sha256": "d0da5a60ce27502fc9282f718efb1e9af3af17158e949efb6460f687c5c79b9e",
+      "sha256": "a9a2a58564b892825aa9388f370ee0e98ad9f772a9ddd6e8429eec735d55c98d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -376,7 +376,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Completed first step then submission/saving, no chronology-to-cause inference. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Completed first step then submission/saving, no chronology-to-cause inference. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:15",
@@ -393,7 +393,7 @@
     },
     {
       "taskId": "KP10:grammar:16",
-      "sha256": "3efb4d200ff637068c7d3b94afc865dad38193afc66d47809d434b905ae8dc32",
+      "sha256": "df57a983c2fe4e3ad19ad20771b29fd32e459327911855f5315ddc96f2b0fed1",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -402,7 +402,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Colloquial causal connection, traffic/file size direction preserved; formal report may reformulate. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Colloquial causal connection, traffic/file size direction preserved; formal report may reformulate. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:16",
@@ -419,7 +419,7 @@
     },
     {
       "taskId": "KP10:grammar:17",
-      "sha256": "773c69e9eb4d70ecf8c783ac4b37762d2aca43c221e140d1a1bc8d5fe4223ea5",
+      "sha256": "d5050fdd8914274af41551ecd73dbcffc60f4231fbdca8da2ee0add53d1656f0",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -428,7 +428,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE contextual review: Resulting open/closed state, no invented agent or ongoing opening/closing action. Receptive sample only."
+      "note": "KO/EN/DE contextual review: Resulting open/closed state, no invented agent or ongoing opening/closing action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP10:production:17",

@@ -3,7 +3,7 @@
   "reviews": [
     {
       "taskId": "KP08:grammar:01",
-      "sha256": "d9029bdfa66f785127382e90f39ad25951d1ac8fb537ca1aa88e86f591949b45",
+      "sha256": "2993f817c1627141d58608365b6ef9c8f266b83fb703f9f857d8651aee28beff",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -12,11 +12,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: nominal notice statement preserves negation/completion. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: nominal notice statement preserves negation/completion. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:02",
-      "sha256": "59ed3fb4a268f702ec25bb55c03132be7cc7ea4a4d673ed0884228080ce0aa80",
+      "sha256": "92e571f32afbe60121e5e349f4572a9d2ed8c606dedd95d9d81668b07d2c7e4d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -25,11 +25,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: honored recipient is not sender. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: honored recipient is not sender. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:03",
-      "sha256": "fcd034399721244f076f6eb2c77b4dfd8566f162aba82da6606b617a78421c33",
+      "sha256": "f51e210642333984232d68c6df64c4fc1dd2875285a48e87a03778e20a9c2b53",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -38,11 +38,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: movement toward a person, not from them. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: movement toward a person, not from them. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:04",
-      "sha256": "bffa0b7912e012b98f8f2b3b6f612b411bbece64701044bad49f32dcc5352701",
+      "sha256": "749ef003d08b19044c3229dddb6b0dbb12e9f56b4a31a89ff257926091c56c7d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -51,11 +51,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: personal source not recipient. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: personal source not recipient. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:05",
-      "sha256": "9b947158862653d3af446b7220520517ac2111168d03a93d269964b97d70963e",
+      "sha256": "f5ff573162a0e19cee0eab7ebb050b7c9a1df9ca2da49250733d797fa3c60b70",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -64,11 +64,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: colloquial personal source retains sender. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: colloquial personal source retains sender. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:06",
-      "sha256": "6ace50ab9121ae0cdfe75b1538ecc0fa36ae8e3c1dbce8331191e9affd8429f3",
+      "sha256": "cf09f28e06a75f297fbd82c5d22d361aa00312ddb88958b5f2a50f45f915a3f5",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -77,11 +77,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: placement destination, not removal origin. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: placement destination, not removal origin. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:07",
-      "sha256": "95799e4f272fcb4071c7d8f4f31ce78614a95b38a8ccd7818b69b5d121adcfdf",
+      "sha256": "21fe27e460c78cea83c23afccfe8db5bcc42bb17ea944fabb8a46db2380c9c83",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -90,11 +90,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: movement origin and destination retain direction. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: movement origin and destination retain direction. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:08",
-      "sha256": "b18b333c94db9c3d5917e78413f7d76f1c7ffe734a40141a7dee407a949f7adf",
+      "sha256": "fdba2dbf1b17727a49d47af0e7cf5b7219c3f5c9eba9355d035183ba75bc2ffb",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -103,11 +103,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: newly noticed reaction, not a directive. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: newly noticed reaction, not a directive. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:09",
-      "sha256": "e2543fc5e161c401bc2d46cd3d59a8801ef1bda5a74aac21e6f7539671b7c673",
+      "sha256": "22c48cbc5234c2ced615904b5237939d9477504738e49761c0dbf8d87cdd198a",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -116,11 +116,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: realization, not command. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: realization, not command. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:10",
-      "sha256": "bef861408b77584d802c1bc23c0319e12599b89dd8aef8616d463e953361235a",
+      "sha256": "853068d5901753d622b9fc4aacf9ac52d88b5465e64023e02a170014d01d0f46",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -129,11 +129,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: explicit positive surprise context for exclamatory ending. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: explicit positive surprise context for exclamatory ending. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:11",
-      "sha256": "dcb076e7595ccf5f16449cd4fa5cb16d2da22660ef2c648e3662136751c11d7c",
+      "sha256": "f2f25094f7ab5ef52646ec3dbea85fb33beecaab3d9b571e4aa4061d86bb06d7",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -142,11 +142,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: shared-knowledge check in an agreed casual relationship. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: shared-knowledge check in an agreed casual relationship. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:12",
-      "sha256": "069ee1352d138f160b9139dab11ba4863554efb5d2f26ed3c533aa2925bdb0ec",
+      "sha256": "349518a4b24b444ce3ed211ef0fd1477dca6ceeeb3a854e4b2f6b45587a33f25",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -155,11 +155,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: resulting state, not ongoing action. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: resulting state, not ongoing action. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:13",
-      "sha256": "a48411a234becc90b3265c5455d65ae7ba8e863fe2c0bfb22c0c81d3ac9bd2c7",
+      "sha256": "6b734617b4cf2fe10106e5ada521e2e6daef8a72ba6a6a3af9e4ce0740819963",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -168,11 +168,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: notice directive, not future prediction. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: notice directive, not future prediction. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:grammar:14",
-      "sha256": "810fed93d765ce27c5b79c2b6d0b5fdcf1df0f48a1707b383b2f4444a23b6b91",
+      "sha256": "c29054db28b4d0d22d968ce1f82cf635a60156a95e22c5b890c8df945d6cc4d8",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -181,7 +181,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO contextual meaning and EN/DE guidance checked: ongoing action, not completed result. Separate practice/evaluation; recognition only."
+      "note": "KO contextual meaning and EN/DE guidance checked: ongoing action, not completed result. Separate practice/evaluation; recognition only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP08:listening:01",

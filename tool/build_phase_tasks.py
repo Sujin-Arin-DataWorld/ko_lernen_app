@@ -75,6 +75,8 @@ def validate_task(t):
                     raise ValueError('Invalid bounded-sentence contrast')
     if t['practice']['sourceKo'] == t['assessment']['sourceKo']:
         raise ValueError('Assessment reuses practice material')
+    if t['assessment']['sourceKo'] in '\n'.join(t['examplesKo']):
+        raise ValueError('Study examples reveal assessment material')
 
 
 def build(root: Path) -> dict:

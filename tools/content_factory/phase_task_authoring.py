@@ -63,10 +63,12 @@ def grammar_task(phase_id, index, key, teaching, practice, assessment):
     def make(row):
         text, right, wrong = row
         return packet(text, [choice('meaning', prompt, [right, wrong], teaching)])
-    return task(phase_id, f'grammar:{index:02}', 'reading',
+    result = task(phase_id, f'grammar:{index:02}', 'reading',
                 loc(grammar['form'], grammar['form'], grammar['form']), teaching,
                 make(practice), make(assessment), keys=[key],
-                examples=list(dict.fromkeys([grammar['example']['ko'], assessment[0]])))
+                examples=[practice[0]])
+    result['contentRevision'] = 2
+    return result
 
 
 def write_source(phase_id, tasks):

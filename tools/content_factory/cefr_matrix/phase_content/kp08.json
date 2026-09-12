@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-음",
@@ -26,8 +26,7 @@
         "de": "Aushänge verwenden -(으)ㅁ für knappe nominale Aussagen. Vertausche Fehlen und Vorhandensein nicht."
       },
       "examplesKo": [
-        "오늘은 수업이 없음.",
-        "신청 접수 마감됨."
+        "오늘 오후 수업 없음."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "께",
@@ -123,8 +122,7 @@
         "de": "께 markiert eine respektvoll bezeichnete empfangende Person, nicht den Absender oder die Quelle."
       },
       "examplesKo": [
-        "선생님께 편지를 썼어요.",
-        "학생이 교수님께 질문했어요."
+        "제가 선생님께 메일을 보냈어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에게로",
@@ -220,8 +218,7 @@
         "de": "에게로 bezeichnet Bewegung auf eine Person zu, nicht von ihr weg."
       },
       "examplesKo": [
-        "아이가 엄마에게로 갔어요.",
-        "새 회원이 회장에게로 다가갔어요."
+        "아이가 안내원에게로 갔어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에게서",
@@ -317,8 +314,7 @@
         "de": "에게서 markiert eine Person als Quelle. Vertausche sendende und empfangende Person nicht."
       },
       "examplesKo": [
-        "친구에게서 편지를 받았어요.",
-        "제가 친구에게서 사진을 받았어요."
+        "유나가 민수에게서 공지를 받았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "한테서",
@@ -414,8 +410,7 @@
         "de": "한테서 bezeichnet mündlich häufig eine Person als Quelle. Hier zeigt es, von wem etwas kommt."
       },
       "examplesKo": [
-        "친구한테서 선물을 받았어요.",
-        "나는 준호한테서 소식을 들었어."
+        "지수한테서 문자가 왔어."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에다가",
@@ -511,8 +506,7 @@
         "de": "Hier bezeichnet 에다가 konkret den Ort, an den ein Gegenstand gelegt oder gestellt wird."
       },
       "examplesKo": [
-        "가방에다가 책을 넣어 주세요.",
-        "상자에다가 안내문을 넣어 주세요."
+        "책상에다가 신청서를 놓으세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에서부터(서부터)",
@@ -608,8 +602,7 @@
         "de": "에서부터 betont den Ausgangspunkt einer Bewegung, nicht das Ziel."
       },
       "examplesKo": [
-        "역에서부터 걸어왔어요.",
-        "학교에서부터 도서관까지 같이 갔어요."
+        "역에서부터 센터까지 걸었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-네",
@@ -705,8 +698,7 @@
         "de": "-네요 kann auf etwas gerade Bemerktes reagieren. Hier ist es kein Befehl."
       },
       "examplesKo": [
-        "여기가 정말 조용하네요.",
-        "오, 오늘은 사람이 많네요!"
+        "처음 와 봤는데, 여기가 넓네요!"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는군",
@@ -802,8 +794,7 @@
         "de": "-군요/-는군요 kann eine neue Erkenntnis ausdrücken. Lies diese Reaktion nicht als Anweisung."
       },
       "examplesKo": [
-        "벌써 봄이 왔군요.",
-        "설명을 들으니 이제 알겠어요. 매일 연습하는군요."
+        "아, 이 문이 출구였군요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는데2",
@@ -899,8 +890,7 @@
         "de": "Ausrufendes -는데요 kann eine unerwartete Bewertung ausdrücken. Hier ist es kein unvollständiger Gegensatz."
       },
       "examplesKo": [
-        "이 음식, 생각보다 맛있는데요!",
-        "와, 처음인데 잘하시는데요!"
+        "생각보다 훨씬 좋네요. 이 공연, 재미있는데요!"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-지",
@@ -996,8 +986,7 @@
         "de": "Hier bestätigt das informelle -지? gemeinsames Wissen. Verwende vertrauliche Sprache nur bei entsprechend vereinbarter Nähe."
       },
       "examplesKo": [
-        "내일 우리 만나지?",
-        "반말을 쓰기로 한 동료에게: 모임은 세 시부터지?"
+        "반말을 쓰기로 한 친구에게: 우리 내일 만나지?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 있다",
@@ -1093,8 +1082,7 @@
         "de": "-아/어 있다 beschreibt einen fortbestehenden Ergebniszustand, anders als das gerade laufende Öffnen einer Tür."
       },
       "examplesKo": [
-        "문이 열려 있어요.",
-        "모두 의자에 앉아 있어요."
+        "문이 열려 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 것1",
@@ -1190,8 +1178,7 @@
         "de": "In diesem Aushang ist -(으)ㄹ 것 eine verkürzte Anweisung, keine Vorhersage."
       },
       "examplesKo": [
-        "신청서는 금요일까지 낼 것.",
-        "이용 후 전원을 끌 것."
+        "신청서는 금요일까지 제출할 것."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1274,7 +1261,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 있다",
@@ -1287,8 +1274,7 @@
         "de": "Hier beschreibt -고 있다 eine laufende Handlung, nicht den Zustand nach ihrem Ende."
       },
       "examplesKo": [
-        "직원이 문을 열고 있어요.",
-        "회원이 의자를 옮기고 있어요."
+        "직원이 창문을 닫고 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-거든1",
@@ -26,8 +26,7 @@
         "de": "Hier nennt der erste Satzteil eine Bedingung für die Bitte; das ist nicht das erklärende 거든요 am Satzende."
       },
       "examplesKo": [
-        "시간이 나거든 연락해 주세요.",
-        "자료가 준비되거든 알려 주세요."
+        "시간이 나거든 연락해 주세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어야",
@@ -123,8 +122,7 @@
         "de": "Nenne eine notwendige Bedingung. Eine erfüllte Voraussetzung bedeutet nicht, dass alle übrigen erfüllt sind."
       },
       "examplesKo": [
-        "예약을 해야 들어갈 수 있어요.",
-        "허가를 받아야 자료를 공개할 수 있어요."
+        "예약을 해야 들어갈 수 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어야지1",
@@ -220,8 +218,7 @@
         "de": "Betone eine notwendige Bedingung für das Folgende; hier handelt es sich nicht bloß um einen selbstbezogenen Vorsatz."
       },
       "examplesKo": [
-        "서로 믿어야지 함께 일할 수 있어요.",
-        "역할을 정해야지 일을 나눌 수 있어요."
+        "서로 믿어야지 함께 일할 수 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어야겠-",
@@ -317,8 +314,7 @@
         "de": "Die sprechende Person erkennt eine Notwendigkeit und fasst einen Vorsatz; übertrage die Pflicht nicht und behaupte keinen Abschluss."
       },
       "examplesKo": [
-        "이번에는 미리 준비해야겠어요.",
-        "제가 먼저 담당자에게 확인해야겠어요."
+        "이번에는 제가 미리 준비해야겠어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으려면",
@@ -414,8 +410,7 @@
         "de": "Nenne eine Voraussetzung zum Erreichen eines beabsichtigten Ziels. Die Absicht allein ist weder Erlaubnis noch Ergebnis."
       },
       "examplesKo": [
-        "한국에서 일하려면 한국어가 필요해요.",
-        "함께 발표하려면 역할을 나누어야 해요."
+        "이 공간을 쓰려면 먼저 예약해야 해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-도록",
@@ -511,8 +506,7 @@
         "de": "Nenne Zweck oder angestrebtes Ergebnis einer Handlung. Eine Absicht beweist nicht ihre Verwirklichung."
       },
       "examplesKo": [
-        "모두 참여할 수 있도록 시간을 바꿨어요.",
-        "잘 들리도록 문을 닫았어요."
+        "모두 참여할 수 있도록 시간을 바꿨어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기 위해",
@@ -608,8 +602,7 @@
         "de": "Nenne den Zweck einer Handlung; der Zweck belegt nicht, dass das gewünschte Ergebnis schon erreicht wurde."
       },
       "examplesKo": [
-        "건강을 지키기 위해 운동해요.",
-        "혼란을 줄이기 위해 안내문을 썼어요."
+        "기록을 남기기 위해 사진을 찍었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-게 하다",
@@ -705,8 +698,7 @@
         "de": "Eine Person veranlasst oder erlaubt die Handlung einer anderen. Unterscheide Anweisung und Erlaubnis im Kontext und erfinde keine Befugnis."
       },
       "examplesKo": [
-        "선생님은 학생들이 직접 고르게 하셨어요.",
-        "담당자는 참가자들이 먼저 질문하게 했어요. 질문 시간을 준 거예요."
+        "교사는 학생들이 주제를 직접 고르게 했어요. 학생들에게 선택을 맡긴 거예요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 드리다",
@@ -802,8 +794,7 @@
         "de": "In diesen Beispielen handelt die sprechende Person zugunsten einer respektierten Person. Erhalte Handelnden und Begünstigten; die Form erhöht nicht die sprechende Person selbst."
       },
       "examplesKo": [
-        "선생님께 자료를 보내 드렸어요.",
-        "제가 담당자께 일정을 알려 드렸어요."
+        "제가 선생님께 자료를 보내 드렸어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으면 안 되다",
@@ -899,8 +890,7 @@
         "de": "Drücke ein Verbot aus, nicht das Fehlen einer Pflicht. Nicht dürfen ist etwas anderes als nicht müssen."
       },
       "examplesKo": [
-        "여기에서 기다리면 안 돼요.",
-        "여기에 물건을 놓으면 안 돼요."
+        "허가 없이 사진을 공개하면 안 돼요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으면 좋겠다",
@@ -996,8 +986,7 @@
         "de": "Äußere einen Wunsch zurückhaltend; er ist weder Pflicht der anderen Person noch vereinbarte Zusage."
       },
       "examplesKo": [
-        "모두 함께할 수 있으면 좋겠어요.",
-        "이번 주에 답을 받을 수 있으면 좋겠어요."
+        "모두 함께할 수 있으면 좋겠어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 테니",
@@ -1093,8 +1082,7 @@
         "de": "Absicht oder Erwartung der sprechenden Person begründet eine Bitte. Trenne hier ihre Zusage von der Bitte an die zuhörende Person."
       },
       "examplesKo": [
-        "제가 확인할 테니 잠시 기다려 주세요.",
-        "제가 정리할 테니 번호를 알려 주세요."
+        "제가 확인할 테니 잠시 기다려 주세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "만 아니면",
@@ -1190,8 +1178,7 @@
         "de": "Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin."
       },
       "examplesKo": [
-        "비만 아니면 밖에서 할 수 있어요.",
-        "월요일만 아니면 시간을 낼 수 있어요. 최종 일정은 서로 확인해야 해요."
+        "비만 아니면 밖에서 할 수 있어요. 장소 예약은 따로 필요해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는다",
@@ -26,7 +26,7 @@
         "de": "Hier kennzeichnen -ㄴ다/-는다 bei Verben eine Aussage in Erzählung oder Selbstgespräch, keine Zusage oder Aufforderung. Sie passen auch unter Vertrauten nicht in jede Situation."
       },
       "examplesKo": [
-        "나는 이제 집에 간다."
+        "나는 지금 옛 사진을 본다."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -109,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-니2",
@@ -122,8 +122,7 @@
         "de": "Hier beendet -니 eine Frage an eine vertraute Person. Unterscheide es von einer kausalen Verbindung und beachte die vorgegebene Beziehung."
       },
       "examplesKo": [
-        "너는 어떻게 생각하니?",
-        "반말에 합의한 친구에게: 요즘 무엇을 준비하니?"
+        "반말에 합의한 친구에게: 그때 어디에 살았니?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -206,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-자3",
@@ -219,8 +218,7 @@
         "de": "Am Satzende schlägt -자 eine gemeinsame Handlung vor. Es ist keine Anweisung nur an die zuhörende Person und unterscheidet sich von der zeitlichen Verbindung -자."
       },
       "examplesKo": [
-        "조금 쉬었다가 다시 하자.",
-        "친한 친구에게: 조금 쉬었다가 다시 하자."
+        "친한 친구에게: 옛 사진을 같이 보자."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -303,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는구나",
@@ -316,8 +314,7 @@
         "de": "-는구나/-구나 reagiert auf eine neue Erkenntnis. Es ist keine Frage und erlaubt nicht, der anderen Person ungenannte Gefühle zuzuschreiben."
       },
       "examplesKo": [
-        "네가 그때 많이 힘들었구나.",
-        "가: 요즘 새 일을 배우느라 바빠.\n나: 새 일을 배우는구나."
+        "가: 그때 혼자라서 많이 외로웠어.\n나: 많이 외로웠구나."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -400,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-던-",
@@ -413,8 +410,7 @@
         "de": "-던 erinnert an Erlebtes oder Wiederholtes. Es kennzeichnet nicht immer nur Abschluss oder Unvollständigkeit. In diesen Beispielen ist eine wiederholte frühere Erfahrung ausdrücklich angegeben."
       },
       "examplesKo": [
-        "어릴 때 살던 집을 찾아갔어요.",
-        "어릴 때 살던 집을 찾아갔다."
+        "학생 때 매일 가던 카페를 다시 찾았다."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -497,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-던데2",
@@ -510,8 +506,7 @@
         "de": "Hier erinnert -던데(요) am Satzende an einen Eindruck aus eigener Erfahrung. Unterscheide ihn vom Hörensagen; nicht jede Verwendung von -던데 ist eine solche Ausrufefunktion."
       },
       "examplesKo": [
-        "그 식당 음식이 정말 맛있던데요.",
-        "지난주에 직접 봤어. 그 공연 정말 멋있던데!"
+        "어제 직접 가 봤어요. 그 식당 음식이 정말 맛있던데요!"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -594,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "아1",
@@ -607,7 +602,7 @@
         "de": "Nach einem Namen spricht -아/-야 eine vertraute Person an: 아 nach Endkonsonant, 야 nach Vokal. Das ist nicht der Ausruf 아; die Vertrautheit muss feststehen."
       },
       "examplesKo": [
-        "민수야, 잠깐 이야기할까?"
+        "지민아, 그 사진 기억나?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -690,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "요1",
@@ -703,8 +698,7 @@
         "de": "Die Partikel 요 macht auch kurze Antworten wie 저요 oder 어제요 höflich. Wer oder wann gemeint ist, steht im Wort davor."
       },
       "examplesKo": [
-        "저요, 질문이 하나 있어요.",
-        "진행자: 언제 도착했어요?\n참가자: 어제요."
+        "교사: 누가 먼저 말할래요?\n학생: 저요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -787,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-었었-",
@@ -800,8 +794,7 @@
         "de": "-았/었었- kann an eine inzwischen veränderte Lage erinnern oder eine weiter zurückliegende Vergangenheit markieren. Der heutige Gegensatz steht hier ausdrücklich im Kontext; es ist nicht automatisch das Plusquamperfekt."
       },
       "examplesKo": [
-        "예전에는 이 동네에 살았었어요.",
-        "한때 주말마다 수영했었어. 요즘은 걷기만 해."
+        "예전에는 이 동네에 살았었어. 지금은 다른 도시에서 살아."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -884,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 중이다",
@@ -897,8 +890,7 @@
         "de": "-는 중이다 bezeichnet einen zum Bezugszeitpunkt laufenden Vorgang, keinen bloßen Wunsch und kein abgeschlossenes Ergebnis."
       },
       "examplesKo": [
-        "지금 회의하는 중이에요.",
-        "지금 발표 자료를 고치는 중이야."
+        "지금 이사 준비를 하는 중이야."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -981,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 싶어 하다",
@@ -994,8 +986,7 @@
         "de": "-고 싶어 하다 gibt den Wunsch einer anderen Person wieder. Ein Wunsch ist keine vollendete Handlung und darf nicht der sprechenden Person zugeschrieben werden."
       },
       "examplesKo": [
-        "아이는 밖에서 놀고 싶어 해요.",
-        "친구는 그 공연을 보고 싶어 해. 표는 아직 없어."
+        "동생은 제주도에 가고 싶어 해. 아직 간 적은 없어."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

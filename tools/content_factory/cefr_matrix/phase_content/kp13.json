@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이라고1",
@@ -26,8 +26,7 @@
         "de": "Zitiere die vorgegebenen Worte direkt und erhalte Person und Wortlaut. Die Wiedergabe macht sie nicht zur eigenen Beobachtung der berichtenden Person."
       },
       "examplesKo": [
-        "그는 \"괜찮아요\"라고 말했어요.",
-        "민수는 \"다시 확인할게요\"라고 말했어요."
+        "지민은 \"괜찮아요\"라고 말했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는다고3",
@@ -123,8 +122,7 @@
         "de": "Gib eine Aussage indirekt wieder und erhalte Person, Zeitpunkt und Bejahung oder Verneinung. Mitgeteiltes ist nicht selbst Überprüftes."
       },
       "examplesKo": [
-        "친구가 내일 온다고 했어요.",
-        "담당자가 오늘은 열지 않는다고 했어요."
+        "친구가 내일 온다고 했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는다고1",
@@ -220,8 +218,7 @@
         "de": "Ein angeführter Umstand dient als Grund für die folgende Handlung. Lies bis zum letzten Prädikat, um dies von bloßem sagte zu unterscheiden. Ein angegebener Grund ist kein unabhängiger Nachweis."
       },
       "examplesKo": [
-        "아이가 아프다고 아버지가 먼저 돌아갔어요.",
-        "길이 막힌다고 동료가 일찍 출발했어요."
+        "아이가 아프다고 아버지가 먼저 돌아갔어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는다거나1",
@@ -317,8 +314,7 @@
         "de": "Zähle Beispiele berichteter Aussagen auf. Schreibe nicht jede Aussage allen zu und mache daraus keine bestätigten Tatsachen über eine einzige Person."
       },
       "examplesKo": [
-        "친구들은 바쁘다거나 피곤하다고 했어요.",
-        "참가자들은 시간이 없다거나 길을 모른다고 했어요."
+        "친구들은 바쁘다거나 피곤하다고 했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "보고",
@@ -414,8 +410,7 @@
         "de": "Diese umgangssprachliche Partikel bezeichnet die angesprochene Person einer Äußerung oder Bitte, nicht die Handlung des Sehens. Erhalte den Adressaten."
       },
       "examplesKo": [
-        "선생님이 저보고 발표하라고 하셨어요.",
-        "담당자가 동료보고 번호를 확인하라고 했어요."
+        "선생님이 저보고 발표하라고 하셨어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "으로부터",
@@ -511,8 +506,7 @@
         "de": "Kennzeichne die Herkunft von Information oder Gegenstand. Vertausche Quelle und Empfänger nicht."
       },
       "examplesKo": [
-        "학교로부터 안내를 받았어요.",
-        "회사로부터 답변을 받았어요."
+        "학교로부터 안내를 받았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-거든2",
@@ -608,8 +602,7 @@
         "de": "거든요 am Satzende ergänzt einen möglicherweise unbekannten Hintergrund. Unterscheide es vom bedingenden 거든; der Grund stammt von der sprechenden Person."
       },
       "examplesKo": [
-        "오늘은 일찍 가야 해요. 약속이 있거든요.",
-        "지금은 답하기 어려워요. 확인할 자료가 없거든요."
+        "오늘은 일찍 가야 해요. 약속이 있거든요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-잖아",
@@ -705,8 +698,7 @@
         "de": "Erinnere an als gemeinsam bekannt dargestellte Fakten. Prüfe den gemeinsamen Kontext, statt neuen Zuhörenden Wissen zu unterstellen."
       },
       "examplesKo": [
-        "우리 전에 여기 왔잖아요.",
-        "어제 함께 읽은 동료에게: 공지에 적혀 있었잖아요."
+        "같이 방문했던 친구에게: 우리 전에 여기 왔잖아요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-나 보다",
@@ -802,8 +794,7 @@
         "de": "Drücke eine Vermutung aus Umständen aus; ein Anhaltspunkt macht sie nicht zur bestätigten Tatsache."
       },
       "examplesKo": [
-        "불이 꺼진 것을 보니 모두 나갔나 봐요.",
-        "가방이 없는 것을 보니 먼저 갔나 봐요."
+        "불이 꺼진 것을 보니 모두 나갔나 봐요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는가 보다",
@@ -899,8 +890,7 @@
         "de": "Vermute vorsichtig anhand beobachteter Umstände; die Endung verleiht keine Gewissheit."
       },
       "examplesKo": [
-        "답장이 없는 걸 보니 바쁜가 봐요.",
-        "사람들이 나오는 것을 보니 회의가 끝났는가 봐요."
+        "답장이 없는 것을 보니 바쁜가 봐요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 모양이다",
@@ -996,8 +986,7 @@
         "de": "Schließe aus einer beobachteten Situation. Es geht nicht bloß um eine Formbeschreibung; trenne Anzeichen und Vermutung."
       },
       "examplesKo": [
-        "사람들이 모이는 걸 보니 행사가 시작된 모양이에요.",
-        "모두 우산을 펴는 것을 보니 비가 오는 모양이에요."
+        "사람들이 모이는 것을 보니 행사가 시작된 모양이에요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 텐데",
@@ -1093,8 +1082,7 @@
         "de": "Nenne einen erwarteten Umstand als Hintergrund für einen Vorschlag. Trenne Erwartung und Beobachtung sowie Vorschlag und Zusage."
       },
       "examplesKo": [
-        "오늘은 길이 막힐 텐데 일찍 출발할까요?",
-        "회의가 길어질 텐데 물을 준비할까요?"
+        "오늘은 길이 막힐 텐데 일찍 출발할까요?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으니2",
@@ -1190,8 +1178,7 @@
         "de": "Nenne den Grund einer Einschätzung und erhalte Quelle und Verbindlichkeit des folgenden Vorschlags."
       },
       "examplesKo": [
-        "시간이 늦었으니 오늘은 여기까지 하죠.",
-        "자료가 없으니 확인한 뒤에 답하죠."
+        "시간이 늦었으니 오늘은 여기까지 하죠."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

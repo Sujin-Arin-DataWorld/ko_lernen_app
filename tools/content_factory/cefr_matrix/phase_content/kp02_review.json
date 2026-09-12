@@ -3,7 +3,7 @@
   "reviews": [
     {
       "taskId": "KP02:grammar:01",
-      "sha256": "fc412ece4e382e56479073aab600cc581b80bd58a93bd75626aa7a671b3ef4f6",
+      "sha256": "786cf75573de75a83f50832127aee7ad86b8b6dc2ecafc5326956479e7a63de5",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -12,11 +12,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for time/destination. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for time/destination. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:02",
-      "sha256": "5583b722a5bea3930166021ba9b8929b1e9c5b34fbc1bfe6ae7d985d7e876fa6",
+      "sha256": "b7528ac13b8e8024ca28a2bd4f931edfcd211586e3d0547c8b199495773373fa",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -25,11 +25,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for activity location. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for activity location. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:03",
-      "sha256": "cb416c61c1ea58fe7b1b10a3542a9f8e257a37bd55c9a1f881b8a87cacc2dfb3",
+      "sha256": "a28dbca8a39d8fba3b58f19f98f15c99590235641ed21c6caa3310c782d6394d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -38,11 +38,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for starting point. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for starting point. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:04",
-      "sha256": "8b79c5782a37e1e5969fce73a372ce36bc45793a7341fdd9f02b237eddefa6e5",
+      "sha256": "ea7efac3c9feb613bc930ac934e4d5618ec225b9dc4d76cb8b5ea38ddde012be",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -51,11 +51,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for endpoint. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for endpoint. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:05",
-      "sha256": "16a26e3dab49abc8014cc4b836bfd94ae9917fbe6456b6c56db607b9e5149098",
+      "sha256": "ccac9d1e3e190519a975930bf06cd6befbf25669b21e3e3b3f113c33877168ec",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -64,11 +64,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for transport. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for transport. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:06",
-      "sha256": "60330173af7aaa36f1c654255bfc50b1aaa18649bf0099893cac9f2729325d32",
+      "sha256": "2e834153b540f2a60e187941045cc5b00b28e72432748a1c615f09816d35e270",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -77,11 +77,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for past versus ongoing. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for past versus ongoing. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:07",
-      "sha256": "d9621daa7f0991334193017c31946230701cf0a36ac88e61d5913f27c234317a",
+      "sha256": "235296adae2a833d826ecf78bd247683cd50896e0e6676556158eddd464fe59b",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -90,11 +90,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for connected actions. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for connected actions. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:08",
-      "sha256": "0bc29352cea11ee8c0ab2fd39d3549ef7bcb3562aa7d3dd1e2fb7c849ff2382b",
+      "sha256": "9725bf39c983dc57c6e0674f60643bfa73a95259593943534dc23ec9b77d160d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -103,11 +103,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for negation versus inability. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for negation versus inability. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:09",
-      "sha256": "40a95cf4c86387b1e7f0b6381a44a28a2fbbc403b80ceb9eb3e74d55e7ab7ec0",
+      "sha256": "d1c70fe7c8ba24e83a508e26d0273dfcd2327ef2af5a44872644f7356774bffb",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -116,11 +116,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for prevented action versus voluntary refusal. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for prevented action versus voluntary refusal. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:10",
-      "sha256": "5dab63d0f82d8c392a227c234457d3d4ce03c2052612e169535b16ac44b7676d",
+      "sha256": "bd9cb0869595e80907dc64ad3087ec42d159d5830c14aa59d50e33dbd9ab730f",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -129,11 +129,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for addition versus exclusivity. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for addition versus exclusivity. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:grammar:11",
-      "sha256": "881760f95ce30caa576793bc803ee65e95e56147cf3744fde33a61fe06327243",
+      "sha256": "8a3f3f901b72f0e15319d667201867867eb2a4bf900276c81312ad329ede296a",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -142,7 +142,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for exclusivity versus addition. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+      "note": "KO meaning and EN/DE explanation reviewed for exclusivity versus addition. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP02:listening:01",

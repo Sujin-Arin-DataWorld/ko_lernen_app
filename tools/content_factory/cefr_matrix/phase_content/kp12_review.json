@@ -3,7 +3,7 @@
   "reviews": [
     {
       "taskId": "KP12:grammar:01",
-      "sha256": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+      "sha256": "5bdbb1917858291167d3b4d6d658d4e2882e678de02e90613d5eef6d88088f46",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -12,7 +12,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Conditional connective 거든1, not explanatory final 거든요 or unconditional immediate command. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:01",
@@ -29,7 +29,7 @@
     },
     {
       "taskId": "KP12:grammar:02",
-      "sha256": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+      "sha256": "cec328afda865e03c2f4e5dff9eb02a63632a875eee58eec23978eec12aa5199",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -38,7 +38,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Necessary condition, not already fulfilled or sufficient for every other condition. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Necessary condition, not already fulfilled or sufficient for every other condition. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:02",
@@ -55,7 +55,7 @@
     },
     {
       "taskId": "KP12:grammar:03",
-      "sha256": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+      "sha256": "74ae8a2662896cad0eb3a6a9a068c76750d7953232303d754f66b5c89ae1a684",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -64,7 +64,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Emphatic necessary condition linked to result, not resolution-only 야지. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Emphatic necessary condition linked to result, not resolution-only 야지. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:03",
@@ -81,7 +81,7 @@
     },
     {
       "taskId": "KP12:grammar:04",
-      "sha256": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+      "sha256": "89c0028418f0d36bfff56b25b05b21a9682f14175aa88e0e926b252f9cf976e4",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -90,7 +90,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Speaker recognised necessity and future resolve, not shifted obligation or completed action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:04",
@@ -107,7 +107,7 @@
     },
     {
       "taskId": "KP12:grammar:05",
-      "sha256": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+      "sha256": "4e8857acde18e3e96e1817ba4bc759ced0430237306b5d1ab7e67ec484ce104e",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -116,7 +116,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Condition to realise intention, not permission created by intention. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Condition to realise intention, not permission created by intention. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:05",
@@ -133,7 +133,7 @@
     },
     {
       "taskId": "KP12:grammar:06",
-      "sha256": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+      "sha256": "6e0330d278836b155abac26de179aacc4a4407c5d26e0377b715952a8507b01e",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -142,7 +142,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Purpose/intended outcome; changed time or closed door does not prove full participation/comprehension. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:06",
@@ -159,7 +159,7 @@
     },
     {
       "taskId": "KP12:grammar:07",
-      "sha256": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+      "sha256": "679b4bedca8df24b98876602bbb48090a8d1ee436f65bfb92be2d2205bfcf03f",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -168,7 +168,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Explicit purpose, not proof of success or photo-publication permission. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Explicit purpose, not proof of success or photo-publication permission. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:07",
@@ -185,7 +185,7 @@
     },
     {
       "taskId": "KP12:grammar:08",
-      "sha256": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+      "sha256": "b374dec90389a6214168929e6234ac9595d83a66c1004ccf8b797a1cbb1df531",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -194,7 +194,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Context explicitly grants selection/question time, distinguishes permission from choosing for someone. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:08",
@@ -211,7 +211,7 @@
     },
     {
       "taskId": "KP12:grammar:09",
-      "sha256": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+      "sha256": "daf6d41a6d55e00170510617b5817da4338fc7dd1f4bef887518e25a9dbc6175",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -220,7 +220,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Benefactive honours recipient; speaker is actor in these examples, not claimed universally for the form. Actor/recipient remain distinct. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:09",
@@ -237,7 +237,7 @@
     },
     {
       "taskId": "KP12:grammar:10",
-      "sha256": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+      "sha256": "5dbed1b37d1dba5b79c0209f945cbf36683019d460af23437434b11ca8222a77",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -246,7 +246,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Prohibition versus absence of obligation and opposite mandatory action. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Prohibition versus absence of obligation and opposite mandatory action. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:10",
@@ -263,7 +263,7 @@
     },
     {
       "taskId": "KP12:grammar:11",
-      "sha256": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+      "sha256": "5c268a7db65bcdcea45a846f85f6d5bd0dca1b1d892bdacff37e575df5031113",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -272,7 +272,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Wish remains unconfirmed, not someone else’s promise. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Wish remains unconfirmed, not someone else’s promise. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:11",
@@ -289,7 +289,7 @@
     },
     {
       "taskId": "KP12:grammar:12",
-      "sha256": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+      "sha256": "5daafdc6091f950d7c9265c1f0d4c1ef190672303f04347d92276b5ce0c97739",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -298,7 +298,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Own intended commitment grounds a request to another, actor and requested action preserved. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Own intended commitment grounds a request to another, actor and requested action preserved. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:12",
@@ -315,7 +315,7 @@
     },
     {
       "taskId": "KP12:grammar:13",
-      "sha256": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+      "sha256": "4d932d99265b5c22f12c9c29235b8420c8c8d9f982d2c39f7389428ea3884589",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -324,7 +324,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE meaning checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Receptive sample only."
+      "note": "KO/EN/DE meaning checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
     },
     {
       "taskId": "KP12:production:13",

@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으면",
@@ -26,8 +26,7 @@
         "de": "Vor -(으)면 steht eine Bedingung. Damit ist nicht gesagt, dass sie erfüllt ist."
       },
       "examplesKo": [
-        "시간이 있으면 같이 가요.",
-        "예약하면 회의실을 이용할 수 있어요."
+        "학생증이 있으면 할인돼요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-거나",
@@ -123,8 +122,7 @@
         "de": "-거나 nennt alternative Handlungen oder Zustände. Beides ist nicht zwingend erforderlich."
       },
       "examplesKo": [
-        "주말에는 쉬거나 친구를 만나요.",
-        "신청서는 직접 내거나 이메일로 보내세요."
+        "기다리는 동안 책을 읽거나 음악을 들으세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이나",
@@ -220,8 +218,7 @@
         "de": "(이)나 verbindet alternative Nomen. Für Handlungsalternativen steht -거나."
       },
       "examplesKo": [
-        "차나 커피를 마실까요?",
-        "신분 확인에는 여권이나 학생증을 보여 주세요."
+        "차나 커피를 하나 고르세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "마다",
@@ -317,8 +314,7 @@
         "de": "마다 bezieht sich auf die genannte Einheit. 월요일마다 heißt jeden Montag, nicht jeden Tag."
       },
       "examplesKo": [
-        "주말마다 운동해요.",
-        "수업이 끝날 때마다 창문을 닫아요."
+        "월요일마다 문을 닫아요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "밖에",
@@ -414,8 +410,7 @@
         "de": "Mit einer Verneinung begrenzt 밖에 die Menge. 두 개밖에 없다 bedeutet nur zwei, nicht null."
       },
       "examplesKo": [
-        "물이 한 병밖에 없어요.",
-        "충전기가 두 개밖에 없어요."
+        "빈자리가 하나밖에 없어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "처럼",
@@ -511,8 +506,7 @@
         "de": "처럼 vergleicht Aussehen oder Art und Weise. Die verglichenen Personen oder Dinge sind nicht identisch."
       },
       "examplesKo": [
-        "언니처럼 노래하고 싶어요.",
-        "직원처럼 천천히 읽어 보세요."
+        "예시처럼 이름을 크게 써 주세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어도 되다",
@@ -608,8 +602,7 @@
         "de": "-아/어도 되다 drückt eine Erlaubnis aus, keine Pflicht."
       },
       "examplesKo": [
-        "여기에 앉아도 돼요?",
-        "이 방에서는 물을 마셔도 돼요."
+        "가방을 여기에 놓아도 돼요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-지 말다",
@@ -705,8 +698,7 @@
         "de": "-지 말다 fordert dazu auf, etwas nicht zu tun. Es ist keine Erlaubnis."
       },
       "examplesKo": [
-        "여기에서 사진을 찍지 마세요.",
-        "비상문 앞에 물건을 놓지 마세요."
+        "이 방에서는 사진을 찍지 마세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 주다",
@@ -802,8 +794,7 @@
         "de": "-아/어 주다 bezeichnet eine Handlung für eine andere Person. Achte darauf, wer wem hilft."
       },
       "examplesKo": [
-        "이름을 써 주세요.",
-        "친구가 제 신청서를 읽어 줬어요."
+        "직원이 손님에게 길을 알려 줘요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

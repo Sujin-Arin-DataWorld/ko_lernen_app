@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는데1",
@@ -26,8 +26,7 @@
         "de": "-는데 liefert Hintergrund. Ob ein Grund oder Gegensatz gemeint ist, ergibt sich aus dem Kontext."
       },
       "examplesKo": [
-        "시간이 없는데 내일 만날까요?",
-        "내일 시험이 있는데 모임을 금요일로 바꿀까요?"
+        "지금 회의 중인데 나중에 전화해도 될까요?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-게2",
@@ -123,8 +122,7 @@
         "de": "Hier nennt -게 das Ziel der folgenden Handlung, nicht dessen bereits erfolgte Erreichung."
       },
       "examplesKo": [
-        "모두 들을 수 있게 크게 말해 주세요.",
-        "늦지 않게 일찍 출발합시다."
+        "뒤에서도 들을 수 있게 크게 말해 주세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기 때문에",
@@ -220,8 +218,7 @@
         "de": "Vor -기 때문에 steht die Ursache für das Ergebnis. Vertausche die Richtung nicht."
       },
       "examplesKo": [
-        "길이 막히기 때문에 버스가 늦어요.",
-        "기계가 고장 났기 때문에 수업을 옮겼어요."
+        "길이 막히기 때문에 버스가 늦어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기로 하다",
@@ -317,8 +314,7 @@
         "de": "-기로 하다 drückt eine Entscheidung oder Vereinbarung aus, anders als das vorläufige -을까 보다."
       },
       "examplesKo": [
-        "토요일에 만나기로 했어요.",
-        "담당자와 전화로 확인하기로 했어요."
+        "우리는 토요일에 만나기로 했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 것 같다",
@@ -414,8 +410,7 @@
         "de": "-는 것 같다 kennzeichnet eine unsichere Vermutung. Trenne Anhaltspunkte von bestätigten Tatsachen."
       },
       "examplesKo": [
-        "지금 비가 오는 것 같아요.",
-        "불이 꺼져 있어요. 지금 쉬는 것 같아요."
+        "밖에서 물소리가 나요. 비가 오는 것 같아요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 수밖에 없다",
@@ -511,8 +506,7 @@
         "de": "-(으)ㄹ 수밖에 없다 bedeutet unter den genannten Umständen keine andere Wahl, nicht die bevorzugte Wahl."
       },
       "examplesKo": [
-        "버스가 없어서 걸어갈 수밖에 없어요.",
-        "방이 모두 사용 중이라 밖에서 기다릴 수밖에 없어요."
+        "막차가 끊겼고 택시도 없어서 걸어갈 수밖에 없어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을게",
@@ -608,8 +602,7 @@
         "de": "-(으)ㄹ게요 verpflichtet die sprechende Person zu einer auf das Gegenüber bezogenen Handlung. Weise sie nicht dem Gegenüber zu."
       },
       "examplesKo": [
-        "제가 문을 닫을게요.",
-        "그럼 제가 자료를 보낼게요."
+        "걱정하지 마세요. 제가 다시 전화할게요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을래",
@@ -705,8 +698,7 @@
         "de": "-(으)ㄹ래요 nennt eine eigene Absicht oder fragt nach einem Wunsch. Achte auf die Person und die Frageform."
       },
       "examplesKo": [
-        "저는 집에서 쉴래요.",
-        "어느 시간에 만날래요?"
+        "저는 오늘 집에서 쉴래요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을까 보다",
@@ -802,8 +794,7 @@
         "de": "Hier ist -(으)ㄹ까 봐요 eine vorläufige Absicht. Unterscheide sie im Kontext von einer Sorge mit -(으)ㄹ까 봐."
       },
       "examplesKo": [
-        "이번 주말에는 집에서 쉴까 봐요.",
-        "아직 고민 중이에요. 다음 달에는 수영을 배울까 봐요."
+        "아직 결정하지 않았어요. 이번에는 기차를 탈까 봐요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-게 되다",
@@ -899,8 +890,7 @@
         "de": "-게 되다 beschreibt das Ergebnis veränderter Umstände, nicht zwingend einen eigenen bewussten Entschluss."
       },
       "examplesKo": [
-        "다음 달부터 여기에서 일하게 됐어요.",
-        "담당자가 바뀌어서 제가 모임을 맡게 됐어요."
+        "공사 때문에 다른 교실에서 공부하게 됐어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고4",
@@ -996,8 +986,7 @@
         "de": "Am Satzende kann -고요 eine weitere Gegebenheit ergänzen. Bleibe bei den genannten Tatsachen."
       },
       "examplesKo": [
-        "오늘은 일이 많아요. 회의도 있고요.",
-        "내일은 가기 어려워요. 시험도 있고요."
+        "오늘은 시간이 없어요. 할 일도 많고요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어서",
@@ -1093,8 +1082,7 @@
         "de": "Hier erklärt -아/어서 einen Grund. Danach können eine Entschuldigung oder eine Anpassung folgen."
       },
       "examplesKo": [
-        "길이 막혀서 늦어요. 미안해요.",
-        "자료가 없어서 아직 확인을 못 했어요."
+        "버스가 늦어서 저도 늦어요. 미안해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-지만",
@@ -1190,8 +1178,7 @@
         "de": "-지만 verbindet gegensätzliche Umstände. Ein Wunsch hebt die folgende Einschränkung nicht auf."
       },
       "examplesKo": [
-        "가고 싶지만 오늘은 시간이 없어요.",
-        "도와주고 싶지만 지금은 회의 중이에요."
+        "가고 싶지만 오늘은 시간이 없어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

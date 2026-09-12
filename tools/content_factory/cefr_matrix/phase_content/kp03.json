@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에게",
@@ -26,8 +26,7 @@
         "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
       },
       "examplesKo": [
-        "친구에게 책을 줘요.",
-        "지수가 선생님에게 메모를 보내요."
+        "민수가 유나에게 책을 줘요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "한테",
@@ -123,8 +122,7 @@
         "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
       },
       "examplesKo": [
-        "친구한테 전화해요.",
-        "민수가 지수한테 사진을 보내요."
+        "유나가 친구한테 전화해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으러",
@@ -220,8 +218,7 @@
         "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
       },
       "examplesKo": [
-        "점심을 먹으러 가요.",
-        "친구를 만나러 역에 가요."
+        "책을 사러 서점에 가요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으려고1",
@@ -317,8 +314,7 @@
         "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
       },
       "examplesKo": [
-        "친구를 만나려고 역에 가요.",
-        "일찍 가려고 버스를 기다려요."
+        "한국어를 배우려고 수업에 가요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 싶다",
@@ -414,8 +410,7 @@
         "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
       },
       "examplesKo": [
-        "한국에 가고 싶어요.",
-        "책을 사고 싶어요. 하지만 돈이 없어요."
+        "저는 주스를 마시고 싶어요. 주스는 없어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 있다",
@@ -511,8 +506,7 @@
         "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
       },
       "examplesKo": [
-        "지금 책을 읽고 있어요.",
-        "지금 주문을 기다리고 있어요."
+        "지금 밥을 먹고 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을 수 있다",
@@ -608,8 +602,7 @@
         "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
       },
       "examplesKo": [
-        "한국어를 조금 읽을 수 있어요.",
-        "유나는 한국어 메뉴를 읽을 수 있어요."
+        "여기에서 카드로 계산할 수 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-겠-",
@@ -705,8 +698,7 @@
         "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
       },
       "examplesKo": [
-        "제가 내일 전화하겠습니다.",
-        "제가 주문을 확인하겠습니다."
+        "제가 내일 전화하겠습니다."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으세요",
@@ -802,8 +794,7 @@
         "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
       },
       "examplesKo": [
-        "여기에 앉으세요.",
-        "친구: 여기에서 잠시 기다리세요."
+        "직원: 여기에 이름을 쓰세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으십시오",
@@ -899,8 +890,7 @@
         "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
       },
       "examplesKo": [
-        "잠시 기다리십시오.",
-        "안내: 계산대에서 주문하십시오."
+        "안내: 문 앞에서 기다리십시오."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-을까",
@@ -996,8 +986,7 @@
         "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
       },
       "examplesKo": [
-        "같이 갈까요?",
-        "내일 공원에서 만날까요?"
+        "토요일에 같이 영화를 볼까요?"
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-읍시다",
@@ -1093,8 +1082,7 @@
         "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
       },
       "examplesKo": [
-        "내일 다시 만납시다.",
-        "동료끼리: 여기에서 같이 기다립시다."
+        "같은 반 동료: 내일 같이 공부합시다."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

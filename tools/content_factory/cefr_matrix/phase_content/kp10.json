@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-다가1(2)",
@@ -26,8 +26,7 @@
         "de": "Eine tatsächlich laufende Handlung geht in eine andere über; unterscheide sie von einer bloßen Absicht."
       },
       "examplesKo": [
-        "책을 읽다가 잠이 들었어요.",
-        "보고서를 쓰다가 회의에 갔어요."
+        "자료를 읽다가 전화를 받았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으려다가",
@@ -123,8 +122,7 @@
         "de": "Eine beabsichtigte Handlung wird durch eine andere ersetzt; nimm nicht an, dass die erste abgeschlossen wurde."
       },
       "examplesKo": [
-        "버스를 타려다가 그냥 걸어왔어요.",
-        "이메일을 보내려다가 전화했어요."
+        "버스를 타려다가 걸어갔어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-었더니",
@@ -220,8 +218,7 @@
         "de": "Berichte ein nach einer Handlung festgestelltes Ergebnis, keine ungeprüfte Vorhersage."
       },
       "examplesKo": [
-        "창문을 열었더니 시원한 바람이 들어왔어요.",
-        "담당자에게 물었더니 접수가 끝났다고 했어요."
+        "파일을 열었더니 내용이 비어 있었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-느라고",
@@ -317,8 +314,7 @@
         "de": "Hier ist dieselbe Person mit einer Handlung beschäftigt und kann deshalb etwas anderes nicht tun. Die Form ersetzt nicht jede kausale Verbindung."
       },
       "examplesKo": [
-        "일하느라고 전화를 못 받았어요.",
-        "저는 회의하느라고 점심을 못 먹었어요."
+        "저는 자료를 찾느라고 전화를 못 받았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어다가",
@@ -414,8 +410,7 @@
         "de": "Etwas an einem Ort Geholtes oder Hergestelltes wird für die nächste Handlung mitgebracht; erhalte diesen Ortsbezug."
       },
       "examplesKo": [
-        "물을 떠다가 꽃에 주었어요.",
-        "복사실에서 자료를 복사해다가 참석자에게 나눠 주었어요."
+        "주방에서 물을 떠다가 회의실 화분에 주었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-자마자",
@@ -511,8 +506,7 @@
         "de": "Die zweite Handlung folgt unmittelbar; die schnelle Abfolge allein beweist keine Ursache."
       },
       "examplesKo": [
-        "집에 도착하자마자 전화했어요.",
-        "회의가 끝나자마자 기록을 저장했어요."
+        "도착하자마자 담당자에게 전화했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 나다",
@@ -608,8 +602,7 @@
         "de": "Der Abschluss der ersten Handlung bildet den Bezugspunkt. Abschluss ist weder laufende Tätigkeit noch automatisch Erfolg."
       },
       "examplesKo": [
-        "숙제를 하고 나니 마음이 편해요.",
-        "설명을 듣고 나니 절차를 이해했어요."
+        "정리를 하고 나니 빈자리가 보였어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고 말다",
@@ -705,8 +698,7 @@
         "de": "In diesem Kontext tritt ein unerwünschtes Ereignis schließlich ein; es ist keine bloße Zukunftssorge."
       },
       "examplesKo": [
-        "급하게 뛰다가 넘어지고 말았어요.",
-        "확인을 늦춰서 기한을 놓치고 말았어요."
+        "서두르다가 파일을 지우고 말았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 가다",
@@ -802,8 +794,7 @@
         "de": "Eine Veränderung setzt sich von der Gegenwart aus fort; 가다 bezeichnet hier keine Ortsbewegung."
       },
       "examplesKo": [
-        "조금씩 익숙해져 가고 있어요.",
-        "공용 공간이 점점 깨끗해져 가고 있어요."
+        "새 업무에 조금씩 익숙해져 가고 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 오다",
@@ -899,8 +890,7 @@
         "de": "Ein Vorgang reicht von früher bis zum Bezugspunkt; 오다 bedeutet hier nicht, etwas herzutragen."
       },
       "examplesKo": [
-        "우리는 오랫동안 이 문제를 논의해 왔어요.",
-        "저는 삼 년 동안 활동 기록을 모아 왔어요."
+        "우리는 지난달부터 이 문제를 논의해 왔어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 놓다",
@@ -996,8 +986,7 @@
         "de": "Eine Handlung hinterlässt einen fortbestehenden Zustand. Sie kann der Vorbereitung dienen, doch ein bestimmter Zweck ist nicht immer genannt."
       },
       "examplesKo": [
-        "창문을 열어 놓았어요.",
-        "참석자들이 볼 수 있게 안내문을 붙여 놓았어요."
+        "환기하려고 창문을 열어 놓았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 두다",
@@ -1093,8 +1082,7 @@
         "de": "Eine Handlung bereitet eine spätere Nutzung oder einen Bedarf vor; der Zweck steht hier ausdrücklich dabei."
       },
       "examplesKo": [
-        "필요한 자료를 미리 찾아 두었어요.",
-        "접수할 때 쓰려고 번호를 적어 두었어요."
+        "내일 회의를 위해 자료를 미리 찾아 두었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어지다",
@@ -1190,8 +1178,7 @@
         "de": "Bei diesen Adjektiven bezeichnet die Form eine Zustandsänderung; sie entspricht nicht jeder Passiv- oder Zukunftsverwendung von werden."
       },
       "examplesKo": [
-        "날씨가 점점 따뜻해졌어요.",
-        "설명을 듣고 마음이 편해졌어요."
+        "수리한 뒤 방이 따뜻해졌어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1274,7 +1261,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은 결과",
@@ -1287,8 +1274,7 @@
         "de": "Verbinde eine Handlung mit ihrem angegebenen Ergebnis; erfinde keine zusätzliche Ursache."
       },
       "examplesKo": [
-        "서로 이야기한 결과 일정을 바꾸었어요.",
-        "기록을 확인한 결과 중복 결제를 발견했어요."
+        "직원들과 의논한 결과 날짜를 바꾸었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1371,7 +1357,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은 다음에",
@@ -1384,8 +1370,7 @@
         "de": "Nach Abschluss der ersten Handlung folgt der nächste Schritt; daraus allein entsteht keine Kausalaussage."
       },
       "examplesKo": [
-        "신청서를 쓴 다음에 창구에 내세요.",
-        "내용을 확인한 다음에 저장하세요."
+        "신청서를 쓴 다음에 창구에 내세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1468,7 +1453,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 가지고",
@@ -1481,8 +1466,7 @@
         "de": "Diese umgangssprachliche Form verbindet Handlung oder Grund mit dem Folgenden. Hier nennt sie einen Grund; im förmlichen Bericht lässt sich dieser Zusammenhang ausdrücklich formulieren."
       },
       "examplesKo": [
-        "길이 막혀 가지고 조금 늦었어요.",
-        "파일이 커 가지고 전송이 오래 걸렸어요."
+        "길이 막혀 가지고 조금 늦었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1565,7 +1549,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 있다",
@@ -1578,8 +1562,7 @@
         "de": "Beschreibe einen fortbestehenden Zustand, getrennt von laufender oder abgeschlossener Handlung. Ergänze keine ungenannte handelnde Person."
       },
       "examplesKo": [
-        "확인해 보니 창문이 열려 있었어요.",
-        "도착했을 때 문이 닫혀 있었어요."
+        "확인해 보니 창문이 열려 있었어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

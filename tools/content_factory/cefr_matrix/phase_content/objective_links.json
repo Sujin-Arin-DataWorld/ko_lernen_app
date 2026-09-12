@@ -138,7 +138,7 @@
       "objectiveId": "KP02:objective:grammar/G1:에:R",
       "taskId": "KP02:grammar:01",
       "sourceHash": "f0336194991db06a95cdb0e3d5db07e30ea5eb3aafb8914c82f25a0aaa2f627e",
-      "taskHash": "fc412ece4e382e56479073aab600cc581b80bd58a93bd75626aa7a671b3ef4f6",
+      "taskHash": "786cf75573de75a83f50832127aee7ad86b8b6dc2ecafc5326956479e7a63de5",
       "criterionIds": [
         "meaning"
       ],
@@ -149,7 +149,7 @@
       "objectiveId": "KP02:objective:grammar/G1:에서:R",
       "taskId": "KP02:grammar:02",
       "sourceHash": "42c1a59d031a1c9d3ce486a2aea406e3fc72d073e926675eb8792c14d7e4cfaf",
-      "taskHash": "5583b722a5bea3930166021ba9b8929b1e9c5b34fbc1bfe6ae7d985d7e876fa6",
+      "taskHash": "b7528ac13b8e8024ca28a2bd4f931edfcd211586e3d0547c8b199495773373fa",
       "criterionIds": [
         "meaning"
       ],
@@ -160,7 +160,7 @@
       "objectiveId": "KP02:objective:grammar/G1:부터:R",
       "taskId": "KP02:grammar:03",
       "sourceHash": "810eeb0fe510eea269a2bcc1316a12c25fa2b7f82322a75b4093a4d2cfebd260",
-      "taskHash": "cb416c61c1ea58fe7b1b10a3542a9f8e257a37bd55c9a1f881b8a87cacc2dfb3",
+      "taskHash": "a28dbca8a39d8fba3b58f19f98f15c99590235641ed21c6caa3310c782d6394d",
       "criterionIds": [
         "meaning"
       ],
@@ -171,7 +171,7 @@
       "objectiveId": "KP02:objective:grammar/G1:까지:R",
       "taskId": "KP02:grammar:04",
       "sourceHash": "e6cc98d0a4c3ee1db312b854a35e7727899a4b9dca42b57d1c3420b40cfc5b4e",
-      "taskHash": "8b79c5782a37e1e5969fce73a372ce36bc45793a7341fdd9f02b237eddefa6e5",
+      "taskHash": "ea7efac3c9feb613bc930ac934e4d5618ec225b9dc4d76cb8b5ea38ddde012be",
       "criterionIds": [
         "meaning"
       ],
@@ -182,7 +182,7 @@
       "objectiveId": "KP02:objective:grammar/G1:으로:R",
       "taskId": "KP02:grammar:05",
       "sourceHash": "5c241d199d2b24da849c8aed6d1cb7079ba7fb46dacc909be974bdec48dd6d25",
-      "taskHash": "16a26e3dab49abc8014cc4b836bfd94ae9917fbe6456b6c56db607b9e5149098",
+      "taskHash": "ccac9d1e3e190519a975930bf06cd6befbf25669b21e3e3b3f113c33877168ec",
       "criterionIds": [
         "meaning"
       ],
@@ -193,7 +193,7 @@
       "objectiveId": "KP02:objective:grammar/G1:-었-:R",
       "taskId": "KP02:grammar:06",
       "sourceHash": "2f39a9e6b1046b6d2c7ce2630459ba715efc49940eb4f369e029df3da55f4558",
-      "taskHash": "60330173af7aaa36f1c654255bfc50b1aaa18649bf0099893cac9f2729325d32",
+      "taskHash": "2e834153b540f2a60e187941045cc5b00b28e72432748a1c615f09816d35e270",
       "criterionIds": [
         "meaning"
       ],
@@ -204,7 +204,7 @@
       "objectiveId": "KP02:objective:grammar/G1:-고3:R",
       "taskId": "KP02:grammar:07",
       "sourceHash": "07f86a2c6aa81cbb683373c2b683c61e03eac2c80f9139a9c21ef96cae8d60b0",
-      "taskHash": "d9621daa7f0991334193017c31946230701cf0a36ac88e61d5913f27c234317a",
+      "taskHash": "235296adae2a833d826ecf78bd247683cd50896e0e6676556158eddd464fe59b",
       "criterionIds": [
         "meaning"
       ],
@@ -215,7 +215,7 @@
       "objectiveId": "KP02:objective:grammar/G1:-지 않다:R",
       "taskId": "KP02:grammar:08",
       "sourceHash": "9bb8a75d6426441bfa8a7a42ddb7f98a10c103a2bd2c5cd1ee6740ae35de7ede",
-      "taskHash": "0bc29352cea11ee8c0ab2fd39d3549ef7bcb3562aa7d3dd1e2fb7c849ff2382b",
+      "taskHash": "9725bf39c983dc57c6e0674f60643bfa73a95259593943534dc23ec9b77d160d",
       "criterionIds": [
         "meaning"
       ],
@@ -226,7 +226,7 @@
       "objectiveId": "KP02:objective:grammar/G1:-지 못하다:R",
       "taskId": "KP02:grammar:09",
       "sourceHash": "d1c402a4953038695a9975094131be6cee57d7016d2f694457dd9bebb2823c49",
-      "taskHash": "40a95cf4c86387b1e7f0b6381a44a28a2fbbc403b80ceb9eb3e74d55e7ab7ec0",
+      "taskHash": "d1c70fe7c8ba24e83a508e26d0273dfcd2327ef2af5a44872644f7356774bffb",
       "criterionIds": [
         "meaning"
       ],
@@ -237,7 +237,7 @@
       "objectiveId": "KP02:objective:grammar/G1:도:R",
       "taskId": "KP02:grammar:10",
       "sourceHash": "90a09b5a6f2acf4674fa96e58fa2f7155e4457d13cbf78614c46f765281ad647",
-      "taskHash": "5dab63d0f82d8c392a227c234457d3d4ce03c2052612e169535b16ac44b7676d",
+      "taskHash": "bd9cb0869595e80907dc64ad3087ec42d159d5830c14aa59d50e33dbd9ab730f",
       "criterionIds": [
         "meaning"
       ],
@@ -248,7 +248,7 @@
       "objectiveId": "KP02:objective:grammar/G1:만:R",
       "taskId": "KP02:grammar:11",
       "sourceHash": "5f26fcfb005cc898ad9a5e7c6f2ad7eb64242d6974eaa6f7874b6c9f243f0c9f",
-      "taskHash": "881760f95ce30caa576793bc803ee65e95e56147cf3744fde33a61fe06327243",
+      "taskHash": "8a3f3f901b72f0e15319d667201867867eb2a4bf900276c81312ad329ede296a",
       "criterionIds": [
         "meaning"
       ],
@@ -259,7 +259,7 @@
       "objectiveId": "KP03:objective:grammar/G1:에게:R",
       "taskId": "KP03:grammar:01",
       "sourceHash": "f9c686e6c67baf5f071a7311f5433d769c0ba79f62ff3b86116a9c5e10f5d4bc",
-      "taskHash": "41c95d778c0a2abaef476cbd8243d5ab8e0b1ad2a24dd738d20d4f91c22b4a3e",
+      "taskHash": "ab625120923ee6f3e7d9ad369cf20f91fde320be2ce10e6095e1d138d3c86b98",
       "criterionIds": [
         "meaning"
       ],
@@ -270,7 +270,7 @@
       "objectiveId": "KP03:objective:grammar/G1:한테:R",
       "taskId": "KP03:grammar:02",
       "sourceHash": "e23b839eee21c3d059277d64eff767ffec38dce3b8ca3c94e109108b764284e1",
-      "taskHash": "bf3d14e84ced6fda6a76a329b72ac1554903379828a8f7dfa8f23c69020041c5",
+      "taskHash": "f85de13608ce017a3021c387fe840aa2a944375b1e7a086fe638b8a088f77e99",
       "criterionIds": [
         "meaning"
       ],
@@ -281,7 +281,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-으러:R",
       "taskId": "KP03:grammar:03",
       "sourceHash": "3f4f475034966389c596abe5e925d7780a05439d62d2c86a04ee7e9e9af59e49",
-      "taskHash": "24dc34e2215a97a3fa48a2db8871e819d7f56931652628fc75245dcdac0479f0",
+      "taskHash": "782784c6ba32d5ff6bcb46935bd3bdce79463ac83708d9b1b5ad6a703363b0dd",
       "criterionIds": [
         "meaning"
       ],
@@ -292,7 +292,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-으려고1:R",
       "taskId": "KP03:grammar:04",
       "sourceHash": "6993ac642e7fe39a64f6181144af9465b2ce63b09551223d233ab55d3bb73196",
-      "taskHash": "c0aa53fc080cb24664092d79f562dbcae8010cacf0de18695af5d4750b463de9",
+      "taskHash": "0325b960074f821c60cf982771015f1a668925f688c0f70523d507114164d877",
       "criterionIds": [
         "meaning"
       ],
@@ -303,7 +303,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-고 싶다:R",
       "taskId": "KP03:grammar:05",
       "sourceHash": "f1803463b64e22b5de5984cdbe403f34db6d361d1d0133b3219ce73a30d9a1f5",
-      "taskHash": "2c077fbd14ae0c3c55b2541c6614fb2427077b629cdbd9785be5a70ef6583e9d",
+      "taskHash": "b59ace30c99d2725be4f3d18ea8126445f843aed1348cee1f456415c7a53c962",
       "criterionIds": [
         "meaning"
       ],
@@ -314,7 +314,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-고 있다:R",
       "taskId": "KP03:grammar:06",
       "sourceHash": "16d2a21352e507988be0eb09798b98ab40bc55a80aae034e84cf09a70aa4562e",
-      "taskHash": "88f122a6cd9e4c54a44e333bfd10d2af0de7eec8112b9c85392c727564dd774f",
+      "taskHash": "04f9762b898ba2589df7064510b8688309b62492e9c718551aa509707abc8a99",
       "criterionIds": [
         "meaning"
       ],
@@ -325,7 +325,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-을 수 있다:R",
       "taskId": "KP03:grammar:07",
       "sourceHash": "d9b138f9755723c20a0804d88008c461c76ff14e8e015e91a47f71820505a3d0",
-      "taskHash": "71bd61845474c77a18fdc5d781693b1c3b16b88e3c4a303481a0591ae59457d8",
+      "taskHash": "e8952eaf1c17178e51f5575a2491ea5608bd1693830267e0e12246b6e2803a17",
       "criterionIds": [
         "meaning"
       ],
@@ -336,7 +336,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-겠-:R",
       "taskId": "KP03:grammar:08",
       "sourceHash": "aa88a2466f251c2361b64ad980bfaf8e1295121d118422db419c45bfbbda8651",
-      "taskHash": "27ac81a2728d6692dcdb83455458805f08a0b632b03f7703bab99be6b83bf292",
+      "taskHash": "fab949eea54170256e40a71d8ba97208625c98571fceb2d027870e3ea1050a1e",
       "criterionIds": [
         "meaning"
       ],
@@ -347,7 +347,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-으세요:R",
       "taskId": "KP03:grammar:09",
       "sourceHash": "6e0084d955e6e1d5374889ce75cd6621a3c2bfb81554ba5a0100dcc1d2bb4d34",
-      "taskHash": "0a37a313cbf2dc2843382aeb2ae497a0d80b8efb00574a38078807d2171d9143",
+      "taskHash": "a0c1bfe11a328c47bc5e927464ee023b8795627ba06a178040874da62578257f",
       "criterionIds": [
         "meaning"
       ],
@@ -358,7 +358,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-으십시오:R",
       "taskId": "KP03:grammar:10",
       "sourceHash": "9a32be47c637433e1104d01d0661fad94d6d23160619ae47948d981d02caa4e0",
-      "taskHash": "136c8055b42a6c2cc86886cc8d1d897c7992229a3851b492af8499354d816cac",
+      "taskHash": "15b8f3ff639dcef08a0097cc7d502ba1bcea173971de38994e63d6e730ac427a",
       "criterionIds": [
         "meaning"
       ],
@@ -369,7 +369,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-을까:R",
       "taskId": "KP03:grammar:11",
       "sourceHash": "36b91ebdaa9903025d6eb06657e329a417786018166f64a92213d4265011a385",
-      "taskHash": "a5a71b4de17fee7f64b9fa7874772bbcd341b028657ef1f893146804ceebbea2",
+      "taskHash": "cf67104d31ead15219c99ed3c5fa6808cac23f6711d18ad7f0ba5bd0c89f3c10",
       "criterionIds": [
         "meaning"
       ],
@@ -380,7 +380,7 @@
       "objectiveId": "KP03:objective:grammar/G1:-읍시다:R",
       "taskId": "KP03:grammar:12",
       "sourceHash": "621d3746dc4fd130ac7d48be334a3bc7ca2194ecbff3a986de27c5a2c1ee185a",
-      "taskHash": "93115b751889cdd2305e3d3fb93bad1fb492c171afe1a87f73aaddfea8a1b69f",
+      "taskHash": "64c1240c151b50c62864ac5338fe153920a15e615acfdb978031e80b6c6b1548",
       "criterionIds": [
         "meaning"
       ],
@@ -391,7 +391,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-으시-:R",
       "taskId": "KP04:grammar:01",
       "sourceHash": "6003ed446067f1aa36b74bd74ed88a5fef9ada49b6d0371b1d706756e7e4ca5e",
-      "taskHash": "1a4e43973f68a38c15c44957a20071c37777de82d9e7f52fc36f21b00067a98b",
+      "taskHash": "1e9a19ede3f387aa887b3909c212eb28120cf79d7e1706dada467048c85e9742",
       "criterionIds": [
         "meaning"
       ],
@@ -402,7 +402,7 @@
       "objectiveId": "KP04:objective:grammar/G1:께서:R",
       "taskId": "KP04:grammar:02",
       "sourceHash": "5966b5fb8d6d7f3ae7f07edd552a8f087b3635795b02725b50de5ca04a21d48e",
-      "taskHash": "69d8651eb3fc3645899a622ed2b85fc1c04442b9dd8dde3dd0bb5f4ed3addf2d",
+      "taskHash": "f7eecd7628ad61bbd5457402720ccf42ae4bfd29b566a671d1e46ca1e74dbbf0",
       "criterionIds": [
         "meaning"
       ],
@@ -413,7 +413,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-어서:R",
       "taskId": "KP04:grammar:03",
       "sourceHash": "ca3947a33bd39d2342cdd492528b1a711a2f7f4ceae64d03f0048a3a9a46f920",
-      "taskHash": "ac876701302c6dadd576c599de0b712ccfd312e198fe9af4db54a2cf2cce71aa",
+      "taskHash": "66358ea790a3eee9df97c6b97c9eb9e4aa4f21d7824b5b57dbca56cfa75384e9",
       "criterionIds": [
         "meaning"
       ],
@@ -424,7 +424,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-으니까:R",
       "taskId": "KP04:grammar:04",
       "sourceHash": "4715343006f1d06a5d6d48bdb8cd1c766e2b600e34b308b870067f06e8480605",
-      "taskHash": "7eea6546d7877a8ef09faa199d0e4fb407e65fa70c22900191a293e01f746237",
+      "taskHash": "20e41b0eecedef8c92baf5371048bb8f970cf7bd6bda1bc135c57a1e78f670f3",
       "criterionIds": [
         "meaning"
       ],
@@ -435,7 +435,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-지만:R",
       "taskId": "KP04:grammar:05",
       "sourceHash": "802de124968b3adcb60db0fc0955fd5f8e01f123b7c278cb3ea20d7a47e3a985",
-      "taskHash": "04bd8cc926d054f85f3e9b99eb733252c45db78f9b761d3596526c22001ce3ce",
+      "taskHash": "5b79638082d69f29980e1a228cb3c56066896553b6d4f55e96368fb8280a4e3d",
       "criterionIds": [
         "meaning"
       ],
@@ -446,7 +446,7 @@
       "objectiveId": "KP04:objective:grammar/G1:보다:R",
       "taskId": "KP04:grammar:06",
       "sourceHash": "93847fdcaeb583318b81b3db1e74b7a2db94499fefdc1e8140008d9123ed80f0",
-      "taskHash": "a0dedcb56c1f5c5e619dab8d6028790a0e2c7c5ff7f2d356a19c71b90a064fd8",
+      "taskHash": "409570c50908746878c3d5b81a03bdc582a292987d7fd2b7f4a8d3a31babd145",
       "criterionIds": [
         "meaning"
       ],
@@ -457,7 +457,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-고4:R",
       "taskId": "KP04:grammar:07",
       "sourceHash": "7c0d0e7d61e764c2f2f0efe83ab4547f3e4b0e6fd11b5d857056c8c36363ed9d",
-      "taskHash": "3816843337cce8f45ccebb7ff97ecca5794419b79d98be8139511e73303045cf",
+      "taskHash": "23400b7b8e19450fe92f82818b9266d7de1e3291b110c1fa55d003b67bbf9fb5",
       "criterionIds": [
         "meaning"
       ],
@@ -468,7 +468,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-기 전에:R",
       "taskId": "KP04:grammar:08",
       "sourceHash": "41950434b50ebe136662be67928445d770279719f385d2350dbaade217069b6e",
-      "taskHash": "818d0d4fece52db0f7e96809522cbb226897930e3ab969a377c3e25887be9a1b",
+      "taskHash": "5d18efbf33673bb870050ea0dfa4cbace32886c0e574636b8551232733e5255f",
       "criterionIds": [
         "meaning"
       ],
@@ -479,7 +479,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-은 후에:R",
       "taskId": "KP04:grammar:09",
       "sourceHash": "3cdc6077b6b9d650205553e00e8f153fdf33ad9e68c00a7369a9210950b0aa70",
-      "taskHash": "f630671d6fdbee9d6e20650fefee613188f7bbd465952e6d4dc8f59c7a9de5fe",
+      "taskHash": "6f66558bac352e5328bb0f0e64b66e0175b73643eabc08f4c505ed6dba7a6bce",
       "criterionIds": [
         "meaning"
       ],
@@ -490,7 +490,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-어야 되다:R",
       "taskId": "KP04:grammar:10",
       "sourceHash": "529bd4068f20dc92b82d420b7ff726ba3f40775fb423429cb679b2d076a4686d",
-      "taskHash": "32c2a4ca62df4f5601c5ba3006fba0eabd15ed270f82305d23a5fd8e3b3f595a",
+      "taskHash": "4dded05aba8bb71944c3cda18e6aeabd3c7bcf6ae4865d6bac2f55903674e317",
       "criterionIds": [
         "meaning"
       ],
@@ -501,7 +501,7 @@
       "objectiveId": "KP04:objective:grammar/G1:-겠-:R",
       "taskId": "KP04:grammar:11",
       "sourceHash": "6fda8ee555d2ad748789238684f37eba18c8b11feed1a8a864d0949ef6055163",
-      "taskHash": "a9148ca46f901ac15873c45371174556f716d8ae4fa04e3ec12d199467749673",
+      "taskHash": "83e1dab8ec8464ba8776442523a86eacc71a8f69a45e421b8a2f3b533079772a",
       "criterionIds": [
         "meaning"
       ],
@@ -512,7 +512,7 @@
       "objectiveId": "KP05:objective:grammar/G2:-으면:R",
       "taskId": "KP05:grammar:01",
       "sourceHash": "7be6bdd06113ad78009a601708b19c6f6e1583cb4d2a45131c3eaafbd880c389",
-      "taskHash": "d6854242d401edfcb075e92508f934cf276b984f10dd20e219f8aacadb6017c2",
+      "taskHash": "9b4d8f5dd6521149ebfaec1a082a0f2356f4bb3ef112439dcd6534e82d4dede7",
       "criterionIds": [
         "meaning"
       ],
@@ -523,7 +523,7 @@
       "objectiveId": "KP05:objective:grammar/G2:-거나:R",
       "taskId": "KP05:grammar:02",
       "sourceHash": "598607f452d0e8180163142eba803fab0aa41ac0dffee4e38ab59f64c28ab8f9",
-      "taskHash": "bb5e026a9735a17464c1652db225faa400fd52d17790034e65c55a35be3bbb8d",
+      "taskHash": "b71b356748cb2bc293f765ba35ce2874c09c89cd800e05136abbb6b7471c93b2",
       "criterionIds": [
         "meaning"
       ],
@@ -534,7 +534,7 @@
       "objectiveId": "KP05:objective:grammar/G2:이나:R",
       "taskId": "KP05:grammar:03",
       "sourceHash": "10749ee99503212987e6701ef64d77b30a37a1f14fe5188159ffe196a231130c",
-      "taskHash": "6bdd8864f2b6f20077f72ddc0a4aadfd9aa636a5f5a9e6c0ce41d35f10b8d453",
+      "taskHash": "678aa369efc3638ccd9804d4a50f4818612ee4772729f66da5e42588e80e1f6d",
       "criterionIds": [
         "meaning"
       ],
@@ -545,7 +545,7 @@
       "objectiveId": "KP05:objective:grammar/G2:마다:R",
       "taskId": "KP05:grammar:04",
       "sourceHash": "9a4bf65e1fa469266dfef350890ff08a6bcc682b2645d3d9dbe60125fa03c41b",
-      "taskHash": "d3276491f2d4c0674dcdce8004c62d68ed15876bf226062398a70e0b1abfb29a",
+      "taskHash": "a534d9fcabb2c9047a4cc6923d14da5aaf63eec14eab45b58575a5eab80cd040",
       "criterionIds": [
         "meaning"
       ],
@@ -556,7 +556,7 @@
       "objectiveId": "KP05:objective:grammar/G2:밖에:R",
       "taskId": "KP05:grammar:05",
       "sourceHash": "f7aef62afd78b5d223a4baafcdca92403c3942a9602dcb7b1f30c16e5e95a14a",
-      "taskHash": "256487f6897d063756fdb0eb651eb51f24d557da780f6f136cfb17f977986677",
+      "taskHash": "36c1c236e6d6336b33fef9cbadda3112d78c8080e45f142de92658c3b76d45fd",
       "criterionIds": [
         "meaning"
       ],
@@ -567,7 +567,7 @@
       "objectiveId": "KP05:objective:grammar/G2:처럼:R",
       "taskId": "KP05:grammar:06",
       "sourceHash": "f211e90bee8effa245d7764f825491596b911dbb5985e4eee5deefa131122b45",
-      "taskHash": "2616f387bdaf598c6238569752ddeba042ef818983762191254616df48528bb0",
+      "taskHash": "861e30ad2bc942c9b58bb6bc45723f45352341fefc73b752840d24b653464cbf",
       "criterionIds": [
         "meaning"
       ],
@@ -578,7 +578,7 @@
       "objectiveId": "KP05:objective:grammar/G2:-어도 되다:R",
       "taskId": "KP05:grammar:07",
       "sourceHash": "a32d57be377c53c2a5e6a03f59772678488eabf8e0fc1026c30003eecfe1cec4",
-      "taskHash": "b4b6fdd235d20248ab6472c02c9756e8946ad8cf2914c6221c55f9f0bf61b6a0",
+      "taskHash": "197360f39b9f4fbdcd827c9b6646099ac4512634e961f577df42ae5e1780aebf",
       "criterionIds": [
         "meaning"
       ],
@@ -589,7 +589,7 @@
       "objectiveId": "KP05:objective:grammar/G2:-지 말다:R",
       "taskId": "KP05:grammar:08",
       "sourceHash": "8718d1038c5cdd589b1af764c5f4f328a91abd1b65cc0ce29b8e2b16ca40ee75",
-      "taskHash": "17694a9d7c55a86e0c4103fe69e0557fbe1cb2831561596aab6da61683d02a97",
+      "taskHash": "6375f95d905fb46b40f9939ff53203d9c778ecf3cd35559fe485aa6833381f34",
       "criterionIds": [
         "meaning"
       ],
@@ -600,7 +600,7 @@
       "objectiveId": "KP05:objective:grammar/G2:-어 주다:R",
       "taskId": "KP05:grammar:09",
       "sourceHash": "04af46989642f0e2e0c7f33a63ed4021f11e0bf6fdc8add4736be8c4dcd9f681",
-      "taskHash": "92026e5d85d9c84c1501fe4b3a422aeb7571d4f764442c351bc4afcfb4dc1cdc",
+      "taskHash": "f5ab1e61c27fb81f970e21f194d0da1d5126dd08b67407c2e6b992689c18f685",
       "criterionIds": [
         "meaning"
       ],
@@ -611,7 +611,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-는2:R",
       "taskId": "KP06:grammar:01",
       "sourceHash": "dcb1a86d29202e46192a6d41426594148421cd456e226ef30e59f7a36ea8e23e",
-      "taskHash": "8e20438c114a0f671c8de5890fa561466244f75de581af1fd5634a6e35f5d0b8",
+      "taskHash": "10e76d2fe9300e022ae6a30bdcac73801817f63aca04a0c92479c8008578978c",
       "criterionIds": [
         "meaning"
       ],
@@ -622,7 +622,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-은2:R",
       "taskId": "KP06:grammar:02",
       "sourceHash": "d75a2d836d51d2d6cc9636ccdea0f3148822368fca7a686742b012dd10113928",
-      "taskHash": "8570c7bddae4188fa335fdc562befdfab4696c56bdf2e160a7568026722150b9",
+      "taskHash": "b4ab8315d73c3339affc989ed76c3e4a73b14e665957ef690e0bf64fac5095c8",
       "criterionIds": [
         "meaning"
       ],
@@ -633,7 +633,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-은3:R",
       "taskId": "KP06:grammar:03",
       "sourceHash": "0afa299fbb5cf3547e6a4a64d32d4a3166878d3a9aef08cfa8576882a944a1de",
-      "taskHash": "edaf40f13c7fcbf3bff969278c55da8c3637a982097b0efc8d3db5aa12e68bd6",
+      "taskHash": "f4ad73063610161167bd796acb47041328d92d2f8a80f628ebff9e5d218fff6e",
       "criterionIds": [
         "meaning"
       ],
@@ -644,7 +644,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-을2:R",
       "taskId": "KP06:grammar:04",
       "sourceHash": "739d7e7e90f5425fee33e242c1033e7a707c1cefa0f02656c8fb0c11f84fc9da",
-      "taskHash": "9cebece8a8dab62e734a7e1f31a5362880bd6894b2ea63e2998675926a6b7388",
+      "taskHash": "fec7476f0f27c56748ff52ca22b385b0f55458f5b8d9b30c97fa927b43c3f6eb",
       "criterionIds": [
         "meaning"
       ],
@@ -655,7 +655,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-는 것:R",
       "taskId": "KP06:grammar:05",
       "sourceHash": "5347b40dd1230806fdf5f51abec4059b06f88fb31d7a43412a798f48767ad869",
-      "taskHash": "9f5929d30a9efee782c9a41e71330650d469ad7250e632613e2413f39f1cb2c3",
+      "taskHash": "41259221604182e2c7fbf1c57503d13b809075819f218abfcc1ed3f221037ab2",
       "criterionIds": [
         "meaning"
       ],
@@ -666,7 +666,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-기:R",
       "taskId": "KP06:grammar:06",
       "sourceHash": "8b35f2f67aa669a272b4b63e5b2ef4b4b505f30a346ffd3bf7bf7b08a634c60e",
-      "taskHash": "4248eb32630ff551e8bf157374e4de7fba566fb855e55a99672a3dfbfa0e9b80",
+      "taskHash": "a4f962bb1e0734c0e0b8c37cc6eeeac0ed84d86d58c9cb8e5582bc00648a1fb3",
       "criterionIds": [
         "meaning"
       ],
@@ -677,7 +677,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-을 때:R",
       "taskId": "KP06:grammar:07",
       "sourceHash": "9bc8a9ea919d68d6bdd50d6e577af4b1f7eb2792bbb3711d0e1e4e9a26295a57",
-      "taskHash": "0e1b83847469bf08189ffb1620ae529541939a129376ced5d4e7d1cf08e256fc",
+      "taskHash": "bfd42a26cffbdbb7ce00ed8074acefbd0a8060778c305d308dc5411c996c7bde",
       "criterionIds": [
         "meaning"
       ],
@@ -688,7 +688,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-는 동안에:R",
       "taskId": "KP06:grammar:08",
       "sourceHash": "cf5b9d8d980fac2b147bd911c170f239bcc5bcd9eced87798c8311bd5b4b24ee",
-      "taskHash": "de6701e3ac647946e0ab3adbf95925daf0529aa9c990a285804ad88f83ec9955",
+      "taskHash": "f855417d70df1ad82c7a94c3ec19a049a75167f20f79cf2a5d58cc822aff490d",
       "criterionIds": [
         "meaning"
       ],
@@ -699,7 +699,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-은 지2:R",
       "taskId": "KP06:grammar:09",
       "sourceHash": "2e1cff0656089bbca06fd8158f8351498a63032da610e3a87d75f6ad9338e01a",
-      "taskHash": "a573e7f9927aa793cf6d1ba42e77fd35dabf099bb326697fde241e0410ace1a5",
+      "taskHash": "3d385f494d90c3b1c17490bcc2a1c3b993aa1d9db23eef46b1a2913f17c76984",
       "criterionIds": [
         "meaning"
       ],
@@ -710,7 +710,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-은 적이 있다:R",
       "taskId": "KP06:grammar:10",
       "sourceHash": "b7b9212cf4a22829057973bdf3d6ddbd91c6b5a1efdecfb235e0c8ca50b7752f",
-      "taskHash": "0bf863badd39f2ec32aa0ef08484abb5638a415bcf23f21dd0998e44438a65fa",
+      "taskHash": "f13c58a97068acbb0ccbb819187cb370d52b223c3cb4a671f0c361a4fe97c459",
       "criterionIds": [
         "meaning"
       ],
@@ -721,7 +721,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-어 보다:R",
       "taskId": "KP06:grammar:11",
       "sourceHash": "99afd8a3b8d9c5dc3e9f9ff5ec987d4df711dab8c8b1a2e07ac307419f7c17c6",
-      "taskHash": "363490270f18d10af66136d08adcb7151d86dcf99dc1abe9868d15f9fbff239d",
+      "taskHash": "18bd18ef7065740c505252a129464a5c18a520c0281dc11f910e31fce87feb28",
       "criterionIds": [
         "meaning"
       ],
@@ -732,7 +732,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-으면서:R",
       "taskId": "KP06:grammar:12",
       "sourceHash": "15e02511d131d89ffd4292a709357cff3c494c0506b33ef8b2a61350ffe031ea",
-      "taskHash": "94e50fa004cba481bd2b73735b77410b2fef74a860059ea759c6458d9d6f22b6",
+      "taskHash": "170c0bf45ac51d5fbf6b7acd15364ee5f0ff50bb988a60724db2db6e8788efe8",
       "criterionIds": [
         "meaning"
       ],
@@ -743,7 +743,7 @@
       "objectiveId": "KP06:objective:grammar/G2:-다가1(1):R",
       "taskId": "KP06:grammar:13",
       "sourceHash": "cd9e1d892f6a702a40a9eaa31dddc61aff934537338e2a2f7263d78bf671c5f2",
-      "taskHash": "309d13d45aa775d6917ec8c3733a10ea043d05395788210ff97706ef9c788518",
+      "taskHash": "21d5fc3e81f30555d14903d2e24b93bc81b89ab72233c71edf8c301cd88c720e",
       "criterionIds": [
         "meaning"
       ],
@@ -754,7 +754,7 @@
       "objectiveId": "KP06:objective:grammar/G1:-고 있다:R",
       "taskId": "KP06:grammar:14",
       "sourceHash": "110f200612bc7fd706ec4b7302f8419e071460d8474409494cfc53dcfa702b8f",
-      "taskHash": "f99f656e8647ec2dc7177639582c42b505dfa99a7148a2d215a9d3832e7bfbdf",
+      "taskHash": "d41f6169a4ca59850d9cc96448802b85dafe9f4c995fd681211fbf7200339e6b",
       "criterionIds": [
         "meaning"
       ],
@@ -765,7 +765,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-는데1:R",
       "taskId": "KP07:grammar:01",
       "sourceHash": "ac970f571d9c9ff6ea124d6d3e75d2a47bb3063b518c3d2cedd14adc509e777f",
-      "taskHash": "9d111d056d79d5e5b3763c5103009fcea6bf9c7a251f1a941317040060e41331",
+      "taskHash": "0b7634130817c23ede9b90be1b96b289618bd0eb4253f1217dc09cda2aab6ccc",
       "criterionIds": [
         "meaning"
       ],
@@ -776,7 +776,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-게2:R",
       "taskId": "KP07:grammar:02",
       "sourceHash": "04ece0e9261c6b6b3f13ae9173ed43f70f871bccd47c23b2db74ed57558cafee",
-      "taskHash": "b9690dad9a58553928233f0d85f40fda0e057501272c0c51c9f40991b95e44cb",
+      "taskHash": "6d24831aafdfccef5fa1e638676dc201008b3580bc49366b61221017ae228089",
       "criterionIds": [
         "meaning"
       ],
@@ -787,7 +787,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-기 때문에:R",
       "taskId": "KP07:grammar:03",
       "sourceHash": "91acfec11922821a8ef675fd2f467f36f08221c013e93988299c086e3d8ffe77",
-      "taskHash": "10e60b1f1300869aee7eba51fcdee2057d9306d379012c4ec873cf302b4e4868",
+      "taskHash": "b5b7b736a8d583d84d596ac5cacf54bbbd7ba962f16e413e149a98ddaf6bdb1a",
       "criterionIds": [
         "meaning"
       ],
@@ -798,7 +798,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-기로 하다:R",
       "taskId": "KP07:grammar:04",
       "sourceHash": "9680e60275e38cdd844a24c700f681a5f2790fb3792fd53f38cae2216fd3b7fc",
-      "taskHash": "79c1fc07e00437249896e4100093506beef06064e93e10f0f898b289f08ae7d6",
+      "taskHash": "96865c5715d261c57a1d38742315cc1cde9fb0d9f1c2d62639c8fe947a7b4bbe",
       "criterionIds": [
         "meaning"
       ],
@@ -809,7 +809,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-는 것 같다:R",
       "taskId": "KP07:grammar:05",
       "sourceHash": "57b06846851c0f10389cf04016f6471578960b7db618d0d259821e8a3a627f67",
-      "taskHash": "12b3c848284a4f9793ea20567bcac3ae7e8e6f09c5783843ea820cdc14ef8bba",
+      "taskHash": "92f5aa34520d4c830482817e81278df4dfcebcff73104127625cc588daa2aaaf",
       "criterionIds": [
         "meaning"
       ],
@@ -820,7 +820,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-을 수밖에 없다:R",
       "taskId": "KP07:grammar:06",
       "sourceHash": "90a00f5c5e67eb2fad327534069b52441dfe49e82d73da9165cd29809cbdcae0",
-      "taskHash": "240a8d3a7502612f10935c40afe8b7f1829e4693c60c7041795d3621c41b1c7f",
+      "taskHash": "0d7aa9324e3bfa79d0633d44708ce486a08a24837c353d31ab70bb76d3691b8e",
       "criterionIds": [
         "meaning"
       ],
@@ -831,7 +831,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-을게:R",
       "taskId": "KP07:grammar:07",
       "sourceHash": "d0207b95acc89e52031f23d4248762bfae1f6077293fe6bf25f79e5fc9594791",
-      "taskHash": "d8a337fa10d07ea0d1df816d1744bf0a76aeb94d1c2be2de97a654894d70b300",
+      "taskHash": "c1008125da0f56d4547c96aa847eebe09c1f364b71dbe77e298a0a92018d597f",
       "criterionIds": [
         "meaning"
       ],
@@ -842,7 +842,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-을래:R",
       "taskId": "KP07:grammar:08",
       "sourceHash": "f285a6635913190255f840457646e6419e086e07a85e2de7a1c14b79e36902d4",
-      "taskHash": "6d51ec49c9aef2a5a87adbbb5d4c307f834432fadcc634da4e6838eb7c5c4718",
+      "taskHash": "8350ab17faf0f6f5f24db9822c66e429dcfe6a5c49a118c3b146e184dabb37ce",
       "criterionIds": [
         "meaning"
       ],
@@ -853,7 +853,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-을까 보다:R",
       "taskId": "KP07:grammar:09",
       "sourceHash": "9b610182245a5caa89732c34fcdd68ff2cfd7362463f1931ece4a7252229bdcb",
-      "taskHash": "cb7ee4eadf0ac3203f8f7f691983684bb9dd6e8e4e1a99f3c9a2a69eb750a220",
+      "taskHash": "8da98cc392e860cfaaa0710e035a60b363717357a7c5650f17079d9c437edefe",
       "criterionIds": [
         "meaning"
       ],
@@ -864,7 +864,7 @@
       "objectiveId": "KP07:objective:grammar/G2:-게 되다:R",
       "taskId": "KP07:grammar:10",
       "sourceHash": "a7ba0783651bce77f6339369884de84fa75767d400719c95586ef22c984532ba",
-      "taskHash": "16ba609235439fee4a7c522b73b6b5f96f01f0a840b07d5c6402070b18e60bee",
+      "taskHash": "1ac671747f73115609546ab5a95c2748e63143ed03c58507919e7a748ec6dc19",
       "criterionIds": [
         "meaning"
       ],
@@ -875,7 +875,7 @@
       "objectiveId": "KP07:objective:grammar/G1:-고4:R",
       "taskId": "KP07:grammar:11",
       "sourceHash": "0b81ee4e78f1987398bb656f2fff1d80e356849698fe215b472b7f38b3d9b1ae",
-      "taskHash": "441ece1ebfaefe6f3216e1ad7c400312449e4e329ee816edf9a477c8f6832ebc",
+      "taskHash": "997e510fead8c803b1a41571052828aa645656cfc836c9db420d09fb3cc83746",
       "criterionIds": [
         "meaning"
       ],
@@ -886,7 +886,7 @@
       "objectiveId": "KP07:objective:grammar/G1:-어서:R",
       "taskId": "KP07:grammar:12",
       "sourceHash": "d463bec2a2471e9cdc935f7e4daca8ca05bc675611ca3948d0b23e5c2ac48e65",
-      "taskHash": "f5daee9fae9cf9bfd59f16e1c3b83380bd67bb6291b506d6b18849cba1477a45",
+      "taskHash": "517a6fc359dedb5fd51107c1dfd485612c09cf1ee1c89d317fcf34ac90f7fabc",
       "criterionIds": [
         "meaning"
       ],
@@ -897,7 +897,7 @@
       "objectiveId": "KP07:objective:grammar/G1:-지만:R",
       "taskId": "KP07:grammar:13",
       "sourceHash": "13822f2a24cbec7a63c860fe984d56eea799cae4e07ae9d612ddf883cccf7e0c",
-      "taskHash": "5fe5bf5410adc256f729932a1cac4e61fdcb1adeb5907a3cb19285a56cce7d1d",
+      "taskHash": "ebb89b5e8a7fc7f5e9ebf09a9318dfe4e244fb344be562b5393ebf1f9832f8b3",
       "criterionIds": [
         "meaning"
       ],
@@ -908,7 +908,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-음:R",
       "taskId": "KP08:grammar:01",
       "sourceHash": "1bd6ac50c4d12321d142d98c7f5f0d4d64cbadbcc5d979dadb8137b7f0f9967c",
-      "taskHash": "d9029bdfa66f785127382e90f39ad25951d1ac8fb537ca1aa88e86f591949b45",
+      "taskHash": "2993f817c1627141d58608365b6ef9c8f266b83fb703f9f857d8651aee28beff",
       "criterionIds": [
         "meaning"
       ],
@@ -919,7 +919,7 @@
       "objectiveId": "KP08:objective:grammar/G2:께:R",
       "taskId": "KP08:grammar:02",
       "sourceHash": "a3addecf95f12435786f74e04b1e1b38a787317c22fdb972917b61a9a40e0926",
-      "taskHash": "59ed3fb4a268f702ec25bb55c03132be7cc7ea4a4d673ed0884228080ce0aa80",
+      "taskHash": "92e571f32afbe60121e5e349f4572a9d2ed8c606dedd95d9d81668b07d2c7e4d",
       "criterionIds": [
         "meaning"
       ],
@@ -930,7 +930,7 @@
       "objectiveId": "KP08:objective:grammar/G2:에게로:R",
       "taskId": "KP08:grammar:03",
       "sourceHash": "daa87fde7a7bb9c4e0397ab920410887100bd6076585c69abc1f180d8d0f8659",
-      "taskHash": "fcd034399721244f076f6eb2c77b4dfd8566f162aba82da6606b617a78421c33",
+      "taskHash": "f51e210642333984232d68c6df64c4fc1dd2875285a48e87a03778e20a9c2b53",
       "criterionIds": [
         "meaning"
       ],
@@ -941,7 +941,7 @@
       "objectiveId": "KP08:objective:grammar/G2:에게서:R",
       "taskId": "KP08:grammar:04",
       "sourceHash": "8217548f1a719e71d86296f84fec3acb97007aee5a95d53ffe6767637708dd47",
-      "taskHash": "bffa0b7912e012b98f8f2b3b6f612b411bbece64701044bad49f32dcc5352701",
+      "taskHash": "749ef003d08b19044c3229dddb6b0dbb12e9f56b4a31a89ff257926091c56c7d",
       "criterionIds": [
         "meaning"
       ],
@@ -952,7 +952,7 @@
       "objectiveId": "KP08:objective:grammar/G2:한테서:R",
       "taskId": "KP08:grammar:05",
       "sourceHash": "201b9f4208d7193914ff83f88733e85e6317b2e77af466db63e9f78eb9b7a297",
-      "taskHash": "9b947158862653d3af446b7220520517ac2111168d03a93d269964b97d70963e",
+      "taskHash": "f5ff573162a0e19cee0eab7ebb050b7c9a1df9ca2da49250733d797fa3c60b70",
       "criterionIds": [
         "meaning"
       ],
@@ -963,7 +963,7 @@
       "objectiveId": "KP08:objective:grammar/G2:에다가:R",
       "taskId": "KP08:grammar:06",
       "sourceHash": "49662b4f77f75070eaf6c04e165976fd42b072476adb0338daaae7b78c50d4c0",
-      "taskHash": "6ace50ab9121ae0cdfe75b1538ecc0fa36ae8e3c1dbce8331191e9affd8429f3",
+      "taskHash": "cf09f28e06a75f297fbd82c5d22d361aa00312ddb88958b5f2a50f45f915a3f5",
       "criterionIds": [
         "meaning"
       ],
@@ -974,7 +974,7 @@
       "objectiveId": "KP08:objective:grammar/G2:에서부터(서부터):R",
       "taskId": "KP08:grammar:07",
       "sourceHash": "3b740e2d8e950349e5e1f93489e28b07e6d3c986194e4644aa8df83a0bbcd71f",
-      "taskHash": "95799e4f272fcb4071c7d8f4f31ce78614a95b38a8ccd7818b69b5d121adcfdf",
+      "taskHash": "21fe27e460c78cea83c23afccfe8db5bcc42bb17ea944fabb8a46db2380c9c83",
       "criterionIds": [
         "meaning"
       ],
@@ -985,7 +985,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-네:R",
       "taskId": "KP08:grammar:08",
       "sourceHash": "7539e88e27e9048783ac622f8b1ec178a91a632d2816872f938827f9fbda4df8",
-      "taskHash": "b18b333c94db9c3d5917e78413f7d76f1c7ffe734a40141a7dee407a949f7adf",
+      "taskHash": "fdba2dbf1b17727a49d47af0e7cf5b7219c3f5c9eba9355d035183ba75bc2ffb",
       "criterionIds": [
         "meaning"
       ],
@@ -996,7 +996,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-는군:R",
       "taskId": "KP08:grammar:09",
       "sourceHash": "a3525d4ae48beab388d05f5a4596fef48a0bfdb81da0a7bfc866994677a9d51f",
-      "taskHash": "e2543fc5e161c401bc2d46cd3d59a8801ef1bda5a74aac21e6f7539671b7c673",
+      "taskHash": "22c48cbc5234c2ced615904b5237939d9477504738e49761c0dbf8d87cdd198a",
       "criterionIds": [
         "meaning"
       ],
@@ -1007,7 +1007,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-는데2:R",
       "taskId": "KP08:grammar:10",
       "sourceHash": "c618f2070d18ed43e2808c4d337413f0c6bb35c91d8c6ac56889711128c148cb",
-      "taskHash": "bef861408b77584d802c1bc23c0319e12599b89dd8aef8616d463e953361235a",
+      "taskHash": "853068d5901753d622b9fc4aacf9ac52d88b5465e64023e02a170014d01d0f46",
       "criterionIds": [
         "meaning"
       ],
@@ -1018,7 +1018,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-지:R",
       "taskId": "KP08:grammar:11",
       "sourceHash": "53a8833579d140bb3e078cc892e1ca4e23eb688b28d92324cfcc3387e53ff3df",
-      "taskHash": "dcb076e7595ccf5f16449cd4fa5cb16d2da22660ef2c648e3662136751c11d7c",
+      "taskHash": "f2f25094f7ab5ef52646ec3dbea85fb33beecaab3d9b571e4aa4061d86bb06d7",
       "criterionIds": [
         "meaning"
       ],
@@ -1029,7 +1029,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-어 있다:R",
       "taskId": "KP08:grammar:12",
       "sourceHash": "7f6400ff4d71e284529b2b2b4d71fdcb4e2fb43aaf5f0640bf67207cd28fbb7a",
-      "taskHash": "069ee1352d138f160b9139dab11ba4863554efb5d2f26ed3c533aa2925bdb0ec",
+      "taskHash": "349518a4b24b444ce3ed211ef0fd1477dca6ceeeb3a854e4b2f6b45587a33f25",
       "criterionIds": [
         "meaning"
       ],
@@ -1040,7 +1040,7 @@
       "objectiveId": "KP08:objective:grammar/G2:-을 것1:R",
       "taskId": "KP08:grammar:13",
       "sourceHash": "e9c6d4931663a75bcb220f6ea0a8035d6e39db003aed9ea30e405dfcb9979e1a",
-      "taskHash": "a48411a234becc90b3265c5455d65ae7ba8e863fe2c0bfb22c0c81d3ac9bd2c7",
+      "taskHash": "6b734617b4cf2fe10106e5ada521e2e6daef8a72ba6a6a3af9e4ce0740819963",
       "criterionIds": [
         "meaning"
       ],
@@ -1051,7 +1051,7 @@
       "objectiveId": "KP08:objective:grammar/G1:-고 있다:R",
       "taskId": "KP08:grammar:14",
       "sourceHash": "f407fc851e7a1bafd275c5587c31b91454e29d1e482c172ef7e25db365498f77",
-      "taskHash": "810fed93d765ce27c5b79c2b6d0b5fdcf1df0f48a1707b383b2f4444a23b6b91",
+      "taskHash": "c29054db28b4d0d22d968ce1f82cf635a60156a95e22c5b890c8df945d6cc4d8",
       "criterionIds": [
         "meaning"
       ],
@@ -5592,7 +5592,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-는다:R",
       "taskId": "KP09:grammar:01",
       "sourceHash": "cb27fc72148fb1ae410380034af1d225dada4fae962d371205ac09aa951b5b51",
-      "taskHash": "5ac045d2fd416bb2f1441ed6b46080a85633f0a94d9e608bde877e19500973e0",
+      "taskHash": "543d63e548eb83663ade92dbd5ad4c9c3f514252fd90fa898fceb0a068b58060",
       "criterionIds": [
         "meaning"
       ],
@@ -5603,7 +5603,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-니2:R",
       "taskId": "KP09:grammar:02",
       "sourceHash": "55d9e3452c8e4a576e6ff0c447158973da91ae484ab84ef0a4e47ed37e15f790",
-      "taskHash": "e39607c02bcdc418149bef386872799c8c136acf212ce328f6ac0ac766f63322",
+      "taskHash": "c6d0e752cd3bda0c4be377d469e6df160a8833c4a879f0baccf4439d6d6e9e4a",
       "criterionIds": [
         "meaning"
       ],
@@ -5614,7 +5614,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-자3:R",
       "taskId": "KP09:grammar:03",
       "sourceHash": "29208973514d03ac9a0cdfaab151e53070c80589dea8e958bfae4c8443cdc8e0",
-      "taskHash": "8a87c901b424b20861cb9989fd69b98baec570d2c4c6574539dfea2ec5191fd5",
+      "taskHash": "2ff77b4e6ec74ccda1aaeede889b416c08fb6417f3364cfb7a05bd32a17082f1",
       "criterionIds": [
         "meaning"
       ],
@@ -5625,7 +5625,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-는구나:R",
       "taskId": "KP09:grammar:04",
       "sourceHash": "5a3d48ef9974e65ae691332b1e8bce9af5ff0076d37c3fae76d51650cab7e838",
-      "taskHash": "ccce278ab7105c3e6c77e0c8c58ef81070824436606bfb5b5c0511523fa1d03d",
+      "taskHash": "d083659421539672a22b0a990892eccf0aac66f3c59e5419a582b2b96bfbe68b",
       "criterionIds": [
         "meaning"
       ],
@@ -5636,7 +5636,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-던-:R",
       "taskId": "KP09:grammar:05",
       "sourceHash": "d959eed5e478d21514e4a04bf4dc71cf64e50851b22e34e72f90a3c4ee2c6742",
-      "taskHash": "9f50b39cfc173b71cbbda8b147698cfed585ca41e45cb7435f9cd59b2e881dc1",
+      "taskHash": "837e4fc6afc3edfa19ff4bd3383f0a5422fcf35439356146d186056cd786e92f",
       "criterionIds": [
         "meaning"
       ],
@@ -5647,7 +5647,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-던데2:R",
       "taskId": "KP09:grammar:06",
       "sourceHash": "7ffeeb97c218218ee2140b68ffcd273d99757aeb0f5d6996df09cb8b4b0b202f",
-      "taskHash": "c4b67ff102eecc9b288ec1bfe606a28293d8fca3a8b3a859b73bba61049411b0",
+      "taskHash": "9354fa1f9dbf9e770d4c5e42ce71872ee914dab9cc3ebf2aaddb2dbc716a33c9",
       "criterionIds": [
         "meaning"
       ],
@@ -5658,7 +5658,7 @@
       "objectiveId": "KP09:objective:grammar/G3:아1:R",
       "taskId": "KP09:grammar:07",
       "sourceHash": "f41904b3139e7294dbe39715108016ef58a112d151931b6aeea3eb84e7665ff2",
-      "taskHash": "a48d7ea4f69cded819e807d80d69a3c6cb46b231e8a687ec6930610443ccab73",
+      "taskHash": "c8d5ef9d81a82c80dee5c8557445c382202988cd15b08b80342cc43234c273b2",
       "criterionIds": [
         "meaning"
       ],
@@ -5669,7 +5669,7 @@
       "objectiveId": "KP09:objective:grammar/G3:요1:R",
       "taskId": "KP09:grammar:08",
       "sourceHash": "fcab0f752cbc07a9a0261bae1236e1ec5e319e3b7c2c42914ba4ea05e82f711e",
-      "taskHash": "c7c27fc617c9edc4688b04273da92884f084fe1e51cd06a72792b89082a63220",
+      "taskHash": "0fb3542ebcbffdc711900cc53167c2599b06adfc21e34e0bd4ba084294452e23",
       "criterionIds": [
         "meaning"
       ],
@@ -5680,7 +5680,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-었었-:R",
       "taskId": "KP09:grammar:09",
       "sourceHash": "f87fced25c284214b1a6fdc060c3ebfa3e285dea8d08ab0f3a3e0277c69840ae",
-      "taskHash": "900c05dc3621027ab293d08cbf9b077b46d6ac5a1debc8c15d32182454884b2d",
+      "taskHash": "3bbc4aba0e0eb66764406f02d31ec0e64078ee92081a14c36aa991ad7ef96774",
       "criterionIds": [
         "meaning"
       ],
@@ -5691,7 +5691,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-는 중이다:R",
       "taskId": "KP09:grammar:10",
       "sourceHash": "512b1c420bc86480eb5cea9fcd6aa3d4b263ac94d5c52e778814e1db05e090f2",
-      "taskHash": "2128e962dd8584c9d66ffc0c55d70b47456af8f4c05f0186a93b4546e62b6308",
+      "taskHash": "dbdffd004439798658831f14fe53cd825570255c71bb248d59be553620bab7f3",
       "criterionIds": [
         "meaning"
       ],
@@ -5702,7 +5702,7 @@
       "objectiveId": "KP09:objective:grammar/G3:-고 싶어 하다:R",
       "taskId": "KP09:grammar:11",
       "sourceHash": "8d036374334539901cb1f1fde60915f762aa3166e17baa179080575f8eb41fab",
-      "taskHash": "36b2a2b8660b19f1bfd55a0143003ab0174a7151298619aa03954d78b54cd304",
+      "taskHash": "b135e5bcaabd432bff4de0f077091223384bda46e075f60250e0667de9ba1787",
       "criterionIds": [
         "meaning"
       ],
@@ -6178,7 +6178,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-다가1(2):R",
       "taskId": "KP10:grammar:01",
       "sourceHash": "b352a352e5757f458e7a4dc0a854a73cb1ad46e5670dcea8d708f52eb8d4d034",
-      "taskHash": "c98563108d0f04c5e1343c9e54528d12f9cfbbede95adb46d800ea5809e38bb8",
+      "taskHash": "a0c3b4b5a4f9949314afb328aa8350ba91cea94195b3ef5d9ee1360ed98d9af8",
       "criterionIds": [
         "meaning"
       ],
@@ -6189,7 +6189,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-으려다가:R",
       "taskId": "KP10:grammar:02",
       "sourceHash": "5d139ac7258af23db44c11dfb5b48fa632c7c2d7e3c35fdcdceb634831ee8534",
-      "taskHash": "b365eaae0227e35c3d984127093c4c761b20583a9f9a15328b85269845b7311e",
+      "taskHash": "73fad5acfb263d1a69d978fab876915eab79ae7a75d81429447027c561f30cf9",
       "criterionIds": [
         "meaning"
       ],
@@ -6200,7 +6200,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-었더니:R",
       "taskId": "KP10:grammar:03",
       "sourceHash": "8cb5e85566403e1422d138d046b2257f2fc1d73d9a6a4c2c34d426943e82213c",
-      "taskHash": "dbd1792b8f20110a07164594e5c749b3c92e1947e2d65a2296a88a89864e6fef",
+      "taskHash": "2873619452cad5e5b62eae1c985c24108baed9559175ff7a5a7ba5634cb8be90",
       "criterionIds": [
         "meaning"
       ],
@@ -6211,7 +6211,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-느라고:R",
       "taskId": "KP10:grammar:04",
       "sourceHash": "1216f4238e0f7c87af081c79ac42a18a0a37eac48befc7297ecec2951f832b92",
-      "taskHash": "9276d9d4e5c0a5762c30cdc415da2abf4505b73a268ed436202ad54f86f3f6f2",
+      "taskHash": "a4e718398d3fbbe666e3da5afc8dec175e2a646ee1d364d4c3fa1c0d85deaf83",
       "criterionIds": [
         "meaning"
       ],
@@ -6222,7 +6222,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어다가:R",
       "taskId": "KP10:grammar:05",
       "sourceHash": "a555e3d8c47d4064e95df55628ab14e296e9b34f48594c7a9ebce301b0b0448c",
-      "taskHash": "8f63eab92224d7a2a750a0bda063c26d8716d97b25e7f26f7bf0d66bd0a70987",
+      "taskHash": "e3d0a823580f14f88334254d25585fd6112cdef3ad01d905e0bacba7f7b3a978",
       "criterionIds": [
         "meaning"
       ],
@@ -6233,7 +6233,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-자마자:R",
       "taskId": "KP10:grammar:06",
       "sourceHash": "149ec285ad727653e88235ea33cb900d2af110bbb16564fa35988c6ad776bcb1",
-      "taskHash": "773ef5be51bb557c8b2d202ed8b7ba52b51a3e2afd7d83202965143a0c6448dc",
+      "taskHash": "a2723088a4f557a04cee1a597c0bb61a513a76a4ff4dfe5d46beca98f8686399",
       "criterionIds": [
         "meaning"
       ],
@@ -6244,7 +6244,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-고 나다:R",
       "taskId": "KP10:grammar:07",
       "sourceHash": "e2d9f1f00b2509bb6b19945ba114854ca31782a13aac4da4729deb8aa13155bb",
-      "taskHash": "8336cae966d4b81600270ed538b2871bfca0a34ee3d3181efd790cc15b9c04eb",
+      "taskHash": "c7f947c3b7b1215eeeee0363cc35a691ab2e1a3a3d9822922bb233059213ea17",
       "criterionIds": [
         "meaning"
       ],
@@ -6255,7 +6255,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-고 말다:R",
       "taskId": "KP10:grammar:08",
       "sourceHash": "8fc7325845ce6e3e9f287fa8a550acbdbff3b897b40fc2fa782a83f0093e1261",
-      "taskHash": "cd4846967b8aa9c01644f44c7ea0c5acaa59bfc1c76426b13ce6c3823e014149",
+      "taskHash": "9988e339d88abac0d6b2cab50c74aa4a627f1e3ff597413142da1567d976beff",
       "criterionIds": [
         "meaning"
       ],
@@ -6266,7 +6266,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어 가다:R",
       "taskId": "KP10:grammar:09",
       "sourceHash": "0d079c380582738d75de099a5f077fee17b08fda2ddaab0e01cc4f9b2c480867",
-      "taskHash": "2299fc3355bb219124680a2a979c07b10ae9be894e5830a5cbee68516b716bbb",
+      "taskHash": "3bb0ff5c9f6eab03a384b9c931c66513219a4ad146cb72117ce67a8f61d72bcf",
       "criterionIds": [
         "meaning"
       ],
@@ -6277,7 +6277,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어 오다:R",
       "taskId": "KP10:grammar:10",
       "sourceHash": "23ed62315412b77d529cd1d9671f8e05e7136e4bb9e423ce815fbc97df0ed622",
-      "taskHash": "81dd8969d19f23e8f572f29a1d14275281d1028346abe673c0d09049d313a519",
+      "taskHash": "1445695f7f62c8530aa76bd307f43320a05b134b85588eeabd2a7d74af24bba0",
       "criterionIds": [
         "meaning"
       ],
@@ -6288,7 +6288,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어 놓다:R",
       "taskId": "KP10:grammar:11",
       "sourceHash": "7596869320c48cb5bb4dd704015265b135cb24ff40922e1e3bdacc1ddb8dd135",
-      "taskHash": "499eb004cc9239906cbf005470a552a5329a488478797e83b280bdbac30e1330",
+      "taskHash": "3a29631cdce745b8da9fd55c967c2768966150f7548390a6551c5d9e5d4ed640",
       "criterionIds": [
         "meaning"
       ],
@@ -6299,7 +6299,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어 두다:R",
       "taskId": "KP10:grammar:12",
       "sourceHash": "2e968d71a9cdcbf996e93af332aae03e767319fa3484cbb1acf3380b1dc77118",
-      "taskHash": "d141d3ebd1b2506c6164a54889967079785b87389b8e5d6f77750f63ebf8edb5",
+      "taskHash": "6e80c76619386c9c984394e22ce607d0968b289e6a192bada99a4ab23bb07431",
       "criterionIds": [
         "meaning"
       ],
@@ -6310,7 +6310,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어지다:R",
       "taskId": "KP10:grammar:13",
       "sourceHash": "ae29862ed9af131d006d1e85a2decf532f77d286776fa598f7f97888be768719",
-      "taskHash": "b67f5d9d2a5858d8272dd9eee954e7a2fa69fb227f874914bd445e387cac5ad9",
+      "taskHash": "83905c9019a3219cfbeae52c9e466a5ff19e8c5cd0334e9ba40f1b87eba22e6a",
       "criterionIds": [
         "meaning"
       ],
@@ -6321,7 +6321,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-은 결과:R",
       "taskId": "KP10:grammar:14",
       "sourceHash": "f3ff0a87f90576175f3a51d013989fcbf467fd235bbad4d71c6d753955816a14",
-      "taskHash": "960c4bea85cb2b5ccb5457ac105b04c03afc6ece23ea90b3945803a9f0508d57",
+      "taskHash": "c3294055ad3e9680c58e17010c265108cb330648b03610e801e18c52edd58516",
       "criterionIds": [
         "meaning"
       ],
@@ -6332,7 +6332,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-은 다음에:R",
       "taskId": "KP10:grammar:15",
       "sourceHash": "e04c7fe862fd785e743d85dbe4f77acb6c8ecac93f57f05ea4be53573fd93694",
-      "taskHash": "d0da5a60ce27502fc9282f718efb1e9af3af17158e949efb6460f687c5c79b9e",
+      "taskHash": "a9a2a58564b892825aa9388f370ee0e98ad9f772a9ddd6e8429eec735d55c98d",
       "criterionIds": [
         "meaning"
       ],
@@ -6343,7 +6343,7 @@
       "objectiveId": "KP10:objective:grammar/G3:-어 가지고:R",
       "taskId": "KP10:grammar:16",
       "sourceHash": "194bef36db2798499446c494369a4e8b0b12d0f80bee16f7c392fb0abef9c268",
-      "taskHash": "3efb4d200ff637068c7d3b94afc865dad38193afc66d47809d434b905ae8dc32",
+      "taskHash": "df57a983c2fe4e3ad19ad20771b29fd32e459327911855f5315ddc96f2b0fed1",
       "criterionIds": [
         "meaning"
       ],
@@ -6354,7 +6354,7 @@
       "objectiveId": "KP10:objective:grammar/G2:-어 있다:R",
       "taskId": "KP10:grammar:17",
       "sourceHash": "a2a687e53702e684d2b43e4a64fcb744dc71dd7a2a990fda9dbe9b2835470390",
-      "taskHash": "773c69e9eb4d70ecf8c783ac4b37762d2aca43c221e140d1a1bc8d5fe4223ea5",
+      "taskHash": "d5050fdd8914274af41551ecd73dbcffc60f4231fbdca8da2ee0add53d1656f0",
       "criterionIds": [
         "meaning"
       ],
@@ -6900,7 +6900,7 @@
       "objectiveId": "KP11:objective:grammar/G3:만큼:R",
       "taskId": "KP11:grammar:01",
       "sourceHash": "d753d25d2e9adecb0875b62471b767ab06b8e2f4ebc8a20d008bc959ae8719e3",
-      "taskHash": "2fd1122cbf4080dd0c6cd689c08d4ef9684ed26bd64e0bc857364e94a301ba53",
+      "taskHash": "d438d39c97be5bf1e98ff31e0a5317038b05e911b229011c4c7ec3cab2f2f616",
       "criterionIds": [
         "meaning"
       ],
@@ -6911,7 +6911,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-는 만큼:R",
       "taskId": "KP11:grammar:02",
       "sourceHash": "f9a1f98103789573926243714bccb2a6019b342266850743e7b5e6de64df6e38",
-      "taskHash": "03eb934e78cec44f9c69156d0c0415c7672f75c1573ce9f23610ff39cae5ac91",
+      "taskHash": "b8977c9c4a291cf911e21aa23469501622b4fa660c9ca901a315abeff4fcdd65",
       "criterionIds": [
         "meaning"
       ],
@@ -6922,7 +6922,7 @@
       "objectiveId": "KP11:objective:grammar/G3:같이:R",
       "taskId": "KP11:grammar:03",
       "sourceHash": "85d282f3cce9554d2edb5434812d60547dbde5c67410c3e6cc67f9642262f7e2",
-      "taskHash": "eb89819e9fdcdd3ad482a0d5d6b592df1ec78eb56b22f56abf48b56fa059dc0a",
+      "taskHash": "7338bd815b8e8b29785be48ad7c044ff894b58b4a3de9211d625d9b3afd9793c",
       "criterionIds": [
         "meaning"
       ],
@@ -6933,7 +6933,7 @@
       "objectiveId": "KP11:objective:grammar/G3:대로:R",
       "taskId": "KP11:grammar:04",
       "sourceHash": "f2a277a7c2a582a776faf2424d804e5e6501169cc9bdd2e07d603d245a77bca9",
-      "taskHash": "339163d698b3aeb0ccfdf894a7f3581161c30242fcdde26c9f6f86bc227a5b71",
+      "taskHash": "e4d28107b3e698fe31564baeecd3b7f9f5fcbcec6d8887f60052eb8b65454432",
       "criterionIds": [
         "meaning"
       ],
@@ -6944,7 +6944,7 @@
       "objectiveId": "KP11:objective:grammar/G3:뿐:R",
       "taskId": "KP11:grammar:05",
       "sourceHash": "fa15dc264a121b60dd80bcdbeb77a680460c2fbcbcc31822adda45c7d7beca69",
-      "taskHash": "701a32a0e49a806ce52d27b54c141d6f1c128ed7bc496060ea9241e83284f935",
+      "taskHash": "114ef251a2d2f4c46df8b98b51d6673cdecbcbd13df7ced07a978c8ff365bf61",
       "criterionIds": [
         "meaning"
       ],
@@ -6955,7 +6955,7 @@
       "objectiveId": "KP11:objective:grammar/G3:이고:R",
       "taskId": "KP11:grammar:06",
       "sourceHash": "2d157cbc61023c63b2da13bc95e46c46c1e4bb73e0e79804c5612f9517e49fae",
-      "taskHash": "05f6455ddbbbfb588f9f46561232a9643d65eee961f10e8db722dce211079050",
+      "taskHash": "f4dc4f13d092e1143c5063b531c8c68fef872753586213079bfb71655e538a62",
       "criterionIds": [
         "meaning"
       ],
@@ -6966,7 +6966,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-어도:R",
       "taskId": "KP11:grammar:07",
       "sourceHash": "d1792aaae6c0025a8732c2af8c5e2495d5ebc4bce7ec5a21fa45a151770192ae",
-      "taskHash": "377b1905e32eaf878f24377685260328dcc11cefe4186d2a2be14e1f687b6b07",
+      "taskHash": "39b39ebd82b55bbbddde7a4001092e7001ed51b9c26ee5a32e607a5321a947bb",
       "criterionIds": [
         "meaning"
       ],
@@ -6977,7 +6977,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-으나:R",
       "taskId": "KP11:grammar:08",
       "sourceHash": "14f047bb947adb822d260ea26d10c8a8b3bb9ee9cf8272a95cc3f8407dce891c",
-      "taskHash": "97df040907e6ea16345ea2e65d2cbcaeb50a09206278ceceb87154cb68cdb3bd",
+      "taskHash": "2a397e031f52d089d19c81d3fbaafba9604feb0a70af63087287c251f130b643",
       "criterionIds": [
         "meaning"
       ],
@@ -6988,7 +6988,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-는 대신에:R",
       "taskId": "KP11:grammar:09",
       "sourceHash": "4c8dea22fa961c18b4300fd9f56bcabdbfa46ec6c4eccac0ea0d5a78c7da2755",
-      "taskHash": "2ec20bfd12668b4db8eece0c1ad827296942fb4886b901769347e6a4a7f58c5a",
+      "taskHash": "a9366e9d8f19d42943a85d793e083ab7ab47bf1917e5d6053a1ba0dce75e3f1f",
       "criterionIds": [
         "meaning"
       ],
@@ -6999,7 +6999,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-는 반면:R",
       "taskId": "KP11:grammar:10",
       "sourceHash": "9aed0c000ab3a98005a613bef70a64ae40e25415f0a869bed8ad1617ee74bd0e",
-      "taskHash": "4b16a4215c4bf51a530151c171e4015d232a9b354c7acf8e220b43ac3828ce1c",
+      "taskHash": "b05e93a3a8b6dc4bcb41c790a95a53e53eadb6cc04d1bdb91a836d060d692d4e",
       "criterionIds": [
         "meaning"
       ],
@@ -7010,7 +7010,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-는 편이다:R",
       "taskId": "KP11:grammar:11",
       "sourceHash": "dbfca21636b9aaf52b628ba7129a94a0a897238ae3fad7695cd5766361f0b8e2",
-      "taskHash": "7faf095e8c7a6c433f9c1259085fbc1730b03ed84f6894c747a96325754803ec",
+      "taskHash": "06d36188ba1e6265a71d09c47d6a0e83852304dec0dc38d2bb8c54726d5d7218",
       "criterionIds": [
         "meaning"
       ],
@@ -7021,7 +7021,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-어 보이다:R",
       "taskId": "KP11:grammar:12",
       "sourceHash": "db2ae00c37fd1cad3dcb699e7f52542cb09e2030f095048913c8af86248abca7",
-      "taskHash": "573d73cfe6b72b39c8e3270d8d67d70ad7f8f34c9d8c14750acde3bf5b31c36e",
+      "taskHash": "c7544c5cb0ed69e38a243317ac219506c50ac3c60e1d7126288a0e23b7e7b6f3",
       "criterionIds": [
         "meaning"
       ],
@@ -7032,7 +7032,7 @@
       "objectiveId": "KP11:objective:grammar/G3:-기는:R",
       "taskId": "KP11:grammar:13",
       "sourceHash": "54dfd032935cc4915ee3277ad4c0748c2f4c231ccf083298b21f7818e5620aaa",
-      "taskHash": "5b2d507fa67018540d5a3362579bbd3165c1239522fccb6fb47754c91404ae98",
+      "taskHash": "0750fd373dce5574f590a952e454bcc51310d1b2a59a4c02403ede2856f696e1",
       "criterionIds": [
         "meaning"
       ],
@@ -7043,7 +7043,7 @@
       "objectiveId": "KP11:objective:grammar/G3:에 대하여:R",
       "taskId": "KP11:grammar:14",
       "sourceHash": "1e89cfa2cafed515c0941eb96a194b02296ca6b6987daede05fc8f8c2583e882",
-      "taskHash": "0ef98aeccaa2a0c0c70f201e2fb7df44122a49a2725366f76083cb3423bf0116",
+      "taskHash": "fcc5b07c50f355bc2d94ce0c6647dac8b6d350b447acac09a267a30aeca367b3",
       "criterionIds": [
         "meaning"
       ],
@@ -7576,7 +7576,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-거든1:R",
       "taskId": "KP12:grammar:01",
       "sourceHash": "656dc106eb0be5e99145191d3264ccbd995f9a807698fabed2ecd5fdb1efd744",
-      "taskHash": "b9f971da607ab01be46522592416c54703da139662cb25ca00df09cdcc689764",
+      "taskHash": "5bdbb1917858291167d3b4d6d658d4e2882e678de02e90613d5eef6d88088f46",
       "criterionIds": [
         "meaning"
       ],
@@ -7587,7 +7587,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-어야:R",
       "taskId": "KP12:grammar:02",
       "sourceHash": "85bb136a77fc75782e02cb38ac72b2bf7fd66ca9e88439d820cce01b3d46c191",
-      "taskHash": "da4b91da8748f03951273226e767f70cfd85852360e14243045aabe44f2b6b94",
+      "taskHash": "cec328afda865e03c2f4e5dff9eb02a63632a875eee58eec23978eec12aa5199",
       "criterionIds": [
         "meaning"
       ],
@@ -7598,7 +7598,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-어야지1:R",
       "taskId": "KP12:grammar:03",
       "sourceHash": "0109ae3777a8c51627a92076e7c9219aa86557c2845adc1792b197b8711094ff",
-      "taskHash": "5af5a68cf5be33d74967bac4eb815998d2484bc86044f3536a4913790521eaf7",
+      "taskHash": "74ae8a2662896cad0eb3a6a9a068c76750d7953232303d754f66b5c89ae1a684",
       "criterionIds": [
         "meaning"
       ],
@@ -7609,7 +7609,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-어야겠-:R",
       "taskId": "KP12:grammar:04",
       "sourceHash": "7c8f261d3d1f12e29ac8d4742928c812863d12e24a5852d0afbbe88590654808",
-      "taskHash": "fbfcb60e67705d8507b6fd0e451c319239db2a97be33b0a69f856441fb34f4bb",
+      "taskHash": "89c0028418f0d36bfff56b25b05b21a9682f14175aa88e0e926b252f9cf976e4",
       "criterionIds": [
         "meaning"
       ],
@@ -7620,7 +7620,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-으려면:R",
       "taskId": "KP12:grammar:05",
       "sourceHash": "8ff8b79d9e1aeded4f769ac43393bde5a7e42ded1ed84398c88563c54b87d79d",
-      "taskHash": "c37e51b23638094c2235025d9c1b829fb2422224b30f570a051fc6564f81db07",
+      "taskHash": "4e8857acde18e3e96e1817ba4bc759ced0430237306b5d1ab7e67ec484ce104e",
       "criterionIds": [
         "meaning"
       ],
@@ -7631,7 +7631,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-도록:R",
       "taskId": "KP12:grammar:06",
       "sourceHash": "48ddc07db06d67db3309e44b7c0d07057a474bdf2860ab5b31887a449e785c94",
-      "taskHash": "8bff72458b62006b87924bf3b76b6c2e591054780efd5139f20004e7905d66fc",
+      "taskHash": "6e0330d278836b155abac26de179aacc4a4407c5d26e0377b715952a8507b01e",
       "criterionIds": [
         "meaning"
       ],
@@ -7642,7 +7642,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-기 위해:R",
       "taskId": "KP12:grammar:07",
       "sourceHash": "f263bf811d92afe96bbe06b4e713ee7c98a57c69e35f7a574414ff9ce2d7db05",
-      "taskHash": "268cb654c3632f2835f3ed5fb971f3618f123315b0dc79b3aaa449ea31f4cf1a",
+      "taskHash": "679b4bedca8df24b98876602bbb48090a8d1ee436f65bfb92be2d2205bfcf03f",
       "criterionIds": [
         "meaning"
       ],
@@ -7653,7 +7653,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-게 하다:R",
       "taskId": "KP12:grammar:08",
       "sourceHash": "0875ec72450109d61f656e62b6751fe3b3dff675139708db4b0ce3669922e891",
-      "taskHash": "09704ac42ea2751b0312b63f0559a5bd30b01aec7de675cc3a29b8e8fd7134f9",
+      "taskHash": "b374dec90389a6214168929e6234ac9595d83a66c1004ccf8b797a1cbb1df531",
       "criterionIds": [
         "meaning"
       ],
@@ -7664,7 +7664,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-어 드리다:R",
       "taskId": "KP12:grammar:09",
       "sourceHash": "819110673ebef84a228cc7e6e6db305a4e260fb4f2e08dd278e1e3a96d9be96d",
-      "taskHash": "b9aa2bc35f0db5c027d60d4a7b55e73295078ea237eb718da2fd5e8fb8f6f1ff",
+      "taskHash": "daf6d41a6d55e00170510617b5817da4338fc7dd1f4bef887518e25a9dbc6175",
       "criterionIds": [
         "meaning"
       ],
@@ -7675,7 +7675,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-으면 안 되다:R",
       "taskId": "KP12:grammar:10",
       "sourceHash": "89beb66f862b0757e76a421d9e293f2643a3bc4864b31c2280f2c496a930de13",
-      "taskHash": "70dfafb6a2ae7b40863b36d2c08a48259aa11bfb48abe68e20debb020370f378",
+      "taskHash": "5dbed1b37d1dba5b79c0209f945cbf36683019d460af23437434b11ca8222a77",
       "criterionIds": [
         "meaning"
       ],
@@ -7686,7 +7686,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-으면 좋겠다:R",
       "taskId": "KP12:grammar:11",
       "sourceHash": "da6f591363ff21dcb3af0fbbbba40f29ba87a8267da3f9e0f512e321cbec6a37",
-      "taskHash": "afbdf95835e27c259f2b72e6d2f88d5371399dd303f9a0f9bcf197703769eece",
+      "taskHash": "5c268a7db65bcdcea45a846f85f6d5bd0dca1b1d892bdacff37e575df5031113",
       "criterionIds": [
         "meaning"
       ],
@@ -7697,7 +7697,7 @@
       "objectiveId": "KP12:objective:grammar/G3:-을 테니:R",
       "taskId": "KP12:grammar:12",
       "sourceHash": "35ea5f27305381081f16e8eba87c06406ec5a57a841730744b9908d1ec0c0d0b",
-      "taskHash": "6756b389d667bacd1961557ba52f3b95c479741e1eca2da28938a77a297de1b5",
+      "taskHash": "5daafdc6091f950d7c9265c1f0d4c1ef190672303f04347d92276b5ce0c97739",
       "criterionIds": [
         "meaning"
       ],
@@ -7708,7 +7708,7 @@
       "objectiveId": "KP12:objective:grammar/G3:만 아니면:R",
       "taskId": "KP12:grammar:13",
       "sourceHash": "08aff947b7c4d2eb11d863a19e2a80c3432b0b02c6e2f8b312eedba7cdf1677c",
-      "taskHash": "a29f4259521e7d9063a95898dad0fedc23dff939264e160fc292c9edbb26620f",
+      "taskHash": "4d932d99265b5c22f12c9c29235b8420c8c8d9f982d2c39f7389428ea3884589",
       "criterionIds": [
         "meaning"
       ],
@@ -8230,7 +8230,7 @@
       "objectiveId": "KP13:objective:grammar/G3:이라고1:R",
       "taskId": "KP13:grammar:01",
       "sourceHash": "c815219740c5c1ca62c743363a8a5008397ecb31cc17e8e14ca02051f9509765",
-      "taskHash": "92f07b249aadb16da369f6f08a50cadd9e35692151803ad565205bb7f2a2851b",
+      "taskHash": "cb8f66229558d98e0392b42ab5a31d8414bf20e58c7fb8993bad43d49ebfd578",
       "criterionIds": [
         "meaning"
       ],
@@ -8241,7 +8241,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-는다고3:R",
       "taskId": "KP13:grammar:02",
       "sourceHash": "9c6e60b13b910280de5ce723117861c425b90c3a797586db2a33c81b1080c5ca",
-      "taskHash": "316f614e355c78ba7f903ed4d0b9ca0f89b7c3aa219e932ef0a2f15319b803a2",
+      "taskHash": "c2e7c3f8666c5533dfd690f9dbe28ee5cfa0084ff2d1911c80c7a4e78aa8acf5",
       "criterionIds": [
         "meaning"
       ],
@@ -8252,7 +8252,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-는다고1:R",
       "taskId": "KP13:grammar:03",
       "sourceHash": "1d02f2566f0c95f51a9fbc2c2cc8889887e4cde10b020437aacc7c75619a4d74",
-      "taskHash": "fdfcabdc6ba7656831f3e980c9fbdb5fe953c354f8672da7539310a7c2e61ef1",
+      "taskHash": "9a68b181d4aa08e6f799d7e2c9f9d28bcb32cb982141c0f32ca43838762d1c37",
       "criterionIds": [
         "meaning"
       ],
@@ -8263,7 +8263,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-는다거나1:R",
       "taskId": "KP13:grammar:04",
       "sourceHash": "92254d77dc9fed0cc176f5e5b72cc92a1c08313a3addfd1251b2125adbfec58b",
-      "taskHash": "8b466e8e025ee5d632ca67f5dc1dbaafa6aa37828eee07d7064ed8dc487d9022",
+      "taskHash": "59359b11652161e1f8aab1aaabf79def8307d699b0d9403af8dd3f972103ef84",
       "criterionIds": [
         "meaning"
       ],
@@ -8274,7 +8274,7 @@
       "objectiveId": "KP13:objective:grammar/G3:보고:R",
       "taskId": "KP13:grammar:05",
       "sourceHash": "393cc7a8bb9a54963d6368d5a6cad3d16da38a38b137606e392d7082fb794ca4",
-      "taskHash": "d13c1abf63a29fc2ef97b934becf431420066f09a417cd24213d030b13a5aa19",
+      "taskHash": "d74a4a15627b69c42b15d79dc4bbddcb5f4a34a9ac8ddc24ffe279af45920db3",
       "criterionIds": [
         "meaning"
       ],
@@ -8285,7 +8285,7 @@
       "objectiveId": "KP13:objective:grammar/G3:으로부터:R",
       "taskId": "KP13:grammar:06",
       "sourceHash": "867d6136fcb7d6cd172c81795a1e2cd843eea7f1cf32accdc2ee69f4ce43b6a3",
-      "taskHash": "2c3e0c7a6bb6b336e4b2a5f47773c3506a1fed2a0ef31d28317a88eedf401aaa",
+      "taskHash": "d3b82ddd7c4efa26457231167c105faec9d949c682f9973635fcc9b8707c7ddc",
       "criterionIds": [
         "meaning"
       ],
@@ -8296,7 +8296,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-거든2:R",
       "taskId": "KP13:grammar:07",
       "sourceHash": "2e1bab366cc9d37dce7ed41f2f3bf40ea141417e746a3710399bec796cc47b4d",
-      "taskHash": "0154a6f9c305a7d2780d96eea1baf4571b9da825b80bdd309b86a135165c8c7e",
+      "taskHash": "5bc2b04720467389529eb6c6f61b45de8a8318a74d41b7a92c8fe9a50410c5dc",
       "criterionIds": [
         "meaning"
       ],
@@ -8307,7 +8307,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-잖아:R",
       "taskId": "KP13:grammar:08",
       "sourceHash": "cd2a5acebaa39109fde46e6d3c96f28e5c4a8aad270f727f572de433c01dffb0",
-      "taskHash": "185669e680b486341fb5babb98d36cf9df91cf761c35f9f1926315f70a86aee1",
+      "taskHash": "76b3ff2d0f58d8c72a522e86f36abe1ba080a2160f9907869c94f0cfe29be85a",
       "criterionIds": [
         "meaning"
       ],
@@ -8318,7 +8318,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-나 보다:R",
       "taskId": "KP13:grammar:09",
       "sourceHash": "d994578a1c9c39474df20e36de51b5d7c549f5dc7c36d26bb2b8708ac4844cdf",
-      "taskHash": "efc277a78fe7885dc857a03fb77a7087011a91d11c2ec96cf9220388607ef17c",
+      "taskHash": "2eb29dd7ad44342fd6568ff97641b3790b9183cec336594786e94d16d27a08b1",
       "criterionIds": [
         "meaning"
       ],
@@ -8329,7 +8329,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-는가 보다:R",
       "taskId": "KP13:grammar:10",
       "sourceHash": "75261b8c85b584800feb0eaade34dd074637b4ede82e2405c2303b5b9b38df29",
-      "taskHash": "f48272e5b74d190dd5eb57c47dd9a460dcc186ac7dd734e599106d9344616135",
+      "taskHash": "3ffa5b73406887d301daf5ac9e103d3bf1dc3195ed887a1ef73056ae2935258e",
       "criterionIds": [
         "meaning"
       ],
@@ -8340,7 +8340,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-는 모양이다:R",
       "taskId": "KP13:grammar:11",
       "sourceHash": "c35460884ac7099a86dcbc3d7fdfbc39d7292a8d9f5877999053167f0039f901",
-      "taskHash": "629030b0baf0fba3b233212094ef2b09df058b65783433994ba65f81a525b398",
+      "taskHash": "171d58be6562bf16c93a2cc17e1686409d606d497be84af50cf4277b6711c682",
       "criterionIds": [
         "meaning"
       ],
@@ -8351,7 +8351,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-을 텐데:R",
       "taskId": "KP13:grammar:12",
       "sourceHash": "259fec63f3edec1900827b2b52ad9c4b663842bd87ceb67b56226cce30ec98c2",
-      "taskHash": "dc2f0e661d4707f238dc265feaf1d5ade1ffd618d495bccb0f72c23f8a5d3029",
+      "taskHash": "8139df8a00a60056cd3a1cb1402239a202adac965d889f75c0faf9f491802697",
       "criterionIds": [
         "meaning"
       ],
@@ -8362,7 +8362,7 @@
       "objectiveId": "KP13:objective:grammar/G3:-으니2:R",
       "taskId": "KP13:grammar:13",
       "sourceHash": "764ed8252e84eec8aae8fd8d3dff45c04ac4148d19f03cc7676c95e9fd0c49ad",
-      "taskHash": "6ab20a07416253e244aa9ebc13df19b8b79dc722c3e6ae34031f418781a8730d",
+      "taskHash": "dfb8022b1e7242b201c01324a2224a187b1beb139dfd453b52701618ec0498a4",
       "criterionIds": [
         "meaning"
       ],

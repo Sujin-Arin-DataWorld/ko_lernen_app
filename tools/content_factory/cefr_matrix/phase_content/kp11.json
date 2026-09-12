@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "만큼",
@@ -26,8 +26,7 @@
         "de": "Nach einem Nomen nennt 만큼 einen Maßstab für Grad oder Menge. Behalte das Vergleichskriterium bei; es bedeutet keine Gleichheit in jeder Hinsicht."
       },
       "examplesKo": [
-        "저도 친구만큼 연습했어요.",
-        "이 방도 저 방만큼 넓어요."
+        "저도 친구만큼 연습했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 만큼",
@@ -123,8 +122,7 @@
         "de": "Nach einem Satzteil verbindet 만큼 dessen Ausmaß mit dem Ergebnis. Hier geht es um eine proportionale Beziehung, nicht um eine belegte naturwissenschaftliche Formel."
       },
       "examplesKo": [
-        "연습한 만큼 자신감이 생겼어요.",
-        "준비한 만큼 발표가 수월했어요."
+        "연습한 만큼 자신감이 생겼어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "같이",
@@ -220,8 +218,7 @@
         "de": "Hier bezeichnet 같이 nach einem Nomen Ähnlichkeit. 저같이 bedeutet wie ich, nicht zwingend gemeinsam mit mir am selben Ort."
       },
       "examplesKo": [
-        "동생도 저같이 매운 음식을 좋아해요.",
-        "친구도 저같이 조용한 영화를 좋아해요."
+        "동생도 저같이 매운 음식을 좋아해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "대로",
@@ -317,8 +314,7 @@
         "de": "Nach einem Nomen bedeutet 대로, nach dem genannten Maßstab oder Verfahren zu handeln; ändere diesen nicht."
       },
       "examplesKo": [
-        "안내문대로 신청서를 썼어요.",
-        "계획대로 예산을 나누었어요."
+        "안내문대로 신청서를 썼어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "뿐",
@@ -414,8 +410,7 @@
         "de": "Nach einem Nomen beschränkt 뿐 den Umfang auf dieses Element; nur dies ist etwas anderes als auch dies."
       },
       "examplesKo": [
-        "남은 것은 이것뿐이에요.",
-        "지금 확인된 것은 가격뿐이에요."
+        "남은 표는 한 장뿐이에요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이고",
@@ -511,8 +506,7 @@
         "de": "In diesem Kontext schließt A이고 B이고 die genannten Gruppen unabhängig von der Kategorie ein. Unterscheide dies von einer einfachen Kopulaverbindung und ergänze keine ungenannten Gruppen."
       },
       "examplesKo": [
-        "아이이고 어른이고 모두 참여했어요.",
-        "평일이고 주말이고 모두 문을 열어요."
+        "아이이고 어른이고 모두 참여했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어도",
@@ -608,8 +602,7 @@
         "de": "Die Schlussaussage gilt auch bei zugestandener Bedingung; erhalte ihre Bejahung oder Verneinung."
       },
       "examplesKo": [
-        "비가 와도 행사는 열려요.",
-        "가격이 싸도 저는 사지 않을 거예요."
+        "비가 와도 행사는 열려요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으나",
@@ -705,8 +698,7 @@
         "de": "Verbinde gegensätzliche Tatsachen in förmlicher Sprache; ein Vorteil hebt die Einschränkung nicht auf."
       },
       "examplesKo": [
-        "가격은 비싸나 품질은 좋아요.",
-        "공간은 작으나 교통은 편리합니다."
+        "가격은 비싸나 품질은 좋아요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 대신에",
@@ -802,8 +794,7 @@
         "de": "Drücke Ersatz oder Ausgleich aus. Behalte bei diesen Aufgaben bei, wer welche Handlung übernimmt."
       },
       "examplesKo": [
-        "오늘 제가 하는 대신에 내일은 도와주세요.",
-        "택시를 타는 대신에 버스를 탔어요."
+        "오늘 제가 정리하는 대신에 내일은 동료가 정리해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 반면",
@@ -899,8 +890,7 @@
         "de": "Stelle zwei Möglichkeiten oder zwei Seiten derselben Möglichkeit gegenüber. Das bedeutet nicht automatisch Ersatz oder eine Tauschbedingung."
       },
       "examplesKo": [
-        "이 집은 넓은 반면에 교통이 불편해요.",
-        "이 영화는 짧은 반면에 설명이 부족해요."
+        "이 집은 넓은 반면에 교통이 불편해요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-는 편이다",
@@ -996,8 +986,7 @@
         "de": "Drücke eine relative Tendenz statt einer absoluten Aussage aus; Ausnahmen bleiben möglich."
       },
       "examplesKo": [
-        "저는 아침에 일찍 일어나는 편이에요.",
-        "이곳은 다른 곳보다 조용한 편이에요."
+        "저는 아침에 일찍 일어나는 편이에요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1080,7 +1069,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어 보이다",
@@ -1093,8 +1082,7 @@
         "de": "Beschreibe einen äußeren Eindruck, keinen bestätigten inneren Zustand oder Leistungsnachweis. Aussehen beweist weder Gesundheit noch Charakter."
       },
       "examplesKo": [
-        "오늘은 조금 피곤해 보여요.",
-        "이 가방은 가벼워 보여요. 무게는 아직 몰라요."
+        "이 의자는 편안해 보여요. 아직 앉아 보지는 않았어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1177,7 +1165,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기는",
@@ -1190,8 +1178,7 @@
         "de": "Gestehe einen Punkt zu und ergänze einen Vorbehalt; mache daraus keine uneingeschränkte Zustimmung."
       },
       "examplesKo": [
-        "좋기는 하지만 너무 비싸요.",
-        "편리하기는 하지만 설명이 부족해요."
+        "좋기는 하지만 너무 비싸요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -1274,7 +1261,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "에 대하여",
@@ -1287,8 +1274,7 @@
         "de": "Nenne das behandelte Thema; seine Nennung bedeutet weder Zustimmung noch einen Kausalzusammenhang."
       },
       "examplesKo": [
-        "한국의 음식 문화에 대하여 이야기했어요.",
-        "대중교통 요금에 대하여 의견을 나누었어요."
+        "음식 문화에 대하여 이야기했어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],

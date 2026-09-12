@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으시-",
@@ -26,8 +26,7 @@
         "de": "-시- ehrt das Subjekt; -요 richtet Höflichkeit an die zuhörende Person."
       },
       "examplesKo": [
-        "선생님이 지금 오세요.",
-        "할머니가 쉬세요."
+        "선생님이 오세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -110,7 +109,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "께서",
@@ -123,8 +122,7 @@
         "de": "께서 bezeichnet ein geehrtes Subjekt; 께 dagegen einen Empfänger."
       },
       "examplesKo": [
-        "할머니께서 오세요.",
-        "할아버지께서 책을 읽으세요."
+        "선생님께서 오세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -207,7 +205,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어서",
@@ -220,8 +218,7 @@
         "de": "Hier nennt der Satzteil vor -아/어서 den Grund für die folgende Situation."
       },
       "examplesKo": [
-        "비가 와서 집에 있어요.",
-        "머리가 아파서 쉬어요."
+        "비가 와서 집에 있어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -304,7 +301,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-으니까",
@@ -317,8 +314,7 @@
         "de": "Mit -(으)니까 kannst du eine Bitte oder einen Vorschlag begründen. Wie belastend die Bitte ist, hängt auch von Beziehung und Inhalt ab."
       },
       "examplesKo": [
-        "추우니까 안에 들어가세요.",
-        "비가 오니까 버스를 탈까요?"
+        "추우니까 안에 들어가세요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -401,7 +397,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-지만",
@@ -414,8 +410,7 @@
         "de": "-지만 verbindet gegensätzliche Angaben, ohne die erste Aussage aufzuheben."
       },
       "examplesKo": [
-        "방은 작지만 깨끗해요.",
-        "차는 뜨겁지만 맛있어요."
+        "오늘은 춥지만 날씨가 맑아요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -498,7 +493,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "보다",
@@ -511,8 +506,7 @@
         "de": "Vor 보다 steht der Vergleichsmaßstab. Achte auf die Richtung des Vergleichs."
       },
       "examplesKo": [
-        "오늘은 어제보다 추워요.",
-        "버스는 택시보다 싸요."
+        "오늘은 어제보다 추워요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -595,7 +589,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-고4",
@@ -608,8 +602,7 @@
         "de": "Mit -고요 am Satzende ergänzt du eine zusammengehörige Erklärung oder Angabe."
       },
       "examplesKo": [
-        "이 방은 조용해요. 창문도 크고요.",
-        "가게가 가까워요. 가격도 싸고요."
+        "이 방은 조용해요. 창문도 크고요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -692,7 +685,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-기 전에",
@@ -705,8 +698,7 @@
         "de": "Bei -기 전에 geschieht die Haupthandlung vor der genannten Handlung. Reihenfolge allein ist keine Ursache."
       },
       "examplesKo": [
-        "자기 전에 물을 마셔요.",
-        "학교에 가기 전에 아침을 먹어요."
+        "자기 전에 물을 마셔요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -789,7 +781,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-은 후에",
@@ -802,8 +794,7 @@
         "de": "-(으)ㄴ 후에 bedeutet nach Abschluss der vorher genannten Handlung."
       },
       "examplesKo": [
-        "밥을 먹은 후에 쉬어요.",
-        "수업이 끝난 후에 친구를 만나요."
+        "밥을 먹은 후에 약을 먹어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -886,7 +877,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-어야 되다",
@@ -899,8 +890,7 @@
         "de": "Hier bezeichnet -아/어야 되다 eine Notwendigkeit, nicht bloß Zukunft oder eine abgeschlossene Handlung."
       },
       "examplesKo": [
-        "오늘 약을 먹어야 돼요.",
-        "도서관에서는 조용히 해야 돼요."
+        "내일 아홉 시까지 학교에 가야 돼요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
@@ -983,7 +973,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "-겠-",
@@ -996,8 +986,7 @@
         "de": "춥겠어요 kann eine Vermutung aus einem Hinweis ausdrücken. Trenne Beobachtung, Vermutung und die Absicht in 제가 하겠습니다."
       },
       "examplesKo": [
-        "바람이 많이 불어요. 춥겠어요.",
-        "하늘이 어두워요. 비가 오겠어요."
+        "바람이 많이 불어요. 밖은 춥겠어요."
       ],
       "minimumScore": 1,
       "prerequisiteTaskIds": [],
