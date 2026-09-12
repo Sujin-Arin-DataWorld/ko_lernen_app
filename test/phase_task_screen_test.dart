@@ -375,4 +375,54 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+  testWidgets('long German writing prompt stays above an accessible input', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final semantics = tester.ensureSemantics();
+    try {
+      await tester.pumpWidget(
+        host(
+          PhaseTaskScreen(
+            arguments: const PhaseTaskRoute('KP09', 'KP09:writing:01'),
+            loader: () async => catalog,
+            saveAttempt: (_) async {},
+          ),
+          locale: 'de',
+          scale: 2,
+        ),
+      );
+      await tester.pumpAndSettle();
+      final field = find.byType(TextFormField);
+      await tester.scrollUntilVisible(
+        field,
+        400,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.enterText(field, '2022년에는 춘천에 살았다.');
+      await tester.pumpAndSettle();
+      final prompt = catalog
+          .byId('KP09:writing:01')
+          .practice
+          .questions
+          .single
+          .prompt
+          .de;
+      expect(
+        tester.getSemantics(find.byType(TextField)).label,
+        contains(prompt),
+      );
+      final required = find.text('Pflichtkriterium');
+      expect(
+        tester.getBottomLeft(required).dy,
+        lessThan(tester.getTopLeft(field).dy),
+      );
+      expect(tester.takeException(), isNull);
+    } finally {
+      semantics.dispose();
+    }
+  });
 }

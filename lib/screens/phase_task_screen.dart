@@ -462,19 +462,24 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
                           ],
                         ),
                       )
-                    else
-                      TextFormField(
-                        key: ValueKey('${task.id}:$_assessment:${q.id}-field'),
-                        initialValue: _answers[q.id] ?? '',
-                        enabled: !disabled,
-                        decoration: InputDecoration(
-                          labelText: q.prompt.pick(lang),
+                    else ...[
+                      const SizedBox(height: 8),
+                      Semantics(
+                        label: q.prompt.pick(lang),
+                        child: TextFormField(
+                          key: ValueKey(
+                            '${task.id}:$_assessment:${q.id}-field',
+                          ),
+                          initialValue: _answers[q.id] ?? '',
+                          enabled: !disabled,
+                          decoration: const InputDecoration(),
+                          onChanged: (v) => _answer(q.id, v),
+                          minLines: q.kind == 'freeText' ? 4 : 1,
+                          maxLines: q.kind == 'freeText' ? 6 : 1,
+                          maxLength: q.kind == 'freeText' ? 6000 : 240,
                         ),
-                        onChanged: (v) => _answer(q.id, v),
-                        minLines: q.kind == 'freeText' ? 4 : 1,
-                        maxLines: q.kind == 'freeText' ? 6 : 1,
-                        maxLength: q.kind == 'freeText' ? 6000 : 240,
                       ),
+                    ],
                     if (_result != null) ...[
                       Text(
                         q.isUnscored(_answers[q.id] ?? '')
