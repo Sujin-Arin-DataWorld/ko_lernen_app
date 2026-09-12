@@ -471,7 +471,10 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
                             '${task.id}:$_assessment:${q.id}-field',
                           ),
                           initialValue: _answers[q.id] ?? '',
-                          enabled: !disabled,
+                          // Submitted text stays readable and selectable while
+                          // edits remain blocked until the learner retries.
+                          enabled: _result != null || !disabled,
+                          readOnly: _result != null,
                           decoration: const InputDecoration(),
                           onChanged: (v) => _answer(q.id, v),
                           minLines: q.kind == 'freeText' ? 4 : 1,

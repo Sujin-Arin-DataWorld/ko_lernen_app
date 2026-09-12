@@ -103,6 +103,12 @@ void main() {
       await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
       expect(saved!.score, isNull);
       expect(saved!.passed, isFalse);
+      final submitted = tester.widget<TextField>(
+        find.descendant(of: field, matching: find.byType(TextField)),
+      );
+      expect(submitted.enabled, isTrue);
+      expect(submitted.readOnly, isTrue);
+      expect(submitted.controller!.text, draft);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpWidget(host(screen()));
