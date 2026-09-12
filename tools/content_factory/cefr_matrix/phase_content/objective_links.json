@@ -13184,6 +13184,669 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 것 같다 polite tentative judgement about data need/criteria difference, not confirmed insufficiency or known discrepancy. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:listening/core:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "309b071ae4e4246429c256ff6fc70f8eca17f321389b660671abd7f08df646a2",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:listening/additional/1:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "db821ab1734ab495a5021a6072eb1dd0f60918170ec356ce66b57e7cf403c7c7",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP21:listening:02",
+      "sourceHash": "b82b16c43d628d0853affba4e54df672370f7476dd04e196a3609f9a48c2746a",
+      "taskHash": "91a58745bf3c3b830b8ae66bbee54ed0b7e56eb901ae91bba09473ae60972077",
+      "criterionIds": [
+        "turn",
+        "addition",
+        "conclusion"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended monologue develops sample/value distinction, scalar minimum, counterexample scope, additional opportunity-cost criterion and limited conclusion. No invented cost/failure prevalence. Concessive retained progress and hypothetical disclosure promise separated from observed bad outcome. Three required discourse contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:reading/core:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "20d1a70578e20388b34c5742964e675117620281482fc60b759252c597f315be",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:reading/additional/1:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "60a3c252c28bc505bd51d08083a9f57b34aebc5c70cc90c15d74eb420dc1eeed",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "a88ee8dc6e0501d6ab7b53d275e3c84a4813739f0468132cd8e3f7e93f4830e4",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:speaking/core:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "f9a71e944de27de37c1b5cb2cc95651ce09db76350ae7ac4a2065bd776aa067d",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:speaking/additional/1:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "900bcf2e705f548d4432632414e3a4bf7f888605d2b481b3c3b6fc0832672194",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "2c44b81b0fd3e5d89d0201dd9f481131ccc7e8eda132429af519b92d86a57d25",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:writing/core:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "4c6d748e9f112dbcaef97344e2cfb87149064becb13555bf6f3ccbcbcd6ee82e",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:writing/additional/1:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "c1d70b9db82977fa887271037de224696e3655971cc4ae796c63999edaaac8a5",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "d73dce09b6fcc9cca6f528898f1862cb84194ed744919be9af72cc807ecf43b2",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/persuade_argue_justify:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "9323c3996a2f8fe1545bc31cbaf57a1aa52f1ad27313127450f27c5bb9ad0ba1",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/persuade_argue_justify:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "9323c3996a2f8fe1545bc31cbaf57a1aa52f1ad27313127450f27c5bb9ad0ba1",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "a0b6b5662245a68a03b6a9286f4cdfe6819f4a9e8a42e4c82d34f64b1aa5f2d5",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "a0b6b5662245a68a03b6a9286f4cdfe6819f4a9e8a42e4c82d34f64b1aa5f2d5",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/refuse_set_boundaries:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "47314ec408a3049a8cc214b9be740613a2c57c437358abc9ad96c5ef3a6c835b",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/refuse_set_boundaries:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "47314ec408a3049a8cc214b9be740613a2c57c437358abc9ad96c5ef3a6c835b",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/mediate_between_parties:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "26f2c92d2f450fcc6f6b1b77d483468f4891928f28cf4138641239358bbc28d9",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:functions/mediate_between_parties:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "26f2c92d2f450fcc6f6b1b77d483468f4891928f28cf4138641239358bbc28d9",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "36341f7ef7fe0134b593fd4999a7d9f0a0a2df9fe0c5b3287c2f9c19f8bd4d33",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "36341f7ef7fe0134b593fd4999a7d9f0a0a2df9fe0c5b3287c2f9c19f8bd4d33",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "9a485ce7b3990157741d13f13b06ee4e8340d71a20ccd0efe3af25e1085efbae",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "9a485ce7b3990157741d13f13b06ee4e8340d71a20ccd0efe3af25e1085efbae",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP21:reading:01",
+      "sourceHash": "819cb47495589c52ac78e86188764bae7afd4432248e35822ab09cf62cf6da25",
+      "taskHash": "75abc2f14f22f88a66e68f2b950a05c6ee07ffd84e49ae9e57ca504a3a6d1858",
+      "criterionIds": [
+        "exception",
+        "right",
+        "scope",
+        "scale",
+        "essays",
+        "concession",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual fictional institutional clauses preserve scope ordinary seats, special events unknown, choice online/desk, equal priority, paper intake on terminal failure, identity-check exception with reasons/rechecking, staff versus committee authority. Lecture transcript and two actual essays interpret same case as exceptional event versus logical counterexample; risk illustration not prevalence sample. Seven required scope/rights/exception/scalar/source/authority criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP21:writing:01",
+      "sourceHash": "819cb47495589c52ac78e86188764bae7afd4432248e35822ab09cf62cf6da25",
+      "taskHash": "409ba96f4cf5fc0e2a9af93d153aaf1213dd06b4229e2a736be5d98082312a59",
+      "criterionIds": [
+        "essay",
+        "revision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mandatory complete argumentative essay and distinct faulty-concession paragraph revision. Strongest counterargument not weakened, same cost/access/equity criteria, unknown cost retained, rights/duties/exceptions/powers preserved. Repair false inference from cost concession to desk abolition, not connectives alone. Source comparison and rewrite. Full meaning and argument unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "341855afbd0d458d38189a8dbc8b136178d5c632ca141b1a7f7d2b27bc5312f4",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "341855afbd0d458d38189a8dbc8b136178d5c632ca141b1a7f7d2b27bc5312f4",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:phonology/0:R",
+      "taskId": "KP21:listening:01",
+      "sourceHash": "81d4f1d3560fd374772ba62478feb11455cdbfd6f4d5e62d2b1be9c8558f36ae",
+      "taskHash": "4e3c6908a943a1b84d6efe4bafd385ff5974cccd03b130648bc583e761c4945c",
+      "criterionIds": [
+        "premise",
+        "revision",
+        "concession",
+        "scope",
+        "authority",
+        "boundary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: distinct fictional debates18/12 versus24/16. Accepted waiting-time self-reports, terminal counterexample narrows always premise without inventing prevalence. Representative later admits unknown staffing cost but rejects desk-closure conclusion; dates and staffing remain committee decisions. Explicit boundary on extra-work commitment, alternatives and moderator mediation preserve shared criteria versus unresolved policy. Six required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:phonology/0:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "81d4f1d3560fd374772ba62478feb11455cdbfd6f4d5e62d2b1be9c8558f36ae",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:phonology/1:R",
+      "taskId": "KP21:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "91a58745bf3c3b830b8ae66bbee54ed0b7e56eb901ae91bba09473ae60972077",
+      "criterionIds": [
+        "turn",
+        "addition",
+        "conclusion"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate extended monologue develops sample/value distinction, scalar minimum, counterexample scope, additional opportunity-cost criterion and limited conclusion. No invented cost/failure prevalence. Concessive retained progress and hypothetical disclosure promise separated from observed bad outcome. Three required discourse contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:phonology/1:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "f3c94421de90e540c3fae6bc482add273b4d8e617f0f7e4f0026b0f372b2f766",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:register/haeyo_polite:P",
+      "taskId": "KP21:speaking:01",
+      "sourceHash": "f3c94421de90e540c3fae6bc482add273b4d8e617f0f7e4f0026b0f372b2f766",
+      "taskHash": "635a263dcd97c62d876b5e9018571cd41980339589ef34c9090516f70d0ad2f4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fair strongest-objection restatement in polite equal debate, bounded refusal plus trial alternative, formal meeting preserves agreed criteria/unresolved policy/committee power. Korean mediation of concession-to-agreement and proposal-to-authority errors. Neutral versus public delivery replay checks mocking stress, pauses and scope. Free meaning/intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는데도:R",
+      "taskId": "KP21:grammar:01",
+      "sourceHash": "88d8381067bd72aff3b09ea0d4645919d131d002f6700ec8506d66f8583de912",
+      "taskHash": "740a06f1de507ef641a7895d4bdaeab5cb2866795b4305569fdd1dcdeb4a7d8b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는데도 accepted explanation/request with unresolved misunderstanding/no answer; concession neither erases premise nor guarantees expected outcome. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는데도 불구하고:R",
+      "taskId": "KP21:grammar:02",
+      "sourceHash": "ac7a37dbcb5faa871e0dc1cd327f5374f3ea476daed1b620060d03d2e340adf6",
+      "taskHash": "4a01e6aad4b6276d6c6440cc54cf5fc15b420655cc153153b01e479fba4581ff",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는데도 불구하고 explicit counterexpectation after repeated checks/personnel change; does not assert no checks or no replacement. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:에도 불구하고:R",
+      "taskId": "KP21:grammar:03",
+      "sourceHash": "ea051d9393471f701fe3d1d002a4262eb59847bd74994cf48a96f76f2da0befc",
+      "taskHash": "16d6de8d356b99edc50ab6c2f691c178d8202652a9bdc098ab17eb27bf978a16",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 에도 불구하고 nominal limitation/opposition admitted while retaining value/continuation; no erasure of obstacle. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-을지라도:R",
+      "taskId": "KP21:grammar:04",
+      "sourceHash": "0c4c4406138314330b92d3f4f455d45eda0828b4505daf165435ce7455054d80",
+      "taskHash": "14a7439ea4d233e0ee387fe7a06e2dd0c5aad5067dce4840f60736ab41c5e27e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을지라도 hypothetical underperformance/delay with maintained future commitment; not an observed past event. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:조차:R",
+      "taskId": "KP21:grammar:05",
+      "sourceHash": "9140ab9f538fa426e5dbb17095b0abff1fcc0b21657f0315f331497092be312c",
+      "taskHash": "f5eba2aabe87aacc0b7edbb79cfcff1a1cc0432b75829d802c5a9d7ebbccfb6d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 조차 contextually minimal expected basic guidance/first meeting date, after harder information; included failure not spared minimum. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:는 말할 것도 없고:R",
+      "taskId": "KP21:grammar:06",
+      "sourceHash": "d2a99c07952ef9c19649ca0e36fbda36e4ba8270e2b11ca84f0384f0fbbb0f47",
+      "taskHash": "504dae6cb3ff1be26638fdd726381f327915402ad74f7efce3fdcaa4bde452cc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 말할 것도 없고 includes both elementary/specialist material and regular/additional schedules, no universal lexically fixed scale claimed. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-을뿐더러:R",
+      "taskId": "KP21:grammar:07",
+      "sourceHash": "9b25fc506f87693685b868f52ae258d313a8fdd1dc5459a2091e662754579cb6",
+      "taskHash": "9bdab80a7d2108d9ed0164ee2e31b1e8b1bba93db8a29ac04204c52ac39a86a7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을뿐더러 additive cost/ease and brevity/readability, not restrictive 뿐이다 or contrasting disadvantage. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는 데다가:R",
+      "taskId": "KP21:grammar:08",
+      "sourceHash": "e22a34601bcd3d48ee2e233290564685aa0def7b2a6f803498b949cf231c5e50",
+      "taskHash": "6d36bf7c6888f4361983f08afbc4f588b95c593c63beb8619d4e7797609af7e0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 데다가 cumulative time/data and growing demand/fewer staff, not spatial 데에다가 or reversed demand. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-느니1:R",
+      "taskId": "KP21:grammar:09",
+      "sourceHash": "649b7d8aefcb1f84b647ed47166bd664ac5392ef7ae0f985f23caf03ca31bdaa",
+      "taskHash": "da55420015e1db576b648ea3196689f4f0da6f3b2594c9a53472862d0ed1bf6e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 느니 comparative preference for checking/reserving judgement over rushing/blaming, not temporal succession of both. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-지1:R",
+      "taskId": "KP21:grammar:10",
+      "sourceHash": "dbcd83caa010bd1204dec5e9ca24704b2a6fbc8029f7e3fd618cf79fbf8386be",
+      "taskHash": "e3c637bda321459de9703523ca49414a030355624f34430b4365b228ed29e1cb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 지 connective classification contrast proposal versus confirmed plan, procedure criticism versus character attack, not final confirmation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는데도:P",
+      "taskId": "KP21:production:01",
+      "sourceHash": "88d8381067bd72aff3b09ea0d4645919d131d002f6700ec8506d66f8583de912",
+      "taskHash": "940899ee8c3a72a1876956d57d16b3ef3795dd09547bfd6637de206b91a42419",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는데도 accepted explanation/request with unresolved misunderstanding/no answer; concession neither erases premise nor guarantees expected outcome. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는데도 불구하고:P",
+      "taskId": "KP21:production:02",
+      "sourceHash": "ac7a37dbcb5faa871e0dc1cd327f5374f3ea476daed1b620060d03d2e340adf6",
+      "taskHash": "b594d02a5d51e823c79bf6784f5b797a57b8240220c9c8d35fe965296eda0c2d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는데도 불구하고 explicit counterexpectation after repeated checks/personnel change; does not assert no checks or no replacement. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:에도 불구하고:P",
+      "taskId": "KP21:production:03",
+      "sourceHash": "ea051d9393471f701fe3d1d002a4262eb59847bd74994cf48a96f76f2da0befc",
+      "taskHash": "61c8d769347b1da98c96b57882dc842060f9c60b50a24b735524e4ca3465a6c0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 에도 불구하고 nominal limitation/opposition admitted while retaining value/continuation; no erasure of obstacle. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-을지라도:P",
+      "taskId": "KP21:production:04",
+      "sourceHash": "0c4c4406138314330b92d3f4f455d45eda0828b4505daf165435ce7455054d80",
+      "taskHash": "d2da9f9e936a729ab29e7f0bc98a17d9b59b1d7f366aedffe7fdf25689f75201",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을지라도 hypothetical underperformance/delay with maintained future commitment; not an observed past event. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:조차:P",
+      "taskId": "KP21:production:05",
+      "sourceHash": "9140ab9f538fa426e5dbb17095b0abff1fcc0b21657f0315f331497092be312c",
+      "taskHash": "677f88419e13f8a71e97f45133a53ab6727c9121531a29a819bf18942368fa10",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 조차 contextually minimal expected basic guidance/first meeting date, after harder information; included failure not spared minimum. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:는 말할 것도 없고:P",
+      "taskId": "KP21:production:06",
+      "sourceHash": "d2a99c07952ef9c19649ca0e36fbda36e4ba8270e2b11ca84f0384f0fbbb0f47",
+      "taskHash": "eb7a27f111f3babeeae5f394992f68d8f991580ba5b9a415acb1c18fdd8364fb",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 말할 것도 없고 includes both elementary/specialist material and regular/additional schedules, no universal lexically fixed scale claimed. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-을뿐더러:P",
+      "taskId": "KP21:production:07",
+      "sourceHash": "9b25fc506f87693685b868f52ae258d313a8fdd1dc5459a2091e662754579cb6",
+      "taskHash": "e89a09cf0591acdf108139ac05251fccea4e83dba2ebf81908ac2eb61215f7d5",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을뿐더러 additive cost/ease and brevity/readability, not restrictive 뿐이다 or contrasting disadvantage. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-는 데다가:P",
+      "taskId": "KP21:production:08",
+      "sourceHash": "e22a34601bcd3d48ee2e233290564685aa0def7b2a6f803498b949cf231c5e50",
+      "taskHash": "f83c4e3727c946b5ffd83ce155ee9d14609ae53d3333f74118a168a9c6af5235",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 데다가 cumulative time/data and growing demand/fewer staff, not spatial 데에다가 or reversed demand. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-느니1:P",
+      "taskId": "KP21:production:09",
+      "sourceHash": "649b7d8aefcb1f84b647ed47166bd664ac5392ef7ae0f985f23caf03ca31bdaa",
+      "taskHash": "f9276fa9379801ebbdd99496bef688a992352d5f0a3fd3724b79f60a8eef8476",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 느니 comparative preference for checking/reserving judgement over rushing/blaming, not temporal succession of both. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP21:objective:grammar/G5:-지1:P",
+      "taskId": "KP21:production:10",
+      "sourceHash": "dbcd83caa010bd1204dec5e9ca24704b2a6fbc8029f7e3fd618cf79fbf8386be",
+      "taskHash": "384e7b44adf90b1863ec90a80bc0ad0e7f77f0e0c8ea58e5d4d39991bae884c4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 지 connective classification contrast proposal versus confirmed plan, procedure criticism versus character attack, not final confirmation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

@@ -1,0 +1,101 @@
+"""KP21 concessions, scalar arguments and institutional limits; unsigned source."""
+from phase_task_authoring import choice, free_text, grammar_task, loc, packet, task, write_source
+from author_phase_a1_production import production
+
+
+def kp21():
+    rows=[
+      ('G5:-는데도',loc('예상과 다른 결과를 나타내요. 설명했다는 전제를 인정해도 오해가 해소됐다는 결론은 인정하지 않아요.','Mark a result contrary to expectation. Accepting that an explanation occurred does not accept that confusion was resolved.','Kennzeichne ein erwartungswidriges Ergebnis. Eine erfolgte Erklärung anzuerkennen bedeutet nicht, dass Missverständnisse behoben sind.'),('충분히 설명했는데도 오해가 남았습니다.','설명 후에도 남은 오해','설명 덕분에 모든 오해 해소'),('여러 번 요청했는데도 답변을 받지 못했습니다.','요청했지만 답변은 없음','요청하지 않아 답변이 없음')),
+      ('G5:-는데도 불구하고',loc('양보한 사실과 반기대 결과를 명시적으로 대조해요. 앞의 사실을 취소하거나 결과의 원인으로 단정하지 않아요.','Explicitly contrast an admitted fact with an unexpected outcome. Do not cancel the fact or automatically make it the cause.','Stelle eine zugestandene Tatsache einem unerwarteten Ergebnis gegenüber. Widerrufe die Tatsache nicht und mache sie nicht automatisch zur Ursache.'),('여러 차례 확인했는데도 불구하고 오류가 발견되었습니다.','확인 사실과 오류 발견이 함께 성립','확인을 전혀 하지 않았음'),('담당자가 바뀌었는데도 불구하고 같은 문제가 반복되었습니다.','교체 후에도 문제가 반복됨','담당자 교체가 없었음')),
+      ('G5:에도 불구하고',loc('명사로 제시한 장애나 한계를 인정하면서 남는 판단을 말해요. 한계가 없다는 뜻으로 바꾸지 않아요.','Admit a nominally expressed obstacle or limitation while retaining a judgement. Do not turn this into absence of limitations.','Erkenne eine als Nomen ausgedrückte Hürde oder Grenze an und erhalte das Urteil. Daraus folgt nicht, dass die Grenze fehlt.'),('이러한 한계에도 불구하고 결과는 의미가 있습니다.','한계 인정과 제한된 가치 평가','한계가 없다는 확정'),('반대 의견에도 불구하고 시범 운영은 계속되었습니다.','반대가 있었지만 시범은 지속','반대 의견이 전혀 없었음')),
+      ('G5:-을지라도',loc('강한 가정까지 양보해도 뒤의 약속이나 입장을 유지해요. 가정의 실제 발생을 확정하지 않아요.','Retain a commitment even under a strong hypothetical concession. The hypothetical event is not confirmed to have occurred.','Erhalte eine Zusage selbst unter einer starken hypothetischen Einräumung. Das angenommene Ereignis ist dadurch nicht eingetreten.'),('결과가 기대에 못 미칠지라도 과정을 공개하겠습니다.','미달해도 유지할 공개 약속','이미 결과가 미달했다는 보고'),('시간이 더 걸릴지라도 의견을 다시 듣겠습니다.','지연 가능성에도 재청취 약속','의견을 다시 듣지 않겠다는 거부')),
+      ('G5:조차',loc('문맥에서 당연하거나 최소한으로 기대한 대상마저 포함해 강조해요. 어떤 척도인지 앞뒤 구절로 확인해요.','Emphasise inclusion of even a contextually expected minimum. Use surrounding text to identify the scale.','Betone, dass sogar ein im Kontext erwartetes Minimum betroffen ist. Bestimme die Skala aus den umgebenden Sätzen.'),('심화 자료는 물론 기본 안내조차 읽을 수 없었습니다.','최소 기대인 기본 안내까지 접근 불가','기본 안내만은 읽을 수 있었음'),('후속 일정은커녕 첫 회의 날짜조차 정하지 못했습니다.','최소한의 첫 날짜도 미정','첫 회의 날짜는 확정됨')),
+      ('G5:는 말할 것도 없고',loc('앞 대상을 이미 당연히 포함하고 뒤 대상을 더해요. 두 대상의 척도는 문맥에서 정해지며 앞 대상을 제외하지 않아요.','Treat the first item as already included and add another. Context supplies the scale; the first item is not excluded.','Setze die Einbeziehung des ersten Gegenstands voraus und füge einen weiteren hinzu. Die Skala ergibt sich aus dem Kontext; der erste wird nicht ausgeschlossen.'),('초급 자료는 말할 것도 없고 전문 자료도 부족합니다.','초급과 전문 자료 모두 부족','초급 자료는 충분하고 전문 자료만 부족'),('정규 일정은 말할 것도 없고 추가 일정도 공개했습니다.','정규와 추가 일정 모두 공개','정규 일정은 비공개')),
+      ('G5:-을뿐더러',loc('앞의 평가나 사실에 같은 논증 방향의 근거를 더해요. -뿐이다의 제한과 구별해요.','Add another fact or evaluation in the same argumentative direction. Distinguish the restriction in -뿐이다.','Ergänze einen Beleg in derselben Argumentationsrichtung. Unterscheide die Einschränkung in -뿐이다.'),('이 방안은 비용이 적을뿐더러 실행도 간단합니다.','적은 비용과 간단한 실행의 두 장점','비용만 적고 실행은 어렵다는 대조'),('이 안내는 짧을뿐더러 표현도 쉽습니다.','짧은 길이와 쉬운 표현의 두 특징','짧기만 하고 표현은 어렵다는 대조')),
+      ('G5:-는 데다가',loc('이미 제시한 사정에 다른 요인을 더해요. 데다가를 장소의 데에다가로 오해하지 않아요.','Add a factor to an existing circumstance. Do not mistake this for adding something to a place.','Füge zu einem bestehenden Umstand einen weiteren Faktor hinzu. Verwechsle dies nicht mit einem räumlichen Hinzufügen.'),('시간이 부족한 데다가 자료도 완성되지 않았어요.','시간 부족과 자료 미완성의 누적','자료가 완성돼 시간 부족이 해결됨'),('신청이 늘어나는 데다가 직원도 줄었어요.','수요 증가와 인력 감소의 누적','신청과 직원이 함께 감소')),
+      ('G5:-느니1',loc('덜 바람직한 선택을 피하고 다른 선택을 택하는 비교예요. 두 행동을 모두 하겠다는 순서 표현과 달라요.','Prefer one choice over a less desirable alternative. This is not a sequence promising both actions.','Ziehe eine Wahl einer weniger erwünschten Alternative vor. Es ist keine Reihenfolge, in der beides getan wird.'),('성급하게 결론을 내리느니 조금 더 확인하겠어요.','성급한 결론보다 추가 확인 선택','성급히 결론을 낸 뒤 추가 확인'),('근거 없이 비난하느니 판단을 유보하겠어요.','무근거 비난 대신 판단 유보','비난과 판단 유보를 모두 실행')),
+      ('G5:-지1',loc('앞의 판단을 세우고 뒤의 다른 분류나 판단을 배제하는 대조 용례예요. 동의 확인의 종결 -지와 구별해요.','Assert the first classification and exclude another. Distinguish this connective contrast from sentence-final confirmation -지.','Setze die erste Einordnung und schließe eine andere aus. Unterscheide den verbindenden Gegensatz vom bestätigenden Satzende -지.'),('이것은 제안이지 확정된 계획은 아닙니다.','제안으로 분류하고 확정 계획은 배제','제안과 확정 계획을 동일시'),('제가 비판한 것은 절차이지 담당자의 인격은 아닙니다.','절차 비판과 인격 비난을 구별','담당자의 인격을 비난했다고 인정')),
+    ]
+    tasks=[grammar_task('KP21',i,*r) for i,r in enumerate(rows,1)]
+    prod=[
+      ('G5:-는데도',('설명 충분히 하다 / 그러나 오해 남다 / -는데도, 합쇼체','충분히 설명했는데도 오해가 남았습니다.','설명 덕분에 모든 오해가 해소되었습니다.'),('여러 번 요청하다 / 그러나 답변 받지 못하다 / -는데도, 합쇼체','여러 번 요청했는데도 답변을 받지 못했습니다.','요청하지 않아서 답변을 받지 못했습니다.')),
+      ('G5:-는데도 불구하고',('여러 차례 확인하다 / 그러나 오류 발견되다 / -는데도 불구하고, 합쇼체','여러 차례 확인했는데도 불구하고 오류가 발견되었습니다.','확인하지 않아서 오류가 발견되었습니다.'),('담당자 바뀌다 / 그러나 같은 문제 반복되다 / -는데도 불구하고, 합쇼체','담당자가 바뀌었는데도 불구하고 같은 문제가 반복되었습니다.','담당자가 바뀌지 않아서 같은 문제가 반복되었습니다.')),
+      ('G5:에도 불구하고',('이러한 한계 인정 / 결과 의미 있다 / 에도 불구하고, 합쇼체','이러한 한계에도 불구하고 결과는 의미가 있습니다.','아무런 한계가 없으므로 결과는 의미가 있습니다.'),('반대 의견 있다 / 시범 운영 계속되다 / 에도 불구하고, 합쇼체','반대 의견에도 불구하고 시범 운영은 계속되었습니다.','반대 의견이 없어서 시범 운영은 계속되었습니다.')),
+      ('G5:-을지라도',('미달은 가정 / 결과가 기대에 못 미치다 / 과정 공개 약속 / -을지라도, 합쇼체','결과가 기대에 못 미칠지라도 과정을 공개하겠습니다.','결과가 이미 기대에 못 미쳤습니다.'),('지연은 가정 / 시간이 더 걸리다 / 의견 다시 듣기 약속 / -을지라도, 합쇼체','시간이 더 걸릴지라도 의견을 다시 듣겠습니다.','시간이 더 걸리면 의견을 듣지 않겠습니다.')),
+      ('G5:조차',('심화 자료뿐 아니라 최소한 기본 안내도 접근 불가 / 기본 안내 / 조차 / 읽을 수 없다, 합쇼체','기본 안내조차 읽을 수 없었습니다.','기본 안내만은 읽을 수 있었습니다.'),('후속 일정뿐 아니라 최소한 첫 회의 날짜도 미정 / 첫 회의 날짜 / 조차 / 정하지 못하다, 합쇼체','첫 회의 날짜조차 정하지 못했습니다.','첫 회의 날짜는 정했습니다.')),
+      ('G5:는 말할 것도 없고',('초급 자료와 전문 자료 모두 부족 / 는 말할 것도 없고, 합쇼체','초급 자료는 말할 것도 없고 전문 자료도 부족합니다.','전문 자료만 부족합니다.'),('정규 일정과 추가 일정 모두 공개 / 은 말할 것도 없고, 합쇼체','정규 일정은 말할 것도 없고 추가 일정도 공개했습니다.','추가 일정만 공개했습니다.')),
+      ('G5:-을뿐더러',('이 방안 / 비용 적다 + 실행 간단하다 / -을뿐더러, 합쇼체','이 방안은 비용이 적을뿐더러 실행도 간단합니다.','이 방안은 비용만 적고 실행은 어렵습니다.'),('이 안내 / 짧다 + 표현 쉽다 / -을뿐더러, 합쇼체','이 안내는 짧을뿐더러 표현도 쉽습니다.','이 안내는 짧지만 표현은 어렵습니다.')),
+      ('G5:-는 데다가',('시간 부족 + 자료 미완성 / -는 데다가, 해요체','시간이 부족한 데다가 자료도 완성되지 않았어요.','자료가 완성돼서 시간 부족이 해결됐어요.'),('신청 늘어나다 + 직원 줄다 / -는 데다가, 해요체','신청이 늘어나는 데다가 직원도 줄었어요.','신청이 줄어드는 데다가 직원도 줄었어요.')),
+      ('G5:-느니1',('성급한 결론보다 추가 확인 선택 / 성급하게 결론을 내리다 / 조금 더 확인하다 / -느니, 해요체','성급하게 결론을 내리느니 조금 더 확인하겠어요.','성급하게 결론을 내리고 조금 더 확인하겠어요.'),('무근거 비난보다 유보 선택 / 근거 없이 비난하다 / 판단을 유보하다 / -느니, 해요체','근거 없이 비난하느니 판단을 유보하겠어요.','근거 없이 비난하고 판단을 유보하겠어요.')),
+      ('G5:-지1',('이것 / 제안 맞음 / 확정된 계획 아님 / -지, 합쇼체','이것은 제안이지 확정된 계획은 아닙니다.','이것은 확정된 계획입니다.'),('제가 비판한 것 / 절차 맞음 / 담당자의 인격 아님 / -지, 합쇼체','제가 비판한 것은 절차이지 담당자의 인격은 아닙니다.','제가 비판한 것은 담당자의 인격입니다.')),
+    ]
+    tasks+=production('KP21',tasks,prod)
+    h=loc('인정한 전제, 받아들이지 않은 결론, 남은 이견을 따로 확인해요. 조차의 최소 기대와 양보의 반기대 효과는 주변 구절에서 찾습니다. 비용·형평성은 같은 기준으로 비교하고, 사례 한 건으로 전체 빈도를 확정하지 않아요.','Separate accepted premises, rejected conclusions and remaining disagreement. Identify the expected minimum in 조차 and the counterexpectation of a concession from context. Compare costs and equity consistently; one case cannot establish population frequency.','Trenne anerkannte Prämissen, abgelehnte Schlüsse und offenen Dissens. Bestimme das erwartete Minimum bei 조차 und die Gegen-Erwartung einer Einräumung aus dem Kontext. Vergleiche Kosten und Fairness nach gleichen Maßstäben; ein Einzelfall belegt keine allgemeine Häufigkeit.')
+    p=('가람문화관',18,12,'화요일','목요일')
+    a=('솔빛자료관',24,16,'수요일','금요일')
+    def debate(name,total,quick,start,end):
+        return f'''[가상 공개 토론. 운영 담당자와 이용자 대표는 대등한 발언권을 가진다. 결정 권한은 별도 운영위원회에 있다.]
+담당자: {name}에서 자원 참여자 {total}명 중 {quick}명이 온라인 예약 뒤 대기 시간이 줄었다고 답했습니다. 저는 이 개선을 근거로 다음 달부터 예약을 온라인으로만 받자고 제안합니다. 기기 없는 사람에게도 현장에서 단말기를 빌려주면 된다고 생각합니다.
+대표: 대기가 줄었다는 응답 자체는 인정해요. 다만 현장 단말기 한 대가 고장 난 날에 기본 안내조차 열지 못한 이용자가 있었어요. 단말기만으로 누구나 예약할 수 있다는 전제에는 반례입니다. 고장 빈도는 몰라요. 한 건이 전체 실패를 증명하지는 않지요.
+담당자: 그렇다면 단말기가 항상 대안이라는 제 주장은 좁히겠습니다. 온라인 예약의 장점은 말할 것도 없고 방문 창구의 대안 기능도 고려해야겠군요. 하지만 두 경로를 유지할 인건비는 아직 계산하지 않았습니다.
+대표: 그 비용 문제도 인정해요. 그렇다고 해서 방문 창구를 없애자는 결론에 동의한 것은 아니에요. 저는 {start}부터 {end}까지 두 경로를 시험하고 비용과 접근성을 같이 기록하자고 제안해요. 당장 추가 근무를 약속할 권한은 없습니다. 이는 조건부 제안이지 확정된 계획은 아니에요.
+담당자: 두 기준을 함께 확인하자는 데는 동의합니다. 다만 시험 기간과 직원 배치는 위원회가 정해야 합니다. 성급하게 결론을 내리느니 그 확인을 기다리겠습니다.
+진행자: 합의는 비용과 접근성을 함께 검토하자는 범위입니다. 온라인 전용 전환, 시험 날짜, 인력 배치는 아직 결정되지 않았습니다. 절차를 비판한 것을 담당자 개인에 대한 비난으로 기록하지 않겠습니다.'''
+    def hear(args):
+        return packet(debate(*args),[
+          choice('premise',loc('대표가 처음 인정한 것은?', 'What does the representative initially accept?', 'Was erkennt die Vertretung zunächst an?'),[f'{args[1]}명 중 {args[2]}명의 대기 감소 응답','온라인 전용 전환이 모든 사람에게 공평함'],h),
+          choice('revision',loc('담당자가 수정한 전제는?', 'Which premise does the officer revise?', 'Welche Prämisse ändert die zuständige Person?'),['현장 단말기가 항상 대안이라는 주장','대기 감소 응답이 있었다는 사실 자체'],h),
+          choice('concession',loc('비용 인정 후 대표의 입장은?', 'What remains after conceding the cost issue?', 'Welche Position bleibt nach dem Kostenzugeständnis?'),['비용 문제 인정, 창구 폐지 동의는 아님','창구 폐지까지 전면 동의'],h),
+          choice('scope',loc('단말기 고장 사례가 보여 주는 것은?', 'What does the terminal failure demonstrate?', 'Was zeigt der Ausfall des Terminals?'),['항상 대안이라는 전제의 반례, 전체 빈도 미상','모든 온라인 예약이 실패한다는 통계'],h),
+          choice('authority',loc('아직 미결인 것은?', 'What remains undecided?', 'Was bleibt unentschieden?'),['전용 전환·날짜·인력 배치','비용과 접근성을 함께 검토할 필요 자체'],h),
+          choice('boundary',loc('대표가 제시한 경계와 대안은?', 'What boundary and alternative does the representative give?', 'Welche Grenze und Alternative nennt die Vertretung?'),['추가 근무 확약 권한 없음, 두 경로 시험 제안','직원 추가 근무를 확정 지시'],h),
+        ],'audio')
+    tasks.append(task('KP21','listening:01','listening',loc('양보 전후의 입장 추적','Track positions before and after concessions','Positionen vor und nach Zugeständnissen verfolgen'),h,hear(p),hear(a)))
+    def lecture(args):
+        return f'''[가상 시민 강연]
+오늘은 {args[0]}의 예약 논쟁을 통해 논증 구조를 살펴보겠습니다. 먼저 {args[1]}명 중 {args[2]}명이 대기가 줄었다고 답했다는 사실과 온라인 전용 제도가 공평하다는 평가는 다릅니다. 전자는 표본의 응답이고 후자는 누구의 접근성을 어떤 기준으로 볼 것인가를 요구합니다.
+이제 반론을 보겠습니다. 단말기 고장 날 기본 안내조차 열지 못했다는 사례에서 조차는 전문 정보보다 낮은 기대인 기본 안내를 강조합니다. 이 극단 사례는 모든 실패의 대표 표본이 아닙니다. 그러나 항상 접근 가능하다는 보편 전제를 반박하기에는 한 반례도 의미가 있습니다. 그렇다고 대기 감소 응답까지 없던 일로 바꾸면 논점을 흐립니다.
+다음으로 비용은 접근성과 별도의 추가 논거입니다. 인건비 자료가 없는데도 불구하고 비용이 반드시 줄 것이라고 말한다면 확인된 사실과 수사를 혼동하는 것입니다. 방문 창구 유지의 기회비용도 따져야 하지만, 계산하지 않은 값을 숫자로 만들 수는 없습니다.
+결론을 정리하겠습니다. 양쪽은 비용과 접근성을 함께 검토하자는 데 동의했고 제도 자체에는 합의하지 않았습니다. 이러한 한계에도 불구하고 비교 기준을 합의했다는 진전은 남습니다. 결과가 기대에 못 미칠지라도 과정을 공개하자는 것은 앞으로 지킬 원칙이지 결과가 이미 나쁘다는 보고는 아닙니다.'''
+    def monologue(args):
+        return packet(lecture(args),[
+          choice('turn',loc('강연의 논지 전개는?', 'How does the lecture develop?', 'Wie entwickelt sich die Vortragsargumentation?'),['표본과 평가 구분 → 반례 범위 → 비용 부연 → 제한된 합의','온라인 실패 통계 → 전면 폐지 확정'],h),
+          choice('addition',loc('비용 논거의 역할은?', 'What role does the cost argument play?', 'Welche Rolle spielt das Kostenargument?'),['접근성과 함께 비교할 추가 기준, 값은 미상','접근성 문제를 자동 취소하는 확정 이익'],h),
+          choice('conclusion',loc('마지막 양보 뒤 남는 진전은?', 'What progress remains after the final concession?', 'Welcher Fortschritt bleibt nach der letzten Einräumung?'),['제도 합의 없이 비교 기준에 합의','제도 전면 시행에 합의'],h),
+        ],'audio')
+    tasks.append(task('KP21','listening:02','listening',loc('강연의 반례·부연·결론','Counterexample, elaboration and conclusion in a lecture','Gegenbeispiel, Erläuterung und Fazit im Vortrag'),h,monologue(p),monologue(a)))
+    def documents(args):
+        return f'''[가상 학습용 운영 문서. 실제 법적 효력을 판단하는 자료가 아니다.]
+{args[0]} 예약 운영 조항: 적용 대상은 일반 열람석 예약자다. 특별 행사 예약은 별도 규정으로 이 문서에서 정하지 않는다. 이용자는 온라인 또는 방문 창구로 신청할 수 있다. 직원은 접수 경로를 이유로 우선순위를 바꾸지 않는다. 단말기 고장 시 직원은 종이 신청을 접수해야 한다. 예외는 본인 확인이 불가능한 신청이며, 이때 보류 사유와 재확인 방법을 안내한다. 창구 직원은 전용 전환을 승인할 권한이 없다. 운영위원회가 변경을 의결하기 전까지 두 경로를 유지한다.
+[강연 전사]
+{lecture(args)}
+[논설 A]
+한 번의 단말기 고장 사례는 운영 중단의 예외다. 이 사례에도 불구하고 대기 감소 응답이라는 장점은 남는다. 따라서 온라인 전용 전환을 계속 검토하자. 그러나 고장 빈도와 인건비가 없는 상태에서 즉시 전환을 확정할 근거는 부족하다. 이용자의 이해관계와 제도적 제약을 함께 공개해야 제안의 정당성을 논할 수 있다.
+[논설 B]
+같은 사례를 단순한 예외로만 처리해서는 안 된다. 모든 사람에게 언제나 대안을 제공한다는 전제에는 이 사례 자체가 반례다. 기기 접근성의 위험을 대표하는 사례로 논의할 수 있지만 발생률을 대표하는 표본은 아니다. 형평성과 공익을 기준으로 방문 창구를 유지할 이유가 있다. 비용 부담이라는 가장 강한 반론은 남으므로, 그 기회비용을 확인하는 조건부 시험을 제안한다. 이는 상대의 인격을 비난하는 주장이 아니다.'''
+    def read(args):
+        return packet(documents(args),[
+          choice('exception',loc('문서의 본인 확인 예외는?', 'What is the identity-verification exception?', 'Was ist die Ausnahme zur Identitätsprüfung?'),['확인 불가 시 보류 사유와 재확인 안내','단말기 고장 때 모든 신청 영구 거부'],h),
+          choice('right',loc('현재 일반 예약자의 선택권은?', 'What choice do ordinary booking users currently have?', 'Welche Wahl haben regulär reservierende Personen derzeit?'),['온라인 또는 방문 신청','온라인만 신청 가능'],h),
+          choice('scope',loc('특별 행사에 관해 알 수 있는 것은?', 'What is known about special events?', 'Was ist über Sonderveranstaltungen bekannt?'),['이 문서에서 정하지 않아 별도 규정 확인 필요','일반 예약 규정이 모든 특별 행사에 자동 적용'],h),
+          choice('scale',loc('기본 안내조차의 척도는?', 'What scale underlies even basic guidance?', 'Welche Skala liegt sogar grundlegenden Hinweisen zugrunde?'),['기본 안내는 최소 접근 기대','기본 안내는 전문 정보보다 높은 난도'],h),
+          choice('essays',loc('두 논설의 사례 해석 차이는?', 'How do the essays interpret the case differently?', 'Wie deuten die beiden Essays den Fall unterschiedlich?'),['A는 예외로 제한, B는 보편 전제의 반례로 중시','A와 B 모두 전체 고장률이 높다고 입증'],h),
+          choice('concession',loc('A의 불구하고 뒤 남는 판단은?', 'What judgement remains after the concession in A?', 'Welches Urteil bleibt nach der Einräumung in A?'),['대기 감소 응답의 장점, 즉시 전환은 미확정','고장 사례가 없었다는 확정'],h),
+          choice('authority',loc('직원의 의무와 권한은?', 'What are the staff’s duties and powers?', 'Welche Pflichten und Befugnisse hat das Personal?'),['고장 시 종이 접수 의무, 전용 전환 승인 권한 없음','고장 시 직원이 전용 전환을 단독 승인'],h),
+        ])
+    tasks.append(task('KP21','reading:01','reading',loc('예외와 반례를 다르게 읽는 문서들','Texts that distinguish exceptions and counterexamples','Texte über Ausnahmen und Gegenbeispiele'),h,read(p),read(a)))
+    rubric=loc('완전한 논설문을 쓰세요. 상대의 가장 강한 논거인 대기 감소 또는 이중 경로의 비용 부담을 공정하게 제시하고, 무엇을 인정하며 어떤 결론은 유보하는지 밝혀요. 온라인 전용과 두 경로 유지를 비용·접근성·형평성이라는 같은 기준으로 비교하고 비용 미상은 미상으로 둡니다. 기본 안내조차의 최소 기대와 반례의 범위를 설명하되 전체 빈도를 만들지 마세요. 조항의 선택권·의무·예외·권한 범위를 보존하고 조건부 대안을 제시하세요. 둘째 칸에서는 “비용 문제도 인정한다. 그러므로 방문 창구 폐지에 합의했다”라는 잘못된 반론 단락을 고쳐 양보와 남는 입장을 연결하세요. 접속어만 더하지 말고 빠진 추론을 고치세요. 근거 구절과 비교해 재작성합니다. 자유 의미·논증은 미채점입니다.',
+      'Write a complete argumentative essay. Fairly present the strongest opposing reason: reduced waiting or the cost of two channels. State what you concede and what conclusion you reserve. Compare online-only and dual access by the same cost, access and equity criteria; keep unknown costs unknown. Explain the expected minimum in even basic guidance and the limited counterexample without inventing frequency. Preserve the clauses’ choice, duties, exceptions and powers; propose a conditional alternative. In the second field revise the faulty paragraph “We also accept the cost issue. Therefore we agreed to abolish the desk.” Repair its inference, not just its connectives. Compare source passages and rewrite. Free meaning and argument remain unscored.',
+      'Schreibe einen vollständigen argumentativen Text. Gib das stärkste Gegenargument fair wieder: kürzere Wartezeit oder Kosten zweier Wege. Nenne dein Zugeständnis und den weiter offenen Schluss. Vergleiche nur online und zwei Zugangswege nach denselben Kriterien Kosten, Zugang und Fairness; unbekannte Kosten bleiben unbekannt. Erkläre das erwartete Minimum bei sogar grundlegenden Hinweisen und das begrenzte Gegenbeispiel ohne erfundene Häufigkeit. Erhalte Wahlfreiheit, Pflichten, Ausnahmen und Befugnisse der Klauseln und schlage eine bedingte Alternative vor. Überarbeite im zweiten Feld den fehlerhaften Absatz: „Wir erkennen auch das Kostenproblem an. Daher stimmten wir der Abschaffung des Schalters zu.“ Korrigiere den Schluss statt nur Konnektoren. Vergleiche Belegstellen und überarbeite. Freier Inhalt und Argumentation bleiben unbewertet.')
+    def writing(args):
+        return packet(documents(args),[free_text('essay',loc('반론과 제한된 양보를 담은 논설문','Essay with objections and limited concessions','Argumentation mit Einwänden und begrenzten Zugeständnissen'),rubric),free_text('revision',loc('잘못된 양보 단락을 고친 새 단락','Revised paragraph correcting the faulty concession','Überarbeiteter Absatz mit korrigiertem Zugeständnis'),rubric)],'form')
+    tasks.append(task('KP21','writing:01','writing',loc('반론을 살리는 논설문과 재작성','An essay and revision that preserve objections','Argumentation und Überarbeitung mit fairen Einwänden'),rubric,writing(p),writing(a)))
+    speech=loc('동등한 토론 참여자에게 해요체로 상대의 가장 강한 근거를 먼저 요약하고 양보 범위와 남는 반론을 말하세요. 상대 선택권을 지키며 권한 밖의 추가 근무 확약은 거절하고 가능한 시험 대안을 제안하세요. 이어 합쇼체 회의 발언으로 같은 내용을 바꾸어 결정된 비교 기준·미합의 정책·위원회 권한을 구분합니다. 모어가 다른 동료에게 한국어로 두 전이 오류를 설명하세요: 비용 인정이 정책 동의가 되는 오류, 제안이 승인 권한이 되는 오류. 같은 논증을 중립 토론과 공적 연설로 읽어 녹음하고, 양보 절의 강조가 조롱처럼 들리는지·휴지가 논거 범위를 바꾸는지 비교해 다시 말하세요. 새 사실·권한은 만들지 않습니다. 의미·억양은 미채점입니다.',
+      'Address an equal debate participant politely, first summarising their strongest reason, then stating the concession and remaining objection. Preserve their choice; decline commitments to extra work outside your authority and propose a possible trial. Recast this as a formal meeting statement distinguishing agreed criteria, unresolved policy and committee powers. Explain in Korean two transfer errors to a colleague with another first language: admitting cost becomes policy agreement; a proposal becomes approval authority. Record the same argument as neutral debate and public speech. Replay for mocking emphasis in concessions or pauses that alter scope, then revise. Invent no facts or powers. Meaning and intonation remain unscored.',
+      'Sprich eine gleichgestellte Person höflich an: Fasse zuerst ihr stärkstes Argument zusammen, dann nenne Zugeständnis und bleibenden Einwand. Erhalte ihre Wahlfreiheit; lehne Zusagen zusätzlicher Arbeit außerhalb deiner Befugnis ab und schlage einen möglichen Versuch vor. Formuliere dies anschließend als förmlichen Sitzungsbeitrag mit vereinbarten Kriterien, offener Politik und Ausschussbefugnissen. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Kosten anerkennen wird politische Zustimmung; Vorschlag wird Genehmigungsbefugnis. Nimm dasselbe Argument als neutrale Debatte und öffentliche Rede auf. Prüfe spöttische Betonung in Einräumungen und bedeutungsverändernde Pausen, dann überarbeite. Erfinde keine Fakten oder Befugnisse. Inhalt und Intonation bleiben unbewertet.')
+    tasks.append(task('KP21','speaking:01','speaking',loc('강한 반론을 공정하게 받아서 답하기','Answer the strongest objection fairly','Auf den stärksten Einwand fair antworten'),speech,packet(debate(*p)+'\n'+documents(p),[]),packet(debate(*a)+'\n'+documents(a),[])))
+    return tasks
+
+
+if __name__=='__main__':
+    write_source('KP21',kp21())

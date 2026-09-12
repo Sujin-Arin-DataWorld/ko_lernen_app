@@ -261,16 +261,16 @@
 | KP20 | G5:-는 법이다 | 1 | 0 | 0 | 미검증 |
 | KP20 | G5:-는가1 | 1 | 0 | 0 | 미검증 |
 | KP20 | G2:-는 것 같다 | 1 | 0 | 0 | 미검증 |
-| KP21 | G5:-는데도 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-는데도 불구하고 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:에도 불구하고 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-을지라도 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:조차 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:는 말할 것도 없고 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-을뿐더러 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-는 데다가 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-느니1 | 0 | 0 | 0 | 미검증 |
-| KP21 | G5:-지1 | 0 | 0 | 0 | 미검증 |
+| KP21 | G5:-는데도 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-는데도 불구하고 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:에도 불구하고 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-을지라도 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:조차 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:는 말할 것도 없고 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-을뿐더러 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-는 데다가 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-느니1 | 1 | 0 | 0 | 미검증 |
+| KP21 | G5:-지1 | 1 | 0 | 0 | 미검증 |
 | KP22 | G5:-을 테다 | 0 | 0 | 0 | 미검증 |
 | KP22 | G5:-을 테면 | 0 | 0 | 0 | 미검증 |
 | KP22 | G5:-을 테지만 | 0 | 0 | 0 | 미검증 |
@@ -597,3 +597,13 @@
 - KP20 / G5:-는 법이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/6/practice/sourceKo` — “오래 익힌 습관은 쉽게 바뀌지 않는 법이라고 그는 말했다.”. 습관의 지속을 일반 원칙으로 제시한 발언이며 방법 설명이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP20 / G5:-는가1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/7/practice/sourceKo` — “이 설명이 모든 사례에 적용되는가? 아직 검토가 필요하다.”. 모든 사례 적용 여부를 문어 의문으로 제기하고 미결 상태를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP20 / G2:-는 것 같다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp20.json/tasks/8/practice/sourceKo` — “이 결론에는 자료가 더 필요한 것 같아요.”. 추가 자료 필요성에 대한 낮은 확신의 평가다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-는데도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/0/practice/sourceKo` — “충분히 설명했는데도 오해가 남았습니다.”. 설명 사실을 인정하면서 예상과 달리 남은 오해를 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-는데도 불구하고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/1/practice/sourceKo` — “여러 차례 확인했는데도 불구하고 오류가 발견되었습니다.”. 반복 확인과 반기대 오류 발견을 명시적으로 대조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:에도 불구하고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/2/practice/sourceKo` — “이러한 한계에도 불구하고 결과는 의미가 있습니다.”. 명사 한계를 양보하면서 결과 가치를 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-을지라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/3/practice/sourceKo` — “결과가 기대에 못 미칠지라도 과정을 공개하겠습니다.”. 결과 미달을 가정해도 유지할 미래 공개 약속이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:조차 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/4/practice/sourceKo` — “심화 자료는 물론 기본 안내조차 읽을 수 없었습니다.”. 심화 정보보다 최소 기대인 기본 안내까지 읽지 못한 척도다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:는 말할 것도 없고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/5/practice/sourceKo` — “초급 자료는 말할 것도 없고 전문 자료도 부족합니다.”. 초급 자료 부족을 포함하고 전문 자료 부족을 더한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-을뿐더러 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/6/practice/sourceKo` — “이 방안은 비용이 적을뿐더러 실행도 간단합니다.”. 비용과 실행의 두 장점을 추가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-는 데다가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/7/practice/sourceKo` — “시간이 부족한 데다가 자료도 완성되지 않았어요.”. 시간 부족에 자료 미완성 사정을 추가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-느니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/8/practice/sourceKo` — “성급하게 결론을 내리느니 조금 더 확인하겠어요.”. 성급한 결론을 배제하고 추가 확인을 선택하는 비교다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP21 / G5:-지1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp21.json/tasks/9/practice/sourceKo` — “이것은 제안이지 확정된 계획은 아닙니다.”. 제안이라는 판단을 세우고 확정 계획 분류는 배제하는 대조 연결이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

@@ -26,7 +26,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP18 | 66 | 66 | 0 | 미검증 |
 | KP19 | 56 | 56 | 0 | 미검증 |
 | KP20 | 52 | 52 | 0 | 미검증 |
-| KP21 | 54 | 0 | 54 | 미검증 |
+| KP21 | 54 | 54 | 0 | 미검증 |
 | KP22 | 52 | 0 | 52 | 미검증 |
 | KP23 | 48 | 0 | 48 | 미검증 |
 | KP24 | 58 | 0 | 58 | 미검증 |
@@ -39,60 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP21:objective:grammar/G5:-는데도:R`
-- `KP21:objective:grammar/G5:-는데도:P`
-- `KP21:objective:grammar/G5:-는데도 불구하고:R`
-- `KP21:objective:grammar/G5:-는데도 불구하고:P`
-- `KP21:objective:grammar/G5:에도 불구하고:R`
-- `KP21:objective:grammar/G5:에도 불구하고:P`
-- `KP21:objective:grammar/G5:-을지라도:R`
-- `KP21:objective:grammar/G5:-을지라도:P`
-- `KP21:objective:grammar/G5:조차:R`
-- `KP21:objective:grammar/G5:조차:P`
-- `KP21:objective:grammar/G5:는 말할 것도 없고:R`
-- `KP21:objective:grammar/G5:는 말할 것도 없고:P`
-- `KP21:objective:grammar/G5:-을뿐더러:R`
-- `KP21:objective:grammar/G5:-을뿐더러:P`
-- `KP21:objective:grammar/G5:-는 데다가:R`
-- `KP21:objective:grammar/G5:-는 데다가:P`
-- `KP21:objective:grammar/G5:-느니1:R`
-- `KP21:objective:grammar/G5:-느니1:P`
-- `KP21:objective:grammar/G5:-지1:R`
-- `KP21:objective:grammar/G5:-지1:P`
-- `KP21:objective:listening/core:R`
-- `KP21:objective:listening/additional/1:R`
-- `KP21:objective:listening/genre/lecture_speech_monologue:R`
-- `KP21:objective:reading/core:R`
-- `KP21:objective:reading/additional/1:R`
-- `KP21:objective:reading/genre/contract_terms_legal_text:R`
-- `KP21:objective:speaking/core:P`
-- `KP21:objective:speaking/additional/1:P`
-- `KP21:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP21:objective:writing/core:P`
-- `KP21:objective:writing/additional/1:P`
-- `KP21:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP21:objective:functions/persuade_argue_justify:R`
-- `KP21:objective:functions/persuade_argue_justify:P`
-- `KP21:objective:functions/compare_contrast_alternatives:R`
-- `KP21:objective:functions/compare_contrast_alternatives:P`
-- `KP21:objective:functions/refuse_set_boundaries:R`
-- `KP21:objective:functions/refuse_set_boundaries:P`
-- `KP21:objective:functions/mediate_between_parties:R`
-- `KP21:objective:functions/mediate_between_parties:P`
-- `KP21:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP21:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP21:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP21:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP21:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP21:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP21:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP21:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP21:objective:phonology/0:R`
-- `KP21:objective:phonology/0:P`
-- `KP21:objective:phonology/1:R`
-- `KP21:objective:phonology/1:P`
-- `KP21:objective:register/hapsyo_formal_business:P`
-- `KP21:objective:register/haeyo_polite:P`
 - `KP22:objective:grammar/G5:-을 테다:R`
 - `KP22:objective:grammar/G5:-을 테다:P`
 - `KP22:objective:grammar/G5:-을 테면:R`
