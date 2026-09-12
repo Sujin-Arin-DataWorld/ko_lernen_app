@@ -31,6 +31,7 @@ from cefr_lexicon import CefrLexicon  # noqa: E402
 from build_level_bible_tables import (  # noqa: E402
     KERIS_CSV_NAME,
     KERIS_JSON_NAME,
+    GrammarCorrespondence,
     REPO,
     build_f1,
     build_f2_md,
@@ -41,6 +42,7 @@ from build_level_bible_tables import (  # noqa: E402
     build_f9_md,
     classify_culture_word,
     generate_all,
+    load_grammar_correspondences,
     main,
     normalize_form_variants,
 )
@@ -268,6 +270,202 @@ class BuildF1Test(unittest.TestCase):
         row = result.rows[0]
         self.assertEqual(row.status, "missing_in_app")
         self.assertEqual(row.matched_app_ids, ())
+
+    def test_reviewed_negation_correspondence_matches_the_real_surface_form(self):
+        grammar_rows = [
+            {"id": "grammar_a1_long_negation", "level": "A1", "pattern": "V-지 않아요"},
+        ]
+        nikl_rows = [
+            {"grade": "1", "category": "표현", "form": "-지 않다", "variants": "", "meaning": ""},
+        ]
+        correspondence = GrammarCorrespondence(
+            source_key="G1:-지 않다",
+            app_grammar_ids=("grammar_a1_long_negation",),
+            review_state="reviewed_source",
+            semantic_status="semantically_confirmed",
+        )
+        result = build_f1(grammar_rows, nikl_rows, [correspondence])
+        self.assertEqual(result.rows[0].status, "match")
+        self.assertEqual(result.rows[0].matched_app_ids, ("grammar_a1_long_negation",))
+
+    def test_checked_in_negation_correspondence_has_current_evidence(self):
+        with (REPO / "assets" / "data" / "grammar.csv").open(encoding="utf-8", newline="") as fh:
+            grammar_rows = list(csv.DictReader(fh))
+        with (REPO / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_grammar.csv").open(encoding="utf-8", newline="") as fh:
+            nikl_rows = list(csv.DictReader(fh))
+        correspondences = load_grammar_correspondences(REPO, grammar_rows, nikl_rows)
+        result = build_f1(grammar_rows, nikl_rows, correspondences)
+        negation = next(row for row in result.rows if row.nikl_grade == 1 and row.nikl_form == "-지 않다")
+        self.assertEqual(negation.status, "match")
+        self.assertEqual(negation.matched_app_ids, ("grammar_a1_long_negation",))
+
+    def test_correspondence_key_preserves_grade_and_homograph_isolation(self):
+        grammar_rows = [
+            {"id": "grammar_a1_long_negation", "level": "A1", "pattern": "V-지 않아요"},
+        ]
+        nikl_rows = [
+            {"grade": "1", "category": "표현", "form": "은1", "variants": "", "meaning": ""},
+            {"grade": "2", "category": "표현", "form": "은1", "variants": "", "meaning": ""},
+            {"grade": "1", "category": "표현", "form": "은", "variants": "", "meaning": ""},
+        ]
+        correspondence = GrammarCorrespondence(
+            source_key="G1:은1",
+            app_grammar_ids=("grammar_a1_long_negation",),
+            review_state="reviewed_source",
+            semantic_status="semantically_confirmed",
+        )
+        result = build_f1(grammar_rows, nikl_rows, [correspondence])
+        rows = {(row.nikl_grade, row.nikl_form): row for row in result.rows}
+        self.assertEqual(rows[(1, "은1")].status, "match")
+        self.assertEqual(rows[(2, "은1")].status, "missing_in_app")
+        self.assertEqual(rows[(1, "은")].status, "missing_in_app")
+
+    def test_correspondence_never_partially_matches_endings_or_compounds(self):
+        grammar_rows = [
+            {"id": "grammar_a1_long_negation", "level": "A1", "pattern": "V-지 않아요"},
+        ]
+        nikl_rows = [
+            {"grade": "1", "category": "표현", "form": "-지 않다", "variants": "", "meaning": ""},
+            {"grade": "1", "category": "표현", "form": "-지", "variants": "", "meaning": ""},
+            {"grade": "1", "category": "표현", "form": "않다", "variants": "", "meaning": ""},
+            {"grade": "1", "category": "표현", "form": "-지 않다거나", "variants": "", "meaning": ""},
+        ]
+        correspondence = GrammarCorrespondence(
+            source_key="G1:-지 않다",
+            app_grammar_ids=("grammar_a1_long_negation",),
+            review_state="reviewed_source",
+            semantic_status="semantically_confirmed",
+        )
+        result = build_f1(grammar_rows, nikl_rows, [correspondence])
+        rows = {row.nikl_form: row for row in result.rows}
+        self.assertEqual(rows["-지 않다"].status, "match")
+        for form in ("-지", "않다", "-지 않다거나"):
+            self.assertEqual(rows[form].status, "missing_in_app", form)
+
+
+class GrammarCorrespondenceValidationTest(unittest.TestCase):
+    """The semantic registry must fail closed instead of inflating F1."""
+
+    def _root_and_entry(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        root = Path(tmp.name)
+        assets = root / "assets" / "data"
+        lexicon = root / "tools" / "content_factory" / "lexicon"
+        matrix = root / "tools" / "content_factory" / "cefr_matrix"
+        manual = root / "docs" / "data" / "level_bible"
+        for directory in (assets, lexicon, matrix, manual):
+            directory.mkdir(parents=True, exist_ok=True)
+        with (assets / "grammar.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=["id", "level", "pattern", "example_korean"])
+            writer.writeheader()
+            writer.writerow({"id": "g_negation", "level": "A1", "pattern": "V-지 않아요", "example_korean": "먹지 않아요."})
+        with (lexicon / "nikl_kiiq_2017_grammar.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=["grade", "category", "form", "variants"])
+            writer.writeheader()
+            writer.writerow({"grade": "1", "category": "표현", "form": "-지 않다", "variants": ""})
+        (manual / "F1b_grammar_grade12_manual.md").write_text("g_negation confirms -지 않다\n", encoding="utf-8")
+        entry = {
+            "sourceKey": "G1:-지 않다",
+            "appGrammarIds": ["g_negation"],
+            "reviewState": "reviewed_source",
+            "semanticStatus": "semantically_confirmed",
+            "rationale": {"meaning": "long negation", "form": "dictionary form to polite surface"},
+            "exampleReferences": [{"appGrammarId": "g_negation", "field": "example_korean", "value": "먹지 않아요."}],
+            "reviewedSource": {"path": "docs/data/level_bible/F1b_grammar_grade12_manual.md", "requiredText": "g_negation"},
+        }
+        return root, entry
+
+    @staticmethod
+    def _write_registry(root, entries):
+        path = root / "tools" / "content_factory" / "cefr_matrix" / "grammar_correspondence.json"
+        path.write_text(json.dumps({"schemaVersion": 1, "correspondences": entries}, ensure_ascii=False), encoding="utf-8")
+
+    @staticmethod
+    def _rows(root):
+        with (root / "assets" / "data" / "grammar.csv").open(encoding="utf-8", newline="") as fh:
+            grammar_rows = list(csv.DictReader(fh))
+        with (root / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_grammar.csv").open(encoding="utf-8", newline="") as fh:
+            nikl_rows = list(csv.DictReader(fh))
+        return grammar_rows, nikl_rows
+
+    def test_invalid_registry_entries_fail_validation(self):
+        root, entry = self._root_and_entry()
+        cases = {
+            "missing app id": lambda value: value.update(appGrammarIds=["g_missing"]),
+            "unknown source key": lambda value: value.update(sourceKey="G1:-지 안다"),
+            "invalid review state": lambda value: value.update(reviewState="approved"),
+            "stale example": lambda value: value["exampleReferences"][0].update(value="안 먹어요."),
+            "metadata is not an example": lambda value: value["exampleReferences"][0].update(field="level", value="A1"),
+            "parent traversal is not a reviewed source": lambda value: value["reviewedSource"].update(path="../outside.md"),
+            "unreviewed confirmed": lambda value: value.update(reviewState="unreviewed"),
+        }
+        for label, mutate in cases.items():
+            with self.subTest(label=label):
+                candidate = json.loads(json.dumps(entry, ensure_ascii=False))
+                mutate(candidate)
+                self._write_registry(root, [candidate])
+                grammar_rows, nikl_rows = self._rows(root)
+                with self.assertRaises(ValueError):
+                    load_grammar_correspondences(root, grammar_rows, nikl_rows)
+
+        self._write_registry(root, [entry, json.loads(json.dumps(entry, ensure_ascii=False))])
+        grammar_rows, nikl_rows = self._rows(root)
+        with self.assertRaisesRegex(ValueError, "duplicates/conflicts"):
+            load_grammar_correspondences(root, grammar_rows, nikl_rows)
+
+    def test_reviewed_source_symlink_cannot_escape_repository(self):
+        root, entry = self._root_and_entry()
+        outside_tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(outside_tmp.cleanup)
+        outside = Path(outside_tmp.name) / "outside.md"
+        outside.write_text("g_negation", encoding="utf-8")
+        link = root / "docs" / "data" / "level_bible" / "outside-link.md"
+        entry["reviewedSource"]["path"] = "docs/data/level_bible/outside-link.md"
+        self._write_registry(root, [entry])
+        grammar_rows, nikl_rows = self._rows(root)
+        # Windows test environments may deny symlink creation. Simulate the
+        # resolver result of such a link so this escape branch is exercised
+        # regardless of the host's link privilege.
+        original_resolve = Path.resolve
+        resolved_outside = original_resolve(outside, strict=True)
+
+        def resolve(path, strict=False):
+            if path == link:
+                return resolved_outside
+            return original_resolve(path, strict=strict)
+
+        with mock.patch.object(Path, "resolve", new=resolve):
+            with self.assertRaisesRegex(ValueError, "escapes the repository"):
+                load_grammar_correspondences(root, grammar_rows, nikl_rows)
+
+    def test_source_key_preserves_raw_grade_and_form_without_normalising(self):
+        root, entry = self._root_and_entry()
+        with (root / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_grammar.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=["grade", "category", "form", "variants"])
+            writer.writeheader()
+            writer.writerow({"grade": "01", "category": "표현", "form": " -지 않다 ", "variants": ""})
+        entry["sourceKey"] = "G01: -지 않다 "
+        self._write_registry(root, [entry])
+        grammar_rows, nikl_rows = self._rows(root)
+        correspondences = load_grammar_correspondences(root, grammar_rows, nikl_rows)
+        self.assertEqual(correspondences[0].source_key, "G01: -지 않다 ")
+        self.assertEqual(build_f1(grammar_rows, nikl_rows, correspondences).rows[0].status, "match")
+
+        entry["sourceKey"] = "G1:-지 않다"
+        self._write_registry(root, [entry])
+        with self.assertRaisesRegex(ValueError, "unknown source key"):
+            load_grammar_correspondences(root, grammar_rows, nikl_rows)
+
+    def test_machine_suggestion_cannot_become_a_confirmed_match(self):
+        root, entry = self._root_and_entry()
+        entry["reviewState"] = "machine_suggested"
+        entry["semanticStatus"] = "observed_syntactic_candidate"
+        self._write_registry(root, [entry])
+        grammar_rows, nikl_rows = self._rows(root)
+        correspondences = load_grammar_correspondences(root, grammar_rows, nikl_rows)
+        result = build_f1(grammar_rows, nikl_rows, correspondences)
+        self.assertEqual(result.rows[0].status, "missing_in_app")
 
 
 class ClassifyCultureWordTest(unittest.TestCase):

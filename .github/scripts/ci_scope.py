@@ -37,6 +37,9 @@ TASK_SCOPE = {
 APP_DOC_PREFIXES = (
     "docs/store/",
     "docs/screenshots/",
+    # Exact correspondence review sources and generated curriculum reports
+    # are executable audit inputs, including Markdown-only edits.
+    "docs/data/level_bible/",
     "docs/assets/recipes/",
 )
 APP_DOC_FILES = {
@@ -48,6 +51,9 @@ APP_DOC_FILES = {
     "docs/support.html",
     "docs/terms.html",
     "docs/SESSION_CHANGES_2026-07-31.md",
+    "docs/data/curriculum_matrix_report.md",
+    "docs/data/cefr_curriculum_matrix.md",
+    "docs/data/curriculum_completion_backlog.md",
     "docs/assets/STYLE_LOCK.json",
     "docs/assets/CARD_STYLE_BASELINE.json",
     "docs/assets/VOCAB_PACK_CARD_MANIFEST.json",

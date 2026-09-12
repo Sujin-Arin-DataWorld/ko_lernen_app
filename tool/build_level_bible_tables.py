@@ -110,6 +110,7 @@ REPO = Path(__file__).resolve().parent.parent
 ASSETS = REPO / "assets" / "data"
 LEXICON_DIR = REPO / "tools" / "content_factory" / "lexicon"
 OUT_DIR = REPO / "docs" / "data" / "level_bible"
+GRAMMAR_CORRESPONDENCE_REL = Path("tools") / "content_factory" / "cefr_matrix" / "grammar_correspondence.json"
 
 # F5's two 세종한국문화 CSVs are public-domain (공공누리 제1유형, ref0041/
 # ref0042 in tools/content_factory/reference_intake/source_inventory.csv)
@@ -171,6 +172,170 @@ _TOP_LEVEL_ALT_RE = re.compile(r"\s/\s")
 _BARE_N_TOKEN_RE = re.compile(r"^N")
 
 PARTICLE_CATEGORY = "조사"  # 조사
+EXAMPLE_REFERENCE_FIELDS = frozenset({"example_korean"})
+VALID_CORRESPONDENCE_REVIEW_STATES = frozenset(
+    {"reviewed_source", "observed_syntactic_candidate", "machine_suggested", "unreviewed"}
+)
+VALID_CORRESPONDENCE_SEMANTIC_STATUSES = frozenset(
+    {"semantically_confirmed", "observed_syntactic_candidate"}
+)
+
+
+@dataclass(frozen=True)
+class GrammarCorrespondence:
+    """One exact NIKL-to-app grammar correspondence.
+
+    ``source_key`` deliberately contains the original NIKL grade and the
+    byte-for-byte form (including a homograph digit).  It is not a
+    normalised matching key: the registry is an audited exception to the
+    literal matcher, never a second fuzzy matcher.
+    """
+
+    source_key: str
+    app_grammar_ids: Tuple[str, ...]
+    review_state: str
+    semantic_status: str
+
+    @property
+    def is_confirmed_semantic_match(self) -> bool:
+        return (
+            self.review_state == "reviewed_source"
+            and self.semantic_status == "semantically_confirmed"
+        )
+
+
+def nikl_source_key(row: Mapping[str, str]) -> str:
+    """Return the immutable registry key for one original NIKL row.
+
+    Validation deliberately does not canonicalise these source fields.  A
+    correspondence key represents the CSV's original grade and exact form,
+    including any homograph digit or other source-significant character.
+    """
+    grade = row.get("grade")
+    form = row.get("form")
+    if not isinstance(grade, str) or not grade or not grade.isdecimal():
+        raise ValueError("NIKL correspondence source has an invalid raw grade")
+    if not isinstance(form, str) or not form:
+        raise ValueError("NIKL correspondence source has an empty form")
+    return f"G{grade}:{form}"
+
+
+def load_grammar_correspondences(
+    root: Path,
+    grammar_rows: Iterable[Mapping[str, str]],
+    nikl_rows: Iterable[Mapping[str, str]],
+) -> Tuple[GrammarCorrespondence, ...]:
+    """Load and validate the explicit semantic correspondence registry.
+
+    The registry is intentionally optional for small synthetic fixtures and
+    older callers.  When it is present, every entry is fail-closed: a stale
+    example, unknown app/NIKL id, duplicate source key, or an invalid review
+    assertion raises rather than contributing coverage.
+    """
+    path = root / GRAMMAR_CORRESPONDENCE_REL
+    if not path.exists():
+        return ()
+
+    data = _read_json(path)
+    if not isinstance(data, dict) or data.get("schemaVersion") != 1:
+        raise ValueError(f"Invalid grammar correspondence schema: {path}")
+    entries = data.get("correspondences")
+    if not isinstance(entries, list):
+        raise ValueError(f"Grammar correspondences must be a list: {path}")
+
+    app_by_id = {
+        (row.get("id") or "").strip(): row
+        for row in grammar_rows
+        if (row.get("id") or "").strip()
+    }
+    source_keys = {nikl_source_key(row) for row in nikl_rows if (row.get("form") or "").strip()}
+    seen_source_keys: set[str] = set()
+    loaded: List[GrammarCorrespondence] = []
+
+    for index, entry in enumerate(entries):
+        label = f"grammar correspondence #{index + 1}"
+        if not isinstance(entry, dict):
+            raise ValueError(f"{label} must be an object")
+        source_key = entry.get("sourceKey")
+        if not isinstance(source_key, str) or source_key not in source_keys:
+            raise ValueError(f"{label} has an unknown source key: {source_key!r}")
+        if source_key in seen_source_keys:
+            raise ValueError(f"{label} duplicates/conflicts with source key {source_key}")
+        seen_source_keys.add(source_key)
+
+        app_ids = entry.get("appGrammarIds")
+        if not isinstance(app_ids, list) or not app_ids or not all(isinstance(x, str) and x for x in app_ids):
+            raise ValueError(f"{label} must name one or more app grammar ids")
+        if len(set(app_ids)) != len(app_ids):
+            raise ValueError(f"{label} has duplicate app grammar ids")
+        for app_id in app_ids:
+            app_row = app_by_id.get(app_id)
+            if app_row is None:
+                raise ValueError(f"{label} references missing app grammar id {app_id}")
+            if not (app_row.get("pattern") or "").strip() or not (app_row.get("level") or "").strip():
+                raise ValueError(f"{label} references unusable app grammar id {app_id}")
+
+        review_state = entry.get("reviewState")
+        semantic_status = entry.get("semanticStatus")
+        if review_state not in VALID_CORRESPONDENCE_REVIEW_STATES:
+            raise ValueError(f"{label} has invalid review state {review_state!r}")
+        if semantic_status not in VALID_CORRESPONDENCE_SEMANTIC_STATUSES:
+            raise ValueError(f"{label} has invalid semantic status {semantic_status!r}")
+        if semantic_status == "semantically_confirmed" and review_state != "reviewed_source":
+            raise ValueError(f"{label} cannot confirm a semantic match without a reviewed source")
+
+        rationale = entry.get("rationale")
+        if not isinstance(rationale, dict) or not all(isinstance(rationale.get(k), str) and rationale[k].strip() for k in ("meaning", "form")):
+            raise ValueError(f"{label} requires non-empty meaning and form rationale")
+
+        example_refs = entry.get("exampleReferences")
+        if not isinstance(example_refs, list) or len(example_refs) != len(app_ids):
+            raise ValueError(f"{label} requires one current example reference per app grammar id")
+        referenced_ids: set[str] = set()
+        for ref in example_refs:
+            if not isinstance(ref, dict):
+                raise ValueError(f"{label} has an invalid example reference")
+            app_id = ref.get("appGrammarId")
+            field = ref.get("field")
+            value = ref.get("value")
+            if app_id not in app_by_id or app_id not in app_ids or field not in EXAMPLE_REFERENCE_FIELDS or not isinstance(value, str):
+                raise ValueError(f"{label} has an invalid example reference")
+            if app_by_id[app_id].get(field) != value:
+                raise ValueError(f"{label} has a stale example reference for {app_id}.{field}")
+            referenced_ids.add(app_id)
+        if referenced_ids != set(app_ids):
+            raise ValueError(f"{label} does not reference every mapped app grammar id")
+
+        reviewed_source = entry.get("reviewedSource")
+        if not isinstance(reviewed_source, dict):
+            raise ValueError(f"{label} requires a reviewed source reference")
+        source_path = reviewed_source.get("path")
+        required_text = reviewed_source.get("requiredText")
+        if not isinstance(source_path, str) or not isinstance(required_text, str) or not required_text:
+            raise ValueError(f"{label} has an invalid reviewed source reference")
+        source_path_obj = Path(source_path)
+        if source_path_obj.is_absolute() or ".." in source_path_obj.parts:
+            raise ValueError(f"{label} reviewed source path must be repo-relative")
+        source_file = root / source_path_obj
+        try:
+            resolved_root = root.resolve(strict=True)
+            resolved_source = source_file.resolve(strict=True)
+            resolved_source.relative_to(resolved_root)
+        except (OSError, RuntimeError, ValueError) as exc:
+            raise ValueError(f"{label} reviewed source path escapes the repository") from exc
+        if not resolved_source.is_file() or required_text not in resolved_source.read_text(encoding="utf-8"):
+            raise ValueError(f"{label} has a stale reviewed source reference")
+
+        loaded.append(
+            GrammarCorrespondence(
+                source_key=source_key,
+                app_grammar_ids=tuple(app_ids),
+                review_state=review_state,
+                semantic_status=semantic_status,
+            )
+        )
+
+    return tuple(loaded)
 
 
 def _expand_token(token: str) -> List[str]:
@@ -354,10 +519,16 @@ class F1Result:
     app_only_ids: Tuple[str, ...]
 
 
-def build_f1(grammar_rows: Iterable[Mapping[str, str]], nikl_rows: Iterable[Mapping[str, str]]) -> F1Result:
+def build_f1(
+    grammar_rows: Iterable[Mapping[str, str]],
+    nikl_rows: Iterable[Mapping[str, str]],
+    correspondences: Iterable[GrammarCorrespondence] = (),
+) -> F1Result:
     """F1: every nikl grammar form matched against app grammar ids (plan
     §6/T1.4 F1). ``grammar_rows`` = assets/data/grammar.csv rows,
-    ``nikl_rows`` = nikl_kiiq_2017_grammar.csv rows."""
+    ``nikl_rows`` = nikl_kiiq_2017_grammar.csv rows.  Literal matching stays
+    unchanged; a correspondence can add an app id only when its reviewed
+    source explicitly confirms that exact original-grade/form key."""
     app_entries: List[Tuple[str, str, FrozenSet[str], FrozenSet[str]]] = []
     for row in grammar_rows:
         app_id = (row.get("id") or "").strip()
@@ -371,6 +542,11 @@ def build_f1(grammar_rows: Iterable[Mapping[str, str]], nikl_rows: Iterable[Mapp
             continue
         app_entries.append((app_id, level, normset, particle_tokens))
     app_entries.sort(key=lambda e: e[0])
+    app_levels_by_id = {app_id: level for app_id, level, _normset, _particle_tokens in app_entries}
+    confirmed_ids_by_source: Dict[str, Tuple[str, ...]] = {}
+    for correspondence in correspondences:
+        if correspondence.is_confirmed_semantic_match:
+            confirmed_ids_by_source[correspondence.source_key] = correspondence.app_grammar_ids
 
     matched_app_id_set: set = set()
     rows: List[F1Row] = []
@@ -404,6 +580,14 @@ def build_f1(grammar_rows: Iterable[Mapping[str, str]], nikl_rows: Iterable[Mapp
                 candidates = app_normset | app_particle_tokens if is_particle else app_normset
                 if nikl_normset & candidates:
                     matched.append((app_id, level))
+        # This is not a relaxed surface comparison.  It is an exact lookup by
+        # the original NIKL grade and form; the loader has already verified
+        # target ids, current examples, and reviewed-source evidence.
+        for app_id in confirmed_ids_by_source.get(nikl_source_key(nrow), ()):
+            candidate = (app_id, app_levels_by_id[app_id])
+            if candidate not in matched:
+                matched.append(candidate)
+        matched.sort(key=lambda item: item[0])
         matched_ids = tuple(m[0] for m in matched)
         matched_levels = tuple(m[1] for m in matched)
         matched_app_id_set.update(matched_ids)
@@ -438,19 +622,22 @@ def build_f1(grammar_rows: Iterable[Mapping[str, str]], nikl_rows: Iterable[Mapp
 
 
 def build_f1_md(root: Path = REPO) -> Tuple[str, F1Result]:
-    grammar_rows = _read_csv(ASSETS / "grammar.csv")
-    nikl_rows = _read_csv(LEXICON_DIR / "nikl_kiiq_2017_grammar.csv")
-    result = build_f1(grammar_rows, nikl_rows)
+    grammar_rows = _read_csv(root / "assets" / "data" / "grammar.csv")
+    nikl_rows = _read_csv(root / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_grammar.csv")
+    correspondences = load_grammar_correspondences(root, grammar_rows, nikl_rows)
+    result = build_f1(grammar_rows, nikl_rows, correspondences)
 
     counts = Counter(r.status for r in result.rows)
     lines: List[str] = []
-    lines.append("# F1 -- 국제통용 문법 336 <-> 앱 문법 244 매핑")
+    lines.append(f"# F1 -- 국제통용 문법 {len(nikl_rows)} <-> 앱 문법 {len(grammar_rows)} 매핑")
     lines.append("")
     lines.append("> 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.")
     lines.append("> 매칭 알고리즘(R5 개정): `normalize_form_variants`(top-level `' / '` 대안 분리 -> ")
     lines.append("> 청크별 슬롯 접두사(토큰마다)·앞뒤 `-`·동형어 번호·말미 `?` 제거, ")
     lines.append("> `(으)ㄹ/(으)ㄴ/(이)/(으)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는 ")
     lines.append("> `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.")
+    lines.append("> 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.")
+    lines.append("> 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.")
     lines.append("")
     lines.append(
         "**요약:** match {m} · level_mismatch {lm} · missing_in_app {mia} (nikl 문법 {tot}행) · "

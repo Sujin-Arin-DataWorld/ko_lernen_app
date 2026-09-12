@@ -1,18 +1,20 @@
-# F1 -- 국제통용 문법 336 <-> 앱 문법 244 매핑
+# F1 -- 국제통용 문법 336 <-> 앱 문법 252 매핑
 
 > 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.
 > 매칭 알고리즘(R5 개정): `normalize_form_variants`(top-level `' / '` 대안 분리 -> 
 > 청크별 슬롯 접두사(토큰마다)·앞뒤 `-`·동형어 번호·말미 `?` 제거, 
 > `(으)ㄹ/(으)ㄴ/(이)/(으)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는 
 > `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.
+> 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.
+> 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.
 
-**요약:** match 100 · level_mismatch 39 · missing_in_app 197 (nikl 문법 336행) · app_only 94(앱 문법 252개 중)
+**요약:** match 105 · level_mismatch 42 · missing_in_app 189 (nikl 문법 336행) · app_only 88(앱 문법 252개 중)
 
 ## 국제통용 -> 앱 매핑
 
 | nikl grade | category | form | variants | matched app ids | app levels | status |
 |---|---|---|---|---|---|---|
-| 1(A1) | 선어말어미 | -겠- |  | -- | -- | missing_in_app |
+| 1(A1) | 선어말어미 | -겠- |  | grammar_a2_intention_guess | A1 | match |
 | 1(A1) | 선어말어미 | -었- | -았-, -였- | grammar_a1_polite_past, grammar_b2_counterfactual_past | A1, B2 | match |
 | 1(A1) | 선어말어미 | -으시- | -시- | grammar_b1_honorific_si | A1 | match |
 | 1(A1) | 연결어미 | -고3 |  | grammar_a1_sequence_connector | A1 | match |
@@ -36,7 +38,7 @@
 | 1(A1) | 조사 | 을1 | 를, ㄹ1 | grammar_a1_future_modifier, grammar_a1_object_particle, grammar_a1_service_request, grammar_b2_criterion_view_batch20, grammar_b2_including_start, grammar_b2_inclusion, grammar_b2_instead_supplement, grammar_b2_topic_debate, grammar_b2_turning_point, grammar_c1_even_accounting_for, grammar_c1_regardless_noun, grammar_c1_taking_into_account, grammar_c2_definition_by_viewpoint, grammar_c2_on_the_premise, grammar_c2_regardless_of, grammar_c2_take_as_premise | A2, A1, A1, B2, B2, B2, B2, B2, B2, C1, C1, C1, C2, C2, C2, C2 | match |
 | 1(A1) | 조사 | 의 |  | grammar_a1_possessive_particle | A1 | match |
 | 1(A1) | 조사 | 이 | 가 | grammar_a1_copula_negation, grammar_a1_subject_new, grammar_a1_subject_particle, grammar_c1_burden_recipient_batch20, grammar_c1_excluded_in_process, grammar_c1_insufficient_for | A1, A1, A1, C1, C1, C1 | match |
-| 1(A1) | 조사 | 이다 |  | -- | -- | missing_in_app |
+| 1(A1) | 조사 | 이다 |  | grammar_a1_copula_polite | A1 | match |
 | 1(A1) | 조사 | 이랑 | 랑 | grammar_a1_with_connector | A1 | match |
 | 1(A1) | 조사 | 하고 |  | grammar_a1_with_connector | A1 | match |
 | 1(A1) | 조사 | 한테 |  | grammar_a1_spoken_dative, grammar_a2_dative_person | A1, A1 | match |
@@ -55,8 +57,8 @@
 | 1(A1) | 표현 | -은 후에 | -은 후, -ㄴ 후, <유의> -은 뒤에, -ㄴ 뒤에, -은 뒤, -ㄴ 뒤 | grammar_b1_after | A1 | match |
 | 1(A1) | 표현 | -을 수 있다 | -ㄹ 수 있다, <반의> -ㄹ 수 없다, -을 수 없다 | grammar_a2_ability | A1 | match |
 | 1(A1) | 표현 | -지 못하다 |  | grammar_a2_inability | A1 | match |
-| 1(A1) | 표현 | -지 않다 |  | -- | -- | missing_in_app |
-| 1(A1) | 표현 | 이 아니다 | 가 아니다 | -- | -- | missing_in_app |
+| 1(A1) | 표현 | -지 않다 |  | grammar_a1_long_negation | A1 | match |
+| 1(A1) | 표현 | 이 아니다 | 가 아니다 | grammar_a1_copula_negation | A1 | match |
 | 2(A2) | 연결어미 | -거나 |  | grammar_a2_or_verbs | A2 | match |
 | 2(A2) | 연결어미 | -게2 |  | grammar_a2_adverbial | A2 | match |
 | 2(A2) | 연결어미 | -는데1 | -은데1, -ㄴ데1 | grammar_b1_background_contrast | A2 | match |
@@ -101,7 +103,7 @@
 | 2(A2) | 표현 | -을 때 | -ㄹ 때 | grammar_a2_when | A2 | match |
 | 2(A2) | 표현 | -을 수밖에 없다 | -ㄹ 수밖에 없다 | grammar_a2_no_choice_but | A2 | match |
 | 2(A2) | 표현 | -을까 보다 | -ㄹ까 보다 | grammar_a2_tentative_intention | A2 | match |
-| 2(A2) | 표현 | -지 말다 |  | -- | -- | missing_in_app |
+| 2(A2) | 표현 | -지 말다 |  | grammar_a1_polite_prohibition | A2 | match |
 | 3(B1) | 선어말어미 | -었었- | -았었-, -였었- | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -거든1 | 거들랑 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -느라고 | -느라 | grammar_a2_busy_cause, grammar_b1_negative_cause | A2, B1 | match |
@@ -137,7 +139,7 @@
 | 3(B1) | 종결어미 | -자3 |  | -- | -- | missing_in_app |
 | 3(B1) | 종결어미 | -잖아 | -잖아요 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -게 하다 | <유의> -게 만들다, -도록 하다 | grammar_b2_formal_arrangement | B2 | level_mismatch |
-| 3(B1) | 표현 | -고 나다 |  | -- | -- | missing_in_app |
+| 3(B1) | 표현 | -고 나다 |  | grammar_a2_after_finishing | A2 | level_mismatch |
 | 3(B1) | 표현 | -고 말다 |  | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -고 싶어 하다 |  | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -기 위해 | -기 위해서, -기 위한, 을 위해, 를 위해 | grammar_a2_purpose | A2 | level_mismatch |
@@ -162,7 +164,7 @@
 | 3(B1) | 표현 | -어지다 | -아지다, -여지다 | grammar_a2_become | A2 | level_mismatch |
 | 3(B1) | 표현 | -으려다가 | -려다가, -으려다, 려다 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -으면 안 되다 | -면 안 되다, <반의> -으면 되다, -면 되다 | grammar_a2_prohibition | A2 | level_mismatch |
-| 3(B1) | 표현 | -으면 좋겠다 | -면 좋겠다 | -- | -- | missing_in_app |
+| 3(B1) | 표현 | -으면 좋겠다 | -면 좋겠다 | grammar_a2_preference_soft_batch20 | A2 | level_mismatch |
 | 3(B1) | 표현 | -은 결과 | -ㄴ 결과 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -은 다음에 | -ㄴ 다음에 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -을 테니 | -ㄹ 테니, -을 테니까, -ㄹ 테니까 | -- | -- | missing_in_app |
@@ -255,7 +257,7 @@
 | 5(C1) | 종결어미 | -다니1 | -다니요, -라니1, -라니요1, 으라니1, -으라니요 | -- | -- | missing_in_app |
 | 5(C1) | 종결어미 | -더라고 | -더라고요 | -- | -- | missing_in_app |
 | 5(C1) | 종결어미 | -데 | -데요 | -- | -- | missing_in_app |
-| 5(C1) | 종결어미 | ­으려고2 | ­려고2, ­려고요, ­으려고요 | -- | -- | missing_in_app |
+| 5(C1) | 종결어미 | -으려고2 | -려고2, -려고요, -으려고요 | grammar_b1_intention | A1 | level_mismatch |
 | 5(C1) | 표현 | -게 마련이다 | -기 마련이다 | grammar_b2_inevitability | B2 | level_mismatch |
 | 5(C1) | 표현 | -게 생겼다 |  | -- | -- | missing_in_app |
 | 5(C1) | 표현 | -기 나름이다 | -을 나름이다 | grammar_b2_method_dependent | B2 | level_mismatch |
@@ -304,7 +306,7 @@
 | 6(C2) | 연결어미 | -으련마는 | -련마는, -으련만, -련만 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -은들 | -ㄴ들2, 인들 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -을라치면 | -ㄹ라치면 | -- | -- | missing_in_app |
-| 6(C2) | 연결어미 | -을망정, | -ㄹ망정 <유의> -ㄹ지언정, -을지언정 | grammar_c2_even_if_concession | C2 | match |
+| 6(C2) | 연결어미 | -을망정 | -ㄹ망정 <유의> -ㄹ지언정, -을지언정 | grammar_c2_even_if_concession | C2 | match |
 | 6(C2) | 연결어미 | -이라야 | -라야, -이라야만, -라야만 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -자니3 | -자2,-자니까3 | -- | -- | missing_in_app |
 | 6(C2) | 연결어미 | -자면1 |  | -- | -- | missing_in_app |
@@ -358,22 +360,17 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a1_approx |
 | grammar_a1_cannot_short |
 | grammar_a1_come_purpose |
-| grammar_a1_copula_polite |
 | grammar_a1_degree_question |
 | grammar_a1_duration_span |
 | grammar_a1_formal_question |
 | grammar_a1_in_front |
-| grammar_a1_long_negation |
 | grammar_a1_please_particle |
-| grammar_a1_polite_prohibition |
 | grammar_a1_short_negation |
 | grammar_a1_which_question |
-| grammar_a2_after_finishing |
 | grammar_a2_among_set |
 | grammar_a2_available_if |
 | grammar_a2_future_intention |
 | grammar_a2_in_progress |
-| grammar_a2_intention_guess |
 | grammar_a2_irregular_bieup |
 | grammar_a2_irregular_digeut |
 | grammar_a2_irregular_eu |
@@ -381,7 +378,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a2_nominalizer_eum |
 | grammar_a2_noun_cause |
 | grammar_a2_permission_check_batch20 |
-| grammar_a2_preference_soft_batch20 |
 | grammar_a2_recommendation |
 | grammar_a2_shall_we_time |
 | grammar_a2_tag_confirmation |

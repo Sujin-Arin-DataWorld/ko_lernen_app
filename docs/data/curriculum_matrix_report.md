@@ -4,22 +4,228 @@
 > 문법 매칭은 `tool/build_level_bible_tables.py` 의 F1 매처를 그대로 재사용한다(F1_grammar_map.md 와 항상 일치).
 > 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(현재 taxonomy에 장르 배치 경로 미매핑) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).
 
-## 0. 요약
+## 0. 증거 요구사항 (W0b 임시 뷰 — 학습 완료 판정 아님)
+
+> 이 표의 모든 행은 KO 매트릭스의 레벨 × 축 × R/P 요구사항이다. 현재 `contentCandidates`는 기존 제목·키워드·배치·미디어 탐색 결과일 뿐이며, 과제·평가·런타임 근거나 숙달 증거가 아니다. W1의 승인된 과제 연결 전에는 모두 `unverified_unmapped`이다. 후보가 없다는 표기는 **검사된 콘텐츠 부재의 증명도 아니다**.
+
+- 산출 평가 초안 보유: 정의 118 · 프로젝트 8 · 자료 조각 32 · 합계 158 · stage `draft_only` · inputAbsent `False` · published 0 · assessable 0
+- 레벨 미지정 초안: 정의 0 · 프로젝트 8 · 자료 조각 32. 초안은 문법 앵커·장르 보유·기술·런타임 숙달에 계산하지 않는다.
+- 요구 행: 186 · 후보 관찰 행: 105 · 미검증/미매핑 행: 186
+
+| 초안 레벨 | 정의 | 프로젝트 | 자료 조각 |
+|---|---:|---:|---:|
+| A1 | 16 | 0 | 0 |
+| A2 | 16 | 0 | 0 |
+| B1 | 18 | 0 | 0 |
+| B2 | 20 | 0 | 0 |
+| C1 | 24 | 0 | 0 |
+| C2 | 24 | 0 | 0 |
+
+| 레벨 | 축 | 요구 키 | R/P | 후보 콘텐츠(참조만) | 초안 연결 | stage | 과제/평가/런타임 |
+|---|---|---|---|---|---:|---|---|
+| A1 | speechAct | `A1:speechAct:greet_introduce_self:P` | P | scenario:a1_w10_partner, scenario:airport_arrival, scenario:first_class_meeting, scenario:introduce_yourself, unit:a1_01_greetings_hangul, unit:a1_02_self_intro_identity … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:ask_give_personal_information:P` | P | scenario:introduce_yourself, scenario:korea_stay_smalltalk, unit:a1_02_self_intro_identity | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:ask_for_information_confirm:P` | P | scenario:a1_w10_numbers, scenario:a1_w10_repeat, scenario:a1_w10_taxi_stay, scenario:a1_w10_wayfinding, scenario:bakery_payment_bag, scenario:break_glass_apology … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:identify_locate_things:P` | P | scenario:a1_w10_eat, scenario:home_morning_routine, scenario:mart_grocery, scenario:survival_day_capstone, unit:a1_03_topic_subject_particles, unit:a1_09_home_daily_life … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:express_preference_taste:P` | P | scenario:a1_w10_fandom, scenario:bunshik_tteokbokki, scenario:favorite_korean_music, scenario:mart_grocery, unit:a1_04_order_request_object, unit:a1_06_transport_directions … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:order_buy_pay:P` | P | scenario:a1_w10_eat, scenario:bakery_payment_bag, scenario:bunshik_tteokbokki, scenario:cafe_dessert_sold_out, unit:a1_04_order_request_object | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:request_ask_someone_to_do:P` | P | scenario:a1_w10_repeat, scenario:clarify_repeat, scenario:taxi_kakao, unit:a1_08_clarify_repair | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:thank_apologise_respond:P` | P | scenario:airport_arrival, scenario:bakery_queue, scenario:break_glass_apology, scenario:subway_step_apology, unit:a1_10_health_safety | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:make_change_cancel_appointments:P` | P | scenario:a1_w10_numbers, scenario:a1_w10_phone, scenario:meeting_time, unit:a1_05_numbers_time | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:clarify_repair_ask_to_repeat:P` | P | scenario:a1_w10_repeat, scenario:clarify_repeat, unit:a1_01_greetings_hangul, unit:a1_08_clarify_repair | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:express_intention_plan_wish:P` | P | scenario:a1_theme_park_date_choices, scenario:survival_day_capstone, unit:a1_16_survival_capstone | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:narrate_experience_events:P` | P | scenario:a1_w10_fandom | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:describe_people_things_places:P` | P | scenario:korea_stay_smalltalk | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:suggest_propose:P` | P | scenario:a1_theme_park_date_choices | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:express_feelings_emotions:P` | P | scenario:korea_stay_smalltalk | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:give_follow_instructions_directions:R` | R | scenario:a1_w10_wayfinding, unit:a1_07_contact_address | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:adjust_register_speech_style:R` | R | scenario:dance_class_register, unit:a1_13_register_switching | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | speechAct | `A1:speechAct:express_obligation_permission:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:dialogue_face_to_face:R` | R | scenario:a1_theme_park_date_choices, scenario:a1_w10_eat, scenario:a1_w10_fandom, scenario:a1_w10_numbers, scenario:a1_w10_partner, scenario:a1_w10_phone … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:service_encounter_counter:R` | R | scenario:a1_w10_eat, scenario:a1_w10_fandom, scenario:a1_w10_numbers, scenario:a1_w10_phone, scenario:a1_w10_repeat, scenario:a1_w10_taxi_stay … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:sign_notice_short:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:menu_pricelist_timetable:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:public_announcement_spoken:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:song_lyric_line:R` | R | media:media_001, media:media_002, media:media_003, media:media_004, media:media_005, media:media_006 … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:phone_call:R` | R | scenario:a1_w10_phone, smalltalk:smalltalk_a1_0050, smalltalk:smalltalk_a1_0051, smalltalk:smalltalk_a1_0052, smalltalk:smalltalk_a1_0053, smalltalk:smalltalk_a1_0089 | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:dialogue_face_to_face:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:service_encounter_counter:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:form_application:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:personal_note_postcard:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | textType | `A1:textType:instant_message_chat:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | register | `A1:register:haeyo_polite:P` | P | scenario:a1_w10_eat, scenario:a1_w10_fandom, scenario:a1_w10_numbers, scenario:a1_w10_partner, scenario:a1_w10_phone, scenario:a1_w10_repeat … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | register | `A1:register:hapsyo_formal_business:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A1 | register | `A1:register:banmal_casual:R` | R | scenario:home_morning_routine, scenario:survival_day_capstone | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:explain_reason_cause_effect:P` | P | scenario:favorite_drama_chat, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:running_late, unit:a2_01_haeyo_transition, unit:a2_02_plans_proposals … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:express_feelings_emotions:P` | P | scenario:favorite_drama_chat, scenario:friend_cancelled_plan, scenario:taxi_slow_down, unit:a2_04_feelings_health, unit:a2_07_travel_repair | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:express_obligation_permission:P` | P | scenario:package_wrong_door | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:advise_recommend_warn:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:invite_accept_decline:P` | P | scenario:a2_w10_friends | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:report_relay_information:P` | P | scenario:running_late | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:compare_contrast_alternatives:P` | P | scenario:forgot_house_key, scenario:forgot_presentation_cable, scenario:taxi_slow_down | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:express_opinion_agree_disagree:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:congratulate_sympathise_comfort:P` | P | unit:a2_07_travel_repair | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:small_talk_maintain_relationships:P` | P | scenario:favorite_drama_chat | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:complain_object_appeal:P` | P | scenario:clothing_refund_size, unit:a2_05_delivery_services, unit:a2_08_home_money | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:give_follow_instructions_directions:P` | P | scenario:delivery_dinner_spicy, scenario:library_card_problem, scenario:pharmacy_cold_medicine, scenario:samgyeopsal_first_time | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:make_change_cancel_appointments:P` | P | scenario:a2_w10_booking, scenario:a2_w10_enrolment, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:plans_with_friend, scenario:running_late … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:request_ask_someone_to_do:P` | P | scenario:forgot_house_key, scenario:taxi_slow_down, unit:a2_05_delivery_services, unit:a2_07_travel_repair, unit:a2_08_home_money | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:order_buy_pay:P` | P | scenario:a2_w10_buy | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:adjust_register_speech_style:R` | R | scenario:a2_w10_enrolment | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | speechAct | `A2:speechAct:express_certainty_doubt_hedging:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:written_notice_announcement:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:advertisement_leaflet:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:instructions_manual_recipe:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:drama_film_line:R` | R | media:media_025, media:media_026, media:media_027, media:media_028, media:media_029, media:media_030 … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:email_informal:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:explanatory_informational_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:phone_call:R` | R | scenario:a2_w10_booking, smalltalk:smalltalk_a2_0049, smalltalk:smalltalk_a2_0050, smalltalk:smalltalk_a2_0051, smalltalk:smalltalk_a2_0052 | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:email_informal:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:instant_message_chat:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:narrative_story_diary:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:social_media_post_comment:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | textType | `A2:textType:phone_call:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | register | `A2:register:haeyo_polite:P` | P | scenario:a2_w10_apt, scenario:a2_w10_booking, scenario:a2_w10_buy, scenario:a2_w10_enrolment, scenario:a2_w10_money, scenario:clothing_refund_size … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | register | `A2:register:banmal_casual:P` | P | scenario:a2_w10_fandom, scenario:a2_w10_friends, scenario:forgot_house_key, scenario:forgot_presentation_cable, scenario:friend_cancelled_plan, scenario:group_chat_photo_permission … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | register | `A2:register:hapsyo_formal_business:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| A2 | register | `A2:register:intimate:R` | R | scenario:a2_theme_park_date_break, scenario:a2_w10_partner | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:report_relay_information:P` | P | scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:summarise_reconstruct:P` | P | scenario:ai_summary_wrong_fact, scenario:subscription_cancel_charge | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:express_certainty_doubt_hedging:P` | P | scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:evaluate_assess_critique:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:negotiate_compromise_conditions:P` | P | scenario:secondhand_hidden_defect | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:refuse_set_boundaries:P` | P | scenario:b1_w10_partner | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:persuade_argue_justify:P` | P | scenario:food_delivery_wrong_order | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:reformulate_paraphrase_rewrite:P` | P | scenario:reel_caption_misunderstanding, scenario:work_message_too_direct | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:adjust_register_speech_style:P` | P | scenario:speech_level_after_friendship, scenario:work_message_too_direct | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:explain_reason_cause_effect:P` | P | scenario:cancelled_trip_hurt_feelings, scenario:community_festival_shift, scenario:jeju_rain_plan_change, scenario:park_pet_manners, scenario:running_injury_training_plan, scenario:shared_cup_recycling … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:narrate_experience_events:P` | P | scenario:company_instagram_wrong_account, unit:b1_01_experience_reasons, unit:b1_03_work_softening, unit:b1_05_complaint_resolution | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:complain_object_appeal:P` | P | scenario:food_delivery_wrong_order, unit:b1_05_complaint_resolution, unit:b1_06_life_capstone | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:express_opinion_agree_disagree:P` | P | scenario:ktx_sold_out_alternative, unit:b1_04_relationships | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:compare_contrast_alternatives:P` | P | scenario:jeju_rain_plan_change, scenario:ktx_sold_out_alternative, scenario:reel_caption_misunderstanding, unit:b1_01_experience_reasons | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:express_feelings_emotions:P` | P | scenario:b1_theme_park_date_thrill, scenario:cancelled_trip_hurt_feelings, scenario:jeju_rain_plan_change, scenario:park_pet_manners, unit:b1_04_relationships | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | speechAct | `B1:speechAct:structure_discourse_open_close_scope:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:explanatory_informational_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:lecture_speech_monologue:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:social_media_post_comment:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:email_letter_formal:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:presentation_briefing_talk:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:job_interview:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:email_letter_formal:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:review_critique_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:explanatory_informational_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | textType | `B1:textType:narrative_story_diary:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | register | `B1:register:haeyo_polite:P` | P | scenario:ai_summary_wrong_fact, scenario:apartment_recycling_mixup, scenario:b1_w10_bill, scenario:b1_w10_cancellation, scenario:b1_w10_form, scenario:b1_w10_incident … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | register | `B1:register:banmal_casual:P` | P | scenario:b1_w10_fandom, scenario:b1_w10_friends, scenario:cancelled_trip_hurt_feelings, scenario:jeju_rain_plan_change, scenario:ktx_sold_out_alternative, scenario:reel_caption_misunderstanding … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | register | `B1:register:hapsyo_formal_business:P` | P | scenario:work_message_too_direct | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B1 | register | `B1:register:intimate:P` | P | scenario:b1_theme_park_date_thrill, scenario:b1_w10_partner | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:persuade_argue_justify:P` | P | scenario:accessible_festival_route, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:negotiate_compromise_conditions:P` | P | scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:b2_w10_partner, scenario:community_event_compromise, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:complain_object_appeal:P` | P | scenario:b2_w10_notice, scenario:b2_w10_travel, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice, unit:b2_01_formal_opening … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:manage_turns_interrupt_hold_floor:P` | P | scenario:meeting_opening_context | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:mediate_between_parties:P` | P | scenario:neighborhood_filming_notice, unit:b2_02_professional_opinion | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:evaluate_assess_critique:P` | P | scenario:b2_w10_hiring, scenario:meeting_disagreement_evidence, unit:b2_05_interview | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:define_distinguish_terms:P` | P | scenario:brand_private_account_boundary, unit:b2_03_precise_requests | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:express_opinion_agree_disagree:P` | P | scenario:b2_w10_fandom, scenario:brand_private_account_boundary, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_03_precise_requests, unit:b2_05_interview | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:express_certainty_doubt_hedging:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:compare_contrast_alternatives:P` | P | scenario:b2_w10_health, scenario:freelance_scope_change, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution, unit:b2_06_advanced_capstone | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:request_ask_someone_to_do:P` | P | scenario:b2_w10_privacy, scenario:b2_w10_travel, scenario:freelance_scope_change, unit:b2_03_precise_requests | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:adjust_register_speech_style:P` | P | scenario:b2_w10_notice, scenario:partner_family_titles, unit:b2_01_formal_opening | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:refuse_set_boundaries:P` | P | scenario:accessible_festival_route, scenario:b2_w10_partner, scenario:brand_private_account_boundary | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | speechAct | `B2:speechAct:analyse_framing_implicature_presupposition:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:essay_opinion_argumentative:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:report_proposal_official:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:contract_terms_legal_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:literary_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:meeting_formal_discussion:R` | R | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:brand_private_account_boundary, scenario:community_event_compromise … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:essay_opinion_argumentative:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:meeting_formal_discussion:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:presentation_briefing_talk:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:report_proposal_official:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:email_letter_formal:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | textType | `B2:textType:review_critique_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | register | `B2:register:hapsyo_formal_business:P` | P | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:brand_private_account_boundary, scenario:community_event_compromise … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | register | `B2:register:haeyo_polite:P` | P | scenario:b2_w10_authorities, scenario:b2_w10_health, scenario:b2_w10_notice, scenario:b2_w10_privacy, scenario:b2_w10_travel, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | register | `B2:register:banmal_casual:P` | P | scenario:b2_w10_fandom, scenario:direct_feedback_misread, scenario:fremdschaemen_live | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| B2 | register | `B2:register:intimate:P` | P | scenario:b2_theme_park_date_safety, scenario:b2_w10_partner | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:analyse_framing_implicature_presupposition:P` | P | scenario:kiosk_generation_access | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:mediate_between_parties:P` | P | scenario:c1_w10_fandom, scenario:delivery_rider_safety_tradeoff, scenario:nightlife_noise_balance, unit:c1_02_inclusive_sustainable_systems | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:define_distinguish_terms:P` | P | scenario:after_hours_messages, scenario:deepfake_verification, scenario:public_consultation_access, unit:c1_01_evidence_public_reasoning, unit:c1_02_inclusive_sustainable_systems, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:reformulate_paraphrase_rewrite:P` | P | scenario:ai_translation_voice_loss | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:express_certainty_doubt_hedging:P` | P | scenario:c1_w10_uncertainty, unit:c1_02_inclusive_sustainable_systems, unit:c1_03_media_evidence_literacy, unit:c1_05_fan_labor_sustainability | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:evaluate_assess_critique:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_w10_facework, scenario:c1_w10_methodology, scenario:research_limits_presentation, scenario:youth_housing_plain_language, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:persuade_argue_justify:P` | P | scenario:ai_interview_screening_transparency, scenario:anonymous_survey_trust, scenario:heatwave_shelter_access, unit:c1_01_evidence_public_reasoning, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:summarise_reconstruct:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:structure_discourse_open_close_scope:P` | P | scenario:ai_interview_screening_transparency, scenario:research_limits_presentation, unit:c1_01_evidence_public_reasoning | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:negotiate_compromise_conditions:P` | P | scenario:fan_translation_credit, scenario:heatwave_shelter_access, unit:c1_02_inclusive_sustainable_systems, unit:c1_04_play_time_policy, unit:c1_05_fan_labor_sustainability, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:refuse_set_boundaries:P` | P | scenario:after_hours_messages, scenario:c1_w10_fandom, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | speechAct | `C1:speechAct:compare_contrast_alternatives:P` | P | scenario:anonymous_survey_trust, scenario:c1_w10_clinical, scenario:c1_w10_friends, scenario:nightlife_noise_balance | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:academic_specialised_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:lecture_speech_monologue:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:literary_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:report_proposal_official:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:contract_terms_legal_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:report_proposal_official:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:essay_opinion_argumentative:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:presentation_briefing_talk:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:meeting_formal_discussion:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | textType | `C1:textType:academic_specialised_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | register | `C1:register:hapsyo_formal_business:P` | P | scenario:after_hours_messages, scenario:ai_interview_screening_transparency, scenario:ai_translation_voice_loss, scenario:anonymous_survey_trust, scenario:c1_w10_access, scenario:c1_w10_clinical … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | register | `C1:register:haeyo_polite:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | register | `C1:register:banmal_casual:P` | P | scenario:c1_w10_fandom, scenario:c1_w10_friends | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C1 | register | `C1:register:intimate:P` | P | scenario:c1_theme_park_date_next_time | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:analyse_framing_implicature_presupposition:P` | P | scenario:autonomous_delivery_liability, scenario:c2_w10_impact, scenario:housing_tax_intergenerational, scenario:poll_question_framing, scenario:welfare_fraud_presumption, unit:c2_06_fandom_discourse_power | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:define_distinguish_terms:P` | P | scenario:automated_benefit_denial, scenario:autonomous_delivery_liability, scenario:fact_check_label_power, scenario:we_translation_identity, unit:c2_04_sanction_accountability, unit:c2_05_relationship_narratives | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:reformulate_paraphrase_rewrite:P` | P | scenario:causal_claim_headline | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:adjust_register_speech_style:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:mediate_between_parties:P` | P | scenario:c2_w10_history, scenario:relationship_story_reframing, unit:c2_05_relationship_narratives | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:evaluate_assess_critique:P` | P | scenario:autonomous_delivery_liability, scenario:c2_w10_mandate, scenario:housing_tax_intergenerational, scenario:replication_failure_response, unit:c2_03_automation_redress | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:persuade_argue_justify:P` | P | scenario:c2_w10_fandom, scenario:c2_w10_impact, scenario:protest_order_and_rights, unit:c2_01_interpretation_institutions, unit:c2_02_technology_public_ethics, unit:c2_04_sanction_accountability … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:express_certainty_doubt_hedging:P` | P | scenario:automated_benefit_denial, scenario:climate_model_local_decision, scenario:diaspora_name_identity, scenario:family_memory_conflict, scenario:medical_uncertainty_consent, scenario:passive_voice_accountability … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:summarise_reconstruct:P` | P | scenario:c2_w10_record, scenario:central_local_disaster_responsibility | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:manage_turns_interrupt_hold_floor:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:negotiate_compromise_conditions:P` | P | scenario:c2_w10_friends, scenario:emergency_price_controls, scenario:relationship_story_reframing, unit:c2_05_relationship_narratives | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | speechAct | `C2:speechAct:compare_contrast_alternatives:P` | P | scenario:causal_claim_headline, scenario:climate_model_local_decision, scenario:family_memory_conflict, scenario:medical_uncertainty_consent, scenario:poll_question_framing, scenario:protest_order_and_rights … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:academic_specialised_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:literary_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:lecture_speech_monologue:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:contract_terms_legal_text:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:essay_opinion_argumentative:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:essay_opinion_argumentative:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:report_proposal_official:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:review_critique_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:academic_specialised_text:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:presentation_briefing_talk:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | textType | `C2:textType:meeting_formal_discussion:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:hapsyo_formal_business:P` | P | scenario:ai_hiring_appeal, scenario:automated_benefit_denial, scenario:autonomous_delivery_liability, scenario:c2_w10_aesthetic, scenario:c2_w10_fandom, scenario:c2_w10_impact … | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:haeyo_polite:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:banmal_casual:P` | P | scenario:c2_w10_friends, scenario:we_translation_identity | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:intimate:P` | P | scenario:c2_theme_park_date_reflection, scenario:c2_w10_history, scenario:family_memory_conflict, scenario:relationship_story_reframing | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:written_plain_haeche:P` | P | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:hage_familiar:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+| C2 | register | `C2:register:hao_semiformal:R` | R | — | no_approved_semantic_binding | `unverified_unmapped` | task=unverified · assessment=unverified · runtime=unverified |
+
+## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
 - 콘텐츠 규모: 어휘 2499 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 1895 · satz 2416 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **539** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **534** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
-| A1 | 17/0/0 | 40/0/5 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 12/1/1 | 2/1 | 31/55 |
-| A2 | 17/0/0 | 37/0/8 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 10/1/0 | 3/1 | 43/59 |
-| B1 | 18/0/0 | 8/10/49 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 25/35 |
+| A1 | 17/0/0 | 44/0/1 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 12/1/1 | 2/1 | 31/55 |
+| A2 | 17/0/0 | 38/0/7 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 10/1/0 | 3/1 | 43/59 |
+| B1 | 18/0/0 | 8/12/47 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 25/35 |
 | B2 | 17/0/0 | 12/11/44 (of 67) | 5/2/10 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 39/57 |
 | C1 | 12/0/0 | 1/10/45 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 5/23 |
 | C2 | 12/0/0 | 2/9/45 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
 
-### 0.1 구조적 결손(레벨 무관)
+### 1.1 구조적 결손(레벨 무관)
 
 아래 장르는 현재 taxonomy에 실제 수용·산출 콘텐츠를 배치한 앱 경로가 매핑되어 있지 않다. 기존 UI의 확장 가능성을 부정하는 판정은 아니다. 대화 *속에서* 계약·기사·공지를 이야기하는 것만으로 해당 장르를 읽거나 썼다고 계산하지 않는다.
 
@@ -77,9 +283,9 @@
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `technology_digital_ai` 기술·디지털·AI·데이터 |  | 1 | 1 | 0 | 0 | 0 | 1 |  |
 
-### A1 문법 — 국제통용 45항목: match 40 · level_mismatch 0 · missing 5 (앱 A1 문법 55개)
+### A1 문법 — 국제통용 45항목: match 44 · level_mismatch 0 · missing 1 (앱 A1 문법 55개)
 
-**앱에 없는 국제통용 항목:** -겠-(선어말어미) · 이다(조사) · -습니까(종결어미) · -지 않다(표현) · 이 아니다(표현)
+**앱에 없는 국제통용 항목:** -습니까(종결어미)
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -227,9 +433,9 @@
 | ➕ beyond_matrix | `science_research_evidence` 과학·연구·근거·통계 |  | 0 | 0 | 0 | 1 | 0 | 0 |  |
 | ➕ beyond_matrix | `technology_digital_ai` 기술·디지털·AI·데이터 |  | 2 | 1 | 0 | 0 | 0 | 2 |  |
 
-### A2 문법 — 국제통용 45항목: match 37 · level_mismatch 0 · missing 8 (앱 A2 문법 59개)
+### A2 문법 — 국제통용 45항목: match 38 · level_mismatch 0 · missing 7 (앱 A2 문법 59개)
 
-**앱에 없는 국제통용 항목:** -다가1(1)(연결어미) · -음(전성어미) · 에게로(조사) · 에다가(조사) · 에서부터(서부터)(조사) · -지(종결어미) · -을 것1(표현) · -지 말다(표현)
+**앱에 없는 국제통용 항목:** -다가1(1)(연결어미) · -음(전성어미) · 에게로(조사) · 에다가(조사) · 에서부터(서부터)(조사) · -지(종결어미) · -을 것1(표현)
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -371,11 +577,11 @@
 | ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 12 | 2 | 0 | 0 | 0 | 1 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### B1 문법 — 국제통용 67항목: match 8 · level_mismatch 10 · missing 49 (앱 B1 문법 35개)
+### B1 문법 — 국제통용 67항목: match 8 · level_mismatch 12 · missing 47 (앱 B1 문법 35개)
 
-**앱에 없는 국제통용 항목:** -었었-(선어말어미) · -거든1(연결어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 나다(표현) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 대신에(표현) · -는 만큼(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -는다고3(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -으면 좋겠다(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현) · 에 대하여(표현)
+**앱에 없는 국제통용 항목:** -었었-(선어말어미) · -거든1(연결어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 대신에(표현) · -는 만큼(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -는다고3(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현) · 에 대하여(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · 이라고1→C2 · -게 하다→B2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2
+**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · 이라고1→C2 · -게 하다→B2 · -고 나다→A2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2 · -으면 좋겠다→A2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -953,6 +1159,7 @@
 - 주제를 못 찾은 코스유닛 (8): a2_01_haeyo_transition, a2_02_plans_proposals, b1_01_experience_reasons, b1_02_indirect_speech, b1_05_complaint_resolution, b2_01_formal_opening, b2_03_precise_requests, c1_06_intimacy_safety_design
 - 기능(화행)에 하나도 걸리지 않은 시나리오 (7): a2_w10_fandom, b1_w10_incident, c2_w10_jurisdiction, gentrification_storefront, hidden_gem_local_impact, noisy_neighbor_evening, portfolio_interview_gap
 - 기능(화행)에 하나도 걸리지 않은 코스유닛 (1): a2_06_study_work
+- 레벨이 없어 어떤 요구행에도 배정하지 않은 문화 노트 (36): 0, 1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 4, 5, 6, 7, 8, 9
 
 ## 10. 방법과 한계
 
