@@ -17629,6 +17629,635 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더라도 changed outcome/delay leaves disclosure proviso/consent check intact; force compared through contextual costs, not fixed form ranking. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:listening/core:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "cf5cbcc58765fd5ae57a2582e9094ffa3c3e48aa9afa26d231d04ebacf4cc6a5",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:listening/additional/1:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "7ead04714285a14587ad190ff967b9e82c36f201f21db1be24621eaf4838d44a",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:reading/core:R",
+      "taskId": "KP28:reading:01",
+      "sourceHash": "121625dac1a752dddf65e07416ffb572de84b62ba363e0da159e6748dd52cbe0",
+      "taskHash": "2537808c316e87a25fdb25e342673b046e8f452cffb77365110b4a8c88d917d3",
+      "criterionIds": [
+        "naming",
+        "evaluation",
+        "chain",
+        "witness",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original news article directlyquotes provisional label, contrasts evalnaminghelp, identifies reporterinterpretation. Nested interview→receivedinstruction→unknownorigin, repetition notindependent corroboration; visitquietness respondentonly. Conditional futureproposal and date notattendanceagreement. Overstatement correction excludescompletedsubmission/unanimousverification/attendance. Five required naming/evaluation/source/witness/correction criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:reading/additional/1:R",
+      "taskId": "KP28:reading:02",
+      "sourceHash": "f6ac271e94587adb5a9e1d04bc245543ee0b0810eae378edf813a827e27046f6",
+      "taskHash": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "criterionIds": [
+        "open",
+        "memory",
+        "minimal",
+        "topic",
+        "portrait"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:reading/genre/news_article_report:R",
+      "taskId": "KP28:reading:01",
+      "sourceHash": "f749198c95d07fb5d820d8797ce04fc6bcd359145eb971f9480d84041c10fb70",
+      "taskHash": "2537808c316e87a25fdb25e342673b046e8f452cffb77365110b4a8c88d917d3",
+      "criterionIds": [
+        "naming",
+        "evaluation",
+        "chain",
+        "witness",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original news article directlyquotes provisional label, contrasts evalnaminghelp, identifies reporterinterpretation. Nested interview→receivedinstruction→unknownorigin, repetition notindependent corroboration; visitquietness respondentonly. Conditional futureproposal and date notattendanceagreement. Overstatement correction excludescompletedsubmission/unanimousverification/attendance. Five required naming/evaluation/source/witness/correction criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:reading/genre/literary_text:R",
+      "taskId": "KP28:reading:02",
+      "sourceHash": "efc35303bf1776974106c3fdf04a5810e792d29b0da83574fe87365b2507c15f",
+      "taskHash": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "criterionIds": [
+        "open",
+        "memory",
+        "minimal",
+        "topic",
+        "portrait"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:speaking/core:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "d67a22f5de4d68e055af685dece6cc04e2fce4167068e672fdbf9d8d257b4b43",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:speaking/additional/1:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "8dfad45c46135decb5172590bf15942db390996075446fd49ccc36a12a18d038",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "5605df7231fc0cafd0a001143e4e23a6cc5a1269530c29a91ba401be8b5dbdb2",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "db00f6eb63d2ba66dcabd6c69198c648faf5b90d8ce06c717b5a8d3b2cc7deb5",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:writing/core:P",
+      "taskId": "KP28:writing:01",
+      "sourceHash": "e28b1d07bb68a0bb1295dce72d8b942044af018b11e2eaf692b2f684c254f488",
+      "taskHash": "38bd302d62f82de26d4cf74305fc36a20f3e95b26e8c533cf6d2377416628612",
+      "criterionIds": [
+        "minutes",
+        "clarification"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two full required meetingnotes/nestedsourceclarification responses. Separate A/Bcontexts, literal/evaluation/discomfort/explainedintent, disagreements/openroles. Recipientquestion notcompletedsubmission, conditional jointlyreview suggestionplusresponse schedulecheck retained, precisewho/where/whichquestions withoutinventedanswers. Compare news/literary naming and ironicambiguity, source-based revision. Meaning/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:writing/additional/1:P",
+      "taskId": "KP28:writing:01",
+      "sourceHash": "abb8f467237e06492f735153a34b41f496a6d116c345e1fddec3c309eb535b2d",
+      "taskHash": "38bd302d62f82de26d4cf74305fc36a20f3e95b26e8c533cf6d2377416628612",
+      "criterionIds": [
+        "minutes",
+        "clarification"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two full required meetingnotes/nestedsourceclarification responses. Separate A/Bcontexts, literal/evaluation/discomfort/explainedintent, disagreements/openroles. Recipientquestion notcompletedsubmission, conditional jointlyreview suggestionplusresponse schedulecheck retained, precisewho/where/whichquestions withoutinventedanswers. Compare news/literary naming and ironicambiguity, source-based revision. Meaning/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/analyse_framing_implicature_presupposition:R",
+      "taskId": "KP28:reading:02",
+      "sourceHash": "255359bc808cf4d3f52c5103234f579e54c9dc029c55c50e7940e22a4ae61676",
+      "taskHash": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "criterionIds": [
+        "open",
+        "memory",
+        "minimal",
+        "topic",
+        "portrait"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/analyse_framing_implicature_presupposition:P",
+      "taskId": "KP28:writing:01",
+      "sourceHash": "255359bc808cf4d3f52c5103234f579e54c9dc029c55c50e7940e22a4ae61676",
+      "taskHash": "38bd302d62f82de26d4cf74305fc36a20f3e95b26e8c533cf6d2377416628612",
+      "criterionIds": [
+        "minutes",
+        "clarification"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two full required meetingnotes/nestedsourceclarification responses. Separate A/Bcontexts, literal/evaluation/discomfort/explainedintent, disagreements/openroles. Recipientquestion notcompletedsubmission, conditional jointlyreview suggestionplusresponse schedulecheck retained, precisewho/where/whichquestions withoutinventedanswers. Compare news/literary naming and ironicambiguity, source-based revision. Meaning/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/mediate_between_parties:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "114b5af9aa99d44631a0b77b83c61f06ed8b70fe67a65a3ebbfd7b890551209b",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/mediate_between_parties:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "114b5af9aa99d44631a0b77b83c61f06ed8b70fe67a65a3ebbfd7b890551209b",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/manage_turns_interrupt_hold_floor:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "136ef1c35d52877b5d721ac314aea026051903225f2fa7024162af62c1c53539",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:functions/manage_turns_interrupt_hold_floor:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "136ef1c35d52877b5d721ac314aea026051903225f2fa7024162af62c1c53539",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP28:reading:01",
+      "sourceHash": "5962d16b08ec13ea1ab6f3448c9592678c5638b51f52e05d62e6e7aa77c19c90",
+      "taskHash": "2537808c316e87a25fdb25e342673b046e8f452cffb77365110b4a8c88d917d3",
+      "criterionIds": [
+        "naming",
+        "evaluation",
+        "chain",
+        "witness",
+        "correction"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: original news article directlyquotes provisional label, contrasts evalnaminghelp, identifies reporterinterpretation. Nested interview→receivedinstruction→unknownorigin, repetition notindependent corroboration; visitquietness respondentonly. Conditional futureproposal and date notattendanceagreement. Overstatement correction excludescompletedsubmission/unanimousverification/attendance. Five required naming/evaluation/source/witness/correction criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP28:writing:01",
+      "sourceHash": "5962d16b08ec13ea1ab6f3448c9592678c5638b51f52e05d62e6e7aa77c19c90",
+      "taskHash": "38bd302d62f82de26d4cf74305fc36a20f3e95b26e8c533cf6d2377416628612",
+      "criterionIds": [
+        "minutes",
+        "clarification"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: two full required meetingnotes/nestedsourceclarification responses. Separate A/Bcontexts, literal/evaluation/discomfort/explainedintent, disagreements/openroles. Recipientquestion notcompletedsubmission, conditional jointlyreview suggestionplusresponse schedulecheck retained, precisewho/where/whichquestions withoutinventedanswers. Compare news/literary naming and ironicambiguity, source-based revision. Meaning/mediation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/etiquette_honorific_lexis:R",
+      "taskId": "KP28:reading:02",
+      "sourceHash": "8f3811fb67f694503a289d3dda7a9f2e0d1d8e58ba9c78e923fec9e1bad28c09",
+      "taskHash": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "criterionIds": [
+        "open",
+        "memory",
+        "minimal",
+        "topic",
+        "portrait"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/etiquette_honorific_lexis:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "8f3811fb67f694503a289d3dda7a9f2e0d1d8e58ba9c78e923fec9e1bad28c09",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP28:reading:02",
+      "sourceHash": "af38ee755f2c6c49fd0dcc00addbaccda16c2a5431e358e6b9c8289da4fba3e8",
+      "taskHash": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "criterionIds": [
+        "open",
+        "memory",
+        "minimal",
+        "topic",
+        "portrait"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "af38ee755f2c6c49fd0dcc00addbaccda16c2a5431e358e6b9c8289da4fba3e8",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:phonology/0:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "8ab4e1750be5e949a0cf20d4fe3e3b1bf74d7e47da3ff9d21345b09b67727084",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:phonology/0:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "8ab4e1750be5e949a0cf20d4fe3e3b1bf74d7e47da3ff9d21345b09b67727084",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:phonology/1:R",
+      "taskId": "KP28:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "criterionIds": [
+        "command",
+        "source",
+        "conditional",
+        "question",
+        "challenge",
+        "irony",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:phonology/1:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:register/haeyo_polite:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "920344aa07b66437829362ad7e0414331abd61794d4da66508afd492b1e16636",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:register/banmal_casual:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "920344aa07b66437829362ad7e0414331abd61794d4da66508afd492b1e16636",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP28:speaking:01",
+      "sourceHash": "920344aa07b66437829362ad7e0414331abd61794d4da66508afd492b1e16636",
+      "taskHash": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라고2:R",
+      "taskId": "KP28:grammar:01",
+      "sourceHash": "799203313179ec01ae038d234a1f0ae5e61564de8ce6cef52f045f3a061c0632",
+      "taskHash": "1c8346764813844b325e42479f78dc33f6cac6b56e2a530f919de10e85859132",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라고2 naming-help/advice contrasts burden/unsupported command with explicit criticism, distinguished from neutral quote. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라고는:R",
+      "taskId": "KP28:grammar:02",
+      "sourceHash": "9738e3dadab69b0c35931d8f8ed8df04c43cb6d6e6f6203eefa677b033964d5c",
+      "taskHash": "04bd9887351922ccca0ebee1624b4827c6474e7f57c47d02ab7ec0814aedfd92",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라고는 one brief reply/one unsourced note exists; minimal scope and insufficiency do not mean zero response. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:깨나:R",
+      "taskId": "KP28:grammar:03",
+      "sourceHash": "9f02416b1e1472831e16c6048519716899308a5d4dfda770b0689a15358494ca",
+      "taskHash": "73f807ddec32fee8fbf44a3c0239e88c433b66678b558e82f9f25dfabd50ec94",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 깨나 substantial time with explicit helpful thanks versus explicit non-praise; no automatic sarcasm or zero time. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:을랑:R",
+      "taskId": "KP28:grammar:04",
+      "sourceHash": "d6f9456e01c528f2bf688d91d9c71e622702e25f65f39d2b34f24ecfd8ce9dc1",
+      "taskHash": "df56043c3aa7bbef5f7f814927475517e4b7f4e79bf771bd80068453f23c71e0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 을랑 marked topic-limited injunction worry/schedule only, check promise/cost decision distinct; not everyday default. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라면:R",
+      "taskId": "KP28:grammar:05",
+      "sourceHash": "2afbfb76000168da299c782d2c9d7ddfbb5f69e9811f387f10b68b15ac2b95e4",
+      "taskHash": "b2660167b2d0b38eb015c17c46d6641cf7c4770a3ce41359c8d964f55f10ffe8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라면 marked strong reading/collecting disposition, not universal reading duty or verification of all records. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-자면2:R",
+      "taskId": "KP28:grammar:06",
+      "sourceHash": "9bae2768f82a5d15003c7882204fac52a67f93317210d7c311029f422154374b",
+      "taskHash": "4f5cff86570a4350fbeb42dd572216f776bdb408f97218154b49d4ea42b31263",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 자면2 named person hypothetically suggests joint review/next-day meeting; suggestion has not yet occurred, no appointment promise. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-던가1:R",
+      "taskId": "KP28:grammar:07",
+      "sourceHash": "058c38b0d0ea446fb206de7471d3d83b91aee5e4cace627343d95a037b3d3846",
+      "taskHash": "2a69b80ab0a2b85d5addfbb82e96149d5d01daf0df8b29c8a9f02839ae98f525",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 던가1 asks listener direct visit/reading experience, questioner explicitly lacks that experience; state not asserted before response. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-는다던가1:R",
+      "taskId": "KP28:grammar:08",
+      "sourceHash": "4585dfcc8ff94172208943c0c13e32a61a6c7916c28393a397a4f20752dfdcb6",
+      "taskHash": "6d207ef901c361b26752f84e8ccb11befb322adc6390301ded3a1ec6b9c21ddc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는다던가1 canonical directive variant 하라던가 asks remembered reported recipient/location, not completed submission or newly issued command. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-던2:R",
+      "taskId": "KP28:grammar:09",
+      "sourceHash": "fc998fde7b2f7d489bb89395e0eb5060f9351468b9f69023a0b79ce7ca0178b3",
+      "taskHash": "293462bb9c796dbf22d3f4e80027d250b55748e869f8fa436f16eb4e4020c275",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 던2 sentence-final past experience inquiry between explicitly mutually casual friends, not attributive 던/alternative 든. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-으래서야:R",
+      "taskId": "KP28:grammar:10",
+      "sourceHash": "1e6460dcd3f06a0689a50f60be1aec85a9ae26b14e3d8c88fe20d741781ea8ba",
+      "taskHash": "106ddbdb54ebab9b79d23b7d8f52ed8113fa80056a577684a4d0104c54e42c62",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으래서야 challenges reported demand to decide without time/agree without source, not endorsement or new order. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G3:이라고1:R",
+      "taskId": "KP28:grammar:11",
+      "sourceHash": "2f9878ba0cff8f5edd0cdb684270a1d217ffe1fa7911ad738bec5a61f6585199",
+      "taskHash": "a39262c064b13bb84af6d057db30f86cdc4edad0741521aab472f66fdf398aee",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라고1 neutral author/host label quotation, no dismissive context; temporary conclusion/review note not upgraded to final approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라고2:P",
+      "taskId": "KP28:production:01",
+      "sourceHash": "799203313179ec01ae038d234a1f0ae5e61564de8ce6cef52f045f3a061c0632",
+      "taskHash": "88f9b73550c66c0b9b6e86105bab1030ff2df9f54cda71caf2b3debe332b4c6a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라고2 naming-help/advice contrasts burden/unsupported command with explicit criticism, distinguished from neutral quote. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라고는:P",
+      "taskId": "KP28:production:02",
+      "sourceHash": "9738e3dadab69b0c35931d8f8ed8df04c43cb6d6e6f6203eefa677b033964d5c",
+      "taskHash": "1df828aefdf6776903725167b760911e1ae62508c79d0ac8839907d62c9267c3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라고는 one brief reply/one unsourced note exists; minimal scope and insufficiency do not mean zero response. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:깨나:P",
+      "taskId": "KP28:production:03",
+      "sourceHash": "9f02416b1e1472831e16c6048519716899308a5d4dfda770b0689a15358494ca",
+      "taskHash": "2ccbef207bd7f1ff13cfdb9f9c347055d06a74ec475884af4a6fd92d7b0f684b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 깨나 substantial time with explicit helpful thanks versus explicit non-praise; no automatic sarcasm or zero time. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:을랑:P",
+      "taskId": "KP28:production:04",
+      "sourceHash": "d6f9456e01c528f2bf688d91d9c71e622702e25f65f39d2b34f24ecfd8ce9dc1",
+      "taskHash": "06552b063f9ab3feed0188977346ae1dff31a56b4687d3fa1528799a3811fefe",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 을랑 marked topic-limited injunction worry/schedule only, check promise/cost decision distinct; not everyday default. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:이라면:P",
+      "taskId": "KP28:production:05",
+      "sourceHash": "2afbfb76000168da299c782d2c9d7ddfbb5f69e9811f387f10b68b15ac2b95e4",
+      "taskHash": "a6f163f8d2fca3ceccd33c047d0d1fe5028c9e54e1920eab6deac78ba1425353",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라면 marked strong reading/collecting disposition, not universal reading duty or verification of all records. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-자면2:P",
+      "taskId": "KP28:production:06",
+      "sourceHash": "9bae2768f82a5d15003c7882204fac52a67f93317210d7c311029f422154374b",
+      "taskHash": "fde9cfce288691eff01d087a1b300b7b4f4b50437283d473700a1f470c699e24",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 자면2 named person hypothetically suggests joint review/next-day meeting; suggestion has not yet occurred, no appointment promise. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-던가1:P",
+      "taskId": "KP28:production:07",
+      "sourceHash": "058c38b0d0ea446fb206de7471d3d83b91aee5e4cace627343d95a037b3d3846",
+      "taskHash": "588ea6c7579d9f71a02553cb4636591469e5c54c6dacc23e18e59c9d38537917",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 던가1 asks listener direct visit/reading experience, questioner explicitly lacks that experience; state not asserted before response. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-는다던가1:P",
+      "taskId": "KP28:production:08",
+      "sourceHash": "4585dfcc8ff94172208943c0c13e32a61a6c7916c28393a397a4f20752dfdcb6",
+      "taskHash": "ea02e0155c41eb30e6c065c52df2936a5b9c24b0ccc25b55419d7c3e81ffe4b6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는다던가1 canonical directive variant 하라던가 asks remembered reported recipient/location, not completed submission or newly issued command. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-던2:P",
+      "taskId": "KP28:production:09",
+      "sourceHash": "fc998fde7b2f7d489bb89395e0eb5060f9351468b9f69023a0b79ce7ca0178b3",
+      "taskHash": "6d3c5e1d5c6c47c57d6649374599b9cb3ef39cc5201999d9f24952bb67e941f7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 던2 sentence-final past experience inquiry between explicitly mutually casual friends, not attributive 던/alternative 든. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G6:-으래서야:P",
+      "taskId": "KP28:production:10",
+      "sourceHash": "1e6460dcd3f06a0689a50f60be1aec85a9ae26b14e3d8c88fe20d741781ea8ba",
+      "taskHash": "d740cfcb2860e5f011d941cab813f79988010983aacff4ba9d62de8bcc29fcb4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으래서야 challenges reported demand to decide without time/agree without source, not endorsement or new order. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP28:objective:grammar/G3:이라고1:P",
+      "taskId": "KP28:production:11",
+      "sourceHash": "2f9878ba0cff8f5edd0cdb684270a1d217ffe1fa7911ad738bec5a61f6585199",
+      "taskHash": "2d702760ae9c1e97d7aac64d03860133cd56d7b43f467c2ff3289b7629d5e3ae",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라고1 neutral author/host label quotation, no dismissive context; temporary conclusion/review note not upgraded to final approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

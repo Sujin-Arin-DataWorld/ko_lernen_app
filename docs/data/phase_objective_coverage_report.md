@@ -33,65 +33,12 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP25 | 49 | 49 | 0 | 미검증 |
 | KP26 | 48 | 48 | 0 | 미검증 |
 | KP27 | 53 | 53 | 0 | 미검증 |
-| KP28 | 53 | 0 | 53 | 미검증 |
+| KP28 | 53 | 53 | 0 | 미검증 |
 | KP29 | 55 | 0 | 55 | 미검증 |
 | KP30 | 71 | 0 | 71 | 미검증 |
 
 ## 미연결 요구
 
-- `KP28:objective:grammar/G6:이라고2:R`
-- `KP28:objective:grammar/G6:이라고2:P`
-- `KP28:objective:grammar/G6:이라고는:R`
-- `KP28:objective:grammar/G6:이라고는:P`
-- `KP28:objective:grammar/G6:깨나:R`
-- `KP28:objective:grammar/G6:깨나:P`
-- `KP28:objective:grammar/G6:을랑:R`
-- `KP28:objective:grammar/G6:을랑:P`
-- `KP28:objective:grammar/G6:이라면:R`
-- `KP28:objective:grammar/G6:이라면:P`
-- `KP28:objective:grammar/G6:-자면2:R`
-- `KP28:objective:grammar/G6:-자면2:P`
-- `KP28:objective:grammar/G6:-던가1:R`
-- `KP28:objective:grammar/G6:-던가1:P`
-- `KP28:objective:grammar/G6:-는다던가1:R`
-- `KP28:objective:grammar/G6:-는다던가1:P`
-- `KP28:objective:grammar/G6:-던2:R`
-- `KP28:objective:grammar/G6:-던2:P`
-- `KP28:objective:grammar/G6:-으래서야:R`
-- `KP28:objective:grammar/G6:-으래서야:P`
-- `KP28:objective:grammar/G3:이라고1:R`
-- `KP28:objective:grammar/G3:이라고1:P`
-- `KP28:objective:listening/core:R`
-- `KP28:objective:listening/additional/1:R`
-- `KP28:objective:reading/core:R`
-- `KP28:objective:reading/additional/1:R`
-- `KP28:objective:reading/genre/news_article_report:R`
-- `KP28:objective:reading/genre/literary_text:R`
-- `KP28:objective:speaking/core:P`
-- `KP28:objective:speaking/additional/1:P`
-- `KP28:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP28:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP28:objective:writing/core:P`
-- `KP28:objective:writing/additional/1:P`
-- `KP28:objective:functions/analyse_framing_implicature_presupposition:R`
-- `KP28:objective:functions/analyse_framing_implicature_presupposition:P`
-- `KP28:objective:functions/mediate_between_parties:R`
-- `KP28:objective:functions/mediate_between_parties:P`
-- `KP28:objective:functions/manage_turns_interrupt_hold_floor:R`
-- `KP28:objective:functions/manage_turns_interrupt_hold_floor:P`
-- `KP28:objective:vocabDomains/language_metalanguage:R`
-- `KP28:objective:vocabDomains/language_metalanguage:P`
-- `KP28:objective:vocabDomains/etiquette_honorific_lexis:R`
-- `KP28:objective:vocabDomains/etiquette_honorific_lexis:P`
-- `KP28:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP28:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP28:objective:phonology/0:R`
-- `KP28:objective:phonology/0:P`
-- `KP28:objective:phonology/1:R`
-- `KP28:objective:phonology/1:P`
-- `KP28:objective:register/haeyo_polite:P`
-- `KP28:objective:register/banmal_casual:P`
-- `KP28:objective:register/hapsyo_formal_business:P`
 - `KP29:objective:grammar/G6:-으리라:R`
 - `KP29:objective:grammar/G6:-으리라:P`
 - `KP29:objective:grammar/G6:-으리오:R`

@@ -327,17 +327,17 @@
 | KP27 | G6:-을라치면 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-을 바에 | 1 | 0 | 0 | 미검증 |
 | KP27 | G4:-더라도 | 1 | 0 | 0 | 미검증 |
-| KP28 | G6:이라고2 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:이라고는 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:깨나 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:을랑 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:이라면 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:-자면2 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:-던가1 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:-는다던가1 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:-던2 | 0 | 0 | 0 | 미검증 |
-| KP28 | G6:-으래서야 | 0 | 0 | 0 | 미검증 |
-| KP28 | G3:이라고1 | 0 | 0 | 0 | 미검증 |
+| KP28 | G6:이라고2 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:이라고는 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:깨나 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:을랑 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:이라면 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:-자면2 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:-던가1 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:-는다던가1 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:-던2 | 1 | 0 | 0 | 미검증 |
+| KP28 | G6:-으래서야 | 1 | 0 | 0 | 미검증 |
+| KP28 | G3:이라고1 | 1 | 0 | 0 | 미검증 |
 | KP29 | G6:-으리라 | 0 | 0 | 0 | 미검증 |
 | KP29 | G6:-으리오 | 0 | 0 | 0 | 미검증 |
 | KP29 | G6:-으련마는 | 0 | 0 | 0 | 미검증 |
@@ -678,3 +678,14 @@
 - KP27 / G6:-을라치면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/8/practice/sourceKo` — “그날 설명을 시작할라치면 누군가 말을 끊었습니다.”. 그날 설명 시작 시도마다 서술된 반복 방해다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP27 / G6:-을 바에 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/9/practice/sourceKo` — “이대로 포기할 바에 차라리 다시 확인하겠습니다.”. 피하려는 포기 선택보다 재확인을 택하는 화자의 입장이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP27 / G4:-더라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp27.json/tasks/10/practice/sourceKo` — “결과가 달라지더라도 확인한 근거는 공개하겠습니다. 식별 정보는 제외합니다.”. 결과 변화에도 공개 결론을 유지하며 식별 정보 제외 단서를 보존한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:이라고2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/0/practice/sourceKo` — “도움이라고 내민 것이 오히려 짐이 되었다. 화자는 그 도움을 낮추어 평가했다.”. 도움이라는 명칭과 반대 효과를 대비하며 낮추는 평가를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:이라고는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/1/practice/sourceKo` — “대답이라고는 짧은 한마디뿐이었다. 더 자세한 설명은 없었다.”. 대답을 한마디로 최소 한정하되 존재 자체는 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:깨나 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/2/practice/sourceKo` — “시간깨나 들였네요. 꼼꼼히 확인해 주셔서 도움이 됐어요.”. 상당한 시간을 평가하고 뒤 감사가 긍정 해석 근거를 준다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:을랑 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/3/practice/sourceKo` — “그 걱정을랑 잠시 잊어 두세요. 점검 약속은 그대로입니다.”. 걱정만 화제로 한정하며 점검 약속은 취소하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:이라면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/4/practice/sourceKo` — “책이라면 밤을 새워서라도 읽는 사람이다.”. 책이라는 대상에 관한 강한 성향을 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:-자면2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/5/practice/sourceKo` — “민서가 함께 검토하자면 어떻게 답하겠어요? 아직 그런 권유는 없었어요.”. 민서가 공동 검토를 권할 경우라는 인용 조건이며 아직 권유는 없다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:-던가1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/6/practice/sourceKo` — “직접 가 보니 그곳은 조용하던가요? 저는 가 보지 않았어요.”. 직접 방문한 상대의 경험을 묻고 질문자는 방문하지 않았음을 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:-는다던가1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/7/practice/sourceKo` — “자료를 누구에게 제출하라던가요? 전달받은 지시의 수신자를 묻습니다.”. 정본의 지시 인용 변형으로 전달받은 명령의 수신자를 기억에서 확인한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:-던2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/8/practice/sourceKo` — “[반말에 합의한 친구] 그 사람이 어제 뭐라고 하던?”. 상대가 들은 과거 발언을 친밀한 종결 질문으로 되묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G6:-으래서야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/9/practice/sourceKo` — “확인할 시간도 없이 결정하래서야 되겠습니까?”. 전달된 무시간 결정 요구의 타당성을 반문한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP28 / G3:이라고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp28.json/tasks/10/practice/sourceKo` — “작성자는 이를 잠정 결론이라고 불렀다. 그 명칭을 그대로 옮긴다.”. 평가 아닌 명칭 인용이며 폄하와 동일시하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

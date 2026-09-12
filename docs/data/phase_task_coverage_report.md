@@ -33,7 +33,7 @@
 | KP25 | C2 | 8 | 8 | 8 | 21 | 20 | writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP26 | C2 | 8 | 8 | 8 | 21 | 20 | writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP27 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP28 | C2 | 11 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
+| KP28 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP29 | C2 | 10 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP30 | C2 | 16 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 
