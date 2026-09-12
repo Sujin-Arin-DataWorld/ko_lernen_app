@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
@@ -13,6 +15,8 @@ import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/course_activity_reporter.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -49,6 +53,8 @@ const _item = ClozeItem(
   en: 'Today I study.',
   distractors: ['운동을', '요리를', '독서를'],
 );
+late ClozeItem _activeClozeItem;
+ContentLink? _activeClozeLink;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -69,6 +75,10 @@ void main() {
         };
     SoundService.playImpl = (_) {};
     Storage.resetForTesting();
+    Storage.resetCourseMasteryForTesting();
+    CourseProgressService.shared.resetForTesting();
+    _activeClozeItem = _item;
+    _activeClozeLink = null;
     SharedPreferences.setMockInitialValues({});
     platform = RewardPreferencesPlatform();
     for (final id in Storage.kScreenCoachIds) {
@@ -81,6 +91,8 @@ void main() {
     CourseActivityReporter.resetOverridesForTesting();
     SoundService.resetForTesting();
     Storage.resetForTesting();
+    Storage.resetCourseMasteryForTesting();
+    CourseProgressService.shared.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     SharedPreferencesStorePlatform.instance = original;
   });
@@ -253,7 +265,11 @@ void main() {
               Storage.studyLogIdsFor(Storage.todayIso()),
               contains(_id(flow)),
             );
-            expect(courseCalls, flow == _Flow.cloze ? 1 : 0);
+            if (flow == _Flow.cloze) {
+              await _expectClozeEvidence(isCorrect: false);
+            } else {
+              expect(courseCalls, 0);
+            }
             await _dispose(tester);
           },
         );
@@ -368,7 +384,11 @@ void main() {
         await tester.pump(const Duration(milliseconds: 1200));
         await _settle(tester);
         expect(Storage.srsCard(_id(flow))?.reviewCount, 1);
-        expect(courseCalls, flow == _Flow.cloze ? 1 : 0);
+        if (flow == _Flow.cloze) {
+          await _expectClozeEvidence(isCorrect: false);
+        } else {
+          expect(courseCalls, 0);
+        }
         expect(find.byType(GameOverCard), findsOneWidget);
         final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
         expect(
@@ -424,8 +444,11 @@ void main() {
   }
 }
 
-String _id(_Flow flow) =>
-    flow == _Flow.cloze || flow == _Flow.daily ? _item.answer : _word.korean;
+String _id(_Flow flow) => flow == _Flow.cloze
+    ? _activeClozeItem.answer
+    : flow == _Flow.daily
+    ? _item.answer
+    : _word.korean;
 
 Future<void> _pump(
   WidgetTester tester,
@@ -438,19 +461,47 @@ Future<void> _pump(
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
-  final screen =
-      overrideScreen ??
-      switch (flow) {
-        _Flow.chosung || _Flow.skip => ChosungQuizScreen(deck: [_word]),
-        _Flow.cloze => ClozeGameScreen(items: List.filled(repetitions, _item)),
-        _Flow.daily => DailyChallengeScreen(
-          items: List.filled(repetitions, _item),
-        ),
-        _Flow.hard => HardChoiceQuizScreen(
-          deck: List.filled(repetitions, _word),
-          vocabLoader: () async => [_word],
-        ),
-      };
+  Widget screen;
+  if (overrideScreen != null) {
+    screen = overrideScreen;
+  } else if (flow == _Flow.cloze) {
+    late CurriculumCatalog catalog;
+    late List<ClozeItem> items;
+    CourseProgressService.shared.resetForTesting();
+    await tester.runAsync(() async {
+      catalog = await CurriculumCatalog.load();
+      items = await ClozeLoader.load();
+    });
+    await CourseProgressService.shared.initializeForPlacement('a1');
+    final link = catalog.contentLinks.firstWhere(
+      (candidate) =>
+          candidate.contentKind == CurriculumContentKind.cloze &&
+          candidate.courseUnitId == 'a1_01_greetings_hangul',
+    );
+    final item = items.firstWhere(
+      (candidate) => candidate.id == link.contentId,
+    );
+    _activeClozeItem = item;
+    _activeClozeLink = link;
+    CourseActivityReporter.recordContentAttemptForTesting = null;
+    screen = ClozeGameScreen(
+      items: List<ClozeItem>.filled(repetitions, item),
+      courseUnitId: link.courseUnitId,
+      courseContext: CoursePracticeContext.fromLink(link),
+    );
+  } else {
+    screen = switch (flow) {
+      _Flow.chosung || _Flow.skip => ChosungQuizScreen(deck: [_word]),
+      _Flow.cloze => throw StateError('Handled above.'),
+      _Flow.daily => DailyChallengeScreen(
+        items: List.filled(repetitions, _item),
+      ),
+      _Flow.hard => HardChoiceQuizScreen(
+        deck: List.filled(repetitions, _word),
+        vocabLoader: () async => [_word],
+      ),
+    };
+  }
   final navigator = GlobalKey<NavigatorState>();
   final wrapped = MediaQuery(
     data: const MediaQueryData(size: Size(390, 844), disableAnimations: true),
@@ -474,6 +525,30 @@ Future<void> _pump(
     );
   }
   await _settle(tester);
+}
+
+Future<void> _expectClozeEvidence({required bool isCorrect}) async {
+  final link = _activeClozeLink!;
+  final snapshot = await CourseProgressService.shared.readForDisplay();
+  final evidence = snapshot!.evidence
+      .where((entry) => entry.contentId == _activeClozeItem.id)
+      .toList(growable: false);
+  expect(evidence, hasLength(link.conceptIds.length));
+  expect(
+    evidence.map((entry) => entry.conceptId).toSet(),
+    link.conceptIds.toSet(),
+  );
+  expect(
+    evidence.every(
+      (entry) =>
+          entry.contentKind == CurriculumContentKind.cloze &&
+          entry.courseUnitId == link.courseUnitId &&
+          entry.missionContentLinkId == link.id &&
+          !entry.courseEligible &&
+          entry.isCorrect == isCorrect,
+    ),
+    isTrue,
+  );
 }
 
 Future<VoidCallback> _answerAction(

@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -42,13 +43,6 @@ const _scenario = Scenario(
       },
     ),
   ],
-);
-
-const _context = CoursePracticeContext(
-  courseUnitId: 'a1_01_greetings_hangul',
-  contentKind: CurriculumContentKind.scenario,
-  initialContentId: 'completion-recovery-fixture',
-  contentLinkId: 'recovery-checkpoint',
 );
 
 const _srsScenario = Scenario(
@@ -97,12 +91,14 @@ void main() {
   testWidgets('course checkpoint failure keeps completion retryable', (
     tester,
   ) async {
+    final fixture = await _loadLinkedScenario(tester);
     var completions = 0;
     CourseActivityReporter.recordScenarioCheckpointForTesting =
         (_, _, _) async => throw StateError('course persistence unavailable');
     await _finish(
       tester,
-      courseContext: _context,
+      scenario: fixture.scenario,
+      courseContext: fixture.context,
       onCompleted: () => completions++,
     );
 
@@ -114,7 +110,7 @@ void main() {
     );
     expect(find.text(t.scenarioResultSaveRetry), findsOneWidget);
     expect(Storage.xp, 0, reason: 'Course persistence precedes reward writes.');
-    expect(Storage.completedScenarios, isNot(contains(_scenario.id)));
+    expect(Storage.completedScenarios, isNot(contains(fixture.scenario.id)));
   });
 
   testWidgets('unlinked free practice can finish without course graph', (
@@ -134,6 +130,7 @@ void main() {
   testWidgets('retry after course recovery grants the result and reward once', (
     tester,
   ) async {
+    final fixture = await _loadLinkedScenario(tester);
     var completions = 0;
     var checkpointCalls = 0;
     var available = false;
@@ -147,7 +144,8 @@ void main() {
     };
     await _finish(
       tester,
-      courseContext: _context,
+      scenario: fixture.scenario,
+      courseContext: fixture.context,
       onCompleted: () => completions++,
     );
     expect(completions, 0);
@@ -161,13 +159,13 @@ void main() {
     await tester.pump(const Duration(seconds: 2));
     expect(completions, 1);
     expect(checkpointCalls, 2);
-    expect(Storage.xp, _scenario.xpReward);
-    expect(Storage.scenarioStars[_scenario.id], 3);
-    expect(Storage.completedScenarios, contains(_scenario.id));
+    expect(Storage.xp, fixture.scenario.xpReward);
+    expect(Storage.scenarioStars[fixture.scenario.id], 3);
+    expect(Storage.completedScenarios, contains(fixture.scenario.id));
     expect(find.text(t.scenarioResultSaveRetry), findsNothing);
     await tester.pump(const Duration(seconds: 1));
     expect(completions, 1);
-    expect(Storage.xp, _scenario.xpReward);
+    expect(Storage.xp, fixture.scenario.xpReward);
   });
   for (final key in [
     'kl_scenario_stars',
@@ -271,6 +269,49 @@ void main() {
       },
     );
   }
+}
+
+Future<({Scenario scenario, CoursePracticeContext context})>
+_loadLinkedScenario(WidgetTester tester) async {
+  late CurriculumCatalog catalog;
+  late Scenario source;
+  ScenarioLoader.reset();
+  await tester.runAsync(() async {
+    catalog = await CurriculumCatalog.load();
+    await ScenarioLoader.load();
+    source = ScenarioLoader.byId('airport_arrival')!;
+  });
+  final link = catalog.contentLinks.firstWhere(
+    (candidate) =>
+        candidate.contentKind == CurriculumContentKind.scenario &&
+        candidate.contentId == source.id,
+  );
+  final scenario = Scenario(
+    id: source.id,
+    level: source.level,
+    emoji: source.emoji,
+    register: source.register,
+    title: source.title,
+    intro: source.intro,
+    vocab: source.vocab,
+    grammarIds: const <String>[],
+    dialog: const <DialogLine>[],
+    quests: <QuestSpec>[source.quests.first],
+    courseUnitId: source.courseUnitId,
+    speechStyle: source.speechStyle,
+    relationshipContext: source.relationshipContext,
+    intent: source.intent,
+    playerCharacterId: source.playerCharacterId,
+    participantIds: source.participantIds,
+    shelf: source.shelf,
+    backdrop: source.backdrop,
+    conceptIds: source.conceptIds,
+    surfaceFormIds: source.surfaceFormIds,
+    xpReward: source.xpReward,
+    sidekick: source.sidekick,
+    preferredVoice: source.preferredVoice,
+  );
+  return (scenario: scenario, context: CoursePracticeContext.fromLink(link));
 }
 
 Future<void> _finish(

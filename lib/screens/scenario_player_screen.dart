@@ -59,6 +59,7 @@ import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
@@ -621,8 +622,30 @@ class ScenarioPlayerScreen extends StatefulWidget {
   State<ScenarioPlayerScreen> createState() => _ScenarioPlayerScreenState();
 }
 
+final class _PendingScenarioQuestEvidence {
+  _PendingScenarioQuestEvidence({
+    required this.scenario,
+    required this.quest,
+    required this.questIndex,
+    required this.stageIndex,
+    required this.result,
+    required this.courseAttempts,
+  });
+
+  final Scenario scenario;
+  final QuestSpec quest;
+  final int questIndex;
+  final int stageIndex;
+  final QuestResult result;
+  final List<CourseContentAttempt> courseAttempts;
+
+  String get identity => '${scenario.id}:${quest.id}:$questIndex:$stageIndex';
+}
+
 class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
-    with ScreenCoachMixin<ScenarioPlayerScreen> {
+    with
+        ScreenCoachMixin<ScenarioPlayerScreen>,
+        StudyEvidenceRecovery<ScenarioPlayerScreen> {
   Scenario? _scenario;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
@@ -657,6 +680,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   final String _rewardAttemptId = const Uuid().v4();
   final LocalDataLifetimeLease _resultLifetime = LocalDataLifetime.capture();
   Object? _loadFailure;
+  bool _courseRouteRejected = false;
+  _PendingScenarioQuestEvidence? _pendingQuestEvidence;
+  final Set<String> _completedQuestEvidence = <String>{};
   bool _introAudioPrefetchStarted = false;
 
   // Wie viel Höhe das Szenen-Poster an den Quest-Inhalt abgibt.
@@ -847,6 +873,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final missionStep =
         candidateStep?.link.contentKind == CurriculumContentKind.scenario &&
             candidateStep?.link.contentId == s.id &&
+            courseContext?.initialContentId == s.id &&
             candidateStep?.link.courseUnitId == courseContext?.courseUnitId
         ? candidateStep
         : null;
@@ -856,6 +883,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               .courseUnitFor(missionStep.link.courseUnitId)
               ?.title
               .pick(languageCode);
+    if (widget.courseContext != null && missionStep == null) {
+      setState(() {
+        _loadFailure = StateError('Invalid scenario course route.');
+        _courseRouteRejected = true;
+      });
+      return;
+    }
     final plan = buildScenarioStagePlan(
       hasRollenspiel: s.dialog.any((line) => line.speaker == 'user'),
       hasGrammar: resolvedGrammar.isNotEmpty || s.grammarBlock != null,
@@ -870,7 +904,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _resolvedGrammar = resolvedGrammar;
       _missionStep = missionStep;
       _missionTitle = missionTitle;
-      _effectiveCourseContext = courseContext;
+      _effectiveCourseContext = missionStep == null ? null : courseContext;
       _plan = plan;
       _stage = initialStage;
       _questReady = initialStage == 0;
@@ -929,7 +963,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (!mounted) {
       return;
     }
-    setState(() => _loadFailure = null);
+    setState(() {
+      _loadFailure = null;
+      _courseRouteRejected = false;
+    });
     await _loadScenario();
   }
 
@@ -1039,46 +1076,179 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
   }
 
-  void _onQuestComplete(QuestResult result) {
-    final scenario = _scenario;
-    QuestSpec? completedQuest;
-    if (scenario != null &&
-        _currentQuestIndex >= 0 &&
-        _currentQuestIndex < scenario.quests.length) {
-      final quest = scenario.quests[_currentQuestIndex];
-      completedQuest = quest;
-      // Only audited pilot quest metadata writes concept evidence. Untagged
-      // legacy quests still feed the scenario checkpoint at completion, which
-      // avoids pretending that a single particle mistake affected every form
-      // used elsewhere in the dialogue.
-      if (widget.mode == ScenarioPlayerMode.standard &&
-          widget.previewFixture == null &&
-          quest.hasExplicitId &&
-          quest.conceptIds.isNotEmpty) {
-        for (final conceptId in quest.conceptIds) {
-          // ignore: discarded_futures
-          CourseActivityReporter.recordContentAttempt(
-            CurriculumContentKind.scenario,
-            scenario.id,
-            result.passed,
-            courseContext: widget.courseContext,
-            conceptId: conceptId,
-            errorReason: result.passed
-                ? null
-                : masteryErrorForQuestType(quest.type),
-          );
+  void _onQuestComplete(
+    QuestResult result, {
+    required Scenario scenario,
+    required QuestSpec quest,
+    required int questIndex,
+    required int stageIndex,
+  }) {
+    if (!_questOriginIsCurrent(
+          scenario: scenario,
+          quest: quest,
+          questIndex: questIndex,
+          stageIndex: stageIndex,
+        ) ||
+        _pendingQuestEvidence != null) {
+      return;
+    }
+    final identity = _questEvidenceIdentity(
+      scenario: scenario,
+      quest: quest,
+      questIndex: questIndex,
+      stageIndex: stageIndex,
+    );
+    if (_completedQuestEvidence.contains(identity)) {
+      return;
+    }
+
+    // Only audited quest metadata writes concept evidence. Untagged legacy
+    // quests still feed the final scenario checkpoint without inventing
+    // concept observations.
+    final eligible =
+        widget.mode == ScenarioPlayerMode.standard &&
+        widget.previewFixture == null &&
+        quest.hasExplicitId &&
+        quest.conceptIds.isNotEmpty;
+    final pending = _PendingScenarioQuestEvidence(
+      scenario: scenario,
+      quest: quest,
+      questIndex: questIndex,
+      stageIndex: stageIndex,
+      result: result,
+      courseAttempts: eligible
+          ? <CourseContentAttempt>[
+              for (final conceptId in quest.conceptIds)
+                CourseContentAttempt(
+                  kind: CurriculumContentKind.scenario,
+                  contentId: scenario.id,
+                  isCorrect: result.passed,
+                  courseContext: _effectiveCourseContext,
+                  conceptId: conceptId,
+                  errorReason: result.passed
+                      ? null
+                      : masteryErrorForQuestType(quest.type),
+                ),
+            ]
+          : const <CourseContentAttempt>[],
+    );
+    _pendingQuestEvidence = pending;
+    if (pending.courseAttempts.isEmpty) {
+      _publishQuestCompletion(pending);
+      return;
+    }
+    unawaited(_saveQuestCompletion(pending));
+  }
+
+  Future<void> _saveQuestCompletion(
+    _PendingScenarioQuestEvidence pending,
+  ) async {
+    final saved = await saveStudyEvidence(() async {
+      for (final attempt in pending.courseAttempts) {
+        if (!_pendingQuestIsCurrent(pending)) {
+          return false;
+        }
+        final result = await attempt.save();
+        if (result != CourseContentAttemptResult.persisted &&
+            result != CourseContentAttemptResult.notApplicable) {
+          return false;
+        }
+        if (!_pendingQuestIsCurrent(pending)) {
+          return false;
         }
       }
+      return true;
+    });
+    if (!saved || !_pendingQuestIsCurrent(pending)) {
+      return;
     }
-    if (result.passed) _passedCount++;
-    if (result.firstTry && result.passed) _firstTryPassedCount++;
-    if (!result.passed) _failedQuestIndices.add(_currentQuestIndex);
-    if (result.passed &&
-        completedQuest != null &&
-        _firstCorrectGate.accept(correct: true)) {
-      _firstSuccess = scenarioFirstSuccessForQuest(completedQuest);
+    _publishQuestCompletion(pending);
+  }
+
+  void _publishQuestCompletion(_PendingScenarioQuestEvidence pending) {
+    if (!_pendingQuestIsCurrent(pending)) {
+      return;
     }
-    setState(() => _questReady = true);
+    final result = pending.result;
+    final firstSuccess =
+        result.passed && _firstCorrectGate.accept(correct: true)
+        ? scenarioFirstSuccessForQuest(pending.quest)
+        : null;
+    setState(() {
+      if (result.passed) {
+        _passedCount++;
+      }
+      if (result.firstTry && result.passed) {
+        _firstTryPassedCount++;
+      }
+      if (!result.passed) {
+        _failedQuestIndices.add(pending.questIndex);
+      }
+      if (firstSuccess != null) {
+        _firstSuccess = firstSuccess;
+      }
+      _completedQuestEvidence.add(pending.identity);
+      _pendingQuestEvidence = null;
+      _questReady = true;
+    });
+  }
+
+  bool _pendingQuestIsCurrent(_PendingScenarioQuestEvidence pending) =>
+      identical(_pendingQuestEvidence, pending) &&
+      _questOriginIsCurrent(
+        scenario: pending.scenario,
+        quest: pending.quest,
+        questIndex: pending.questIndex,
+        stageIndex: pending.stageIndex,
+      );
+
+  bool _questOriginIsCurrent({
+    required Scenario scenario,
+    required QuestSpec quest,
+    required int questIndex,
+    required int stageIndex,
+  }) =>
+      studyEvidenceIsCurrent &&
+      _loadLifecycle.canContinue &&
+      identical(_scenario, scenario) &&
+      _stage == stageIndex &&
+      stageIndex >= 0 &&
+      stageIndex < _plan.length &&
+      _plan[stageIndex] == ScenarioStage.quest &&
+      questIndex >= 0 &&
+      questIndex < scenario.quests.length &&
+      identical(scenario.quests[questIndex], quest);
+
+  String _questEvidenceIdentity({
+    required Scenario scenario,
+    required QuestSpec quest,
+    required int questIndex,
+    required int stageIndex,
+  }) => '${scenario.id}:${quest.id}:$questIndex:$stageIndex';
+
+  void _continueQuest({
+    required Scenario scenario,
+    required QuestSpec quest,
+    required int questIndex,
+    required int stageIndex,
+  }) {
+    final identity = _questEvidenceIdentity(
+      scenario: scenario,
+      quest: quest,
+      questIndex: questIndex,
+      stageIndex: stageIndex,
+    );
+    if (!_questOriginIsCurrent(
+          scenario: scenario,
+          quest: quest,
+          questIndex: questIndex,
+          stageIndex: stageIndex,
+        ) ||
+        _pendingQuestEvidence != null ||
+        !_completedQuestEvidence.contains(identity)) {
+      return;
+    }
+    _next();
   }
 
   void _onCorrectAnswer({ScenarioFirstSuccess? firstSuccess}) {
@@ -1743,16 +1913,36 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
   }
 
-  Widget _buildQuest(QuestSpec spec, AppL10n t) {
+  Widget _buildQuest(
+    QuestSpec spec,
+    AppL10n t, {
+    required int questIndex,
+    required int stageIndex,
+  }) {
     Widget questWidget;
+    final scenario = _scenario!;
     final allowDontKnow =
         widget.mode == ScenarioPlayerMode.onboardingFirstScene &&
         widget.courseContext == null;
+    void complete(QuestResult result) => _onQuestComplete(
+      result,
+      scenario: scenario,
+      quest: spec,
+      questIndex: questIndex,
+      stageIndex: stageIndex,
+    );
+    void continueQuest() => _continueQuest(
+      scenario: scenario,
+      quest: spec,
+      questIndex: questIndex,
+      stageIndex: stageIndex,
+    );
+    final isLast = questIndex == scenario.quests.length - 1;
 
     switch (spec.type) {
       case QuestType.hoerverstehen:
         questWidget = HoerverstehenQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
           transcriptTranslation: scenarioListeningTranscriptTranslation(
             _scenario!,
@@ -1760,80 +1950,66 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             Localizations.localeOf(context).languageCode,
           ),
           audioEnabled: widget.previewFixture == null,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.uebersetzen:
         questWidget = UebersetzenQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
           audioEnabled: widget.previewFixture == null,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.luecken:
         questWidget = LueckenQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
           audioEnabled: widget.previewFixture == null,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.particlePop:
         questWidget = ParticlePopQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
           audioEnabled: widget.previewFixture == null,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.batchimDrop:
         questWidget = BatchimDropQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.satzBauen:
         questWidget = SatzBauenQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowDontKnow: allowDontKnow,
         );
       case QuestType.diktat:
         questWidget = DiktatQuest(
-          key: ValueKey('quest-$_currentQuestIndex'),
+          key: ValueKey('quest-$questIndex'),
           data: spec.data,
-          onComplete: (r) {
-            _onQuestComplete(r);
-          },
-          onContinue: _next,
-          isLast: _currentQuestIndex == _scenario!.quests.length - 1,
+          onComplete: complete,
+          onContinue: continueQuest,
+          isLast: isLast,
           allowWordBankFallback: allowDontKnow,
           allowDontKnow: allowDontKnow,
         );
@@ -2177,7 +2353,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         final quests = _scenario!.quests;
         final questIdx = index - _questStartStage;
         if (questIdx >= 0 && questIdx < quests.length) {
-          return _buildQuest(quests[questIdx], t);
+          return _buildQuest(
+            quests[questIdx],
+            t,
+            questIndex: questIdx,
+            stageIndex: index,
+          );
         }
         return const SizedBox.shrink();
       case ScenarioStage.result:
@@ -2266,13 +2447,68 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           child: _loadFailure == null
               ? const AppLoading()
               : AppError(
-                  message: t.scenariosLoadFailedTitle,
+                  message: _courseRouteRejected
+                      ? t.courseCheckpointSaveError
+                      : t.scenariosLoadFailedTitle,
                   onRetry: _retryLoadScenario,
                 ),
         ),
       );
     }
 
+    final evidenceRecovery = _loadLifecycle.canContinue
+        ? studyEvidenceRecoveryContent()
+        : null;
+    final interactionBlocked =
+        evidenceRecovery != null || !_loadLifecycle.canContinue;
+    final playerBody = SoriScreenBackground(
+      child: Stack(
+        children: [
+          if (_backdropPoster != null && !_isQuestStage && !_isRoleplayStage)
+            Positioned.fill(
+              child: IgnorePointer(
+                child: Opacity(
+                  opacity: 0.08,
+                  child: Image.asset(
+                    _backdropPoster!,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                  ),
+                ),
+              ),
+            ),
+          SafeArea(
+            child: Column(
+              children: [
+                if (_missionStep case final step?)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      Spacing.lg,
+                      Spacing.sm,
+                      Spacing.lg,
+                      Spacing.sm,
+                    ),
+                    child: MissionContextBar(
+                      missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                      step: step,
+                    ),
+                  ),
+                Expanded(
+                  child: PageView.builder(
+                    key: _stageAreaKey,
+                    controller: _pageCtrl,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _totalStages,
+                    itemBuilder: (_, index) => _buildStage(index, t, lang),
+                  ),
+                ),
+                _buildBottomBar(t),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
     final scaffold = Scaffold(
       appBar: SoriAppBar(
         title: _scenario!.title.pick(lang),
@@ -2288,6 +2524,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           SoriHomeAction(
             escape: SoriHomeEscape(confirmWhen: _stage > 0 && !_isResultStage),
             onLeave: () {
+              retireStudyEvidence();
               _loadLifecycle.requestExit();
             },
           ),
@@ -2318,54 +2555,32 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           ),
         ),
       ),
-      body: SoriScreenBackground(
-        child: Stack(
-          children: [
-            if (_backdropPoster != null && !_isQuestStage && !_isRoleplayStage)
-              Positioned.fill(
-                child: IgnorePointer(
-                  child: Opacity(
-                    opacity: 0.08,
-                    child: Image.asset(
-                      _backdropPoster!,
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-                    ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          ExcludeSemantics(
+            excluding: interactionBlocked,
+            child: ExcludeFocus(
+              excluding: interactionBlocked,
+              child: IgnorePointer(
+                ignoring: interactionBlocked,
+                child: playerBody,
+              ),
+            ),
+          ),
+          if (evidenceRecovery != null)
+            ColoredBox(
+              color: SoriSurfaces.of(context).bg,
+              child: SafeArea(
+                child: SoriStudyClamp(
+                  child: Padding(
+                    padding: const EdgeInsets.all(Spacing.lg),
+                    child: evidenceRecovery,
                   ),
                 ),
               ),
-            SafeArea(
-              child: Column(
-                children: [
-                  if (_missionStep case final step?)
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        Spacing.lg,
-                        Spacing.sm,
-                        Spacing.lg,
-                        Spacing.sm,
-                      ),
-                      child: MissionContextBar(
-                        missionTitle:
-                            _missionTitle ?? t.courseMissionTitleShort,
-                        step: step,
-                      ),
-                    ),
-                  Expanded(
-                    child: PageView.builder(
-                      key: _stageAreaKey,
-                      controller: _pageCtrl,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _totalStages,
-                      itemBuilder: (_, index) => _buildStage(index, t, lang),
-                    ),
-                  ),
-                  _buildBottomBar(t),
-                ],
-              ),
             ),
-          ],
-        ),
+        ],
       ),
     );
     return _withExitScope(scaffold);
@@ -2410,6 +2625,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         if (didPop) {
           // 확인이 필요 없고 onExit도 없어 프레임워크가 곧장 pop 했다 —
           // 다른 종료 경로(닫기 버튼 등)와의 경합만 막아 둔다.
+          retireStudyEvidence();
           _loadLifecycle.requestExit();
           return;
         }
@@ -2435,6 +2651,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (!_loadLifecycle.requestExit()) {
       return;
     }
+    retireStudyEvidence();
     final onExit = widget.onExit;
     if (onExit != null) {
       onExit();
@@ -2451,6 +2668,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (!_loadLifecycle.requestExit()) {
       return;
     }
+    retireStudyEvidence();
     widget.onExit?.call();
   }
 
@@ -2458,6 +2676,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (!_loadLifecycle.requestExit()) {
       return;
     }
+    retireStudyEvidence();
     Navigator.pop(context);
   }
 }

@@ -1999,3 +1999,94 @@ and operational readiness remain separate open launch requirements.
 **Task 41 local verification:** 3 native rejection/unknown course evidence failures verified against baseline source, including corrected widget replay after a test-zone fixture limitation. Scoped final regression passed 1009 tests in 80 files, with 0 configured skips; 11 changed Dart files analyzed cleanly. Independent Standards and Spec approved final actual hashes. Vocabulary-pack assessment and finish now retain strict course evidence; admission/reset and presentation fences preserve prior SRS/vocabulary progress and completion ordering. Prior sources, 1014 assets and 1095 paid Graph records preserved; free Graphify update/prune complete. Exact local commit and evidence: external vocab-course-evidence-20260911/verification.json. Other course/favorite callers, process-death, Hanok retirement integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
 
 **Review repair:** Two failing linked-vocabulary route cases reproduced the invalid-route fallback. Supplied course routes now require a validated exact mission edge before pack and learning-evidence admission. Final rereviews and regression cover this repaired source; round0 proof remains separately archived.
+
+### Task 42: Confirm cloze and scenario quest course evidence before completion
+
+Baseline: ce640af129b39f541bac80b5d40c1d0ad07efd00.
+Root: C:/dev/hangulsori/ko_lernen_app_worktrees/global-launch-readiness-20260909
+Evidence: C:/dev/hangulsori/_codex_artifacts/global-launch-readiness-20260909/quest-course-evidence-20260912
+Report: same SDD directory, task-42-report.md.
+
+## Problem and priority
+
+Live source has two remaining discarded course-evidence writes: cloze first
+answers publish feedback/score and schedule advancement before their course
+write; scenario audited quest completion emits one best-effort write per concept
+and immediately updates aggregate counts and enables continuation. Native
+failure is swallowed by the legacy reporter. These silent losses take priority
+over grammar/smalltalk, which already detect null failure but still need a
+separate retained-retry audit. Do not claim those other callers are repaired.
+
+## Requirements
+
+- [x] Before production edits, reproduce native canonical course rejection and
+  unknown outcomes on real linked cloze and audited standard scenario quest
+  paths. Do not use preview mode (which deliberately bypasses evidence) as
+  production proof. Assert actual native setters were reached; preserve raw
+  failed logs under unique names. A missing recovery widget alone is not proof.
+- [x] Cloze retains the first accepted SRS and CourseContentAttempt together
+  across storage retries. Confirm required legs before score, answer feedback,
+  automatic speech/timer/advancement or completion. A learner's correction
+  after a wrong answer is distinct from a persistence retry: preserve first-try
+  scoring/evidence, the existing correction UX, mission context targeting,
+  content identity and vocabularyRecall error category. Confirmed SRS/course
+  legs must not repeat. Unlinked free browse is explicitly notApplicable;
+  supplied invalid course routing cannot silently become global evidence.
+- [x] Scenario audited quest completion retains one CourseContentAttempt per
+  existing concept observation, all with stable identity across retries.
+  Preserve standard-mode, non-preview, explicit quest ID and nonempty concept
+  eligibility; untagged quests still use final scenario checkpoint only.
+  Preserve concept IDs, pass/fail and masteryErrorForQuestType mapping. Partial
+  success retries only unconfirmed observations. Aggregate pass/first-try/failure
+  counts, quest-ready/continuation and final checkpoint/rewards must not advance
+  until all required observations confirm. Existing educational answer feedback
+  inside quest widgets may remain; it must not permit premature continuation.
+  Preserve the live quest engine and PageView state while saving/recovering;
+  successful persistence must not require re-answering or return to an old page.
+- [x] Capture immutable quest/question/stage identity at admission. Fence duplicate
+  completion callbacks, stale callbacks after stage changes/replay, route pop,
+  explicit leave, unmount and local-data reset across every introduced await.
+  Retirement during earlier SRS or concept persistence must not start a later
+  course observation or publish old completion state. Preserve one accepted
+  result across retry; a different answer/callback cannot replace it while
+  pending. Keep previously hardened final scenario checkpoint/reward/SRS paths.
+- [x] Surface save failure through existing localized Sori/AppError recovery with
+  explicit retry and usable leave behavior; avoid uncaught discarded Future
+  errors. Validate exact supplied course routing before treating it as eligible,
+  while preserving legitimate free browse and current mission semantics. Do not
+  globally change the legacy reporter or canonical mastery/placement algorithms.
+- [x] Verify native false/throw and committed/uncommitted unknown recovery,
+  exactly-once confirmed legs, multi-concept partial completion, distinct
+  accepted answers/quests, wrong-first then correction, eligibility/invalid route,
+  duplicate/stale callbacks, reset and real route retirement, and absence of
+  premature course completion/reward/navigation. Initialize course service test
+  queues inside testWidgets and preload actual catalog as existing fixtures do.
+  Keep semantic assertions when adapting old timing harnesses. Run focused
+  relevant tests, full analysis, and freeze exact machine-generated Dart hashes.
+- [x] Complete independent Standards and Spec reviews and controller impact
+  regression, preserve unrelated source/assets/paid Graph records, then perform
+  free Graphify/prune, verified local commit and external readiness updates.
+
+## Scope and constraints
+
+Owned production: lib/screens/cloze_game_screen.dart and
+lib/screens/scenario_player_screen.dart. Use existing CourseContentAttempt,
+StudyEvidenceRecovery and lifetime contracts. A focused existing helper or quest
+widget support edit requires a concrete reason and controller notification
+before editing; do not broaden eligibility or alter unrelated UX. Relevant
+tests may change. No Storage, canonical course algorithm/schema, SRS policy,
+grammar/smalltalk/favorites, assets, pubspec, SDK, workflow or visual redesign.
+
+Worker starts with a short read-only design/preflight checkpoint, then native
+failure-first implementation. Flutter --no-pub, one process at a time, no source
+edits during tests/analyzer; no duplicate broad test runs. Every new log gets a
+unique name; never overwrite failed evidence. Generate hashes from bytes, do not
+transcribe them. Report worker self-assessment separately from pending independent
+reviews. No subagents, commit, push, merge, Graphify, build, upload, paid/network
+calls or device/console actions. Root owns final verification and local commit.
+
+Retention scope is the running process. Grammar/smalltalk retries, favorites,
+process-death, Hanok integration, signed-device and operational readiness remain
+open global-launch requirements, not silently satisfied by this task.
+
+**Task 42 local verification:** Native cloze and audited scenario course failures reproduced before repair (4 failing cases). Final scoped regression 2364 tests in 162 files, 0 configured skips; full analysis clean and both independent axes approved actual final hashes. Cloze first-answer and audited scenario quest evidence now retain confirmed observations before authoritative completion, with duplicate/stale/reset/route and invalid-routing fences. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external quest-course-evidence-20260912/verification.json. Grammar/smalltalk retained retries, favorites/likes, process-death, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.

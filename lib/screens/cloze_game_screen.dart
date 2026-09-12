@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../data/cloze_topic_groups.dart';
 import '../l10n/cloze_topic_group_localizations.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/course_practice_context.dart';
@@ -89,6 +90,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
   bool _retried = false;
   GameOutcome? _outcome;
   CoursePracticeContext? _missionContext;
+  Set<String>? _linkedCourseClozeIds;
+  bool _courseRouteRejected = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
@@ -99,7 +102,12 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
   }
 
   bool _isCurrentQuestion(int presentation, ClozeItem item) =>
-      _acceptsInput &&
+      _acceptsInput && _canFlushQuestion(presentation, item);
+
+  bool _canFlushQuestion(int presentation, ClozeItem item) =>
+      mounted &&
+      studyEvidenceIsCurrent &&
+      gameResultAcceptsInput &&
       presentation == _presentation &&
       _idx >= 0 &&
       _idx < _round.length &&
@@ -163,11 +171,29 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
                 )
         ? null
         : requestedContext;
+    if (requestedContext != null && missionContext == null) {
+      setState(() {
+        _loading = false;
+        _courseRouteRejected = true;
+        _missionContext = null;
+        _linkedCourseClozeIds = null;
+      });
+      return;
+    }
     setState(() {
       _all = scoped;
       _vocabByKo = {for (final v in vocab) v.korean: v};
       _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
+      _linkedCourseClozeIds = widget.items != null && courseUnitId == null
+          ? const <String>{}
+          : catalog?.contentLinks
+                .where(
+                  (link) => link.contentKind == CurriculumContentKind.cloze,
+                )
+                .map((link) => link.contentId)
+                .toSet();
+      _courseRouteRejected = false;
       _loading = false;
     });
     _newRound();
@@ -365,9 +391,29 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     final firstTry = !_retried;
     final judgment = ++_presentation;
     if (firstTry) {
-      final attempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
-      if (!await saveStudyEvidence(attempt.save) ||
-          !_isCurrentQuestion(judgment, item)) {
+      final srsAttempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
+      final courseAttempt = CourseContentAttempt(
+        kind: CurriculumContentKind.cloze,
+        contentId: item.id,
+        isCorrect: ok,
+        isApplicable: _linkedCourseClozeIds?.contains(item.id),
+        courseContext: _missionContext?.initialContentId == item.id
+            ? _missionContext
+            : null,
+        errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
+      );
+      final saved = await saveStudyEvidence(() async {
+        if (!await srsAttempt.save()) {
+          return false;
+        }
+        if (!_canFlushQuestion(judgment, item)) {
+          return false;
+        }
+        final result = await courseAttempt.save();
+        return result == CourseContentAttemptResult.persisted ||
+            result == CourseContentAttemptResult.notApplicable;
+      });
+      if (!saved || !_isCurrentQuestion(judgment, item)) {
         return;
       }
     }
@@ -385,19 +431,6 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     // item.fullKo 텍스트를 쓰므로 SoriSpeech 의 텍스트별 in-flight
     // dedupe 로 인디케이터 탭=정지 계약이 그대로 성립한다.
     SoriSpeech.speak(item.fullKo);
-
-    if (firstTry) {
-      // ignore: discarded_futures
-      CourseActivityReporter.recordContentAttempt(
-        CurriculumContentKind.cloze,
-        item.id,
-        ok,
-        courseContext: _missionContext?.initialContentId == item.id
-            ? _missionContext
-            : null,
-        errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
-      );
-    }
 
     if (ok) {
       HapticFeedback.lightImpact();
@@ -482,6 +515,26 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
+      );
+    }
+
+    if (_courseRouteRejected) {
+      return SoriStudyFrame(
+        onLeave: _retireStudy,
+        title: t.clozeTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.courseCheckpointSaveError,
+          onRetry: () {
+            if (_acceptsInput && _courseRouteRejected && !_loading) {
+              setState(() {
+                _loading = true;
+                _courseRouteRejected = false;
+              });
+              _load();
+            }
+          },
+        ),
       );
     }
 

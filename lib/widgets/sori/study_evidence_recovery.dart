@@ -99,32 +99,43 @@ mixin StudyEvidenceRecovery<T extends StatefulWidget> on State<T> {
   }
 
   Widget? studyEvidenceRecoveryFrame(String title) {
+    final child = studyEvidenceRecoveryContent();
+    if (child == null) {
+      return null;
+    }
+    return SoriStudyFrame(
+      title: title,
+      homeEscape: const SoriHomeEscape(confirmWhen: true),
+      onLeave: retireStudyEvidence,
+      child: child,
+    );
+  }
+
+  /// The existing localized recovery body without its route-navigation frame.
+  /// Screens that already own the route PopScope can place this above their
+  /// stable content tree and keep one back/leave confirmation owner.
+  Widget? studyEvidenceRecoveryContent() {
     if (!_savingEvidence && !_evidenceFailed && !_evidenceRetired) {
       return null;
     }
     final t = AppL10n.of(context);
     final completion = _evidenceCompletion;
-    return SoriStudyFrame(
-      title: title,
-      homeEscape: const SoriHomeEscape(confirmWhen: true),
-      onLeave: retireStudyEvidence,
-      child: _savingEvidence
-          ? const AppLoading()
-          : AppError(
-              message: t.courseCheckpointSaveError,
-              messageLiveRegion: true,
-              retryLabel: _evidenceExpired || _evidenceRetired
-                  ? t.btnClose
-                  : t.btnRetry,
-              onRetry: _evidenceExpired || _evidenceRetired
-                  ? () => Navigator.of(context).maybePop()
-                  : () {
-                      if (identical(completion, _evidenceCompletion)) {
-                        unawaited(_retryEvidence());
-                      }
-                    },
-            ),
-    );
+    return _savingEvidence
+        ? const AppLoading()
+        : AppError(
+            message: t.courseCheckpointSaveError,
+            messageLiveRegion: true,
+            retryLabel: _evidenceExpired || _evidenceRetired
+                ? t.btnClose
+                : t.btnRetry,
+            onRetry: _evidenceExpired || _evidenceRetired
+                ? () => Navigator.of(context).maybePop()
+                : () {
+                    if (identical(completion, _evidenceCompletion)) {
+                      unawaited(_retryEvidence());
+                    }
+                  },
+          );
   }
 
   @override

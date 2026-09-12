@@ -1320,9 +1320,9 @@
     "semantic_hash": ""
   },
   "lib/screens/cloze_game_screen.dart": {
-    "mtime": 1789098765.5489845,
-    "seen": 1789100513.907527,
-    "ast_hash": "177f1ba01c1a4baa2618b97dd58def67",
+    "mtime": 1789198024.2062323,
+    "seen": 1789200604.0332081,
+    "ast_hash": "312257f80b79fd0f2832289ce9869d18",
     "semantic_hash": ""
   },
   "lib/screens/consent_screen.dart": {
@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1789080444.3924565,
-    "seen": 1789081470.652958,
-    "ast_hash": "ee4dabd9e7980f012d120a7d4deef356",
+    "mtime": 1789199367.6660378,
+    "seen": 1789200604.0483792,
+    "ast_hash": "a60f39c5d115fc889366342ea7db07d1",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -3846,9 +3846,9 @@
     "semantic_hash": ""
   },
   "test/cloze_game_screen_ui_test.dart": {
-    "mtime": 1788987817.6240652,
-    "seen": 1788995056.918377,
-    "ast_hash": "5c73835c57b3b4b487ac5b669117c8e9",
+    "mtime": 1789198181.3140533,
+    "seen": 1789200604.140756,
+    "ast_hash": "a862537fcd7a3e8b791c391657ee3ed6",
     "semantic_hash": ""
   },
   "test/cloze_prompt_test.dart": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789115593.2569332,
-    "seen": 1789178618.3251765,
-    "ast_hash": "2d7fc618b85cfce37fcab7827a4e03a8",
+    "mtime": 1789180882.6852374,
+    "seen": 1789200604.482024,
+    "ast_hash": "473d254abe6424f2da7b031ea027335e",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16008,9 +16008,9 @@
     "semantic_hash": ""
   },
   "test/scenario_completion_recovery_test.dart": {
-    "mtime": 1789080574.2574954,
-    "seen": 1789081470.8165457,
-    "ast_hash": "a606acbe348438781ae3c9e86b39e868",
+    "mtime": 1789199688.5171196,
+    "seen": 1789200604.2206035,
+    "ast_hash": "983f075a50e06e4505cc1da7c84fcb0c",
     "semantic_hash": ""
   },
   "test/scenario_result_preparation_test.dart": {
@@ -16086,9 +16086,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/study_evidence_recovery.dart": {
-    "mtime": 1789094382.7970285,
-    "seen": 1789094393.5363932,
-    "ast_hash": "a682473155502f9bfa1159bf9ec95aa3",
+    "mtime": 1789199209.1624029,
+    "seen": 1789200604.118354,
+    "ast_hash": "65489eb47bc99e71aec5522f1e1b6ad0",
     "semantic_hash": ""
   },
   "test/pack_srs_durability_test.dart": {
@@ -16116,9 +16116,9 @@
     "semantic_hash": ""
   },
   "test/game_answer_srs_recovery_test.dart": {
-    "mtime": 1789098975.7688568,
-    "seen": 1789100514.7201223,
-    "ast_hash": "833085d67806a6a9df7baec1a225b3dc",
+    "mtime": 1789199789.619017,
+    "seen": 1789200604.1667922,
+    "ast_hash": "363d216a9a2a20ca4e6385a4726fbe46",
     "semantic_hash": ""
   },
   "test/timed_game_srs_recovery_test.dart": {
@@ -16167,6 +16167,12 @@
     "mtime": 1789178868.8251991,
     "seen": 1789179466.323516,
     "ast_hash": "b3d0fd41420986f42432de00130d3482",
+    "semantic_hash": ""
+  },
+  "test/quest_course_evidence_recovery_test.dart": {
+    "mtime": 1789199541.390495,
+    "seen": 1789200604.2121365,
+    "ast_hash": "aebfa7cc008105b16d98ffb75262f7c4",
     "semantic_hash": ""
   }
 }
