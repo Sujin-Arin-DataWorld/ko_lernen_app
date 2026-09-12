@@ -30,7 +30,8 @@ class LearningPhaseProjectionTests(unittest.TestCase):
         self.assertEqual(len(actual["phases"][10]["taskIds"]), 35)
         self.assertEqual(len(actual["phases"][11]["taskIds"]), 32)
         self.assertEqual(len(actual["phases"][12]["taskIds"]), 32)
-        self.assertEqual(actual["phases"][13]["taskIds"], [])
+        self.assertEqual(len(actual["phases"][13]["taskIds"]), 25)
+        self.assertEqual(actual["phases"][14]["taskIds"], [])
         units = json.loads((catalog.ROOT / "assets/data/curriculum_manifest.json").read_text(encoding="utf-8"))["courseUnits"]
         self.assertEqual({u["id"] for u in units}, {u for p in actual["phases"] for u in p["practiceUnitIds"]})
 

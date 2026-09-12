@@ -832,8 +832,34 @@
         "b2_02_professional_opinion"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp14.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP14:grammar:01",
+        "KP14:grammar:02",
+        "KP14:grammar:03",
+        "KP14:grammar:04",
+        "KP14:grammar:05",
+        "KP14:grammar:06",
+        "KP14:grammar:07",
+        "KP14:grammar:08",
+        "KP14:grammar:09",
+        "KP14:grammar:10",
+        "KP14:production:01",
+        "KP14:production:02",
+        "KP14:production:03",
+        "KP14:production:04",
+        "KP14:production:05",
+        "KP14:production:06",
+        "KP14:production:07",
+        "KP14:production:08",
+        "KP14:production:09",
+        "KP14:production:10",
+        "KP14:listening:01",
+        "KP14:reading:01",
+        "KP14:reading:02",
+        "KP14:writing:01",
+        "KP14:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP15",
@@ -1265,5 +1291,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "e47abc973b48572a8f0ae9a59ab2a4e23dcb445ebd43bd6b557765f733959232"
+  "phaseTaskSourceSha256": "9def42c76a6a0ae9cc63efc4de0ddd66e7650f6b9f5a9f8bb3d1935f9dd831b3"
 }

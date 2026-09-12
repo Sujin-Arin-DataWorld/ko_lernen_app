@@ -8511,6 +8511,577 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:listening/core:R",
+      "taskId": "KP14:listening:01",
+      "sourceHash": "1ab4b8675e4c3046c713917ca3bfb18856c5a4154c00be8202740831c01c6977",
+      "taskHash": "f8e71b06fee3581d0354b9eb58a5aff4662290a70539a1418cbba070bb6cc06a",
+      "criterionIds": [
+        "definition",
+        "role",
+        "means",
+        "denominator",
+        "relation",
+        "causal",
+        "request"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Fictional data briefing: participation=submitted survey, visit excluded; role as survey staff versus questionnaire means; response counts with absent visitor denominator; time/satisfaction co-variation versus same-day sign installation; uncontrolled confounds; review request not implementation commitment. Seven required criteria. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:reading/core:R",
+      "taskId": "KP14:reading:02",
+      "sourceHash": "2ab8c9a0c9e514ef3693748a2f2eda148b181a46e672b50578d89f1019bb42b2",
+      "taskHash": "64708ef1ef26de382fc9a160c7eed164363a315d8ebe42b84ac895ef75157b9d",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "authority",
+        "means",
+        "responsibility"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional terms with definitions of member/visitor/material, private files excluded; external sharing ban with explicitly labelled public-summary exception; desk receipt role versus email means; no publication approval authority; request right and verify/respond duty, receipt not correction completion. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:reading/genre/report_proposal_official:R",
+      "taskId": "KP14:reading:01",
+      "sourceHash": "bfd96b903f2814e01d46c147a90c9cea85e814b023bf5125112469113c0a67e5",
+      "taskHash": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "criterionIds": [
+        "count",
+        "limit",
+        "counterpoint",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP14:reading:02",
+      "sourceHash": "b7c27c2b36f3d8d38c59436c4fb9cd7f95783438304444e6dac9dc4d7cd85c8c",
+      "taskHash": "64708ef1ef26de382fc9a160c7eed164363a315d8ebe42b84ac895ef75157b9d",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "authority",
+        "means",
+        "responsibility"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional terms with definitions of member/visitor/material, private files excluded; external sharing ban with explicitly labelled public-summary exception; desk receipt role versus email means; no publication approval authority; request right and verify/respond duty, receipt not correction completion. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:speaking/core:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "b46cff88b6d38fd5b26ae1981834a0aa769dc52956222bd99175ffc13cd0c955",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "5bb1b99dfc21a7e9a214e201ff83da556db5b2a308e59c3b9648ed92c37c9855",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:writing/core:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "dd15f7c5fe8148f8eb63a1fb876eeb895ed37dcec95cffb749d09a71c4d118b3",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:writing/genre/report_proposal_official:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "04c58297cb52711ed30e1a41fdd91d943b6ab964427e99c43ac5c259bbb8cad0",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/define_distinguish_terms:R",
+      "taskId": "KP14:reading:02",
+      "sourceHash": "49ad1dfae4436b0cc2a68eb207f9a867c7e780864d2b125cc750811d908441e4",
+      "taskHash": "64708ef1ef26de382fc9a160c7eed164363a315d8ebe42b84ac895ef75157b9d",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "authority",
+        "means",
+        "responsibility"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional terms with definitions of member/visitor/material, private files excluded; external sharing ban with explicitly labelled public-summary exception; desk receipt role versus email means; no publication approval authority; request right and verify/respond duty, receipt not correction completion. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/define_distinguish_terms:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "49ad1dfae4436b0cc2a68eb207f9a867c7e780864d2b125cc750811d908441e4",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/structure_discourse_open_close_scope:R",
+      "taskId": "KP14:reading:01",
+      "sourceHash": "932fd7271b9a2fbc287b65d51eb821b4b39dde8761d17be7183ae7551d0e5732",
+      "taskHash": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "criterionIds": [
+        "count",
+        "limit",
+        "counterpoint",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/structure_discourse_open_close_scope:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "932fd7271b9a2fbc287b65d51eb821b4b39dde8761d17be7183ae7551d0e5732",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP14:reading:01",
+      "sourceHash": "9b942b1f0bbd5870de2ef8347c96bbfb187de4c9bbf3ddca2aaeb1191e3e6bcc",
+      "taskHash": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "criterionIds": [
+        "count",
+        "limit",
+        "counterpoint",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "9b942b1f0bbd5870de2ef8347c96bbfb187de4c9bbf3ddca2aaeb1191e3e6bcc",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/request_ask_someone_to_do:R",
+      "taskId": "KP14:listening:01",
+      "sourceHash": "52d29582471bf38ca9c1a52534a32b3350ed2a582a26d97016a4b392977d6848",
+      "taskHash": "f8e71b06fee3581d0354b9eb58a5aff4662290a70539a1418cbba070bb6cc06a",
+      "criterionIds": [
+        "definition",
+        "role",
+        "means",
+        "denominator",
+        "relation",
+        "causal",
+        "request"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Fictional data briefing: participation=submitted survey, visit excluded; role as survey staff versus questionnaire means; response counts with absent visitor denominator; time/satisfaction co-variation versus same-day sign installation; uncontrolled confounds; review request not implementation commitment. Seven required criteria. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:functions/request_ask_someone_to_do:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "52d29582471bf38ca9c1a52534a32b3350ed2a582a26d97016a4b392977d6848",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP14:reading:01",
+      "sourceHash": "11011c2fc32e143377d149768a743239a8c343a2c58cd3665258fab42839493b",
+      "taskHash": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "criterionIds": [
+        "count",
+        "limit",
+        "counterpoint",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "11011c2fc32e143377d149768a743239a8c343a2c58cd3665258fab42839493b",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP14:reading:02",
+      "sourceHash": "5ee34d6382352617cd122cf83df35e6cda0d0e71036985714a026bb819b5b73c",
+      "taskHash": "64708ef1ef26de382fc9a160c7eed164363a315d8ebe42b84ac895ef75157b9d",
+      "criterionIds": [
+        "scope",
+        "exception",
+        "authority",
+        "means",
+        "responsibility"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional terms with definitions of member/visitor/material, private files excluded; external sharing ban with explicitly labelled public-summary exception; desk receipt role versus email means; no publication approval authority; request right and verify/respond duty, receipt not correction completion. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "5ee34d6382352617cd122cf83df35e6cda0d0e71036985714a026bb819b5b73c",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP14:reading:01",
+      "sourceHash": "e6658b51c5f96fbf8e724be83b989ebea306eddba67ceb124b26e7450ebc3d01",
+      "taskHash": "da66cb945dd2cb97be35e99bcb8137286b84f18e3789b150c48a72d75943babf",
+      "criterionIds": [
+        "count",
+        "limit",
+        "counterpoint",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Connected fictional report with headings and two-period count table. Same definition and missing denominators. Access-gap counterpoint; online-only versus added paper using same access criterion, unknown cost/staff/effect. Conditional proposal, not approved policy or employment/consumption finding. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP14:writing:01",
+      "sourceHash": "e6658b51c5f96fbf8e724be83b989ebea306eddba67ceb124b26e7450ebc3d01",
+      "taskHash": "03b527e56adcbc7f920d0068197c56232ca3ecacf40d46b8f4f595095cc37e24",
+      "criterionIds": [
+        "report"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Full headed report from actual table and clauses, count/rate distinction, method, missing information, counterpoint and two alternatives. Explicit terms-scope/authority/exception paragraph and bounded request for cost/staff review. Full free prose, no answer key or semantic score. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:phonology/0:R",
+      "taskId": "KP14:listening:01",
+      "sourceHash": "32140b7a2737d144cf56d1f2e5bae891bde2f80ddf524791f4cf9a1c7c3308c7",
+      "taskHash": "f8e71b06fee3581d0354b9eb58a5aff4662290a70539a1418cbba070bb6cc06a",
+      "criterionIds": [
+        "definition",
+        "role",
+        "means",
+        "denominator",
+        "relation",
+        "causal",
+        "request"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Fictional data briefing: participation=submitted survey, visit excluded; role as survey staff versus questionnaire means; response counts with absent visitor denominator; time/satisfaction co-variation versus same-day sign installation; uncontrolled confounds; review request not implementation commitment. Seven required criteria. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:phonology/0:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "32140b7a2737d144cf56d1f2e5bae891bde2f80ddf524791f4cf9a1c7c3308c7",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:phonology/1:R",
+      "taskId": "KP14:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "f8e71b06fee3581d0354b9eb58a5aff4662290a70539a1418cbba070bb6cc06a",
+      "criterionIds": [
+        "definition",
+        "role",
+        "means",
+        "denominator",
+        "relation",
+        "causal",
+        "request"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Fictional data briefing: participation=submitted survey, visit excluded; role as survey staff versus questionnaire means; response counts with absent visitor denominator; time/satisfaction co-variation versus same-day sign installation; uncontrolled confounds; review request not implementation commitment. Seven required criteria. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:phonology/1:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "27e7394803298574ef1fd251e79dad37cb77a51dfee3a12c9d5206bfe5622907",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:register/haeyo_polite:P",
+      "taskId": "KP14:speaking:01",
+      "sourceHash": "27e7394803298574ef1fd251e79dad37cb77a51dfee3a12c9d5206bfe5622907",
+      "taskHash": "c02fb7b148c7407dfc87de1ff3a5e1a0b6fcab78f2c81cf1ed2b89ed731de874",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. Role-specific formal briefing to lay audience then polite colleague restatement, preserves definitions/counts and unknown causality/staff/cost; requests verification. Information-unit pause self-review, no automatic intonation/meaning assessment. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-는지:R",
+      "taskId": "KP14:grammar:01",
+      "sourceHash": "638b045d59eced6800ffc8a214e3f19c6a659bdc0322a28a8f1bc02327e07b11",
+      "taskHash": "56ef8eb2187e0c01ef4b3419ad2dfe03e7082cf35118569c7e34bc84ed59876a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Embedded unresolved question: method suitability or included people, never a concluded universal claim. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-듯이:R",
+      "taskId": "KP14:grammar:02",
+      "sourceHash": "182ebe1dc4bb1f010dd94b9c07d7c0a7e8c80975b88728555a6d6564843ee8c8",
+      "taskHash": "685cdb4aa7aaab01e4c26a1536e6f473345ebdfd7e1d6f56dd634d9a2eb8e2c5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Previously explained reference with 듯이; retain checking condition/source, not omission or guaranteed identical result. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-으며:R",
+      "taskId": "KP14:grammar:03",
+      "sourceHash": "666f512f740d6bfb80d0025e3227b94c114aef9dfb7e414018f83f93a3aa479a",
+      "taskHash": "45059d4e4d440af3dab713a5c158ba5731962e72ada9d12c4aa520ec8a001017",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Predicate coordination: free and member-only; anonymous and internal-only. No causal widening of access. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:이며:R",
+      "taskId": "KP14:grammar:04",
+      "sourceHash": "88b43b90aaec97dd7afc841f73d5c010c4f5908d290063ed88c21300152e4788",
+      "taskHash": "247800963d6c4fcbc57fd5318b5692e8fd6d9de648c1c0b6a80b241a81b6af3c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Noun enumeration 학생이며 교사며 / 책이며 노트며, multiple groups/items, not dual role of one person. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:으로서:R",
+      "taskId": "KP14:grammar:05",
+      "sourceHash": "76b1d585e8eb2efe823540b143c42e95125b78f6a83d803d7fbfbb9259bafe3e",
+      "taskHash": "509b5a96044d7ed22710a200168be0a9e9fcf495f729f9df6f2a54c62c56899d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Capacity 으로서 with survey staff or representative; role does not create approval authority. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:으로써:R",
+      "taskId": "KP14:grammar:06",
+      "sourceHash": "ec1c5a0bc3e8624c350812d46c6d9325fc1086287d4c795636db69fbadd47760",
+      "taskHash": "2c42d1f7bc1fbb47ff82a53932bced0415c3f76c2e1bcaf9ea0f664619f8a351",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Means 으로써 with questionnaire/conversation, not role; wrong 서 form expressly rejected. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:이란:R",
+      "taskId": "KP14:grammar:07",
+      "sourceHash": "20d1ec7a0f3086c9f35a5b65ada4b3949b8c24e0a016eaad4560a4966ed92654",
+      "taskHash": "01d05c608f18901c516eb790f2b9cff9a1e69f72d6ac7ee6510aaaef5ab0d8c5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Local report/terms definition 이란 with inclusion and exclusion; no universal definition extension. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:에 따라:R",
+      "taskId": "KP14:grammar:08",
+      "sourceHash": "6c37dfd515a697920ab84e452aa5526327b49562d9614418d318d30577b2ff0c",
+      "taskHash": "373ad8de0841cd1a33af1d8513d7cf4a2c9fd3962a649069e804d4a69d0a8490",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Variation by participant count/application type, not independence of criterion or scientific causal proof. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:에 비하여:R",
+      "taskId": "KP14:grammar:09",
+      "sourceHash": "900ab520e9ab519770e3b0e6523b8d768c4aabd3b561f66fa197232a00f3b320",
+      "taskHash": "4e9d16b1eaa58962d7acc32cb114e5494050857037bd76132a15e705fb8d77ab",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Comparison of respondent counts, preserves reference period and count versus rate/denominator distinction. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-을수록:R",
+      "taskId": "KP14:grammar:10",
+      "sourceHash": "abb69a69099ccb71a70ecfdc7a7056fc0ff4070a3a6dc077616c26e12f2c2c7e",
+      "taskHash": "c3200eaa8f0916b71460096deeecfc1b693becc02c43fa0985123a88580994b3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Co-variation in supplied data, not mere simultaneity or causal experiment; direction preserved. Practice-only study example. Receptive sample, not all-language mastery. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-는지:P",
+      "taskId": "KP14:production:01",
+      "sourceHash": "638b045d59eced6800ffc8a214e3f19c6a659bdc0322a28a8f1bc02327e07b11",
+      "taskHash": "cc3df2c7a17437a53d4bf764436758294f1e070692e5e2595bcb0b91d8c64150",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Embedded unresolved question: method suitability or included people, never a concluded universal claim. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-듯이:P",
+      "taskId": "KP14:production:02",
+      "sourceHash": "182ebe1dc4bb1f010dd94b9c07d7c0a7e8c80975b88728555a6d6564843ee8c8",
+      "taskHash": "d791da0aa645410032a0df9e26e80abddf83fab643ef3c484815a7ac48cdc27d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Previously explained reference with 듯이; retain checking condition/source, not omission or guaranteed identical result. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-으며:P",
+      "taskId": "KP14:production:03",
+      "sourceHash": "666f512f740d6bfb80d0025e3227b94c114aef9dfb7e414018f83f93a3aa479a",
+      "taskHash": "063a90f5fdc92a42091d17dd37f273ad1d64c233ec4c28af75a9a96af28eaee0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Predicate coordination: free and member-only; anonymous and internal-only. No causal widening of access. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:이며:P",
+      "taskId": "KP14:production:04",
+      "sourceHash": "88b43b90aaec97dd7afc841f73d5c010c4f5908d290063ed88c21300152e4788",
+      "taskHash": "13ec127b0b0ad78c6f0ff8db8a808366b6f76979a3e04927504e83ab4583bd26",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Noun enumeration 학생이며 교사며 / 책이며 노트며, multiple groups/items, not dual role of one person. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:으로서:P",
+      "taskId": "KP14:production:05",
+      "sourceHash": "76b1d585e8eb2efe823540b143c42e95125b78f6a83d803d7fbfbb9259bafe3e",
+      "taskHash": "d0f0f0dc8c642857304973b61c28997da63017567202afd6934ad0087edf9f2f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Capacity 으로서 with survey staff or representative; role does not create approval authority. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:으로써:P",
+      "taskId": "KP14:production:06",
+      "sourceHash": "ec1c5a0bc3e8624c350812d46c6d9325fc1086287d4c795636db69fbadd47760",
+      "taskHash": "a8ac460ca86c9b68f9556c0e87b740064591e81731202eedf3c4e32b08994990",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Means 으로써 with questionnaire/conversation, not role; wrong 서 form expressly rejected. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:이란:P",
+      "taskId": "KP14:production:07",
+      "sourceHash": "20d1ec7a0f3086c9f35a5b65ada4b3949b8c24e0a016eaad4560a4966ed92654",
+      "taskHash": "7b123ae67c301ff87c0d24ad9af5890101e6bab65be11358fadeaa0dba762a55",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Local report/terms definition 이란 with inclusion and exclusion; no universal definition extension. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:에 따라:P",
+      "taskId": "KP14:production:08",
+      "sourceHash": "6c37dfd515a697920ab84e452aa5526327b49562d9614418d318d30577b2ff0c",
+      "taskHash": "bff754b8bdfdf822cbadbaa5d382332ae773b8f24bc372fc9f6f61a47b9b0ee3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Variation by participant count/application type, not independence of criterion or scientific causal proof. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:에 비하여:P",
+      "taskId": "KP14:production:09",
+      "sourceHash": "900ab520e9ab519770e3b0e6523b8d768c4aabd3b561f66fa197232a00f3b320",
+      "taskHash": "25b0534957967c30417ffd08dc98f16ac8f0531af844c0edf8c6a7a3b2c32626",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Comparison of respondent counts, preserves reference period and count versus rate/denominator distinction. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP14:objective:grammar/G4:-을수록:P",
+      "taskId": "KP14:production:10",
+      "sourceHash": "abb69a69099ccb71a70ecfdc7a7056fc0ff4070a3a6dc077616c26e12f2c2c7e",
+      "taskHash": "2d0bccc6da7a8d47d8982e7ede54b95973e59837a3c3f3448098065990846c04",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Co-variation in supplied data, not mere simultaneity or causal experiment; direction preserved. Held-out conditions and critical rejection; unknown alternate wording unscored. 전체 어휘·자유 의미·논증·억양 숙달은 미검증이다."
     }
   ]
 }

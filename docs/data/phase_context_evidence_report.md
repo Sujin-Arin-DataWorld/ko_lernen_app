@@ -172,16 +172,16 @@
 | KP13 | G3:-는 모양이다 | 1 | 0 | 0 | 미검증 |
 | KP13 | G3:-을 텐데 | 1 | 0 | 0 | 미검증 |
 | KP13 | G3:-으니2 | 1 | 0 | 0 | 미검증 |
-| KP14 | G4:-는지 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:-듯이 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:-으며 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:이며 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:으로서 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:으로써 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:이란 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:에 따라 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:에 비하여 | 0 | 0 | 0 | 미검증 |
-| KP14 | G4:-을수록 | 0 | 0 | 0 | 미검증 |
+| KP14 | G4:-는지 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:-듯이 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:-으며 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:이며 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:으로서 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:으로써 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:이란 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:에 따라 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:에 비하여 | 1 | 0 | 0 | 미검증 |
+| KP14 | G4:-을수록 | 1 | 0 | 0 | 미검증 |
 | KP15 | G4:-더니 | 0 | 0 | 0 | 미검증 |
 | KP15 | G4:-고서 | 0 | 0 | 0 | 미검증 |
 | KP15 | G4:-기에 | 0 | 0 | 0 | 미검증 |
@@ -498,3 +498,13 @@
 - KP13 / G3:-는 모양이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/10/practice/sourceKo` — “사람들이 모이는 것을 보니 행사가 시작된 모양이에요.”. 모이는 정황에서 행사 시작을 추론하며 운영자의 확인을 꾸미지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP13 / G3:-을 텐데 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/11/practice/sourceKo` — “오늘은 길이 막힐 텐데 일찍 출발할까요?”. 예상되는 정체를 배경으로 이른 출발을 제안하며 출발 완료가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP13 / G3:-으니2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/12/practice/sourceKo` — “시간이 늦었으니 오늘은 여기까지 하죠.”. 늦은 시간을 이유로 마무리를 제안하는 인과 연결이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:-는지 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/0/practice/sourceKo` — “어떤 방법이 적절한지 함께 검토합시다.”. 내포 의문의 미정 변수를 검토하자는 제안이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:-듯이 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/1/practice/sourceKo` — “앞에서 설명했듯이 조건을 먼저 확인해야 합니다.”. 앞의 설명을 준거로 조건 확인을 다시 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:-으며 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/2/practice/sourceKo` — “이 자료는 무료이며 등록 회원이 이용할 수 있습니다.”. 무료라는 성질과 등록 회원이라는 이용 범위를 연결한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:이며 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/3/practice/sourceKo` — “학생이며 교사며 여러 사람이 회의에 왔습니다.”. 명사 목록에 서로 다른 집단을 열거한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:으로서 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/4/practice/sourceKo` — “조사 담당자로서 수집 방법을 설명하겠습니다.”. 담당자가 설명하는 자격이며 수집 수단이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:으로써 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/5/practice/sourceKo` — “설문으로써 이용자의 의견을 모았습니다.”. 설문이 의견 수집의 수단이며 직책이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:이란 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/6/practice/sourceKo` — “이 보고서에서 참여란 설문 제출을 뜻합니다.”. 이 보고서에 한정한 용어의 정의이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:에 따라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/7/practice/sourceKo` — “참가 인원에 따라 장소를 정합니다.”. 인원을 장소 선택의 기준으로 삼는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:에 비하여 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/8/practice/sourceKo` — “응답자는 지난해에 비하여 열 명 늘었습니다.”. 지난해를 기준으로 사람 수를 비교하며 응답률을 말하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP14 / G4:-을수록 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp14.json/tasks/9/practice/sourceKo` — “이 표에서는 이용 시간이 길수록 만족 점수가 높았습니다.”. 표 안에서 시간과 점수의 방향 있는 관계를 말하며 단순 동시 발생과 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

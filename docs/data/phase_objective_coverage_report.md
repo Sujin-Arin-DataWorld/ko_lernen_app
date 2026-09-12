@@ -19,7 +19,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP11 | 58 | 58 | 0 | 미검증 |
 | KP12 | 57 | 57 | 0 | 미검증 |
 | KP13 | 57 | 57 | 0 | 미검증 |
-| KP14 | 48 | 0 | 48 | 미검증 |
+| KP14 | 48 | 48 | 0 | 미검증 |
 | KP15 | 58 | 0 | 58 | 미검증 |
 | KP16 | 52 | 0 | 52 | 미검증 |
 | KP17 | 56 | 0 | 56 | 미검증 |
@@ -39,54 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP14:objective:grammar/G4:-는지:R`
-- `KP14:objective:grammar/G4:-는지:P`
-- `KP14:objective:grammar/G4:-듯이:R`
-- `KP14:objective:grammar/G4:-듯이:P`
-- `KP14:objective:grammar/G4:-으며:R`
-- `KP14:objective:grammar/G4:-으며:P`
-- `KP14:objective:grammar/G4:이며:R`
-- `KP14:objective:grammar/G4:이며:P`
-- `KP14:objective:grammar/G4:으로서:R`
-- `KP14:objective:grammar/G4:으로서:P`
-- `KP14:objective:grammar/G4:으로써:R`
-- `KP14:objective:grammar/G4:으로써:P`
-- `KP14:objective:grammar/G4:이란:R`
-- `KP14:objective:grammar/G4:이란:P`
-- `KP14:objective:grammar/G4:에 따라:R`
-- `KP14:objective:grammar/G4:에 따라:P`
-- `KP14:objective:grammar/G4:에 비하여:R`
-- `KP14:objective:grammar/G4:에 비하여:P`
-- `KP14:objective:grammar/G4:-을수록:R`
-- `KP14:objective:grammar/G4:-을수록:P`
-- `KP14:objective:listening/core:R`
-- `KP14:objective:reading/core:R`
-- `KP14:objective:reading/genre/report_proposal_official:R`
-- `KP14:objective:reading/genre/contract_terms_legal_text:R`
-- `KP14:objective:speaking/core:P`
-- `KP14:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP14:objective:writing/core:P`
-- `KP14:objective:writing/genre/report_proposal_official:P`
-- `KP14:objective:functions/define_distinguish_terms:R`
-- `KP14:objective:functions/define_distinguish_terms:P`
-- `KP14:objective:functions/structure_discourse_open_close_scope:R`
-- `KP14:objective:functions/structure_discourse_open_close_scope:P`
-- `KP14:objective:functions/compare_contrast_alternatives:R`
-- `KP14:objective:functions/compare_contrast_alternatives:P`
-- `KP14:objective:functions/request_ask_someone_to_do:R`
-- `KP14:objective:functions/request_ask_someone_to_do:P`
-- `KP14:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP14:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP14:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP14:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP14:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP14:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP14:objective:phonology/0:R`
-- `KP14:objective:phonology/0:P`
-- `KP14:objective:phonology/1:R`
-- `KP14:objective:phonology/1:P`
-- `KP14:objective:register/hapsyo_formal_business:P`
-- `KP14:objective:register/haeyo_polite:P`
 - `KP15:objective:grammar/G4:-더니:R`
 - `KP15:objective:grammar/G4:-더니:P`
 - `KP15:objective:grammar/G4:-고서:R`
