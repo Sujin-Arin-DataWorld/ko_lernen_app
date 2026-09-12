@@ -248,7 +248,7 @@ void main() {
       for (final task in listening) {
         for (final packet in [task.practice, task.assessment]) {
           // Uses reviewed public content only, never a learner recording/answer.
-          final played = await TtsService.speak(
+          final played = await TtsService.speakPassage(
             packet.sourceKo,
             voice: 'female',
           );

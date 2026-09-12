@@ -10,10 +10,10 @@
 | KP02 | A1 | 11 | 11 | 11 | 32 | 30 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP03 | A1 | 12 | 12 | 12 | 32 | 30 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
 | KP04 | A1 | 11 | 11 | 11 | 31 | 29 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP05 | A2 | 9 | 9 | 0 | 17 | 15 | writing, speaking, writing, speaking | 미검증 |
-| KP06 | A2 | 14 | 14 | 0 | 22 | 21 | writing, speaking, writing, writing | 미검증 |
-| KP07 | A2 | 13 | 13 | 0 | 20 | 19 | writing, speaking, writing | 미검증 |
-| KP08 | A2 | 14 | 14 | 0 | 21 | 20 | writing, speaking, writing | 미검증 |
+| KP05 | A2 | 9 | 9 | 9 | 26 | 24 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP06 | A2 | 14 | 14 | 14 | 36 | 35 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP07 | A2 | 13 | 13 | 13 | 33 | 32 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
+| KP08 | A2 | 14 | 14 | 14 | 35 | 34 | writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
 | KP09 | B1 | 11 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP10 | B1 | 17 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |
 | KP11 | B1 | 14 | 0 | 0 | 0 | 0 | Phase 전용 경로 미연결 | 미검증 |

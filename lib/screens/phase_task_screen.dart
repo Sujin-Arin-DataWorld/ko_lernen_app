@@ -177,7 +177,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       final text = (_assessment ? _task!.assessment : _task!.practice).sourceKo;
       final ok =
           await (widget.playAudio ??
-              (text) => TtsService.speak(text, voice: 'female'))(text);
+              (text) => TtsService.speakPassage(text, voice: 'female'))(text);
       _drafts!.assertCurrent();
       if (!ok) {
         throw StateError('Audio unavailable');

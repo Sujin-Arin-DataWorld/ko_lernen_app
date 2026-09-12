@@ -286,6 +286,188 @@
         "answer-rubric"
       ],
       "note": "Complete diary keeps starting time, elapsed interval, interruption and non-completion; personal reaction distinct from events; unscored."
+    },
+    {
+      "taskId": "KP06:production:01",
+      "sha256": "08a4012c8f3fda2ef55b121dc9d01f83c72250d56b9a9a0ed609401e30b18e3e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: present actor versus future modifier. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:02",
+      "sha256": "c6d79fa2c7a49bb244a9c2a5bf20fbbf5045894ae8f72a2d2e4c186ab4c2f16b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: completed modifier versus future plan. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:03",
+      "sha256": "dba86caa77ffd78df129f34ad09889163eb52602f856e6b28e254e4eb151faab",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: present adjective quality versus past recollection. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:04",
+      "sha256": "1783f5a1a996b9e45fcd57ad6f57676870d78f7d7f797d6e4ec449ade4873682",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: future modifier versus completed action. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:05",
+      "sha256": "9340a83b857338a2ba1de9db07f44f74005dc420d6829a499d37e28a60820524",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: activity object, not person object. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:06",
+      "sha256": "e6d514d4c4bcd0a6dfd90c5fb37e4babba717065bc456363c9f95d1eab85fa67",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: nominal activity, not a person. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:07",
+      "sha256": "c6251670818752fc67011ed6564afb80c9684576f05d9667587cb4bf371cc187",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: event time, not before-event time. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:08",
+      "sha256": "99e75023e0af4901b6a75a6a8ee381a2433b2de0c3cb1c7bd8d498d3078fc3dc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: overlapping period, not after completion. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:09",
+      "sha256": "b2a2022e1e6cbcd8693df139567289c5185566caca3ae72697c8b0a056eed828",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: elapsed time since event, not time spent performing it. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:10",
+      "sha256": "ab62df30ecb742f0232ea65052ed7ec33c57452167f6c9462b1c4107923369e0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: positive experience, not negated experience. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:11",
+      "sha256": "ef5da72c2027100744a3e16b9f933bb00eddd1d239fd741342ad0028d1e946a9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: trying an action, not watching another act. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:12",
+      "sha256": "8989b8d6526db24d3b1d3c337ba39401ecb1c1816d18b1406806f17e21bae3dc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: same-subject concurrency, not sequence. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:13",
+      "sha256": "8d9bd5f5c2f8c6d52f75d2dc15c739f3415cfcbda843c3752fb3b588a1026cc7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: interruption retains unfinished first activity. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP06:production:14",
+      "sha256": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: ongoing now, not yesterday completion. Bounded production only; unlisted free wording remains unscored."
     }
   ]
 }

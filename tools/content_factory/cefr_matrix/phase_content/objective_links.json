@@ -3629,6 +3629,556 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 register/banmal_casual:R의 학습 경로를 검수했다. Formal announcement, polite peer and explicitly agreed casual-friend register; honorific subject differs from listener, proposed place not agreed. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-으면:P",
+      "taskId": "KP05:production:01",
+      "sourceHash": "7be6bdd06113ad78009a601708b19c6f6e1583cb4d2a45131c3eaafbd880c389",
+      "taskHash": "4af69434b4677c1dc3e5d368c1ad32bcbbf8ab57c3351e15a8637967921ab720",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: conditional proposal preserves choice. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-거나:P",
+      "taskId": "KP05:production:02",
+      "sourceHash": "598607f452d0e8180163142eba803fab0aa41ac0dffee4e38ab59f64c28ab8f9",
+      "taskHash": "3f51e7f127af35be9932ebf50606ddb2e76d7ddb6231b9d342fbe9f857476ff1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: alternative actions, not both in sequence. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:이나:P",
+      "taskId": "KP05:production:03",
+      "sourceHash": "10749ee99503212987e6701ef64d77b30a37a1f14fe5188159ffe196a231130c",
+      "taskHash": "d8c86c61b265aa5a041648dfa1049142f67cea1ac1f57e17377dc78fb412b764",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: noun alternatives, not both purchased. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:마다:P",
+      "taskId": "KP05:production:04",
+      "sourceHash": "9a4bf65e1fa469266dfef350890ff08a6bcc682b2645d3d9dbe60125fa03c41b",
+      "taskHash": "2f18dc41dc4b04a17741f9a83076c464f749a92707af9ff5d02a6c46d3260026",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: every occurrence, not only one date. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:밖에:P",
+      "taskId": "KP05:production:05",
+      "sourceHash": "f7aef62afd78b5d223a4baafcdca92403c3942a9602dcb7b1f30c16e5e95a14a",
+      "taskHash": "c76f7c2d5ce4a55413ad003121de72944485842ec5017327fe26d4bd4fc90e8a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: limited positive amount, not zero. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:처럼:P",
+      "taskId": "KP05:production:06",
+      "sourceHash": "f211e90bee8effa245d7764f825491596b911dbb5985e4eee5deefa131122b45",
+      "taskHash": "ec1a05d84a1e8704d66f8da8f1c512741e7a7c93da39dc5b4a01b5ee5acccd6b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: modelled similarity, not competitive comparison. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-어도 되다:P",
+      "taskId": "KP05:production:07",
+      "sourceHash": "a32d57be377c53c2a5e6a03f59772678488eabf8e0fc1026c30003eecfe1cec4",
+      "taskHash": "a770ad34c11fd5421f1e8be11aa269f06ade4303c9dc4a80fb9f79c2106c1186",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ask permission, not impose obligation. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-지 말다:P",
+      "taskId": "KP05:production:08",
+      "sourceHash": "8718d1038c5cdd589b1af764c5f4f328a91abd1b65cc0ce29b8e2b16ca40ee75",
+      "taskHash": "377a9041d86d840bcfdd8c61c3b55d4a55c6448b72d419cedd03ae44619f499b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: negative directive, not positive request. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-어 주다:P",
+      "taskId": "KP05:production:09",
+      "sourceHash": "04af46989642f0e2e0c7f33a63ed4021f11e0bf6fdc8add4736be8c4dcd9f681",
+      "taskHash": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: listener help request, not speaker undertaking. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는2:P",
+      "taskId": "KP06:production:01",
+      "sourceHash": "dcb1a86d29202e46192a6d41426594148421cd456e226ef30e59f7a36ea8e23e",
+      "taskHash": "08a4012c8f3fda2ef55b121dc9d01f83c72250d56b9a9a0ed609401e30b18e3e",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present actor versus future modifier. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은2:P",
+      "taskId": "KP06:production:02",
+      "sourceHash": "d75a2d836d51d2d6cc9636ccdea0f3148822368fca7a686742b012dd10113928",
+      "taskHash": "c6d79fa2c7a49bb244a9c2a5bf20fbbf5045894ae8f72a2d2e4c186ab4c2f16b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed modifier versus future plan. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은3:P",
+      "taskId": "KP06:production:03",
+      "sourceHash": "0afa299fbb5cf3547e6a4a64d32d4a3166878d3a9aef08cfa8576882a944a1de",
+      "taskHash": "dba86caa77ffd78df129f34ad09889163eb52602f856e6b28e254e4eb151faab",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: present adjective quality versus past recollection. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-을2:P",
+      "taskId": "KP06:production:04",
+      "sourceHash": "739d7e7e90f5425fee33e242c1033e7a707c1cefa0f02656c8fb0c11f84fc9da",
+      "taskHash": "1783f5a1a996b9e45fcd57ad6f57676870d78f7d7f797d6e4ec449ade4873682",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: future modifier versus completed action. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는 것:P",
+      "taskId": "KP06:production:05",
+      "sourceHash": "5347b40dd1230806fdf5f51abec4059b06f88fb31d7a43412a798f48767ad869",
+      "taskHash": "9340a83b857338a2ba1de9db07f44f74005dc420d6829a499d37e28a60820524",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: activity object, not person object. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-기:P",
+      "taskId": "KP06:production:06",
+      "sourceHash": "8b35f2f67aa669a272b4b63e5b2ef4b4b505f30a346ffd3bf7bf7b08a634c60e",
+      "taskHash": "e6d514d4c4bcd0a6dfd90c5fb37e4babba717065bc456363c9f95d1eab85fa67",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal activity, not a person. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-을 때:P",
+      "taskId": "KP06:production:07",
+      "sourceHash": "9bc8a9ea919d68d6bdd50d6e577af4b1f7eb2792bbb3711d0e1e4e9a26295a57",
+      "taskHash": "c6251670818752fc67011ed6564afb80c9684576f05d9667587cb4bf371cc187",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: event time, not before-event time. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는 동안에:P",
+      "taskId": "KP06:production:08",
+      "sourceHash": "cf5b9d8d980fac2b147bd911c170f239bcc5bcd9eced87798c8311bd5b4b24ee",
+      "taskHash": "99e75023e0af4901b6a75a6a8ee381a2433b2de0c3cb1c7bd8d498d3078fc3dc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: overlapping period, not after completion. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은 지2:P",
+      "taskId": "KP06:production:09",
+      "sourceHash": "2e1cff0656089bbca06fd8158f8351498a63032da610e3a87d75f6ad9338e01a",
+      "taskHash": "b2a2022e1e6cbcd8693df139567289c5185566caca3ae72697c8b0a056eed828",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: elapsed time since event, not time spent performing it. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은 적이 있다:P",
+      "taskId": "KP06:production:10",
+      "sourceHash": "b7b9212cf4a22829057973bdf3d6ddbd91c6b5a1efdecfb235e0c8ca50b7752f",
+      "taskHash": "ab62df30ecb742f0232ea65052ed7ec33c57452167f6c9462b1c4107923369e0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: positive experience, not negated experience. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-어 보다:P",
+      "taskId": "KP06:production:11",
+      "sourceHash": "99afd8a3b8d9c5dc3e9f9ff5ec987d4df711dab8c8b1a2e07ac307419f7c17c6",
+      "taskHash": "ef5da72c2027100744a3e16b9f933bb00eddd1d239fd741342ad0028d1e946a9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: trying an action, not watching another act. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-으면서:P",
+      "taskId": "KP06:production:12",
+      "sourceHash": "15e02511d131d89ffd4292a709357cff3c494c0506b33ef8b2a61350ffe031ea",
+      "taskHash": "8989b8d6526db24d3b1d3c337ba39401ecb1c1816d18b1406806f17e21bae3dc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: same-subject concurrency, not sequence. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-다가1(1):P",
+      "taskId": "KP06:production:13",
+      "sourceHash": "cd9e1d892f6a702a40a9eaa31dddc61aff934537338e2a2f7263d78bf671c5f2",
+      "taskHash": "8d9bd5f5c2f8c6d52f75d2dc15c739f3415cfcbda843c3752fb3b588a1026cc7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: interruption retains unfinished first activity. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G1:-고 있다:P",
+      "taskId": "KP06:production:14",
+      "sourceHash": "110f200612bc7fd706ec4b7302f8419e071460d8474409494cfc53dcfa702b8f",
+      "taskHash": "e30c2872ece354fbfdf5d171c61fd4d56417b2e6e40e6927b796431c74d51100",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing now, not yesterday completion. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-는데1:P",
+      "taskId": "KP07:production:01",
+      "sourceHash": "ac970f571d9c9ff6ea124d6d3e75d2a47bb3063b518c3d2cedd14adc509e777f",
+      "taskHash": "d1163bcc5d4c2e7e4f82357349b2f0de045dac9267e5bedd5b514fbbc149b43b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: background proposal retains actual condition and no compulsion. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-게2:P",
+      "taskId": "KP07:production:02",
+      "sourceHash": "04ece0e9261c6b6b3f13ae9173ed43f70f871bccd47c23b2db74ed57558cafee",
+      "taskHash": "cffd5b3527271184ce8eaa29e3b635b868083f4cc23b557cada77a09f5e35152",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: purpose preserves possibility, not deliberate prevention. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-기 때문에:P",
+      "taskId": "KP07:production:03",
+      "sourceHash": "91acfec11922821a8ef675fd2f467f36f08221c013e93988299c086e3d8ffe77",
+      "taskHash": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: cause/result direction. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-기로 하다:P",
+      "taskId": "KP07:production:04",
+      "sourceHash": "9680e60275e38cdd844a24c700f681a5f2790fb3792fd53f38cae2216fd3b7fc",
+      "taskHash": "020cb0690836ef47bbb7fbeb0c0280d0b1861cd6cc5ff9e8b9ff487b536531c2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: past decision with future execution, not completed execution. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-는 것 같다:P",
+      "taskId": "KP07:production:05",
+      "sourceHash": "57b06846851c0f10389cf04016f6471578960b7db618d0d259821e8a3a627f67",
+      "taskHash": "2923f2a6b488aef63b6eeeca40886ca42254fe7fb4addec1de84e30dc0e01cbf",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: unconfirmed audible evidence stays inference. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을 수밖에 없다:P",
+      "taskId": "KP07:production:06",
+      "sourceHash": "90a00f5c5e67eb2fad327534069b52441dfe49e82d73da9165cd29809cbdcae0",
+      "taskHash": "658bcfbef4e4968e33105a9cf41438fce7781e906ff9e80620898fad4aefb1a7",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: constraint, not preference. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을게:P",
+      "taskId": "KP07:production:07",
+      "sourceHash": "d0207b95acc89e52031f23d4248762bfae1f6077293fe6bf25f79e5fc9594791",
+      "taskHash": "48890eeb1338a32d232faabeea80ae9b3c229698b1f2482838fe07cdde49703b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: first-person commitment, not third-person promise ending. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을래:P",
+      "taskId": "KP07:production:08",
+      "sourceHash": "f285a6635913190255f840457646e6419e086e07a85e2de7a1c14b79e36902d4",
+      "taskHash": "376752802e8139c84c67a42c2c997ebe54423c190604af082b4c259967e52018",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: own choice, not obligation. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을까 보다:P",
+      "taskId": "KP07:production:09",
+      "sourceHash": "9b610182245a5caa89732c34fcdd68ff2cfd7362463f1931ece4a7252229bdcb",
+      "taskHash": "377882d36f55eebf071c8e39cfb386081cb45dca189c7b717fd4ea8754948e8a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit tentative-intention context, not fear or settled decision. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-게 되다:P",
+      "taskId": "KP07:production:10",
+      "sourceHash": "a7ba0783651bce77f6339369884de84fa75767d400719c95586ef22c984532ba",
+      "taskHash": "6f4bbe7458b0be843b08bb96b4be12d05cbdd4ff9ad6f28fd9d8b12a28c48bd1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: assignment-driven change, no invented voluntary choice. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-고4:P",
+      "taskId": "KP07:production:11",
+      "sourceHash": "0b81ee4e78f1987398bb656f2fff1d80e356849698fe215b472b7f38b3d9b1ae",
+      "taskHash": "b4962c0cde7a74d1598b52eb754750876b330932cb9d16b44adfc71d56e1cdc8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: additional circumstance polarity. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-어서:P",
+      "taskId": "KP07:production:12",
+      "sourceHash": "d463bec2a2471e9cdc935f7e4daca8ca05bc675611ca3948d0b23e5c2ac48e65",
+      "taskHash": "2d0012a6cb552e630c7df3909868707a29366f521e823828dee56a393218a488",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: apology cause and effect preserve direction. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-지만:P",
+      "taskId": "KP07:production:13",
+      "sourceHash": "13822f2a24cbec7a63c860fe984d56eea799cae4e07ae9d612ddf883cccf7e0c",
+      "taskHash": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: contrast retains actual scheduling constraint. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-음:P",
+      "taskId": "KP08:production:01",
+      "sourceHash": "1bd6ac50c4d12321d142d98c7f5f0d4d64cbadbcc5d979dadb8137b7f0f9967c",
+      "taskHash": "03c9cd2b3c11f5b8ebec965fa2c2c92094f27e3ad046f90c257ce602e39d5a68",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: nominal notice negative, not positive availability. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:께:P",
+      "taskId": "KP08:production:02",
+      "sourceHash": "a3addecf95f12435786f74e04b1e1b38a787317c22fdb972917b61a9a40e0926",
+      "taskHash": "0dc1b1eaef87d3971686ddb12227e1dcba183b646c7242a75ef1efeebadc9aca",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: honored recipient, not honored sender. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에게로:P",
+      "taskId": "KP08:production:03",
+      "sourceHash": "daa87fde7a7bb9c4e0397ab920410887100bd6076585c69abc1f180d8d0f8659",
+      "taskHash": "fd136d471d3d55bd6af93e2fe8899d1ead8d3e4f611f2b5c1776e5dbc5135b2c",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: moving actor and destination person retain roles. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에게서:P",
+      "taskId": "KP08:production:04",
+      "sourceHash": "8217548f1a719e71d86296f84fec3acb97007aee5a95d53ffe6767637708dd47",
+      "taskHash": "3439e1aa3c99fe23ead65eff58c8b3052796d3c96e86ba6af00287ca06ba7812",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: personal source, not recipient. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:한테서:P",
+      "taskId": "KP08:production:05",
+      "sourceHash": "201b9f4208d7193914ff83f88733e85e6317b2e77af466db63e9f78eb9b7a297",
+      "taskHash": "f989ff9c005b28d106a024f6d34bd61c4e329f3ab0a3dbb4fd3113e135e80218",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: colloquial personal source, not recipient. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에다가:P",
+      "taskId": "KP08:production:06",
+      "sourceHash": "49662b4f77f75070eaf6c04e165976fd42b072476adb0338daaae7b78c50d4c0",
+      "taskHash": "615da786904770f057214d5c8d208403eb8cee26dfa6f54a85a6ad11c8b8a88d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: placement destination, not removal source. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에서부터(서부터):P",
+      "taskId": "KP08:production:07",
+      "sourceHash": "3b740e2d8e950349e5e1f93489e28b07e6d3c986194e4644aa8df83a0bbcd71f",
+      "taskHash": "959c970288ba17f6b4725492497c6e9b79e7b19bd79ebcd61565fb7f93b5eaea",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: origin, not destination. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-네:P",
+      "taskId": "KP08:production:08",
+      "sourceHash": "7539e88e27e9048783ac622f8b1ec178a91a632d2816872f938827f9fbda4df8",
+      "taskHash": "669576af716b4b6b0c9dce877cbb32156aff56322f28f6a206da3b332aeecabf",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directly noticed realization, not command or negative weather. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-는군:P",
+      "taskId": "KP08:production:09",
+      "sourceHash": "a3525d4ae48beab388d05f5a4596fef48a0bfdb81da0a7bfc866994677a9d51f",
+      "taskHash": "f3acba603ef128efa4a7c6d933aa22ee3aec3a9aaf37ff9e57add58c0c927d00",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: new realization, not information question. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-는데2:P",
+      "taskId": "KP08:production:10",
+      "sourceHash": "c618f2070d18ed43e2808c4d337413f0c6bb35c91d8c6ac56889711128c148cb",
+      "taskHash": "0ae08123acfa4152b46485d248080f517959bbc69511b556e66da57348f00fdf",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: explicit positive surprise, not negative evaluation. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-지:P",
+      "taskId": "KP08:production:11",
+      "sourceHash": "53a8833579d140bb3e078cc892e1ca4e23eb688b28d92324cfcc3387e53ff3df",
+      "taskHash": "d2564e1c55ebae2eef1e00931f64c72e1eb50cb6a2c1c3cea29c07e2c0763b33",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: agreed close-peer knowledge confirmation, not prohibition. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-어 있다:P",
+      "taskId": "KP08:production:12",
+      "sourceHash": "7f6400ff4d71e284529b2b2b4d71fdcb4e2fb43aaf5f0640bf67207cd28fbb7a",
+      "taskHash": "accfc579d2baa9e4ad89124150614a52c44c548b2a86c600942abc08afdbeabe",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: completed resulting state, not ongoing transition. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-을 것1:P",
+      "taskId": "KP08:production:13",
+      "sourceHash": "e9c6d4931663a75bcb220f6ea0a8035d6e39db003aed9ea30e405dfcb9979e1a",
+      "taskHash": "8f5712e2a288eaad682691212f6411703d35beb2af86385150195c10d92f0d02",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: directive notice, not uncertain prediction. 자유 의미 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G1:-고 있다:P",
+      "taskId": "KP08:production:14",
+      "sourceHash": "f407fc851e7a1bafd275c5587c31b91454e29d1e482c172ef7e25db365498f77",
+      "taskHash": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "조건에서 문장을 직접 구성하는 별도 연습·평가와 의미 대비를 검수했다: ongoing transitive action, not resulting state. 자유 의미 전체 숙달은 미검증이다."
     }
   ]
 }

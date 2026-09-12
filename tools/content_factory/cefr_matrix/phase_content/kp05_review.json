@@ -221,6 +221,123 @@
         "answer-rubric"
       ],
       "note": "Telephone repetition preserves permission/prohibition; missing price or room must be asked rather than invented. Meaning/intonation unscored."
+    },
+    {
+      "taskId": "KP05:production:01",
+      "sha256": "4af69434b4677c1dc3e5d368c1ad32bcbbf8ab57c3351e15a8637967921ab720",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: conditional proposal preserves choice. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:02",
+      "sha256": "3f51e7f127af35be9932ebf50606ddb2e76d7ddb6231b9d342fbe9f857476ff1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: alternative actions, not both in sequence. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:03",
+      "sha256": "d8c86c61b265aa5a041648dfa1049142f67cea1ac1f57e17377dc78fb412b764",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: noun alternatives, not both purchased. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:04",
+      "sha256": "2f18dc41dc4b04a17741f9a83076c464f749a92707af9ff5d02a6c46d3260026",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: every occurrence, not only one date. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:05",
+      "sha256": "c76f7c2d5ce4a55413ad003121de72944485842ec5017327fe26d4bd4fc90e8a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: limited positive amount, not zero. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:06",
+      "sha256": "ec1a05d84a1e8704d66f8da8f1c512741e7a7c93da39dc5b4a01b5ee5acccd6b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: modelled similarity, not competitive comparison. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:07",
+      "sha256": "a770ad34c11fd5421f1e8be11aa269f06ade4303c9dc4a80fb9f79c2106c1186",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: ask permission, not impose obligation. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:08",
+      "sha256": "377a9041d86d840bcfdd8c61c3b55d4a55c6448b72d419cedd03ae44619f499b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: negative directive, not positive request. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP05:production:09",
+      "sha256": "4bb63923290a625697932810468e8591d8b7cd5d2def8b009fd74af91a5a03bd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: listener help request, not speaker undertaking. Bounded production only; unlisted free wording remains unscored."
     }
   ]
 }

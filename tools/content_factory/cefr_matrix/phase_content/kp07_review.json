@@ -260,6 +260,175 @@
         "answer-rubric"
       ],
       "note": "Audible preference/promise/no-other-option endings have separate required criteria; redundant time phrase removed."
+    },
+    {
+      "taskId": "KP07:production:01",
+      "sha256": "d1163bcc5d4c2e7e4f82357349b2f0de045dac9267e5bedd5b514fbbc149b43b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: background proposal retains actual condition and no compulsion. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:02",
+      "sha256": "cffd5b3527271184ce8eaa29e3b635b868083f4cc23b557cada77a09f5e35152",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: purpose preserves possibility, not deliberate prevention. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:03",
+      "sha256": "40d5bf526212111bf2d9ac68cc3ecddc55989d0e017c22f4ec59773a02f39ae4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: cause/result direction. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:04",
+      "sha256": "020cb0690836ef47bbb7fbeb0c0280d0b1861cd6cc5ff9e8b9ff487b536531c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: past decision with future execution, not completed execution. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:05",
+      "sha256": "2923f2a6b488aef63b6eeeca40886ca42254fe7fb4addec1de84e30dc0e01cbf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: unconfirmed audible evidence stays inference. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:06",
+      "sha256": "658bcfbef4e4968e33105a9cf41438fce7781e906ff9e80620898fad4aefb1a7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: constraint, not preference. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:07",
+      "sha256": "48890eeb1338a32d232faabeea80ae9b3c229698b1f2482838fe07cdde49703b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: first-person commitment, not third-person promise ending. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:08",
+      "sha256": "376752802e8139c84c67a42c2c997ebe54423c190604af082b4c259967e52018",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: own choice, not obligation. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:09",
+      "sha256": "377882d36f55eebf071c8e39cfb386081cb45dca189c7b717fd4ea8754948e8a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: explicit tentative-intention context, not fear or settled decision. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:10",
+      "sha256": "6f4bbe7458b0be843b08bb96b4be12d05cbdd4ff9ad6f28fd9d8b12a28c48bd1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: assignment-driven change, no invented voluntary choice. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:11",
+      "sha256": "b4962c0cde7a74d1598b52eb754750876b330932cb9d16b44adfc71d56e1cdc8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: additional circumstance polarity. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:12",
+      "sha256": "2d0012a6cb552e630c7df3909868707a29366f521e823828dee56a393218a488",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: apology cause and effect preserve direction. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP07:production:13",
+      "sha256": "36e74b05bc1ea5a2da8d54c9e33ba3d60ae90d164481da7588a03056fc4f13eb",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: contrast retains actual scheduling constraint. Bounded production only; unlisted free wording remains unscored."
     }
   ]
 }

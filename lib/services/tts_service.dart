@@ -321,7 +321,12 @@ class TtsPlaybackEngine {
     required double baseRate,
     double rateMultiplier = 1.0,
     double userMultiplier = 1.0,
+    Duration? requestCompletionTimeout,
   }) async {
+    final timeout = requestCompletionTimeout ?? completionTimeout;
+    if (timeout <= Duration.zero) {
+      return false;
+    }
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
       return false;
@@ -429,20 +434,22 @@ class TtsPlaybackEngine {
     }
     onPlaybackStarted?.call(trimmed, normalizedVoice);
     bool completed;
+    final expired = Completer<bool>();
+    final completionTimer = Timer(timeout, () {
+      errorReporter?.call('TTS playback completion timed out');
+      expired.complete(false);
+    });
     try {
       completed = await Future.any<bool>([
-        session.completion.timeout(
-          completionTimeout,
-          onTimeout: () {
-            errorReporter?.call('TTS playback completion timed out');
-            return false;
-          },
-        ),
+        session.completion,
+        expired.future,
         cancellation.future.then((_) => false),
       ]);
     } catch (error) {
       errorReporter?.call('TTS playback completion failed: $error');
       completed = false;
+    } finally {
+      completionTimer.cancel();
     }
     if (!completed && !_disposed && generation == _generation) {
       onPlaybackFailed?.call('TTS audio playback did not complete.');
@@ -711,6 +718,7 @@ class TtsService {
     String text, {
     String voice = TtsVoicePolicy.autoVoice,
     double rateMultiplier = 1.0,
+    Duration? completionTimeout,
   }) {
     if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
       lastError = 'speech 채널이 꺼져 있음 (설정 → Ton)';
@@ -733,6 +741,7 @@ class TtsService {
       baseRate: Storage.ttsRate,
       rateMultiplier: rateMultiplier,
       userMultiplier: Storage.ttsSpeed,
+      requestCompletionTimeout: completionTimeout,
     );
     result.whenComplete(() {
       // 새 발화가 이미 시작됐으면(토큰 불일치) 종료 처리를 그쪽에 맡긴다.
@@ -744,6 +753,20 @@ class TtsService {
     });
     return result;
   }
+
+  /// Long reviewed lesson passages need more than the short-utterance watchdog.
+  /// This conservative bound allows slow playback; only the native completion
+  /// event counts as success. It is not a measured duration or a scoring rule.
+  static Future<bool> speakPassage(
+    String text, {
+    String voice = TtsVoicePolicy.autoVoice,
+  }) => speak(
+    text,
+    voice: voice,
+    completionTimeout: Duration(
+      seconds: (30 + text.runes.length).clamp(30, 900),
+    ),
+  );
 
   /// 느리게 재생 (학습 보조). 사용자 기본 속도에 요청 배수 0.65를 곱한다.
   static Future<bool> speakSlow(

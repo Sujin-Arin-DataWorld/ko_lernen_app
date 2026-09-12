@@ -14,10 +14,10 @@ void main() {
     expect(catalog.forPhase('KP02').length, 32);
     expect(catalog.forPhase('KP03').length, 32);
     expect(catalog.forPhase('KP04').length, 31);
-    expect(catalog.forPhase('KP05').length, 17);
-    expect(catalog.forPhase('KP06').length, 22);
-    expect(catalog.forPhase('KP07').length, 20);
-    expect(catalog.forPhase('KP08').length, 21);
+    expect(catalog.forPhase('KP05').length, 26);
+    expect(catalog.forPhase('KP06').length, 36);
+    expect(catalog.forPhase('KP07').length, 33);
+    expect(catalog.forPhase('KP08').length, 35);
     expect(catalog.forPhase('KP09'), isEmpty);
   });
   test('a correct total never compensates for an unaffordable order', () {
@@ -39,52 +39,65 @@ void main() {
       isFalse,
     );
   });
-  test('A1 production preserves polarity, order, roles and speech acts', () {
-    var checked = 0;
-    for (final phase in ['KP01', 'KP02', 'KP03', 'KP04']) {
-      for (final task in catalog.forPhase(phase)) {
-        if (!task.id.contains(':production:')) {
-          continue;
-        }
-        checked++;
-        final question = task.assessment.questions.single;
-        expect(
-          task.evaluate({
-            question.id: question.acceptedAnswers.single,
-          }, assessment: true).passed,
-          isTrue,
-          reason: task.id,
-        );
-        final wrong = task.evaluate({
-          question.id: question.rejectedAnswers.single,
-        }, assessment: true);
-        expect(wrong.passed, isFalse, reason: task.id);
-        expect(wrong.score, 0, reason: task.id);
-        for (final response in ['', '학생 도서관 내일', '다른 표현으로 작성한 답안입니다.']) {
+  test(
+    'A1 and A2 production preserve polarity, order, roles and speech acts',
+    () {
+      var checked = 0;
+      for (final phase in [
+        'KP01',
+        'KP02',
+        'KP03',
+        'KP04',
+        'KP05',
+        'KP06',
+        'KP07',
+        'KP08',
+      ]) {
+        for (final task in catalog.forPhase(phase)) {
+          if (!task.id.contains(':production:')) {
+            continue;
+          }
+          checked++;
+          final question = task.assessment.questions.single;
           expect(
-            task.evaluate({question.id: response}, assessment: true).passed,
-            isFalse,
+            task.evaluate({
+              question.id: question.acceptedAnswers.single,
+            }, assessment: true).passed,
+            isTrue,
             reason: task.id,
           );
+          final wrong = task.evaluate({
+            question.id: question.rejectedAnswers.single,
+          }, assessment: true);
+          expect(wrong.passed, isFalse, reason: task.id);
+          expect(wrong.score, 0, reason: task.id);
+          for (final response in ['', '학생 도서관 내일', '다른 표현으로 작성한 답안입니다.']) {
+            expect(
+              task.evaluate({question.id: response}, assessment: true).passed,
+              isFalse,
+              reason: task.id,
+            );
+          }
+          final unknown = task.evaluate({
+            question.id: '다른 표현으로 작성한 답안입니다.',
+          }, assessment: true);
+          expect(unknown.score, isNull);
+          expect(
+            unknown.evidence('unknown', DateTime.utc(2026)).passedCriterionIds,
+            isEmpty,
+          );
+          expect(
+            task.evaluate({
+              question.id:
+                  task.practice.questions.single.acceptedAnswers.single,
+            }, assessment: false).passed,
+            isFalse,
+          );
         }
-        final unknown = task.evaluate({
-          question.id: '다른 표현으로 작성한 답안입니다.',
-        }, assessment: true);
-        expect(unknown.score, isNull);
-        expect(
-          unknown.evidence('unknown', DateTime.utc(2026)).passedCriterionIds,
-          isEmpty,
-        );
-        expect(
-          task.evaluate({
-            question.id: task.practice.questions.single.acceptedAnswers.single,
-          }, assessment: false).passed,
-          isFalse,
-        );
       }
-    }
-    expect(checked, 46);
-  });
+      expect(checked, 96);
+    },
+  );
   test(
     'class start and end cannot be swapped despite four correct route facts',
     () {

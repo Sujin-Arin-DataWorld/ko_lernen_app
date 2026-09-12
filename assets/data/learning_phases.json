@@ -293,7 +293,16 @@
         "KP05:reading:02",
         "KP05:writing:02",
         "KP05:reading:03",
-        "KP05:speaking:02"
+        "KP05:speaking:02",
+        "KP05:production:01",
+        "KP05:production:02",
+        "KP05:production:03",
+        "KP05:production:04",
+        "KP05:production:05",
+        "KP05:production:06",
+        "KP05:production:07",
+        "KP05:production:08",
+        "KP05:production:09"
       ],
       "taskCoverage": "partial"
     },
@@ -343,7 +352,21 @@
         "KP06:reading:02",
         "KP06:listening:02",
         "KP06:writing:02",
-        "KP06:writing:03"
+        "KP06:writing:03",
+        "KP06:production:01",
+        "KP06:production:02",
+        "KP06:production:03",
+        "KP06:production:04",
+        "KP06:production:05",
+        "KP06:production:06",
+        "KP06:production:07",
+        "KP06:production:08",
+        "KP06:production:09",
+        "KP06:production:10",
+        "KP06:production:11",
+        "KP06:production:12",
+        "KP06:production:13",
+        "KP06:production:14"
       ],
       "taskCoverage": "partial"
     },
@@ -391,7 +414,20 @@
         "KP07:speaking:01",
         "KP07:listening:02",
         "KP07:writing:02",
-        "KP07:listening:03"
+        "KP07:listening:03",
+        "KP07:production:01",
+        "KP07:production:02",
+        "KP07:production:03",
+        "KP07:production:04",
+        "KP07:production:05",
+        "KP07:production:06",
+        "KP07:production:07",
+        "KP07:production:08",
+        "KP07:production:09",
+        "KP07:production:10",
+        "KP07:production:11",
+        "KP07:production:12",
+        "KP07:production:13"
       ],
       "taskCoverage": "partial"
     },
@@ -439,7 +475,21 @@
         "KP08:speaking:01",
         "KP08:listening:02",
         "KP08:writing:02",
-        "KP08:listening:03"
+        "KP08:listening:03",
+        "KP08:production:01",
+        "KP08:production:02",
+        "KP08:production:03",
+        "KP08:production:04",
+        "KP08:production:05",
+        "KP08:production:06",
+        "KP08:production:07",
+        "KP08:production:08",
+        "KP08:production:09",
+        "KP08:production:10",
+        "KP08:production:11",
+        "KP08:production:12",
+        "KP08:production:13",
+        "KP08:production:14"
       ],
       "taskCoverage": "partial"
     },
@@ -1033,5 +1083,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "7384dbd54a293f9df1a31e9728a029673cd1d2f44351086384587f42f971be44"
+  "phaseTaskSourceSha256": "cc4fa0b988ddc8930cb7a356a9e7c27a7cb9a9bd272618f73094e577e26d1a41"
 }

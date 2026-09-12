@@ -62,11 +62,11 @@ ROWS = {
 }
 
 
-def production(phase_id, sources):
+def production(phase_id, sources, rows=None):
     recognition = {t['requirementKeys'][0]: t for t in sources
                    if ':grammar:' in t['id']}
     result = []
-    for index, (key, practice, assessment) in enumerate(ROWS[phase_id], 1):
+    for index, (key, practice, assessment) in enumerate(rows if rows is not None else ROWS[phase_id], 1):
         lesson = recognition[key]
         def make(row):
             facts, answer, error = row

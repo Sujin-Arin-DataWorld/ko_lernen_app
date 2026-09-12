@@ -10,10 +10,10 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP02 | 54 | 54 | 0 | 미검증 |
 | KP03 | 57 | 57 | 0 | 미검증 |
 | KP04 | 57 | 57 | 0 | 미검증 |
-| KP05 | 57 | 17 | 40 | 미검증 |
-| KP06 | 56 | 22 | 34 | 미검증 |
-| KP07 | 56 | 21 | 35 | 미검증 |
-| KP08 | 61 | 23 | 38 | 미검증 |
+| KP05 | 57 | 26 | 31 | 미검증 |
+| KP06 | 56 | 36 | 20 | 미검증 |
+| KP07 | 56 | 34 | 22 | 미검증 |
+| KP08 | 61 | 37 | 24 | 미검증 |
 | KP09 | 49 | 0 | 49 | 미검증 |
 | KP10 | 62 | 0 | 62 | 미검증 |
 | KP11 | 58 | 0 | 58 | 미검증 |
@@ -39,15 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP05:objective:grammar/G2:-으면:P`
-- `KP05:objective:grammar/G2:-거나:P`
-- `KP05:objective:grammar/G2:이나:P`
-- `KP05:objective:grammar/G2:마다:P`
-- `KP05:objective:grammar/G2:밖에:P`
-- `KP05:objective:grammar/G2:처럼:P`
-- `KP05:objective:grammar/G2:-어도 되다:P`
-- `KP05:objective:grammar/G2:-지 말다:P`
-- `KP05:objective:grammar/G2:-어 주다:P`
 - `KP05:objective:reading/genre/written_notice_announcement:R`
 - `KP05:objective:functions/express_obligation_permission:R`
 - `KP05:objective:functions/express_obligation_permission:P`
@@ -79,20 +70,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP05:objective:phonology/1:P`
 - `KP05:objective:register/haeyo_polite:P`
 - `KP05:objective:register/hapsyo_formal_business:P`
-- `KP06:objective:grammar/G2:-는2:P`
-- `KP06:objective:grammar/G2:-은2:P`
-- `KP06:objective:grammar/G2:-은3:P`
-- `KP06:objective:grammar/G2:-을2:P`
-- `KP06:objective:grammar/G2:-는 것:P`
-- `KP06:objective:grammar/G2:-기:P`
-- `KP06:objective:grammar/G2:-을 때:P`
-- `KP06:objective:grammar/G2:-는 동안에:P`
-- `KP06:objective:grammar/G2:-은 지2:P`
-- `KP06:objective:grammar/G2:-은 적이 있다:P`
-- `KP06:objective:grammar/G2:-어 보다:P`
-- `KP06:objective:grammar/G2:-으면서:P`
-- `KP06:objective:grammar/G2:-다가1(1):P`
-- `KP06:objective:grammar/G1:-고 있다:P`
 - `KP06:objective:functions/report_relay_information:R`
 - `KP06:objective:functions/report_relay_information:P`
 - `KP06:objective:functions/express_feelings_emotions:R`
@@ -113,19 +90,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP06:objective:phonology/1:P`
 - `KP06:objective:register/haeyo_polite:P`
 - `KP06:objective:register/banmal_casual:P`
-- `KP07:objective:grammar/G2:-는데1:P`
-- `KP07:objective:grammar/G2:-게2:P`
-- `KP07:objective:grammar/G2:-기 때문에:P`
-- `KP07:objective:grammar/G2:-기로 하다:P`
-- `KP07:objective:grammar/G2:-는 것 같다:P`
-- `KP07:objective:grammar/G2:-을 수밖에 없다:P`
-- `KP07:objective:grammar/G2:-을게:P`
-- `KP07:objective:grammar/G2:-을래:P`
-- `KP07:objective:grammar/G2:-을까 보다:P`
-- `KP07:objective:grammar/G2:-게 되다:P`
-- `KP07:objective:grammar/G1:-고4:P`
-- `KP07:objective:grammar/G1:-어서:P`
-- `KP07:objective:grammar/G1:-지만:P`
 - `KP07:objective:functions/explain_reason_cause_effect:R`
 - `KP07:objective:functions/explain_reason_cause_effect:P`
 - `KP07:objective:functions/express_opinion_agree_disagree:R`
@@ -148,20 +112,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 - `KP07:objective:phonology/1:P`
 - `KP07:objective:register/haeyo_polite:P`
 - `KP07:objective:register/hapsyo_formal_business:P`
-- `KP08:objective:grammar/G2:-음:P`
-- `KP08:objective:grammar/G2:께:P`
-- `KP08:objective:grammar/G2:에게로:P`
-- `KP08:objective:grammar/G2:에게서:P`
-- `KP08:objective:grammar/G2:한테서:P`
-- `KP08:objective:grammar/G2:에다가:P`
-- `KP08:objective:grammar/G2:에서부터(서부터):P`
-- `KP08:objective:grammar/G2:-네:P`
-- `KP08:objective:grammar/G2:-는군:P`
-- `KP08:objective:grammar/G2:-는데2:P`
-- `KP08:objective:grammar/G2:-지:P`
-- `KP08:objective:grammar/G2:-어 있다:P`
-- `KP08:objective:grammar/G2:-을 것1:P`
-- `KP08:objective:grammar/G1:-고 있다:P`
 - `KP08:objective:functions/give_follow_instructions_directions:R`
 - `KP08:objective:functions/give_follow_instructions_directions:P`
 - `KP08:objective:functions/report_relay_information:R`

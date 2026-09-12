@@ -273,6 +273,188 @@
         "answer-rubric"
       ],
       "note": "Audible resulting-state versus ongoing-action distinction, alternate examples. No claim of full sound-production mastery."
+    },
+    {
+      "taskId": "KP08:production:01",
+      "sha256": "03c9cd2b3c11f5b8ebec965fa2c2c92094f27e3ad046f90c257ce602e39d5a68",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: nominal notice negative, not positive availability. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:02",
+      "sha256": "0dc1b1eaef87d3971686ddb12227e1dcba183b646c7242a75ef1efeebadc9aca",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: honored recipient, not honored sender. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:03",
+      "sha256": "fd136d471d3d55bd6af93e2fe8899d1ead8d3e4f611f2b5c1776e5dbc5135b2c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: moving actor and destination person retain roles. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:04",
+      "sha256": "3439e1aa3c99fe23ead65eff58c8b3052796d3c96e86ba6af00287ca06ba7812",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: personal source, not recipient. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:05",
+      "sha256": "f989ff9c005b28d106a024f6d34bd61c4e329f3ab0a3dbb4fd3113e135e80218",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: colloquial personal source, not recipient. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:06",
+      "sha256": "615da786904770f057214d5c8d208403eb8cee26dfa6f54a85a6ad11c8b8a88d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: placement destination, not removal source. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:07",
+      "sha256": "959c970288ba17f6b4725492497c6e9b79e7b19bd79ebcd61565fb7f93b5eaea",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: origin, not destination. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:08",
+      "sha256": "669576af716b4b6b0c9dce877cbb32156aff56322f28f6a206da3b332aeecabf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: directly noticed realization, not command or negative weather. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:09",
+      "sha256": "f3acba603ef128efa4a7c6d933aa22ee3aec3a9aaf37ff9e57add58c0c927d00",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: new realization, not information question. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:10",
+      "sha256": "0ae08123acfa4152b46485d248080f517959bbc69511b556e66da57348f00fdf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: explicit positive surprise, not negative evaluation. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:11",
+      "sha256": "d2564e1c55ebae2eef1e00931f64c72e1eb50cb6a2c1c3cea29c07e2c0763b33",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: agreed close-peer knowledge confirmation, not prohibition. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:12",
+      "sha256": "accfc579d2baa9e4ad89124150614a52c44c548b2a86c600942abc08afdbeabe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: completed resulting state, not ongoing transition. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:13",
+      "sha256": "8f5712e2a288eaad682691212f6411703d35beb2af86385150195c10d92f0d02",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: directive notice, not uncertain prediction. Bounded production only; unlisted free wording remains unscored."
+    },
+    {
+      "taskId": "KP08:production:14",
+      "sha256": "88324d3e98b30ed99fc2f093dbbbb0e72bb117bc0f51a24af2d78dc8cb0bb146",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE and distinct practice/evaluation sentence conditions reviewed: ongoing transitive action, not resulting state. Bounded production only; unlisted free wording remains unscored."
     }
   ]
 }
