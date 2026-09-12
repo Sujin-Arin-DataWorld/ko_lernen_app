@@ -8,13 +8,12 @@ import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/milestone.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/feedback_completion.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -106,7 +105,6 @@ void main() {
         'kl_motivation_asked': true,
         'kl_streak_days': 3,
         'kl_xp': 400,
-        'kl_hanok_stages_seen_v1': ['empty'],
       });
       Storage.resetForTesting();
       await Storage.init();
@@ -156,7 +154,6 @@ void main() {
     SharedPreferences.setMockInitialValues({
       'kl_tut_home_tour': true,
       'kl_streak_days': 3,
-      'kl_hanok_stages_seen_v1': ['empty'],
     });
     Storage.resetForTesting();
     await Storage.init();
@@ -303,9 +300,7 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 1,
   ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 0,
   stampCount: 0,

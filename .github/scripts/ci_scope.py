@@ -37,14 +37,10 @@ TASK_SCOPE = {
 APP_DOC_PREFIXES = (
     "docs/store/",
     "docs/screenshots/",
-    # docs/assets/ carries the hanok provenance JSON, the estate/A1 kit stage
-    # specs, and the recipe/style-lock files the Python asset gates read —
-    # these are test/tool inputs, not prose, even though the path looks like
-    # a doc. See test/hanok_v1_asset_provenance_test.dart.
-    "docs/assets/",
     # Exact correspondence review sources and generated curriculum reports
     # are executable audit inputs, including Markdown-only edits.
     "docs/data/level_bible/",
+    "docs/assets/recipes/",
 )
 APP_DOC_FILES = {
     "docs/account-deletion-page.js",
@@ -58,6 +54,11 @@ APP_DOC_FILES = {
     "docs/data/curriculum_matrix_report.md",
     "docs/data/cefr_curriculum_matrix.md",
     "docs/data/curriculum_completion_backlog.md",
+    "docs/assets/STYLE_LOCK.json",
+    "docs/assets/CARD_STYLE_BASELINE.json",
+    "docs/assets/VOCAB_PACK_CARD_MANIFEST.json",
+    "docs/assets/PHASE_ARTWORK_PRODUCTION.json",
+    "docs/assets/SFX_README.md",
 }
 WEBSITE_ROOT_FILES = {
     "docs/CNAME",

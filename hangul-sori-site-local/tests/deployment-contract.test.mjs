@@ -89,7 +89,7 @@ test("keeps all quality gates and deployment in one command", () => {
   assert.deepEqual(packageJson.allowScripts, {
     "esbuild@0.28.1": true,
     "unrs-resolver@1.11.1": true,
-    "workerd@1.20260910.1": true,
+    "workerd@1.20260911.1": true,
   });
   assert.equal(
     packageJson.scripts.deploy,

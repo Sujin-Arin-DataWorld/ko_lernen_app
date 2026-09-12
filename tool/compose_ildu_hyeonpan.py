@@ -19,12 +19,12 @@ import numpy as np
 from PIL import Image
 
 try:
-    from tool.register_hanok_construction_stages import (
+    from tool.register_ildu_construction_stages import (
         alpha_bbox,
         resize_premultiplied,
     )
 except ModuleNotFoundError:  # Allow direct execution from the repository root.
-    from register_hanok_construction_stages import (
+    from register_ildu_construction_stages import (
         alpha_bbox,
         resize_premultiplied,
     )

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -70,7 +69,7 @@ void main() {
     await pumpSoriStage(tester);
     // §W2-Task2 (검수#7 Step 7): capture() 의 기본 네트워크 절반
     // (SoriStageProgressionService.loadNetworkBeforeFields)은 실제
-    // QuestTracker.computeAll()/HanokStructureProjectionService.loadCurrent()
+    // QuestTracker.computeAll()/HanokCompetenceProjectionService.loadCurrent()
     // 를 거쳐 진짜 에셋 I/O(rootBundle.loadString, 여러 샤드)를 수행한다.
     // tap() 을 AutomatedTestWidgetsFlutterBinding 의 가짜 시계 안에서 부르면
     // 그 안에서 시작된 real I/O future 의 이어달리기(continuation)가 가짜
@@ -109,9 +108,7 @@ void main() {
 
 SoriStageProgressionSnapshot _snapshot(int xp) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 0,
   stampCount: 0,

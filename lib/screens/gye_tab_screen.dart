@@ -253,7 +253,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
 
   /// **임베디드 슬리버 경로** (§W-G G5.1) — `SoriStageGyeScreen`의 단일
   /// `CustomScrollView` 안에 이 위젯 하나를 슬리버로 직접 꽂아 쓴다
-  /// (`HanokWorldScreen(embedded: true)`와 같은 계약, §W-F F2). 자체
+  /// (다른 Sori Stage 탭과 같은 계약, §W-F F2). 자체
   /// `Scaffold`/`ListView`를 그리던 옛 임베디드 경로(중첩 스크롤의 원인)를
   /// 대체한다 — 비임베디드 경로(아래 `build()`의 `Scaffold` 분기)는 그대로
   /// 둔다.

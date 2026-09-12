@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/hanok_build_narrative.dart';
+import 'package:ko_lernen_app/models/hanok_learning_receipt.dart';
 import 'package:ko_lernen_app/models/personal_room.dart';
 import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';

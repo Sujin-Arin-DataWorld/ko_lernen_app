@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
@@ -93,7 +92,11 @@ void main() {
     // Today section: hero (Vocabulary packs, default hero) + grid cards
     // (Learning path, Grammar) all sit between the Today title and the
     // Explore title.
-    for (final title in const ['Vocabulary packs', 'Learning path', 'Grammar']) {
+    for (final title in const [
+      'Vocabulary packs',
+      'Learning path',
+      'Grammar',
+    ]) {
       final y = topOf(tester, find.text(title));
       expect(
         y,
@@ -122,11 +125,7 @@ void main() {
     // Review section: cards sit below the Review title.
     for (final title in const ['My words']) {
       final y = topOf(tester, find.text(title));
-      expect(
-        y,
-        greaterThan(reviewY),
-        reason: '$title should be under Review',
-      );
+      expect(y, greaterThan(reviewY), reason: '$title should be under Review');
     }
   });
 
@@ -161,9 +160,7 @@ void main() {
 
 SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 0,
   stampCount: 0,

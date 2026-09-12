@@ -9,7 +9,7 @@ whether the PNG is a clean cutout. These are the pixel gates that the shipped
   long edge <= 1330             normalizer output (1254 content + 3% pad)
   alpha coverage 3..90 %        shipped: 23.3 .. 88.5 %
   visible pixels >= 512         mirrors compose MIN_VISIBLE_SOURCE_PIXELS
-  zero #00FF00 residue          via tool/hanok_v1_asset_contract chroma helpers
+  zero #00FF00 residue          fail closed on chroma-key remnants
   green rim <= 0.5 % of visible despill failure detector (G-max(R,B) > 15)
   outer row/col + corners alpha 0   the 3 % pad guarantees this
   neon fraction <= 4 %          catches the "bright teal/red" palette drift
@@ -39,7 +39,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from hanok_v1_asset_contract import CHROMA_KEY_ALPHA_MIN, is_chroma_key_rgb
+from image_asset_contract import CHROMA_KEY_ALPHA_MIN, is_chroma_key_rgb
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DIR = ROOT / "assets" / "illustrations" / "decorations"

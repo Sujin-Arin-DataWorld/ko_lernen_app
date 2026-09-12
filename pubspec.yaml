@@ -135,30 +135,13 @@ flutter:
     - assets/icons/
     - assets/illustrations/hanok/
     # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.
-    # #208(360d61c8)에서 삭제됨 — 필요시 f29f87e7 또는
-    # personal_hanok_v2/map/structures/의 정본 사본 참조. personal_hanok_v2/ 가 정본.
+    # #208(360d61c8)에서 삭제됨 — 필요시 f29f87e7 참조.
     # - assets/illustrations/hanok_compound/
-    # Flutter only includes files immediately inside a declared directory.
-    # The canonical estate deliberately has nested map/interior folders, so
-    # each runtime leaf directory must be listed explicitly.
-    - assets/illustrations/personal_hanok_v2/map/
-    - assets/illustrations/personal_hanok_v2/map/structures/
-    - assets/illustrations/personal_hanok_v2/map/landscape/
-    # B1/B2 estate construction stages (14 non-final PNGs, flattened;
-    # each building's final stage is byte-identical to its structures/ or
-    # landscape/ file above and is not duplicated here).
-    - assets/illustrations/personal_hanok_v2/map/stages/
-    - assets/illustrations/personal_hanok_v2/interiors/
-    # Ildu Gotaek V3 mobile world. Placements come from
-    # assets/data/ildu_world_manifest_v1.json and are fixed independently from
-    # learner-owned courtyard decorations.
+    # Hanok routes use assets/illustrations/hanok/ildu_v3_preview.png until the
+    # V3 world is promoted. Dormant V3 code and contract tests still load these
+    # authored assets; bundling them does not expose the unfinished map.
     - assets/illustrations/personal_hanok_v3/world/
-    # Authored 8-direction PNG turntables for the V3 map inspection card.
     - assets/illustrations/personal_hanok_v3/turnarounds/
-    # A1 16 construction states, promoted 2026-08-17 as one approved set.
-    # tool/promote_hanok_a1_states.py refuses a partial set, so this stays all-or-nothing.
-    - assets/illustrations/personal_hanok_v2/a1/states/
-    - assets/illustrations/hanok_stages/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
     - assets/illustrations/stamps/

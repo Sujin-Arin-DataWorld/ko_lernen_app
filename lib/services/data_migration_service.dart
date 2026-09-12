@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart'
     show debugPrint, listEquals, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'legacy_hanok_v1_importer.dart';
 import 'storage_service.dart';
 
 /// 로컬 데이터 마이그레이션 한 단계. 여러 번 실행돼도 안전해야 한다(멱등).
@@ -105,35 +106,27 @@ class DataMigrationResult {
 /// 여기서는 native reload로 관측된 결과만 판단한다. Storage의 잠금 범위는
 /// 기존 SRS/팩 학습 쓰기뿐이며, 다른 저장 경로의 전역 잠금은 아니다.
 ///
-/// ## 지금 등록된 단계가 없는 이유
-///
-/// [_productionSteps] 는 의도적으로 비어 있다. 아직 포맷을 깨는 변경이 없었고,
-/// **없는 마이그레이션을 지어내는 것이 진짜 마이그레이션보다 위험**하기 때문이다.
-/// 이 서비스가 지금 하는 일은 세 가지다:
-///
-/// 1. 기존 설치에 baseline 버전 도장을 찍어, 다음 포맷 변경 때 "이 사용자가
-///    어느 포맷에서 왔는지"를 알 수 있게 한다.
-/// 2. **다운그레이드를 막는다** — 이건 지금 당장 실제로 데이터를 지킨다.
-/// 3. 진단 키(`schemaVersion`)를 제공한다.
-///
-/// 러너 자체는 주입된 단계로 전수 테스트된다(`test/data_migration_test.dart`).
-/// 실제 프로덕션 단계를 등록하기 전에는 별도의 startup/cloud 쓰기 정지
-/// (quiescence) 검토가 필수다. 현재 잠금은 XP·전체 `kl_`·클라우드 복원을 막지
-/// 않으므로, 버전 번호와 단계만 추가해 앱 시작 안전성이 확보되지는 않는다.
+/// Production schema 2 performs the one-time, local-only V1 Hanok preference
+/// import. The runner's journal and backup make the ordered V3 write and V1
+/// cleanup recoverable if any later step fails.
 abstract final class DataMigrationService {
   /// 이 앱 빌드가 이해하는 로컬 스키마 버전.
   ///
   /// 포맷을 깨는 변경을 넣을 때만 올린다. 올릴 때는 [_productionSteps] 에 새
   /// 버전 번호를 키로 하는 단계를 반드시 함께 추가한다.
-  static const int currentSchemaVersion = 1;
+  static const int currentSchemaVersion = 2;
 
   static const String versionPreferenceKey = 'kl_schema_version';
   static const String journalPreferenceKey = 'kl_migration_journal_v1';
   static const String backupPreferenceKey = 'kl_migration_backup_v1';
 
   /// 프로덕션 마이그레이션 단계. 키 = 그 단계를 마치면 도달하는 버전.
-  static const Map<int, DataMigrationStep> _productionSteps =
-      <int, DataMigrationStep>{};
+  static final Map<int, DataMigrationStep> _productionSteps =
+      <int, DataMigrationStep>{
+        2: (preferences) async {
+          await LegacyHanokV1Importer.migratePreferences(preferences);
+        },
+      };
 
   /// 기존 설치를 "새 설치"와 구별하는 표식.
   ///
@@ -146,6 +139,7 @@ abstract final class DataMigrationService {
     'kl_course_mastery_v1',
     'kl_onboarding_completed',
     'kl_xp',
+    LegacyHanokV1Importer.legacyStateKey,
     Storage.listeningRewardLedgerPreferenceKey,
   ];
 

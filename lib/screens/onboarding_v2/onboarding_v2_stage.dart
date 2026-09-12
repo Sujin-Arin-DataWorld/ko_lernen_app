@@ -3,6 +3,7 @@ import 'package:flutter/semantics.dart'
     show AttributedString, LocaleStringAttribute;
 
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import 'onboarding_character_media.dart';
@@ -32,8 +33,7 @@ class OnboardingStoryStage extends StatelessWidget {
         questComplete
             ? 'assets/illustrations/reward/reward_bojagi_open.png'
             : 'assets/illustrations/reward/reward_bojagi_closed.png',
-      OnboardingStoryVisualKind.heritageJourney =>
-        'assets/illustrations/personal_hanok_v3/world/main-gate.png',
+      OnboardingStoryVisualKind.heritageJourney => kIlDuV3PreviewAsset,
     };
     final nativeGate =
         page.visualKind == OnboardingStoryVisualKind.heritageJourney;
