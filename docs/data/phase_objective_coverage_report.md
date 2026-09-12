@@ -29,7 +29,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP21 | 54 | 54 | 0 | 미검증 |
 | KP22 | 52 | 52 | 0 | 미검증 |
 | KP23 | 48 | 48 | 0 | 미검증 |
-| KP24 | 58 | 0 | 58 | 미검증 |
+| KP24 | 58 | 58 | 0 | 미검증 |
 | KP25 | 49 | 0 | 49 | 미검증 |
 | KP26 | 48 | 0 | 48 | 미검증 |
 | KP27 | 53 | 0 | 53 | 미검증 |
@@ -39,64 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP24:objective:grammar/G5:-거라:R`
-- `KP24:objective:grammar/G5:-거라:P`
-- `KP24:objective:grammar/G5:-고말고:R`
-- `KP24:objective:grammar/G5:-고말고:P`
-- `KP24:objective:grammar/G5:-네2:R`
-- `KP24:objective:grammar/G5:-네2:P`
-- `KP24:objective:grammar/G5:-는걸:R`
-- `KP24:objective:grammar/G5:-는걸:P`
-- `KP24:objective:grammar/G5:-으려고2:R`
-- `KP24:objective:grammar/G5:-으려고2:P`
-- `KP24:objective:grammar/G5:-게 생겼다:R`
-- `KP24:objective:grammar/G5:-게 생겼다:P`
-- `KP24:objective:grammar/G5:-는 척하다:R`
-- `KP24:objective:grammar/G5:-는 척하다:P`
-- `KP24:objective:grammar/G5:-기만 하다:R`
-- `KP24:objective:grammar/G5:-기만 하다:P`
-- `KP24:objective:grammar/G5:따라:R`
-- `KP24:objective:grammar/G5:따라:P`
-- `KP24:objective:grammar/G5:이라든가:R`
-- `KP24:objective:grammar/G5:이라든가:P`
-- `KP24:objective:grammar/G5:-길래:R`
-- `KP24:objective:grammar/G5:-길래:P`
-- `KP24:objective:grammar/G1:-으시-:R`
-- `KP24:objective:grammar/G1:-으시-:P`
-- `KP24:objective:listening/core:R`
-- `KP24:objective:listening/additional/1:R`
-- `KP24:objective:listening/genre/lecture_speech_monologue:R`
-- `KP24:objective:reading/core:R`
-- `KP24:objective:reading/additional/1:R`
-- `KP24:objective:reading/genre/literary_text:R`
-- `KP24:objective:speaking/core:P`
-- `KP24:objective:speaking/additional/1:P`
-- `KP24:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP24:objective:writing/core:P`
-- `KP24:objective:writing/additional/1:P`
-- `KP24:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP24:objective:functions/analyse_framing_implicature_presupposition:R`
-- `KP24:objective:functions/analyse_framing_implicature_presupposition:P`
-- `KP24:objective:functions/reformulate_paraphrase_rewrite:R`
-- `KP24:objective:functions/reformulate_paraphrase_rewrite:P`
-- `KP24:objective:functions/express_certainty_doubt_hedging:R`
-- `KP24:objective:functions/express_certainty_doubt_hedging:P`
-- `KP24:objective:functions/evaluate_assess_critique:R`
-- `KP24:objective:functions/evaluate_assess_critique:P`
-- `KP24:objective:vocabDomains/arts_history_memory_lexis:R`
-- `KP24:objective:vocabDomains/arts_history_memory_lexis:P`
-- `KP24:objective:vocabDomains/language_metalanguage:R`
-- `KP24:objective:vocabDomains/language_metalanguage:P`
-- `KP24:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP24:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP24:objective:phonology/0:R`
-- `KP24:objective:phonology/0:P`
-- `KP24:objective:phonology/1:R`
-- `KP24:objective:phonology/1:P`
-- `KP24:objective:register/banmal_casual:P`
-- `KP24:objective:register/intimate:P`
-- `KP24:objective:register/haeyo_polite:P`
-- `KP24:objective:register/hapsyo_formal_business:P`
 - `KP25:objective:grammar/G6:-는다는:R`
 - `KP25:objective:grammar/G6:-는다는:P`
 - `KP25:objective:grammar/G6:-이라야:R`

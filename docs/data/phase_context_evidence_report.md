@@ -288,18 +288,18 @@
 | KP23 | G5:-다니1 | 1 | 0 | 0 | 미검증 |
 | KP23 | G5:-는다는 것이 | 1 | 0 | 0 | 미검증 |
 | KP23 | G5:를 가지고 | 1 | 0 | 0 | 미검증 |
-| KP24 | G5:-거라 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-고말고 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-네2 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-는걸 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-으려고2 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-게 생겼다 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-는 척하다 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-기만 하다 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:따라 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:이라든가 | 0 | 0 | 0 | 미검증 |
-| KP24 | G5:-길래 | 0 | 0 | 0 | 미검증 |
-| KP24 | G1:-으시- | 0 | 0 | 0 | 미검증 |
+| KP24 | G5:-거라 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-고말고 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-네2 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-는걸 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-으려고2 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-게 생겼다 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-는 척하다 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-기만 하다 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:따라 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:이라든가 | 1 | 0 | 0 | 미검증 |
+| KP24 | G5:-길래 | 1 | 0 | 0 | 미검증 |
+| KP24 | G1:-으시- | 1 | 0 | 0 | 미검증 |
 | KP25 | G6:-는다는 | 0 | 0 | 0 | 미검증 |
 | KP25 | G6:-이라야 | 0 | 0 | 0 | 미검증 |
 | KP25 | G6:-되 | 0 | 0 | 0 | 미검증 |
@@ -624,3 +624,15 @@
 - KP23 / G5:-다니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/5/practice/sourceKo` — “그 많은 일을 혼자 감당했다니 놀라워요! 저는 그 말을 전해 들었어요.”. 전해 들은 일에 대한 감탄이며 직접 검증을 뜻하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP23 / G5:-는다는 것이 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/6/practice/sourceKo` — “도와준다는 것이 오히려 일을 늘리고 말았어요.”. 도움 의도와 일 증가 결과의 어긋남이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP23 / G5:를 가지고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp23.json/tasks/7/practice/sourceKo` — “그 한마디를 가지고 의도를 단정할 수는 없어요.”. 한 발언을 판단 재료로 삼을 때 의도 단정의 한계를 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-거라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/0/practice/sourceKo` — “[연극 대사: 보호자가 아이에게] 먼저 들어가거라.”. 관계가 명시된 연극 속 보호자의 아이에게 하는 명령이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-고말고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/1/practice/sourceKo` — “그 사정은 이해하고말고요. 다만 대신 맡겠다는 약속은 아니에요.”. 사정 이해에 강한 긍정이며 업무 인수 약속은 명시적으로 제외한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-네2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/2/practice/sourceKo` — “생각보다 꼼꼼하게 준비했네. 이 표 덕분에 확인하기 편하겠어.”. 알아차림의 평가에 뒤의 유용성 진술이 긍정 해석 근거를 더한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-는걸 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/3/practice/sourceKo` — “쉽다고 했지만 직접 해 보니 생각보다 어려운걸.”. 직접 경험으로 쉽다는 앞 기대를 가볍게 정정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-으려고2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/4/practice/sourceKo` — “그 많은 일을 혼자 다 하려고? 힘들면 나눠도 돼.”. 의도 질문과 부담 우려이며 뒤의 선택 제안이 능력 단정과 구별된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-게 생겼다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/5/practice/sourceKo` — “이대로라면 약속을 못 지키게 생겼어요. 일정을 다시 확인해요.”. 현 조건에서 닥칠 부정적 결과를 예상하며 아직 확인할 여지를 둔다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-는 척하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/6/practice/sourceKo` — “그는 내용을 이미 알았지만 모르는 척했다. 서술자가 그의 앎을 밝힌다.”. 서술자가 확인한 실제 앎과 모르는 듯한 행동의 차이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-기만 하다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/7/practice/sourceKo` — “논의가 반복되기만 하고 결정은 나지 않았다.”. 반복 논의만 지속되고 결정은 없다는 제한 평가다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:따라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/8/practice/sourceKo` — “오늘따라 말이 잘 안 나오네요. 평소에는 이렇지 않아요.”. 평소와 달리 오늘이라는 시점이 유독 두드러진다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:이라든가 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/9/practice/sourceKo` — “문서라든가 녹음처럼 확인할 수 있는 자료가 필요해요. 다른 자료도 괜찮아요.”. 문서와 녹음은 열린 예시이며 모두 제출할 의무가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G5:-길래 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/10/practice/sourceKo` — “아무도 답하지 않길래 다시 물었어요. 왜 침묵했는지는 몰라요.”. 관찰된 무응답을 재질문 계기로 삼고 속내는 미상으로 둔다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP24 / G1:-으시- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/11/practice/sourceKo` — “선생님은 내일 오신대. 그때 다시 여쭤보자.”. 친구에게 친밀체로 말하면서 제삼자 선생님의 주체 높임과 전언을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

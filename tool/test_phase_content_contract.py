@@ -22,7 +22,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_grammar_production_is_separate_from_recognition(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:23]:
+        for phase in phases[:24]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id'] and ':production:' in t['id']]
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
             for task in tasks:
@@ -39,7 +39,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_published_phases_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:23]:
+        for phase in phases[:24]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
@@ -56,6 +56,9 @@ class PhaseContentContractTest(unittest.TestCase):
             'KP18:reading:01': {'sources', 'measure', 'last', 'scale', 'claim', 'condition', 'purpose'},
             'KP19:listening:01': {'claim', 'before', 'simultaneous', 'additional', 'state', 'transition', 'actor'},
             'KP19:reading:02': {'count', 'agency', 'nominal', 'unsupported', 'proposal'},
+            'KP24:listening:01': {'support', 'sarcasm', 'suspicion', 'agreement', 'surface', 'register'},
+            'KP24:listening:02': {'structure', 'narrator', 'repair'},
+            'KP24:reading:01': {'ambiguity', 'pretence', 'perspective', 'alternative', 'translation', 'honorific', 'ending'},
             'KP23:listening:01': {'chain', 'act', 'independent', 'unknown', 'definition', 'clarify'},
             'KP23:listening:02': {'structure', 'reaction', 'correction'},
             'KP23:reading:01': {'headline', 'witness', 'source', 'reaction', 'recollection', 'intention', 'unknown'},

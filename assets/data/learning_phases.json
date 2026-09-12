@@ -1388,8 +1388,38 @@
         "c1_06_intimacy_safety_design"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp24.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP24:grammar:01",
+        "KP24:grammar:02",
+        "KP24:grammar:03",
+        "KP24:grammar:04",
+        "KP24:grammar:05",
+        "KP24:grammar:06",
+        "KP24:grammar:07",
+        "KP24:grammar:08",
+        "KP24:grammar:09",
+        "KP24:grammar:10",
+        "KP24:grammar:11",
+        "KP24:grammar:12",
+        "KP24:production:01",
+        "KP24:production:02",
+        "KP24:production:03",
+        "KP24:production:04",
+        "KP24:production:05",
+        "KP24:production:06",
+        "KP24:production:07",
+        "KP24:production:08",
+        "KP24:production:09",
+        "KP24:production:10",
+        "KP24:production:11",
+        "KP24:production:12",
+        "KP24:listening:01",
+        "KP24:listening:02",
+        "KP24:reading:01",
+        "KP24:writing:01",
+        "KP24:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP25",
@@ -1553,5 +1583,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "1805dfea3971a2c16b3aa56c9d26f6b4476f73fa94d0ac25c3789cdd628d32c6"
+  "phaseTaskSourceSha256": "36ec32da9e8cacc93357f24df8566d77d5a3e8fef496b060285eb5e3231e3714"
 }

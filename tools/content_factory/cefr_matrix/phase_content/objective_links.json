@@ -15087,6 +15087,712 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 를 가지고 statement/article as judgement grounds, insufficient for intention/agreement certainty, not physical carrying. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:listening/core:R",
+      "taskId": "KP24:listening:01",
+      "sourceHash": "d83f2e23e7d9f307ad853500e6211b0c735f13035cbd0b64e2ff87eb5a668047",
+      "taskHash": "ef7a37f0567a058ea6b12dc84c8f8fb07524db06d6e91a3fc9f7992bc7450dde",
+      "criterionIds": [
+        "support",
+        "sarcasm",
+        "suspicion",
+        "agreement",
+        "surface",
+        "register"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional mutually agreed casual adult friendship versus polite/formal public meeting,6Thursday versus9Friday. Same exclamation gets explicit support/thanks versus blank criticism and declared non-praise; assesses contextual support, not TTS emotional authenticity. Intention question followed by burden-sharing offer, repair without blaming listener. Understanding excludes work takeover, nod/silence not full assent. Teacher honorification and hearsay preserved. Six required context/scope/register criteria; actual intonation/inner feelings unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:listening/additional/1:R",
+      "taskId": "KP24:listening:01",
+      "sourceHash": "e2b7beb32674e2412694db0236ecf784c8261379c4312587ac55d457ab53b908",
+      "taskHash": "ef7a37f0567a058ea6b12dc84c8f8fb07524db06d6e91a3fc9f7992bc7450dde",
+      "criterionIds": [
+        "support",
+        "sarcasm",
+        "suspicion",
+        "agreement",
+        "surface",
+        "register"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional mutually agreed casual adult friendship versus polite/formal public meeting,6Thursday versus9Friday. Same exclamation gets explicit support/thanks versus blank criticism and declared non-praise; assesses contextual support, not TTS emotional authenticity. Intention question followed by burden-sharing offer, repair without blaming listener. Understanding excludes work takeover, nod/silence not full assent. Teacher honorification and hearsay preserved. Six required context/scope/register criteria; actual intonation/inner feelings unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:listening/genre/lecture_speech_monologue:R",
+      "taskId": "KP24:listening:02",
+      "sourceHash": "0f3da2f50ce82d18ab85e7b3e54c85d7b6269d8f7ad74f284d517d4b115a3ebd",
+      "taskHash": "08c75de082184a9274a02360b83053bf572113659872a6f408d54d269e7070f7",
+      "criterionIds": [
+        "structure",
+        "narrator",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate long lecture context contrast→limits of prosodic inference→narrator versus character→relationship and repair. Distinguishes irony and cynicism without equating them universally, narrator-stated knowledge versus character inference, no interpersonal diagnosis. Three required structure/source/repair criteria. Delivery itself not certified as emotional prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:reading/core:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "b6f86858d2aa37e7b38df21cb63ecb46d0485c3ba9771cee056172bdcc759064",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:reading/additional/1:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "b9b3eeee46ce184ca49a20034e6fc787b03f0c6f46881e883692222a9eab154e",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:reading/genre/literary_text:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "f3d4f1fc5ba97d5e2a755e18fad9d300c20872e0fe63b90d7cb7a9fb9706d8e3",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:speaking/core:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "edfa12ad06ffd32ad3384a68c71953f13824cb6f726279b5f7a17ed555b8de41",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:speaking/additional/1:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "8d7b0916678c3fd4b8979b93a9be5220603115fbed75581dff9cfadab0da9599",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "4a6e001dcbfdde6bca42f26ec7c652203d1d2215db7533ff43ad62209226cb80",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:writing/core:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "4dc5df35b49640084427b16d345bf23933d1f87ce47560590aa7039daf38c93b",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:writing/additional/1:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "c677658a943980ff0f2b5a22820fcdfaf6e1b3cb3a113355cd4e103b9f74b1b6",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "c7dbed5282bca9f96baec2fae1d14858de5a4ba4d49c686f31deae911ce7f12f",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/analyse_framing_implicature_presupposition:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "bf12d62cf3d8c7b7974e933fc8c1be6a148b5208e2b27a705417af8a0957a00b",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/analyse_framing_implicature_presupposition:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "bf12d62cf3d8c7b7974e933fc8c1be6a148b5208e2b27a705417af8a0957a00b",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP24:listening:01",
+      "sourceHash": "a7c53899884c3c7125422f445591afa7340522cc42259688a637abe84a732a1d",
+      "taskHash": "ef7a37f0567a058ea6b12dc84c8f8fb07524db06d6e91a3fc9f7992bc7450dde",
+      "criterionIds": [
+        "support",
+        "sarcasm",
+        "suspicion",
+        "agreement",
+        "surface",
+        "register"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional mutually agreed casual adult friendship versus polite/formal public meeting,6Thursday versus9Friday. Same exclamation gets explicit support/thanks versus blank criticism and declared non-praise; assesses contextual support, not TTS emotional authenticity. Intention question followed by burden-sharing offer, repair without blaming listener. Understanding excludes work takeover, nod/silence not full assent. Teacher honorification and hearsay preserved. Six required context/scope/register criteria; actual intonation/inner feelings unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "a7c53899884c3c7125422f445591afa7340522cc42259688a637abe84a732a1d",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/express_certainty_doubt_hedging:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "9dec082ce2981587c5c5621b5aab64a8c6b4307415d2a39a396fcaed1bc6e41c",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/express_certainty_doubt_hedging:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "9dec082ce2981587c5c5621b5aab64a8c6b4307415d2a39a396fcaed1bc6e41c",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/evaluate_assess_critique:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "fd74abb2d53e57f1f94897323b03301da7b9ae9d5a5bc13ae40fcdbcb4bbc7d8",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:functions/evaluate_assess_critique:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "fd74abb2d53e57f1f94897323b03301da7b9ae9d5a5bc13ae40fcdbcb4bbc7d8",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/arts_history_memory_lexis:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "648f62a4bc3d420527e1679a3ecde720fa6899c6568ea1a82ca5ddf194defc5c",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/arts_history_memory_lexis:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "648f62a4bc3d420527e1679a3ecde720fa6899c6568ea1a82ca5ddf194defc5c",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP24:listening:02",
+      "sourceHash": "5108bed5ec546a57a544f812315e612695e8e51cbc9f440a8d047c6475eac8e6",
+      "taskHash": "08c75de082184a9274a02360b83053bf572113659872a6f408d54d269e7070f7",
+      "criterionIds": [
+        "structure",
+        "narrator",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate long lecture context contrast→limits of prosodic inference→narrator versus character→relationship and repair. Distinguishes irony and cynicism without equating them universally, narrator-stated knowledge versus character inference, no interpersonal diagnosis. Three required structure/source/repair criteria. Delivery itself not certified as emotional prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP24:writing:01",
+      "sourceHash": "5108bed5ec546a57a544f812315e612695e8e51cbc9f440a8d047c6475eac8e6",
+      "taskHash": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "criterionIds": [
+        "friend",
+        "public",
+        "criticism"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP24:reading:01",
+      "sourceHash": "e9f5028571725523ea9b4d7ca8b11cebcf705858c5b426f5a52ee8d225bb1674",
+      "taskHash": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "criterionIds": [
+        "ambiguity",
+        "pretence",
+        "perspective",
+        "alternative",
+        "translation",
+        "honorific",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "e9f5028571725523ea9b4d7ca8b11cebcf705858c5b426f5a52ee8d225bb1674",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:phonology/0:R",
+      "taskId": "KP24:listening:01",
+      "sourceHash": "d1328c20f6d5401284a89710a4652f3d8caa84e82258de5100a917640b48dc58",
+      "taskHash": "ef7a37f0567a058ea6b12dc84c8f8fb07524db06d6e91a3fc9f7992bc7450dde",
+      "criterionIds": [
+        "support",
+        "sarcasm",
+        "suspicion",
+        "agreement",
+        "surface",
+        "register"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: fictional mutually agreed casual adult friendship versus polite/formal public meeting,6Thursday versus9Friday. Same exclamation gets explicit support/thanks versus blank criticism and declared non-praise; assesses contextual support, not TTS emotional authenticity. Intention question followed by burden-sharing offer, repair without blaming listener. Understanding excludes work takeover, nod/silence not full assent. Teacher honorification and hearsay preserved. Six required context/scope/register criteria; actual intonation/inner feelings unverified. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:phonology/0:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "d1328c20f6d5401284a89710a4652f3d8caa84e82258de5100a917640b48dc58",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:phonology/1:R",
+      "taskId": "KP24:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "08c75de082184a9274a02360b83053bf572113659872a6f408d54d269e7070f7",
+      "criterionIds": [
+        "structure",
+        "narrator",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: separate long lecture context contrast→limits of prosodic inference→narrator versus character→relationship and repair. Distinguishes irony and cynicism without equating them universally, narrator-stated knowledge versus character inference, no interpersonal diagnosis. Three required structure/source/repair criteria. Delivery itself not certified as emotional prosody. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:phonology/1:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:register/banmal_casual:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "96f173ec49e54a0a14c9de3392a14896fb3314ce32471a1fafd025e01f1309ef",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:register/intimate:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "96f173ec49e54a0a14c9de3392a14896fb3314ce32471a1fafd025e01f1309ef",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:register/haeyo_polite:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "96f173ec49e54a0a14c9de3392a14896fb3314ce32471a1fafd025e01f1309ef",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP24:speaking:01",
+      "sourceHash": "96f173ec49e54a0a14c9de3392a14896fb3314ce32471a1fafd025e01f1309ef",
+      "taskHash": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-거라:R",
+      "taskId": "KP24:grammar:01",
+      "sourceHash": "9ab209e36e6676ab5a0a2b8490340d6a90cbe5fb071566b9f7bf315562382946",
+      "taskHash": "3f84e6f16bcec729046d4baf387f806c1ddaba4cb2f7c952b96d0332cc3875f3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 거라 imperative limited to explicitly fictional guardian-child stage lines, never default polite command to equal adults. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-고말고:R",
+      "taskId": "KP24:grammar:02",
+      "sourceHash": "87eeaec5414bab192f2d39acd5d4d56ec47e834cb24139d5de3da1972602c7e2",
+      "taskHash": "2a0ef0a765a12c6eb4db2642f3d1bb45eb8ac63fd4b2dfdf8aba1cc383832ec1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 고말고 emphatic understanding/knowledge of effort, scope excludes taking over work or approving every outcome. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-네2:R",
+      "taskId": "KP24:grammar:03",
+      "sourceHash": "fb4b55d07a31e20ccb19a6c09184c8e75803644d791285a260b756e302696b75",
+      "taskHash": "9d7f27de0450dea610838299870f5098438831fe8941b2ff18314b87a403c55c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 네2 noticing/evaluation; helpfulness/thanks support positive reading, changed schedule without context leaves emotion unknown. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-는걸:R",
+      "taskId": "KP24:grammar:04",
+      "sourceHash": "f20714f5c44e5044d2ac1ab10e994740a9de420f366e3a77b6050330fafcc149",
+      "taskHash": "d6de7ea5fe2ec5eb1490f660616f0810dbf154e1949eccf981d6c1bcbfca295a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는걸 sentence-final light correction of easy/no-seats expectation, not object-contracted 것을 or agreement with false premise. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-으려고2:R",
+      "taskId": "KP24:grammar:05",
+      "sourceHash": "6c3724767883581ec8c35dd2e4d9bcc7ac63e29ae6d7c1d95670fd6fc2fc0a01",
+      "taskHash": "65bf96c6ed23d2c8864f32e5ad1b85d6bb41b157580eb888036a6a11b1dba630",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으려고2 sentence-final intention query with burden/information follow-up, not obligatory action, categorical incompetence or absolute prohibition. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-게 생겼다:R",
+      "taskId": "KP24:grammar:06",
+      "sourceHash": "d82823f4616f3b79e6211bc3e21886d89ca51200ea90ac40e3bacd89f8c520c8",
+      "taskHash": "e534af237d3d312dec071752baa0556e32360f18afe67886b88eae7dc1a34728",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 게 생겼다 impending conditional missed promise/postponement, not already occurred or decided result. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-는 척하다:R",
+      "taskId": "KP24:grammar:07",
+      "sourceHash": "bf9897e1eb1c0c3c1c42b53ddff608c4a2b63c5d44c6615dc3bca9124d16a833",
+      "taskHash": "f461c26f4f7d6eb61b0ef8d8cf8ad8a1d11ce618eb21c1654cbdc886bb1a9b44",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 는 척하다 narrator explicitly establishes knowledge/boredom versus displayed ignorance/interest, not inference from a nod alone. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-기만 하다:R",
+      "taskId": "KP24:grammar:08",
+      "sourceHash": "e3b1864743d529d9dbcb45259cbb92dba7242b86c85a9a1a68593a4d8d11cd76",
+      "taskHash": "426f0b00831e4f965f9b6be259190b4402d8de14049a98ae93c1cae738e7da0c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 기만 하다 repeated discussion without decision, listening without spoken agreement, not accomplished decision/assent. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:따라:R",
+      "taskId": "KP24:grammar:09",
+      "sourceHash": "82824fb3acbc735b10427a376d9657869dac669913998b864f8e9215f1bf9938",
+      "taskHash": "a8d3c14cb2c64d7b95a3a850ecb40b0f137791a29013fffd0b4f953f33ea4d8b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 따라 particle singles out today/that day compared with ordinary occasions, not always or following somebody. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:이라든가:R",
+      "taskId": "KP24:grammar:10",
+      "sourceHash": "0cd62d636af2acce2357cd568d0b9688897cd51e72b14837fc8c66a23295b58e",
+      "taskHash": "652699fdd56d48c5ecf2f278fcb178865119111bc480cf1e136d32c4842fe4d6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라든가 illustrative document/recording and minutes/note choices, explicitly open alternatives not mandatory exhaustive conjunction. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-길래:R",
+      "taskId": "KP24:grammar:11",
+      "sourceHash": "a6631ac99e2ce638f596ae07b4f525983a6a5c533787e649d0c70828223449df",
+      "taskHash": "ce7007fd169b9364b94a524de2ebd860e89345a2f6d1bc8cf09ff471a66334ce",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 길래 observed silence/tense expression triggers renewed question, hidden motive remains unknown. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G1:-으시-:R",
+      "taskId": "KP24:grammar:12",
+      "sourceHash": "b1a955100589c747927d57cee0404a455509a0b3b03ad7e3b672b7474d785eb0",
+      "taskHash": "20edf337a1057070a6003d37672f40997db7d769c5e823c9fe388a840de7a5a4",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 으시 spiral maintains third-person teacher honorification inside casual friend-directed hearsay, no upgrade to directly witnessed attendance. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-거라:P",
+      "taskId": "KP24:production:01",
+      "sourceHash": "9ab209e36e6676ab5a0a2b8490340d6a90cbe5fb071566b9f7bf315562382946",
+      "taskHash": "7892d60ed1ebd09d16b16609fbe0053b4595698319c63adb3c7fc6df528930b9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 거라 imperative limited to explicitly fictional guardian-child stage lines, never default polite command to equal adults. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-고말고:P",
+      "taskId": "KP24:production:02",
+      "sourceHash": "87eeaec5414bab192f2d39acd5d4d56ec47e834cb24139d5de3da1972602c7e2",
+      "taskHash": "783e980139058d433bec76f6b7d5be90a1bceb072098cc482b02476aaf4ca9ad",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 고말고 emphatic understanding/knowledge of effort, scope excludes taking over work or approving every outcome. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-네2:P",
+      "taskId": "KP24:production:03",
+      "sourceHash": "fb4b55d07a31e20ccb19a6c09184c8e75803644d791285a260b756e302696b75",
+      "taskHash": "963de50371c05ab17d4c1d079ed3ce1d681358ae951f50435e6c353eeeba8375",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 네2 noticing/evaluation; helpfulness/thanks support positive reading, changed schedule without context leaves emotion unknown. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-는걸:P",
+      "taskId": "KP24:production:04",
+      "sourceHash": "f20714f5c44e5044d2ac1ab10e994740a9de420f366e3a77b6050330fafcc149",
+      "taskHash": "860cae26029aedb02ed43de6ee5492f88407c5976d0d0aebf2dc14049a914047",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는걸 sentence-final light correction of easy/no-seats expectation, not object-contracted 것을 or agreement with false premise. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-으려고2:P",
+      "taskId": "KP24:production:05",
+      "sourceHash": "6c3724767883581ec8c35dd2e4d9bcc7ac63e29ae6d7c1d95670fd6fc2fc0a01",
+      "taskHash": "0e1b2175c6f6f72ee0b7fc7e7347ecc34cf2fd77a736db9bd504aed208d39293",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으려고2 sentence-final intention query with burden/information follow-up, not obligatory action, categorical incompetence or absolute prohibition. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-게 생겼다:P",
+      "taskId": "KP24:production:06",
+      "sourceHash": "d82823f4616f3b79e6211bc3e21886d89ca51200ea90ac40e3bacd89f8c520c8",
+      "taskHash": "ed3f9d6d4cd7d64a8b3521ec586db8b929739d50904e4af1ec28d53beb3f0eef",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 게 생겼다 impending conditional missed promise/postponement, not already occurred or decided result. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-는 척하다:P",
+      "taskId": "KP24:production:07",
+      "sourceHash": "bf9897e1eb1c0c3c1c42b53ddff608c4a2b63c5d44c6615dc3bca9124d16a833",
+      "taskHash": "031018b38f18edda1cf1145be241ebddd9d780c4cdd6b122d71184c1b4afb065",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 는 척하다 narrator explicitly establishes knowledge/boredom versus displayed ignorance/interest, not inference from a nod alone. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-기만 하다:P",
+      "taskId": "KP24:production:08",
+      "sourceHash": "e3b1864743d529d9dbcb45259cbb92dba7242b86c85a9a1a68593a4d8d11cd76",
+      "taskHash": "f0ef9b27666f95a388f54283371193c7823d690edee3f8430c4a0fcc9cae4cb1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 기만 하다 repeated discussion without decision, listening without spoken agreement, not accomplished decision/assent. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:따라:P",
+      "taskId": "KP24:production:09",
+      "sourceHash": "82824fb3acbc735b10427a376d9657869dac669913998b864f8e9215f1bf9938",
+      "taskHash": "ccb92c1e29c2d57583ea3aa902d60a913d122494b53364ba3961edc47feb7ac0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 따라 particle singles out today/that day compared with ordinary occasions, not always or following somebody. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:이라든가:P",
+      "taskId": "KP24:production:10",
+      "sourceHash": "0cd62d636af2acce2357cd568d0b9688897cd51e72b14837fc8c66a23295b58e",
+      "taskHash": "91620092cbecf600024b9f6e77497be1f05215fb82fd7341471ee0ada0c5a1ff",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라든가 illustrative document/recording and minutes/note choices, explicitly open alternatives not mandatory exhaustive conjunction. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G5:-길래:P",
+      "taskId": "KP24:production:11",
+      "sourceHash": "a6631ac99e2ce638f596ae07b4f525983a6a5c533787e649d0c70828223449df",
+      "taskHash": "56abd6225bed53fbf554f0986c0e49004f9d63520adc8280057e34de54f3f935",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 길래 observed silence/tense expression triggers renewed question, hidden motive remains unknown. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP24:objective:grammar/G1:-으시-:P",
+      "taskId": "KP24:production:12",
+      "sourceHash": "b1a955100589c747927d57cee0404a455509a0b3b03ad7e3b672b7474d785eb0",
+      "taskHash": "1a472e9c782fe5d4a8d84cd8e3feb38d6b75165a86815699a015c882ffefedf0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 으시 spiral maintains third-person teacher honorification inside casual friend-directed hearsay, no upgrade to directly witnessed attendance. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }
