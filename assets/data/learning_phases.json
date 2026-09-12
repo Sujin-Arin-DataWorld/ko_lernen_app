@@ -772,8 +772,41 @@
         "b1_02_indirect_speech"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp13.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP13:grammar:01",
+        "KP13:grammar:02",
+        "KP13:grammar:03",
+        "KP13:grammar:04",
+        "KP13:grammar:05",
+        "KP13:grammar:06",
+        "KP13:grammar:07",
+        "KP13:grammar:08",
+        "KP13:grammar:09",
+        "KP13:grammar:10",
+        "KP13:grammar:11",
+        "KP13:grammar:12",
+        "KP13:grammar:13",
+        "KP13:production:01",
+        "KP13:production:02",
+        "KP13:production:03",
+        "KP13:production:04",
+        "KP13:production:05",
+        "KP13:production:06",
+        "KP13:production:07",
+        "KP13:production:08",
+        "KP13:production:09",
+        "KP13:production:10",
+        "KP13:production:11",
+        "KP13:production:12",
+        "KP13:production:13",
+        "KP13:listening:01",
+        "KP13:reading:01",
+        "KP13:reading:02",
+        "KP13:writing:01",
+        "KP13:speaking:01",
+        "KP13:speaking:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP14",
@@ -1232,5 +1265,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "e04556f0d88e167f3fb9f1b43cc01d13e7703a91d6508e66c8023dd56c3add4a"
+  "phaseTaskSourceSha256": "54576528eec6fedb9baba7aadf0e30b0d0e906618002b1da6ef50928096c107d"
 }

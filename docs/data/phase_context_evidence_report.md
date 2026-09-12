@@ -159,19 +159,19 @@
 | KP12 | G3:-으면 좋겠다 | 1 | 0 | 0 | 미검증 |
 | KP12 | G3:-을 테니 | 1 | 0 | 0 | 미검증 |
 | KP12 | G3:만 아니면 | 1 | 0 | 0 | 미검증 |
-| KP13 | G3:이라고1 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-는다고3 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-는다고1 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-는다거나1 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:보고 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:으로부터 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-거든2 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-잖아 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-나 보다 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-는가 보다 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-는 모양이다 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-을 텐데 | 0 | 0 | 0 | 미검증 |
-| KP13 | G3:-으니2 | 0 | 0 | 0 | 미검증 |
+| KP13 | G3:이라고1 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-는다고3 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-는다고1 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-는다거나1 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:보고 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:으로부터 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-거든2 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-잖아 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-나 보다 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-는가 보다 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-는 모양이다 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-을 텐데 | 1 | 0 | 0 | 미검증 |
+| KP13 | G3:-으니2 | 1 | 0 | 0 | 미검증 |
 | KP14 | G4:-는지 | 0 | 0 | 0 | 미검증 |
 | KP14 | G4:-듯이 | 0 | 0 | 0 | 미검증 |
 | KP14 | G4:-으며 | 0 | 0 | 0 | 미검증 |
@@ -485,3 +485,16 @@
 - KP12 / G3:-으면 좋겠다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/10/practice/sourceKo` — “모두 함께할 수 있으면 좋겠어요.”. 함께할 수 있기를 바라는 희망이며 참석 확정이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP12 / G3:-을 테니 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/11/practice/sourceKo` — “제가 확인할 테니 잠시 기다려 주세요.”. 화자의 확인 의지를 근거로 청자에게 기다려 달라고 부탁한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP12 / G3:만 아니면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp12.json/tasks/12/practice/sourceKo` — “비만 아니면 밖에서 할 수 있어요.”. 뒤 문장에 예약은 별도로 필요하다고 명시하여 비라는 방해 조건만 제외한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:이라고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/0/practice/sourceKo` — “지민은 "괜찮아요"라고 말했어요.”. 따옴표 원문을 말한 이는 지민이며 전달자의 직접 확인이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-는다고3 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/1/practice/sourceKo` — “친구가 내일 온다고 했어요.”. 친구의 미래 방문 발언을 간접 인용하며 도착 완료를 나타내지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-는다고1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/2/practice/sourceKo` — “아이가 아프다고 아버지가 먼저 돌아갔어요.”. 인용 사정은 아이의 아픔이고 뒤 행동은 아버지의 귀가이다. 명령 전달이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-는다거나1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/3/practice/sourceKo` — “친구들은 바쁘다거나 피곤하다고 했어요.”. 여러 발언 예시를 열거하므로 모든 친구에게 두 발언을 모두 귀속하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:보고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/4/practice/sourceKo` — “선생님이 저보고 발표하라고 하셨어요.”. 구어 조사 보고가 요청받은 화자를 표시한다. 선생님은 요청자이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:으로부터 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/5/practice/sourceKo` — “학교로부터 안내를 받았어요.”. 학교가 정보 출처이며 수신자로 뒤집지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-거든2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/6/practice/sourceKo` — “오늘은 일찍 가야 해요. 약속이 있거든요.”. 문장 끝 거든요가 먼저 제시한 행동의 배경 이유를 보충한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-잖아 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/7/practice/sourceKo` — “같이 방문했던 친구에게: 우리 전에 여기 왔잖아요.”. 상대와 실제 공동 방문한 장면을 명시하여 공유 기억을 환기한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-나 보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/8/practice/sourceKo` — “불이 꺼진 것을 보니 모두 나갔나 봐요.”. 소등 관찰에서 사람의 부재를 추측하며 직접 퇴장을 본 것과 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-는가 보다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/9/practice/sourceKo` — “답장이 없는 것을 보니 바쁜가 봐요.”. 답장 부재가 근거이고 바쁨은 추측이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-는 모양이다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/10/practice/sourceKo` — “사람들이 모이는 것을 보니 행사가 시작된 모양이에요.”. 모이는 정황에서 행사 시작을 추론하며 운영자의 확인을 꾸미지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-을 텐데 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/11/practice/sourceKo` — “오늘은 길이 막힐 텐데 일찍 출발할까요?”. 예상되는 정체를 배경으로 이른 출발을 제안하며 출발 완료가 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP13 / G3:-으니2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp13.json/tasks/12/practice/sourceKo` — “시간이 늦었으니 오늘은 여기까지 하죠.”. 늦은 시간을 이유로 마무리를 제안하는 인과 연결이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

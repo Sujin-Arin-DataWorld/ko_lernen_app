@@ -18,7 +18,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP10 | 62 | 62 | 0 | 미검증 |
 | KP11 | 58 | 58 | 0 | 미검증 |
 | KP12 | 57 | 57 | 0 | 미검증 |
-| KP13 | 57 | 0 | 57 | 미검증 |
+| KP13 | 57 | 57 | 0 | 미검증 |
 | KP14 | 48 | 0 | 48 | 미검증 |
 | KP15 | 58 | 0 | 58 | 미검증 |
 | KP16 | 52 | 0 | 52 | 미검증 |
@@ -39,63 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP13:objective:grammar/G3:이라고1:R`
-- `KP13:objective:grammar/G3:이라고1:P`
-- `KP13:objective:grammar/G3:-는다고3:R`
-- `KP13:objective:grammar/G3:-는다고3:P`
-- `KP13:objective:grammar/G3:-는다고1:R`
-- `KP13:objective:grammar/G3:-는다고1:P`
-- `KP13:objective:grammar/G3:-는다거나1:R`
-- `KP13:objective:grammar/G3:-는다거나1:P`
-- `KP13:objective:grammar/G3:보고:R`
-- `KP13:objective:grammar/G3:보고:P`
-- `KP13:objective:grammar/G3:으로부터:R`
-- `KP13:objective:grammar/G3:으로부터:P`
-- `KP13:objective:grammar/G3:-거든2:R`
-- `KP13:objective:grammar/G3:-거든2:P`
-- `KP13:objective:grammar/G3:-잖아:R`
-- `KP13:objective:grammar/G3:-잖아:P`
-- `KP13:objective:grammar/G3:-나 보다:R`
-- `KP13:objective:grammar/G3:-나 보다:P`
-- `KP13:objective:grammar/G3:-는가 보다:R`
-- `KP13:objective:grammar/G3:-는가 보다:P`
-- `KP13:objective:grammar/G3:-는 모양이다:R`
-- `KP13:objective:grammar/G3:-는 모양이다:P`
-- `KP13:objective:grammar/G3:-을 텐데:R`
-- `KP13:objective:grammar/G3:-을 텐데:P`
-- `KP13:objective:grammar/G3:-으니2:R`
-- `KP13:objective:grammar/G3:-으니2:P`
-- `KP13:objective:listening/core:R`
-- `KP13:objective:reading/core:R`
-- `KP13:objective:reading/genre/news_article_report:R`
-- `KP13:objective:reading/genre/email_letter_formal:R`
-- `KP13:objective:speaking/core:P`
-- `KP13:objective:speaking/genre/presentation_briefing_talk:P`
-- `KP13:objective:writing/core:P`
-- `KP13:objective:writing/genre/explanatory_informational_text:P`
-- `KP13:objective:functions/report_relay_information:R`
-- `KP13:objective:functions/report_relay_information:P`
-- `KP13:objective:functions/summarise_reconstruct:R`
-- `KP13:objective:functions/summarise_reconstruct:P`
-- `KP13:objective:functions/express_certainty_doubt_hedging:R`
-- `KP13:objective:functions/express_certainty_doubt_hedging:P`
-- `KP13:objective:functions/reformulate_paraphrase_rewrite:R`
-- `KP13:objective:functions/reformulate_paraphrase_rewrite:P`
-- `KP13:objective:vocabDomains/technology_devices_internet:R`
-- `KP13:objective:vocabDomains/technology_devices_internet:P`
-- `KP13:objective:vocabDomains/language_metalanguage:R`
-- `KP13:objective:vocabDomains/language_metalanguage:P`
-- `KP13:objective:vocabDomains/media_pop_culture_vocab:R`
-- `KP13:objective:vocabDomains/media_pop_culture_vocab:P`
-- `KP13:objective:vocabDomains/society_economy_abstract_nouns:R`
-- `KP13:objective:vocabDomains/society_economy_abstract_nouns:P`
-- `KP13:objective:phonology/0:R`
-- `KP13:objective:phonology/0:P`
-- `KP13:objective:phonology/1:R`
-- `KP13:objective:phonology/1:P`
-- `KP13:objective:register/haeyo_polite:P`
-- `KP13:objective:register/banmal_casual:P`
-- `KP13:objective:register/hapsyo_formal_business:P`
 - `KP14:objective:grammar/G4:-는지:R`
 - `KP14:objective:grammar/G4:-는지:P`
 - `KP14:objective:grammar/G4:-듯이:R`

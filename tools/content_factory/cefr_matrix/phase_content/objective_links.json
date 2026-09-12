@@ -7857,6 +7857,660 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "실제 원문과 응답 조건을 검수한 학습 경로다. KO/EN/DE bounded response checked: Exclusion of one obstacle does not erase additional booking/mutual-confirmation conditions. Distinct prompts and no assessment answer in own study examples; unknown variants unscored. 자유 의미·공손함·억양 전체 숙달은 미검증으로 유지한다."
+    },
+    {
+      "objectiveId": "KP13:objective:listening/core:R",
+      "taskId": "KP13:listening:01",
+      "sourceHash": "05bc8caafcdb9e032979084c9c233549c5c18949828952b9f095f981b3ca5865",
+      "taskHash": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "criterionIds": [
+        "origin",
+        "commitment",
+        "observation",
+        "time",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:reading/core:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "cff988cb95e2820e81c271a3c850b94e8409df526a5e2bea962cf2977245189b",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:reading/genre/news_article_report:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "d15aa7640b6fc7bea4382d5ee6b80337c83f39e9006a65c429c0c468a1f20081",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:reading/genre/email_letter_formal:R",
+      "taskId": "KP13:reading:02",
+      "sourceHash": "c46c26e9e78722f2ac0bbb9c4e631279e1cf07999813681d61dab6f0fa397470",
+      "taskHash": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "criterionIds": [
+        "original",
+        "recipient",
+        "exclude",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:writing/core:P",
+      "taskId": "KP13:writing:01",
+      "sourceHash": "b10f315a9f99a7ea5be8506555138eb0162f5c938f8aa33e6bc92ae8893bd0b6",
+      "taskHash": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "criterionIds": [
+        "summary",
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:writing/genre/explanatory_informational_text:P",
+      "taskId": "KP13:writing:01",
+      "sourceHash": "f13e1645d4d2af39ff9bba0e5422a83f512cc8a2de4caa806a14e6e0d0b316b0",
+      "taskHash": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "criterionIds": [
+        "summary",
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:speaking/core:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "bdcef89830f3fa2cb16af30c00c07aff1531fd443d71b3b842705720ac236471",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:speaking/genre/presentation_briefing_talk:P",
+      "taskId": "KP13:speaking:02",
+      "sourceHash": "a4bd5fefde0636858f39b5d7ad1dcb70f5519306601a4297c35bd4167f8b3088",
+      "taskHash": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/report_relay_information:R",
+      "taskId": "KP13:reading:02",
+      "sourceHash": "1ef92989d184c74df2181691b3969ffbba7cda60c4efea2779c1e4e69187ea03",
+      "taskHash": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "criterionIds": [
+        "original",
+        "recipient",
+        "exclude",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/report_relay_information:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "1ef92989d184c74df2181691b3969ffbba7cda60c4efea2779c1e4e69187ea03",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/summarise_reconstruct:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "aa809ce6a7adc9a835b64d1308c316b10a40fb54cde5aa41062708bf243af691",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/summarise_reconstruct:P",
+      "taskId": "KP13:writing:01",
+      "sourceHash": "aa809ce6a7adc9a835b64d1308c316b10a40fb54cde5aa41062708bf243af691",
+      "taskHash": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "criterionIds": [
+        "summary",
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/express_certainty_doubt_hedging:R",
+      "taskId": "KP13:listening:01",
+      "sourceHash": "0a4bb3ae8bef27768e79143cc3a951f2c5ae3e2ae8573b4abefd055c88a31a77",
+      "taskHash": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "criterionIds": [
+        "origin",
+        "commitment",
+        "observation",
+        "time",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/express_certainty_doubt_hedging:P",
+      "taskId": "KP13:speaking:02",
+      "sourceHash": "0a4bb3ae8bef27768e79143cc3a951f2c5ae3e2ae8573b4abefd055c88a31a77",
+      "taskHash": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/reformulate_paraphrase_rewrite:R",
+      "taskId": "KP13:reading:02",
+      "sourceHash": "da8c6bba0ed01af035b90b63dab1bba553195373c1bd882679cd2d9e6f93ab05",
+      "taskHash": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "criterionIds": [
+        "original",
+        "recipient",
+        "exclude",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:functions/reformulate_paraphrase_rewrite:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "da8c6bba0ed01af035b90b63dab1bba553195373c1bd882679cd2d9e6f93ab05",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/technology_devices_internet:R",
+      "taskId": "KP13:reading:02",
+      "sourceHash": "bd71854244ae8db54fbed703d100803d9ac6f1a15e76ff24fbd678d114e4b69f",
+      "taskHash": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "criterionIds": [
+        "original",
+        "recipient",
+        "exclude",
+        "uncertain"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/technology_devices_internet:P",
+      "taskId": "KP13:writing:01",
+      "sourceHash": "bd71854244ae8db54fbed703d100803d9ac6f1a15e76ff24fbd678d114e4b69f",
+      "taskHash": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "criterionIds": [
+        "summary",
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/language_metalanguage:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "728252120f8921d4513cda4fb40226dc64252ce9e4d6c66ecba264cc9ece1d85",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/language_metalanguage:P",
+      "taskId": "KP13:writing:01",
+      "sourceHash": "728252120f8921d4513cda4fb40226dc64252ce9e4d6c66ecba264cc9ece1d85",
+      "taskHash": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "criterionIds": [
+        "summary",
+        "explanation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/media_pop_culture_vocab:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "81916d3d7cd13bfa2db52e63eef9f26d7172aebcf1dcefe6c284aa20bf0932c1",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/media_pop_culture_vocab:P",
+      "taskId": "KP13:speaking:02",
+      "sourceHash": "81916d3d7cd13bfa2db52e63eef9f26d7172aebcf1dcefe6c284aa20bf0932c1",
+      "taskHash": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/society_economy_abstract_nouns:R",
+      "taskId": "KP13:reading:01",
+      "sourceHash": "cc9d27b1bee9c4bc1000b203766ecaa73ccb7b67638f1e1f00131fd62e53e785",
+      "taskHash": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "criterionIds": [
+        "direct",
+        "reported",
+        "inference",
+        "cost"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:vocabDomains/society_economy_abstract_nouns:P",
+      "taskId": "KP13:speaking:02",
+      "sourceHash": "cc9d27b1bee9c4bc1000b203766ecaa73ccb7b67638f1e1f00131fd62e53e785",
+      "taskHash": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:phonology/0:R",
+      "taskId": "KP13:listening:01",
+      "sourceHash": "763b067905fea8d466a0cecd997a9b7921b569ff2a632e47e55151dab4106d68",
+      "taskHash": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "criterionIds": [
+        "origin",
+        "commitment",
+        "observation",
+        "time",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:phonology/0:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "763b067905fea8d466a0cecd997a9b7921b569ff2a632e47e55151dab4106d68",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:phonology/1:R",
+      "taskId": "KP13:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "criterionIds": [
+        "origin",
+        "commitment",
+        "observation",
+        "time",
+        "unknown"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:phonology/1:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:register/haeyo_polite:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "2201d081124796a5339d9587f1057911e678d1d2a444a1119e793d8925f3ce06",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:register/banmal_casual:P",
+      "taskId": "KP13:speaking:01",
+      "sourceHash": "2201d081124796a5339d9587f1057911e678d1d2a444a1119e793d8925f3ce06",
+      "taskHash": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP13:speaking:02",
+      "sourceHash": "2201d081124796a5339d9587f1057911e678d1d2a444a1119e793d8925f3ce06",
+      "taskHash": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:이라고1:R",
+      "taskId": "KP13:grammar:01",
+      "sourceHash": "c815219740c5c1ca62c743363a8a5008397ecb31cc17e8e14ca02051f9509765",
+      "taskHash": "92f07b249aadb16da369f6f08a50cadd9e35692151803ad565205bb7f2a2851b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Direct quotation preserves original speaker and words, not reporter observation. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다고3:R",
+      "taskId": "KP13:grammar:02",
+      "sourceHash": "9c6e60b13b910280de5ce723117861c425b90c3a797586db2a33c81b1080c5ca",
+      "taskHash": "316f614e355c78ba7f903ed4d0b9ca0f89b7c3aa219e932ef0a2f15319b803a2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다고1:R",
+      "taskId": "KP13:grammar:03",
+      "sourceHash": "1d02f2566f0c95f51a9fbc2c2cc8889887e4cde10b020437aacc7c75619a4d74",
+      "taskHash": "fdfcabdc6ba7656831f3e980c9fbdb5fe953c354f8672da7539310a7c2e61ef1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다거나1:R",
+      "taskId": "KP13:grammar:04",
+      "sourceHash": "92254d77dc9fed0cc176f5e5b72cc92a1c08313a3addfd1251b2125adbfec58b",
+      "taskHash": "8b466e8e025ee5d632ca67f5dc1dbaafa6aa37828eee07d7064ed8dc487d9022",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Examples of multiple reported statements, no false universal attribution to each participant. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:보고:R",
+      "taskId": "KP13:grammar:05",
+      "sourceHash": "393cc7a8bb9a54963d6368d5a6cad3d16da38a38b137606e392d7082fb794ca4",
+      "taskHash": "d13c1abf63a29fc2ef97b934becf431420066f09a417cd24213d030b13a5aa19",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:으로부터:R",
+      "taskId": "KP13:grammar:06",
+      "sourceHash": "867d6136fcb7d6cd172c81795a1e2cd843eea7f1cf32accdc2ee69f4ce43b6a3",
+      "taskHash": "2c3e0c7a6bb6b336e4b2a5f47773c3506a1fed2a0ef31d28317a88eedf401aaa",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Information source from institution, not sending direction reversed. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-거든2:R",
+      "taskId": "KP13:grammar:07",
+      "sourceHash": "2e1bab366cc9d37dce7ed41f2f3bf40ea141417e746a3710399bec796cc47b4d",
+      "taskHash": "0154a6f9c305a7d2780d96eea1baf4571b9da825b80bdd309b86a135165c8c7e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Final explanatory 거든2, not conditional connective 거든1. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-잖아:R",
+      "taskId": "KP13:grammar:08",
+      "sourceHash": "cd2a5acebaa39109fde46e6d3c96f28e5c4a8aad270f727f572de433c01dffb0",
+      "taskHash": "185669e680b486341fb5babb98d36cf9df91cf761c35f9f1926315f70a86aee1",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-나 보다:R",
+      "taskId": "KP13:grammar:09",
+      "sourceHash": "d994578a1c9c39474df20e36de51b5d7c549f5dc7c36d26bb2b8708ac4844cdf",
+      "taskHash": "efc277a78fe7885dc857a03fb77a7087011a91d11c2ec96cf9220388607ef17c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Circumstantial inference from lights/bag, not direct departure observation. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는가 보다:R",
+      "taskId": "KP13:grammar:10",
+      "sourceHash": "75261b8c85b584800feb0eaade34dd074637b4ede82e2405c2303b5b9b38df29",
+      "taskHash": "f48272e5b74d190dd5eb57c47dd9a460dcc186ac7dd734e599106d9344616135",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Inference from absent reply/exiting people, not direct answer or official end notice. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는 모양이다:R",
+      "taskId": "KP13:grammar:11",
+      "sourceHash": "c35460884ac7099a86dcbc3d7fdfbc39d7292a8d9f5877999053167f0039f901",
+      "taskHash": "629030b0baf0fba3b233212094ef2b09df058b65783433994ba65f81a525b398",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-을 텐데:R",
+      "taskId": "KP13:grammar:12",
+      "sourceHash": "259fec63f3edec1900827b2b52ad9c4b663842bd87ceb67b56226cce30ec98c2",
+      "taskHash": "dc2f0e661d4707f238dc265feaf1d5ade1ffd618d495bccb0f72c23f8a5d3029",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Expected background plus tentative suggestion, not completed observation/action. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-으니2:R",
+      "taskId": "KP13:grammar:13",
+      "sourceHash": "764ed8252e84eec8aae8fd8d3dff45c04ac4148d19f03cc7676c95e9fd0c49ad",
+      "taskHash": "6ab20a07416253e244aa9ebc13df19b8b79dc722c3e6ae34031f418781a8730d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Receptive sample only. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:이라고1:P",
+      "taskId": "KP13:production:01",
+      "sourceHash": "c815219740c5c1ca62c743363a8a5008397ecb31cc17e8e14ca02051f9509765",
+      "taskHash": "2a310b30bf49debf2227d5141650d4573fb0f53f3a38d4c9ed8c1ce732287226",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Direct quotation preserves original speaker and words, not reporter observation. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다고3:P",
+      "taskId": "KP13:production:02",
+      "sourceHash": "9c6e60b13b910280de5ce723117861c425b90c3a797586db2a33c81b1080c5ca",
+      "taskHash": "51742df13e797a9abf143b1560ad16a896c67df433a3cac0f2221f5ffb475d00",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다고1:P",
+      "taskId": "KP13:production:03",
+      "sourceHash": "1d02f2566f0c95f51a9fbc2c2cc8889887e4cde10b020437aacc7c75619a4d74",
+      "taskHash": "d076e876479ebfcf3975d9c5ab3526747f52c0bd2fe09580cdbe8b6be9266b53",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는다거나1:P",
+      "taskId": "KP13:production:04",
+      "sourceHash": "92254d77dc9fed0cc176f5e5b72cc92a1c08313a3addfd1251b2125adbfec58b",
+      "taskHash": "1616634c8fbf8a60658035a430bb3f52dcdaef53962ec6941034811d644ce805",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Examples of multiple reported statements, no false universal attribution to each participant. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:보고:P",
+      "taskId": "KP13:production:05",
+      "sourceHash": "393cc7a8bb9a54963d6368d5a6cad3d16da38a38b137606e392d7082fb794ca4",
+      "taskHash": "9767724a8e2873c09a350ebad9e4761c69992f3cfb425967f716b9d95ed6b676",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:으로부터:P",
+      "taskId": "KP13:production:06",
+      "sourceHash": "867d6136fcb7d6cd172c81795a1e2cd843eea7f1cf32accdc2ee69f4ce43b6a3",
+      "taskHash": "5efba9cf6a4d65b3ce01ce14f510468362206c699f109c017565b6dd4af2f5b0",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Information source from institution, not sending direction reversed. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-거든2:P",
+      "taskId": "KP13:production:07",
+      "sourceHash": "2e1bab366cc9d37dce7ed41f2f3bf40ea141417e746a3710399bec796cc47b4d",
+      "taskHash": "053d3e2319ef778b93c52deaca693e89a8be175318f1c05fc0d83bae102e5ce9",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Final explanatory 거든2, not conditional connective 거든1. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-잖아:P",
+      "taskId": "KP13:production:08",
+      "sourceHash": "cd2a5acebaa39109fde46e6d3c96f28e5c4a8aad270f727f572de433c01dffb0",
+      "taskHash": "0810c431c55d155cd5a14f70284e3e0a3c3f648d408326d1ce87a80305c523ad",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-나 보다:P",
+      "taskId": "KP13:production:09",
+      "sourceHash": "d994578a1c9c39474df20e36de51b5d7c549f5dc7c36d26bb2b8708ac4844cdf",
+      "taskHash": "4d7e7320a76613c3037011f7a593bad435322810213461e5d77ed4260e952596",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Circumstantial inference from lights/bag, not direct departure observation. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는가 보다:P",
+      "taskId": "KP13:production:10",
+      "sourceHash": "75261b8c85b584800feb0eaade34dd074637b4ede82e2405c2303b5b9b38df29",
+      "taskHash": "9b9957f770b6a2d94f8e23addbf8f2b4f65dc956645daa37827d90edd8f45232",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Inference from absent reply/exiting people, not direct answer or official end notice. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-는 모양이다:P",
+      "taskId": "KP13:production:11",
+      "sourceHash": "c35460884ac7099a86dcbc3d7fdfbc39d7292a8d9f5877999053167f0039f901",
+      "taskHash": "e8449ab9eada66922374d1f80ac7bec6d9a6838a58db10197bff90a3f5a53438",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-을 텐데:P",
+      "taskId": "KP13:production:12",
+      "sourceHash": "259fec63f3edec1900827b2b52ad9c4b663842bd87ceb67b56226cce30ec98c2",
+      "taskHash": "5a909f010a210260af407e817ef5333a97b16ada33fc029da4d5a61d75779607",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Expected background plus tentative suggestion, not completed observation/action. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP13:objective:grammar/G3:-으니2:P",
+      "taskId": "KP13:production:13",
+      "sourceHash": "764ed8252e84eec8aae8fd8d3dff45c04ac4148d19f03cc7676c95e9fd0c49ad",
+      "taskHash": "1fd999047ad68bbd8a6d32179bfa7a3e813cc09fe7cb811a0f6cbba6467472e1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded sentence checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Different conditions, practice-only example, unknown alternatives unscored. 전체 어휘·자유 의미·정보 중개·억양 숙달은 미검증이다."
     }
   ]
 }

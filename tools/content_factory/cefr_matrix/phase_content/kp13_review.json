@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP13:grammar:01",
+      "sha256": "92f07b249aadb16da369f6f08a50cadd9e35692151803ad565205bb7f2a2851b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Direct quotation preserves original speaker and words, not reporter observation. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:01",
+      "sha256": "2a310b30bf49debf2227d5141650d4573fb0f53f3a38d4c9ed8c1ce732287226",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Direct quotation preserves original speaker and words, not reporter observation. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:02",
+      "sha256": "316f614e355c78ba7f903ed4d0b9ca0f89b7c3aa219e932ef0a2f15319b803a2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:02",
+      "sha256": "51742df13e797a9abf143b1560ad16a896c67df433a3cac0f2221f5ffb475d00",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Indirect declarative report preserves speaker, tomorrow/today and negative opening claim. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:03",
+      "sha256": "fdfcabdc6ba7656831f3e980c9fbdb5fe953c354f8672da7539310a7c2e61ef1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:03",
+      "sha256": "d076e876479ebfcf3975d9c5ab3526747f52c0bd2fe09580cdbe8b6be9266b53",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Quoted circumstance serves as reason for later action, distinct from simple said predicate or imperative quote. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:04",
+      "sha256": "8b466e8e025ee5d632ca67f5dc1dbaafa6aa37828eee07d7064ed8dc487d9022",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Examples of multiple reported statements, no false universal attribution to each participant. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:04",
+      "sha256": "1616634c8fbf8a60658035a430bb3f52dcdaef53962ec6941034811d644ce805",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Examples of multiple reported statements, no false universal attribution to each participant. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:05",
+      "sha256": "d13c1abf63a29fc2ef97b934becf431420066f09a417cd24213d030b13a5aa19",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:05",
+      "sha256": "9767724a8e2873c09a350ebad9e4761c69992f3cfb425967f716b9d95ed6b676",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Colloquial addressee particle 보고, not looking, requester/recipient preserved. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:06",
+      "sha256": "2c3e0c7a6bb6b336e4b2a5f47773c3506a1fed2a0ef31d28317a88eedf401aaa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Information source from institution, not sending direction reversed. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:06",
+      "sha256": "5efba9cf6a4d65b3ce01ce14f510468362206c699f109c017565b6dd4af2f5b0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Information source from institution, not sending direction reversed. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:07",
+      "sha256": "0154a6f9c305a7d2780d96eea1baf4571b9da825b80bdd309b86a135165c8c7e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Final explanatory 거든2, not conditional connective 거든1. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:07",
+      "sha256": "053d3e2319ef778b93c52deaca693e89a8be175318f1c05fc0d83bae102e5ce9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Final explanatory 거든2, not conditional connective 거든1. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:08",
+      "sha256": "185669e680b486341fb5babb98d36cf9df91cf761c35f9f1926315f70a86aee1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:08",
+      "sha256": "0810c431c55d155cd5a14f70284e3e0a3c3f648d408326d1ce87a80305c523ad",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Reminder supported by explicit shared visit/reading, not coercing unknown common ground. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:09",
+      "sha256": "efc277a78fe7885dc857a03fb77a7087011a91d11c2ec96cf9220388607ef17c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Circumstantial inference from lights/bag, not direct departure observation. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:09",
+      "sha256": "4d7e7320a76613c3037011f7a593bad435322810213461e5d77ed4260e952596",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Circumstantial inference from lights/bag, not direct departure observation. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:10",
+      "sha256": "f48272e5b74d190dd5eb57c47dd9a460dcc186ac7dd734e599106d9344616135",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Inference from absent reply/exiting people, not direct answer or official end notice. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:10",
+      "sha256": "9b9957f770b6a2d94f8e23addbf8f2b4f65dc956645daa37827d90edd8f45232",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Inference from absent reply/exiting people, not direct answer or official end notice. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:11",
+      "sha256": "629030b0baf0fba3b233212094ef2b09df058b65783433994ba65f81a525b398",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:11",
+      "sha256": "e8449ab9eada66922374d1f80ac7bec6d9a6838a58db10197bff90a3f5a53438",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Inference from gathering/umbrellas, not confirmed event start or measured weather. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:12",
+      "sha256": "dc2f0e661d4707f238dc265feaf1d5ade1ffd618d495bccb0f72c23f8a5d3029",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Expected background plus tentative suggestion, not completed observation/action. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:12",
+      "sha256": "5a909f010a210260af407e817ef5333a97b16ada33fc029da4d5a61d75779607",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Expected background plus tentative suggestion, not completed observation/action. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:grammar:13",
+      "sha256": "6ab20a07416253e244aa9ebc13df19b8b79dc722c3e6ae34031f418781a8730d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Receptive sample only."
+    },
+    {
+      "taskId": "KP13:production:13",
+      "sha256": "1fd999047ad68bbd8a6d32179bfa7a3e813cc09fe7cb811a0f6cbba6467472e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded sentence checked: Reason for judgement plus suggestion, preserves missing material/late time and proposal force. Different conditions, practice-only example, unknown alternatives unscored."
+    },
+    {
+      "taskId": "KP13:listening:01",
+      "sha256": "a3f3c51c48ecab737aaeb0f7a55e91a92a167f9aad833234581c130f097da8f2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Two named sources: institution future opening versus person promise to check. Today explicitly fixed to resolve tomorrow, empty screen shared observation, maintenance inference, cost rumour origin unknown. Required origin/commitment/observation/time/unknown criteria."
+    },
+    {
+      "taskId": "KP13:reading:01",
+      "sha256": "1e5b41297e99b705d1fc7edbb84c9a68bd453d0e97f4954ed9b1fdd20265ad92",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual fictional article: staff direct quote, organiser indirect report, journalist count observation and separate interest inference, waiting cause unmeasured, anonymous cost rumour versus staff current unchanged/future undecided. No population/effect inference."
+    },
+    {
+      "taskId": "KP13:reading:02",
+      "sha256": "d7ca94cd6df49fc792d1531ddf1239fc33c0792ee7c9286b904fa5cb18bf5f28",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Forwarded formal email with original block boundaries, staff request and deadline, recipient and number/title, password excluded, approval separately pending. Forwarder help and maintenance guess not new authority or original quote."
+    },
+    {
+      "taskId": "KP13:writing:01",
+      "sha256": "d3539cc230633c40afcd9bf3d0205ff9314508e5e9292dd81dc776dd0292cbbe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Two required full texts: two-source summary plus connected verification procedure for new colleague. Direct/indirect quote, observation/inference, current/future and public approval preserved. No answer key, full meaning/fidelity unscored."
+    },
+    {
+      "taskId": "KP13:speaking:01",
+      "sha256": "8f681789ba4b3d43f916179561c7bf3f9a2edaf98a3d9513dbafaa934ec080ef",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer polite relay then agreed-casual friend reformulation; explicit shared-source boundary for new member, 다고 report versus reason comparison retains final predicate. Replay quote/reason pauses, meaning and intonation unscored."
+    },
+    {
+      "taskId": "KP13:speaking:02",
+      "sha256": "b61fa1ad7ff30fab7eb203373a932db70641c037220fb3cebfcbc01173f40615",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Formal source-separated briefing and audience questions about price, scheme effect and completed check; unknowns remain verification tasks. No certainty amplification, meaning/presentation ability unscored."
+    }
+  ]
+}
