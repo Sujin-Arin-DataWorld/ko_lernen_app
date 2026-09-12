@@ -1931,3 +1931,71 @@ recovery and global launch/commercial-readiness remain open.
 **Review repair:** 8 additional review failures reproduced before repairing public setter lock bypass, session/full-reset ownership and stale account pending confirmation; required braces added. Quarantine preserves confirmed readers, checks third native values and fails closed for unconfirmed no-op restores. Both review axes re-approved the repaired final hashes. Initial successful broad evidence remains archived in review-round-0 and is not substituted for final-hash verification.
 
 **Second review repair:** 15 delayed-native account transition failures reproduced. Post-native stale-origin handling now also protects success/rejection paths for integer, string and string-list writes. Round 1 broad evidence is archived separately and was superseded by final repaired-source verification.
+
+### Task 41: Confirm vocabulary-pack course evidence before advancing
+
+
+
+- [x] Reproduce real native canonical course-write rejection/unknown outcomes
+  before production edits. Exercise actual production operations, not only
+  injected fake success/throw callbacks. Keep baseline-red.log.
+- [x] Retain the assessment course attempt alongside existing retained SRS and
+  vocabulary attempts; retry the same logical action through localized recovery.
+  Confirm all required legs before score, celebration, feedback advancement or
+  next timer. Previously confirmed SRS/vocabulary/course legs must not repeat.
+  Fence duplicate taps, stale presentation/route, pop/exit/unmount and local
+  reset across every newly introduced await. Do not start a later course leg
+  after the evidence is retired while an earlier native leg was pending.
+- [x] Preserve current evidence eligibility: learn/self-rating produces no
+  course evidence; Quiz/Boss recognition attempts do. Keep the existing lack
+  of courseContext on per-answer global observations, content ID, correctness
+  and vocabularyRecall legacy error category. Free-browse items without graph
+  links explicitly complete as notApplicable; a course-routed invalid link
+  cannot silently succeed. Do not turn recognition into independent recall.
+- [x] Retain one strict finish course attempt per immutable finish request.
+  Preserve mission context, initialContentId, weighted courseScore and >=.70
+  pass threshold. Null courseContext remains a deliberate no-op. The finish
+  course step is completed only after confirmed evidence; retry must not replay
+  completed boss/course/XP/stamp/pending legs or change evidence identity.
+- [x] Fence the finish request's admission lifetime across asynchronous earlier
+  steps and course persistence: a reset while boss/course is pending must not
+  let an old request create a fresh course attempt or continue later writes in
+  the new data lifetime. Preserve existing single-request/concurrent-future
+  coordinator behavior and screen result/retry/leave recovery.
+- [x] Verify native false/throw/unknown committed/uncommitted recovery, two
+  distinct accepted answers, applicable/unlinked free browse, scored eligibility,
+  wrong-answer semantics, finish threshold/context/no-context, lifecycle/reset,
+  duplicate inputs, no premature results/rewards and retained SRS/vocab counts.
+  Update old fake/harness expectations only when the stricter contract requires
+  it; retain semantic assertions. Relevant course/pack and recovery regressions
+  plus analysis must pass on frozen final sources.
+- [x] Complete independent Standards and Spec reviews, preserve unrelated source,
+  assets and paid Graph records; controller performs free Graphify/prune, verified
+  local commit and external readiness records after review/testing.
+
+## Scope and constraints
+
+Owned production: lib/screens/vocab_pack_screen.dart and
+lib/services/vocab_pack_finish_coordinator.dart. Focused support changes to
+course_activity_reporter.dart or an existing evidence helper require a concrete
+reason in report and controller notification before edits. Relevant existing or
+new tests may change. Do not change Storage or the canonical course algorithms,
+mastery policy, schemas, SRS eligibility, unrelated screens, assets/pubspec/SDKs,
+workflow, free-access policy or visual design.
+
+Use existing AppL10n/Sori recovery UI, brace all statement if/else. Flutter runs
+use --no-pub, one process at a time, no production/test edits while tests/analyzer
+run. Failure-first, then focused green; freeze and report exact actual SHA-256
+hashes for every changed Dart path, commands/logs/counts and outstanding limits.
+Read AGENTS.md and applicable widget-test guidance. Worker must not spawn agents,
+commit, push, merge, run Graphify, build, upload, access paid APIs/network or
+retry devices. Root owns broad verification, reviewers and finalization.
+
+Retention covers the running process unless separately proved. Process-death,
+other course callers/favorites/likes, Hanok retirement integration, signed-device
+and operational readiness remain separate open launch requirements.
+
+
+**Task 41 local verification:** 3 native rejection/unknown course evidence failures verified against baseline source, including corrected widget replay after a test-zone fixture limitation. Scoped final regression passed 1009 tests in 80 files, with 0 configured skips; 11 changed Dart files analyzed cleanly. Independent Standards and Spec approved final actual hashes. Vocabulary-pack assessment and finish now retain strict course evidence; admission/reset and presentation fences preserve prior SRS/vocabulary progress and completion ordering. Prior sources, 1014 assets and 1095 paid Graph records preserved; free Graphify update/prune complete. Exact local commit and evidence: external vocab-course-evidence-20260911/verification.json. Other course/favorite callers, process-death, Hanok retirement integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
+
+**Review repair:** Two failing linked-vocabulary route cases reproduced the invalid-route fallback. Supplied course routes now require a validated exact mission edge before pack and learning-evidence admission. Final rereviews and regression cover this repaired source; round0 proof remains separately archived.

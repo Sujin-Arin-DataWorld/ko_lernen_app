@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -95,6 +96,7 @@ Future<AppL10n> _pumpPack(
   _TimerFactory timers, {
   VocabPackFinishOperations? operations,
 }) async {
+  await tester.runAsync(CurriculumCatalog.load);
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
@@ -134,7 +136,9 @@ Future<void> _answerCorrect(WidgetTester tester) async {
       .widgetList<QuizChoice>(find.byType(QuizChoice))
       .singleWhere((choice) => choice.isCorrect)
       .onSelected!();
-  await tester.pump();
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
 }
 
 VocabPack _pack({required int normalWords}) => VocabPack(

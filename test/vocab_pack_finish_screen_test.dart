@@ -6,11 +6,13 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -46,6 +48,9 @@ void main() {
           .widgetList<QuizChoice>(find.byType(QuizChoice))
           .singleWhere((choice) => choice.isCorrect);
       correct.onSelected!();
+      for (var index = 0; index < 30; index++) {
+        await tester.pump();
+      }
       await tester.pump(const Duration(milliseconds: 850));
       await tester.pump();
 
@@ -75,12 +80,71 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('route pop during admitted finish suppresses result navigation', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final courseGate = Completer<void>();
+    final operations = _PendingFinishOperations(courseGate);
+    final t = await _pumpPack(tester, operations, pushedRoute: true);
+
+    tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    tapDeckAction(tester, t.vocabPackGotIt);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    tester
+        .widgetList<QuizChoice>(find.byType(QuizChoice))
+        .singleWhere((choice) => choice.isCorrect)
+        .onSelected!();
+    for (var index = 0; index < 30; index++) {
+      await tester.pump();
+    }
+    await tester.pump(const Duration(milliseconds: 850));
+    await tester.pump();
+    expect(operations.calls, <String>['boss', 'course']);
+
+    expect(await tester.binding.handlePopRoute(), isTrue);
+    await tester.pump(const Duration(milliseconds: 400));
+    tester
+        .widgetList<SoriButton>(find.byType(SoriButton))
+        .singleWhere((button) => button.label == t.homeActionConfirmLeave)
+        .onTap!();
+    await tester.pump(const Duration(milliseconds: 400));
+    final retiringElement = tester.element(find.byType(VocabPackScreen));
+    expect(retiringElement.mounted, isTrue);
+    expect(ModalRoute.of(retiringElement)!.isActive, isFalse);
+    courseGate.complete();
+    await tester.pump(const Duration(seconds: 2));
+    for (var index = 0; index < 30; index++) {
+      await tester.pump();
+    }
+
+    expect(find.text('pack-result'), findsNothing);
+    expect(operations.calls, <String>[
+      'boss',
+      'course',
+      'xp',
+      'stamp',
+      'pending',
+    ]);
+    if (retiringElement.mounted) {
+      expect(ModalRoute.of(retiringElement)!.isActive, isFalse);
+    }
+    expect(tester.takeException(), isNull);
+  });
 }
 
 Future<AppL10n> _pumpPack(
   WidgetTester tester,
-  VocabPackFinishOperations operations,
-) async {
+  VocabPackFinishOperations operations, {
+  bool pushedRoute = false,
+}) async {
   const pack = VocabPack(
     id: 'a1_finish_1',
     level: 'A1',
@@ -102,8 +166,17 @@ Future<AppL10n> _pumpPack(
       ),
     ],
   );
+  await tester.runAsync(CurriculumCatalog.load);
+  final navigatorKey = GlobalKey<NavigatorState>();
+  final screen = VocabPackScreen(
+    packId: pack.id,
+    packLoader: (_) async => pack,
+    siblingPacksLoader: (_) async => const <VocabPack>[pack],
+    finishOperations: operations,
+  );
   await tester.pumpWidget(
     MaterialApp(
+      navigatorKey: navigatorKey,
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
@@ -111,14 +184,16 @@ Future<AppL10n> _pumpPack(
       routes: <String, WidgetBuilder>{
         '/vocab/result': (_) => const Scaffold(body: Text('pack-result')),
       },
-      home: VocabPackScreen(
-        packId: pack.id,
-        packLoader: (_) async => pack,
-        siblingPacksLoader: (_) async => const <VocabPack>[pack],
-        finishOperations: operations,
-      ),
+      home: pushedRoute ? const SizedBox() : screen,
     ),
   );
+  if (pushedRoute) {
+    unawaited(
+      navigatorKey.currentState!.push(
+        MaterialPageRoute<void>(builder: (_) => screen),
+      ),
+    );
+  }
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 300));
   return AppL10n.delegate.load(const Locale('de'));
@@ -150,6 +225,51 @@ class _ScreenFinishOperations implements VocabPackFinishOperations {
       throw StateError('first course write fails');
     }
     await retryGate.future;
+  }
+
+  @override
+  Future<void> awardXp(VocabPackFinishRequest request) async {
+    calls.add('xp');
+  }
+
+  @override
+  Future<void> recordCompletionStamp(
+    VocabPackFinishRequest request,
+    VocabPackFinishOutcome outcome,
+  ) async {
+    calls.add('stamp');
+  }
+
+  @override
+  Future<void> persistPendingState(
+    VocabPackFinishRequest request,
+    VocabPackFinishOutcome outcome,
+  ) async {
+    calls.add('pending');
+  }
+}
+
+class _PendingFinishOperations implements VocabPackFinishOperations {
+  _PendingFinishOperations(this.courseGate);
+
+  final Completer<void> courseGate;
+  final List<String> calls = <String>[];
+
+  @override
+  Future<VocabPackFinishOutcome> recordBossAttempt(
+    VocabPackFinishRequest request,
+  ) async {
+    calls.add('boss');
+    return const VocabPackFinishOutcome(
+      justCleared: true,
+      nextUnlockedPackId: null,
+    );
+  }
+
+  @override
+  Future<void> recordCourseAttempt(VocabPackFinishRequest request) async {
+    calls.add('course');
+    await courseGate.future;
   }
 
   @override

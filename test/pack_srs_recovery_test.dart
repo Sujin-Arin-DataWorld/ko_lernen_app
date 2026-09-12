@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_recall_screen.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/pack_session_srs_ledger.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
@@ -560,6 +562,10 @@ Future<void> _pump(
   Timer Function(Duration, void Function())? timerFactory,
   bool pushedRoute = false,
 }) async {
+  // The shared course queue is zone-bound. Rebase its already-completed tail
+  // inside testWidgets before this screen awaits free-browse applicability.
+  CourseProgressService.shared.resetForTesting();
+  await tester.runAsync(CurriculumCatalog.load);
   tester.view.physicalSize = const Size(390, 844);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);

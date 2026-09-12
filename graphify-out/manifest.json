@@ -1788,9 +1788,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_pack_screen.dart": {
-    "mtime": 1789113044.9685547,
-    "seen": 1789115375.0834615,
-    "ast_hash": "7c57216d6eda109dfc9c7081cd5c305b",
+    "mtime": 1789178820.9530501,
+    "seen": 1789179466.0844576,
+    "ast_hash": "65de8fd478873e45d252f2ada257ff99",
     "semantic_hash": ""
   },
   "lib/screens/vocab_packs_screen.dart": {
@@ -6180,9 +6180,9 @@
     "semantic_hash": ""
   },
   "test/vocab_pack_assessment_order_test.dart": {
-    "mtime": 1788987818.1252346,
-    "seen": 1788995056.919775,
-    "ast_hash": "405a8fb4f47a70def9df4a6571de7d88",
+    "mtime": 1789117466.8416426,
+    "seen": 1789178618.078822,
+    "ast_hash": "7d204c4de61d1aa74e1a30badcb69ae1",
     "semantic_hash": ""
   },
   "test/vocab_pack_flip_spoiler_test.dart": {
@@ -6228,9 +6228,9 @@
     "semantic_hash": ""
   },
   "test/vocab_pack_srs_ledger_integration_test.dart": {
-    "mtime": 1788987818.1366067,
-    "seen": 1788995056.9198058,
-    "ast_hash": "0e619b3469adcd0ada01c3abc57bd3e6",
+    "mtime": 1789117200.9346242,
+    "seen": 1789178618.0812888,
+    "ast_hash": "6e898ffde1174cdeb8e5083213b3623d",
     "semantic_hash": ""
   },
   "test/vocab_pack_test.dart": {
@@ -11694,9 +11694,9 @@
     "semantic_hash": ""
   },
   "lib/services/vocab_pack_finish_coordinator.dart": {
-    "mtime": 1789081983.9262466,
-    "seen": 1789087663.719428,
-    "ast_hash": "1e0ba0aa2d7ee187b161eef26bc73e65",
+    "mtime": 1789116573.3179216,
+    "seen": 1789178617.891179,
+    "ast_hash": "57ad9f57675312908c1061033d4b767c",
     "semantic_hash": ""
   },
   "test/backup_new_storage_keys_guard_test.dart": {
@@ -11778,21 +11778,21 @@
     "semantic_hash": ""
   },
   "test/vocab_pack_advance_timer_test.dart": {
-    "mtime": 1789093603.8108027,
-    "seen": 1789094393.7215023,
-    "ast_hash": "a4213fea00317e15b0b128478483e748",
+    "mtime": 1789117200.9305072,
+    "seen": 1789178618.0788183,
+    "ast_hash": "3683d3ddb41f0caee50c749c14ad4998",
     "semantic_hash": ""
   },
   "test/vocab_pack_finish_coordinator_test.dart": {
-    "mtime": 1788987818.1252346,
-    "seen": 1788995056.919777,
-    "ast_hash": "1f3c6494ac78c0c8496070c6a0784492",
+    "mtime": 1789117088.1260197,
+    "seen": 1789178618.0788293,
+    "ast_hash": "27ac50227bca03c88cc92173d3f7d8c2",
     "semantic_hash": ""
   },
   "test/vocab_pack_finish_screen_test.dart": {
-    "mtime": 1788987818.1266735,
-    "seen": 1788995056.9197793,
-    "ast_hash": "1c891e2d1ef13d34d2e91657290a1cda",
+    "mtime": 1789177686.204537,
+    "seen": 1789178618.0788329,
+    "ast_hash": "72c6c3f3eaf033b47239a729e6cc8410",
     "semantic_hash": ""
   },
   "test/vocab_pack_screen_overflow_guard_test.dart": {
@@ -14142,9 +14142,9 @@
     "semantic_hash": ""
   },
   "test/vocab_pack_screen_prefetch_test.dart": {
-    "mtime": 1788987818.135099,
-    "seen": 1788995056.9198031,
-    "ast_hash": "bd337a5fbd469e2026cd9bfcb0133435",
+    "mtime": 1789117466.8499963,
+    "seen": 1789178618.0810728,
+    "ast_hash": "118e4b9f3ce9fb3eeb911ead7c08a9f5",
     "semantic_hash": ""
   },
   "tool/check_brief_anchors.py": {
@@ -15516,9 +15516,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-09-global-launch-readiness.md": {
-    "mtime": 1789109706.6705368,
-    "seen": 1789115375.5955038,
-    "ast_hash": "422b5e9d54834179c1df46ee8a29cef5",
+    "mtime": 1789115593.2569332,
+    "seen": 1789178618.3251765,
+    "ast_hash": "2d7fc618b85cfce37fcab7827a4e03a8",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-09-global-launch-readiness-design.md": {
@@ -16044,9 +16044,9 @@
     "semantic_hash": ""
   },
   "test/ordinary_xp_durability_test.dart": {
-    "mtime": 1789082189.8998513,
-    "seen": 1789087663.8252652,
-    "ast_hash": "3b2eec0a8a01af3410203b7614989a84",
+    "mtime": 1789116081.2855513,
+    "seen": 1789178618.0086565,
+    "ast_hash": "364e9888906c3c75acb2e65a504d1e08",
     "semantic_hash": ""
   },
   "test/review_session_durability_test.dart": {
@@ -16098,9 +16098,9 @@
     "semantic_hash": ""
   },
   "test/pack_srs_recovery_test.dart": {
-    "mtime": 1789111354.979224,
-    "seen": 1789115375.249826,
-    "ast_hash": "742f5af47322c450afda401697e5994c",
+    "mtime": 1789177803.7806978,
+    "seen": 1789178618.0105891,
+    "ast_hash": "7b26631a846e7adf6114cd007b4a161d",
     "semantic_hash": ""
   },
   "test/custom_pack_srs_recovery_test.dart": {
@@ -16161,6 +16161,12 @@
     "mtime": 1789114159.2533846,
     "seen": 1789115375.3276646,
     "ast_hash": "8470cb7136ef79a4827de38cf241e3ab",
+    "semantic_hash": ""
+  },
+  "test/vocab_pack_course_evidence_recovery_test.dart": {
+    "mtime": 1789178868.8251991,
+    "seen": 1789179466.323516,
+    "ast_hash": "b3d0fd41420986f42432de00130d3482",
     "semantic_hash": ""
   }
 }

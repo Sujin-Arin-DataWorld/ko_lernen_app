@@ -348,6 +348,15 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                 .courseUnitFor(packCourseContext.courseUnitId)
                 ?.title
                 .pick(languageCode);
+      if (courseContext != null && missionStep == null) {
+        setState(() {
+          _loading = false;
+          _error = AppL10n.of(context).courseCheckpointSaveError;
+          _missionStep = null;
+          _missionTitle = null;
+        });
+        return;
+      }
       if (!_learningStartRecorded) {
         _learningStartRecorded = true;
         Analytics.lessonStarted(
@@ -607,6 +616,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     String korean, {
     required bool gotIt,
     required VocabProgressAttempt progress,
+    CourseContentAttempt? courseAttempt,
     bool saveSrs = true,
   }) async {
     final session = _recallSession;
@@ -624,7 +634,19 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       if (!studyEvidenceIsCurrent) {
         return false;
       }
-      return progress.save();
+      if (!await progress.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent) {
+        return false;
+      }
+      if (courseAttempt != null) {
+        await courseAttempt.save();
+        if (!studyEvidenceIsCurrent) {
+          return false;
+        }
+      }
+      return true;
     });
   }
 
@@ -814,26 +836,25 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       seenId: isCorrect ? cur.korean : null,
       wrongCountId: isCorrect ? null : cur.korean,
     );
+    final courseAttempt = CourseContentAttempt(
+      kind: CurriculumContentKind.vocab,
+      contentId: cur.id,
+      isCorrect: isCorrect,
+      // Course-routed content must fail closed when its graph edge is invalid.
+      // Global per-answer observations intentionally keep no mission context.
+      isApplicable: _missionStep == null ? null : true,
+      errorReason: isCorrect ? null : MasteryErrorReason.vocabularyRecall,
+    );
     if (!await _recordSessionSrs(
           cur.korean,
           gotIt: isCorrect,
           progress: progress,
+          courseAttempt: courseAttempt,
         ) ||
         !mounted ||
         !studyEvidenceAcceptsInput) {
       return;
     }
-    // Only scored recognition-assessment stages become course evidence. The
-    // earlier card self-rating stays in SRS only, so a tap cannot unlock a
-    // mission. `vocabularyRecall` is a legacy enum name, not a claim that the
-    // four-choice Boss is independent recall.
-    // ignore: discarded_futures
-    CourseActivityReporter.recordContentAttempt(
-      CurriculumContentKind.vocab,
-      cur.id,
-      isCorrect,
-      errorReason: isCorrect ? null : MasteryErrorReason.vocabularyRecall,
-    );
     if (isCorrect) {
       // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
       HapticFeedback.lightImpact();

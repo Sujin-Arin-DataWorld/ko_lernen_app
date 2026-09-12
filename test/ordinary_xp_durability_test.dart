@@ -278,7 +278,7 @@ void main() {
       'production vocab adapter retries the same award; committed=$committed',
       () async {
         const pack = VocabPack(id: 'a1_pack', level: 'A1', words: []);
-        const request = VocabPackFinishRequest(
+        final request = VocabPackFinishRequest(
           pack: pack,
           siblingPacks: [pack],
           bossAccuracy: 1,

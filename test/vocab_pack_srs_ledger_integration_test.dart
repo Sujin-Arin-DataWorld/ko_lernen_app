@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
@@ -30,6 +31,7 @@ Vocab _word(int index, {required String packId, bool boss = false}) => Vocab(
 );
 
 Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
+  await tester.runAsync(CurriculumCatalog.load);
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -75,7 +77,13 @@ Future<void> _answerCurrent(
       .widgetList<QuizChoice>(find.byType(QuizChoice))
       .firstWhere((candidate) => candidate.isCorrect == correct);
   choice.onSelected!();
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
   await tester.pump(const Duration(milliseconds: 900));
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
 }
 
 void main() {

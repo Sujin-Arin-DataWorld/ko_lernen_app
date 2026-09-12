@@ -3,6 +3,7 @@ import '../models/curriculum.dart';
 import '../models/vocab_pack.dart';
 import 'course_activity_reporter.dart';
 import 'decoration_reward_service.dart';
+import 'local_data_lifetime.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 
@@ -10,7 +11,7 @@ import 'storage_service.dart';
 /// terminal boundary. A screen keeps one instance so a retry cannot silently
 /// switch to newer counters after some persistence steps have already passed.
 class VocabPackFinishRequest {
-  const VocabPackFinishRequest({
+  VocabPackFinishRequest({
     required this.pack,
     required this.siblingPacks,
     required this.bossAccuracy,
@@ -37,6 +38,43 @@ class VocabPackFinishRequest {
   double get courseScore {
     final totalAnswers = quizTotal + bossTotal;
     return totalAnswers == 0 ? 0 : (quizCorrect + bossCorrect) / totalAnswers;
+  }
+
+  late final LocalDataLifetimeLease _lifetime = LocalDataLifetime.capture();
+  late final CourseContentAttempt? _courseAttempt = _createCourseAttempt();
+
+  CourseContentAttempt? _createCourseAttempt() {
+    final context = courseContext;
+    if (context == null) {
+      return null;
+    }
+    final passed = courseScore >= .70;
+    return CourseContentAttempt(
+      kind: CurriculumContentKind.vocab,
+      contentId: context.initialContentId,
+      isCorrect: passed,
+      isApplicable: true,
+      courseContext: context,
+      // Legacy enum spelling only; the score is four-choice recognition.
+      errorReason: passed ? null : MasteryErrorReason.vocabularyRecall,
+      score: courseScore,
+    );
+  }
+
+  void _admit() {
+    _lifetime.assertCurrent();
+    // Materialize before an earlier async finish leg can cross a local reset.
+    _courseAttempt;
+  }
+
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+  }
+
+  Future<void> _saveCourseAttempt() async {
+    _lifetime.assertCurrent();
+    await _courseAttempt?.save();
+    _lifetime.assertCurrent();
   }
 }
 
@@ -97,20 +135,7 @@ class DefaultVocabPackFinishOperations implements VocabPackFinishOperations {
 
   @override
   Future<void> recordCourseAttempt(VocabPackFinishRequest request) async {
-    final courseContext = request.courseContext;
-    if (courseContext == null) {
-      return;
-    }
-    final passed = request.courseScore >= .70;
-    await CourseActivityReporter.recordContentAttempt(
-      CurriculumContentKind.vocab,
-      courseContext.initialContentId,
-      passed,
-      courseContext: courseContext,
-      // Legacy enum spelling only; the score is four-choice recognition.
-      errorReason: passed ? null : MasteryErrorReason.vocabularyRecall,
-      score: request.courseScore,
-    );
+    await request._saveCourseAttempt();
   }
 
   @override
@@ -167,6 +192,11 @@ final class VocabPackFinishCoordinator {
       );
     }
     _request ??= request;
+    try {
+      request._admit();
+    } catch (error, stackTrace) {
+      return Future<VocabPackFinishOutcome>.error(error, stackTrace);
+    }
 
     final running = _inFlight;
     if (running != null) {
@@ -184,26 +214,32 @@ final class VocabPackFinishCoordinator {
   }
 
   Future<VocabPackFinishOutcome> _resume(VocabPackFinishRequest request) async {
+    request._assertCurrent();
     if (!_completed.contains(_VocabPackFinishStep.boss)) {
       _outcome = await _operations.recordBossAttempt(request);
+      request._assertCurrent();
       _completed.add(_VocabPackFinishStep.boss);
     }
     final outcome = _outcome!;
 
     if (!_completed.contains(_VocabPackFinishStep.course)) {
       await _operations.recordCourseAttempt(request);
+      request._assertCurrent();
       _completed.add(_VocabPackFinishStep.course);
     }
     if (!_completed.contains(_VocabPackFinishStep.xp)) {
       await _operations.awardXp(request);
+      request._assertCurrent();
       _completed.add(_VocabPackFinishStep.xp);
     }
     if (!_completed.contains(_VocabPackFinishStep.stamp)) {
       await _operations.recordCompletionStamp(request, outcome);
+      request._assertCurrent();
       _completed.add(_VocabPackFinishStep.stamp);
     }
     if (!_completed.contains(_VocabPackFinishStep.pending)) {
       await _operations.persistPendingState(request, outcome);
+      request._assertCurrent();
       _completed.add(_VocabPackFinishStep.pending);
     }
     return outcome;
