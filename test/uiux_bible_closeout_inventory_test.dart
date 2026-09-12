@@ -107,7 +107,7 @@ void main() {
       }
     }
 
-    // Hanok V1 retirement: −HanokWorldScreen +HanokPreviewScreen.
+    // Hanok V1 retirement: one legacy owner removed, preview owner added.
     expect(seen, hasLength(111));
     expect(documented, hasLength(111));
     expect(seen.difference(documented), isEmpty);

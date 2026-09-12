@@ -325,8 +325,6 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                       ? const ValueKey('onboarding-v2-answer-retry')
                       : null,
                   textAlign: TextAlign.center,
-                  maxLines: largeText ? 2 : null,
-                  overflow: largeText ? TextOverflow.ellipsis : null,
                   style: text.body,
                 ),
               ),
