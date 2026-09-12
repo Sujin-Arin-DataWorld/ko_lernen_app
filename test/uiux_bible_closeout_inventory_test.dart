@@ -107,7 +107,7 @@ void main() {
       }
     }
 
-    // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
+    // Hanok V1 retirement: −HanokWorldScreen +HanokPreviewScreen.
     expect(seen, hasLength(111));
     expect(documented, hasLength(111));
     expect(seen.difference(documented), isEmpty);
@@ -145,10 +145,10 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
-    expect(actual, hasLength(139));
+    // Hanok V1 retirement removes seven Sori widgets and adds hanok_v3_preview.
+    expect(actual, hasLength(133));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(139));
+    expect(listed, hasLength(133));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

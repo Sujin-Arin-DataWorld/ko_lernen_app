@@ -67,8 +67,8 @@ void main() {
         File('lib/widgets/sori/personal_hanok_map.dart').existsSync(),
         isFalse,
       );
-      expect(de, contains('"personalRoomLockedTitle"'));
-      expect(en, contains('"personalRoomReturnToMap"'));
+      expect(de, isNot(contains('"personalRoomLockedTitle"')));
+      expect(en, isNot(contains('"personalRoomReturnToMap"')));
     },
   );
 

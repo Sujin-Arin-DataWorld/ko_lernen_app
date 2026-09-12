@@ -76,11 +76,16 @@ class SoriUpdatingScene extends StatelessWidget {
           LayoutBuilder(
             builder: (context, constraints) {
               final showIcon = constraints.maxHeight >= 120;
+              final compactMessage = constraints.maxHeight < 80;
+              final verticalPadding = showIcon ? Spacing.md : Spacing.xs;
               return Align(
                 key: const ValueKey('sori-updating-scene-message-align'),
                 alignment: messageAlignment,
                 child: Padding(
-                  padding: const EdgeInsets.all(Spacing.md),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Spacing.md,
+                    vertical: verticalPadding,
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -108,7 +113,10 @@ class SoriUpdatingScene extends StatelessWidget {
                         child: Text(
                           message,
                           textAlign: TextAlign.center,
-                          maxLines: 2,
+                          maxLines: compactMessage ? 1 : 2,
+                          overflow: compactMessage
+                              ? TextOverflow.ellipsis
+                              : null,
                           softWrap: true,
                           style: tt.label,
                         ),
