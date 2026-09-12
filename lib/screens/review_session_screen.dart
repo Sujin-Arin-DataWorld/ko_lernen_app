@@ -23,6 +23,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/content_share_recovery.dart';
@@ -123,6 +124,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   int _presentation = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final _speech = ContentSpeechController();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
 
   bool get _loading => _loadState == ReviewLoadState.loading;
   bool get _routeIsActive => _route?.isActive ?? true;
@@ -182,6 +184,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () => _sessionIsCurrent,
+      onConfirmed: () {
+        if (_sessionIsCurrent) {
+          setState(() {});
+        }
+      },
+    );
     _load().then((_) {
       if (mounted && _queue?.current != null) {
         _speech.playOnEnter(_card.korean);
@@ -190,6 +200,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
     unawaited(_loadCultureNotes());
+  }
+
+  @override
+  void didUpdateWidget(covariant ReviewSessionScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.deck, widget.deck) ||
+        !identical(oldWidget.reviewableLoader, widget.reviewableLoader)) {
+      _presentation++;
+      _choiceOwner.replaceSource();
+    }
   }
 
   Future<void> _loadCultureNotes() async {
@@ -280,6 +300,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _speech.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
@@ -308,13 +329,15 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (!_acceptsInput || _loading || _done || _queue?.current == null) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: _card.korean,
+    final card = _card;
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: card.korean,
+        kind: LikedContentService.vocab,
+        id: card.korean,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent() async {

@@ -21,6 +21,7 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
@@ -81,6 +82,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       _pack != null &&
       _idx < _pack!.words.length;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -107,6 +109,15 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     final pack = CustomPackService.getById(widget.packId);
     _pack = pack == null || widget.words == null
         ? pack
@@ -114,6 +125,26 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     scheduleCoach();
     // ignore: discarded_futures
     _loadSavedTranslations();
+  }
+
+  @override
+  void didUpdateWidget(covariant CustomPackPlayScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.packId != widget.packId ||
+        !identical(oldWidget.words, widget.words)) {
+      _choiceOwner.replaceSource();
+      _translationGeneration++;
+      _serve++;
+      _idx = 0;
+      _learned = 0;
+      _flipped = false;
+      _cardRevealed = false;
+      final pack = CustomPackService.getById(widget.packId);
+      _pack = pack == null || widget.words == null
+          ? pack
+          : pack.copyWith(words: widget.words);
+      unawaited(_loadSavedTranslations());
+    }
   }
 
   Future<void> _loadSavedTranslations() async {
@@ -175,6 +206,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
@@ -247,18 +279,20 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     });
   }
 
-  Future<void> _likeCurrent() async {
+  Future<void> _likeCurrent(int presentation) async {
     final pack = _pack;
-    if (pack == null || _idx >= pack.words.length) {
+    if (pack == null || !_canUseCard(presentation)) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: pack.words[_idx].korean,
+    final word = pack.words[_idx];
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: word.korean,
+        kind: LikedContentService.vocab,
+        id: word.korean,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent() async {
@@ -408,7 +442,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 onNext: () => _gotIt(presentation),
                 onHard: () => _dontKnow(presentation),
                 onSkip: () => _defer(presentation),
-                onLike: _likeCurrent,
+                onLike: () => _likeCurrent(presentation),
                 onShare: _shareCurrent,
                 onFlip: () => _toggleFlip(presentation),
                 showBookmark: false,

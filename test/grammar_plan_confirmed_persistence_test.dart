@@ -20,6 +20,8 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 enum _NativeWriteOutcome {
   success,
   reject,
@@ -119,6 +121,10 @@ class _NativeGrammarPlatform extends SharedPreferencesStorePlatform {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final originalPlatform = SharedPreferencesStorePlatform.instance;
+
+  setUp(() {
+    stubSoriSpeech();
+  });
 
   tearDown(() {
     Storage.resetForTesting();

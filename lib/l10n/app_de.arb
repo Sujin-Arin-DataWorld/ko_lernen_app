@@ -148,6 +148,7 @@
   "btnConfirm": "OK",
   "btnCancel": "Abbrechen",
   "btnRetry": "Erneut versuchen",
+  "choiceSaveConfirmationFailed": "Wir konnten das Speichern deiner Auswahl nicht bestätigen. Bitte versuche es erneut.",
   "btnClose": "Schließen",
   "btnApply": "Übernehmen",
   "btnPlay": "Üben",

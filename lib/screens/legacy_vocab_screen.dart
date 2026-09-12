@@ -20,6 +20,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
@@ -86,6 +87,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   int _todayReviewCount = 0;
   Set<String> _favorites = {};
   final LegacyDueFeedbackSession _dueFeedback = LegacyDueFeedbackSession();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
 
   bool _loading = true;
   bool _loadFailed = false;
@@ -129,6 +131,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          studyEvidenceIsCurrent && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: _publishConfirmedChoices,
+    );
     // Persistente Werte beim Start laden
     _correct = Storage.vokCorrect;
     _wrong = Storage.vokWrong;
@@ -137,6 +144,16 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
     unawaited(_loadCultureNotes());
+  }
+
+  @override
+  void didUpdateWidget(covariant LegacyVocabScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.vocabLoader, widget.vocabLoader) ||
+        !identical(oldWidget.cultureNotesLoader, widget.cultureNotesLoader)) {
+      _serve++;
+      _choiceOwner.replaceSource();
+    }
   }
 
   Future<void> _loadCultureNotes() async {
@@ -218,26 +235,23 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }).toList();
   }
 
-  void _toggleFavorite(String korean) {
-    HapticFeedback.lightImpact();
+  void _publishConfirmedChoices() {
+    if (!studyEvidenceIsCurrent ||
+        !(ModalRoute.of(context)?.isActive ?? false)) {
+      return;
+    }
     setState(() {
-      if (_favorites.contains(korean)) {
-        _favorites.remove(korean);
-      } else {
-        _favorites.add(korean);
-      }
-      // Im favorites-Modus: re-filter (Karte wurde evtl. entfernt)
+      _favorites = Storage.vokFavorites.toSet();
       if (_mode == 'favorites') {
         _filtered = _filterList();
-        if (_idx >= _filtered.length && _filtered.isNotEmpty) _idx = 0;
+        if (_idx >= _filtered.length && _filtered.isNotEmpty) {
+          _idx = 0;
+        }
         _flipped = false;
         _cardRevealed = false;
         _serve++;
       }
     });
-    unawaited(
-      _runLegacyBestEffort('favorite', () => Storage.toggleVokFavorite(korean)),
-    );
   }
 
   void _applyFilters({int? sheetGeneration}) {
@@ -289,17 +303,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   List<String> _deckTranslations(BuildContext context) {
     final lang = Localizations.localeOf(context).languageCode;
     return [for (final v in _filtered) v.translationFor(lang)];
-  }
-
-  Future<void> _runLegacyBestEffort(
-    String label,
-    Future<void> Function() save,
-  ) async {
-    try {
-      await save();
-    } catch (error) {
-      debugPrint('Legacy vocab $label persistence failed: $error');
-    }
   }
 
   // §C-1-2: prev 복원. 판정 덱 유지 + prev 버튼(하단 행).
@@ -442,6 +445,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   void dispose() {
     _filterSheetGeneration++;
     _filterSheetOpen = false;
+    _choiceOwner.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
@@ -456,7 +460,13 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         _favorites.contains(cur.korean)) {
       return;
     }
-    _toggleFavorite(cur.korean);
+    unawaited(
+      _choiceOwner.set(
+        context,
+        ConfirmedChoiceTarget.legacyFavorite(id: cur.korean, label: cur.korean),
+        true,
+      ),
+    );
   }
 
   Future<void> _likeCurrent(int presentation) async {
@@ -464,13 +474,14 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     if (cur == null || !_isCurrentCard(presentation, cur)) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: cur.korean,
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: cur.korean,
+        kind: LikedContentService.vocab,
+        id: cur.korean,
+      ),
     );
-    if (_isCurrentCard(presentation, cur)) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent(int presentation) async {

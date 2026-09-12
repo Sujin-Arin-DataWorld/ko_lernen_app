@@ -30,6 +30,7 @@ import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 
 import 'support/reward_preferences_platform.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +39,7 @@ void main() {
   late RewardPreferencesPlatform platform;
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     Storage.resetCourseMasteryForTesting();
     CourseProgressService.shared.resetForTesting();

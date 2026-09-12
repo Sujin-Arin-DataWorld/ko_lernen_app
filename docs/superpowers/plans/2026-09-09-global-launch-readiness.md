@@ -2283,3 +2283,143 @@ Favorites/likes, broad process-death resume, independent Hanok integration and
 signed-device/operational readiness remain open; deployment is held.
 
 **Task 44 local verification:** Native grammar-plan start/selected-level/day failures reproduced before repair (5 failing cases). Final scoped regression 5340 tests in 457 files, 16 configured skips; full analysis clean and both independent axes approved actual final hashes. Grammar-plan starts and served days retain their accepted intent across confirmed persistence retries before authoritative UI completion, with partial/unknown recovery, source/sheet/duplicate/reset/route fences and existing restore behavior preserved. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external grammar-plan-persistence-20260912/verification.json. Favorites/likes, broad process-death resume, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.
+
+
+### Task 45: Confirm likes and legacy favorites without losing the accepted choice
+
+Baseline: 604165a3714b850d4cff98ca3fc0dd4497346fe2.
+Root: C:/dev/hangulsori/ko_lernen_app_worktrees/global-launch-readiness-20260909
+Evidence: C:/dev/hangulsori/_codex_artifacts/global-launch-readiness-20260909/likes-confirmed-persistence-20260912
+Report: same SDD directory, task-45-report.md.
+
+## Problem and intended behavior
+
+Storage.toggleLikedContent and toggleVokFavorite write string lists through _sl,
+which ignores native false. SharedPreferences also exposes its optimistic cache.
+Eight learning screens await the like call and repaint; legacy vocabulary stars
+optimistically change the favorites filter before a best-effort write. Retrying
+a toggle after an unknown result can invert the original choice. A learner must
+be able to save or unsave content, understand failure, and retry the same choice
+without silently losing another favorite or changing another card.
+
+## Requirements
+
+- [x] Before production edits, reproduce native false for both liked-content
+  and legacy-star persistence, plus committed/uncommitted unknown outcomes with
+  reload unavailable. Include a real screen/control path for each family and
+  native-call/durable-value/confirmed-read-view assertions. Record exact baseline
+  production hashes and unique raw failing logs; exclude fixture/tap failures.
+- [x] Make both preference families confirm persistence, reusing existing
+  strict string-list boundaries. Freeze the accepted key and desired boolean,
+  not a toggle to recompute on Retry or a stale entire list. Serialize mutations,
+  reconcile unknown outcomes before further writes, preserve other IDs/order and
+  malformed recovery values, and prevent older retries undoing a newer same-key
+  choice. Expose confirmed read views, not optimistic SharedPreferences cache.
+  Legacy public toggles retain their key/return contracts and gain honest failure
+  semantics; explicit desired-state operations may support UI idempotence.
+- [x] Integrate all eight production LikedContentService toggle callers:
+  custom_pack_play, grammar, hangul, legacy_vocab, listening_play, review_session,
+  smalltalk and vocab_pack. Add reachable localized failure/Retry and pending
+  feedback using existing Sori patterns. Retain accepted intent above transient
+  sheets, permit dismissal/leaving, deduplicate pending taps and preserve the
+  original target across navigation/rebuild. Existing toast bars remain action-
+  free; do not globally alter shared deck gestures or add success toast spam.
+  A retry must remain available for the failed target without silently toggling
+  a newly visible card. Avoid blocking unrelated learning or other target likes.
+- [x] Integrate the separate legacy vocabulary star: publish its icon, favorite
+  list and favorites-mode filtering only after confirmation. Native failure must
+  leave the card reachable for retry. Preserve distinction among play-later likes,
+  legacy stars, typed Study Library bookmarks and wordbook mirroring. Do not alter
+  mastery/SRS/progression/content/assets/monetization or conflate these stores.
+- [x] Bind operation admission to the original local-data and screen/source
+  lifetime before awaits. Reject old rendered callbacks after card/source changes,
+  completed reset, real parent pop (including reverse transition before dispose),
+  and same-State source replacement. Already-issued native calls cannot be
+  canceled, but no stale later leg, retry or UI publication is permitted. Queues
+  terminate per attempt, participate in reset/restore drains, cannot wait for a
+  user's Retry, and cannot leak completed futures across fake-async test zones.
+  An abandoned screen must not permanently orphan the shared preference domain.
+- [x] Preserve existing preference formats, cloud/export/reset behavior, typed
+  bookmark canonical-first behavior and Task44 grammar-plan guarantees. Audit
+  every writer of these keys. Keep operation ownership small and shared where
+  that prevents eight divergent implementations; do not build a new generic
+  persistence framework or change SDK/server schemas. Whole-app process-death
+  recovery and signed-device/operational readiness remain separate open gates.
+- [x] Verify native false/throw/unknown/absent storage, add+remove, repeated input,
+  desired-state retry, same/different IDs, unknown reconciliation/read views,
+  malformed recovery, reset drain and stale callback/route/source cases. Test the
+  real native boundary and representative real controls, plus every changed
+  screen's wiring with meaningful existing/targeted guards. Use bounded pumps,
+  AppL10n and braces on new if/else. One Flutter process --no-pub, no source edits
+  during runs, unique raw logs, bounded test/process timeouts. Final focused and
+  nearby checks then one full analyzer on final bytes, all changed Dart hashes.
+- [x] Complete independent Standards and Spec reviews, then root impact suite
+  (not before review, to avoid repeat cost), source/assets/paid-Graph preservation,
+  free Graphify/prune, verified authorized local commit and external readiness
+  updates. Keep the global launch goal active and deployment held. No push,
+  merge, remote CI, build, upload, paid provider, device retry or console action.
+
+## Ownership and workflow
+
+Allowed: narrowly relevant storage_service.dart, liked_content_service.dart, one
+small shared like/favorite operation/UI owner if appropriate, the nine caller
+paths in the eight named screens, and relevant tests. Leave general deck/shared
+chrome and typed bookmark/custom-pack persistence alone. Reuse truthful existing
+localized text if possible; otherwise notify root before adding DE/EN ARBs.
+
+Start with a read-only design checkpoint: shared mutation/UI ownership, confirmed
+list visibility and unknown reconciliation, reset/route admission, retry after
+dismissal/navigation and all caller coverage. Root rules on genuine ambiguities
+before production repair. Then reproduce baseline failures and implement. Root
+is sole finalizer; no implementer subagents, commit, Graphify or external actions.
+Do not touch protected android/key.properties or the preview server.
+
+Write flat owned-paths.json containing every changed Dart file plus
+docs/superpowers/plans/2026-09-09-global-launch-readiness.md. Exclude ignored report.
+Final report table: | `relative/path.dart` | `lowercase64hex` | for every changed
+Dart. Supply raw passing/failing logs and a baseline-verification.json with base,
+nativeFailuresReproduced, verifiedProductionPaths (likes, legacy_favorites),
+sourceHashes and logs [{file, sha256, nativeFailureVerified, cases}]. Never count
+the same reproduced case twice or a harness failure as a product defect.
+
+**Task 45 implementation checkpoint:** Eight semantic baseline failures were
+verified on unchanged production bytes. The shared confirmed-choice storage/UI
+owner and all eight screens are implemented; final focused source guards pass
+31/31, nearby protections pass 103/103, and full analysis reports no issues on
+the frozen Dart bytes. Independent Standards/Spec review and root-only broad
+impact/finalization remain pending. Deployment stays held.
+
+**Task 45 review round 1 checkpoint:** Failure-first review regressions proved
+one cross-family native-cache interleaving, four stale rendered source
+callbacks, a generic Retry semantic label, and 40dp Retry/Close controls on the
+round-0 frozen bytes. The narrow repair keeps a presence-aware confirmed state
+as each preference family's next mutation baseline, captures source generations
+in the four affected render closures, identifies Retry by its retained target,
+and uses 48dp controls. The final focused and nearby bundle passes 121/121 and
+the full analyzer reports no issues. Source and test bytes are frozen for the
+next independent review; root-only full regression and finalization remain
+pending.
+
+**Task 45 review round 2 checkpoint:** Four native regressions on the frozen
+round-1 production bytes proved that an already-issued write could commit after
+its operation became stale, while the next queued or fresh owner still trusted
+the earlier confirmed view. The shared lane now marks that preference family
+unknown whenever the post-native owner/revision guard is stale, forcing native
+reconciliation before the queue releases a later decision. Stale operations
+still cannot publish UI or confirmed state. Both likes families cover same-key
+supersession and abandoned-owner/fresh-owner sequences. The final focused and
+nearby bundle passes 125/125 and the full analyzer reports no issues. Source and
+test bytes are frozen for scoped rereview; root-only finalization remains
+pending.
+
+**Task 45 full-suite gate repair checkpoint:** The first root full-suite attempt
+completed with 6,882 passes, 19 configured skips, and two repository-guard
+failures. Two inherited Grammar/Smalltalk fixtures now install the standard
+four-hook SoriSpeech test stub. The three owned pending rows now render their
+spinner through `SoriButton.loading`, retaining the existing keys, visible
+pending copy, target identity, and action layout without changing the chrome
+ratchet cap. The focused guard/fixture/layout bundle passes 105/105 and the full
+analyzer reports no issues. Source and test bytes are frozen for scoped review
+before root reruns the full selector suite.
+
+**Task 45 local verification:** Native likes and legacy-favorite failures reproduced before repair (8 failing cases). Final regression 6884 tests in 704 files, 19 configured skips; full analysis clean and both independent axes approved actual final hashes. Likes and legacy stars retain the accepted target and desired boolean across confirmed persistence retries before icon/filter publication, with unknown recovery, source/sheet/duplicate/reset/route fences and legacy key semantics preserved. Sources, 1014 assets and 1095 paid Graph records preserved; free Graphify/prune complete. Exact local commit and evidence: external likes-confirmed-persistence-20260912/verification.json. Broad process-death resume, Hanok integration, signed-device and operational readiness remain open. No push, merge, remote CI, build, upload, paid provider or device action.

@@ -405,6 +405,10 @@ class AppL10nEn extends AppL10n {
   String get btnRetry => 'Try again';
 
   @override
+  String get choiceSaveConfirmationFailed =>
+      'We couldn’t confirm that your choice was saved. Please try again.';
+
+  @override
   String get btnClose => 'Close';
 
   @override

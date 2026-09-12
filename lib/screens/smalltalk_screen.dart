@@ -21,6 +21,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../services/custom_pack_service.dart';
 import '../services/liked_content_service.dart';
 import '../services/local_data_lifetime.dart';
@@ -80,6 +81,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   int _relationshipEvidenceGeneration = 0;
   final LocalDataLifetimeLease _relationshipEvidenceLifetime =
       LocalDataLifetime.capture();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
 
   bool get _relationshipEvidenceLocked =>
       _relationshipEvidencePhraseId != null ||
@@ -101,6 +103,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         !identical(oldWidget.phrases, widget.phrases)) {
       _relationshipEvidenceGeneration += 1;
       _relationshipEvidencePhraseId = null;
+      _choiceOwner.replaceSource();
     }
   }
 
@@ -137,6 +140,15 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     if (_isInjected) {
       _level = null;
     } else if (!_isCoursePractice) {
@@ -144,6 +156,36 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     }
     _load();
     scheduleCoach();
+  }
+
+  @override
+  void dispose() {
+    _choiceOwner.dispose();
+    super.dispose();
+  }
+
+  Future<void> _likePhrase(SmalltalkPhrase phrase, int presentation) async {
+    final categories = _visibleCategories;
+    if (presentation != _relationshipEvidenceGeneration || categories.isEmpty) {
+      return;
+    }
+    final current = categories.firstWhere(
+      (category) => category.id == _cat,
+      orElse: () => categories.first,
+    );
+    final phrases = _phrasesFor(category: current.id, level: _level);
+    if (phrases.isEmpty ||
+        phrases[_phraseIndex.clamp(0, phrases.length - 1)].id != phrase.id) {
+      return;
+    }
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: phrase.ko,
+        kind: LikedContentService.smalltalk,
+        id: phrase.id,
+      ),
+    );
   }
 
   Future<void> _load() async {
@@ -293,20 +335,24 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   /// C1/C2 는 23 개 주제 중 9 개에만 문장이 있다. 개수를 안 보여 주면 학습자는
   /// 빈 주제를 골라 놓고 "배치가 안 돼 있다"고 읽는다 (2026-08-19 Jin).
   int _phraseCount({String? level, String? category}) {
+    return _phrasesFor(level: level, category: category).length;
+  }
+
+  List<SmalltalkPhrase> _phrasesFor({String? level, String? category}) {
     final ids = _courseContentIds;
-    return SmalltalkLoader.phrases
+    return (widget.phrases ?? SmalltalkLoader.phrases)
         .where(
           (phrase) =>
               (level == null || phrase.level == level) &&
               (category == null || phrase.category == category) &&
               (ids == null || ids.contains(phrase.id)),
         )
-        .length;
+        .toList(growable: false);
   }
 
   List<SmalltalkCategory> _categoriesFor(Set<String>? contentIds) {
     if (contentIds == null) return SmalltalkLoader.categories;
-    final visibleCategoryIds = SmalltalkLoader.phrases
+    final visibleCategoryIds = (widget.phrases ?? SmalltalkLoader.phrases)
         .where((phrase) => contentIds.contains(phrase.id))
         .map((phrase) => phrase.category)
         .toSet();
@@ -399,13 +445,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       (c) => c.id == _cat,
       orElse: () => cats.first,
     );
-    final phrases = SmalltalkLoader.filter(category: _cat, level: _level)
-        .where(
-          (phrase) =>
-              _courseContentIds == null ||
-              _courseContentIds!.contains(phrase.id),
-        )
-        .toList(growable: false);
+    final phrases = _phrasesFor(category: current.id, level: _level);
 
     return SoriAdaptiveStudyBody(
       minHeight: 480,
@@ -501,6 +541,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                     builder: (context) {
                       final i = _phraseIndex.clamp(0, phrases.length - 1);
                       final phrase = phrases[i];
+                      final presentation = _relationshipEvidenceGeneration;
                       return _PhraseCard(
                         key: ValueKey(
                           'smalltalk_${phrase.id}_${i}_'
@@ -577,15 +618,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                                 );
                               }
                             },
-                        onLike: () async {
-                          await LikedContentService.toggle(
-                            kind: LikedContentService.smalltalk,
-                            id: phrase.id,
-                          );
-                          if (mounted) {
-                            setState(() {});
-                          }
-                        },
+                        onLike: () => _likePhrase(phrase, presentation),
                         liked: LikedContentService.isLiked(
                           kind: LikedContentService.smalltalk,
                           id: phrase.id,
@@ -1115,10 +1148,13 @@ class _PhraseCardState extends State<_PhraseCard> {
                               key: const Key('smalltalk-checkpoint-saving'),
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const SizedBox.square(
-                                  dimension: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
+                                ExcludeSemantics(
+                                  child: SoriButton.ghost(
+                                    label: t.onboardingV2Saving,
+                                    loading: true,
+                                    onTap: () => _saveRelationshipCheck(
+                                      pendingRelationship!,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(width: Spacing.sm),

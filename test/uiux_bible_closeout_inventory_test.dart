@@ -146,9 +146,9 @@ void main() {
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
     // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
-    expect(actual, hasLength(139));
+    expect(actual, hasLength(142));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(139));
+    expect(listed, hasLength(142));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

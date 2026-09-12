@@ -775,6 +775,12 @@ abstract class AppL10n {
   /// **'Erneut versuchen'**
   String get btnRetry;
 
+  /// No description provided for @choiceSaveConfirmationFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir konnten das Speichern deiner Auswahl nicht bestätigen. Bitte versuche es erneut.'**
+  String get choiceSaveConfirmationFailed;
+
   /// No description provided for @btnClose.
   ///
   /// In de, this message translates to:

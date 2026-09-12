@@ -42,6 +42,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/liked_content_service.dart';
 import '../services/local_data_lifetime.dart';
@@ -159,6 +160,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   final LocalDataLifetimeLease _planLifetime = LocalDataLifetime.capture();
   final Set<String> _sessionSeen = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
   late final QuestAbandonTracker _abandonTracker;
   Map<String, GrammarStudyPlan> _plans = const <String, GrammarStudyPlan>{};
   bool _legacyBrowseForVisit = false;
@@ -213,6 +215,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
   final GlobalKey _filterRowKey = GlobalKey();
+  int _likeSourceGeneration = 0;
 
   @override
   String get coachId => 'grammar';
@@ -248,6 +251,15 @@ class _GrammarScreenState extends State<GrammarScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     _idx = Storage.grammarLastIdx;
     _planLevel = Storage.grammarPlanLevel;
     _load();
@@ -261,6 +273,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _pendingPlanStart?.retire();
     _pendingPlanCompletion?.retire();
     _planStartSheetRefresh = null;
@@ -275,6 +288,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   void didUpdateWidget(covariant GrammarScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.courseContext != widget.courseContext) {
+      _likeSourceGeneration++;
+      _choiceOwner.replaceSource();
       _retirePlanOperationsForSourceChange();
     }
   }
@@ -649,18 +664,19 @@ class _GrammarScreenState extends State<GrammarScreen>
     if (mounted) setState(() {});
   }
 
-  Future<void> _likeCurrent() async {
-    final g = _current;
-    if (g == null) {
+  Future<void> _likeGrammar(Grammar grammar, int sourceGeneration) async {
+    if (sourceGeneration != _likeSourceGeneration ||
+        !identical(_current, grammar)) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.grammar,
-      id: g.pattern,
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: grammar.pattern,
+        kind: LikedContentService.grammar,
+        id: grammar.pattern,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar
@@ -1067,9 +1083,14 @@ class _GrammarScreenState extends State<GrammarScreen>
                     Row(
                       key: const Key('grammar-checkpoint-saving'),
                       children: [
-                        const SizedBox.square(
-                          dimension: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ExcludeSemantics(
+                          child: SoriButton.ghost(
+                            label: t.onboardingV2Saving,
+                            loading: true,
+                            onTap: pending == null
+                                ? null
+                                : () => _saveGrammarCheckpoint(pending),
+                          ),
                         ),
                         const SizedBox(width: Spacing.sm),
                         Expanded(child: Text(t.onboardingV2Saving)),
@@ -1651,6 +1672,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       );
     }
     final g = _current;
+    final likeSourceGeneration = _likeSourceGeneration;
     if (g == null) {
       if (_planDayCompletedForVisit && _isFollowingPlan && !_planFinished) {
         return SoriStudyFrame(
@@ -1991,7 +2013,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                                     : null,
                                 onSkip: _canNavigateDeck ? _skipCurrent : null,
                                 skipEnabled: _canNavigateDeck,
-                                onLike: _likeCurrent,
+                                onLike: () =>
+                                    _likeGrammar(g, likeSourceGeneration),
                                 onBookmark: _saveCurrent,
                                 showShare: false,
                                 onFlip: canRecordCheckpoint

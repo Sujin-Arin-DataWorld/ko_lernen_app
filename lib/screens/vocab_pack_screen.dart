@@ -35,6 +35,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
@@ -229,6 +230,17 @@ class _VocabPackScreenState extends State<VocabPackScreen>
   bool _finishing = false;
   String? _finishError;
   Timer? _advanceTimer;
+  late final ConfirmedChoiceActionOwner _choiceOwner;
+  int _likeSourceGeneration = 0;
+  String? _loadedLikePackId;
+  CoursePracticeContext? _loadedLikeCourseContext;
+  Future<VocabPack?> Function(String packId)? _loadedLikePackLoader;
+
+  bool get _likeSourceIsCurrent =>
+      _pack != null &&
+      _loadedLikePackId == widget.packId &&
+      _loadedLikeCourseContext == widget.courseContext &&
+      identical(_loadedLikePackLoader, widget.packLoader);
 
   @override
   void retireStudyEvidence() {
@@ -239,6 +251,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _cancelAdvanceTimer();
     _abandonTracker.dispose();
     _flipHintTrigger.dispose();
@@ -248,6 +261,17 @@ class _VocabPackScreenState extends State<VocabPackScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          studyEvidenceIsCurrent &&
+          _likeSourceIsCurrent &&
+          (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (studyEvidenceIsCurrent) {
+          setState(() {});
+        }
+      },
+    );
     _featureCoachComplete = Storage.tutVocabPackSeen;
     _abandonTracker = QuestAbandonTracker(
       questType: 'vocab_pack',
@@ -273,10 +297,25 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     });
   }
 
+  @override
+  void didUpdateWidget(covariant VocabPackScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.packId != widget.packId ||
+        oldWidget.courseContext != widget.courseContext ||
+        !identical(oldWidget.packLoader, widget.packLoader)) {
+      _likeSourceGeneration++;
+      _choiceOwner.replaceSource();
+      _presentation++;
+      _stage = _Stage.learn;
+      _qIdx = 0;
+      unawaited(_load());
+    }
+  }
+
   Future<void> _load() async {
     if (!studyEvidenceAcceptsInput ||
         _finishing ||
-        (_loadGeneration > 0 && _error == null)) {
+        (_loadGeneration > 0 && _error == null && _likeSourceIsCurrent)) {
       return;
     }
     final generation = ++_loadGeneration;
@@ -365,6 +404,9 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           level: pack.level.toUpperCase(),
         );
       }
+      _loadedLikePackId = widget.packId;
+      _loadedLikeCourseContext = widget.courseContext;
+      _loadedLikePackLoader = widget.packLoader;
       setState(() {
         _pack = pack;
         _siblingPacks = siblings;
@@ -570,18 +612,26 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     );
   }
 
-  Future<void> _likeCurrent() async {
-    final cur = _currentLearn;
-    if (cur == null) {
+  Future<void> _likeCurrent(
+    Vocab cur,
+    int presentation,
+    int sourceGeneration,
+  ) async {
+    if (presentation != _presentation ||
+        sourceGeneration != _likeSourceGeneration ||
+        !identical(cur, _currentLearn) ||
+        !studyEvidenceAcceptsInput ||
+        !_likeSourceIsCurrent) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: cur.korean,
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: cur.korean,
+        kind: LikedContentService.vocab,
+        id: cur.korean,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent() async {
@@ -1197,6 +1247,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
 
   Widget _buildLearn(AppL10n t) {
     final presentation = _presentation;
+    final likeSourceGeneration = _likeSourceGeneration;
     final cur = _currentLearn;
     if (cur == null) {
       // 빈 팩 edge case → 바로 quiz/boss
@@ -1243,7 +1294,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                 onNext: () => _learnGotIt(presentation),
                 onHard: () => _learnDontKnow(presentation),
                 onSkip: () => _learnDefer(presentation),
-                onLike: _likeCurrent,
+                onLike: () =>
+                    _likeCurrent(cur, presentation, likeSourceGeneration),
                 onBookmark: _saveCurrent,
                 bookmarkKey: cur.korean,
                 onShare: _shareCurrent,

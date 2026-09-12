@@ -348,6 +348,84 @@ enum StudyLogDateRestoreResult {
 /// Outcome of one grammar-plan cloud restore attempt.
 enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
 
+enum _ConfirmedChoiceDomain {
+  likedContent('kl_liked_content_v1'),
+  vokFavorite('kl_vok_favorites');
+
+  const _ConfirmedChoiceDomain(this.preferenceKey);
+
+  final String preferenceKey;
+}
+
+/// One explicit add/remove choice for the two learner favorite lists.
+///
+/// The item and desired state are frozen at admission so Retry cannot invert a
+/// choice or accidentally act on a newly rendered card.
+final class ConfirmedLocalChoiceOperation {
+  ConfirmedLocalChoiceOperation._(
+    this._assertCurrentOwner, {
+    required this.itemKey,
+    required this.desired,
+    required _ConfirmedChoiceDomain domain,
+  }) : _domain = domain,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._confirmedChoiceEpoch,
+       _revision = Storage._admitConfirmedChoice(domain, itemKey);
+
+  final String itemKey;
+  final bool desired;
+  final _ConfirmedChoiceDomain _domain;
+  final void Function()? _assertCurrentOwner;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  final int _revision;
+  Future<bool>? _activeSave;
+  bool _completed = false;
+  bool _retired = false;
+
+  Future<bool> save() {
+    try {
+      _assertCurrent();
+    } on Object catch (error, stackTrace) {
+      return Future<bool>.error(error, stackTrace);
+    }
+    final active = _activeSave;
+    if (active != null) {
+      return active;
+    }
+    if (_completed) {
+      return Future<bool>.value(desired);
+    }
+    late final Future<bool> result;
+    result = Storage._saveConfirmedChoice(this).whenComplete(() {
+      if (identical(result, _activeSave)) {
+        _activeSave = null;
+      }
+    });
+    _activeSave = result;
+    return result;
+  }
+
+  void _assertCurrent() {
+    _assertCurrentOwner?.call();
+    if (_retired ||
+        !_lifetime.isCurrent ||
+        _epoch != Storage._confirmedChoiceEpoch ||
+        Storage._learningResetCount > 0 ||
+        Storage._confirmedChoiceRevisions[Storage._confirmedChoiceRevisionKey(
+              _domain,
+              itemKey,
+            )] !=
+            _revision) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  void retire() {
+    _retired = true;
+  }
+}
+
 class GrammarPlanConflictException implements Exception {
   const GrammarPlanConflictException(this.level);
 
@@ -1161,6 +1239,14 @@ class Storage {
   static _PendingVocabPreferenceWrite? _pendingVocabPreferenceWrite;
   static final Map<String, _PendingVocabPreferenceWrite>
   _quarantinedVocabPreferenceWrites = <String, _PendingVocabPreferenceWrite>{};
+  static final Map<String, _StringListPreferenceState> _confirmedChoiceStates =
+      <String, _StringListPreferenceState>{};
+  static final Map<String, int> _confirmedChoiceRevisions = <String, int>{};
+  static final Map<String, Future<void>> _confirmedChoiceMutations =
+      <String, Future<void>>{};
+  static int _confirmedChoiceEpoch = 0;
+  static int _confirmedChoiceMutationCount = 0;
+  static int _confirmedChoiceMutationGeneration = 0;
   // `resetForTesting()` remains synchronous for its many callers, but a new
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
@@ -1214,6 +1300,9 @@ class Storage {
     final grammarPlanMutation = _grammarPlanMutation;
     if (_grammarPlanMutationCount > 0 && grammarPlanMutation != null) {
       drains.add(grammarPlanMutation);
+    }
+    if (_confirmedChoiceMutationCount > 0) {
+      drains.addAll(_confirmedChoiceMutations.values);
     }
     final learningReset = _learningResetMutation;
     if (_learningResetCount > 0 && learningReset != null) {
@@ -1289,6 +1378,12 @@ class Storage {
     _confirmedWrongCountRaw = null;
     _pendingVocabPreferenceWrite = null;
     _quarantinedVocabPreferenceWrites.clear();
+    _confirmedChoiceEpoch++;
+    _confirmedChoiceMutationGeneration++;
+    _confirmedChoiceMutationCount = 0;
+    _confirmedChoiceMutations.clear();
+    _confirmedChoiceRevisions.clear();
+    _confirmedChoiceStates.clear();
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -1321,6 +1416,9 @@ class Storage {
     _confirmedWrongCountRaw = null;
     _pendingVocabPreferenceWrite = null;
     _quarantinedVocabPreferenceWrites.clear();
+    _confirmedChoiceEpoch++;
+    _confirmedChoiceRevisions.clear();
+    _confirmedChoiceStates.clear();
     _grammarPlanConfirmedViewInitialized = false;
     _grammarPlanAdmissionRevision++;
     _confirmedGrammarPlanLevelRevision = _grammarPlanAdmissionRevision;
@@ -2795,33 +2893,217 @@ class Storage {
     }
   }
 
+  static String _confirmedChoiceRevisionKey(
+    _ConfirmedChoiceDomain domain,
+    String itemKey,
+  ) => '${domain.preferenceKey}\u0000$itemKey';
+
+  static int _admitConfirmedChoice(
+    _ConfirmedChoiceDomain domain,
+    String itemKey,
+  ) {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    final key = _confirmedChoiceRevisionKey(domain, itemKey);
+    final revision = (_confirmedChoiceRevisions[key] ?? 0) + 1;
+    _confirmedChoiceRevisions[key] = revision;
+    return revision;
+  }
+
+  static List<String> _confirmedChoiceList(_ConfirmedChoiceDomain domain) {
+    final key = domain.preferenceKey;
+    final cached = _confirmedChoiceStates[key];
+    if (cached != null) {
+      return List<String>.of(cached.value ?? const <String>[]);
+    }
+    final preferences = _prefs;
+    if (preferences == null) {
+      return <String>[];
+    }
+    try {
+      final state = _StringListPreferenceState.read(
+        _SharedPreferenceStringListStore(preferences),
+        key,
+      );
+      _confirmedChoiceStates[key] = state;
+      return List<String>.of(state.value ?? const <String>[]);
+    } on Object {
+      _unknownStrictKeys.add(key);
+      return <String>[];
+    }
+  }
+
+  static void _publishConfirmedChoice(
+    _ConfirmedChoiceDomain domain,
+    _StringListPreferenceState state,
+  ) {
+    _confirmedChoiceStates[domain.preferenceKey] = state;
+  }
+
+  static Future<_StringListPreferenceState> _prepareConfirmedChoiceMutation(
+    PreferenceStringListStore store,
+    _ConfirmedChoiceDomain domain,
+  ) async {
+    final key = domain.preferenceKey;
+    final requiresNativeRefresh = _unknownStrictKeys.contains(key);
+    if (requiresNativeRefresh) {
+      await _refreshUnknownStringListKeys(store, <String>[key]);
+    } else {
+      final confirmed = _confirmedChoiceStates[key];
+      if (confirmed != null) {
+        return confirmed;
+      }
+    }
+    try {
+      return _StringListPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static void _assertConfirmedChoiceCurrentAfterNative(
+    ConfirmedLocalChoiceOperation operation,
+    String preferenceKey,
+  ) {
+    try {
+      operation._assertCurrent();
+    } on StaleLocalDataLifetimeException {
+      // The setter was already issued, so its durable outcome can differ from
+      // the last confirmed view even when this operation must not publish.
+      // Force the next queued/fresh owner to reconcile native state first.
+      _unknownStrictKeys.add(preferenceKey);
+      rethrow;
+    }
+  }
+
+  static Future<bool> _saveConfirmedChoice(
+    ConfirmedLocalChoiceOperation operation,
+  ) {
+    operation._assertCurrent();
+    final domainKey = operation._domain.preferenceKey;
+    final prior = _confirmedChoiceMutations[domainKey];
+    final generation = _confirmedChoiceMutationGeneration;
+    _confirmedChoiceMutationCount++;
+    late final Future<bool> result;
+    late final Future<void> tail;
+    result = () async {
+      if (prior != null) {
+        await prior;
+      }
+      operation._assertCurrent();
+      final preferences = _prefs;
+      if (preferences == null) {
+        throw PreferenceWriteException(domainKey);
+      }
+      final store = _SharedPreferenceStringListStore(preferences);
+      late final _StringListPreferenceState before;
+      try {
+        before = await _prepareConfirmedChoiceMutation(
+          store,
+          operation._domain,
+        );
+      } on Object {
+        operation._assertCurrent();
+        rethrow;
+      }
+      operation._assertCurrent();
+      final current = before.value ?? const <String>[];
+      _publishConfirmedChoice(operation._domain, before);
+      final contains = current.contains(operation.itemKey);
+      if (contains == operation.desired) {
+        operation._completed = true;
+        return operation.desired;
+      }
+      final next = <String>[
+        for (final item in current)
+          if (item != operation.itemKey) item,
+        if (operation.desired) operation.itemKey,
+      ];
+      try {
+        await _slStrict(
+          domainKey,
+          next,
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: operation._assertCurrent,
+        );
+      } on Object catch (error) {
+        _assertConfirmedChoiceCurrentAfterNative(operation, domainKey);
+        if (error is PreferenceWriteException) {
+          _publishConfirmedChoice(operation._domain, before);
+        }
+        rethrow;
+      }
+      _assertConfirmedChoiceCurrentAfterNative(operation, domainKey);
+      _publishConfirmedChoice(
+        operation._domain,
+        _StringListPreferenceState._(
+          isPresent: true,
+          value: List<String>.unmodifiable(next),
+        ),
+      );
+      operation._completed = true;
+      return operation.desired;
+    }();
+    tail = result.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    _confirmedChoiceMutations[domainKey] = tail;
+    tail.whenComplete(() {
+      if (generation == _confirmedChoiceMutationGeneration) {
+        _confirmedChoiceMutationCount--;
+        if (identical(tail, _confirmedChoiceMutations[domainKey])) {
+          _confirmedChoiceMutations.remove(domainKey);
+        }
+      }
+    });
+    return result;
+  }
+
+  static ConfirmedLocalChoiceOperation likedContentOperation(
+    String key, {
+    required bool desired,
+    void Function()? assertCurrentOwner,
+  }) => ConfirmedLocalChoiceOperation._(
+    assertCurrentOwner,
+    itemKey: key,
+    desired: desired,
+    domain: _ConfirmedChoiceDomain.likedContent,
+  );
+
+  static ConfirmedLocalChoiceOperation vokFavoriteOperation(
+    String id, {
+    required bool desired,
+    void Function()? assertCurrentOwner,
+  }) => ConfirmedLocalChoiceOperation._(
+    assertCurrentOwner,
+    itemKey: id,
+    desired: desired,
+    domain: _ConfirmedChoiceDomain.vokFavorite,
+  );
+
   /// Vokabel-Favoriten — Stern-Markierung für gezieltes Wiederholen.
-  static List<String> get vokFavorites => _l('kl_vok_favorites');
+  static List<String> get vokFavorites =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.vokFavorite);
   static bool isVokFavorite(String id) => vokFavorites.contains(id);
   static Future<void> toggleVokFavorite(String id) async {
-    final list = vokFavorites;
-    if (list.contains(id)) {
-      list.remove(id);
-    } else {
-      list.add(id);
-    }
-    await _sl('kl_vok_favorites', list);
+    await vokFavoriteOperation(id, desired: !isVokFavorite(id)).save();
+  }
+
+  static Future<void> setVokFavorite(String id, bool desired) async {
+    await vokFavoriteOperation(id, desired: desired).save();
   }
 
   /// Liked content keys (`kind|id`) — play-later drawer, not the wordbook.
-  static List<String> get likedContentKeys => _l('kl_liked_content_v1');
+  static List<String> get likedContentKeys =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.likedContent);
   static bool isLikedContent(String key) => likedContentKeys.contains(key);
   static Future<bool> toggleLikedContent(String key) async {
-    final list = likedContentKeys;
-    final liked = list.contains(key);
-    if (liked) {
-      list.remove(key);
-    } else {
-      list.add(key);
-    }
-    await _sl('kl_liked_content_v1', list);
-    return !liked;
+    return likedContentOperation(key, desired: !isLikedContent(key)).save();
   }
+
+  static Future<bool> setLikedContent(String key, bool desired) =>
+      likedContentOperation(key, desired: desired).save();
 
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
@@ -6939,6 +7221,8 @@ class Storage {
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
           if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)
             _grammarPlanMutation!,
+          if (_confirmedChoiceMutationCount > 0)
+            ..._confirmedChoiceMutations.values,
         ]);
         await reset();
       } finally {
