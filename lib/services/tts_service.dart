@@ -21,6 +21,7 @@ import 'tts_cache_key.dart';
 import 'tts_canonical_manifest.dart';
 import 'tts_private_cache.dart';
 import 'tts_private_playback.dart';
+import 'tts_public_web_audio.dart';
 
 export 'tts_cache_key.dart';
 
@@ -1011,10 +1012,16 @@ class TtsService {
 
     // 3. Firebase Storage (사전생성된 고정 콘텐츠)
     try {
-      final Uint8List? data = await _storage
-          .ref(key.storagePath)
-          .getData(_maxBytes)
-          .timeout(_storageTimeout);
+      final Uint8List? data = kIsWeb
+          ? await TtsPublicWebAudio.read(
+              key,
+              maxBytes: _maxBytes,
+              timeout: _storageTimeout,
+            )
+          : await _storage
+                .ref(key.storagePath)
+                .getData(_maxBytes)
+                .timeout(_storageTimeout);
       if (data != null && TtsCacheKey.isUsableAudio(data)) {
         return await _cacheAndWrap(key, file, data);
       }
