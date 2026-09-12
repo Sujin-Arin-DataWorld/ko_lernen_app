@@ -1,0 +1,1564 @@
+# Phase 필수 목표의 실제 연결
+
+원본 문법·4기능·장르·기능·어휘 영역·발음·말투 요구를 같은 목록에 유지한다. 연결된 과제는 해당 요구의 연습 경로이며 전체 숙달을 증명하지 않는다.
+
+R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결하지 않은 요구를 분모에서 제거하지 않는다.
+
+| Phase | 필수 요구 | 경로 연결 | 미연결 | 전체 숙달 |
+|---|---:|---:|---:|---|
+| KP01 | 58 | 16 | 42 | 미검증 |
+| KP02 | 54 | 15 | 39 | 미검증 |
+| KP03 | 57 | 16 | 41 | 미검증 |
+| KP04 | 57 | 15 | 42 | 미검증 |
+| KP05 | 57 | 17 | 40 | 미검증 |
+| KP06 | 56 | 22 | 34 | 미검증 |
+| KP07 | 56 | 21 | 35 | 미검증 |
+| KP08 | 61 | 23 | 38 | 미검증 |
+| KP09 | 49 | 0 | 49 | 미검증 |
+| KP10 | 62 | 0 | 62 | 미검증 |
+| KP11 | 58 | 0 | 58 | 미검증 |
+| KP12 | 57 | 0 | 57 | 미검증 |
+| KP13 | 57 | 0 | 57 | 미검증 |
+| KP14 | 48 | 0 | 48 | 미검증 |
+| KP15 | 58 | 0 | 58 | 미검증 |
+| KP16 | 52 | 0 | 52 | 미검증 |
+| KP17 | 56 | 0 | 56 | 미검증 |
+| KP18 | 66 | 0 | 66 | 미검증 |
+| KP19 | 56 | 0 | 56 | 미검증 |
+| KP20 | 52 | 0 | 52 | 미검증 |
+| KP21 | 54 | 0 | 54 | 미검증 |
+| KP22 | 52 | 0 | 52 | 미검증 |
+| KP23 | 48 | 0 | 48 | 미검증 |
+| KP24 | 58 | 0 | 58 | 미검증 |
+| KP25 | 49 | 0 | 49 | 미검증 |
+| KP26 | 48 | 0 | 48 | 미검증 |
+| KP27 | 53 | 0 | 53 | 미검증 |
+| KP28 | 53 | 0 | 53 | 미검증 |
+| KP29 | 55 | 0 | 55 | 미검증 |
+| KP30 | 71 | 0 | 71 | 미검증 |
+
+## 미연결 요구
+
+- `KP01:objective:grammar/G1:이다:P`
+- `KP01:objective:grammar/G1:이 아니다:P`
+- `KP01:objective:grammar/G1:은1:P`
+- `KP01:objective:grammar/G1:이:P`
+- `KP01:objective:grammar/G1:을1:P`
+- `KP01:objective:grammar/G1:의:P`
+- `KP01:objective:grammar/G1:과:P`
+- `KP01:objective:grammar/G1:이랑:P`
+- `KP01:objective:grammar/G1:하고:P`
+- `KP01:objective:grammar/G1:-어2:P`
+- `KP01:objective:grammar/G1:-습니다:P`
+- `KP01:objective:grammar/G1:-습니까:P`
+- `KP01:objective:listening/genre/dialogue_face_to_face:R`
+- `KP01:objective:reading/genre/sign_notice_short:R`
+- `KP01:objective:speaking/genre/dialogue_face_to_face:P`
+- `KP01:objective:writing/genre/form_application:P`
+- `KP01:objective:functions/greet_introduce_self:R`
+- `KP01:objective:functions/greet_introduce_self:P`
+- `KP01:objective:functions/ask_give_personal_information:R`
+- `KP01:objective:functions/ask_give_personal_information:P`
+- `KP01:objective:functions/ask_for_information_confirm:R`
+- `KP01:objective:functions/ask_for_information_confirm:P`
+- `KP01:objective:functions/thank_apologise_respond:R`
+- `KP01:objective:functions/thank_apologise_respond:P`
+- `KP01:objective:functions/clarify_repair_ask_to_repeat:R`
+- `KP01:objective:functions/clarify_repair_ask_to_repeat:P`
+- `KP01:objective:vocabDomains/family_kinship_address_terms:R`
+- `KP01:objective:vocabDomains/family_kinship_address_terms:P`
+- `KP01:objective:vocabDomains/professions_workplace:R`
+- `KP01:objective:vocabDomains/professions_workplace:P`
+- `KP01:objective:vocabDomains/school_study_terms:R`
+- `KP01:objective:vocabDomains/school_study_terms:P`
+- `KP01:objective:vocabDomains/etiquette_honorific_lexis:R`
+- `KP01:objective:vocabDomains/etiquette_honorific_lexis:P`
+- `KP01:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP01:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP01:objective:phonology/0:R`
+- `KP01:objective:phonology/0:P`
+- `KP01:objective:phonology/1:R`
+- `KP01:objective:phonology/1:P`
+- `KP01:objective:register/hapsyo_formal_business:R`
+- `KP01:objective:register/haeyo_polite:P`
+- `KP02:objective:grammar/G1:에:P`
+- `KP02:objective:grammar/G1:에서:P`
+- `KP02:objective:grammar/G1:부터:P`
+- `KP02:objective:grammar/G1:까지:P`
+- `KP02:objective:grammar/G1:으로:P`
+- `KP02:objective:grammar/G1:-었-:P`
+- `KP02:objective:grammar/G1:-고3:P`
+- `KP02:objective:grammar/G1:-지 않다:P`
+- `KP02:objective:grammar/G1:-지 못하다:P`
+- `KP02:objective:grammar/G1:도:P`
+- `KP02:objective:grammar/G1:만:P`
+- `KP02:objective:listening/genre/public_announcement_spoken:R`
+- `KP02:objective:listening/genre/phone_call:R`
+- `KP02:objective:reading/genre/menu_pricelist_timetable:R`
+- `KP02:objective:writing/genre/personal_note_postcard:P`
+- `KP02:objective:writing/genre/instant_message_chat:P`
+- `KP02:objective:functions/identify_locate_things:R`
+- `KP02:objective:functions/identify_locate_things:P`
+- `KP02:objective:functions/narrate_experience_events:R`
+- `KP02:objective:functions/narrate_experience_events:P`
+- `KP02:objective:functions/describe_people_things_places:R`
+- `KP02:objective:functions/describe_people_things_places:P`
+- `KP02:objective:functions/ask_for_information_confirm:R`
+- `KP02:objective:functions/ask_for_information_confirm:P`
+- `KP02:objective:vocabDomains/numbers_quantity_units:R`
+- `KP02:objective:vocabDomains/numbers_quantity_units:P`
+- `KP02:objective:vocabDomains/time_calendar:R`
+- `KP02:objective:vocabDomains/time_calendar:P`
+- `KP02:objective:vocabDomains/home_objects_furniture:R`
+- `KP02:objective:vocabDomains/home_objects_furniture:P`
+- `KP02:objective:vocabDomains/places_buildings_city:R`
+- `KP02:objective:vocabDomains/places_buildings_city:P`
+- `KP02:objective:vocabDomains/transport_travel_vocab:R`
+- `KP02:objective:vocabDomains/transport_travel_vocab:P`
+- `KP02:objective:phonology/0:R`
+- `KP02:objective:phonology/0:P`
+- `KP02:objective:phonology/1:R`
+- `KP02:objective:phonology/1:P`
+- `KP02:objective:register/haeyo_polite:P`
+- `KP03:objective:grammar/G1:에게:P`
+- `KP03:objective:grammar/G1:한테:P`
+- `KP03:objective:grammar/G1:-으러:P`
+- `KP03:objective:grammar/G1:-으려고1:P`
+- `KP03:objective:grammar/G1:-고 싶다:P`
+- `KP03:objective:grammar/G1:-고 있다:P`
+- `KP03:objective:grammar/G1:-을 수 있다:P`
+- `KP03:objective:grammar/G1:-겠-:P`
+- `KP03:objective:grammar/G1:-으세요:P`
+- `KP03:objective:grammar/G1:-으십시오:P`
+- `KP03:objective:grammar/G1:-을까:P`
+- `KP03:objective:grammar/G1:-읍시다:P`
+- `KP03:objective:listening/genre/service_encounter_counter:R`
+- `KP03:objective:reading/genre/menu_pricelist_timetable:R`
+- `KP03:objective:speaking/genre/service_encounter_counter:P`
+- `KP03:objective:writing/genre/instant_message_chat:P`
+- `KP03:objective:functions/express_preference_taste:R`
+- `KP03:objective:functions/express_preference_taste:P`
+- `KP03:objective:functions/order_buy_pay:R`
+- `KP03:objective:functions/order_buy_pay:P`
+- `KP03:objective:functions/request_ask_someone_to_do:R`
+- `KP03:objective:functions/request_ask_someone_to_do:P`
+- `KP03:objective:functions/suggest_propose:R`
+- `KP03:objective:functions/suggest_propose:P`
+- `KP03:objective:functions/make_change_cancel_appointments:R`
+- `KP03:objective:functions/make_change_cancel_appointments:P`
+- `KP03:objective:functions/express_intention_plan_wish:R`
+- `KP03:objective:functions/express_intention_plan_wish:P`
+- `KP03:objective:vocabDomains/numbers_quantity_units:R`
+- `KP03:objective:vocabDomains/numbers_quantity_units:P`
+- `KP03:objective:vocabDomains/food_cooking:R`
+- `KP03:objective:vocabDomains/food_cooking:P`
+- `KP03:objective:vocabDomains/transport_travel_vocab:R`
+- `KP03:objective:vocabDomains/transport_travel_vocab:P`
+- `KP03:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP03:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP03:objective:phonology/0:R`
+- `KP03:objective:phonology/0:P`
+- `KP03:objective:phonology/1:R`
+- `KP03:objective:phonology/1:P`
+- `KP03:objective:register/haeyo_polite:P`
+- `KP04:objective:grammar/G1:-으시-:P`
+- `KP04:objective:grammar/G1:께서:P`
+- `KP04:objective:grammar/G1:-어서:P`
+- `KP04:objective:grammar/G1:-으니까:P`
+- `KP04:objective:grammar/G1:-지만:P`
+- `KP04:objective:grammar/G1:보다:P`
+- `KP04:objective:grammar/G1:-고4:P`
+- `KP04:objective:grammar/G1:-기 전에:P`
+- `KP04:objective:grammar/G1:-은 후에:P`
+- `KP04:objective:grammar/G1:-어야 되다:P`
+- `KP04:objective:grammar/G1:-겠-:P`
+- `KP04:objective:listening/genre/song_lyric_line:R`
+- `KP04:objective:listening/genre/dialogue_face_to_face:R`
+- `KP04:objective:speaking/genre/dialogue_face_to_face:P`
+- `KP04:objective:writing/genre/personal_note_postcard:P`
+- `KP04:objective:functions/express_feelings_emotions:R`
+- `KP04:objective:functions/express_feelings_emotions:P`
+- `KP04:objective:functions/describe_people_things_places:R`
+- `KP04:objective:functions/describe_people_things_places:P`
+- `KP04:objective:functions/thank_apologise_respond:R`
+- `KP04:objective:functions/thank_apologise_respond:P`
+- `KP04:objective:functions/make_change_cancel_appointments:R`
+- `KP04:objective:functions/make_change_cancel_appointments:P`
+- `KP04:objective:functions/express_obligation_permission:R`
+- `KP04:objective:functions/express_obligation_permission:P`
+- `KP04:objective:functions/give_follow_instructions_directions:R`
+- `KP04:objective:functions/give_follow_instructions_directions:P`
+- `KP04:objective:vocabDomains/colours_shapes_description:R`
+- `KP04:objective:vocabDomains/colours_shapes_description:P`
+- `KP04:objective:vocabDomains/body_health_symptoms:R`
+- `KP04:objective:vocabDomains/body_health_symptoms:P`
+- `KP04:objective:vocabDomains/weather_nature:R`
+- `KP04:objective:vocabDomains/weather_nature:P`
+- `KP04:objective:vocabDomains/etiquette_honorific_lexis:R`
+- `KP04:objective:vocabDomains/etiquette_honorific_lexis:P`
+- `KP04:objective:phonology/0:R`
+- `KP04:objective:phonology/0:P`
+- `KP04:objective:phonology/1:R`
+- `KP04:objective:phonology/1:P`
+- `KP04:objective:register/hapsyo_formal_business:R`
+- `KP04:objective:register/banmal_casual:R`
+- `KP04:objective:register/haeyo_polite:P`
+- `KP05:objective:grammar/G2:-으면:P`
+- `KP05:objective:grammar/G2:-거나:P`
+- `KP05:objective:grammar/G2:이나:P`
+- `KP05:objective:grammar/G2:마다:P`
+- `KP05:objective:grammar/G2:밖에:P`
+- `KP05:objective:grammar/G2:처럼:P`
+- `KP05:objective:grammar/G2:-어도 되다:P`
+- `KP05:objective:grammar/G2:-지 말다:P`
+- `KP05:objective:grammar/G2:-어 주다:P`
+- `KP05:objective:reading/genre/written_notice_announcement:R`
+- `KP05:objective:functions/express_obligation_permission:R`
+- `KP05:objective:functions/express_obligation_permission:P`
+- `KP05:objective:functions/request_ask_someone_to_do:R`
+- `KP05:objective:functions/request_ask_someone_to_do:P`
+- `KP05:objective:functions/order_buy_pay:R`
+- `KP05:objective:functions/order_buy_pay:P`
+- `KP05:objective:functions/complain_object_appeal:R`
+- `KP05:objective:functions/complain_object_appeal:P`
+- `KP05:objective:functions/compare_contrast_alternatives:R`
+- `KP05:objective:functions/compare_contrast_alternatives:P`
+- `KP05:objective:vocabDomains/clothing_accessories:R`
+- `KP05:objective:vocabDomains/clothing_accessories:P`
+- `KP05:objective:vocabDomains/money_prices_banking:R`
+- `KP05:objective:vocabDomains/money_prices_banking:P`
+- `KP05:objective:vocabDomains/public_services_admin_vocab:R`
+- `KP05:objective:vocabDomains/public_services_admin_vocab:P`
+- `KP05:objective:vocabDomains/body_health_symptoms:R`
+- `KP05:objective:vocabDomains/body_health_symptoms:P`
+- `KP05:objective:vocabDomains/home_objects_furniture:R`
+- `KP05:objective:vocabDomains/home_objects_furniture:P`
+- `KP05:objective:vocabDomains/transport_travel_vocab:R`
+- `KP05:objective:vocabDomains/transport_travel_vocab:P`
+- `KP05:objective:vocabDomains/food_cooking:R`
+- `KP05:objective:vocabDomains/food_cooking:P`
+- `KP05:objective:phonology/0:R`
+- `KP05:objective:phonology/0:P`
+- `KP05:objective:phonology/1:R`
+- `KP05:objective:phonology/1:P`
+- `KP05:objective:register/haeyo_polite:P`
+- `KP05:objective:register/hapsyo_formal_business:P`
+- `KP06:objective:grammar/G2:-는2:P`
+- `KP06:objective:grammar/G2:-은2:P`
+- `KP06:objective:grammar/G2:-은3:P`
+- `KP06:objective:grammar/G2:-을2:P`
+- `KP06:objective:grammar/G2:-는 것:P`
+- `KP06:objective:grammar/G2:-기:P`
+- `KP06:objective:grammar/G2:-을 때:P`
+- `KP06:objective:grammar/G2:-는 동안에:P`
+- `KP06:objective:grammar/G2:-은 지2:P`
+- `KP06:objective:grammar/G2:-은 적이 있다:P`
+- `KP06:objective:grammar/G2:-어 보다:P`
+- `KP06:objective:grammar/G2:-으면서:P`
+- `KP06:objective:grammar/G2:-다가1(1):P`
+- `KP06:objective:grammar/G1:-고 있다:P`
+- `KP06:objective:functions/report_relay_information:R`
+- `KP06:objective:functions/report_relay_information:P`
+- `KP06:objective:functions/express_feelings_emotions:R`
+- `KP06:objective:functions/express_feelings_emotions:P`
+- `KP06:objective:functions/invite_accept_decline:R`
+- `KP06:objective:functions/invite_accept_decline:P`
+- `KP06:objective:functions/congratulate_sympathise_comfort:R`
+- `KP06:objective:functions/congratulate_sympathise_comfort:P`
+- `KP06:objective:vocabDomains/feelings_emotions_character:R`
+- `KP06:objective:vocabDomains/feelings_emotions_character:P`
+- `KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:R`
+- `KP06:objective:vocabDomains/leisure_sport_hobbies_vocab:P`
+- `KP06:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP06:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP06:objective:phonology/0:R`
+- `KP06:objective:phonology/0:P`
+- `KP06:objective:phonology/1:R`
+- `KP06:objective:phonology/1:P`
+- `KP06:objective:register/haeyo_polite:P`
+- `KP06:objective:register/banmal_casual:P`
+- `KP07:objective:grammar/G2:-는데1:P`
+- `KP07:objective:grammar/G2:-게2:P`
+- `KP07:objective:grammar/G2:-기 때문에:P`
+- `KP07:objective:grammar/G2:-기로 하다:P`
+- `KP07:objective:grammar/G2:-는 것 같다:P`
+- `KP07:objective:grammar/G2:-을 수밖에 없다:P`
+- `KP07:objective:grammar/G2:-을게:P`
+- `KP07:objective:grammar/G2:-을래:P`
+- `KP07:objective:grammar/G2:-을까 보다:P`
+- `KP07:objective:grammar/G2:-게 되다:P`
+- `KP07:objective:grammar/G1:-고4:P`
+- `KP07:objective:grammar/G1:-어서:P`
+- `KP07:objective:grammar/G1:-지만:P`
+- `KP07:objective:functions/explain_reason_cause_effect:R`
+- `KP07:objective:functions/explain_reason_cause_effect:P`
+- `KP07:objective:functions/express_opinion_agree_disagree:R`
+- `KP07:objective:functions/express_opinion_agree_disagree:P`
+- `KP07:objective:functions/advise_recommend_warn:R`
+- `KP07:objective:functions/advise_recommend_warn:P`
+- `KP07:objective:functions/make_change_cancel_appointments:R`
+- `KP07:objective:functions/make_change_cancel_appointments:P`
+- `KP07:objective:functions/small_talk_maintain_relationships:R`
+- `KP07:objective:functions/small_talk_maintain_relationships:P`
+- `KP07:objective:vocabDomains/technology_devices_internet:R`
+- `KP07:objective:vocabDomains/technology_devices_internet:P`
+- `KP07:objective:vocabDomains/feelings_emotions_character:R`
+- `KP07:objective:vocabDomains/feelings_emotions_character:P`
+- `KP07:objective:vocabDomains/transport_travel_vocab:R`
+- `KP07:objective:vocabDomains/transport_travel_vocab:P`
+- `KP07:objective:phonology/0:R`
+- `KP07:objective:phonology/0:P`
+- `KP07:objective:phonology/1:R`
+- `KP07:objective:phonology/1:P`
+- `KP07:objective:register/haeyo_polite:P`
+- `KP07:objective:register/hapsyo_formal_business:P`
+- `KP08:objective:grammar/G2:-음:P`
+- `KP08:objective:grammar/G2:께:P`
+- `KP08:objective:grammar/G2:에게로:P`
+- `KP08:objective:grammar/G2:에게서:P`
+- `KP08:objective:grammar/G2:한테서:P`
+- `KP08:objective:grammar/G2:에다가:P`
+- `KP08:objective:grammar/G2:에서부터(서부터):P`
+- `KP08:objective:grammar/G2:-네:P`
+- `KP08:objective:grammar/G2:-는군:P`
+- `KP08:objective:grammar/G2:-는데2:P`
+- `KP08:objective:grammar/G2:-지:P`
+- `KP08:objective:grammar/G2:-어 있다:P`
+- `KP08:objective:grammar/G2:-을 것1:P`
+- `KP08:objective:grammar/G1:-고 있다:P`
+- `KP08:objective:functions/give_follow_instructions_directions:R`
+- `KP08:objective:functions/give_follow_instructions_directions:P`
+- `KP08:objective:functions/report_relay_information:R`
+- `KP08:objective:functions/report_relay_information:P`
+- `KP08:objective:functions/congratulate_sympathise_comfort:R`
+- `KP08:objective:functions/congratulate_sympathise_comfort:P`
+- `KP08:objective:functions/complain_object_appeal:R`
+- `KP08:objective:functions/complain_object_appeal:P`
+- `KP08:objective:functions/adjust_register_speech_style:R`
+- `KP08:objective:functions/adjust_register_speech_style:P`
+- `KP08:objective:vocabDomains/public_services_admin_vocab:R`
+- `KP08:objective:vocabDomains/public_services_admin_vocab:P`
+- `KP08:objective:vocabDomains/technology_devices_internet:R`
+- `KP08:objective:vocabDomains/technology_devices_internet:P`
+- `KP08:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP08:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP08:objective:phonology/0:R`
+- `KP08:objective:phonology/0:P`
+- `KP08:objective:phonology/1:R`
+- `KP08:objective:phonology/1:P`
+- `KP08:objective:register/intimate:R`
+- `KP08:objective:register/haeyo_polite:P`
+- `KP08:objective:register/banmal_casual:P`
+- `KP08:objective:register/hapsyo_formal_business:P`
+- `KP09:objective:grammar/G3:-는다:R`
+- `KP09:objective:grammar/G3:-는다:P`
+- `KP09:objective:grammar/G3:-니2:R`
+- `KP09:objective:grammar/G3:-니2:P`
+- `KP09:objective:grammar/G3:-자3:R`
+- `KP09:objective:grammar/G3:-자3:P`
+- `KP09:objective:grammar/G3:-는구나:R`
+- `KP09:objective:grammar/G3:-는구나:P`
+- `KP09:objective:grammar/G3:-던-:R`
+- `KP09:objective:grammar/G3:-던-:P`
+- `KP09:objective:grammar/G3:-던데2:R`
+- `KP09:objective:grammar/G3:-던데2:P`
+- `KP09:objective:grammar/G3:아1:R`
+- `KP09:objective:grammar/G3:아1:P`
+- `KP09:objective:grammar/G3:요1:R`
+- `KP09:objective:grammar/G3:요1:P`
+- `KP09:objective:grammar/G3:-었었-:R`
+- `KP09:objective:grammar/G3:-었었-:P`
+- `KP09:objective:grammar/G3:-는 중이다:R`
+- `KP09:objective:grammar/G3:-는 중이다:P`
+- `KP09:objective:grammar/G3:-고 싶어 하다:R`
+- `KP09:objective:grammar/G3:-고 싶어 하다:P`
+- `KP09:objective:listening/core:R`
+- `KP09:objective:listening/genre/lecture_speech_monologue:R`
+- `KP09:objective:reading/core:R`
+- `KP09:objective:reading/genre/social_media_post_comment:R`
+- `KP09:objective:speaking/core:P`
+- `KP09:objective:speaking/genre/job_interview:P`
+- `KP09:objective:writing/core:P`
+- `KP09:objective:writing/genre/narrative_story_diary:P`
+- `KP09:objective:functions/narrate_experience_events:R`
+- `KP09:objective:functions/narrate_experience_events:P`
+- `KP09:objective:functions/express_feelings_emotions:R`
+- `KP09:objective:functions/express_feelings_emotions:P`
+- `KP09:objective:functions/adjust_register_speech_style:R`
+- `KP09:objective:functions/adjust_register_speech_style:P`
+- `KP09:objective:vocabDomains/feelings_emotions_character:R`
+- `KP09:objective:vocabDomains/feelings_emotions_character:P`
+- `KP09:objective:vocabDomains/language_metalanguage:R`
+- `KP09:objective:vocabDomains/language_metalanguage:P`
+- `KP09:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP09:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP09:objective:phonology/0:R`
+- `KP09:objective:phonology/0:P`
+- `KP09:objective:phonology/1:R`
+- `KP09:objective:phonology/1:P`
+- `KP09:objective:register/banmal_casual:P`
+- `KP09:objective:register/intimate:P`
+- `KP09:objective:register/haeyo_polite:P`
+- `KP10:objective:grammar/G3:-다가1(2):R`
+- `KP10:objective:grammar/G3:-다가1(2):P`
+- `KP10:objective:grammar/G3:-으려다가:R`
+- `KP10:objective:grammar/G3:-으려다가:P`
+- `KP10:objective:grammar/G3:-었더니:R`
+- `KP10:objective:grammar/G3:-었더니:P`
+- `KP10:objective:grammar/G3:-느라고:R`
+- `KP10:objective:grammar/G3:-느라고:P`
+- `KP10:objective:grammar/G3:-어다가:R`
+- `KP10:objective:grammar/G3:-어다가:P`
+- `KP10:objective:grammar/G3:-자마자:R`
+- `KP10:objective:grammar/G3:-자마자:P`
+- `KP10:objective:grammar/G3:-고 나다:R`
+- `KP10:objective:grammar/G3:-고 나다:P`
+- `KP10:objective:grammar/G3:-고 말다:R`
+- `KP10:objective:grammar/G3:-고 말다:P`
+- `KP10:objective:grammar/G3:-어 가다:R`
+- `KP10:objective:grammar/G3:-어 가다:P`
+- `KP10:objective:grammar/G3:-어 오다:R`
+- `KP10:objective:grammar/G3:-어 오다:P`
+- `KP10:objective:grammar/G3:-어 놓다:R`
+- `KP10:objective:grammar/G3:-어 놓다:P`
+- `KP10:objective:grammar/G3:-어 두다:R`
+- `KP10:objective:grammar/G3:-어 두다:P`
+- `KP10:objective:grammar/G3:-어지다:R`
+- `KP10:objective:grammar/G3:-어지다:P`
+- `KP10:objective:grammar/G3:-은 결과:R`
+- `KP10:objective:grammar/G3:-은 결과:P`
+- `KP10:objective:grammar/G3:-은 다음에:R`
+- `KP10:objective:grammar/G3:-은 다음에:P`
+- `KP10:objective:grammar/G3:-어 가지고:R`
+- `KP10:objective:grammar/G3:-어 가지고:P`
+- `KP10:objective:grammar/G2:-어 있다:R`
+- `KP10:objective:grammar/G2:-어 있다:P`
+- `KP10:objective:listening/core:R`
+- `KP10:objective:reading/core:R`
+- `KP10:objective:reading/genre/news_article_report:R`
+- `KP10:objective:reading/genre/explanatory_informational_text:R`
+- `KP10:objective:speaking/core:P`
+- `KP10:objective:writing/core:P`
+- `KP10:objective:writing/genre/explanatory_informational_text:P`
+- `KP10:objective:writing/genre/narrative_story_diary:P`
+- `KP10:objective:functions/narrate_experience_events:R`
+- `KP10:objective:functions/narrate_experience_events:P`
+- `KP10:objective:functions/explain_reason_cause_effect:R`
+- `KP10:objective:functions/explain_reason_cause_effect:P`
+- `KP10:objective:functions/report_relay_information:R`
+- `KP10:objective:functions/report_relay_information:P`
+- `KP10:objective:vocabDomains/professions_workplace:R`
+- `KP10:objective:vocabDomains/professions_workplace:P`
+- `KP10:objective:vocabDomains/money_prices_banking:R`
+- `KP10:objective:vocabDomains/money_prices_banking:P`
+- `KP10:objective:vocabDomains/public_services_admin_vocab:R`
+- `KP10:objective:vocabDomains/public_services_admin_vocab:P`
+- `KP10:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP10:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP10:objective:phonology/0:R`
+- `KP10:objective:phonology/0:P`
+- `KP10:objective:phonology/1:R`
+- `KP10:objective:phonology/1:P`
+- `KP10:objective:register/haeyo_polite:P`
+- `KP10:objective:register/hapsyo_formal_business:P`
+- `KP11:objective:grammar/G3:만큼:R`
+- `KP11:objective:grammar/G3:만큼:P`
+- `KP11:objective:grammar/G3:-는 만큼:R`
+- `KP11:objective:grammar/G3:-는 만큼:P`
+- `KP11:objective:grammar/G3:같이:R`
+- `KP11:objective:grammar/G3:같이:P`
+- `KP11:objective:grammar/G3:대로:R`
+- `KP11:objective:grammar/G3:대로:P`
+- `KP11:objective:grammar/G3:뿐:R`
+- `KP11:objective:grammar/G3:뿐:P`
+- `KP11:objective:grammar/G3:이고:R`
+- `KP11:objective:grammar/G3:이고:P`
+- `KP11:objective:grammar/G3:-어도:R`
+- `KP11:objective:grammar/G3:-어도:P`
+- `KP11:objective:grammar/G3:-으나:R`
+- `KP11:objective:grammar/G3:-으나:P`
+- `KP11:objective:grammar/G3:-는 대신에:R`
+- `KP11:objective:grammar/G3:-는 대신에:P`
+- `KP11:objective:grammar/G3:-는 반면:R`
+- `KP11:objective:grammar/G3:-는 반면:P`
+- `KP11:objective:grammar/G3:-는 편이다:R`
+- `KP11:objective:grammar/G3:-는 편이다:P`
+- `KP11:objective:grammar/G3:-어 보이다:R`
+- `KP11:objective:grammar/G3:-어 보이다:P`
+- `KP11:objective:grammar/G3:-기는:R`
+- `KP11:objective:grammar/G3:-기는:P`
+- `KP11:objective:grammar/G3:에 대하여:R`
+- `KP11:objective:grammar/G3:에 대하여:P`
+- `KP11:objective:listening/core:R`
+- `KP11:objective:reading/core:R`
+- `KP11:objective:reading/genre/news_article_report:R`
+- `KP11:objective:reading/genre/social_media_post_comment:R`
+- `KP11:objective:speaking/core:P`
+- `KP11:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP11:objective:writing/core:P`
+- `KP11:objective:writing/genre/review_critique_text:P`
+- `KP11:objective:functions/compare_contrast_alternatives:R`
+- `KP11:objective:functions/compare_contrast_alternatives:P`
+- `KP11:objective:functions/evaluate_assess_critique:R`
+- `KP11:objective:functions/evaluate_assess_critique:P`
+- `KP11:objective:functions/express_opinion_agree_disagree:R`
+- `KP11:objective:functions/express_opinion_agree_disagree:P`
+- `KP11:objective:functions/persuade_argue_justify:R`
+- `KP11:objective:functions/persuade_argue_justify:P`
+- `KP11:objective:vocabDomains/money_prices_banking:R`
+- `KP11:objective:vocabDomains/money_prices_banking:P`
+- `KP11:objective:vocabDomains/media_pop_culture_vocab:R`
+- `KP11:objective:vocabDomains/media_pop_culture_vocab:P`
+- `KP11:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP11:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP11:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP11:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP11:objective:phonology/0:R`
+- `KP11:objective:phonology/0:P`
+- `KP11:objective:phonology/1:R`
+- `KP11:objective:phonology/1:P`
+- `KP11:objective:register/haeyo_polite:P`
+- `KP11:objective:register/hapsyo_formal_business:P`
+- `KP12:objective:grammar/G3:-거든1:R`
+- `KP12:objective:grammar/G3:-거든1:P`
+- `KP12:objective:grammar/G3:-어야:R`
+- `KP12:objective:grammar/G3:-어야:P`
+- `KP12:objective:grammar/G3:-어야지1:R`
+- `KP12:objective:grammar/G3:-어야지1:P`
+- `KP12:objective:grammar/G3:-어야겠-:R`
+- `KP12:objective:grammar/G3:-어야겠-:P`
+- `KP12:objective:grammar/G3:-으려면:R`
+- `KP12:objective:grammar/G3:-으려면:P`
+- `KP12:objective:grammar/G3:-도록:R`
+- `KP12:objective:grammar/G3:-도록:P`
+- `KP12:objective:grammar/G3:-기 위해:R`
+- `KP12:objective:grammar/G3:-기 위해:P`
+- `KP12:objective:grammar/G3:-게 하다:R`
+- `KP12:objective:grammar/G3:-게 하다:P`
+- `KP12:objective:grammar/G3:-어 드리다:R`
+- `KP12:objective:grammar/G3:-어 드리다:P`
+- `KP12:objective:grammar/G3:-으면 안 되다:R`
+- `KP12:objective:grammar/G3:-으면 안 되다:P`
+- `KP12:objective:grammar/G3:-으면 좋겠다:R`
+- `KP12:objective:grammar/G3:-으면 좋겠다:P`
+- `KP12:objective:grammar/G3:-을 테니:R`
+- `KP12:objective:grammar/G3:-을 테니:P`
+- `KP12:objective:grammar/G3:만 아니면:R`
+- `KP12:objective:grammar/G3:만 아니면:P`
+- `KP12:objective:listening/core:R`
+- `KP12:objective:reading/core:R`
+- `KP12:objective:reading/genre/email_letter_formal:R`
+- `KP12:objective:reading/genre/explanatory_informational_text:R`
+- `KP12:objective:speaking/core:P`
+- `KP12:objective:speaking/genre/job_interview:P`
+- `KP12:objective:writing/core:P`
+- `KP12:objective:writing/genre/email_letter_formal:P`
+- `KP12:objective:functions/negotiate_compromise_conditions:R`
+- `KP12:objective:functions/negotiate_compromise_conditions:P`
+- `KP12:objective:functions/refuse_set_boundaries:R`
+- `KP12:objective:functions/refuse_set_boundaries:P`
+- `KP12:objective:functions/complain_object_appeal:R`
+- `KP12:objective:functions/complain_object_appeal:P`
+- `KP12:objective:functions/explain_reason_cause_effect:R`
+- `KP12:objective:functions/explain_reason_cause_effect:P`
+- `KP12:objective:vocabDomains/public_services_admin_vocab:R`
+- `KP12:objective:vocabDomains/public_services_admin_vocab:P`
+- `KP12:objective:vocabDomains/professions_workplace:R`
+- `KP12:objective:vocabDomains/professions_workplace:P`
+- `KP12:objective:vocabDomains/feelings_emotions_character:R`
+- `KP12:objective:vocabDomains/feelings_emotions_character:P`
+- `KP12:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP12:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP12:objective:phonology/0:R`
+- `KP12:objective:phonology/0:P`
+- `KP12:objective:phonology/1:R`
+- `KP12:objective:phonology/1:P`
+- `KP12:objective:register/haeyo_polite:P`
+- `KP12:objective:register/hapsyo_formal_business:P`
+- `KP12:objective:register/intimate:P`
+- `KP13:objective:grammar/G3:이라고1:R`
+- `KP13:objective:grammar/G3:이라고1:P`
+- `KP13:objective:grammar/G3:-는다고3:R`
+- `KP13:objective:grammar/G3:-는다고3:P`
+- `KP13:objective:grammar/G3:-는다고1:R`
+- `KP13:objective:grammar/G3:-는다고1:P`
+- `KP13:objective:grammar/G3:-는다거나1:R`
+- `KP13:objective:grammar/G3:-는다거나1:P`
+- `KP13:objective:grammar/G3:보고:R`
+- `KP13:objective:grammar/G3:보고:P`
+- `KP13:objective:grammar/G3:으로부터:R`
+- `KP13:objective:grammar/G3:으로부터:P`
+- `KP13:objective:grammar/G3:-거든2:R`
+- `KP13:objective:grammar/G3:-거든2:P`
+- `KP13:objective:grammar/G3:-잖아:R`
+- `KP13:objective:grammar/G3:-잖아:P`
+- `KP13:objective:grammar/G3:-나 보다:R`
+- `KP13:objective:grammar/G3:-나 보다:P`
+- `KP13:objective:grammar/G3:-는가 보다:R`
+- `KP13:objective:grammar/G3:-는가 보다:P`
+- `KP13:objective:grammar/G3:-는 모양이다:R`
+- `KP13:objective:grammar/G3:-는 모양이다:P`
+- `KP13:objective:grammar/G3:-을 텐데:R`
+- `KP13:objective:grammar/G3:-을 텐데:P`
+- `KP13:objective:grammar/G3:-으니2:R`
+- `KP13:objective:grammar/G3:-으니2:P`
+- `KP13:objective:listening/core:R`
+- `KP13:objective:reading/core:R`
+- `KP13:objective:reading/genre/news_article_report:R`
+- `KP13:objective:reading/genre/email_letter_formal:R`
+- `KP13:objective:speaking/core:P`
+- `KP13:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP13:objective:writing/core:P`
+- `KP13:objective:writing/genre/explanatory_informational_text:P`
+- `KP13:objective:functions/report_relay_information:R`
+- `KP13:objective:functions/report_relay_information:P`
+- `KP13:objective:functions/summarise_reconstruct:R`
+- `KP13:objective:functions/summarise_reconstruct:P`
+- `KP13:objective:functions/express_certainty_doubt_hedging:R`
+- `KP13:objective:functions/express_certainty_doubt_hedging:P`
+- `KP13:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP13:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP13:objective:vocabDomains/technology_devices_internet:R`
+- `KP13:objective:vocabDomains/technology_devices_internet:P`
+- `KP13:objective:vocabDomains/language_metalanguage:R`
+- `KP13:objective:vocabDomains/language_metalanguage:P`
+- `KP13:objective:vocabDomains/media_pop_culture_vocab:R`
+- `KP13:objective:vocabDomains/media_pop_culture_vocab:P`
+- `KP13:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP13:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP13:objective:phonology/0:R`
+- `KP13:objective:phonology/0:P`
+- `KP13:objective:phonology/1:R`
+- `KP13:objective:phonology/1:P`
+- `KP13:objective:register/haeyo_polite:P`
+- `KP13:objective:register/banmal_casual:P`
+- `KP13:objective:register/hapsyo_formal_business:P`
+- `KP14:objective:grammar/G4:-는지:R`
+- `KP14:objective:grammar/G4:-는지:P`
+- `KP14:objective:grammar/G4:-듯이:R`
+- `KP14:objective:grammar/G4:-듯이:P`
+- `KP14:objective:grammar/G4:-으며:R`
+- `KP14:objective:grammar/G4:-으며:P`
+- `KP14:objective:grammar/G4:이며:R`
+- `KP14:objective:grammar/G4:이며:P`
+- `KP14:objective:grammar/G4:으로서:R`
+- `KP14:objective:grammar/G4:으로서:P`
+- `KP14:objective:grammar/G4:으로써:R`
+- `KP14:objective:grammar/G4:으로써:P`
+- `KP14:objective:grammar/G4:이란:R`
+- `KP14:objective:grammar/G4:이란:P`
+- `KP14:objective:grammar/G4:에 따라:R`
+- `KP14:objective:grammar/G4:에 따라:P`
+- `KP14:objective:grammar/G4:에 비하여:R`
+- `KP14:objective:grammar/G4:에 비하여:P`
+- `KP14:objective:grammar/G4:-을수록:R`
+- `KP14:objective:grammar/G4:-을수록:P`
+- `KP14:objective:listening/core:R`
+- `KP14:objective:reading/core:R`
+- `KP14:objective:reading/genre/report_proposal_official:R`
+- `KP14:objective:reading/genre/contract_terms_legal_text:R`
+- `KP14:objective:speaking/core:P`
+- `KP14:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP14:objective:writing/core:P`
+- `KP14:objective:writing/genre/report_proposal_official:P`
+- `KP14:objective:functions/define_distinguish_terms:R`
+- `KP14:objective:functions/define_distinguish_terms:P`
+- `KP14:objective:functions/structure_discourse_open_close_scope:R`
+- `KP14:objective:functions/structure_discourse_open_close_scope:P`
+- `KP14:objective:functions/compare_contrast_alternatives:R`
+- `KP14:objective:functions/compare_contrast_alternatives:P`
+- `KP14:objective:functions/request_ask_someone_to_do:R`
+- `KP14:objective:functions/request_ask_someone_to_do:P`
+- `KP14:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP14:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP14:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP14:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP14:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP14:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP14:objective:phonology/0:R`
+- `KP14:objective:phonology/0:P`
+- `KP14:objective:phonology/1:R`
+- `KP14:objective:phonology/1:P`
+- `KP14:objective:register/hapsyo_formal_business:P`
+- `KP14:objective:register/haeyo_polite:P`
+- `KP15:objective:grammar/G4:-더니:R`
+- `KP15:objective:grammar/G4:-더니:P`
+- `KP15:objective:grammar/G4:-고서:R`
+- `KP15:objective:grammar/G4:-고서:P`
+- `KP15:objective:grammar/G4:-기에:R`
+- `KP15:objective:grammar/G4:-기에:P`
+- `KP15:objective:grammar/G4:-는 바람에:R`
+- `KP15:objective:grammar/G4:-는 바람에:P`
+- `KP15:objective:grammar/G4:-는 탓에:R`
+- `KP15:objective:grammar/G4:-는 탓에:P`
+- `KP15:objective:grammar/G4:-는 통에:R`
+- `KP15:objective:grammar/G4:-는 통에:P`
+- `KP15:objective:grammar/G4:으로 인하여:R`
+- `KP15:objective:grammar/G4:으로 인하여:P`
+- `KP15:objective:grammar/G4:-는 사이에:R`
+- `KP15:objective:grammar/G4:-는 사이에:P`
+- `KP15:objective:grammar/G4:-는 김에:R`
+- `KP15:objective:grammar/G4:-는 김에:P`
+- `KP15:objective:grammar/G4:-어 대다:R`
+- `KP15:objective:grammar/G4:-어 대다:P`
+- `KP15:objective:grammar/G4:-어 버리다:R`
+- `KP15:objective:grammar/G4:-어 버리다:P`
+- `KP15:objective:grammar/G4:-을 뻔하다:R`
+- `KP15:objective:grammar/G4:-을 뻔하다:P`
+- `KP15:objective:grammar/G4:-어서인지:R`
+- `KP15:objective:grammar/G4:-어서인지:P`
+- `KP15:objective:grammar/G1:-고 있다:R`
+- `KP15:objective:grammar/G1:-고 있다:P`
+- `KP15:objective:grammar/G2:-어 있다:R`
+- `KP15:objective:grammar/G2:-어 있다:P`
+- `KP15:objective:listening/core:R`
+- `KP15:objective:reading/core:R`
+- `KP15:objective:reading/genre/news_article_report:R`
+- `KP15:objective:reading/genre/report_proposal_official:R`
+- `KP15:objective:speaking/core:P`
+- `KP15:objective:writing/core:P`
+- `KP15:objective:writing/genre/report_proposal_official:P`
+- `KP15:objective:writing/genre/email_letter_formal:P`
+- `KP15:objective:functions/evaluate_assess_critique:R`
+- `KP15:objective:functions/evaluate_assess_critique:P`
+- `KP15:objective:functions/complain_object_appeal:R`
+- `KP15:objective:functions/complain_object_appeal:P`
+- `KP15:objective:functions/express_certainty_doubt_hedging:R`
+- `KP15:objective:functions/express_certainty_doubt_hedging:P`
+- `KP15:objective:functions/structure_discourse_open_close_scope:R`
+- `KP15:objective:functions/structure_discourse_open_close_scope:P`
+- `KP15:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP15:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP15:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP15:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP15:objective:vocabDomains/professions_workplace:R`
+- `KP15:objective:vocabDomains/professions_workplace:P`
+- `KP15:objective:phonology/0:R`
+- `KP15:objective:phonology/0:P`
+- `KP15:objective:phonology/1:R`
+- `KP15:objective:phonology/1:P`
+- `KP15:objective:register/hapsyo_formal_business:P`
+- `KP15:objective:register/haeyo_polite:P`
+- `KP16:objective:grammar/G4:-는다면1:R`
+- `KP16:objective:grammar/G4:-는다면1:P`
+- `KP16:objective:grammar/G4:만 같아도:R`
+- `KP16:objective:grammar/G4:만 같아도:P`
+- `KP16:objective:grammar/G4:-더라도:R`
+- `KP16:objective:grammar/G4:-더라도:P`
+- `KP16:objective:grammar/G4:-을래야:R`
+- `KP16:objective:grammar/G4:-을래야:P`
+- `KP16:objective:grammar/G4:-든지2:R`
+- `KP16:objective:grammar/G4:-든지2:P`
+- `KP16:objective:grammar/G4:이든:R`
+- `KP16:objective:grammar/G4:이든:P`
+- `KP16:objective:grammar/G4:이나마:R`
+- `KP16:objective:grammar/G4:이나마:P`
+- `KP16:objective:grammar/G4:이라도:R`
+- `KP16:objective:grammar/G4:이라도:P`
+- `KP16:objective:grammar/G4:이면:R`
+- `KP16:objective:grammar/G4:이면:P`
+- `KP16:objective:grammar/G4:치고:R`
+- `KP16:objective:grammar/G4:치고:P`
+- `KP16:objective:grammar/G4:-는 한:R`
+- `KP16:objective:grammar/G4:-는 한:P`
+- `KP16:objective:grammar/G4:-는다거나2:R`
+- `KP16:objective:grammar/G4:-는다거나2:P`
+- `KP16:objective:listening/core:R`
+- `KP16:objective:reading/core:R`
+- `KP16:objective:reading/genre/contract_terms_legal_text:R`
+- `KP16:objective:reading/genre/essay_opinion_argumentative:R`
+- `KP16:objective:speaking/core:P`
+- `KP16:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP16:objective:writing/core:P`
+- `KP16:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP16:objective:functions/negotiate_compromise_conditions:R`
+- `KP16:objective:functions/negotiate_compromise_conditions:P`
+- `KP16:objective:functions/refuse_set_boundaries:R`
+- `KP16:objective:functions/refuse_set_boundaries:P`
+- `KP16:objective:functions/persuade_argue_justify:R`
+- `KP16:objective:functions/persuade_argue_justify:P`
+- `KP16:objective:functions/compare_contrast_alternatives:R`
+- `KP16:objective:functions/compare_contrast_alternatives:P`
+- `KP16:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP16:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP16:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP16:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP16:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP16:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP16:objective:phonology/0:R`
+- `KP16:objective:phonology/0:P`
+- `KP16:objective:phonology/1:R`
+- `KP16:objective:phonology/1:P`
+- `KP16:objective:register/haeyo_polite:P`
+- `KP16:objective:register/hapsyo_formal_business:P`
+- `KP17:objective:grammar/G4:-어라1:R`
+- `KP17:objective:grammar/G4:-어라1:P`
+- `KP17:objective:grammar/G4:-는대2:R`
+- `KP17:objective:grammar/G4:-는대2:P`
+- `KP17:objective:grammar/G4:-고4:R`
+- `KP17:objective:grammar/G4:-고4:P`
+- `KP17:objective:grammar/G4:-게5:R`
+- `KP17:objective:grammar/G4:-게5:P`
+- `KP17:objective:grammar/G4:-나3:R`
+- `KP17:objective:grammar/G4:-나3:P`
+- `KP17:objective:grammar/G4:-는다니2:R`
+- `KP17:objective:grammar/G4:-는다니2:P`
+- `KP17:objective:grammar/G4:-는다면서1:R`
+- `KP17:objective:grammar/G4:-는다면서1:P`
+- `KP17:objective:grammar/G4:-다니1:R`
+- `KP17:objective:grammar/G4:-다니1:P`
+- `KP17:objective:grammar/G4:-더군:R`
+- `KP17:objective:grammar/G4:-더군:P`
+- `KP17:objective:grammar/G4:-더라:R`
+- `KP17:objective:grammar/G4:-더라:P`
+- `KP17:objective:grammar/G4:-던데1:R`
+- `KP17:objective:grammar/G4:-던데1:P`
+- `KP17:objective:grammar/G4:-는 줄:R`
+- `KP17:objective:grammar/G4:-는 줄:P`
+- `KP17:objective:grammar/G4:-어야지2:R`
+- `KP17:objective:grammar/G4:-어야지2:P`
+- `KP17:objective:listening/core:R`
+- `KP17:objective:listening/genre/meeting_formal_discussion:R`
+- `KP17:objective:reading/core:R`
+- `KP17:objective:reading/genre/literary_text:R`
+- `KP17:objective:speaking/core:P`
+- `KP17:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP17:objective:writing/core:P`
+- `KP17:objective:writing/genre/review_critique_text:P`
+- `KP17:objective:functions/mediate_between_parties:R`
+- `KP17:objective:functions/mediate_between_parties:P`
+- `KP17:objective:functions/manage_turns_interrupt_hold_floor:R`
+- `KP17:objective:functions/manage_turns_interrupt_hold_floor:P`
+- `KP17:objective:functions/adjust_register_speech_style:R`
+- `KP17:objective:functions/adjust_register_speech_style:P`
+- `KP17:objective:functions/express_opinion_agree_disagree:R`
+- `KP17:objective:functions/express_opinion_agree_disagree:P`
+- `KP17:objective:vocabDomains/media_pop_culture_vocab:R`
+- `KP17:objective:vocabDomains/media_pop_culture_vocab:P`
+- `KP17:objective:vocabDomains/etiquette_honorific_lexis:R`
+- `KP17:objective:vocabDomains/etiquette_honorific_lexis:P`
+- `KP17:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP17:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP17:objective:phonology/0:R`
+- `KP17:objective:phonology/0:P`
+- `KP17:objective:phonology/1:R`
+- `KP17:objective:phonology/1:P`
+- `KP17:objective:register/haeyo_polite:P`
+- `KP17:objective:register/banmal_casual:P`
+- `KP17:objective:register/intimate:P`
+- `KP17:objective:register/hapsyo_formal_business:P`
+- `KP18:objective:grammar/G4:-다시피:R`
+- `KP18:objective:grammar/G4:-다시피:P`
+- `KP18:objective:grammar/G4:-거니와:R`
+- `KP18:objective:grammar/G4:-거니와:P`
+- `KP18:objective:grammar/G4:에 의하여:R`
+- `KP18:objective:grammar/G4:에 의하여:P`
+- `KP18:objective:grammar/G4:-으므로:R`
+- `KP18:objective:grammar/G4:-으므로:P`
+- `KP18:objective:grammar/G4:-나 싶다:R`
+- `KP18:objective:grammar/G4:-나 싶다:P`
+- `KP18:objective:grammar/G4:-는 듯:R`
+- `KP18:objective:grammar/G4:-는 듯:P`
+- `KP18:objective:grammar/G4:-을걸:R`
+- `KP18:objective:grammar/G4:-을걸:P`
+- `KP18:objective:grammar/G4:-을 모양이다:R`
+- `KP18:objective:grammar/G4:-을 모양이다:P`
+- `KP18:objective:grammar/G4:까지2:R`
+- `KP18:objective:grammar/G4:까지2:P`
+- `KP18:objective:grammar/G4:마저:R`
+- `KP18:objective:grammar/G4:마저:P`
+- `KP18:objective:grammar/G4:이야:R`
+- `KP18:objective:grammar/G4:이야:P`
+- `KP18:objective:grammar/G4:커녕:R`
+- `KP18:objective:grammar/G4:커녕:P`
+- `KP18:objective:grammar/G4:-을 따름이다:R`
+- `KP18:objective:grammar/G4:-을 따름이다:P`
+- `KP18:objective:grammar/G4:-고자:R`
+- `KP18:objective:grammar/G4:-고자:P`
+- `KP18:objective:grammar/G4:-고도:R`
+- `KP18:objective:grammar/G4:-고도:P`
+- `KP18:objective:grammar/G4:-고 들다:R`
+- `KP18:objective:grammar/G4:-고 들다:P`
+- `KP18:objective:grammar/G4:-고 보다:R`
+- `KP18:objective:grammar/G4:-고 보다:P`
+- `KP18:objective:grammar/G4:-고 해서:R`
+- `KP18:objective:grammar/G4:-고 해서:P`
+- `KP18:objective:grammar/G4:-는 대로:R`
+- `KP18:objective:grammar/G4:-는 대로:P`
+- `KP18:objective:listening/core:R`
+- `KP18:objective:reading/core:R`
+- `KP18:objective:reading/genre/essay_opinion_argumentative:R`
+- `KP18:objective:reading/genre/news_article_report:R`
+- `KP18:objective:speaking/core:P`
+- `KP18:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP18:objective:writing/core:P`
+- `KP18:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP18:objective:functions/persuade_argue_justify:R`
+- `KP18:objective:functions/persuade_argue_justify:P`
+- `KP18:objective:functions/evaluate_assess_critique:R`
+- `KP18:objective:functions/evaluate_assess_critique:P`
+- `KP18:objective:functions/express_certainty_doubt_hedging:R`
+- `KP18:objective:functions/express_certainty_doubt_hedging:P`
+- `KP18:objective:functions/structure_discourse_open_close_scope:R`
+- `KP18:objective:functions/structure_discourse_open_close_scope:P`
+- `KP18:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP18:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP18:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP18:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP18:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP18:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP18:objective:phonology/0:R`
+- `KP18:objective:phonology/0:P`
+- `KP18:objective:phonology/1:R`
+- `KP18:objective:phonology/1:P`
+- `KP18:objective:register/hapsyo_formal_business:P`
+- `KP18:objective:register/haeyo_polite:P`
+- `KP19:objective:grammar/G5:-다4:R`
+- `KP19:objective:grammar/G5:-다4:P`
+- `KP19:objective:grammar/G5:-기에 앞서(서):R`
+- `KP19:objective:grammar/G5:-기에 앞서(서):P`
+- `KP19:objective:grammar/G5:-는 가운데:R`
+- `KP19:objective:grammar/G5:-는 가운데:P`
+- `KP19:objective:grammar/G5:-는 동시에:R`
+- `KP19:objective:grammar/G5:-는 동시에:P`
+- `KP19:objective:grammar/G5:-은 채로:R`
+- `KP19:objective:grammar/G5:-은 채로:P`
+- `KP19:objective:grammar/G5:-고는:R`
+- `KP19:objective:grammar/G5:-고는:P`
+- `KP19:objective:grammar/G5:-기가 바쁘게:R`
+- `KP19:objective:grammar/G5:-기가 바쁘게:P`
+- `KP19:objective:grammar/G5:-었던:R`
+- `KP19:objective:grammar/G5:-었던:P`
+- `KP19:objective:grammar/G5:에 관하여:R`
+- `KP19:objective:grammar/G5:에 관하여:P`
+- `KP19:objective:grammar/G5:-어 내다:R`
+- `KP19:objective:grammar/G5:-어 내다:P`
+- `KP19:objective:grammar/G2:-어 있다:R`
+- `KP19:objective:grammar/G2:-어 있다:P`
+- `KP19:objective:listening/core:R`
+- `KP19:objective:listening/additional/1:R`
+- `KP19:objective:reading/core:R`
+- `KP19:objective:reading/additional/1:R`
+- `KP19:objective:reading/genre/academic_specialised_text:R`
+- `KP19:objective:reading/genre/report_proposal_official:R`
+- `KP19:objective:speaking/core:P`
+- `KP19:objective:speaking/additional/1:P`
+- `KP19:objective:writing/core:P`
+- `KP19:objective:writing/additional/1:P`
+- `KP19:objective:writing/genre/academic_specialised_text:P`
+- `KP19:objective:writing/genre/report_proposal_official:P`
+- `KP19:objective:functions/summarise_reconstruct:R`
+- `KP19:objective:functions/summarise_reconstruct:P`
+- `KP19:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP19:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP19:objective:functions/define_distinguish_terms:R`
+- `KP19:objective:functions/define_distinguish_terms:P`
+- `KP19:objective:functions/structure_discourse_open_close_scope:R`
+- `KP19:objective:functions/structure_discourse_open_close_scope:P`
+- `KP19:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP19:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP19:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP19:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP19:objective:vocabDomains/language_metalanguage:R`
+- `KP19:objective:vocabDomains/language_metalanguage:P`
+- `KP19:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP19:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP19:objective:phonology/0:R`
+- `KP19:objective:phonology/0:P`
+- `KP19:objective:phonology/1:R`
+- `KP19:objective:phonology/1:P`
+- `KP19:objective:register/hapsyo_formal_business:P`
+- `KP19:objective:register/haeyo_polite:P`
+- `KP20:objective:grammar/G5:-는 듯하다:R`
+- `KP20:objective:grammar/G5:-는 듯하다:P`
+- `KP20:objective:grammar/G5:-을 법하다:R`
+- `KP20:objective:grammar/G5:-을 법하다:P`
+- `KP20:objective:grammar/G5:-으려나 보다:R`
+- `KP20:objective:grammar/G5:-으려나 보다:P`
+- `KP20:objective:grammar/G5:-을 만하다:R`
+- `KP20:objective:grammar/G5:-을 만하다:P`
+- `KP20:objective:grammar/G5:-게 마련이다:R`
+- `KP20:objective:grammar/G5:-게 마련이다:P`
+- `KP20:objective:grammar/G5:-기가 쉽다:R`
+- `KP20:objective:grammar/G5:-기가 쉽다:P`
+- `KP20:objective:grammar/G5:-는 법이다:R`
+- `KP20:objective:grammar/G5:-는 법이다:P`
+- `KP20:objective:grammar/G5:-는가1:R`
+- `KP20:objective:grammar/G5:-는가1:P`
+- `KP20:objective:grammar/G2:-는 것 같다:R`
+- `KP20:objective:grammar/G2:-는 것 같다:P`
+- `KP20:objective:listening/core:R`
+- `KP20:objective:listening/additional/1:R`
+- `KP20:objective:reading/core:R`
+- `KP20:objective:reading/additional/1:R`
+- `KP20:objective:reading/genre/academic_specialised_text:R`
+- `KP20:objective:reading/genre/news_article_report:R`
+- `KP20:objective:speaking/core:P`
+- `KP20:objective:speaking/additional/1:P`
+- `KP20:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP20:objective:writing/core:P`
+- `KP20:objective:writing/additional/1:P`
+- `KP20:objective:writing/genre/academic_specialised_text:P`
+- `KP20:objective:functions/express_certainty_doubt_hedging:R`
+- `KP20:objective:functions/express_certainty_doubt_hedging:P`
+- `KP20:objective:functions/evaluate_assess_critique:R`
+- `KP20:objective:functions/evaluate_assess_critique:P`
+- `KP20:objective:functions/compare_contrast_alternatives:R`
+- `KP20:objective:functions/compare_contrast_alternatives:P`
+- `KP20:objective:functions/define_distinguish_terms:R`
+- `KP20:objective:functions/define_distinguish_terms:P`
+- `KP20:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP20:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP20:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP20:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP20:objective:vocabDomains/language_metalanguage:R`
+- `KP20:objective:vocabDomains/language_metalanguage:P`
+- `KP20:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP20:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP20:objective:phonology/0:R`
+- `KP20:objective:phonology/0:P`
+- `KP20:objective:phonology/1:R`
+- `KP20:objective:phonology/1:P`
+- `KP20:objective:register/haeyo_polite:P`
+- `KP20:objective:register/hapsyo_formal_business:P`
+- `KP21:objective:grammar/G5:-는데도:R`
+- `KP21:objective:grammar/G5:-는데도:P`
+- `KP21:objective:grammar/G5:-는데도 불구하고:R`
+- `KP21:objective:grammar/G5:-는데도 불구하고:P`
+- `KP21:objective:grammar/G5:에도 불구하고:R`
+- `KP21:objective:grammar/G5:에도 불구하고:P`
+- `KP21:objective:grammar/G5:-을지라도:R`
+- `KP21:objective:grammar/G5:-을지라도:P`
+- `KP21:objective:grammar/G5:조차:R`
+- `KP21:objective:grammar/G5:조차:P`
+- `KP21:objective:grammar/G5:는 말할 것도 없고:R`
+- `KP21:objective:grammar/G5:는 말할 것도 없고:P`
+- `KP21:objective:grammar/G5:-을뿐더러:R`
+- `KP21:objective:grammar/G5:-을뿐더러:P`
+- `KP21:objective:grammar/G5:-는 데다가:R`
+- `KP21:objective:grammar/G5:-는 데다가:P`
+- `KP21:objective:grammar/G5:-느니1:R`
+- `KP21:objective:grammar/G5:-느니1:P`
+- `KP21:objective:grammar/G5:-지1:R`
+- `KP21:objective:grammar/G5:-지1:P`
+- `KP21:objective:listening/core:R`
+- `KP21:objective:listening/additional/1:R`
+- `KP21:objective:listening/genre/lecture_speech_monologue:R`
+- `KP21:objective:reading/core:R`
+- `KP21:objective:reading/additional/1:R`
+- `KP21:objective:reading/genre/contract_terms_legal_text:R`
+- `KP21:objective:speaking/core:P`
+- `KP21:objective:speaking/additional/1:P`
+- `KP21:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP21:objective:writing/core:P`
+- `KP21:objective:writing/additional/1:P`
+- `KP21:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP21:objective:functions/persuade_argue_justify:R`
+- `KP21:objective:functions/persuade_argue_justify:P`
+- `KP21:objective:functions/compare_contrast_alternatives:R`
+- `KP21:objective:functions/compare_contrast_alternatives:P`
+- `KP21:objective:functions/refuse_set_boundaries:R`
+- `KP21:objective:functions/refuse_set_boundaries:P`
+- `KP21:objective:functions/mediate_between_parties:R`
+- `KP21:objective:functions/mediate_between_parties:P`
+- `KP21:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP21:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP21:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP21:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP21:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP21:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP21:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP21:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP21:objective:phonology/0:R`
+- `KP21:objective:phonology/0:P`
+- `KP21:objective:phonology/1:R`
+- `KP21:objective:phonology/1:P`
+- `KP21:objective:register/hapsyo_formal_business:P`
+- `KP21:objective:register/haeyo_polite:P`
+- `KP22:objective:grammar/G5:-을 테다:R`
+- `KP22:objective:grammar/G5:-을 테다:P`
+- `KP22:objective:grammar/G5:-을 테면:R`
+- `KP22:objective:grammar/G5:-을 테면:P`
+- `KP22:objective:grammar/G5:-을 테지만:R`
+- `KP22:objective:grammar/G5:-을 테지만:P`
+- `KP22:objective:grammar/G5:-기 나름이다:R`
+- `KP22:objective:grammar/G5:-기 나름이다:P`
+- `KP22:objective:grammar/G5:-기에 따라:R`
+- `KP22:objective:grammar/G5:-기에 따라:P`
+- `KP22:objective:grammar/G5:-은 나머지:R`
+- `KP22:objective:grammar/G5:-은 나머지:P`
+- `KP22:objective:grammar/G5:-는 이상:R`
+- `KP22:objective:grammar/G5:-는 이상:P`
+- `KP22:objective:grammar/G5:-다가는:R`
+- `KP22:objective:grammar/G5:-다가는:P`
+- `KP22:objective:grammar/G5:-으면 몰라도:R`
+- `KP22:objective:grammar/G5:-으면 몰라도:P`
+- `KP22:objective:listening/core:R`
+- `KP22:objective:listening/additional/1:R`
+- `KP22:objective:reading/core:R`
+- `KP22:objective:reading/additional/1:R`
+- `KP22:objective:reading/genre/contract_terms_legal_text:R`
+- `KP22:objective:reading/genre/report_proposal_official:R`
+- `KP22:objective:speaking/core:P`
+- `KP22:objective:speaking/additional/1:P`
+- `KP22:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP22:objective:writing/core:P`
+- `KP22:objective:writing/additional/1:P`
+- `KP22:objective:writing/genre/report_proposal_official:P`
+- `KP22:objective:functions/negotiate_compromise_conditions:R`
+- `KP22:objective:functions/negotiate_compromise_conditions:P`
+- `KP22:objective:functions/evaluate_assess_critique:R`
+- `KP22:objective:functions/evaluate_assess_critique:P`
+- `KP22:objective:functions/refuse_set_boundaries:R`
+- `KP22:objective:functions/refuse_set_boundaries:P`
+- `KP22:objective:functions/structure_discourse_open_close_scope:R`
+- `KP22:objective:functions/structure_discourse_open_close_scope:P`
+- `KP22:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP22:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP22:objective:vocabDomains/society_economy_abstract_nouns:R`
+- `KP22:objective:vocabDomains/society_economy_abstract_nouns:P`
+- `KP22:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP22:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP22:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP22:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP22:objective:phonology/0:R`
+- `KP22:objective:phonology/0:P`
+- `KP22:objective:phonology/1:R`
+- `KP22:objective:phonology/1:P`
+- `KP22:objective:register/hapsyo_formal_business:P`
+- `KP22:objective:register/haeyo_polite:P`
+- `KP23:objective:grammar/G5:-는다기에:R`
+- `KP23:objective:grammar/G5:-는다기에:P`
+- `KP23:objective:grammar/G5:-는다니1:R`
+- `KP23:objective:grammar/G5:-는다니1:P`
+- `KP23:objective:grammar/G5:-자기에:R`
+- `KP23:objective:grammar/G5:-자기에:P`
+- `KP23:objective:grammar/G5:-더라고:R`
+- `KP23:objective:grammar/G5:-더라고:P`
+- `KP23:objective:grammar/G5:-데:R`
+- `KP23:objective:grammar/G5:-데:P`
+- `KP23:objective:grammar/G5:-다니1:R`
+- `KP23:objective:grammar/G5:-다니1:P`
+- `KP23:objective:grammar/G5:-는다는 것이:R`
+- `KP23:objective:grammar/G5:-는다는 것이:P`
+- `KP23:objective:grammar/G5:를 가지고:R`
+- `KP23:objective:grammar/G5:를 가지고:P`
+- `KP23:objective:listening/core:R`
+- `KP23:objective:listening/additional/1:R`
+- `KP23:objective:listening/genre/lecture_speech_monologue:R`
+- `KP23:objective:reading/core:R`
+- `KP23:objective:reading/additional/1:R`
+- `KP23:objective:reading/genre/news_article_report:R`
+- `KP23:objective:speaking/core:P`
+- `KP23:objective:speaking/additional/1:P`
+- `KP23:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP23:objective:writing/core:P`
+- `KP23:objective:writing/additional/1:P`
+- `KP23:objective:writing/genre/report_proposal_official:P`
+- `KP23:objective:functions/summarise_reconstruct:R`
+- `KP23:objective:functions/summarise_reconstruct:P`
+- `KP23:objective:functions/mediate_between_parties:R`
+- `KP23:objective:functions/mediate_between_parties:P`
+- `KP23:objective:functions/analyse_framing_implicature_presupposition:R`
+- `KP23:objective:functions/analyse_framing_implicature_presupposition:P`
+- `KP23:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP23:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP23:objective:vocabDomains/language_metalanguage:R`
+- `KP23:objective:vocabDomains/language_metalanguage:P`
+- `KP23:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP23:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP23:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP23:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP23:objective:phonology/0:R`
+- `KP23:objective:phonology/0:P`
+- `KP23:objective:phonology/1:R`
+- `KP23:objective:phonology/1:P`
+- `KP23:objective:register/haeyo_polite:P`
+- `KP23:objective:register/hapsyo_formal_business:P`
+- `KP24:objective:grammar/G5:-거라:R`
+- `KP24:objective:grammar/G5:-거라:P`
+- `KP24:objective:grammar/G5:-고말고:R`
+- `KP24:objective:grammar/G5:-고말고:P`
+- `KP24:objective:grammar/G5:-네2:R`
+- `KP24:objective:grammar/G5:-네2:P`
+- `KP24:objective:grammar/G5:-는걸:R`
+- `KP24:objective:grammar/G5:-는걸:P`
+- `KP24:objective:grammar/G5:-으려고2:R`
+- `KP24:objective:grammar/G5:-으려고2:P`
+- `KP24:objective:grammar/G5:-게 생겼다:R`
+- `KP24:objective:grammar/G5:-게 생겼다:P`
+- `KP24:objective:grammar/G5:-는 척하다:R`
+- `KP24:objective:grammar/G5:-는 척하다:P`
+- `KP24:objective:grammar/G5:-기만 하다:R`
+- `KP24:objective:grammar/G5:-기만 하다:P`
+- `KP24:objective:grammar/G5:따라:R`
+- `KP24:objective:grammar/G5:따라:P`
+- `KP24:objective:grammar/G5:이라든가:R`
+- `KP24:objective:grammar/G5:이라든가:P`
+- `KP24:objective:grammar/G5:-길래:R`
+- `KP24:objective:grammar/G5:-길래:P`
+- `KP24:objective:grammar/G1:-으시-:R`
+- `KP24:objective:grammar/G1:-으시-:P`
+- `KP24:objective:listening/core:R`
+- `KP24:objective:listening/additional/1:R`
+- `KP24:objective:listening/genre/lecture_speech_monologue:R`
+- `KP24:objective:reading/core:R`
+- `KP24:objective:reading/additional/1:R`
+- `KP24:objective:reading/genre/literary_text:R`
+- `KP24:objective:speaking/core:P`
+- `KP24:objective:speaking/additional/1:P`
+- `KP24:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP24:objective:writing/core:P`
+- `KP24:objective:writing/additional/1:P`
+- `KP24:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP24:objective:functions/analyse_framing_implicature_presupposition:R`
+- `KP24:objective:functions/analyse_framing_implicature_presupposition:P`
+- `KP24:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP24:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP24:objective:functions/express_certainty_doubt_hedging:R`
+- `KP24:objective:functions/express_certainty_doubt_hedging:P`
+- `KP24:objective:functions/evaluate_assess_critique:R`
+- `KP24:objective:functions/evaluate_assess_critique:P`
+- `KP24:objective:vocabDomains/arts_history_memory_lexis:R`
+- `KP24:objective:vocabDomains/arts_history_memory_lexis:P`
+- `KP24:objective:vocabDomains/language_metalanguage:R`
+- `KP24:objective:vocabDomains/language_metalanguage:P`
+- `KP24:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP24:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP24:objective:phonology/0:R`
+- `KP24:objective:phonology/0:P`
+- `KP24:objective:phonology/1:R`
+- `KP24:objective:phonology/1:P`
+- `KP24:objective:register/banmal_casual:P`
+- `KP24:objective:register/intimate:P`
+- `KP24:objective:register/haeyo_polite:P`
+- `KP24:objective:register/hapsyo_formal_business:P`
+- `KP25:objective:grammar/G6:-는다는:R`
+- `KP25:objective:grammar/G6:-는다는:P`
+- `KP25:objective:grammar/G6:-이라야:R`
+- `KP25:objective:grammar/G6:-이라야:P`
+- `KP25:objective:grammar/G6:-되:R`
+- `KP25:objective:grammar/G6:-되:P`
+- `KP25:objective:grammar/G6:를 막론하고:R`
+- `KP25:objective:grammar/G6:를 막론하고:P`
+- `KP25:objective:grammar/G6:는 마당에:R`
+- `KP25:objective:grammar/G6:는 마당에:P`
+- `KP25:objective:grammar/G6:-느니만큼:R`
+- `KP25:objective:grammar/G6:-느니만큼:P`
+- `KP25:objective:grammar/G6:-건대:R`
+- `KP25:objective:grammar/G6:-건대:P`
+- `KP25:objective:grammar/G2:-기:R`
+- `KP25:objective:grammar/G2:-기:P`
+- `KP25:objective:listening/core:R`
+- `KP25:objective:listening/additional/1:R`
+- `KP25:objective:reading/core:R`
+- `KP25:objective:reading/additional/1:R`
+- `KP25:objective:reading/genre/contract_terms_legal_text:R`
+- `KP25:objective:reading/genre/academic_specialised_text:R`
+- `KP25:objective:speaking/core:P`
+- `KP25:objective:speaking/additional/1:P`
+- `KP25:objective:writing/core:P`
+- `KP25:objective:writing/additional/1:P`
+- `KP25:objective:writing/genre/academic_specialised_text:P`
+- `KP25:objective:writing/genre/report_proposal_official:P`
+- `KP25:objective:functions/define_distinguish_terms:R`
+- `KP25:objective:functions/define_distinguish_terms:P`
+- `KP25:objective:functions/analyse_framing_implicature_presupposition:R`
+- `KP25:objective:functions/analyse_framing_implicature_presupposition:P`
+- `KP25:objective:functions/summarise_reconstruct:R`
+- `KP25:objective:functions/summarise_reconstruct:P`
+- `KP25:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP25:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP25:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP25:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP25:objective:vocabDomains/language_metalanguage:R`
+- `KP25:objective:vocabDomains/language_metalanguage:P`
+- `KP25:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP25:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP25:objective:phonology/0:R`
+- `KP25:objective:phonology/0:P`
+- `KP25:objective:phonology/1:R`
+- `KP25:objective:phonology/1:P`
+- `KP25:objective:register/written_plain_haeche:P`
+- `KP25:objective:register/hapsyo_formal_business:P`
+- `KP25:objective:register/haeyo_polite:P`
+- `KP26:objective:grammar/G6:마는:R`
+- `KP26:objective:grammar/G6:마는:P`
+- `KP26:objective:grammar/G6:-건만:R`
+- `KP26:objective:grammar/G6:-건만:P`
+- `KP26:objective:grammar/G6:-어 치우다:R`
+- `KP26:objective:grammar/G6:-어 치우다:P`
+- `KP26:objective:grammar/G6:-기 일쑤이다:R`
+- `KP26:objective:grammar/G6:-기 일쑤이다:P`
+- `KP26:objective:grammar/G6:-기 짝이 없다:R`
+- `KP26:objective:grammar/G6:-기 짝이 없다:P`
+- `KP26:objective:grammar/G6:-디1:R`
+- `KP26:objective:grammar/G6:-디1:P`
+- `KP26:objective:grammar/G6:-노라면:R`
+- `KP26:objective:grammar/G6:-노라면:P`
+- `KP26:objective:grammar/G4:-어 버리다:R`
+- `KP26:objective:grammar/G4:-어 버리다:P`
+- `KP26:objective:listening/core:R`
+- `KP26:objective:listening/additional/1:R`
+- `KP26:objective:reading/core:R`
+- `KP26:objective:reading/additional/1:R`
+- `KP26:objective:reading/genre/literary_text:R`
+- `KP26:objective:reading/genre/news_article_report:R`
+- `KP26:objective:speaking/core:P`
+- `KP26:objective:speaking/additional/1:P`
+- `KP26:objective:writing/core:P`
+- `KP26:objective:writing/additional/1:P`
+- `KP26:objective:writing/genre/review_critique_text:P`
+- `KP26:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP26:objective:functions/evaluate_assess_critique:R`
+- `KP26:objective:functions/evaluate_assess_critique:P`
+- `KP26:objective:functions/analyse_framing_implicature_presupposition:R`
+- `KP26:objective:functions/analyse_framing_implicature_presupposition:P`
+- `KP26:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP26:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP26:objective:vocabDomains/arts_history_memory_lexis:R`
+- `KP26:objective:vocabDomains/arts_history_memory_lexis:P`
+- `KP26:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP26:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP26:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP26:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP26:objective:phonology/0:R`
+- `KP26:objective:phonology/0:P`
+- `KP26:objective:phonology/1:R`
+- `KP26:objective:phonology/1:P`
+- `KP26:objective:register/haeyo_polite:P`
+- `KP26:objective:register/banmal_casual:P`
+- `KP26:objective:register/intimate:P`
+- `KP26:objective:register/written_plain_haeche:P`
+- `KP27:objective:grammar/G6:-은들:R`
+- `KP27:objective:grammar/G6:-은들:P`
+- `KP27:objective:grammar/G6:-을망정:R`
+- `KP27:objective:grammar/G6:-을망정:P`
+- `KP27:objective:grammar/G6:-는 한이 있어도:R`
+- `KP27:objective:grammar/G6:-는 한이 있어도:P`
+- `KP27:objective:grammar/G6:-기로서니:R`
+- `KP27:objective:grammar/G6:-기로서니:P`
+- `KP27:objective:grammar/G6:-는다고1:R`
+- `KP27:objective:grammar/G6:-는다고1:P`
+- `KP27:objective:grammar/G6:-자면1:R`
+- `KP27:objective:grammar/G6:-자면1:P`
+- `KP27:objective:grammar/G6:-자니3:R`
+- `KP27:objective:grammar/G6:-자니3:P`
+- `KP27:objective:grammar/G6:-으려도:R`
+- `KP27:objective:grammar/G6:-으려도:P`
+- `KP27:objective:grammar/G6:-을라치면:R`
+- `KP27:objective:grammar/G6:-을라치면:P`
+- `KP27:objective:grammar/G6:-을 바에:R`
+- `KP27:objective:grammar/G6:-을 바에:P`
+- `KP27:objective:grammar/G4:-더라도:R`
+- `KP27:objective:grammar/G4:-더라도:P`
+- `KP27:objective:listening/core:R`
+- `KP27:objective:listening/additional/1:R`
+- `KP27:objective:listening/genre/lecture_speech_monologue:R`
+- `KP27:objective:reading/core:R`
+- `KP27:objective:reading/additional/1:R`
+- `KP27:objective:reading/genre/essay_opinion_argumentative:R`
+- `KP27:objective:speaking/core:P`
+- `KP27:objective:speaking/additional/1:P`
+- `KP27:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP27:objective:writing/core:P`
+- `KP27:objective:writing/additional/1:P`
+- `KP27:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP27:objective:functions/persuade_argue_justify:R`
+- `KP27:objective:functions/persuade_argue_justify:P`
+- `KP27:objective:functions/negotiate_compromise_conditions:R`
+- `KP27:objective:functions/negotiate_compromise_conditions:P`
+- `KP27:objective:functions/compare_contrast_alternatives:R`
+- `KP27:objective:functions/compare_contrast_alternatives:P`
+- `KP27:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP27:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP27:objective:vocabDomains/institutional_legal_lexis:R`
+- `KP27:objective:vocabDomains/institutional_legal_lexis:P`
+- `KP27:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP27:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP27:objective:phonology/0:R`
+- `KP27:objective:phonology/0:P`
+- `KP27:objective:phonology/1:R`
+- `KP27:objective:phonology/1:P`
+- `KP27:objective:register/haeyo_polite:P`
+- `KP27:objective:register/hapsyo_formal_business:P`
+- `KP27:objective:register/written_plain_haeche:P`
+- `KP28:objective:grammar/G6:이라고2:R`
+- `KP28:objective:grammar/G6:이라고2:P`
+- `KP28:objective:grammar/G6:이라고는:R`
+- `KP28:objective:grammar/G6:이라고는:P`
+- `KP28:objective:grammar/G6:깨나:R`
+- `KP28:objective:grammar/G6:깨나:P`
+- `KP28:objective:grammar/G6:을랑:R`
+- `KP28:objective:grammar/G6:을랑:P`
+- `KP28:objective:grammar/G6:이라면:R`
+- `KP28:objective:grammar/G6:이라면:P`
+- `KP28:objective:grammar/G6:-자면2:R`
+- `KP28:objective:grammar/G6:-자면2:P`
+- `KP28:objective:grammar/G6:-던가1:R`
+- `KP28:objective:grammar/G6:-던가1:P`
+- `KP28:objective:grammar/G6:-는다던가1:R`
+- `KP28:objective:grammar/G6:-는다던가1:P`
+- `KP28:objective:grammar/G6:-던2:R`
+- `KP28:objective:grammar/G6:-던2:P`
+- `KP28:objective:grammar/G6:-으래서야:R`
+- `KP28:objective:grammar/G6:-으래서야:P`
+- `KP28:objective:grammar/G3:이라고1:R`
+- `KP28:objective:grammar/G3:이라고1:P`
+- `KP28:objective:listening/core:R`
+- `KP28:objective:listening/additional/1:R`
+- `KP28:objective:reading/core:R`
+- `KP28:objective:reading/additional/1:R`
+- `KP28:objective:reading/genre/news_article_report:R`
+- `KP28:objective:reading/genre/literary_text:R`
+- `KP28:objective:speaking/core:P`
+- `KP28:objective:speaking/additional/1:P`
+- `KP28:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP28:objective:speaking/genre/meeting_formal_discussion:P`
+- `KP28:objective:writing/core:P`
+- `KP28:objective:writing/additional/1:P`
+- `KP28:objective:functions/analyse_framing_implicature_presupposition:R`
+- `KP28:objective:functions/analyse_framing_implicature_presupposition:P`
+- `KP28:objective:functions/mediate_between_parties:R`
+- `KP28:objective:functions/mediate_between_parties:P`
+- `KP28:objective:functions/manage_turns_interrupt_hold_floor:R`
+- `KP28:objective:functions/manage_turns_interrupt_hold_floor:P`
+- `KP28:objective:vocabDomains/language_metalanguage:R`
+- `KP28:objective:vocabDomains/language_metalanguage:P`
+- `KP28:objective:vocabDomains/etiquette_honorific_lexis:R`
+- `KP28:objective:vocabDomains/etiquette_honorific_lexis:P`
+- `KP28:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP28:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP28:objective:phonology/0:R`
+- `KP28:objective:phonology/0:P`
+- `KP28:objective:phonology/1:R`
+- `KP28:objective:phonology/1:P`
+- `KP28:objective:register/haeyo_polite:P`
+- `KP28:objective:register/banmal_casual:P`
+- `KP28:objective:register/hapsyo_formal_business:P`
+- `KP29:objective:grammar/G6:-으리라:R`
+- `KP29:objective:grammar/G6:-으리라:P`
+- `KP29:objective:grammar/G6:-으리오:R`
+- `KP29:objective:grammar/G6:-으리오:P`
+- `KP29:objective:grammar/G6:-으련마는:R`
+- `KP29:objective:grammar/G6:-으련마는:P`
+- `KP29:objective:grammar/G6:-으리라고:R`
+- `KP29:objective:grammar/G6:-으리라고:P`
+- `KP29:objective:grammar/G6:-으리라는:R`
+- `KP29:objective:grammar/G6:-으리라는:P`
+- `KP29:objective:grammar/G6:-던가2:R`
+- `KP29:objective:grammar/G6:-던가2:P`
+- `KP29:objective:grammar/G6:-는가2:R`
+- `KP29:objective:grammar/G6:-는가2:P`
+- `KP29:objective:grammar/G6:-라2:R`
+- `KP29:objective:grammar/G6:-라2:P`
+- `KP29:objective:grammar/G6:-으니4:R`
+- `KP29:objective:grammar/G6:-으니4:P`
+- `KP29:objective:grammar/G5:-는 듯하다:R`
+- `KP29:objective:grammar/G5:-는 듯하다:P`
+- `KP29:objective:listening/core:R`
+- `KP29:objective:listening/additional/1:R`
+- `KP29:objective:reading/core:R`
+- `KP29:objective:reading/additional/1:R`
+- `KP29:objective:reading/genre/literary_text:R`
+- `KP29:objective:reading/genre/academic_specialised_text:R`
+- `KP29:objective:speaking/core:P`
+- `KP29:objective:speaking/additional/1:P`
+- `KP29:objective:writing/core:P`
+- `KP29:objective:writing/additional/1:P`
+- `KP29:objective:writing/genre/academic_specialised_text:P`
+- `KP29:objective:writing/genre/essay_opinion_argumentative:P`
+- `KP29:objective:functions/evaluate_assess_critique:R`
+- `KP29:objective:functions/evaluate_assess_critique:P`
+- `KP29:objective:functions/express_certainty_doubt_hedging:R`
+- `KP29:objective:functions/express_certainty_doubt_hedging:P`
+- `KP29:objective:functions/persuade_argue_justify:R`
+- `KP29:objective:functions/persuade_argue_justify:P`
+- `KP29:objective:functions/reformulate_paraphrase_rewrite:R`
+- `KP29:objective:functions/reformulate_paraphrase_rewrite:P`
+- `KP29:objective:vocabDomains/arts_history_memory_lexis:R`
+- `KP29:objective:vocabDomains/arts_history_memory_lexis:P`
+- `KP29:objective:vocabDomains/argumentation_evaluation_lexis:R`
+- `KP29:objective:vocabDomains/argumentation_evaluation_lexis:P`
+- `KP29:objective:vocabDomains/language_metalanguage:R`
+- `KP29:objective:vocabDomains/language_metalanguage:P`
+- `KP29:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP29:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP29:objective:phonology/0:R`
+- `KP29:objective:phonology/0:P`
+- `KP29:objective:phonology/1:R`
+- `KP29:objective:phonology/1:P`
+- `KP29:objective:register/written_plain_haeche:P`
+- `KP29:objective:register/hapsyo_formal_business:P`
+- `KP29:objective:register/haeyo_polite:P`
+- `KP30:objective:grammar/G6:-거들랑1:R`
+- `KP30:objective:grammar/G6:-거들랑1:P`
+- `KP30:objective:grammar/G6:-거들랑2:R`
+- `KP30:objective:grammar/G6:-거들랑2:P`
+- `KP30:objective:grammar/G6:-네1:R`
+- `KP30:objective:grammar/G6:-네1:P`
+- `KP30:objective:grammar/G6:-나2:R`
+- `KP30:objective:grammar/G6:-나2:P`
+- `KP30:objective:grammar/G6:-게3:R`
+- `KP30:objective:grammar/G6:-게3:P`
+- `KP30:objective:grammar/G6:-게4:R`
+- `KP30:objective:grammar/G6:-게4:P`
+- `KP30:objective:grammar/G6:-는구만:R`
+- `KP30:objective:grammar/G6:-는구만:P`
+- `KP30:objective:grammar/G6:-는구먼:R`
+- `KP30:objective:grammar/G6:-는구먼:P`
+- `KP30:objective:grammar/G6:-소:R`
+- `KP30:objective:grammar/G6:-소:P`
+- `KP30:objective:grammar/G6:-으오:R`
+- `KP30:objective:grammar/G6:-으오:P`
+- `KP30:objective:grammar/G6:-구려2:R`
+- `KP30:objective:grammar/G6:-구려2:P`
+- `KP30:objective:grammar/G6:-는구려:R`
+- `KP30:objective:grammar/G6:-는구려:P`
+- `KP30:objective:grammar/G6:-그려:R`
+- `KP30:objective:grammar/G6:-그려:P`
+- `KP30:objective:grammar/G2:-네:R`
+- `KP30:objective:grammar/G2:-네:P`
+- `KP30:objective:grammar/G5:-네2:R`
+- `KP30:objective:grammar/G5:-네2:P`
+- `KP30:objective:grammar/G1:-으시-:R`
+- `KP30:objective:grammar/G1:-으시-:P`
+- `KP30:objective:listening/core:R`
+- `KP30:objective:listening/additional/1:R`
+- `KP30:objective:listening/genre/lecture_speech_monologue:R`
+- `KP30:objective:reading/core:R`
+- `KP30:objective:reading/additional/1:R`
+- `KP30:objective:reading/genre/literary_text:R`
+- `KP30:objective:reading/genre/contract_terms_legal_text:R`
+- `KP30:objective:speaking/core:P`
+- `KP30:objective:speaking/additional/1:P`
+- `KP30:objective:speaking/genre/presentation_briefing_talk:P`
+- `KP30:objective:writing/core:P`
+- `KP30:objective:writing/additional/1:P`
+- `KP30:objective:writing/genre/review_critique_text:P`
+- `KP30:objective:writing/genre/report_proposal_official:P`
+- `KP30:objective:functions/adjust_register_speech_style:R`
+- `KP30:objective:functions/adjust_register_speech_style:P`
+- `KP30:objective:functions/mediate_between_parties:R`
+- `KP30:objective:functions/mediate_between_parties:P`
+- `KP30:objective:functions/summarise_reconstruct:R`
+- `KP30:objective:functions/summarise_reconstruct:P`
+- `KP30:objective:functions/compare_contrast_alternatives:R`
+- `KP30:objective:functions/compare_contrast_alternatives:P`
+- `KP30:objective:vocabDomains/etiquette_honorific_lexis:R`
+- `KP30:objective:vocabDomains/etiquette_honorific_lexis:P`
+- `KP30:objective:vocabDomains/language_metalanguage:R`
+- `KP30:objective:vocabDomains/language_metalanguage:P`
+- `KP30:objective:vocabDomains/fixed_expressions_collocations:R`
+- `KP30:objective:vocabDomains/fixed_expressions_collocations:P`
+- `KP30:objective:phonology/0:R`
+- `KP30:objective:phonology/0:P`
+- `KP30:objective:phonology/1:R`
+- `KP30:objective:phonology/1:P`
+- `KP30:objective:register/hage_familiar:R`
+- `KP30:objective:register/hao_semiformal:R`
+- `KP30:objective:register/haeyo_polite:P`
+- `KP30:objective:register/hapsyo_formal_business:P`
+- `KP30:objective:register/banmal_casual:P`
+- `KP30:objective:register/intimate:P`
+- `KP30:objective:register/written_plain_haeche:P`

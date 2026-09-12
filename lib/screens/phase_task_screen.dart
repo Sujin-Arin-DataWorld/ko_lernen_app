@@ -471,7 +471,9 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
                           labelText: q.prompt.pick(lang),
                         ),
                         onChanged: (v) => _answer(q.id, v),
-                        maxLength: 240,
+                        minLines: q.kind == 'freeText' ? 4 : 1,
+                        maxLines: q.kind == 'freeText' ? 6 : 1,
+                        maxLength: q.kind == 'freeText' ? 6000 : 240,
                       ),
                     if (_result != null) ...[
                       Text(

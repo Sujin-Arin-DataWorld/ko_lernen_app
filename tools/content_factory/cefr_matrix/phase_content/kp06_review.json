@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP06:grammar:01",
+      "sha256": "8e20438c114a0f671c8de5890fa561466244f75de581af1fd5634a6e35f5d0b8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: present verb modifier and actor. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:02",
+      "sha256": "8570c7bddae4188fa335fdc562befdfab4696c56bdf2e160a7568026722150b9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: past verb modifier, not a future plan. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:03",
+      "sha256": "edaf40f13c7fcbf3bff969278c55da8c3637a982097b0efc8d3db5aa12e68bd6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: adjective state modifier is not past tense. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:04",
+      "sha256": "9cebece8a8dab62e734a7e1f31a5362880bd6894b2ea63e2998675926a6b7388",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: prospective modifier and unfinished action. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:05",
+      "sha256": "9f5929d30a9efee782c9a41e71330650d469ad7250e632613e2413f39f1cb2c3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: nominalized action rather than a person. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:06",
+      "sha256": "4248eb32630ff551e8bf157374e4de7fba566fb855e55a99672a3dfbfa0e9b80",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: activity nominalization, not participant identity. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:07",
+      "sha256": "0e1b83847469bf08189ffb1620ae529541939a129376ced5d4e7d1cf08e256fc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: time of action rather than duration. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:08",
+      "sha256": "de6701e3ac647946e0ab3adbf95925daf0529aa9c990a285804ad88f83ec9955",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: overlapping interval, not post-completion sequence. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:09",
+      "sha256": "a573e7f9927aa793cf6d1ba42e77fd35dabf099bb326697fde241e0410ace1a5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: elapsed time since start, not uninterrupted performance. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:10",
+      "sha256": "0bf863badd39f2ec32aa0ef08484abb5638a415bcf23f21dd0998e44438a65fa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: experience polarity and no implied present activity. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:11",
+      "sha256": "363490270f18d10af66136d08adcb7151d86dcf99dc1abe9868d15f9fbff239d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: trying an activity versus merely viewing or being advised. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:12",
+      "sha256": "94e50fa004cba481bd2b73735b77410b2fef74a860059ea759c6458d9d6f22b6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: same-subject concurrent actions, not sequence. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:13",
+      "sha256": "309d13d45aa775d6917ec8c3733a10ea043d05395788210ff97706ef9c788518",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: interruption explicitly does not complete the first action. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:grammar:14",
+      "sha256": "f99f656e8647ec2dc7177639582c42b505dfa99a7148a2d215a9d3832e7bfbdf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO contextual meaning and EN/DE guidance checked: present activity separated from elapsed learning period. Separate practice/evaluation; recognition only."
+    },
+    {
+      "taskId": "KP06:listening:01",
+      "sha256": "7ccd0973c1617ac9642ab3713e4fef7d6ea409c8f96823976d9b2af14e591199",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Hobby introduction: named actor, months since membership, past experience and future plan are separate required criteria."
+    },
+    {
+      "taskId": "KP06:reading:01",
+      "sha256": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Invitation email explicitly identifies 나 as sender; past performer is not future performer; duration and reply request preserved."
+    },
+    {
+      "taskId": "KP06:writing:01",
+      "sha256": "4ff4cc50e37b73033f8ed1a3aa879098e9319fe6a9447bd67768335093263d17",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Bounded diary: first-time experience, intervening outage or class end, explicit non-completion. Alternative valid sentences remain unscored."
+    },
+    {
+      "taskId": "KP06:speaking:01",
+      "sha256": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer invitation tied to shared interest; independent acceptance/refusal prompts, no coerced availability; rubric feedback only."
+    },
+    {
+      "taskId": "KP06:reading:02",
+      "sha256": "6a0ab834dc140a950f622dd718824b3c665119685f14ca3a7a3d7b386bd285b3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Explanatory text gives order and reason for order; it explicitly provides no personal preference reason."
+    },
+    {
+      "taskId": "KP06:listening:02",
+      "sha256": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Audible relative-clause past/current/future contrast keeps named people separate; alternate names in evaluation."
+    },
+    {
+      "taskId": "KP06:writing:02",
+      "sha256": "669630f5ed46fa2dd2064f7441812ea5196d70823fed1864d2f19c0f5333e3c8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Complete personal email with subject, sender experience, interruption and unanswered invitation. No invented acceptance; unscored."
+    },
+    {
+      "taskId": "KP06:writing:03",
+      "sha256": "8bd0d92ff6b4e32ad92ec425e9b6cad5440d02815dd79fe01f7744736458e1c6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Complete diary keeps starting time, elapsed interval, interruption and non-completion; personal reaction distinct from events; unscored."
+    }
+  ]
+}

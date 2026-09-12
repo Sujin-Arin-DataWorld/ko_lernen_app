@@ -67,6 +67,55 @@ void main() {
   }
 
   testWidgets(
+    'complete free email saves and restores multiline text without mastery',
+    (tester) async {
+      PhaseTaskResult? saved;
+      Widget screen() => PhaseTaskScreen(
+        arguments: const PhaseTaskRoute(
+          'KP06',
+          'KP06:writing:02',
+          assessment: true,
+        ),
+        loader: () async => catalog,
+        saveAttempt: (result) async => saved = result,
+      );
+      final draft =
+          '제목: 같이 화분을 만들어 볼래?\n은우야, 안녕!\n${List.filled(20, '처음 해 본 활동은 끝내지 못했지만 재미있었어.').join('\n')}\n일요일에 시간이 되는지 답장 줘.';
+      const key = ValueKey('KP06:writing:02:true:draft-field');
+      await tester.pumpWidget(host(screen(), locale: 'de', scale: 2));
+      await tester.pumpAndSettle();
+      final field = find.byKey(key);
+      await tester.scrollUntilVisible(
+        field,
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.enterText(field, draft);
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .widget<TextField>(
+              find.descendant(of: field, matching: find.byType(TextField)),
+            )
+            .maxLines,
+        6,
+      );
+      await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
+      expect(saved!.score, isNull);
+      expect(saved!.passed, isFalse);
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpWidget(host(screen()));
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(
+        field,
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(tester.widget<TextFormField>(field).initialValue, draft);
+    },
+  );
+  testWidgets(
     'form drafts survive reopen, failed save cannot display success, retry persists evaluated result',
     (tester) async {
       var writes = 0;

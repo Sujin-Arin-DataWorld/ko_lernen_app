@@ -72,8 +72,12 @@ class PhaseQuestion {
         for (final o in json['options'] as List)
           _text(o['id']): _text(o['text']),
       }) {
-    if (acceptedAnswers.isEmpty ||
-        !['choice', 'field', 'boundedSentence'].contains(kind) ||
+    if ((acceptedAnswers.isEmpty && kind != 'freeText') ||
+        !['choice', 'field', 'boundedSentence', 'freeText'].contains(kind) ||
+        (kind == 'freeText' &&
+            (acceptedAnswers.isNotEmpty ||
+                rejectedAnswers.isNotEmpty ||
+                !requiredForPass)) ||
         (kind != 'choice' && options.isNotEmpty) ||
         rejectedAnswers.any(acceptedAnswers.contains) ||
         (kind == 'boundedSentence' && rejectedAnswers.isEmpty) ||
@@ -93,7 +97,7 @@ class PhaseQuestion {
   bool accepts(String answer) =>
       acceptedAnswers.any((v) => v.trim() == answer.trim());
   bool isUnscored(String answer) =>
-      kind == 'boundedSentence' &&
+      (kind == 'freeText' || kind == 'boundedSentence') &&
       answer.trim().isNotEmpty &&
       !accepts(answer) &&
       !rejectedAnswers.contains(answer.trim());
@@ -209,7 +213,11 @@ class PhaseTask {
       return false;
     }
     final ids = assessment.questions.map((q) => q.id).toSet();
-    if (!e.passedCriterionIds.every(ids.contains) ||
+    final unscorable = assessment.questions
+        .where((q) => q.kind == 'freeText')
+        .map((q) => q.id);
+    if (e.passedCriterionIds.any(unscorable.contains) ||
+        !e.passedCriterionIds.every(ids.contains) ||
         (e.score! - e.passedCriterionIds.length / ids.length).abs() > 1e-9) {
       return false;
     }

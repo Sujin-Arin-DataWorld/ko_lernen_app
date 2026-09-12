@@ -1,12 +1,16 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/phase_task.dart';
+import '../models/phase_objective_binding.dart';
 export '../models/phase_task.dart';
+export '../models/phase_objective_binding.dart';
 
 class PhaseTaskCatalog {
-  PhaseTaskCatalog._(this.tasks);
+  PhaseTaskCatalog._(this.tasks, this.objectives, this.publications);
   static const assetPath = 'assets/data/phase_tasks.json';
   final List<PhaseTask> tasks;
+  final List<PhaseObjectiveBinding> objectives;
+  final List<PhasePublication> publications;
   static Future<PhaseTaskCatalog> load() async {
     final json =
         jsonDecode(await rootBundle.loadString(assetPath))
@@ -41,7 +45,7 @@ class PhaseTaskCatalog {
   }
 
   static PhaseTaskCatalog parse(Map<String, dynamic> json) {
-    if (json['schemaVersion'] != 1 ||
+    if (![1, 2].contains(json['schemaVersion']) ||
         json['publications'] is! Map ||
         json['tasks'] is! List) {
       throw const FormatException('Unsupported Phase task catalogue');
@@ -74,7 +78,55 @@ class PhaseTaskCatalog {
     for (final id in byId.keys) {
       visit(id);
     }
-    return PhaseTaskCatalog._(List.unmodifiable(tasks));
+    final objectives = <PhaseObjectiveBinding>[];
+    final publications = <PhasePublication>[];
+    if (json['schemaVersion'] == 2) {
+      objectives.addAll(
+        (json['objectives'] as List).map(
+          (o) => PhaseObjectiveBinding.fromJson(o as Map<String, dynamic>),
+        ),
+      );
+      publications.addAll(
+        (json['publicationRecords'] as List).map(
+          (o) => PhasePublication.fromJson(o as Map<String, dynamic>),
+        ),
+      );
+      if (objectives.isEmpty ||
+          objectives.map((o) => o.id).toSet().length != objectives.length ||
+          publications.map((p) => p.phaseId).toSet().length !=
+              publications.length ||
+          publications.length != (json['publications'] as Map).length) {
+        throw const FormatException(
+          'Missing/duplicate Phase publication objectives',
+        );
+      }
+      for (final publication in publications) {
+        final actual = tasks.where((t) => t.phaseId == publication.phaseId);
+        if (actual.length != publication.taskHashes.length ||
+            actual.any((t) => publication.taskHashes[t.id] != t.contentHash) ||
+            json['publications'][publication.phaseId] != publication.status) {
+          throw const FormatException('Unpublished task content');
+        }
+      }
+      for (final objective in objectives) {
+        for (final link in objective.bindings) {
+          final task = byId[link.taskId];
+          if (task == null ||
+              task.phaseId != objective.phaseId ||
+              task.level != objective.level ||
+              task.mode != objective.mode ||
+              (objective.skill != null && task.skill != objective.skill)) {
+            throw const FormatException('Invalid objective task or level');
+          }
+          link.validate(task);
+        }
+      }
+    }
+    return PhaseTaskCatalog._(
+      List.unmodifiable(tasks),
+      List.unmodifiable(objectives),
+      List.unmodifiable(publications),
+    );
   }
 
   List<PhaseTask> forPhase(String id) =>

@@ -463,6 +463,7 @@ jobs:
             --driver=test_driver/phase_tasks_driver.dart \
             --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
             --dart-define=PHASE_NATIVE_RESTORE_ONLY=true \
+            --dart-define="PHASE_NATIVE_LEVEL=$PHASE_QA_LEVEL" \
             2>&1 | tee "$RUNNER_TEMP/phase-native-restore.log"
       - name: Retain native test results
         if: always()

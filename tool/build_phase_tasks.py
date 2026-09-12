@@ -5,6 +5,10 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+try:
+    from tool import phase_objective_contract
+except ModuleNotFoundError:
+    import phase_objective_contract
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -55,14 +59,16 @@ def validate_task(t):
             localized(q['prompt'])
             localized(q['explanation'])
             answers = q['acceptedAnswers']
-            if not isinstance(answers, list) or not answers or any(not isinstance(a, str) or not a.strip() for a in answers) or len(answers) != len(set(answers)):
+            if not isinstance(answers, list) or (not answers and q['kind'] != 'freeText') or any(not isinstance(a, str) or not a.strip() for a in answers) or len(answers) != len(set(answers)):
                 raise ValueError('Missing/duplicate answers')
             if q['kind'] == 'choice':
                 option_ids = [o['id'] for o in q['options']]
                 if len(option_ids) < 2 or len(option_ids) != len(set(option_ids)) or not set(answers) < set(option_ids) or any(not o['text'].strip() for o in q['options']):
                     raise ValueError('Invalid answer/distractor')
-            elif q['kind'] not in ('field', 'boundedSentence') or q['options']:
+            elif q['kind'] not in ('field', 'boundedSentence', 'freeText') or q['options']:
                 raise ValueError('Invalid response kind')
+            if q['kind'] == 'freeText' and (answers or q.get('rejectedAnswers') or not q['required']):
+                raise ValueError('Free text must remain required and unscored')
             if q['kind'] == 'boundedSentence':
                 rejected = q.get('rejectedAnswers')
                 if not isinstance(rejected, list) or not rejected or any(not isinstance(v, str) or not v.strip() for v in rejected) or set(rejected) & set(answers):
@@ -111,7 +117,15 @@ def build(root: Path) -> dict:
         active.remove(i); visited.add(i)
     for i in by_id:
         visit(i)
-    return {'schemaVersion': 1, 'publications': publications, 'tasks': tasks}
+    objectives = phase_objective_contract.build(list(phases.values()), tasks,
+        json.loads((folder / 'objective_links.json').read_text(encoding='utf-8')))
+    publication_records=[]
+    for phase, status in publications.items():
+        hashes={t['id']:t['contentHash'] for t in tasks if t['phaseId']==phase}
+        publication_records.append(dict(phaseId=phase,status=status,taskHashes=hashes,
+            contentHash=fingerprint(hashes)))
+    return {'schemaVersion': 2, 'publications': publications, 'tasks': tasks,
+        'objectives':objectives, 'publicationRecords':publication_records}
 
 
 def main():
@@ -133,6 +147,13 @@ def main():
             raise SystemExit('Phase task coverage report is stale')
     else:
         report.write_text(expected_report, encoding='utf-8', newline='\n')
+    objective_report = ROOT / 'docs/data/phase_objective_coverage_report.md'
+    expected_objectives = phase_objective_contract.report(bundle['objectives'])
+    if args.check:
+        if not objective_report.exists() or objective_report.read_text(encoding='utf-8') != expected_objectives:
+            raise SystemExit('Phase objective report is stale')
+    else:
+        objective_report.write_text(expected_objectives,encoding='utf-8',newline='\n')
 
 
 def coverage_report(root, bundle):
@@ -146,13 +167,14 @@ def coverage_report(root, bundle):
         tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
         def keys(mode):
             return {k for t in tasks if t['mode'] == mode for k in t['requirementKeys']}
-        unscored = [t['skill'] for t in tasks if t['skill'] == 'speaking' or any(q['kind'] == 'boundedSentence' for q in t['assessment']['questions'])]
+        unscored = [t['skill'] for t in tasks if t['skill'] == 'speaking' or any(q['kind'] in ('boundedSentence', 'freeText') for q in t['assessment']['questions'])]
         lines.append(f"| {phase['id']} | {phase['level']} | {len(phase['koreanGrammar'])} | {len(keys('R'))} | {len(keys('P'))} | {len(tasks)} | {sum(t['skill'] != 'speaking' for t in tasks)} | {', '.join(unscored) if unscored else 'Phase 전용 경로 미연결'} | 미검증 |")
     lines += ['', '## 남은 검증', '',
         '- KP01: 문법 12개는 설명·예문·선택형 연습/평가에 연결됐다. 모든 문법의 실제 산출 수행을 인증하지 않는다.',
         '- KP01: 표지·명찰 읽기, 소개 듣기, 가상 등록 서식과 소개/부정 문장, 소개·되묻기 녹음을 제공한다. 쓰기는 검수된 문장만 채점하며 다른 자유 표현과 발화 의미는 unscored다.',
         '- KP02–KP04: 이동·시간표·전화·메뉴·예산·일정 변경의 연습/평가와 메모·제안·녹음을 제공한다. 선택형 문법 연결은 산출 숙달을 증명하지 않는다.',
-        '- KP05–KP30: 기존 관련 대화 경로를 유지한다. 전용 자료·연습·평가의 제작과 연결이 남아 있다.',
+        '- KP05–KP08: 조건·허용·금지, 경험·기간, 일정 정정, 공지·출처·말투 전환의 문법 대비와 4기능 과제를 연결했다. 전체 자유 일기·이메일·채팅·게시글은 재작성 루브릭을 제공하고 자동 채점하지 않는다.',
+        '- KP09–KP30: 기존 관련 대화 경로를 유지한다. 전용 자료·연습·평가의 제작과 연결이 남아 있다.',
         '- W0d2: 기존 원문의 문맥별 근거 연결과 실제 누락 분류가 남아 있다. 이 보고서는 갭 행 수를 제작량으로 변환하지 않는다.',
         '- Android/Web/iOS 실제 기기 QA는 이 정적 보고서가 증명하지 않는다. PR 검증 결과에 별도 기록한다.', '']
     return '\n'.join(lines)

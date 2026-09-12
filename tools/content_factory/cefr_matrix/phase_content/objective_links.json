@@ -1,0 +1,1760 @@
+{
+  "schemaVersion": 1,
+  "sourceHash": "17f18fa23099fa4b0ef01e0b3835b95ef7a5771d8d88bd06ff0e5c0d5025d2e2",
+  "links": [
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이다:R",
+      "taskId": "KP01:grammar:01",
+      "sourceHash": "62442fda47e5004f289b87f24627e24811c7166e1a3a7a32c4b40ec35980389c",
+      "taskHash": "c658e4faf67fa819020b9cee3dd9342f9f52cfd9e28a4df42c814f5f98941692",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이 아니다:R",
+      "taskId": "KP01:grammar:02",
+      "sourceHash": "4491668e2d23ecc5717c53567500eaad2dfff6158f0eae0cd0d82d5bde6a8b0d",
+      "taskHash": "77ee8d52b1b7082a275ef5b230b8965e9dd3189f44cc576da0f1174d07b14f8f",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:은1:R",
+      "taskId": "KP01:grammar:03",
+      "sourceHash": "c811eb8f45aeeb6d687981a67077ed7e120f77dd1f0d4c067a428038d0f9bcda",
+      "taskHash": "e2423ce8509fb283a45748e1b2771b5449b0a634eecdaf8e0c9e8710a4374b59",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이:R",
+      "taskId": "KP01:grammar:04",
+      "sourceHash": "ebf3fd6f0eab1c49c292843ecb3daf3e4e1410e022d6cfa3e20cf8675b9e1183",
+      "taskHash": "5a18f97fbb99120d66c413b0817fad82ea4e8c320ebe4118d761bca3720d1e2e",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:을1:R",
+      "taskId": "KP01:grammar:05",
+      "sourceHash": "0ed5d3211f2d47e362e6f8f65224a20ca1d2ab702d60908e05ee2d606afe8d8a",
+      "taskHash": "b779911342456bb8c371c538314b88ec75d253b83a767c6859dccd9b0623e8d3",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:의:R",
+      "taskId": "KP01:grammar:06",
+      "sourceHash": "e94c5f75015e412085401d52d2d8bf105de663a3ddab4494ae7a3e9e81770ed0",
+      "taskHash": "c66499fc41477db946d7c1fca5e5a51b7fa56c35901c6352fcdf19ea05badb38",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:과:R",
+      "taskId": "KP01:grammar:07",
+      "sourceHash": "a7559907e18a7e3461ebbd9f30f605a8063a1e211b5786a67baffcecc3c7c94f",
+      "taskHash": "77f3018cd78598fac54620c998bceb1599da38148e576f43a7d810c0d7d5c65e",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:이랑:R",
+      "taskId": "KP01:grammar:08",
+      "sourceHash": "67df1ce323bb53e5e9822bc691ef44a187c7aa9492d6e362c280733de13ced2f",
+      "taskHash": "8217f516c972a215a107d9864a8295ac8c927e19a2c2fca18bfecd3345e37a69",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:하고:R",
+      "taskId": "KP01:grammar:09",
+      "sourceHash": "5c33067e8c7f199a737c6c6f0f92461d8d72d2bdb4bb20edd787e147492a2228",
+      "taskHash": "bfc73ca62ecbae41100dfed38ec7442b5915748cb65b71b1c22a8f03f2cd4f53",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-어2:R",
+      "taskId": "KP01:grammar:10",
+      "sourceHash": "4eae6d2e498489d809908c9c708bc7f8678dbbe487364781107d43fc58eb1d44",
+      "taskHash": "a8445256efb27bd13fb2b616e6e71a62786096e828ab2c21fe49ec636c240fbe",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-습니다:R",
+      "taskId": "KP01:grammar:11",
+      "sourceHash": "15d73d2b9ad023d51ed1dfb1457daf49f02806fc96ed3aff6220063cc6e08935",
+      "taskHash": "7d4a9e4b7236823e137c64e44137fe34731f4536c89ad2b0d5a4eb80d9c62cd3",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:grammar/G1:-습니까:R",
+      "taskId": "KP01:grammar:12",
+      "sourceHash": "0814308c8bb258df516e78a957bc7de33575e991bb5e508a548828403ab6aa9e",
+      "taskHash": "fb2c5bba5c87bb23089d8a180aab23c5e3f0892f1820bb09e50b50042bf766df",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:에:R",
+      "taskId": "KP02:grammar:01",
+      "sourceHash": "f0336194991db06a95cdb0e3d5db07e30ea5eb3aafb8914c82f25a0aaa2f627e",
+      "taskHash": "fc412ece4e382e56479073aab600cc581b80bd58a93bd75626aa7a671b3ef4f6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:에서:R",
+      "taskId": "KP02:grammar:02",
+      "sourceHash": "42c1a59d031a1c9d3ce486a2aea406e3fc72d073e926675eb8792c14d7e4cfaf",
+      "taskHash": "5583b722a5bea3930166021ba9b8929b1e9c5b34fbc1bfe6ae7d985d7e876fa6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:부터:R",
+      "taskId": "KP02:grammar:03",
+      "sourceHash": "810eeb0fe510eea269a2bcc1316a12c25fa2b7f82322a75b4093a4d2cfebd260",
+      "taskHash": "cb416c61c1ea58fe7b1b10a3542a9f8e257a37bd55c9a1f881b8a87cacc2dfb3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:까지:R",
+      "taskId": "KP02:grammar:04",
+      "sourceHash": "e6cc98d0a4c3ee1db312b854a35e7727899a4b9dca42b57d1c3420b40cfc5b4e",
+      "taskHash": "8b79c5782a37e1e5969fce73a372ce36bc45793a7341fdd9f02b237eddefa6e5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:으로:R",
+      "taskId": "KP02:grammar:05",
+      "sourceHash": "5c241d199d2b24da849c8aed6d1cb7079ba7fb46dacc909be974bdec48dd6d25",
+      "taskHash": "16a26e3dab49abc8014cc4b836bfd94ae9917fbe6456b6c56db607b9e5149098",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-었-:R",
+      "taskId": "KP02:grammar:06",
+      "sourceHash": "2f39a9e6b1046b6d2c7ce2630459ba715efc49940eb4f369e029df3da55f4558",
+      "taskHash": "60330173af7aaa36f1c654255bfc50b1aaa18649bf0099893cac9f2729325d32",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-고3:R",
+      "taskId": "KP02:grammar:07",
+      "sourceHash": "07f86a2c6aa81cbb683373c2b683c61e03eac2c80f9139a9c21ef96cae8d60b0",
+      "taskHash": "d9621daa7f0991334193017c31946230701cf0a36ac88e61d5913f27c234317a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-지 않다:R",
+      "taskId": "KP02:grammar:08",
+      "sourceHash": "9bb8a75d6426441bfa8a7a42ddb7f98a10c103a2bd2c5cd1ee6740ae35de7ede",
+      "taskHash": "0bc29352cea11ee8c0ab2fd39d3549ef7bcb3562aa7d3dd1e2fb7c849ff2382b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:-지 못하다:R",
+      "taskId": "KP02:grammar:09",
+      "sourceHash": "d1c402a4953038695a9975094131be6cee57d7016d2f694457dd9bebb2823c49",
+      "taskHash": "40a95cf4c86387b1e7f0b6381a44a28a2fbbc403b80ceb9eb3e74d55e7ab7ec0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:도:R",
+      "taskId": "KP02:grammar:10",
+      "sourceHash": "90a09b5a6f2acf4674fa96e58fa2f7155e4457d13cbf78614c46f765281ad647",
+      "taskHash": "5dab63d0f82d8c392a227c234457d3d4ce03c2052612e169535b16ac44b7676d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:grammar/G1:만:R",
+      "taskId": "KP02:grammar:11",
+      "sourceHash": "5f26fcfb005cc898ad9a5e7c6f2ad7eb64242d6974eaa6f7874b6c9f243f0c9f",
+      "taskHash": "881760f95ce30caa576793bc803ee65e95e56147cf3744fde33a61fe06327243",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:에게:R",
+      "taskId": "KP03:grammar:01",
+      "sourceHash": "f9c686e6c67baf5f071a7311f5433d769c0ba79f62ff3b86116a9c5e10f5d4bc",
+      "taskHash": "41c95d778c0a2abaef476cbd8243d5ab8e0b1ad2a24dd738d20d4f91c22b4a3e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:한테:R",
+      "taskId": "KP03:grammar:02",
+      "sourceHash": "e23b839eee21c3d059277d64eff767ffec38dce3b8ca3c94e109108b764284e1",
+      "taskHash": "bf3d14e84ced6fda6a76a329b72ac1554903379828a8f7dfa8f23c69020041c5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으러:R",
+      "taskId": "KP03:grammar:03",
+      "sourceHash": "3f4f475034966389c596abe5e925d7780a05439d62d2c86a04ee7e9e9af59e49",
+      "taskHash": "24dc34e2215a97a3fa48a2db8871e819d7f56931652628fc75245dcdac0479f0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으려고1:R",
+      "taskId": "KP03:grammar:04",
+      "sourceHash": "6993ac642e7fe39a64f6181144af9465b2ce63b09551223d233ab55d3bb73196",
+      "taskHash": "c0aa53fc080cb24664092d79f562dbcae8010cacf0de18695af5d4750b463de9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-고 싶다:R",
+      "taskId": "KP03:grammar:05",
+      "sourceHash": "f1803463b64e22b5de5984cdbe403f34db6d361d1d0133b3219ce73a30d9a1f5",
+      "taskHash": "2c077fbd14ae0c3c55b2541c6614fb2427077b629cdbd9785be5a70ef6583e9d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-고 있다:R",
+      "taskId": "KP03:grammar:06",
+      "sourceHash": "16d2a21352e507988be0eb09798b98ab40bc55a80aae034e84cf09a70aa4562e",
+      "taskHash": "88f122a6cd9e4c54a44e333bfd10d2af0de7eec8112b9c85392c727564dd774f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-을 수 있다:R",
+      "taskId": "KP03:grammar:07",
+      "sourceHash": "d9b138f9755723c20a0804d88008c461c76ff14e8e015e91a47f71820505a3d0",
+      "taskHash": "71bd61845474c77a18fdc5d781693b1c3b16b88e3c4a303481a0591ae59457d8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-겠-:R",
+      "taskId": "KP03:grammar:08",
+      "sourceHash": "aa88a2466f251c2361b64ad980bfaf8e1295121d118422db419c45bfbbda8651",
+      "taskHash": "27ac81a2728d6692dcdb83455458805f08a0b632b03f7703bab99be6b83bf292",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으세요:R",
+      "taskId": "KP03:grammar:09",
+      "sourceHash": "6e0084d955e6e1d5374889ce75cd6621a3c2bfb81554ba5a0100dcc1d2bb4d34",
+      "taskHash": "0a37a313cbf2dc2843382aeb2ae497a0d80b8efb00574a38078807d2171d9143",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-으십시오:R",
+      "taskId": "KP03:grammar:10",
+      "sourceHash": "9a32be47c637433e1104d01d0661fad94d6d23160619ae47948d981d02caa4e0",
+      "taskHash": "136c8055b42a6c2cc86886cc8d1d897c7992229a3851b492af8499354d816cac",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-을까:R",
+      "taskId": "KP03:grammar:11",
+      "sourceHash": "36b91ebdaa9903025d6eb06657e329a417786018166f64a92213d4265011a385",
+      "taskHash": "a5a71b4de17fee7f64b9fa7874772bbcd341b028657ef1f893146804ceebbea2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:grammar/G1:-읍시다:R",
+      "taskId": "KP03:grammar:12",
+      "sourceHash": "621d3746dc4fd130ac7d48be334a3bc7ca2194ecbff3a986de27c5a2c1ee185a",
+      "taskHash": "93115b751889cdd2305e3d3fb93bad1fb492c171afe1a87f73aaddfea8a1b69f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-으시-:R",
+      "taskId": "KP04:grammar:01",
+      "sourceHash": "6003ed446067f1aa36b74bd74ed88a5fef9ada49b6d0371b1d706756e7e4ca5e",
+      "taskHash": "1a4e43973f68a38c15c44957a20071c37777de82d9e7f52fc36f21b00067a98b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:께서:R",
+      "taskId": "KP04:grammar:02",
+      "sourceHash": "5966b5fb8d6d7f3ae7f07edd552a8f087b3635795b02725b50de5ca04a21d48e",
+      "taskHash": "69d8651eb3fc3645899a622ed2b85fc1c04442b9dd8dde3dd0bb5f4ed3addf2d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-어서:R",
+      "taskId": "KP04:grammar:03",
+      "sourceHash": "ca3947a33bd39d2342cdd492528b1a711a2f7f4ceae64d03f0048a3a9a46f920",
+      "taskHash": "ac876701302c6dadd576c599de0b712ccfd312e198fe9af4db54a2cf2cce71aa",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-으니까:R",
+      "taskId": "KP04:grammar:04",
+      "sourceHash": "4715343006f1d06a5d6d48bdb8cd1c766e2b600e34b308b870067f06e8480605",
+      "taskHash": "7eea6546d7877a8ef09faa199d0e4fb407e65fa70c22900191a293e01f746237",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-지만:R",
+      "taskId": "KP04:grammar:05",
+      "sourceHash": "802de124968b3adcb60db0fc0955fd5f8e01f123b7c278cb3ea20d7a47e3a985",
+      "taskHash": "04bd8cc926d054f85f3e9b99eb733252c45db78f9b761d3596526c22001ce3ce",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:보다:R",
+      "taskId": "KP04:grammar:06",
+      "sourceHash": "93847fdcaeb583318b81b3db1e74b7a2db94499fefdc1e8140008d9123ed80f0",
+      "taskHash": "a0dedcb56c1f5c5e619dab8d6028790a0e2c7c5ff7f2d356a19c71b90a064fd8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-고4:R",
+      "taskId": "KP04:grammar:07",
+      "sourceHash": "7c0d0e7d61e764c2f2f0efe83ab4547f3e4b0e6fd11b5d857056c8c36363ed9d",
+      "taskHash": "3816843337cce8f45ccebb7ff97ecca5794419b79d98be8139511e73303045cf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-기 전에:R",
+      "taskId": "KP04:grammar:08",
+      "sourceHash": "41950434b50ebe136662be67928445d770279719f385d2350dbaade217069b6e",
+      "taskHash": "818d0d4fece52db0f7e96809522cbb226897930e3ab969a377c3e25887be9a1b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-은 후에:R",
+      "taskId": "KP04:grammar:09",
+      "sourceHash": "3cdc6077b6b9d650205553e00e8f153fdf33ad9e68c00a7369a9210950b0aa70",
+      "taskHash": "f630671d6fdbee9d6e20650fefee613188f7bbd465952e6d4dc8f59c7a9de5fe",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-어야 되다:R",
+      "taskId": "KP04:grammar:10",
+      "sourceHash": "529bd4068f20dc92b82d420b7ff726ba3f40775fb423429cb679b2d076a4686d",
+      "taskHash": "32c2a4ca62df4f5601c5ba3006fba0eabd15ed270f82305d23a5fd8e3b3f595a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:grammar/G1:-겠-:R",
+      "taskId": "KP04:grammar:11",
+      "sourceHash": "6fda8ee555d2ad748789238684f37eba18c8b11feed1a8a864d0949ef6055163",
+      "taskHash": "a9148ca46f901ac15873c45371174556f716d8ae4fa04e3ec12d199467749673",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-으면:R",
+      "taskId": "KP05:grammar:01",
+      "sourceHash": "7be6bdd06113ad78009a601708b19c6f6e1583cb4d2a45131c3eaafbd880c389",
+      "taskHash": "d6854242d401edfcb075e92508f934cf276b984f10dd20e219f8aacadb6017c2",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-거나:R",
+      "taskId": "KP05:grammar:02",
+      "sourceHash": "598607f452d0e8180163142eba803fab0aa41ac0dffee4e38ab59f64c28ab8f9",
+      "taskHash": "bb5e026a9735a17464c1652db225faa400fd52d17790034e65c55a35be3bbb8d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:이나:R",
+      "taskId": "KP05:grammar:03",
+      "sourceHash": "10749ee99503212987e6701ef64d77b30a37a1f14fe5188159ffe196a231130c",
+      "taskHash": "6bdd8864f2b6f20077f72ddc0a4aadfd9aa636a5f5a9e6c0ce41d35f10b8d453",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:마다:R",
+      "taskId": "KP05:grammar:04",
+      "sourceHash": "9a4bf65e1fa469266dfef350890ff08a6bcc682b2645d3d9dbe60125fa03c41b",
+      "taskHash": "d3276491f2d4c0674dcdce8004c62d68ed15876bf226062398a70e0b1abfb29a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:밖에:R",
+      "taskId": "KP05:grammar:05",
+      "sourceHash": "f7aef62afd78b5d223a4baafcdca92403c3942a9602dcb7b1f30c16e5e95a14a",
+      "taskHash": "256487f6897d063756fdb0eb651eb51f24d557da780f6f136cfb17f977986677",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:처럼:R",
+      "taskId": "KP05:grammar:06",
+      "sourceHash": "f211e90bee8effa245d7764f825491596b911dbb5985e4eee5deefa131122b45",
+      "taskHash": "2616f387bdaf598c6238569752ddeba042ef818983762191254616df48528bb0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-어도 되다:R",
+      "taskId": "KP05:grammar:07",
+      "sourceHash": "a32d57be377c53c2a5e6a03f59772678488eabf8e0fc1026c30003eecfe1cec4",
+      "taskHash": "b4b6fdd235d20248ab6472c02c9756e8946ad8cf2914c6221c55f9f0bf61b6a0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-지 말다:R",
+      "taskId": "KP05:grammar:08",
+      "sourceHash": "8718d1038c5cdd589b1af764c5f4f328a91abd1b65cc0ce29b8e2b16ca40ee75",
+      "taskHash": "17694a9d7c55a86e0c4103fe69e0557fbe1cb2831561596aab6da61683d02a97",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:grammar/G2:-어 주다:R",
+      "taskId": "KP05:grammar:09",
+      "sourceHash": "04af46989642f0e2e0c7f33a63ed4021f11e0bf6fdc8add4736be8c4dcd9f681",
+      "taskHash": "92026e5d85d9c84c1501fe4b3a422aeb7571d4f764442c351bc4afcfb4dc1cdc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는2:R",
+      "taskId": "KP06:grammar:01",
+      "sourceHash": "dcb1a86d29202e46192a6d41426594148421cd456e226ef30e59f7a36ea8e23e",
+      "taskHash": "8e20438c114a0f671c8de5890fa561466244f75de581af1fd5634a6e35f5d0b8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은2:R",
+      "taskId": "KP06:grammar:02",
+      "sourceHash": "d75a2d836d51d2d6cc9636ccdea0f3148822368fca7a686742b012dd10113928",
+      "taskHash": "8570c7bddae4188fa335fdc562befdfab4696c56bdf2e160a7568026722150b9",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은3:R",
+      "taskId": "KP06:grammar:03",
+      "sourceHash": "0afa299fbb5cf3547e6a4a64d32d4a3166878d3a9aef08cfa8576882a944a1de",
+      "taskHash": "edaf40f13c7fcbf3bff969278c55da8c3637a982097b0efc8d3db5aa12e68bd6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-을2:R",
+      "taskId": "KP06:grammar:04",
+      "sourceHash": "739d7e7e90f5425fee33e242c1033e7a707c1cefa0f02656c8fb0c11f84fc9da",
+      "taskHash": "9cebece8a8dab62e734a7e1f31a5362880bd6894b2ea63e2998675926a6b7388",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는 것:R",
+      "taskId": "KP06:grammar:05",
+      "sourceHash": "5347b40dd1230806fdf5f51abec4059b06f88fb31d7a43412a798f48767ad869",
+      "taskHash": "9f5929d30a9efee782c9a41e71330650d469ad7250e632613e2413f39f1cb2c3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-기:R",
+      "taskId": "KP06:grammar:06",
+      "sourceHash": "8b35f2f67aa669a272b4b63e5b2ef4b4b505f30a346ffd3bf7bf7b08a634c60e",
+      "taskHash": "4248eb32630ff551e8bf157374e4de7fba566fb855e55a99672a3dfbfa0e9b80",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-을 때:R",
+      "taskId": "KP06:grammar:07",
+      "sourceHash": "9bc8a9ea919d68d6bdd50d6e577af4b1f7eb2792bbb3711d0e1e4e9a26295a57",
+      "taskHash": "0e1b83847469bf08189ffb1620ae529541939a129376ced5d4e7d1cf08e256fc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-는 동안에:R",
+      "taskId": "KP06:grammar:08",
+      "sourceHash": "cf5b9d8d980fac2b147bd911c170f239bcc5bcd9eced87798c8311bd5b4b24ee",
+      "taskHash": "de6701e3ac647946e0ab3adbf95925daf0529aa9c990a285804ad88f83ec9955",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은 지2:R",
+      "taskId": "KP06:grammar:09",
+      "sourceHash": "2e1cff0656089bbca06fd8158f8351498a63032da610e3a87d75f6ad9338e01a",
+      "taskHash": "a573e7f9927aa793cf6d1ba42e77fd35dabf099bb326697fde241e0410ace1a5",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-은 적이 있다:R",
+      "taskId": "KP06:grammar:10",
+      "sourceHash": "b7b9212cf4a22829057973bdf3d6ddbd91c6b5a1efdecfb235e0c8ca50b7752f",
+      "taskHash": "0bf863badd39f2ec32aa0ef08484abb5638a415bcf23f21dd0998e44438a65fa",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-어 보다:R",
+      "taskId": "KP06:grammar:11",
+      "sourceHash": "99afd8a3b8d9c5dc3e9f9ff5ec987d4df711dab8c8b1a2e07ac307419f7c17c6",
+      "taskHash": "363490270f18d10af66136d08adcb7151d86dcf99dc1abe9868d15f9fbff239d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-으면서:R",
+      "taskId": "KP06:grammar:12",
+      "sourceHash": "15e02511d131d89ffd4292a709357cff3c494c0506b33ef8b2a61350ffe031ea",
+      "taskHash": "94e50fa004cba481bd2b73735b77410b2fef74a860059ea759c6458d9d6f22b6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G2:-다가1(1):R",
+      "taskId": "KP06:grammar:13",
+      "sourceHash": "cd9e1d892f6a702a40a9eaa31dddc61aff934537338e2a2f7263d78bf671c5f2",
+      "taskHash": "309d13d45aa775d6917ec8c3733a10ea043d05395788210ff97706ef9c788518",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:grammar/G1:-고 있다:R",
+      "taskId": "KP06:grammar:14",
+      "sourceHash": "110f200612bc7fd706ec4b7302f8419e071460d8474409494cfc53dcfa702b8f",
+      "taskHash": "f99f656e8647ec2dc7177639582c42b505dfa99a7148a2d215a9d3832e7bfbdf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-는데1:R",
+      "taskId": "KP07:grammar:01",
+      "sourceHash": "ac970f571d9c9ff6ea124d6d3e75d2a47bb3063b518c3d2cedd14adc509e777f",
+      "taskHash": "9d111d056d79d5e5b3763c5103009fcea6bf9c7a251f1a941317040060e41331",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-게2:R",
+      "taskId": "KP07:grammar:02",
+      "sourceHash": "04ece0e9261c6b6b3f13ae9173ed43f70f871bccd47c23b2db74ed57558cafee",
+      "taskHash": "b9690dad9a58553928233f0d85f40fda0e057501272c0c51c9f40991b95e44cb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-기 때문에:R",
+      "taskId": "KP07:grammar:03",
+      "sourceHash": "91acfec11922821a8ef675fd2f467f36f08221c013e93988299c086e3d8ffe77",
+      "taskHash": "10e60b1f1300869aee7eba51fcdee2057d9306d379012c4ec873cf302b4e4868",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-기로 하다:R",
+      "taskId": "KP07:grammar:04",
+      "sourceHash": "9680e60275e38cdd844a24c700f681a5f2790fb3792fd53f38cae2216fd3b7fc",
+      "taskHash": "79c1fc07e00437249896e4100093506beef06064e93e10f0f898b289f08ae7d6",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-는 것 같다:R",
+      "taskId": "KP07:grammar:05",
+      "sourceHash": "57b06846851c0f10389cf04016f6471578960b7db618d0d259821e8a3a627f67",
+      "taskHash": "12b3c848284a4f9793ea20567bcac3ae7e8e6f09c5783843ea820cdc14ef8bba",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을 수밖에 없다:R",
+      "taskId": "KP07:grammar:06",
+      "sourceHash": "90a00f5c5e67eb2fad327534069b52441dfe49e82d73da9165cd29809cbdcae0",
+      "taskHash": "240a8d3a7502612f10935c40afe8b7f1829e4693c60c7041795d3621c41b1c7f",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을게:R",
+      "taskId": "KP07:grammar:07",
+      "sourceHash": "d0207b95acc89e52031f23d4248762bfae1f6077293fe6bf25f79e5fc9594791",
+      "taskHash": "d8a337fa10d07ea0d1df816d1744bf0a76aeb94d1c2be2de97a654894d70b300",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을래:R",
+      "taskId": "KP07:grammar:08",
+      "sourceHash": "f285a6635913190255f840457646e6419e086e07a85e2de7a1c14b79e36902d4",
+      "taskHash": "6d51ec49c9aef2a5a87adbbb5d4c307f834432fadcc634da4e6838eb7c5c4718",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-을까 보다:R",
+      "taskId": "KP07:grammar:09",
+      "sourceHash": "9b610182245a5caa89732c34fcdd68ff2cfd7362463f1931ece4a7252229bdcb",
+      "taskHash": "cb7ee4eadf0ac3203f8f7f691983684bb9dd6e8e4e1a99f3c9a2a69eb750a220",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G2:-게 되다:R",
+      "taskId": "KP07:grammar:10",
+      "sourceHash": "a7ba0783651bce77f6339369884de84fa75767d400719c95586ef22c984532ba",
+      "taskHash": "16ba609235439fee4a7c522b73b6b5f96f01f0a840b07d5c6402070b18e60bee",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-고4:R",
+      "taskId": "KP07:grammar:11",
+      "sourceHash": "0b81ee4e78f1987398bb656f2fff1d80e356849698fe215b472b7f38b3d9b1ae",
+      "taskHash": "441ece1ebfaefe6f3216e1ad7c400312449e4e329ee816edf9a477c8f6832ebc",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-어서:R",
+      "taskId": "KP07:grammar:12",
+      "sourceHash": "d463bec2a2471e9cdc935f7e4daca8ca05bc675611ca3948d0b23e5c2ac48e65",
+      "taskHash": "f5daee9fae9cf9bfd59f16e1c3b83380bd67bb6291b506d6b18849cba1477a45",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:grammar/G1:-지만:R",
+      "taskId": "KP07:grammar:13",
+      "sourceHash": "13822f2a24cbec7a63c860fe984d56eea799cae4e07ae9d612ddf883cccf7e0c",
+      "taskHash": "5fe5bf5410adc256f729932a1cac4e61fdcb1adeb5907a3cb19285a56cce7d1d",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-음:R",
+      "taskId": "KP08:grammar:01",
+      "sourceHash": "1bd6ac50c4d12321d142d98c7f5f0d4d64cbadbcc5d979dadb8137b7f0f9967c",
+      "taskHash": "d9029bdfa66f785127382e90f39ad25951d1ac8fb537ca1aa88e86f591949b45",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:께:R",
+      "taskId": "KP08:grammar:02",
+      "sourceHash": "a3addecf95f12435786f74e04b1e1b38a787317c22fdb972917b61a9a40e0926",
+      "taskHash": "59ed3fb4a268f702ec25bb55c03132be7cc7ea4a4d673ed0884228080ce0aa80",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에게로:R",
+      "taskId": "KP08:grammar:03",
+      "sourceHash": "daa87fde7a7bb9c4e0397ab920410887100bd6076585c69abc1f180d8d0f8659",
+      "taskHash": "fcd034399721244f076f6eb2c77b4dfd8566f162aba82da6606b617a78421c33",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에게서:R",
+      "taskId": "KP08:grammar:04",
+      "sourceHash": "8217548f1a719e71d86296f84fec3acb97007aee5a95d53ffe6767637708dd47",
+      "taskHash": "bffa0b7912e012b98f8f2b3b6f612b411bbece64701044bad49f32dcc5352701",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:한테서:R",
+      "taskId": "KP08:grammar:05",
+      "sourceHash": "201b9f4208d7193914ff83f88733e85e6317b2e77af466db63e9f78eb9b7a297",
+      "taskHash": "9b947158862653d3af446b7220520517ac2111168d03a93d269964b97d70963e",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에다가:R",
+      "taskId": "KP08:grammar:06",
+      "sourceHash": "49662b4f77f75070eaf6c04e165976fd42b072476adb0338daaae7b78c50d4c0",
+      "taskHash": "6ace50ab9121ae0cdfe75b1538ecc0fa36ae8e3c1dbce8331191e9affd8429f3",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:에서부터(서부터):R",
+      "taskId": "KP08:grammar:07",
+      "sourceHash": "3b740e2d8e950349e5e1f93489e28b07e6d3c986194e4644aa8df83a0bbcd71f",
+      "taskHash": "95799e4f272fcb4071c7d8f4f31ce78614a95b38a8ccd7818b69b5d121adcfdf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-네:R",
+      "taskId": "KP08:grammar:08",
+      "sourceHash": "7539e88e27e9048783ac622f8b1ec178a91a632d2816872f938827f9fbda4df8",
+      "taskHash": "b18b333c94db9c3d5917e78413f7d76f1c7ffe734a40141a7dee407a949f7adf",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-는군:R",
+      "taskId": "KP08:grammar:09",
+      "sourceHash": "a3525d4ae48beab388d05f5a4596fef48a0bfdb81da0a7bfc866994677a9d51f",
+      "taskHash": "e2543fc5e161c401bc2d46cd3d59a8801ef1bda5a74aac21e6f7539671b7c673",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-는데2:R",
+      "taskId": "KP08:grammar:10",
+      "sourceHash": "c618f2070d18ed43e2808c4d337413f0c6bb35c91d8c6ac56889711128c148cb",
+      "taskHash": "bef861408b77584d802c1bc23c0319e12599b89dd8aef8616d463e953361235a",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-지:R",
+      "taskId": "KP08:grammar:11",
+      "sourceHash": "53a8833579d140bb3e078cc892e1ca4e23eb688b28d92324cfcc3387e53ff3df",
+      "taskHash": "dcb076e7595ccf5f16449cd4fa5cb16d2da22660ef2c648e3662136751c11d7c",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-어 있다:R",
+      "taskId": "KP08:grammar:12",
+      "sourceHash": "7f6400ff4d71e284529b2b2b4d71fdcb4e2fb43aaf5f0640bf67207cd28fbb7a",
+      "taskHash": "069ee1352d138f160b9139dab11ba4863554efb5d2f26ed3c533aa2925bdb0ec",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G2:-을 것1:R",
+      "taskId": "KP08:grammar:13",
+      "sourceHash": "e9c6d4931663a75bcb220f6ea0a8035d6e39db003aed9ea30e405dfcb9979e1a",
+      "taskHash": "a48411a234becc90b3265c5455d65ae7ba8e863fe2c0bfb22c0c81d3ac9bd2c7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:grammar/G1:-고 있다:R",
+      "taskId": "KP08:grammar:14",
+      "sourceHash": "f407fc851e7a1bafd275c5587c31b91454e29d1e482c172ef7e25db365498f77",
+      "taskHash": "810fed93d765ce27c5b79c2b6d0b5fdcf1df0f48a1707b383b2f4444a23b6b91",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:listening/core:R",
+      "taskId": "KP01:listening:01",
+      "sourceHash": "332891175536ed4802b53bffcaaea742d6f269959dc3df0bf3096065d8a55ec7",
+      "taskHash": "a995013dcd94e61eb4099ec35e625769106c5521f0c8201b4a779df7556bd906",
+      "criterionIds": [
+        "name",
+        "role",
+        "relation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:reading/core:R",
+      "taskId": "KP01:reading:01",
+      "sourceHash": "605ea929a827f6741da729e27c4ea08fdb6f2a4ee03de3b8d897b22eda56a5a8",
+      "taskHash": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "criterionIds": [
+        "room",
+        "name",
+        "occupation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:writing/core:P",
+      "taskId": "KP01:writing:01",
+      "sourceHash": "240658f53ac82e15e24f5d12cb213c0ab417f18d9e3ad36d34b6b80fca3daa63",
+      "taskHash": "04dc99063c515a64012a94e14ea8eb7368b5102f972d3852ac5811bb3421b423",
+      "criterionIds": [
+        "name",
+        "country",
+        "occupation",
+        "introduction",
+        "contrast"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:writing/core:P",
+      "taskId": "KP01:writing:02",
+      "sourceHash": "240658f53ac82e15e24f5d12cb213c0ab417f18d9e3ad36d34b6b80fca3daa63",
+      "taskHash": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "criterionIds": [
+        "name",
+        "optional",
+        "ask_required"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:speaking/core:P",
+      "taskId": "KP01:speaking:01",
+      "sourceHash": "a0d0ae2e25f2eded27296cf7931c4e9f0f66ee4b8dd1e84c55e4eb025eee7007",
+      "taskHash": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:listening/core:R",
+      "taskId": "KP02:listening:01",
+      "sourceHash": "e6f9343c5dbb29b6ffc7b7660ad8bdea21e4314ae2dcf82b7e0c75640ac25f30",
+      "taskHash": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
+      "criterionIds": [
+        "start",
+        "end",
+        "place",
+        "transport",
+        "class_start",
+        "class_end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:reading/core:R",
+      "taskId": "KP02:reading:01",
+      "sourceHash": "51eedc96bd8acbd23e76c0eefe1989af172064c0a0d5a7cba44185c337f9cef5",
+      "taskHash": "8a4fb730f5c98097f0ffe1d304bc5b6be87e0edd5730bfe32f467c85b089c7bb",
+      "criterionIds": [
+        "visit",
+        "classroom",
+        "end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:writing/core:P",
+      "taskId": "KP02:writing:01",
+      "sourceHash": "e6168a6da05631fb3784296366f8b0cef538e787816840f5e6f8661033c6ca66",
+      "taskHash": "ecfc1dd32a06dbed077838c91ed8db9d3a73e4e36ae3f6375a319b704462ed9e",
+      "criterionIds": [
+        "location",
+        "arrival"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:speaking/core:P",
+      "taskId": "KP02:speaking:01",
+      "sourceHash": "d9931fbec2777641ebec4425d0abb616b5861a0786868075c6d38c4407ecb53c",
+      "taskHash": "6a33d51bbee068681afef44db7b57fc1a198b2f8e2b8c3fcc5f43b4aabe4e26c",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:listening/core:R",
+      "taskId": "KP03:listening:01",
+      "sourceHash": "1d9632643553746ca5fec26d32b1431c928d5d6929491c68e73758b8446fae4a",
+      "taskHash": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "criterionIds": [
+        "wish",
+        "order",
+        "available"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:reading/core:R",
+      "taskId": "KP03:reading:01",
+      "sourceHash": "1c451b9ea876683ce69230b213b161a39da158164b222cc95f3d95de5832daa8",
+      "taskHash": "24b6cb6b1d1b64f9f513de82f829f52367faca8120f0d831cb9899516f7946b5",
+      "criterionIds": [
+        "quantity",
+        "total",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:writing/core:P",
+      "taskId": "KP03:writing:01",
+      "sourceHash": "a0c5ca776fc4e5d88fafb0c12f8b1d90ea9dc43080794394dd10289524c0ad17",
+      "taskHash": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "criterionIds": [
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:speaking/core:P",
+      "taskId": "KP03:speaking:01",
+      "sourceHash": "787214262ea68ccd5d40604b43fa50d0d0eef091a30cce81e0d5eb65c468d227",
+      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:listening/core:R",
+      "taskId": "KP04:listening:01",
+      "sourceHash": "c6fe6335cd1a8660f5897ce271d3861f153267ad93dc246d8a9b6de3e02a6a7f",
+      "taskHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+      "criterionIds": [
+        "fact",
+        "time",
+        "sequence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:reading/core:R",
+      "taskId": "KP04:reading:01",
+      "sourceHash": "0dd60944a58932024fbbaf0f7e51d403ee99a113bb1f1caed86eb36306962263",
+      "taskHash": "b50c4ca1a3f12d7805315b10877f92ca437fe1b0956d522c3bcf9e915ac5f049",
+      "criterionIds": [
+        "sequence",
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:writing/core:P",
+      "taskId": "KP04:writing:01",
+      "sourceHash": "1152b84205c159d805c17ecafcbea8d957bf12a2e20a2824f271070c8a4ce5bb",
+      "taskHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+      "criterionIds": [
+        "reason_change",
+        "alternative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:speaking/core:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "25789725561d3864bb745a0c66ced2026c332d3e9541b8ec7ca5b9ed7ab16386",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:listening/core:R",
+      "taskId": "KP05:listening:01",
+      "sourceHash": "e5b525bfaf0313c10eff8e9c5fbd52688aa07e5f2f4a953f0f70ec2548e08bf6",
+      "taskHash": "013b4b705aaa5707bf98471f3e8151d1d5be9ddb118809a09c76355b8d90a53b",
+      "criterionIds": [
+        "condition",
+        "price",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:reading/core:R",
+      "taskId": "KP05:reading:01",
+      "sourceHash": "1756f19b96337cb35d78e368c70178cbd695a9e6bedcaad424c9b0664dbe69e6",
+      "taskHash": "ce2f65718a6e6449c62ca44aae40b39543e0f1c97df93a74d9950cb0ba2434b9",
+      "criterionIds": [
+        "preparation",
+        "repeat",
+        "only",
+        "prohibition"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:reading/core:R",
+      "taskId": "KP05:reading:03",
+      "sourceHash": "1756f19b96337cb35d78e368c70178cbd695a9e6bedcaad424c9b0664dbe69e6",
+      "taskHash": "b5b984f862050bd086b712670f983038e47c811d63ea30750d0df48a2ef2e8de",
+      "criterionIds": [
+        "order",
+        "exception",
+        "remaining_duty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:writing/core:P",
+      "taskId": "KP05:writing:01",
+      "sourceHash": "f08012839a48a32e63bac802956b77de6f340b0b60094fbfaaa89c36584d14f3",
+      "taskHash": "af20b6982a35d3431f57d4081c4a8a608595d4c9a17032a8f225b9021d925d6f",
+      "criterionIds": [
+        "condition",
+        "permission",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:writing/core:P",
+      "taskId": "KP05:writing:02",
+      "sourceHash": "f08012839a48a32e63bac802956b77de6f340b0b60094fbfaaa89c36584d14f3",
+      "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:speaking/core:P",
+      "taskId": "KP05:speaking:01",
+      "sourceHash": "d1afb204b7c0cb87b90226c0bf385eab549db3fa650a903819e1b4e256ae8f03",
+      "taskHash": "b958d3992c3b624e9fa01d2590f3d1a1acd9baaa9cfe4ed92cc599e8d589d5e4",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:listening/core:R",
+      "taskId": "KP06:listening:01",
+      "sourceHash": "d8e6b8505c2f9a4bafacde9f7840aad6e52fb35a7443314c0d14880f56252ac2",
+      "taskHash": "7ccd0973c1617ac9642ab3713e4fef7d6ea409c8f96823976d9b2af14e591199",
+      "criterionIds": [
+        "person",
+        "duration",
+        "past",
+        "future"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:listening/core:R",
+      "taskId": "KP06:listening:02",
+      "sourceHash": "d8e6b8505c2f9a4bafacde9f7840aad6e52fb35a7443314c0d14880f56252ac2",
+      "taskHash": "3605dc6d0dbd46176c829e2d91967611ac7c7b29d45ece27e8fef971d41961f1",
+      "criterionIds": [
+        "past",
+        "future"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:reading/core:R",
+      "taskId": "KP06:reading:01",
+      "sourceHash": "b1152f367ec5ba114feb11a705c65d0a622485f0a55f728466c20a98e9a894be",
+      "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+      "criterionIds": [
+        "actor_past",
+        "actor_future",
+        "duration",
+        "purpose"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:writing/core:P",
+      "taskId": "KP06:writing:01",
+      "sourceHash": "e6a0bc1bc03a3388e5f63b5058a4ed50efadd57a6a5885b53fc996fe62b3b08c",
+      "taskHash": "4ff4cc50e37b73033f8ed1a3aa879098e9319fe6a9447bd67768335093263d17",
+      "criterionIds": [
+        "first_experience",
+        "interruption"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:writing/core:P",
+      "taskId": "KP06:writing:03",
+      "sourceHash": "e6a0bc1bc03a3388e5f63b5058a4ed50efadd57a6a5885b53fc996fe62b3b08c",
+      "taskHash": "8bd0d92ff6b4e32ad92ec425e9b6cad5440d02815dd79fe01f7744736458e1c6",
+      "criterionIds": [
+        "diary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP06:objective:speaking/core:P",
+      "taskId": "KP06:speaking:01",
+      "sourceHash": "b4a14d13f0f86a5be56935edd8f4d071b94c057b9810873a42137a9572a89431",
+      "taskHash": "cf3aab89f24a20e80be53e0607458ad9ccb25c50a73e91f90590c19697caf449",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:listening/core:R",
+      "taskId": "KP07:listening:01",
+      "sourceHash": "77334a8ce7a191b4327689f56f52c8ee289bfdf4899777acbd152d9e0387039f",
+      "taskHash": "69dd12ea177bb88df782193153d43758dea5212f1b8bbffc653b2c89d996d25f",
+      "criterionIds": [
+        "reason",
+        "decision",
+        "promise"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:listening/core:R",
+      "taskId": "KP07:listening:03",
+      "sourceHash": "77334a8ce7a191b4327689f56f52c8ee289bfdf4899777acbd152d9e0387039f",
+      "taskHash": "92fefa1743e2c1f43fb36e8eac8b01c2f13182af835b46d14e051be4afee160e",
+      "criterionIds": [
+        "preference",
+        "promise",
+        "necessity"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:reading/core:R",
+      "taskId": "KP07:reading:01",
+      "sourceHash": "455223d2afa8c62e0c7b6b9ac772b5468abf45e6b71619be4fc52bfc726da7a0",
+      "taskHash": "17cc15ff07287bfce5acf514becb425a59ab6cf33ccbce8a8ad6ba3ec07a21e2",
+      "criterionIds": [
+        "cause",
+        "result",
+        "uncertainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:writing/core:P",
+      "taskId": "KP07:writing:01",
+      "sourceHash": "efb57e58613335a730138f02f44c64e02f980f249466eac0356ad34f92b2c77c",
+      "taskHash": "10ce4edde41473b981d6311f7b8eaa0bd05af5123e341de49472132f84c590f6",
+      "criterionIds": [
+        "background",
+        "inference",
+        "proposal",
+        "action"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:writing/core:P",
+      "taskId": "KP07:writing:02",
+      "sourceHash": "efb57e58613335a730138f02f44c64e02f980f249466eac0356ad34f92b2c77c",
+      "taskHash": "8df65e5830452178632c23963012b247f60e5373c3213c4b7143962ad9347c5d",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP07:objective:speaking/core:P",
+      "taskId": "KP07:speaking:01",
+      "sourceHash": "425d488085483d70ef6abeb98dbe6e8ba331f48c8faaea3c88f4ddf56d7eda01",
+      "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:listening/core:R",
+      "taskId": "KP08:listening:01",
+      "sourceHash": "09f09ec2c63acf748cc049dd3d23f15ab5777dcd9bdc687cacab98ed7208d718",
+      "taskHash": "91b4eb4a4f6139cbb844f94ac819b3d7b65d8ad01195d753020049c0ff1d2638",
+      "criterionIds": [
+        "source",
+        "recipient",
+        "function",
+        "deadline"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:listening/core:R",
+      "taskId": "KP08:listening:02",
+      "sourceHash": "09f09ec2c63acf748cc049dd3d23f15ab5777dcd9bdc687cacab98ed7208d718",
+      "taskHash": "d38708cdca354feab2f839c19d887a169a355f632453274ba6327a743cc72175",
+      "criterionIds": [
+        "relation",
+        "reaction",
+        "audience"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:reading/core:R",
+      "taskId": "KP08:reading:01",
+      "sourceHash": "c32ecc4217c248d62e591d2f1198c194ea3be1b431fedb7a862006da45f94ba6",
+      "taskHash": "caef2b606e46ff2959424ba8755d0e0d11cbaa1d4e127155512771c5d542d20f",
+      "criterionIds": [
+        "state",
+        "sequence",
+        "deadline",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:writing/core:P",
+      "taskId": "KP08:writing:01",
+      "sourceHash": "8c3b4d8fcb4356ce027390b398c74025ecd88522e9a45fa76155621b7a004653",
+      "taskHash": "b953c4c893a0e246cf1d3d35400f54ed5ec6f39f15b7dc736b6c61d4d8aab1d1",
+      "criterionIds": [
+        "public",
+        "private"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:writing/core:P",
+      "taskId": "KP08:writing:02",
+      "sourceHash": "8c3b4d8fcb4356ce027390b398c74025ecd88522e9a45fa76155621b7a004653",
+      "taskHash": "2aaaaf16a434896578832c4ceeb20177828b866e0369d2742d85fba30f96f633",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP08:objective:speaking/core:P",
+      "taskId": "KP08:speaking:01",
+      "sourceHash": "e844aa0128eb16ec18cd2dff6db47edfb45a6c6c08adbc87a839ec91c815301a",
+      "taskHash": "69fcdb8b38d3a0e07fcc1577c02f00a23d257fbd63ab571e6cfdb50678b58f7a",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
+    },
+    {
+      "objectiveId": "KP05:objective:reading/genre/advertisement_leaflet:R",
+      "taskId": "KP05:reading:02",
+      "sourceHash": "068d2b88300c771521f6c055efd8541d517b394ca200b19e583ca8d44af3bdd0",
+      "taskHash": "1cba61415c9ce86c2f9a3cb6efeb3b46c9561c55234ab4cbe2e1d2cc5259e06b",
+      "criterionIds": [
+        "fact",
+        "condition",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP05:objective:reading/genre/instructions_manual_recipe:R",
+      "taskId": "KP05:reading:03",
+      "sourceHash": "24aa4771c23e3abaa76e5af9909194d74abda98077b481f3832dd91b9d54fa4c",
+      "taskHash": "b5b984f862050bd086b712670f983038e47c811d63ea30750d0df48a2ef2e8de",
+      "criterionIds": [
+        "order",
+        "exception",
+        "remaining_duty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP05:objective:writing/genre/instant_message_chat:P",
+      "taskId": "KP05:writing:02",
+      "sourceHash": "0c20673730c98877486a68eb64a11f636ebad529611cddb7c5892f31a57c2e83",
+      "taskHash": "a7b58269a32c25c753f390aa80eb9916ad63a202d4bef91073fccf1b91f0c65c",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP05:objective:speaking/genre/phone_call:P",
+      "taskId": "KP05:speaking:02",
+      "sourceHash": "5c0dfe9b0025f163d7f00f119ded7f10529c1c02718e0ed0d7b3efa9d6bff2ee",
+      "taskHash": "9bef7f4c262acb8578f02d9033d8270f045196302b9b9c5b5deae3a09b6c4b4e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP06:objective:reading/genre/email_informal:R",
+      "taskId": "KP06:reading:01",
+      "sourceHash": "542292ef9dc00533dfa74bde8902170d1999eaf55c2abe37a894eca1ff92fafa",
+      "taskHash": "5b555e8327b354c8fef83c8e51c7ee28bdb71f6c9a97e7f62e16f0bd426d235c",
+      "criterionIds": [
+        "actor_past",
+        "actor_future",
+        "duration",
+        "purpose"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP06:objective:reading/genre/explanatory_informational_text:R",
+      "taskId": "KP06:reading:02",
+      "sourceHash": "6a7dd967b6208ed4ebb3bde124fabb614e20b0698947e36969b74368b427f65d",
+      "taskHash": "6a0ab834dc140a950f622dd718824b3c665119685f14ca3a7a3d7b386bd285b3",
+      "criterionIds": [
+        "first",
+        "cause"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP06:objective:writing/genre/email_informal:P",
+      "taskId": "KP06:writing:02",
+      "sourceHash": "7e13061db3c6d1a6def74c11d260f8d027a9a8220e61bdc6566885f22a991d6d",
+      "taskHash": "669630f5ed46fa2dd2064f7441812ea5196d70823fed1864d2f19c0f5333e3c8",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP06:objective:writing/genre/narrative_story_diary:P",
+      "taskId": "KP06:writing:03",
+      "sourceHash": "266831e419d5b29d641ef85c2d08ac417674247f827bbfdff86628400761aa91",
+      "taskHash": "8bd0d92ff6b4e32ad92ec425e9b6cad5440d02815dd79fe01f7744736458e1c6",
+      "criterionIds": [
+        "diary"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP07:objective:listening/genre/phone_call:R",
+      "taskId": "KP07:listening:02",
+      "sourceHash": "1c9dc511fe1540b9ef5f4268ea477b500c83a3cc6934e37e9cdb4aa93671e685",
+      "taskHash": "9aec688e599830b72fdf15ebc5d47d16f18e8523bdd893591a156fa0a5900346",
+      "criterionIds": [
+        "purpose",
+        "confirmed"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP07:objective:speaking/genre/phone_call:P",
+      "taskId": "KP07:speaking:01",
+      "sourceHash": "ae45ba34fb75f9c0e97ee5133cfe7b6bb05df63c7b8e3752db51b05e0b802244",
+      "taskHash": "077cddf17dcc32c63675cf10d0bbfd187bc77a51b805f1c06163d85fdcebc165",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP07:objective:reading/genre/explanatory_informational_text:R",
+      "taskId": "KP07:reading:01",
+      "sourceHash": "a4f41c97a1125bd4fad183aae64acaab591a83c3c3d3dcbbc7cb123127d50bdf",
+      "taskHash": "17cc15ff07287bfce5acf514becb425a59ab6cf33ccbce8a8ad6ba3ec07a21e2",
+      "criterionIds": [
+        "cause",
+        "result",
+        "uncertainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP07:objective:writing/genre/instant_message_chat:P",
+      "taskId": "KP07:writing:02",
+      "sourceHash": "6e9397b8d62600cf1735372a1c089cc64a9d7928c5a018d7146e02e7da3309ac",
+      "taskHash": "8df65e5830452178632c23963012b247f60e5373c3213c4b7143962ad9347c5d",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP08:objective:listening/genre/drama_film_line:R",
+      "taskId": "KP08:listening:02",
+      "sourceHash": "3d30c159df3cd3f3fb2bcb3cb4f5fade80d251e89b5500307c4ea68521b8cdb6",
+      "taskHash": "d38708cdca354feab2f839c19d887a169a355f632453274ba6327a743cc72175",
+      "criterionIds": [
+        "relation",
+        "reaction",
+        "audience"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP08:objective:reading/genre/written_notice_announcement:R",
+      "taskId": "KP08:reading:01",
+      "sourceHash": "dc4c1c83bbd0de958af9fa9deac363e3ab83badf78aef36a880c6032081c7f8e",
+      "taskHash": "caef2b606e46ff2959424ba8755d0e0d11cbaa1d4e127155512771c5d542d20f",
+      "criterionIds": [
+        "state",
+        "sequence",
+        "deadline",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP08:objective:reading/genre/instructions_manual_recipe:R",
+      "taskId": "KP08:reading:01",
+      "sourceHash": "5cbc9ba59d0e55b5b984df84c27c0f344162f6e9b296e5ca2e6502fde8620704",
+      "taskHash": "caef2b606e46ff2959424ba8755d0e0d11cbaa1d4e127155512771c5d542d20f",
+      "criterionIds": [
+        "state",
+        "sequence",
+        "deadline",
+        "scope"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP08:objective:writing/genre/social_media_post_comment:P",
+      "taskId": "KP08:writing:02",
+      "sourceHash": "fcaf876e08fa6d5f73c196f131ff58e87fb6156c76b22334edc3e79baf1b3dad",
+      "taskHash": "2aaaaf16a434896578832c4ceeb20177828b866e0369d2742d85fba30f96f633",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    },
+    {
+      "objectiveId": "KP08:objective:writing/genre/email_informal:P",
+      "taskId": "KP08:writing:02",
+      "sourceHash": "a89c6f3356905aaf12e5dee78744cc6f366fa9f52d19a18c8de445ae1463f358",
+      "taskHash": "2aaaaf16a434896578832c4ceeb20177828b866e0369d2742d85fba30f96f633",
+      "criterionIds": [
+        "draft"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "자료에서 장르·독자·목적을 명시하고 연습과 다른 평가 상황을 제공한다. 장르 전체 글은 루브릭 재작성 경로이며 의미 평가가 불가능한 응답은 필수 미채점으로 남긴다."
+    }
+  ]
+}

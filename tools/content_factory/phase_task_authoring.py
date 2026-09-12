@@ -30,6 +30,12 @@ def packet(text, questions, kind='text'):
     return dict(sourceKind=kind, sourceKo=text, questions=questions)
 
 
+def free_text(qid, prompt, rubric):
+    """A required writing response with review guidance, never an answer key."""
+    return dict(id=qid, kind='freeText', prompt=prompt, required=True,
+                options=[], acceptedAnswers=[], explanation=rubric)
+
+
 def task(phase_id, suffix, skill, title, teaching, practice, assessment,
          *, keys=(), examples=(), minimum=1, prerequisites=()):
     tid = f'{phase_id}:{suffix}'

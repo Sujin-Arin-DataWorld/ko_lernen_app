@@ -14,7 +14,11 @@ void main() {
     expect(catalog.forPhase('KP02').length, 18);
     expect(catalog.forPhase('KP03').length, 17);
     expect(catalog.forPhase('KP04').length, 16);
-    expect(catalog.forPhase('KP05'), isEmpty);
+    expect(catalog.forPhase('KP05').length, 17);
+    expect(catalog.forPhase('KP06').length, 22);
+    expect(catalog.forPhase('KP07').length, 20);
+    expect(catalog.forPhase('KP08').length, 21);
+    expect(catalog.forPhase('KP09'), isEmpty);
   });
   test('a correct total never compensates for an unaffordable order', () {
     final menu = catalog.byId('KP03:reading:01');
@@ -86,6 +90,100 @@ void main() {
     raw['tasks'][0]['assessment']['questions'][0]['acceptedAnswers'] = ['0'];
     expect(() => PhaseTaskCatalog.parse(raw), throwsFormatException);
   });
+  test('A2 actor and source errors cannot be offset by the other facts', () {
+    for (final entry in {
+      'KP06:reading:01': 'actor_past',
+      'KP07:listening:01': 'promise',
+      'KP08:listening:01': 'source',
+    }.entries) {
+      final task = catalog.byId(entry.key);
+      final answers = {
+        for (final q in task.assessment.questions)
+          q.id: q.acceptedAnswers.single,
+      };
+      expect(task.evaluate(answers, assessment: true).passed, isTrue);
+      final critical = task.assessment.questions.firstWhere(
+        (q) => q.id == entry.value,
+      );
+      answers[critical.id] = critical.options.keys.firstWhere(
+        (v) => !critical.accepts(v),
+      );
+      expect(task.evaluate(answers, assessment: true).passed, isFalse);
+    }
+  });
+  test('A2 diary completion and certain inference are rejected', () {
+    for (final entry in {
+      'KP06:writing:01': 'interruption',
+      'KP07:writing:01': 'inference',
+      'KP08:writing:01': 'public',
+    }.entries) {
+      final task = catalog.byId(entry.key);
+      final answers = {
+        for (final q in task.assessment.questions)
+          q.id: q.acceptedAnswers.first,
+      };
+      expect(task.evaluate(answers, assessment: true).passed, isTrue);
+      final critical = task.assessment.questions.firstWhere(
+        (q) => q.id == entry.value,
+      );
+      answers[critical.id] = critical.rejectedAnswers.first;
+      final result = task.evaluate(answers, assessment: true);
+      expect(result.score, isNotNull);
+      expect(result.passed, isFalse);
+      answers[critical.id] = '새로운 자유 표현';
+      expect(task.evaluate(answers, assessment: true).score, isNull);
+    }
+  });
+  test(
+    'free writing never grants mastery, even for copied rubric text',
+    () async {
+      final bundle =
+          jsonDecode(await rootBundle.loadString(PhaseTaskCatalog.assetPath))
+              as Map<String, dynamic>;
+      final raw = Map<String, dynamic>.from(
+        (bundle['tasks'] as List).firstWhere(
+          (t) => t['id'] == 'KP01:writing:01',
+        ),
+      )..remove('contentHash');
+      for (final mode in ['practice', 'assessment']) {
+        final q = Map<String, dynamic>.from(raw[mode]['questions'][0] as Map);
+        q.addAll({
+          'kind': 'freeText',
+          'acceptedAnswers': <String>[],
+          'options': <dynamic>[],
+          'required': true,
+        });
+        raw[mode]['questions'] = [q];
+      }
+      raw['contentHash'] = phaseFingerprint(raw);
+      final task = PhaseTask.fromJson(raw);
+      final q = task.assessment.questions.single;
+      for (final answer in [
+        '키워드 이름 나라',
+        q.explanation.pick('ko'),
+        '안녕하세요. 제 이름은 민지예요.\n오늘 모임에 왔어요.',
+      ]) {
+        final result = task.evaluate({q.id: answer}, assessment: true);
+        expect(result.score, isNull);
+        expect(result.passed, isFalse);
+        expect(result.passedCriterionIds, isEmpty);
+        expect(
+          task.passedBy(result.evidence('free-attempt', DateTime.utc(2026))),
+          isFalse,
+        );
+      }
+      final forged = task
+          .evaluate({}, assessment: true)
+          .evidence('forged', DateTime.utc(2026))
+          .toJson();
+      forged.addAll({
+        'score': 1.0,
+        'passedCriterionIds': [q.id],
+      });
+      expect(task.passedBy(PhaseAttemptEvidence.fromJson(forged)), isFalse);
+      expect(task.evaluate({}, assessment: true).passed, isFalse);
+    },
+  );
   test('essential name and role cannot be offset by the other answers', () {
     final task = catalog.byId('KP01:listening:01');
     final bad = task.evaluate({

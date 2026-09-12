@@ -218,8 +218,26 @@
         "a2_08_home_money"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp05.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP05:grammar:01",
+        "KP05:grammar:02",
+        "KP05:grammar:03",
+        "KP05:grammar:04",
+        "KP05:grammar:05",
+        "KP05:grammar:06",
+        "KP05:grammar:07",
+        "KP05:grammar:08",
+        "KP05:grammar:09",
+        "KP05:listening:01",
+        "KP05:reading:01",
+        "KP05:writing:01",
+        "KP05:speaking:01",
+        "KP05:reading:02",
+        "KP05:writing:02",
+        "KP05:reading:03",
+        "KP05:speaking:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP06",
@@ -245,8 +263,31 @@
         "a2_04_feelings_health"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp06.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP06:grammar:01",
+        "KP06:grammar:02",
+        "KP06:grammar:03",
+        "KP06:grammar:04",
+        "KP06:grammar:05",
+        "KP06:grammar:06",
+        "KP06:grammar:07",
+        "KP06:grammar:08",
+        "KP06:grammar:09",
+        "KP06:grammar:10",
+        "KP06:grammar:11",
+        "KP06:grammar:12",
+        "KP06:grammar:13",
+        "KP06:grammar:14",
+        "KP06:listening:01",
+        "KP06:reading:01",
+        "KP06:writing:01",
+        "KP06:speaking:01",
+        "KP06:reading:02",
+        "KP06:listening:02",
+        "KP06:writing:02",
+        "KP06:writing:03"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP07",
@@ -272,8 +313,29 @@
         "a2_06_study_work"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp07.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP07:grammar:01",
+        "KP07:grammar:02",
+        "KP07:grammar:03",
+        "KP07:grammar:04",
+        "KP07:grammar:05",
+        "KP07:grammar:06",
+        "KP07:grammar:07",
+        "KP07:grammar:08",
+        "KP07:grammar:09",
+        "KP07:grammar:10",
+        "KP07:grammar:11",
+        "KP07:grammar:12",
+        "KP07:grammar:13",
+        "KP07:listening:01",
+        "KP07:reading:01",
+        "KP07:writing:01",
+        "KP07:speaking:01",
+        "KP07:listening:02",
+        "KP07:writing:02",
+        "KP07:listening:03"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP08",
@@ -298,8 +360,30 @@
         "a2_03_chat_relationships"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp08.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP08:grammar:01",
+        "KP08:grammar:02",
+        "KP08:grammar:03",
+        "KP08:grammar:04",
+        "KP08:grammar:05",
+        "KP08:grammar:06",
+        "KP08:grammar:07",
+        "KP08:grammar:08",
+        "KP08:grammar:09",
+        "KP08:grammar:10",
+        "KP08:grammar:11",
+        "KP08:grammar:12",
+        "KP08:grammar:13",
+        "KP08:grammar:14",
+        "KP08:listening:01",
+        "KP08:reading:01",
+        "KP08:writing:01",
+        "KP08:speaking:01",
+        "KP08:listening:02",
+        "KP08:writing:02",
+        "KP08:listening:03"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP09",
@@ -891,5 +975,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "b0f10b027796b83486ed007dd1e8e11a27ffaa6a85fd7855990691ee7b04c43f"
+  "phaseTaskSourceSha256": "879d7beafc2f6abdc7cb211645d264b4e52ac14713fff26443aed5450cb085ce"
 }

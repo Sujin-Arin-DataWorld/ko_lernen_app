@@ -22,6 +22,10 @@ import 'package:ko_lernen_app/theme.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   const restoreOnly = bool.fromEnvironment('PHASE_NATIVE_RESTORE_ONLY');
+  const qaLevel = String.fromEnvironment(
+    'PHASE_NATIVE_LEVEL',
+    defaultValue: 'A1',
+  );
 
   Widget host(PhaseTaskRoute route) => MaterialApp(
     theme: AppTheme.dark,
@@ -122,6 +126,46 @@ void main() {
     skip: restoreOnly,
   );
 
+  testWidgets(
+    'native A2 full email stays unscored and restores as a local draft',
+    (tester) async {
+      await Storage.init();
+      const route = PhaseTaskRoute('KP06', 'KP06:writing:02', assessment: true);
+      await tester.pumpWidget(host(route));
+      await waitFor(tester, find.text('Email about a first experience'));
+      final field = find.byKey(
+        const ValueKey('KP06:writing:02:true:draft-field'),
+      );
+      await tester.scrollUntilVisible(
+        field,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      const draft =
+          '제목: 같이 화분을 만들어 볼래?\n은우야, 안녕! 7월 8일에 처음 화분을 만들어 봤어. 만들다가 수업이 끝나서 완성하지 못했어. 다시 해 보고 싶어. 다음 주 일요일에 같이 해 볼래? 시간이 되는지 답장 줘.';
+      await tester.enterText(field, draft);
+      await tap(tester, 'Check and save answers');
+      final snapshot = await CourseProgressService.shared.readForDisplay();
+      final attempts = snapshot!.phaseTaskEvidence.where(
+        (e) => e.taskId == route.taskId,
+      );
+      expect(attempts, isNotEmpty);
+      expect(
+        attempts.every((e) => e.score == null && e.passedCriterionIds.isEmpty),
+        isTrue,
+      );
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpWidget(host(route));
+      await waitFor(tester, find.text('Email about a first experience'));
+      await tester.scrollUntilVisible(
+        field,
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
+      expect(tester.widget<TextFormField>(field).initialValue, draft);
+    },
+    skip: restoreOnly || qaLevel != 'A2',
+  );
   testWidgets(
     'native recording and replay keep speech meaning unscored',
     (tester) async {

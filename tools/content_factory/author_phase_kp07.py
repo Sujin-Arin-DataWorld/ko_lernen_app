@@ -1,0 +1,61 @@
+"""KP07 schedule repair: distinguish background, inference and commitments."""
+from phase_task_authoring import choice, grammar_task, loc, packet, sentence, task, write_source
+
+
+def kp07():
+    rows = [
+        ('G2:-는데1',loc('-는데는 다음 말의 배경을 제시해요. 그 배경을 이유나 반대로 해석할지는 문맥을 봐요.', '-는데 provides background. Context determines whether a causal or contrastive relation is intended.', '-는데 liefert Hintergrund. Ob ein Grund oder Gegensatz gemeint ist, ergibt sich aus dem Kontext.'),('지금 회의 중인데 나중에 전화해도 될까요?','현재 상황을 알리고 통화 시간을 조정해요.','현재 회의를 취소한다고 확정해요.'),('내일 시험이 있는데 모임을 금요일로 바꿀까요?','시험이라는 배경 뒤에 변경을 제안해요.','모임 변경이 이미 합의됐어요.')),
+        ('G2:-게2',loc('여기의 -게는 뒤 행동으로 이루려는 목적이에요. 목적이 이미 실현됐다고 단정하지 않아요.', 'Here, -게 states the intended purpose of the following action, not proof of its achievement.', 'Hier nennt -게 das Ziel der folgenden Handlung, nicht dessen bereits erfolgte Erreichung.'),('뒤에서도 들을 수 있게 크게 말해 주세요.','잘 들리도록 말해 달라는 요청이에요.','모두 이미 들었다는 보고예요.'),('늦지 않게 일찍 출발합시다.','늦지 않는 것을 목표로 일찍 출발하자고 해요.','이미 늦게 도착했다고 보고해요.')),
+        ('G2:-기 때문에',loc('-기 때문에 앞은 뒤 결과를 설명하는 원인이에요. 원인과 결과를 뒤집지 않아요.', 'The clause before -기 때문에 gives the cause explaining the result. Keep their direction.', 'Vor -기 때문에 steht die Ursache für das Ergebnis. Vertausche die Richtung nicht.'),('길이 막히기 때문에 버스가 늦어요.','교통 정체가 버스 지연의 이유예요.','버스가 늦어서 길이 막힌다고 했어요.'),('기계가 고장 났기 때문에 수업을 옮겼어요.','기계 고장이 수업 이동의 이유예요.','수업을 옮긴 것이 기계 고장의 이유예요.')),
+        ('G2:-기로 하다',loc('-기로 하다는 결정이나 합의를 나타내요. 아직 생각 중인 -을까 보다와 구별해요.', '-기로 하다 expresses a decision or agreement, unlike the tentative -을까 보다.', '-기로 하다 drückt eine Entscheidung oder Vereinbarung aus, anders als das vorläufige -을까 보다.'),('우리는 토요일에 만나기로 했어요.','토요일 만남을 정했어요.','토요일을 생각만 하고 아직 정하지 않았어요.'),('담당자와 전화로 확인하기로 했어요.','전화 확인이라는 행동을 정했어요.','이미 전화 확인을 끝냈어요.')),
+        ('G2:-는 것 같다',loc('-는 것 같다는 확신을 낮춘 추정이에요. 관찰한 근거와 확정 사실을 구별해요.', '-는 것 같다 marks an inference with reduced certainty. Separate evidence from established fact.', '-는 것 같다 kennzeichnet eine unsichere Vermutung. Trenne Anhaltspunkte von bestätigten Tatsachen.'),('밖에서 물소리가 나요. 비가 오는 것 같아요.','비가 온다고 추정해요.','밖에 나가 비를 직접 확인했어요.'),('불이 꺼져 있어요. 지금 쉬는 것 같아요.','쉬는 중이라고 추정해요.','본인에게 쉬고 있다는 확인을 받았어요.')),
+        ('G2:-을 수밖에 없다',loc('-(으)ㄹ 수밖에 없다는 제시된 상황에서 다른 선택이 없음을 말해요. 가장 좋아하는 선택이라는 뜻은 아니에요.', '-(으)ㄹ 수밖에 없다 means there is no other option in the given circumstances, not that it is the favorite choice.', '-(으)ㄹ 수밖에 없다 bedeutet unter den genannten Umständen keine andere Wahl, nicht die bevorzugte Wahl.'),('막차가 끊겼고 택시도 없어서 걸어갈 수밖에 없어요.','주어진 상황에서 걷는 것 외에는 선택이 없어요.','걷는 것을 가장 좋아해서 골랐어요.'),('방이 모두 사용 중이라 밖에서 기다릴 수밖에 없어요.','지금은 밖에서 기다리는 것 말고 선택이 없어요.','안에서도 기다릴 수 있지만 밖을 더 좋아해요.')),
+        ('G2:-을게',loc('-(으)ㄹ게요는 상대를 고려해 내가 하겠다고 약속하는 말이에요. 상대가 할 일로 바꾸지 않아요.', '-(으)ㄹ게요 commits the speaker to an action with the listener in mind. Do not assign it to the listener.', '-(으)ㄹ게요 verpflichtet die sprechende Person zu einer auf das Gegenüber bezogenen Handlung. Weise sie nicht dem Gegenüber zu.'),('걱정하지 마세요. 제가 다시 전화할게요.','말하는 사람이 다시 전화하겠다고 약속해요.','듣는 사람에게 다시 전화하라고 명령해요.'),('그럼 제가 자료를 보낼게요.','말하는 사람이 자료를 보내겠다고 약속해요.','상대가 자료를 보냈다고 확인해요.')),
+        ('G2:-을래',loc('-(으)ㄹ래요는 자신의 의향을 말하거나 상대의 선택을 물어요. 문장의 사람과 물음표를 함께 읽어요.', '-(으)ㄹ래요 states personal intention or asks another person’s preference. Check the participant and question form.', '-(으)ㄹ래요 nennt eine eigene Absicht oder fragt nach einem Wunsch. Achte auf die Person und die Frageform.'),('저는 오늘 집에서 쉴래요.','자신이 원하는 행동을 말해요.','상대에게 대신 쉬겠다고 약속해요.'),('어느 시간에 만날래요?','상대가 원하는 시간을 물어요.','만날 시간을 이미 정했다고 알려요.')),
+        ('G2:-을까 보다',loc('-(으)ㄹ까 봐요는 여기서 아직 확정하지 않은 생각이에요. 걱정의 -(으)ㄹ까 봐와 문맥을 구별해요.', 'Here, -(으)ㄹ까 봐요 is a tentative intention. Distinguish it in context from fear expressed with -(으)ㄹ까 봐.', 'Hier ist -(으)ㄹ까 봐요 eine vorläufige Absicht. Unterscheide sie im Kontext von einer Sorge mit -(으)ㄹ까 봐.'),('아직 결정하지 않았어요. 이번에는 기차를 탈까 봐요.','기차 이용을 생각 중이에요.','기차를 타기로 확정했어요.'),('아직 고민 중이에요. 다음 달에는 수영을 배울까 봐요.','수영 배우기를 고려 중이에요.','이미 수영 수업을 끝냈어요.')),
+        ('G2:-게 되다',loc('-게 되다는 상황 변화 뒤의 결과를 말해요. 반드시 자신의 의도적 결심인 것은 아니에요.', '-게 되다 reports an outcome of changed circumstances, not necessarily a deliberate decision.', '-게 되다 beschreibt das Ergebnis veränderter Umstände, nicht zwingend einen eigenen bewussten Entschluss.'),('공사 때문에 다른 교실에서 공부하게 됐어요.','공사라는 상황 때문에 장소가 바뀌었어요.','학생이 새 교실을 원해서 공사를 시켰어요.'),('담당자가 바뀌어서 제가 모임을 맡게 됐어요.','담당자 변경 뒤 역할이 달라졌어요.','스스로 원했다는 이유가 명시됐어요.')),
+        ('G1:-고4',loc('말끝의 -고요는 앞서 말한 사정에 정보를 덧붙일 수 있어요. 연결된 사실만 유지해요.', 'Sentence-final -고요 can add another circumstance to what was said. Retain only the stated facts.', 'Am Satzende kann -고요 eine weitere Gegebenheit ergänzen. Bleibe bei den genannten Tatsachen.'),('오늘은 시간이 없어요. 할 일도 많고요.','바쁜 사정을 덧붙여요.','시간이 많다고 앞말을 취소해요.'),('내일은 가기 어려워요. 시험도 있고요.','시험이라는 사정을 추가해요.','시험이 취소됐다고 알려요.')),
+        ('G1:-어서',loc('여기의 -아/어서는 뒤 상황의 이유를 말해요. 이유 설명 뒤 사과나 조정을 이어 갈 수 있어요.', 'Here, -아/어서 explains a reason and can be followed by an apology or adjustment.', 'Hier erklärt -아/어서 einen Grund. Danach können eine Entschuldigung oder eine Anpassung folgen.'),('버스가 늦어서 저도 늦어요. 미안해요.','버스 지연 때문에 늦는다고 사과해요.','자기가 늦어서 버스가 늦었다고 해요.'),('자료가 없어서 아직 확인을 못 했어요.','자료 부재가 확인하지 못한 이유예요.','확인을 못 해서 자료를 없앴다고 해요.')),
+        ('G1:-지만',loc('-지만은 서로 다른 사정을 인정하며 이어요. 앞의 바람이 뒤의 제약을 없애지는 않아요.', '-지만 acknowledges contrasting circumstances. A wish does not erase the later constraint.', '-지만 verbindet gegensätzliche Umstände. Ein Wunsch hebt die folgende Einschränkung nicht auf.'),('가고 싶지만 오늘은 시간이 없어요.','가고 싶은 마음과 시간 제약이 함께 있어요.','시간이 없다는 말을 취소하고 가기로 했어요.'),('도와주고 싶지만 지금은 회의 중이에요.','돕고 싶어도 현재 다른 일정이 있어요.','지금 바로 돕기로 약속했어요.')),
+    ]
+    ts=[grammar_task('KP07',i,*r) for i,r in enumerate(rows,1)]
+    def call(background,reason,decision,promise,preference):
+        return packet(f'동료: 지금 {background}.\n나: 왜 일정을 바꿔야 하나요?\n동료: {reason}. 그래서 {decision}. {promise}.\n나: 네, 저는 {preference}. 그 시간도 가능한지 확인해 주세요.',[
+            choice('reason',loc('변경 이유는?', 'Why is the schedule changing?', 'Warum ändert sich der Termin?'),[reason,background],loc('지금의 배경과 변경의 직접 이유를 나눠 들어요.', 'Separate the current background from the direct reason for the change.', 'Trenne den aktuellen Hintergrund vom unmittelbaren Änderungsgrund.')),
+            choice('decision',loc('이미 정한 행동은?', 'What action has been agreed?', 'Welche Handlung wurde vereinbart?'),[decision,preference],loc('-기로 했어요는 결정이고 -을래요는 개인 의향이에요.', '-기로 했어요 reports a decision; -을래요 a personal preference.', '-기로 했어요 nennt eine Entscheidung, -을래요 einen persönlichen Wunsch.')),
+            choice('promise',loc('약속한 사람과 그 발화는?', 'Who makes the promise, and what do they say?', 'Wer gibt die Zusage und was sagt diese Person?'),['동료 / '+promise,'나 / '+promise],loc('동료 발화 속 제가의 주체는 동료예요.', '제가 in the colleague’s turn refers to the colleague.', '제가 im Gesprächsbeitrag der anderen Person bezieht sich auf diese Person.')),
+        ],'audio')
+    ts.append(task('KP07','listening:01','listening',loc('전화 속 이유·결정·약속', 'Reasons, decisions and promises by phone', 'Gründe, Entscheidungen und Zusagen am Telefon'),
+        loc('변경 원인과 결정, 누가 무엇을 하겠다는 약속인지 따로 확인해요.', 'Identify the cause, decision and who promises which action separately.', 'Bestimme Grund, Entscheidung und Zuständigkeit für jede Zusage getrennt.'),
+        call('자료를 정리하고 있어요','교실이 공사 중이기 때문에 모임 장소를 바꿔야 해요','도서관에서 만나기로 했어요','제가 새 주소를 보낼게요','다섯 시에 갈래요'),
+        call('전화를 받을 수 있어요','발표자가 아프기 때문에 날짜를 바꿔야 해요','다음 주에 만나기로 했어요','제가 확정 시간을 알려 드릴게요','수요일에 갈래요')))
+    def explanation(cause,result,unknown):
+        return packet(f'일정 변경 안내\n{cause}. 그 때문에 {result}. 이 변경은 참가자 투표로 결정한 것이 아닙니다.\n{unknown}는 아직 확인 중입니다. 확인되는 대로 알려 드리겠습니다.',[
+            choice('cause',loc('변경의 계기는?', 'What triggered the change?', 'Was hat die Änderung ausgelöst?'),[cause,'참가자가 투표함'],loc('상황이 바뀐 계기와 의도적인 투표 결정을 구별해요.', 'Distinguish the changed circumstance from a deliberate vote.', 'Unterscheide den veränderten Umstand von einer bewussten Abstimmung.')),
+            choice('result',loc('변경 후 결과는?', 'What is the resulting change?', 'Was ist das Ergebnis der Änderung?'),[result,cause],loc('그 때문에 뒤에 변경 결과가 나와요.', 'The change follows 그 때문에.', 'Nach 그 때문에 steht das Ergebnis.')),
+            choice('uncertainty',loc('아직 확정되지 않은 것은?', 'What remains unconfirmed?', 'Was ist noch nicht bestätigt?'),[unknown,'모든 정보가 확정됨'],loc('확인 중이라는 정보는 확정으로 바꾸지 않아요.', 'Information being checked is not yet confirmed.', 'Eine laufende Prüfung ist noch keine Bestätigung.')),
+        ])
+    ts.append(task('KP07','reading:01','reading',loc('계획이 바뀐 계기와 결과', 'Trigger and outcome of a plan change', 'Auslöser und Ergebnis einer Planänderung'),
+        loc('-게 됐다는 결과가 언제나 자발적인 결정은 아니에요. 확인 중인 정보도 찾아요.', 'An outcome with -게 됐다 is not always voluntary. Find information still being checked.', 'Ein Ergebnis mit -게 됐다 ist nicht immer freiwillig. Finde auch noch ungeklärte Angaben.'),
+        explanation('강당에서 누수가 발견됐습니다','작은 교실을 사용하게 됐습니다','추가 좌석 수'),
+        explanation('외부 강사가 갑자기 입원했습니다','이번 주 수업을 다음 주에 하게 됐습니다','대체 강사')))
+    def repair(background,inference,proposal,action):
+        return packet(f'동료에게 해요체로 정정 메시지를 써요. 확정 정보와 추정을 구분해요.\n배경: {background}\n추정이며 미확인: {inference}\n아직 동의받지 않은 제안: {proposal}\n내가 하겠다고 정한 다음 행동: {action}',[
+            sentence('background',loc('확인된 배경을 적으세요.', 'State the confirmed background.', 'Nenne den bestätigten Hintergrund.'),[background+'.'],['모든 문제가 해결됐어요.'],loc(f'예: {background}. 자료의 범위만 전달해요.',f'Example: {background}. Stay within the supplied facts.',f'Beispiel: {background}. Bleibe bei den vorgegebenen Fakten.')),
+            sentence('inference',loc('추정을 확정하지 않고 적으세요.', 'State the inference without confirming it.', 'Formuliere die Vermutung, ohne sie zu bestätigen.'),[inference+'. 아직 확인하지 못했어요.'],[inference.replace('것 같아요','것이 확실해요')+'.'],loc('것 같아요와 미확인 표시를 함께 유지해요.', 'Retain both the inference and its unconfirmed status.', 'Erhalte sowohl die Vermutung als auch den Hinweis auf die fehlende Bestätigung.')),
+            sentence('proposal',loc('상대가 확인할 수 있게 제안하세요.', 'Make a proposal open to confirmation.', 'Mache einen Vorschlag, dem die andere Person zustimmen kann.'),[proposal+'? 괜찮으세요?'],[proposal.replace('할까요','하기로 했어요')+'.'],loc('아직 동의받지 않은 제안을 합의로 바꾸지 않아요.', 'Do not turn an unaccepted proposal into an agreement.', 'Mache aus einem noch nicht angenommenen Vorschlag keine Vereinbarung.')),
+            sentence('action',loc('자신의 다음 행동을 약속하세요.', 'Commit to your next action.', 'Sage deinen nächsten Schritt zu.'),[action+'.'],['확인은 상대가 할 거예요.'],loc(f'예: {action}. 확인 책임의 주체를 유지해요.',f'Example: {action}. Preserve who is responsible for checking.',f'Beispiel: {action}. Erhalte die Zuständigkeit für die Prüfung.')),
+        ],'form')
+    ts.append(task('KP07','writing:01','writing',loc('오해를 바로잡는 일정 메시지', 'Repair a schedule misunderstanding', 'Ein Terminmissverständnis berichtigen'),
+        loc('배경·추정·제안·내 약속을 분리해 적어요. 다른 자유 표현은 미채점으로 남을 수 있어요.', 'Write background, inference, proposal and your promise separately. Other free wording may remain unscored.', 'Trenne Hintergrund, Vermutung, Vorschlag und eigene Zusage. Andere freie Formulierungen können unbewertet bleiben.'),
+        repair('교실이 잠겨 있어요','수업이 다른 방에 있는 것 같아요','안내 데스크에서 확인할까요','제가 선생님께 물어볼게요'),
+        repair('초대장에 시간이 두 개 적혀 있어요','늦은 시간이 맞는 것 같아요','담당자에게 확인할까요','제가 담당자에게 전화할게요')))
+    ts.append(task('KP07','speaking:01','speaking',loc('동료와 충돌하는 일정 조정', 'Resolve a schedule conflict with a peer', 'Einen Terminkonflikt mit einer anderen Person klären'),
+        loc('사정을 설명하고 원하는 시간과 자신이 할 일을 구분해 말해요. 조언은 상대가 거절할 수 있게 제안하고 녹음을 다시 확인하세요. 발화 의미는 미채점이에요.', 'Explain the conflict and separate your preferred time from your commitment. Offer advice the peer can decline and review your recording. Meaning is unscored.', 'Erkläre den Konflikt und trenne deinen Wunschtermin von deiner Zusage. Gib einen ablehnbaren Rat und prüfe die Aufnahme. Der Inhalt bleibt unbewertet.'),
+        packet('동료에게 전화했어요. 해요체를 써요.\n금요일은 시험이 있어서 갈 수 없음. 토요일 오후를 원함.\n내가 할 일: 장소 확인 후 오늘 저녁 연락.\n상대는 아직 토요일 가능 여부를 모름. 무조건 가능하다고 하지 않고 조심스럽게 조언하세요.',[]),
+        packet('동료에게 전화했어요. 해요체를 써요.\n월요일은 근무여서 참석 불가. 화요일 저녁을 원함.\n내가 할 일: 담당자에게 빈 시간을 묻고 내일 답하기.\n상대는 화요일 교통편을 확인해야 함. 약속의 주체를 유지하고 선택 여지를 주세요.',[])))
+    return ts
+
+
+if __name__ == '__main__':
+    write_source('KP07', kp07())

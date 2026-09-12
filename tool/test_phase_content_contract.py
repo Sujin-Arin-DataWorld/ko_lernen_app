@@ -19,10 +19,10 @@ class PhaseContentContractTest(unittest.TestCase):
         self.assertEqual(len({k for t in tasks for k in t['requirementKeys']}), 12)
         self.assertEqual(bundle['publications']['KP01'], 'partial')
 
-    def test_a1_keeps_all_required_grammar_and_separate_four_skill_paths(self):
+    def test_published_a1_a2_keep_required_grammar_and_four_skill_paths(self):
         bundle = build(ROOT)
         phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
-        for phase in phases[:4]:
+        for phase in phases[:8]:
             tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
             self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
             self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
@@ -59,6 +59,18 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_practice_and_assessment_are_independent(self):
         for task in build(ROOT)['tasks']:
             self.assertNotEqual(task['practice']['sourceKo'], task['assessment']['sourceKo'])
+
+    def test_free_writing_has_no_automatic_key_and_remains_required(self):
+        task = copy.deepcopy(next(t for t in build(ROOT)['tasks'] if t['skill'] == 'writing'))
+        q = task['assessment']['questions'][0]
+        q.update(kind='freeText', acceptedAnswers=[], options=[], required=True)
+        q.pop('rejectedAnswers', None)
+        validate_task(task)
+        for mutation in ({'acceptedAnswers': ['rubric keyword']}, {'required': False}, {'rejectedAnswers': ['free wording']}):
+            bad = copy.deepcopy(task)
+            bad['assessment']['questions'][0].update(mutation)
+            with self.assertRaises(ValueError):
+                validate_task(bad)
 
     def test_generated_output_is_fresh(self):
         self.assertEqual(json.loads((ROOT / 'assets/data/phase_tasks.json').read_text(encoding='utf-8')), build(ROOT))
