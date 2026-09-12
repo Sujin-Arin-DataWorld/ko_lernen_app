@@ -3258,6 +3258,448 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP02:listening:04",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:listening:04",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "교실 변경 안내 방송",
+        "en": "A classroom-change announcement",
+        "de": "Durchsage zum Raumwechsel"
+      },
+      "teaching": {
+        "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+        "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+        "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 101호에서 201호로 바뀌었습니다. 수업은 아홉 시부터 열한 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "questions": [
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 수업 교실은?",
+              "en": "Which room is used today?",
+              "de": "In welchem Raum ist der Unterricht heute?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "201호"
+              },
+              {
+                "id": "1",
+                "text": "101호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업 시간은?",
+              "en": "When does class run?",
+              "de": "Von wann bis wann ist Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "열한 시부터 아홉 시까지"
+              },
+              {
+                "id": "0",
+                "text": "아홉 시부터 열한 시까지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "질문은 어디에서 해요?",
+              "en": "Where can you ask a question?",
+              "de": "Wo kannst du nachfragen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안내 데스크"
+              },
+              {
+                "id": "1",
+                "text": "집"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 202호에서 302호로 바뀌었습니다. 수업은 두 시부터 네 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "questions": [
+          {
+            "id": "room",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 수업 교실은?",
+              "en": "Which room is used today?",
+              "de": "In welchem Raum ist der Unterricht heute?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "202호"
+              },
+              {
+                "id": "0",
+                "text": "302호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수업 시간은?",
+              "en": "When does class run?",
+              "de": "Von wann bis wann ist Unterricht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "두 시부터 네 시까지"
+              },
+              {
+                "id": "1",
+                "text": "네 시부터 두 시까지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "질문은 어디에서 해요?",
+              "en": "Where can you ask a question?",
+              "de": "Wo kannst du nachfragen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "집"
+              },
+              {
+                "id": "0",
+                "text": "안내 데스크"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "방송은 여러 사람에게 알리는 안내예요. 바뀐 교실·수업 시간·도움받을 곳을 구별하고 들리지 않은 정보는 확인해요. 집에처럼 받침 뒤 모음이 이어지는 말과 시각을 낱글자로 끊지 않아요.",
+              "en": "An announcement addresses a group. Separate the changed room, class time and place to ask for help. Listen to connected sounds and times as meaningful phrases, not isolated letters.",
+              "de": "Eine Durchsage richtet sich an mehrere Personen. Unterscheide geänderten Raum, Unterrichtszeit und Anlaufstelle für Fragen. Höre verbundene Laute und Uhrzeiten als Sinneinheiten statt als einzelne Buchstaben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:reading:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "집 안 물건과 어제의 일",
+        "en": "Objects at home and yesterday’s events",
+        "de": "Gegenstände zu Hause und gestrige Ereignisse"
+      },
+      "teaching": {
+        "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+        "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+        "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "미나 씨에게\n공책은 책상 위에 있어요. 방은 작지만 조용해요. 어제 도서관에서 책을 빌렸어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건이 있는 곳은?",
+              "en": "Where is the object?",
+              "de": "Wo liegt der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "침대 밑"
+              },
+              {
+                "id": "0",
+                "text": "책상 위"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 일은?",
+              "en": "Which action is already completed?",
+              "de": "Was ist bereits geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "오늘 집에서 공부했어요"
+              },
+              {
+                "id": "0",
+                "text": "도서관에서 책을 빌렸어요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건을 못 찾으면 어떻게 해요?",
+              "en": "What should you do if you cannot find it?",
+              "de": "Was sollst du tun, wenn du den Gegenstand nicht findest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메모를 쓴 사람에게 전화해요."
+              },
+              {
+                "id": "1",
+                "text": "물건을 버려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민수 씨에게\n가방은 소파 옆에 있어요. 방은 작지만 조용해요. 어제 가게에서 물을 샀어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
+        "questions": [
+          {
+            "id": "location",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건이 있는 곳은?",
+              "en": "Where is the object?",
+              "de": "Wo liegt der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "소파 옆"
+              },
+              {
+                "id": "1",
+                "text": "침대 밑"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 일은?",
+              "en": "Which action is already completed?",
+              "de": "Was ist bereits geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "오늘 집에서 공부했어요"
+              },
+              {
+                "id": "0",
+                "text": "가게에서 물을 샀어요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          },
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건을 못 찾으면 어떻게 해요?",
+              "en": "What should you do if you cannot find it?",
+              "de": "Was sollst du tun, wenn du den Gegenstand nicht findest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메모를 쓴 사람에게 전화해요."
+              },
+              {
+                "id": "1",
+                "text": "물건을 버려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "집 안의 물건 위치와 어제 한 일을 구별해요. 소파 옆과 책상 위는 다른 위치예요. 이미 끝낸 일과 오늘 할 일도 나눠 읽어요.",
+              "en": "Separate the positions of objects at home from yesterday’s events. Beside the sofa differs from on the desk; completed events differ from today’s plans.",
+              "de": "Unterscheide die Lage von Gegenständen zu Hause von gestrigen Ereignissen. Neben dem Sofa ist etwas anderes als auf dem Schreibtisch; Vergangenes ist kein Plan für heute."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP02:speaking:02",
+      "phaseId": "KP02",
+      "level": "A1",
+      "objectiveId": "KP02:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "위치·일과를 확인하는 음성 메시지",
+        "en": "A voice message confirming location and routine",
+        "de": "Sprachnachricht zu Ort und Tagesablauf"
+      },
+      "teaching": {
+        "ko": "물건 위치, 어제 한 일, 오늘 교통편과 시각을 말한 뒤 상대에게 확인 질문을 하세요. 집에·학교에서를 이어 말하고 의미 단위 사이에서 쉬어요. 녹음을 다시 듣고 수정해요. 의미와 발음은 미채점이에요.",
+        "en": "State the object’s location, yesterday’s action, today’s transport and times, then ask for confirmation. Connect the sounds in 집에 and 학교에서 and pause between meaningful units. Replay and revise; meaning and pronunciation remain unscored.",
+        "de": "Nenne Gegenstandsort, gestrige Tätigkeit sowie heutiges Verkehrsmittel und Uhrzeiten und frage dann nach. Verbinde die Laute in 집에 und 학교에서 und mache Pausen zwischen Sinneinheiten. Höre zu und überarbeite; Inhalt und Aussprache bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n가방: 책상 위. 방: 작고 조용함. 어제: 집에서 쉼. 오늘: 버스로 학교에 감. 학교에서 아홉 시부터 열한 시까지 공부한 뒤 집에 감.\n상대도 열한 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n공책: 소파 옆. 방: 크고 밝음. 어제: 집에서 책을 읽음. 오늘: 지하철로 학교에 감. 학교에서 두 시부터 네 시까지 공부한 뒤 집에 감.\n상대도 네 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "questions": []
+      }
     }
   ]
 }

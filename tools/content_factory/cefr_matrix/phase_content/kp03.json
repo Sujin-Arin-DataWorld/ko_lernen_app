@@ -2868,6 +2868,448 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP03:reading:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "여행 창구에서 표 사기",
+        "en": "Buy a ticket at a travel counter",
+        "de": "Eine Fahrkarte am Schalter kaufen"
+      },
+      "teaching": {
+        "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+        "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+        "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "여행 창구\n손님: 저는 기차 여행을 더 좋아해요. 오늘 갈 수 있어요?\n직원: 오늘은 기차 표가 없어요. 버스 표는 있어요. 세 시에 출발하고 8000원이에요.\n손님: 예산은 10000원이에요. 그러면 버스 표 한 장 주세요.\n직원: 네, 세 시 출발 표 한 장입니다.\n손님: 감사합니다. 도움이 됐어요.",
+        "questions": [
+          {
+            "id": "preference",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 선호한 것은?",
+              "en": "What was the original preference?",
+              "de": "Was wurde zuerst bevorzugt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기차"
+              },
+              {
+                "id": "1",
+                "text": "버스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "purchase",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막에 산 것은?",
+              "en": "What was finally purchased?",
+              "de": "Was wurde schließlich gekauft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기차 표 한 장"
+              },
+              {
+                "id": "0",
+                "text": "버스 표 한 장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Does the ticket fit the budget?",
+              "de": "Liegt die Fahrkarte im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아니요, 표 값이 예산보다 많아요."
+              },
+              {
+                "id": "0",
+                "text": "네, 표 값이 예산보다 적어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "여행 창구\n손님: 저는 버스 여행을 더 좋아해요. 오늘 갈 수 있어요?\n직원: 오늘은 버스 표가 없어요. 기차 표는 있어요. 네 시에 출발하고 9000원이에요.\n손님: 예산은 12000원이에요. 그러면 기차 표 한 장 주세요.\n직원: 네, 네 시 출발 표 한 장입니다.\n손님: 감사합니다. 도움이 됐어요.",
+        "questions": [
+          {
+            "id": "preference",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 선호한 것은?",
+              "en": "What was the original preference?",
+              "de": "Was wurde zuerst bevorzugt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "버스"
+              },
+              {
+                "id": "1",
+                "text": "기차"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "purchase",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막에 산 것은?",
+              "en": "What was finally purchased?",
+              "de": "Was wurde schließlich gekauft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "버스 표 한 장"
+              },
+              {
+                "id": "0",
+                "text": "기차 표 한 장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Does the ticket fit the budget?",
+              "de": "Liegt die Fahrkarte im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아니요, 표 값이 예산보다 많아요."
+              },
+              {
+                "id": "0",
+                "text": "네, 표 값이 예산보다 적어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:speaking:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "선호·구매·공동 제안 말하기",
+        "en": "Express preference, buy and propose",
+        "de": "Vorliebe, Kauf und Vorschlag ausdrücken"
+      },
+      "teaching": {
+        "ko": "직원에게 선호와 구매를 말하고 확인·감사하세요. 동료에게는 바뀐 시간과 공동 활동을 질문으로 제안하세요. 주세요·갈까요·갑시다를 말해 보고 누가 행동하는지 확인해요. 모든 질문을 같은 상승 억양으로 말할 필요는 없어요. 재생 후 재녹음하며 의미·억양은 미채점이에요.",
+        "en": "Tell staff your preference and purchase, then confirm and thank them. Suggest a new time and shared activity to a peer as a question. Say 주세요, 갈까요 and 갑시다 and check who should act. Questions need not all have the same rising intonation. Replay and re-record; meaning and intonation remain unscored.",
+        "de": "Nenne dem Personal Vorliebe und Kaufwunsch, bestätige und bedanke dich. Schlage einer gleichgestellten Person eine neue Zeit und gemeinsame Tätigkeit als Frage vor. Sprich 주세요, 갈까요 und 갑시다 und prüfe, wer handeln soll. Nicht jede Frage braucht dieselbe steigende Intonation. Höre zu und nimm erneut auf; Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "창구 직원에게 해요체: 기차를 더 좋아하지만 오늘 기차 표 없음. 버스 표 한 장 구매. 출발 세 시·8000원 확인.\n동료에게 해요체: 두 시 약속을 네 시로 바꾸자고 묻기. 도착 후 같이 차 마시기 제안. 아직 상대 답은 없음.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "창구 직원에게 해요체: 버스를 더 좋아하지만 오늘 버스 표 없음. 기차 표 한 장 구매. 출발 네 시·9000원 확인.\n동료에게 해요체: 세 시 약속을 다섯 시로 바꾸자고 묻기. 도착 후 같이 저녁 먹기 제안. 아직 상대 답은 없음.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP03:reading:03",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "시간 변경과 미확정 장소",
+        "en": "A changed time and an unconfirmed place",
+        "de": "Neue Uhrzeit und noch offener Ort"
+      },
+      "teaching": {
+        "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+        "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+        "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료의 채팅\n미나: 우리 약속은 토요일 두 시예요. 저는 토요일 세 시에 만나고 싶어요. 시간을 바꿀 수 있어요?\n준호: 네, 토요일 세 시에 만나요.\n미나: 고마워요. 도서관에서 만날까요?\n아직 다음 답장은 없어요.",
+        "questions": [
+          {
+            "id": "old",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기존 약속 시각은?",
+              "en": "What was the original time?",
+              "de": "Welche Uhrzeit war ursprünglich vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "토요일 두 시"
+              },
+              {
+                "id": "1",
+                "text": "토요일 세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "new",
+            "kind": "choice",
+            "prompt": {
+              "ko": "합의한 새 시각은?",
+              "en": "Which new time was agreed?",
+              "de": "Welche neue Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "토요일 세 시"
+              },
+              {
+                "id": "1",
+                "text": "토요일 두 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "장소까지 합의했어요?",
+              "en": "Was the place agreed too?",
+              "de": "Wurde auch der Ort vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 장소도 확정됐어요."
+              },
+              {
+                "id": "0",
+                "text": "아직 아니에요. 장소 질문에 답이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료의 채팅\n미나: 우리 약속은 일요일 세 시예요. 저는 일요일 다섯 시에 만나고 싶어요. 시간을 바꿀 수 있어요?\n준호: 네, 일요일 다섯 시에 만나요.\n미나: 고마워요. 카페에서 만날까요?\n아직 다음 답장은 없어요.",
+        "questions": [
+          {
+            "id": "old",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기존 약속 시각은?",
+              "en": "What was the original time?",
+              "de": "Welche Uhrzeit war ursprünglich vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "일요일 세 시"
+              },
+              {
+                "id": "1",
+                "text": "일요일 다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "new",
+            "kind": "choice",
+            "prompt": {
+              "ko": "합의한 새 시각은?",
+              "en": "Which new time was agreed?",
+              "de": "Welche neue Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "일요일 다섯 시"
+              },
+              {
+                "id": "1",
+                "text": "일요일 세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "장소까지 합의했어요?",
+              "en": "Was the place agreed too?",
+              "de": "Wurde auch der Ort vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 장소도 확정됐어요."
+              },
+              {
+                "id": "0",
+                "text": "아직 아니에요. 장소 질문에 답이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          }
+        ]
+      }
     }
   ]
 }

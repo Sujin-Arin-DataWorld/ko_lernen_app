@@ -403,6 +403,32 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and independent practice/assessment reviewed: unknown identity asked, not asserted. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP01:listening:03",
+      "sha256": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching."
+    },
+    {
+      "taskId": "KP01:speaking:02",
+      "sha256": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored."
     }
   ]
 }

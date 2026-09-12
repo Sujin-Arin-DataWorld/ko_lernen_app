@@ -3442,6 +3442,412 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP01:listening:03",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:listening:03",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "첫 만남에서 다시 묻고 확인하기",
+        "en": "Clarify and confirm at a first meeting",
+        "de": "Beim Kennenlernen nachfragen und bestätigen"
+      },
+      "teaching": {
+        "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+        "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+        "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사이에요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "questions": [
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동료가 다시 물은 것은?",
+              "en": "What did the classmate ask to hear again?",
+              "de": "Was wollte die andere Person noch einmal hören?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "이름"
+              },
+              {
+                "id": "1",
+                "text": "직업"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개한 가족은 누구예요?",
+              "en": "Which relative was introduced?",
+              "de": "Welches Familienmitglied wurde vorgestellt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "부모님"
+              },
+              {
+                "id": "0",
+                "text": "동생"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "job",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가족의 직업은?",
+              "en": "What is the relative’s job?",
+              "de": "Welchen Beruf hat das Familienmitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학생"
+              },
+              {
+                "id": "0",
+                "text": "의사"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "confirmation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "끝에 확인한 정보는?",
+              "en": "Which detail was confirmed at the end?",
+              "de": "Welche Angabe wurde zum Schluss bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업 교실은 201호"
+              },
+              {
+                "id": "1",
+                "text": "수업은 201시에 시작"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "thanks",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도움을 받은 뒤 한 말은?",
+              "en": "What was said after receiving help?",
+              "de": "Was wurde nach der Hilfe gesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "감사합니다. 도움이 됐어요."
+              },
+              {
+                "id": "1",
+                "text": "안녕히 주무세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "apology",
+            "kind": "choice",
+            "prompt": {
+              "ko": "못 들어서 죄송하다는 말에 어떻게 답했어요?",
+              "en": "How was the apology for not hearing acknowledged?",
+              "de": "Wie wurde auf die Entschuldigung wegen des Überhörens reagiert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "괜찮아요."
+              },
+              {
+                "id": "1",
+                "text": "처음 뵙겠습니다."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n동료: 네, 유나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n동료: 한국어 수업은 어디예요?\n학생: 302호예요.\n동료: 302호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "questions": [
+          {
+            "id": "repair",
+            "kind": "choice",
+            "prompt": {
+              "ko": "동료가 다시 물은 것은?",
+              "en": "What did the classmate ask to hear again?",
+              "de": "Was wollte die andere Person noch einmal hören?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "이름"
+              },
+              {
+                "id": "1",
+                "text": "직업"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "relationship",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개한 가족은 누구예요?",
+              "en": "Which relative was introduced?",
+              "de": "Welches Familienmitglied wurde vorgestellt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "부모님"
+              },
+              {
+                "id": "0",
+                "text": "동생"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "job",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가족의 직업은?",
+              "en": "What is the relative’s job?",
+              "de": "Welchen Beruf hat das Familienmitglied?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "학생"
+              },
+              {
+                "id": "0",
+                "text": "회사원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "confirmation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "끝에 확인한 정보는?",
+              "en": "Which detail was confirmed at the end?",
+              "de": "Welche Angabe wurde zum Schluss bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "수업은 302시에 시작"
+              },
+              {
+                "id": "0",
+                "text": "수업 교실은 302호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "thanks",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도움을 받은 뒤 한 말은?",
+              "en": "What was said after receiving help?",
+              "de": "Was wurde nach der Hilfe gesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "안녕히 주무세요."
+              },
+              {
+                "id": "0",
+                "text": "감사합니다. 도움이 됐어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          },
+          {
+            "id": "apology",
+            "kind": "choice",
+            "prompt": {
+              "ko": "못 들어서 죄송하다는 말에 어떻게 답했어요?",
+              "en": "How was the apology for not hearing acknowledged?",
+              "de": "Wie wurde auf die Entschuldigung wegen des Überhörens reagiert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "괜찮아요."
+              },
+              {
+                "id": "1",
+                "text": "처음 뵙겠습니다."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 만난 사람의 질문과 답을 연결하세요. 못 들은 이름은 다시 묻고, 도움에는 감사해요. 죄송해요에 괜찮아요로 답할 수 있어요. 가족 관계와 직업은 인물마다 따로 확인해요. 질문 말끝과 상대가 응답하기 전의 휴지도 들어 보세요.",
+              "en": "Match each question to its reply in a first meeting. Ask again for a name you missed, thank someone for help, and acknowledge an apology. Keep each person’s family relationship and job separate. Listen to question endings and the pause before the reply.",
+              "de": "Ordne bei einer ersten Begegnung Fragen und Antworten einander zu. Frage nach einem überhörten Namen, bedanke dich für Hilfe und reagiere auf eine Entschuldigung. Halte Familienbeziehungen und Berufe der Personen auseinander. Achte auf Frageendungen und die Pause vor der Antwort."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:speaking:02",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이름 소리와 소개 대화",
+        "en": "Name sounds and an introduction dialogue",
+        "de": "Namenslaute und eine Vorstellung im Kurs"
+      },
+      "teaching": {
+        "ko": "달·딸·탈을 각각 말하고 이름의 받침을 끝까지 발음해요. 인사→소개→못 들은 이름 다시 묻기→교실 확인→감사 순서로 녹음하세요. 상대의 사과에는 괜찮아요로 응답해요. 다시 듣고 말끝과 쉬는 위치를 고쳐 재녹음하세요. 발음·억양·의미는 미채점이에요.",
+        "en": "Say 달, 딸 and 탈 separately, then pronounce the final consonant of the name. Record a greeting, introduction, request to repeat a name, room confirmation and thanks. Respond to an apology. Replay and revise endings and pauses; pronunciation, intonation and meaning remain unscored.",
+        "de": "Sprich 달, 딸 und 탈 einzeln und danach den Namen mit seinem Endkonsonanten. Nimm Begrüßung, Vorstellung, Bitte um Wiederholung des Namens, Bestätigung des Raums und Dank auf. Reagiere auf eine Entschuldigung. Höre zu und überarbeite Endungen und Pausen; Aussprache, Intonation und Inhalt bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 민수예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 인물: 지선 / 회사원. 가족: 동생은 학생. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 유나예요. 수업은 302호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "questions": []
+      }
     }
   ]
 }

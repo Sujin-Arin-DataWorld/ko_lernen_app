@@ -377,6 +377,45 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and independent practice/assessment reviewed: exclusion, not inclusion. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP02:listening:04",
+      "sha256": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Public announcement, old versus new room, start/end and help location all separate required criteria; classroom change is fictional."
+    },
+    {
+      "taskId": "KP02:reading:02",
+      "sha256": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Object position, yesterday versus today and actual telephone repair action reviewed. 가방은 and 공책은 correct particles; no invented owner."
+    },
+    {
+      "taskId": "KP02:speaking:02",
+      "sha256": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills."
     }
   ]
 }

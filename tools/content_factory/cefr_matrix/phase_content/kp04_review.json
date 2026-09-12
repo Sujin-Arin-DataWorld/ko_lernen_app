@@ -351,6 +351,58 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and independent practice/assessment reviewed: evidence-based inference, not first-person resolve. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP04:reading:02",
+      "sha256": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Formal announcement, polite peer and explicitly agreed casual-friend register; honorific subject differs from listener, proposed place not agreed."
+    },
+    {
+      "taskId": "KP04:listening:03",
+      "sha256": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Subject honorific plus reason boundary; requested preparation differs from declarative arrival. Meaning questions do not certify intonation ability."
+    },
+    {
+      "taskId": "KP04:speaking:02",
+      "sha256": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored."
+    },
+    {
+      "taskId": "KP04:reading:03",
+      "sha256": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives."
     }
   ]
 }

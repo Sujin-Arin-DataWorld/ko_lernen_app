@@ -60,7 +60,9 @@
         "KP01:production:09",
         "KP01:production:10",
         "KP01:production:11",
-        "KP01:production:12"
+        "KP01:production:12",
+        "KP01:listening:03",
+        "KP01:speaking:02"
       ],
       "taskCoverage": "partial"
     },
@@ -118,7 +120,10 @@
         "KP02:production:08",
         "KP02:production:09",
         "KP02:production:10",
-        "KP02:production:11"
+        "KP02:production:11",
+        "KP02:listening:04",
+        "KP02:reading:02",
+        "KP02:speaking:02"
       ],
       "taskCoverage": "partial"
     },
@@ -179,7 +184,10 @@
         "KP03:production:09",
         "KP03:production:10",
         "KP03:production:11",
-        "KP03:production:12"
+        "KP03:production:12",
+        "KP03:reading:02",
+        "KP03:speaking:02",
+        "KP03:reading:03"
       ],
       "taskCoverage": "partial"
     },
@@ -235,7 +243,11 @@
         "KP04:production:08",
         "KP04:production:09",
         "KP04:production:10",
-        "KP04:production:11"
+        "KP04:production:11",
+        "KP04:reading:02",
+        "KP04:listening:03",
+        "KP04:speaking:02",
+        "KP04:reading:03"
       ],
       "taskCoverage": "partial"
     },
@@ -1021,5 +1033,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "064f670123d4662d82fee66719a8b5b92567ec65697cc922bd77e0930ecc7fa4"
+  "phaseTaskSourceSha256": "7384dbd54a293f9df1a31e9728a029673cd1d2f44351086384587f42f971be44"
 }

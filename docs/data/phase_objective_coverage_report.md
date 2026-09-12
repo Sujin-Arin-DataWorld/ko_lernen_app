@@ -6,10 +6,10 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 | Phase | 필수 요구 | 경로 연결 | 미연결 | 전체 숙달 |
 |---|---:|---:|---:|---|
-| KP01 | 58 | 28 | 30 | 미검증 |
-| KP02 | 54 | 26 | 28 | 미검증 |
-| KP03 | 57 | 28 | 29 | 미검증 |
-| KP04 | 57 | 26 | 31 | 미검증 |
+| KP01 | 58 | 58 | 0 | 미검증 |
+| KP02 | 54 | 54 | 0 | 미검증 |
+| KP03 | 57 | 57 | 0 | 미검증 |
+| KP04 | 57 | 57 | 0 | 미검증 |
 | KP05 | 57 | 17 | 40 | 미검증 |
 | KP06 | 56 | 22 | 34 | 미검증 |
 | KP07 | 56 | 21 | 35 | 미검증 |
@@ -39,124 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP01:objective:listening/genre/dialogue_face_to_face:R`
-- `KP01:objective:reading/genre/sign_notice_short:R`
-- `KP01:objective:speaking/genre/dialogue_face_to_face:P`
-- `KP01:objective:writing/genre/form_application:P`
-- `KP01:objective:functions/greet_introduce_self:R`
-- `KP01:objective:functions/greet_introduce_self:P`
-- `KP01:objective:functions/ask_give_personal_information:R`
-- `KP01:objective:functions/ask_give_personal_information:P`
-- `KP01:objective:functions/ask_for_information_confirm:R`
-- `KP01:objective:functions/ask_for_information_confirm:P`
-- `KP01:objective:functions/thank_apologise_respond:R`
-- `KP01:objective:functions/thank_apologise_respond:P`
-- `KP01:objective:functions/clarify_repair_ask_to_repeat:R`
-- `KP01:objective:functions/clarify_repair_ask_to_repeat:P`
-- `KP01:objective:vocabDomains/family_kinship_address_terms:R`
-- `KP01:objective:vocabDomains/family_kinship_address_terms:P`
-- `KP01:objective:vocabDomains/professions_workplace:R`
-- `KP01:objective:vocabDomains/professions_workplace:P`
-- `KP01:objective:vocabDomains/school_study_terms:R`
-- `KP01:objective:vocabDomains/school_study_terms:P`
-- `KP01:objective:vocabDomains/etiquette_honorific_lexis:R`
-- `KP01:objective:vocabDomains/etiquette_honorific_lexis:P`
-- `KP01:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP01:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP01:objective:phonology/0:R`
-- `KP01:objective:phonology/0:P`
-- `KP01:objective:phonology/1:R`
-- `KP01:objective:phonology/1:P`
-- `KP01:objective:register/hapsyo_formal_business:R`
-- `KP01:objective:register/haeyo_polite:P`
-- `KP02:objective:listening/genre/public_announcement_spoken:R`
-- `KP02:objective:listening/genre/phone_call:R`
-- `KP02:objective:reading/genre/menu_pricelist_timetable:R`
-- `KP02:objective:writing/genre/personal_note_postcard:P`
-- `KP02:objective:writing/genre/instant_message_chat:P`
-- `KP02:objective:functions/identify_locate_things:R`
-- `KP02:objective:functions/identify_locate_things:P`
-- `KP02:objective:functions/narrate_experience_events:R`
-- `KP02:objective:functions/narrate_experience_events:P`
-- `KP02:objective:functions/describe_people_things_places:R`
-- `KP02:objective:functions/describe_people_things_places:P`
-- `KP02:objective:functions/ask_for_information_confirm:R`
-- `KP02:objective:functions/ask_for_information_confirm:P`
-- `KP02:objective:vocabDomains/numbers_quantity_units:R`
-- `KP02:objective:vocabDomains/numbers_quantity_units:P`
-- `KP02:objective:vocabDomains/time_calendar:R`
-- `KP02:objective:vocabDomains/time_calendar:P`
-- `KP02:objective:vocabDomains/home_objects_furniture:R`
-- `KP02:objective:vocabDomains/home_objects_furniture:P`
-- `KP02:objective:vocabDomains/places_buildings_city:R`
-- `KP02:objective:vocabDomains/places_buildings_city:P`
-- `KP02:objective:vocabDomains/transport_travel_vocab:R`
-- `KP02:objective:vocabDomains/transport_travel_vocab:P`
-- `KP02:objective:phonology/0:R`
-- `KP02:objective:phonology/0:P`
-- `KP02:objective:phonology/1:R`
-- `KP02:objective:phonology/1:P`
-- `KP02:objective:register/haeyo_polite:P`
-- `KP03:objective:listening/genre/service_encounter_counter:R`
-- `KP03:objective:reading/genre/menu_pricelist_timetable:R`
-- `KP03:objective:speaking/genre/service_encounter_counter:P`
-- `KP03:objective:writing/genre/instant_message_chat:P`
-- `KP03:objective:functions/express_preference_taste:R`
-- `KP03:objective:functions/express_preference_taste:P`
-- `KP03:objective:functions/order_buy_pay:R`
-- `KP03:objective:functions/order_buy_pay:P`
-- `KP03:objective:functions/request_ask_someone_to_do:R`
-- `KP03:objective:functions/request_ask_someone_to_do:P`
-- `KP03:objective:functions/suggest_propose:R`
-- `KP03:objective:functions/suggest_propose:P`
-- `KP03:objective:functions/make_change_cancel_appointments:R`
-- `KP03:objective:functions/make_change_cancel_appointments:P`
-- `KP03:objective:functions/express_intention_plan_wish:R`
-- `KP03:objective:functions/express_intention_plan_wish:P`
-- `KP03:objective:vocabDomains/numbers_quantity_units:R`
-- `KP03:objective:vocabDomains/numbers_quantity_units:P`
-- `KP03:objective:vocabDomains/food_cooking:R`
-- `KP03:objective:vocabDomains/food_cooking:P`
-- `KP03:objective:vocabDomains/transport_travel_vocab:R`
-- `KP03:objective:vocabDomains/transport_travel_vocab:P`
-- `KP03:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP03:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP03:objective:phonology/0:R`
-- `KP03:objective:phonology/0:P`
-- `KP03:objective:phonology/1:R`
-- `KP03:objective:phonology/1:P`
-- `KP03:objective:register/haeyo_polite:P`
-- `KP04:objective:listening/genre/song_lyric_line:R`
-- `KP04:objective:listening/genre/dialogue_face_to_face:R`
-- `KP04:objective:speaking/genre/dialogue_face_to_face:P`
-- `KP04:objective:writing/genre/personal_note_postcard:P`
-- `KP04:objective:functions/express_feelings_emotions:R`
-- `KP04:objective:functions/express_feelings_emotions:P`
-- `KP04:objective:functions/describe_people_things_places:R`
-- `KP04:objective:functions/describe_people_things_places:P`
-- `KP04:objective:functions/thank_apologise_respond:R`
-- `KP04:objective:functions/thank_apologise_respond:P`
-- `KP04:objective:functions/make_change_cancel_appointments:R`
-- `KP04:objective:functions/make_change_cancel_appointments:P`
-- `KP04:objective:functions/express_obligation_permission:R`
-- `KP04:objective:functions/express_obligation_permission:P`
-- `KP04:objective:functions/give_follow_instructions_directions:R`
-- `KP04:objective:functions/give_follow_instructions_directions:P`
-- `KP04:objective:vocabDomains/colours_shapes_description:R`
-- `KP04:objective:vocabDomains/colours_shapes_description:P`
-- `KP04:objective:vocabDomains/body_health_symptoms:R`
-- `KP04:objective:vocabDomains/body_health_symptoms:P`
-- `KP04:objective:vocabDomains/weather_nature:R`
-- `KP04:objective:vocabDomains/weather_nature:P`
-- `KP04:objective:vocabDomains/etiquette_honorific_lexis:R`
-- `KP04:objective:vocabDomains/etiquette_honorific_lexis:P`
-- `KP04:objective:phonology/0:R`
-- `KP04:objective:phonology/0:P`
-- `KP04:objective:phonology/1:R`
-- `KP04:objective:phonology/1:P`
-- `KP04:objective:register/hapsyo_formal_business:R`
-- `KP04:objective:register/banmal_casual:R`
-- `KP04:objective:register/haeyo_polite:P`
 - `KP05:objective:grammar/G2:-으면:P`
 - `KP05:objective:grammar/G2:-거나:P`
 - `KP05:objective:grammar/G2:이나:P`

@@ -2668,6 +2668,708 @@
           }
         ]
       }
+    },
+    {
+      "id": "KP04:reading:02",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "같은 정보와 다른 말투",
+        "en": "The same information in different registers",
+        "de": "Gleiche Information in verschiedenen Sprachstilen"
+      },
+      "teaching": {
+        "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+        "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+        "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학교 안내: 선생님께서 두 시에 오십니다.\n학습 동료에게: 비가 와서 밖에서 만나지 못해요. 도서관에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 비가 와서 밖에서 못 만나. 도서관에서 만날까?",
+        "questions": [
+          {
+            "id": "formal",
+            "kind": "choice",
+            "prompt": {
+              "ko": "격식 있는 안내의 말끝은?",
+              "en": "Which ending belongs to the formal announcement?",
+              "de": "Welche Endung gehört zur förmlichen Mitteilung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오십니다"
+              },
+              {
+                "id": "1",
+                "text": "못 만나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          },
+          {
+            "id": "casual",
+            "kind": "choice",
+            "prompt": {
+              "ko": "반말 장면의 관계는?",
+              "en": "What relationship allows casual speech here?",
+              "de": "Welche Beziehung erlaubt hier vertrauliche Sprache?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "서로 반말을 쓰기로 한 친한 친구"
+              },
+              {
+                "id": "1",
+                "text": "처음 만난 모든 사람"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          },
+          {
+            "id": "certainty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "만남 장소는 이미 합의됐어요?",
+              "en": "Has the meeting place already been agreed?",
+              "de": "Ist der Treffpunkt bereits vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 질문으로 제안해요."
+              },
+              {
+                "id": "1",
+                "text": "네. 명령으로 확정했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학교 안내: 선생님께서 네 시에 오십니다.\n학습 동료에게: 눈이 와서 밖에서 만나지 못해요. 카페에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 눈이 와서 밖에서 못 만나. 카페에서 만날까?",
+        "questions": [
+          {
+            "id": "formal",
+            "kind": "choice",
+            "prompt": {
+              "ko": "격식 있는 안내의 말끝은?",
+              "en": "Which ending belongs to the formal announcement?",
+              "de": "Welche Endung gehört zur förmlichen Mitteilung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오십니다"
+              },
+              {
+                "id": "1",
+                "text": "못 만나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          },
+          {
+            "id": "casual",
+            "kind": "choice",
+            "prompt": {
+              "ko": "반말 장면의 관계는?",
+              "en": "What relationship allows casual speech here?",
+              "de": "Welche Beziehung erlaubt hier vertrauliche Sprache?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "처음 만난 모든 사람"
+              },
+              {
+                "id": "0",
+                "text": "서로 반말을 쓰기로 한 친한 친구"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          },
+          {
+            "id": "certainty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "만남 장소는 이미 합의됐어요?",
+              "en": "Has the meeting place already been agreed?",
+              "de": "Ist der Treffpunkt bereits vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 질문으로 제안해요."
+              },
+              {
+                "id": "1",
+                "text": "네. 명령으로 확정했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "공손한 말끝과 높이는 주체를 따로 확인해요. 친한 사이의 반말은 관계가 합의된 장면에서만 사용해요. 같은 정보라도 말투를 바꿀 수 있지만 사실·의무·확신은 바꾸지 않아요.",
+              "en": "Check listener politeness separately from respect for the subject. Casual speech here is restricted to an explicitly agreed close relationship. Changing register must not change facts, obligation or certainty.",
+              "de": "Prüfe Höflichkeit gegenüber Zuhörenden getrennt von der Ehrung des Subjekts. Vertrauliche Sprache ist hier auf eine ausdrücklich vereinbarte enge Beziehung begrenzt. Ein Stilwechsel darf Fakten, Verpflichtung oder Gewissheit nicht verändern."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:listening:03",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:listening:03",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "높임과 이유절의 경계 듣기",
+        "en": "Hear honorifics and a reason-clause boundary",
+        "de": "Höflichkeitsform und Begründung hören"
+      },
+      "teaching": {
+        "ko": "오시니까에는 주체 높임 -시-와 이유 연결 -(으)니까가 있어요. 선생님이 오시니까 / 먼저 준비해요처럼 이유와 다음 행동의 경계를 들어요. 평서·요청을 말끝까지 듣고 구별해요. 억양 능력 전체를 평가하는 과제는 아니에요.",
+        "en": "In 오시니까, -시- honors the subject and -(으)니까 gives a reason. Listen for the boundary between the reason and next action, and distinguish a statement from a request by its ending. This does not assess overall intonation ability.",
+        "de": "In 오시니까 ehrt -시- das Subjekt, während -(으)니까 einen Grund nennt. Höre die Grenze zwischen Begründung und nächster Handlung und unterscheide Aussage und Bitte an der Endung. Die gesamte Intonationsfähigkeit wird damit nicht bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "선생님이 오시니까 먼저 자료를 준비하세요. 선생님은 지금 학교에 오세요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "먼저 행동하는 이유는?",
+              "en": "Why should the action happen first?",
+              "de": "Warum soll zuerst gehandelt werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "선생님이 떠나셨으니까"
+              },
+              {
+                "id": "0",
+                "text": "선생님이 오시니까"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "오시니까에는 주체 높임 -시-와 이유 연결 -(으)니까가 있어요. 선생님이 오시니까 / 먼저 준비해요처럼 이유와 다음 행동의 경계를 들어요. 평서·요청을 말끝까지 듣고 구별해요. 억양 능력 전체를 평가하는 과제는 아니에요.",
+              "en": "In 오시니까, -시- honors the subject and -(으)니까 gives a reason. Listen for the boundary between the reason and next action, and distinguish a statement from a request by its ending. This does not assess overall intonation ability.",
+              "de": "In 오시니까 ehrt -시- das Subjekt, während -(으)니까 einen Grund nennt. Höre die Grenze zwischen Begründung und nächster Handlung und unterscheide Aussage und Bitte an der Endung. Die gesamte Intonationsfähigkeit wird damit nicht bewertet."
+            }
+          },
+          {
+            "id": "ending",
+            "kind": "choice",
+            "prompt": {
+              "ko": "첫 문장 끝은 무엇을 해요?",
+              "en": "What does the first sentence ending do?",
+              "de": "Was bewirkt die Endung des ersten Satzes?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "상대에게 행동을 부탁해요."
+              },
+              {
+                "id": "1",
+                "text": "이미 끝낸 일을 보고해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "오시니까에는 주체 높임 -시-와 이유 연결 -(으)니까가 있어요. 선생님이 오시니까 / 먼저 준비해요처럼 이유와 다음 행동의 경계를 들어요. 평서·요청을 말끝까지 듣고 구별해요. 억양 능력 전체를 평가하는 과제는 아니에요.",
+              "en": "In 오시니까, -시- honors the subject and -(으)니까 gives a reason. Listen for the boundary between the reason and next action, and distinguish a statement from a request by its ending. This does not assess overall intonation ability.",
+              "de": "In 오시니까 ehrt -시- das Subjekt, während -(으)니까 einen Grund nennt. Höre die Grenze zwischen Begründung und nächster Handlung und unterscheide Aussage und Bitte an der Endung. Die gesamte Intonationsfähigkeit wird damit nicht bewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "선생님이 오시니까 먼저 교실을 정리하세요. 선생님은 지금 학교에 오세요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "먼저 행동하는 이유는?",
+              "en": "Why should the action happen first?",
+              "de": "Warum soll zuerst gehandelt werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "선생님이 오시니까"
+              },
+              {
+                "id": "1",
+                "text": "선생님이 떠나셨으니까"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "오시니까에는 주체 높임 -시-와 이유 연결 -(으)니까가 있어요. 선생님이 오시니까 / 먼저 준비해요처럼 이유와 다음 행동의 경계를 들어요. 평서·요청을 말끝까지 듣고 구별해요. 억양 능력 전체를 평가하는 과제는 아니에요.",
+              "en": "In 오시니까, -시- honors the subject and -(으)니까 gives a reason. Listen for the boundary between the reason and next action, and distinguish a statement from a request by its ending. This does not assess overall intonation ability.",
+              "de": "In 오시니까 ehrt -시- das Subjekt, während -(으)니까 einen Grund nennt. Höre die Grenze zwischen Begründung und nächster Handlung und unterscheide Aussage und Bitte an der Endung. Die gesamte Intonationsfähigkeit wird damit nicht bewertet."
+            }
+          },
+          {
+            "id": "ending",
+            "kind": "choice",
+            "prompt": {
+              "ko": "첫 문장 끝은 무엇을 해요?",
+              "en": "What does the first sentence ending do?",
+              "de": "Was bewirkt die Endung des ersten Satzes?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "상대에게 행동을 부탁해요."
+              },
+              {
+                "id": "1",
+                "text": "이미 끝낸 일을 보고해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "오시니까에는 주체 높임 -시-와 이유 연결 -(으)니까가 있어요. 선생님이 오시니까 / 먼저 준비해요처럼 이유와 다음 행동의 경계를 들어요. 평서·요청을 말끝까지 듣고 구별해요. 억양 능력 전체를 평가하는 과제는 아니에요.",
+              "en": "In 오시니까, -시- honors the subject and -(으)니까 gives a reason. Listen for the boundary between the reason and next action, and distinguish a statement from a request by its ending. This does not assess overall intonation ability.",
+              "de": "In 오시니까 ehrt -시- das Subjekt, während -(으)니까 einen Grund nennt. Höre die Grenze zwischen Begründung und nächster Handlung und unterscheide Aussage und Bitte an der Endung. Die gesamte Intonationsfähigkeit wird damit nicht bewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:speaking:02",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "기분·몸 상태·일정 변경 설명",
+        "en": "Explain feelings, symptoms and a changed plan",
+        "de": "Gefühle, Beschwerden und Planänderung erklären"
+      },
+      "teaching": {
+        "ko": "가상 정보만 사용해 기분·증상·날씨를 말하고 사과와 대안을 전하세요. 물건의 색·상태, 안내문의 순서와 의무를 빠뜨리지 마세요. 친절함을 이유로 상대의 동의를 만들지 않아요. 해요체와 의미 단위 휴지를 확인하고 재녹음해요. 의미·발음은 미채점이에요.",
+        "en": "Use only the fictional facts to state feelings, symptoms and weather, apologize and propose an alternative. Include the object’s color and condition, the stated order and requirement. Do not invent agreement. Check polite endings and meaningful pauses and re-record; meaning and pronunciation remain unscored.",
+        "de": "Nenne anhand der fiktiven Angaben Gefühle, Beschwerden und Wetter, entschuldige dich und schlage eine Alternative vor. Behalte Farbe und Zustand des Gegenstands sowie Reihenfolge und Pflicht aus dem Hinweis bei. Erfinde keine Zustimmung. Prüfe höfliche Endungen und sinnvolle Pausen und nimm erneut auf; Inhalt und Aussprache bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요. 가상 상황이에요.\n기분: 속상함. 증상: 머리가 아픔. 날씨: 비. 파란 우산: 젖어 있음.\n오늘 두 시 약속을 취소해 사과하고 내일 세 시를 제안해요.\n교실 안내: 들어오기 전에 우산을 접어야 해요. 들어온 후에 의자에 앉아요. 상대의 답은 아직 없어요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료에게 해요체로 말해요. 가상 상황이에요.\n기분: 아쉬움. 증상: 목이 아픔. 날씨: 눈. 빨간 가방: 젖어 있음.\n오늘 네 시 약속을 취소해 사과하고 내일 두 시를 제안해요.\n교실 안내: 들어오기 전에 가방을 닦아야 해요. 들어온 후에 책상에 놓아요. 상대의 답은 아직 없어요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP04:reading:03",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "몸 상태와 약속 변경 메시지",
+        "en": "A message about symptoms and a changed plan",
+        "de": "Nachricht zu Beschwerden und einer Planänderung"
+      },
+      "teaching": {
+        "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+        "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+        "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 보낸 메시지\n오늘은 머리가 아파요. 그래서 속상해요. 비가 와서 파란 우산도 젖었어요. 오늘 두 시 약속에 가지 못해서 미안해요. 내일 세 시에 만날까요?\n교실 안내에는 들어가기 전에 우산을 접어야 한다고 써 있어요. 들어간 후에 의자에 앉아요.",
+        "questions": [
+          {
+            "id": "feeling",
+            "kind": "choice",
+            "prompt": {
+              "ko": "화자의 기분은?",
+              "en": "How does the sender feel?",
+              "de": "Wie fühlt sich die schreibende Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기뻐요"
+              },
+              {
+                "id": "0",
+                "text": "속상해요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "symptom",
+            "kind": "choice",
+            "prompt": {
+              "ko": "몸 상태는?",
+              "en": "What symptom is reported?",
+              "de": "Welche Beschwerde wird genannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "머리가 아파요"
+              },
+              {
+                "id": "1",
+                "text": "배가 아파요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "object",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건의 상태는?",
+              "en": "What is the object’s condition?",
+              "de": "In welchem Zustand ist der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "파란 우산이 젖었어요."
+              },
+              {
+                "id": "1",
+                "text": "파란 우산이 말랐어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "before",
+            "kind": "choice",
+            "prompt": {
+              "ko": "들어가기 전에 해야 하는 것은?",
+              "en": "What must happen before entering?",
+              "de": "Was muss vor dem Eintreten geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "우산을 접어야 해요."
+              },
+              {
+                "id": "1",
+                "text": "의자에 앉아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 약속은 확정됐어요?",
+              "en": "Is the new appointment confirmed?",
+              "de": "Ist der neue Termin bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아직 몰라요. 상대의 답이 없어요."
+              },
+              {
+                "id": "1",
+                "text": "네. 상대가 동의했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 보낸 메시지\n오늘은 목이 아파요. 그래서 아쉬워요. 눈이 와서 빨간 가방도 젖었어요. 오늘 네 시 약속에 가지 못해서 미안해요. 내일 두 시에 만날까요?\n교실 안내에는 들어가기 전에 가방을 닦아야 한다고 써 있어요. 들어간 후에 의자에 앉아요.",
+        "questions": [
+          {
+            "id": "feeling",
+            "kind": "choice",
+            "prompt": {
+              "ko": "화자의 기분은?",
+              "en": "How does the sender feel?",
+              "de": "Wie fühlt sich die schreibende Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아쉬워요"
+              },
+              {
+                "id": "1",
+                "text": "기뻐요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "symptom",
+            "kind": "choice",
+            "prompt": {
+              "ko": "몸 상태는?",
+              "en": "What symptom is reported?",
+              "de": "Welche Beschwerde wird genannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "배가 아파요"
+              },
+              {
+                "id": "0",
+                "text": "목이 아파요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "object",
+            "kind": "choice",
+            "prompt": {
+              "ko": "물건의 상태는?",
+              "en": "What is the object’s condition?",
+              "de": "In welchem Zustand ist der Gegenstand?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "빨간 가방이 젖었어요."
+              },
+              {
+                "id": "1",
+                "text": "빨간 가방이 말랐어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "before",
+            "kind": "choice",
+            "prompt": {
+              "ko": "들어가기 전에 해야 하는 것은?",
+              "en": "What must happen before entering?",
+              "de": "Was muss vor dem Eintreten geschehen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "의자에 앉아요."
+              },
+              {
+                "id": "0",
+                "text": "가방을 닦아야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          },
+          {
+            "id": "agreement",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 약속은 확정됐어요?",
+              "en": "Is the new appointment confirmed?",
+              "de": "Ist der neue Termin bestätigt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 상대가 동의했어요."
+              },
+              {
+                "id": "0",
+                "text": "아직 몰라요. 상대의 답이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메시지의 기분·증상·물건 상태·다음 행동을 구별해요. 사과와 약속 변경이 들어 있어도 새로운 약속의 동의까지 주어진 것은 아니에요.",
+              "en": "Separate feelings, symptoms, the object’s condition and the next action. An apology and a proposed change do not imply agreement to a new appointment.",
+              "de": "Unterscheide Gefühle, Beschwerden, Zustand des Gegenstands und nächste Handlung. Eine Entschuldigung mit Änderungsvorschlag bedeutet noch keine Zustimmung zum neuen Termin."
+            }
+          }
+        ]
+      }
     }
   ]
 }

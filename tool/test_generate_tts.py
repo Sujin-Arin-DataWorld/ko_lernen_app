@@ -1280,7 +1280,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
 class PhaseAudioScopeTests(unittest.TestCase):
     def test_exact_reviewed_phase_scope_and_unknown_phase_rejection(self):
         pairs = generate_tts.collect_phase_audio('KP01')
-        self.assertEqual(len(pairs), 4)
+        self.assertEqual(len(pairs), 6)
         self.assertTrue(all(voice == 'female' for voice, _ in pairs))
         self.assertLessEqual(set(pairs), set(generate_tts.collect()))
         with self.assertRaises(ValueError):

@@ -377,6 +377,45 @@
         "answer-rubric"
       ],
       "note": "KO/EN/DE and independent practice/assessment reviewed: shared team proposal, not command only to listener. Bounded sentence only; unlisted appropriate wording remains unscored."
+    },
+    {
+      "taskId": "KP03:reading:02",
+      "sha256": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim."
+    },
+    {
+      "taskId": "KP03:speaking:02",
+      "sha256": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody."
+    },
+    {
+      "taskId": "KP03:reading:03",
+      "sha256": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다."
     }
   ]
 }

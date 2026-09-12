@@ -2261,6 +2261,1374 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. evidence-based inference, not first-person resolve. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP01:objective:listening/genre/dialogue_face_to_face:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "11bb85b088f49dc281f45f13fc76cd51e1e1bbd7e91cb153e153b46dc97113c4",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/dialogue_face_to_face:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:reading/genre/sign_notice_short:R",
+      "taskId": "KP01:reading:02",
+      "sourceHash": "f26a8fed9e54a469852447afb6392ba6a21d63ebce459e84956d32b246514258",
+      "taskHash": "2454c82d55ac13db9cf44147b466bc15615050a365bb97308a6c1a5bec067770",
+      "criterionIds": [
+        "place",
+        "permission",
+        "prohibition"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 reading/genre/sign_notice_short:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:speaking/genre/dialogue_face_to_face:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "dd9747b8bbfffad258ff98079f36519b2f4abcc280490b76f08ebc3a193cc84e",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/dialogue_face_to_face:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:writing/genre/form_application:P",
+      "taskId": "KP01:writing:02",
+      "sourceHash": "49fb68090633543967a748fed7d6e4449d22458dd580b634db980c9c6aaab046",
+      "taskHash": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "criterionIds": [
+        "name",
+        "optional",
+        "ask_required"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 writing/genre/form_application:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/greet_introduce_self:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/greet_introduce_self:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/greet_introduce_self:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/greet_introduce_self:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/ask_give_personal_information:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_give_personal_information:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/ask_give_personal_information:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_give_personal_information:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/ask_for_information_confirm:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/ask_for_information_confirm:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/thank_apologise_respond:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/thank_apologise_respond:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/clarify_repair_ask_to_repeat:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/clarify_repair_ask_to_repeat:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:functions/clarify_repair_ask_to_repeat:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/clarify_repair_ask_to_repeat:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/family_kinship_address_terms:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/family_kinship_address_terms:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/family_kinship_address_terms:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/family_kinship_address_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/professions_workplace:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/professions_workplace:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/professions_workplace:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/professions_workplace:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/school_study_terms:R",
+      "taskId": "KP01:reading:01",
+      "sourceHash": "5bdf29f5a13f4ca9a8511ed23e12abe84cc27e6c37b755017d4f54f350ae6471",
+      "taskHash": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "criterionIds": [
+        "room",
+        "name",
+        "occupation"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/school_study_terms:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/school_study_terms:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "5bdf29f5a13f4ca9a8511ed23e12abe84cc27e6c37b755017d4f54f350ae6471",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/school_study_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/etiquette_honorific_lexis:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/etiquette_honorific_lexis:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:phonology/0:R",
+      "taskId": "KP01:listening:02",
+      "sourceHash": "3614a5bfc39c7f9fa5a4eb45629a976fbd5a544194d6aaae728d40964d583673",
+      "taskHash": "993356a538fe43de11ae2dc12386edf836c366ecd3aa2b1cd0fee2492094402d",
+      "criterionIds": [
+        "sounds",
+        "name"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:phonology/0:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "3614a5bfc39c7f9fa5a4eb45629a976fbd5a544194d6aaae728d40964d583673",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:phonology/1:R",
+      "taskId": "KP01:listening:03",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "a6e4a43cb96ac98c4a5bfb575cf3936e7873d2aa40cc4064728a86704dc3689d",
+      "criterionIds": [
+        "repair",
+        "relationship",
+        "job",
+        "confirmation",
+        "thanks",
+        "apology"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:phonology/1:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:register/hapsyo_formal_business:R",
+      "taskId": "KP01:grammar:11",
+      "sourceHash": "9d369c81a081a5bfa7ad528cb9233fb40f1353cca271cd44713027ec0ea40363",
+      "taskHash": "7d4a9e4b7236823e137c64e44137fe34731f4536c89ad2b0d5a4eb80d9c62cd3",
+      "criterionIds": [
+        "answer"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/hapsyo_formal_business:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP01:objective:register/haeyo_polite:P",
+      "taskId": "KP01:speaking:02",
+      "sourceHash": "9d369c81a081a5bfa7ad528cb9233fb40f1353cca271cd44713027ec0ea40363",
+      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:reading/genre/menu_pricelist_timetable:R",
+      "taskId": "KP02:reading:01",
+      "sourceHash": "09860d640da99b4ff06ddb258b861b8d792605ae749773921cbf419b6fad8a5d",
+      "taskHash": "8a4fb730f5c98097f0ffe1d304bc5b6be87e0edd5730bfe32f467c85b089c7bb",
+      "criterionIds": [
+        "visit",
+        "classroom",
+        "end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 reading/genre/menu_pricelist_timetable:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:listening/genre/public_announcement_spoken:R",
+      "taskId": "KP02:listening:04",
+      "sourceHash": "a0977ca06154171c923fbacafcc32a8048bfffc711103a3e31db3c0eff0ac2d9",
+      "taskHash": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
+      "criterionIds": [
+        "room",
+        "time",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/public_announcement_spoken:R의 학습 경로를 검수했다. Public announcement, old versus new room, start/end and help location all separate required criteria; classroom change is fictional. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:listening/genre/phone_call:R",
+      "taskId": "KP02:listening:02",
+      "sourceHash": "42687de673e7d5a9875e15a3b6586ff2dc83e4195dc9411ccad403b0255bc80f",
+      "taskHash": "0c8ffacb65938870589ed8b528d0b5cc41717336ed30fc1242600a9de5bb4d61",
+      "criterionIds": [
+        "purpose",
+        "time",
+        "room"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/phone_call:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:writing/genre/personal_note_postcard:P",
+      "taskId": "KP02:writing:02",
+      "sourceHash": "d78261cc8699e0cdea0b79236122d5ce62c238196837206d374bfb3abf815f42",
+      "taskHash": "cb26eb498a71d8f17533a305a1a5af7c27508c055a0aacc57d4da65ac02a9ed4",
+      "criterionIds": [
+        "information",
+        "action"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 writing/genre/personal_note_postcard:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:writing/genre/instant_message_chat:P",
+      "taskId": "KP02:writing:01",
+      "sourceHash": "dc9abdd8ffd6d3c960e5ca11cafe325d7567979b3a309556828c41d43da33a94",
+      "taskHash": "ecfc1dd32a06dbed077838c91ed8db9d3a73e4e36ae3f6375a319b704462ed9e",
+      "criterionIds": [
+        "location",
+        "arrival"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 writing/genre/instant_message_chat:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/identify_locate_things:R",
+      "taskId": "KP02:reading:02",
+      "sourceHash": "759aef296d5e02ebd1fda46c43eafc6faf088422c20a835bb757fb2b88222fe6",
+      "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+      "criterionIds": [
+        "location",
+        "past",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/identify_locate_things:R의 학습 경로를 검수했다. Object position, yesterday versus today and actual telephone repair action reviewed. 가방은 and 공책은 correct particles; no invented owner. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/identify_locate_things:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "759aef296d5e02ebd1fda46c43eafc6faf088422c20a835bb757fb2b88222fe6",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/identify_locate_things:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/narrate_experience_events:R",
+      "taskId": "KP02:reading:02",
+      "sourceHash": "d7d5ae655971cf20f077c1d7489a32356307aac4df840150582023ad7b325792",
+      "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+      "criterionIds": [
+        "location",
+        "past",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/narrate_experience_events:R의 학습 경로를 검수했다. Object position, yesterday versus today and actual telephone repair action reviewed. 가방은 and 공책은 correct particles; no invented owner. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/narrate_experience_events:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "d7d5ae655971cf20f077c1d7489a32356307aac4df840150582023ad7b325792",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/narrate_experience_events:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/describe_people_things_places:R",
+      "taskId": "KP02:reading:02",
+      "sourceHash": "dc8280f6e4fd4e82d55039210c04a456eacd8b06886f34a86ff78d09b961eba8",
+      "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+      "criterionIds": [
+        "location",
+        "past",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/describe_people_things_places:R의 학습 경로를 검수했다. Object position, yesterday versus today and actual telephone repair action reviewed. 가방은 and 공책은 correct particles; no invented owner. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/describe_people_things_places:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "dc8280f6e4fd4e82d55039210c04a456eacd8b06886f34a86ff78d09b961eba8",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/describe_people_things_places:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/ask_for_information_confirm:R",
+      "taskId": "KP02:listening:02",
+      "sourceHash": "ba176c3787f0a02ff97f71b080b4aa3d156128997c12ae72321f955a8a78b5b1",
+      "taskHash": "0c8ffacb65938870589ed8b528d0b5cc41717336ed30fc1242600a9de5bb4d61",
+      "criterionIds": [
+        "purpose",
+        "time",
+        "room"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:functions/ask_for_information_confirm:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "ba176c3787f0a02ff97f71b080b4aa3d156128997c12ae72321f955a8a78b5b1",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/numbers_quantity_units:R",
+      "taskId": "KP02:listening:01",
+      "sourceHash": "3e72029c682de10102231841fd7735bea992be394b24410dbb16db4861c37b64",
+      "taskHash": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
+      "criterionIds": [
+        "start",
+        "end",
+        "place",
+        "transport",
+        "class_start",
+        "class_end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/numbers_quantity_units:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "3e72029c682de10102231841fd7735bea992be394b24410dbb16db4861c37b64",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/time_calendar:R",
+      "taskId": "KP02:listening:01",
+      "sourceHash": "f7c8adf7af51b23c6f5977a5fc54e4f4f7cb41dadaf0eecd07d99b9dfee5d747",
+      "taskHash": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
+      "criterionIds": [
+        "start",
+        "end",
+        "place",
+        "transport",
+        "class_start",
+        "class_end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/time_calendar:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/time_calendar:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "f7c8adf7af51b23c6f5977a5fc54e4f4f7cb41dadaf0eecd07d99b9dfee5d747",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/time_calendar:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/home_objects_furniture:R",
+      "taskId": "KP02:reading:02",
+      "sourceHash": "3694a802659db42abb1700fa2be72fb30309f125ad81316e6aa40ec6a3523a5e",
+      "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+      "criterionIds": [
+        "location",
+        "past",
+        "repair"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/home_objects_furniture:R의 학습 경로를 검수했다. Object position, yesterday versus today and actual telephone repair action reviewed. 가방은 and 공책은 correct particles; no invented owner. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/home_objects_furniture:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "3694a802659db42abb1700fa2be72fb30309f125ad81316e6aa40ec6a3523a5e",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/home_objects_furniture:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/places_buildings_city:R",
+      "taskId": "KP02:listening:01",
+      "sourceHash": "e09434cf1bec1cebf0e52525264b08298ac33405cc2881d0cbc8f32ce4003e13",
+      "taskHash": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
+      "criterionIds": [
+        "start",
+        "end",
+        "place",
+        "transport",
+        "class_start",
+        "class_end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/places_buildings_city:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/places_buildings_city:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "e09434cf1bec1cebf0e52525264b08298ac33405cc2881d0cbc8f32ce4003e13",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/places_buildings_city:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/transport_travel_vocab:R",
+      "taskId": "KP02:listening:01",
+      "sourceHash": "a6ce4984db6f8855c0cc18c432ce1be365a314fb69918a21464895295c4cff87",
+      "taskHash": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
+      "criterionIds": [
+        "start",
+        "end",
+        "place",
+        "transport",
+        "class_start",
+        "class_end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:vocabDomains/transport_travel_vocab:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "a6ce4984db6f8855c0cc18c432ce1be365a314fb69918a21464895295c4cff87",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:phonology/0:R",
+      "taskId": "KP02:listening:03",
+      "sourceHash": "3dbdc6f97bd9738f2229c65494263563c5f893a47b65488fb409e5e9f64ed387",
+      "taskHash": "053df203f7d14016e3d215835c0a96e34a66eeddc87f09ab29bcff1e06ec7fba",
+      "criterionIds": [
+        "place",
+        "end"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:phonology/0:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "3dbdc6f97bd9738f2229c65494263563c5f893a47b65488fb409e5e9f64ed387",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:phonology/1:R",
+      "taskId": "KP02:listening:04",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
+      "criterionIds": [
+        "room",
+        "time",
+        "help"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. Public announcement, old versus new room, start/end and help location all separate required criteria; classroom change is fictional. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:phonology/1:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP02:objective:register/haeyo_polite:P",
+      "taskId": "KP02:speaking:02",
+      "sourceHash": "421ad30bfaeb3c4c669c8d1a2513b350611d9536b62352d8c0e8a27bb3d5490c",
+      "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Object/place description, past action, transport/time and unresolved confirmation explicitly requested; connected pronunciation and pauses are unscored replay drills. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:listening/genre/service_encounter_counter:R",
+      "taskId": "KP03:listening:01",
+      "sourceHash": "834aa703f221fc8b902b0a91cc7954e8352b3ea79745026ee6baf32c2ed46ddf",
+      "taskHash": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "criterionIds": [
+        "wish",
+        "order",
+        "available"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/service_encounter_counter:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:speaking/genre/service_encounter_counter:P",
+      "taskId": "KP03:speaking:01",
+      "sourceHash": "88c045857435c87dd827e5f1cb5a8706a6d5945e0cd638e16190f1ca4c0c0eea",
+      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/service_encounter_counter:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:reading/genre/menu_pricelist_timetable:R",
+      "taskId": "KP03:reading:01",
+      "sourceHash": "ee2f52ae5a4ebb2eeaba48f45b17e26a3f7222ec0693b045c72beea5d5c6b569",
+      "taskHash": "24b6cb6b1d1b64f9f513de82f829f52367faca8120f0d831cb9899516f7946b5",
+      "criterionIds": [
+        "quantity",
+        "total",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 reading/genre/menu_pricelist_timetable:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:writing/genre/instant_message_chat:P",
+      "taskId": "KP03:writing:01",
+      "sourceHash": "8d4df60583fddeb41275e8764a96ca338faf0bd8b8acce34606736e47df2987a",
+      "taskHash": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "criterionIds": [
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 writing/genre/instant_message_chat:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/express_preference_taste:R",
+      "taskId": "KP03:reading:02",
+      "sourceHash": "163a3c39eaf72ea02c723682d0828d69cf5318a0e1121490e706d9313d667dab",
+      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "criterionIds": [
+        "preference",
+        "purchase",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_preference_taste:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/express_preference_taste:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "163a3c39eaf72ea02c723682d0828d69cf5318a0e1121490e706d9313d667dab",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_preference_taste:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/order_buy_pay:R",
+      "taskId": "KP03:reading:02",
+      "sourceHash": "fae57166858ef378defcf89699682c8f1925cabc5a974772b8f55160541ceca2",
+      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "criterionIds": [
+        "preference",
+        "purchase",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/order_buy_pay:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "fae57166858ef378defcf89699682c8f1925cabc5a974772b8f55160541ceca2",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/request_ask_someone_to_do:R",
+      "taskId": "KP03:listening:02",
+      "sourceHash": "74028f621c6698dbca4dde7ff63062c205d9093e9e8ae942979171676c00b3b0",
+      "taskHash": "9826c2957f3d97ade69b8b97db5c03233ad4fcddf5fdc01f4c81006604837914",
+      "criterionIds": [
+        "request",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/request_ask_someone_to_do:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/request_ask_someone_to_do:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "74028f621c6698dbca4dde7ff63062c205d9093e9e8ae942979171676c00b3b0",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/request_ask_someone_to_do:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/suggest_propose:R",
+      "taskId": "KP03:reading:03",
+      "sourceHash": "54b47f923949bb7b0178d17774d0cee8b4a66853eec600b0e372343cf6140aca",
+      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "criterionIds": [
+        "old",
+        "new",
+        "place"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/suggest_propose:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/suggest_propose:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "54b47f923949bb7b0178d17774d0cee8b4a66853eec600b0e372343cf6140aca",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/suggest_propose:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/make_change_cancel_appointments:R",
+      "taskId": "KP03:reading:03",
+      "sourceHash": "e2414688dec86a8c55da5d243bbe363e23cab7c1208e241cd1e6c48d8fe883a1",
+      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "criterionIds": [
+        "old",
+        "new",
+        "place"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/make_change_cancel_appointments:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "e2414688dec86a8c55da5d243bbe363e23cab7c1208e241cd1e6c48d8fe883a1",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/express_intention_plan_wish:R",
+      "taskId": "KP03:reading:03",
+      "sourceHash": "5b21c55d2858216a69452d8b4b84cf8a2d95c6d238fe52840eadd024f107300f",
+      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "criterionIds": [
+        "old",
+        "new",
+        "place"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_intention_plan_wish:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:functions/express_intention_plan_wish:P",
+      "taskId": "KP03:production:05",
+      "sourceHash": "5b21c55d2858216a69452d8b4b84cf8a2d95c6d238fe52840eadd024f107300f",
+      "taskHash": "a027c116dedf6bdd5ad771ccf0e0ecfbc58c4fa87e17b3d3ce448e96a1653f02",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_intention_plan_wish:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/numbers_quantity_units:R",
+      "taskId": "KP03:reading:02",
+      "sourceHash": "bf5994256d5450a7bdb21f978328386829e05c9772f8e663164d24cae956663d",
+      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "criterionIds": [
+        "preference",
+        "purchase",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/numbers_quantity_units:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "bf5994256d5450a7bdb21f978328386829e05c9772f8e663164d24cae956663d",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/food_cooking:R",
+      "taskId": "KP03:reading:01",
+      "sourceHash": "3b8308c115aca4e651f3b1a23c1c690cb1af37450ce1a276e1c052daf7a1b234",
+      "taskHash": "24b6cb6b1d1b64f9f513de82f829f52367faca8120f0d831cb9899516f7946b5",
+      "criterionIds": [
+        "quantity",
+        "total",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/food_cooking:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/food_cooking:P",
+      "taskId": "KP03:speaking:01",
+      "sourceHash": "3b8308c115aca4e651f3b1a23c1c690cb1af37450ce1a276e1c052daf7a1b234",
+      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/food_cooking:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/transport_travel_vocab:R",
+      "taskId": "KP03:reading:02",
+      "sourceHash": "4f504e855b5520574ff76a53315d1e0948ff2618dc40c2d37fc84c9d068d3317",
+      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "criterionIds": [
+        "preference",
+        "purchase",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/transport_travel_vocab:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "4f504e855b5520574ff76a53315d1e0948ff2618dc40c2d37fc84c9d068d3317",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP03:reading:02",
+      "sourceHash": "4cf6ba8822782848933fddbe20de12ad4d72209f70744c00fa4689daafee438a",
+      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "criterionIds": [
+        "preference",
+        "purchase",
+        "budget"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "4cf6ba8822782848933fddbe20de12ad4d72209f70744c00fa4689daafee438a",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:phonology/0:R",
+      "taskId": "KP03:listening:02",
+      "sourceHash": "bdd82958c16a00ab1e23e3df140bf02c2d38dae04360036268f657ef13dee6d4",
+      "taskHash": "9826c2957f3d97ade69b8b97db5c03233ad4fcddf5fdc01f4c81006604837914",
+      "criterionIds": [
+        "request",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:phonology/0:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "bdd82958c16a00ab1e23e3df140bf02c2d38dae04360036268f657ef13dee6d4",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:phonology/1:R",
+      "taskId": "KP03:listening:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "9826c2957f3d97ade69b8b97db5c03233ad4fcddf5fdc01f4c81006604837914",
+      "criterionIds": [
+        "request",
+        "proposal"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:phonology/1:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP03:objective:register/haeyo_polite:P",
+      "taskId": "KP03:speaking:02",
+      "sourceHash": "e5b091d72d9ad4cc182cd9be37c0fa333cbad576ed47567f79d02d15d33e883f",
+      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:listening/genre/song_lyric_line:R",
+      "taskId": "KP04:listening:02",
+      "sourceHash": "0f55d3606364ec2075aecef3bdfe128d564cc8878cb396bca9a9c3691930e38f",
+      "taskHash": "42828a60c3f4ed8c2b16659a1e82771fdd652a206b2e9ed5b990b38267e63f2a",
+      "criterionIds": [
+        "event",
+        "feeling"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/song_lyric_line:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:listening/genre/dialogue_face_to_face:R",
+      "taskId": "KP04:listening:01",
+      "sourceHash": "b1c13482b839f9c176233570d648ca73333c8ec739046bc3c18e70fb6379585a",
+      "taskHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+      "criterionIds": [
+        "fact",
+        "time",
+        "sequence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 listening/genre/dialogue_face_to_face:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:speaking/genre/dialogue_face_to_face:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "37d3e16da363713bef87358a36c0e0cf3fa00a42cd1c6f7e2ebc1df6d03fdd4f",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/dialogue_face_to_face:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:writing/genre/personal_note_postcard:P",
+      "taskId": "KP04:writing:01",
+      "sourceHash": "a76fd0d5e61e2c478638f5fc88a3962e564fa0c2ddbcf4486ddeb36694b9b1b7",
+      "taskHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+      "criterionIds": [
+        "reason_change",
+        "alternative"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 writing/genre/personal_note_postcard:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/express_feelings_emotions:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "4588b85f41bab37aa9d22b34b9bc550b8c0b09bde6cd024d3908bd990952c0be",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_feelings_emotions:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/express_feelings_emotions:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "4588b85f41bab37aa9d22b34b9bc550b8c0b09bde6cd024d3908bd990952c0be",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_feelings_emotions:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/describe_people_things_places:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "3118f2c2cf8ffadfab5d712394a4510c077ee2ee4ce6f83880ddd208e99f4a4f",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/describe_people_things_places:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/describe_people_things_places:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "3118f2c2cf8ffadfab5d712394a4510c077ee2ee4ce6f83880ddd208e99f4a4f",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/describe_people_things_places:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/thank_apologise_respond:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "3e1323ae113bac634f0a5aeb3ad8a8904a1ec416ff65b168f450c2638f17389f",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/thank_apologise_respond:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "3e1323ae113bac634f0a5aeb3ad8a8904a1ec416ff65b168f450c2638f17389f",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/make_change_cancel_appointments:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "7ad3e5651a5b3074729ff7cdc068b03440be50ab5ff83d2253d6f18c88ffd7ca",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/make_change_cancel_appointments:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "7ad3e5651a5b3074729ff7cdc068b03440be50ab5ff83d2253d6f18c88ffd7ca",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/express_obligation_permission:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "9a492a4c2eb3cb259442ff3d7e89edd773eda228205715df21fcb3ef06e09289",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_obligation_permission:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/express_obligation_permission:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "9a492a4c2eb3cb259442ff3d7e89edd773eda228205715df21fcb3ef06e09289",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/express_obligation_permission:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/give_follow_instructions_directions:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "4584774f482c4e69cc92631edf2495cda2f2cc4c0f386c35e8fd20b61394e75e",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/give_follow_instructions_directions:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:functions/give_follow_instructions_directions:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "4584774f482c4e69cc92631edf2495cda2f2cc4c0f386c35e8fd20b61394e75e",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 functions/give_follow_instructions_directions:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/colours_shapes_description:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "17e9b5e4fc7ffdce039bf7f5661ccb26d653c8499a742ef0339f89be7f170a1a",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/colours_shapes_description:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/colours_shapes_description:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "17e9b5e4fc7ffdce039bf7f5661ccb26d653c8499a742ef0339f89be7f170a1a",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/colours_shapes_description:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/body_health_symptoms:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "5818d8fd4471a9230d9193af7150533036d661d0e3773661827fbfffcc14ddfb",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/body_health_symptoms:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/body_health_symptoms:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "5818d8fd4471a9230d9193af7150533036d661d0e3773661827fbfffcc14ddfb",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/body_health_symptoms:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/weather_nature:R",
+      "taskId": "KP04:reading:03",
+      "sourceHash": "148f145c28b8c145ed44f19d50cdc39e5bc2c8ee0411d55cb1c190b972ba1ef7",
+      "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+      "criterionIds": [
+        "feeling",
+        "symptom",
+        "object",
+        "before",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/weather_nature:R의 학습 경로를 검수했다. Full message has separate feeling, symptom, object state, before-action requirement and missing agreement. 접어야 한다/닦아야 한다 grammatical, colors and events preserved in alternatives. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/weather_nature:P",
+      "taskId": "KP04:speaking:02",
+      "sourceHash": "148f145c28b8c145ed44f19d50cdc39e5bc2c8ee0411d55cb1c190b972ba1ef7",
+      "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/weather_nature:P의 학습 경로를 검수했다. Fictional symptoms/weather/feeling, object color/state, apology, optional proposal and instruction order. No diagnosis or agreement invented; meaning unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/etiquette_honorific_lexis:R",
+      "taskId": "KP04:reading:02",
+      "sourceHash": "c2dae7fda527ac2b369679cfd84e136cca6287db94cbd104ba98f048d5664238",
+      "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "criterionIds": [
+        "formal",
+        "casual",
+        "certainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:R의 학습 경로를 검수했다. Formal announcement, polite peer and explicitly agreed casual-friend register; honorific subject differs from listener, proposed place not agreed. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:vocabDomains/etiquette_honorific_lexis:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "c2dae7fda527ac2b369679cfd84e136cca6287db94cbd104ba98f048d5664238",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:phonology/0:R",
+      "taskId": "KP04:listening:03",
+      "sourceHash": "8be9261016c5fc9a57a2b12b12151942d00c329b0b3e09eab9700b875dc80f9e",
+      "taskHash": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
+      "criterionIds": [
+        "reason",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. Subject honorific plus reason boundary; requested preparation differs from declarative arrival. Meaning questions do not certify intonation ability. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:phonology/0:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "8be9261016c5fc9a57a2b12b12151942d00c329b0b3e09eab9700b875dc80f9e",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:phonology/1:R",
+      "taskId": "KP04:listening:03",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
+      "criterionIds": [
+        "reason",
+        "ending"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. Subject honorific plus reason boundary; requested preparation differs from declarative arrival. Meaning questions do not certify intonation ability. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:phonology/1:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:register/haeyo_polite:P",
+      "taskId": "KP04:speaking:01",
+      "sourceHash": "9d7cd6eb17021adebd0b2f852805c1341a4abcc34d02f043badb6bfc5c017f1b",
+      "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:register/hapsyo_formal_business:R",
+      "taskId": "KP04:reading:02",
+      "sourceHash": "9d7cd6eb17021adebd0b2f852805c1341a4abcc34d02f043badb6bfc5c017f1b",
+      "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "criterionIds": [
+        "formal",
+        "casual",
+        "certainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/hapsyo_formal_business:R의 학습 경로를 검수했다. Formal announcement, polite peer and explicitly agreed casual-friend register; honorific subject differs from listener, proposed place not agreed. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
+    },
+    {
+      "objectiveId": "KP04:objective:register/banmal_casual:R",
+      "taskId": "KP04:reading:02",
+      "sourceHash": "9d7cd6eb17021adebd0b2f852805c1341a4abcc34d02f043badb6bfc5c017f1b",
+      "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "criterionIds": [
+        "formal",
+        "casual",
+        "certainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "실제 자료·응답 지시에서 register/banmal_casual:R의 학습 경로를 검수했다. Formal announcement, polite peer and explicitly agreed casual-friend register; honorific subject differs from listener, proposed place not agreed. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     }
   ]
 }

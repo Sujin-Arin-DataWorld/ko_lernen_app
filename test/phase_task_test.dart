@@ -10,10 +10,10 @@ void main() {
     catalog = await PhaseTaskCatalog.load();
   });
   test('A1 tasks retain their reviewed fingerprint and partial scope', () {
-    expect(catalog.forPhase('KP01').length, 31);
-    expect(catalog.forPhase('KP02').length, 29);
-    expect(catalog.forPhase('KP03').length, 29);
-    expect(catalog.forPhase('KP04').length, 27);
+    expect(catalog.forPhase('KP01').length, 33);
+    expect(catalog.forPhase('KP02').length, 32);
+    expect(catalog.forPhase('KP03').length, 32);
+    expect(catalog.forPhase('KP04').length, 31);
     expect(catalog.forPhase('KP05').length, 17);
     expect(catalog.forPhase('KP06').length, 22);
     expect(catalog.forPhase('KP07').length, 20);

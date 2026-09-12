@@ -14,7 +14,7 @@ class PhaseContentContractTest(unittest.TestCase):
     def test_kp01_has_four_skills_and_twelve_exact_grammar_keys(self):
         bundle = build(ROOT)
         tasks = [t for t in bundle['tasks'] if t['phaseId'] == 'KP01']
-        self.assertEqual(len(tasks), 31)
+        self.assertEqual(len(tasks), 33)
         self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
         self.assertEqual(len({k for t in tasks for k in t['requirementKeys']}), 12)
         self.assertEqual(bundle['publications']['KP01'], 'partial')
