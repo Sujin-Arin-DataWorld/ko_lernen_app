@@ -947,8 +947,37 @@
         "b2_06_advanced_capstone"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp16.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP16:grammar:01",
+        "KP16:grammar:02",
+        "KP16:grammar:03",
+        "KP16:grammar:04",
+        "KP16:grammar:05",
+        "KP16:grammar:06",
+        "KP16:grammar:07",
+        "KP16:grammar:08",
+        "KP16:grammar:09",
+        "KP16:grammar:10",
+        "KP16:grammar:11",
+        "KP16:grammar:12",
+        "KP16:production:01",
+        "KP16:production:02",
+        "KP16:production:03",
+        "KP16:production:04",
+        "KP16:production:05",
+        "KP16:production:06",
+        "KP16:production:07",
+        "KP16:production:08",
+        "KP16:production:09",
+        "KP16:production:10",
+        "KP16:production:11",
+        "KP16:production:12",
+        "KP16:listening:01",
+        "KP16:reading:01",
+        "KP16:writing:01",
+        "KP16:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP17",
@@ -1326,5 +1355,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "cd9c27cf4cc1b05e12ef3939ea397267fc2452082d8b84dc448504c4e20b5271"
+  "phaseTaskSourceSha256": "0da136cba9d7158659894c3879b38230190643e06ec802a2abfd2564125d9366"
 }

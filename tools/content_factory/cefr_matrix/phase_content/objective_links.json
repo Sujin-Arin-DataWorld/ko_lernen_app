@@ -9783,6 +9783,631 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Spiral 어 있다 resultant open/closed state in record/photo, not actor identity, intention or current action. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:listening/core:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "827fb86c9ff53171b5a9945109ee8b3cedc2878266c88379711e15c1b96e6e19",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:reading/core:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "f3f815ec5909319480563c0def59bcf638d426536bc730a89979abfe49944be9",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:reading/genre/contract_terms_legal_text:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "478618a16a0e9cbfd03b41603a2c09a1b796db2b8fee438dade400173192e408",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:reading/genre/essay_opinion_argumentative:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "5cb4ba26825375e460fd0124414e1347a013010e867009e52429b46e046d5260",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:speaking/core:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "2b79de2948dad707804e9322d131105cfd2d3566c04dd2ff86e84b824e26bd09",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "b2b428c7e863a78602fe3e6a771a95646a145afc7bb9ad1619b5953a762920dd",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:writing/core:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "7267d4f4c3a720dccda3ccbfc159a363216d94411f88aa78012c19c924a81363",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:writing/genre/essay_opinion_argumentative:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "6323e8153ebdfd9751b4c774b06fbed2b8ef8626c9cf5b6968a59a742bb8fa64",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/negotiate_compromise_conditions:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "64fb90712789df6c44196c8691b82168828a57a975f8986b6bb3c629241b0c25",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/negotiate_compromise_conditions:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "64fb90712789df6c44196c8691b82168828a57a975f8986b6bb3c629241b0c25",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/refuse_set_boundaries:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "c9190d850b138a0199af2a2aa1cbf9b7da16f08642832fab6b96a589ac20789c",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/refuse_set_boundaries:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "c9190d850b138a0199af2a2aa1cbf9b7da16f08642832fab6b96a589ac20789c",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/persuade_argue_justify:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "9645907718f5721339c62b486d89d688b12daa600b60b8625376df7009a3c667",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/persuade_argue_justify:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "9645907718f5721339c62b486d89d688b12daa600b60b8625376df7009a3c667",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/compare_contrast_alternatives:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "bfe5590c1bcd94d03d20922739e2dfff15f745bc1f984f798e6db72232e1d185",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:functions/compare_contrast_alternatives:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "bfe5590c1bcd94d03d20922739e2dfff15f745bc1f984f798e6db72232e1d185",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/institutional_legal_lexis:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "4960184db49fae1b6c3f34360e306193ed93f7a41707b7d922cede5e3d7c97d9",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/institutional_legal_lexis:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "4960184db49fae1b6c3f34360e306193ed93f7a41707b7d922cede5e3d7c97d9",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/argumentation_evaluation_lexis:R",
+      "taskId": "KP16:reading:01",
+      "sourceHash": "0dd16b621488f70474b7531ee7407712492d1dacf43574737ef169a5e37fc742",
+      "taskHash": "b409c5a2aa720e3e178a2d1999d0850b5769a1aad16bcede1889e77f3e2245cd",
+      "criterionIds": [
+        "necessary",
+        "conclusion",
+        "exception",
+        "counterpoint",
+        "comparison",
+        "authority"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: complete fictional terms plus opinion essay. Capacity permits application review, not access guarantee. Safety survives schedule change; no-personal-content date/place notice exception distinct from personal statement summary. Desk checks availability, operating team approves. Fair broader-participation counterargument; in-person capacity versus online access/travel limits, unsupported universal superiority rejected. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/argumentation_evaluation_lexis:P",
+      "taskId": "KP16:writing:01",
+      "sourceHash": "0dd16b621488f70474b7531ee7407712492d1dacf43574737ef169a5e37fc742",
+      "taskHash": "6111a5b913394af6539ea81b44a06a69ea6ac5065420ae4f8ff365b7fc48c546",
+      "criterionIds": [
+        "essay"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: full argument with shared comparison criteria, claim/evidence/counterargument/response/fallback, conditions and disclosure exception consistent. Missing room/date cannot become fact; proposal not approval. Free meaning/argumentation remains unscored, revision rubric supplied. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "2a6bcef9e3bbc229139f853e2fafaba377d86571703bcaee48b7236a2a6601b3",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "2a6bcef9e3bbc229139f853e2fafaba377d86571703bcaee48b7236a2a6601b3",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:phonology/0:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "39f92af22e1e1af55e28a9a3528266d3fe2473f064f438316eca84dd53c31518",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:phonology/0:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "39f92af22e1e1af55e28a9a3528266d3fe2473f064f438316eca84dd53c31518",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:phonology/1:R",
+      "taskId": "KP16:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "80c296726c589f611f69e529189f984194876b3bef0bcfa95fa230fdcf296ee2",
+      "criterionIds": [
+        "counterfactual",
+        "condition",
+        "concession",
+        "fallback",
+        "disclosure",
+        "contact",
+        "decision"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without approval power, actual single room/capacity versus absent extra-room hypothesis; safety retained despite delay; capacity-conditioned application support; fallback date vacancy unknown; individual record/summary consent persists; contact method choice and final agreement boundary. Seven required critical distinctions. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:phonology/1:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:register/haeyo_polite:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "e840cb659c38477090de214af310be1e5cf11c82e2daf4037e1d9a7d6fcbb79d",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP16:speaking:01",
+      "sourceHash": "e840cb659c38477090de214af310be1e5cf11c82e2daf4037e1d9a7d6fcbb79d",
+      "taskHash": "222ad896512a93af92ee04421e9baf1d3c6d972c25b9a15b45fd7b4ca388e05e",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal A time commitment versus B wider participation, negotiate conditions/concession/refusal/fallback then formal meeting summary; only B availability check agreed. Preserve provisional/unresolved/approval roles, distinct pauses for concession and choice, no automatic semantic/intonation/negotiation score. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는다면1:R",
+      "taskId": "KP16:grammar:01",
+      "sourceHash": "4f24caa8c675741f3712460212ecce51dd4e659d08da98fb1d465eca87cb957b",
+      "taskHash": "043c0c95413552383b68471e2130c06b80e545f683e88fb2bb7eba0d2d22fc4b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Hypothetical condition differs by explicit context: undetermined support versus currently nonexistent extra room; form alone does not mark counterfactuality. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:만 같아도:R",
+      "taskId": "KP16:grammar:02",
+      "sourceHash": "3219b5c1b0e15bef432a4c24ba9b656a3adc70a78205d51d1a4e2a2af944d1de",
+      "taskHash": "3f9d8e541367295fadf3621430bd300818194fe45975e766fecc259d41520c29",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Comparison as sufficient minimum with 만 같아도, expectation not confirmed result or doubled requirement. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-더라도:R",
+      "taskId": "KP16:grammar:03",
+      "sourceHash": "5cf67a664f69a34dabc7348991f75bda11e0a1d762f726c15a4d8f385ff00758",
+      "taskHash": "e7e45140edb129b1ac0bb4360c2398a4a784848556b80b6fda9fad1e161365f4",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 더라도 concession leaves accuracy/safety conclusion intact, not blanket acceptance or desire for delay. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-을래야:R",
+      "taskId": "KP16:grammar:04",
+      "sourceHash": "e2b5f3be7bdce351218caa5f31cbaaf6c099e8c380a4478c347da05266cd6ee8",
+      "taskHash": "a00f7e26860e6b2246b4fb6c00164cb7efd36324737be3ae2349581aa4814e86",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Recognise colloquial 도울래야/읽을래야; bounded production expressly requires standard 도우려야/읽으려야, preserving inability due to time/screen. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-든지2:R",
+      "taskId": "KP16:grammar:05",
+      "sourceHash": "4afaba1e544b03b518210da587299c3f6eb0c8cec061d3d31e9a63ce2dca99fa",
+      "taskHash": "bbaa2ec0731a79ff7d8474d935a755b124513754149595638fff16644d4c1b93",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 든지 alternatives for email/phone or wait/return, no cumulative obligation and no past 던지 confusion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이든:R",
+      "taskId": "KP16:grammar:06",
+      "sourceHash": "cf0f92c1bc2727032b2b05b60725bdf4953e2769326f0f33d0c4207f3cbb3865",
+      "taskHash": "004ca9ee2718d21ff66e32533dcd1d46e5236a9729ceec2654c9853a0ce6b470",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이든 free selection retains discussion/access checking, not removal of conditions. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이나마:R",
+      "taskId": "KP16:grammar:07",
+      "sourceHash": "c2f84c3c6a273267c442f0e00c807d60dbf6a46eb1228248fcb08a87aec3ba4a",
+      "taskHash": "ac7001d2e3fbe55823e8e9b8adad50a68e2545acfd11e6f0c51f6ad69579c989",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이나마 values modest help/brief opportunity, not total support or unlimited promise. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이라도:R",
+      "taskId": "KP16:grammar:08",
+      "sourceHash": "9297ddd0ecb0948f97652552a88a2e5fc349e2d5dc1f0a731685a4b70f9ee4e9",
+      "taskHash": "e57a88f00aab8297ebd618f2f7374cb706bb84ac22d5317d4fd03cc7b7a02b84",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이라도 fallback acceptability for tomorrow/copy, not counterpart confirmation or invented legal equivalence. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이면:R",
+      "taskId": "KP16:grammar:09",
+      "sourceHash": "9936e0e7b42be0ed29c32ece75a8a15cfe7fcb19d682fcc2da5dbba945d1a82e",
+      "taskHash": "81fa0ffbfac334579bedaf04cd13c0dd9104ca6ca26daaeced77bb7ac338b3f0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 이면 specifies weekend/vacation category for tendency, not today’s date or exceptionless universal. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:치고:R",
+      "taskId": "KP16:grammar:10",
+      "sourceHash": "59458fd8baf69c589c0af495a57804078d57fa87561509e81a78fac1d567be4d",
+      "taskHash": "9652e913dd8f85395acd0acfe288e3c35ab128498b034790beadd88e16a91880",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 치고 category-relative evaluation first attempt/short notice, not absolute superiority or completeness. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는 한:R",
+      "taskId": "KP16:grammar:11",
+      "sourceHash": "c685c7b425ad748578ffe019ba9123ad3154c842f712cb7b735d02aaccdbfcc5",
+      "taskHash": "5347d206d3e63170b08d3bede19bd50110625fbfb744fc21cfc2d3f4797db537",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 한 condition bounds conclusion; lack of materials/permission persists, not forever after change or automatic unlimited permission. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는다거나2:R",
+      "taskId": "KP16:grammar:12",
+      "sourceHash": "88b2412bf87605770f4908b9c218869c12b85460731a89e50882ecdfe77f6c51",
+      "taskHash": "960f73dd7d9faabc073fa50f3d3932ecf28f66454a3940024da8f9f42a2a7b51",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Action-example 다거나 lists possible meeting/call or summary/table, not exhaustive obligations or reported completed actions. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는다면1:P",
+      "taskId": "KP16:production:01",
+      "sourceHash": "4f24caa8c675741f3712460212ecce51dd4e659d08da98fb1d465eca87cb957b",
+      "taskHash": "b26fc629d6ae2f4e6526aabc079006f4fc1377e6e999f5b7c3ec44fed7740c95",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Hypothetical condition differs by explicit context: undetermined support versus currently nonexistent extra room; form alone does not mark counterfactuality. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:만 같아도:P",
+      "taskId": "KP16:production:02",
+      "sourceHash": "3219b5c1b0e15bef432a4c24ba9b656a3adc70a78205d51d1a4e2a2af944d1de",
+      "taskHash": "aae7c4bfdd184741d1d1c764ea7cbf54a85d8fc4fa0adacf7e46a0c501fb585a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Comparison as sufficient minimum with 만 같아도, expectation not confirmed result or doubled requirement. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-더라도:P",
+      "taskId": "KP16:production:03",
+      "sourceHash": "5cf67a664f69a34dabc7348991f75bda11e0a1d762f726c15a4d8f385ff00758",
+      "taskHash": "3337e7bc15bce4fa5b64a0774ba350e233c334360033397ab3849cd6837f413d",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더라도 concession leaves accuracy/safety conclusion intact, not blanket acceptance or desire for delay. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-을래야:P",
+      "taskId": "KP16:production:04",
+      "sourceHash": "e2b5f3be7bdce351218caa5f31cbaaf6c099e8c380a4478c347da05266cd6ee8",
+      "taskHash": "912fce899bbeab066b75409905ebb42ecc4599310873642611a900761b6d0bf2",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Recognise colloquial 도울래야/읽을래야; bounded production expressly requires standard 도우려야/읽으려야, preserving inability due to time/screen. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-든지2:P",
+      "taskId": "KP16:production:05",
+      "sourceHash": "4afaba1e544b03b518210da587299c3f6eb0c8cec061d3d31e9a63ce2dca99fa",
+      "taskHash": "1d575c3ab40870077119347ff0c177853ec031c0333a0a8bb873cfed7440bf39",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 든지 alternatives for email/phone or wait/return, no cumulative obligation and no past 던지 confusion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이든:P",
+      "taskId": "KP16:production:06",
+      "sourceHash": "cf0f92c1bc2727032b2b05b60725bdf4953e2769326f0f33d0c4207f3cbb3865",
+      "taskHash": "77a2363d344257c5892dafe22ec47d4eb84c9960a302f2b5f8072ab812221e87",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이든 free selection retains discussion/access checking, not removal of conditions. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이나마:P",
+      "taskId": "KP16:production:07",
+      "sourceHash": "c2f84c3c6a273267c442f0e00c807d60dbf6a46eb1228248fcb08a87aec3ba4a",
+      "taskHash": "34e47da333b1eacbdccecbeda273ff1072382fe32ee9eeb66d898bb1d59eae6b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이나마 values modest help/brief opportunity, not total support or unlimited promise. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이라도:P",
+      "taskId": "KP16:production:08",
+      "sourceHash": "9297ddd0ecb0948f97652552a88a2e5fc349e2d5dc1f0a731685a4b70f9ee4e9",
+      "taskHash": "823382ae122344f1641729e726214ce47a81a8a9a397f003c1b1fde7f4dd44cd",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이라도 fallback acceptability for tomorrow/copy, not counterpart confirmation or invented legal equivalence. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:이면:P",
+      "taskId": "KP16:production:09",
+      "sourceHash": "9936e0e7b42be0ed29c32ece75a8a15cfe7fcb19d682fcc2da5dbba945d1a82e",
+      "taskHash": "97fb53769fc9bbeaf2b4b1c79dd656933a42bd8983d3112a955e9d3bc06d8d92",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 이면 specifies weekend/vacation category for tendency, not today’s date or exceptionless universal. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:치고:P",
+      "taskId": "KP16:production:10",
+      "sourceHash": "59458fd8baf69c589c0af495a57804078d57fa87561509e81a78fac1d567be4d",
+      "taskHash": "94e2aece278f0c5b90e0f7ed5ec722b4257948780453134ec3d1d4b24cb77f9b",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 치고 category-relative evaluation first attempt/short notice, not absolute superiority or completeness. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는 한:P",
+      "taskId": "KP16:production:11",
+      "sourceHash": "c685c7b425ad748578ffe019ba9123ad3154c842f712cb7b735d02aaccdbfcc5",
+      "taskHash": "f8c9ef64d2a95f18bb0fafe35d76f0992dec27e78782c8c62c435ef4b9ba93dd",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 한 condition bounds conclusion; lack of materials/permission persists, not forever after change or automatic unlimited permission. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP16:objective:grammar/G4:-는다거나2:P",
+      "taskId": "KP16:production:12",
+      "sourceHash": "88b2412bf87605770f4908b9c218869c12b85460731a89e50882ecdfe77f6c51",
+      "taskHash": "41bc2470a9a2b599fc8efe09ab357debf56e4771cc0fe496cfeb3d16868af6de",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Action-example 다거나 lists possible meeting/call or summary/table, not exhaustive obligations or reported completed actions. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

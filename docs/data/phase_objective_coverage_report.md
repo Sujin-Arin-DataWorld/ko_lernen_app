@@ -21,7 +21,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP13 | 57 | 57 | 0 | 미검증 |
 | KP14 | 48 | 48 | 0 | 미검증 |
 | KP15 | 58 | 58 | 0 | 미검증 |
-| KP16 | 52 | 0 | 52 | 미검증 |
+| KP16 | 52 | 52 | 0 | 미검증 |
 | KP17 | 56 | 0 | 56 | 미검증 |
 | KP18 | 66 | 0 | 66 | 미검증 |
 | KP19 | 56 | 0 | 56 | 미검증 |
@@ -39,58 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP16:objective:grammar/G4:-는다면1:R`
-- `KP16:objective:grammar/G4:-는다면1:P`
-- `KP16:objective:grammar/G4:만 같아도:R`
-- `KP16:objective:grammar/G4:만 같아도:P`
-- `KP16:objective:grammar/G4:-더라도:R`
-- `KP16:objective:grammar/G4:-더라도:P`
-- `KP16:objective:grammar/G4:-을래야:R`
-- `KP16:objective:grammar/G4:-을래야:P`
-- `KP16:objective:grammar/G4:-든지2:R`
-- `KP16:objective:grammar/G4:-든지2:P`
-- `KP16:objective:grammar/G4:이든:R`
-- `KP16:objective:grammar/G4:이든:P`
-- `KP16:objective:grammar/G4:이나마:R`
-- `KP16:objective:grammar/G4:이나마:P`
-- `KP16:objective:grammar/G4:이라도:R`
-- `KP16:objective:grammar/G4:이라도:P`
-- `KP16:objective:grammar/G4:이면:R`
-- `KP16:objective:grammar/G4:이면:P`
-- `KP16:objective:grammar/G4:치고:R`
-- `KP16:objective:grammar/G4:치고:P`
-- `KP16:objective:grammar/G4:-는 한:R`
-- `KP16:objective:grammar/G4:-는 한:P`
-- `KP16:objective:grammar/G4:-는다거나2:R`
-- `KP16:objective:grammar/G4:-는다거나2:P`
-- `KP16:objective:listening/core:R`
-- `KP16:objective:reading/core:R`
-- `KP16:objective:reading/genre/contract_terms_legal_text:R`
-- `KP16:objective:reading/genre/essay_opinion_argumentative:R`
-- `KP16:objective:speaking/core:P`
-- `KP16:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP16:objective:writing/core:P`
-- `KP16:objective:writing/genre/essay_opinion_argumentative:P`
-- `KP16:objective:functions/negotiate_compromise_conditions:R`
-- `KP16:objective:functions/negotiate_compromise_conditions:P`
-- `KP16:objective:functions/refuse_set_boundaries:R`
-- `KP16:objective:functions/refuse_set_boundaries:P`
-- `KP16:objective:functions/persuade_argue_justify:R`
-- `KP16:objective:functions/persuade_argue_justify:P`
-- `KP16:objective:functions/compare_contrast_alternatives:R`
-- `KP16:objective:functions/compare_contrast_alternatives:P`
-- `KP16:objective:vocabDomains/institutional_legal_lexis:R`
-- `KP16:objective:vocabDomains/institutional_legal_lexis:P`
-- `KP16:objective:vocabDomains/argumentation_evaluation_lexis:R`
-- `KP16:objective:vocabDomains/argumentation_evaluation_lexis:P`
-- `KP16:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP16:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP16:objective:phonology/0:R`
-- `KP16:objective:phonology/0:P`
-- `KP16:objective:phonology/1:R`
-- `KP16:objective:phonology/1:P`
-- `KP16:objective:register/haeyo_polite:P`
-- `KP16:objective:register/hapsyo_formal_business:P`
 - `KP17:objective:grammar/G4:-어라1:R`
 - `KP17:objective:grammar/G4:-어라1:P`
 - `KP17:objective:grammar/G4:-는대2:R`

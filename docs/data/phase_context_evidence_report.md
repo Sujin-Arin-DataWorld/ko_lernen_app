@@ -197,18 +197,18 @@
 | KP15 | G4:-어서인지 | 1 | 0 | 0 | 미검증 |
 | KP15 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
 | KP15 | G2:-어 있다 | 1 | 0 | 0 | 미검증 |
-| KP16 | G4:-는다면1 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:만 같아도 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:-더라도 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:-을래야 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:-든지2 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:이든 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:이나마 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:이라도 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:이면 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:치고 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:-는 한 | 0 | 0 | 0 | 미검증 |
-| KP16 | G4:-는다거나2 | 0 | 0 | 0 | 미검증 |
+| KP16 | G4:-는다면1 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:만 같아도 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:-더라도 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:-을래야 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:-든지2 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:이든 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:이나마 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:이라도 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:이면 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:치고 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:-는 한 | 1 | 0 | 0 | 미검증 |
+| KP16 | G4:-는다거나2 | 1 | 0 | 0 | 미검증 |
 | KP17 | G4:-어라1 | 0 | 0 | 0 | 미검증 |
 | KP17 | G4:-는대2 | 0 | 0 | 0 | 미검증 |
 | KP17 | G4:-고4 | 0 | 0 | 0 | 미검증 |
@@ -523,3 +523,15 @@
 - KP15 / G4:-어서인지 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/12/practice/sourceKo` — “밤을 새워서인지 집중이 잘 안 돼요.”. 집중 어려움의 이유를 조심스럽게 밤샘으로 추정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP15 / G1:-고 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/13/practice/sourceKo` — “담당자가 오류를 확인하고 있어요.”. B2 나선 복습 자료에서 진행 중인 확인을 완료와 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP15 / G2:-어 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp15.json/tasks/14/practice/sourceKo` — “기록에는 창문이 열려 있다고 나와 있어요.”. B2 나선 복습 자료에서 기록된 열린 결과 상태를 행위자 추측과 구별한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-는다면1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/0/practice/sourceKo` — “아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요.”. 미정인 지원 증가를 조건으로 가능성을 검토한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:만 같아도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/1/practice/sourceKo` — “지난번만 같아도 충분히 만족하겠어요.”. 지난번 수준을 충분한 만족 기준으로 제시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-더라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/2/practice/sourceKo` — “시간이 더 걸리더라도 정확히 확인하겠습니다.”. 시간 증가를 양보해도 정확한 확인이라는 결론을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-을래야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/3/practice/sourceKo` — “구어: 시간이 없어서 도울래야 도울 수가 없었어요. 표준형: 시간이 없어서 도우려야 도울 수가 없었어요.”. 구어형을 인식하고 별도 표준형으로 대응한다. 구어형을 표준 문어 산출로 승인하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-든지2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/4/practice/sourceKo` — “메일을 보내든지 직접 전화해 주세요.”. 메일과 전화 중 행동의 선택을 허용한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:이든 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/5/practice/sourceKo` — “어떤 방식이든 먼저 이야기해 봅시다.”. 방식 선택과 무관하게 사전 논의를 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:이나마 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/6/practice/sourceKo` — “작은 도움이나마 보태고 싶어요.”. 적은 도움도 긍정적으로 인정하며 기여하고 싶은 바람이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:이라도 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/7/practice/sourceKo` — “오늘이 어렵다면 내일이라도 괜찮아요.”. 선호 날짜가 어려울 때 차선 날짜도 수용 가능함을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:이면 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/8/practice/sourceKo` — “주말이면 이곳은 사람들로 붐벼요.”. 특정 때의 범주에 해당하는 일반적 경향을 말한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:치고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/9/practice/sourceKo` — “처음 만든 것치고 꽤 잘했어요.”. 첫 시도라는 범주의 기대와 실제를 비교해 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-는 한 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/10/practice/sourceKo` — “자료가 부족한 한 단정할 수 없습니다.”. 자료 부족이 유지되는 범위에서 단정하지 않는 제한이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP16 / G4:-는다거나2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/11/practice/sourceKo` — “직접 만난다거나 전화로 이야기하는 방법이 있어요.”. 가능한 행동의 예시를 열거하며 이미 실행된 전언이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
