@@ -173,7 +173,8 @@ void main() {
 
     test('부분 손상에서는 write 가 계속 허용된다', () async {
       expect(Storage.vocabMastery('사과'), isNot(MasteryState.fresh));
-      await Storage.srsReview('바다', gotIt: true);
+      final damaged = Storage.srsRawJson;
+      expect(await Storage.srsReview('바다', gotIt: true), isTrue);
 
       final raw = jsonDecode(Storage.srsRawJson) as Map<String, dynamic>;
       expect(
@@ -182,6 +183,16 @@ void main() {
         reason: '살아남은 항목이 유실됐다',
       );
       expect(raw.keys, isNot(contains('깨진것')));
+      expect(raw['사과']['r'], 2);
+      expect(raw['학교']['r'], 4);
+      expect(raw['바다']['r'], 1);
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final retained = prefs.getKeys().where(
+        (key) => key.startsWith('${Storage.srsQuarantinePreferenceKey}_'),
+      );
+      expect(retained, hasLength(1));
+      expect(prefs.getString(retained.single), damaged);
     });
 
     test('유효 항목이 하나도 없으면 전체 손상으로 취급한다', () async {
@@ -320,7 +331,8 @@ void main() {
       expect(
         payload.containsKey('srs_json'),
         isFalse,
-        reason: '손상본을 올리면 기기 한 대의 손상이 클라우드의 멀쩡한 백업을 덮어써 '
+        reason:
+            '손상본을 올리면 기기 한 대의 손상이 클라우드의 멀쩡한 백업을 덮어써 '
             '모든 기기로 번진다. write 는 merge:true 라 키를 빼면 서버 값이 남는다.',
       );
       // 나머지 진행도는 계속 백업된다 — 전체 동기화를 멈추는 게 아니다.

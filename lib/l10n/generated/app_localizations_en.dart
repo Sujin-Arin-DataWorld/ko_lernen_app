@@ -9,6 +9,17 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get srsRecoveryPending =>
+      'Your last review is still being saved. Review progress will stay paused until it is recovered.';
+
+  @override
+  String get srsRecoveryBlocked =>
+      'Your last review could not be recovered yet. Finish any pending account recovery, then try again.';
+
+  @override
+  String get srsRecoveryRetry => 'Retry saving review';
+
+  @override
   String get learningPhasesTitle => '30 learning phases';
 
   @override

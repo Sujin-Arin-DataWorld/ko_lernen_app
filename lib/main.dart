@@ -16,6 +16,7 @@ import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
+import 'widgets/sori/srs_recovery_banner.dart';
 import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
@@ -248,6 +249,34 @@ Future<void> _finishStartupInBackground() async {
     debugPrint('Data migration skipped: $error');
   }
 
+  await finishPostMigrationStartup(migration);
+
+  // AdMob best-effort initialisieren (im Hintergrund)
+  // ignore: discarded_futures, unawaited_futures
+  _initAds();
+
+  // Lokale Benachrichtigungen (M3) best-effort initialisieren.
+  // ignore: discarded_futures, unawaited_futures
+  NotificationService.init();
+
+  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
+  // ignore: discarded_futures, unawaited_futures
+  _recordStartupDiagnostics(migration);
+}
+
+/// Production post-migration sequence; platform effects are injectable for
+/// a deterministic native-recovery liveness test.
+@visibleForTesting
+Future<void> finishPostMigrationStartup(
+  DataMigrationResult? migration, {
+  Future<void> Function()? applyAudioContext,
+  Future<void> Function()? initializeManagedMedia,
+  Future<void> Function()? recoverCrop,
+  Future<void> Function()? recoverPicker,
+}) async {
+  // The native recovery owns a separate admission gate. Its bounded wait
+  // cannot hold first frame or delay unrelated startup services indefinitely.
+  unawaited(Storage.retrySrsRecovery());
   await runPostMigrationStudyLogMaintenance(migration);
 
   final streakBefore = Storage.streakDays;
@@ -264,43 +293,34 @@ Future<void> _finishStartupInBackground() async {
   // — 여기서 던지면 finally 가 markReady() 를 보장해, 스플래시가 예외로
   // 상한 1500ms 를 다 채우고 나서야 넘어가는 일이 없다.
   try {
-    await AudioPolicy.instance.applyPlatformAudioContext();
+    await (applyAudioContext ??
+        AudioPolicy.instance.applyPlatformAudioContext)();
   } finally {
     // §W2-Task6: 스플래시가 기다리는 두 단계(마이그레이션+오디오 컨텍스트)가
     // 여기서 끝난다 — BookImageService 이후 단계들은 게이트와 무관.
     SplashGate.markReady();
   }
   try {
-    await BookImageService.initialize();
+    await (initializeManagedMedia ?? BookImageService.initialize)();
   } catch (error) {
     debugPrint('Managed media reconciliation skipped: $error');
   }
   try {
-    await CropRecoveryService.recoverAtStartup(
-      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
-    );
+    await (recoverCrop ??
+        () => CropRecoveryService.recoverAtStartup(
+          isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+        ))();
   } catch (error) {
     debugPrint('Android crop recovery skipped: $error');
   }
   try {
-    await PickerRecoveryService.recoverAtStartup(
-      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
-    );
+    await (recoverPicker ??
+        () => PickerRecoveryService.recoverAtStartup(
+          isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+        ))();
   } catch (error) {
     debugPrint('Android picker recovery skipped: $error');
   }
-
-  // AdMob best-effort initialisieren (im Hintergrund)
-  // ignore: discarded_futures, unawaited_futures
-  _initAds();
-
-  // Lokale Benachrichtigungen (M3) best-effort initialisieren.
-  // ignore: discarded_futures, unawaited_futures
-  NotificationService.init();
-
-  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
-  // ignore: discarded_futures, unawaited_futures
-  _recordStartupDiagnostics(migration);
 }
 
 /// Führt nichtkritische Pflege erst nach einer erfolgreichen Migration aus.
@@ -313,7 +333,10 @@ Future<void> runPostMigrationStudyLogMaintenance(
   Future<void> Function()? pruneStudyLog,
   void Function(Object error)? onPruneFailure,
 }) async {
-  if (migration?.writesAllowed != true) {
+  // Pruning shares the native SRS lane. An unacknowledged recovery must keep
+  // that lane fenced without queuing an awaited startup dependency behind it.
+  // The next startup or calendar entry can perform this noncritical cleanup.
+  if (migration?.writesAllowed != true || Storage.srsRecoveryPending) {
     return;
   }
   try {
@@ -624,7 +647,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
                 // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
                 // 고장과 구분이 안 된다.
-                child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+                child: SrsRecoveryBanner(
+                  child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+                ),
               ),
             ),
           ),

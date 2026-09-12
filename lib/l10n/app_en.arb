@@ -1,4 +1,7 @@
 {
+  "srsRecoveryPending": "Your last review is still being saved. Review progress will stay paused until it is recovered.",
+  "srsRecoveryBlocked": "Your last review could not be recovered yet. Finish any pending account recovery, then try again.",
+  "srsRecoveryRetry": "Retry saving review",
   "@@locale": "en",
   "learningPhasesTitle": "30 learning phases",
   "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",

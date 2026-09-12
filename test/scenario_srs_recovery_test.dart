@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -123,7 +124,7 @@ void main() {
   }
 
   test(
-    'another judgment resolves the pending one before changing the deck',
+    'another judgment waits for explicit recovery before changing the deck',
     () async {
       final first = SrsReviewAttempt(
         id: '사과',
@@ -139,6 +140,9 @@ void main() {
       platform
         ..unavailable = false
         ..rejectKey = null;
+      expect(await Storage.srsReview('바나나', gotIt: true), isFalse);
+      expect(jsonDecode(platform.values['kl_srs_v1']! as String).keys, ['사과']);
+      expect(await Storage.retrySrsRecovery(), isTrue);
       expect(await Storage.srsReview('바나나', gotIt: true), isTrue);
       expect(await first.save(), isTrue);
       expect(Storage.srsCard('사과')!.reviewCount, 1);
@@ -153,7 +157,8 @@ void main() {
       final today = Storage.todayIso();
       platform.rejectKey = 'kl_study_log_v1_$today';
       expect(await attempt.save(), isFalse);
-      expect(Storage.srsCard('사과')!.reviewCount, 1);
+      expect(Storage.srsCard('사과'), isNull);
+      expect(jsonDecode(platform.values['kl_srs_v1']! as String)['사과']['r'], 1);
       platform.rejectKey = null;
       expect(await attempt.save(), isTrue);
       expect(Storage.srsCard('사과')!.reviewCount, 1);
@@ -180,8 +185,9 @@ void main() {
         final reset = strict ? Storage.resetAllStrict() : Storage.resetAll();
         expect(await Storage.srsReview('late', gotIt: true), isFalse);
         release.complete();
-        expect(await saving, isTrue);
+        final saved = await saving;
         await reset;
+        expect(saved, isFalse);
         expect(
           platform.values.keys.where((key) => key.startsWith('kl_')),
           isEmpty,
@@ -255,8 +261,9 @@ void main() {
       };
       await Future<void>.delayed(Duration.zero);
       release.complete();
-      expect(await saving, isFalse);
+      final saved = await saving;
       await restoring;
+      expect(saved, isFalse);
       expect(platform.values['kl_srs_v1'], replacement);
       expect(Storage.srsRawJson, replacement);
     });
@@ -290,7 +297,7 @@ void main() {
   );
 
   test(
-    'rejected restore cannot resurrect its retired review from cache',
+    'rejected restore retains confirmed native evidence but retires its caller',
     () async {
       const replacement = '{"restored":{"e":2.5,"i":1,"n":"2099-01-01","r":7}}';
       final entered = Completer<void>();
@@ -301,7 +308,8 @@ void main() {
         ..releaseWrite = release
         ..commitBeforeFailure = true
         ..successfulReply = true;
-      final saving = Storage.srsReview('retired', gotIt: true);
+      final attempt = SrsReviewAttempt(id: 'retired', gotIt: true);
+      final saving = attempt.save();
       await entered.future;
       platform
         ..rejectKey = null
@@ -311,11 +319,24 @@ void main() {
         throwsA(isA<PreferenceWriteException>()),
       );
       release.complete();
-      expect(await saving, isFalse);
+      final saved = await saving;
       await rejected;
-      expect(Storage.srsCard('retired'), isNull);
+      expect(saved, isFalse);
+      expect(await attempt.save(), isFalse);
+      expect(Storage.srsCard('retired')!.reviewCount, 1);
+      expect(
+        jsonDecode(platform.values['kl_srs_v1']! as String)['retired']['r'],
+        1,
+      );
+      expect(platform.values['kl_study_log_v1_${Storage.todayIso()}'], [
+        'retired',
+      ]);
       expect(await Storage.srsReview('fresh', gotIt: true), isTrue);
-      expect(Storage.srsRawJson, isNot(contains('retired')));
+      expect(Storage.srsCard('retired')!.reviewCount, 1);
+      expect(platform.values['kl_study_log_v1_${Storage.todayIso()}'], [
+        'retired',
+        'fresh',
+      ]);
     },
   );
 }

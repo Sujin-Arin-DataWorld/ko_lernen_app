@@ -1,4 +1,7 @@
 {
+  "srsRecoveryPending": "Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.",
+  "srsRecoveryBlocked": "Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.",
+  "srsRecoveryRetry": "Wiederholung erneut speichern",
   "@@locale": "de",
   "learningPhasesTitle": "30 Lernphasen",
   "learningPhasesIntro": "Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.",

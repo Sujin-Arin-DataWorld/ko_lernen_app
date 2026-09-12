@@ -451,6 +451,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       if (!judgment.appliedToQueue) {
         final srs = judgment.srs;
         if (srs != null && !await srs.save()) {
+          if (!srs.isCurrent) {
+            throw const StaleLocalDataLifetimeException();
+          }
           _sessionLifetime.assertCurrent();
           throw StateError('Review evidence has not been confirmed.');
         }

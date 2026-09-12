@@ -97,6 +97,24 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @srsRecoveryPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.'**
+  String get srsRecoveryPending;
+
+  /// No description provided for @srsRecoveryBlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.'**
+  String get srsRecoveryBlocked;
+
+  /// No description provided for @srsRecoveryRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholung erneut speichern'**
+  String get srsRecoveryRetry;
+
   /// No description provided for @learningPhasesTitle.
   ///
   /// In de, this message translates to:

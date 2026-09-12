@@ -66,6 +66,7 @@ class CloudSync {
     CourseMasteryLocalCapture? courseMasteryCapture,
     HanokStateLocalCapture? hanokStateCapture,
   }) async {
+    Storage.assertSrsSnapshotReady();
     final payload = <String, dynamic>{
       'vok': {
         'correct': Storage.vokCorrect,
@@ -335,6 +336,7 @@ class CloudSync {
     })?
     hanokStateMerger,
   }) async {
+    Storage.assertSrsSnapshotReady();
     final vok = _map(data['vok']);
     final wrongCountJson = _structuredJson(
       data['wrong_count_json'],

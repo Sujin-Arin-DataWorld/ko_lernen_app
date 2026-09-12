@@ -115,7 +115,7 @@ void main() {
     expect(ids, hasLength(500));
     expect(ids, contains('단어0'));
     expect(ids, isNot(contains('단어500')));
-    expect(Storage.srsRawJson, contains('단어500'));
+    expect(Storage.srsRawJson, isNot(contains('단어500')));
   });
 
   test('a global learning-write lock also prevents ledger writes', () async {
@@ -211,7 +211,8 @@ void main() {
       final result = await Storage.srsReview('중간잠금', gotIt: true);
 
       expect(result, isFalse);
-      expect(Storage.srsCard('중간잠금')?.reviewCount, 1);
+      expect(Storage.srsCard('중간잠금'), isNull);
+      expect(Storage.srsRecoveryPending, isTrue);
       expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
     },
   );
@@ -225,11 +226,13 @@ void main() {
       final incomplete = await Storage.srsReview('원장실패', gotIt: true);
 
       expect(incomplete, isFalse);
-      expect(Storage.srsRawJson, contains('원장실패'));
+      expect(Storage.srsRawJson, isNot(contains('원장실패')));
+      final native = await SharedPreferences.getInstance();
+      expect(native.getString('kl_srs_v1'), contains('원장실패'));
       expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
 
       Storage.setStudyLogStoreForTesting(null);
-      final repaired = await Storage.srsReview('원장실패', gotIt: true);
+      final repaired = await Storage.retrySrsRecovery();
 
       expect(repaired, isTrue);
       expect(Storage.studyLogIdsFor(Storage.todayIso()), ['원장실패']);
@@ -263,7 +266,7 @@ void main() {
       final result = await Storage.srsReview('손상원장단어', gotIt: true);
       final prefs = await SharedPreferences.getInstance();
       expect(result, isFalse);
-      expect(Storage.srsRawJson, contains('손상원장단어'));
+      expect(Storage.srsRawJson, isNot(contains('손상원장단어')));
       expect(prefs.getString(key), 'wrong-type');
       expect(Storage.studyLogDates(), isEmpty);
     },
@@ -323,7 +326,7 @@ void main() {
   );
 
   test(
-    'the first same-id review after an indeterminate ledger recovery succeeds',
+    'explicit recovery after an indeterminate ledger result does not advance again',
     () async {
       await Storage.init();
       final store = _IndeterminateThenRecoveringStringListStore();
@@ -332,7 +335,8 @@ void main() {
       expect(await Storage.srsReview('복구원장단어', gotIt: true), isFalse);
       store.value = null;
 
-      expect(await Storage.srsReview('복구원장단어', gotIt: true), isTrue);
+      expect(await Storage.retrySrsRecovery(), isTrue);
+      expect(Storage.srsCard('복구원장단어')?.reviewCount, 1);
       expect(store.value, ['복구원장단어']);
     },
   );

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -151,13 +152,18 @@ void main() {
       await _settleTransition(tester);
       expect(find.byType(AppError), findsOneWidget);
       expect(find.text('+2 XP'), findsNothing);
-      expect(Storage.srsCard('학교')?.reviewCount, 1);
+      expect(
+        Storage.srsCard('학교')?.reviewCount,
+        key == 'kl_study_log_v1_' ? null : 1,
+      );
+      expect(jsonDecode(platform.values['kl_srs_v1']! as String)['학교']['r'], 1);
       expect(Storage.xp, 0);
       platform.rejectKey = null;
       tester.widget<AppError>(find.byType(AppError)).onRetry!();
       await _settleTransition(tester);
       expect(Storage.srsCard('학교')?.reviewCount, 1);
       expect(Storage.studyLogIdsFor(Storage.todayIso()), ['학교']);
+      expect(platform.writes['kl_srs_v1'], 1);
       expect(Storage.xp, 2);
       expect(find.text('+2 XP'), findsOneWidget);
     });

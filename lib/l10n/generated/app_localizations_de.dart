@@ -9,6 +9,17 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get srsRecoveryPending =>
+      'Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.';
+
+  @override
+  String get srsRecoveryBlocked =>
+      'Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.';
+
+  @override
+  String get srsRecoveryRetry => 'Wiederholung erneut speichern';
+
+  @override
   String get learningPhasesTitle => '30 Lernphasen';
 
   @override

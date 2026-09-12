@@ -698,6 +698,7 @@ class LocalAccountReconciliationStore {
     required CloudWriteSessionController sessions,
     CourseProgressService? courseProgress,
   }) async {
+    Storage.assertSrsSnapshotReady();
     await CustomPackService.writeReconciledPortable(
       snapshot.customPacks,
       expectedGeneration: snapshot.localCustomPackGeneration,
