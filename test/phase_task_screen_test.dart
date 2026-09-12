@@ -170,7 +170,7 @@ void main() {
       expect(find.text(transcript), findsNothing);
       await tester.drag(find.byType(ListView), const Offset(0, 3000));
       await tester.pumpAndSettle();
-      await tap(tester, find.widgetWithIcon(SoriButton, Icons.volume_up));
+      await tap(tester, find.widgetWithText(SoriButton, 'Listen'));
       await tester.scrollUntilVisible(
         submit,
         400,
@@ -180,7 +180,7 @@ void main() {
       expect(writes, 0);
       await tester.drag(find.byType(ListView), const Offset(0, 3000));
       await tester.pumpAndSettle();
-      await tap(tester, find.widgetWithIcon(SoriButton, Icons.volume_up));
+      await tap(tester, find.widgetWithText(SoriButton, 'Listen'));
       await tester.scrollUntilVisible(
         submit,
         400,
@@ -216,7 +216,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tap(tester, find.widgetWithIcon(SoriButton, Icons.mic));
+    await tap(tester, find.widgetWithText(SoriButton, 'Record'));
     expect(
       tester
           .widget<SoriButton>(find.byKey(const ValueKey('phase-task-submit')))
@@ -224,11 +224,11 @@ void main() {
       isNull,
     );
     recorder.allowed = true;
-    await tap(tester, find.widgetWithIcon(SoriButton, Icons.mic));
+    await tap(tester, find.widgetWithText(SoriButton, 'Record'));
     recorder.controller.add(Uint8List(40000));
     await tester.pump();
     await tester.runAsync(() async {
-      await tester.tap(find.widgetWithIcon(SoriButton, Icons.stop));
+      await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
       await Future<void>.delayed(Duration.zero);
     });
     await tester.pumpAndSettle();

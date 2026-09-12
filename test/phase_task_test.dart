@@ -9,10 +9,76 @@ void main() {
   setUpAll(() async {
     catalog = await PhaseTaskCatalog.load();
   });
-  test('all sixteen tasks retain their reviewed fingerprint', () {
-    expect(catalog.tasks.length, 16);
-    expect(catalog.forPhase('KP02'), isEmpty);
+  test('A1 tasks retain their reviewed fingerprint and partial scope', () {
+    expect(catalog.forPhase('KP01').length, 19);
+    expect(catalog.forPhase('KP02').length, 18);
+    expect(catalog.forPhase('KP03').length, 17);
+    expect(catalog.forPhase('KP04').length, 16);
+    expect(catalog.forPhase('KP05'), isEmpty);
   });
+  test('a correct total never compensates for an unaffordable order', () {
+    final menu = catalog.byId('KP03:reading:01');
+    expect(
+      menu.evaluate({
+        'quantity': '0',
+        'total': '0',
+        'budget': '0',
+      }, assessment: true).passed,
+      isTrue,
+    );
+    expect(
+      menu.evaluate({
+        'quantity': '0',
+        'total': '0',
+        'budget': '1',
+      }, assessment: true).passed,
+      isFalse,
+    );
+  });
+  test(
+    'class start and end cannot be swapped despite four correct route facts',
+    () {
+      final schedule = catalog.byId('KP02:listening:01');
+      final response = {
+        'start': '0',
+        'end': '0',
+        'place': '0',
+        'transport': '0',
+        'class_start': '0',
+        'class_end': '0',
+      };
+      expect(schedule.evaluate(response, assessment: true).passed, isTrue);
+      expect(
+        schedule.evaluate({
+          ...response,
+          'class_start': '1',
+          'class_end': '1',
+        }, assessment: true).passed,
+        isFalse,
+      );
+    },
+  );
+  test(
+    'proposal alternatives preserve choice; invented agreement does not pass',
+    () {
+      final proposal = catalog.byId('KP03:writing:01');
+      expect(
+        proposal.evaluate({
+          'proposal': '일요일 세 시에 도서관에서 공부할까요?',
+        }, assessment: true).passed,
+        isTrue,
+      );
+      expect(
+        proposal.evaluate({'proposal': '약속이 확정됐어요.'}, assessment: true).passed,
+        isFalse,
+      );
+      final free = proposal.evaluate({
+        'proposal': '일요일 오후 세 시쯤 도서관에서 함께 공부하면 어때요?',
+      }, assessment: true);
+      expect(free.score, isNull);
+      expect(free.passed, isFalse);
+    },
+  );
   test('a changed answer is rejected by the runtime hash check', () async {
     final raw =
         jsonDecode(await rootBundle.loadString(PhaseTaskCatalog.assetPath))

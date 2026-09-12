@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP04:grammar:01",
+      "sha256": "1a4e43973f68a38c15c44957a20071c37777de82d9e7f52fc36f21b00067a98b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for subject honorific versus listener politeness. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:02",
+      "sha256": "69d8651eb3fc3645899a622ed2b85fc1c04442b9dd8dde3dd0bb5f4ed3addf2d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for honored subject versus recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:03",
+      "sha256": "ac876701302c6dadd576c599de0b712ccfd312e198fe9af4db54a2cf2cce71aa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for reason direction. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:04",
+      "sha256": "7eea6546d7877a8ef09faa199d0e4fb407e65fa70c22900191a293e01f746237",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for reason-backed proposal versus completed action. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:05",
+      "sha256": "04bd8cc926d054f85f3e9b99eb733252c45db78f9b761d3596526c22001ce3ce",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for contrast without cancelling facts. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:06",
+      "sha256": "a0dedcb56c1f5c5e619dab8d6028790a0e2c7c5ff7f2d356a19c71b90a064fd8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for comparison direction. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:07",
+      "sha256": "3816843337cce8f45ccebb7ff97ecca5794419b79d98be8139511e73303045cf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for added explanation versus correction. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:08",
+      "sha256": "818d0d4fece52db0f7e96809522cbb226897930e3ab969a377c3e25887be9a1b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for before-event order. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:09",
+      "sha256": "f630671d6fdbee9d6e20650fefee613188f7bbd465952e6d4dc8f59c7a9de5fe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for after-event order. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:10",
+      "sha256": "32c2a4ca62df4f5601c5ba3006fba0eabd15ed270f82305d23a5fd8e3b3f595a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for requirement versus inference. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:grammar:11",
+      "sha256": "a9148ca46f901ac15873c45371174556f716d8ae4fa04e3ec12d199467749673",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for observation versus guess. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP04:listening:01",
+      "sha256": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Observed wind/dark sky are not temperature/rain measurements. Meeting time and library-before-cafe order required."
+    },
+    {
+      "taskId": "KP04:reading:01",
+      "sha256": "b50c4ca1a3f12d7805315b10877f92ca437fe1b0956d522c3bcf9e915ac5f049",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Original lyric metaphor is not a calendar fact. Before/after actions checked independently; action choices made complete."
+    },
+    {
+      "taskId": "KP04:writing:01",
+      "sha256": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Reasons and cancelled time retained; alternative time/place is a question. Wrong time and added obligation explicitly rejected."
+    },
+    {
+      "taskId": "KP04:speaking:01",
+      "sha256": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Teacher subject honorific and classmate listener politeness separated; meaningful pausing and rerecording instructions. Unscored speech."
+    },
+    {
+      "taskId": "KP04:listening:02",
+      "sha256": "42828a60c3f4ed8c2b16659a1e82771fdd652a206b2e9ed5b990b38267e63f2a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Original lyric is a spoken reading, not sung-rhythm assessment; emotion metaphor separated from literal room/weather claims."
+    }
+  ]
+}

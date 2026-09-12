@@ -78,6 +78,12 @@ on:
           - release-internal
           - release-website
           - regenerate-goldens
+      phase_native_level:
+        description: 추가 iOS Phase 입력·녹음·공개 음성 검증 (task=ios 또는 full)
+        required: false
+        default: 'off'
+        type: choice
+        options: ['off', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 permissions:
   contents: read
@@ -436,6 +442,28 @@ jobs:
             FLUTTER_TARGET=test/support/native_test_host.dart FLUTTER_BUILD_MODE=debug \
             -resultBundlePath "$RUNNER_TEMP/native-privacy.xcresult" \
             2>&1 | tee "$RUNNER_TEMP/native-privacy-build-test.log"
+      - name: Exercise published Phase tasks on the iPhone simulator
+        if: github.event_name == 'workflow_dispatch' && inputs.phase_native_level != 'off' && inputs.phase_native_level != ''
+        env:
+          PHASE_QA_LEVEL: ${{ inputs.phase_native_level }}
+        run: |
+          set -euo pipefail
+          case "$PHASE_QA_LEVEL" in A1|A2|B1|B2|C1|C2) ;; *) exit 1 ;; esac
+          export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
+          simulator_id="$(xcrun simctl list devices booted -j | python3 -c 'import json,sys; devices=json.load(sys.stdin)["devices"]; print(next(d["udid"] for runtime, group in devices.items() if "iOS-" in runtime for d in group if d["state"] == "Booted" and d["name"].startswith("iPhone")))')"
+          xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+          flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
+            --driver=test_driver/phase_tasks_driver.dart \
+            --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
+            --dart-define=PHASE_NATIVE_MIC=true --dart-define=PHASE_NATIVE_TTS=true \
+            --dart-define="PHASE_NATIVE_LEVEL=$PHASE_QA_LEVEL" \
+            2>&1 | tee "$RUNNER_TEMP/phase-native-driver.log"
+          xcrun simctl terminate "$simulator_id" com.hangulsori.app
+          flutter drive --no-pub --no-dds --no-uninstall-first \
+            --driver=test_driver/phase_tasks_driver.dart \
+            --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
+            --dart-define=PHASE_NATIVE_RESTORE_ONLY=true \
+            2>&1 | tee "$RUNNER_TEMP/phase-native-restore.log"
       - name: Retain native test results
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -444,6 +472,8 @@ jobs:
           path: |
             ${{ runner.temp }}/native-privacy.xcresult
             ${{ runner.temp }}/native-privacy-build-test.log
+            ${{ runner.temp }}/phase-native-driver.log
+            ${{ runner.temp }}/phase-native-restore.log
           if-no-files-found: error
           retention-days: 3
 
@@ -918,6 +948,7 @@ jobs:
           python -B -X utf8 tool/audit_curriculum_matrix.py --check
           python -B -X utf8 tool/audit_learning_phases.py --check --quiet
           python -B -X utf8 tool/build_phase_tasks.py --check
+          python -B -X utf8 -m tool.audit_phase_context_evidence --check
           python -B -X utf8 tool/build_learning_phase_catalog.py --check
           python -B -X utf8 tool/build_curriculum_backlog.py --check
 

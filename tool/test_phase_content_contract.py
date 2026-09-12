@@ -13,10 +13,35 @@ ROOT = Path(__file__).resolve().parents[1]
 class PhaseContentContractTest(unittest.TestCase):
     def test_kp01_has_four_skills_and_twelve_exact_grammar_keys(self):
         bundle = build(ROOT)
-        self.assertEqual(len(bundle['tasks']), 16)
-        self.assertEqual({t['skill'] for t in bundle['tasks']}, {'reading', 'writing', 'listening', 'speaking'})
-        self.assertEqual(len({k for t in bundle['tasks'] for k in t['requirementKeys']}), 12)
+        tasks = [t for t in bundle['tasks'] if t['phaseId'] == 'KP01']
+        self.assertEqual(len(tasks), 19)
+        self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
+        self.assertEqual(len({k for t in tasks for k in t['requirementKeys']}), 12)
         self.assertEqual(bundle['publications']['KP01'], 'partial')
+
+    def test_a1_keeps_all_required_grammar_and_separate_four_skill_paths(self):
+        bundle = build(ROOT)
+        phases = json.loads((ROOT / 'tools/content_factory/cefr_matrix/phases.json').read_text(encoding='utf-8'))['phases']
+        for phase in phases[:4]:
+            tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
+            self.assertEqual({t['skill'] for t in tasks}, {'reading', 'writing', 'listening', 'speaking'})
+            self.assertEqual({k for t in tasks for k in t['requirementKeys']}, {g['grammarKey'] for g in phase['koreanGrammar']})
+            self.assertEqual(bundle['publications'][phase['id']], 'partial')
+            for t in tasks:
+                if t['skill'] == 'speaking':
+                    self.assertEqual(t['assessment']['questions'], [])
+
+    def test_a1_critical_time_quantity_and_polarity_criteria_are_required(self):
+        tasks = {t['id']: t for t in build(ROOT)['tasks']}
+        expected = {
+            'KP02:listening:01': {'start', 'end', 'place', 'transport', 'class_start', 'class_end'},
+            'KP02:listening:02': {'purpose', 'time', 'room'},
+            'KP03:reading:01': {'quantity', 'total', 'budget'},
+            'KP04:listening:01': {'fact', 'time', 'sequence'},
+        }
+        for tid, criterion_ids in expected.items():
+            for mode in ('practice', 'assessment'):
+                self.assertEqual({q['id'] for q in tasks[tid][mode]['questions'] if q['required']}, criterion_ids)
 
     def test_invalid_answer_and_empty_translation_rejected(self):
         task = build(ROOT)['tasks'][0]

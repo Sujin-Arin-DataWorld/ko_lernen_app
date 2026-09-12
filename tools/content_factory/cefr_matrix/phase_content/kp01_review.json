@@ -208,6 +208,45 @@
         "answer-rubric"
       ],
       "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+    },
+    {
+      "taskId": "KP01:reading:02",
+      "sha256": "2454c82d55ac13db9cf44147b466bc15615050a365bb97308a6c1a5bec067770",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Checked classroom/library location, permission and prohibition separately; all three criteria required."
+    },
+    {
+      "taskId": "KP01:listening:02",
+      "sha256": "993356a538fe43de11ae2dc12386edf836c366ecd3aa2b1cd0fee2492094402d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Reviewed distinct word orders and final-name consonants. Lax/tense/aspirated explanation is separate from binary voicing; rendered TTS audio still needs playback QA."
+    },
+    {
+      "taskId": "KP01:writing:02",
+      "sha256": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Required known name is entered; unknown optional data stays blank by choice; missing required contact detail is requested, not invented. Passing the clarification task does not declare the underlying form complete."
     }
   ]
 }

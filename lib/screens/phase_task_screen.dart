@@ -424,7 +424,6 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
             if (packet.sourceKind == 'audio')
               SoriButton.outlined(
                 onTap: _audioBusy || _busy ? null : _listen,
-                icon: Icons.volume_up,
                 label: t.phaseTaskPlay,
               ),
             if (packet.sourceKind != 'audio' || _result != null)
@@ -493,7 +492,6 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
                 onTap: _busy || _result != null
                     ? null
                     : (_recording ? _stopRecording : _record),
-                icon: _recording ? Icons.stop : Icons.mic,
                 label: _recording ? t.phaseTaskStop : t.phaseTaskRecord,
               ),
               if (_recorded != null)

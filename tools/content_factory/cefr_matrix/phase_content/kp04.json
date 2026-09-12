@@ -1,0 +1,1738 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP04",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP04:grammar:01",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:01",
+      "requirementKeys": [
+        "G1:-으시-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으시-",
+        "en": "-으시-",
+        "de": "-으시-"
+      },
+      "teaching": {
+        "ko": "-시-는 문장의 주체를 높여요. 듣는 사람에게 공손한 -요와 역할이 달라요.",
+        "en": "-시- honors the subject; -요 is politeness toward the listener.",
+        "de": "-시- ehrt das Subjekt; -요 richtet Höflichkeit an die zuhörende Person."
+      },
+      "examplesKo": [
+        "선생님이 지금 오세요.",
+        "할머니가 쉬세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "선생님이 오세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "듣는 사람만 높이고 선생님은 높이지 않아요."
+              },
+              {
+                "id": "0",
+                "text": "오는 선생님을 높여 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-시-는 문장의 주체를 높여요. 듣는 사람에게 공손한 -요와 역할이 달라요.",
+              "en": "-시- honors the subject; -요 is politeness toward the listener.",
+              "de": "-시- ehrt das Subjekt; -요 richtet Höflichkeit an die zuhörende Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "할머니가 쉬세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 자기를 높여 말해요."
+              },
+              {
+                "id": "0",
+                "text": "쉬는 할머니를 높여 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-시-는 문장의 주체를 높여요. 듣는 사람에게 공손한 -요와 역할이 달라요.",
+              "en": "-시- honors the subject; -요 is politeness toward the listener.",
+              "de": "-시- ehrt das Subjekt; -요 richtet Höflichkeit an die zuhörende Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:02",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:02",
+      "requirementKeys": [
+        "G1:께서"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "께서",
+        "en": "께서",
+        "de": "께서"
+      },
+      "teaching": {
+        "ko": "께서는 높이는 사람이 주어임을 나타내요. 행동을 받는 사람을 나타내는 께와 구별해요.",
+        "en": "께서 marks an honored subject; distinguish recipient 께.",
+        "de": "께서 bezeichnet ein geehrtes Subjekt; 께 dagegen einen Empfänger."
+      },
+      "examplesKo": [
+        "할머니께서 오세요.",
+        "할아버지께서 책을 읽으세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "선생님께서 오세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "누군가 선생님께 물건을 줘요."
+              },
+              {
+                "id": "0",
+                "text": "오는 사람은 선생님이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "께서는 높이는 사람이 주어임을 나타내요. 행동을 받는 사람을 나타내는 께와 구별해요.",
+              "en": "께서 marks an honored subject; distinguish recipient 께.",
+              "de": "께서 bezeichnet ein geehrtes Subjekt; 께 dagegen einen Empfänger."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "할아버지께서 책을 읽으세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "책을 읽는 사람은 할아버지예요."
+              },
+              {
+                "id": "1",
+                "text": "할아버지가 책을 받는다는 뜻이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "께서는 높이는 사람이 주어임을 나타내요. 행동을 받는 사람을 나타내는 께와 구별해요.",
+              "en": "께서 marks an honored subject; distinguish recipient 께.",
+              "de": "께서 bezeichnet ein geehrtes Subjekt; 께 dagegen einen Empfänger."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:03",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:03",
+      "requirementKeys": [
+        "G1:-어서"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어서",
+        "en": "-어서",
+        "de": "-어서"
+      },
+      "teaching": {
+        "ko": "여기서 -아/어서 앞은 뒤 상황의 이유예요. 원인과 결과를 바꾸지 않아요.",
+        "en": "Here the clause before -아/어서 gives the reason for the following situation.",
+        "de": "Hier nennt der Satzteil vor -아/어서 den Grund für die folgende Situation."
+      },
+      "examplesKo": [
+        "비가 와서 집에 있어요.",
+        "머리가 아파서 쉬어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "비가 와서 집에 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "비가 오는 것이 집에 있는 이유예요."
+              },
+              {
+                "id": "1",
+                "text": "집에 있어서 비가 와요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서 -아/어서 앞은 뒤 상황의 이유예요. 원인과 결과를 바꾸지 않아요.",
+              "en": "Here the clause before -아/어서 gives the reason for the following situation.",
+              "de": "Hier nennt der Satzteil vor -아/어서 den Grund für die folgende Situation."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "머리가 아파서 쉬어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "머리가 아픈 것이 쉬는 이유예요."
+              },
+              {
+                "id": "1",
+                "text": "쉬어서 머리가 아파요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서 -아/어서 앞은 뒤 상황의 이유예요. 원인과 결과를 바꾸지 않아요.",
+              "en": "Here the clause before -아/어서 gives the reason for the following situation.",
+              "de": "Hier nennt der Satzteil vor -아/어서 den Grund für die folgende Situation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:04",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:04",
+      "requirementKeys": [
+        "G1:-으니까"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으니까",
+        "en": "-으니까",
+        "de": "-으니까"
+      },
+      "teaching": {
+        "ko": "-(으)니까로 이유를 말한 뒤 요청이나 제안을 할 수 있어요. 요청의 부담은 관계와 내용도 보고 판단해요.",
+        "en": "-(으)니까 can give a reason before a request or suggestion. Its burden also depends on the relationship and content.",
+        "de": "Mit -(으)니까 kannst du eine Bitte oder einen Vorschlag begründen. Wie belastend die Bitte ist, hängt auch von Beziehung und Inhalt ab."
+      },
+      "examplesKo": [
+        "추우니까 안에 들어가세요.",
+        "비가 오니까 버스를 탈까요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "추우니까 안에 들어가세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "안에 들어가서 추워졌다는 뜻이에요."
+              },
+              {
+                "id": "0",
+                "text": "추운 것이 들어가라는 이유예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)니까로 이유를 말한 뒤 요청이나 제안을 할 수 있어요. 요청의 부담은 관계와 내용도 보고 판단해요.",
+              "en": "-(으)니까 can give a reason before a request or suggestion. Its burden also depends on the relationship and content.",
+              "de": "Mit -(으)니까 kannst du eine Bitte oder einen Vorschlag begründen. Wie belastend die Bitte ist, hängt auch von Beziehung und Inhalt ab."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "비가 오니까 버스를 탈까요?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 버스를 탔다고 보고해요."
+              },
+              {
+                "id": "0",
+                "text": "비 때문에 버스를 타자고 제안해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)니까로 이유를 말한 뒤 요청이나 제안을 할 수 있어요. 요청의 부담은 관계와 내용도 보고 판단해요.",
+              "en": "-(으)니까 can give a reason before a request or suggestion. Its burden also depends on the relationship and content.",
+              "de": "Mit -(으)니까 kannst du eine Bitte oder einen Vorschlag begründen. Wie belastend die Bitte ist, hängt auch von Beziehung und Inhalt ab."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:05",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:05",
+      "requirementKeys": [
+        "G1:-지만"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지만",
+        "en": "-지만",
+        "de": "-지만"
+      },
+      "teaching": {
+        "ko": "-지만으로 서로 대조되는 정보를 함께 말해요. 앞 정보를 취소하지는 않아요.",
+        "en": "-지만 connects contrasting information without cancelling the first statement.",
+        "de": "-지만 verbindet gegensätzliche Angaben, ohne die erste Aussage aufzuheben."
+      },
+      "examplesKo": [
+        "방은 작지만 깨끗해요.",
+        "차는 뜨겁지만 맛있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오늘은 춥지만 날씨가 맑아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "춥고 맑다는 정보가 모두 맞아요."
+              },
+              {
+                "id": "1",
+                "text": "맑으니까 춥지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지만으로 서로 대조되는 정보를 함께 말해요. 앞 정보를 취소하지는 않아요.",
+              "en": "-지만 connects contrasting information without cancelling the first statement.",
+              "de": "-지만 verbindet gegensätzliche Angaben, ohne die erste Aussage aufzuheben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "차는 뜨겁지만 맛있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "뜨겁다는 말은 취소됐어요."
+              },
+              {
+                "id": "0",
+                "text": "뜨겁고 맛있는 차예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지만으로 서로 대조되는 정보를 함께 말해요. 앞 정보를 취소하지는 않아요.",
+              "en": "-지만 connects contrasting information without cancelling the first statement.",
+              "de": "-지만 verbindet gegensätzliche Angaben, ohne die erste Aussage aufzuheben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:06",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:06",
+      "requirementKeys": [
+        "G1:보다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "보다",
+        "en": "보다",
+        "de": "보다"
+      },
+      "teaching": {
+        "ko": "보다 앞은 비교 기준이에요. 어느 쪽이 더 그런지 방향을 확인해요.",
+        "en": "The word before 보다 is the comparison standard. Check the direction of the comparison.",
+        "de": "Vor 보다 steht der Vergleichsmaßstab. Achte auf die Richtung des Vergleichs."
+      },
+      "examplesKo": [
+        "오늘은 어제보다 추워요.",
+        "버스는 택시보다 싸요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오늘은 어제보다 추워요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오늘이 더 추워요."
+              },
+              {
+                "id": "1",
+                "text": "어제가 더 추워요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "보다 앞은 비교 기준이에요. 어느 쪽이 더 그런지 방향을 확인해요.",
+              "en": "The word before 보다 is the comparison standard. Check the direction of the comparison.",
+              "de": "Vor 보다 steht der Vergleichsmaßstab. Achte auf die Richtung des Vergleichs."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "버스는 택시보다 싸요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "버스 요금이 더 낮아요."
+              },
+              {
+                "id": "1",
+                "text": "택시 요금이 더 낮아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "보다 앞은 비교 기준이에요. 어느 쪽이 더 그런지 방향을 확인해요.",
+              "en": "The word before 보다 is the comparison standard. Check the direction of the comparison.",
+              "de": "Vor 보다 steht der Vergleichsmaßstab. Achte auf die Richtung des Vergleichs."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:07",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:07",
+      "requirementKeys": [
+        "G1:-고4"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고4",
+        "en": "-고4",
+        "de": "-고4"
+      },
+      "teaching": {
+        "ko": "문장 끝의 -고요는 관련 설명을 덧붙여요. 여기서는 새 정보를 앞 정보에 더하는 말이에요.",
+        "en": "Sentence-final -고요 adds a related explanation or fact.",
+        "de": "Mit -고요 am Satzende ergänzt du eine zusammengehörige Erklärung oder Angabe."
+      },
+      "examplesKo": [
+        "이 방은 조용해요. 창문도 크고요.",
+        "가게가 가까워요. 가격도 싸고요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 방은 조용해요. 창문도 크고요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "방이 조용하지 않다고 정정해요."
+              },
+              {
+                "id": "0",
+                "text": "창문이 크다는 설명을 더해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "문장 끝의 -고요는 관련 설명을 덧붙여요. 여기서는 새 정보를 앞 정보에 더하는 말이에요.",
+              "en": "Sentence-final -고요 adds a related explanation or fact.",
+              "de": "Mit -고요 am Satzende ergänzt du eine zusammengehörige Erklärung oder Angabe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가게가 가까워요. 가격도 싸고요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "가격이 싸다는 장점을 더해요."
+              },
+              {
+                "id": "1",
+                "text": "가격이 싸냐고 질문해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "문장 끝의 -고요는 관련 설명을 덧붙여요. 여기서는 새 정보를 앞 정보에 더하는 말이에요.",
+              "en": "Sentence-final -고요 adds a related explanation or fact.",
+              "de": "Mit -고요 am Satzende ergänzt du eine zusammengehörige Erklärung oder Angabe."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:08",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:08",
+      "requirementKeys": [
+        "G1:-기 전에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 전에",
+        "en": "-기 전에",
+        "de": "-기 전에"
+      },
+      "teaching": {
+        "ko": "-기 전에 앞의 행동보다 주절 행동이 먼저예요. 시간 순서가 곧 원인은 아니에요.",
+        "en": "With -기 전에, the main action happens before the named action. Order alone is not causation.",
+        "de": "Bei -기 전에 geschieht die Haupthandlung vor der genannten Handlung. Reihenfolge allein ist keine Ursache."
+      },
+      "examplesKo": [
+        "자기 전에 물을 마셔요.",
+        "학교에 가기 전에 아침을 먹어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "자기 전에 물을 마셔요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "물을 마신 다음 자요."
+              },
+              {
+                "id": "1",
+                "text": "잔 다음 물을 마셔요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-기 전에 앞의 행동보다 주절 행동이 먼저예요. 시간 순서가 곧 원인은 아니에요.",
+              "en": "With -기 전에, the main action happens before the named action. Order alone is not causation.",
+              "de": "Bei -기 전에 geschieht die Haupthandlung vor der genannten Handlung. Reihenfolge allein ist keine Ursache."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학교에 가기 전에 아침을 먹어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아침을 먹은 다음 학교에 가요."
+              },
+              {
+                "id": "1",
+                "text": "학교에 간 다음 아침을 먹어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-기 전에 앞의 행동보다 주절 행동이 먼저예요. 시간 순서가 곧 원인은 아니에요.",
+              "en": "With -기 전에, the main action happens before the named action. Order alone is not causation.",
+              "de": "Bei -기 전에 geschieht die Haupthandlung vor der genannten Handlung. Reihenfolge allein ist keine Ursache."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:09",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:09",
+      "requirementKeys": [
+        "G1:-은 후에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 후에",
+        "en": "-은 후에",
+        "de": "-은 후에"
+      },
+      "teaching": {
+        "ko": "-(으)ㄴ 후에는 앞 행동이 끝난 다음이에요. 두 사건의 순서를 유지해요.",
+        "en": "-(으)ㄴ 후에 means after the preceding action is completed.",
+        "de": "-(으)ㄴ 후에 bedeutet nach Abschluss der vorher genannten Handlung."
+      },
+      "examplesKo": [
+        "밥을 먹은 후에 쉬어요.",
+        "수업이 끝난 후에 친구를 만나요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "밥을 먹은 후에 약을 먹어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "약을 먼저 먹어요."
+              },
+              {
+                "id": "0",
+                "text": "밥을 먼저 먹어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 후에는 앞 행동이 끝난 다음이에요. 두 사건의 순서를 유지해요.",
+              "en": "-(으)ㄴ 후에 means after the preceding action is completed.",
+              "de": "-(으)ㄴ 후에 bedeutet nach Abschluss der vorher genannten Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "수업이 끝난 후에 친구를 만나요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업이 먼저 끝나요."
+              },
+              {
+                "id": "1",
+                "text": "친구를 만난 다음 수업이 끝나요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 후에는 앞 행동이 끝난 다음이에요. 두 사건의 순서를 유지해요.",
+              "en": "-(으)ㄴ 후에 means after the preceding action is completed.",
+              "de": "-(으)ㄴ 후에 bedeutet nach Abschluss der vorher genannten Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:10",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:10",
+      "requirementKeys": [
+        "G1:-어야 되다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어야 되다",
+        "en": "-어야 되다",
+        "de": "-어야 되다"
+      },
+      "teaching": {
+        "ko": "-아/어야 되다는 여기서 할 필요나 의무예요. 단순한 미래나 이미 한 일을 뜻하지 않아요.",
+        "en": "Here -아/어야 되다 expresses a requirement, not simply a future or completed action.",
+        "de": "Hier bezeichnet -아/어야 되다 eine Notwendigkeit, nicht bloß Zukunft oder eine abgeschlossene Handlung."
+      },
+      "examplesKo": [
+        "오늘 약을 먹어야 돼요.",
+        "도서관에서는 조용히 해야 돼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "내일 아홉 시까지 학교에 가야 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 학교에 갔어요."
+              },
+              {
+                "id": "0",
+                "text": "아홉 시까지 가는 것이 필요해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어야 되다는 여기서 할 필요나 의무예요. 단순한 미래나 이미 한 일을 뜻하지 않아요.",
+              "en": "Here -아/어야 되다 expresses a requirement, not simply a future or completed action.",
+              "de": "Hier bezeichnet -아/어야 되다 eine Notwendigkeit, nicht bloß Zukunft oder eine abgeschlossene Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "도서관에서는 조용히 해야 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "도서관에서 조용히 할 필요가 있어요."
+              },
+              {
+                "id": "1",
+                "text": "항상 조용하다고 추측해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어야 되다는 여기서 할 필요나 의무예요. 단순한 미래나 이미 한 일을 뜻하지 않아요.",
+              "en": "Here -아/어야 되다 expresses a requirement, not simply a future or completed action.",
+              "de": "Hier bezeichnet -아/어야 되다 eine Notwendigkeit, nicht bloß Zukunft oder eine abgeschlossene Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:grammar:11",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:grammar:11",
+      "requirementKeys": [
+        "G1:-겠-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-겠-",
+        "en": "-겠-",
+        "de": "-겠-"
+      },
+      "teaching": {
+        "ko": "춥겠어요처럼 단서를 보고 추측할 수 있어요. 관찰한 사실과 추측을 나누고, 제가 하겠습니다의 의지와 구별해요.",
+        "en": "춥겠어요 can infer from a clue. Separate observed facts, guesses and the commitment in 제가 하겠습니다.",
+        "de": "춥겠어요 kann eine Vermutung aus einem Hinweis ausdrücken. Trenne Beobachtung, Vermutung und die Absicht in 제가 하겠습니다."
+      },
+      "examplesKo": [
+        "바람이 많이 불어요. 춥겠어요.",
+        "하늘이 어두워요. 비가 오겠어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "바람이 많이 불어요. 밖은 춥겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "밖의 온도를 직접 쟀어요."
+              },
+              {
+                "id": "0",
+                "text": "바람은 관찰, 추위는 추측이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "춥겠어요처럼 단서를 보고 추측할 수 있어요. 관찰한 사실과 추측을 나누고, 제가 하겠습니다의 의지와 구별해요.",
+              "en": "춥겠어요 can infer from a clue. Separate observed facts, guesses and the commitment in 제가 하겠습니다.",
+              "de": "춥겠어요 kann eine Vermutung aus einem Hinweis ausdrücken. Trenne Beobachtung, Vermutung und die Absicht in 제가 하겠습니다."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "하늘이 어두워요. 비가 오겠어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "어두운 하늘은 관찰, 비는 추측이에요."
+              },
+              {
+                "id": "1",
+                "text": "비가 이미 내린다고 확인했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "춥겠어요처럼 단서를 보고 추측할 수 있어요. 관찰한 사실과 추측을 나누고, 제가 하겠습니다의 의지와 구별해요.",
+              "en": "춥겠어요 can infer from a clue. Separate observed facts, guesses and the commitment in 제가 하겠습니다.",
+              "de": "춥겠어요 kann eine Vermutung aus einem Hinweis ausdrücken. Trenne Beobachtung, Vermutung und die Absicht in 제가 하겠습니다."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:listening:01",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "일정 변경의 이유와 순서",
+        "en": "Understand a changed plan",
+        "de": "Grund und Reihenfolge einer Planänderung"
+      },
+      "teaching": {
+        "ko": "두 동료의 대화에서 관찰한 정보와 추측을 구별하세요. 합의한 시간과 이동 순서도 확인하세요.",
+        "en": "Distinguish observation from inference in two classmates’ conversation. Check the agreed time and route order.",
+        "de": "Unterscheide im Gespräch zweier Kursmitglieder Beobachtung und Vermutung. Prüfe vereinbarte Zeit und Reihenfolge."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "유나: 바람이 많이 불어요. 밖은 춥겠어요.\n민수: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 두 시에 만나요.\n민수: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인한 정보는 무엇이에요?",
+              "en": "Which information is observed?",
+              "de": "Welche Information wurde beobachtet?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "바람이 많이 불어요."
+              },
+              {
+                "id": "1",
+                "text": "밖은 춥겠어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직접 말한 관찰은 “바람이 많이 불어요.”예요. -겠-은 여기서 추측이에요.",
+              "en": "“바람이 많이 불어요.” is the observation; -겠- marks the inference here.",
+              "de": "„바람이 많이 불어요.“ ist die Beobachtung; -겠- bezeichnet hier die Vermutung."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 약속 시각은?",
+              "en": "What is the agreed time?",
+              "de": "Welche Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "두 시"
+              },
+              {
+                "id": "1",
+                "text": "세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "두 시에 만나자는 말에 동의했어요.",
+              "en": "They agree to meet at 두 시.",
+              "de": "Sie vereinbaren 두 시 als Treffzeit."
+            }
+          },
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어느 순서로 가요?",
+              "en": "In which order do they go?",
+              "de": "In welcher Reihenfolge gehen sie?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "카페 → 도서관"
+              },
+              {
+                "id": "0",
+                "text": "도서관 → 카페"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "도서관에서 먼저 책을 읽고 카페에 가요.",
+              "en": "They read at the library first, then go to the café.",
+              "de": "Sie lesen zuerst in der Bibliothek und gehen dann ins Café."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "유나: 하늘이 어두워요. 비가 오겠어요.\n민수: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 네 시에 만나요.\n민수: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인한 정보는 무엇이에요?",
+              "en": "Which information is observed?",
+              "de": "Welche Information wurde beobachtet?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "하늘이 어두워요."
+              },
+              {
+                "id": "1",
+                "text": "비가 오겠어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직접 말한 관찰은 “하늘이 어두워요.”예요. -겠-은 여기서 추측이에요.",
+              "en": "“하늘이 어두워요.” is the observation; -겠- marks the inference here.",
+              "de": "„하늘이 어두워요.“ ist die Beobachtung; -겠- bezeichnet hier die Vermutung."
+            }
+          },
+          {
+            "id": "time",
+            "kind": "choice",
+            "prompt": {
+              "ko": "새 약속 시각은?",
+              "en": "What is the agreed time?",
+              "de": "Welche Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "네 시"
+              },
+              {
+                "id": "1",
+                "text": "다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "네 시에 만나자는 말에 동의했어요.",
+              "en": "They agree to meet at 네 시.",
+              "de": "Sie vereinbaren 네 시 als Treffzeit."
+            }
+          },
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어느 순서로 가요?",
+              "en": "In which order do they go?",
+              "de": "In welcher Reihenfolge gehen sie?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "카페 → 도서관"
+              },
+              {
+                "id": "0",
+                "text": "도서관 → 카페"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "도서관에서 먼저 책을 읽고 카페에 가요.",
+              "en": "They read at the library first, then go to the café.",
+              "de": "Sie lesen zuerst in der Bibliothek und gehen dann ins Café."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:reading:01",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "노랫말과 대화의 전후 관계",
+        "en": "Read sequence and figurative language",
+        "de": "Reihenfolge und Bildsprache lesen"
+      },
+      "teaching": {
+        "ko": "이 과제의 창작 노랫말과 안내 대화를 읽어요. 시간 순서와 마음을 나타내는 비유를 구별해요.",
+        "en": "Read the original task lyric and dialogue. Separate event order from figurative feelings.",
+        "de": "Lies den für diese Aufgabe verfassten Liedtext und Dialog. Trenne zeitliche Reihenfolge von bildhaften Gefühlen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n친구를 만나기 전에 길은 추워요.\n친구를 만난 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 공원에 가요?\n민수: 밥을 먹은 후에요.",
+        "questions": [
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대화에서 먼저 하는 일은?",
+              "en": "What happens first in the dialogue?",
+              "de": "Was geschieht im Dialog zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "밥 먹기"
+              },
+              {
+                "id": "1",
+                "text": "공원에 가기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "대화에서 “밥을 먹은 후에”라고 했으므로 그 일이 먼저예요.",
+              "en": "“밥을 먹은 후에” makes that event the earlier one.",
+              "de": "„밥을 먹은 후에“ kennzeichnet das zuerst stattfindende Ereignis."
+            }
+          },
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "“마음에 봄이 와요”는 무엇을 나타내요?",
+              "en": "What does “마음에 봄이 와요” express?",
+              "de": "Was drückt „마음에 봄이 와요“ aus?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "달력의 계절이 바뀌었다는 확인"
+              },
+              {
+                "id": "0",
+                "text": "기분이 좋아지는 비유"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마음의 변화를 봄에 빗댄 표현이에요. 실제 계절이 바뀌었다는 증거는 아니에요.",
+              "en": "It compares a change of feeling to spring; it does not establish a calendar change.",
+              "de": "Das Bild des Frühlings beschreibt eine Gefühlsänderung, keinen belegten Wechsel der Jahreszeit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n비가 그치기 전에 우산을 펴요.\n네 말을 들은 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 친구를 만나요?\n민수: 수업이 끝난 후에요.",
+        "questions": [
+          {
+            "id": "sequence",
+            "kind": "choice",
+            "prompt": {
+              "ko": "대화에서 먼저 하는 일은?",
+              "en": "What happens first in the dialogue?",
+              "de": "Was geschieht im Dialog zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구 만나기"
+              },
+              {
+                "id": "0",
+                "text": "수업 끝나기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "대화에서 “수업이 끝난 후에”라고 했으므로 그 일이 먼저예요.",
+              "en": "“수업이 끝난 후에” makes that event the earlier one.",
+              "de": "„수업이 끝난 후에“ kennzeichnet das zuerst stattfindende Ereignis."
+            }
+          },
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "“마음에 봄이 와요”는 무엇을 나타내요?",
+              "en": "What does “마음에 봄이 와요” express?",
+              "de": "Was drückt „마음에 봄이 와요“ aus?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "달력의 계절이 바뀌었다는 확인"
+              },
+              {
+                "id": "0",
+                "text": "기분이 좋아지는 비유"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마음의 변화를 봄에 빗댄 표현이에요. 실제 계절이 바뀌었다는 증거는 아니에요.",
+              "en": "It compares a change of feeling to spring; it does not establish a calendar change.",
+              "de": "Das Bild des Frühlings beschreibt eine Gefühlsänderung, keinen belegten Wechsel der Jahreszeit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:writing:01",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이유를 담은 변경 메모",
+        "en": "Write a change-of-plan note",
+        "de": "Eine Planänderung begründen"
+      },
+      "teaching": {
+        "ko": "이유·변경·대안이 들어간 메모를 두 부분으로 쓰세요. 자유로운 다른 표현은 자동 채점되지 않을 수 있어요.",
+        "en": "Write the reason, change and alternative in two parts. Other free wording may remain unscored.",
+        "de": "Schreibe Grund, Änderung und Alternative in zwei Teilen. Andere freie Formulierungen können unbewertet bleiben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 상황\n받는 사람: 같은 반 동료\n이유: 머리가 아파서\n기존 약속: 오늘 두 시\n새로 제안할 시각: 내일 세 시\n장소: 도서관\n아직 동의를 받지 않았어요.",
+        "questions": [
+          {
+            "id": "reason_change",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "이유와 기존 약속 변경을 쓰세요.",
+              "en": "State the reason and change to the old plan.",
+              "de": "Nenne Grund und Änderung des bisherigen Plans."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "머리가 아파서 오늘 두 시에는 만나지 못해요.",
+              "미안해요. 머리가 아파서 오늘 두 시에는 만나지 못해요."
+            ],
+            "rejectedAnswers": [
+              "머리가 아파서 오늘 두 시에 꼭 오세요."
+            ],
+            "explanation": {
+              "ko": "예: 머리가 아파서 오늘 두 시에는 만나지 못해요. 상대에게 명령할 사유는 주어지지 않았어요.",
+              "en": "Example: 머리가 아파서 오늘 두 시에는 만나지 못해요. The situation does not authorize an order to the classmate.",
+              "de": "Beispiel: 머리가 아파서 오늘 두 시에는 만나지 못해요. Die Situation begründet keine Anweisung an das Kursmitglied."
+            }
+          },
+          {
+            "id": "alternative",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "대안을 질문으로 제안하세요.",
+              "en": "Suggest the alternative as a question.",
+              "de": "Schlage die Alternative als Frage vor."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "내일 세 시에 도서관에서 만날까요?",
+              "그러면 내일 세 시에 도서관에서 만날까요?"
+            ],
+            "rejectedAnswers": [
+              "내일 네 시에 도서관에서 만날까요?",
+              "내일 세 시에 도서관에서 만나야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 내일 세 시에 도서관에서 만날까요? 시각을 바꾸거나 의무로 만들지 않아요.",
+              "en": "Example: 내일 세 시에 도서관에서 만날까요? Keep the time and leave the choice open.",
+              "de": "Beispiel: 내일 세 시에 도서관에서 만날까요? Behalte die Uhrzeit bei und lass die Entscheidung offen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 상황\n받는 사람: 같은 반 동료\n이유: 비가 많이 와서\n기존 약속: 오늘 네 시\n새로 제안할 시각: 내일 두 시\n장소: 카페\n아직 동의를 받지 않았어요.",
+        "questions": [
+          {
+            "id": "reason_change",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "이유와 기존 약속 변경을 쓰세요.",
+              "en": "State the reason and change to the old plan.",
+              "de": "Nenne Grund und Änderung des bisherigen Plans."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비가 많이 와서 오늘 네 시에는 만나지 못해요.",
+              "미안해요. 비가 많이 와서 오늘 네 시에는 만나지 못해요."
+            ],
+            "rejectedAnswers": [
+              "비가 많이 와서 오늘 네 시에 꼭 오세요."
+            ],
+            "explanation": {
+              "ko": "예: 비가 많이 와서 오늘 네 시에는 만나지 못해요. 상대에게 명령할 사유는 주어지지 않았어요.",
+              "en": "Example: 비가 많이 와서 오늘 네 시에는 만나지 못해요. The situation does not authorize an order to the classmate.",
+              "de": "Beispiel: 비가 많이 와서 오늘 네 시에는 만나지 못해요. Die Situation begründet keine Anweisung an das Kursmitglied."
+            }
+          },
+          {
+            "id": "alternative",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "대안을 질문으로 제안하세요.",
+              "en": "Suggest the alternative as a question.",
+              "de": "Schlage die Alternative als Frage vor."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "내일 두 시에 카페에서 만날까요?",
+              "그러면 내일 두 시에 카페에서 만날까요?"
+            ],
+            "rejectedAnswers": [
+              "내일 다섯 시에 카페에서 만날까요?",
+              "내일 두 시에 카페에서 만나야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 내일 두 시에 카페에서 만날까요? 시각을 바꾸거나 의무로 만들지 않아요.",
+              "en": "Example: 내일 두 시에 카페에서 만날까요? Keep the time and leave the choice open.",
+              "de": "Beispiel: 내일 두 시에 카페에서 만날까요? Behalte die Uhrzeit bei und lass die Entscheidung offen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP04:speaking:01",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "동료에게 부탁하며 선생님 높이기",
+        "en": "Request a change and refer respectfully to a teacher",
+        "de": "Um eine Änderung bitten und über die Lehrkraft sprechen"
+      },
+      "teaching": {
+        "ko": "같은 반 동료에게 공손하게 변경을 부탁하고 선생님 도착을 알려 주세요. -시-는 선생님, -요는 듣는 동료에 대한 표현인지 확인하세요. 선생님이 오시니까 / 먼저 준비해요처럼 의미 단위로 쉬어 말한 뒤 다시 녹음하세요. 의미와 억양은 자동 채점하지 않아요.",
+        "en": "Politely request a change from a classmate and give the teacher’s arrival time. Check subject honorific -시- separately from listener politeness -요. Re-record with pauses that preserve meaning. Meaning and intonation remain unscored.",
+        "de": "Bitte ein Kursmitglied höflich um eine Änderung und nenne die Ankunftszeit der Lehrkraft. Prüfe -시- für die Lehrkraft getrennt von -요 für die zuhörende Person. Nimm mit sinnvollen Pausen erneut auf. Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 말해요.\n기존 약속: 두 시. 새 제안: 한 시 반.\n선생님 도착: 두 시. 먼저 교실 준비가 필요해요.\n제안을 하고 동료가 가능한지도 물어보세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동료에게 말해요.\n기존 약속: 네 시. 새 제안: 세 시 반.\n선생님 도착: 네 시. 먼저 자료 준비가 필요해요.\n제안을 하고 동료가 가능한지도 물어보세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP04:listening:02",
+      "phaseId": "KP04",
+      "level": "A1",
+      "objectiveId": "KP04:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "짧은 노랫말의 상황과 마음",
+        "en": "Hear a lyric’s situation and feeling",
+        "de": "Situation und Gefühl in kurzen Liedzeilen verstehen"
+      },
+      "teaching": {
+        "ko": "이 과제를 위해 쓴 노랫말을 낭독으로 들어요. 노래의 박자·가창 듣기 평가는 포함하지 않아요. 실제 사건과 마음의 비유를 나눠 보세요.",
+        "en": "Hear a spoken reading of the original task lyrics. This does not assess comprehension of sung rhythm. Separate events from figurative feelings.",
+        "de": "Höre die eigens verfassten Liedzeilen als Lesung. Gesang und Rhythmus werden dabei nicht geprüft. Trenne Ereignisse von bildhaften Gefühlen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "친구를 기다리지만 친구는 아직 안 와요. 내 마음에 찬 바람이 불어요.",
+        "questions": [
+          {
+            "id": "event",
+            "kind": "choice",
+            "prompt": {
+              "ko": "노랫말 속 상황은?",
+              "en": "What situation does the lyric describe?",
+              "de": "Welche Situation beschreibt der Liedtext?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "친구가 아직 오지 않았어요."
+              },
+              {
+                "id": "1",
+                "text": "친구와 이미 만났어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 구절 “친구를 기다리지만 친구는 아직 안 와요.”에서 상황을 확인해요.",
+              "en": "The phrase “친구를 기다리지만 친구는 아직 안 와요.” establishes the situation.",
+              "de": "Die Zeile „친구를 기다리지만 친구는 아직 안 와요.“ beschreibt die Situation."
+            }
+          },
+          {
+            "id": "feeling",
+            "kind": "choice",
+            "prompt": {
+              "ko": "화자의 마음은 어떻게 바뀌어요?",
+              "en": "How does the speaker’s feeling change?",
+              "de": "Wie verändert sich das Gefühl der sprechenden Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기분 변화 없이 시각만 알려요."
+              },
+              {
+                "id": "0",
+                "text": "기다리며 외로워져요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "“내 마음에 찬 바람이 불어요.”는 마음의 변화를 비유해요. 실제 방 온도나 날씨를 확인한 말은 아니에요.",
+              "en": "“내 마음에 찬 바람이 불어요.” figuratively describes emotion, not a measured room temperature or weather report.",
+              "de": "„내 마음에 찬 바람이 불어요.“ beschreibt bildhaft ein Gefühl, keine gemessene Raumtemperatur und keinen Wetterbericht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "문을 열고 네 편지를 읽어요. 내 마음에 따뜻한 햇빛이 들어와요.",
+        "questions": [
+          {
+            "id": "event",
+            "kind": "choice",
+            "prompt": {
+              "ko": "노랫말 속 상황은?",
+              "en": "What situation does the lyric describe?",
+              "de": "Welche Situation beschreibt der Liedtext?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "편지를 아직 받지 못했어요."
+              },
+              {
+                "id": "0",
+                "text": "편지를 읽고 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 구절 “문을 열고 네 편지를 읽어요.”에서 상황을 확인해요.",
+              "en": "The phrase “문을 열고 네 편지를 읽어요.” establishes the situation.",
+              "de": "Die Zeile „문을 열고 네 편지를 읽어요.“ beschreibt die Situation."
+            }
+          },
+          {
+            "id": "feeling",
+            "kind": "choice",
+            "prompt": {
+              "ko": "화자의 마음은 어떻게 바뀌어요?",
+              "en": "How does the speaker’s feeling change?",
+              "de": "Wie verändert sich das Gefühl der sprechenden Person?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기분 변화 없이 시각만 알려요."
+              },
+              {
+                "id": "0",
+                "text": "편지를 읽으며 기분이 좋아져요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "“내 마음에 따뜻한 햇빛이 들어와요.”는 마음의 변화를 비유해요. 실제 방 온도나 날씨를 확인한 말은 아니에요.",
+              "en": "“내 마음에 따뜻한 햇빛이 들어와요.” figuratively describes emotion, not a measured room temperature or weather report.",
+              "de": "„내 마음에 따뜻한 햇빛이 들어와요.“ beschreibt bildhaft ein Gefühl, keine gemessene Raumtemperatur und keinen Wetterbericht."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

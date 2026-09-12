@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP03:grammar:01",
+      "sha256": "41c95d778c0a2abaef476cbd8243d5ab8e0b1ad2a24dd738d20d4f91c22b4a3e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for giver/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:02",
+      "sha256": "bf3d14e84ced6fda6a76a329b72ac1554903379828a8f7dfa8f23c69020041c5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for caller/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:03",
+      "sha256": "24dc34e2215a97a3fa48a2db8871e819d7f56931652628fc75245dcdac0479f0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for movement purpose versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:04",
+      "sha256": "c0aa53fc080cb24664092d79f562dbcae8010cacf0de18695af5d4750b463de9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for intention versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:05",
+      "sha256": "2c077fbd14ae0c3c55b2541c6614fb2427077b629cdbd9785be5a70ef6583e9d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for wish versus availability. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:06",
+      "sha256": "88f122a6cd9e4c54a44e333bfd10d2af0de7eec8112b9c85392c727564dd774f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for ongoing versus completed. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:07",
+      "sha256": "71bd61845474c77a18fdc5d781693b1c3b16b88e3c4a303481a0591ae59457d8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for ability versus actual action. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:08",
+      "sha256": "27ac81a2728d6692dcdb83455458805f08a0b632b03f7703bab99be6b83bf292",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for commitment versus guess. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:09",
+      "sha256": "0a37a313cbf2dc2843382aeb2ae497a0d80b8efb00574a38078807d2171d9143",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for listener request versus speaker action. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:10",
+      "sha256": "136c8055b42a6c2cc86886cc8d1d897c7992229a3851b492af8499354d816cac",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for formal instruction versus completed report. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:11",
+      "sha256": "a5a71b4de17fee7f64b9fa7874772bbcd341b028657ef1f893146804ceebbea2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for proposal versus confirmed agreement. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:grammar:12",
+      "sha256": "93115b751889cdd2305e3d3fb93bad1fb492c171afe1a87f73aaddfea8a1b69f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO meaning and EN/DE explanation reviewed for inclusive proposal versus listener-only demand. Different practice/evaluation sentences; recognition only, no productive mastery claim."
+    },
+    {
+      "taskId": "KP03:listening:01",
+      "sha256": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Original wish/unavailability and actual quantity distinguished: juice unavailable, one water; milk unavailable, three teas."
+    },
+    {
+      "taskId": "KP03:reading:01",
+      "sha256": "24b6cb6b1d1b64f9f513de82f829f52367faca8120f0d831cb9899516f7946b5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Recomputed totals 7000/8000 budget and 10000/9000 budget. Quantity, total and affordability all required; Korean particle corrected."
+    },
+    {
+      "taskId": "KP03:writing:01",
+      "sha256": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Reviewed time/place/activity in two proposals; alternatives retain -(으)ㄹ까요 and no invented agreement or obligation."
+    },
+    {
+      "taskId": "KP03:speaking:01",
+      "sha256": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Staff request and classmate proposal kept as separate roles; absent agreement is explicit; speech unscored."
+    },
+    {
+      "taskId": "KP03:listening:02",
+      "sha256": "9826c2957f3d97ade69b8b97db5c03233ad4fcddf5fdc01f4c81006604837914",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Request and inclusive proposal endings are heard in reversed presentation order. Listener action versus shared action is evaluated; intonation production remains unscored."
+    }
+  ]
+}

@@ -1894,6 +1894,534 @@
         "questions": []
       },
       "prerequisiteTaskIds": []
+    },
+    {
+      "id": "KP01:reading:02",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "교실과 도서관 표지",
+        "en": "Classroom and library signs",
+        "de": "Schilder im Kursraum und in der Bibliothek"
+      },
+      "teaching": {
+        "ko": "가능은 할 수 있다는 뜻, 금지는 하면 안 된다는 뜻이에요. 장소·허용·금지를 따로 읽어요.",
+        "en": "가능 means allowed and 금지 means prohibited. Separate place, permission and prohibition.",
+        "de": "가능 bedeutet erlaubt, 금지 bedeutet verboten. Trenne Ort, Erlaubnis und Verbot."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "한국어 교실\n가능: 물 마시기\n금지: 음식 먹기",
+        "questions": [
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이 표지는 어디에 있어요?",
+              "en": "Where is this sign?",
+              "de": "Wo steht dieses Schild?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "버스 정류장"
+              },
+              {
+                "id": "0",
+                "text": "한국어 교실"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "맨 위에 장소 한국어 교실이 있어요.",
+              "en": "The heading names 한국어 교실.",
+              "de": "Die Überschrift nennt 한국어 교실."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할 수 있는 것은?",
+              "en": "What is allowed?",
+              "de": "Was ist erlaubt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "물 마시기"
+              },
+              {
+                "id": "1",
+                "text": "음식 먹기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가능은 물 마시기, 금지는 음식 먹기이에요.",
+              "en": "물 마시기 is allowed; 음식 먹기 is prohibited.",
+              "de": "물 마시기 ist erlaubt; 음식 먹기 ist verboten."
+            }
+          },
+          {
+            "id": "prohibition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "하면 안 되는 것은?",
+              "en": "What is prohibited?",
+              "de": "Was ist verboten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "음식 먹기"
+              },
+              {
+                "id": "1",
+                "text": "물 마시기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "금지 아래의 행동을 확인해요. 장소 이름은 행동이 아니에요.",
+              "en": "Read the action under 금지. The place name is not an action.",
+              "de": "Lies die Handlung unter 금지. Der Ortsname ist keine Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "학교 도서관\n가능: 책 읽기\n금지: 전화하기",
+        "questions": [
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이 표지는 어디에 있어요?",
+              "en": "Where is this sign?",
+              "de": "Wo steht dieses Schild?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "버스 정류장"
+              },
+              {
+                "id": "0",
+                "text": "학교 도서관"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "맨 위에 장소 학교 도서관이 있어요.",
+              "en": "The heading names 학교 도서관.",
+              "de": "Die Überschrift nennt 학교 도서관."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할 수 있는 것은?",
+              "en": "What is allowed?",
+              "de": "Was ist erlaubt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "책 읽기"
+              },
+              {
+                "id": "1",
+                "text": "전화하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가능은 책 읽기, 금지는 전화하기이에요.",
+              "en": "책 읽기 is allowed; 전화하기 is prohibited.",
+              "de": "책 읽기 ist erlaubt; 전화하기 ist verboten."
+            }
+          },
+          {
+            "id": "prohibition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "하면 안 되는 것은?",
+              "en": "What is prohibited?",
+              "de": "Was ist verboten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "전화하기"
+              },
+              {
+                "id": "1",
+                "text": "책 읽기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "금지 아래의 행동을 확인해요. 장소 이름은 행동이 아니에요.",
+              "en": "Read the action under 금지. The place name is not an action.",
+              "de": "Lies die Handlung unter 금지. Der Ortsname ist keine Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:listening:02",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "달·딸·탈과 이름의 끝소리",
+        "en": "Hear 달, 딸, 탈 and name endings",
+        "de": "달, 딸, 탈 und Namensendungen hören"
+      },
+      "teaching": {
+        "ko": "ㄷ·ㄸ·ㅌ의 세 소리를 모어의 유성·무성 둘로만 나누지 않아요. 들은 순서와 이름 받침을 확인하고 소개 문장으로 다시 말해 보세요. 선택 응답만 채점해요.",
+        "en": "Do not reduce ㄷ, ㄸ and ㅌ to a two-way voiced/unvoiced contrast. Identify the sequence and final consonant, then repeat the introduction. Only the choices are scored.",
+        "de": "Reduziere ㄷ, ㄸ und ㅌ nicht auf den Gegensatz stimmhaft/stimmlos. Erkenne Reihenfolge und Endkonsonant und sprich die Vorstellung nach. Nur die Auswahlantworten werden bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "달. 딸. 탈. 제 이름은 민석이에요.",
+        "questions": [
+          {
+            "id": "sounds",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 세 낱말을 들은 순서대로 고르세요.",
+              "en": "Choose the first three words in the order heard.",
+              "de": "Wähle die ersten drei Wörter in der gehörten Reihenfolge."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "딸 → 달 → 탈"
+              },
+              {
+                "id": "0",
+                "text": "달 → 딸 → 탈"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "순서는 달 → 딸 → 탈예요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
+              "en": "The order is 달 → 딸 → 탈. ㄷ, ㄸ and ㅌ contrast lax, tense and aspirated consonants.",
+              "de": "Die Reihenfolge ist 달 → 딸 → 탈. ㄷ, ㄸ und ㅌ unterscheiden ungespannte, gespannte und aspirierte Konsonanten."
+            }
+          },
+          {
+            "id": "name",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개한 이름은?",
+              "en": "Which name is introduced?",
+              "de": "Welcher Name wird genannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "민석"
+              },
+              {
+                "id": "1",
+                "text": "민서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 이름은 민석이에요. 이름 끝 받침도 들어요.",
+              "en": "The name is 민석. Listen to its final consonant too.",
+              "de": "Der Name lautet 민석. Achte auch auf den Endkonsonanten."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "탈. 달. 딸. 제 이름은 지선이에요.",
+        "questions": [
+          {
+            "id": "sounds",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 세 낱말을 들은 순서대로 고르세요.",
+              "en": "Choose the first three words in the order heard.",
+              "de": "Wähle die ersten drei Wörter in der gehörten Reihenfolge."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "달 → 탈 → 딸"
+              },
+              {
+                "id": "0",
+                "text": "탈 → 달 → 딸"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "순서는 탈 → 달 → 딸예요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
+              "en": "The order is 탈 → 달 → 딸. ㄷ, ㄸ and ㅌ contrast lax, tense and aspirated consonants.",
+              "de": "Die Reihenfolge ist 탈 → 달 → 딸. ㄷ, ㄸ und ㅌ unterscheiden ungespannte, gespannte und aspirierte Konsonanten."
+            }
+          },
+          {
+            "id": "name",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개한 이름은?",
+              "en": "Which name is introduced?",
+              "de": "Welcher Name wird genannt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "지선"
+              },
+              {
+                "id": "1",
+                "text": "지서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "들은 이름은 지선이에요. 이름 끝 받침도 들어요.",
+              "en": "The name is 지선. Listen to its final consonant too.",
+              "de": "Der Name lautet 지선. Achte auch auf den Endkonsonanten."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP01:writing:02",
+      "phaseId": "KP01",
+      "level": "A1",
+      "objectiveId": "KP01:writing:02",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "필수·선택·모르는 정보",
+        "en": "Required, optional and unknown information",
+        "de": "Pflichtangaben, freiwillige und unbekannte Angaben"
+      },
+      "teaching": {
+        "ko": "제공된 이름은 직접 쓰고, 모르는 선택 칸은 비워 두기로 선택하세요. 모르는 필수 정보는 확인 질문을 쓰세요. 이 과제 통과는 확인 전 서식이 모두 완성됐다는 뜻이 아니에요.",
+        "en": "Write the provided name, choose to leave the unknown optional field blank, and write a question for the missing required fact. Passing does not mean the form is complete before that fact is confirmed.",
+        "de": "Schreibe den angegebenen Namen, lasse das unbekannte freiwillige Feld frei und formuliere eine Frage zur fehlenden Pflichtangabe. Ein Bestehen bedeutet nicht, dass das Formular vor dieser Klärung vollständig ist."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "학교 등록 서식\n이름: 필수 / 가상 인물 이름: 지수\n이메일: 선택 / 인물 카드에 없음\n전화번호: 필수 / 인물 카드에 없음\n모르는 필수 정보는 인물에게 물어본 뒤 작성해요.",
+        "questions": [
+          {
+            "id": "name",
+            "kind": "field",
+            "prompt": {
+              "ko": "주어진 이름을 쓰세요.",
+              "en": "Enter the provided name.",
+              "de": "Trage den angegebenen Namen ein."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지수"
+            ],
+            "explanation": {
+              "ko": "이름은 지수입니다.",
+              "en": "The name is 지수.",
+              "de": "Der Name ist 지수."
+            }
+          },
+          {
+            "id": "optional",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모르는 선택 항목 이메일는 어떻게 해요?",
+              "en": "What do you do with the unknown optional field 이메일?",
+              "de": "Was machst du mit dem unbekannten freiwilligen Feld 이메일?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "다른 사람의 정보 쓰기"
+              },
+              {
+                "id": "0",
+                "text": "비워 두기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "선택 항목은 비워 둘 수 있어요. 다른 사람의 정보를 넣지 않아요.",
+              "en": "An optional field may be left blank. Do not insert another person’s details.",
+              "de": "Ein freiwilliges Feld darf leer bleiben. Trage keine fremden Angaben ein."
+            }
+          },
+          {
+            "id": "ask_required",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "빠진 필수 정보를 공손하게 물으세요.",
+              "en": "Politely ask for the missing required information.",
+              "de": "Frage höflich nach der fehlenden Pflichtangabe."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "전화번호가 뭐예요?",
+              "죄송해요. 전화번호가 뭐예요?"
+            ],
+            "rejectedAnswers": [
+              "전화번호는 몰라도 괜찮아요."
+            ],
+            "explanation": {
+              "ko": "예: 전화번호가 뭐예요? 아직 모르는 필수 정보를 지어내지 않아요.",
+              "en": "Example: 전화번호가 뭐예요? Do not invent a missing required fact.",
+              "de": "Beispiel: 전화번호가 뭐예요? Erfinde keine fehlende Pflichtangabe."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "학교 등록 서식\n이름: 필수 / 가상 인물 이름: 민호\n전화번호: 선택 / 인물 카드에 없음\n이메일: 필수 / 인물 카드에 없음\n모르는 필수 정보는 인물에게 물어본 뒤 작성해요.",
+        "questions": [
+          {
+            "id": "name",
+            "kind": "field",
+            "prompt": {
+              "ko": "주어진 이름을 쓰세요.",
+              "en": "Enter the provided name.",
+              "de": "Trage den angegebenen Namen ein."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "민호"
+            ],
+            "explanation": {
+              "ko": "이름은 민호입니다.",
+              "en": "The name is 민호.",
+              "de": "Der Name ist 민호."
+            }
+          },
+          {
+            "id": "optional",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모르는 선택 항목 전화번호는 어떻게 해요?",
+              "en": "What do you do with the unknown optional field 전화번호?",
+              "de": "Was machst du mit dem unbekannten freiwilligen Feld 전화번호?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "다른 사람의 정보 쓰기"
+              },
+              {
+                "id": "0",
+                "text": "비워 두기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "선택 항목은 비워 둘 수 있어요. 다른 사람의 정보를 넣지 않아요.",
+              "en": "An optional field may be left blank. Do not insert another person’s details.",
+              "de": "Ein freiwilliges Feld darf leer bleiben. Trage keine fremden Angaben ein."
+            }
+          },
+          {
+            "id": "ask_required",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "빠진 필수 정보를 공손하게 물으세요.",
+              "en": "Politely ask for the missing required information.",
+              "de": "Frage höflich nach der fehlenden Pflichtangabe."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이메일 주소가 뭐예요?",
+              "죄송해요. 이메일 주소가 뭐예요?"
+            ],
+            "rejectedAnswers": [
+              "이메일는 몰라도 괜찮아요."
+            ],
+            "explanation": {
+              "ko": "예: 이메일 주소가 뭐예요? 아직 모르는 필수 정보를 지어내지 않아요.",
+              "en": "Example: 이메일 주소가 뭐예요? Do not invent a missing required fact.",
+              "de": "Beispiel: 이메일 주소가 뭐예요? Erfinde keine fehlende Pflichtangabe."
+            }
+          }
+        ]
+      }
     }
   ]
 }

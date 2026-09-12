@@ -45,7 +45,10 @@
         "KP01:reading:01",
         "KP01:listening:01",
         "KP01:writing:01",
-        "KP01:speaking:01"
+        "KP01:speaking:01",
+        "KP01:reading:02",
+        "KP01:listening:02",
+        "KP01:writing:02"
       ],
       "taskCoverage": "partial"
     },
@@ -74,8 +77,27 @@
         "a1_09_home_daily_life"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp02.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP02:grammar:01",
+        "KP02:grammar:02",
+        "KP02:grammar:03",
+        "KP02:grammar:04",
+        "KP02:grammar:05",
+        "KP02:grammar:06",
+        "KP02:grammar:07",
+        "KP02:grammar:08",
+        "KP02:grammar:09",
+        "KP02:grammar:10",
+        "KP02:grammar:11",
+        "KP02:listening:01",
+        "KP02:reading:01",
+        "KP02:writing:01",
+        "KP02:speaking:01",
+        "KP02:listening:02",
+        "KP02:writing:02",
+        "KP02:listening:03"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP03",
@@ -105,8 +127,26 @@
         "a1_16_survival_capstone"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp03.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP03:grammar:01",
+        "KP03:grammar:02",
+        "KP03:grammar:03",
+        "KP03:grammar:04",
+        "KP03:grammar:05",
+        "KP03:grammar:06",
+        "KP03:grammar:07",
+        "KP03:grammar:08",
+        "KP03:grammar:09",
+        "KP03:grammar:10",
+        "KP03:grammar:11",
+        "KP03:grammar:12",
+        "KP03:listening:01",
+        "KP03:reading:01",
+        "KP03:writing:01",
+        "KP03:speaking:01",
+        "KP03:listening:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP04",
@@ -133,8 +173,25 @@
         "a1_13_register_switching"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp04.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP04:grammar:01",
+        "KP04:grammar:02",
+        "KP04:grammar:03",
+        "KP04:grammar:04",
+        "KP04:grammar:05",
+        "KP04:grammar:06",
+        "KP04:grammar:07",
+        "KP04:grammar:08",
+        "KP04:grammar:09",
+        "KP04:grammar:10",
+        "KP04:grammar:11",
+        "KP04:listening:01",
+        "KP04:reading:01",
+        "KP04:writing:01",
+        "KP04:speaking:01",
+        "KP04:listening:02"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP05",
@@ -834,5 +891,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "0efff82f6bec97e35e84b9b3879e58fc012312e98a9cefe38798a2a2e53fba96"
+  "phaseTaskSourceSha256": "b0f10b027796b83486ed007dd1e8e11a27ffaa6a85fd7855990691ee7b04c43f"
 }
