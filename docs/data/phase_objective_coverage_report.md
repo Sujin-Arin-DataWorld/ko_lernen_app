@@ -22,7 +22,7 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 | KP14 | 48 | 48 | 0 | 미검증 |
 | KP15 | 58 | 58 | 0 | 미검증 |
 | KP16 | 52 | 52 | 0 | 미검증 |
-| KP17 | 56 | 0 | 56 | 미검증 |
+| KP17 | 56 | 56 | 0 | 미검증 |
 | KP18 | 66 | 0 | 66 | 미검증 |
 | KP19 | 56 | 0 | 56 | 미검증 |
 | KP20 | 52 | 0 | 52 | 미검증 |
@@ -39,62 +39,6 @@ R과 P는 별도다. 자동 채점할 수 없는 필수 응답과 아직 연결�
 
 ## 미연결 요구
 
-- `KP17:objective:grammar/G4:-어라1:R`
-- `KP17:objective:grammar/G4:-어라1:P`
-- `KP17:objective:grammar/G4:-는대2:R`
-- `KP17:objective:grammar/G4:-는대2:P`
-- `KP17:objective:grammar/G4:-고4:R`
-- `KP17:objective:grammar/G4:-고4:P`
-- `KP17:objective:grammar/G4:-게5:R`
-- `KP17:objective:grammar/G4:-게5:P`
-- `KP17:objective:grammar/G4:-나3:R`
-- `KP17:objective:grammar/G4:-나3:P`
-- `KP17:objective:grammar/G4:-는다니2:R`
-- `KP17:objective:grammar/G4:-는다니2:P`
-- `KP17:objective:grammar/G4:-는다면서1:R`
-- `KP17:objective:grammar/G4:-는다면서1:P`
-- `KP17:objective:grammar/G4:-다니1:R`
-- `KP17:objective:grammar/G4:-다니1:P`
-- `KP17:objective:grammar/G4:-더군:R`
-- `KP17:objective:grammar/G4:-더군:P`
-- `KP17:objective:grammar/G4:-더라:R`
-- `KP17:objective:grammar/G4:-더라:P`
-- `KP17:objective:grammar/G4:-던데1:R`
-- `KP17:objective:grammar/G4:-던데1:P`
-- `KP17:objective:grammar/G4:-는 줄:R`
-- `KP17:objective:grammar/G4:-는 줄:P`
-- `KP17:objective:grammar/G4:-어야지2:R`
-- `KP17:objective:grammar/G4:-어야지2:P`
-- `KP17:objective:listening/core:R`
-- `KP17:objective:listening/genre/meeting_formal_discussion:R`
-- `KP17:objective:reading/core:R`
-- `KP17:objective:reading/genre/literary_text:R`
-- `KP17:objective:speaking/core:P`
-- `KP17:objective:speaking/genre/meeting_formal_discussion:P`
-- `KP17:objective:writing/core:P`
-- `KP17:objective:writing/genre/review_critique_text:P`
-- `KP17:objective:functions/mediate_between_parties:R`
-- `KP17:objective:functions/mediate_between_parties:P`
-- `KP17:objective:functions/manage_turns_interrupt_hold_floor:R`
-- `KP17:objective:functions/manage_turns_interrupt_hold_floor:P`
-- `KP17:objective:functions/adjust_register_speech_style:R`
-- `KP17:objective:functions/adjust_register_speech_style:P`
-- `KP17:objective:functions/express_opinion_agree_disagree:R`
-- `KP17:objective:functions/express_opinion_agree_disagree:P`
-- `KP17:objective:vocabDomains/media_pop_culture_vocab:R`
-- `KP17:objective:vocabDomains/media_pop_culture_vocab:P`
-- `KP17:objective:vocabDomains/etiquette_honorific_lexis:R`
-- `KP17:objective:vocabDomains/etiquette_honorific_lexis:P`
-- `KP17:objective:vocabDomains/fixed_expressions_collocations:R`
-- `KP17:objective:vocabDomains/fixed_expressions_collocations:P`
-- `KP17:objective:phonology/0:R`
-- `KP17:objective:phonology/0:P`
-- `KP17:objective:phonology/1:R`
-- `KP17:objective:phonology/1:P`
-- `KP17:objective:register/haeyo_polite:P`
-- `KP17:objective:register/banmal_casual:P`
-- `KP17:objective:register/intimate:P`
-- `KP17:objective:register/hapsyo_formal_business:P`
 - `KP18:objective:grammar/G4:-다시피:R`
 - `KP18:objective:grammar/G4:-다시피:P`
 - `KP18:objective:grammar/G4:-거니와:R`

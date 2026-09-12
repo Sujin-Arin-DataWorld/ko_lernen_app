@@ -10408,6 +10408,652 @@
       ],
       "reviewer": "Astra",
       "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Action-example 다거나 lists possible meeting/call or summary/table, not exhaustive obligations or reported completed actions. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:listening/core:R",
+      "taskId": "KP17:listening:02",
+      "sourceHash": "7454613c1fd3f6ba6534d7bff49db63a538597a04f4f798043862e7d0ecda0c5",
+      "taskHash": "8ffd9fa1c808c06fdca0f0f0a959cc240d05d6a0c9904921b25f8abe7b86f676",
+      "criterionIds": [
+        "surprise",
+        "source",
+        "intent",
+        "stance"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original drama with explicitly close mutually caring agreed-casual friends. Reported scheduling, checking and surprise versus witnessed yesterday closure; intention question not disclosure command; raised/surprised tone alone cannot establish anger. Four required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:listening/genre/meeting_formal_discussion:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "1014ed59a624625e1f59787518c0365e21f11f6a8d195178313e189b16322c61",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:reading/core:R",
+      "taskId": "KP17:reading:01",
+      "sourceHash": "57dcccbedd7b8137b4c5a50bc5ca7fd1087ef24e02bbe9a7717ff15fbea16cc9",
+      "taskHash": "cb9d8246c00b072f959cfe4dd5083f27b45d2ed31d74221654fdcfcad9dfc7ec",
+      "criterionIds": [
+        "viewpoint",
+        "missing",
+        "register",
+        "tone",
+        "turn"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual short original narrative and separate meeting notes. Focal character’s interpretation of waiting is not counterpart’s confirmed intent. Folded notice content withheld, questions not authoritative schedule. Shared plan to inspect notice differs from schedule confirmation; speaking-order proposal remains unagreed. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:reading/genre/literary_text:R",
+      "taskId": "KP17:reading:01",
+      "sourceHash": "39149649e73c93b2632254dc3ab906eebba19ea823ec9ea4ae2e0ca9342b0eeb",
+      "taskHash": "cb9d8246c00b072f959cfe4dd5083f27b45d2ed31d74221654fdcfcad9dfc7ec",
+      "criterionIds": [
+        "viewpoint",
+        "missing",
+        "register",
+        "tone",
+        "turn"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual short original narrative and separate meeting notes. Focal character’s interpretation of waiting is not counterpart’s confirmed intent. Folded notice content withheld, questions not authoritative schedule. Shared plan to inspect notice differs from schedule confirmation; speaking-order proposal remains unagreed. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:speaking/core:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "c28a4c02fff62aa1762bd7de279d0328e4a166bd5ff208afef8ac9730bbf4e0a",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:speaking/genre/meeting_formal_discussion:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "4857b2c721b0d47ec0440135f97d97e365927c0401b3c4f7c477548b6e806279",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:writing/core:P",
+      "taskId": "KP17:writing:01",
+      "sourceHash": "51679d270a8ca913ea4367f28acf3ac3f2acf1888cd28c82df7eb686b099c188",
+      "taskHash": "c938ce4aff3e2cefb01125faab9db8c63eae8364655eda57cefcde0f91c3c3c2",
+      "criterionIds": [
+        "minutes",
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free fields, formal minutes and distinct literary review. Preserve source/time/speech-act type, quoted imperative and unresolved questions; review viewpoint/voice/folded-paper passages with strengths, limits and alternate reading. No semantic score or mixing criticism into fact record. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:writing/genre/review_critique_text:P",
+      "taskId": "KP17:writing:01",
+      "sourceHash": "7da04ce6793e303456ae7b9ca8dfe4778c56b0d583d29f1ff9f66a31bc7126df",
+      "taskHash": "c938ce4aff3e2cefb01125faab9db8c63eae8364655eda57cefcde0f91c3c3c2",
+      "criterionIds": [
+        "minutes",
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free fields, formal minutes and distinct literary review. Preserve source/time/speech-act type, quoted imperative and unresolved questions; review viewpoint/voice/folded-paper passages with strengths, limits and alternate reading. No semantic score or mixing criticism into fact record. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/mediate_between_parties:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "256679cde6f42f40a3574eac63bd42f62581b4ec0be72bcc17678a615c84c0eb",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/mediate_between_parties:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "256679cde6f42f40a3574eac63bd42f62581b4ec0be72bcc17678a615c84c0eb",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/manage_turns_interrupt_hold_floor:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "a5ce54c088a7966bb8f6238faa1421b165db543818df86894e97f36a39ea080d",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/manage_turns_interrupt_hold_floor:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "a5ce54c088a7966bb8f6238faa1421b165db543818df86894e97f36a39ea080d",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/adjust_register_speech_style:R",
+      "taskId": "KP17:reading:01",
+      "sourceHash": "1c9745b79eef8cccfe76e5ba643897b95bbbf6c1136107878457eb8ad64bae06",
+      "taskHash": "cb9d8246c00b072f959cfe4dd5083f27b45d2ed31d74221654fdcfcad9dfc7ec",
+      "criterionIds": [
+        "viewpoint",
+        "missing",
+        "register",
+        "tone",
+        "turn"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual short original narrative and separate meeting notes. Focal character’s interpretation of waiting is not counterpart’s confirmed intent. Folded notice content withheld, questions not authoritative schedule. Shared plan to inspect notice differs from schedule confirmation; speaking-order proposal remains unagreed. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/adjust_register_speech_style:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "1c9745b79eef8cccfe76e5ba643897b95bbbf6c1136107878457eb8ad64bae06",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/express_opinion_agree_disagree:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "c3e863247c0bfe5f85a552282795b5419af741124e4179f26195fc3b4573a294",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:functions/express_opinion_agree_disagree:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "c3e863247c0bfe5f85a552282795b5419af741124e4179f26195fc3b4573a294",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/media_pop_culture_vocab:R",
+      "taskId": "KP17:reading:01",
+      "sourceHash": "2c9986a8ee1d8a23488a0136de19d6051b655d6351d4ae0caea4025797222de3",
+      "taskHash": "cb9d8246c00b072f959cfe4dd5083f27b45d2ed31d74221654fdcfcad9dfc7ec",
+      "criterionIds": [
+        "viewpoint",
+        "missing",
+        "register",
+        "tone",
+        "turn"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: actual short original narrative and separate meeting notes. Focal character’s interpretation of waiting is not counterpart’s confirmed intent. Folded notice content withheld, questions not authoritative schedule. Shared plan to inspect notice differs from schedule confirmation; speaking-order proposal remains unagreed. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/media_pop_culture_vocab:P",
+      "taskId": "KP17:writing:01",
+      "sourceHash": "2c9986a8ee1d8a23488a0136de19d6051b655d6351d4ae0caea4025797222de3",
+      "taskHash": "c938ce4aff3e2cefb01125faab9db8c63eae8364655eda57cefcde0f91c3c3c2",
+      "criterionIds": [
+        "minutes",
+        "review"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: two required free fields, formal minutes and distinct literary review. Preserve source/time/speech-act type, quoted imperative and unresolved questions; review viewpoint/voice/folded-paper passages with strengths, limits and alternate reading. No semantic score or mixing criticism into fact record. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/etiquette_honorific_lexis:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "9f4495ac29c2ce14a1b0713704fa068cdd758fafc99dbfaed93f42a9962cb455",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/etiquette_honorific_lexis:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "9f4495ac29c2ce14a1b0713704fa068cdd758fafc99dbfaed93f42a9962cb455",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/fixed_expressions_collocations:R",
+      "taskId": "KP17:listening:02",
+      "sourceHash": "b7957b6437e9abaefc49d3d6d4f31c5ef14a38d57b202978cb954cd18e7aac05",
+      "taskHash": "8ffd9fa1c808c06fdca0f0f0a959cc240d05d6a0c9904921b25f8abe7b86f676",
+      "criterionIds": [
+        "surprise",
+        "source",
+        "intent",
+        "stance"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original drama with explicitly close mutually caring agreed-casual friends. Reported scheduling, checking and surprise versus witnessed yesterday closure; intention question not disclosure command; raised/surprised tone alone cannot establish anger. Four required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:vocabDomains/fixed_expressions_collocations:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "b7957b6437e9abaefc49d3d6d4f31c5ef14a38d57b202978cb954cd18e7aac05",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:phonology/0:R",
+      "taskId": "KP17:listening:02",
+      "sourceHash": "51ed6ee99af6612340565fce914e8d016c24ad752bf835aea3977d14d742a93d",
+      "taskHash": "8ffd9fa1c808c06fdca0f0f0a959cc240d05d6a0c9904921b25f8abe7b86f676",
+      "criterionIds": [
+        "surprise",
+        "source",
+        "intent",
+        "stance"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: original drama with explicitly close mutually caring agreed-casual friends. Reported scheduling, checking and surprise versus witnessed yesterday closure; intention question not disclosure command; raised/surprised tone alone cannot establish anger. Four required contrasts. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:phonology/0:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "51ed6ee99af6612340565fce914e8d016c24ad752bf835aea3977d14d742a93d",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:phonology/1:R",
+      "taskId": "KP17:listening:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "d2b67f3d7632decc68f017094e9567ea57d047694b945f685b8ec26157ea76e6",
+      "criterionIds": [
+        "report",
+        "witness",
+        "command",
+        "question",
+        "turn",
+        "agreement"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: equal peers without venue authority in formal meeting; friend hearsay versus yesterday firsthand closure, script teacher’s imperative quoted not newly issued, additional submission question unanswered. Facilitator protects turn, supports verification and objects to premature cancellation on evidence rather than person judgement. Six required criteria. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:phonology/1:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:register/haeyo_polite:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "da3ef0723ab87fb8ceeb18dd119ee4a28574e5b5fbf1ac0ed4b4ef6865dd168b",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:register/banmal_casual:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "da3ef0723ab87fb8ceeb18dd119ee4a28574e5b5fbf1ac0ed4b4ef6865dd168b",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:register/intimate:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "da3ef0723ab87fb8ceeb18dd119ee4a28574e5b5fbf1ac0ed4b4ef6865dd168b",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:register/hapsyo_formal_business:P",
+      "taskId": "KP17:speaking:01",
+      "sourceHash": "da3ef0723ab87fb8ceeb18dd119ee4a28574e5b5fbf1ac0ed4b4ef6865dd168b",
+      "taskHash": "71f777b2224d26cd1ef44a5fa24ad82372250617739569951a24a02e41841776",
+      "criterionIds": [],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE: formal facilitator summary, polite turn request and evidence-limited agreement/objection; then mutually caring close friend with explicitly agreed casual/intimate speech, preserving uncertain facts. Expand contracted report versus firsthand memory, replay source boundaries; meaning and intonation unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-어라1:R",
+      "taskId": "KP17:grammar:01",
+      "sourceHash": "68bfdabb8480302667ff744fc6c282c3be5cdbb808bb8295f6668ac5fff03cd0",
+      "taskHash": "63f27ef25ad006af7c343a0302ccf2aaa3ee836fbf48d8e052aedcd63f2ce6a7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Direct 어라 imperative only in explicit fictional teacher/student scene; quoted line is not actor’s new instruction or general peer register. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는대2:R",
+      "taskId": "KP17:grammar:02",
+      "sourceHash": "8367124a0b841359cfe6bc77cbc1533164929823797ef49c84654252facc8aef",
+      "taskHash": "af1be3482dc412fa93328d8a6d7ca3a1b59ee965c782d973b57643d79b910395",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Contracted reported 대요 from friend/colleague, original notice not witnessed; no confusion with experienced 던데. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-고4:R",
+      "taskId": "KP17:grammar:03",
+      "sourceHash": "3029069bbd8e3649ec7d915a65742b216ec570aeb6807c92f4316b42914b5c93",
+      "taskHash": "9cf452400dac10305d397c5df46dbfc2dc86eb041ecd8fe4a222ee93ab4f5c17",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Final 고요? adds a related question about day off/submission, not confirmed absence or listing completed actions. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-게5:R",
+      "taskId": "KP17:grammar:04",
+      "sourceHash": "f01aaee73ddb7bfad72c038c151eaa40ef3e9c0aa466d0ad7c34b3dd9d4d6036",
+      "taskHash": "850329027e0a32a6be7ffcb149974231c58fd71cd10c6a68d064187e6b4f0008",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Final 게? asks action intent in agreed casual friendship, not command or causative construction. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-나3:R",
+      "taskId": "KP17:grammar:05",
+      "sourceHash": "5418e6d62c0d0e4a7b5a31b6dadd3c8643aeeca91c2a602305bd1e3cb8f80aa0",
+      "taskHash": "873f84cac0e780597ee25802cd265f0b84705457c2fd8f1be4fd76d986ee0a04",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Embedded/self-directed 나 uncertainty about mishearing/change, not confirmed fact or accusation of lying. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는다니2:R",
+      "taskId": "KP17:grammar:06",
+      "sourceHash": "2cab82eb518ff347e5a668d1fac5b074bc83fae2bb770a6c7044a7c4f561cf24",
+      "taskHash": "951208cde9868b5ef170cbafcb47cf8088393eb20ee7827216fe55acafd68cdd",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: Reported-content 다니? checking with follow-up in casual friendship, not a new decision or imperative. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는다면서1:R",
+      "taskId": "KP17:grammar:07",
+      "sourceHash": "9cef49642fef32bc5e38605cd93ba2db93081e2577dadb9153145bf3c51e06d1",
+      "taskHash": "20cc7cb4b37b969c2aaf5f8e42aae2b30919a162657cb72a30a7ef47fe4055c7",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 다면서요? checks heard move/presentation information; unanswered question not confirmation or completed observation. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-다니1:R",
+      "taskId": "KP17:grammar:08",
+      "sourceHash": "5ec0469593165e2adc9b5e4d50a1492b7d4659b928e51fa0cf4847cfb012b1f6",
+      "taskHash": "c13015e902502634ee54977db656fa453afaa113b82aec09045b8c1aa9109cd0",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 다니 surprise at completion/cancellation news with verification, not witnessing or exercising approval. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-더군:R",
+      "taskId": "KP17:grammar:09",
+      "sourceHash": "1e6ae4f13d44609f95da4604f1861cd919c401e788e8140bd897748664ccac42",
+      "taskHash": "81fcb42d2001196318a0d9f021224cd3d7de1bc3e7d94810e0ca56589e926871",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 더군요 discovery from direct visit/reading; no unobserved-date extension. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-더라:R",
+      "taskId": "KP17:grammar:10",
+      "sourceHash": "9aac07a92b0f27e80eafb847166f5e7dfaf5cd270ce98df8a16b196005eb4580",
+      "taskHash": "f16394d4e8efdc69eacbe287a62688fa4bedf9bc81cb0ec0deffda2493dca043",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 더라 own recalled yesterday/earlier observation in casual speech, not current action or tomorrow guarantee. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-던데1:R",
+      "taskId": "KP17:grammar:11",
+      "sourceHash": "b4676d4f17c6c72f539c919a1c5b981e7ffd415b5359dcb0618d4e9b776b6016",
+      "taskHash": "adb444a01dab790bf17ec09405be20920c87e9c5a910b8d7bd2bf5eef9b1db3b",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 던데 remembered closure/short explanation as background to current question, not current conclusion. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는 줄:R",
+      "taskId": "KP17:grammar:12",
+      "sourceHash": "0a6d4ddf63dff5f13c981a1aa808b9a8d4d4a8ad4c73a503987796a19f6be2b2",
+      "taskHash": "7051565c4eef6b09bb4cfbfd791611b601cb7d827ed76ad2b3eb2c3e63eec3e8",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 줄 알았어요 explicitly corrected by notice/price list; former tomorrow/free belief differs from confirmed today/paid facts. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-어야지2:R",
+      "taskId": "KP17:grammar:13",
+      "sourceHash": "15f1a854966b6194d8d06a868bbe2d2b110c21ac1aeb8159dc228b4f92194383",
+      "taskHash": "a85f32c6501a058bd4cb112df4a17d08c5baf5aa933f83bd33950098eceb1349",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE checked: 어야지 intimate mutual-care ought, not completed action or default admonition of unfamiliar colleagues. Practice-only study sample, receptive use only. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-어라1:P",
+      "taskId": "KP17:production:01",
+      "sourceHash": "68bfdabb8480302667ff744fc6c282c3be5cdbb808bb8295f6668ac5fff03cd0",
+      "taskHash": "d108092eafb4e381b63aad9efd402a742175a716080a217054b1a1b3f3c57f5a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Direct 어라 imperative only in explicit fictional teacher/student scene; quoted line is not actor’s new instruction or general peer register. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는대2:P",
+      "taskId": "KP17:production:02",
+      "sourceHash": "8367124a0b841359cfe6bc77cbc1533164929823797ef49c84654252facc8aef",
+      "taskHash": "98d6dfab7b142c81397cab9df24c8eb8f3ab4b442a5b8dbfa2694bba3fa9c306",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Contracted reported 대요 from friend/colleague, original notice not witnessed; no confusion with experienced 던데. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-고4:P",
+      "taskId": "KP17:production:03",
+      "sourceHash": "3029069bbd8e3649ec7d915a65742b216ec570aeb6807c92f4316b42914b5c93",
+      "taskHash": "a6278d0dd16a6834a026c85ea5582bef1a3d5de78b6f5c09f58973409fe8e345",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Final 고요? adds a related question about day off/submission, not confirmed absence or listing completed actions. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-게5:P",
+      "taskId": "KP17:production:04",
+      "sourceHash": "f01aaee73ddb7bfad72c038c151eaa40ef3e9c0aa466d0ad7c34b3dd9d4d6036",
+      "taskHash": "692d9305564e896236cb835a4c4b727688aac8de29d16c351e752bdd76f491f1",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Final 게? asks action intent in agreed casual friendship, not command or causative construction. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-나3:P",
+      "taskId": "KP17:production:05",
+      "sourceHash": "5418e6d62c0d0e4a7b5a31b6dadd3c8643aeeca91c2a602305bd1e3cb8f80aa0",
+      "taskHash": "148ad7afebf06368eae19af7b2fde7e194a07f2fc0920b04999810a591f556dc",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Embedded/self-directed 나 uncertainty about mishearing/change, not confirmed fact or accusation of lying. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는다니2:P",
+      "taskId": "KP17:production:06",
+      "sourceHash": "2cab82eb518ff347e5a668d1fac5b074bc83fae2bb770a6c7044a7c4f561cf24",
+      "taskHash": "9f8fd689d2f4f391c6cdd4f935c681838940c96fdd37c9b428cc3a35a27fd419",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: Reported-content 다니? checking with follow-up in casual friendship, not a new decision or imperative. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는다면서1:P",
+      "taskId": "KP17:production:07",
+      "sourceHash": "9cef49642fef32bc5e38605cd93ba2db93081e2577dadb9153145bf3c51e06d1",
+      "taskHash": "3c7cfa1baa944b5d9a4477e64795ac0e5d572d7987f9146ff8555db0d7dc137a",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 다면서요? checks heard move/presentation information; unanswered question not confirmation or completed observation. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-다니1:P",
+      "taskId": "KP17:production:08",
+      "sourceHash": "5ec0469593165e2adc9b5e4d50a1492b7d4659b928e51fa0cf4847cfb012b1f6",
+      "taskHash": "663a6e4d2c18c7309369450a26f752f785bff41c79ef6318a8c646528a6e0eac",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 다니 surprise at completion/cancellation news with verification, not witnessing or exercising approval. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-더군:P",
+      "taskId": "KP17:production:09",
+      "sourceHash": "1e6ae4f13d44609f95da4604f1861cd919c401e788e8140bd897748664ccac42",
+      "taskHash": "dabe7421be5677ac14d9c051f3f8e4c897fea84ef924aee8590d9cedd988f1b8",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더군요 discovery from direct visit/reading; no unobserved-date extension. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-더라:P",
+      "taskId": "KP17:production:10",
+      "sourceHash": "9aac07a92b0f27e80eafb847166f5e7dfaf5cd270ce98df8a16b196005eb4580",
+      "taskHash": "0af0956ac981ad584b365325c4413707599fdf0c84792cd791bdcfeee4791ba6",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 더라 own recalled yesterday/earlier observation in casual speech, not current action or tomorrow guarantee. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-던데1:P",
+      "taskId": "KP17:production:11",
+      "sourceHash": "b4676d4f17c6c72f539c919a1c5b981e7ffd415b5359dcb0618d4e9b776b6016",
+      "taskHash": "7024187f2ad1870ead3e1b17bed5fd0577950ce360bb4dee12dc73c38fbb14b3",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 던데 remembered closure/short explanation as background to current question, not current conclusion. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-는 줄:P",
+      "taskId": "KP17:production:12",
+      "sourceHash": "0a6d4ddf63dff5f13c981a1aa808b9a8d4d4a8ad4c73a503987796a19f6be2b2",
+      "taskHash": "8c5a72632afff13c11545584bdd99187afe5f6ca53bd42dac43bb9e2ec572511",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 줄 알았어요 explicitly corrected by notice/price list; former tomorrow/free belief differs from confirmed today/paid facts. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
+    },
+    {
+      "objectiveId": "KP17:objective:grammar/G4:-어야지2:P",
+      "taskId": "KP17:production:13",
+      "sourceHash": "15f1a854966b6194d8d06a868bbe2d2b110c21ac1aeb8159dc228b4f92194383",
+      "taskHash": "bcb3d5c1faa144862d99ea4bee47bfe293512657d68ab3bedeadca9b88d7d07f",
+      "criterionIds": [
+        "sentence"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "원문·출처·자료·응답 지시의 실제 요구를 비교해 연결했다. KO/EN/DE bounded production checked: 어야지 intimate mutual-care ought, not completed action or default admonition of unfamiliar colleagues. Held-out conditions and critical contrast, unknown alternate wording unscored. 전체 어휘·자유 의미·억양 숙달은 미검증이다."
     }
   ]
 }

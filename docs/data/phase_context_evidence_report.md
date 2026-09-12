@@ -209,19 +209,19 @@
 | KP16 | G4:치고 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:-는 한 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:-는다거나2 | 1 | 0 | 0 | 미검증 |
-| KP17 | G4:-어라1 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-는대2 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-고4 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-게5 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-나3 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-는다니2 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-는다면서1 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-다니1 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-더군 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-더라 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-던데1 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-는 줄 | 0 | 0 | 0 | 미검증 |
-| KP17 | G4:-어야지2 | 0 | 0 | 0 | 미검증 |
+| KP17 | G4:-어라1 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-는대2 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-고4 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-게5 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-나3 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-는다니2 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-는다면서1 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-다니1 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-더군 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-더라 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-던데1 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-는 줄 | 1 | 0 | 0 | 미검증 |
+| KP17 | G4:-어야지2 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-다시피 | 0 | 0 | 0 | 미검증 |
 | KP18 | G4:-거니와 | 0 | 0 | 0 | 미검증 |
 | KP18 | G4:에 의하여 | 0 | 0 | 0 | 미검증 |
@@ -535,3 +535,16 @@
 - KP16 / G4:치고 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/9/practice/sourceKo` — “처음 만든 것치고 꽤 잘했어요.”. 첫 시도라는 범주의 기대와 실제를 비교해 평가한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP16 / G4:-는 한 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/10/practice/sourceKo` — “자료가 부족한 한 단정할 수 없습니다.”. 자료 부족이 유지되는 범위에서 단정하지 않는 제한이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP16 / G4:-는다거나2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp16.json/tasks/11/practice/sourceKo` — “직접 만난다거나 전화로 이야기하는 방법이 있어요.”. 가능한 행동의 예시를 열거하며 이미 실행된 전언이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-어라1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/0/practice/sourceKo` — “극본에서 교사가 학생에게: 먼저 자료를 읽어라.”. 가상 교사와 학생 관계 안의 직접 명령을 인용한 것이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-는대2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/1/practice/sourceKo` — “친구 말로는 오늘 회의가 없대요. 저는 담당자에게 확인하지 않았어요.”. 친구를 거친 축약 전언이고 전달자의 직접 확인 전이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-고4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/2/practice/sourceKo` — “주말에도 일한다고요? 그럼 쉬는 날은 없고요?”. 선행 근무 발언에 쉬는 날 관련 질문을 덧붙인다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-게5 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/3/practice/sourceKo` — “반말에 합의한 친구에게: 이 짐을 어디로 가져가게?”. 친구의 행동 의도를 묻는 반말 질문이다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-나3 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/4/practice/sourceKo` — “내가 잘못 들었나 다시 생각했어요.”. 잘못 들었을 가능성을 문장 안의 의문으로 검토한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-는다니2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/5/practice/sourceKo` — “친구에게: 내일 회의를 한다니? 시간이 바뀐 거야?”. 전언 내용을 재확인하고 시간 변경을 묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-는다면서1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/6/practice/sourceKo` — “다음 달에 이사한다면서요? 아직 답은 듣지 못했어요.”. 들은 내용을 상대에게 확인하며 답변은 아직 없다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-다니1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/7/practice/sourceKo` — “벌써 끝났다니? 정말이에요?”. 뜻밖의 소식에 놀라며 확인을 요청한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-더군 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/8/practice/sourceKo` — “직접 가 보니 생각보다 멀더군요.”. 직접 방문해 체감한 거리를 회고한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-더라 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/9/practice/sourceKo` — “친구에게: 어제 가 보니 문이 닫혀 있더라.”. 어제 직접 본 상태를 친구에게 회상해 전한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-던데1 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/10/practice/sourceKo` — “어제는 문이 닫혀 있던데 오늘은 여나요?”. 과거 관찰을 배경으로 현재 정보를 묻는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-는 줄 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/11/practice/sourceKo` — “회의가 내일인 줄 알았어요. 공지를 보니 오늘이었어요.”. 과거 믿음과 확인한 실제 일정을 대비해 오해를 정정한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
+- KP17 / G4:-어야지2 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp17.json/tasks/12/practice/sourceKo` — “서로 돌보는 친구에게: 힘들면 미리 말해야지.”. 친밀한 상호 돌봄 관계에서 미리 알리는 당위를 강조한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.

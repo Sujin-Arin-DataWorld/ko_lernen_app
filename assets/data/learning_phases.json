@@ -1003,8 +1003,40 @@
         "b2_04_complaint_resolution"
       ],
       "illustrationAsset": "assets/illustrations/phases/kp17.webp",
-      "taskIds": [],
-      "taskCoverage": "related_practice_only"
+      "taskIds": [
+        "KP17:grammar:01",
+        "KP17:grammar:02",
+        "KP17:grammar:03",
+        "KP17:grammar:04",
+        "KP17:grammar:05",
+        "KP17:grammar:06",
+        "KP17:grammar:07",
+        "KP17:grammar:08",
+        "KP17:grammar:09",
+        "KP17:grammar:10",
+        "KP17:grammar:11",
+        "KP17:grammar:12",
+        "KP17:grammar:13",
+        "KP17:production:01",
+        "KP17:production:02",
+        "KP17:production:03",
+        "KP17:production:04",
+        "KP17:production:05",
+        "KP17:production:06",
+        "KP17:production:07",
+        "KP17:production:08",
+        "KP17:production:09",
+        "KP17:production:10",
+        "KP17:production:11",
+        "KP17:production:12",
+        "KP17:production:13",
+        "KP17:listening:01",
+        "KP17:listening:02",
+        "KP17:reading:01",
+        "KP17:writing:01",
+        "KP17:speaking:01"
+      ],
+      "taskCoverage": "partial"
     },
     {
       "id": "KP18",
@@ -1355,5 +1387,5 @@
       "taskCoverage": "related_practice_only"
     }
   ],
-  "phaseTaskSourceSha256": "0da136cba9d7158659894c3879b38230190643e06ec802a2abfd2564125d9366"
+  "phaseTaskSourceSha256": "7a4326a08383a75e1cb92f9da037ddec87c5d28dac46b463e2148a123d92aee7"
 }
