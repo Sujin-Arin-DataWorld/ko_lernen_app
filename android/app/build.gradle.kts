@@ -52,11 +52,31 @@ gradle.taskGraph.whenReady {
 }
 val hasReleaseKey = releaseSigningError == null
 
-// versionCode 자동 증가 — git 커밋 수 기반. 커밋마다 +1 이라 Play 재업로드 시
-// versionCode 충돌(이미 올라간 20 등)을 원천 차단한다. versionName(2.0.5)은 그대로.
-// git 사용 불가 시(소스 zip 등) 안전 폴백 21(>이미 올라간 20).
+// versionCode = (git 커밋 수 × 2) + 트랙 오프셋. versionName(pubspec)은 그대로.
+//
+// **왜 트랙마다 다른 칸을 쓰나.** Play 의 versionCode 는 트랙이 아니라 앱 전역에서
+// 유일해야 한다. 예전엔 커밋 수를 그대로 썼는데, 같은 SHA 를 내부 테스트(ci.yml)와
+// 비공개 테스트(play_closed.yml)가 각각 빌드하면 두 번째 업로드가 언제나
+// "Version code N has already been used." 로 거부됐다(2026-09-06 run 34036865928).
+// 그래서 릴리스마다 자동 내부배포를 껐다 켜는 수작업이 생겼고, 되돌리는 걸 잊자
+// 내부 테스트 트랙이 조용히 멈춰 2026-09-06 의 Hören 카드 그리드 변경이 그 트랙의
+// 빌드에 없었다. 트랙마다 칸을 나누면 두 경로가 같은 번호를 두고 다툴 일이 없다.
+//
+//   PLAY_TRACK 미설정·internal → 짝수 2N   (main CI 자동 내부 업로드, 로컬 빌드)
+//   PLAY_TRACK=alpha|closed    → 홀수 2N+1 (같은 소스의 내부 빌드보다 딱 1 높다)
+//
+// 커밋 수는 늘기만 하므로 번호도 단조 증가한다. 이 식은 워크플로의 아티팩트 이름·
+// 심볼 증거 게이트가 쓰는 bash 식과 같아야 하며, 어긋나면
+// `.github/scripts/test_play_version_code_contract.py` 가 CI 에서 잡는다.
+// git 사용 불가 시(소스 zip 등) 안전 폴백 커밋 수 21.
+val playTrackVersionOffset: Int =
+    when (System.getenv("PLAY_TRACK")?.trim()?.lowercase()) {
+        "alpha", "closed" -> 1
+        else -> 0
+    }
+
 val autoVersionCode: Int = run {
-    try {
+    val commitCount = try {
         val process = ProcessBuilder("git", "rev-list", "--count", "HEAD")
             .directory(rootProject.projectDir)
             .redirectErrorStream(true)
@@ -67,6 +87,7 @@ val autoVersionCode: Int = run {
     } catch (e: Exception) {
         21
     }
+    commitCount * 2 + playTrackVersionOffset
 }
 
 android {

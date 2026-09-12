@@ -461,6 +461,15 @@ jobs:
   # 비공개 테스트(Closed Testing / alpha)·공개 테스트(beta)·Production·
   # iOS/TestFlight 는 이 워크플로가 절대 쓰지 않는다. 테스터 목록은 Play
   # Console 내부 테스트 이메일(Jin 전용)이고, 트랙 승격은 자동화하지 않는다.
+  #
+  # **게이트는 opt-out 이다** (2026-09-07). 예전 `PLAY_INTERNAL_RELEASE_ENABLED`
+  # 는 opt-in 이라, 비공개 릴리스마다 versionCode 충돌을 피하려고 껐다가 되돌리는
+  # 수작업이 필요했다. 2026-09-06 에 그 되돌리기를 잊자 내부 테스트 트랙이
+  # c3f5a71f(versionCode 2251) 에서 조용히 멈췄고, 그 뒤 병합된 Hören 카드 그리드
+  # (#274)가 트랙에 없었다. 이제 versionCode 는 트랙마다 칸이 갈리므로
+  # (android/app/build.gradle.kts) 끌 이유가 없다 — 변수를 지워도 배포는 돈다.
+  # 정말 멈춰야 하면 저장소 변수 `PLAY_INTERNAL_RELEASE_DISABLED=true` 로 명시하고,
+  # 트랙이 낡은 채로 남는다는 걸 알고 쓴다.
   release-internal:
     name: Signed AAB to Play Internal Testing
     needs: [changes, build]
@@ -468,7 +477,7 @@ jobs:
       always() &&
       needs.build.result == 'success' &&
       needs.changes.outputs.app == 'true' &&
-      vars.PLAY_INTERNAL_RELEASE_ENABLED == 'true' &&
+      vars.PLAY_INTERNAL_RELEASE_DISABLED != 'true' &&
       ((github.event_name == 'push' && github.ref == 'refs/heads/main') ||
        (github.event_name == 'workflow_dispatch' && inputs.task == 'release-internal'))
     runs-on: ubuntu-latest
@@ -566,7 +575,12 @@ jobs:
       # flipped without a commit. Unset → empty string → Dart's
       # bool.fromEnvironment falls back to its own defaultValue (false).
       # Server-side gates remain authoritative either way.
+      # PLAY_TRACK 은 versionCode 의 칸을 고른다 (internal → 짝수 2N).
+      # 비공개 트랙은 play_closed.yml 에서 alpha(홀수 2N+1)로 빌드하므로 같은
+      # SHA 를 두 트랙에 올려도 Play 가 중복 versionCode 로 거부하지 않는다.
       - name: Build signed internal-testing bundle
+        env:
+          PLAY_TRACK: internal
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
@@ -595,8 +609,11 @@ jobs:
           set -euo pipefail
           aab=build/app/outputs/bundle/release/app-release.aab
           sha256sum "$aab" | tee "$aab.sha256"
+          # android/app/build.gradle.kts 와 같은 식: internal = 커밋 수 × 2.
+          version_code="$(( $(git rev-list --count HEAD) * 2 + 0 ))"
           short_sha="${GITHUB_SHA:0:8}"
-          echo "name=${GITHUB_RUN_NUMBER} · ${short_sha}" >> "$GITHUB_OUTPUT"
+          echo "version-code=$version_code" >> "$GITHUB_OUTPUT"
+          echo "name=${GITHUB_RUN_NUMBER} · internal · v${version_code} · ${short_sha}" >> "$GITHUB_OUTPUT"
 
       - name: Preserve AAB and Dart symbols
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -621,6 +638,19 @@ jobs:
           status: completed
           releaseName: ${{ steps.release-meta.outputs.name }}
           inAppUpdatePriority: 0
+
+      # 어느 트랙에 무엇이 올라갔는지 런 요약에 남긴다 — Play Console 을 열지 않고도
+      # "내부 테스트에 지금 뭐가 있나"를 Actions 에서 바로 읽을 수 있다.
+      - name: Record the internal release in the run summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            printf '### Play 내부 테스트(internal) 업로드\n'
+            printf -- '- versionCode `%s`\n' "${{ steps.release-meta.outputs.version-code }}"
+            printf -- '- commit `%s`\n' "$GITHUB_SHA"
+            printf -- '- 앱 설정 → Über 행이 이 versionCode·짧은 SHA 와 같아야 한다.\n'
+          } >> "$GITHUB_STEP_SUMMARY"
 
   release-website:
     name: Website to Cloudflare Production

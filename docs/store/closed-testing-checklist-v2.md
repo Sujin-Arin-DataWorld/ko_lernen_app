@@ -103,23 +103,36 @@ release machine에만 두고, 값이나 경로를 문서·로그·피드백에 �
 
 ### 2.2 versionCode와 commit 주입
 
-Android versionCode는 gradle이 release commit의 git commit 수로 계산한다. 후보 SHA에서
-다음을 확인하고 Play Console의 최고 existing versionCode보다 큰 값만 사용한다.
+Android versionCode는 gradle이 **(git commit 수 × 2) + 트랙 오프셋**으로 계산한다
+(`android/app/build.gradle.kts`). 트랙마다 칸이 갈리므로 같은 SHA를 두 트랙에 올려도
+번호가 겹치지 않는다.
+
+| 트랙 | 빌드 경로 | versionCode |
+|---|---|---|
+| 내부 테스트(internal) | main push CI 자동 | 커밋 수 × 2 (짝수) |
+| 비공개 테스트(alpha) | `play_closed.yml` 수동 dispatch | 커밋 수 × 2 + 1 (홀수) |
+
+후보 SHA에서 다음을 확인한다.
 
 ```bash
 git rev-parse --short HEAD
-git rev-list --count HEAD
+echo "internal vC: $(( $(git rev-list --count HEAD) * 2 ))"
+echo "closed   vC: $(( $(git rev-list --count HEAD) * 2 + 1 ))"
 grep '^version:' pubspec.yaml
 ```
 
-versionName은 pubspec.yaml에서, versionCode는 위 commit count에서 읽는다. 둘 중 어느
-값도 과거 release notes의 숫자로 대체하지 않는다.
+versionName은 pubspec.yaml에서, versionCode는 위 식에서 읽는다. 둘 중 어느 값도 과거
+release notes의 숫자로 대체하지 않는다. 워크플로가 아니라 로컬에서 비공개용 AAB를 직접
+만들 때는 트랙을 넘겨야 홀수 칸이 나온다 —
+`PLAY_TRACK=alpha flutter build appbundle --release …` (빼먹으면 내부 칸(짝수)으로
+빌드돼 main CI가 이미 올린 번호와 부딪친다).
 
-내부테스트와 비공개테스트는 서로 다른 커밋에서 자른다. versionCode가 commit count라서
-같은 SHA로 두 트랙을 올리면 두 번째 업로드가 `Version code N has already been used.`로
-거부된다. `PLAY_INTERNAL_RELEASE_ENABLED=true`인 동안에는 main push마다 내부 업로드가
-그 커밋의 versionCode를 먼저 소비하므로, 비공개 후보를 자르기 전에 변수를 끈다
-(2026-09-01 vC2215 실사고 — 빌드·서명·게이트는 통과하고 업로드 호출만 거부됐다).
+**더 이상 두 트랙을 다른 커밋에서 자를 필요가 없다** (2026-09-07). 예전엔 versionCode가
+commit count 그대로여서 같은 SHA의 두 번째 업로드가 `Version code N has already been
+used.`로 거부됐고(2026-09-01 vC2215 · 2026-09-06 run 34036865928), 그래서 비공개 후보를
+자르기 전에 자동 내부배포 변수를 껐다. 그 되돌리기를 잊은 결과 2026-09-06~09-07 내부
+테스트 트랙이 vC2251에 멈춰 그 뒤 병합된 Hören 카드 그리드(#274)가 트랙 빌드에 없었다.
+트랙별 오프셋이 그 원인을 없앴으므로, 어떤 변수도 껐다 켜지 않는다.
 
 ### 2.3 자동 사전 게이트
 
@@ -209,11 +222,18 @@ Play Console에서 처리·게시된 alpha release를 확인한 뒤 opt-in 링�
 이 브랜치가 머지된 Internal 빌드에서만 전부 확인 가능하다 — 그 전에는 main의
 기존 5개 표면(`CulturalHelpButton` 직접 호출)만 확인할 수 있다.
 
-**사전**: 업로드한 SHA로 기대 vC를 구한다 —
-`git rev-list --count <업로드 SHA>`. 앱 설정 → Über(About) 행이
+**사전**: 업로드한 SHA로 기대 vC를 구한다 — 내부 테스트는
+`$(( $(git rev-list --count <업로드 SHA>) * 2 ))`, 비공개 테스트는 거기에 +1.
+앱 설정 → Über(About) 행이
 "Version 2.0.8 (vC) · sha"(짧은 SHA)로 그 vC·SHA와 일치하는지 확인한다 —
 불일치하면 구버전이 설치된 것이니 재설치 후 다시 확인한다. About 행을 길게
 눌러 정보가 클립보드에 복사되고 확인 알림이 뜨는지도 함께 본다.
+
+**Nach Updates suchen**: 설정 → Über die App → "Nach Updates suchen"를 탭한다.
+Play가 이 기기의 트랙에서 더 새 빌드를 갖고 있으면 확인 창이 뜨고, 없으면
+"Du hast schon die neueste Version."이 나온다. 디버그·사이드로드 설치에서는 Play가
+답할 수 없어 "Hier nicht prüfbar."와 함께 스토어 페이지가 열리는 게 정상이다
+(이 경로는 Play로 설치한 빌드에서만 실제 동작을 확인할 수 있다).
 
 **Kulturhinweise zurücksetzen**: 설정 → "Kulturhinweise zurücksetzen"을 탭한다.
 

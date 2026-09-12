@@ -841,6 +841,49 @@ class AppL10nEn extends AppL10n {
   String get settingsVersionCopied => 'Version info copied';
 
   @override
+  String get settingsUpdateTitle => 'Check for updates';
+
+  @override
+  String get settingsUpdateSubtitle =>
+      'Get the newest version from Google Play';
+
+  @override
+  String get settingsUpdateChecking => 'Checking';
+
+  @override
+  String get settingsUpdateUpToDate => 'You already have the newest version.';
+
+  @override
+  String settingsUpdateAvailable(Object v) {
+    return 'New version $v is here.';
+  }
+
+  @override
+  String get settingsUpdateDialogTitle => 'Update available';
+
+  @override
+  String settingsUpdateDialogBody(Object v) {
+    return 'Version $v will now be downloaded and installed through Google Play.';
+  }
+
+  @override
+  String get settingsUpdateStart => 'Update now';
+
+  @override
+  String get settingsUpdateLater => 'Later';
+
+  @override
+  String get settingsUpdateDeclined => 'Update cancelled.';
+
+  @override
+  String get settingsUpdateFailed =>
+      'The update did not work. Continue in the Play Store.';
+
+  @override
+  String get settingsUpdateUnavailable =>
+      'Cannot check here. Look in the Play Store.';
+
+  @override
   String get settingsPrivacyTitle => 'Privacy Policy';
 
   @override

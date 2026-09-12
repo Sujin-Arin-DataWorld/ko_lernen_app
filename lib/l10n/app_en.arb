@@ -372,6 +372,36 @@
   "@settingsVersionCopied": {
     "description": "Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13)."
   },
+  "settingsUpdateTitle": "Check for updates",
+  "@settingsUpdateTitle": {
+    "description": "Settings > About row that asks Google Play for the newest build of the track this device is on (in-app update)."
+  },
+  "settingsUpdateSubtitle": "Get the newest version from Google Play",
+  "settingsUpdateChecking": "Checking",
+  "settingsUpdateUpToDate": "You already have the newest version.",
+  "settingsUpdateAvailable": "New version {v} is here.",
+  "@settingsUpdateAvailable": {
+    "description": "Row subtitle after a check found a newer build. {v} is the Play versionCode of that build.",
+    "placeholders": {
+      "v": {}
+    }
+  },
+  "settingsUpdateDialogTitle": "Update available",
+  "settingsUpdateDialogBody": "Version {v} will now be downloaded and installed through Google Play.",
+  "@settingsUpdateDialogBody": {
+    "description": "Confirmation dialog body before handing the download to Play. {v} is the Play versionCode of the new build.",
+    "placeholders": {
+      "v": {}
+    }
+  },
+  "settingsUpdateStart": "Update now",
+  "settingsUpdateLater": "Later",
+  "settingsUpdateDeclined": "Update cancelled.",
+  "settingsUpdateFailed": "The update did not work. Continue in the Play Store.",
+  "settingsUpdateUnavailable": "Cannot check here. Look in the Play Store.",
+  "@settingsUpdateUnavailable": {
+    "description": "Shown where Play cannot answer (debug or sideloaded install, iOS, web). Never claim the build is current in that case."
+  },
   "settingsPrivacyTitle": "Privacy Policy",
   "settingsPrivacySubtitle": "Copy link",
   "settingsPrivacyCopied": "Link copied: {url}",

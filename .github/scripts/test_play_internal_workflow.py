@@ -10,12 +10,16 @@ class PlayInternalWorkflowTest(unittest.TestCase):
             encoding="utf-8"
         )
 
-    def test_release_waits_for_main_quality_gate_and_explicit_enablement(self):
+    def test_release_waits_for_main_quality_gate_and_is_opt_out(self):
+        # 2026-09-07: 게이트가 opt-in(`PLAY_INTERNAL_RELEASE_ENABLED == 'true'`)
+        # 이던 시절, 비공개 릴리스마다 versionCode 충돌을 피하려 껐다가 되돌리는
+        # 수작업이 있었고 그 되돌리기를 잊자 내부 트랙이 멈췄다. 이제 트랙별로
+        # versionCode 칸이 갈려 끌 이유가 없으므로 명시적 kill switch 만 남긴다.
         release = self.workflow.split("  release-internal:", 1)[1]
         self.assertIn("needs: [changes, build]", release)
         self.assertIn("needs.build.result == 'success'", release)
         self.assertIn("github.ref == 'refs/heads/main'", release)
-        self.assertIn("vars.PLAY_INTERNAL_RELEASE_ENABLED == 'true'", release)
+        self.assertIn("vars.PLAY_INTERNAL_RELEASE_DISABLED != 'true'", release)
         self.assertIn("name: google-play-internal", release)
 
     def test_release_is_signed_reproducible_and_targets_internal_only(self):
@@ -32,6 +36,7 @@ class PlayInternalWorkflowTest(unittest.TestCase):
             release, r"r0adkll/upload-google-play@[0-9a-f]{40} # v1\.1\.5\b"
         )
         self.assertIn("Build signed internal-testing bundle", release)
+        self.assertIn("PLAY_TRACK: internal", release)
         self.assertNotIn("closed-testing bundle", release)
         self.assertEqual(release.count("r0adkll/upload-google-play"), 1)
         self.assertEqual(release.count("tracks:"), 1)

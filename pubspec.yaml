@@ -98,6 +98,11 @@ dependencies:
   firebase_app_check_platform_interface: ^0.4.2
   flutter_secure_storage: ^10.3.1
   package_info_plus: ^10.2.1
+  # 설정 → "업데이트 확인"(lib/services/app_update_service.dart). Play 에 직접
+  # 물어 그 기기가 속한 트랙의 최신 빌드를 받는다 — 최신 버전 번호를 어딘가에
+  # 수기로 적어 두면 그 값이 낡는다(2026-09-06 내부 트랙 동결 사고). 5.0.0 은
+  # Flutter 3.44 / Dart 3.12 전용 릴리스로 이 저장소의 툴체인과 같다.
+  in_app_update: ^5.0.0
   device_info_plus: ^13.2.0
   uuid: ^4.5.1
 

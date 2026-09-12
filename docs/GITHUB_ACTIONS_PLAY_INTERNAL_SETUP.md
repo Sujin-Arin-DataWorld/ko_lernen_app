@@ -40,8 +40,15 @@ Play Console → 테스트 → **내부 테스트** → 테스터 이메일에 J
    - `ANDROID_KEY_ALIAS`
    - `ANDROID_KEY_PASSWORD`
 
-5. Repository variable `PLAY_INTERNAL_RELEASE_ENABLED`를 `true`로 설정한다. 이 값이
-   없거나 `true`가 아니면 배포 job은 안전하게 건너뛴다.
+5. 저장소 변수는 필요 없다. 시크릿이 갖춰지면 main push CI가 내부 테스트 트랙에
+   자동으로 올린다(2026-09-07부터 opt-out). 정말 멈춰야 할 때만 저장소 변수
+   `PLAY_INTERNAL_RELEASE_DISABLED=true`를 두고, 켜 두는 동안 내부 트랙은 main보다
+   낡은 상태로 남는다는 걸 감수한다.
+
+   > 옛 `PLAY_INTERNAL_RELEASE_ENABLED`(opt-in)는 폐기됐다. 비공개 릴리스마다
+   > versionCode 충돌을 피하려 껐다 되돌리는 수작업이 필요했고, 되돌리기를 잊자
+   > 내부 트랙이 조용히 멈췄다(2026-09-06~09-07). 지금은 versionCode가 트랙마다
+   > 갈리므로(`android/app/build.gradle.kts`) 끌 이유 자체가 없다.
 
 Windows에서 keystore 내용을 화면에 출력하지 않고 클립보드로 복사하려면:
 

@@ -142,7 +142,13 @@ jobs:
       # flipped without a commit. Unset → empty string → Dart's
       # bool.fromEnvironment falls back to its own defaultValue (false).
       # Server-side gates remain authoritative either way.
+      # PLAY_TRACK 은 versionCode 의 칸을 고른다 (alpha → 홀수 2N+1).
+      # main CI 의 내부 업로드는 같은 SHA 에서 짝수 2N 을 쓰므로, 이 재빌드가
+      # "Version code N has already been used." 로 거부되지 않는다 — 예전엔
+      # 그 충돌 때문에 릴리스마다 자동 내부배포를 꺼야 했다(2026-09-06).
       - name: Build signed closed-testing bundle
+        env:
+          PLAY_TRACK: alpha
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
@@ -171,10 +177,11 @@ jobs:
           set -euo pipefail
           aab=build/app/outputs/bundle/release/app-release.aab
           sha256sum "$aab" | tee "$aab.sha256"
-          version_code="$(git rev-list --count HEAD)"
+          # android/app/build.gradle.kts 와 같은 식: alpha = 커밋 수 × 2 + 1.
+          version_code="$(( $(git rev-list --count HEAD) * 2 + 1 ))"
           short_sha="${GITHUB_SHA:0:8}"
           echo "version-code=$version_code" >> "$GITHUB_OUTPUT"
-          echo "name=${GITHUB_RUN_NUMBER} · closed · ${short_sha}" >> "$GITHUB_OUTPUT"
+          echo "name=${GITHUB_RUN_NUMBER} · closed · v${version_code} · ${short_sha}" >> "$GITHUB_OUTPUT"
 
       # R4 (tool/android_release_evidence.py): independently verifies the
       # exact built AAB's native symbols reached Crashlytics before the Play
@@ -414,3 +421,15 @@ jobs:
           status: completed
           releaseName: ${{ steps.release-meta.outputs.name }}
           inAppUpdatePriority: 0
+
+      # 어느 트랙에 무엇이 올라갔는지 런 요약에 남긴다.
+      - name: Record the closed release in the run summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            printf '### Play 비공개 테스트(alpha) 업로드\n'
+            printf -- '- versionCode `%s`\n' "${{ steps.release-meta.outputs.version-code }}"
+            printf -- '- commit `%s`\n' "$GITHUB_SHA"
+            printf -- '- 앱 설정 → Über 행이 이 versionCode·짧은 SHA 와 같아야 한다.\n'
+          } >> "$GITHUB_STEP_SUMMARY"
