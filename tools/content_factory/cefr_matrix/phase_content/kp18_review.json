@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP18:grammar:01",
+      "sha256": "b59c846aa386815e6b4f13e2224908a8c054895e663e9215988bed2a19944331",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Shared visible or already known evidence with 다시피; no extra causal proof or current-year claim. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:01",
+      "sha256": "2729a73a527af47243a3a1191a45e713805c6d69496922790657583275ce1061",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Shared visible or already known evidence with 다시피; no extra causal proof or current-year claim. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:02",
+      "sha256": "7fa4f22707d7e2c800f33f95451e980b496a4633678be71141db9bd0d3f1c17e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 거니와 adds an independent property or argument, not an automatic causal relation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:02",
+      "sha256": "8b56b61606d8acd58ebab84630d90177dced6f72e9d43729dd4f6677f9d1d494",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 거니와 adds an independent property or argument, not an automatic causal relation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:03",
+      "sha256": "aea0ebd9a6d9a0bae1218f96c343c5b0e0451cdc74634f7c957469b3da2e8779",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 에 의하여 procedural basis, not automatic approval or universal taxonomy; agent readings distinguished in guidance. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:03",
+      "sha256": "9b6d81834fe325015d2c56966bb6e23f267d4d716572dbfef905cedb18469ade",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 에 의하여 procedural basis, not automatic approval or universal taxonomy; agent readings distinguished in guidance. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:04",
+      "sha256": "4baef983254399a8dc73c91560fa2550b07683319ce8f071bb6eeb50c9733bb1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으므로 reason for withheld judgement or nonaggregation, not evidence that a proposition is false. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:04",
+      "sha256": "ec339f8929dd958f5b62174ef2e100a7a84e51392487f2ac89691fd07203a116",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으므로 reason for withheld judgement or nonaggregation, not evidence that a proposition is false. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:05",
+      "sha256": "2257de85343a71d7ee6e798eb21bcd84df3ba065536c42be3d67ed4360c62417",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 나 싶다 tentative self-questioning about explanation or differing tables, not global admission of responsibility. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:05",
+      "sha256": "867b0b988fcf83dc3f2668e9552b89f3b01a2f278310847086e1ed28c0ed630c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 나 싶다 tentative self-questioning about explanation or differing tables, not global admission of responsibility. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:06",
+      "sha256": "d81bc9839719bc01095db5885506213cc4ed24a75f1bd82624c18c005f942b80",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 듯 impression/as-if with an actual surrounding event; apparent understanding not verified comprehension. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:06",
+      "sha256": "3b4c77974722d6f7be469abac61e332bbc7b41e33cfd95e9cbc70e3f2928d1d8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 듯 impression/as-if with an actual surrounding event; apparent understanding not verified comprehension. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:07",
+      "sha256": "25c0bdb818771b2ceb235d66867d27a76ea8ef80abb45b52112bec16509bbb61",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을걸 here regrets a past non-action; not forecast probability. P uses held-out 읽을걸 그랬어요. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:07",
+      "sha256": "3a476063cb135afadd2c81524367421d7b3184fc48bcdf6dfe4ab6c5836ed3ea",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을걸 here regrets a past non-action; not forecast probability. P uses held-out 읽을걸 그랬어요. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:08",
+      "sha256": "9d9c88d93323c145cae7ab00bee6b2255e9027870f34c7b077f0d0f9be03fe25",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 모양이다 anticipates rain/opening from visible clues; not already observed event or confirmed schedule. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:08",
+      "sha256": "9c898143a919d0bfc3511a9a72a44316dfb45c8983ce7c147c95b514e4f6cba6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 모양이다 anticipates rain/opening from visible clues; not already observed event or confirmed schedule. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:09",
+      "sha256": "90c6e6abcf1b24ef20bb72178ada35da16573292d8b75560045bca7f8e25befc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 까지 unexpected inclusion of a friend/experienced colleague, not temporal endpoint or universal agreement. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:09",
+      "sha256": "3bf816fb2121416dc0ed8897c00fac52cc77f31dd3ef414e2009b4b2bdeb32c0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 까지 unexpected inclusion of a friend/experienced colleague, not temporal endpoint or universal agreement. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:10",
+      "sha256": "96998e96b4c1d087e18b34f54e5c909d94bfa0f29df9b387c383e470cb7156b7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 마저 loss of the remaining chance/space, not preservation of last alternative. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:10",
+      "sha256": "0d1d4eea1921d5f57a3c870ea29905fad4d8a794ebc95f4ba9f0293a1a033f02",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 마저 loss of the remaining chance/space, not preservation of last alternative. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:11",
+      "sha256": "fc093b2b14eacca5542d9b42012dade02b8a4703af186e68f9f876b1ac64a5ad",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이야 limited contrast about time/title, not permission to alter every condition or factual content. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:11",
+      "sha256": "c17020c8217cf30daa74ab5eab1c5e724ebd339bf56ad146a9fb6d97bb6119ee",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이야 limited contrast about time/title, not permission to alter every condition or factual content. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:12",
+      "sha256": "a977819fc5f5b6fef6be1a75127396365d85ac352d4dbf74975190062c23d6a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 커녕 denies higher rest/detail expectations and even lower eating/title expectations; no polarity reversal. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:12",
+      "sha256": "66855605371678eef6ea980c6b2c1ab22c7a0d24bcab55765278d4cbe55017ec",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 커녕 denies higher rest/detail expectations and even lower eating/title expectations; no polarity reversal. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:13",
+      "sha256": "b2b6a9fb208eff1bf9530ffd04d389994355105091bc9ae080955ff1a33529f5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을 따름이다 formally limits action/claim to verified facts or comparing sources, not cause or liability proof. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:13",
+      "sha256": "a1b886c88c685a02f5782a1f125ff2c6ff97fbc42715a90fc4ce8b978b72b0e2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을 따름이다 formally limits action/claim to verified facts or comparing sources, not cause or liability proof. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:14",
+      "sha256": "a1ce62233411836e1a675b3bec9f286657139c970a8152e00aa2cf06ba938f1e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고자 formal purpose of investigation/dialogue, not successful completion or acceptance. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:14",
+      "sha256": "7e338e8e377ef59d6f30d9083ba11b636f32d38929356620a4e5ecaaf9813489",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고자 formal purpose of investigation/dialogue, not successful completion or acceptance. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:15",
+      "sha256": "af65c5ecddd5e7cafb03dad99c02e735467cc5452e13dde79e147b21052a7c87",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고도 action completed without expected comprehension/error detection; action itself not negated. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:15",
+      "sha256": "1f920aaf516611b489d2c17468cafb39e2ecf3d9c66f0051503e58af6afc946c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고도 action completed without expected comprehension/error detection; action itself not negated. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:16",
+      "sha256": "9f32a2b1d5535533e7bdaf7376d4bb356959726556aa86d25fd23664367182ed",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고 들다 insistent confrontation before explanation/answer, not neutral listening or proof of malicious motive. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:16",
+      "sha256": "157dadea682c6e6a2dc11fe2a17515d9d6eb1e5feec46d2b91f85631f3df4853",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고 들다 insistent confrontation before explanation/answer, not neutral listening or proof of malicious motive. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:17",
+      "sha256": "058b40d9285c8f8f32022fe1effc326740543ca169094a0b27a2488636b3fe5e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고 보다 act first, review conditions/accuracy afterwards, not prior verification or approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:17",
+      "sha256": "3297b5cb37e5ff4bb88d17164960dd32131f0fd88b698c9d1e3c24c5f6e1ab09",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고 보다 act first, review conditions/accuracy afterwards, not prior verification or approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:18",
+      "sha256": "c4bc85673e9c21f7b08ad6210dc91b73ae4852b8e924ae6d850264fa4b42bc78",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고 해서 offers cold/insufficient data among multiple circumstances, not sole cause. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:18",
+      "sha256": "2af832ff6e58a67bdd1292f44ffb7d0dc21eae38871de0e381b1fd1326e5ab7b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고 해서 offers cold/insufficient data among multiple circumstances, not sole cause. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:grammar:19",
+      "sha256": "3e339ecedfd92e2915965c5eb67caa19f4e3bae772e8d4f013e7109b53bcde13",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 대로 immediate follow-up conditional on verification/response arrival, not a fixed time or completed action. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP18:production:19",
+      "sha256": "179c6692dda6624c712c89f08497a236fad67255d917d444bd7c5f362cc91ef5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 대로 immediate follow-up conditional on verification/response arrival, not a fixed time or completed action. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP18:listening:01",
+      "sha256": "781dc21cab2c420ca4b058fac58d000ed346b6df27789cf82a8159bc949fb9d1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: original public briefing and equal-peer objection, distinct pilot contexts and 80/120 versus 60/95 counts. Shared table, repeats versus unique people, convenience versus concurrent intervention, acknowledged delay objection and conditional pilot, cost/employment explicitly out of scope. Regret and cautious self-review distinct from forecast/guilt; arrival-triggered follow-up not completed. Seven required contrasts."
+    },
+    {
+      "taskId": "KP18:reading:01",
+      "sha256": "d0db04d1beec96290a91682d1764de66a7316470056af39bf153437134b777a8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual original news report and separate multi-paragraph opinion essay. Same period length/count method with repeats and unknown unique users; concurrent education/campaign prevents single-cause proof. Last in-person option lost but online remains; conditional not-even-apply warning not a universal observed count. Clear concession, alternative explanations, conditional recommendation and unmeasured costs/employment."
+    },
+    {
+      "taskId": "KP18:writing:01",
+      "sha256": "470a68ae7a306b00052b95ef2fedf22307bd74c54923268f63d51e89ef20e49b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: required complete free opinion essay with source citations, two arguments, strongest objection, concession/response and limited conclusion. Distinguish counts/people and alternatives, purpose/outcome, scalar emphasis and missing data. Compare sources and revise overclaim; semantic and argumentation quality unscored."
+    },
+    {
+      "taskId": "KP18:speaking:01",
+      "sha256": "88eeb6f9f86ca10d4d4f7b4e8e0430d1e3e9e4c8445126b09fb8d076bf3fa14a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: formal public briefing, polite equal-peer response to benefits-delay objection without denial of observed increase or personal blame, two interpretations and access criterion. Personal regret versus cautious question, then formal bounded conclusion/follow-up; replay argument/concession/conclusion pauses and focus. Meaning and intonation unscored."
+    }
+  ]
+}

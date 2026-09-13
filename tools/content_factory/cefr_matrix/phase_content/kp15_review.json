@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP15:grammar:01",
+      "sha256": "26d3bed917723b9887a13694125231fcf28c507ec7e6c8775c4183517fe52d39",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Observed weather/crowd state followed by change with 더니; chronology not causal inversion. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:01",
+      "sha256": "3a42174e5623e08995f6b6e55f8194e5c953a945591b05dc213d7f5c5fbae2d4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Observed weather/crowd state followed by change with 더니; chronology not causal inversion. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:02",
+      "sha256": "fab015049906d843c3c2812d34c436b7cdcb500ff74d8ff18f1579ca55e7312f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Completed check/number recording precedes opinion/hang-up with 고서, not reversed order or truth guarantee. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:02",
+      "sha256": "ca4c3da23cbf33f0a0beeb8c1ac387ab601a385e0762b5d741b51dbf366dbd22",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Completed check/number recording precedes opinion/hang-up with 고서, not reversed order or truth guarantee. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:03",
+      "sha256": "365a398a0aab0031bac31aab43c04023625b5dee89d95145411a0543d1fbb307",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Reason for renewed question/original-source check with 기에; judgement versus observation preserved. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:03",
+      "sha256": "daab3fe6f8f94b6f5f288ac9f1ac2721af1523a5005d1218fdaeddfeb20eb113",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Reason for renewed question/original-source check with 기에; judgement versus observation preserved. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:04",
+      "sha256": "b2acd1f88513a66c99ab041ebb7f5963b40ebe2a5cb90e148abcb06c18e86089",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Unexpected train delay/outage with adverse consequence in this context, not universal blame semantics. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:04",
+      "sha256": "4ff87e5d6a29286a8f8a4d6115f6cf555716b61a1f3610e2c80335b3289bb48b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Unexpected train delay/outage with adverse consequence in this context, not universal blame semantics. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:05",
+      "sha256": "7be01df2cce0619d4aa2ee216b6e55a31bcad5ea5792e58ed6125c70c5ece522",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 탓에 encodes negative evaluation of preparation/notice delay, not verified investigation or legal liability. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:05",
+      "sha256": "1bb53d0f19afae38e7e1e06b45fba58bfada300648cf7a720eb1d30b09af5b41",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 탓에 encodes negative evaluation of preparation/notice delay, not verified investigation or legal liability. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:06",
+      "sha256": "cf004762910ceb2363df1bf8605a94217ccf0455f27576d625e4aca17aa79fb6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 통에 situates effects amid overlapping speech/crowd commotion; no invented individual intent. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:06",
+      "sha256": "f4c6ed0fb7f4de3519b051103ffd05d9f4882fffb484bca84443277b13c04eee",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 통에 situates effects amid overlapping speech/crowd commotion; no invented individual intent. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:07",
+      "sha256": "73a639dfe9397f4f912f8b2751e4e395286b18043185b95518190a422f34e1fd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Formal 인하여 does not itself blame; weather/outage causal claim still requires source verification. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:07",
+      "sha256": "6706d3ab418dd355fc16382cd7eeac5356f0ac25715c8984c7f0d02c7d2d5780",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Formal 인하여 does not itself blame; weather/outage causal claim still requires source verification. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:08",
+      "sha256": "a7157bb472f61bb5919274c52a25f8fe370455e99c9c2ac1ff49edba87948d3f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 사이에 locates event within absence/phone-call period; temporal overlap not intention or cause. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:08",
+      "sha256": "d91e551c9e51ac9a68b4fbceab16324a4a2f0d307856c418bc2ac4cf83dc0d7c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 사이에 locates event within absence/phone-call period; temporal overlap not intention or cause. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:09",
+      "sha256": "1de0eb6d496b5226a7f5ea417724741b90c372b439ecc4d83763df64dda16e16",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 김에 adds intentional document delivery/record check to existing trip opportunity, not cancellation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:09",
+      "sha256": "950394d10e73a946c998a38987b326c9a38ed757ac525297a0613af24c896b9b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 김에 adds intentional document delivery/record check to existing trip opportunity, not cancellation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:10",
+      "sha256": "6866b92c570a0636bd9a06eb1d9e255688e92f37f7f080e56504b509fb5bda1e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 대다 repeated questions/notifications and possible disapproval, not malicious intent inference. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:10",
+      "sha256": "df2d01dfc000d160d6b2fe9487de2352219059abc9b9590bb51ee2b561ddeb78",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 대다 repeated questions/notifications and possible disapproval, not malicious intent inference. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:11",
+      "sha256": "3feb6fbdfcc8c2e08090e8b86838462b12a79bdb99e43c4376b9384d13d449b7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 버리다 completed unwanted memo deletion/note tearing; contextual attitude, not merely intention. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:11",
+      "sha256": "93006f6066ef3acad99c9bf5378cab87b0990f085cb48e2e864ee20abf2cd92f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 버리다 completed unwanted memo deletion/note tearing; contextual attitude, not merely intention. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:12",
+      "sha256": "f445bcd2c625a46be4773219e70fcc44685d6f7b8a4bc76e9032ad2c4cfcffa3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 뻔하다 near fall prevented by rail / wrong number corrected before sending; event did not occur. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:12",
+      "sha256": "de01a02123e3384924a6da12d9f21c0d4520e0891f4068e1186160baa4ba58b0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 뻔하다 near fall prevented by rail / wrong number corrected before sending; event did not occur. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:13",
+      "sha256": "a8cd3d180d4c1b996f4b331790cbeb055b13e948391fae4a31e5a5dd4f6c2a9e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어서인지 uncertain causal inference about sleeplessness/notice change, not verified sole cause or reversed cause. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:13",
+      "sha256": "4973c34f4cb0f643efbff259bcc6b57fe72754ada24a418ee0650857aaf7b974",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어서인지 uncertain causal inference about sleeplessness/notice change, not verified sole cause or reversed cause. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:14",
+      "sha256": "032f53a6df58dd5e743129429bc1b20e982b0bdd724364eddb93fd5e5ea0f1c8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Spiral 고 있다 ongoing error check/drafting, no completed resolution or approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:14",
+      "sha256": "74a6b48ca363fd42c6eae5ee8dce849d9581f128ea64e08be4a0a9bd05fe7ccc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Spiral 고 있다 ongoing error check/drafting, no completed resolution or approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:grammar:15",
+      "sha256": "e654b8ae378fcffd5a6c0bf1fdd578658e41dbfe719d25f04eb2c954429fa71a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Spiral 어 있다 resultant open/closed state in record/photo, not actor identity, intention or current action. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP15:production:15",
+      "sha256": "72cadd65fa5542248ea6e591125e5f67dd336f58f48d4c356e08da07717a9eef",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Spiral 어 있다 resultant open/closed state in record/photo, not actor identity, intention or current action. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP15:listening:01",
+      "sha256": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: actual fictional work report contrasts formal weather announcement, unexpected outage, participant blame, overlapping speech and staff repetition evaluation. Distinguishes avoided fall, completed personal memo deletion, preserved official record, ongoing check and uncertain notice-change cause. Seven required contrasts; loudness not stance criterion."
+    },
+    {
+      "taskId": "KP15:reading:01",
+      "sha256": "db81c87d5edfe31e30be944d16dd2638f6adf21cf1fdf28eeb899896b20699b7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: two actual sources, a fictional news article and internal report with purpose/records/limits/follow-up. Participant quote versus reporter inference, shared delay count, absent question-count comparison, scheme co-occurrence not causality; employment/consumption effects unmeasured. Facility contact not assigned blame, extra equipment unapproved."
+    },
+    {
+      "taskId": "KP15:writing:01",
+      "sha256": "96f15c024f95482dd2576d02726265a6d8e159cdd2a53c824da5306f814c0ef2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: two required free texts, headed report and formal facilities email. Same sources/facts, complaint basis versus requested investigation/response timing, no strengthened cause/liability/purchase approval; near miss and personal-versus-official record scope. No automatic semantic or style score."
+    },
+    {
+      "taskId": "KP15:speaking:01",
+      "sha256": "3b8cc4f981f1872cd7d383e986f70166aef71df5c08b2402c99309e5be7b655d",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: polite colleague explanation then formal work report, distinct repetition evaluation/completed deletion/avoided fall/ongoing check. Compare 탓에 and 인하여 without erasing original source; replay pauses, meaning and intonation unscored."
+    }
+  ]
+}

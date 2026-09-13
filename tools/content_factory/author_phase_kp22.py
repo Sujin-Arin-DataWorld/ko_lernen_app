@@ -1,0 +1,92 @@
+"""KP22 conditional policy recommendations and responsibility; unsigned source."""
+from phase_task_authoring import choice, free_text, grammar_task, loc, packet, task, write_source
+from author_phase_a1_production import production
+
+
+def kp22():
+    rows=[
+      ('G5:-을 테다',loc('화자가 강한 의지를 나타내는 용례예요. 독백의 -을 테다를 상대에게 명령하거나 기관이 보증한 사실로 읽지 않아요.','Here the speaker expresses firm personal resolve. A monologic -을 테다 is neither a command to others nor an institutional guarantee.','Hier drückt die sprechende Person einen festen eigenen Entschluss aus. Das monologische -을 테다 ist weder Befehl noch institutionelle Garantie.'),('나는 이번에는 끝까지 확인할 테다. 기관의 승인 여부는 아직 모른다.','화자 자신의 확인 결심','기관이 결과를 보증함'),('나는 누락된 기록을 다시 찾을 테다. 다른 직원에게 지시한 말은 아니다.','화자 자신의 재탐색 의지','다른 직원에 대한 공식 명령')),
+      ('G5:-을 테면',loc('상대의 의지를 조건으로 행동을 제시해요. 도전·맞섬으로 들릴 수 있어 공손한 협의에서는 의향을 확인하는 표현으로 고쳐 말해요. 조건절 자체를 강제 명령으로 읽지 않아요.','Make the other person’s intention a condition. This can sound challenging; in polite negotiation recast it as an intention check. The conditional itself is not compulsory action.','Mache die Absicht des Gegenübers zur Bedingung. Das kann herausfordernd klingen; formuliere in höflicher Abstimmung eine Nachfrage zur Absicht. Der Bedingungssatz allein erzwingt keine Handlung.'),('질문할 테면 먼저 자료를 읽어 보세요. 질문 여부는 본인이 정합니다.','질문할 의향이 있을 때 자료 읽기 제시','질문을 반드시 하라는 명령'),('참여할 테면 일정을 먼저 확인하세요. 참여는 선택입니다.','참여 의향을 전제로 일정 확인','참여를 거부할 선택권 없음')),
+      ('G5:-을 테지만',loc('예상되는 상황을 인정하고 다른 논거를 이어 가요. 예측의 근거가 없으면 확정 결과로 올리지 않아요.','Admit an anticipated situation and continue with another consideration. Do not promote a prediction to a confirmed outcome without evidence.','Erkenne einen erwarteten Umstand an und führe einen weiteren Gesichtspunkt an. Mache eine Prognose ohne Beleg nicht zum sicheren Ergebnis.'),('비용은 늘어날 테지만 접근성 개선도 검토해야 합니다. 아직 견적은 없습니다.','비용 증가 예측과 접근성 검토 필요','비용 증가액을 이미 확정'),('질문이 많을 테지만 답변 시간을 마련하겠습니다.','질문 증가 예상과 답변 준비 약속','질문 수를 이미 집계 완료')),
+      ('G5:-기 나름이다',loc('결과가 하는 방법에 달렸다는 의존 관계예요. 어떤 방법이 어떤 결과를 보장하는지는 문맥의 근거로 따로 확인해요.','Express dependence on how an action is performed. Evidence must separately establish whether a particular method guarantees an outcome.','Drücke Abhängigkeit von der Vorgehensweise aus. Ob eine bestimmte Methode ein Ergebnis garantiert, muss gesondert belegt sein.'),('같은 자료도 해석하기 나름입니다.','해석 방식에 따라 판단이 달라짐','자료의 뜻은 어떤 해석에서도 동일'),('참여 기회는 일정을 조정하기 나름이에요.','일정 조정 방식에 따른 기회 차이','일정을 바꿔도 기회가 항상 같음')),
+      ('G5:-기에 따라',loc('생각하거나 행동하는 방식에 따른 변화를 나타내요. -기에의 단순 원인 용례와 구별해요.','Mark variation according to a way of thinking or acting. Distinguish this from causal -기에 alone.','Kennzeichne Veränderung je nach Denk- oder Handlungsweise. Unterscheide dies vom bloß kausalen -기에.'),('같은 상황도 생각하기에 따라 다르게 보입니다.','생각하는 방식에 따른 관점 차이','생각하기 때문에 시각이 항상 같음'),('같은 제도도 운영하기에 따라 효과가 달라질 수 있어요.','운영 방식에 따른 효과 차이 가능성','운영 방식과 무관하게 효과가 확정됨')),
+      ('G5:-은 나머지',loc('지나친 행동이나 감정이 낳은 결과를 말해요. 남은 수량을 뜻하는 나머지와 구별해요.','State a result of excessive action or emotion. Distinguish the noun remainder as a quantity.','Nenne eine Folge übermäßigen Handelns oder Empfindens. Unterscheide das Nomen Rest als Mengenangabe.'),('너무 서두른 나머지 중요한 항목을 빠뜨렸어요.','과도한 서두름으로 누락 발생','남은 항목 수를 셈'),('너무 걱정한 나머지 확인 전부터 결론을 내렸어요.','과도한 걱정으로 성급한 결론','확인을 모두 마친 뒤 결론')),
+      ('G5:-는 이상',loc('이미 받아들인 전제에 따르는 책임이나 판단을 제시해요. 자료를 공개했다는 전제가 성립하는 범위를 유지해요.','Derive responsibility or judgement from an accepted premise. Preserve the scope in which that premise actually holds.','Leite Verantwortung oder Urteil aus einer anerkannten Prämisse ab. Erhalte den Bereich, in dem diese tatsächlich gilt.'),('자료를 공개한 이상 질문에도 답해야 합니다.','공개 사실을 전제로 한 답변 책임','공개하지 않은 모든 자료도 공개할 의무'),('시범 운영에 참여하는 이상 기록을 남겨야 합니다.','참여자에게 적용되는 기록 책임','불참자에게도 같은 기록 의무')),
+      ('G5:-다가는',loc('행동이 계속될 때 생길 부정적 결과를 경고해요. 경고를 이미 일어난 실패나 화자의 위협으로 바꾸지 않아요.','Warn of a negative outcome if behaviour continues. Do not turn the warning into an observed failure or the speaker’s threat.','Warne vor einer negativen Folge bei fortgesetztem Verhalten. Mache daraus weder bereits eingetretenes Scheitern noch eine Drohung der sprechenden Person.'),('이렇게 미루다가는 기한을 놓치겠어요. 아직 기한 전이에요.','미루기 지속 시 기한 상실 위험','기한을 이미 놓친 사실'),('확인 없이 계속 배포하다가는 오류가 퍼지겠어요.','미확인 배포 지속의 오류 확산 위험','화자가 오류를 퍼뜨리겠다는 위협')),
+      ('G5:-으면 몰라도',loc('예외적 조건이라면 달리 볼 여지를 두고 현재 판단을 제한해요. 예외 조건의 실제 충족이나 그때의 자동 승인을 확정하지 않아요.','Leave room for a different judgement under an exceptional condition while limiting the current one. Neither fulfilment nor automatic approval follows.','Lasse unter einer Ausnahmebedingung ein anderes Urteil offen und begrenze das jetzige. Weder Erfüllung noch automatische Zustimmung folgen daraus.'),('추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다.','추가 근거 예외를 열어 둔 현재 유보','추가 근거가 이미 있어 결론 확정'),('예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요.','예산 승인 예외를 둔 현재 확약 거절','예산 승인 여부와 무관한 확대 보증')),
+    ]
+    tasks=[grammar_task('KP22',i,*r) for i,r in enumerate(rows,1)]
+    prod=[
+      ('G5:-을 테다',('독백의 개인 결심 / 나는 이번에는 끝까지 확인하다 / -을 테다','나는 이번에는 끝까지 확인할 테다.','기관이 결과를 보증했다.'),('독백의 개인 결심 / 나는 누락된 기록을 다시 찾다 / -을 테다','나는 누락된 기록을 다시 찾을 테다.','기관이 모든 기록의 발견을 보증했다.')),
+      ('G5:-을 테면',('질문은 선택 / 질문할 의향이 있다면 / 먼저 자료 읽어 보기 / -을 테면, -(으)세요','질문할 테면 먼저 자료를 읽어 보세요.','질문을 반드시 하세요.'),('참여는 선택 / 참여 의향이 있다면 / 일정 먼저 확인 / -을 테면, -(으)세요','참여할 테면 일정을 먼저 확인하세요.','반드시 참여하세요.')),
+      ('G5:-을 테지만',('비용 증가 예상 / 접근성 개선도 검토 필요 / -을 테지만, 합쇼체','비용은 늘어날 테지만 접근성 개선도 검토해야 합니다.','비용 증가액은 이미 확정되었습니다.'),('질문 많을 것으로 예상 / 답변 시간 마련 약속 / -을 테지만, 합쇼체','질문이 많을 테지만 답변 시간을 마련하겠습니다.','질문 수를 이미 집계했습니다.')),
+      ('G5:-기 나름이다',('같은 자료도 / 해석 방식에 달림 / 해석하다 / -기 나름이다, 합쇼체','같은 자료도 해석하기 나름입니다.','같은 자료는 해석 방식과 무관하게 뜻이 같습니다.'),('참여 기회 / 일정 조정 방식에 달림 / 일정을 조정하다 / -기 나름이다, 해요체','참여 기회는 일정을 조정하기 나름이에요.','일정을 바꿔도 참여 기회는 항상 같아요.')),
+      ('G5:-기에 따라',('같은 상황도 / 생각하는 방식에 따라 / 다르게 보이다 / -기에 따라, 합쇼체','같은 상황도 생각하기에 따라 다르게 보입니다.','같은 상황은 생각하는 방식과 무관하게 같게 보입니다.'),('같은 제도도 / 운영 방식에 따라 효과 변화 가능 / -기에 따라, 해요체','같은 제도도 운영하기에 따라 효과가 달라질 수 있어요.','운영 방식과 무관하게 효과가 확정돼요.')),
+      ('G5:-은 나머지',('너무 서두르다 → 중요한 항목 빠뜨리다 / -은 나머지, 해요체','너무 서두른 나머지 중요한 항목을 빠뜨렸어요.','남은 항목의 수를 셌어요.'),('너무 걱정하다 → 확인 전부터 결론 내리다 / -은 나머지, 해요체','너무 걱정한 나머지 확인 전부터 결론을 내렸어요.','확인을 모두 마친 뒤 결론을 내렸어요.')),
+      ('G5:-는 이상',('자료를 이미 공개함 / 질문에도 답할 책임 / -은 이상, 합쇼체','자료를 공개한 이상 질문에도 답해야 합니다.','공개하지 않은 모든 자료를 공개해야 합니다.'),('시범 운영 참여자에게 적용 / 참여하다 / 기록 남길 책임 / -는 이상, 합쇼체','시범 운영에 참여하는 이상 기록을 남겨야 합니다.','시범 운영 불참자도 기록을 남겨야 합니다.')),
+      ('G5:-다가는',('기한 전 / 이렇게 미루기 계속 → 기한 놓칠 위험 / -다가는, -겠어요','이렇게 미루다가는 기한을 놓치겠어요.','기한을 이미 놓쳤어요.'),('경고 / 확인 없이 계속 배포 → 오류 퍼질 위험 / -다가는, -겠어요','확인 없이 계속 배포하다가는 오류가 퍼지겠어요.','제가 오류를 퍼뜨리겠어요.')),
+      ('G5:-으면 몰라도',('추가 근거 예외 / 지금 단정 어렵다 / -으면 몰라도, 합쇼체','추가 근거가 있으면 몰라도 지금은 단정하기 어렵습니다.','추가 근거가 이미 있어서 단정할 수 있습니다.'),('예산 승인 예외 / 지금 확대 약속 불가 / -으면 몰라도, 해요체','예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요.','예산 승인과 무관하게 확대를 보증해요.')),
+    ]
+    tasks+=production('KP22',tasks,prod)
+    h=loc('발언자의 권한, 개인 결심, 기관 결정, 예측을 나누어 읽어요. 원안과 수정안은 각각의 문언을 따르고 삭제한 조건을 되살리지 않습니다. 예외 가능성은 자동 승인과 다릅니다. 경고의 위험을 확정 피해로 바꾸지 않아요.','Separate speaker authority, personal resolve, institutional decisions and predictions. Read each draft on its own terms; do not restore deleted conditions. A possible exception is not automatic approval. Do not turn a warned risk into confirmed harm.','Trenne Befugnis, persönlichen Entschluss, institutionelle Entscheidung und Prognose. Lies jede Fassung nach ihrem Wortlaut; belebe gestrichene Bedingungen nicht wieder. Eine mögliche Ausnahme ist keine automatische Genehmigung. Mache aus einem gewarnten Risiko keinen sicheren Schaden.')
+    p=('가람배움터',12,3,5,'월요일','목요일')
+    a=('솔빛학습관',16,2,4,'화요일','금요일')
+    def meeting(name,devices,old,new,check,decision):
+        return f'''[가상 교육 기기 대여 협의. 담당자는 재고 확인·안내만 맡고 예산·확대는 운영위원회가 결정한다. 이용자 대표는 참여를 권할 수 있지만 주민을 대신해 확약할 수 없다.]
+담당자: 현재 교육용 기기 {devices}대가 있다는 것만 확인했습니다. 고장률과 추가 인건비는 아직 모릅니다. 혼자 메모에 “나는 누락된 점검 기록을 끝까지 찾을 테다”라고 썼습니다. 이것은 제 결심이지 기기의 안전이나 예산을 기관이 보증했다는 말은 아닙니다. {check}에 점검 결과를 보고하겠습니다.
+대표: 그럼 {decision}에 확대가 보장된다고 안내해도 되나요?
+담당자: 아니요. {decision}은 위원회가 검토할 날입니다. 예산 승인이 있으면 몰라도 지금은 확대를 약속할 수 없어요. 비용은 늘어날 테지만 대여 기회가 넓어질 가능성도 검토해야 합니다. 둘 다 아직 예측입니다.
+대표: 교육 이수 조건을 빼면 처음 사용하는 사람은 어떻게 되나요? 확인 없이 계속 빌려주다가는 오류가 생기겠어요. 피해가 이미 났다는 뜻이 아니라 예방을 위한 질문이에요.
+담당자: 수정안은 사전 이수 의무를 삭제하고 첫 대여 때 안내를 선택할 수 있게 했습니다. 다만 사용법을 모르는 사람에게는 직원이 확인 기회를 제공해야 합니다. 너무 서두른 나머지 이 차이를 이전 안내에서 빠뜨렸습니다. 이번에는 바로잡겠습니다.
+대표: 저는 사전 이수 의무가 없는 대신 안내 선택권을 보장하는 조건이라면 시범 참여를 권할 수 있어요. 그 선택권까지 없애면 권하지 않겠습니다. 참여할 테면 일정을 먼저 확인하라는 말은 강하게 들릴 수 있네요. “참여하실 생각이면 일정을 함께 확인해 볼까요?”로 바꾸면 의향을 남길 수 있겠어요.
+담당자: 참여하는 이상 대여 기록을 남겨야 한다는 조건도 있습니다. 결과는 운영하기 나름이니 재고·오류 신고·안내 이용 여부를 함께 기록하겠습니다. 지금 합의한 것은 안내 문구 수정과 자료 확인이며 확대 시행은 아닙니다.'''
+    def listen(args):
+        return packet(meeting(*args),[
+          choice('resolve',loc('끝까지 찾을 테다의 책임 범위는?', 'What responsibility does the firm resolve cover?', 'Welchen Verantwortungsbereich umfasst der feste Entschluss?'),['담당자 자신의 기록 재탐색 결심','기관의 기기·예산 전면 보증'],h),
+          choice('date',loc('위원회 검토일은 무엇을 보장하나요?', 'What does the committee review date guarantee?', 'Was garantiert der Prüftermin des Ausschusses?'),['확대 승인을 보장하지 않음','그날부터 확대 시행 보장'],h),
+          choice('forecast',loc('비용·대여 기회의 상태는?', 'What is the status of cost and lending opportunity?', 'Welchen Status haben Kosten und Ausleihchancen?'),['아직 확인 전 예측','이미 측정한 확정 정책 효과'],h),
+          choice('warning',loc('다가는 경고의 의미는?', 'What does the 다가는 warning mean?', 'Was bedeutet die Warnung mit 다가는?'),['미확인 대여를 계속할 때의 위험','대표가 피해를 일으키겠다는 위협'],h),
+          choice('exception',loc('예산 승인이 있으면 몰라도의 한계는?', 'What does the budget exception leave open?', 'Was lässt die Budgetausnahme offen?'),['승인 여부 미상, 현재 확약 불가','승인된 예산으로 확대 이미 결정'],h),
+          choice('boundary',loc('대표의 수락 경계는?', 'What is the representative’s acceptance boundary?', 'Wo liegt die Zustimmungsgrenze der Vertretung?'),['안내 선택권 보장 시 참여 권고, 제거 시 거절','안내 선택권과 무관하게 주민 참여 확약'],h),
+        ],'audio')
+    tasks.append(task('KP22','listening:01','listening',loc('결심·예측·기관 권한을 나누어 듣기','Hear resolve, prediction and institutional authority separately','Entschluss, Prognose und institutionelle Befugnis getrennt hören'),h,listen(p),listen(a)))
+    def sources(args):
+        name,devices,old,new,check,decision=args
+        return f'''[가상 정책 제안서 원안 — 심의 전 자료]
+목적: {name}의 교육 기기 접근성을 높인다. 현재 재고는 {devices}대이며 대기 시간·고장률·인건비 자료는 없다. 사전 교육을 이수한 성인만 참여하고 1인 대여 기간은 {old}일로 제안한다. 대여 건수만을 평가 지표로 삼고, 늘면 자동 확대한다. 이 원안은 아직 승인되지 않았다.
+[가상 정책 제안서 수정안 — 원안을 대체할 심의안, 아직 미승인]
+목적은 유지한다. 사전 교육 이수 의무를 삭제하고 모든 성인에게 시범 신청 기회를 준다. 첫 이용자는 현장 안내를 선택할 수 있다. 대여 기간은 {new}일로 변경한다. 평가 지표는 대여 건수 외에 미처리 신청 수·오류 신고 수·안내 이용 여부를 더한다. 건수 증가만으로 자동 확대한다는 문구는 삭제한다. 재원·사회적 비용과 접근성의 비용 편익을 확인한 뒤 위원회가 확대 여부를 별도 결정한다. 고장률과 정책 효과는 아직 추정할 자료가 부족하다. 담당자는 {check}까지 점검하고 위원회는 {decision}에 검토한다. 집행 권한을 넘어서는 확대 확약은 하지 않는다.
+[수정안에 붙인 학습용 대여 조항 — 실제 약관 아님]
+이 조항은 수정안이 승인되어 시행될 경우의 성인 시범 참여자에게 적용한다. 신청자는 대여 또는 신청 철회를 선택할 수 있다. 참여하는 이상 대여 기록을 남겨야 한다. 직원은 안내를 원하거나 사용법을 확인하려는 사람에게 확인 기회를 제공할 책무가 있다. 고장 신고가 접수된 기기는 점검 완료 전 대여를 보류한다. 일반 기기는 정해진 기간 내 반납해야 한다. 고장 신고로 반납이 늦는 경우, 직원 확인을 거치면 해당 지연 기록을 일반 연체와 구별한다. 다른 기기의 교환이나 비용 면제는 이 문서가 정하지 않는다.
+[위험 평가 및 대안 검토]
+기록 없이 확대하다가는 오류가 누적될 수 있다. 이는 확정된 피해 보고가 아니다. 재원 확정이 있으면 몰라도 현재 무조건 확대를 권할 수 없다. 현 재고로 제한 시범을 하는 방안과 확인 전 확대하는 방안을 접근성·비용·오류 대응의 같은 기준으로 비교한다. 추가 수치가 없으므로 실현 가능성과 파급 효과를 보증하지 않는다. 조건을 충족하는 범위에서 시범을 권고하되, 예산과 안내 선택권이 달라지면 수락 범위를 다시 협의해 입장 차를 좁힌다.'''
+    def read(args):
+        return packet(sources(args),[
+          choice('deleted',loc('수정안에서 삭제된 의무는?', 'Which duty was removed in the revision?', 'Welche Pflicht wurde in der Überarbeitung gestrichen?'),['사전 교육 이수','대여 기록 작성'],h),
+          choice('period',loc('수정안의 제안 대여 기간은?', 'What lending period does the revision propose?', 'Welche Leihdauer schlägt die Überarbeitung vor?'),[f'{args[3]}일',f'{args[2]}일'],h),
+          choice('indicators',loc('평가 기준의 변화는?', 'How do the evaluation criteria change?', 'Wie ändern sich die Bewertungskriterien?'),['미처리·오류·안내 이용을 더하고 자동 확대 삭제','건수만으로 자동 확대 유지'],h),
+          choice('premise',loc('참여하는 이상의 기록 의무 대상은?', 'Who is subject to the record duty premised on participation?', 'Für wen gilt die an Teilnahme geknüpfte Dokumentationspflicht?'),['수정안 승인·시행 시 시범 참여자','현재 모든 성인과 신청 철회자'],h),
+          choice('exception',loc('고장 관련 지연의 예외는?', 'What is the exception for failure-related delay?', 'Welche Ausnahme gilt bei störungsbedingter Verspätung?'),['직원 확인 후 일반 연체와 구별','확인 없이 모든 비용 자동 면제'],h),
+          choice('uncertainty',loc('현재 결과와 권고를 바르게 나누면?', 'Which distinction between findings and recommendations is correct?', 'Welche Trennung von Befund und Empfehlung stimmt?'),[f'재고 {args[1]}대 확인, 정책 효과·확대는 미확정','수정안 승인과 효과 검증 모두 완료'],h),
+          choice('limit',loc('재원 확정이 있으면 몰라도의 현재 판단은?', 'What current judgement follows the funding exception?', 'Welches jetzige Urteil folgt aus der Finanzierungsausnahme?'),['무조건 확대 권고 불가, 확정 재원 미상','재원 확정을 이미 확인하여 확대 의무'],h),
+        ])
+    tasks.append(task('KP22','reading:01','reading',loc('원안·수정안·조건 조항 대조','Compare original, revision and conditional clauses','Original, Überarbeitung und Bedingungsklauseln vergleichen'),h,read(p),read(a)))
+    rubric=loc('세 가지 완전한 글을 쓰세요. 첫째 제안서에 목적·확인 재고·부족 자료·시행 조건·예외·책임·평가 지표·후속 결정을 나누고, 제한 시범과 확인 전 확대를 같은 기준으로 비교해 조건부 권고를 합니다. 원안에서 삭제된 이수 의무와 자동 확대를 되살리지 마세요. 위험을 확정 피해로, 직원 결심을 기관 보증으로 바꾸지 않습니다. 둘째 담당자용 실행 메모는 언제 누가 무엇을 확인하고 어디까지 약속할 수 있는지 씁니다. 셋째 시민용 설명은 신청·철회·안내 선택권을 쉬운 말로 전달하되 승인 전 상태와 예외 확인 절차를 보존합니다. 안내 선택권이 없어진 새 조건이라면 권고와 차선책이 어떻게 달라지는지 밝히고, 제공되지 않은 면제·교환을 약속하지 마세요. 원문과 비교해 빠진 조건을 고쳐 씁니다. 자유 의미·논증은 미채점입니다.',
+      'Write three complete texts. First propose a policy with purpose, verified stock, missing data, implementation conditions, exceptions, responsibility, indicators and follow-up decisions. Compare a limited trial and expansion before verification by common criteria and recommend conditionally. Do not restore deleted prior-training or automatic-expansion rules. Do not turn risk into observed harm or staff resolve into institutional assurance. Second write a staff note specifying who checks what and when, and what can be promised. Third explain application, withdrawal and guidance choices to the public in plain language while retaining pending approval and exception checks. State how losing the guidance choice would change your recommendation and fallback. Promise no unspecified waiver or replacement. Compare sources and restore omitted conditions. Free meaning and argument remain unscored.',
+      'Schreibe drei vollständige Texte. Erstens einen Vorschlag mit Zweck, bestätigtem Bestand, fehlenden Daten, Bedingungen, Ausnahmen, Verantwortung, Indikatoren und Folgeentscheidungen. Vergleiche begrenzten Versuch und Erweiterung vor Prüfung nach gleichen Kriterien und empfehle bedingt. Belebe gestrichene Vorschulung oder automatische Erweiterung nicht wieder. Mache aus Risiko keinen eingetretenen Schaden und aus persönlichem Entschluss keine institutionelle Zusicherung. Zweitens eine Personalnotiz: Wer prüft was bis wann und was darf zugesagt werden? Drittens eine leicht verständliche öffentliche Erklärung zu Anmeldung, Rücknahme und optionaler Anleitung, mit ausstehender Genehmigung und Ausnahmeprüfung. Nenne geänderte Empfehlung und Alternative, falls die Wahl der Anleitung entfällt. Versprich keine ungenannte Befreiung oder Ersatzleistung. Vergleiche Quellen und ergänze ausgelassene Bedingungen. Inhalt und Argumentation bleiben unbewertet.')
+    def writing(args):
+        return packet(sources(args),[
+          free_text('proposal',loc('조건부 정책 제안서','Conditional policy proposal','Bedingter Regelungsvorschlag'),rubric),
+          free_text('staff',loc('담당자용 실행 메모','Staff implementation note','Umsetzungsnotiz für das Personal'),rubric),
+          free_text('public',loc('시민용 설명과 조건 변경 시 차선책','Public explanation and fallback after a changed condition','Öffentliche Erklärung und Alternative bei geänderter Bedingung'),rubric),
+        ],'form')
+    tasks.append(task('KP22','writing:01','writing',loc('실행 조건이 보이는 세 가지 글','Three texts with explicit implementation conditions','Drei Texte mit ausdrücklichen Umsetzungsbedingungen'),rubric,writing(p),writing(a)))
+    speech=loc('정책 담당자에게 해요체로 확인된 재고·미상 효과·권한을 먼저 확인하고, 안내 선택권과 예산을 조건으로 수락 범위와 거절 경계를 협상하세요. 상대가 “안내 선택권은 빼죠”라고 조건을 바꾸면 어떤 접근성 결과가 달라지는지 밝히고 다시 협의할 차선책을 제시합니다. 합쇼체 회의 정리에서는 합의·미합의·담당자 행동·위원회 결정을 나눠요. 모어가 다른 동료에게 한국어로 개인 결심이 제도 보증으로, 예외 가능성이 자동 승인으로 바뀌는 두 오류를 짚으세요. -다가는 경고와 -을 테지만 예측을 담아 녹음하고, 위협이나 확약처럼 들리지 않는지 휴지·말끝을 표시해 다시 말하세요. 상대의 선택권을 지키며 -을 테면의 도전적 어감을 의향 확인으로 고쳐 말합니다. 의미·억양은 미채점입니다.',
+      'Politely check verified stock, unknown effects and authority with the policy officer, then negotiate acceptance and refusal boundaries conditional on guidance choice and budget. If they remove the guidance choice, explain the access consequence and offer a fallback for renewed negotiation. In a formal meeting summary separate agreement, disagreement, staff action and committee decision. Explain in Korean two transfer errors to a colleague with another first language: personal resolve becomes institutional assurance; a possible exception becomes automatic approval. Record a 다가는 warning and 테지만 prediction, mark pauses/endings that might sound threatening or guaranteed, and revise. Preserve choice and replace challenging 테면 with a polite intention check. Meaning and intonation remain unscored.',
+      'Kläre mit der zuständigen Person höflich bestätigten Bestand, unbekannte Wirkungen und Befugnisse. Verhandle Zustimmung und Ablehnungsgrenzen unter den Bedingungen Anleitungsauswahl und Budget. Entfällt die freie Wahl der Anleitung, erkläre die Zugangsfolge und biete eine Alternative zur erneuten Abstimmung an. Trenne im förmlichen Sitzungsfazit Einigung, Dissens, Personalhandlung und Ausschussentscheidung. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: persönlicher Entschluss wird institutionelle Zusicherung; mögliche Ausnahme wird automatische Genehmigung. Nimm eine Warnung mit 다가는 und eine Prognose mit 테지만 auf, markiere möglicherweise drohende oder garantierende Pausen und Endungen und überarbeite. Erhalte Wahlfreiheit und ersetze herausforderndes 테면 durch höfliche Absichtsklärung. Inhalt und Intonation bleiben unbewertet.')
+    tasks.append(task('KP22','speaking:01','speaking',loc('조건이 바뀐 협상을 다시 정리하기','Renegotiate after a condition changes','Bei geänderter Bedingung neu verhandeln'),speech,packet(meeting(*p)+'\n'+sources(p),[]),packet(meeting(*a)+'\n'+sources(a),[])))
+    return tasks
+
+
+if __name__=='__main__':
+    write_source('KP22',kp22())

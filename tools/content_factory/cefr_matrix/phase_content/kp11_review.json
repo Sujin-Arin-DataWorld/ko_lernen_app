@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP11:grammar:01",
+      "sha256": "d438d39c97be5bf1e98ff31e0a5317038b05e911b229011c4c7ec3cab2f2f616",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Nominal amount/degree benchmark, same axis not all properties. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:01",
+      "sha256": "55ebb5628ae77daf523bcc712fcdd988c542e44194f37fc73f274437daaeb4c4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Nominal amount/degree benchmark, same axis not all properties. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:02",
+      "sha256": "b8977c9c4a291cf911e21aa23469501622b4fa660c9ca901a315abeff4fcdd65",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Clause degree proportional to result, not measured universal causal formula. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:02",
+      "sha256": "ce64b28f005aaf4802718dc820cf12ed6199739ba1984aaa12c2bf0c5dfabd22",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Clause degree proportional to result, not measured universal causal formula. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:03",
+      "sha256": "7338bd815b8e8b29785be48ad7c044ff894b58b4a3de9211d625d9b3afd9793c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Nominal likeness 저같이, not necessarily joint action or total agreement. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:03",
+      "sha256": "2b62fd8ed05ef2be3012614e8a8b3ba1e558fa806d241bcce276b214e917717f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Nominal likeness 저같이, not necessarily joint action or total agreement. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:04",
+      "sha256": "e4d28107b3e698fe31564baeecd3b7f9f5fcbcec6d8887f60052eb8b65454432",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Nominal stated standard followed, not reversed. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:04",
+      "sha256": "633318f0133c692b9be5c3eba24d2108c78bd86a92c19a11a86a2bc8efb1848b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Nominal stated standard followed, not reversed. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:05",
+      "sha256": "114ef251a2d2f4c46df8b98b51d6673cdecbcbd13df7ced07a978c8ff365bf61",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Nominal restriction 뿐, only one ticket/price, not additive 도. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:05",
+      "sha256": "25039ba72d477fd08837d3a8b7ff6ff104c75a8527709f9b03001ac8e0a55a6f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Nominal restriction 뿐, only one ticket/price, not additive 도. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:06",
+      "sha256": "f4dc4f13d092e1143c5063b531c8c68fef872753586213079bfb71655e538a62",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Inclusive A이고 B이고 across named categories, not copula-only linkage. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:06",
+      "sha256": "153d29d5cfb2ef4f227c9a7addc0f6928c2c0af096eef247a4d69edc325eb613",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Inclusive A이고 B이고 across named categories, not copula-only linkage. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:07",
+      "sha256": "39b39ebd82b55bbbddde7a4001092e7001ed51b9c26ee5a32e607a5321a947bb",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Conceded condition leaves conclusion polarity unchanged. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:07",
+      "sha256": "0aa678f90fe120a4154f7447076e559b8b2755186f7cd6a371ebbabd48bd5f26",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Conceded condition leaves conclusion polarity unchanged. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:08",
+      "sha256": "2a397e031f52d089d19c81d3fbaafba9604feb0a70af63087287c251f130b643",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Formal contrast preserves expensive/good and small/convenient axes. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:08",
+      "sha256": "6e421cca8db072a1be5d9eb9f42a87def85cf3a609807d01bf7ee1da9b2e0ee6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Formal contrast preserves expensive/good and small/convenient axes. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:09",
+      "sha256": "a9366e9d8f19d42943a85d793e083ab7ab47bf1917e5d6053a1ba0dce75e3f1f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Replacement or reciprocal role assignment, actor and day preserved. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:09",
+      "sha256": "45c100165b8e76f7a3ef7df6d1eff12ab18eddeed216d328632e05098d0097cf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Replacement or reciprocal role assignment, actor and day preserved. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:10",
+      "sha256": "b05e93a3a8b6dc4bcb41c790a95a53e53eadb6cc04d1bdb91a836d060d692d4e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Contrast of aspects, not replacing one action with another. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:10",
+      "sha256": "31571e35d7fc05e99d779624963e12ea2afafb9e50cde2c2eca544a9d9c377f9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Contrast of aspects, not replacing one action with another. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:11",
+      "sha256": "06d36188ba1e6265a71d09c47d6a0e83852304dec0dc38d2bb8c54726d5d7218",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Relative tendency with exceptions, not always or zero noise. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:11",
+      "sha256": "2b627ecfb71290b8a6eb09c28b047cd8d81f05dadc6803f8bbdfa181e9729493",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Relative tendency with exceptions, not always or zero noise. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:12",
+      "sha256": "c7544c5cb0ed69e38a243317ac219506c50ac3c60e1d7126288a0e23b7e7b6f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Outward impression with explicit no sitting/no weighing, not verified performance. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:12",
+      "sha256": "f63e42d1b47321d11150bdd912afa7166bc14bb893462da4c53c1b532493d0e2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Outward impression with explicit no sitting/no weighing, not verified performance. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:13",
+      "sha256": "0750fd373dce5574f590a952e454bcc51310d1b2a59a4c02403ede2856f696e1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Partial concession retains reservation, not full acceptance or no advantage. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:13",
+      "sha256": "49c2a3c8cff91a245f500836c6d4c41c653140a59f7c6a3bd88ec24545c0fad7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Partial concession retains reservation, not full acceptance or no advantage. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:grammar:14",
+      "sha256": "fcc5b07c50f355bc2d94ce0c6647dac8b6d350b447acac09a267a30aeca367b3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE meaning review: Topic specified, not endorsement or fare-increase decision. Receptive sample only. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+    },
+    {
+      "taskId": "KP11:production:14",
+      "sha256": "9b68a45484fd1e93d7d0611b84b0dee56d82b67c7a8e973a3a414c2458c1b0e8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production review: Topic specified, not endorsement or fare-increase decision. Held-out assessment answer absent from practice help; unknown variants unscored."
+    },
+    {
+      "taskId": "KP11:listening:01",
+      "sha256": "b5b1ee95faf641648ed2b2d766da167a477aec8185c28b70424f9fb444853a09",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Shared per-person budget, listed duration/fee, personally viewed limitation versus poster impression, peer preference, proposal not unanimous. Corrected 대신에 ambiguity: see affordable programme then supplement with later free reading. Required criterion/observation/impression/decision items."
+    },
+    {
+      "taskId": "KP11:reading:01",
+      "sha256": "f421f925cfd7011a20ad9f751a32fbf29098858f1e48db926b2a8927d9d60538",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Genuine fictional review based on viewing; short duration and insufficient background are different axes. Free material mentioned by organiser but unread; other alternative prices/content missing. KO/EN/DE limitations consistent."
+    },
+    {
+      "taskId": "KP11:reading:02",
+      "sha256": "ec7e0a33f4dd3f2fc714c6755108cbea507bc1c74036834ec13961fb0ea22741",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Fictional report: free text-support scheme does not remove paid admission. Four/six interviewees not all residents; reduced participation gap a reporter hypothesis, participation change unmeasured. No real financial/policy claim."
+    },
+    {
+      "taskId": "KP11:reading:03",
+      "sha256": "c5b61928a1fed9cd8161c85c7fdbb79dcdfae0ca220b0cd4aa3b0e9e90303bc9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "SNS post and three responses separate partial agreement, unviewed alternative, and unsupported character judgement from programme preference. Roles and quoted positions preserved."
+    },
+    {
+      "taskId": "KP11:writing:01",
+      "sha256": "fc7bb6250d470f950a185053e14c2607bca25a3457f6d9adf5e1e9fc03126feb",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Full review uses criteria, claim, concrete evidence, counterpoint and alternative. Common budget retained; poster impression and actual viewing separated; group agreement and access-gap effect unconfirmed. Required freeText, no semantic key."
+    },
+    {
+      "taskId": "KP11:speaking:01",
+      "sha256": "a17807948e0c76d5900fc1907553c08ed7b188d62df5fbbc38b12ac9efbe6b59",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Peer polite comparison on common criteria with response to detailed-explanation counterpoint, alternative proposal versus contrast, no character inference. Replay and revise contrast focus/pauses; meaning/persuasion/intonation unscored."
+    },
+    {
+      "taskId": "KP11:speaking:02",
+      "sha256": "e0ce7da9e2b1c077aab2c21b15781eef557f5b846af6763840fe126ab0342ef2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "Formal briefing main point/evidence/counterpoint/limit and audience question; no unsupported superiority or access-gap reduction. Same fictional numbers/source, full speech unscored."
+    }
+  ]
+}

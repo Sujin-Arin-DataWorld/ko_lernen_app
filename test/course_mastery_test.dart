@@ -172,7 +172,7 @@ void main() {
     },
   );
 
-  test('refresh migrates a v1 snapshot into the canonical v4 key', () async {
+  test('refresh migrates a v1 snapshot into the canonical v5 key', () async {
     const legacy =
         '{"version":1,"placementLevel":"a1",'
         '"currentCourseUnitId":"a1_01_greetings_hangul"}';
@@ -182,14 +182,14 @@ void main() {
 
     final snapshot = await CourseMasteryService(_catalog()).refresh();
 
-    expect(snapshot.version, 4);
-    expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
+    expect(snapshot.version, 5);
+    expect(Storage.courseMasterySnapshotRawJson, contains('"version":5'));
     expect(snapshot.productiveEvidence, isEmpty);
     expect(Storage.legacyCourseMasteryRawJson, legacy);
   });
 
   test(
-    'refresh creates a canonical v4 snapshot from legacy scalar mirrors',
+    'refresh creates a canonical v5 snapshot from legacy scalar mirrors',
     () async {
       await _seedCoursePreferences({
         Storage.placementLevelPreferenceKey: 'a1',
@@ -198,18 +198,18 @@ void main() {
 
       final snapshot = await CourseMasteryService(_catalog()).refresh();
 
-      expect(snapshot.version, 4);
+      expect(snapshot.version, 5);
       expect(snapshot.placementLevel, 'a1');
       expect(snapshot.currentCourseUnitId, 'a1_01_greetings_hangul');
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":5'));
       expect(snapshot.productiveEvidence, isEmpty);
     },
   );
 
   test(
-    'refresh rejects a future v5 snapshot without overwriting stored data',
+    'refresh rejects a future v6 snapshot without overwriting stored data',
     () async {
-      const canonical = '{"version":5}';
+      const canonical = '{"version":6}';
       const legacy =
           '{"version":1,"placementLevel":"a1",'
           '"currentCourseUnitId":"a1_01_greetings_hangul"}';
@@ -264,7 +264,7 @@ void main() {
     }
   });
 
-  test('v3 migration preserves archived reward proof in canonical v4', () {
+  test('v3 migration preserves archived reward proof in canonical v5', () {
     final legacyV3 = CourseMasterySnapshot(
       curriculumGeneration: ScenarioCorpusGeneration.canonical120,
       archivedProductiveEvidence: [_productiveEvidence()],
@@ -272,14 +272,14 @@ void main() {
 
     final migrated = CourseMasterySnapshot.decodeAndMigrate(legacyV3);
 
-    expect(migrated.version, 4);
+    expect(migrated.version, 5);
     expect(
       migrated.curriculumGeneration,
       ScenarioCorpusGeneration.canonical120,
     );
     expect(migrated.archivedProductiveEvidence, hasLength(1));
     expect(migrated.rewardProductiveEvidence, hasLength(1));
-    expect(migrated.toJson()['version'], 4);
+    expect(migrated.toJson()['version'], 5);
   });
 
   test('v2 codec reports a nonnumeric checkpoint score as format data', () {
@@ -382,7 +382,7 @@ void main() {
         expectedGeneration: null,
       );
 
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":5'));
       expect(Storage.courseUnitId, isNull);
     },
   );

@@ -77,6 +77,35 @@ void main() {
     },
   );
 
+  test(
+    'v1 related practice remains readable and v2 task binding tampering is rejected',
+    () async {
+      final legacy = jsonDecode(jsonEncode(raw)) as Map<String, dynamic>;
+      legacy['schemaVersion'] = 1;
+      legacy['coverage'] = 'related_practice_only';
+      expect(
+        LearningPhaseCatalog.parse(legacy, units).expand((p) => p.taskIds),
+        isEmpty,
+      );
+      final tasks =
+          jsonDecode(
+                await rootBundle.loadString('assets/data/phase_tasks.json'),
+              )
+              as Map<String, dynamic>;
+      final changed = jsonDecode(jsonEncode(raw)) as Map<String, dynamic>;
+      changed['phases'][0]['taskIds'] = ['KP01:missing'];
+      final changedPhases = LearningPhaseCatalog.parse(changed, units);
+      expect(
+        () => LearningPhaseCatalog.validateTasks(changed, changedPhases, tasks),
+        throwsFormatException,
+      );
+      changed['phaseTaskSourceSha256'] = 'stale';
+      expect(
+        () => LearningPhaseCatalog.validateTasks(changed, phases, tasks),
+        throwsFormatException,
+      );
+    },
+  );
   test('invalid mission IDs, levels, locales and duplicates fail closed', () {
     for (final mutation in <void Function(Map<String, dynamic>)>[
       (row) => row['practiceUnitIds'] = ['missing'],

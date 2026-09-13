@@ -1,0 +1,3899 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP06",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP06:grammar:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:01",
+      "requirementKeys": [
+        "G2:-는2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는2",
+        "en": "-는2",
+        "de": "-는2"
+      },
+      "teaching": {
+        "ko": "동사 -는은 현재의 행동으로 뒤 명사를 꾸며요. 수식받는 사람이 그 행동을 하는지 문맥에서 확인해요.",
+        "en": "Verb + -는 identifies a noun through a present action. Use context to identify who acts.",
+        "de": "Verb + -는 bestimmt ein Nomen durch eine gegenwärtige Handlung. Kläre im Kontext, wer handelt."
+      },
+      "examplesKo": [
+        "지금 노래하는 사람이 소라예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지금 노래하는 사람이 소라예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "소라가 지금 노래해요."
+              },
+              {
+                "id": "1",
+                "text": "소라는 어제 노래를 끝냈어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사 -는은 현재의 행동으로 뒤 명사를 꾸며요. 수식받는 사람이 그 행동을 하는지 문맥에서 확인해요.",
+              "en": "Verb + -는 identifies a noun through a present action. Use context to identify who acts.",
+              "de": "Verb + -는 bestimmt ein Nomen durch eine gegenwärtige Handlung. Kläre im Kontext, wer handelt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "저기 그림을 그리는 사람이 준호예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "준호가 내일 그림을 그릴 예정이에요."
+              },
+              {
+                "id": "0",
+                "text": "준호가 지금 그림을 그려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사 -는은 현재의 행동으로 뒤 명사를 꾸며요. 수식받는 사람이 그 행동을 하는지 문맥에서 확인해요.",
+              "en": "Verb + -는 identifies a noun through a present action. Use context to identify who acts.",
+              "de": "Verb + -는 bestimmt ein Nomen durch eine gegenwärtige Handlung. Kläre im Kontext, wer handelt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:02",
+      "requirementKeys": [
+        "G2:-은2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은2",
+        "en": "-은2",
+        "de": "-은2"
+      },
+      "teaching": {
+        "ko": "동사의 -(으)ㄴ은 여기서 이미 한 행동으로 명사를 꾸며요. 앞으로 할 일과 구별해요.",
+        "en": "With these verbs, -(으)ㄴ describes a completed past action, not a future plan.",
+        "de": "Bei diesen Verben beschreibt -(으)ㄴ eine vergangene, ausgeführte Handlung, keinen Zukunftsplan."
+      },
+      "examplesKo": [
+        "지난주에 만든 컵을 가져왔어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지난주에 만든 컵을 가져왔어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "컵을 이미 만들었어요."
+              },
+              {
+                "id": "1",
+                "text": "컵은 다음 주에 만들 거예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -(으)ㄴ은 여기서 이미 한 행동으로 명사를 꾸며요. 앞으로 할 일과 구별해요.",
+              "en": "With these verbs, -(으)ㄴ describes a completed past action, not a future plan.",
+              "de": "Bei diesen Verben beschreibt -(으)ㄴ eine vergangene, ausgeführte Handlung, keinen Zukunftsplan."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "어제 찍은 사진을 보여 줄게요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진은 아직 찍지 않았어요."
+              },
+              {
+                "id": "0",
+                "text": "사진을 어제 찍었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -(으)ㄴ은 여기서 이미 한 행동으로 명사를 꾸며요. 앞으로 할 일과 구별해요.",
+              "en": "With these verbs, -(으)ㄴ describes a completed past action, not a future plan.",
+              "de": "Bei diesen Verben beschreibt -(으)ㄴ eine vergangene, ausgeführte Handlung, keinen Zukunftsplan."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:03",
+      "requirementKeys": [
+        "G2:-은3"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은3",
+        "en": "-은3",
+        "de": "-은3"
+      },
+      "teaching": {
+        "ko": "형용사의 -(으)ㄴ은 성질·상태로 명사를 꾸며요. 작은은 과거에 작았다는 뜻이 아니에요.",
+        "en": "With adjectives, -(으)ㄴ describes a quality or state. 작은 does not itself mean previously small.",
+        "de": "Bei Adjektiven beschreibt -(으)ㄴ eine Eigenschaft oder einen Zustand. 작은 bedeutet nicht von sich aus früher klein."
+      },
+      "examplesKo": [
+        "밝은 방에서 그림을 그려요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "밝은 방에서 그림을 그려요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그림을 그리는 방이 밝아요."
+              },
+              {
+                "id": "1",
+                "text": "방이 예전에만 밝았어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "형용사의 -(으)ㄴ은 성질·상태로 명사를 꾸며요. 작은은 과거에 작았다는 뜻이 아니에요.",
+              "en": "With adjectives, -(으)ㄴ describes a quality or state. 작은 does not itself mean previously small.",
+              "de": "Bei Adjektiven beschreibt -(으)ㄴ eine Eigenschaft oder einen Zustand. 작은 bedeutet nicht von sich aus früher klein."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "조용한 카페에서 책을 읽어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "카페가 어제만 조용했어요."
+              },
+              {
+                "id": "0",
+                "text": "책을 읽는 카페가 조용해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "형용사의 -(으)ㄴ은 성질·상태로 명사를 꾸며요. 작은은 과거에 작았다는 뜻이 아니에요.",
+              "en": "With adjectives, -(으)ㄴ describes a quality or state. 작은 does not itself mean previously small.",
+              "de": "Bei Adjektiven beschreibt -(으)ㄴ eine Eigenschaft oder einen Zustand. 작은 bedeutet nicht von sich aus früher klein."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:04",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:04",
+      "requirementKeys": [
+        "G2:-을2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을2",
+        "en": "-을2",
+        "de": "-을2"
+      },
+      "teaching": {
+        "ko": "동사의 -(으)ㄹ은 여기서 앞으로 할 행동으로 명사를 특정해요. 이미 했다고 바꾸지 않아요.",
+        "en": "Here, verb + -(으)ㄹ identifies a noun through a future action; the action is not yet completed.",
+        "de": "Hier bestimmt Verb + -(으)ㄹ ein Nomen durch eine künftige Handlung. Sie ist noch nicht abgeschlossen."
+      },
+      "examplesKo": [
+        "내일 배울 노래가 어려워요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "내일 배울 노래가 어려워요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "노래를 내일 배울 예정이에요."
+              },
+              {
+                "id": "1",
+                "text": "노래를 어제 다 배웠어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -(으)ㄹ은 여기서 앞으로 할 행동으로 명사를 특정해요. 이미 했다고 바꾸지 않아요.",
+              "en": "Here, verb + -(으)ㄹ identifies a noun through a future action; the action is not yet completed.",
+              "de": "Hier bestimmt Verb + -(으)ㄹ ein Nomen durch eine künftige Handlung. Sie ist noch nicht abgeschlossen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "다음 주에 만들 가방의 색을 골랐어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가방 만들기를 이미 끝냈어요."
+              },
+              {
+                "id": "0",
+                "text": "가방을 다음 주에 만들 예정이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "동사의 -(으)ㄹ은 여기서 앞으로 할 행동으로 명사를 특정해요. 이미 했다고 바꾸지 않아요.",
+              "en": "Here, verb + -(으)ㄹ identifies a noun through a future action; the action is not yet completed.",
+              "de": "Hier bestimmt Verb + -(으)ㄹ ein Nomen durch eine künftige Handlung. Sie ist noch nicht abgeschlossen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:05",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:05",
+      "requirementKeys": [
+        "G2:-는 것"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 것",
+        "en": "-는 것",
+        "de": "-는 것"
+      },
+      "teaching": {
+        "ko": "-는 것은 행동을 명사처럼 다뤄요. 좋아하는 대상이 사람인지 행동인지 구분해요.",
+        "en": "-는 것 treats an action as a noun phrase. Distinguish liking an activity from liking a person.",
+        "de": "-는 것 macht eine Handlung zur Nominalgruppe. Unterscheide die Vorliebe für eine Tätigkeit von der für eine Person."
+      },
+      "examplesKo": [
+        "저는 사진 찍는 것을 좋아해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "저는 사진 찍는 것을 좋아해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진 찍는 모든 사람을 좋아해요."
+              },
+              {
+                "id": "0",
+                "text": "좋아하는 활동은 사진 찍기예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 것은 행동을 명사처럼 다뤄요. 좋아하는 대상이 사람인지 행동인지 구분해요.",
+              "en": "-는 것 treats an action as a noun phrase. Distinguish liking an activity from liking a person.",
+              "de": "-는 것 macht eine Handlung zur Nominalgruppe. Unterscheide die Vorliebe für eine Tätigkeit von der für eine Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "미나는 혼자 걷는 것을 좋아해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나가 좋아하는 활동은 혼자 걷기예요."
+              },
+              {
+                "id": "1",
+                "text": "미나는 혼자 걷는 사람을 모두 좋아해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 것은 행동을 명사처럼 다뤄요. 좋아하는 대상이 사람인지 행동인지 구분해요.",
+              "en": "-는 것 treats an action as a noun phrase. Distinguish liking an activity from liking a person.",
+              "de": "-는 것 macht eine Handlung zur Nominalgruppe. Unterscheide die Vorliebe für eine Tätigkeit von der für eine Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:06",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:06",
+      "requirementKeys": [
+        "G2:-기"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기",
+        "en": "-기",
+        "de": "-기"
+      },
+      "teaching": {
+        "ko": "-기는 행동을 주제·대상으로 만드는 명사형이에요. 활동 이름을 사람 이름으로 읽지 않아요.",
+        "en": "-기 nominalizes an action so it can be a topic or object. It names an activity, not a person.",
+        "de": "-기 nominalisiert eine Handlung, die so Thema oder Objekt sein kann. Gemeint ist eine Tätigkeit, keine Person."
+      },
+      "examplesKo": [
+        "이 모임에서는 책 읽기가 중요해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 모임에서는 책 읽기가 중요해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "중요한 활동은 책 읽기예요."
+              },
+              {
+                "id": "1",
+                "text": "책을 읽는 사람이 중요하지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-기는 행동을 주제·대상으로 만드는 명사형이에요. 활동 이름을 사람 이름으로 읽지 않아요.",
+              "en": "-기 nominalizes an action so it can be a topic or object. It names an activity, not a person.",
+              "de": "-기 nominalisiert eine Handlung, die so Thema oder Objekt sein kann. Gemeint ist eine Tätigkeit, keine Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제 취미는 자전거 타기예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "자전거를 타는 사람이 제 취미예요."
+              },
+              {
+                "id": "0",
+                "text": "자전거를 타는 것이 취미예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-기는 행동을 주제·대상으로 만드는 명사형이에요. 활동 이름을 사람 이름으로 읽지 않아요.",
+              "en": "-기 nominalizes an action so it can be a topic or object. It names an activity, not a person.",
+              "de": "-기 nominalisiert eine Handlung, die so Thema oder Objekt sein kann. Gemeint ist eine Tätigkeit, keine Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:07",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:07",
+      "requirementKeys": [
+        "G2:-을 때"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 때",
+        "en": "-을 때",
+        "de": "-을 때"
+      },
+      "teaching": {
+        "ko": "-(으)ㄹ 때는 행동이나 상태와 관련된 시점이에요. 언제인지와 얼마나 오래인지를 구분해요.",
+        "en": "-(으)ㄹ 때 locates an action in a situation or time; distinguish when from how long.",
+        "de": "-(으)ㄹ 때 nennt einen Zeitpunkt oder eine Situation. Unterscheide wann von wie lange."
+      },
+      "examplesKo": [
+        "쉬는 시간이 있을 때 사진을 봐요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "쉬는 시간이 있을 때 사진을 봐요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진을 보는 데 늘 한 시간이 걸려요."
+              },
+              {
+                "id": "0",
+                "text": "쉴 시간이 생기면 사진을 봐요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄹ 때는 행동이나 상태와 관련된 시점이에요. 언제인지와 얼마나 오래인지를 구분해요.",
+              "en": "-(으)ㄹ 때 locates an action in a situation or time; distinguish when from how long.",
+              "de": "-(으)ㄹ 때 nennt einen Zeitpunkt oder eine Situation. Unterscheide wann von wie lange."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구를 만날 때 이 책을 줄 거예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "책을 주는 데 하루가 걸려요."
+              },
+              {
+                "id": "0",
+                "text": "책을 주는 시점은 친구를 만날 때예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄹ 때는 행동이나 상태와 관련된 시점이에요. 언제인지와 얼마나 오래인지를 구분해요.",
+              "en": "-(으)ㄹ 때 locates an action in a situation or time; distinguish when from how long.",
+              "de": "-(으)ㄹ 때 nennt einen Zeitpunkt oder eine Situation. Unterscheide wann von wie lange."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:08",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:08",
+      "requirementKeys": [
+        "G2:-는 동안에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 동안에",
+        "en": "-는 동안에",
+        "de": "-는 동안에"
+      },
+      "teaching": {
+        "ko": "-는 동안에는 어떤 행동이 계속되는 기간 안에 다른 일이 일어남을 나타내요.",
+        "en": "-는 동안에 places another event within the period of an ongoing activity.",
+        "de": "-는 동안에 ordnet ein anderes Ereignis in die Dauer einer laufenden Tätigkeit ein."
+      },
+      "examplesKo": [
+        "버스를 기다리는 동안에 책을 읽었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "버스를 기다리는 동안에 책을 읽었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기다리는 시간에 책을 읽었어요."
+              },
+              {
+                "id": "1",
+                "text": "버스를 탄 뒤에만 책을 읽었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 동안에는 어떤 행동이 계속되는 기간 안에 다른 일이 일어남을 나타내요.",
+              "en": "-는 동안에 places another event within the period of an ongoing activity.",
+              "de": "-는 동안에 ordnet ein anderes Ereignis in die Dauer einer laufenden Tätigkeit ein."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "빵을 굽는 동안에 차를 준비했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "빵을 다 먹은 뒤에 차를 준비했어요."
+              },
+              {
+                "id": "0",
+                "text": "빵이 구워지는 시간에 차를 준비했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-는 동안에는 어떤 행동이 계속되는 기간 안에 다른 일이 일어남을 나타내요.",
+              "en": "-는 동안에 places another event within the period of an ongoing activity.",
+              "de": "-는 동안에 ordnet ein anderes Ereignis in die Dauer einer laufenden Tätigkeit ein."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:09",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:09",
+      "requirementKeys": [
+        "G2:-은 지2"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 지2",
+        "en": "-은 지2",
+        "de": "-은 지2"
+      },
+      "teaching": {
+        "ko": "-(으)ㄴ 지는 시작이나 사건 이후 흐른 시간을 세어요. 그 시간 내내 쉬지 않고 했다는 뜻은 아니에요.",
+        "en": "-(으)ㄴ 지 measures elapsed time since an event or start, not uninterrupted activity throughout.",
+        "de": "-(으)ㄴ 지 misst die seit einem Ereignis oder Beginn vergangene Zeit, keine ununterbrochene Tätigkeit."
+      },
+      "examplesKo": [
+        "수영을 배운 지 두 달 됐어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "수영을 배운 지 두 달 됐어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 달 동안 잠도 안 자고 수영했어요."
+              },
+              {
+                "id": "0",
+                "text": "수영을 배우기 시작한 뒤 두 달이 지났어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 지는 시작이나 사건 이후 흐른 시간을 세어요. 그 시간 내내 쉬지 않고 했다는 뜻은 아니에요.",
+              "en": "-(으)ㄴ 지 measures elapsed time since an event or start, not uninterrupted activity throughout.",
+              "de": "-(으)ㄴ 지 misst die seit einem Ereignis oder Beginn vergangene Zeit, keine ununterbrochene Tätigkeit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 모임에 가입한 지 일 년 됐어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "가입한 때부터 일 년이 지났어요."
+              },
+              {
+                "id": "1",
+                "text": "모임이 끝난 뒤 일 년이 지났어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 지는 시작이나 사건 이후 흐른 시간을 세어요. 그 시간 내내 쉬지 않고 했다는 뜻은 아니에요.",
+              "en": "-(으)ㄴ 지 measures elapsed time since an event or start, not uninterrupted activity throughout.",
+              "de": "-(으)ㄴ 지 misst die seit einem Ereignis oder Beginn vergangene Zeit, keine ununterbrochene Tätigkeit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:10",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:10",
+      "requirementKeys": [
+        "G2:-은 적이 있다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 적이 있다",
+        "en": "-은 적이 있다",
+        "de": "-은 적이 있다"
+      },
+      "teaching": {
+        "ko": "-(으)ㄴ 적이 있다는 과거 경험의 존재예요. 한 번 이상이라는 뜻이지 현재 진행이나 반복 횟수 전체를 말하지 않아요.",
+        "en": "-(으)ㄴ 적이 있다 reports past experience, at least once. It does not specify the total frequency or a current action.",
+        "de": "-(으)ㄴ 적이 있다 bezeichnet eine mindestens einmalige Erfahrung. Es nennt weder die genaue Häufigkeit noch eine gerade laufende Handlung."
+      },
+      "examplesKo": [
+        "공연에서 노래한 적이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "공연에서 노래한 적이 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지금 공연에서 노래하는 중이에요."
+              },
+              {
+                "id": "0",
+                "text": "과거에 공연에서 노래한 경험이 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 적이 있다는 과거 경험의 존재예요. 한 번 이상이라는 뜻이지 현재 진행이나 반복 횟수 전체를 말하지 않아요.",
+              "en": "-(으)ㄴ 적이 있다 reports past experience, at least once. It does not specify the total frequency or a current action.",
+              "de": "-(으)ㄴ 적이 있다 bezeichnet eine mindestens einmalige Erfahrung. Es nennt weder die genaue Häufigkeit noch eine gerade laufende Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "혼자 여행한 적이 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "혼자 여행한 경험이 없어요."
+              },
+              {
+                "id": "1",
+                "text": "혼자 여행한 경험이 한 번 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄴ 적이 있다는 과거 경험의 존재예요. 한 번 이상이라는 뜻이지 현재 진행이나 반복 횟수 전체를 말하지 않아요.",
+              "en": "-(으)ㄴ 적이 있다 reports past experience, at least once. It does not specify the total frequency or a current action.",
+              "de": "-(으)ㄴ 적이 있다 bezeichnet eine mindestens einmalige Erfahrung. Es nennt weder die genaue Häufigkeit noch eine gerade laufende Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:11",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:11",
+      "requirementKeys": [
+        "G2:-어 보다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 보다",
+        "en": "-어 보다",
+        "de": "-어 보다"
+      },
+      "teaching": {
+        "ko": "-아/어 보다는 시험 삼아 하는 행동이에요. 권유만 듣고 실제로 했다고 기록하지 않아요.",
+        "en": "-아/어 보다 invites or reports trying an activity. An invitation alone does not prove it happened.",
+        "de": "-아/어 보다 bezeichnet das Ausprobieren. Eine Aufforderung dazu belegt noch keine ausgeführte Handlung."
+      },
+      "examplesKo": [
+        "이 악기를 한번 연주해 보세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 악기를 한번 연주해 보세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "악기 연주를 시도해 보라는 권유예요."
+              },
+              {
+                "id": "1",
+                "text": "이미 악기 연주를 끝냈다는 보고예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어 보다는 시험 삼아 하는 행동이에요. 권유만 듣고 실제로 했다고 기록하지 않아요.",
+              "en": "-아/어 보다 invites or reports trying an activity. An invitation alone does not prove it happened.",
+              "de": "-아/어 보다 bezeichnet das Ausprobieren. Eine Aufforderung dazu belegt noch keine ausgeführte Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "새로운 길로 걸어 봤어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "새로운 길로 걷는 경험을 해 봤어요."
+              },
+              {
+                "id": "1",
+                "text": "새로운 길을 보기만 하고 걷지 않았어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어 보다는 시험 삼아 하는 행동이에요. 권유만 듣고 실제로 했다고 기록하지 않아요.",
+              "en": "-아/어 보다 invites or reports trying an activity. An invitation alone does not prove it happened.",
+              "de": "-아/어 보다 bezeichnet das Ausprobieren. Eine Aufforderung dazu belegt noch keine ausgeführte Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:12",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:12",
+      "requirementKeys": [
+        "G2:-으면서"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면서",
+        "en": "-으면서",
+        "de": "-으면서"
+      },
+      "teaching": {
+        "ko": "-(으)면서는 여기서 한 사람이 동시에 하는 두 행동을 연결해요. 순서를 뜻하는 말과 구별해요.",
+        "en": "Here, -(으)면서 links two simultaneous actions by one person, not a sequence.",
+        "de": "Hier verbindet -(으)면서 zwei gleichzeitige Handlungen derselben Person, keine Abfolge."
+      },
+      "examplesKo": [
+        "음악을 들으면서 청소했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "음악을 들으면서 청소했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "음악 듣기와 청소가 겹쳐요."
+              },
+              {
+                "id": "1",
+                "text": "음악을 다 들은 뒤에만 청소했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)면서는 여기서 한 사람이 동시에 하는 두 행동을 연결해요. 순서를 뜻하는 말과 구별해요.",
+              "en": "Here, -(으)면서 links two simultaneous actions by one person, not a sequence.",
+              "de": "Hier verbindet -(으)면서 zwei gleichzeitige Handlungen derselben Person, keine Abfolge."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "노래를 부르면서 걸었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "노래 부르기와 걷기가 겹쳐요."
+              },
+              {
+                "id": "1",
+                "text": "노래가 끝난 뒤에만 걸었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)면서는 여기서 한 사람이 동시에 하는 두 행동을 연결해요. 순서를 뜻하는 말과 구별해요.",
+              "en": "Here, -(으)면서 links two simultaneous actions by one person, not a sequence.",
+              "de": "Hier verbindet -(으)면서 zwei gleichzeitige Handlungen derselben Person, keine Abfolge."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:13",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:13",
+      "requirementKeys": [
+        "G2:-다가1(1)"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다가1(1)",
+        "en": "-다가1(1)",
+        "de": "-다가1(1)"
+      },
+      "teaching": {
+        "ko": "-다가 앞 행동 도중 다른 일이 생겨요. 문맥 없이 첫 행동의 완료를 단정하지 않아요.",
+        "en": "-다가 introduces an event during another activity. Do not assume the first activity was completed.",
+        "de": "-다가 führt ein Ereignis während einer anderen Tätigkeit ein. Setze deren Abschluss nicht voraus."
+      },
+      "examplesKo": [
+        "책을 읽다가 잠이 들었어요. 책은 다 못 읽었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "책을 읽다가 잠이 들었어요. 책은 다 못 읽었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "책을 읽는 도중 잠들었어요."
+              },
+              {
+                "id": "1",
+                "text": "책을 끝까지 읽은 뒤에 잠들었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-다가 앞 행동 도중 다른 일이 생겨요. 문맥 없이 첫 행동의 완료를 단정하지 않아요.",
+              "en": "-다가 introduces an event during another activity. Do not assume the first activity was completed.",
+              "de": "-다가 führt ein Ereignis während einer anderen Tätigkeit ein. Setze deren Abschluss nicht voraus."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "그림을 그리다가 전화가 왔어요. 그림은 아직 미완성이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "그림을 그리는 도중 전화가 왔어요."
+              },
+              {
+                "id": "1",
+                "text": "그림을 완성한 다음 전화가 왔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-다가 앞 행동 도중 다른 일이 생겨요. 문맥 없이 첫 행동의 완료를 단정하지 않아요.",
+              "en": "-다가 introduces an event during another activity. Do not assume the first activity was completed.",
+              "de": "-다가 führt ein Ereignis während einer anderen Tätigkeit ein. Setze deren Abschluss nicht voraus."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:grammar:14",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:grammar:14",
+      "requirementKeys": [
+        "G1:-고 있다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 있다",
+        "en": "-고 있다",
+        "de": "-고 있다"
+      },
+      "teaching": {
+        "ko": "-고 있다는 지금 진행 중인 행동이에요. 배운 지 일 년 같은 경과 기간과 구별해요.",
+        "en": "-고 있다 reports an ongoing action; distinguish it from elapsed time since starting to learn.",
+        "de": "-고 있다 beschreibt eine laufende Handlung. Unterscheide sie von der seit dem Lernbeginn vergangenen Zeit."
+      },
+      "examplesKo": [
+        "노래를 배운 지 한 달 됐어요. 지금 그 노래를 연습하고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "노래를 배운 지 한 달 됐어요. 지금 그 노래를 연습하고 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "한 달 내내 쉬지 않고 노래해요."
+              },
+              {
+                "id": "0",
+                "text": "현재 하는 일은 노래 연습이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 있다는 지금 진행 중인 행동이에요. 배운 지 일 년 같은 경과 기간과 구별해요.",
+              "en": "-고 있다 reports an ongoing action; distinguish it from elapsed time since starting to learn.",
+              "de": "-고 있다 beschreibt eine laufende Handlung. Unterscheide sie von der seit dem Lernbeginn vergangenen Zeit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "그림을 배운 지 일 년 됐어요. 지금 꽃을 그리고 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "현재 하는 일은 꽃 그리기예요."
+              },
+              {
+                "id": "1",
+                "text": "일 년 내내 같은 꽃만 그려요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 있다는 지금 진행 중인 행동이에요. 배운 지 일 년 같은 경과 기간과 구별해요.",
+              "en": "-고 있다 reports an ongoing action; distinguish it from elapsed time since starting to learn.",
+              "de": "-고 있다 beschreibt eine laufende Handlung. Unterscheide sie von der seit dem Lernbeginn vergangenen Zeit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:listening:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "모임의 경험과 다음 계획",
+        "en": "Group experience and the next plan",
+        "de": "Gruppenerfahrung und nächster Plan"
+      },
+      "teaching": {
+        "ko": "소개하는 사람, 가입 기간, 지난 경험, 예정된 일을 나눠 들어요.",
+        "en": "Listen separately for the speaker, membership duration, past experience and future plan.",
+        "de": "Achte getrennt auf Person, Mitgliedsdauer, Erfahrung und Vorhaben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "안녕하세요. 저는 민지예요. 그림 모임에 가입한 지 세 달 됐어요. 지난달에 작은 전시회에 그림을 냈어요. 다음 주에는 공원에서 그림을 그릴 거예요. 지금은 새 회원에게 모임을 소개하고 있어요.",
+        "questions": [
+          {
+            "id": "person",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개하는 사람은?",
+              "en": "Who is introducing the group?",
+              "de": "Wer stellt die Gruppe vor?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "새 회원"
+              },
+              {
+                "id": "0",
+                "text": "민지"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "민지가 자기 경험을 말해요.",
+              "en": "민지 describes their own experience.",
+              "de": "민지 beschreibt die eigene Erfahrung."
+            }
+          },
+          {
+            "id": "duration",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가입 후 흐른 시간은?",
+              "en": "How long since joining?",
+              "de": "Wie viel Zeit ist seit dem Beitritt vergangen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "세 달"
+              },
+              {
+                "id": "1",
+                "text": "아직 가입하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가입한 지 세 달 됐다고 했어요.",
+              "en": "The speaker says 세 달 have passed since joining.",
+              "de": "Seit dem Beitritt sind laut Aussage 세 달 vergangen."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 경험은?",
+              "en": "Which experience already happened?",
+              "de": "Welche Erfahrung wurde schon gemacht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "공원에서 그림을 그릴 거예요"
+              },
+              {
+                "id": "0",
+                "text": "작은 전시회에 그림을 냈어요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지난달 일과 다음 주 계획을 구별해요.",
+              "en": "Separate last month’s experience from next week’s plan.",
+              "de": "Trenne die Erfahrung letzten Monat vom Plan für nächste Woche."
+            }
+          },
+          {
+            "id": "future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞으로 할 일은?",
+              "en": "What is planned next?",
+              "de": "Was ist als Nächstes geplant?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "작은 전시회에 그림을 냈어요"
+              },
+              {
+                "id": "0",
+                "text": "공원에서 그림을 그릴 거예요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다음 주에는이라는 말은 앞으로 할 일을 소개해요.",
+              "en": "다음 주에는 introduces the future plan.",
+              "de": "다음 주에는 leitet den Zukunftsplan ein."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "안녕하세요. 저는 유나예요. 사진 모임에 가입한 지 두 달 됐어요. 지난달에 시장 사진을 찍었어요. 다음 주에는 바다 사진을 찍을 거예요. 지금은 새 회원에게 모임을 소개하고 있어요.",
+        "questions": [
+          {
+            "id": "person",
+            "kind": "choice",
+            "prompt": {
+              "ko": "소개하는 사람은?",
+              "en": "Who is introducing the group?",
+              "de": "Wer stellt die Gruppe vor?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "유나"
+              },
+              {
+                "id": "1",
+                "text": "새 회원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "유나가 자기 경험을 말해요.",
+              "en": "유나 describes their own experience.",
+              "de": "유나 beschreibt die eigene Erfahrung."
+            }
+          },
+          {
+            "id": "duration",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가입 후 흐른 시간은?",
+              "en": "How long since joining?",
+              "de": "Wie viel Zeit ist seit dem Beitritt vergangen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아직 가입하지 않음"
+              },
+              {
+                "id": "0",
+                "text": "두 달"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "가입한 지 두 달 됐다고 했어요.",
+              "en": "The speaker says 두 달 have passed since joining.",
+              "de": "Seit dem Beitritt sind laut Aussage 두 달 vergangen."
+            }
+          },
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 한 경험은?",
+              "en": "Which experience already happened?",
+              "de": "Welche Erfahrung wurde schon gemacht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "시장 사진을 찍었어요"
+              },
+              {
+                "id": "1",
+                "text": "바다 사진을 찍을 거예요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지난달 일과 다음 주 계획을 구별해요.",
+              "en": "Separate last month’s experience from next week’s plan.",
+              "de": "Trenne die Erfahrung letzten Monat vom Plan für nächste Woche."
+            }
+          },
+          {
+            "id": "future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "앞으로 할 일은?",
+              "en": "What is planned next?",
+              "de": "Was ist als Nächstes geplant?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "시장 사진을 찍었어요"
+              },
+              {
+                "id": "0",
+                "text": "바다 사진을 찍을 거예요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다음 주에는이라는 말은 앞으로 할 일을 소개해요.",
+              "en": "다음 주에는 introduces the future plan.",
+              "de": "다음 주에는 leitet den Zukunftsplan ein."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:reading:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "친구의 초대 이메일",
+        "en": "An invitation email from a friend",
+        "de": "Einladung per E-Mail von einer befreundeten Person"
+      },
+      "teaching": {
+        "ko": "편지 속 나가 누구인지 찾고 과거·미래 관형절의 사람을 구별해요.",
+        "en": "Identify who 나 refers to and keep past and future activity participants separate.",
+        "de": "Kläre, auf wen 나 verweist, und trenne die Personen in vergangenen und künftigen Tätigkeiten."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "제목: 우리 모임에 올래?\n지수야, 안녕! 나 소라야.\n내가 다니는 요리 모임을 소개할게. 모임에 다닌 지 네 달 됐어.\n지난주에 빵을 만든 사람은 나야. 다음 주에 국수를 만들 사람은 은우야. 은우는 지난주에는 오지 않았어.\n처음 오는 사람도 참여할 수 있어. 같이 갈래? 답장 줘.\n소라",
+        "questions": [
+          {
+            "id": "actor_past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "지난주 활동을 한 사람은?",
+              "en": "Who did last week’s activity?",
+              "de": "Wer hat letzte Woche mitgemacht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "은우"
+              },
+              {
+                "id": "0",
+                "text": "소라"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지난주 행동을 꾸미는 관형절 뒤 사람은 나라고 밝혔어요.",
+              "en": "The writer identifies themself as the person who did last week’s activity.",
+              "de": "Die schreibende Person bezeichnet sich als diejenige, die letzte Woche mitgemacht hat."
+            }
+          },
+          {
+            "id": "actor_future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "다음 주 활동을 할 사람은?",
+              "en": "Who will do next week’s activity?",
+              "de": "Wer wird nächste Woche mitmachen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "은우"
+              },
+              {
+                "id": "1",
+                "text": "소라"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다음 주 계획의 사람은 은우예요. 지난주 사람과 바꾸지 않아요.",
+              "en": "은우 is the person assigned to the future activity.",
+              "de": "은우 ist die Person für die künftige Tätigkeit."
+            }
+          },
+          {
+            "id": "duration",
+            "kind": "choice",
+            "prompt": {
+              "ko": "보낸 사람이 다닌 기간은?",
+              "en": "How long has the sender attended?",
+              "de": "Wie lange nimmt die schreibende Person schon teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지난주 하루뿐"
+              },
+              {
+                "id": "0",
+                "text": "네 달"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "보낸 사람의 기간은 네 달이에요.",
+              "en": "The sender’s duration is 네 달.",
+              "de": "Die schreibende Person nimmt seit 네 달 teil."
+            }
+          },
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "받는 사람에게 원하는 반응은?",
+              "en": "What response does the sender request?",
+              "de": "Um welche Reaktion wird gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "은우가 지난주에 왔다고 알리기"
+              },
+              {
+                "id": "0",
+                "text": "같이 갈지 답장하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "초대와 답장 요청이에요. 은우의 지난주 참석을 새로 만들지 않아요.",
+              "en": "It is an invitation requesting a reply; do not invent 은우’s attendance last week.",
+              "de": "Die Einladung bittet um eine Antwort. Erfinde keine Teilnahme von 은우 in der Vorwoche."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제목: 우리 모임에 올래?\n지수야, 안녕! 나 준호야.\n내가 다니는 음악 모임을 소개할게. 모임에 다닌 지 여섯 달 됐어.\n지난주에 기타를 연주한 사람은 나야. 다음 주에 노래를 부를 사람은 은우야. 은우는 지난주에는 오지 않았어.\n처음 오는 사람도 참여할 수 있어. 같이 갈래? 답장 줘.\n준호",
+        "questions": [
+          {
+            "id": "actor_past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "지난주 활동을 한 사람은?",
+              "en": "Who did last week’s activity?",
+              "de": "Wer hat letzte Woche mitgemacht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "은우"
+              },
+              {
+                "id": "0",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "지난주 행동을 꾸미는 관형절 뒤 사람은 나라고 밝혔어요.",
+              "en": "The writer identifies themself as the person who did last week’s activity.",
+              "de": "Die schreibende Person bezeichnet sich als diejenige, die letzte Woche mitgemacht hat."
+            }
+          },
+          {
+            "id": "actor_future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "다음 주 활동을 할 사람은?",
+              "en": "Who will do next week’s activity?",
+              "de": "Wer wird nächste Woche mitmachen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "은우"
+              },
+              {
+                "id": "1",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다음 주 계획의 사람은 은우예요. 지난주 사람과 바꾸지 않아요.",
+              "en": "은우 is the person assigned to the future activity.",
+              "de": "은우 ist die Person für die künftige Tätigkeit."
+            }
+          },
+          {
+            "id": "duration",
+            "kind": "choice",
+            "prompt": {
+              "ko": "보낸 사람이 다닌 기간은?",
+              "en": "How long has the sender attended?",
+              "de": "Wie lange nimmt die schreibende Person schon teil?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "여섯 달"
+              },
+              {
+                "id": "1",
+                "text": "지난주 하루뿐"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "보낸 사람의 기간은 여섯 달이에요.",
+              "en": "The sender’s duration is 여섯 달.",
+              "de": "Die schreibende Person nimmt seit 여섯 달 teil."
+            }
+          },
+          {
+            "id": "purpose",
+            "kind": "choice",
+            "prompt": {
+              "ko": "받는 사람에게 원하는 반응은?",
+              "en": "What response does the sender request?",
+              "de": "Um welche Reaktion wird gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "같이 갈지 답장하기"
+              },
+              {
+                "id": "1",
+                "text": "은우가 지난주에 왔다고 알리기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "초대와 답장 요청이에요. 은우의 지난주 참석을 새로 만들지 않아요.",
+              "en": "It is an invitation requesting a reply; do not invent 은우’s attendance last week.",
+              "de": "Die Einladung bittet um eine Antwort. Erfinde keine Teilnahme von 은우 in der Vorwoche."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:writing:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "처음 해 본 활동의 짧은 일기",
+        "en": "A short diary of a first attempt",
+        "de": "Kurzer Tagebucheintrag über einen ersten Versuch"
+      },
+      "teaching": {
+        "ko": "처음 한 경험과 중단을 따로 적어요. 문장 예시 밖의 자유 표현은 자동 채점되지 않을 수 있어요.",
+        "en": "Separate first experience from interruption. Free wording outside the reviewed examples may remain unscored.",
+        "de": "Trenne die erste Erfahrung von der Unterbrechung. Freie Formulierungen außerhalb der geprüften Beispiele können unbewertet bleiben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 일기 자료\n날짜: 6월 3일\n오늘 처음 해 본 활동: 빵을 만들어 봤어요\n행동 도중 일어난 일: 빵을 만들다가 정전이 됐어요.\n끝내지 못한 이유: 정전\n활동을 끝내지는 못했어요. 사실을 유지해 두 문장으로 적으세요.",
+        "questions": [
+          {
+            "id": "first_experience",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "처음 한 경험을 쓰세요.",
+              "en": "Describe the first experience.",
+              "de": "Beschreibe die erste Erfahrung."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘 처음 빵을 만들어 봤어요.",
+              "저는 오늘 처음 빵을 만들어 봤어요."
+            ],
+            "rejectedAnswers": [
+              "예전에도 여러 번 빵을 만들어 봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘 처음 빵을 만들어 봤어요. 처음이라는 정보를 유지해요.",
+              "en": "Example: 오늘 처음 빵을 만들어 봤어요. Preserve that it was the first time.",
+              "de": "Beispiel: 오늘 처음 빵을 만들어 봤어요. Erhalte die Angabe, dass es das erste Mal war."
+            }
+          },
+          {
+            "id": "interruption",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "중단과 미완료를 적으세요.",
+              "en": "State the interruption and non-completion.",
+              "de": "Nenne die Unterbrechung und den fehlenden Abschluss."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵을 만들다가 정전이 됐어요. 끝내지는 못했어요.",
+              "빵을 만들다가 정전이 됐어요. 다 끝내지는 못했어요."
+            ],
+            "rejectedAnswers": [
+              "빵을 만들다가 정전이 됐어요. 모두 끝냈어요."
+            ],
+            "explanation": {
+              "ko": "도중에 생긴 일을 행동 완료로 바꾸지 않아요.",
+              "en": "Do not turn an interruption into successful completion.",
+              "de": "Mache aus einer Unterbrechung keinen erfolgreichen Abschluss."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 일기 자료\n날짜: 7월 8일\n오늘 처음 해 본 활동: 화분을 만들어 봤어요\n행동 도중 일어난 일: 화분을 만들다가 수업이 끝났어요.\n끝내지 못한 이유: 수업 종료\n활동을 끝내지는 못했어요. 사실을 유지해 두 문장으로 적으세요.",
+        "questions": [
+          {
+            "id": "first_experience",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "처음 한 경험을 쓰세요.",
+              "en": "Describe the first experience.",
+              "de": "Beschreibe die erste Erfahrung."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘 처음 화분을 만들어 봤어요.",
+              "저는 오늘 처음 화분을 만들어 봤어요."
+            ],
+            "rejectedAnswers": [
+              "예전에도 여러 번 화분을 만들어 봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘 처음 화분을 만들어 봤어요. 처음이라는 정보를 유지해요.",
+              "en": "Example: 오늘 처음 화분을 만들어 봤어요. Preserve that it was the first time.",
+              "de": "Beispiel: 오늘 처음 화분을 만들어 봤어요. Erhalte die Angabe, dass es das erste Mal war."
+            }
+          },
+          {
+            "id": "interruption",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "중단과 미완료를 적으세요.",
+              "en": "State the interruption and non-completion.",
+              "de": "Nenne die Unterbrechung und den fehlenden Abschluss."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "화분을 만들다가 수업이 끝났어요. 끝내지는 못했어요.",
+              "화분을 만들다가 수업이 끝났어요. 다 끝내지는 못했어요."
+            ],
+            "rejectedAnswers": [
+              "화분을 만들다가 수업이 끝났어요. 모두 끝냈어요."
+            ],
+            "explanation": {
+              "ko": "도중에 생긴 일을 행동 완료로 바꾸지 않아요.",
+              "en": "Do not turn an interruption into successful completion.",
+              "de": "Mache aus einer Unterbrechung keinen erfolgreichen Abschluss."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:speaking:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "경험을 나누고 동료 초대하기",
+        "en": "Share an experience and invite a peer",
+        "de": "Eine Erfahrung teilen und jemanden einladen"
+      },
+      "teaching": {
+        "ko": "상대와 관심사를 연결해 초대하고 답에 맞춰 반응해요. 경험 시점, 초대 이유, 상대가 거절할 여지를 확인하며 다시 녹음하세요. 의미는 미채점이에요.",
+        "en": "Link the invitation to a shared interest and respond to the peer’s reply. Review timing, invitation reason and freedom to decline, then re-record. Meaning is unscored.",
+        "de": "Begründe die Einladung mit einem gemeinsamen Interesse und reagiere auf die Antwort. Prüfe Zeitpunkt, Grund und die Möglichkeit abzusagen, dann nimm erneut auf. Der Inhalt bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 취미가 있는 동료와 해요체로 이야기해요.\n나: 지난달 처음 빵을 만들어 봄.\n상대: 빵 만들기에 관심 있음. 토요일은 바쁘고 일요일은 가능.\n일요일 모임에 초대하고, 일요일에는 갈 수 있어요라는 응답에 답하세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 취미가 있는 동료와 해요체로 이야기해요.\n나: 지난주 처음 도자기를 만들어 봄.\n상대: 도자기에 관심 있음. 이번 주에는 못 감.\n모임에 초대한 뒤 이번 주는 어려워요라는 응답에 압박 없이 답하세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP06:reading:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "모임 설명문의 순서와 이유",
+        "en": "Sequence and reason in a group description",
+        "de": "Reihenfolge und Grund in einer Gruppenbeschreibung"
+      },
+      "teaching": {
+        "ko": "나열된 순서와 그 순서의 이유를 찾고 개인의 마음을 새로 만들지 않아요.",
+        "en": "Find the sequence and its reason without inventing personal motivations.",
+        "de": "Finde die Reihenfolge und ihre Begründung, ohne persönliche Beweggründe zu erfinden."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "사진 모임 소개\n처음 오는 사람은 먼저 카메라 사용법을 배웁니다. 그다음 사진을 찍어 봅니다.\n이 순서는 처음 온 사람의 안전이 중요하기 때문에 정했습니다. 참가자가 모임을 좋아하는 이유는 이 글에 설명하지 않았습니다.",
+        "questions": [
+          {
+            "id": "first",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 오는 사람이 먼저 할 일은?",
+              "en": "What does a newcomer do first?",
+              "de": "Was tut eine neue Person zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진을 찍어 봅니다"
+              },
+              {
+                "id": "0",
+                "text": "카메라 사용법을 배웁니다"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "먼저와 그다음의 순서를 유지해요.",
+              "en": "Preserve the order of 먼저 and 그다음.",
+              "de": "Erhalte die Reihenfolge von 먼저 und 그다음."
+            }
+          },
+          {
+            "id": "cause",
+            "kind": "choice",
+            "prompt": {
+              "ko": "설명된 이유는 무엇의 이유인가요?",
+              "en": "What does the stated reason explain?",
+              "de": "Was erklärt der genannte Grund?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "활동 순서를 정한 이유"
+              },
+              {
+                "id": "1",
+                "text": "참가자가 모임을 좋아하는 이유"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "글이 설명한 순서의 이유를 개인 선호의 이유로 옮기지 않아요.",
+              "en": "Do not turn a reason for the sequence into a reason for personal preference.",
+              "de": "Übertrage die Begründung der Reihenfolge nicht auf persönliche Vorlieben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "요리 모임 소개\n처음 오는 사람은 먼저 재료를 확인합니다. 그다음 함께 요리합니다.\n이 순서는 알레르기 재료 확인이 필요하기 때문에 정했습니다. 참가자가 모임을 좋아하는 이유는 이 글에 설명하지 않았습니다.",
+        "questions": [
+          {
+            "id": "first",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 오는 사람이 먼저 할 일은?",
+              "en": "What does a newcomer do first?",
+              "de": "Was tut eine neue Person zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "함께 요리합니다"
+              },
+              {
+                "id": "0",
+                "text": "재료를 확인합니다"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "먼저와 그다음의 순서를 유지해요.",
+              "en": "Preserve the order of 먼저 and 그다음.",
+              "de": "Erhalte die Reihenfolge von 먼저 und 그다음."
+            }
+          },
+          {
+            "id": "cause",
+            "kind": "choice",
+            "prompt": {
+              "ko": "설명된 이유는 무엇의 이유인가요?",
+              "en": "What does the stated reason explain?",
+              "de": "Was erklärt der genannte Grund?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "활동 순서를 정한 이유"
+              },
+              {
+                "id": "1",
+                "text": "참가자가 모임을 좋아하는 이유"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "글이 설명한 순서의 이유를 개인 선호의 이유로 옮기지 않아요.",
+              "en": "Do not turn a reason for the sequence into a reason for personal preference.",
+              "de": "Übertrage die Begründung der Reihenfolge nicht auf persönliche Vorlieben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:listening:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "다녀온 사람·가는 사람·갈 사람",
+        "en": "Past, present and future participants",
+        "de": "Personen in Vergangenheit, Gegenwart und Zukunft"
+      },
+      "teaching": {
+        "ko": "관형절의 말끝을 듣고 사람과 시점을 연결하세요. 한 음절을 놓치면 시간을 바꿀 수 있어요.",
+        "en": "Listen to the modifier endings and match people to time. Missing an ending can shift the time reference.",
+        "de": "Höre die Endungen der Attribute und ordne die Personen zeitlich zu. Eine überhörte Endung kann den Zeitbezug ändern."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "어제 다녀온 사람은 유나예요. 지금 가는 사람은 민지예요. 내일 갈 사람은 소라예요.",
+        "questions": [
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 다녀온 사람은?",
+              "en": "Who has already been there?",
+              "de": "Wer war bereits dort?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "민지"
+              },
+              {
+                "id": "2",
+                "text": "소라"
+              },
+              {
+                "id": "0",
+                "text": "유나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다녀온은 지난 경험을 나타내요.",
+              "en": "다녀온 refers to the completed visit.",
+              "de": "다녀온 bezeichnet den bereits erfolgten Besuch."
+            }
+          },
+          {
+            "id": "future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "내일 갈 사람은?",
+              "en": "Who will go tomorrow?",
+              "de": "Wer geht morgen hin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "2",
+                "text": "민지"
+              },
+              {
+                "id": "1",
+                "text": "유나"
+              },
+              {
+                "id": "0",
+                "text": "소라"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "갈 사람은 앞으로 갈 사람이에요.",
+              "en": "갈 사람 identifies the future visitor.",
+              "de": "갈 사람 bezeichnet die Person, die künftig hingeht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "어제 다녀온 사람은 준호예요. 지금 가는 사람은 지수예요. 내일 갈 사람은 민수예요.",
+        "questions": [
+          {
+            "id": "past",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이미 다녀온 사람은?",
+              "en": "Who has already been there?",
+              "de": "Wer war bereits dort?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지수"
+              },
+              {
+                "id": "2",
+                "text": "민수"
+              },
+              {
+                "id": "0",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다녀온은 지난 경험을 나타내요.",
+              "en": "다녀온 refers to the completed visit.",
+              "de": "다녀온 bezeichnet den bereits erfolgten Besuch."
+            }
+          },
+          {
+            "id": "future",
+            "kind": "choice",
+            "prompt": {
+              "ko": "내일 갈 사람은?",
+              "en": "Who will go tomorrow?",
+              "de": "Wer geht morgen hin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "준호"
+              },
+              {
+                "id": "2",
+                "text": "지수"
+              },
+              {
+                "id": "0",
+                "text": "민수"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "갈 사람은 앞으로 갈 사람이에요.",
+              "en": "갈 사람 identifies the future visitor.",
+              "de": "갈 사람 bezeichnet die Person, die künftig hingeht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:writing:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:writing:02",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "첫 경험을 전하는 이메일",
+        "en": "Email about a first experience",
+        "de": "E-Mail über eine erste Erfahrung"
+      },
+      "teaching": {
+        "ko": "반말에 합의한 친구에게 제목·용건·응답 요청이 있는 이메일을 쓰세요. 자유 글은 루브릭으로 재작성하며 미채점으로 남아요.",
+        "en": "Write a subject, message and reply request to a friend with agreed casual speech. Review and rewrite using the rubric; free writing remains unscored.",
+        "de": "Schreibe Betreff, Anliegen und Antwortbitte an eine befreundete Person mit vereinbarter vertraulicher Anrede. Prüfe und überarbeite den Text anhand der Kriterien; er bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "친구 지수에게 이메일. 6월 3일에 처음 빵 만들기를 시작함. 만들다가 정전되어 끝내지 못함. 재미있었다는 것은 나의 느낌. 다음 주 토요일에 같이 해 볼지 물어보기. 지수의 답은 아직 모름.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "전체 글을 쓰고 해설의 기준으로 다시 검토하세요.",
+              "en": "Write the complete text, then review it against the guidance.",
+              "de": "Schreibe den vollständigen Text und prüfe ihn anschließend anhand der Hinweise."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "제목과 수신자가 있나요? 시작 시점, 도중 사건, 미완료를 유지했나요? 감상은 자기 생각으로, 초대는 아직 답을 받지 않은 질문으로 썼나요? 상대가 이미 동의했다고 쓰지 말고 고쳐 보세요.",
+              "en": "Is there a subject and recipient? Did you preserve start time, interruption and non-completion? Is the reaction your own view and the invitation an unanswered question? Revise any invented acceptance.",
+              "de": "Gibt es Betreff und Empfänger? Bleiben Beginn, Unterbrechung und fehlender Abschluss erhalten? Ist der Eindruck deine eigene Sicht und die Einladung eine unbeantwortete Frage? Korrigiere jede erfundene Zusage."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "친구 은우에게 이메일. 7월 8일에 처음 화분 만들기를 시작함. 수업이 끝나서 완성하지 못함. 다시 해 보고 싶다는 것은 나의 생각. 다음 주 일요일에 같이 해 볼지 물어보기. 은우의 답은 아직 모름.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "전체 글을 쓰고 해설의 기준으로 다시 검토하세요.",
+              "en": "Write the complete text, then review it against the guidance.",
+              "de": "Schreibe den vollständigen Text und prüfe ihn anschließend anhand der Hinweise."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "제목과 수신자가 있나요? 시작 시점, 도중 사건, 미완료를 유지했나요? 감상은 자기 생각으로, 초대는 아직 답을 받지 않은 질문으로 썼나요? 상대가 이미 동의했다고 쓰지 말고 고쳐 보세요.",
+              "en": "Is there a subject and recipient? Did you preserve start time, interruption and non-completion? Is the reaction your own view and the invitation an unanswered question? Revise any invented acceptance.",
+              "de": "Gibt es Betreff und Empfänger? Bleiben Beginn, Unterbrechung und fehlender Abschluss erhalten? Ist der Eindruck deine eigene Sicht und die Einladung eine unbeantwortete Frage? Korrigiere jede erfundene Zusage."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:writing:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:writing:03",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "미완료 경험을 이야기로 쓰기",
+        "en": "Narrate an unfinished first experience",
+        "de": "Von einer unvollendeten ersten Erfahrung erzählen"
+      },
+      "teaching": {
+        "ko": "가상 경험으로 전체 일기를 쓰고 루브릭에 따라 재작성해요. 자동 점수는 부여하지 않아요.",
+        "en": "Write a complete diary about the fictional experience and revise against the rubric. No automatic score is given.",
+        "de": "Schreibe einen vollständigen Tagebucheintrag über die fiktive Erfahrung und überarbeite ihn anhand der Kriterien. Es gibt keine automatische Punktzahl."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "6월 3일 두 시에 처음 빵 만들기 시작. 삼십 분 뒤 정전. 활동은 재미있었지만 빵은 완성하지 못함. 일기는 그날 저녁에 씀.",
+        "questions": [
+          {
+            "id": "diary",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "시작·전개·결과가 있는 짧은 일기를 쓰세요.",
+              "en": "Write a short diary with a beginning, development and outcome.",
+              "de": "Schreibe einen kurzen Tagebucheintrag mit Beginn, Verlauf und Ergebnis."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "정해진 시점에서 시작해 도중 사건과 결과를 순서대로 썼나요? 끝내지 못한 활동을 완성했다고 하지 않았나요? 재미있었다는 느낌은 객관적 사실과 구별했나요? 시간 표현과 주체를 확인하고 다시 써 보세요. 의미는 미채점입니다.",
+              "en": "Does the diary keep the starting time, intervening event and outcome in order? Does an unfinished activity stay unfinished? Is enjoyment presented as a personal reaction? Check time references and participants, then rewrite. Meaning is unscored.",
+              "de": "Bleiben Beginn, Zwischenereignis und Ergebnis in der richtigen Reihenfolge? Bleibt die Tätigkeit unvollendet? Wird Freude als persönlicher Eindruck dargestellt? Prüfe Zeitbezüge und Beteiligte und schreibe erneut. Der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "7월 8일 세 시에 처음 화분 만들기 시작. 한 시간 뒤 수업 종료. 활동은 재미있었지만 화분은 완성하지 못함. 일기는 그날 저녁에 씀.",
+        "questions": [
+          {
+            "id": "diary",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "시작·전개·결과가 있는 짧은 일기를 쓰세요.",
+              "en": "Write a short diary with a beginning, development and outcome.",
+              "de": "Schreibe einen kurzen Tagebucheintrag mit Beginn, Verlauf und Ergebnis."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "정해진 시점에서 시작해 도중 사건과 결과를 순서대로 썼나요? 끝내지 못한 활동을 완성했다고 하지 않았나요? 재미있었다는 느낌은 객관적 사실과 구별했나요? 시간 표현과 주체를 확인하고 다시 써 보세요. 의미는 미채점입니다.",
+              "en": "Does the diary keep the starting time, intervening event and outcome in order? Does an unfinished activity stay unfinished? Is enjoyment presented as a personal reaction? Check time references and participants, then rewrite. Meaning is unscored.",
+              "de": "Bleiben Beginn, Zwischenereignis und Ergebnis in der richtigen Reihenfolge? Bleibt die Tätigkeit unvollendet? Wird Freude als persönlicher Eindruck dargestellt? Prüfe Zeitbezüge und Beteiligte und schreibe erneut. Der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:reading:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "축하·공감·초대의 답장",
+        "en": "Congratulations, empathy and an invitation",
+        "de": "Gratulation, Mitgefühl und Einladung"
+      },
+      "teaching": {
+        "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+        "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+        "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n미나: 어제 처음으로 작품을 완성했어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 토요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n미나: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "처음으로 작품을 완성했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나의 친구"
+              },
+              {
+                "id": "1",
+                "text": "미나"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "미나만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료의 메시지\n준호: 어제 처음으로 공연을 마쳤어요. 정말 기뻐요. 그런데 친구는 일이 있어서 못 왔어요. 친구도 아쉬워했어요.\n나: 축하해요! 친구분은 아쉬우셨겠어요. 일요일에 같이 모임에 오실래요? 어려우면 다음에 와도 괜찮아요.\n준호: 고마워요. 저는 갈 수 있어요. 친구에게는 물어볼게요.",
+        "questions": [
+          {
+            "id": "reason",
+            "kind": "choice",
+            "prompt": {
+              "ko": "축하한 이유는?",
+              "en": "Why was congratulations offered?",
+              "de": "Wozu wurde gratuliert?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구가 모임에 왔어요."
+              },
+              {
+                "id": "0",
+                "text": "처음으로 공연을 마쳤어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "absent",
+            "kind": "choice",
+            "prompt": {
+              "ko": "어제 오지 못한 사람은?",
+              "en": "Who could not attend yesterday?",
+              "de": "Wer konnte gestern nicht kommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호의 친구"
+              },
+              {
+                "id": "1",
+                "text": "준호"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          },
+          {
+            "id": "invitation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "초대에 대해 확인된 것은?",
+              "en": "What is confirmed about the invitation?",
+              "de": "Was steht zur Einladung fest?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준호만 갈 수 있다고 답했어요."
+              },
+              {
+                "id": "1",
+                "text": "친구도 오기로 했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "상대가 기쁜 일을 말하면 축하하고, 아쉬운 일을 말하면 그 마음을 받아요. 못 온 사람을 이미 온 사람으로 바꾸거나 초대를 강요하지 않아요. 인물과 시점, 감정의 근거를 따로 읽어요.",
+              "en": "Congratulate someone on good news and acknowledge disappointment. Do not turn a person who could not attend into a past participant or force an invitation. Separate people, times and reasons for feelings.",
+              "de": "Gratuliere zu einer guten Nachricht und gehe auf Enttäuschung ein. Mache aus einer Person, die nicht kommen konnte, keine frühere Teilnehmerin oder keinen früheren Teilnehmer und dränge keine Einladung auf. Unterscheide Personen, Zeiten und Gründe für Gefühle."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:speaking:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "경험을 전하며 축하하고 위로하기",
+        "en": "Relay an experience and respond with care",
+        "de": "Ein Erlebnis weitergeben und Anteil nehmen"
+      },
+      "teaching": {
+        "ko": "간 사람·가는 사람·갈 사람의 끝소리와 시점을 구별해 말해요. 이어서 제공된 경험을 전하고 축하·공감·초대에 답하세요. 첫 장면은 해요체, 둘째 장면은 반말에 합의한 친구예요. 듣고 휴지와 말끝을 고쳐 재녹음하세요. 의미·억양은 미채점이에요.",
+        "en": "Say 간 사람, 가는 사람 and 갈 사람 while preserving their time reference. Then relay the given experience and respond to congratulations, disappointment and an invitation. Use polite speech in the first scene and agreed casual speech in the second. Replay and revise pauses and endings; meaning and intonation remain unscored.",
+        "de": "Sprich 간 사람, 가는 사람 und 갈 사람 mit passendem Zeitbezug. Gib dann das vorgegebene Erlebnis weiter und reagiere auf Gratulation, Enttäuschung und Einladung. Sprich in der ersten Szene höflich, in der zweiten mit vereinbarter vertraulicher Anrede. Höre zu und überarbeite Pausen und Endungen; Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 미나가 어제 첫 작품을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 지수는 지금 가며, 민수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 시험에 합격했다고 해요. 축하하세요. 이어서 이번 토요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "모임 동료에게 해요체: 준호가 어제 첫 공연을 끝냈고 기쁘다고 했어요. 나는 어제 모임에 갔고, 민수는 지금 가며, 지수는 내일 갈 예정이에요. 인물을 바꾸지 말고 전하세요.\n반말에 합의한 친구가 작품을 완성했다고 해요. 축하하세요. 이어서 이번 일요일 모임에 못 와서 아쉽다고 해요. 공감하고 다음 기회를 열어 두세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP06:production:01",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:01",
+      "requirementKeys": [
+        "G2:-는2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는2 문장 만들기",
+        "en": "-는2: write a sentence",
+        "de": "-는2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "동사 -는은 현재의 행동으로 뒤 명사를 꾸며요. 수식받는 사람이 그 행동을 하는지 문맥에서 확인해요.",
+        "en": "Verb + -는 identifies a noun through a present action. Use context to identify who acts.",
+        "de": "Verb + -는 bestimmt ein Nomen durch eine gegenwärtige Handlung. Kläre im Kontext, wer handelt."
+      },
+      "examplesKo": [
+        "저기 책을 읽는 사람이 제 친구예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "현재 행동으로 사람 소개: 저기 / 책을 읽다 / 사람 / 제 친구 / -는 관형형 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저기 책을 읽는 사람이 제 친구예요."
+            ],
+            "rejectedAnswers": [
+              "저기 책을 읽을 사람이 제 친구예요."
+            ],
+            "explanation": {
+              "ko": "예: 저기 책을 읽는 사람이 제 친구예요. 의미가 다른 예: 저기 책을 읽을 사람이 제 친구예요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저기 책을 읽는 사람이 제 친구예요. Meaning or register error: 저기 책을 읽을 사람이 제 친구예요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저기 책을 읽는 사람이 제 친구예요. Fehler bei Bedeutung oder Register: 저기 책을 읽을 사람이 제 친구예요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "현재 행동으로 사람 소개: 저기 / 노래하다 / 사람 / 제 동생 / -는 관형형 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저기 노래하는 사람이 제 동생이에요."
+            ],
+            "rejectedAnswers": [
+              "저기 노래할 사람이 제 동생이에요."
+            ],
+            "explanation": {
+              "ko": "예: 저기 노래하는 사람이 제 동생이에요. 의미가 다른 예: 저기 노래할 사람이 제 동생이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저기 노래하는 사람이 제 동생이에요. Meaning or register error: 저기 노래할 사람이 제 동생이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저기 노래하는 사람이 제 동생이에요. Fehler bei Bedeutung oder Register: 저기 노래할 사람이 제 동생이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:02",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:02",
+      "requirementKeys": [
+        "G2:-은2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은2 문장 만들기",
+        "en": "-은2: write a sentence",
+        "de": "-은2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "동사의 -(으)ㄴ은 여기서 이미 한 행동으로 명사를 꾸며요. 앞으로 할 일과 구별해요.",
+        "en": "With these verbs, -(으)ㄴ describes a completed past action, not a future plan.",
+        "de": "Bei diesen Verben beschreibt -(으)ㄴ eine vergangene, ausgeführte Handlung, keinen Zukunftsplan."
+      },
+      "examplesKo": [
+        "어제 산 책이 재미있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "이미 한 행동으로 물건 설명: 어제 / 사다 / 책 / 재미있다 / -(으)ㄴ / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "어제 산 책이 재미있어요."
+            ],
+            "rejectedAnswers": [
+              "내일 살 책이 재미있어요."
+            ],
+            "explanation": {
+              "ko": "예: 어제 산 책이 재미있어요. 의미가 다른 예: 내일 살 책이 재미있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 어제 산 책이 재미있어요. Meaning or register error: 내일 살 책이 재미있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 어제 산 책이 재미있어요. Fehler bei Bedeutung oder Register: 내일 살 책이 재미있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "이미 한 행동으로 물건 설명: 지난주 / 만들다 / 컵 / 예쁘다 / -(으)ㄴ / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지난주에 만든 컵이 예뻐요."
+            ],
+            "rejectedAnswers": [
+              "다음 주에 만들 컵이 예뻐요."
+            ],
+            "explanation": {
+              "ko": "예: 지난주에 만든 컵이 예뻐요. 의미가 다른 예: 다음 주에 만들 컵이 예뻐요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지난주에 만든 컵이 예뻐요. Meaning or register error: 다음 주에 만들 컵이 예뻐요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지난주에 만든 컵이 예뻐요. Fehler bei Bedeutung oder Register: 다음 주에 만들 컵이 예뻐요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:03",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:03",
+      "requirementKeys": [
+        "G2:-은3"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은3 문장 만들기",
+        "en": "-은3: write a sentence",
+        "de": "-은3: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "형용사의 -(으)ㄴ은 성질·상태로 명사를 꾸며요. 작은은 과거에 작았다는 뜻이 아니에요.",
+        "en": "With adjectives, -(으)ㄴ describes a quality or state. 작은 does not itself mean previously small.",
+        "de": "Bei Adjektiven beschreibt -(으)ㄴ eine Eigenschaft oder einen Zustand. 작은 bedeutet nicht von sich aus früher klein."
+      },
+      "examplesKo": [
+        "작은 방을 찾고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "현재 성질로 명사 꾸미기: 작다 / 방 / 찾고 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "작은 방을 찾고 있어요."
+            ],
+            "rejectedAnswers": [
+              "작았던 방을 찾고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 작은 방을 찾고 있어요. 의미가 다른 예: 작았던 방을 찾고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 작은 방을 찾고 있어요. Meaning or register error: 작았던 방을 찾고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 작은 방을 찾고 있어요. Fehler bei Bedeutung oder Register: 작았던 방을 찾고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "현재 성질로 명사 꾸미기: 조용하다 / 카페 / 찾고 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "조용한 카페를 찾고 있어요."
+            ],
+            "rejectedAnswers": [
+              "조용했던 카페를 찾고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 조용한 카페를 찾고 있어요. 의미가 다른 예: 조용했던 카페를 찾고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 조용한 카페를 찾고 있어요. Meaning or register error: 조용했던 카페를 찾고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 조용한 카페를 찾고 있어요. Fehler bei Bedeutung oder Register: 조용했던 카페를 찾고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:04",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:04",
+      "requirementKeys": [
+        "G2:-을2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을2 문장 만들기",
+        "en": "-을2: write a sentence",
+        "de": "-을2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "동사의 -(으)ㄹ은 여기서 앞으로 할 행동으로 명사를 특정해요. 이미 했다고 바꾸지 않아요.",
+        "en": "Here, verb + -(으)ㄹ identifies a noun through a future action; the action is not yet completed.",
+        "de": "Hier bestimmt Verb + -(으)ㄹ ein Nomen durch eine künftige Handlung. Sie ist noch nicht abgeschlossen."
+      },
+      "examplesKo": [
+        "내일 만날 사람이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "미래 행동으로 명사 꾸미기: 내일 / 만나다 / 사람 / 있다 / -(으)ㄹ / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "내일 만날 사람이 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 만난 사람이 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 내일 만날 사람이 있어요. 의미가 다른 예: 어제 만난 사람이 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 내일 만날 사람이 있어요. Meaning or register error: 어제 만난 사람이 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 내일 만날 사람이 있어요. Fehler bei Bedeutung oder Register: 어제 만난 사람이 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "미래 행동으로 명사 꾸미기: 다음 주 / 배우다 / 노래 / 있다 / -(으)ㄹ / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "다음 주에 배울 노래가 있어요."
+            ],
+            "rejectedAnswers": [
+              "지난주에 배운 노래가 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 다음 주에 배울 노래가 있어요. 의미가 다른 예: 지난주에 배운 노래가 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 다음 주에 배울 노래가 있어요. Meaning or register error: 지난주에 배운 노래가 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 다음 주에 배울 노래가 있어요. Fehler bei Bedeutung oder Register: 지난주에 배운 노래가 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:05",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:05",
+      "requirementKeys": [
+        "G2:-는 것"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 것 문장 만들기",
+        "en": "-는 것: write a sentence",
+        "de": "-는 것: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-는 것은 행동을 명사처럼 다뤄요. 좋아하는 대상이 사람인지 행동인지 구분해요.",
+        "en": "-는 것 treats an action as a noun phrase. Distinguish liking an activity from liking a person.",
+        "de": "-는 것 macht eine Handlung zur Nominalgruppe. Unterscheide die Vorliebe für eine Tätigkeit von der für eine Person."
+      },
+      "examplesKo": [
+        "사진을 찍는 것을 좋아해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "좋아하는 활동: 사진을 찍다 / -는 것 / 좋아하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "사진을 찍는 것을 좋아해요."
+            ],
+            "rejectedAnswers": [
+              "사진을 찍는 사람을 좋아해요."
+            ],
+            "explanation": {
+              "ko": "예: 사진을 찍는 것을 좋아해요. 의미가 다른 예: 사진을 찍는 사람을 좋아해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 사진을 찍는 것을 좋아해요. Meaning or register error: 사진을 찍는 사람을 좋아해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 사진을 찍는 것을 좋아해요. Fehler bei Bedeutung oder Register: 사진을 찍는 사람을 좋아해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "좋아하는 활동: 혼자 걷다 / -는 것 / 좋아하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "혼자 걷는 것을 좋아해요."
+            ],
+            "rejectedAnswers": [
+              "혼자 걷는 사람을 좋아해요."
+            ],
+            "explanation": {
+              "ko": "예: 혼자 걷는 것을 좋아해요. 의미가 다른 예: 혼자 걷는 사람을 좋아해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 혼자 걷는 것을 좋아해요. Meaning or register error: 혼자 걷는 사람을 좋아해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 혼자 걷는 것을 좋아해요. Fehler bei Bedeutung oder Register: 혼자 걷는 사람을 좋아해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:06",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:06",
+      "requirementKeys": [
+        "G2:-기"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기 문장 만들기",
+        "en": "-기: write a sentence",
+        "de": "-기: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-기는 행동을 주제·대상으로 만드는 명사형이에요. 활동 이름을 사람 이름으로 읽지 않아요.",
+        "en": "-기 nominalizes an action so it can be a topic or object. It names an activity, not a person.",
+        "de": "-기 nominalisiert eine Handlung, die so Thema oder Objekt sein kann. Gemeint ist eine Tätigkeit, keine Person."
+      },
+      "examplesKo": [
+        "제 취미는 책 읽기예요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 취미: 책을 읽다 / -기 명사형 / 제 취미는… / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제 취미는 책 읽기예요."
+            ],
+            "rejectedAnswers": [
+              "제 취미는 책을 읽는 사람이에요."
+            ],
+            "explanation": {
+              "ko": "예: 제 취미는 책 읽기예요. 의미가 다른 예: 제 취미는 책을 읽는 사람이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제 취미는 책 읽기예요. Meaning or register error: 제 취미는 책을 읽는 사람이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제 취미는 책 읽기예요. Fehler bei Bedeutung oder Register: 제 취미는 책을 읽는 사람이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 취미: 자전거를 타다 / -기 명사형 / 제 취미는… / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제 취미는 자전거 타기예요."
+            ],
+            "rejectedAnswers": [
+              "제 취미는 자전거를 타는 사람이에요."
+            ],
+            "explanation": {
+              "ko": "예: 제 취미는 자전거 타기예요. 의미가 다른 예: 제 취미는 자전거를 타는 사람이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제 취미는 자전거 타기예요. Meaning or register error: 제 취미는 자전거를 타는 사람이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제 취미는 자전거 타기예요. Fehler bei Bedeutung oder Register: 제 취미는 자전거를 타는 사람이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:07",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:07",
+      "requirementKeys": [
+        "G2:-을 때"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 때 문장 만들기",
+        "en": "-을 때: write a sentence",
+        "de": "-을 때: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㄹ 때는 행동이나 상태와 관련된 시점이에요. 언제인지와 얼마나 오래인지를 구분해요.",
+        "en": "-(으)ㄹ 때 locates an action in a situation or time; distinguish when from how long.",
+        "de": "-(으)ㄹ 때 nennt einen Zeitpunkt oder eine Situation. Unterscheide wann von wie lange."
+      },
+      "examplesKo": [
+        "친구를 만날 때 이 책을 줘요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "시점: 친구를 만나다 / 그때 이 책을 주다 / -(으)ㄹ 때 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구를 만날 때 이 책을 줘요."
+            ],
+            "rejectedAnswers": [
+              "친구를 만나기 전에 이 책을 줘요."
+            ],
+            "explanation": {
+              "ko": "예: 친구를 만날 때 이 책을 줘요. 의미가 다른 예: 친구를 만나기 전에 이 책을 줘요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구를 만날 때 이 책을 줘요. Meaning or register error: 친구를 만나기 전에 이 책을 줘요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구를 만날 때 이 책을 줘요. Fehler bei Bedeutung oder Register: 친구를 만나기 전에 이 책을 줘요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "시점: 집에 가다 / 그때 전화하다 / -(으)ㄹ 때 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "집에 갈 때 전화해요."
+            ],
+            "rejectedAnswers": [
+              "집에 가기 전에 전화해요."
+            ],
+            "explanation": {
+              "ko": "예: 집에 갈 때 전화해요. 의미가 다른 예: 집에 가기 전에 전화해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 집에 갈 때 전화해요. Meaning or register error: 집에 가기 전에 전화해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 집에 갈 때 전화해요. Fehler bei Bedeutung oder Register: 집에 가기 전에 전화해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:08",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:08",
+      "requirementKeys": [
+        "G2:-는 동안에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 동안에 문장 만들기",
+        "en": "-는 동안에: write a sentence",
+        "de": "-는 동안에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-는 동안에는 어떤 행동이 계속되는 기간 안에 다른 일이 일어남을 나타내요.",
+        "en": "-는 동안에 places another event within the period of an ongoing activity.",
+        "de": "-는 동안에 ordnet ein anderes Ereignis in die Dauer einer laufenden Tätigkeit ein."
+      },
+      "examplesKo": [
+        "버스를 기다리는 동안에 책을 읽었어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "겹치는 기간: 버스를 기다리다 / 그 시간에 책을 읽었다 / -는 동안에 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "버스를 기다리는 동안에 책을 읽었어요."
+            ],
+            "rejectedAnswers": [
+              "버스를 탄 후에 책을 읽었어요."
+            ],
+            "explanation": {
+              "ko": "예: 버스를 기다리는 동안에 책을 읽었어요. 의미가 다른 예: 버스를 탄 후에 책을 읽었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 버스를 기다리는 동안에 책을 읽었어요. Meaning or register error: 버스를 탄 후에 책을 읽었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 버스를 기다리는 동안에 책을 읽었어요. Fehler bei Bedeutung oder Register: 버스를 탄 후에 책을 읽었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "겹치는 기간: 빵을 굽다 / 그 시간에 차를 준비했다 / -는 동안에 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵을 굽는 동안에 차를 준비했어요."
+            ],
+            "rejectedAnswers": [
+              "빵을 다 먹은 후에 차를 준비했어요."
+            ],
+            "explanation": {
+              "ko": "예: 빵을 굽는 동안에 차를 준비했어요. 의미가 다른 예: 빵을 다 먹은 후에 차를 준비했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵을 굽는 동안에 차를 준비했어요. Meaning or register error: 빵을 다 먹은 후에 차를 준비했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵을 굽는 동안에 차를 준비했어요. Fehler bei Bedeutung oder Register: 빵을 다 먹은 후에 차를 준비했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:09",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:09",
+      "requirementKeys": [
+        "G2:-은 지2"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 지2 문장 만들기",
+        "en": "-은 지2: write a sentence",
+        "de": "-은 지2: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㄴ 지는 시작이나 사건 이후 흐른 시간을 세어요. 그 시간 내내 쉬지 않고 했다는 뜻은 아니에요.",
+        "en": "-(으)ㄴ 지 measures elapsed time since an event or start, not uninterrupted activity throughout.",
+        "de": "-(으)ㄴ 지 misst die seit einem Ereignis oder Beginn vergangene Zeit, keine ununterbrochene Tätigkeit."
+      },
+      "examplesKo": [
+        "수영을 배운 지 두 달 됐어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "배우기 시작한 때부터 두 달 경과 / 수영을 배우다 / -(으)ㄴ 지 / 두 달 / 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "수영을 배운 지 두 달 됐어요."
+            ],
+            "rejectedAnswers": [
+              "수영을 배우는 데 두 달 걸렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 수영을 배운 지 두 달 됐어요. 의미가 다른 예: 수영을 배우는 데 두 달 걸렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 수영을 배운 지 두 달 됐어요. Meaning or register error: 수영을 배우는 데 두 달 걸렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 수영을 배운 지 두 달 됐어요. Fehler bei Bedeutung oder Register: 수영을 배우는 데 두 달 걸렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가입한 때부터 일 년 경과 / 모임에 가입하다 / -(으)ㄴ 지 / 일 년 / 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "모임에 가입한 지 일 년 됐어요."
+            ],
+            "rejectedAnswers": [
+              "모임에 가입하는 데 일 년 걸렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 모임에 가입한 지 일 년 됐어요. 의미가 다른 예: 모임에 가입하는 데 일 년 걸렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 모임에 가입한 지 일 년 됐어요. Meaning or register error: 모임에 가입하는 데 일 년 걸렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 모임에 가입한 지 일 년 됐어요. Fehler bei Bedeutung oder Register: 모임에 가입하는 데 일 년 걸렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:10",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:10",
+      "requirementKeys": [
+        "G2:-은 적이 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-은 적이 있다 문장 만들기",
+        "en": "-은 적이 있다: write a sentence",
+        "de": "-은 적이 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㄴ 적이 있다는 과거 경험의 존재예요. 한 번 이상이라는 뜻이지 현재 진행이나 반복 횟수 전체를 말하지 않아요.",
+        "en": "-(으)ㄴ 적이 있다 reports past experience, at least once. It does not specify the total frequency or a current action.",
+        "de": "-(으)ㄴ 적이 있다 bezeichnet eine mindestens einmalige Erfahrung. Es nennt weder die genaue Häufigkeit noch eine gerade laufende Handlung."
+      },
+      "examplesKo": [
+        "제주도에 간 적이 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "과거 경험 있음: 제주도에 가다 / -(으)ㄴ 적이 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제주도에 간 적이 있어요."
+            ],
+            "rejectedAnswers": [
+              "제주도에 간 적이 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 제주도에 간 적이 있어요. 의미가 다른 예: 제주도에 간 적이 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제주도에 간 적이 있어요. Meaning or register error: 제주도에 간 적이 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제주도에 간 적이 있어요. Fehler bei Bedeutung oder Register: 제주도에 간 적이 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "과거 경험 있음: 이 음식을 먹다 / -(으)ㄴ 적이 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 음식을 먹은 적이 있어요."
+            ],
+            "rejectedAnswers": [
+              "이 음식을 먹은 적이 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 이 음식을 먹은 적이 있어요. 의미가 다른 예: 이 음식을 먹은 적이 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 음식을 먹은 적이 있어요. Meaning or register error: 이 음식을 먹은 적이 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 음식을 먹은 적이 있어요. Fehler bei Bedeutung oder Register: 이 음식을 먹은 적이 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:11",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:11",
+      "requirementKeys": [
+        "G2:-어 보다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 보다 문장 만들기",
+        "en": "-어 보다: write a sentence",
+        "de": "-어 보다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-아/어 보다는 시험 삼아 하는 행동이에요. 권유만 듣고 실제로 했다고 기록하지 않아요.",
+        "en": "-아/어 보다 invites or reports trying an activity. An invitation alone does not prove it happened.",
+        "de": "-아/어 보다 bezeichnet das Ausprobieren. Eine Aufforderung dazu belegt noch keine ausgeführte Handlung."
+      },
+      "examplesKo": [
+        "빵을 만들어 봤어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "처음 시도한 활동: 빵을 만들다 / -어 보다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵을 만들어 봤어요."
+            ],
+            "rejectedAnswers": [
+              "빵을 만드는 것을 봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 빵을 만들어 봤어요. 의미가 다른 예: 빵을 만드는 것을 봤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵을 만들어 봤어요. Meaning or register error: 빵을 만드는 것을 봤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵을 만들어 봤어요. Fehler bei Bedeutung oder Register: 빵을 만드는 것을 봤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "처음 시도한 활동: 한복을 입다 / -어 보다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "한복을 입어 봤어요."
+            ],
+            "rejectedAnswers": [
+              "한복을 입는 것을 봤어요."
+            ],
+            "explanation": {
+              "ko": "예: 한복을 입어 봤어요. 의미가 다른 예: 한복을 입는 것을 봤어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 한복을 입어 봤어요. Meaning or register error: 한복을 입는 것을 봤어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 한복을 입어 봤어요. Fehler bei Bedeutung oder Register: 한복을 입는 것을 봤어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:12",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:12",
+      "requirementKeys": [
+        "G2:-으면서"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면서 문장 만들기",
+        "en": "-으면서: write a sentence",
+        "de": "-으면서: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)면서는 여기서 한 사람이 동시에 하는 두 행동을 연결해요. 순서를 뜻하는 말과 구별해요.",
+        "en": "Here, -(으)면서 links two simultaneous actions by one person, not a sequence.",
+        "de": "Hier verbindet -(으)면서 zwei gleichzeitige Handlungen derselben Person, keine Abfolge."
+      },
+      "examplesKo": [
+        "음악을 들으면서 요리해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "내가 동시에 한 두 활동: 음악을 듣다 + 요리하다 / -(으)면서 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "음악을 들으면서 요리해요."
+            ],
+            "rejectedAnswers": [
+              "음악을 들은 후에 요리해요."
+            ],
+            "explanation": {
+              "ko": "예: 음악을 들으면서 요리해요. 의미가 다른 예: 음악을 들은 후에 요리해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 음악을 들으면서 요리해요. Meaning or register error: 음악을 들은 후에 요리해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 음악을 들으면서 요리해요. Fehler bei Bedeutung oder Register: 음악을 들은 후에 요리해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "내가 동시에 한 두 활동: 차를 마시다 + 책을 읽다 / -(으)면서 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "차를 마시면서 책을 읽어요."
+            ],
+            "rejectedAnswers": [
+              "차를 마신 후에 책을 읽어요."
+            ],
+            "explanation": {
+              "ko": "예: 차를 마시면서 책을 읽어요. 의미가 다른 예: 차를 마신 후에 책을 읽어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 차를 마시면서 책을 읽어요. Meaning or register error: 차를 마신 후에 책을 읽어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 차를 마시면서 책을 읽어요. Fehler bei Bedeutung oder Register: 차를 마신 후에 책을 읽어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:13",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:13",
+      "requirementKeys": [
+        "G2:-다가1(1)"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-다가1(1) 문장 만들기",
+        "en": "-다가1(1): write a sentence",
+        "de": "-다가1(1): einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-다가 앞 행동 도중 다른 일이 생겨요. 문맥 없이 첫 행동의 완료를 단정하지 않아요.",
+        "en": "-다가 introduces an event during another activity. Do not assume the first activity was completed.",
+        "de": "-다가 führt ein Ereignis während einer anderen Tätigkeit ein. Setze deren Abschluss nicht voraus."
+      },
+      "examplesKo": [
+        "집에 가다가 친구를 만났어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "진행 중 끼어든 일: 집에 가다 → 친구를 만났다 / -다가 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "집에 가다가 친구를 만났어요."
+            ],
+            "rejectedAnswers": [
+              "집에 도착한 후에 친구를 만났어요."
+            ],
+            "explanation": {
+              "ko": "예: 집에 가다가 친구를 만났어요. 의미가 다른 예: 집에 도착한 후에 친구를 만났어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 집에 가다가 친구를 만났어요. Meaning or register error: 집에 도착한 후에 친구를 만났어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 집에 가다가 친구를 만났어요. Fehler bei Bedeutung oder Register: 집에 도착한 후에 친구를 만났어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "중단: 숙제를 하다 → 전화가 왔다 / -다가 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "숙제를 하다가 전화가 왔어요."
+            ],
+            "rejectedAnswers": [
+              "숙제를 다 한 후에 전화가 왔어요."
+            ],
+            "explanation": {
+              "ko": "예: 숙제를 하다가 전화가 왔어요. 의미가 다른 예: 숙제를 다 한 후에 전화가 왔어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 숙제를 하다가 전화가 왔어요. Meaning or register error: 숙제를 다 한 후에 전화가 왔어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 숙제를 하다가 전화가 왔어요. Fehler bei Bedeutung oder Register: 숙제를 다 한 후에 전화가 왔어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP06:production:14",
+      "phaseId": "KP06",
+      "level": "A2",
+      "objectiveId": "KP06:production:14",
+      "requirementKeys": [
+        "G1:-고 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 있다 문장 만들기",
+        "en": "-고 있다: write a sentence",
+        "de": "-고 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 있다는 지금 진행 중인 행동이에요. 배운 지 일 년 같은 경과 기간과 구별해요.",
+        "en": "-고 있다 reports an ongoing action; distinguish it from elapsed time since starting to learn.",
+        "de": "-고 있다 beschreibt eine laufende Handlung. Unterscheide sie von der seit dem Lernbeginn vergangenen Zeit."
+      },
+      "examplesKo": [
+        "지금 새 노래를 연습하고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "바로 지금 하는 일: 새 노래를 연습하다 / -고 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 새 노래를 연습하고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 새 노래를 연습했어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 새 노래를 연습하고 있어요. 의미가 다른 예: 어제 새 노래를 연습했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 새 노래를 연습하고 있어요. Meaning or register error: 어제 새 노래를 연습했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 새 노래를 연습하고 있어요. Fehler bei Bedeutung oder Register: 어제 새 노래를 연습했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "바로 지금 하는 일: 그림을 그리다 / -고 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 그림을 그리고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 그림을 그렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 그림을 그리고 있어요. 의미가 다른 예: 어제 그림을 그렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 그림을 그리고 있어요. Meaning or register error: 어제 그림을 그렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 그림을 그리고 있어요. Fehler bei Bedeutung oder Register: 어제 그림을 그렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

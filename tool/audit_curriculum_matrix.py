@@ -1072,6 +1072,11 @@ def run_audit(root: Path = REPO) -> Tuple[Matrix, Corpus, AuditResult]:
             "text_types": tt_diag,
         },
     )
+    # The historical discovery counts stay separate from reviewed Phase paths.
+    if str(REPO) not in sys.path:
+        sys.path.insert(0, str(REPO))
+    from tool.phase_matrix_evidence import attach
+    attach(root, result.evidence_requirements)
     return matrix, corpus, result
 
 
@@ -1129,11 +1134,12 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
         ("gap_counts", OrderedDict((f"{axis}:{status}", n) for (axis, status), n in totals.items())),
         ("draftHoldings", draft_holdings),
         ("evidenceRequirements", OrderedDict([
-            ("evidenceStage", "unverified_unmapped"),
+            ("evidenceStage", "mixed_discovery_and_reviewed_paths"),
             ("requiredRowCount", len(result.evidence_requirements)),
             ("requiredRowsByLevelAxisMode", requirement_counts),
             ("candidateRows", sum(bool(r["contentCandidates"]) for r in result.evidence_requirements)),
             ("unverifiedUnmappedRows", sum(r["evidenceStage"] == "unverified_unmapped" for r in result.evidence_requirements)),
+            ("phasePathConnectedRows", sum(bool(r['taskBindings']) for r in result.evidence_requirements)),
             ("rows", result.evidence_requirements),
         ])),
         ("diagnostics", OrderedDict([
@@ -1241,15 +1247,16 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
     L.append("> 문법 매칭은 `tool/build_level_bible_tables.py` 의 F1 매처를 그대로 재사용한다(F1_grammar_map.md 와 항상 일치).")
     L.append("> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(현재 taxonomy에 장르 배치 경로 미매핑) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).")
     L.append("")
-    L.append("## 0. 증거 요구사항 (W0b 임시 뷰 — 학습 완료 판정 아님)")
+    L.append("## 0. 매트릭스 요구와 검수된 Phase 과제 경로")
     L.append("")
-    L.append("> 이 표의 모든 행은 KO 매트릭스의 레벨 × 축 × R/P 요구사항이다. 현재 `contentCandidates`는 기존 제목·키워드·배치·미디어 탐색 결과일 뿐이며, 과제·평가·런타임 근거나 숙달 증거가 아니다. W1의 승인된 과제 연결 전에는 모두 `unverified_unmapped`이다. 후보가 없다는 표기는 **검사된 콘텐츠 부재의 증명도 아니다**.")
+    L.append("> 모든 행은 KO 매트릭스의 레벨 × 축 × R/P 요구사항이다. `contentCandidates`와 뒤의 갭 표는 기존 콘텐츠 탐색 결과이며 콘텐츠 부재의 증명이 아니다. `taskBindings`는 별도 검수·해시 검증을 거친 Phase 자료·연습·문항 연결이다. 문항은 요구의 표본이며, 경로 계약은 기기 실행 결과가 아니다. 자유 응답과 전체 숙달은 미검증으로 유지한다.")
     L.append("")
     draft = summary["draftHoldings"]
     draft_counts = draft["counts"]
     L.append(f"- 산출 평가 초안 보유: 정의 {draft_counts['byKind']['definition']} · 프로젝트 {draft_counts['byKind']['project']} · 자료 조각 {draft_counts['byKind']['source_snippet']} · 합계 {draft_counts['total']} · stage `{draft['evidenceStage']}` · inputAbsent `{draft['inputAbsent']}` · published {draft_counts['published']} · assessable {draft_counts['assessable']}")
     L.append(f"- 레벨 미지정 초안: 정의 {draft_counts['unassigned']['definition']} · 프로젝트 {draft_counts['unassigned']['project']} · 자료 조각 {draft_counts['unassigned']['source_snippet']}. 초안은 문법 앵커·장르 보유·기술·런타임 숙달에 계산하지 않는다.")
     L.append(f"- 요구 행: {summary['evidenceRequirements']['requiredRowCount']} · 후보 관찰 행: {summary['evidenceRequirements']['candidateRows']} · 미검증/미매핑 행: {summary['evidenceRequirements']['unverifiedUnmappedRows']}")
+    L.append(f"- 검수된 Phase 과제 경로 연결: {summary['evidenceRequirements']['phasePathConnectedRows']} · 전체 숙달 판정: 미검증. [문법 원문 근거](phase_context_evidence_report.md) · [전체 필수 목표](phase_objective_coverage_report.md)")
     L.append("")
     L.append("| 초안 레벨 | 정의 | 프로젝트 | 자료 조각 |")
     L.append("|---|---:|---:|---:|")
@@ -1263,7 +1270,9 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
         candidates = ", ".join(row["contentCandidates"][:6]) or "—"
         if len(row["contentCandidates"]) > 6:
             candidates += " …"
-        L.append(f"| {row['level']} | {row['axis']} | `{row['requirementKey']}` | {row['mode']} | {_md_escape(candidates)} | {row['draftBindingState']} | `{row['evidenceStage']}` | task=unverified · assessment=unverified · runtime=unverified |")
+        paths = ', '.join(sorted({b['taskId'] for b in row['taskBindings']}))
+        detail = f"{paths} · 문항/경로 계약 연결 · 전체 숙달 미검증" if paths else 'task=unverified · assessment=unverified · runtime=unverified'
+        L.append(f"| {row['level']} | {row['axis']} | `{row['requirementKey']}` | {row['mode']} | {_md_escape(candidates)} | {row['draftBindingState']} | `{row['evidenceStage']}` | {detail} |")
     L.append("")
     L.append("## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)")
     L.append("")

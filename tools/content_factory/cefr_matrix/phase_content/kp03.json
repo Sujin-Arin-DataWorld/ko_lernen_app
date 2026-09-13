@@ -1,0 +1,3291 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP03",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP03:grammar:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:01",
+      "requirementKeys": [
+        "G1:에게"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에게",
+        "en": "에게",
+        "de": "에게"
+      },
+      "teaching": {
+        "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
+        "en": "에게 marks the person receiving something, not a destination place.",
+        "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
+      },
+      "examplesKo": [
+        "민수가 유나에게 책을 줘요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "민수가 유나에게 책을 줘요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "책을 받는 사람은 유나예요."
+              },
+              {
+                "id": "1",
+                "text": "책을 받는 사람은 민수예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
+              "en": "에게 marks the person receiving something, not a destination place.",
+              "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지수가 선생님에게 메모를 보내요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "메모를 받는 사람은 선생님이에요."
+              },
+              {
+                "id": "1",
+                "text": "메모를 받는 사람은 지수예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
+              "en": "에게 marks the person receiving something, not a destination place.",
+              "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:02",
+      "requirementKeys": [
+        "G1:한테"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "한테",
+        "en": "한테",
+        "de": "한테"
+      },
+      "teaching": {
+        "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
+        "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
+        "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
+      },
+      "examplesKo": [
+        "유나가 친구한테 전화해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "유나가 친구한테 전화해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "전화하는 사람은 친구예요."
+              },
+              {
+                "id": "0",
+                "text": "전화하는 사람은 유나예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
+              "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
+              "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "민수가 지수한테 사진을 보내요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "사진을 받는 사람은 지수예요."
+              },
+              {
+                "id": "1",
+                "text": "사진을 받는 사람은 민수예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
+              "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
+              "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:03",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:03",
+      "requirementKeys": [
+        "G1:-으러"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으러",
+        "en": "-으러",
+        "de": "-으러"
+      },
+      "teaching": {
+        "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
+        "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
+        "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
+      },
+      "examplesKo": [
+        "책을 사러 서점에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "책을 사러 서점에 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "책을 이미 다 샀어요."
+              },
+              {
+                "id": "0",
+                "text": "가는 목적은 책을 사는 거예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
+              "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
+              "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구를 만나러 역에 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구를 이미 만나고 집에 왔어요."
+              },
+              {
+                "id": "0",
+                "text": "역에 가는 목적은 친구를 만나는 거예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
+              "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
+              "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:04",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:04",
+      "requirementKeys": [
+        "G1:-으려고1"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으려고1",
+        "en": "-으려고1",
+        "de": "-으려고1"
+      },
+      "teaching": {
+        "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
+        "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
+        "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
+      },
+      "examplesKo": [
+        "한국어를 배우려고 수업에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "한국어를 배우려고 수업에 가요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "수업에 가는 목적은 한국어 배우기예요."
+              },
+              {
+                "id": "1",
+                "text": "한국어를 모두 배웠어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
+              "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
+              "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "일찍 가려고 버스를 기다려요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 목적지에 도착했어요."
+              },
+              {
+                "id": "0",
+                "text": "일찍 가려는 계획이 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
+              "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
+              "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:05",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:05",
+      "requirementKeys": [
+        "G1:-고 싶다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 싶다",
+        "en": "-고 싶다",
+        "de": "-고 싶다"
+      },
+      "teaching": {
+        "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
+        "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
+        "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
+      },
+      "examplesKo": [
+        "저는 주스를 마시고 싶어요. 주스는 없어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "저는 주스를 마시고 싶어요. 주스는 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "주스를 이미 받았어요."
+              },
+              {
+                "id": "0",
+                "text": "희망은 주스지만 지금 주문할 수 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
+              "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
+              "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "책을 사고 싶어요. 하지만 돈이 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "책을 원하지만 살 돈은 없어요."
+              },
+              {
+                "id": "1",
+                "text": "책을 이미 샀어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
+              "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
+              "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:06",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:06",
+      "requirementKeys": [
+        "G1:-고 있다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 있다",
+        "en": "-고 있다",
+        "de": "-고 있다"
+      },
+      "teaching": {
+        "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
+        "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
+        "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
+      },
+      "examplesKo": [
+        "지금 밥을 먹고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "지금 밥을 먹고 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "밥을 먹는 중이에요."
+              },
+              {
+                "id": "1",
+                "text": "밥을 아직 먹기 시작하지 않았어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
+              "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
+              "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지금 주문을 기다리고 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기다리는 중이에요."
+              },
+              {
+                "id": "1",
+                "text": "주문을 받고 가게를 떠났어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
+              "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
+              "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:07",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:07",
+      "requirementKeys": [
+        "G1:-을 수 있다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 수 있다",
+        "en": "-을 수 있다",
+        "de": "-을 수 있다"
+      },
+      "teaching": {
+        "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
+        "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
+        "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
+      },
+      "examplesKo": [
+        "여기에서 카드로 계산할 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "여기에서 카드로 계산할 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "카드로 이미 계산했어요."
+              },
+              {
+                "id": "0",
+                "text": "카드 결제가 가능해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
+              "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
+              "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "유나는 한국어 메뉴를 읽을 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "유나가 지금 주문을 끝냈어요."
+              },
+              {
+                "id": "0",
+                "text": "유나는 메뉴를 읽는 능력이 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
+              "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
+              "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:08",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:08",
+      "requirementKeys": [
+        "G1:-겠-"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-겠-",
+        "en": "-겠-",
+        "de": "-겠-"
+      },
+      "teaching": {
+        "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
+        "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
+        "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
+      },
+      "examplesKo": [
+        "제가 내일 전화하겠습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "제가 내일 전화하겠습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 내일 전화하겠다고 약속해요."
+              },
+              {
+                "id": "1",
+                "text": "상대에게 전화하라고 명령해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
+              "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
+              "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "제가 주문을 확인하겠습니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자가 확인할 의지를 말해요."
+              },
+              {
+                "id": "1",
+                "text": "확인이 이미 끝났다고 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
+              "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
+              "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:09",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:09",
+      "requirementKeys": [
+        "G1:-으세요"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으세요",
+        "en": "-으세요",
+        "de": "-으세요"
+      },
+      "teaching": {
+        "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
+        "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
+        "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
+      },
+      "examplesKo": [
+        "직원: 여기에 이름을 쓰세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "직원: 여기에 이름을 쓰세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "손님에게 이름을 써 달라고 해요."
+              },
+              {
+                "id": "1",
+                "text": "직원이 자기 이름을 쓰겠다고 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
+              "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
+              "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구: 여기에서 잠시 기다리세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "화자가 이미 기다렸다고 말해요."
+              },
+              {
+                "id": "0",
+                "text": "상대에게 기다려 달라고 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
+              "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
+              "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:10",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:10",
+      "requirementKeys": [
+        "G1:-으십시오"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으십시오",
+        "en": "-으십시오",
+        "de": "-으십시오"
+      },
+      "teaching": {
+        "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
+        "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
+        "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
+      },
+      "examplesKo": [
+        "안내: 문 앞에서 기다리십시오."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "안내: 문 앞에서 기다리십시오.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기다린 일이 끝났다는 보고예요."
+              },
+              {
+                "id": "0",
+                "text": "문 앞에서 기다려 달라는 안내예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
+              "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
+              "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "안내: 계산대에서 주문하십시오.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "직원이 손님 대신 주문했다는 보고예요."
+              },
+              {
+                "id": "0",
+                "text": "손님이 계산대에서 주문하라는 안내예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
+              "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
+              "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:11",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:11",
+      "requirementKeys": [
+        "G1:-을까"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을까",
+        "en": "-을까",
+        "de": "-을까"
+      },
+      "teaching": {
+        "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
+        "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
+        "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
+      },
+      "examplesKo": [
+        "토요일에 같이 영화를 볼까요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "토요일에 같이 영화를 볼까요?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "토요일 약속이 이미 확정됐어요."
+              },
+              {
+                "id": "0",
+                "text": "함께 보자고 제안하고 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
+              "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
+              "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "내일 공원에서 만날까요?",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "만날 의향을 묻고 있어요."
+              },
+              {
+                "id": "1",
+                "text": "내일 꼭 오라고 명령하고 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
+              "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
+              "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:grammar:12",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:grammar:12",
+      "requirementKeys": [
+        "G1:-읍시다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-읍시다",
+        "en": "-읍시다",
+        "de": "-읍시다"
+      },
+      "teaching": {
+        "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
+        "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
+        "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
+      },
+      "examplesKo": [
+        "같은 반 동료: 내일 같이 공부합시다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료: 내일 같이 공부합시다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자와 동료가 함께 공부하자는 말이에요."
+              },
+              {
+                "id": "1",
+                "text": "동료만 공부하라는 말이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
+              "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
+              "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "동료끼리: 여기에서 같이 기다립시다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "화자도 함께 기다리자는 말이에요."
+              },
+              {
+                "id": "1",
+                "text": "상대 혼자 기다리라는 말이에요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
+              "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
+              "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:listening:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "원하는 것과 주문한 것",
+        "en": "Wish versus final order",
+        "de": "Wunsch und Bestellung unterscheiden"
+      },
+      "teaching": {
+        "ko": "손님과 직원의 대화를 듣고 희망, 재고, 마지막 주문을 따로 확인하세요.",
+        "en": "Listen to the customer and staff. Separate the wish, availability and final order.",
+        "de": "Höre das Gespräch zwischen Kundschaft und Personal. Trenne Wunsch, Verfügbarkeit und endgültige Bestellung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "손님: 주스 두 잔을 마시고 싶어요.\n직원: 죄송해요. 오늘은 주스가 없어요. 물도 있어요.\n손님: 그러면 물 한 잔 주세요.\n직원: 네, 물 한 잔 맞아요.",
+        "questions": [
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음에 무엇을 원했어요?",
+              "en": "What did the customer first want?",
+              "de": "Was wollte die Person zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "물"
+              },
+              {
+                "id": "0",
+                "text": "주스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 희망은 주스예요. 실제 주문과 구별해요.",
+              "en": "The original wish was 주스; distinguish it from the final order.",
+              "de": "Der ursprüngliche Wunsch war 주스; unterscheide ihn von der endgültigen Bestellung."
+            }
+          },
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막 주문은 무엇이에요?",
+              "en": "What is the final order?",
+              "de": "Was wird am Ende bestellt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "2",
+                "text": "차 두 잔"
+              },
+              {
+                "id": "0",
+                "text": "물 한 잔"
+              },
+              {
+                "id": "1",
+                "text": "주스 두 잔"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마지막 확인은 물 한 잔이에요.",
+              "en": "The final confirmation is 물 한 잔.",
+              "de": "Zuletzt wird 물 한 잔 bestätigt."
+            }
+          },
+          {
+            "id": "available",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 없는 음료는?",
+              "en": "Which drink is unavailable today?",
+              "de": "Welches Getränk gibt es heute nicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "물"
+              },
+              {
+                "id": "0",
+                "text": "주스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 오늘 주스가 없다고 말해요.",
+              "en": "Staff say 주스 is unavailable today.",
+              "de": "Das Personal sagt, dass es heute kein 주스 gibt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "손님: 우유 두 잔을 마시고 싶어요.\n직원: 죄송해요. 오늘은 우유가 없어요. 차도 있어요.\n손님: 그러면 차 세 잔 주세요.\n직원: 네, 차 세 잔 맞아요.",
+        "questions": [
+          {
+            "id": "wish",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음에 무엇을 원했어요?",
+              "en": "What did the customer first want?",
+              "de": "Was wollte die Person zuerst?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "우유"
+              },
+              {
+                "id": "1",
+                "text": "차"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처음 희망은 우유예요. 실제 주문과 구별해요.",
+              "en": "The original wish was 우유; distinguish it from the final order.",
+              "de": "Der ursprüngliche Wunsch war 우유; unterscheide ihn von der endgültigen Bestellung."
+            }
+          },
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막 주문은 무엇이에요?",
+              "en": "What is the final order?",
+              "de": "Was wird am Ende bestellt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "차 세 잔"
+              },
+              {
+                "id": "2",
+                "text": "물 두 잔"
+              },
+              {
+                "id": "1",
+                "text": "우유 두 잔"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마지막 확인은 차 세 잔이에요.",
+              "en": "The final confirmation is 차 세 잔.",
+              "de": "Zuletzt wird 차 세 잔 bestätigt."
+            }
+          },
+          {
+            "id": "available",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오늘 없는 음료는?",
+              "en": "Which drink is unavailable today?",
+              "de": "Welches Getränk gibt es heute nicht?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "차"
+              },
+              {
+                "id": "0",
+                "text": "우유"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 오늘 우유가 없다고 말해요.",
+              "en": "Staff say 우유 is unavailable today.",
+              "de": "Das Personal sagt, dass es heute kein 우유 gibt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:reading:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "메뉴와 예산 확인",
+        "en": "Read a menu and check a budget",
+        "de": "Menü und Budget prüfen"
+      },
+      "teaching": {
+        "ko": "품목, 수량, 단가를 읽고 합계를 구하세요. 예산을 넘는 주문은 가능한 것으로 답하지 않아요.",
+        "en": "Read items, quantities and unit prices. An order over budget is not affordable within that budget.",
+        "de": "Lies Speisen, Mengen und Einzelpreise. Eine Bestellung über dem Budget passt nicht in dieses Budget."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "메뉴\n김밥: 3,000원\n물: 1,000원\n주문 계획: 김밥 2개, 물 1잔\n예산: 8,000원",
+        "questions": [
+          {
+            "id": "quantity",
+            "kind": "choice",
+            "prompt": {
+              "ko": "음식은 몇 개 주문해요?",
+              "en": "How many food items are planned?",
+              "de": "Wie viele Speisen sind geplant?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "2"
+              },
+              {
+                "id": "1",
+                "text": "3"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "주문 수량은 김밥 2개예요.",
+              "en": "The plan contains 2 portions of 김밥.",
+              "de": "Geplant sind 2 Portionen 김밥."
+            }
+          },
+          {
+            "id": "total",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모두 얼마예요?",
+              "en": "What is the total price?",
+              "de": "Wie hoch ist der Gesamtpreis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "4,000원"
+              },
+              {
+                "id": "0",
+                "text": "7,000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "3,000 × 2 + 1,000 = 7,000원이에요.",
+              "en": "3,000 × 2 + 1,000 = 7,000 won.",
+              "de": "3,000 × 2 + 1,000 = 7,000 Won."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Is the order within budget?",
+              "de": "Liegt die Bestellung im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아니요"
+              },
+              {
+                "id": "0",
+                "text": "네"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "합계 7,000원과 예산 8,000원을 비교해요.",
+              "en": "Compare the total of 7,000 won with the 8,000-won budget.",
+              "de": "Vergleiche insgesamt 7,000 Won mit dem Budget von 8,000 Won."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "메뉴\n만두: 4,000원\n차: 2,000원\n주문 계획: 만두 2개, 차 1잔\n예산: 9,000원",
+        "questions": [
+          {
+            "id": "quantity",
+            "kind": "choice",
+            "prompt": {
+              "ko": "음식은 몇 개 주문해요?",
+              "en": "How many food items are planned?",
+              "de": "Wie viele Speisen sind geplant?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "3"
+              },
+              {
+                "id": "0",
+                "text": "2"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "주문 수량은 만두 2개예요.",
+              "en": "The plan contains 2 portions of 만두.",
+              "de": "Geplant sind 2 Portionen 만두."
+            }
+          },
+          {
+            "id": "total",
+            "kind": "choice",
+            "prompt": {
+              "ko": "모두 얼마예요?",
+              "en": "What is the total price?",
+              "de": "Wie hoch ist der Gesamtpreis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "10,000원"
+              },
+              {
+                "id": "1",
+                "text": "6,000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "4,000 × 2 + 2,000 = 10,000원이에요.",
+              "en": "4,000 × 2 + 2,000 = 10,000 won.",
+              "de": "4,000 × 2 + 2,000 = 10,000 Won."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Is the order within budget?",
+              "de": "Liegt die Bestellung im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네"
+              },
+              {
+                "id": "0",
+                "text": "아니요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "합계 10,000원과 예산 9,000원을 비교해요.",
+              "en": "Compare the total of 10,000 won with the 9,000-won budget.",
+              "de": "Vergleiche insgesamt 10,000 Won mit dem Budget von 9,000 Won."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:writing:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "확정하지 않고 제안하기",
+        "en": "Suggest without claiming agreement",
+        "de": "Vorschlagen, ohne eine Zusage zu behaupten"
+      },
+      "teaching": {
+        "ko": "시간·장소·활동을 담고 -(으)ㄹ까요?로 물어보세요. 자료에 없는 동의나 의무를 만들지 않아요.",
+        "en": "Include time, place and activity, using -(으)ㄹ까요? Do not invent agreement or an obligation.",
+        "de": "Nenne Zeit, Ort und Aktivität und frage mit -(으)ㄹ까요? Erfinde weder eine Zusage noch eine Verpflichtung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "상대: 같은 반 동료\n아직 답장을 받지 않았어요.\n제안: 토요일, 두 시, 공원, 산책하기",
+        "questions": [
+          {
+            "id": "proposal",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "상대가 답할 수 있게 만남을 제안하세요.",
+              "en": "Suggest the meeting and leave room for a reply.",
+              "de": "Schlage das Treffen vor und lass Raum für eine Antwort."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "토요일 두 시에 공원에서 같이 산책할까요?",
+              "토요일 두 시에 공원에서 산책할까요?"
+            ],
+            "rejectedAnswers": [
+              "토요일 두 시에 공원에서 꼭 산책하세요.",
+              "만나기로 했어요."
+            ],
+            "explanation": {
+              "ko": "예: 토요일 두 시에 공원에서 같이 산책할까요? 답장을 받기 전에는 확정된 약속이 아니에요.",
+              "en": "For example: 토요일 두 시에 공원에서 같이 산책할까요? The meeting is not confirmed before a reply.",
+              "de": "Zum Beispiel: 토요일 두 시에 공원에서 같이 산책할까요? Ohne Antwort ist das Treffen noch nicht vereinbart."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "상대: 같은 반 동료\n아직 답장을 받지 않았어요.\n제안: 일요일, 세 시, 도서관, 공부하기",
+        "questions": [
+          {
+            "id": "proposal",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "상대가 답할 수 있게 만남을 제안하세요.",
+              "en": "Suggest the meeting and leave room for a reply.",
+              "de": "Schlage das Treffen vor und lass Raum für eine Antwort."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "일요일 세 시에 도서관에서 같이 공부할까요?",
+              "일요일 세 시에 도서관에서 공부할까요?"
+            ],
+            "rejectedAnswers": [
+              "일요일 세 시에 도서관에서 꼭 공부하세요.",
+              "약속이 확정됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 일요일 세 시에 도서관에서 같이 공부할까요? 답장을 받기 전에는 확정된 약속이 아니에요.",
+              "en": "For example: 일요일 세 시에 도서관에서 같이 공부할까요? The meeting is not confirmed before a reply.",
+              "de": "Zum Beispiel: 일요일 세 시에 도서관에서 같이 공부할까요? Ohne Antwort ist das Treffen noch nicht vereinbart."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:speaking:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "가게에서 부탁하고 동료에게 제안하기",
+        "en": "Request and propose",
+        "de": "Bitten und Vorschlagen"
+      },
+      "teaching": {
+        "ko": "두 장면을 나누어 말하세요. 직원에게는 물건을 부탁하고, 동료에게는 함께 할 활동을 물어요. 해요체와 상대의 응답 기회를 확인하고 다시 녹음하세요. 의미는 자동 채점하지 않아요.",
+        "en": "Record the two scenes separately: request an item from staff, then ask a classmate about a shared activity. Review polite endings and room for a response. Meaning remains unscored.",
+        "de": "Trenne die beiden Situationen: Bitte das Personal um etwas und frage dann ein Kursmitglied nach einer gemeinsamen Aktivität. Prüfe höfliche Endungen und Raum für eine Antwort. Der Inhalt bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가게: 물 한 병을 부탁하세요.\n동료: 토요일 두 시에 공원에서 산책하자고 물어보세요. 아직 동의하지 않았어요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가게: 차 두 잔을 부탁하세요.\n동료: 일요일 세 시에 도서관에서 공부하자고 물어보세요. 아직 동의하지 않았어요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP03:listening:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:listening:02",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부탁과 제안의 말끝",
+        "en": "Hear request and proposal endings",
+        "de": "Endungen von Bitten und Vorschlägen hören"
+      },
+      "teaching": {
+        "ko": "말끝까지 듣고 누가 행동할지 구별하세요. 들은 두 문장을 녹음 과제에서 다시 말하며 의미가 바뀌는 휴지를 피하세요. 억양 자체의 능력은 자동 채점하지 않아요.",
+        "en": "Listen through the endings and identify who would act. Repeat the sentences in the recording task with pauses that preserve the meaning. Intonation ability itself is not automatically scored.",
+        "de": "Höre bis zur Endung und erkenne, wer handeln würde. Wiederhole die Sätze in der Aufnahmeaufgabe mit sinnvollen Pausen. Die Intonationsfähigkeit selbst wird nicht automatisch bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "여기에서 기다리세요. 같이 안으로 들어갈까요?",
+        "questions": [
+          {
+            "id": "request",
+            "kind": "choice",
+            "prompt": {
+              "ko": "상대에게 행동을 부탁하는 문장은?",
+              "en": "Which sentence asks the listener to act?",
+              "de": "Welcher Satz bittet die zuhörende Person um eine Handlung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "여기에서 기다리세요."
+              },
+              {
+                "id": "1",
+                "text": "같이 안으로 들어갈까요?"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)세요로 상대에게 부탁해요. 같이 -(으)ㄹ까요?는 화자도 참여할 제안이에요.",
+              "en": "-(으)세요 requests an action from the listener; 같이 -(으)ㄹ까요? proposes a shared action.",
+              "de": "-(으)세요 bittet die zuhörende Person um eine Handlung; 같이 -(으)ㄹ까요? schlägt eine gemeinsame Handlung vor."
+            }
+          },
+          {
+            "id": "proposal",
+            "kind": "choice",
+            "prompt": {
+              "ko": "함께 할지 묻는 문장은?",
+              "en": "Which sentence asks about acting together?",
+              "de": "Welcher Satz fragt nach einer gemeinsamen Handlung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "같이 안으로 들어갈까요?"
+              },
+              {
+                "id": "1",
+                "text": "여기에서 기다리세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "말끝과 같이를 함께 들어요. 물음 억양만으로 모든 문장을 같은 제안으로 처리하지 않아요.",
+              "en": "Listen to both the ending and 같이. A questioning intonation does not make every sentence the same kind of proposal.",
+              "de": "Achte auf Endung und 같이. Eine Frageintonation macht nicht jeden Satz zum selben Vorschlag."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "같이 메뉴를 볼까요? 여기에 이름을 쓰세요.",
+        "questions": [
+          {
+            "id": "request",
+            "kind": "choice",
+            "prompt": {
+              "ko": "상대에게 행동을 부탁하는 문장은?",
+              "en": "Which sentence asks the listener to act?",
+              "de": "Welcher Satz bittet die zuhörende Person um eine Handlung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "같이 메뉴를 볼까요?"
+              },
+              {
+                "id": "0",
+                "text": "여기에 이름을 쓰세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)세요로 상대에게 부탁해요. 같이 -(으)ㄹ까요?는 화자도 참여할 제안이에요.",
+              "en": "-(으)세요 requests an action from the listener; 같이 -(으)ㄹ까요? proposes a shared action.",
+              "de": "-(으)세요 bittet die zuhörende Person um eine Handlung; 같이 -(으)ㄹ까요? schlägt eine gemeinsame Handlung vor."
+            }
+          },
+          {
+            "id": "proposal",
+            "kind": "choice",
+            "prompt": {
+              "ko": "함께 할지 묻는 문장은?",
+              "en": "Which sentence asks about acting together?",
+              "de": "Welcher Satz fragt nach einer gemeinsamen Handlung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "같이 메뉴를 볼까요?"
+              },
+              {
+                "id": "1",
+                "text": "여기에 이름을 쓰세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "말끝과 같이를 함께 들어요. 물음 억양만으로 모든 문장을 같은 제안으로 처리하지 않아요.",
+              "en": "Listen to both the ending and 같이. A questioning intonation does not make every sentence the same kind of proposal.",
+              "de": "Achte auf Endung und 같이. Eine Frageintonation macht nicht jeden Satz zum selben Vorschlag."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:reading:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "여행 창구에서 표 사기",
+        "en": "Buy a ticket at a travel counter",
+        "de": "Eine Fahrkarte am Schalter kaufen"
+      },
+      "teaching": {
+        "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+        "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+        "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "여행 창구\n손님: 저는 기차 여행을 더 좋아해요. 오늘 갈 수 있어요?\n직원: 오늘은 기차 표가 없어요. 버스 표는 있어요. 세 시에 출발하고 8000원이에요.\n손님: 예산은 10000원이에요. 그러면 버스 표 한 장 주세요.\n직원: 네, 세 시 출발 표 한 장입니다.\n손님: 감사합니다. 도움이 됐어요.",
+        "questions": [
+          {
+            "id": "preference",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 선호한 것은?",
+              "en": "What was the original preference?",
+              "de": "Was wurde zuerst bevorzugt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기차"
+              },
+              {
+                "id": "1",
+                "text": "버스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "purchase",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막에 산 것은?",
+              "en": "What was finally purchased?",
+              "de": "Was wurde schließlich gekauft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "기차 표 한 장"
+              },
+              {
+                "id": "0",
+                "text": "버스 표 한 장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Does the ticket fit the budget?",
+              "de": "Liegt die Fahrkarte im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아니요, 표 값이 예산보다 많아요."
+              },
+              {
+                "id": "0",
+                "text": "네, 표 값이 예산보다 적어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "여행 창구\n손님: 저는 버스 여행을 더 좋아해요. 오늘 갈 수 있어요?\n직원: 오늘은 버스 표가 없어요. 기차 표는 있어요. 네 시에 출발하고 9000원이에요.\n손님: 예산은 12000원이에요. 그러면 기차 표 한 장 주세요.\n직원: 네, 네 시 출발 표 한 장입니다.\n손님: 감사합니다. 도움이 됐어요.",
+        "questions": [
+          {
+            "id": "preference",
+            "kind": "choice",
+            "prompt": {
+              "ko": "처음 선호한 것은?",
+              "en": "What was the original preference?",
+              "de": "Was wurde zuerst bevorzugt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "버스"
+              },
+              {
+                "id": "1",
+                "text": "기차"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "purchase",
+            "kind": "choice",
+            "prompt": {
+              "ko": "마지막에 산 것은?",
+              "en": "What was finally purchased?",
+              "de": "Was wurde schließlich gekauft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "버스 표 한 장"
+              },
+              {
+                "id": "0",
+                "text": "기차 표 한 장"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          },
+          {
+            "id": "budget",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예산 안에서 살 수 있어요?",
+              "en": "Does the ticket fit the budget?",
+              "de": "Liegt die Fahrkarte im Budget?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아니요, 표 값이 예산보다 많아요."
+              },
+              {
+                "id": "0",
+                "text": "네, 표 값이 예산보다 적어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "창구 대화에서 선호·예산·시간을 함께 확인해요. 처음 희망과 마지막 구매가 다를 수 있어요. 직원에게 부탁하는 말과 동료에게 함께 하자고 묻는 말을 구별해요.",
+              "en": "At a ticket counter, check preference, budget and time together. The final purchase may differ from the first wish. Distinguish a request to staff from a shared proposal to a peer.",
+              "de": "Prüfe am Schalter Vorliebe, Budget und Zeit gemeinsam. Der endgültige Kauf kann vom ersten Wunsch abweichen. Unterscheide eine Bitte an das Personal von einem gemeinsamen Vorschlag an eine gleichgestellte Person."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:speaking:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "선호·구매·공동 제안 말하기",
+        "en": "Express preference, buy and propose",
+        "de": "Vorliebe, Kauf und Vorschlag ausdrücken"
+      },
+      "teaching": {
+        "ko": "직원에게 선호와 구매를 말하고 확인·감사하세요. 동료에게는 바뀐 시간과 공동 활동을 질문으로 제안하세요. 주세요·갈까요·갑시다를 말해 보고 누가 행동하는지 확인해요. 모든 질문을 같은 상승 억양으로 말할 필요는 없어요. 재생 후 재녹음하며 의미·억양은 미채점이에요.",
+        "en": "Tell staff your preference and purchase, then confirm and thank them. Suggest a new time and shared activity to a peer as a question. Say 주세요, 갈까요 and 갑시다 and check who should act. Questions need not all have the same rising intonation. Replay and re-record; meaning and intonation remain unscored.",
+        "de": "Nenne dem Personal Vorliebe und Kaufwunsch, bestätige und bedanke dich. Schlage einer gleichgestellten Person eine neue Zeit und gemeinsame Tätigkeit als Frage vor. Sprich 주세요, 갈까요 und 갑시다 und prüfe, wer handeln soll. Nicht jede Frage braucht dieselbe steigende Intonation. Höre zu und nimm erneut auf; Inhalt und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "창구 직원에게 해요체: 기차를 더 좋아하지만 오늘 기차 표 없음. 버스 표 한 장 구매. 출발 세 시·8000원 확인.\n동료에게 해요체: 두 시 약속을 네 시로 바꾸자고 묻기. 도착 후 같이 차 마시기 제안. 아직 상대 답은 없음.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "창구 직원에게 해요체: 버스를 더 좋아하지만 오늘 버스 표 없음. 기차 표 한 장 구매. 출발 네 시·9000원 확인.\n동료에게 해요체: 세 시 약속을 다섯 시로 바꾸자고 묻기. 도착 후 같이 저녁 먹기 제안. 아직 상대 답은 없음.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP03:reading:03",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "시간 변경과 미확정 장소",
+        "en": "A changed time and an unconfirmed place",
+        "de": "Neue Uhrzeit und noch offener Ort"
+      },
+      "teaching": {
+        "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+        "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+        "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료의 채팅\n미나: 우리 약속은 토요일 두 시예요. 저는 토요일 세 시에 만나고 싶어요. 시간을 바꿀 수 있어요?\n준호: 네, 토요일 세 시에 만나요.\n미나: 고마워요. 도서관에서 만날까요?\n아직 다음 답장은 없어요.",
+        "questions": [
+          {
+            "id": "old",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기존 약속 시각은?",
+              "en": "What was the original time?",
+              "de": "Welche Uhrzeit war ursprünglich vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "토요일 두 시"
+              },
+              {
+                "id": "1",
+                "text": "토요일 세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "new",
+            "kind": "choice",
+            "prompt": {
+              "ko": "합의한 새 시각은?",
+              "en": "Which new time was agreed?",
+              "de": "Welche neue Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "토요일 세 시"
+              },
+              {
+                "id": "1",
+                "text": "토요일 두 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "장소까지 합의했어요?",
+              "en": "Was the place agreed too?",
+              "de": "Wurde auch der Ort vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 장소도 확정됐어요."
+              },
+              {
+                "id": "0",
+                "text": "아직 아니에요. 장소 질문에 답이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "같은 반 동료의 채팅\n미나: 우리 약속은 일요일 세 시예요. 저는 일요일 다섯 시에 만나고 싶어요. 시간을 바꿀 수 있어요?\n준호: 네, 일요일 다섯 시에 만나요.\n미나: 고마워요. 카페에서 만날까요?\n아직 다음 답장은 없어요.",
+        "questions": [
+          {
+            "id": "old",
+            "kind": "choice",
+            "prompt": {
+              "ko": "기존 약속 시각은?",
+              "en": "What was the original time?",
+              "de": "Welche Uhrzeit war ursprünglich vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "일요일 세 시"
+              },
+              {
+                "id": "1",
+                "text": "일요일 다섯 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "new",
+            "kind": "choice",
+            "prompt": {
+              "ko": "합의한 새 시각은?",
+              "en": "Which new time was agreed?",
+              "de": "Welche neue Uhrzeit wurde vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "일요일 다섯 시"
+              },
+              {
+                "id": "1",
+                "text": "일요일 세 시"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          },
+          {
+            "id": "place",
+            "kind": "choice",
+            "prompt": {
+              "ko": "장소까지 합의했어요?",
+              "en": "Was the place agreed too?",
+              "de": "Wurde auch der Ort vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 장소도 확정됐어요."
+              },
+              {
+                "id": "0",
+                "text": "아직 아니에요. 장소 질문에 답이 없어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기존 약속과 새로 제안한 시각을 구별해요. 상대가 장소를 아직 답하지 않았다면 합의로 만들지 않아요.",
+              "en": "Distinguish the old appointment from the newly proposed time. Do not treat an unanswered question about the place as agreement.",
+              "de": "Unterscheide bisherigen Termin und neu vorgeschlagene Uhrzeit. Eine unbeantwortete Ortsfrage ist keine Zustimmung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:01",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:01",
+      "requirementKeys": [
+        "G1:에게"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에게 문장 만들기",
+        "en": "에게: write a sentence",
+        "de": "에게: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "에게는 주거나 보내는 행동의 받는 사람을 표시해요. 이동하는 장소와 구별해요.",
+        "en": "에게 marks the person receiving something, not a destination place.",
+        "de": "에게 bezeichnet die Person, die etwas erhält, nicht einen Zielort."
+      },
+      "examplesKo": [
+        "친구에게 책을 줘요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "받는 사람: 친구 / 책을 주다 / 에게 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구에게 책을 줘요."
+            ],
+            "rejectedAnswers": [
+              "친구에게서 책을 받아요."
+            ],
+            "explanation": {
+              "ko": "예: 친구에게 책을 줘요. 의미가 다른 예: 친구에게서 책을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구에게 책을 줘요. Meaning or register error: 친구에게서 책을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구에게 책을 줘요. Fehler bei Bedeutung oder Register: 친구에게서 책을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "받는 사람: 동생 / 연필을 주다 / 에게 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생에게 연필을 줘요."
+            ],
+            "rejectedAnswers": [
+              "동생에게서 연필을 받아요."
+            ],
+            "explanation": {
+              "ko": "예: 동생에게 연필을 줘요. 의미가 다른 예: 동생에게서 연필을 받아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생에게 연필을 줘요. Meaning or register error: 동생에게서 연필을 받아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생에게 연필을 줘요. Fehler bei Bedeutung oder Register: 동생에게서 연필을 받아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:02",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:02",
+      "requirementKeys": [
+        "G1:한테"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "한테 문장 만들기",
+        "en": "한테: write a sentence",
+        "de": "한테: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "한테는 대화에서 받는 사람을 나타내요. 그 사람이 반드시 행동의 주체는 아니에요.",
+        "en": "In conversation, 한테 marks the recipient, not necessarily the person doing the action.",
+        "de": "한테 bezeichnet im Gespräch den Empfänger, nicht unbedingt die handelnde Person."
+      },
+      "examplesKo": [
+        "동생한테 전화해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "전화를 받는 사람: 동생 / 전화하다 / 한테 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생한테 전화해요."
+            ],
+            "rejectedAnswers": [
+              "동생한테서 전화가 와요."
+            ],
+            "explanation": {
+              "ko": "예: 동생한테 전화해요. 의미가 다른 예: 동생한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생한테 전화해요. Meaning or register error: 동생한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생한테 전화해요. Fehler bei Bedeutung oder Register: 동생한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "전화를 받는 사람: 친구 / 전화하다 / 한테 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구한테 전화해요."
+            ],
+            "rejectedAnswers": [
+              "친구한테서 전화가 와요."
+            ],
+            "explanation": {
+              "ko": "예: 친구한테 전화해요. 의미가 다른 예: 친구한테서 전화가 와요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구한테 전화해요. Meaning or register error: 친구한테서 전화가 와요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구한테 전화해요. Fehler bei Bedeutung oder Register: 친구한테서 전화가 와요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:03",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:03",
+      "requirementKeys": [
+        "G1:-으러"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으러 문장 만들기",
+        "en": "-으러: write a sentence",
+        "de": "-으러: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)러 가다/오다는 이동 목적을 나타내요. 목적을 말해도 그 일이 이미 끝났다는 뜻은 아니에요.",
+        "en": "-(으)러 가다/오다 gives the purpose of movement, not proof that the intended action is complete.",
+        "de": "-(으)러 가다/오다 nennt den Zweck einer Bewegung. Die beabsichtigte Handlung ist damit noch nicht abgeschlossen."
+      },
+      "examplesKo": [
+        "책을 빌리러 도서관에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "이동 목적: 책을 빌리다 / 도서관에 가다 / -(으)러 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "책을 빌리러 도서관에 가요."
+            ],
+            "rejectedAnswers": [
+              "도서관을 빌리러 책에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 책을 빌리러 도서관에 가요. 의미가 다른 예: 도서관을 빌리러 책에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 책을 빌리러 도서관에 가요. Meaning or register error: 도서관을 빌리러 책에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 책을 빌리러 도서관에 가요. Fehler bei Bedeutung oder Register: 도서관을 빌리러 책에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "이동 목적: 빵을 사다 / 가게에 가다 / -(으)러 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵을 사러 가게에 가요."
+            ],
+            "rejectedAnswers": [
+              "가게를 사러 빵에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 빵을 사러 가게에 가요. 의미가 다른 예: 가게를 사러 빵에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵을 사러 가게에 가요. Meaning or register error: 가게를 사러 빵에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵을 사러 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사러 빵에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:04",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:04",
+      "requirementKeys": [
+        "G1:-으려고1"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으려고1 문장 만들기",
+        "en": "-으려고1: write a sentence",
+        "de": "-으려고1: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)려고는 의도나 목적을 나타내요. 계획이 실제로 이루어졌는지는 따로 확인해요.",
+        "en": "-(으)려고 expresses intention or purpose. Whether it happened is a separate question.",
+        "de": "-(으)려고 drückt eine Absicht oder einen Zweck aus. Ob die Handlung stattfand, bleibt eine eigene Frage."
+      },
+      "examplesKo": [
+        "친구를 만나려고 역에 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "의도: 친구를 만나다 / 역에 가다 / -(으)려고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구를 만나려고 역에 가요."
+            ],
+            "rejectedAnswers": [
+              "역을 만나려고 친구에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 친구를 만나려고 역에 가요. 의미가 다른 예: 역을 만나려고 친구에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구를 만나려고 역에 가요. Meaning or register error: 역을 만나려고 친구에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구를 만나려고 역에 가요. Fehler bei Bedeutung oder Register: 역을 만나려고 친구에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "의도: 물을 사다 / 가게에 가다 / -(으)려고 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "물을 사려고 가게에 가요."
+            ],
+            "rejectedAnswers": [
+              "가게를 사려고 물에 가요."
+            ],
+            "explanation": {
+              "ko": "예: 물을 사려고 가게에 가요. 의미가 다른 예: 가게를 사려고 물에 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 물을 사려고 가게에 가요. Meaning or register error: 가게를 사려고 물에 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 물을 사려고 가게에 가요. Fehler bei Bedeutung oder Register: 가게를 사려고 물에 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:05",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:05",
+      "requirementKeys": [
+        "G1:-고 싶다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 싶다 문장 만들기",
+        "en": "-고 싶다: write a sentence",
+        "de": "-고 싶다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 싶다는 화자의 희망이에요. 살 수 있는지, 실제 주문했는지는 희망과 별개예요.",
+        "en": "-고 싶다 expresses a wish, separately from availability or a completed order.",
+        "de": "-고 싶다 drückt einen Wunsch aus. Verfügbarkeit und eine erfolgte Bestellung sind davon getrennt."
+      },
+      "examplesKo": [
+        "저는 한국에 가고 싶어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 한국에 가다 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 한국에 가고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "저는 한국에 가고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 한국에 가고 싶어요. 의미가 다른 예: 저는 한국에 가고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 한국에 가고 싶어요. Meaning or register error: 저는 한국에 가고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 한국에 가고 싶어요. Fehler bei Bedeutung oder Register: 저는 한국에 가고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 이 책을 읽다 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 이 책을 읽고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "저는 이 책을 읽고 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 이 책을 읽고 싶어요. 의미가 다른 예: 저는 이 책을 읽고 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 이 책을 읽고 싶어요. Meaning or register error: 저는 이 책을 읽고 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 이 책을 읽고 싶어요. Fehler bei Bedeutung oder Register: 저는 이 책을 읽고 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:06",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:06",
+      "requirementKeys": [
+        "G1:-고 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-고 있다 문장 만들기",
+        "en": "-고 있다: write a sentence",
+        "de": "-고 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-고 있다는 여기서 지금 진행 중인 행동을 나타내요. 완료된 과거와 구별해요.",
+        "en": "Here -고 있다 marks an ongoing action, rather than a completed past action.",
+        "de": "Hier bezeichnet -고 있다 eine laufende Handlung und keine abgeschlossene Vergangenheit."
+      },
+      "examplesKo": [
+        "지금 책을 읽고 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "현재 진행: 지금 / 책을 읽다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 책을 읽고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 책을 읽었어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 책을 읽고 있어요. 의미가 다른 예: 어제 책을 읽었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 책을 읽고 있어요. Meaning or register error: 어제 책을 읽었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 책을 읽고 있어요. Fehler bei Bedeutung oder Register: 어제 책을 읽었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "현재 진행: 지금 / 친구를 기다리다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 친구를 기다리고 있어요."
+            ],
+            "rejectedAnswers": [
+              "어제 친구를 기다렸어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 친구를 기다리고 있어요. 의미가 다른 예: 어제 친구를 기다렸어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 친구를 기다리고 있어요. Meaning or register error: 어제 친구를 기다렸어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 친구를 기다리고 있어요. Fehler bei Bedeutung oder Register: 어제 친구를 기다렸어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:07",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:07",
+      "requirementKeys": [
+        "G1:-을 수 있다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을 수 있다 문장 만들기",
+        "en": "-을 수 있다: write a sentence",
+        "de": "-을 수 있다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㄹ 수 있다는 가능이나 능력이에요. 원한다는 뜻이나 이미 했다는 뜻은 아니에요.",
+        "en": "-(으)ㄹ 수 있다 marks possibility or ability, not necessarily a wish or completed action.",
+        "de": "-(으)ㄹ 수 있다 bezeichnet Möglichkeit oder Fähigkeit, nicht automatisch einen Wunsch oder eine abgeschlossene Handlung."
+      },
+      "examplesKo": [
+        "한글을 읽을 수 있어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "할 수 있음: 한글을 읽다 / -(으)ㄹ 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "한글을 읽을 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "한글을 읽을 수 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 한글을 읽을 수 있어요. 의미가 다른 예: 한글을 읽을 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 한글을 읽을 수 있어요. Meaning or register error: 한글을 읽을 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 한글을 읽을 수 있어요. Fehler bei Bedeutung oder Register: 한글을 읽을 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "할 수 있음: 수영하다 / -(으)ㄹ 수 있다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "수영할 수 있어요."
+            ],
+            "rejectedAnswers": [
+              "수영할 수 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 수영할 수 있어요. 의미가 다른 예: 수영할 수 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 수영할 수 있어요. Meaning or register error: 수영할 수 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 수영할 수 있어요. Fehler bei Bedeutung oder Register: 수영할 수 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:08",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:08",
+      "requirementKeys": [
+        "G1:-겠-"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-겠- 문장 만들기",
+        "en": "-겠-: write a sentence",
+        "de": "-겠-: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "제가 하겠습니다처럼 쓰면 화자가 하겠다는 의지를 약속해요. 여기서는 추측이 아니에요.",
+        "en": "With 제가 하겠습니다, the speaker commits to acting. This use is not a guess.",
+        "de": "Mit 제가 하겠습니다 verpflichtet sich die sprechende Person zu einer Handlung. Hier geht es nicht um eine Vermutung."
+      },
+      "examplesKo": [
+        "제가 내일 전화하겠습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 자발적 약속: 내일 / 전화하다 / 제가 / -겠- / 하십시오체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 내일 전화하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 내일 전화했어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 내일 전화하겠습니다. 의미가 다른 예: 제가 내일 전화했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 내일 전화하겠습니다. Meaning or register error: 제가 내일 전화했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 내일 전화하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 전화했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 자발적 약속: 내일 / 준비하다 / 제가 / -겠- / 하십시오체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "제가 내일 준비하겠습니다."
+            ],
+            "rejectedAnswers": [
+              "제가 내일 준비했어요."
+            ],
+            "explanation": {
+              "ko": "예: 제가 내일 준비하겠습니다. 의미가 다른 예: 제가 내일 준비했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 제가 내일 준비하겠습니다. Meaning or register error: 제가 내일 준비했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 제가 내일 준비하겠습니다. Fehler bei Bedeutung oder Register: 제가 내일 준비했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:09",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:09",
+      "requirementKeys": [
+        "G1:-으세요"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으세요 문장 만들기",
+        "en": "-으세요: write a sentence",
+        "de": "-으세요: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)세요는 여기서 상대에게 행동을 부탁하는 공손한 말끝이에요. 누가 행동해야 하는지 확인해요.",
+        "en": "Here -(으)세요 is a polite request for the listener to act. Identify who is asked to act.",
+        "de": "Hier ist -(으)세요 eine höfliche Aufforderung an die zuhörende Person. Achte darauf, wer handeln soll."
+      },
+      "examplesKo": [
+        "여기에 앉으세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 공손히 권유: 여기 / 앉다 / -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에 앉으세요."
+            ],
+            "rejectedAnswers": [
+              "여기에 앉아."
+            ],
+            "explanation": {
+              "ko": "예: 여기에 앉으세요. 의미가 다른 예: 여기에 앉아. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에 앉으세요. Meaning or register error: 여기에 앉아. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에 앉으세요. Fehler bei Bedeutung oder Register: 여기에 앉아. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 공손히 요청: 잠시 / 기다리다 / -(으)세요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "잠시 기다리세요."
+            ],
+            "rejectedAnswers": [
+              "잠시 기다려."
+            ],
+            "explanation": {
+              "ko": "예: 잠시 기다리세요. 의미가 다른 예: 잠시 기다려. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 잠시 기다리세요. Meaning or register error: 잠시 기다려. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 잠시 기다리세요. Fehler bei Bedeutung oder Register: 잠시 기다려. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:10",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:10",
+      "requirementKeys": [
+        "G1:-으십시오"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으십시오 문장 만들기",
+        "en": "-으십시오: write a sentence",
+        "de": "-으십시오: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)십시오는 격식 있는 안내나 요청이에요. 여기서는 직원이 손님에게 행동을 요청해요.",
+        "en": "-(으)십시오 is a formal instruction or request. Here staff address customers.",
+        "de": "-(으)십시오 ist eine formelle Aufforderung. Hier richtet das Personal sie an die Kundschaft."
+      },
+      "examplesKo": [
+        "잠시 기다리십시오."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "행사 진행자의 격식 있는 안내: 잠시 / 기다리다 / -(으)십시오",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "잠시 기다리십시오."
+            ],
+            "rejectedAnswers": [
+              "잠시 기다립니다."
+            ],
+            "explanation": {
+              "ko": "예: 잠시 기다리십시오. 의미가 다른 예: 잠시 기다립니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 잠시 기다리십시오. Meaning or register error: 잠시 기다립니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 잠시 기다리십시오. Fehler bei Bedeutung oder Register: 잠시 기다립니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "행사 진행자의 격식 있는 안내: 안으로 / 들어오다 / -(으)십시오",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "안으로 들어오십시오."
+            ],
+            "rejectedAnswers": [
+              "안으로 들어옵니다."
+            ],
+            "explanation": {
+              "ko": "예: 안으로 들어오십시오. 의미가 다른 예: 안으로 들어옵니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 안으로 들어오십시오. Meaning or register error: 안으로 들어옵니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 안으로 들어오십시오. Fehler bei Bedeutung oder Register: 안으로 들어옵니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:11",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:11",
+      "requirementKeys": [
+        "G1:-을까"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-을까 문장 만들기",
+        "en": "-을까: write a sentence",
+        "de": "-을까: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "같이 -(으)ㄹ까요?는 상대의 의향을 묻는 제안이에요. 대답 전에는 약속이 확정되지 않아요.",
+        "en": "같이 -(으)ㄹ까요? asks about a shared plan. It is not confirmed before the reply.",
+        "de": "같이 -(으)ㄹ까요? fragt nach einem gemeinsamen Vorhaben. Vor der Antwort ist noch nichts vereinbart."
+      },
+      "examplesKo": [
+        "같이 점심을 먹을까요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료의 의향을 묻는 공동 제안: 같이 / 점심을 먹다 / -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "같이 점심을 먹을까요?"
+            ],
+            "rejectedAnswers": [
+              "같이 점심을 먹어야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 같이 점심을 먹을까요? 의미가 다른 예: 같이 점심을 먹어야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 같이 점심을 먹을까요? Meaning or register error: 같이 점심을 먹어야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 같이 점심을 먹을까요? Fehler bei Bedeutung oder Register: 같이 점심을 먹어야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동료의 의향을 묻는 공동 제안: 내일 / 만나다 / -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "내일 만날까요?"
+            ],
+            "rejectedAnswers": [
+              "내일 만나야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 내일 만날까요? 의미가 다른 예: 내일 만나야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 내일 만날까요? Meaning or register error: 내일 만나야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 내일 만날까요? Fehler bei Bedeutung oder Register: 내일 만나야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP03:production:12",
+      "phaseId": "KP03",
+      "level": "A1",
+      "objectiveId": "KP03:production:12",
+      "requirementKeys": [
+        "G1:-읍시다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-읍시다 문장 만들기",
+        "en": "-읍시다: write a sentence",
+        "de": "-읍시다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)ㅂ시다는 화자도 참여하는 함께 하자는 제안이에요. 처음 만난 윗사람에게 쓰면 부담스러울 수 있어요.",
+        "en": "-(으)ㅂ시다 proposes an action including the speaker. It may sound too directive toward an unfamiliar senior.",
+        "de": "-(으)ㅂ시다 schlägt eine gemeinsame Handlung einschließlich der sprechenden Person vor. Gegenüber unbekannten höhergestellten Personen kann es zu bestimmend wirken."
+      },
+      "examplesKo": [
+        "여기에서 쉽시다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "같은 팀의 공동 제안: 여기에서 / 쉬다 / -(으)ㅂ시다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에서 쉽시다."
+            ],
+            "rejectedAnswers": [
+              "여기에서 쉬십시오."
+            ],
+            "explanation": {
+              "ko": "예: 여기에서 쉽시다. 의미가 다른 예: 여기에서 쉬십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에서 쉽시다. Meaning or register error: 여기에서 쉬십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에서 쉽시다. Fehler bei Bedeutung oder Register: 여기에서 쉬십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "같은 팀의 공동 제안: 세 시에 / 만나다 / -(으)ㅂ시다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "세 시에 만납시다."
+            ],
+            "rejectedAnswers": [
+              "세 시에 만나십시오."
+            ],
+            "explanation": {
+              "ko": "예: 세 시에 만납시다. 의미가 다른 예: 세 시에 만나십시오. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 세 시에 만납시다. Meaning or register error: 세 시에 만나십시오. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 세 시에 만납시다. Fehler bei Bedeutung oder Register: 세 시에 만나십시오. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import 'content_id.dart';
+import 'phase_task.dart';
 import 'curriculum.dart';
 import 'productive_mastery.dart';
 import 'scenario_corpus_generation.dart';
@@ -97,9 +98,10 @@ class ScenarioCheckpointEvidence {
 /// Durable local snapshot for the sequential course only. Vocabulary SRS,
 /// pack progress, and browse filters intentionally live in their own stores.
 class CourseMasterySnapshot {
-  static const int currentVersion = 4;
+  static const int currentVersion = 5;
 
   final int version;
+  final List<PhaseAttemptEvidence> phaseTaskEvidence;
   final String curriculumGeneration;
   final String? placementLevel;
   final String? currentCourseUnitId;
@@ -115,6 +117,7 @@ class CourseMasterySnapshot {
 
   const CourseMasterySnapshot({
     this.version = currentVersion,
+    this.phaseTaskEvidence = const [],
     this.curriculumGeneration = ScenarioCorpusGeneration.legacy,
     this.placementLevel,
     this.currentCourseUnitId,
@@ -130,6 +133,7 @@ class CourseMasterySnapshot {
 
   const CourseMasterySnapshot.empty()
     : version = currentVersion,
+      phaseTaskEvidence = const [],
       curriculumGeneration = ScenarioCorpusGeneration.legacy,
       placementLevel = null,
       currentCourseUnitId = null,
@@ -145,7 +149,7 @@ class CourseMasterySnapshot {
   factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) =>
       CourseMasterySnapshot.decodeAndMigrate(json);
 
-  /// Accepts retained v1-v3 local shapes and returns canonical v4. Productive
+  /// Accepts retained v1-v4 local shapes and returns canonical v5. Productive
   /// proof is never inferred from historical unit completion during migration.
   /// Future schemas are deliberately rejected so a newer installation's state
   /// can never be silently overwritten by this version of the app.
@@ -155,8 +159,22 @@ class CourseMasterySnapshot {
       _validateCanonicalV2Shape(json);
     } else if (sourceVersion == 3) {
       _validateCanonicalV3Shape(json);
-    } else if (sourceVersion == currentVersion) {
+    } else if (sourceVersion >= 4) {
       _validateCanonicalV4Shape(json);
+      if (sourceVersion == 5 && json['phaseTaskEvidence'] is! List) {
+        throw const FormatException('Canonical v5 requires Phase evidence');
+      }
+    }
+    final phaseEvidence = sourceVersion < 5
+        ? <PhaseAttemptEvidence>[]
+        : (json['phaseTaskEvidence'] as List)
+              .map(
+                (v) => PhaseAttemptEvidence.fromJson(_map(v, 'Phase evidence')),
+              )
+              .toList();
+    if (phaseEvidence.map((e) => e.attemptId).toSet().length !=
+        phaseEvidence.length) {
+      throw const FormatException('Duplicate Phase evidence IDs');
     }
     final rawEvidence = json['evidence'];
     final rawCheckpoints = json['scenarioCheckpoints'];
@@ -206,6 +224,7 @@ class CourseMasterySnapshot {
     }
     return CourseMasterySnapshot(
       version: currentVersion,
+      phaseTaskEvidence: phaseEvidence,
       curriculumGeneration:
           _nullableString(json['curriculumGeneration']) ??
           ScenarioCorpusGeneration.legacy,
@@ -280,6 +299,7 @@ class CourseMasterySnapshot {
   }
 
   CourseMasterySnapshot copyWith({
+    List<PhaseAttemptEvidence>? phaseTaskEvidence,
     String? curriculumGeneration,
     String? placementLevel,
     bool clearPlacementLevel = false,
@@ -295,6 +315,7 @@ class CourseMasterySnapshot {
     List<ProductiveProjectStepEvidence>? archivedProductiveProjectStepEvidence,
   }) => CourseMasterySnapshot(
     version: version,
+    phaseTaskEvidence: phaseTaskEvidence ?? this.phaseTaskEvidence,
     curriculumGeneration: curriculumGeneration ?? this.curriculumGeneration,
     placementLevel: clearPlacementLevel
         ? null
@@ -319,6 +340,7 @@ class CourseMasterySnapshot {
 
   Map<String, dynamic> toJson() => {
     'version': currentVersion,
+    'phaseTaskEvidence': phaseTaskEvidence.map((e) => e.toJson()).toList(),
     'curriculumGeneration': curriculumGeneration,
     if (placementLevel != null) 'placementLevel': placementLevel,
     if (currentCourseUnitId != null) 'currentCourseUnitId': currentCourseUnitId,
@@ -362,6 +384,7 @@ enum CourseMasteryMergeConflictKind {
   evidence,
   checkpoint,
   productiveEvidence,
+  phaseTaskEvidence,
   productiveProjectStepEvidence,
   progression,
 }

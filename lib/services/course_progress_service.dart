@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'phase_task_catalog.dart';
+
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../models/course_mastery.dart';
@@ -281,6 +283,21 @@ class CourseProgressService {
   Future<List<RemediationRecommendation>> reviewQueue() => _serialized(
     (service) =>
         Future<List<RemediationRecommendation>>.value(service.reviewQueue),
+  );
+
+  Future<CourseMasterySnapshot> recordPhaseAttempt({
+    required PhaseTaskResult result,
+    required String attemptId,
+    required DateTime occurredAt,
+    void Function()? assertCurrentWrite,
+  }) => _serialized(
+    (service) async => service.recordPhaseAttempt(
+      result: result,
+      phaseCatalog: await PhaseTaskCatalog.load(),
+      attemptId: attemptId,
+      occurredAt: occurredAt,
+      assertCurrentWrite: assertCurrentWrite,
+    ),
   );
 
   Future<CourseUpdate> recordContentAttempt(
