@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
+import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'support/phase_native_configuration.dart';
 
@@ -302,7 +303,17 @@ void main() {
         (t) => t.level == qaLevel && t.skill == 'speaking',
       );
       await tester.pumpWidget(
-        host(PhaseTaskRoute(task.phaseId, task.id, assessment: true)),
+        MaterialApp(
+          initialRoute: '/',
+          theme: AppTheme.dark,
+          locale: const Locale('en'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: PhaseTaskScreen(
+            arguments: PhaseTaskRoute(task.phaseId, task.id, assessment: true),
+            recorder: _NativeRecorderDiagnostics(),
+          ),
+        ),
       );
       await waitFor(tester, find.text(task.title.en));
       await tap(tester, 'Record');
@@ -399,4 +410,48 @@ void main() {
       'completedAudioPackets': completedAudioPackets,
     };
   });
+}
+
+/// Calls the real plugin. Logs operation outcomes only, never PCM or answers.
+class _NativeRecorderDiagnostics implements PronunciationRecorder {
+  final _delegate = RecordPronunciationRecorder();
+  @override
+  Future<bool> requestPermission() async {
+    try {
+      final allowed = await _delegate.requestPermission();
+      debugPrint('PHASE_MIC_PERMISSION allowed=$allowed');
+      return allowed;
+    } catch (error) {
+      _report(error);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async {
+    try {
+      final stream = await _delegate.startPcm16Stream();
+      debugPrint('PHASE_MIC_STREAM_STARTED');
+      return stream.handleError((Object error) {
+        _report(error);
+        throw error;
+      });
+    } catch (error) {
+      _report(error);
+      rethrow;
+    }
+  }
+
+  void _report(Object error) {
+    debugPrint(
+      error is PlatformException
+          ? 'PHASE_MIC_FAILURE code=${error.code} message=${error.message}'
+          : 'PHASE_MIC_FAILURE type=${error.runtimeType}',
+    );
+  }
+
+  @override
+  Future<void> stop() => _delegate.stop();
+  @override
+  Future<void> dispose() => _delegate.dispose();
 }

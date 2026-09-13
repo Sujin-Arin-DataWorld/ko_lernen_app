@@ -534,23 +534,37 @@ jobs:
             2>&1 | tee "$RUNNER_TEMP/phase-native-build.log"
           xcrun simctl install "$simulator_id" build/ios/Debug-iphonesimulator/Runner.app
           xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+          native_failed=0
           for qa_level in "${qa_levels[@]}"; do
-            flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
+            # Reassert permission after relaunches and allow the previous native
+            # audio session to release before an independent level begins.
+            xcrun simctl terminate "$simulator_id" com.hangulsori.app || true
+            xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+            sleep 2
+            if ! flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
               --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
               --route="/phase-qa/$qa_level" \
               --driver=test_driver/phase_tasks_driver.dart \
               --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
-              2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-driver.log"
+              2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-driver.log"; then
+              native_failed=1
+              continue
+            fi
             cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-receipt.json"
             xcrun simctl terminate "$simulator_id" com.hangulsori.app
-            flutter drive --no-pub --no-dds --no-uninstall-first \
+            if ! flutter drive --no-pub --no-dds --no-uninstall-first \
               --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
               --route="/phase-qa/$qa_level/restore" \
               --driver=test_driver/phase_tasks_driver.dart \
               --target=integration_test/phase_tasks_native_test.dart -d "$simulator_id" \
-              2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-restore.log"
+              2>&1 | tee "$RUNNER_TEMP/phase-native-$qa_level-restore.log"; then
+              native_failed=1
+              continue
+            fi
             cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-restore-receipt.json"
           done
+          # Keep later levels' diagnostic evidence without hiding any failure.
+          test "$native_failed" -eq 0
       - name: Retain Phase native results
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
