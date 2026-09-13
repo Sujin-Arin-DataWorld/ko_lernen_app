@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'tts_cache_key.dart';
 import 'tts_canonical_manifest.dart';
 
-/// Reviewed corpus bytes for Web previews without Firebase app setup.
+/// Reviewed corpus bytes for Web and native SDK download fallback.
 /// Storage still enforces canonical metadata in storage.rules. No download
 /// tokens, user text, credentials, or private paths are sent.
 final class TtsPublicWebAudio {

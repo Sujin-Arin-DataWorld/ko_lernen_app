@@ -1031,6 +1031,20 @@ class TtsService {
       // object-not-found / 오프라인 → CF 시도
     }
 
+    // A native SDK miss must not hide an available reviewed public object.
+    // Reuse the Web transport's manifest, size, MP3 and redirect guards before
+    // attempting synthesis. Unknown/private text returned above this tier.
+    if (!kIsWeb) {
+      final data = await TtsPublicWebAudio.read(
+        key,
+        maxBytes: _maxBytes,
+        timeout: _storageTimeout,
+      );
+      if (data != null) {
+        return await _cacheAndWrap(key, file, data);
+      }
+    }
+
     // 4. Authenticated Firebase callable (dynamic synthesis).
     if (!allowSynthesis) {
       return null;
@@ -1226,9 +1240,15 @@ class TtsService {
       _memoryCache[key.localFileName] = data;
       return TtsAudio.bytes(data);
     }
-    await _writeAtomically(file, data);
-    _maybePruneCache(file.parent);
-    return TtsAudio.path(file.path);
+    try {
+      await _writeAtomically(file, data).timeout(_diskTimeout);
+      _maybePruneCache(file.parent);
+      return TtsAudio.path(file.path);
+    } catch (_) {
+      // The public disk cache is optional. Keep the verified bytes playable
+      // without claiming that a failed cache write was persisted.
+      return TtsAudio.bytes(data);
+    }
   }
 
   /// 캐시 히트 시 mtime을 지금으로 갱신 — mtime 기반 prune(§9-4)이 진짜

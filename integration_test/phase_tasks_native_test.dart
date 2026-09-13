@@ -13,6 +13,8 @@ import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
+import 'package:ko_lernen_app/services/tts_canonical_manifest.dart';
+import 'package:ko_lernen_app/services/tts_public_web_audio.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'support/phase_native_configuration.dart';
@@ -384,6 +386,23 @@ void main() {
             packet.sourceKo,
             voice: 'female',
           ).timeout(const Duration(minutes: 5));
+          if (!played) {
+            // Diagnose the public transport separately; its response never
+            // substitutes for the required native playback completion.
+            final key = TtsCacheKey.forRequest(
+              voice: 'female',
+              text: packet.sourceKo,
+            );
+            final canonical = await TtsCanonicalManifest.contains(key);
+            final publicBytes = await TtsPublicWebAudio.read(
+              key,
+              maxBytes: 5 * 1024 * 1024,
+              timeout: const Duration(seconds: 8),
+            );
+            debugPrint(
+              'PHASE_AUDIO_RESOLUTION canonical=$canonical publicBytes=${publicBytes?.length ?? 0}',
+            );
+          }
           expect(played, isTrue, reason: '${task.id}: ${TtsService.lastError}');
           completedAudioPackets++;
           debugPrint(
