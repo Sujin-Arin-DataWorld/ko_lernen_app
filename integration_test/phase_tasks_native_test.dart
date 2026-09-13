@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -364,6 +365,43 @@ void main() {
     );
     expect(tester.widget<TextFormField>(field).initialValue, '지금 도서관에 있어요.');
   }, skip: !restoreOnly);
+
+  testWidgets(
+    'native public audio plays without SDK setup and with an unwritable cache',
+    (tester) async {
+      await Storage.init();
+      expect(Firebase.apps, isEmpty);
+      final task = (await PhaseTaskCatalog.load()).byId('KP09:listening:02');
+      final text = task.practice.sourceKo;
+      final key = TtsCacheKey.forRequest(voice: 'female', text: text);
+      final directory = await Directory.systemTemp.createTemp('phase_public_');
+      try {
+        TtsService.setCacheDirForTesting(directory);
+        expect(await TtsService.speakPassage(text, voice: 'female'), isTrue);
+        expect(
+          await File('${directory.path}/${key.localFileName}').exists(),
+          isTrue,
+        );
+        debugPrint(
+          'PHASE_PUBLIC_FALLBACK_PLAYED sdkInitialized=false cached=true',
+        );
+        final obstruction = File('${directory.path}/not-a-directory');
+        await obstruction.writeAsString('preserve');
+        TtsService.setCacheDirForTesting(Directory(obstruction.path));
+        expect(await TtsService.speakPassage(text, voice: 'female'), isTrue);
+        expect(await obstruction.readAsString(), 'preserve');
+        debugPrint(
+          'PHASE_PUBLIC_FALLBACK_PLAYED sdkInitialized=false cacheWritable=false',
+        );
+      } finally {
+        await TtsService.stop();
+        TtsService.setCacheDirForTesting(null);
+        await directory.delete(recursive: true);
+      }
+    },
+    skip: !audioEnabled || qaLevel != 'B1',
+    timeout: const Timeout(Duration(minutes: 5)),
+  );
 
   testWidgets(
     'native playback of every selected-level listening packet',
