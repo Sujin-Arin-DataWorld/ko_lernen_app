@@ -87,6 +87,18 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn('phase-native-results', phase)
         self.assertNotIn('continue-on-error', phase)
 
+    def test_phase_native_drives_preserve_installation_between_levels(self):
+        workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
+        phase = workflow.split('  phase-ios-tests:\n', 1)[1].split('  release-internal:\n', 1)[0]
+        drives = re.findall(r'if ! flutter drive\b.*?; then', phase, re.DOTALL)
+        self.assertEqual(len(drives), 2)
+        for command in drives:
+            # Flutter drive's default stop also uninstalls the application.
+            # Both runs must retain its data and OS microphone permission.
+            self.assertIn('--keep-app-running', command)
+            self.assertIn('--no-uninstall-first', command)
+        self.assertIn('xcrun simctl terminate "$simulator_id" com.hangulsori.app', phase)
+
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
         self.assertRegex(release, r"(?m)^    runs-on: macos-15$")

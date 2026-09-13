@@ -552,7 +552,10 @@ jobs:
             fi
             cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-receipt.json"
             xcrun simctl terminate "$simulator_id" com.hangulsori.app
-            if ! flutter drive --no-pub --no-dds --no-uninstall-first \
+            # Without keep-app-running, Flutter drive also uninstalls the app
+            # after restoring it, discarding data and the microphone grant.
+            # The next loop explicitly terminates only the process.
+            if ! flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
               --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
               --route="/phase-qa/$qa_level/restore" \
               --driver=test_driver/phase_tasks_driver.dart \
