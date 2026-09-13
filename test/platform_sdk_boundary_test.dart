@@ -13,6 +13,9 @@ void main() {
       <String>{'lib/screens/settings_screen.dart'},
     );
     expect(_filesContaining('_recorder.requestPermission()'), <String>{
+      // Phase speech is explicitly learner-initiated, uses the recorder
+      // boundary, and keeps local audio out of cloud mastery evidence.
+      'lib/screens/phase_task_screen.dart',
       'lib/screens/pronunciation_studio_screen.dart',
     });
     expect(_filesContaining('Purchases.purchase('), isEmpty);

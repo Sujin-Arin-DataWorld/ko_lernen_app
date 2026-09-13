@@ -11,13 +11,23 @@
 - iOS / TestFlight
 
 여기서 "자동화하지 않는다"는 `main` push가 해당 트랙을 임의로 갱신하지 않는다는
-뜻이다. Jin이 비공개 테스트 릴리스를 명시적으로 요청한 경우에만 별도 수동 워크플로
+뜻이다. Jin이 공개 범위 테스트 릴리스를 명시적으로 요청한 경우에만 별도 수동 워크플로
 `.github/workflows/play_closed.yml`을 `main`의 **전체 40자 exact SHA**와 함께 실행한다.
 이 워크플로는 그 SHA의 push CI 성공을 다시 확인하고, 테스터 피드백만 켠 별도 AAB를
-만들어 `alpha`에 올린다. 공개 테스트와 Production은 이 경로에서도 절대 건드리지 않는다.
+만들어 선택한 트랙에 올린다. `target_track`은 `alpha`(비공개 테스트, 기본값) 또는
+`beta`(공개 테스트)만 허용하며 다른 API 입력은 업로드 전에 실패한다. Production은 이
+경로에서도 절대 건드리지 않는다.
 
-비공개테스트 테스터·트랙·승격은 CI가 읽지도 쓰지도 않는다. Closed Testing으로
-올리려면 Play Console에서 Jin이 수동으로 한다.
+```powershell
+gh workflow run play_closed.yml --ref main `
+  --field expected_sha=<main의-전체-40자-SHA> `
+  --field target_track=beta
+```
+
+기존 호출처럼 `target_track`을 생략하면 호환성을 위해 `alpha`를 사용한다.
+
+테스터 목록 관리와 트랙 간 승격은 Play Console에서 Jin이 수동으로 한다.
+위 수동 워크플로는 명시적으로 선택한 `alpha` 또는 `beta` 트랙에 AAB를 직접 업로드한다.
 
 ## 누가 설치할 수 있나 (나만)
 
@@ -69,14 +79,16 @@ Console에서 수동으로 만들어야 한다. 현재 package는
 - upload keystore로 AAB를 서명하고 Dart obfuscation symbols를 생성함
 - AAB·SHA-256·symbols를 Actions artifact로 14일 보관함
 - AAB를 Google Play **내부 테스트(`internal`)** 에 `completed` 상태로 업로드함
-- 비공개 테스트·공개 테스트·Production 트랙은 그대로 둔다
+- 비공개 테스트·공개 테스트·Production 트랙은 자동 업로드에서 그대로 둔다
 
 내부 테스트 빌드는 현재 `ci.yml`과 동일하게 `ENABLE_TESTER_FEEDBACK=true`와 exact
 `GIT_COMMIT`만 주입한다. 별도의 접근 해제 플래그는 사용하지 않는다. 모든 학습 콘텐츠는
 구매·구독·Play 트랙과 무관하게 같은 무료 공개 런타임 계약으로 열린다.
 
-Closed Testing 수동 빌드도 같은 두 값만 주입하며 동일한 무료 접근 계약을 사용한다.
-Internal과 Closed의 차이는 업로드 트랙과 실행 방식이지 학습 콘텐츠 접근 권한이 아니다.
+수동 `alpha`/`beta` 빌드도 같은 두 값을 주입하며 동일한 무료 접근 계약을 사용한다.
+Internal과 공개 범위 테스트의 차이는 업로드 트랙과 실행 방식이지 학습 콘텐츠 접근
+권한이 아니다. Play 전체에서 versionCode가 겹치지 않도록 같은 커밋의 세 빌드는
+`internal=3N`, `alpha=3N+1`, `beta=3N+2`를 사용한다.
 
 자동 실행 실패를 수정한 뒤 다시 올릴 때는 GitHub Actions의 `CI` workflow를 열고
 `Run workflow`에서 `release-internal`을 선택한다. 이 수동 재실행도 먼저 Flutter

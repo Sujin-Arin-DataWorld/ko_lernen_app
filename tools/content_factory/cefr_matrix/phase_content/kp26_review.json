@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP26:grammar:01",
+      "sha256": "f3f5590839dac463a554833650e61c3847b4fdb99f9e56135d3fa56c1754dfb7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 마는 particle concedes positive intent/heard explanation with contrary method judgement/remaining doubt; first proposition not negated. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:01",
+      "sha256": "7d029aec0863b72f35b15b6017a76fced68edfbaccceb111172ef21779bccd29",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 마는 particle concedes positive intent/heard explanation with contrary method judgement/remaining doubt; first proposition not negated. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:02",
+      "sha256": "a8a7c915b78ebf00f7b4ae60ab66131ebf9679d65f2ee5f53b263f9166057cf5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 건만 literary counterexpectation waiting without arrivals/repeated reading without clarity; no invented deliberate betrayal. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:02",
+      "sha256": "f8dabe0a92ef20b979f35fc2e5c2d46bfa620bc2a159f5ba1cc6e7501abaad00",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 건만 literary counterexpectation waiting without arrivals/repeated reading without clarity; no invented deliberate betrayal. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:03",
+      "sha256": "089a307eebecfe7152aef63a732b2e803e08812590534dececa8569f5a18d298",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 치우다 decisive completion of tidying/cleaning, no automatic regret; explicit no-regret statement kept. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:03",
+      "sha256": "d58f59caba9048819171c2a124f3e282fda66247ce15a6e11cf884b85b927ae8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 치우다 decisive completion of tidying/cleaning, no automatic regret; explicit no-regret statement kept. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:04",
+      "sha256": "2ad7757956069f771df85e088b5146ff784620e6078c260b45b6112d93261053",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기 일쑤이다 frequent undesirable pattern with explicit exceptions, current date omission not entailed. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:04",
+      "sha256": "35b76d35cbf4d3eac73f4be06a1af11394882a9643025d86e6ed94f9b6cb21df",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기 일쑤이다 frequent undesirable pattern with explicit exceptions, current date omission not entailed. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:05",
+      "sha256": "65be2d1f204aaaa8bb41910449bd5f158d2462a2f25bfa6174c3337f7eeccae5",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기 짝이 없다 strong narrator evaluation of conduct/empty chair, not legal adjudication or a chair experiencing emotion. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:05",
+      "sha256": "8c93a4f2a899b8b2ed47c0eea7946d47b046437307388c662db7d0724e3dcb60",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기 짝이 없다 strong narrator evaluation of conduct/empty chair, not legal adjudication or a chair experiencing emotion. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:06",
+      "sha256": "66c078bf621d72870d7cb746b352752b96dc78589512543ee5df055cc1a80517",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 디1 literary adjectival intensity 깊디깊은/길디긴, not exact event count/duration/length. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:06",
+      "sha256": "a5e701adb6525f2cf895c3ea11723d4ee7058de64b18847d5d6f6a0da273d3ba",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 디1 literary adjectival intensity 깊디깊은/길디긴, not exact event count/duration/length. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:07",
+      "sha256": "7ac246d536d0161869ea03b92f256a367cc102820a81718939f310afb53c1924",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 노라면 literary ongoing walking/reading evokes memory, not command or present physical sound playback. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:07",
+      "sha256": "78dd472d35719fd134dc85b480a622bda8e30a2aec7de243bb8b9c198f6f650f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 노라면 literary ongoing walking/reading evokes memory, not command or present physical sound playback. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:grammar:08",
+      "sha256": "3b34e25e7112fdb37d0fbc6c6802ccd589f68d16d95df90e82cca8d39d5ecd2a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 어 버리다 completed tearing/deletion with explicitly subsequent regret/relief; emotion not mechanically inferred from ending. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP26:production:08",
+      "sha256": "819f3d4e08bac15345bfb29949eb5957a8f6fc3c4647c221124b1211a50e51f9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 어 버리다 completed tearing/deletion with explicitly subsequent regret/relief; emotion not mechanically inferred from ending. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP26:listening:01",
+      "sha256": "9fdb1310719b7e3832b63ae60bcca86cb70076fb65ca3b26ddfe6bc8e59732e4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: original narrative reading PLUS distinct everyday recollection, mutually agreed casual adult peers. Monday receipt3letters→Tuesday waiting→Wednesday morning versusThursday4→Friday→Saturday; internal morning order/time unknown. Narration begins present empty-chair memory then reverses; narrator evaluation not object property, habitual date omission not current proof, later regret explicit. Six required chronology/unknown/evaluation/habit/regret/voice criteria. Neutral TTS does not certify expressive-vs-restrained prosody or actual author anger; learner records comparative readings, those effects unscored."
+    },
+    {
+      "taskId": "KP26:reading:01",
+      "sha256": "4234a80b32c5e00c9798917cd3159de1c874322d3b9a8156515d904bd5cbc050",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: actual original multi-paragraph fiction, two full critical readings and neutral event account. Criterion chronology recoverability and memory representation, strengths/limits/counterreading, preserved source and polarity. Strong wording can reveal or conceal memory limits without accusing author of intentional manipulation. Envelope symbolic interpretation allowed but motive unknown, promotional historical-memory claim not historical proof. Five required perspective/completion/alternative/neutral/symbol criteria."
+    },
+    {
+      "taskId": "KP26:reading:02",
+      "sha256": "31e28a662aed5a98ccf8b297e7e02be1af203e4c8801272a3fd359323b335ef8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate fictional arts report distinguishes journalist-observed group discussion from fictional letters/waiting; two attributed reader quotes, reporter interpretation and promotional claim. No attendee count/date or unanimity. Headline invents collective confirmation and author intention; correction preserves two differing readings. Four required observation/quote/reporter/headline criteria."
+    },
+    {
+      "taskId": "KP26:writing:01",
+      "sha256": "5e751f58cc69db77445fcf56a2e3e84118eaac304724a9718e72b87977444c50",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: three required complete responses: criteria-based review with chronology and narration order; strong/restrained evaluative paragraphs plus neutral recasting and implications commentary; argumentative essay with strongest fair objection. Source clauses, uncertainty, attribution and polarity preserved; news overstatement corrected. No inventoried unknown author/envelope motives. Free criticism/meaning unscored."
+    },
+    {
+      "taskId": "KP26:speaking:01",
+      "sha256": "6ffb5cab272dec1b67f912ec6dccf5ceb573cc7b1be74dfa2a4c3204e8360339",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: agreed casual/intimate peer discussion versus polite additional reader; fair competing readings, evaluative force and source bounds. Record/replay same paragraph restrained and expressive, log actual audible pauses/focus and text support, do not infer actual anger or mandatory L1 intonation. Korean mediation frequent-to-always and completion-to-regret errors. Free stance/prosody unscored."
+    }
+  ]
+}

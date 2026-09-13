@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "links": [
+    {
+      "requirementKey": "A1:speechAct:adjust_register_speech_style:R",
+      "objectiveId": "KP04:objective:register/banmal_casual:R",
+      "taskId": "KP04:reading:02",
+      "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "sourceHash": "9d7cd6eb17021adebd0b2f852805c1341a4abcc34d02f043badb6bfc5c017f1b",
+      "criterionIds": [
+        "formal",
+        "casual",
+        "certainty"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "학교 공식 안내·동료 해요체·서로 동의한 친한 친구의 반말 장면을 대조한다. 말끝 변경이 합의·확신을 바꾸지 않는 문항을 확인했다."
+    },
+    {
+      "requirementKey": "A2:speechAct:express_certainty_doubt_hedging:R",
+      "objectiveId": "KP07:objective:grammar/G2:-을까 보다:R",
+      "taskId": "KP07:grammar:09",
+      "taskHash": "8da98cc392e860cfaaa0710e035a60b363717357a7c5650f17079d9c437edefe",
+      "sourceHash": "9b610182245a5caa89732c34fcdd68ff2cfd7362463f1931ece4a7252229bdcb",
+      "criterionIds": [
+        "meaning"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "아직 고민 중이라는 원문과 수영을 배울까 봐요를 함께 읽어 고려 중과 이미 완료를 구별한다. 이 문항은 잠정 의향의 한 표본이며 모든 유보 표현 숙달을 뜻하지 않는다."
+    },
+    {
+      "requirementKey": "B1:speechAct:structure_discourse_open_close_scope:R",
+      "objectiveId": "KP12:objective:reading/core:R",
+      "taskId": "KP12:reading:01",
+      "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
+      "sourceHash": "af36f4c54c095cb354eae1f8c281196f6632b793d5302e4b63353a5fe737a64c",
+      "criterionIds": [
+        "opening",
+        "closing",
+        "request",
+        "permission"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "이메일 인사 뒤 문의 사유·요청, 마무리의 조건부 후속 조정, 공개 허가의 범위를 실제 문단과 별도 문항으로 확인했다."
+    },
+    {
+      "requirementKey": "B2:speechAct:analyse_framing_implicature_presupposition:R",
+      "objectiveId": "KP15:objective:listening/core:R",
+      "taskId": "KP15:listening:01",
+      "taskHash": "e504100c0b4c39815b9c57d730a56516b9d90c3c11c32322de1b51d03c7127fd",
+      "sourceHash": "0dc9cf055272f0a74d6939721658a4e5ee2ccdf0c5a76c1a391708e56adc0ab6",
+      "criterionIds": [
+        "neutral",
+        "evaluation",
+        "hypothesis"
+      ],
+      "reviewer": "Astra",
+      "rationaleKo": "인하여의 중립성과 탓에의 비난 평가를 구별하고 참가자 평가·원인 추측을 조사 결과로 확대하지 않는 실제 문항을 확인했다."
+    }
+  ]
+}

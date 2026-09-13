@@ -444,6 +444,8 @@ class AccountReconciliationMerger {
       AccountReconciliationConflictKind.courseMasteryEvidence,
     CourseMasteryMergeConflictKind.productiveEvidence =>
       AccountReconciliationConflictKind.courseMasteryEvidence,
+    CourseMasteryMergeConflictKind.phaseTaskEvidence =>
+      AccountReconciliationConflictKind.courseMasteryEvidence,
     CourseMasteryMergeConflictKind.productiveProjectStepEvidence =>
       AccountReconciliationConflictKind.courseMasteryEvidence,
     CourseMasteryMergeConflictKind.checkpoint =>

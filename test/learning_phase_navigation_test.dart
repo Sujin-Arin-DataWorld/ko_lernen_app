@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/learning_phase_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 
 import 'support/sori_speech_stubs.dart';
 
@@ -19,8 +20,10 @@ void main() {
   setUp(() async {
     Storage.resetForTesting();
     CourseProgressService.shared.resetForTesting();
+    LearningPhaseCatalog.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_tut_scenario': true});
     await Storage.init();
+    DefaultVocabPackFinishOperations.initializeRecovery();
   });
 
   testWidgets(
@@ -43,8 +46,10 @@ void main() {
       }
       expect(find.byType(SplashScreen), findsNothing);
       final savedMastery = Storage.courseMasterySnapshotRawJson;
+      expect(PackCompletionStorage.invalid, isFalse);
       final navigator = tester.state<NavigatorState>(find.byType(Navigator));
       navigator.pushNamed('/course/phases', arguments: 'a2');
+      await _pumpUntil(tester, find.byType(LearningPhasesScreen));
       final phaseCard = find.byKey(const ValueKey('phase-card-KP05'));
       await _pumpUntil(tester, phaseCard);
       expect(find.byKey(const ValueKey('phase-card-KP01')), findsNothing);

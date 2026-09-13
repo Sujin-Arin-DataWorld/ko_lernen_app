@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP28:grammar:01",
+      "sha256": "1c8346764813844b325e42479f78dc33f6cac6b56e2a530f919de10e85859132",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라고2 naming-help/advice contrasts burden/unsupported command with explicit criticism, distinguished from neutral quote. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:01",
+      "sha256": "88f9b73550c66c0b9b6e86105bab1030ff2df9f54cda71caf2b3debe332b4c6a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라고2 naming-help/advice contrasts burden/unsupported command with explicit criticism, distinguished from neutral quote. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:02",
+      "sha256": "04bd9887351922ccca0ebee1624b4827c6474e7f57c47d02ab7ec0814aedfd92",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라고는 one brief reply/one unsourced note exists; minimal scope and insufficiency do not mean zero response. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:02",
+      "sha256": "1df828aefdf6776903725167b760911e1ae62508c79d0ac8839907d62c9267c3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라고는 one brief reply/one unsourced note exists; minimal scope and insufficiency do not mean zero response. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:03",
+      "sha256": "73f807ddec32fee8fbf44a3c0239e88c433b66678b558e82f9f25dfabd50ec94",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 깨나 substantial time with explicit helpful thanks versus explicit non-praise; no automatic sarcasm or zero time. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:03",
+      "sha256": "2ccbef207bd7f1ff13cfdb9f9c347055d06a74ec475884af4a6fd92d7b0f684b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 깨나 substantial time with explicit helpful thanks versus explicit non-praise; no automatic sarcasm or zero time. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:04",
+      "sha256": "df56043c3aa7bbef5f7f814927475517e4b7f4e79bf771bd80068453f23c71e0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 을랑 marked topic-limited injunction worry/schedule only, check promise/cost decision distinct; not everyday default. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:04",
+      "sha256": "06552b063f9ab3feed0188977346ae1dff31a56b4687d3fa1528799a3811fefe",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 을랑 marked topic-limited injunction worry/schedule only, check promise/cost decision distinct; not everyday default. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:05",
+      "sha256": "b2660167b2d0b38eb015c17c46d6641cf7c4770a3ce41359c8d964f55f10ffe8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라면 marked strong reading/collecting disposition, not universal reading duty or verification of all records. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:05",
+      "sha256": "a6f163f8d2fca3ceccd33c047d0d1fe5028c9e54e1920eab6deac78ba1425353",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라면 marked strong reading/collecting disposition, not universal reading duty or verification of all records. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:06",
+      "sha256": "4f5cff86570a4350fbeb42dd572216f776bdb408f97218154b49d4ea42b31263",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 자면2 named person hypothetically suggests joint review/next-day meeting; suggestion has not yet occurred, no appointment promise. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:06",
+      "sha256": "fde9cfce288691eff01d087a1b300b7b4f4b50437283d473700a1f470c699e24",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 자면2 named person hypothetically suggests joint review/next-day meeting; suggestion has not yet occurred, no appointment promise. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:07",
+      "sha256": "2a69b80ab0a2b85d5addfbb82e96149d5d01daf0df8b29c8a9f02839ae98f525",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 던가1 asks listener direct visit/reading experience, questioner explicitly lacks that experience; state not asserted before response. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:07",
+      "sha256": "588ea6c7579d9f71a02553cb4636591469e5c54c6dacc23e18e59c9d38537917",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 던가1 asks listener direct visit/reading experience, questioner explicitly lacks that experience; state not asserted before response. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:08",
+      "sha256": "6d207ef901c361b26752f84e8ccb11befb322adc6390301ded3a1ec6b9c21ddc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는다던가1 canonical directive variant 하라던가 asks remembered reported recipient/location, not completed submission or newly issued command. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:08",
+      "sha256": "ea02e0155c41eb30e6c065c52df2936a5b9c24b0ccc25b55419d7c3e81ffe4b6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는다던가1 canonical directive variant 하라던가 asks remembered reported recipient/location, not completed submission or newly issued command. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:09",
+      "sha256": "293462bb9c796dbf22d3f4e80027d250b55748e869f8fa436f16eb4e4020c275",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 던2 sentence-final past experience inquiry between explicitly mutually casual friends, not attributive 던/alternative 든. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:09",
+      "sha256": "6d3c5e1d5c6c47c57d6649374599b9cb3ef39cc5201999d9f24952bb67e941f7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 던2 sentence-final past experience inquiry between explicitly mutually casual friends, not attributive 던/alternative 든. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:10",
+      "sha256": "106ddbdb54ebab9b79d23b7d8f52ed8113fa80056a577684a4d0104c54e42c62",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으래서야 challenges reported demand to decide without time/agree without source, not endorsement or new order. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:10",
+      "sha256": "d740cfcb2860e5f011d941cab813f79988010983aacff4ba9d62de8bcc29fcb4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으래서야 challenges reported demand to decide without time/agree without source, not endorsement or new order. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:grammar:11",
+      "sha256": "a39262c064b13bb84af6d057db30f86cdc4edad0741521aab472f66fdf398aee",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라고1 neutral author/host label quotation, no dismissive context; temporary conclusion/review note not upgraded to final approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP28:production:11",
+      "sha256": "2d702760ae9c1e97d7aac64d03860133cd56d7b43f467c2ff3289b7629d5e3ae",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라고1 neutral author/host label quotation, no dismissive context; temporary conclusion/review note not upgraded to final approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP28:listening:01",
+      "sha256": "4e01b102447f272c3f18f5d719d896c46c3a50d262a4b94f96c5e3e9f34b1ec6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: equal-adult interview and separate A/B scenes. Minseo/Junho6Thursday versusJisu/Doha9Saturday, correctparticles; recipient data coordinator differs from unknown original command author. Suggestion conditional not issued yet, noattendancepromise. Genuine experience question bounded to respondent visit; reported rushed-demand challenge confirmed by next turns. A thankscheckeditems B explicitnonpraise noitems, not sameevent. Listenerdiscomfort separate from explainedlimitedspeakerintent, floorreturned. Seven required command/source/condition/experience/challenge/context/scope criteria. Actual emotionalprosody unverified."
+    },
+    {
+      "taskId": "KP28:reading:01",
+      "sha256": "2537808c316e87a25fdb25e342673b046e8f452cffb77365110b4a8c88d917d3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: original news article directlyquotes provisional label, contrasts evalnaminghelp, identifies reporterinterpretation. Nested interview→receivedinstruction→unknownorigin, repetition notindependent corroboration; visitquietness respondentonly. Conditional futureproposal and date notattendanceagreement. Overstatement correction excludescompletedsubmission/unanimousverification/attendance. Five required naming/evaluation/source/witness/correction criteria."
+    },
+    {
+      "taskId": "KP28:reading:02",
+      "sha256": "34626241bdd6b61181569ee3110e3a8d1e8b467a3307125b8093222b1a8b5e75",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate original literary portrayal of same fictionalnamedpeople; mutualcasualagreement, uncontextualised깨나 remainsopen, listener 언중유골 thoughtnotomniscientfact. Memoryfailure notutteranceabsence, onebriefreplynotzero, topicworry excludescheckpromise, readingdisposition notaccuracy. Limited narrator perspective and unknown source maintained. Five required open/memory/minimum/topic/portrait criteria."
+    },
+    {
+      "taskId": "KP28:writing:01",
+      "sha256": "38bd302d62f82de26d4cf74305fc36a20f3e95b26e8c533cf6d2377416628612",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: two full required meetingnotes/nestedsourceclarification responses. Separate A/Bcontexts, literal/evaluation/discomfort/explainedintent, disagreements/openroles. Recipientquestion notcompletedsubmission, conditional jointlyreview suggestionplusresponse schedulecheck retained, precisewho/where/whichquestions withoutinventedanswers. Compare news/literary naming and ironicambiguity, source-based revision. Meaning/mediation unscored."
+    },
+    {
+      "taskId": "KP28:speaking:01",
+      "sha256": "bceabecf1ee179979b54bf6f0a641c03437b97de9a4faf828da2e8842f91fa46",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: agreedcasualfriend mediation→politepeerclarification→formalbriefing with points/evidence/limits, plusmeetingagreement/disagreement. Returnfloor, repair minimisation with scopequestion not mindreading, source/recipient/hypotheticalsuggestion separate. Koreanmediation quote-to-disparagement andbriefreply-to-noresponse errors, replay/revise senseboundaries withoutguaranteedemotionalreading. Meaning/prosody/innerintent unscored."
+    }
+  ]
+}

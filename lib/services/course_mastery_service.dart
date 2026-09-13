@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'phase_task_catalog.dart';
+
 import '../models/can_do_segment.dart';
 import '../models/content_id.dart';
 import '../models/course_mastery.dart';
@@ -118,6 +120,10 @@ class CourseMasteryService {
   /// active-mission unlock inputs take priority over ordinary history.
   static const int evidenceCap = 300;
 
+  /// Extra Phase attempt history kept after the newest state and distinct
+  /// assessment outcomes for every published task revision are protected.
+  static const int phaseTaskRepeatHistoryCap = 300;
+
   final CurriculumCatalog catalog;
   final PreferenceStringStore? snapshotPreferences;
   CourseMasterySnapshot _snapshot = const CourseMasterySnapshot.empty();
@@ -224,6 +230,14 @@ class CourseMasteryService {
       bodyOf: (entry) => jsonEncode(entry.toJson()),
       conflicts: conflicts,
     );
+    final mergedPhaseEvidence = _mergeIdentityHistory<PhaseAttemptEvidence>(
+      effectiveLocal?.phaseTaskEvidence ?? const [],
+      effectiveRemote?.phaseTaskEvidence ?? const [],
+      kind: CourseMasteryMergeConflictKind.phaseTaskEvidence,
+      idOf: (e) => e.attemptId,
+      bodyOf: (e) => jsonEncode(e.toJson()),
+      conflicts: conflicts,
+    );
     final checkpoints = _mergeIdentityHistory<ScenarioCheckpointEvidence>(
       effectiveLocal?.scenarioCheckpoints ?? const [],
       effectiveRemote?.scenarioCheckpoints ?? const [],
@@ -281,6 +295,10 @@ class CourseMasteryService {
       return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
     }
 
+    // Compact only after every stable-ID conflict has been checked. A
+    // conflicting attempt must not disappear merely because it is old.
+    final phaseEvidence = _retainedPhaseTaskEvidence(mergedPhaseEvidence);
+
     final completedIds = completed.toList()..sort(_compareUnitIds);
     final bypassedIds = bypassed.toList()..sort(_compareUnitIds);
     final resolved = <String>{...completedIds, ...bypassedIds};
@@ -310,6 +328,7 @@ class CourseMasteryService {
       _compareProductiveProjectStepEvidence,
     );
     var merged = CourseMasterySnapshot(
+      phaseTaskEvidence: phaseEvidence,
       curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: placement,
       currentCourseUnitId: current?.id,
@@ -398,6 +417,7 @@ class CourseMasteryService {
     }
 
     final nextSnapshot = CourseMasterySnapshot(
+      phaseTaskEvidence: previous.phaseTaskEvidence,
       curriculumGeneration: catalog.scenarioCorpusGeneration,
       placementLevel: level,
       currentCourseUnitId: startingUnit?.id,
@@ -1696,6 +1716,120 @@ class CourseMasteryService {
     return List.unmodifiable([for (final index in ordered) entries[index]]);
   }
 
+  /// Bounds repeated Phase history without erasing progress for old or current
+  /// published task revisions.
+  ///
+  /// Every full task-revision identity keeps its newest attempt. Assessment
+  /// attempts additionally keep the newest representative of every distinct
+  /// evaluator outcome. Exact outcome equivalence is intentionally stricter
+  /// than score ordering or criterion-set inclusion: without the matching
+  /// [PhaseTaskCatalog], neither of those relationships proves that a newer
+  /// record would satisfy [PhaseTask.passedBy]. The newest non-anchor attempts
+  /// are then retained up to [phaseTaskRepeatHistoryCap]. Semantic anchors may
+  /// exceed that repeat-history cap when many revisions or outcomes exist.
+  List<PhaseAttemptEvidence> _retainedPhaseTaskEvidence(
+    Iterable<PhaseAttemptEvidence> source,
+  ) {
+    final ordered = source.toList()..sort(_comparePhaseTaskEvidence);
+    if (ordered.isEmpty) {
+      return const <PhaseAttemptEvidence>[];
+    }
+
+    final newestByRevision = <String, PhaseAttemptEvidence>{};
+    final newestByAssessmentOutcome = <String, PhaseAttemptEvidence>{};
+    for (final entry in ordered) {
+      final revisionKey = _phaseTaskRevisionKey(entry);
+      newestByRevision[revisionKey] = entry;
+      if (entry.assessment) {
+        newestByAssessmentOutcome[_phaseTaskOutcomeKey(entry, revisionKey)] =
+            entry;
+      }
+    }
+
+    final selectedIds = <String>{
+      for (final entry in newestByRevision.values) entry.attemptId,
+      for (final entry in newestByAssessmentOutcome.values) entry.attemptId,
+    };
+    var repeatsRemaining = phaseTaskRepeatHistoryCap;
+    for (
+      var index = ordered.length - 1;
+      index >= 0 && repeatsRemaining > 0;
+      index--
+    ) {
+      final entry = ordered[index];
+      if (selectedIds.add(entry.attemptId)) {
+        repeatsRemaining--;
+      }
+    }
+    return List.unmodifiable(
+      ordered.where((entry) => selectedIds.contains(entry.attemptId)),
+    );
+  }
+
+  String _phaseTaskRevisionKey(PhaseAttemptEvidence entry) => jsonEncode([
+    entry.phaseId,
+    entry.taskId,
+    entry.contentHash,
+    entry.contentRevision,
+    entry.rubricVersion,
+    entry.minimumScore,
+    entry.evaluatorVersion,
+    entry.assessment,
+  ]);
+
+  String _phaseTaskOutcomeKey(
+    PhaseAttemptEvidence entry,
+    String revisionKey,
+  ) {
+    final criteria = entry.passedCriterionIds.toList()..sort();
+    return jsonEncode([revisionKey, entry.score, criteria]);
+  }
+
+  int _comparePhaseTaskEvidence(
+    PhaseAttemptEvidence left,
+    PhaseAttemptEvidence right,
+  ) {
+    final time = left.occurredAt.compareTo(right.occurredAt);
+    return time != 0 ? time : left.attemptId.compareTo(right.attemptId);
+  }
+
+  /// Records a task attempt without advancing the sequential course or rewards.
+  Future<CourseMasterySnapshot> recordPhaseAttempt({
+    required PhaseTaskResult result,
+    required PhaseTaskCatalog phaseCatalog,
+    required String attemptId,
+    required DateTime occurredAt,
+    void Function()? assertCurrentWrite,
+  }) async {
+    assertCurrentWrite?.call();
+    if (!phaseCatalog.accepts(result)) {
+      throw const FormatException('Phase result is from a different revision');
+    }
+    readForDisplay();
+    assertCurrentWrite?.call();
+    final evidence = result.evidence(attemptId, occurredAt);
+    final byId = {for (final e in _snapshot.phaseTaskEvidence) e.attemptId: e};
+    final old = byId[attemptId];
+    if (old != null) {
+      if (jsonEncode(old.toJson()) != jsonEncode(evidence.toJson())) {
+        throw const FormatException('Conflicting Phase attempt ID');
+      }
+      return _snapshot;
+    }
+    byId[attemptId] = evidence;
+    final next = _snapshot.copyWith(
+      phaseTaskEvidence: _retainedPhaseTaskEvidence(byId.values),
+    );
+    // Do not expose a successful in-memory attempt if the durable write fails.
+    await _persistSnapshot(
+      next,
+      mirrorLegacyUserLevel: false,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+    _snapshot = next;
+    return next;
+  }
+
   Future<void> _persistSnapshot(
     CourseMasterySnapshot snapshot, {
     required bool mirrorLegacyUserLevel,
@@ -1774,6 +1908,13 @@ class CourseMasteryService {
     }
     for (final checkpoint in snapshot.scenarioCheckpoints) {
       _validateCheckpoint(checkpoint);
+    }
+    final phaseIds = <String>{};
+    for (final e in snapshot.phaseTaskEvidence) {
+      PhaseAttemptEvidence.fromJson(e.toJson());
+      if (!phaseIds.add(e.attemptId)) {
+        throw const FormatException('Duplicate Phase attempt ID');
+      }
     }
     final productiveIds = <String>{};
     for (final evidence in snapshot.productiveEvidence) {
@@ -1900,6 +2041,7 @@ class CourseMasteryService {
 
     return CourseMasterySnapshot(
       curriculumGeneration: target,
+      phaseTaskEvidence: snapshot.phaseTaskEvidence,
       placementLevel: placement,
       currentCourseUnitId: startingUnit?.id,
       bypassedPrerequisiteUnitIds: bypassed,

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../models/curriculum.dart';
 import '../models/learner_level.dart';
 import 'curriculum_catalog.dart';
+import 'phase_task_catalog.dart';
 
 /// A direct-library scenario ID carries no fabricated mission provenance.
 /// The existing player/mastery service alone decides whether an actual attempt
@@ -30,6 +31,8 @@ class LearningPhase {
     required this.practiceFocus,
     required this.practiceUnits,
     this.illustrationAsset,
+    this.taskIds = const [],
+    this.taskCoverage = 'related_practice_only',
   });
 
   final String id;
@@ -40,32 +43,78 @@ class LearningPhase {
   final CurriculumText practiceFocus;
   final List<CourseUnit> practiceUnits;
   final String? illustrationAsset;
+  final List<String> taskIds;
+  final String taskCoverage;
 }
 
 class LearningPhaseCatalog {
   static const assetPath = 'assets/data/learning_phases.json';
   static const illustrationRoot = 'assets/illustrations/phases/';
+  static List<LearningPhase>? _cached;
   static final List<String> levels = List.unmodifiable(
     LearnerLevel.values.map((level) => level.display),
   );
 
   /// Reads packaged metadata only; opening a Phase never changes saved progress.
   static Future<List<LearningPhase>> load() async {
+    final cached = _cached;
+    if (cached != null) {
+      return cached;
+    }
     // A retry must read again after a failed read or malformed metadata.
     final raw = await rootBundle.loadString(assetPath, cache: false);
     final curriculum = await CurriculumCatalog.load();
-    return parse(
-      jsonDecode(raw) as Map<String, dynamic>,
-      curriculum.courseUnits,
-    );
+    final json = jsonDecode(raw) as Map<String, dynamic>;
+    final phases = parse(json, curriculum.courseUnits);
+    if (json['schemaVersion'] == 2) {
+      final taskJson =
+          jsonDecode(
+                await rootBundle.loadString(
+                  PhaseTaskCatalog.assetPath,
+                  cache: false,
+                ),
+              )
+              as Map<String, dynamic>;
+      validateTasks(json, phases, taskJson);
+    }
+    return _cached = List.unmodifiable(phases);
+  }
+
+  static void resetForTesting() => _cached = null;
+
+  static void validateTasks(
+    Map<String, dynamic> json,
+    List<LearningPhase> phases,
+    Map<String, dynamic> taskJson,
+  ) {
+    if (json['phaseTaskSourceSha256'] != phaseFingerprint(taskJson)) {
+      throw const FormatException('Phase task publication hash mismatch');
+    }
+    final catalog = PhaseTaskCatalog.parse(taskJson);
+    final linked = <String>{};
+    for (final phase in phases) {
+      final tasks = catalog.forPhase(phase.id);
+      if (tasks.length != phase.taskIds.length ||
+          tasks.any(
+            (t) => t.level != phase.level || !phase.taskIds.contains(t.id),
+          )) {
+        throw FormatException('Invalid task bindings for ${phase.id}');
+      }
+      linked.addAll(phase.taskIds);
+    }
+    if (linked.length != catalog.tasks.length) {
+      throw const FormatException('Unbound published Phase task');
+    }
   }
 
   static List<LearningPhase> parse(
     Map<String, dynamic> json,
     List<CourseUnit> units,
   ) {
-    if (json['schemaVersion'] != 1 ||
-        json['coverage'] != 'related_practice_only') {
+    final v2 = json['schemaVersion'] == 2;
+    if (!(json['schemaVersion'] == 1 &&
+            json['coverage'] == 'related_practice_only') &&
+        !(v2 && json['coverage'] == 'phase_tasks_partial')) {
       throw const FormatException('Unsupported Learning Phase catalog');
     }
     final byId = {for (final unit in units) unit.id: unit};
@@ -74,6 +123,16 @@ class LearningPhaseCatalog {
     for (final raw in json['phases'] as List<dynamic>) {
       final row = raw as Map<String, dynamic>;
       final id = row['id'] as String;
+      final taskIds = v2 ? (row['taskIds'] as List).cast<String>() : <String>[];
+      final taskCoverage = v2
+          ? row['taskCoverage'] as String
+          : 'related_practice_only';
+      if (taskIds.toSet().length != taskIds.length ||
+          taskIds.any((t) => !t.startsWith('$id:')) ||
+          taskCoverage !=
+              (taskIds.isEmpty ? 'related_practice_only' : 'partial')) {
+        throw FormatException('Invalid Phase task coverage for $id');
+      }
       final illustrationAsset = row['illustrationAsset'] as String?;
       if (illustrationAsset != null &&
           illustrationAsset != '$illustrationRoot${id.toLowerCase()}.webp') {
@@ -110,6 +169,8 @@ class LearningPhaseCatalog {
           practiceFocus: text('practiceFocus'),
           practiceUnits: List.unmodifiable(ids.map((uid) => byId[uid]!)),
           illustrationAsset: illustrationAsset,
+          taskIds: List.unmodifiable(taskIds),
+          taskCoverage: taskCoverage,
         ),
       );
     }

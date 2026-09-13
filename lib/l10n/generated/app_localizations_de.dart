@@ -45,7 +45,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get learningPhasePracticeScope =>
-      'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.';
+      'Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.';
 
   @override
   String get learningPhaseImagePreparing => 'Bild in Vorbereitung';
@@ -873,6 +873,48 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsPrivacyTitle => 'Datenschutzerklärung';
+
+  @override
+  String get settingsUpdateTitle => 'Nach Updates suchen';
+
+  @override
+  String get settingsUpdateSubtitle => 'Neueste Version aus Google Play holen';
+
+  @override
+  String get settingsUpdateChecking => 'Wird geprüft';
+
+  @override
+  String get settingsUpdateUpToDate => 'Du hast schon die neueste Version.';
+
+  @override
+  String settingsUpdateAvailable(Object v) {
+    return 'Neue Version $v ist da.';
+  }
+
+  @override
+  String get settingsUpdateDialogTitle => 'Update verfügbar';
+
+  @override
+  String settingsUpdateDialogBody(Object v) {
+    return 'Version $v wird jetzt über Google Play geladen und installiert.';
+  }
+
+  @override
+  String get settingsUpdateStart => 'Jetzt aktualisieren';
+
+  @override
+  String get settingsUpdateLater => 'Später';
+
+  @override
+  String get settingsUpdateDeclined => 'Update abgebrochen.';
+
+  @override
+  String get settingsUpdateFailed =>
+      'Update hat nicht geklappt. Weiter im Play Store.';
+
+  @override
+  String get settingsUpdateUnavailable =>
+      'Hier nicht prüfbar. Im Play Store nachsehen.';
 
   @override
   String get settingsPrivacySubtitle => 'Datenschutzerklärung öffnen';
@@ -10258,4 +10300,81 @@ class AppL10nDe extends AppL10n {
   @override
   String get privacyApplicationUnconfirmed =>
       'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.';
+
+  @override
+  String get phaseTasksTitle => 'Phase-Aufgaben';
+
+  @override
+  String get phaseTasksScope =>
+      'Übungen und strukturierte Bewertungen. Freie Antworten werden nicht automatisch als beherrscht gewertet.';
+
+  @override
+  String get phaseTaskPractice => 'Üben';
+
+  @override
+  String get phaseTaskAssessment => 'Bewerten';
+
+  @override
+  String get phaseTaskSubmit => 'Antworten prüfen und speichern';
+
+  @override
+  String get phaseTaskRetry => 'Noch einmal versuchen';
+
+  @override
+  String get phaseTaskPassed => 'Bewertete Kriterien erfüllt';
+
+  @override
+  String get phaseTaskNeedsPractice => 'Noch üben: Prüfe die Erklärungen.';
+
+  @override
+  String get phaseTaskUnscored =>
+      'Versuch gespeichert · Bedeutung nicht automatisch bewertet';
+
+  @override
+  String get phaseTaskPlay => 'Anhören';
+
+  @override
+  String get phaseTaskRecord => 'Aufnehmen';
+
+  @override
+  String get phaseTaskStop => 'Aufnahme beenden';
+
+  @override
+  String get phaseTaskReplay => 'Aufnahme anhören';
+
+  @override
+  String get phaseTaskError =>
+      'Das hat nicht geklappt. Prüfe Ton, Mikrofon und Verbindung und versuche es erneut.';
+
+  @override
+  String get phaseTaskAccountChanged =>
+      'Dein Konto hat sich geändert. Öffne die Aufgabe erneut.';
+
+  @override
+  String get phaseTaskRecordingNotice =>
+      'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.';
+
+  @override
+  String get phaseTaskHistory => 'Bewertete Kriterien bereits erfüllt';
+
+  @override
+  String get phaseTaskAudioRequired => 'Höre zuerst die Aufnahme an.';
+
+  @override
+  String get phaseTaskPracticeComplete =>
+      'Übung gespeichert. Der Punktwert gilt für diese Übung.';
+
+  @override
+  String get phaseTaskCriterionPassed => 'Kriterium erfüllt';
+
+  @override
+  String get phaseTaskCriterionRequired => 'Pflichtkriterium';
+
+  @override
+  String get phaseTaskCriterionUnscored =>
+      'Diese Formulierung ist nicht automatisch bewertbar.';
+
+  @override
+  String get phaseTaskEarlierRevision =>
+      'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet';
 }

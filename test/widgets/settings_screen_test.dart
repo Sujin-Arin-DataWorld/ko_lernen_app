@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
+import 'package:ko_lernen_app/services/app_update_service.dart';
 import 'package:ko_lernen_app/services/app_version_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
@@ -47,6 +48,179 @@ void main() {
   });
 
   tearDown(() => cloudJournalState.dispose());
+
+  Future<Finder> pumpUpdateSettings(
+    WidgetTester tester,
+    _FakeAppUpdateChecker checker, {
+    Future<void> Function(String url)? storeOpener,
+  }) async {
+    tester.view.physicalSize = const Size(400, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          appUpdateChecker: checker,
+          appStoreOpener: storeOpener,
+        ),
+      ),
+    );
+    await tester.pump();
+    final row = find.text(_l10n.settingsUpdateTitle);
+    await _ensureSettingsActionVisible(tester, row);
+    return row;
+  }
+
+  testWidgets('update row reports the Play up-to-date answer', (tester) async {
+    final checker = _FakeAppUpdateChecker(AppUpdateStatus.upToDate);
+    final row = await pumpUpdateSettings(tester, checker);
+
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+
+    expect(checker.checkCalls, 1);
+    expect(find.text(_l10n.settingsUpdateUpToDate), findsWidgets);
+  });
+
+  testWidgets(
+    'iOS settings do not advertise Google Play updates',
+    (tester) async {
+      final checker = _FakeAppUpdateChecker(AppUpdateStatus.unsupported);
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            appVersionReader: const _FixedAppVersionReader('2.0.9'),
+            appUpdateChecker: checker,
+          ),
+        ),
+      );
+      await tester.pump();
+      await _ensureSettingsActionVisible(
+        tester,
+        find.text(_l10n.settingsVersion('2.0.9')),
+      );
+      expect(find.text(_l10n.settingsVersion('2.0.9')), findsOneWidget);
+      expect(find.text(_l10n.settingsUpdateTitle), findsNothing);
+      expect(find.text(_l10n.settingsUpdateSubtitle), findsNothing);
+      expect(checker.checkCalls, 0);
+    },
+    variant: TargetPlatformVariant.only(TargetPlatform.iOS),
+  );
+
+  testWidgets('available update can be postponed without starting Play', (
+    tester,
+  ) async {
+    final checker = _FakeAppUpdateChecker(
+      const AppUpdateStatus(
+        availability: AppUpdateAvailability.updateAvailable,
+        availableVersionCode: 4530,
+        immediateAllowed: true,
+      ),
+    );
+    final row = await pumpUpdateSettings(tester, checker);
+
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+    expect(find.text(_l10n.settingsUpdateDialogBody(4530)), findsOneWidget);
+    await tester.tap(find.text(_l10n.settingsUpdateLater));
+    await tester.pumpAndSettle();
+
+    expect(checker.startCalls, 0);
+    expect(find.text(_l10n.settingsUpdateAvailable(4530)), findsOneWidget);
+  });
+
+  testWidgets('Play denial is reported without opening the store fallback', (
+    tester,
+  ) async {
+    final opened = <String>[];
+    final checker = _FakeAppUpdateChecker(
+      const AppUpdateStatus(
+        availability: AppUpdateAvailability.updateAvailable,
+        immediateAllowed: true,
+      ),
+      startResult: AppUpdateStartResult.declined,
+    );
+    final row = await pumpUpdateSettings(
+      tester,
+      checker,
+      storeOpener: (url) async => opened.add(url),
+    );
+
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(_l10n.settingsUpdateStart));
+    await tester.pumpAndSettle();
+
+    expect(checker.startCalls, 1);
+    expect(opened, isEmpty);
+    expect(find.text(_l10n.settingsUpdateDeclined), findsOneWidget);
+  });
+
+  testWidgets('check error clears busy state and opens the Play store fallback', (
+    tester,
+  ) async {
+    final opened = <String>[];
+    final checker = _FakeAppUpdateChecker(
+      AppUpdateStatus.upToDate,
+      checkError: StateError('network'),
+    );
+    final row = await pumpUpdateSettings(
+      tester,
+      checker,
+      storeOpener: (url) async => opened.add(url),
+    );
+
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+
+    expect(opened, [
+      'https://play.google.com/store/apps/details?id=com.sujinarin.ko_lernen_app',
+    ]);
+    expect(find.text(_l10n.settingsUpdateUnavailable), findsWidgets);
+    final tile = find.ancestor(of: row, matching: find.byType(ListTile));
+    expect(
+      find.descendant(
+        of: tile,
+        matching: find.byType(CircularProgressIndicator),
+      ),
+      findsNothing,
+    );
+  });
+
+  testWidgets('failed in-app start opens the Play store fallback', (
+    tester,
+  ) async {
+    final opened = <String>[];
+    final checker = _FakeAppUpdateChecker(
+      const AppUpdateStatus(
+        availability: AppUpdateAvailability.updateAvailable,
+        flexibleAllowed: true,
+      ),
+      startError: StateError('platform channel failed'),
+    );
+    final row = await pumpUpdateSettings(
+      tester,
+      checker,
+      storeOpener: (url) async => opened.add(url),
+    );
+
+    await tester.tap(row);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(_l10n.settingsUpdateStart));
+    await tester.pumpAndSettle();
+
+    expect(checker.startCalls, 1);
+    expect(opened, hasLength(1));
+    expect(find.text(_l10n.settingsUpdateFailed), findsOneWidget);
+  });
 
   for (final language in ['de', 'en']) {
     testWidgets(
@@ -1783,6 +1957,36 @@ class _FixedAppVersionReader implements AppVersionReader {
 
   @override
   Future<String> readVersion() async => version;
+}
+
+class _FakeAppUpdateChecker implements AppUpdateChecker {
+  _FakeAppUpdateChecker(
+    this.status, {
+    this.startResult = AppUpdateStartResult.started,
+    this.checkError,
+    this.startError,
+  });
+
+  final AppUpdateStatus status;
+  final AppUpdateStartResult startResult;
+  final Object? checkError;
+  final Object? startError;
+  int checkCalls = 0;
+  int startCalls = 0;
+
+  @override
+  Future<AppUpdateStatus> check() async {
+    checkCalls += 1;
+    if (checkError case final error?) throw error;
+    return status;
+  }
+
+  @override
+  Future<AppUpdateStartResult> start(AppUpdateStatus status) async {
+    startCalls += 1;
+    if (startError case final error?) throw error;
+    return startResult;
+  }
 }
 
 class _ThrowingAppVersionReader implements AppVersionReader {

@@ -160,7 +160,7 @@ abstract class AppL10n {
   /// No description provided for @learningPhasePracticeScope.
   ///
   /// In de, this message translates to:
-  /// **'Hier übst du verwandte Themen. Die eigenen Aufgaben für dieses Phasenziel sind noch in Vorbereitung. Für deinen Lernfortschritt gelten weiterhin die bisherigen Missionsprüfungen.'**
+  /// **'Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.'**
   String get learningPhasePracticeScope;
 
   /// No description provided for @learningPhaseImagePreparing.
@@ -1572,6 +1572,78 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Datenschutzerklärung'**
   String get settingsPrivacyTitle;
+
+  /// Settings row that asks Google Play for the newest build available to this device.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach Updates suchen'**
+  String get settingsUpdateTitle;
+
+  /// No description provided for @settingsUpdateSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neueste Version aus Google Play holen'**
+  String get settingsUpdateSubtitle;
+
+  /// No description provided for @settingsUpdateChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geprüft'**
+  String get settingsUpdateChecking;
+
+  /// No description provided for @settingsUpdateUpToDate.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast schon die neueste Version.'**
+  String get settingsUpdateUpToDate;
+
+  /// Shown when Google Play reports a newer versionCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Version {v} ist da.'**
+  String settingsUpdateAvailable(Object v);
+
+  /// No description provided for @settingsUpdateDialogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Update verfügbar'**
+  String get settingsUpdateDialogTitle;
+
+  /// Confirmation before handing the update to Google Play.
+  ///
+  /// In de, this message translates to:
+  /// **'Version {v} wird jetzt über Google Play geladen und installiert.'**
+  String settingsUpdateDialogBody(Object v);
+
+  /// No description provided for @settingsUpdateStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt aktualisieren'**
+  String get settingsUpdateStart;
+
+  /// No description provided for @settingsUpdateLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get settingsUpdateLater;
+
+  /// No description provided for @settingsUpdateDeclined.
+  ///
+  /// In de, this message translates to:
+  /// **'Update abgebrochen.'**
+  String get settingsUpdateDeclined;
+
+  /// No description provided for @settingsUpdateFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Update hat nicht geklappt. Weiter im Play Store.'**
+  String get settingsUpdateFailed;
+
+  /// Shown when Play cannot answer; never claims the build is current.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier nicht prüfbar. Im Play Store nachsehen.'**
+  String get settingsUpdateUnavailable;
 
   /// No description provided for @settingsPrivacySubtitle.
   ///
@@ -17405,6 +17477,144 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.'**
   String get privacyApplicationUnconfirmed;
+
+  /// No description provided for @phaseTasksTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Phase-Aufgaben'**
+  String get phaseTasksTitle;
+
+  /// No description provided for @phaseTasksScope.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungen und strukturierte Bewertungen. Freie Antworten werden nicht automatisch als beherrscht gewertet.'**
+  String get phaseTasksScope;
+
+  /// No description provided for @phaseTaskPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get phaseTaskPractice;
+
+  /// No description provided for @phaseTaskAssessment.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewerten'**
+  String get phaseTaskAssessment;
+
+  /// No description provided for @phaseTaskSubmit.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworten prüfen und speichern'**
+  String get phaseTaskSubmit;
+
+  /// No description provided for @phaseTaskRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal versuchen'**
+  String get phaseTaskRetry;
+
+  /// No description provided for @phaseTaskPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertete Kriterien erfüllt'**
+  String get phaseTaskPassed;
+
+  /// No description provided for @phaseTaskNeedsPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch üben: Prüfe die Erklärungen.'**
+  String get phaseTaskNeedsPractice;
+
+  /// No description provided for @phaseTaskUnscored.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch gespeichert · Bedeutung nicht automatisch bewertet'**
+  String get phaseTaskUnscored;
+
+  /// No description provided for @phaseTaskPlay.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get phaseTaskPlay;
+
+  /// No description provided for @phaseTaskRecord.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnehmen'**
+  String get phaseTaskRecord;
+
+  /// No description provided for @phaseTaskStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme beenden'**
+  String get phaseTaskStop;
+
+  /// No description provided for @phaseTaskReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufnahme anhören'**
+  String get phaseTaskReplay;
+
+  /// No description provided for @phaseTaskError.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hat nicht geklappt. Prüfe Ton, Mikrofon und Verbindung und versuche es erneut.'**
+  String get phaseTaskError;
+
+  /// No description provided for @phaseTaskAccountChanged.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Konto hat sich geändert. Öffne die Aufgabe erneut.'**
+  String get phaseTaskAccountChanged;
+
+  /// No description provided for @phaseTaskRecordingNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.'**
+  String get phaseTaskRecordingNotice;
+
+  /// No description provided for @phaseTaskHistory.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertete Kriterien bereits erfüllt'**
+  String get phaseTaskHistory;
+
+  /// No description provided for @phaseTaskAudioRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre zuerst die Aufnahme an.'**
+  String get phaseTaskAudioRequired;
+
+  /// No description provided for @phaseTaskPracticeComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung gespeichert. Der Punktwert gilt für diese Übung.'**
+  String get phaseTaskPracticeComplete;
+
+  /// No description provided for @phaseTaskCriterionPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Kriterium erfüllt'**
+  String get phaseTaskCriterionPassed;
+
+  /// No description provided for @phaseTaskCriterionRequired.
+  ///
+  /// In de, this message translates to:
+  /// **'Pflichtkriterium'**
+  String get phaseTaskCriterionRequired;
+
+  /// No description provided for @phaseTaskCriterionUnscored.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Formulierung ist nicht automatisch bewertbar.'**
+  String get phaseTaskCriterionUnscored;
+
+  /// No description provided for @phaseTaskEarlierRevision.
+  ///
+  /// In de, this message translates to:
+  /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
+  String get phaseTaskEarlierRevision;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

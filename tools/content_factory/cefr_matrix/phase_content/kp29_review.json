@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP29:grammar:01",
+      "sha256": "e4212a70ce940f2bfbc1b85e8dd51db08029da11ba146afb8accec6d934fcba7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으리라 speaker futureexpectation/selfresolve, not accomplished verification or command to others. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:01",
+      "sha256": "cda4ab64b8433bf80f75808a92c5b42f69e0496f9b028c30a206180718da1dfa",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으리라 speaker futureexpectation/selfresolve, not accomplished verification or command to others. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:02",
+      "sha256": "747f0b7d8e87d3be2ff48a4ad529387d0e7b6b49ddbaf7e667a5eb0f3ae3a922",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으리오 explicitly selfdirected rhetorical difficultknowing versus cannot-not-know; polarity respected, not name-list request. Dictionary79283 permits spoken selftalk, not literature-only. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:02",
+      "sha256": "69ba857415c9491d4e6a45289c5688b658bbd3a823926cb0d2eb072535017019",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으리오 explicitly selfdirected rhetorical difficultknowing versus cannot-not-know; polarity respected, not name-list request. Dictionary79283 permits spoken selftalk, not literature-only. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:03",
+      "sha256": "d015ad16c79172365fc6d4a7df45bc4cbb0643b4ceaaff94d2527e342fd0df8a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으련마는 plausible arrival/understanding contrasted with actual leaving/bookclosing; expectedresult remainsunknown. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:03",
+      "sha256": "11f5c10c119e39ec850249b23cdc48ea463dd58d54e660c672048066580878e9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으련마는 plausible arrival/understanding contrasted with actual leaving/bookclosing; expectedresult remainsunknown. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:04",
+      "sha256": "1501a6109726ba1d73efcd023ad7e585cd00b0a9572c72c082fce8e2bbd8b8a1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으리라고 character futurebelief/report, narrator notguarantor; unconfirmed discovery/preservation. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:04",
+      "sha256": "284b879d5eff7fe194b45e42b8cbf9abe8f2e62c961ea8bf3d0e5e1b2cbe7220",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으리라고 character futurebelief/report, narrator notguarantor; unconfirmed discovery/preservation. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:05",
+      "sha256": "3e7c2f92a8fc7de42ecae7d905e83062eae5f6f76eff2c88e0e457e74ff266bf",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으리라는 quoted forecast modifies unsupported expectation/unverified unanimous-assent assumption, not truth endorsement. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:05",
+      "sha256": "a215c593e477af82ff48dffff00e8ed6cb6634bf0c0473a5d7630be3690e2b9f",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으리라는 quoted forecast modifies unsupported expectation/unverified unanimous-assent assumption, not truth endorsement. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:06",
+      "sha256": "347575fab82f5a60dbd47249e47a1ee33d459e182703bb56ba7321ff4bef5ee7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 던가2 explicit selfmemory search location/utterance, no listenerduty or inference noevent occurred. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:06",
+      "sha256": "4641a8f0359a65e582158fb95142d542001b0471d6084138571e8d296a4269e8",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 던가2 explicit selfmemory search location/utterance, no listenerduty or inference noevent occurred. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:07",
+      "sha256": "dc638c4dcafbdad0b036b031207d1b9d47ac3148c96ffe2fd0b6908e1c88ad04",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는가2 rhetorical problem of sufficientgrounds/judgementcriteria with following argument; no general everyquestion-is-rhetorical claim. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:07",
+      "sha256": "d2e18dd5c25504ca1ba5e127ac70d81af55e0c31129589cd8d219a6b6ec22994",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는가2 rhetorical problem of sufficientgrounds/judgementcriteria with following argument; no general everyquestion-is-rhetorical claim. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:08",
+      "sha256": "42a25cc5e03ed01d60b144297a2bdac213b6104009b221e4b3e9bcdbcc1e1e4a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 라2 archaicdeclarative past/pending fact, not same-spelled imperative. Officialdictionary79275 checked. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:08",
+      "sha256": "213e961c4da3a23fea32b54d385440f57be79d4abbb655f396bde3f2f8f64cbc",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 라2 archaicdeclarative past/pending fact, not same-spelled imperative. Officialdictionary79275 checked. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:09",
+      "sha256": "722418fe7c06f0b961c9ab5205a83665ed77e1c60832fbc89d81bb9add7745ce",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으니4 officialdictionary80851 basic familiarquestion, thisfictionalpeerplay explicitlymarks behavioralreproach in followup. No fixeddiagnosis/blame meaning or recommendation to peers. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:09",
+      "sha256": "09f219a6480f417efff7e7d04e4dc6cb008a3d26a0eaa3f6c58c8fe6556a0b17",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으니4 officialdictionary80851 basic familiarquestion, thisfictionalpeerplay explicitlymarks behavioralreproach in followup. No fixeddiagnosis/blame meaning or recommendation to peers. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:grammar:10",
+      "sha256": "f4b3c604a19c632c26f445997b9197d20f9c6d91c8a83bca02040c0d2e199520",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 듯하다 sourcecue-based tentativeinterpretation with alternatives, not complete negation or uniqueprovenreading. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP29:production:10",
+      "sha256": "8cc69072cb1ef2a278bfb48efba7052429e46e3beda4f13bd6624058b4191568",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 듯하다 sourcecue-based tentativeinterpretation with alternatives, not complete negation or uniqueprovenreading. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP29:listening:01",
+      "sha256": "54ba060b180f76124288339b1c5f2a86de60ec1ab64866b15f48ae48ec554f6c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: original monologue plus separately marked mutuallycasualadultpeerplay. Practice uncertain materiallocation/charactertruthbelief/leavingbeforepossiblearrival; assessment uncertainownwords/recordpreservationbelief/bookclosingbeforepossibleunderstanding. Future result unknown, rhetoricalselfquestion notlistenerduty, raredeclarative notorder, reproach establishedbyfollowup and repairedtoaction. Six required speaker/polarity/quotation/forecast/declarative/contextcriteria. Actual vocalemotion notcertified."
+    },
+    {
+      "taskId": "KP29:listening:02",
+      "sha256": "e775e79333c7422f49619cb0732317d380ea7303bcce9900449d098c39d4b16b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate academiclecture12-3=9 versus16-4=12testmarkers, not languagefrequency/accuracy. Initialproblemposing rhetoricalquestion vsactualsourcecheck answeredbyaudience, matched arrival/leaving versusunderstanding/bookclosing sources. Opposingconfidence/distance readings havegrounds but audienceeffect unmeasured; withholding notignorance/totaldenial. Four required response/method/reservation/structurecriteria."
+    },
+    {
+      "taskId": "KP29:reading:01",
+      "sha256": "ba9027c081451cb4ed0e3204057137a022f6c1d1106dc5156bf612326090243e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: original fiction plus shortparaphrases of directlyfetched NIKLKoreanBasicDictionary79283,79275,80851 withexactURLs. Basicfunction vscontext, spoken selftalk note preventsliterature-only inference, 으니 question notalwaysreproach, 라2 archaicdeclarative vsimperative. No borrowed dictionaryexamples. Five required dictionary/function/modern/paraphrase/distributioncriteria, noall-modern-use claim."
+    },
+    {
+      "taskId": "KP29:reading:02",
+      "sha256": "9e0a02cf92af0224ba11ee814a6b3a547226d89289f77e84827003a61f3a55fd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate academiclecture/twofullcommentaries withcriteria confidencevoice vsretainedsource/qualification. Strongestcounterview conceded, nofutureeventconfirmation, smallmarkerdata notuniqueinterpretation orallreaderresponse. Publicdraft invents academicproof andreaderobligation; sourceboundrevision. Five requiredcriteria."
+    },
+    {
+      "taskId": "KP29:writing:01",
+      "sha256": "eeee46b4eeae32639ab961ee5dd15375c248356a1b49b863a4d124a3b8c6d455",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: three fullrequired texts, measured specialist summary, rhetoricalessay withfairstrongobjection, publiccritique withqualifications restored. Preserveclaims/source/predictiveforce andself-versus-audiencequestion, dictionaryfunctionvscontext, unspecifiedperiod/authorbiography/audienceresponse remainunknown. Freestyle/argument unscored."
+    },
+    {
+      "taskId": "KP29:speaking:01",
+      "sha256": "97b129bdc7a8691a22b14fc9919f156f01553cda75e2544c4308a04420de58a6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: formalpubliccomparison andpolitenonspecialistexplanation, reasonsforwithholding withouttotaldenial/presumedassent. Recordreplay genrebased으리오/는가/으니 withfollowup notuniversal risingintonation/blame. Fictionalreproach notdefaultpeertone. Koreanmediation quotedprediction→guarantee andselfquestion→listenerduty errors; unscoredmeaning/prosody."
+    }
+  ]
+}

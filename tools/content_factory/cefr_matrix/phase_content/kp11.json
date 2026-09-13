@@ -1,0 +1,3593 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP11",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP11:grammar:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:01",
+      "requirementKeys": [
+        "G3:만큼"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만큼",
+        "en": "만큼",
+        "de": "만큼"
+      },
+      "teaching": {
+        "ko": "명사 뒤 만큼은 정도·양의 비교 기준을 나타내요. 무엇을 얼마나 비교하는지 유지하고 모든 면이 같다고 확대하지 않아요.",
+        "en": "After a noun, 만큼 supplies a degree or quantity benchmark. Preserve the comparison axis; it does not mean equality in every respect.",
+        "de": "Nach einem Nomen nennt 만큼 einen Maßstab für Grad oder Menge. Behalte das Vergleichskriterium bei; es bedeutet keine Gleichheit in jeder Hinsicht."
+      },
+      "examplesKo": [
+        "저도 친구만큼 연습했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "저도 친구만큼 연습했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "연습 정도를 친구와 비교함"
+              },
+              {
+                "id": "1",
+                "text": "친구와 성격이 모두 같음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 만큼은 정도·양의 비교 기준을 나타내요. 무엇을 얼마나 비교하는지 유지하고 모든 면이 같다고 확대하지 않아요.",
+              "en": "After a noun, 만큼 supplies a degree or quantity benchmark. Preserve the comparison axis; it does not mean equality in every respect.",
+              "de": "Nach einem Nomen nennt 만큼 einen Maßstab für Grad oder Menge. Behalte das Vergleichskriterium bei; es bedeutet keine Gleichheit in jeder Hinsicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 방도 저 방만큼 넓어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "방의 넓이를 비교함"
+              },
+              {
+                "id": "1",
+                "text": "두 방의 가격과 위치도 모두 같음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 만큼은 정도·양의 비교 기준을 나타내요. 무엇을 얼마나 비교하는지 유지하고 모든 면이 같다고 확대하지 않아요.",
+              "en": "After a noun, 만큼 supplies a degree or quantity benchmark. Preserve the comparison axis; it does not mean equality in every respect.",
+              "de": "Nach einem Nomen nennt 만큼 einen Maßstab für Grad oder Menge. Behalte das Vergleichskriterium bei; es bedeutet keine Gleichheit in jeder Hinsicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:02",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:02",
+      "requirementKeys": [
+        "G3:-는 만큼"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 만큼",
+        "en": "-는 만큼",
+        "de": "-는 만큼"
+      },
+      "teaching": {
+        "ko": "절 뒤 만큼은 앞 절의 정도와 뒤 결과를 연결해요. 이 예에서는 정도의 비례를 보며 과학적 수치 관계를 새로 만들지 않아요.",
+        "en": "After a clause, 만큼 relates its degree to the result. These examples express proportionality without establishing a measured scientific formula.",
+        "de": "Nach einem Satzteil verbindet 만큼 dessen Ausmaß mit dem Ergebnis. Hier geht es um eine proportionale Beziehung, nicht um eine belegte naturwissenschaftliche Formel."
+      },
+      "examplesKo": [
+        "연습한 만큼 자신감이 생겼어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "연습한 만큼 자신감이 생겼어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "연습 정도에 따른 자신감 변화를 말함"
+              },
+              {
+                "id": "1",
+                "text": "연습과 자신감이 전혀 관계없다고 말함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절 뒤 만큼은 앞 절의 정도와 뒤 결과를 연결해요. 이 예에서는 정도의 비례를 보며 과학적 수치 관계를 새로 만들지 않아요.",
+              "en": "After a clause, 만큼 relates its degree to the result. These examples express proportionality without establishing a measured scientific formula.",
+              "de": "Nach einem Satzteil verbindet 만큼 dessen Ausmaß mit dem Ergebnis. Hier geht es um eine proportionale Beziehung, nicht um eine belegte naturwissenschaftliche Formel."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "준비한 만큼 발표가 수월했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "준비 정도와 발표의 수월함을 연결함"
+              },
+              {
+                "id": "1",
+                "text": "준비를 전혀 하지 않았다고 말함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절 뒤 만큼은 앞 절의 정도와 뒤 결과를 연결해요. 이 예에서는 정도의 비례를 보며 과학적 수치 관계를 새로 만들지 않아요.",
+              "en": "After a clause, 만큼 relates its degree to the result. These examples express proportionality without establishing a measured scientific formula.",
+              "de": "Nach einem Satzteil verbindet 만큼 dessen Ausmaß mit dem Ergebnis. Hier geht es um eine proportionale Beziehung, nicht um eine belegte naturwissenschaftliche Formel."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:03",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:03",
+      "requirementKeys": [
+        "G3:같이"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "같이",
+        "en": "같이",
+        "de": "같이"
+      },
+      "teaching": {
+        "ko": "여기서는 명사 뒤 같이가 비교 대상과 비슷함을 나타내요. 저같이는 나처럼이지 반드시 나와 같은 장소에서 함께한다는 뜻은 아니에요.",
+        "en": "Here, 같이 after a noun marks similarity. 저같이 means like me, not necessarily together with me in the same place.",
+        "de": "Hier bezeichnet 같이 nach einem Nomen Ähnlichkeit. 저같이 bedeutet wie ich, nicht zwingend gemeinsam mit mir am selben Ort."
+      },
+      "examplesKo": [
+        "동생도 저같이 매운 음식을 좋아해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "동생도 저같이 매운 음식을 좋아해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "동생과 화자의 음식 선호가 비슷함"
+              },
+              {
+                "id": "1",
+                "text": "두 사람이 반드시 지금 함께 식사 중"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 명사 뒤 같이가 비교 대상과 비슷함을 나타내요. 저같이는 나처럼이지 반드시 나와 같은 장소에서 함께한다는 뜻은 아니에요.",
+              "en": "Here, 같이 after a noun marks similarity. 저같이 means like me, not necessarily together with me in the same place.",
+              "de": "Hier bezeichnet 같이 nach einem Nomen Ähnlichkeit. 저같이 bedeutet wie ich, nicht zwingend gemeinsam mit mir am selben Ort."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구도 저같이 조용한 영화를 좋아해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "친구가 화자와 모든 의견에 동의함"
+              },
+              {
+                "id": "0",
+                "text": "친구와 화자의 영화 선호가 비슷함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "여기서는 명사 뒤 같이가 비교 대상과 비슷함을 나타내요. 저같이는 나처럼이지 반드시 나와 같은 장소에서 함께한다는 뜻은 아니에요.",
+              "en": "Here, 같이 after a noun marks similarity. 저같이 means like me, not necessarily together with me in the same place.",
+              "de": "Hier bezeichnet 같이 nach einem Nomen Ähnlichkeit. 저같이 bedeutet wie ich, nicht zwingend gemeinsam mit mir am selben Ort."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:04",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:04",
+      "requirementKeys": [
+        "G3:대로"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "대로",
+        "en": "대로",
+        "de": "대로"
+      },
+      "teaching": {
+        "ko": "명사 뒤 대로는 제시된 기준·방식을 따름을 나타내요. 뒤 행동을 했다는 이유로 기준을 마음대로 바꾸지 않아요.",
+        "en": "After a noun, 대로 means following the stated standard or method; preserve that standard.",
+        "de": "Nach einem Nomen bedeutet 대로, nach dem genannten Maßstab oder Verfahren zu handeln; ändere diesen nicht."
+      },
+      "examplesKo": [
+        "안내문대로 신청서를 썼어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "안내문대로 신청서를 썼어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "안내문과 반대로 작성함"
+              },
+              {
+                "id": "0",
+                "text": "안내문의 방법을 따름"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 대로는 제시된 기준·방식을 따름을 나타내요. 뒤 행동을 했다는 이유로 기준을 마음대로 바꾸지 않아요.",
+              "en": "After a noun, 대로 means following the stated standard or method; preserve that standard.",
+              "de": "Nach einem Nomen bedeutet 대로, nach dem genannten Maßstab oder Verfahren zu handeln; ändere diesen nicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "계획대로 예산을 나누었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "정해진 계획에 따라 배분함"
+              },
+              {
+                "id": "1",
+                "text": "계획을 무시하고 배분함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 대로는 제시된 기준·방식을 따름을 나타내요. 뒤 행동을 했다는 이유로 기준을 마음대로 바꾸지 않아요.",
+              "en": "After a noun, 대로 means following the stated standard or method; preserve that standard.",
+              "de": "Nach einem Nomen bedeutet 대로, nach dem genannten Maßstab oder Verfahren zu handeln; ändere diesen nicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:05",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:05",
+      "requirementKeys": [
+        "G3:뿐"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "뿐",
+        "en": "뿐",
+        "de": "뿐"
+      },
+      "teaching": {
+        "ko": "명사 뒤 뿐은 범위를 그것으로 제한해요. 이것뿐은 이것도 있다는 단순 추가와 달라요.",
+        "en": "After a noun, 뿐 limits the range to that item; only this is different from this too.",
+        "de": "Nach einem Nomen beschränkt 뿐 den Umfang auf dieses Element; nur dies ist etwas anderes als auch dies."
+      },
+      "examplesKo": [
+        "남은 표는 한 장뿐이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "남은 표는 한 장뿐이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "한 장 외에도 많이 남음"
+              },
+              {
+                "id": "0",
+                "text": "남은 표가 한 장으로 한정됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 뿐은 범위를 그것으로 제한해요. 이것뿐은 이것도 있다는 단순 추가와 달라요.",
+              "en": "After a noun, 뿐 limits the range to that item; only this is different from this too.",
+              "de": "Nach einem Nomen beschränkt 뿐 den Umfang auf dieses Element; nur dies ist etwas anderes als auch dies."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "지금 확인된 것은 가격뿐이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "확인된 정보가 가격으로 제한됨"
+              },
+              {
+                "id": "1",
+                "text": "품질과 효과도 모두 확인됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사 뒤 뿐은 범위를 그것으로 제한해요. 이것뿐은 이것도 있다는 단순 추가와 달라요.",
+              "en": "After a noun, 뿐 limits the range to that item; only this is different from this too.",
+              "de": "Nach einem Nomen beschränkt 뿐 den Umfang auf dieses Element; nur dies ist etwas anderes als auch dies."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:06",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:06",
+      "requirementKeys": [
+        "G3:이고"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이고",
+        "en": "이고",
+        "de": "이고"
+      },
+      "teaching": {
+        "ko": "A이고 B이고의 나열은 이 문맥에서 대상을 가리지 않고 포함해요. 단순 서술격 연결과 구별하고 본문에 없는 집단까지 임의로 추가하지 않아요.",
+        "en": "In this context, A이고 B이고 includes the named alternatives regardless of category. Distinguish this from simple copular linking and do not invent additional groups.",
+        "de": "In diesem Kontext schließt A이고 B이고 die genannten Gruppen unabhängig von der Kategorie ein. Unterscheide dies von einer einfachen Kopulaverbindung und ergänze keine ungenannten Gruppen."
+      },
+      "examplesKo": [
+        "아이이고 어른이고 모두 참여했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "아이이고 어른이고 모두 참여했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아이만 참여하고 어른은 제외됨"
+              },
+              {
+                "id": "0",
+                "text": "아이와 어른을 가리지 않고 참여함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "A이고 B이고의 나열은 이 문맥에서 대상을 가리지 않고 포함해요. 단순 서술격 연결과 구별하고 본문에 없는 집단까지 임의로 추가하지 않아요.",
+              "en": "In this context, A이고 B이고 includes the named alternatives regardless of category. Distinguish this from simple copular linking and do not invent additional groups.",
+              "de": "In diesem Kontext schließt A이고 B이고 die genannten Gruppen unabhängig von der Kategorie ein. Unterscheide dies von einer einfachen Kopulaverbindung und ergänze keine ungenannten Gruppen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "평일이고 주말이고 모두 문을 열어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "주말에만 운영함"
+              },
+              {
+                "id": "0",
+                "text": "평일과 주말을 가리지 않고 운영함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "A이고 B이고의 나열은 이 문맥에서 대상을 가리지 않고 포함해요. 단순 서술격 연결과 구별하고 본문에 없는 집단까지 임의로 추가하지 않아요.",
+              "en": "In this context, A이고 B이고 includes the named alternatives regardless of category. Distinguish this from simple copular linking and do not invent additional groups.",
+              "de": "In diesem Kontext schließt A이고 B이고 die genannten Gruppen unabhängig von der Kategorie ein. Unterscheide dies von einer einfachen Kopulaverbindung und ergänze keine ungenannten Gruppen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:07",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:07",
+      "requirementKeys": [
+        "G3:-어도"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어도",
+        "en": "-어도",
+        "de": "-어도"
+      },
+      "teaching": {
+        "ko": "앞 조건을 인정해도 뒤 결론이 유지돼요. 양보된 조건을 행사 취소 같은 반대 결과로 바꾸지 않아요.",
+        "en": "The conclusion holds even when the first condition is conceded; preserve its polarity.",
+        "de": "Die Schlussaussage gilt auch bei zugestandener Bedingung; erhalte ihre Bejahung oder Verneinung."
+      },
+      "examplesKo": [
+        "비가 와도 행사는 열려요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "비가 와도 행사는 열려요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "비가 오면 취소함"
+              },
+              {
+                "id": "0",
+                "text": "비가 오는 경우에도 개최함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건을 인정해도 뒤 결론이 유지돼요. 양보된 조건을 행사 취소 같은 반대 결과로 바꾸지 않아요.",
+              "en": "The conclusion holds even when the first condition is conceded; preserve its polarity.",
+              "de": "Die Schlussaussage gilt auch bei zugestandener Bedingung; erhalte ihre Bejahung oder Verneinung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가격이 싸도 저는 사지 않을 거예요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "싸면 반드시 구매함"
+              },
+              {
+                "id": "0",
+                "text": "싼 경우에도 구매하지 않음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 조건을 인정해도 뒤 결론이 유지돼요. 양보된 조건을 행사 취소 같은 반대 결과로 바꾸지 않아요.",
+              "en": "The conclusion holds even when the first condition is conceded; preserve its polarity.",
+              "de": "Die Schlussaussage gilt auch bei zugestandener Bedingung; erhalte ihre Bejahung oder Verneinung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:08",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:08",
+      "requirementKeys": [
+        "G3:-으나"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으나",
+        "en": "-으나",
+        "de": "-으나"
+      },
+      "teaching": {
+        "ko": "격식 있는 글에서 대조되는 두 사실을 연결해요. 앞 장점이 뒤 한계를 없애는 것은 아니에요.",
+        "en": "Link contrasting facts in formal writing; a positive point does not erase the limitation.",
+        "de": "Verbinde gegensätzliche Tatsachen in förmlicher Sprache; ein Vorteil hebt die Einschränkung nicht auf."
+      },
+      "examplesKo": [
+        "가격은 비싸나 품질은 좋아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가격은 비싸나 품질은 좋아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가격이 싸고 품질도 나쁨"
+              },
+              {
+                "id": "0",
+                "text": "가격의 단점과 품질의 장점을 대조함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "격식 있는 글에서 대조되는 두 사실을 연결해요. 앞 장점이 뒤 한계를 없애는 것은 아니에요.",
+              "en": "Link contrasting facts in formal writing; a positive point does not erase the limitation.",
+              "de": "Verbinde gegensätzliche Tatsachen in förmlicher Sprache; ein Vorteil hebt die Einschränkung nicht auf."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "공간은 작으나 교통은 편리합니다.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "작은 공간과 편리한 교통을 대조함"
+              },
+              {
+                "id": "1",
+                "text": "공간이 크지만 교통이 불편함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "격식 있는 글에서 대조되는 두 사실을 연결해요. 앞 장점이 뒤 한계를 없애는 것은 아니에요.",
+              "en": "Link contrasting facts in formal writing; a positive point does not erase the limitation.",
+              "de": "Verbinde gegensätzliche Tatsachen in förmlicher Sprache; ein Vorteil hebt die Einschränkung nicht auf."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:09",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:09",
+      "requirementKeys": [
+        "G3:-는 대신에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 대신에",
+        "en": "-는 대신에",
+        "de": "-는 대신에"
+      },
+      "teaching": {
+        "ko": "앞 행동을 대체하거나 조건부로 보상하는 관계를 나타내요. 이 과제에서는 누가 무엇을 대신 맡는지 보존해요.",
+        "en": "Express replacement or compensation. Preserve who takes which task in these examples.",
+        "de": "Drücke Ersatz oder Ausgleich aus. Behalte bei diesen Aufgaben bei, wer welche Handlung übernimmt."
+      },
+      "examplesKo": [
+        "오늘 제가 정리하는 대신에 내일은 동료가 정리해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "오늘 제가 정리하는 대신에 내일은 동료가 정리해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "오늘 화자, 내일 동료가 역할을 나눔"
+              },
+              {
+                "id": "1",
+                "text": "오늘과 내일 모두 동료만 정리함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 행동을 대체하거나 조건부로 보상하는 관계를 나타내요. 이 과제에서는 누가 무엇을 대신 맡는지 보존해요.",
+              "en": "Express replacement or compensation. Preserve who takes which task in these examples.",
+              "de": "Drücke Ersatz oder Ausgleich aus. Behalte bei diesen Aufgaben bei, wer welche Handlung übernimmt."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "택시를 타는 대신에 버스를 탔어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "택시와 버스를 둘 다 탔다고 확정함"
+              },
+              {
+                "id": "0",
+                "text": "택시 대신 버스를 선택함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "앞 행동을 대체하거나 조건부로 보상하는 관계를 나타내요. 이 과제에서는 누가 무엇을 대신 맡는지 보존해요.",
+              "en": "Express replacement or compensation. Preserve who takes which task in these examples.",
+              "de": "Drücke Ersatz oder Ausgleich aus. Behalte bei diesen Aufgaben bei, wer welche Handlung übernimmt."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:10",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:10",
+      "requirementKeys": [
+        "G3:-는 반면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 반면",
+        "en": "-는 반면",
+        "de": "-는 반면"
+      },
+      "teaching": {
+        "ko": "같은 기준에서 드러나는 두 대상이나 한 대상의 다른 면을 대조해요. 대체 행동이나 교환 조건으로 바꾸지 않아요.",
+        "en": "Contrast two options or two aspects of one option. This does not itself mean replacement or an exchange condition.",
+        "de": "Stelle zwei Möglichkeiten oder zwei Seiten derselben Möglichkeit gegenüber. Das bedeutet nicht automatisch Ersatz oder eine Tauschbedingung."
+      },
+      "examplesKo": [
+        "이 집은 넓은 반면에 교통이 불편해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 집은 넓은 반면에 교통이 불편해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "넓이 대신 교통을 구매함"
+              },
+              {
+                "id": "0",
+                "text": "넓이의 장점과 교통의 단점을 대조함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준에서 드러나는 두 대상이나 한 대상의 다른 면을 대조해요. 대체 행동이나 교환 조건으로 바꾸지 않아요.",
+              "en": "Contrast two options or two aspects of one option. This does not itself mean replacement or an exchange condition.",
+              "de": "Stelle zwei Möglichkeiten oder zwei Seiten derselben Möglichkeit gegenüber. Das bedeutet nicht automatisch Ersatz oder eine Tauschbedingung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 영화는 짧은 반면에 설명이 부족해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "길이와 설명의 충실도를 대조함"
+              },
+              {
+                "id": "1",
+                "text": "설명 대신 영화를 취소함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준에서 드러나는 두 대상이나 한 대상의 다른 면을 대조해요. 대체 행동이나 교환 조건으로 바꾸지 않아요.",
+              "en": "Contrast two options or two aspects of one option. This does not itself mean replacement or an exchange condition.",
+              "de": "Stelle zwei Möglichkeiten oder zwei Seiten derselben Möglichkeit gegenüber. Das bedeutet nicht automatisch Ersatz oder eine Tauschbedingung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:11",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:11",
+      "requirementKeys": [
+        "G3:-는 편이다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 편이다",
+        "en": "-는 편이다",
+        "de": "-는 편이다"
+      },
+      "teaching": {
+        "ko": "절대적 단정 대신 상대적인 경향을 말해요. 가끔의 예외를 허용하며 항상으로 바꾸지 않아요.",
+        "en": "Express a relative tendency rather than an absolute claim; exceptions remain possible.",
+        "de": "Drücke eine relative Tendenz statt einer absoluten Aussage aus; Ausnahmen bleiben möglich."
+      },
+      "examplesKo": [
+        "저는 아침에 일찍 일어나는 편이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "저는 아침에 일찍 일어나는 편이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "예외 없이 매일 같은 시각에 일어남"
+              },
+              {
+                "id": "0",
+                "text": "대체로 일찍 일어나는 경향"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절대적 단정 대신 상대적인 경향을 말해요. 가끔의 예외를 허용하며 항상으로 바꾸지 않아요.",
+              "en": "Express a relative tendency rather than an absolute claim; exceptions remain possible.",
+              "de": "Drücke eine relative Tendenz statt einer absoluten Aussage aus; Ausnahmen bleiben möglich."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이곳은 다른 곳보다 조용한 편이에요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "비교적 조용하다는 평가"
+              },
+              {
+                "id": "1",
+                "text": "소리가 전혀 없다는 보증"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "절대적 단정 대신 상대적인 경향을 말해요. 가끔의 예외를 허용하며 항상으로 바꾸지 않아요.",
+              "en": "Express a relative tendency rather than an absolute claim; exceptions remain possible.",
+              "de": "Drücke eine relative Tendenz statt einer absoluten Aussage aus; Ausnahmen bleiben möglich."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:12",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:12",
+      "requirementKeys": [
+        "G3:-어 보이다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 보이다",
+        "en": "-어 보이다",
+        "de": "-어 보이다"
+      },
+      "teaching": {
+        "ko": "겉으로 관찰되는 인상이지 내면이나 성능을 확인한 사실은 아니에요. 사람의 건강·성격을 외관만으로 단정하지 않아요.",
+        "en": "Describe an outward impression, not verified internal state or performance. Appearance does not establish health or character.",
+        "de": "Beschreibe einen äußeren Eindruck, keinen bestätigten inneren Zustand oder Leistungsnachweis. Aussehen beweist weder Gesundheit noch Charakter."
+      },
+      "examplesKo": [
+        "이 의자는 편안해 보여요. 아직 앉아 보지는 않았어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 의자는 편안해 보여요. 아직 앉아 보지는 않았어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "앉아 보고 편안함을 확인함"
+              },
+              {
+                "id": "0",
+                "text": "겉모습으로 편안하다고 느낀 인상"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "겉으로 관찰되는 인상이지 내면이나 성능을 확인한 사실은 아니에요. 사람의 건강·성격을 외관만으로 단정하지 않아요.",
+              "en": "Describe an outward impression, not verified internal state or performance. Appearance does not establish health or character.",
+              "de": "Beschreibe einen äußeren Eindruck, keinen bestätigten inneren Zustand oder Leistungsnachweis. Aussehen beweist weder Gesundheit noch Charakter."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 가방은 가벼워 보여요. 무게는 아직 몰라요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "무게를 재어 가볍다고 확인함"
+              },
+              {
+                "id": "0",
+                "text": "외관상 인상이며 실제 무게 미확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "겉으로 관찰되는 인상이지 내면이나 성능을 확인한 사실은 아니에요. 사람의 건강·성격을 외관만으로 단정하지 않아요.",
+              "en": "Describe an outward impression, not verified internal state or performance. Appearance does not establish health or character.",
+              "de": "Beschreibe einen äußeren Eindruck, keinen bestätigten inneren Zustand oder Leistungsnachweis. Aussehen beweist weder Gesundheit noch Charakter."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:13",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:13",
+      "requirementKeys": [
+        "G3:-기는"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기는",
+        "en": "-기는",
+        "de": "-기는"
+      },
+      "teaching": {
+        "ko": "일부를 인정한 뒤 유보나 다른 면을 덧붙일 수 있어요. 뒤 반론을 지워 전면 동의로 바꾸지 않아요.",
+        "en": "Concede one point before adding a reservation; do not erase the reservation and claim full agreement.",
+        "de": "Gestehe einen Punkt zu und ergänze einen Vorbehalt; mache daraus keine uneingeschränkte Zustimmung."
+      },
+      "examplesKo": [
+        "좋기는 하지만 너무 비싸요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "좋기는 하지만 너무 비싸요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "좋다는 점은 인정하나 가격은 유보함"
+              },
+              {
+                "id": "1",
+                "text": "가격까지 전부 만족함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "일부를 인정한 뒤 유보나 다른 면을 덧붙일 수 있어요. 뒤 반론을 지워 전면 동의로 바꾸지 않아요.",
+              "en": "Concede one point before adding a reservation; do not erase the reservation and claim full agreement.",
+              "de": "Gestehe einen Punkt zu und ergänze einen Vorbehalt; mache daraus keine uneingeschränkte Zustimmung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "편리하기는 하지만 설명이 부족해요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아무 장점도 없다고 말함"
+              },
+              {
+                "id": "0",
+                "text": "편리함을 인정하면서 설명의 한계를 지적함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "일부를 인정한 뒤 유보나 다른 면을 덧붙일 수 있어요. 뒤 반론을 지워 전면 동의로 바꾸지 않아요.",
+              "en": "Concede one point before adding a reservation; do not erase the reservation and claim full agreement.",
+              "de": "Gestehe einen Punkt zu und ergänze einen Vorbehalt; mache daraus keine uneingeschränkte Zustimmung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:grammar:14",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:grammar:14",
+      "requirementKeys": [
+        "G3:에 대하여"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에 대하여",
+        "en": "에 대하여",
+        "de": "에 대하여"
+      },
+      "teaching": {
+        "ko": "다루는 주제를 명시해요. 주제라고 해서 곧바로 찬성하거나 인과 관계가 성립하는 것은 아니에요.",
+        "en": "State the topic under discussion; naming it does not imply approval or causation.",
+        "de": "Nenne das behandelte Thema; seine Nennung bedeutet weder Zustimmung noch einen Kausalzusammenhang."
+      },
+      "examplesKo": [
+        "음식 문화에 대하여 이야기했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "음식 문화에 대하여 이야기했어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "대화의 주제는 음식 문화"
+              },
+              {
+                "id": "1",
+                "text": "모든 음식 문화에 찬성한다고 보증함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다루는 주제를 명시해요. 주제라고 해서 곧바로 찬성하거나 인과 관계가 성립하는 것은 아니에요.",
+              "en": "State the topic under discussion; naming it does not imply approval or causation.",
+              "de": "Nenne das behandelte Thema; seine Nennung bedeutet weder Zustimmung noch einen Kausalzusammenhang."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "대중교통 요금에 대하여 의견을 나누었어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "논의 주제는 대중교통 요금"
+              },
+              {
+                "id": "1",
+                "text": "요금 인상을 결정했다고 확정함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다루는 주제를 명시해요. 주제라고 해서 곧바로 찬성하거나 인과 관계가 성립하는 것은 아니에요.",
+              "en": "State the topic under discussion; naming it does not imply approval or causation.",
+              "de": "Nenne das behandelte Thema; seine Nennung bedeutet weder Zustimmung noch einen Kausalzusammenhang."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:01",
+      "requirementKeys": [
+        "G3:만큼"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "만큼 문장 만들기",
+        "en": "만큼: write a sentence",
+        "de": "만큼: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사 뒤 만큼은 정도·양의 비교 기준을 나타내요. 무엇을 얼마나 비교하는지 유지하고 모든 면이 같다고 확대하지 않아요.",
+        "en": "After a noun, 만큼 supplies a degree or quantity benchmark. Preserve the comparison axis; it does not mean equality in every respect.",
+        "de": "Nach einem Nomen nennt 만큼 einen Maßstab für Grad oder Menge. Behalte das Vergleichskriterium bei; es bedeutet keine Gleichheit in jeder Hinsicht."
+      },
+      "examplesKo": [
+        "저도 친구만큼 연습했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "연습 정도 비교 / 저도 / 친구 / 만큼 / 연습하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저도 친구만큼 연습했어요."
+            ],
+            "rejectedAnswers": [
+              "저는 친구보다 전혀 연습하지 않았어요."
+            ],
+            "explanation": {
+              "ko": "예: 저도 친구만큼 연습했어요. 의미가 다른 예: 저는 친구보다 전혀 연습하지 않았어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저도 친구만큼 연습했어요. Meaning or register error: 저는 친구보다 전혀 연습하지 않았어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저도 친구만큼 연습했어요. Fehler bei Bedeutung oder Register: 저는 친구보다 전혀 연습하지 않았어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "넓이 비교 / 이 방도 / 저 방 / 만큼 / 넓다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 방도 저 방만큼 넓어요."
+            ],
+            "rejectedAnswers": [
+              "이 방은 저 방보다 좁아요."
+            ],
+            "explanation": {
+              "ko": "예: 이 방도 저 방만큼 넓어요. 의미가 다른 예: 이 방은 저 방보다 좁아요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 방도 저 방만큼 넓어요. Meaning or register error: 이 방은 저 방보다 좁아요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 방도 저 방만큼 넓어요. Fehler bei Bedeutung oder Register: 이 방은 저 방보다 좁아요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:02",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:02",
+      "requirementKeys": [
+        "G3:-는 만큼"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 만큼 문장 만들기",
+        "en": "-는 만큼: write a sentence",
+        "de": "-는 만큼: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "절 뒤 만큼은 앞 절의 정도와 뒤 결과를 연결해요. 이 예에서는 정도의 비례를 보며 과학적 수치 관계를 새로 만들지 않아요.",
+        "en": "After a clause, 만큼 relates its degree to the result. These examples express proportionality without establishing a measured scientific formula.",
+        "de": "Nach einem Satzteil verbindet 만큼 dessen Ausmaß mit dem Ergebnis. Hier geht es um eine proportionale Beziehung, nicht um eine belegte naturwissenschaftliche Formel."
+      },
+      "examplesKo": [
+        "연습한 만큼 자신감이 생겼어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "비례한 정도 / 연습하다 → 자신감이 생기다 / -한 만큼 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "연습한 만큼 자신감이 생겼어요."
+            ],
+            "rejectedAnswers": [
+              "연습한 만큼 자신감이 전혀 생기지 않았어요."
+            ],
+            "explanation": {
+              "ko": "예: 연습한 만큼 자신감이 생겼어요. 의미가 다른 예: 연습한 만큼 자신감이 전혀 생기지 않았어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 연습한 만큼 자신감이 생겼어요. Meaning or register error: 연습한 만큼 자신감이 전혀 생기지 않았어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 연습한 만큼 자신감이 생겼어요. Fehler bei Bedeutung oder Register: 연습한 만큼 자신감이 전혀 생기지 않았어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "비례한 정도 / 준비하다 → 발표가 수월하다 / -한 만큼 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "준비한 만큼 발표가 수월했어요."
+            ],
+            "rejectedAnswers": [
+              "준비하지 않아서 발표가 수월했어요."
+            ],
+            "explanation": {
+              "ko": "예: 준비한 만큼 발표가 수월했어요. 의미가 다른 예: 준비하지 않아서 발표가 수월했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 준비한 만큼 발표가 수월했어요. Meaning or register error: 준비하지 않아서 발표가 수월했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 준비한 만큼 발표가 수월했어요. Fehler bei Bedeutung oder Register: 준비하지 않아서 발표가 수월했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:03",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:03",
+      "requirementKeys": [
+        "G3:같이"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "같이 문장 만들기",
+        "en": "같이: write a sentence",
+        "de": "같이: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "여기서는 명사 뒤 같이가 비교 대상과 비슷함을 나타내요. 저같이는 나처럼이지 반드시 나와 같은 장소에서 함께한다는 뜻은 아니에요.",
+        "en": "Here, 같이 after a noun marks similarity. 저같이 means like me, not necessarily together with me in the same place.",
+        "de": "Hier bezeichnet 같이 nach einem Nomen Ähnlichkeit. 저같이 bedeutet wie ich, nicht zwingend gemeinsam mit mir am selben Ort."
+      },
+      "examplesKo": [
+        "동생도 저같이 매운 음식을 좋아해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "음식 선호의 유사성 / 동생도 / 저 + 같이 / 매운 음식을 좋아하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "동생도 저같이 매운 음식을 좋아해요."
+            ],
+            "rejectedAnswers": [
+              "동생은 저와 달리 매운 음식을 싫어해요."
+            ],
+            "explanation": {
+              "ko": "예: 동생도 저같이 매운 음식을 좋아해요. 의미가 다른 예: 동생은 저와 달리 매운 음식을 싫어해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 동생도 저같이 매운 음식을 좋아해요. Meaning or register error: 동생은 저와 달리 매운 음식을 싫어해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 동생도 저같이 매운 음식을 좋아해요. Fehler bei Bedeutung oder Register: 동생은 저와 달리 매운 음식을 싫어해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "영화 선호의 유사성 / 친구도 / 저 + 같이 / 조용한 영화를 좋아하다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구도 저같이 조용한 영화를 좋아해요."
+            ],
+            "rejectedAnswers": [
+              "친구는 저와 달리 조용한 영화를 싫어해요."
+            ],
+            "explanation": {
+              "ko": "예: 친구도 저같이 조용한 영화를 좋아해요. 의미가 다른 예: 친구는 저와 달리 조용한 영화를 싫어해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구도 저같이 조용한 영화를 좋아해요. Meaning or register error: 친구는 저와 달리 조용한 영화를 싫어해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구도 저같이 조용한 영화를 좋아해요. Fehler bei Bedeutung oder Register: 친구는 저와 달리 조용한 영화를 싫어해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:04",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:04",
+      "requirementKeys": [
+        "G3:대로"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "대로 문장 만들기",
+        "en": "대로: write a sentence",
+        "de": "대로: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사 뒤 대로는 제시된 기준·방식을 따름을 나타내요. 뒤 행동을 했다는 이유로 기준을 마음대로 바꾸지 않아요.",
+        "en": "After a noun, 대로 means following the stated standard or method; preserve that standard.",
+        "de": "Nach einem Nomen bedeutet 대로, nach dem genannten Maßstab oder Verfahren zu handeln; ändere diesen nicht."
+      },
+      "examplesKo": [
+        "안내문대로 신청서를 썼어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "제시된 기준 따름 / 안내문 + 대로 / 신청서를 쓰다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "안내문대로 신청서를 썼어요."
+            ],
+            "rejectedAnswers": [
+              "안내문과 반대로 신청서를 썼어요."
+            ],
+            "explanation": {
+              "ko": "예: 안내문대로 신청서를 썼어요. 의미가 다른 예: 안내문과 반대로 신청서를 썼어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 안내문대로 신청서를 썼어요. Meaning or register error: 안내문과 반대로 신청서를 썼어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 안내문대로 신청서를 썼어요. Fehler bei Bedeutung oder Register: 안내문과 반대로 신청서를 썼어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "제시된 기준 따름 / 계획 + 대로 / 예산을 나누다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "계획대로 예산을 나누었어요."
+            ],
+            "rejectedAnswers": [
+              "계획을 무시하고 예산을 나누었어요."
+            ],
+            "explanation": {
+              "ko": "예: 계획대로 예산을 나누었어요. 의미가 다른 예: 계획을 무시하고 예산을 나누었어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 계획대로 예산을 나누었어요. Meaning or register error: 계획을 무시하고 예산을 나누었어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 계획대로 예산을 나누었어요. Fehler bei Bedeutung oder Register: 계획을 무시하고 예산을 나누었어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:05",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:05",
+      "requirementKeys": [
+        "G3:뿐"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "뿐 문장 만들기",
+        "en": "뿐: write a sentence",
+        "de": "뿐: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사 뒤 뿐은 범위를 그것으로 제한해요. 이것뿐은 이것도 있다는 단순 추가와 달라요.",
+        "en": "After a noun, 뿐 limits the range to that item; only this is different from this too.",
+        "de": "Nach einem Nomen beschränkt 뿐 den Umfang auf dieses Element; nur dies ist etwas anderes als auch dies."
+      },
+      "examplesKo": [
+        "남은 표는 한 장뿐이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "한정 / 남은 표는 / 한 장 + 뿐 / 이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "남은 표는 한 장뿐이에요."
+            ],
+            "rejectedAnswers": [
+              "남은 표는 두 장이에요."
+            ],
+            "explanation": {
+              "ko": "예: 남은 표는 한 장뿐이에요. 의미가 다른 예: 남은 표는 두 장이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 남은 표는 한 장뿐이에요. Meaning or register error: 남은 표는 두 장이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 남은 표는 한 장뿐이에요. Fehler bei Bedeutung oder Register: 남은 표는 두 장이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "한정 / 지금 확인된 것은 / 가격 + 뿐 / 이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "지금 확인된 것은 가격뿐이에요."
+            ],
+            "rejectedAnswers": [
+              "지금 가격과 품질이 모두 확인됐어요."
+            ],
+            "explanation": {
+              "ko": "예: 지금 확인된 것은 가격뿐이에요. 의미가 다른 예: 지금 가격과 품질이 모두 확인됐어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 지금 확인된 것은 가격뿐이에요. Meaning or register error: 지금 가격과 품질이 모두 확인됐어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 지금 확인된 것은 가격뿐이에요. Fehler bei Bedeutung oder Register: 지금 가격과 품질이 모두 확인됐어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:06",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:06",
+      "requirementKeys": [
+        "G3:이고"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이고 문장 만들기",
+        "en": "이고: write a sentence",
+        "de": "이고: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "A이고 B이고의 나열은 이 문맥에서 대상을 가리지 않고 포함해요. 단순 서술격 연결과 구별하고 본문에 없는 집단까지 임의로 추가하지 않아요.",
+        "en": "In this context, A이고 B이고 includes the named alternatives regardless of category. Distinguish this from simple copular linking and do not invent additional groups.",
+        "de": "In diesem Kontext schließt A이고 B이고 die genannten Gruppen unabhängig von der Kategorie ein. Unterscheide dies von einer einfachen Kopulaverbindung und ergänze keine ungenannten Gruppen."
+      },
+      "examplesKo": [
+        "아이이고 어른이고 모두 참여했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "집단을 가리지 않음 / 아이 / 어른 / A이고 B이고 모두 참여하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "아이이고 어른이고 모두 참여했어요."
+            ],
+            "rejectedAnswers": [
+              "아이만 참여했어요."
+            ],
+            "explanation": {
+              "ko": "예: 아이이고 어른이고 모두 참여했어요. 의미가 다른 예: 아이만 참여했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 아이이고 어른이고 모두 참여했어요. Meaning or register error: 아이만 참여했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 아이이고 어른이고 모두 참여했어요. Fehler bei Bedeutung oder Register: 아이만 참여했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "날을 가리지 않음 / 평일 / 주말 / A이고 B이고 모두 문을 열다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "평일이고 주말이고 모두 문을 열어요."
+            ],
+            "rejectedAnswers": [
+              "주말에만 문을 열어요."
+            ],
+            "explanation": {
+              "ko": "예: 평일이고 주말이고 모두 문을 열어요. 의미가 다른 예: 주말에만 문을 열어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 평일이고 주말이고 모두 문을 열어요. Meaning or register error: 주말에만 문을 열어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 평일이고 주말이고 모두 문을 열어요. Fehler bei Bedeutung oder Register: 주말에만 문을 열어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:07",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:07",
+      "requirementKeys": [
+        "G3:-어도"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어도 문장 만들기",
+        "en": "-어도: write a sentence",
+        "de": "-어도: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "앞 조건을 인정해도 뒤 결론이 유지돼요. 양보된 조건을 행사 취소 같은 반대 결과로 바꾸지 않아요.",
+        "en": "The conclusion holds even when the first condition is conceded; preserve its polarity.",
+        "de": "Die Schlussaussage gilt auch bei zugestandener Bedingung; erhalte ihre Bejahung oder Verneinung."
+      },
+      "examplesKo": [
+        "비가 와도 행사는 열려요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "양보 뒤 긍정 유지 / 비가 오다 → 행사는 열리다 / -아도 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비가 와도 행사는 열려요."
+            ],
+            "rejectedAnswers": [
+              "비가 오면 행사는 취소돼요."
+            ],
+            "explanation": {
+              "ko": "예: 비가 와도 행사는 열려요. 의미가 다른 예: 비가 오면 행사는 취소돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 비가 와도 행사는 열려요. Meaning or register error: 비가 오면 행사는 취소돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 비가 와도 행사는 열려요. Fehler bei Bedeutung oder Register: 비가 오면 행사는 취소돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "양보 뒤 부정 유지 / 가격이 싸다 → 저는 사지 않을 것이다 / -아도 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "가격이 싸도 저는 사지 않을 거예요."
+            ],
+            "rejectedAnswers": [
+              "가격이 싸면 저는 반드시 살 거예요."
+            ],
+            "explanation": {
+              "ko": "예: 가격이 싸도 저는 사지 않을 거예요. 의미가 다른 예: 가격이 싸면 저는 반드시 살 거예요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 가격이 싸도 저는 사지 않을 거예요. Meaning or register error: 가격이 싸면 저는 반드시 살 거예요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 가격이 싸도 저는 사지 않을 거예요. Fehler bei Bedeutung oder Register: 가격이 싸면 저는 반드시 살 거예요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:08",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:08",
+      "requirementKeys": [
+        "G3:-으나"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으나 문장 만들기",
+        "en": "-으나: write a sentence",
+        "de": "-으나: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "격식 있는 글에서 대조되는 두 사실을 연결해요. 앞 장점이 뒤 한계를 없애는 것은 아니에요.",
+        "en": "Link contrasting facts in formal writing; a positive point does not erase the limitation.",
+        "de": "Verbinde gegensätzliche Tatsachen in förmlicher Sprache; ein Vorteil hebt die Einschränkung nicht auf."
+      },
+      "examplesKo": [
+        "가격은 비싸나 품질은 좋습니다."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "격식 대조 / 가격은 비싸다 / 품질은 좋다 / -으나 / -습니다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "가격은 비싸나 품질은 좋습니다."
+            ],
+            "rejectedAnswers": [
+              "가격은 싸나 품질은 나쁩니다."
+            ],
+            "explanation": {
+              "ko": "예: 가격은 비싸나 품질은 좋습니다. 의미가 다른 예: 가격은 싸나 품질은 나쁩니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 가격은 비싸나 품질은 좋습니다. Meaning or register error: 가격은 싸나 품질은 나쁩니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 가격은 비싸나 품질은 좋습니다. Fehler bei Bedeutung oder Register: 가격은 싸나 품질은 나쁩니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "격식 대조 / 공간은 작다 / 교통은 편리하다 / -으나 / -습니다",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "공간은 작으나 교통은 편리합니다."
+            ],
+            "rejectedAnswers": [
+              "공간은 크나 교통은 불편합니다."
+            ],
+            "explanation": {
+              "ko": "예: 공간은 작으나 교통은 편리합니다. 의미가 다른 예: 공간은 크나 교통은 불편합니다. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 공간은 작으나 교통은 편리합니다. Meaning or register error: 공간은 크나 교통은 불편합니다. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 공간은 작으나 교통은 편리합니다. Fehler bei Bedeutung oder Register: 공간은 크나 교통은 불편합니다. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:09",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:09",
+      "requirementKeys": [
+        "G3:-는 대신에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 대신에 문장 만들기",
+        "en": "-는 대신에: write a sentence",
+        "de": "-는 대신에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "앞 행동을 대체하거나 조건부로 보상하는 관계를 나타내요. 이 과제에서는 누가 무엇을 대신 맡는지 보존해요.",
+        "en": "Express replacement or compensation. Preserve who takes which task in these examples.",
+        "de": "Drücke Ersatz oder Ausgleich aus. Behalte bei diesen Aufgaben bei, wer welche Handlung übernimmt."
+      },
+      "examplesKo": [
+        "오늘 제가 정리하는 대신에 내일은 동료가 정리해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "역할 교환 / 오늘 제가 정리하다 / 내일은 동료가 정리하다 / -는 대신에 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "오늘 제가 정리하는 대신에 내일은 동료가 정리해요."
+            ],
+            "rejectedAnswers": [
+              "오늘과 내일 모두 동료가 정리해요."
+            ],
+            "explanation": {
+              "ko": "예: 오늘 제가 정리하는 대신에 내일은 동료가 정리해요. 의미가 다른 예: 오늘과 내일 모두 동료가 정리해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 오늘 제가 정리하는 대신에 내일은 동료가 정리해요. Meaning or register error: 오늘과 내일 모두 동료가 정리해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 오늘 제가 정리하는 대신에 내일은 동료가 정리해요. Fehler bei Bedeutung oder Register: 오늘과 내일 모두 동료가 정리해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "대체 선택 / 택시를 타다 대신 버스를 타다 / -는 대신에 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "택시를 타는 대신에 버스를 탔어요."
+            ],
+            "rejectedAnswers": [
+              "택시와 버스를 모두 탔어요."
+            ],
+            "explanation": {
+              "ko": "예: 택시를 타는 대신에 버스를 탔어요. 의미가 다른 예: 택시와 버스를 모두 탔어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 택시를 타는 대신에 버스를 탔어요. Meaning or register error: 택시와 버스를 모두 탔어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 택시를 타는 대신에 버스를 탔어요. Fehler bei Bedeutung oder Register: 택시와 버스를 모두 탔어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:10",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:10",
+      "requirementKeys": [
+        "G3:-는 반면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 반면 문장 만들기",
+        "en": "-는 반면: write a sentence",
+        "de": "-는 반면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "같은 기준에서 드러나는 두 대상이나 한 대상의 다른 면을 대조해요. 대체 행동이나 교환 조건으로 바꾸지 않아요.",
+        "en": "Contrast two options or two aspects of one option. This does not itself mean replacement or an exchange condition.",
+        "de": "Stelle zwei Möglichkeiten oder zwei Seiten derselben Möglichkeit gegenüber. Das bedeutet nicht automatisch Ersatz oder eine Tauschbedingung."
+      },
+      "examplesKo": [
+        "이 집은 넓은 반면에 교통이 불편해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "장단점 대조 / 이 집은 넓다 / 교통이 불편하다 / -은 반면에 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 집은 넓은 반면에 교통이 불편해요."
+            ],
+            "rejectedAnswers": [
+              "이 집은 좁고 교통도 불편해요."
+            ],
+            "explanation": {
+              "ko": "예: 이 집은 넓은 반면에 교통이 불편해요. 의미가 다른 예: 이 집은 좁고 교통도 불편해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 집은 넓은 반면에 교통이 불편해요. Meaning or register error: 이 집은 좁고 교통도 불편해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 집은 넓은 반면에 교통이 불편해요. Fehler bei Bedeutung oder Register: 이 집은 좁고 교통도 불편해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "두 평가 축 대조 / 이 영화는 짧다 / 설명이 부족하다 / -은 반면에 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 영화는 짧은 반면에 설명이 부족해요."
+            ],
+            "rejectedAnswers": [
+              "이 영화는 길고 설명이 충분해요."
+            ],
+            "explanation": {
+              "ko": "예: 이 영화는 짧은 반면에 설명이 부족해요. 의미가 다른 예: 이 영화는 길고 설명이 충분해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 영화는 짧은 반면에 설명이 부족해요. Meaning or register error: 이 영화는 길고 설명이 충분해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 영화는 짧은 반면에 설명이 부족해요. Fehler bei Bedeutung oder Register: 이 영화는 길고 설명이 충분해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:11",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:11",
+      "requirementKeys": [
+        "G3:-는 편이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-는 편이다 문장 만들기",
+        "en": "-는 편이다: write a sentence",
+        "de": "-는 편이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "절대적 단정 대신 상대적인 경향을 말해요. 가끔의 예외를 허용하며 항상으로 바꾸지 않아요.",
+        "en": "Express a relative tendency rather than an absolute claim; exceptions remain possible.",
+        "de": "Drücke eine relative Tendenz statt einer absoluten Aussage aus; Ausnahmen bleiben möglich."
+      },
+      "examplesKo": [
+        "저는 아침에 일찍 일어나는 편이에요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "상대적 경향 / 저는 아침에 일찍 일어나다 / -는 편이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저는 아침에 일찍 일어나는 편이에요."
+            ],
+            "rejectedAnswers": [
+              "저는 예외 없이 매일 같은 시각에 일어나요."
+            ],
+            "explanation": {
+              "ko": "예: 저는 아침에 일찍 일어나는 편이에요. 의미가 다른 예: 저는 예외 없이 매일 같은 시각에 일어나요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저는 아침에 일찍 일어나는 편이에요. Meaning or register error: 저는 예외 없이 매일 같은 시각에 일어나요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저는 아침에 일찍 일어나는 편이에요. Fehler bei Bedeutung oder Register: 저는 예외 없이 매일 같은 시각에 일어나요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "상대적 평가 / 이곳은 다른 곳보다 조용하다 / -은 편이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이곳은 다른 곳보다 조용한 편이에요."
+            ],
+            "rejectedAnswers": [
+              "이곳에는 소리가 전혀 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 이곳은 다른 곳보다 조용한 편이에요. 의미가 다른 예: 이곳에는 소리가 전혀 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이곳은 다른 곳보다 조용한 편이에요. Meaning or register error: 이곳에는 소리가 전혀 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이곳은 다른 곳보다 조용한 편이에요. Fehler bei Bedeutung oder Register: 이곳에는 소리가 전혀 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:12",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:12",
+      "requirementKeys": [
+        "G3:-어 보이다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 보이다 문장 만들기",
+        "en": "-어 보이다: write a sentence",
+        "de": "-어 보이다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "겉으로 관찰되는 인상이지 내면이나 성능을 확인한 사실은 아니에요. 사람의 건강·성격을 외관만으로 단정하지 않아요.",
+        "en": "Describe an outward impression, not verified internal state or performance. Appearance does not establish health or character.",
+        "de": "Beschreibe einen äußeren Eindruck, keinen bestätigten inneren Zustand oder Leistungsnachweis. Aussehen beweist weder Gesundheit noch Charakter."
+      },
+      "examplesKo": [
+        "이 의자는 편안해 보여요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "외관상 인상만 / 이 의자는 편안하다 / -어 보이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 의자는 편안해 보여요."
+            ],
+            "rejectedAnswers": [
+              "이 의자에 앉아 편안함을 확인했어요."
+            ],
+            "explanation": {
+              "ko": "예: 이 의자는 편안해 보여요. 의미가 다른 예: 이 의자에 앉아 편안함을 확인했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 의자는 편안해 보여요. Meaning or register error: 이 의자에 앉아 편안함을 확인했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 의자는 편안해 보여요. Fehler bei Bedeutung oder Register: 이 의자에 앉아 편안함을 확인했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "외관상 인상만 / 이 가방은 가볍다 / -어 보이다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이 가방은 가벼워 보여요."
+            ],
+            "rejectedAnswers": [
+              "이 가방의 무게를 재어 확인했어요."
+            ],
+            "explanation": {
+              "ko": "예: 이 가방은 가벼워 보여요. 의미가 다른 예: 이 가방의 무게를 재어 확인했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이 가방은 가벼워 보여요. Meaning or register error: 이 가방의 무게를 재어 확인했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이 가방은 가벼워 보여요. Fehler bei Bedeutung oder Register: 이 가방의 무게를 재어 확인했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:13",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:13",
+      "requirementKeys": [
+        "G3:-기는"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-기는 문장 만들기",
+        "en": "-기는: write a sentence",
+        "de": "-기는: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "일부를 인정한 뒤 유보나 다른 면을 덧붙일 수 있어요. 뒤 반론을 지워 전면 동의로 바꾸지 않아요.",
+        "en": "Concede one point before adding a reservation; do not erase the reservation and claim full agreement.",
+        "de": "Gestehe einen Punkt zu und ergänze einen Vorbehalt; mache daraus keine uneingeschränkte Zustimmung."
+      },
+      "examplesKo": [
+        "좋기는 하지만 너무 비싸요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "일부 인정 뒤 유보 / 좋다 / 너무 비싸다 / -기는 하지만 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "좋기는 하지만 너무 비싸요."
+            ],
+            "rejectedAnswers": [
+              "가격까지 모두 만족해요."
+            ],
+            "explanation": {
+              "ko": "예: 좋기는 하지만 너무 비싸요. 의미가 다른 예: 가격까지 모두 만족해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 좋기는 하지만 너무 비싸요. Meaning or register error: 가격까지 모두 만족해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 좋기는 하지만 너무 비싸요. Fehler bei Bedeutung oder Register: 가격까지 모두 만족해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "일부 인정 뒤 유보 / 편리하다 / 설명이 부족하다 / -기는 하지만 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "편리하기는 하지만 설명이 부족해요."
+            ],
+            "rejectedAnswers": [
+              "편리한 점도 전혀 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 편리하기는 하지만 설명이 부족해요. 의미가 다른 예: 편리한 점도 전혀 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 편리하기는 하지만 설명이 부족해요. Meaning or register error: 편리한 점도 전혀 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 편리하기는 하지만 설명이 부족해요. Fehler bei Bedeutung oder Register: 편리한 점도 전혀 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:production:14",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:production:14",
+      "requirementKeys": [
+        "G3:에 대하여"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "에 대하여 문장 만들기",
+        "en": "에 대하여: write a sentence",
+        "de": "에 대하여: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "다루는 주제를 명시해요. 주제라고 해서 곧바로 찬성하거나 인과 관계가 성립하는 것은 아니에요.",
+        "en": "State the topic under discussion; naming it does not imply approval or causation.",
+        "de": "Nenne das behandelte Thema; seine Nennung bedeutet weder Zustimmung noch einen Kausalzusammenhang."
+      },
+      "examplesKo": [
+        "음식 문화에 대하여 이야기했어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "주제 명시 / 음식 문화 / 에 대하여 / 이야기하다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "음식 문화에 대하여 이야기했어요."
+            ],
+            "rejectedAnswers": [
+              "모든 음식 문화에 찬성했어요."
+            ],
+            "explanation": {
+              "ko": "예: 음식 문화에 대하여 이야기했어요. 의미가 다른 예: 모든 음식 문화에 찬성했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 음식 문화에 대하여 이야기했어요. Meaning or register error: 모든 음식 문화에 찬성했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 음식 문화에 대하여 이야기했어요. Fehler bei Bedeutung oder Register: 모든 음식 문화에 찬성했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "주제 명시 / 대중교통 요금 / 에 대하여 / 의견을 나누다 / 과거 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "대중교통 요금에 대하여 의견을 나누었어요."
+            ],
+            "rejectedAnswers": [
+              "대중교통 요금 인상을 결정했어요."
+            ],
+            "explanation": {
+              "ko": "예: 대중교통 요금에 대하여 의견을 나누었어요. 의미가 다른 예: 대중교통 요금 인상을 결정했어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 대중교통 요금에 대하여 의견을 나누었어요. Meaning or register error: 대중교통 요금 인상을 결정했어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 대중교통 요금에 대하여 의견을 나누었어요. Fehler bei Bedeutung oder Register: 대중교통 요금 인상을 결정했어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:listening:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "모임의 문화 프로그램 비교",
+        "en": "Compare cultural programmes for a group",
+        "de": "Kulturangebote für eine Gruppe vergleichen"
+      },
+      "teaching": {
+        "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+        "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+        "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "동등한 모임 동료들의 가상 문화 프로그램 선택입니다. 우리는 한 사람당 6000원 이내라는 기준을 정했어요. 달빛 프로그램은 5000원이고 20분입니다. 바람 프로그램은 8000원이고 35분입니다. 저는 달빛 프로그램을 봤는데 짧고 편리하기는 하지만 마지막 설명이 부족했어요. 바람 프로그램은 설명이 자세해 보이지만 아직 보지 않아서 확인할 수 없어요. 포스터에는 해설 시간이 있다고 적혀 있을 뿐이에요. 동료는 자세한 해설을 원하지만 예산을 넘길 수는 없다고 했어요. 저는 이번에는 달빛 프로그램을 보고, 자세한 해설은 다음 모임에서 무료 글 자료를 함께 읽으며 보완하자고 제안했어요. 아직 모두 동의한 것은 아닙니다.",
+        "questions": [
+          {
+            "id": "criterion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공통으로 정한 제한은?",
+              "en": "What limit did the group agree on?",
+              "de": "Welche Grenze hat die Gruppe vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "길이와 상관없이 비싼 것 선택"
+              },
+              {
+                "id": "0",
+                "text": "한 사람당 6000원 이내"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "observed",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 관람에 근거한 평가는?",
+              "en": "Which evaluation comes from actual viewing?",
+              "de": "Welches Urteil beruht auf eigener Betrachtung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "달빛 프로그램의 마지막 설명이 부족했다는 평가"
+              },
+              {
+                "id": "1",
+                "text": "바람 프로그램의 설명이 확실히 자세하다는 평가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "appearance",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인하지 못한 것은?",
+              "en": "What has not yet been verified?",
+              "de": "Was wurde noch nicht überprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "달빛 프로그램의 제시 가격"
+              },
+              {
+                "id": "0",
+                "text": "바람 프로그램의 실제 설명 충실도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "decision",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무료 자료를 함께 읽기는 어떤 상태예요?",
+              "en": "What is the status of reading the free material together?",
+              "de": "Welchen Stand hat der Vorschlag zur kostenlosen Lektüre?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "전원이 이미 확정한 약속"
+              },
+              {
+                "id": "0",
+                "text": "제안이며 전원 동의 전"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "동등한 모임 동료들의 가상 문화 프로그램 선택입니다. 우리는 한 사람당 5000원 이내라는 기준을 정했어요. 숲길 프로그램은 4000원이고 25분입니다. 물결 프로그램은 7000원이고 40분입니다. 저는 숲길 프로그램을 봤는데 짧고 편리하기는 하지만 마지막 설명이 부족했어요. 물결 프로그램은 설명이 자세해 보이지만 아직 보지 않아서 확인할 수 없어요. 포스터에는 해설 시간이 있다고 적혀 있을 뿐이에요. 동료는 자세한 해설을 원하지만 예산을 넘길 수는 없다고 했어요. 저는 이번에는 숲길 프로그램을 보고, 자세한 해설은 다음 모임에서 무료 글 자료를 함께 읽으며 보완하자고 제안했어요. 아직 모두 동의한 것은 아닙니다.",
+        "questions": [
+          {
+            "id": "criterion",
+            "kind": "choice",
+            "prompt": {
+              "ko": "공통으로 정한 제한은?",
+              "en": "What limit did the group agree on?",
+              "de": "Welche Grenze hat die Gruppe vereinbart?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "한 사람당 5000원 이내"
+              },
+              {
+                "id": "1",
+                "text": "길이와 상관없이 비싼 것 선택"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "observed",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 관람에 근거한 평가는?",
+              "en": "Which evaluation comes from actual viewing?",
+              "de": "Welches Urteil beruht auf eigener Betrachtung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "숲길 프로그램의 마지막 설명이 부족했다는 평가"
+              },
+              {
+                "id": "1",
+                "text": "물결 프로그램의 설명이 확실히 자세하다는 평가"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "appearance",
+            "kind": "choice",
+            "prompt": {
+              "ko": "아직 확인하지 못한 것은?",
+              "en": "What has not yet been verified?",
+              "de": "Was wurde noch nicht überprüft?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "숲길 프로그램의 제시 가격"
+              },
+              {
+                "id": "0",
+                "text": "물결 프로그램의 실제 설명 충실도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "decision",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무료 자료를 함께 읽기는 어떤 상태예요?",
+              "en": "What is the status of reading the free material together?",
+              "de": "Welchen Stand hat der Vorschlag zur kostenlosen Lektüre?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "전원이 이미 확정한 약속"
+              },
+              {
+                "id": "0",
+                "text": "제안이며 전원 동의 전"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:reading:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "리뷰의 근거와 빠진 대안",
+        "en": "Evidence and missing alternatives in a review",
+        "de": "Belege und fehlende Alternativen in einer Rezension"
+      },
+      "teaching": {
+        "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+        "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+        "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화 프로그램 이용 리뷰\n나는 어제 달빛 프로그램을 직접 봤다. 표에 적힌 요금은 5000원, 실제 상영 시간은 20분이었다. 이동 시간이 짧아 마음에 들었고, 화면 글씨도 읽기 쉬운 편이었다. 짧은 반면에 마지막 장면의 배경 설명은 부족했다. 진행자는 해설이 필요하면 무료 글 자료를 읽을 수 있다고 말했다. 나는 아직 그 자료를 읽지 않았다. 자세한 설명이 중요한 사람이라면 다른 프로그램도 비교할 필요가 있다. 이번 글에서는 그 다른 프로그램의 가격이나 내용은 확인하지 못했다.",
+        "questions": [
+          {
+            "id": "basis",
+            "kind": "choice",
+            "prompt": {
+              "ko": "글쓴이의 직접 경험은?",
+              "en": "What did the reviewer experience directly?",
+              "de": "Was hat die schreibende Person selbst erlebt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "무료 글 자료 전체 검토"
+              },
+              {
+                "id": "0",
+                "text": "달빛 프로그램 관람"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 지적한 한계는?",
+              "en": "Which limitation did the reviewer identify?",
+              "de": "Welche Grenze nennt die Rezension aus eigener Erfahrung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "마지막 장면의 배경 설명 부족"
+              },
+              {
+                "id": "1",
+                "text": "모든 프로그램의 가격이 비쌈"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "alternative",
+            "kind": "choice",
+            "prompt": {
+              "ko": "비교에 빠진 정보는?",
+              "en": "What information is missing from the comparison?",
+              "de": "Welche Angaben fehlen für den Vergleich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "다른 프로그램의 가격과 내용"
+              },
+              {
+                "id": "1",
+                "text": "이번 프로그램의 제시 요금"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무료 자료 안내의 출처는?",
+              "en": "Who mentioned the free material?",
+              "de": "Wer wies auf das kostenlose Material hin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "진행자"
+              },
+              {
+                "id": "1",
+                "text": "글쓴이가 읽고 확인한 경험"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화 프로그램 이용 리뷰\n나는 어제 숲길 프로그램을 직접 봤다. 표에 적힌 요금은 4000원, 실제 상영 시간은 25분이었다. 이동 시간이 짧아 마음에 들었고, 화면 글씨도 읽기 쉬운 편이었다. 짧은 반면에 마지막 장면의 배경 설명은 부족했다. 진행자는 해설이 필요하면 무료 글 자료를 읽을 수 있다고 말했다. 나는 아직 그 자료를 읽지 않았다. 자세한 설명이 중요한 사람이라면 다른 프로그램도 비교할 필요가 있다. 이번 글에서는 그 다른 프로그램의 가격이나 내용은 확인하지 못했다.",
+        "questions": [
+          {
+            "id": "basis",
+            "kind": "choice",
+            "prompt": {
+              "ko": "글쓴이의 직접 경험은?",
+              "en": "What did the reviewer experience directly?",
+              "de": "Was hat die schreibende Person selbst erlebt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "무료 글 자료 전체 검토"
+              },
+              {
+                "id": "0",
+                "text": "숲길 프로그램 관람"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "limit",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직접 지적한 한계는?",
+              "en": "Which limitation did the reviewer identify?",
+              "de": "Welche Grenze nennt die Rezension aus eigener Erfahrung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 프로그램의 가격이 비쌈"
+              },
+              {
+                "id": "0",
+                "text": "마지막 장면의 배경 설명 부족"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "alternative",
+            "kind": "choice",
+            "prompt": {
+              "ko": "비교에 빠진 정보는?",
+              "en": "What information is missing from the comparison?",
+              "de": "Welche Angaben fehlen für den Vergleich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이번 프로그램의 제시 요금"
+              },
+              {
+                "id": "0",
+                "text": "다른 프로그램의 가격과 내용"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          },
+          {
+            "id": "source",
+            "kind": "choice",
+            "prompt": {
+              "ko": "무료 자료 안내의 출처는?",
+              "en": "Who mentioned the free material?",
+              "de": "Wer wies auf das kostenlose Material hin?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "글쓴이가 읽고 확인한 경험"
+              },
+              {
+                "id": "0",
+                "text": "진행자"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "리뷰의 기준과 실제 이용 경험을 찾고, 비교하지 않은 대안을 표시하세요. 장점·단점은 서로 다른 기준일 수 있어요. 글쓴이가 좋아했다는 평가를 모두에게 좋은 선택으로 일반화하지 않아요.",
+              "en": "Identify the review’s criteria and actual use, then note options not compared. Advantages and disadvantages may concern different criteria. One reviewer’s preference does not establish the best choice for everyone.",
+              "de": "Finde Bewertungskriterien und tatsächliche Nutzung und markiere nicht verglichene Alternativen. Vor- und Nachteile können unterschiedliche Kriterien betreffen. Die Vorliebe einer Person ist keine allgemeingültig beste Wahl."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:reading:02",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "문화 참여 기사: 제도와 효과",
+        "en": "Cultural access: a scheme and its effects",
+        "de": "Kulturelle Teilhabe: Regelung und Wirkung"
+      },
+      "teaching": {
+        "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+        "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+        "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 기사 | 한빛센터 문화 참여 지원 시범 운영\n센터는 이번 달부터 무료 해설 자료를 제공하는 시범 제도를 시작했다. 기자가 만난 참가자 네명은 비용 부담이 줄면 더 자주 참여하고 싶다고 말했다. 센터 담당자는 \"무료 자료를 제공하지만 유료 프로그램의 요금은 그대로입니다\"라고 설명했다. 기자는 비용에 따른 참여 격차를 줄일 가능성이 있다고 해석했다. 다만 참가 횟수 변화는 아직 조사하지 않았다. 이 기사는 전체 지역 주민의 소비 금액을 조사한 결과가 아니다.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인된 제도 내용은?",
+              "en": "What does the scheme actually provide?",
+              "de": "Was bietet die Regelung tatsächlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 유료 프로그램 무료 전환"
+              },
+              {
+                "id": "0",
+                "text": "무료 해설 자료 제공"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          },
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 자주 참여하고 싶다는 말의 출처는?",
+              "en": "Who expressed the wish to attend more often?",
+              "de": "Wer äußerte den Wunsch nach häufigerer Teilnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기자가 만난 참가자 네명"
+              },
+              {
+                "id": "1",
+                "text": "지역 주민 전체"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          },
+          {
+            "id": "effect",
+            "kind": "choice",
+            "prompt": {
+              "ko": "참여 격차 감소는 입증됐어요?",
+              "en": "Has a reduction in the participation gap been demonstrated?",
+              "de": "Ist eine Verringerung der Teilhabeunterschiede belegt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 모든 주민의 참여 증가가 확인됨"
+              },
+              {
+                "id": "0",
+                "text": "아니요. 가능성에 대한 해석이며 횟수 변화는 미조사"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 기사 | 새봄센터 문화 참여 지원 시범 운영\n센터는 이번 달부터 무료 해설 자료를 제공하는 시범 제도를 시작했다. 기자가 만난 참가자 여섯명은 비용 부담이 줄면 더 자주 참여하고 싶다고 말했다. 센터 담당자는 \"무료 자료를 제공하지만 유료 프로그램의 요금은 그대로입니다\"라고 설명했다. 기자는 비용에 따른 참여 격차를 줄일 가능성이 있다고 해석했다. 다만 참가 횟수 변화는 아직 조사하지 않았다. 이 기사는 전체 지역 주민의 소비 금액을 조사한 결과가 아니다.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인된 제도 내용은?",
+              "en": "What does the scheme actually provide?",
+              "de": "Was bietet die Regelung tatsächlich?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 유료 프로그램 무료 전환"
+              },
+              {
+                "id": "0",
+                "text": "무료 해설 자료 제공"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          },
+          {
+            "id": "quote",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 자주 참여하고 싶다는 말의 출처는?",
+              "en": "Who expressed the wish to attend more often?",
+              "de": "Wer äußerte den Wunsch nach häufigerer Teilnahme?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기자가 만난 참가자 여섯명"
+              },
+              {
+                "id": "1",
+                "text": "지역 주민 전체"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          },
+          {
+            "id": "effect",
+            "kind": "choice",
+            "prompt": {
+              "ko": "참여 격차 감소는 입증됐어요?",
+              "en": "Has a reduction in the participation gap been demonstrated?",
+              "de": "Ist eine Verringerung der Teilhabeunterschiede belegt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 가능성에 대한 해석이며 횟수 변화는 미조사"
+              },
+              {
+                "id": "1",
+                "text": "네. 모든 주민의 참여 증가가 확인됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "기사의 수치·인용·해석을 구별하세요. 일부 참가자의 말로 모든 사람의 소비나 문화 참여를 단정하지 않아요. 제도의 존재와 실제 효과도 나눠 읽어요.",
+              "en": "Separate figures, quotations and interpretation. A few participants’ statements do not establish everyone’s spending or cultural access. Distinguish a scheme’s existence from evidence of its effects.",
+              "de": "Trenne Zahlen, Zitate und Deutung. Aussagen weniger Teilnehmender belegen weder das Konsumverhalten noch den Kulturzugang aller. Unterscheide das Bestehen einer Regelung vom Nachweis ihrer Wirkung."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:reading:03",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "부분 동의와 사람 평가 구별",
+        "en": "Partial agreement versus judging a person",
+        "de": "Teilweise Zustimmung und Personenurteil unterscheiden"
+      },
+      "teaching": {
+        "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+        "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+        "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 SNS 게시글 — 민아\n달빛 프로그램은 제 마음에 들었어요. 시간이 짧다는 점이 특히 좋았어요. 다만 자세한 배경 설명은 부족했어요. 다른 선택도 있을 수 있어요.\n댓글 — 도윤: 그 장점에는 동의해요. 저는 자세한 해설을 더 중요하게 생각해서 다른 프로그램을 확인해 볼래요. 아직 보지 않았으니 더 좋다고 단정하지는 않을게요.\n댓글 — 수아: 다른 프로그램을 고르는 사람은 성격도 나쁠 거예요.\n민아의 답: 선택 기준이 다를 수 있어요. 프로그램 취향만으로 사람을 평가하지 않았으면 해요.",
+        "questions": [
+          {
+            "id": "scope",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도윤이 동의한 범위는?",
+              "en": "What does Doyun agree with?",
+              "de": "Worauf beschränkt sich Doyuns Zustimmung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "프로그램에 대한 전면 동의"
+              },
+              {
+                "id": "0",
+                "text": "민아가 말한 특정 장점"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도윤의 다른 프로그램 평가는?",
+              "en": "What is Doyun’s assessment of the other programme?",
+              "de": "Wie bewertet Doyun das andere Angebot?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "관람 전이어서 판단 유보"
+              },
+              {
+                "id": "1",
+                "text": "이미 더 좋다고 확인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "person",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수아의 댓글이 근거를 넘는 이유는?",
+              "en": "Why does Sua’s comment exceed the evidence?",
+              "de": "Warum geht Suas Kommentar über die Belege hinaus?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "프로그램 취향을 사람의 성격으로 확대함"
+              },
+              {
+                "id": "1",
+                "text": "제시 가격을 정확하게 비교함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 SNS 게시글 — 민아\n숲길 프로그램은 제 마음에 들었어요. 이동이 편리하다는 점이 특히 좋았어요. 다만 자세한 배경 설명은 부족했어요. 다른 선택도 있을 수 있어요.\n댓글 — 도윤: 그 장점에는 동의해요. 저는 자세한 해설을 더 중요하게 생각해서 다른 프로그램을 확인해 볼래요. 아직 보지 않았으니 더 좋다고 단정하지는 않을게요.\n댓글 — 수아: 다른 프로그램을 고르는 사람은 성격도 나쁠 거예요.\n민아의 답: 선택 기준이 다를 수 있어요. 프로그램 취향만으로 사람을 평가하지 않았으면 해요.",
+        "questions": [
+          {
+            "id": "scope",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도윤이 동의한 범위는?",
+              "en": "What does Doyun agree with?",
+              "de": "Worauf beschränkt sich Doyuns Zustimmung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "프로그램에 대한 전면 동의"
+              },
+              {
+                "id": "0",
+                "text": "민아가 말한 특정 장점"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "unknown",
+            "kind": "choice",
+            "prompt": {
+              "ko": "도윤의 다른 프로그램 평가는?",
+              "en": "What is Doyun’s assessment of the other programme?",
+              "de": "Wie bewertet Doyun das andere Angebot?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "이미 더 좋다고 확인"
+              },
+              {
+                "id": "0",
+                "text": "관람 전이어서 판단 유보"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          },
+          {
+            "id": "person",
+            "kind": "choice",
+            "prompt": {
+              "ko": "수아의 댓글이 근거를 넘는 이유는?",
+              "en": "Why does Sua’s comment exceed the evidence?",
+              "de": "Warum geht Suas Kommentar über die Belege hinaus?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "프로그램 취향을 사람의 성격으로 확대함"
+              },
+              {
+                "id": "1",
+                "text": "제시 가격을 정확하게 비교함"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "같은 기준으로 대안을 비교하세요. 가격·길이 같은 제시된 수치, 이용한 사람의 평가, 겉으로 보이는 인상을 나누세요. 일부 장점에 동의해도 한계를 지우지 않고, 취향으로 사람의 성격을 평가하지 않아요.",
+              "en": "Compare the options using the same criteria. Separate supplied prices and durations, a user’s evaluation and an outward impression. Agreeing with one advantage does not remove a limitation; preferences do not establish someone’s character.",
+              "de": "Vergleiche die Möglichkeiten nach denselben Kriterien. Trenne angegebene Preise und Laufzeiten, Nutzerurteil und äußeren Eindruck. Zustimmung zu einem Vorteil beseitigt keine Einschränkung; Vorlieben beweisen keinen Charakterzug."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:writing:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "근거와 대안을 갖춘 문화 리뷰",
+        "en": "A cultural review with evidence and alternatives",
+        "de": "Kulturrezension mit Belegen und Alternativen"
+      },
+      "teaching": {
+        "ko": "가상 관람자의 정보로 기준·주장·구체적 근거·한계·대안을 연결한 리뷰를 쓰세요. 실제 경험과 포스터 인상을 구별하고 반론에 답하되 모르는 대안은 확인할 항목으로 남기세요. 소비 취향을 성격으로 확대하지 마세요. 근거와 비교해 고쳐 쓰며 전체 글의 의미·논증은 미채점입니다.",
+        "en": "Write a review linking criteria, claim, concrete evidence, limitation and an alternative from the fictional viewer’s facts. Separate experience from a poster impression; address a counterpoint while leaving unknown alternatives to be checked. Do not turn taste into a character judgement. Compare and revise; full meaning and argument quality remain unscored.",
+        "de": "Schreibe aus den Angaben der fiktiven betrachtenden Person eine Rezension mit Kriterien, Aussage, konkretem Beleg, Grenze und Alternative. Trenne Erlebnis und Plakateindruck; gehe auf einen Einwand ein und lasse unbekannte Alternativen zur Prüfung offen. Mache aus Vorlieben kein Charakterurteil. Vergleiche und überarbeite; Gesamtinhalt und Argumentation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 6000원 이내. 달빛 프로그램: 5000원, 20분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 바람 프로그램: 8000원, 35분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.",
+        "questions": [
+          {
+            "id": "review",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "장점·한계·대안을 연결한 리뷰를 쓰세요.",
+              "en": "Write a review connecting advantages, limits and an alternative.",
+              "de": "Verbinde Vorteile, Grenzen und eine Alternative in einer Rezension."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 관람자의 정보로 기준·주장·구체적 근거·한계·대안을 연결한 리뷰를 쓰세요. 실제 경험과 포스터 인상을 구별하고 반론에 답하되 모르는 대안은 확인할 항목으로 남기세요. 소비 취향을 성격으로 확대하지 마세요. 근거와 비교해 고쳐 쓰며 전체 글의 의미·논증은 미채점입니다.",
+              "en": "Write a review linking criteria, claim, concrete evidence, limitation and an alternative from the fictional viewer’s facts. Separate experience from a poster impression; address a counterpoint while leaving unknown alternatives to be checked. Do not turn taste into a character judgement. Compare and revise; full meaning and argument quality remain unscored.",
+              "de": "Schreibe aus den Angaben der fiktiven betrachtenden Person eine Rezension mit Kriterien, Aussage, konkretem Beleg, Grenze und Alternative. Trenne Erlebnis und Plakateindruck; gehe auf einen Einwand ein und lasse unbekannte Alternativen zur Prüfung offen. Mache aus Vorlieben kein Charakterurteil. Vergleiche und überarbeite; Gesamtinhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 5000원 이내. 숲길 프로그램: 4000원, 25분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 물결 프로그램: 7000원, 40분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.",
+        "questions": [
+          {
+            "id": "review",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "장점·한계·대안을 연결한 리뷰를 쓰세요.",
+              "en": "Write a review connecting advantages, limits and an alternative.",
+              "de": "Verbinde Vorteile, Grenzen und eine Alternative in einer Rezension."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "가상 관람자의 정보로 기준·주장·구체적 근거·한계·대안을 연결한 리뷰를 쓰세요. 실제 경험과 포스터 인상을 구별하고 반론에 답하되 모르는 대안은 확인할 항목으로 남기세요. 소비 취향을 성격으로 확대하지 마세요. 근거와 비교해 고쳐 쓰며 전체 글의 의미·논증은 미채점입니다.",
+              "en": "Write a review linking criteria, claim, concrete evidence, limitation and an alternative from the fictional viewer’s facts. Separate experience from a poster impression; address a counterpoint while leaving unknown alternatives to be checked. Do not turn taste into a character judgement. Compare and revise; full meaning and argument quality remain unscored.",
+              "de": "Schreibe aus den Angaben der fiktiven betrachtenden Person eine Rezension mit Kriterien, Aussage, konkretem Beleg, Grenze und Alternative. Trenne Erlebnis und Plakateindruck; gehe auf einen Einwand ein und lasse unbekannte Alternativen zur Prüfung offen. Mache aus Vorlieben kein Charakterurteil. Vergleiche und überarbeite; Gesamtinhalt und Argumentation bleiben unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP11:speaking:01",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "공통 기준으로 선택 제안하기",
+        "en": "Propose a choice using shared criteria",
+        "de": "Eine Wahl nach gemeinsamen Kriterien vorschlagen"
+      },
+      "teaching": {
+        "ko": "동등한 모임 동료에게 해요체로 같은 기준의 장단점을 비교하고 선택을 제안하세요. 자세한 설명이 중요하다는 반론에 응답하고 대체 제안을 대조 문장과 구별해요. 비교 초점·양보 뒤 한계가 들리도록 녹음을 듣고 휴지와 말끝을 고쳐요. 의미·설득력·억양은 미채점입니다.",
+        "en": "Compare advantages and disadvantages using the same criteria and propose a choice politely to peers. Respond to the need for detail and distinguish replacement from contrast. Replay and revise pauses and endings so the comparison focus and reservation remain clear. Meaning, persuasiveness and intonation remain unscored.",
+        "de": "Vergleiche Vor- und Nachteile nach denselben Kriterien und schlage Gleichgestellten höflich eine Wahl vor. Gehe auf den Wunsch nach Details ein und unterscheide Ersatzvorschlag und Gegenüberstellung. Höre zu und verbessere Pausen und Endungen, damit Vergleich und Vorbehalt erkennbar bleiben. Inhalt, Überzeugungskraft und Intonation bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 6000원 이내. 달빛 프로그램: 5000원, 20분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 바람 프로그램: 8000원, 35분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 5000원 이내. 숲길 프로그램: 4000원, 25분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 물결 프로그램: 7000원, 40분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP11:speaking:02",
+      "phaseId": "KP11",
+      "level": "B1",
+      "objectiveId": "KP11:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "비교 결과를 청중에게 발표",
+        "en": "Present the comparison to an audience",
+        "de": "Den Vergleich vor einem Publikum präsentieren"
+      },
+      "teaching": {
+        "ko": "가상 모임의 발표자로 격식체를 사용해 요점·비교 근거·반론·한계 순서로 발표하세요. 자료의 수치와 출처를 유지하고 더 좋은지, 참여 격차를 줄이는지 묻는 질문에는 미확인 범위를 밝히세요. 녹음을 듣고 명확한 의미 단위로 다시 발표해요. 전체 발표의 의미·문체는 미채점입니다.",
+        "en": "As the fictional group’s presenter, speak formally in the order of main point, comparison evidence, counterpoint and limitations. Preserve figures and sources; disclose uncertainty when asked whether an option is better or reduces access gaps. Replay and present again in clear meaning units. Full meaning and register remain unscored.",
+        "de": "Trage als präsentierende Person der fiktiven Gruppe förmlich Hauptaussage, Vergleichsbelege, Einwand und Grenzen vor. Erhalte Zahlen und Quellen und benenne Ungewissheit bei Fragen zur besseren Wahl oder zu Teilhabeunterschieden. Höre zu und präsentiere erneut in klaren Sinneinheiten. Gesamtinhalt und Sprachstil bleiben unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 6000원 이내. 달빛 프로그램: 5000원, 20분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 바람 프로그램: 8000원, 35분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.\n청중 질문: 바람 프로그램이 확실히 더 좋습니까? 이 선택이 참여 격차를 줄입니까?",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 모임 자료. 공통 예산: 1인 5000원 이내. 숲길 프로그램: 4000원, 25분, 직접 관람함. 짧고 편리하지만 마지막 설명 부족. 물결 프로그램: 7000원, 40분, 아직 관람하지 않음. 포스터에 해설 시간 표시. 무료 해설 글 자료는 아직 읽지 않음.\n동료의 반론: 자세한 설명이 더 중요함. 나의 제안: 예산 안의 프로그램을 먼저 보고 무료 해설 자료를 확인. 아직 전원 합의 전. 비용에 따른 문화 참여 격차를 줄일 수 있을지는 이 자료만으로 모름.\n청중 질문: 물결 프로그램이 확실히 더 좋습니까? 이 선택이 참여 격차를 줄입니까?",
+        "questions": []
+      }
+    }
+  ]
+}

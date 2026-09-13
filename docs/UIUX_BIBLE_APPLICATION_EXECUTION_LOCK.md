@@ -307,6 +307,7 @@ listed dependency.
 | `/path` | `LearningPathScreen` / Std | Preserve evidence path; token/semantics polish | course graph and unlock rules | R/S/D learning path | H / 3C |
 | `/course/phases` | `LearningPhasesScreen` / Std | 30 goals, shared level filter, preparing artwork | packaged Phase catalog; no progress writes | R/D learning phases | H / 3C |
 | `/course/phase` | `LearningPhaseDetailScreen` / Std | Goal and available related conversation practice | existing scenario IDs; mastery stays in its service | R/D learning phases | H / 3C |
+| `/learning-phase/task` | `PhaseTaskScreen` / Std | Reviewed Phase materials, practice/assessment, criterion feedback and retry | v5 versioned evidence; account-isolated drafts; free speech and unmatched sentences unscored | phase_task_screen_test; 320px DE 200% | H / Phase pilot |
 | `/course/mission` | `CourseMissionScreen` / Std | One mission brief/action; standard states | mission plan and completion evidence | R/D course battery | H / 3C |
 | `/course/reassessment` | `CourseReassessmentScreen` / Custom | Standard outer frame/forms without changing evidence | reassessment arguments/mastery | D reassessment | H / 3C |
 | `/scenario` | `ScenarioPlayerScreen` / Custom | Preserve roleplay/quest canvas; normalize outer states | scenario evidence, audio, quest rules | S/D scenario battery | H / 3C |

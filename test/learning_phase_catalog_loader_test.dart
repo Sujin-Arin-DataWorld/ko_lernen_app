@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/learning_phase_catalog.dart';
+import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
@@ -22,6 +23,8 @@ void main() {
       ByteData.sublistView(await File(path).readAsBytes());
 
   void resetLoaders() {
+    LearningPhaseCatalog.resetForTesting();
+    PhaseTaskCatalog.resetForTesting();
     CurriculumCatalog.reset();
     DataLoader.reset();
     ScenarioLoader.reset();

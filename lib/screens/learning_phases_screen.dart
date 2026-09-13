@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/learning_phase_catalog.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/phase_task_panel.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/illustrated_card.dart';
 import '../widgets/sori/level_filter_bar.dart';
@@ -142,6 +143,7 @@ class LearningPhaseDetailScreen extends StatelessWidget {
             shrinkWrap: true,
           ),
           const SizedBox(height: Spacing.lg),
+          PhaseTaskPanel(phaseId: phase.id),
           Text(t.learningPhasePracticeTitle, style: type.h2),
           const SizedBox(height: Spacing.sm),
           Text(phase.practiceFocus.pick(lang), style: type.body),

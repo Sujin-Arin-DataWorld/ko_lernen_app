@@ -1,6 +1,7 @@
 import 'widgets/sori/pack_completion_recovery_banner.dart';
 import 'services/pack_completion_owner.dart';
 import 'services/vocab_pack_finish_coordinator.dart';
+import 'screens/phase_task_screen.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -1247,6 +1248,14 @@ class _KoLernenAppState extends State<KoLernenApp> {
               return SoriTransitions.page(
                 (_) => phase is LearningPhase
                     ? LearningPhaseDetailScreen(phase: phase)
+                    : const LearningPhasesScreen(),
+                settings: settings,
+              );
+            case '/learning-phase/task':
+              final taskRoute = settings.arguments;
+              return SoriTransitions.page(
+                (_) => taskRoute is PhaseTaskRoute
+                    ? PhaseTaskScreen(arguments: taskRoute)
                     : const LearningPhasesScreen(),
                 settings: settings,
               );

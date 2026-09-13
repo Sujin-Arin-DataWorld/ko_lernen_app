@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP25:grammar:01",
+      "sha256": "3f60531510449655b1d79c99c1af69eb611b2df2372d774940c6c1d61338fd39",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Quoted proposition modifies claim/explanation, explicitly unverified/error-free and unsupported cost-half claims remain claims. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:01",
+      "sha256": "92df3ae9e583370ff148b7d6e42a915050fa0cfd593ac6067dd9ebf3567f2c9e",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Quoted proposition modifies claim/explanation, explicitly unverified/error-free and unsupported cost-half claims remain claims. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:02",
+      "sha256": "b53c0eb7297465475f8dad09a4d996784e281f9c02c96a9c0f66b7e3b4dca9d7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Only registered applicant/designated reviewer necessary conditions; additional review/training remain, not sufficient approval. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:02",
+      "sha256": "77a9ee390d00d5e7a8d27aaaca02b18906e31da79e400b4de53c1c3015934050",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Only registered applicant/designated reviewer necessary conditions; additional review/training remain, not sufficient approval. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:03",
+      "sha256": "8d4310262f567c94b098013268929c7c057510bb86305f3c3143ab20b3d0ded7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Public summary excludes identifiers; copy provision excludes original removal. Main permission and limiting proviso both preserved. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:03",
+      "sha256": "a98ea487f5c6a3caa51819830bbf2a83956261a00095429aa65c67b0e6152341",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Public summary excludes identifiers; copy provision excludes original removal. Main permission and limiting proviso both preserved. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:04",
+      "sha256": "b16a0c105972fa6bee75aa89249601bf799e1e61640bad57d6924ba70ae4d00b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Only named major/affiliation category disregarded; registration/training requirement retained. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:04",
+      "sha256": "ca36c38602f00a3fc5bac7f8608d83909317fcdb46e8827e1f1f4aa3d481dc95",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Only named major/affiliation category disregarded; registration/training requirement retained. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:05",
+      "sha256": "40e8f84923dffb202fc0eb051ad6b1bafeef9ff5980fdfd5bdbbc068a3937015",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Already differing definitions/missing evidence is judgement premise, not hypothetical universal rule. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:05",
+      "sha256": "8fb4874126ac86576947fbc2fd1e5b9b925e0e68527dd7608925b77d07a024b2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Already differing definitions/missing evidence is judgement premise, not hypothetical universal rule. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:06",
+      "sha256": "f55088f175442796099f2f04d92fd313c21dee9b7abc1223fe763b93f62ae48b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Proportional clarity/scope-check judgement from shared use/large impact, no new institutional power. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:06",
+      "sha256": "164207035c6d3e7725a691812d65ad70c7f1bc63eab9e8ed9f25473d1c37cee3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Proportional clarity/scope-check judgement from shared use/large impact, no new institutional power. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:07",
+      "sha256": "c07816d9ebfdc67b6738c6a13970df82e2bbbe898a35136a0500ab65a3730831",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Written speaker wish or assessment, not committee decision/court ruling. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:07",
+      "sha256": "5be81349ebbf94c6ba32aa1e543422e66a42651426ffe619bce331fde29cb6ba",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Written speaker wish or assessment, not committee decision/court ruling. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:grammar:08",
+      "sha256": "ad1578d393ee72ef3b89443f82dec2848ad82ee6971e9d678d1f04235b13feea",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: Nominalised action confirms records-team date check or research-team reproduction goal, approval/distribution actor unknown. Goal not successful reproduction. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP25:production:08",
+      "sha256": "8264beed6255a64f9272873c51111abfaa5cdc3ccf1e6c8f0d8e159998c817f0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: Nominalised action confirms records-team date check or research-team reproduction goal, approval/distribution actor unknown. Goal not successful reproduction. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP25:listening:01",
+      "sha256": "b1e514b3db4ddfd38c5fd417df0f3f502f059a5ad040eb09c19037312aabb036",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: fictional institutional presentation separates named-category universality, registration necessity, documents jointly sufficient ONLY for formal receipt, separate unprovided approval criteria.12-3=9 versus16-4=12, identifiers not equal values; removal not causal accuracy evidence. Quiet proviso still obligatory, unknown publication/approval actor, Wednesday/Friday review not decision. Certificate recommendation change hypothetical unadopted. Seven critical required distinctions, actual prosody unverified."
+    },
+    {
+      "taskId": "KP25:reading:01",
+      "sha256": "042da449cdb493da423f2ffa1736cebfb138f5341bb46cbf889aadba131f29c2",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: actual fictional multi-clause terms define inspection excluding copying/removal/publication, registered eligibility, two document receipt conjunction, separate approval, right and duty after approval. Outage AND separate training confirmation replace certificate only, never training exemption. A removes scope/proviso and invents approval; B preserves boundaries; current versus hypothetical condition distinguished. Six required scope/exception/right/revision criteria; no real legal advice."
+    },
+    {
+      "taskId": "KP25:reading:02",
+      "sha256": "8b9ea5b9cd2a0d56bc32b403514ff01c5b4404ce66f8387a8a976036129cf720",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: separate original specialised review distinguishes identical identifiers from equal values, sample counts and limited generalisability, reproduction versus accuracy and goal versus success. No comparison condition or accuracy measure. Explicit actor for identifier matching; noun-chain publication review actor missing. Source critique/recommendation not new norm or delegated power. Five required boundary/count/causal/actor/norm criteria."
+    },
+    {
+      "taskId": "KP25:writing:01",
+      "sha256": "e4907ecd1a267c3e0b442f19f002f138b92dbae542326c062224d8bbc2b65015",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: two required full responses, specialist summary and institutional review report; operational definition/method/counts/limits, clause comparison, current versus hypothetical missing-certificate boundary, both exception conditions, noun-chain expansion without invented actor, fact/inference/norm/recommendation separation and source-based revision. Free argument/meaning unscored."
+    },
+    {
+      "taskId": "KP25:speaking:01",
+      "sha256": "f049311b8e4936840ca9e58797249d2a1d4a047c285e4466003748f5d1ac15cd",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: polite peer explanation plus formal presentation, genuine boundary cases and repair of eligibility overgeneralisation; hypothesis preserves unchanged approval/privacy conditions. Korean mediation of claim-truth and necessary-sufficient errors, precise chunking and quiet provisos, replay/rephrase without first-language prosodic mandates. Meaning/prosody/mediation unscored."
+    }
+  ]
+}

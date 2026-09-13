@@ -31,6 +31,7 @@ import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/app_version_service.dart';
+import '../services/app_update_service.dart';
 import '../services/account/account_failure_diagnostics.dart';
 import '../services/account/account_failure_reason.dart';
 import '../services/account/account_transition_coordinator.dart';
@@ -340,6 +341,8 @@ class SettingsScreen extends StatefulWidget {
     this.cloudDataDeletionJournalState,
     this.resetAllData,
     this.appVersionReader,
+    this.appUpdateChecker,
+    this.appStoreOpener,
     this.initialFocus,
     this.notificationOperations,
   });
@@ -352,6 +355,8 @@ class SettingsScreen extends StatefulWidget {
   cloudDataDeletionJournalState;
   final Future<void> Function()? resetAllData;
   final AppVersionReader? appVersionReader;
+  final AppUpdateChecker? appUpdateChecker;
+  final Future<void> Function(String url)? appStoreOpener;
   final SettingsInitialFocus? initialFocus;
   final NotificationSettingsOperations? notificationOperations;
 
@@ -361,6 +366,8 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   String _appVersion = '-';
+  bool _updateChecking = false;
+  String? _updateMessage;
   DateTime? _lastBackupAt;
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _courseStartKey = GlobalKey();
@@ -386,6 +393,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
+
+  AppUpdateChecker get _appUpdateChecker =>
+      widget.appUpdateChecker ?? const PlayStoreAppUpdateChecker();
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
@@ -513,6 +523,106 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       // Keep the neutral placeholder when native package metadata is absent.
     }
+  }
+
+  Future<void> _checkForUpdate() async {
+    if (_updateChecking) return;
+    final t = AppL10n.of(context);
+    setState(() {
+      _updateChecking = true;
+      _updateMessage = t.settingsUpdateChecking;
+    });
+
+    AppUpdateStatus status;
+    try {
+      status = await _appUpdateChecker.check();
+    } catch (_) {
+      status = AppUpdateStatus.unsupported;
+    }
+    if (!mounted) return;
+    setState(() => _updateChecking = false);
+
+    switch (status.availability) {
+      case AppUpdateAvailability.upToDate:
+        setState(() => _updateMessage = t.settingsUpdateUpToDate);
+        soriNotice(context, t.settingsUpdateUpToDate);
+        return;
+      case AppUpdateAvailability.unsupported:
+        setState(() => _updateMessage = t.settingsUpdateUnavailable);
+        soriNotice(context, t.settingsUpdateUnavailable);
+        await _openStore();
+        return;
+      case AppUpdateAvailability.updateAvailable:
+        final version = status.availableVersionCode;
+        setState(
+          () => _updateMessage = version == null
+              ? t.settingsUpdateDialogTitle
+              : t.settingsUpdateAvailable(version),
+        );
+        await _startUpdate(status);
+        return;
+    }
+  }
+
+  Future<void> _startUpdate(AppUpdateStatus status) async {
+    final t = AppL10n.of(context);
+    final version = status.availableVersionCode;
+    final confirmed =
+        await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: Text(t.settingsUpdateDialogTitle),
+            content: Text(
+              version == null
+                  ? t.settingsUpdateSubtitle
+                  : t.settingsUpdateDialogBody(version),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: Text(t.settingsUpdateLater),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: Text(t.settingsUpdateStart),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!confirmed || !mounted) return;
+
+    AppUpdateStartResult result;
+    try {
+      result = await _appUpdateChecker.start(status);
+    } catch (_) {
+      result = AppUpdateStartResult.failed;
+    }
+    if (!mounted) return;
+    switch (result) {
+      case AppUpdateStartResult.started:
+        return;
+      case AppUpdateStartResult.declined:
+        soriNotice(context, t.settingsUpdateDeclined);
+        return;
+      case AppUpdateStartResult.failed:
+      case AppUpdateStartResult.unsupported:
+        soriNotice(context, t.settingsUpdateFailed);
+        await _openStore();
+        return;
+    }
+  }
+
+  Future<void> _openStore() async {
+    final injectedOpener = widget.appStoreOpener;
+    if (injectedOpener != null) {
+      await injectedOpener(_playStoreUrl);
+      return;
+    }
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android || !mounted) {
+      return;
+    }
+    await openExternalUrl(context, _playStoreUrl);
   }
 
   Future<void> _loadLastBackupAt() async {
@@ -1198,6 +1308,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
             soriNotice(context, t.settingsVersionCopied);
           },
         ),
+        if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
+          ListTile(
+            leading: const Icon(Icons.system_update_outlined),
+            title: Text(t.settingsUpdateTitle),
+            subtitle: Text(_updateMessage ?? t.settingsUpdateSubtitle),
+            trailing: _updateChecking
+                ? const SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.refresh_rounded, size: 18),
+            onTap: _updateChecking ? null : _checkForUpdate,
+          ),
         ListTile(
           leading: const Icon(Icons.auto_stories_outlined),
           title: Text(t.settingsOriginStoryTitle),
@@ -1414,6 +1538,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
+  static const String _playStoreUrl =
+      'https://play.google.com/store/apps/details?id=com.sujinarin.ko_lernen_app';
   static const String _privacyUrl = 'https://hangul-sori.com/privacy';
   static const String _termsUrl = 'https://hangul-sori.com/terms';
   static const String _impressumUrl = 'https://hangul-sori.com/impressum';

@@ -11,7 +11,7 @@
   "learningPhasesTitle": "30 learning phases",
   "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
   "learningPhasePracticeTitle": "Free practice: related conversations",
-  "learningPhasePracticeScope": "These conversations practise related topics. Tasks specific to this phase goal are still in preparation. Your learning progress continues to follow the existing mission checks.",
+  "learningPhasePracticeScope": "These conversations practise related topics and continue to use the existing mission checks. Assessments from available phase tasks are recorded separately.",
   "learningPhaseImagePreparing": "Image in preparation",
   "accountAdditionalProviderTitle": "Connect another sign-in method",
   "accountAdditionalProviderConsent": "First, verify your current account. Then Google or Apple will be connected to that same account. If Apple hides your email address, you also consent to associating your Apple identity with this account’s data. Your learning progress stays here.",
@@ -382,6 +382,32 @@
     "description": "Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13)."
   },
   "settingsPrivacyTitle": "Privacy Policy",
+  "settingsUpdateTitle": "Check for updates",
+  "@settingsUpdateTitle": {
+    "description": "Settings row that asks Google Play for the newest build available to this device."
+  },
+  "settingsUpdateSubtitle": "Get the newest version from Google Play",
+  "settingsUpdateChecking": "Checking",
+  "settingsUpdateUpToDate": "You already have the newest version.",
+  "settingsUpdateAvailable": "New version {v} is here.",
+  "@settingsUpdateAvailable": {
+    "description": "Shown when Google Play reports a newer versionCode.",
+    "placeholders": {"v": {}}
+  },
+  "settingsUpdateDialogTitle": "Update available",
+  "settingsUpdateDialogBody": "Version {v} will now be downloaded and installed through Google Play.",
+  "@settingsUpdateDialogBody": {
+    "description": "Confirmation before handing the update to Google Play.",
+    "placeholders": {"v": {}}
+  },
+  "settingsUpdateStart": "Update now",
+  "settingsUpdateLater": "Later",
+  "settingsUpdateDeclined": "Update cancelled.",
+  "settingsUpdateFailed": "The update did not work. Continue in the Play Store.",
+  "settingsUpdateUnavailable": "Cannot check here. Look in the Play Store.",
+  "@settingsUpdateUnavailable": {
+    "description": "Shown when Play cannot answer; never claims the build is current."
+  },
   "settingsPrivacySubtitle": "Open privacy policy",
   "settingsPrivacyCopied": "Link copied: {url}",
   "@settingsPrivacyCopied": {
@@ -4666,5 +4692,28 @@
   "privacyChoicePending": "Your choice is being saved.",
   "privacyChoiceUnconfirmed": "Your choice could not be fully applied. Please retry. Collection remains off.",
   "privacyWithdrawalUnconfirmed": "Collection is off for this session. Saving your withdrawal could not be confirmed. Please retry before closing the app.",
-  "privacyApplicationUnconfirmed": "Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry."
+  "privacyApplicationUnconfirmed": "Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry.",
+  "phaseTasksTitle": "Phase tasks",
+  "phaseTasksScope": "Practice and structured assessments. Free responses do not automatically count as mastery.",
+  "phaseTaskPractice": "Practice",
+  "phaseTaskAssessment": "Assess",
+  "phaseTaskSubmit": "Check and save answers",
+  "phaseTaskRetry": "Try again",
+  "phaseTaskPassed": "Assessed criteria met",
+  "phaseTaskNeedsPractice": "Keep practicing: review the explanations.",
+  "phaseTaskUnscored": "Attempt saved · meaning not automatically scored",
+  "phaseTaskPlay": "Listen",
+  "phaseTaskRecord": "Record",
+  "phaseTaskStop": "Stop recording",
+  "phaseTaskReplay": "Listen to recording",
+  "phaseTaskError": "That did not work. Check audio, microphone and connection, then try again.",
+  "phaseTaskAccountChanged": "Your account changed. Reopen this task.",
+  "phaseTaskRecordingNotice": "The recording stays in memory for this task and is not uploaded.",
+  "phaseTaskHistory": "Assessed criteria already met",
+  "phaseTaskAudioRequired": "Listen to the audio first.",
+  "phaseTaskPracticeComplete": "Practice saved. The score applies to this practice attempt.",
+  "phaseTaskCriterionPassed": "Criterion met",
+  "phaseTaskCriterionRequired": "Required criterion",
+  "phaseTaskCriterionUnscored": "This wording cannot be scored automatically.",
+  "phaseTaskEarlierRevision": "Earlier attempt saved · task has since been revised"
 }

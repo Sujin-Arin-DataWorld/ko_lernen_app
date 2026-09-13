@@ -1,31 +1,40 @@
-name: Google Play Closed Testing
+name: Google Play Public Testing
 
-# Closed Testing is an explicit release operation. It never runs on push or PR,
-# and it accepts only the exact main SHA that already passed the normal CI.
+# Public testing is an explicit release operation. It never runs on push or PR,
+# and it accepts only an allowlisted track and the exact main SHA that already
+# passed the normal CI. Alpha remains the default for dispatch compatibility.
 on:
   workflow_dispatch:
     inputs:
       expected_sha:
-        description: Full 40-character main commit SHA to release to Closed Testing
+        description: Full 40-character main commit SHA to release
         required: true
         type: string
+      target_track:
+        description: Google Play public testing track
+        required: true
+        default: alpha
+        type: choice
+        options:
+          - alpha
+          - beta
 
 permissions:
   contents: read
   actions: read
 
 concurrency:
-  group: google-play-closed
+  group: google-play-public-testing
   cancel-in-progress: false
 
 jobs:
   release-closed:
-    name: Signed AAB to Play Closed Testing
+    name: Signed AAB to Play Public Testing
     runs-on: ubuntu-latest
     timeout-minutes: 50
     # The existing protected environment owns the app-scoped Play and signing
     # secrets. Its historical name says "internal", but the credentials are
-    # also authorized for this explicit alpha-track release.
+    # also authorized for this explicit alpha/beta testing release.
     environment:
       name: google-play-internal
     steps:
@@ -38,10 +47,18 @@ jobs:
         shell: bash
         env:
           EXPECTED_SHA: ${{ inputs.expected_sha }}
+          TARGET_TRACK: ${{ inputs.target_track }}
         run: |
           set -euo pipefail
+          case "$TARGET_TRACK" in
+            alpha|beta) ;;
+            *)
+              echo "::error::Unsupported public testing track: $TARGET_TRACK"
+              exit 1
+              ;;
+          esac
           if [[ "$GITHUB_REF" != "refs/heads/main" ]]; then
-            echo "::error::Closed Testing may only be released from main (got $GITHUB_REF)."
+            echo "::error::Public Testing may only be released from main (got $GITHUB_REF)."
             exit 1
           fi
           if [[ ! "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]; then
@@ -142,7 +159,9 @@ jobs:
       # flipped without a commit. Unset → empty string → Dart's
       # bool.fromEnvironment falls back to its own defaultValue (false).
       # Server-side gates remain authoritative either way.
-      - name: Build signed closed-testing bundle
+      - name: Build signed public-testing bundle
+        env:
+          PLAY_TRACK: ${{ inputs.target_track }}
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
@@ -167,14 +186,29 @@ jobs:
       - name: Record bundle identity
         id: release-meta
         shell: bash
+        env:
+          TARGET_TRACK: ${{ inputs.target_track }}
         run: |
           set -euo pipefail
           aab=build/app/outputs/bundle/release/app-release.aab
           sha256sum "$aab" | tee "$aab.sha256"
-          version_code="$(git rev-list --count HEAD)"
+          case "$TARGET_TRACK" in
+            alpha) track_offset=1 ;;
+            beta) track_offset=2 ;;
+            *)
+              echo "::error::Unsupported public testing track: $TARGET_TRACK"
+              exit 1
+              ;;
+          esac
+          commit_count="$(git rev-list --count HEAD)"
+          if [[ ! "$commit_count" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Cannot derive versionCode from git HEAD."
+            exit 1
+          fi
+          version_code="$(( commit_count * 3 + track_offset ))"
           short_sha="${GITHUB_SHA:0:8}"
           echo "version-code=$version_code" >> "$GITHUB_OUTPUT"
-          echo "name=${GITHUB_RUN_NUMBER} · closed · ${short_sha}" >> "$GITHUB_OUTPUT"
+          echo "name=${GITHUB_RUN_NUMBER} · ${TARGET_TRACK} · v${version_code} · ${short_sha}" >> "$GITHUB_OUTPUT"
 
       # R4 (tool/android_release_evidence.py): independently verifies the
       # exact built AAB's native symbols reached Crashlytics before the Play
@@ -396,7 +430,7 @@ jobs:
       - name: Preserve AAB and Dart symbols
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: android-closed-v${{ steps.release-meta.outputs.version-code }}-${{ github.sha }}
+          name: android-public-${{ inputs.target_track }}-v${{ steps.release-meta.outputs.version-code }}-${{ github.sha }}
           path: |
             build/app/outputs/bundle/release/app-release.aab
             build/app/outputs/bundle/release/app-release.aab.sha256
@@ -404,13 +438,13 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload to Google Play Closed Testing
+      - name: Upload to Google Play Public Testing
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: com.sujinarin.ko_lernen_app
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
-          tracks: alpha
+          tracks: ${{ inputs.target_track }}
           status: completed
           releaseName: ${{ steps.release-meta.outputs.name }}
           inAppUpdatePriority: 0

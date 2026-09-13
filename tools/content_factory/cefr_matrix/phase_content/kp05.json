@@ -1,0 +1,3351 @@
+{
+  "schemaVersion": 1,
+  "phaseId": "KP05",
+  "status": "partial",
+  "tasks": [
+    {
+      "id": "KP05:grammar:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:01",
+      "requirementKeys": [
+        "G2:-으면"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면",
+        "en": "-으면",
+        "de": "-으면"
+      },
+      "teaching": {
+        "ko": "-(으)면 앞은 조건이에요. 조건이 주어졌다고 해서 이미 충족된 것은 아니에요.",
+        "en": "The clause before -(으)면 is a condition, not proof that it has been met.",
+        "de": "Vor -(으)면 steht eine Bedingung. Damit ist nicht gesagt, dass sie erfüllt ist."
+      },
+      "examplesKo": [
+        "학생증이 있으면 할인돼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학생증이 있으면 할인돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 손님이 학생증 없이 할인받아요."
+              },
+              {
+                "id": "0",
+                "text": "학생증이 있는 경우 할인된다고 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)면 앞은 조건이에요. 조건이 주어졌다고 해서 이미 충족된 것은 아니에요.",
+              "en": "The clause before -(으)면 is a condition, not proof that it has been met.",
+              "de": "Vor -(으)면 steht eine Bedingung. Damit ist nicht gesagt, dass sie erfüllt ist."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "예약하면 회의실을 이용할 수 있어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "지금 모든 사람이 예약을 끝냈어요."
+              },
+              {
+                "id": "0",
+                "text": "예약한 경우 이용할 수 있다고 말해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-(으)면 앞은 조건이에요. 조건이 주어졌다고 해서 이미 충족된 것은 아니에요.",
+              "en": "The clause before -(으)면 is a condition, not proof that it has been met.",
+              "de": "Vor -(으)면 steht eine Bedingung. Damit ist nicht gesagt, dass sie erfüllt ist."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:02",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:02",
+      "requirementKeys": [
+        "G2:-거나"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-거나",
+        "en": "-거나",
+        "de": "-거나"
+      },
+      "teaching": {
+        "ko": "-거나는 행동·상태의 대안이에요. 두 행동을 모두 해야 한다는 뜻은 아니에요.",
+        "en": "-거나 gives alternative actions or states; it does not require both.",
+        "de": "-거나 nennt alternative Handlungen oder Zustände. Beides ist nicht zwingend erforderlich."
+      },
+      "examplesKo": [
+        "기다리는 동안 책을 읽거나 음악을 들으세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "기다리는 동안 책을 읽거나 음악을 들으세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "두 행동을 반드시 동시에 해야 해요."
+              },
+              {
+                "id": "0",
+                "text": "두 행동 중에서 고를 수 있어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-거나는 행동·상태의 대안이에요. 두 행동을 모두 해야 한다는 뜻은 아니에요.",
+              "en": "-거나 gives alternative actions or states; it does not require both.",
+              "de": "-거나 nennt alternative Handlungen oder Zustände. Beides ist nicht zwingend erforderlich."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "신청서는 직접 내거나 이메일로 보내세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "제출 방법을 고를 수 있어요."
+              },
+              {
+                "id": "1",
+                "text": "직접 낸 다음 반드시 이메일도 보내야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-거나는 행동·상태의 대안이에요. 두 행동을 모두 해야 한다는 뜻은 아니에요.",
+              "en": "-거나 gives alternative actions or states; it does not require both.",
+              "de": "-거나 nennt alternative Handlungen oder Zustände. Beides ist nicht zwingend erforderlich."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:03",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:03",
+      "requirementKeys": [
+        "G2:이나"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이나",
+        "en": "이나",
+        "de": "이나"
+      },
+      "teaching": {
+        "ko": "명사에는 (이)나를 붙여 선택지를 이어요. 행동을 잇는 -거나와 구별해요.",
+        "en": "(이)나 links noun alternatives; distinguish action alternatives with -거나.",
+        "de": "(이)나 verbindet alternative Nomen. Für Handlungsalternativen steht -거나."
+      },
+      "examplesKo": [
+        "차나 커피를 하나 고르세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "차나 커피를 하나 고르세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "차와 커피 중 하나를 골라요."
+              },
+              {
+                "id": "1",
+                "text": "차와 커피를 모두 받아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사에는 (이)나를 붙여 선택지를 이어요. 행동을 잇는 -거나와 구별해요.",
+              "en": "(이)나 links noun alternatives; distinguish action alternatives with -거나.",
+              "de": "(이)나 verbindet alternative Nomen. Für Handlungsalternativen steht -거나."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "신분 확인에는 여권이나 학생증을 보여 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "여권과 학생증 중 하나를 보여 줘요."
+              },
+              {
+                "id": "1",
+                "text": "두 서류를 모두 보여 줘야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "명사에는 (이)나를 붙여 선택지를 이어요. 행동을 잇는 -거나와 구별해요.",
+              "en": "(이)나 links noun alternatives; distinguish action alternatives with -거나.",
+              "de": "(이)나 verbindet alternative Nomen. Für Handlungsalternativen steht -거나."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:04",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:04",
+      "requirementKeys": [
+        "G2:마다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "마다",
+        "en": "마다",
+        "de": "마다"
+      },
+      "teaching": {
+        "ko": "마다의 반복 범위는 앞 명사예요. 월요일마다는 모든 월요일이지 매일이 아니에요.",
+        "en": "마다 repeats over the preceding unit. 월요일마다 means every Monday, not every day.",
+        "de": "마다 bezieht sich auf die genannte Einheit. 월요일마다 heißt jeden Montag, nicht jeden Tag."
+      },
+      "examplesKo": [
+        "월요일마다 문을 닫아요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "월요일마다 문을 닫아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "매일 문을 닫아요."
+              },
+              {
+                "id": "0",
+                "text": "매주 월요일에 닫아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마다의 반복 범위는 앞 명사예요. 월요일마다는 모든 월요일이지 매일이 아니에요.",
+              "en": "마다 repeats over the preceding unit. 월요일마다 means every Monday, not every day.",
+              "de": "마다 bezieht sich auf die genannte Einheit. 월요일마다 heißt jeden Montag, nicht jeden Tag."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "수업이 끝날 때마다 창문을 닫아요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "각 수업이 끝날 때 창문을 닫아요."
+              },
+              {
+                "id": "1",
+                "text": "첫 수업이 끝날 때만 닫아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "마다의 반복 범위는 앞 명사예요. 월요일마다는 모든 월요일이지 매일이 아니에요.",
+              "en": "마다 repeats over the preceding unit. 월요일마다 means every Monday, not every day.",
+              "de": "마다 bezieht sich auf die genannte Einheit. 월요일마다 heißt jeden Montag, nicht jeden Tag."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:05",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:05",
+      "requirementKeys": [
+        "G2:밖에"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "밖에",
+        "en": "밖에",
+        "de": "밖에"
+      },
+      "teaching": {
+        "ko": "밖에는 여기서 부정과 함께 범위를 제한해요. 두 개밖에 없다는 두 개가 있다는 뜻이에요.",
+        "en": "With negation, 밖에 limits the amount. 두 개밖에 없다 means there are only two, not zero.",
+        "de": "Mit einer Verneinung begrenzt 밖에 die Menge. 두 개밖에 없다 bedeutet nur zwei, nicht null."
+      },
+      "examplesKo": [
+        "빈자리가 하나밖에 없어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "빈자리가 하나밖에 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "빈자리가 전혀 없어요."
+              },
+              {
+                "id": "0",
+                "text": "빈자리는 한 개예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "밖에는 여기서 부정과 함께 범위를 제한해요. 두 개밖에 없다는 두 개가 있다는 뜻이에요.",
+              "en": "With negation, 밖에 limits the amount. 두 개밖에 없다 means there are only two, not zero.",
+              "de": "Mit einer Verneinung begrenzt 밖에 die Menge. 두 개밖에 없다 bedeutet nur zwei, nicht null."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "충전기가 두 개밖에 없어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "충전기는 두 개예요."
+              },
+              {
+                "id": "1",
+                "text": "충전기는 두 개보다 많아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "밖에는 여기서 부정과 함께 범위를 제한해요. 두 개밖에 없다는 두 개가 있다는 뜻이에요.",
+              "en": "With negation, 밖에 limits the amount. 두 개밖에 없다 means there are only two, not zero.",
+              "de": "Mit einer Verneinung begrenzt 밖에 die Menge. 두 개밖에 없다 bedeutet nur zwei, nicht null."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:06",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:06",
+      "requirementKeys": [
+        "G2:처럼"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "처럼",
+        "en": "처럼",
+        "de": "처럼"
+      },
+      "teaching": {
+        "ko": "처럼은 비슷한 모습이나 방식을 비교해요. 비교한다고 같은 사람이나 물건이 되는 것은 아니에요.",
+        "en": "처럼 compares appearance or manner; it does not make two people or objects identical.",
+        "de": "처럼 vergleicht Aussehen oder Art und Weise. Die verglichenen Personen oder Dinge sind nicht identisch."
+      },
+      "examplesKo": [
+        "예시처럼 이름을 크게 써 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "예시처럼 이름을 크게 써 주세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "예시에 있는 다른 사람 이름을 그대로 써요."
+              },
+              {
+                "id": "0",
+                "text": "예시의 쓰는 방식을 따라요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처럼은 비슷한 모습이나 방식을 비교해요. 비교한다고 같은 사람이나 물건이 되는 것은 아니에요.",
+              "en": "처럼 compares appearance or manner; it does not make two people or objects identical.",
+              "de": "처럼 vergleicht Aussehen oder Art und Weise. Die verglichenen Personen oder Dinge sind nicht identisch."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "직원처럼 천천히 읽어 보세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "읽는 사람이 직원으로 바뀌어요."
+              },
+              {
+                "id": "0",
+                "text": "직원의 읽는 속도를 참고해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "처럼은 비슷한 모습이나 방식을 비교해요. 비교한다고 같은 사람이나 물건이 되는 것은 아니에요.",
+              "en": "처럼 compares appearance or manner; it does not make two people or objects identical.",
+              "de": "처럼 vergleicht Aussehen oder Art und Weise. Die verglichenen Personen oder Dinge sind nicht identisch."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:07",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:07",
+      "requirementKeys": [
+        "G2:-어도 되다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어도 되다",
+        "en": "-어도 되다",
+        "de": "-어도 되다"
+      },
+      "teaching": {
+        "ko": "-아/어도 되다는 허용이에요. 반드시 해야 한다는 의무와 구별해요.",
+        "en": "-아/어도 되다 gives permission, not an obligation.",
+        "de": "-아/어도 되다 drückt eine Erlaubnis aus, keine Pflicht."
+      },
+      "examplesKo": [
+        "가방을 여기에 놓아도 돼요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가방을 여기에 놓아도 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "여기에 놓는 것이 허용돼요."
+              },
+              {
+                "id": "1",
+                "text": "반드시 여기에 놓아야 해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어도 되다는 허용이에요. 반드시 해야 한다는 의무와 구별해요.",
+              "en": "-아/어도 되다 gives permission, not an obligation.",
+              "de": "-아/어도 되다 drückt eine Erlaubnis aus, keine Pflicht."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "이 방에서는 물을 마셔도 돼요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "물을 마시는 것이 허용돼요."
+              },
+              {
+                "id": "1",
+                "text": "물을 마시면 안 돼요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어도 되다는 허용이에요. 반드시 해야 한다는 의무와 구별해요.",
+              "en": "-아/어도 되다 gives permission, not an obligation.",
+              "de": "-아/어도 되다 drückt eine Erlaubnis aus, keine Pflicht."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:08",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:08",
+      "requirementKeys": [
+        "G2:-지 말다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 말다",
+        "en": "-지 말다",
+        "de": "-지 말다"
+      },
+      "teaching": {
+        "ko": "-지 말다는 행동을 하지 말라는 요청·금지예요. 해도 된다는 말로 바꾸지 않아요.",
+        "en": "-지 말다 asks or instructs someone not to act; it is not permission.",
+        "de": "-지 말다 fordert dazu auf, etwas nicht zu tun. Es ist keine Erlaubnis."
+      },
+      "examplesKo": [
+        "이 방에서는 사진을 찍지 마세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "이 방에서는 사진을 찍지 마세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진을 찍어도 된다는 안내예요."
+              },
+              {
+                "id": "0",
+                "text": "사진 촬영을 하지 말라는 안내예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 말다는 행동을 하지 말라는 요청·금지예요. 해도 된다는 말로 바꾸지 않아요.",
+              "en": "-지 말다 asks or instructs someone not to act; it is not permission.",
+              "de": "-지 말다 fordert dazu auf, etwas nicht zu tun. Es ist keine Erlaubnis."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "비상문 앞에 물건을 놓지 마세요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "비상문 앞을 비워 두라는 안내예요."
+              },
+              {
+                "id": "1",
+                "text": "비상문 앞에 물건을 모으라는 안내예요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-지 말다는 행동을 하지 말라는 요청·금지예요. 해도 된다는 말로 바꾸지 않아요.",
+              "en": "-지 말다 asks or instructs someone not to act; it is not permission.",
+              "de": "-지 말다 fordert dazu auf, etwas nicht zu tun. Es ist keine Erlaubnis."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:grammar:09",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:grammar:09",
+      "requirementKeys": [
+        "G2:-어 주다"
+      ],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 주다",
+        "en": "-어 주다",
+        "de": "-어 주다"
+      },
+      "teaching": {
+        "ko": "-아/어 주다는 다른 사람을 위해 하는 행동이에요. 누가 누구를 돕는지 확인해요.",
+        "en": "-아/어 주다 presents an action done for another person. Identify helper and beneficiary.",
+        "de": "-아/어 주다 bezeichnet eine Handlung für eine andere Person. Achte darauf, wer wem hilft."
+      },
+      "examplesKo": [
+        "직원이 손님에게 길을 알려 줘요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "직원이 손님에게 길을 알려 줘요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "직원이 손님을 도와요."
+              },
+              {
+                "id": "1",
+                "text": "손님이 직원에게 길을 알려 줘요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어 주다는 다른 사람을 위해 하는 행동이에요. 누가 누구를 돕는지 확인해요.",
+              "en": "-아/어 주다 presents an action done for another person. Identify helper and beneficiary.",
+              "de": "-아/어 주다 bezeichnet eine Handlung für eine andere Person. Achte darauf, wer wem hilft."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "친구가 제 신청서를 읽어 줬어요.",
+        "questions": [
+          {
+            "id": "meaning",
+            "kind": "choice",
+            "prompt": {
+              "ko": "문장에 맞는 뜻을 고르세요.",
+              "en": "Choose the meaning that matches the text.",
+              "de": "Wähle die Bedeutung, die zum Text passt."
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "내가 친구를 위해 읽었어요."
+              },
+              {
+                "id": "0",
+                "text": "친구가 나를 위해 읽었어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "-아/어 주다는 다른 사람을 위해 하는 행동이에요. 누가 누구를 돕는지 확인해요.",
+              "en": "-아/어 주다 presents an action done for another person. Identify helper and beneficiary.",
+              "de": "-아/어 주다 bezeichnet eine Handlung für eine andere Person. Achte darauf, wer wem hilft."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:listening:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:listening:01",
+      "requirementKeys": [],
+      "skill": "listening",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "창구의 조건과 가격",
+        "en": "Conditions and prices at the counter",
+        "de": "Bedingungen und Preise am Schalter"
+      },
+      "teaching": {
+        "ko": "이 과제의 가상 시설 안내를 들어요. 조건, 방별 시간당 가격, 허용·금지를 각각 확인하세요.",
+        "en": "Listen to this fictional facility’s rules. Check the condition, hourly room prices, permission and prohibition separately.",
+        "de": "Höre die Angaben zur fiktiven Einrichtung. Prüfe Voraussetzung, Stundenpreise sowie Erlaubnis und Verbot getrennt."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "audio",
+        "sourceKo": "직원: 대여에는 학생증이 필요해요. 학생증이 있으면 방을 빌릴 수 있어요. 작은 방은 한 시간에 오천 원이고, 큰 방은 팔천 원이에요.\n손님: 방에서 사진을 찍어도 돼요?\n직원: 아니요, 사진을 찍지 마세요. 물을 마셔도 돼요.\n손님: 네, 알겠습니다.",
+        "questions": [
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방을 빌릴 때 필요한 것은?",
+              "en": "What is required to rent a room?",
+              "de": "Was braucht man, um einen Raum zu mieten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "학생증"
+              },
+              {
+                "id": "1",
+                "text": "준비물이 없음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "학생증이 이용 조건으로 제시됐어요.",
+              "en": "학생증 is the stated condition.",
+              "de": "학생증 wird als Voraussetzung genannt."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 싼 방과 시간당 가격은?",
+              "en": "Which room is cheaper, and what is its hourly price?",
+              "de": "Welcher Raum ist günstiger und was kostet er pro Stunde?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "작은 방 / 오천원"
+              },
+              {
+                "id": "2",
+                "text": "작은 방 / 팔천원"
+              },
+              {
+                "id": "1",
+                "text": "큰 방 / 오천원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "작은 방은 오천원, 큰 방은 팔천원이에요. 방과 가격을 바꾸지 않아요.",
+              "en": "작은 방 costs 오천 won and 큰 방 팔천 won per hour. Keep each price with its room.",
+              "de": "작은 방 kostet 오천 Won und 큰 방 팔천 Won pro Stunde. Ordne jeden Preis dem richtigen Raum zu."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직원이 허용한 것은?",
+              "en": "What does the staff member permit?",
+              "de": "Was erlaubt die Person vom Personal?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "사진을 찍어도 돼요."
+              },
+              {
+                "id": "0",
+                "text": "물을 마셔도 돼요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 아니요라고 한 행동과 허용한 행동을 따로 확인해요.",
+              "en": "Separate the action refused with 아니요 from the permitted action.",
+              "de": "Trenne die mit 아니요 abgelehnte Handlung von der erlaubten."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "audio",
+        "sourceKo": "직원: 대여에는 회원증이 필요해요. 회원증이 있으면 방을 빌릴 수 있어요. 조용한 방은 한 시간에 육천 원이고, 넓은 방은 구천 원이에요.\n손님: 방에서 음식을 먹어도 돼요?\n직원: 아니요, 음식을 먹지 마세요. 차를 마셔도 돼요.\n손님: 네, 알겠습니다.",
+        "questions": [
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방을 빌릴 때 필요한 것은?",
+              "en": "What is required to rent a room?",
+              "de": "Was braucht man, um einen Raum zu mieten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "회원증"
+              },
+              {
+                "id": "1",
+                "text": "준비물이 없음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회원증이 이용 조건으로 제시됐어요.",
+              "en": "회원증 is the stated condition.",
+              "de": "회원증 wird als Voraussetzung genannt."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "더 싼 방과 시간당 가격은?",
+              "en": "Which room is cheaper, and what is its hourly price?",
+              "de": "Welcher Raum ist günstiger und was kostet er pro Stunde?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "2",
+                "text": "조용한 방 / 구천원"
+              },
+              {
+                "id": "1",
+                "text": "넓은 방 / 육천원"
+              },
+              {
+                "id": "0",
+                "text": "조용한 방 / 육천원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "조용한 방은 육천원, 넓은 방은 구천원이에요. 방과 가격을 바꾸지 않아요.",
+              "en": "조용한 방 costs 육천 won and 넓은 방 구천 won per hour. Keep each price with its room.",
+              "de": "조용한 방 kostet 육천 Won und 넓은 방 구천 Won pro Stunde. Ordne jeden Preis dem richtigen Raum zu."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직원이 허용한 것은?",
+              "en": "What does the staff member permit?",
+              "de": "Was erlaubt die Person vom Personal?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "음식을 먹어도 돼요."
+              },
+              {
+                "id": "0",
+                "text": "차를 마셔도 돼요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "직원이 아니요라고 한 행동과 허용한 행동을 따로 확인해요.",
+              "en": "Separate the action refused with 아니요 from the permitted action.",
+              "de": "Trenne die mit 아니요 abgelehnte Handlung von der erlaubten."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:reading:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:01",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "공지와 간단한 사용법",
+        "en": "Read a notice and short instructions",
+        "de": "Aushang und kurze Anleitung lesen"
+      },
+      "teaching": {
+        "ko": "반복 범위와 밖에 뒤 부정을 읽어요. 준비물, 금지, 사용 후 행동을 구별해요.",
+        "en": "Read the repetition scope and negation after 밖에. Separate requirements, prohibitions and after-use actions.",
+        "de": "Lies den Wiederholungsbereich und die Verneinung nach 밖에. Trenne Voraussetzungen, Verbote und Schritte nach der Nutzung."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "학습실 이용 공지\n입장할 때 학생증을 보여 주세요.\n화요일마다 청소하므로 오전에는 이용할 수 없습니다.\n빌릴 수 있는 충전기는 두 개밖에 없습니다.\n창문을 열지 마세요.\n이용 후 의자를 제자리에 놓아 주세요.",
+        "questions": [
+          {
+            "id": "preparation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "입장할 때 준비할 것은?",
+              "en": "What must you have when entering?",
+              "de": "Was muss man beim Eintritt vorzeigen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "공지에 준비물이 없음"
+              },
+              {
+                "id": "0",
+                "text": "학생증"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "학생증을 보여 달라는 안내예요.",
+              "en": "The notice asks you to show 학생증.",
+              "de": "Der Aushang verlangt 학생증."
+            }
+          },
+          {
+            "id": "repeat",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오전에 이용할 수 없는 범위는?",
+              "en": "Which mornings are unavailable?",
+              "de": "An welchen Vormittagen ist der Raum nicht nutzbar?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 요일의 오전"
+              },
+              {
+                "id": "0",
+                "text": "매주 화요일"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "화요일마다는 그 요일마다 반복된다는 뜻이에요.",
+              "en": "화요일마다 repeats on that weekday.",
+              "de": "화요일마다 bezeichnet eine Wiederholung an diesem Wochentag."
+            }
+          },
+          {
+            "id": "only",
+            "kind": "choice",
+            "prompt": {
+              "ko": "빌릴 수 있는 물건 수는?",
+              "en": "How many items are available to borrow?",
+              "de": "Wie viele Gegenstände können ausgeliehen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "영"
+              },
+              {
+                "id": "0",
+                "text": "두"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "두 개밖에 없다는 두 개가 있다는 뜻이에요.",
+              "en": "두 개밖에 없다 means only 두, not zero.",
+              "de": "두 개밖에 없다 bedeutet nur 두, nicht null."
+            }
+          },
+          {
+            "id": "prohibition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "금지한 행동은?",
+              "en": "Which action is prohibited?",
+              "de": "Welche Handlung ist verboten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "창문을 열지 마세요."
+              },
+              {
+                "id": "1",
+                "text": "이용 후 의자를 제자리에 놓지 마세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의자를 제자리에 놓기는 요청한 행동이에요. 금지 행동과 바꾸지 않아요.",
+              "en": "Putting the chair back is requested. Do not turn it into a prohibition.",
+              "de": "Den Stuhl zurückzustellen wird verlangt. Mache daraus kein Verbot."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "학습실 이용 공지\n입장할 때 회원증을 보여 주세요.\n목요일마다 청소하므로 오전에는 이용할 수 없습니다.\n빌릴 수 있는 사전은 세 개밖에 없습니다.\n음식을 먹지 마세요.\n이용 후 의자를 제자리에 놓아 주세요.",
+        "questions": [
+          {
+            "id": "preparation",
+            "kind": "choice",
+            "prompt": {
+              "ko": "입장할 때 준비할 것은?",
+              "en": "What must you have when entering?",
+              "de": "Was muss man beim Eintritt vorzeigen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "회원증"
+              },
+              {
+                "id": "1",
+                "text": "공지에 준비물이 없음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "회원증을 보여 달라는 안내예요.",
+              "en": "The notice asks you to show 회원증.",
+              "de": "Der Aushang verlangt 회원증."
+            }
+          },
+          {
+            "id": "repeat",
+            "kind": "choice",
+            "prompt": {
+              "ko": "오전에 이용할 수 없는 범위는?",
+              "en": "Which mornings are unavailable?",
+              "de": "An welchen Vormittagen ist der Raum nicht nutzbar?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "매주 목요일"
+              },
+              {
+                "id": "1",
+                "text": "모든 요일의 오전"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "목요일마다는 그 요일마다 반복된다는 뜻이에요.",
+              "en": "목요일마다 repeats on that weekday.",
+              "de": "목요일마다 bezeichnet eine Wiederholung an diesem Wochentag."
+            }
+          },
+          {
+            "id": "only",
+            "kind": "choice",
+            "prompt": {
+              "ko": "빌릴 수 있는 물건 수는?",
+              "en": "How many items are available to borrow?",
+              "de": "Wie viele Gegenstände können ausgeliehen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "영"
+              },
+              {
+                "id": "0",
+                "text": "세"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "세 개밖에 없다는 세 개가 있다는 뜻이에요.",
+              "en": "세 개밖에 없다 means only 세, not zero.",
+              "de": "세 개밖에 없다 bedeutet nur 세, nicht null."
+            }
+          },
+          {
+            "id": "prohibition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "금지한 행동은?",
+              "en": "Which action is prohibited?",
+              "de": "Welche Handlung ist verboten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "음식을 먹지 마세요."
+              },
+              {
+                "id": "1",
+                "text": "이용 후 의자를 제자리에 놓지 마세요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "의자를 제자리에 놓기는 요청한 행동이에요. 금지 행동과 바꾸지 않아요.",
+              "en": "Putting the chair back is requested. Do not turn it into a prohibition.",
+              "de": "Den Stuhl zurückzustellen wird verlangt. Mache daraus kein Verbot."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:writing:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:writing:01",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "조건·허가·도움 확인 메시지",
+        "en": "Ask about conditions, permission and help",
+        "de": "Nach Bedingungen, Erlaubnis und Hilfe fragen"
+      },
+      "teaching": {
+        "ko": "세 화행을 다른 문장으로 쓰세요. 질문을 허가받았다는 확정으로 바꾸지 않아요. 다른 자유 표현은 미채점으로 남을 수 있어요.",
+        "en": "Use separate sentences for the three functions. A question does not establish granted permission. Other free wording may remain unscored.",
+        "de": "Schreibe für die drei Funktionen getrennte Sätze. Eine Frage ist keine erteilte Erlaubnis. Andere freie Formulierungen können unbewertet bleiben."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 시설에 확인 메시지를 써요. 아직 답을 받지 않았어요.\n확인할 조건: 학생증이 있으면 방을 빌릴 수 있나요\n허용 여부를 물을 행동: 가방을 여기에 놓아도 되나요\n직원에게 부탁할 도움: 신청서 쓰는 것을 도와주세요",
+        "questions": [
+          {
+            "id": "condition",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건을 확인하는 질문을 쓰세요.",
+              "en": "Write a question checking the condition.",
+              "de": "Schreibe eine Frage zur Bedingung."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "학생증이 있으면 방을 빌릴 수 있나요?",
+              "학생증이 있으면 방을 빌릴 수 있나요? 확인 부탁드려요."
+            ],
+            "rejectedAnswers": [
+              "조건 없이 이용할 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 학생증이 있으면 방을 빌릴 수 있나요? 확인 전 조건을 없애지 않아요.",
+              "en": "Example: 학생증이 있으면 방을 빌릴 수 있나요? Do not remove an unconfirmed condition.",
+              "de": "Beispiel: 학생증이 있으면 방을 빌릴 수 있나요? Streiche keine unbestätigte Voraussetzung."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "허용 여부를 질문하세요.",
+              "en": "Ask whether the action is permitted.",
+              "de": "Frage, ob die Handlung erlaubt ist."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "가방을 여기에 놓아도 되나요?"
+            ],
+            "rejectedAnswers": [
+              "가방을 여기에 놓아도 되나요. 허락받았어요."
+            ],
+            "explanation": {
+              "ko": "예: 가방을 여기에 놓아도 되나요? 아직 허가를 받았다는 뜻은 아니에요.",
+              "en": "Example: 가방을 여기에 놓아도 되나요? Asking is not evidence of permission already granted.",
+              "de": "Beispiel: 가방을 여기에 놓아도 되나요? Die Frage belegt keine bereits erteilte Erlaubnis."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "도움을 부탁하세요.",
+              "en": "Request help.",
+              "de": "Bitte um Hilfe."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "신청서 쓰는 것을 도와주세요.",
+              "죄송하지만 신청서 쓰는 것을 도와주세요."
+            ],
+            "rejectedAnswers": [
+              "신청서 쓰는 것을 도와주지 마세요."
+            ],
+            "explanation": {
+              "ko": "예: 신청서 쓰는 것을 도와주세요. 금지가 아니라 도움 요청이에요.",
+              "en": "Example: 신청서 쓰는 것을 도와주세요. It requests help, rather than prohibiting it.",
+              "de": "Beispiel: 신청서 쓰는 것을 도와주세요. Es ist eine Bitte um Hilfe, kein Verbot."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 시설에 확인 메시지를 써요. 아직 답을 받지 않았어요.\n확인할 조건: 회원증이 있으면 사전을 빌릴 수 있나요\n허용 여부를 물을 행동: 여기에서 차를 마셔도 되나요\n직원에게 부탁할 도움: 이용 시간을 알려 주세요",
+        "questions": [
+          {
+            "id": "condition",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건을 확인하는 질문을 쓰세요.",
+              "en": "Write a question checking the condition.",
+              "de": "Schreibe eine Frage zur Bedingung."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "회원증이 있으면 사전을 빌릴 수 있나요?",
+              "회원증이 있으면 사전을 빌릴 수 있나요? 확인 부탁드려요."
+            ],
+            "rejectedAnswers": [
+              "조건 없이 이용할 수 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 회원증이 있으면 사전을 빌릴 수 있나요? 확인 전 조건을 없애지 않아요.",
+              "en": "Example: 회원증이 있으면 사전을 빌릴 수 있나요? Do not remove an unconfirmed condition.",
+              "de": "Beispiel: 회원증이 있으면 사전을 빌릴 수 있나요? Streiche keine unbestätigte Voraussetzung."
+            }
+          },
+          {
+            "id": "permission",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "허용 여부를 질문하세요.",
+              "en": "Ask whether the action is permitted.",
+              "de": "Frage, ob die Handlung erlaubt ist."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에서 차를 마셔도 되나요?"
+            ],
+            "rejectedAnswers": [
+              "여기에서 차를 마셔도 되나요. 허락받았어요."
+            ],
+            "explanation": {
+              "ko": "예: 여기에서 차를 마셔도 되나요? 아직 허가를 받았다는 뜻은 아니에요.",
+              "en": "Example: 여기에서 차를 마셔도 되나요? Asking is not evidence of permission already granted.",
+              "de": "Beispiel: 여기에서 차를 마셔도 되나요? Die Frage belegt keine bereits erteilte Erlaubnis."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "도움을 부탁하세요.",
+              "en": "Request help.",
+              "de": "Bitte um Hilfe."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이용 시간을 알려 주세요.",
+              "죄송하지만 이용 시간을 알려 주세요."
+            ],
+            "rejectedAnswers": [
+              "이용 시간을 알려 주지 마세요."
+            ],
+            "explanation": {
+              "ko": "예: 이용 시간을 알려 주세요. 금지가 아니라 도움 요청이에요.",
+              "en": "Example: 이용 시간을 알려 주세요. It requests help, rather than prohibiting it.",
+              "de": "Beispiel: 이용 시간을 알려 주세요. Es ist eine Bitte um Hilfe, kein Verbot."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:speaking:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:speaking:01",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "창구에서 대안 고르기",
+        "en": "Choose an option at the counter",
+        "de": "Am Schalter eine Alternative wählen"
+      },
+      "teaching": {
+        "ko": "직원에게 조건을 확인한 뒤 명사 선택과 행동 선택을 말해요. (이)나와 -거나를 구별하고 허용을 의무로 바꾸지 않아요. 녹음을 듣고 다시 말해 보세요. 발화 의미는 자동 채점하지 않아요.",
+        "en": "Check the condition with staff, then state noun and action alternatives. Distinguish (이)나 from -거나 and permission from obligation. Listen back and re-record. Meaning remains unscored.",
+        "de": "Kläre die Bedingung mit dem Personal und nenne dann Nomen- und Handlungsalternativen. Trenne (이)나 von -거나 und Erlaubnis von Pflicht. Höre deine Aufnahme an und wiederhole sie. Der Inhalt bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학교 안내 창구. 학생증이 있으면 이용 가능.\n이용 장소: 열람실 또는 회의실 중 하나.\n가능한 활동: 책 읽기 또는 한국어 공부하기.\n조건을 확인하고 장소와 활동을 하나씩 골라 말하세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "문화센터 안내 창구. 회원증이 있으면 이용 가능.\n빌릴 물건: 사전 또는 잡지 중 하나.\n가능한 활동: 안에서 읽기 또는 집에 빌려 가기.\n조건을 확인하고 물건과 활동을 하나씩 골라 말하세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP05:reading:02",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:02",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "전단의 사실과 홍보 문구",
+        "en": "Facts and promotion in a flyer",
+        "de": "Fakten und Werbung im Flyer"
+      },
+      "teaching": {
+        "ko": "가격·조건과 최고의 같은 평가를 구별하세요.",
+        "en": "Separate prices and conditions from claims such as “best”.",
+        "de": "Trenne Preise und Bedingungen von Bewertungen wie „beste“."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "문화센터 도자기 체험\n즐거움이 가득한 최고의 수업!\n토요일 오후 두 시, 재료 포함 15000원.\n할인 조건: 학생증을 보여 주면 수업료 10% 할인. 할인은 재료비에는 적용되지 않습니다.\n예약 후 안내 문자를 받은 사람만 참여할 수 있습니다.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인할 수 있는 수업 정보는?",
+              "en": "Which is a concrete course detail?",
+              "de": "Welche Angabe zum Kurs ist konkret?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 사람에게 최고의 수업"
+              },
+              {
+                "id": "0",
+                "text": "토요일 오후 두 시 / 15000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "최고라는 평가는 홍보 표현이고 시각·가격과 달라요.",
+              "en": "최고 is promotional evaluation, unlike the stated time and price.",
+              "de": "최고 ist eine Werbewertung, anders als Uhrzeit und Preis."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할인 조건은?",
+              "en": "What is the discount condition?",
+              "de": "Unter welcher Bedingung gilt der Rabatt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "학생증을 보여 주면 수업료 10% 할인"
+              },
+              {
+                "id": "1",
+                "text": "모든 사람에게 조건 없이 적용"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "할인 조건을 지우지 않아요.",
+              "en": "Do not remove the discount condition.",
+              "de": "Lass die Rabattbedingung nicht weg."
+            }
+          },
+          {
+            "id": "scope",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할인되지 않는 것은?",
+              "en": "What is excluded from the discount?",
+              "de": "Was ist vom Rabatt ausgenommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "재료비"
+              },
+              {
+                "id": "1",
+                "text": "모든 비용이 할인됨"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "재료비에는 적용되지 않는다고 했어요.",
+              "en": "Materials are explicitly excluded.",
+              "de": "Materialkosten sind ausdrücklich ausgenommen."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "문화센터 도자기 체험\n즐거움이 가득한 최고의 수업!\n일요일 오후 두 시, 재료 포함 18000원.\n할인 조건: 회원증을 보여 주면 수업료 20% 할인. 할인은 재료비에는 적용되지 않습니다.\n예약 후 안내 문자를 받은 사람만 참여할 수 있습니다.",
+        "questions": [
+          {
+            "id": "fact",
+            "kind": "choice",
+            "prompt": {
+              "ko": "확인할 수 있는 수업 정보는?",
+              "en": "Which is a concrete course detail?",
+              "de": "Welche Angabe zum Kurs ist konkret?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "일요일 오후 두 시 / 18000원"
+              },
+              {
+                "id": "1",
+                "text": "모든 사람에게 최고의 수업"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "최고라는 평가는 홍보 표현이고 시각·가격과 달라요.",
+              "en": "최고 is promotional evaluation, unlike the stated time and price.",
+              "de": "최고 ist eine Werbewertung, anders als Uhrzeit und Preis."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할인 조건은?",
+              "en": "What is the discount condition?",
+              "de": "Unter welcher Bedingung gilt der Rabatt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 사람에게 조건 없이 적용"
+              },
+              {
+                "id": "0",
+                "text": "회원증을 보여 주면 수업료 20% 할인"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "할인 조건을 지우지 않아요.",
+              "en": "Do not remove the discount condition.",
+              "de": "Lass die Rabattbedingung nicht weg."
+            }
+          },
+          {
+            "id": "scope",
+            "kind": "choice",
+            "prompt": {
+              "ko": "할인되지 않는 것은?",
+              "en": "What is excluded from the discount?",
+              "de": "Was ist vom Rabatt ausgenommen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 비용이 할인됨"
+              },
+              {
+                "id": "0",
+                "text": "재료비"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "재료비에는 적용되지 않는다고 했어요.",
+              "en": "Materials are explicitly excluded.",
+              "de": "Materialkosten sind ausdrücklich ausgenommen."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:writing:02",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:writing:02",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "예약 확인 채팅과 답장",
+        "en": "Reservation chat and reply",
+        "de": "Chat zur Reservierung und Antwort"
+      },
+      "teaching": {
+        "ko": "두 메시지를 쓰세요. 모르는 정보를 지어내지 말고 다시 물으세요. 자유 글은 자동 채점되지 않아요.",
+        "en": "Write two messages. Ask again rather than inventing missing information. Free writing is not automatically scored.",
+        "de": "Schreibe zwei Nachrichten. Frage nach, statt fehlende Angaben zu erfinden. Freies Schreiben wird nicht automatisch bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "센터 직원에게 해요체로 문의하세요. 토요일 두 명 예약 희망. 재료비 포함 여부는 모름. 직원은 두 명 예약 가능, 재료비 포함이라고 답했어요. 첫 문의와 그 답에 대한 확인 답장을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "전체 글을 쓰고 해설의 기준으로 다시 검토하세요.",
+              "en": "Write the complete text, then review it against the guidance.",
+              "de": "Schreibe den vollständigen Text und prüfe ihn anschließend anhand der Hinweise."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "날짜·인원과 미확인 조건을 첫 메시지에 적었나요? 답장에서는 직원의 응답만 확인하고 무료 혜택을 만들지 않았나요? 확인되지 않은 객실·가격은 추가하지 마세요. 고친 뒤 다시 제출해도 의미는 미채점입니다.",
+              "en": "Did the first message state date, party size and the open question? Does the reply preserve the staff response without inventing free benefits? Add no unconfirmed room or price. Rewriting remains unscored.",
+              "de": "Nennt die erste Nachricht Datum, Personenzahl und offene Frage? Bewahrt die Antwort die Auskunft des Personals, ohne kostenlose Leistungen zu erfinden? Ergänze keine unbestätigten Zimmer- oder Preisangaben. Auch die Überarbeitung bleibt unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "숙소 직원에게 해요체로 문의하세요. 금요일 한 명 숙박 희망. 아침 식사 포함 여부는 모름. 직원은 방 예약 가능, 아침 식사는 별도라고 답했어요. 첫 문의와 그 답에 대한 확인 답장을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "전체 글을 쓰고 해설의 기준으로 다시 검토하세요.",
+              "en": "Write the complete text, then review it against the guidance.",
+              "de": "Schreibe den vollständigen Text und prüfe ihn anschließend anhand der Hinweise."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "날짜·인원과 미확인 조건을 첫 메시지에 적었나요? 답장에서는 직원의 응답만 확인하고 무료 혜택을 만들지 않았나요? 확인되지 않은 객실·가격은 추가하지 마세요. 고친 뒤 다시 제출해도 의미는 미채점입니다.",
+              "en": "Did the first message state date, party size and the open question? Does the reply preserve the staff response without inventing free benefits? Add no unconfirmed room or price. Rewriting remains unscored.",
+              "de": "Nennt die erste Nachricht Datum, Personenzahl und offene Frage? Bewahrt die Antwort die Auskunft des Personals, ohne kostenlose Leistungen zu erfinden? Ergänze keine unbestätigten Zimmer- oder Preisangaben. Auch die Überarbeitung bleibt unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:reading:03",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:03",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "사용 순서와 예외 조건",
+        "en": "Operating steps and exceptions",
+        "de": "Ablauf und Ausnahmen"
+      },
+      "teaching": {
+        "ko": "예외는 안내 순서에만 적용돼요. 정리 의무까지 없어졌다고 읽지 마세요.",
+        "en": "The exception changes the guidance sequence, not the duty to tidy up.",
+        "de": "Die Ausnahme betrifft die Anleitung, nicht die Pflicht zum Aufräumen."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "sign",
+        "sourceKo": "체험실 이용 순서\n먼저 이름을 적으세요. 다음으로 도구를 받으세요. 이용 후 도구를 반납하세요.\n다만 오늘 처음 온 사람은 직원의 안내를 먼저 받아야 합니다. 이 경우도 이용 후 정리는 해야 합니다.",
+        "questions": [
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일반 이용자의 순서는?",
+              "en": "What is the ordinary sequence?",
+              "de": "Wie ist der normale Ablauf?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "이름을 적으세요 → 도구를 받으세요 → 도구를 반납하세요"
+              },
+              {
+                "id": "1",
+                "text": "도구를 받으세요 → 도구를 반납하세요 → 이름을 적으세요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "먼저·다음·이용 후의 순서를 유지해요.",
+              "en": "Keep the order of first, next and after use.",
+              "de": "Erhalte die Abfolge zuerst, danach und nach der Nutzung."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직원의 안내를 먼저 받아야 하는 사람은?",
+              "en": "Who needs staff guidance first?",
+              "de": "Wer braucht zuerst die Anleitung des Personals?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 사람에게 예외 없음"
+              },
+              {
+                "id": "0",
+                "text": "오늘 처음 온 사람"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다만 뒤에 특별히 적용되는 대상을 찾으세요.",
+              "en": "Find the special group introduced after 다만.",
+              "de": "Finde die mit 다만 eingeführte besondere Gruppe."
+            }
+          },
+          {
+            "id": "remaining_duty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예외에 해당해도 해야 하는 일은?",
+              "en": "What remains required for that group?",
+              "de": "Was muss auch diese Gruppe tun?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아무것도 하지 않아도 됨"
+              },
+              {
+                "id": "0",
+                "text": "이용 후 정리"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "안내를 먼저 받아도 이용 후 정리는 해야 해요.",
+              "en": "Receiving guidance first does not remove the cleanup requirement.",
+              "de": "Die vorherige Anleitung hebt die Pflicht zum Aufräumen nicht auf."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "sign",
+        "sourceKo": "체험실 이용 순서\n먼저 예약 번호를 확인하세요. 다음으로 재료를 받으세요. 이용 후 작업대를 닦으세요.\n다만 기계 사용법을 모르는 사람은 직원의 안내를 먼저 받아야 합니다. 이 경우도 이용 후 정리는 해야 합니다.",
+        "questions": [
+          {
+            "id": "order",
+            "kind": "choice",
+            "prompt": {
+              "ko": "일반 이용자의 순서는?",
+              "en": "What is the ordinary sequence?",
+              "de": "Wie ist der normale Ablauf?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예약 번호를 확인하세요 → 재료를 받으세요 → 작업대를 닦으세요"
+              },
+              {
+                "id": "1",
+                "text": "재료를 받으세요 → 작업대를 닦으세요 → 예약 번호를 확인하세요"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "먼저·다음·이용 후의 순서를 유지해요.",
+              "en": "Keep the order of first, next and after use.",
+              "de": "Erhalte die Abfolge zuerst, danach und nach der Nutzung."
+            }
+          },
+          {
+            "id": "exception",
+            "kind": "choice",
+            "prompt": {
+              "ko": "직원의 안내를 먼저 받아야 하는 사람은?",
+              "en": "Who needs staff guidance first?",
+              "de": "Wer braucht zuerst die Anleitung des Personals?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "기계 사용법을 모르는 사람"
+              },
+              {
+                "id": "1",
+                "text": "모든 사람에게 예외 없음"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "다만 뒤에 특별히 적용되는 대상을 찾으세요.",
+              "en": "Find the special group introduced after 다만.",
+              "de": "Finde die mit 다만 eingeführte besondere Gruppe."
+            }
+          },
+          {
+            "id": "remaining_duty",
+            "kind": "choice",
+            "prompt": {
+              "ko": "예외에 해당해도 해야 하는 일은?",
+              "en": "What remains required for that group?",
+              "de": "Was muss auch diese Gruppe tun?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "아무것도 하지 않아도 됨"
+              },
+              {
+                "id": "0",
+                "text": "이용 후 정리"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "안내를 먼저 받아도 이용 후 정리는 해야 해요.",
+              "en": "Receiving guidance first does not remove the cleanup requirement.",
+              "de": "Die vorherige Anleitung hebt die Pflicht zum Aufräumen nicht auf."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:speaking:02",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:speaking:02",
+      "requirementKeys": [],
+      "skill": "speaking",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "전화로 조건 되묻기",
+        "en": "Clarify conditions by phone",
+        "de": "Bedingungen am Telefon nachfragen"
+      },
+      "teaching": {
+        "ko": "직원의 마지막 정보를 되받고 못 들은 것은 다시 물으세요. 허가·금지의 말끝이 달라지지 않게 듣고 다시 녹음해요. 의미와 억양 적합성은 자동 채점하지 않아요.",
+        "en": "Repeat the staff member’s last information and ask again about what you missed. Review and re-record without changing permission or prohibition. Meaning and intonation appropriateness are not automatically scored.",
+        "de": "Wiederhole die letzte Auskunft und frage nach nicht Verstandenem. Prüfe und wiederhole die Aufnahme, ohne Erlaubnis oder Verbot zu ändern. Inhalt und angemessene Intonation werden nicht automatisch bewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "문화센터에 예약하려고 전화했어요. 직원: 토요일 두 시, 학생증을 가져오세요. 음료는 마셔도 돼요. 사진은 찍지 마세요.\n가격은 못 들었어요. 시간·준비물·허용·금지를 확인하고 가격은 다시 물어보세요.",
+        "questions": []
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "체험실에 예약하려고 전화했어요. 직원: 일요일 세 시, 회원증을 가져오세요. 가방은 가져와도 돼요. 음식은 먹지 마세요.\n호실은 못 들었어요. 시간·준비물·허용·금지를 확인하고 호실은 다시 물어보세요.",
+        "questions": []
+      }
+    },
+    {
+      "id": "KP05:reading:04",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:04",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "대여 창구에서 불편 알리기",
+        "en": "Report a problem at a rental counter",
+        "de": "Ein Problem am Verleihschalter melden"
+      },
+      "teaching": {
+        "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+        "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+        "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화센터 대여 창구\n손님: 겉옷이 너무 작아요. 다른 크기로 바꿀 수 있어요? 가격표에는 3000원인데 영수증에는 4000원이에요. 확인해 주세요.\n직원: 불편을 드려 죄송해요. 다른 크기가 있는지, 계산이 맞는지 먼저 확인할게요. 아직 환불이 정해진 것은 아니에요.\n손님: 네. 그리고 팔이 아파서 의자를 옮기기 어려워요. 도와주세요.",
+        "questions": [
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "옷에 관한 불편은?",
+              "en": "What is wrong with the clothing?",
+              "de": "Was ist das Problem mit dem Kleidungsstück?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "색이 마음에 들지 않아요."
+              },
+              {
+                "id": "0",
+                "text": "크기가 너무 작아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "prices",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가격 확인에 필요한 두 금액은?",
+              "en": "Which amounts need to be compared?",
+              "de": "Welche Beträge müssen verglichen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "가격표 3000원 / 영수증 4000원"
+              },
+              {
+                "id": "1",
+                "text": "가격표 4000원 / 영수증 3000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "refund",
+            "kind": "choice",
+            "prompt": {
+              "ko": "환불은 이미 결정됐어요?",
+              "en": "Has a refund already been decided?",
+              "de": "Ist eine Rückerstattung bereits beschlossen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "네. 전액 환불을 약속했어요."
+              },
+              {
+                "id": "0",
+                "text": "아니요. 직원이 먼저 확인해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이동 도움을 부탁한 이유는?",
+              "en": "Why was help moving an object requested?",
+              "de": "Warum wurde um Hilfe beim Tragen gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "돈이 없어서"
+              },
+              {
+                "id": "0",
+                "text": "팔이 아파서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "가상 문화센터 대여 창구\n손님: 운동복이 너무 작아요. 다른 크기로 바꿀 수 있어요? 가격표에는 4000원인데 영수증에는 5000원이에요. 확인해 주세요.\n직원: 불편을 드려 죄송해요. 다른 크기가 있는지, 계산이 맞는지 먼저 확인할게요. 아직 환불이 정해진 것은 아니에요.\n손님: 네. 그리고 손목이 아파서 상자를 옮기기 어려워요. 도와주세요.",
+        "questions": [
+          {
+            "id": "problem",
+            "kind": "choice",
+            "prompt": {
+              "ko": "옷에 관한 불편은?",
+              "en": "What is wrong with the clothing?",
+              "de": "Was ist das Problem mit dem Kleidungsstück?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "크기가 너무 작아요."
+              },
+              {
+                "id": "1",
+                "text": "색이 마음에 들지 않아요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "prices",
+            "kind": "choice",
+            "prompt": {
+              "ko": "가격 확인에 필요한 두 금액은?",
+              "en": "Which amounts need to be compared?",
+              "de": "Welche Beträge müssen verglichen werden?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "가격표 5000원 / 영수증 4000원"
+              },
+              {
+                "id": "0",
+                "text": "가격표 4000원 / 영수증 5000원"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "refund",
+            "kind": "choice",
+            "prompt": {
+              "ko": "환불은 이미 결정됐어요?",
+              "en": "Has a refund already been decided?",
+              "de": "Ist eine Rückerstattung bereits beschlossen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "아니요. 직원이 먼저 확인해요."
+              },
+              {
+                "id": "1",
+                "text": "네. 전액 환불을 약속했어요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          },
+          {
+            "id": "help",
+            "kind": "choice",
+            "prompt": {
+              "ko": "이동 도움을 부탁한 이유는?",
+              "en": "Why was help moving an object requested?",
+              "de": "Warum wurde um Hilfe beim Tragen gebeten?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "손목이 아파서"
+              },
+              {
+                "id": "1",
+                "text": "돈이 없어서"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "불편의 사실, 원하는 해결, 직원이 아직 확인할 일을 나눠 읽어요. 요청을 했다는 이유만으로 환불이 약속됐다고 보지 않아요. 가격·옷·몸 상태·도움 요청은 각각 다른 정보예요.",
+              "en": "Separate the reported problem, requested solution and facts staff still need to check. A request does not establish a refund promise. Keep prices, clothing, symptoms and help requests distinct.",
+              "de": "Unterscheide gemeldetes Problem, gewünschte Lösung und noch zu prüfende Angaben. Eine Bitte ist noch keine Rückerstattungszusage. Halte Preise, Kleidung, Beschwerden und Hilfewünsche auseinander."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:writing:03",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:writing:03",
+      "requirementKeys": [],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "담당자에게 격식 있게 문의하기",
+        "en": "Write a formal enquiry to staff",
+        "de": "Eine förmliche Anfrage an das Personal schreiben"
+      },
+      "teaching": {
+        "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+        "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+        "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 문화센터 담당자에게 보내는 문의문\n옷: 겉옷, 너무 작음. 다른 크기로 교환을 원함. 가격표: 3000원, 영수증: 4000원. 직원 확인 전이며 환불 약속 없음.\n개인적으로 전달할 몸 상태: 팔이 아픔. 필요한 도움: 의자 옮기기. 공개 게시판이 아닌 담당자 문의창이에요.\n격식 있는 서술과 공손한 확인 요청으로 전체 문의문을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "문의 내용과 요청을 완전한 글로 쓰세요.",
+              "en": "Write the complete enquiry and request.",
+              "de": "Schreibe die vollständige Anfrage mit deiner Bitte."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+              "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+              "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 문화센터 담당자에게 보내는 문의문\n옷: 운동복, 너무 작음. 다른 크기로 교환을 원함. 가격표: 4000원, 영수증: 5000원. 직원 확인 전이며 환불 약속 없음.\n개인적으로 전달할 몸 상태: 손목이 아픔. 필요한 도움: 상자 옮기기. 공개 게시판이 아닌 담당자 문의창이에요.\n격식 있는 서술과 공손한 확인 요청으로 전체 문의문을 쓰세요.",
+        "questions": [
+          {
+            "id": "draft",
+            "kind": "freeText",
+            "prompt": {
+              "ko": "문의 내용과 요청을 완전한 글로 쓰세요.",
+              "en": "Write the complete enquiry and request.",
+              "de": "Schreibe die vollständige Anfrage mit deiner Bitte."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [],
+            "explanation": {
+              "ko": "옷 크기와 가격 차이, 요청할 해결을 분명히 적었나요? 확인 전 환불 약속을 만들지 않았나요? 몸 상태와 필요한 도움만 전하고 없는 진단은 쓰지 않았나요? 담당자에게 하십시오체 문장과 공손한 요청을 사용했나요? 다시 써 보세요. 의미는 미채점이에요.",
+              "en": "Did you state the size and price problems and the requested solution? Keep the refund undecided. State only the given symptom and needed help, without inventing a diagnosis. Use formal statements and polite requests to staff. Revise; meaning remains unscored.",
+              "de": "Hast du Größen- und Preisproblem sowie die gewünschte Lösung genannt? Lass die Erstattung offen. Nenne nur die angegebene Beschwerde und benötigte Hilfe, ohne eine Diagnose zu erfinden. Verwende förmliche Aussagesätze und höfliche Bitten an das Personal. Überarbeite; der Inhalt bleibt unbewertet."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:reading:05",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:reading:05",
+      "requirementKeys": [],
+      "skill": "reading",
+      "mode": "R",
+      "contentRevision": 1,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "숙소 안내의 교통편과 조건",
+        "en": "Transport and conditions in a lodging leaflet",
+        "de": "Anreise und Bedingungen im Unterkunftsflyer"
+      },
+      "teaching": {
+        "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+        "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+        "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+      },
+      "examplesKo": [],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 숙소 안내\n역에서 가까운 편리한 숙소!\n한빛역에서 12번 버스로 두 정거장. 숙소 앞에서 내리세요.\n1인실 1박 50000원. 아침 식사는 별도 요금입니다.\n예약 확인 문자를 받은 뒤 방문하세요.",
+        "questions": [
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "역에서 무엇을 타요?",
+              "en": "What transport is used from the station?",
+              "de": "Was nimmt man ab dem Bahnhof?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "12번 기차"
+              },
+              {
+                "id": "0",
+                "text": "12번 버스"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제시된 가격의 범위는?",
+              "en": "What does the quoted price cover?",
+              "de": "Wofür gilt der angegebene Preis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "1인실 1박, 아침 식사는 별도"
+              },
+              {
+                "id": "1",
+                "text": "1인실 1박과 모든 식사"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방문 전에 확인할 것은?",
+              "en": "What must be checked before visiting?",
+              "de": "Was muss vor der Anreise vorliegen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예약 확인 문자"
+              },
+              {
+                "id": "1",
+                "text": "공연 입장권"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "text",
+        "sourceKo": "학습용 가상 숙소 안내\n역에서 가까운 편리한 숙소!\n새봄역에서 24번 버스로 두 정거장. 숙소 앞에서 내리세요.\n1인실 1박 60000원. 아침 식사는 별도 요금입니다.\n예약 확인 문자를 받은 뒤 방문하세요.",
+        "questions": [
+          {
+            "id": "transport",
+            "kind": "choice",
+            "prompt": {
+              "ko": "역에서 무엇을 타요?",
+              "en": "What transport is used from the station?",
+              "de": "Was nimmt man ab dem Bahnhof?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "24번 버스"
+              },
+              {
+                "id": "1",
+                "text": "24번 기차"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "price",
+            "kind": "choice",
+            "prompt": {
+              "ko": "제시된 가격의 범위는?",
+              "en": "What does the quoted price cover?",
+              "de": "Wofür gilt der angegebene Preis?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "1인실 1박과 모든 식사"
+              },
+              {
+                "id": "0",
+                "text": "1인실 1박, 아침 식사는 별도"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          },
+          {
+            "id": "condition",
+            "kind": "choice",
+            "prompt": {
+              "ko": "방문 전에 확인할 것은?",
+              "en": "What must be checked before visiting?",
+              "de": "Was muss vor der Anreise vorliegen?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "예약 확인 문자"
+              },
+              {
+                "id": "1",
+                "text": "공연 입장권"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "숙소 안내에서 역·버스·객실 가격·식사 포함 여부를 나눠 읽어요. 광고의 편리하다는 말만 보고 요금에 모든 것이 포함됐다고 생각하지 않아요.",
+              "en": "Separate the station, bus, room price and meal conditions in a lodging leaflet. A claim of convenience does not mean every service is included in the price.",
+              "de": "Unterscheide Bahnhof, Bus, Zimmerpreis und Verpflegung im Unterkunftsflyer. Die Aussage bequem bedeutet nicht, dass alle Leistungen im Preis enthalten sind."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:01",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:01",
+      "requirementKeys": [
+        "G2:-으면"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-으면 문장 만들기",
+        "en": "-으면: write a sentence",
+        "de": "-으면: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-(으)면 앞은 조건이에요. 조건이 주어졌다고 해서 이미 충족된 것은 아니에요.",
+        "en": "The clause before -(으)면 is a condition, not proof that it has been met.",
+        "de": "Vor -(으)면 steht eine Bedingung. Damit ist nicht gesagt, dass sie erfüllt ist."
+      },
+      "examplesKo": [
+        "시간이 있으면 같이 가요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "조건: 시간이 있다 / 함께 가자는 제안: 같이 가요 / -(으)면",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "시간이 있으면 같이 가요."
+            ],
+            "rejectedAnswers": [
+              "시간이 없어도 꼭 같이 가요."
+            ],
+            "explanation": {
+              "ko": "예: 시간이 있으면 같이 가요. 의미가 다른 예: 시간이 없어도 꼭 같이 가요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 시간이 있으면 같이 가요. Meaning or register error: 시간이 없어도 꼭 같이 가요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 시간이 있으면 같이 가요. Fehler bei Bedeutung oder Register: 시간이 없어도 꼭 같이 가요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "조건: 비가 오다 / 함께 집에 있자는 제안: 집에 있어요 / -(으)면",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "비가 오면 집에 있어요."
+            ],
+            "rejectedAnswers": [
+              "비가 안 와도 꼭 집에 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 비가 오면 집에 있어요. 의미가 다른 예: 비가 안 와도 꼭 집에 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 비가 오면 집에 있어요. Meaning or register error: 비가 안 와도 꼭 집에 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 비가 오면 집에 있어요. Fehler bei Bedeutung oder Register: 비가 안 와도 꼭 집에 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:02",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:02",
+      "requirementKeys": [
+        "G2:-거나"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-거나 문장 만들기",
+        "en": "-거나: write a sentence",
+        "de": "-거나: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-거나는 행동·상태의 대안이에요. 두 행동을 모두 해야 한다는 뜻은 아니에요.",
+        "en": "-거나 gives alternative actions or states; it does not require both.",
+        "de": "-거나 nennt alternative Handlungen oder Zustände. Beides ist nicht zwingend erforderlich."
+      },
+      "examplesKo": [
+        "주말에는 집에서 쉬거나 친구를 만나요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "주말 선택: 집에서 쉬다 또는 친구를 만나다 / -거나 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "주말에는 집에서 쉬거나 친구를 만나요."
+            ],
+            "rejectedAnswers": [
+              "주말에는 집에서 쉬고 친구를 만나요."
+            ],
+            "explanation": {
+              "ko": "예: 주말에는 집에서 쉬거나 친구를 만나요. 의미가 다른 예: 주말에는 집에서 쉬고 친구를 만나요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 주말에는 집에서 쉬거나 친구를 만나요. Meaning or register error: 주말에는 집에서 쉬고 친구를 만나요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 주말에는 집에서 쉬거나 친구를 만나요. Fehler bei Bedeutung oder Register: 주말에는 집에서 쉬고 친구를 만나요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "저녁 선택: 책을 읽다 또는 영화를 보다 / -거나 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "저녁에는 책을 읽거나 영화를 봐요."
+            ],
+            "rejectedAnswers": [
+              "저녁에는 책을 읽고 영화를 봐요."
+            ],
+            "explanation": {
+              "ko": "예: 저녁에는 책을 읽거나 영화를 봐요. 의미가 다른 예: 저녁에는 책을 읽고 영화를 봐요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 저녁에는 책을 읽거나 영화를 봐요. Meaning or register error: 저녁에는 책을 읽고 영화를 봐요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 저녁에는 책을 읽거나 영화를 봐요. Fehler bei Bedeutung oder Register: 저녁에는 책을 읽고 영화를 봐요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:03",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:03",
+      "requirementKeys": [
+        "G2:이나"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "이나 문장 만들기",
+        "en": "이나: write a sentence",
+        "de": "이나: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "명사에는 (이)나를 붙여 선택지를 이어요. 행동을 잇는 -거나와 구별해요.",
+        "en": "(이)나 links noun alternatives; distinguish action alternatives with -거나.",
+        "de": "(이)나 verbindet alternative Nomen. Für Handlungsalternativen steht -거나."
+      },
+      "examplesKo": [
+        "차나 커피를 마실까요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "둘 중 하나 제안: 차 또는 커피 / 마시다 / (이)나와 -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "차나 커피를 마실까요?"
+            ],
+            "rejectedAnswers": [
+              "차하고 커피를 모두 마실까요?"
+            ],
+            "explanation": {
+              "ko": "예: 차나 커피를 마실까요? 의미가 다른 예: 차하고 커피를 모두 마실까요? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 차나 커피를 마실까요? Meaning or register error: 차하고 커피를 모두 마실까요? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 차나 커피를 마실까요? Fehler bei Bedeutung oder Register: 차하고 커피를 모두 마실까요? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "둘 중 하나 제안: 빵 또는 과일 / 먹다 / (이)나와 -(으)ㄹ까요",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "빵이나 과일을 먹을까요?"
+            ],
+            "rejectedAnswers": [
+              "빵하고 과일을 모두 먹을까요?"
+            ],
+            "explanation": {
+              "ko": "예: 빵이나 과일을 먹을까요? 의미가 다른 예: 빵하고 과일을 모두 먹을까요? 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 빵이나 과일을 먹을까요? Meaning or register error: 빵하고 과일을 모두 먹을까요? Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 빵이나 과일을 먹을까요? Fehler bei Bedeutung oder Register: 빵하고 과일을 모두 먹을까요? Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:04",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:04",
+      "requirementKeys": [
+        "G2:마다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "마다 문장 만들기",
+        "en": "마다: write a sentence",
+        "de": "마다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "마다의 반복 범위는 앞 명사예요. 월요일마다는 모든 월요일이지 매일이 아니에요.",
+        "en": "마다 repeats over the preceding unit. 월요일마다 means every Monday, not every day.",
+        "de": "마다 bezieht sich auf die genannte Einheit. 월요일마다 heißt jeden Montag, nicht jeden Tag."
+      },
+      "examplesKo": [
+        "주말마다 운동해요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "매주 주말 / 운동하다 / 주말+마다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "주말마다 운동해요."
+            ],
+            "rejectedAnswers": [
+              "이번 주말에만 운동해요."
+            ],
+            "explanation": {
+              "ko": "예: 주말마다 운동해요. 의미가 다른 예: 이번 주말에만 운동해요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 주말마다 운동해요. Meaning or register error: 이번 주말에만 운동해요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 주말마다 운동해요. Fehler bei Bedeutung oder Register: 이번 주말에만 운동해요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "매주 월요일 / 수업이 있다 / 월요일+마다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "월요일마다 수업이 있어요."
+            ],
+            "rejectedAnswers": [
+              "이번 월요일에만 수업이 있어요."
+            ],
+            "explanation": {
+              "ko": "예: 월요일마다 수업이 있어요. 의미가 다른 예: 이번 월요일에만 수업이 있어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 월요일마다 수업이 있어요. Meaning or register error: 이번 월요일에만 수업이 있어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 월요일마다 수업이 있어요. Fehler bei Bedeutung oder Register: 이번 월요일에만 수업이 있어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:05",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:05",
+      "requirementKeys": [
+        "G2:밖에"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "밖에 문장 만들기",
+        "en": "밖에: write a sentence",
+        "de": "밖에: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "밖에는 여기서 부정과 함께 범위를 제한해요. 두 개밖에 없다는 두 개가 있다는 뜻이에요.",
+        "en": "With negation, 밖에 limits the amount. 두 개밖에 없다 means there are only two, not zero.",
+        "de": "Mit einer Verneinung begrenzt 밖에 die Menge. 두 개밖에 없다 bedeutet nur zwei, nicht null."
+      },
+      "examplesKo": [
+        "물이 한 병밖에 없어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "남은 물: 한 병뿐 / 물 / 한 병 / 밖에 / 없다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "물이 한 병밖에 없어요."
+            ],
+            "rejectedAnswers": [
+              "물이 한 병도 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 물이 한 병밖에 없어요. 의미가 다른 예: 물이 한 병도 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 물이 한 병밖에 없어요. Meaning or register error: 물이 한 병도 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 물이 한 병밖에 없어요. Fehler bei Bedeutung oder Register: 물이 한 병도 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "남은 표: 두 장뿐 / 표 / 두 장 / 밖에 / 없다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "표가 두 장밖에 없어요."
+            ],
+            "rejectedAnswers": [
+              "표가 두 장도 없어요."
+            ],
+            "explanation": {
+              "ko": "예: 표가 두 장밖에 없어요. 의미가 다른 예: 표가 두 장도 없어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 표가 두 장밖에 없어요. Meaning or register error: 표가 두 장도 없어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 표가 두 장밖에 없어요. Fehler bei Bedeutung oder Register: 표가 두 장도 없어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:06",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:06",
+      "requirementKeys": [
+        "G2:처럼"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "처럼 문장 만들기",
+        "en": "처럼: write a sentence",
+        "de": "처럼: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "처럼은 비슷한 모습이나 방식을 비교해요. 비교한다고 같은 사람이나 물건이 되는 것은 아니에요.",
+        "en": "처럼 compares appearance or manner; it does not make two people or objects identical.",
+        "de": "처럼 vergleicht Aussehen oder Art und Weise. Die verglichenen Personen oder Dinge sind nicht identisch."
+      },
+      "examplesKo": [
+        "가수처럼 노래하고 싶어요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 가수와 비슷하게 노래하다 / 가수+처럼 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "가수처럼 노래하고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "가수보다 노래를 잘하고 싶어요."
+            ],
+            "explanation": {
+              "ko": "예: 가수처럼 노래하고 싶어요. 의미가 다른 예: 가수보다 노래를 잘하고 싶어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 가수처럼 노래하고 싶어요. Meaning or register error: 가수보다 노래를 잘하고 싶어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 가수처럼 노래하고 싶어요. Fehler bei Bedeutung oder Register: 가수보다 노래를 잘하고 싶어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "나의 희망: 친구와 비슷하게 그림을 그리다 / 친구+처럼 / -고 싶다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "친구처럼 그림을 그리고 싶어요."
+            ],
+            "rejectedAnswers": [
+              "친구보다 그림을 잘 그리고 싶어요."
+            ],
+            "explanation": {
+              "ko": "예: 친구처럼 그림을 그리고 싶어요. 의미가 다른 예: 친구보다 그림을 잘 그리고 싶어요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 친구처럼 그림을 그리고 싶어요. Meaning or register error: 친구보다 그림을 잘 그리고 싶어요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 친구처럼 그림을 그리고 싶어요. Fehler bei Bedeutung oder Register: 친구보다 그림을 잘 그리고 싶어요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:07",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:07",
+      "requirementKeys": [
+        "G2:-어도 되다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어도 되다 문장 만들기",
+        "en": "-어도 되다: write a sentence",
+        "de": "-어도 되다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-아/어도 되다는 허용이에요. 반드시 해야 한다는 의무와 구별해요.",
+        "en": "-아/어도 되다 gives permission, not an obligation.",
+        "de": "-아/어도 되다 drückt eine Erlaubnis aus, keine Pflicht."
+      },
+      "examplesKo": [
+        "여기에 앉아도 돼요?"
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "안내원에게 허용 여부 질문: 여기 / 앉다 / -어도 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에 앉아도 돼요?"
+            ],
+            "rejectedAnswers": [
+              "여기에 앉아야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 여기에 앉아도 돼요? 의미가 다른 예: 여기에 앉아야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에 앉아도 돼요? Meaning or register error: 여기에 앉아야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에 앉아도 돼요? Fehler bei Bedeutung oder Register: 여기에 앉아야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "안내원에게 허용 여부 질문: 사진을 찍다 / -어도 되다 / 해요체",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "사진을 찍어도 돼요?"
+            ],
+            "rejectedAnswers": [
+              "사진을 찍어야 돼요."
+            ],
+            "explanation": {
+              "ko": "예: 사진을 찍어도 돼요? 의미가 다른 예: 사진을 찍어야 돼요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 사진을 찍어도 돼요? Meaning or register error: 사진을 찍어야 돼요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 사진을 찍어도 돼요? Fehler bei Bedeutung oder Register: 사진을 찍어야 돼요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:08",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:08",
+      "requirementKeys": [
+        "G2:-지 말다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-지 말다 문장 만들기",
+        "en": "-지 말다: write a sentence",
+        "de": "-지 말다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-지 말다는 행동을 하지 말라는 요청·금지예요. 해도 된다는 말로 바꾸지 않아요.",
+        "en": "-지 말다 asks or instructs someone not to act; it is not permission.",
+        "de": "-지 말다 fordert dazu auf, etwas nicht zu tun. Es ist keine Erlaubnis."
+      },
+      "examplesKo": [
+        "여기에서 사진을 찍지 마세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "가상 시설 규칙 전달: 여기 / 사진을 찍다 금지 / -지 말다 / 해요체 요청",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에서 사진을 찍지 마세요."
+            ],
+            "rejectedAnswers": [
+              "여기에서 사진을 찍으세요."
+            ],
+            "explanation": {
+              "ko": "예: 여기에서 사진을 찍지 마세요. 의미가 다른 예: 여기에서 사진을 찍으세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에서 사진을 찍지 마세요. Meaning or register error: 여기에서 사진을 찍으세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에서 사진을 찍지 마세요. Fehler bei Bedeutung oder Register: 여기에서 사진을 찍으세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "가상 도서관 규칙 전달: 여기 / 전화하다 금지 / -지 말다 / 해요체 요청",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "여기에서 전화하지 마세요."
+            ],
+            "rejectedAnswers": [
+              "여기에서 전화하세요."
+            ],
+            "explanation": {
+              "ko": "예: 여기에서 전화하지 마세요. 의미가 다른 예: 여기에서 전화하세요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 여기에서 전화하지 마세요. Meaning or register error: 여기에서 전화하세요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 여기에서 전화하지 마세요. Fehler bei Bedeutung oder Register: 여기에서 전화하세요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "KP05:production:09",
+      "phaseId": "KP05",
+      "level": "A2",
+      "objectiveId": "KP05:production:09",
+      "requirementKeys": [
+        "G2:-어 주다"
+      ],
+      "skill": "writing",
+      "mode": "P",
+      "contentRevision": 2,
+      "rubricVersion": 1,
+      "title": {
+        "ko": "-어 주다 문장 만들기",
+        "en": "-어 주다: write a sentence",
+        "de": "-어 주다: einen Satz bilden"
+      },
+      "teaching": {
+        "ko": "-아/어 주다는 다른 사람을 위해 하는 행동이에요. 누가 누구를 돕는지 확인해요.",
+        "en": "-아/어 주다 presents an action done for another person. Identify helper and beneficiary.",
+        "de": "-아/어 주다 bezeichnet eine Handlung für eine andere Person. Achte darauf, wer wem hilft."
+      },
+      "examplesKo": [
+        "이름을 써 주세요."
+      ],
+      "minimumScore": 1,
+      "prerequisiteTaskIds": [],
+      "practice": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 도움 요청: 이름을 쓰다 / -어 주다 / 해요체 요청",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "이름을 써 주세요."
+            ],
+            "rejectedAnswers": [
+              "제가 이름을 쓸게요."
+            ],
+            "explanation": {
+              "ko": "예: 이름을 써 주세요. 의미가 다른 예: 제가 이름을 쓸게요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이름을 써 주세요. Meaning or register error: 제가 이름을 쓸게요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이름을 써 주세요. Fehler bei Bedeutung oder Register: 제가 이름을 쓸게요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      },
+      "assessment": {
+        "sourceKind": "form",
+        "sourceKo": "동료에게 도움 요청: 문을 열다 / -어 주다 / 해요체 요청",
+        "questions": [
+          {
+            "id": "sentence",
+            "kind": "boundedSentence",
+            "prompt": {
+              "ko": "조건에 맞는 완전한 문장을 쓰세요.",
+              "en": "Write a complete sentence that meets the given conditions.",
+              "de": "Schreibe einen vollständigen Satz, der die Vorgaben erfüllt."
+            },
+            "required": true,
+            "options": [],
+            "acceptedAnswers": [
+              "문을 열어 주세요."
+            ],
+            "rejectedAnswers": [
+              "제가 문을 열게요."
+            ],
+            "explanation": {
+              "ko": "예: 문을 열어 주세요. 의미가 다른 예: 제가 문을 열게요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 문을 열어 주세요. Meaning or register error: 제가 문을 열게요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 문을 열어 주세요. Fehler bei Bedeutung oder Register: 제가 문을 열게요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

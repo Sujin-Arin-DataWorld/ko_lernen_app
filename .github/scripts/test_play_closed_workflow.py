@@ -15,9 +15,15 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         self.assertNotIn("pull_request:", workflow)
         self.assertNotIn("\n  push:", workflow)
         self.assertIn("expected_sha:", workflow)
+        self.assertIn("target_track:", workflow)
+        self.assertIn("default: alpha", workflow)
+        self.assertRegex(workflow, r"options:\s+\- alpha\s+\- beta")
         self.assertIn('GITHUB_REF" != "refs/heads/main', workflow)
         self.assertIn("^[0-9a-f]{40}$", workflow)
         self.assertIn('GITHUB_SHA" != "$EXPECTED_SHA', workflow)
+        self.assertIn('case "$TARGET_TRACK" in', workflow)
+        self.assertIn("alpha|beta)", workflow)
+        self.assertIn("Unsupported public testing track", workflow)
 
     def test_requires_successful_exact_sha_main_ci(self):
         workflow = self.workflow
@@ -28,7 +34,7 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         self.assertIn('.event == "push"', workflow)
         self.assertIn('.conclusion == "success"', workflow)
 
-    def test_signed_bundle_targets_closed_alpha_only(self):
+    def test_signed_bundle_targets_allowlisted_public_testing_track(self):
         workflow = self.workflow
         self.assertIn("flutter build appbundle --release --obfuscate", workflow)
         self.assertIn("--dart-define=ENABLE_TESTER_FEEDBACK=true", workflow)
@@ -51,10 +57,10 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         self.assertIn("GOOGLE_PLAY_SERVICE_ACCOUNT_JSON", workflow)
         self.assertEqual(workflow.count("r0adkll/upload-google-play"), 1)
         self.assertEqual(workflow.count("tracks:"), 1)
-        self.assertIn("tracks: alpha", workflow)
+        self.assertIn("PLAY_TRACK: ${{ inputs.target_track }}", workflow)
+        self.assertIn("tracks: ${{ inputs.target_track }}", workflow)
         for forbidden in (
             "tracks: internal",
-            "tracks: beta",
             "tracks: open",
             "tracks: production",
         ):
@@ -62,7 +68,7 @@ class PlayClosedWorkflowTest(unittest.TestCase):
 
     def test_artifacts_and_concurrency_are_retained_safely(self):
         workflow = self.workflow
-        self.assertIn("group: google-play-closed", workflow)
+        self.assertIn("group: google-play-public-testing", workflow)
         self.assertIn("cancel-in-progress: false", workflow)
         self.assertIn("fetch-depth: 0", workflow)
         self.assertIn("sha256sum", workflow)

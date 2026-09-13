@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "reviews": [
+    {
+      "taskId": "KP24:grammar:01",
+      "sha256": "3f84e6f16bcec729046d4baf387f806c1ddaba4cb2f7c952b96d0332cc3875f3",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 거라 imperative limited to explicitly fictional guardian-child stage lines, never default polite command to equal adults. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:01",
+      "sha256": "7892d60ed1ebd09d16b16609fbe0053b4595698319c63adb3c7fc6df528930b9",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 거라 imperative limited to explicitly fictional guardian-child stage lines, never default polite command to equal adults. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:02",
+      "sha256": "2a0ef0a765a12c6eb4db2642f3d1bb45eb8ac63fd4b2dfdf8aba1cc383832ec1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 고말고 emphatic understanding/knowledge of effort, scope excludes taking over work or approving every outcome. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:02",
+      "sha256": "783e980139058d433bec76f6b7d5be90a1bceb072098cc482b02476aaf4ca9ad",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 고말고 emphatic understanding/knowledge of effort, scope excludes taking over work or approving every outcome. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:03",
+      "sha256": "9d7f27de0450dea610838299870f5098438831fe8941b2ff18314b87a403c55c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 네2 noticing/evaluation; helpfulness/thanks support positive reading, changed schedule without context leaves emotion unknown. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:03",
+      "sha256": "963de50371c05ab17d4c1d079ed3ce1d681358ae951f50435e6c353eeeba8375",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 네2 noticing/evaluation; helpfulness/thanks support positive reading, changed schedule without context leaves emotion unknown. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:04",
+      "sha256": "d6de7ea5fe2ec5eb1490f660616f0810dbf154e1949eccf981d6c1bcbfca295a",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는걸 sentence-final light correction of easy/no-seats expectation, not object-contracted 것을 or agreement with false premise. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:04",
+      "sha256": "860cae26029aedb02ed43de6ee5492f88407c5976d0d0aebf2dc14049a914047",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는걸 sentence-final light correction of easy/no-seats expectation, not object-contracted 것을 or agreement with false premise. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:05",
+      "sha256": "65bf96c6ed23d2c8864f32e5ad1b85d6bb41b157580eb888036a6a11b1dba630",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으려고2 sentence-final intention query with burden/information follow-up, not obligatory action, categorical incompetence or absolute prohibition. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:05",
+      "sha256": "0e1b2175c6f6f72ee0b7fc7e7347ecc34cf2fd77a736db9bd504aed208d39293",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으려고2 sentence-final intention query with burden/information follow-up, not obligatory action, categorical incompetence or absolute prohibition. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:06",
+      "sha256": "e534af237d3d312dec071752baa0556e32360f18afe67886b88eae7dc1a34728",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 게 생겼다 impending conditional missed promise/postponement, not already occurred or decided result. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:06",
+      "sha256": "ed3f9d6d4cd7d64a8b3521ec586db8b929739d50904e4af1ec28d53beb3f0eef",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 게 생겼다 impending conditional missed promise/postponement, not already occurred or decided result. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:07",
+      "sha256": "f461c26f4f7d6eb61b0ef8d8cf8ad8a1d11ce618eb21c1654cbdc886bb1a9b44",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 는 척하다 narrator explicitly establishes knowledge/boredom versus displayed ignorance/interest, not inference from a nod alone. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:07",
+      "sha256": "031018b38f18edda1cf1145be241ebddd9d780c4cdd6b122d71184c1b4afb065",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 는 척하다 narrator explicitly establishes knowledge/boredom versus displayed ignorance/interest, not inference from a nod alone. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:08",
+      "sha256": "426f0b00831e4f965f9b6be259190b4402d8de14049a98ae93c1cae738e7da0c",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 기만 하다 repeated discussion without decision, listening without spoken agreement, not accomplished decision/assent. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:08",
+      "sha256": "f0ef9b27666f95a388f54283371193c7823d690edee3f8430c4a0fcc9cae4cb1",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 기만 하다 repeated discussion without decision, listening without spoken agreement, not accomplished decision/assent. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:09",
+      "sha256": "a8d3c14cb2c64d7b95a3a850ecb40b0f137791a29013fffd0b4f953f33ea4d8b",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 따라 particle singles out today/that day compared with ordinary occasions, not always or following somebody. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:09",
+      "sha256": "ccb92c1e29c2d57583ea3aa902d60a913d122494b53364ba3961edc47feb7ac0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 따라 particle singles out today/that day compared with ordinary occasions, not always or following somebody. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:10",
+      "sha256": "652699fdd56d48c5ecf2f278fcb178865119111bc480cf1e136d32c4842fe4d6",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 이라든가 illustrative document/recording and minutes/note choices, explicitly open alternatives not mandatory exhaustive conjunction. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:10",
+      "sha256": "91620092cbecf600024b9f6e77497be1f05215fb82fd7341471ee0ada0c5a1ff",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 이라든가 illustrative document/recording and minutes/note choices, explicitly open alternatives not mandatory exhaustive conjunction. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:11",
+      "sha256": "ce7007fd169b9364b94a524de2ebd860e89345a2f6d1bc8cf09ff471a66334ce",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 길래 observed silence/tense expression triggers renewed question, hidden motive remains unknown. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:11",
+      "sha256": "56abd6225bed53fbf554f0986c0e49004f9d63520adc8280057e34de54f3f935",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 길래 observed silence/tense expression triggers renewed question, hidden motive remains unknown. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:grammar:12",
+      "sha256": "20edf337a1057070a6003d37672f40997db7d769c5e823c9fe388a840de7a5a4",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE checked: 으시 spiral maintains third-person teacher honorification inside casual friend-directed hearsay, no upgrade to directly witnessed attendance. Practice-only study sample, receptive use only."
+    },
+    {
+      "taskId": "KP24:production:12",
+      "sha256": "1a472e9c782fe5d4a8d84cd8e3feb38d6b75165a86815699a015c882ffefedf0",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE bounded production checked: 으시 spiral maintains third-person teacher honorification inside casual friend-directed hearsay, no upgrade to directly witnessed attendance. Held-out conditions and critical contrast, unknown alternate wording unscored."
+    },
+    {
+      "taskId": "KP24:listening:01",
+      "sha256": "ef7a37f0567a058ea6b12dc84c8f8fb07524db06d6e91a3fc9f7992bc7450dde",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: fictional mutually agreed casual adult friendship versus polite/formal public meeting,6Thursday versus9Friday. Same exclamation gets explicit support/thanks versus blank criticism and declared non-praise; assesses contextual support, not TTS emotional authenticity. Intention question followed by burden-sharing offer, repair without blaming listener. Understanding excludes work takeover, nod/silence not full assent. Teacher honorification and hearsay preserved. Six required context/scope/register criteria; actual intonation/inner feelings unverified."
+    },
+    {
+      "taskId": "KP24:listening:02",
+      "sha256": "08c75de082184a9274a02360b83053bf572113659872a6f408d54d269e7070f7",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: separate long lecture context contrast→limits of prosodic inference→narrator versus character→relationship and repair. Distinguishes irony and cynicism without equating them universally, narrator-stated knowledge versus character inference, no interpersonal diagnosis. Three required structure/source/repair criteria. Delivery itself not certified as emotional prosody."
+    },
+    {
+      "taskId": "KP24:reading:01",
+      "sha256": "d8234ee1e4d3d5db3a5327f50e7dfac5d8a5b001f379c9a78dc54a317c845034",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: original multi-paragraph literary dialogue plus two actual critiques and two EN/DE translation alternatives. Opening ambiguous praise/rebuke remains open, narrator knows pretence while character infers disregard; cooperative follow-up supports concern without proving pure intention. A adds certainty/direct verification absent from teacher-attendance hearsay; B preserves hearsay with explained honorific/register limits. Weekdays accurately translated Thursday/Donnerstag and Friday/Freitag; corrected name particles before review. Seven required interpretive/source/translation contrasts."
+    },
+    {
+      "taskId": "KP24:writing:01",
+      "sha256": "cb010e0caa512428f58f74c708b88ed32d8b84a2e53ffb0c896289f61cb65472",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: three required complete texts, intimate reflection, public reflection with sentence-level distance notes, and critical argument with strongest objection/alternative reading. Preserve actual agreed relationship, third-person honorification, hearsay, unresolved responsibility and distinction among narrator/character/critic. Correct added certainty without asserting opposite intention; source-bound revision, no decorative hedging substitute. Meaning/style effects unscored."
+    },
+    {
+      "taskId": "KP24:speaking:01",
+      "sha256": "bb53cc055a0d2ed63f4fe4a4419bd9e759678fb3e26c7c0aa23974c4635d0598",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "checks": [
+        "KO",
+        "EN",
+        "DE",
+        "answer-rubric"
+      ],
+      "note": "KO/EN/DE: mutually agreed casual repair of perceived sarcasm preserves listener choice and facts, then polite colleague and formal meeting versions with teacher honorification/hearsay/open roles. Record same 네/는걸 in supportive/corrective contexts and replay pauses/focus; no automatic inner-state judgement. Korean mediation exclamation-to-certain-emotion/hearsay-to-assurance. Guardian-child stage 거라 not licensed as adult-peer command. Meaning/intonation/stance unscored."
+    }
+  ]
+}
