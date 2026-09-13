@@ -5834,7 +5834,7 @@
       "objectiveId": "KP10:objective:listening/core:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "aea3760901e33933d4bd1cd8063be475cdaa571a3b818a67d7ae5993b54422dc",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -5935,7 +5935,7 @@
       "objectiveId": "KP10:objective:functions/narrate_experience_events:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "b59a9becf07dbf0633b9dee69936d6c3412bcb52b22d862a4b720810d7d4b558",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -6010,7 +6010,7 @@
       "objectiveId": "KP10:objective:vocabDomains/professions_workplace:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "a332904a87397d0feef598a60612750bda77fca87c68f34701ae3739ef2bb5d8",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -6085,7 +6085,7 @@
       "objectiveId": "KP10:objective:vocabDomains/fixed_expressions_collocations:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "30d613365cc9720d6bd52b492710e93c8c8ae82f6236d30fa3c0541966b735e0",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -6109,7 +6109,7 @@
       "objectiveId": "KP10:objective:phonology/0:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "d5a48dd92285f9d325461f8da25a22e23411ee0be634bd2f159749cde74fc15f",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -6133,7 +6133,7 @@
       "objectiveId": "KP10:objective:phonology/1:R",
       "taskId": "KP10:listening:01",
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
-      "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "criterionIds": [
         "plan",
         "interrupted",
@@ -7223,8 +7223,10 @@
       "objectiveId": "KP12:objective:reading/core:R",
       "taskId": "KP12:reading:01",
       "sourceHash": "af36f4c54c095cb354eae1f8c281196f6632b793d5302e4b63353a5fe737a64c",
-      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
       "criterionIds": [
+        "opening",
+        "closing",
         "request",
         "deadline",
         "beneficiary",
@@ -7237,8 +7239,10 @@
       "objectiveId": "KP12:objective:reading/genre/email_letter_formal:R",
       "taskId": "KP12:reading:01",
       "sourceHash": "295c1a692d4e656bbabf8e4e4b6613b98b23f9030f26a8d7134e33fdd0a677b7",
-      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
       "criterionIds": [
+        "opening",
+        "closing",
         "request",
         "deadline",
         "beneficiary",
@@ -7353,8 +7357,10 @@
       "objectiveId": "KP12:objective:functions/complain_object_appeal:R",
       "taskId": "KP12:reading:01",
       "sourceHash": "05a71a74f06c6afb92140daa5d6bcdfb0ac11bee715d015621b13d1c7ad1c74b",
-      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
       "criterionIds": [
+        "opening",
+        "closing",
         "request",
         "deadline",
         "beneficiary",
@@ -7476,8 +7482,10 @@
       "objectiveId": "KP12:objective:vocabDomains/fixed_expressions_collocations:R",
       "taskId": "KP12:reading:01",
       "sourceHash": "f4f897c9914252f269927de45f21fb34ae04b72808622e0790e619fa3cc4a63e",
-      "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
       "criterionIds": [
+        "opening",
+        "closing",
         "request",
         "deadline",
         "beneficiary",

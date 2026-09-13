@@ -354,7 +354,7 @@
     },
     {
       "taskId": "KP12:reading:01",
-      "sha256": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+      "sha256": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -363,7 +363,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "Real fictional formal request email: sender to staff, material later for teacher, feasibility-conditioned review deadline with alternative invitation, location issue/impact/remedy, receipt not publication permission. Request not ability test."
+      "note": "이메일 첫 단락의 문의 사유·확인 요청과 감사 앞 후속 조정을 구별하는 문항을 KO/EN/DE로 추가했다. 실제 도입·마무리·허가 경계를 확인했고 미응답 자동 공개를 오답으로 유지했다."
     },
     {
       "taskId": "KP12:reading:02",

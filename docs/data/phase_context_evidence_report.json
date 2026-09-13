@@ -6998,6 +6998,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7008,6 +7012,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7018,6 +7026,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7028,6 +7040,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7038,6 +7054,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7048,6 +7068,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7058,6 +7082,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7068,6 +7096,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7078,6 +7110,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7088,6 +7124,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7098,6 +7138,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7108,6 +7152,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7118,6 +7166,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7128,6 +7180,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7138,6 +7194,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7148,6 +7208,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7158,6 +7222,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7168,6 +7236,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7178,6 +7250,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7188,6 +7264,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7198,6 +7278,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7208,6 +7292,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7218,6 +7306,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7228,6 +7320,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7238,6 +7334,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7248,6 +7348,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7258,6 +7362,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7268,6 +7376,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7278,6 +7390,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7288,6 +7404,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7298,6 +7418,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7308,6 +7432,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7318,6 +7446,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7328,6 +7460,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7338,6 +7474,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7348,6 +7488,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7358,6 +7502,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7368,6 +7516,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7378,6 +7530,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7388,6 +7544,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7398,6 +7558,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7408,6 +7572,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7418,6 +7586,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7428,6 +7600,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7438,6 +7614,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7448,6 +7628,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7458,6 +7642,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7468,6 +7656,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7478,6 +7670,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7488,6 +7684,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7498,6 +7698,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7508,6 +7712,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7518,6 +7726,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7528,6 +7740,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7538,6 +7754,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7548,6 +7768,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7558,6 +7782,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7568,6 +7796,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7578,6 +7810,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7588,6 +7824,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7598,6 +7838,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7608,6 +7852,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7618,6 +7866,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7628,6 +7880,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7638,6 +7894,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7648,6 +7908,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7658,6 +7922,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7668,6 +7936,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7678,6 +7950,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7688,6 +7964,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7698,6 +7978,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7708,6 +7992,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7718,6 +8006,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7728,6 +8020,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7738,6 +8034,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7748,6 +8048,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7758,6 +8062,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7768,6 +8076,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7778,6 +8090,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7788,6 +8104,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7798,6 +8118,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7808,6 +8132,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7818,6 +8146,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7828,6 +8160,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7838,6 +8174,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7848,6 +8188,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7858,6 +8202,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7868,6 +8216,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7878,6 +8230,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7888,6 +8244,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7898,6 +8258,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7908,6 +8272,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7918,6 +8286,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7928,6 +8300,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 0,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -7938,6 +8314,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7948,6 +8328,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7958,6 +8342,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7968,6 +8356,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7978,6 +8370,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7988,6 +8384,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -7998,6 +8398,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8008,6 +8412,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8018,6 +8426,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8028,6 +8440,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8038,6 +8454,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8048,6 +8468,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8058,6 +8482,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8068,6 +8496,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8078,6 +8510,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8088,6 +8524,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8098,6 +8538,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8108,6 +8552,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8118,6 +8566,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8128,6 +8580,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8138,6 +8594,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8148,6 +8608,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8158,6 +8622,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8168,6 +8636,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8178,6 +8650,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8188,6 +8664,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8198,6 +8678,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8208,6 +8692,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8218,6 +8706,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8228,6 +8720,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8238,6 +8734,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8248,6 +8748,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8258,6 +8762,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8268,6 +8776,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8278,6 +8790,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8288,6 +8804,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8298,6 +8818,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8308,6 +8832,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8318,6 +8846,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8328,6 +8860,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8338,6 +8874,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8348,6 +8888,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8358,6 +8902,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8368,6 +8916,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8378,6 +8930,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8388,6 +8944,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8398,6 +8958,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8408,6 +8972,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8418,6 +8986,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8428,6 +9000,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8438,6 +9014,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8448,6 +9028,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8458,6 +9042,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8468,6 +9056,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8478,6 +9070,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8488,6 +9084,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8498,6 +9098,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8508,6 +9112,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8518,6 +9126,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8528,6 +9140,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8538,6 +9154,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8548,6 +9168,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8558,6 +9182,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8568,6 +9196,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8578,6 +9210,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8588,6 +9224,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8598,6 +9238,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8608,6 +9252,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8618,6 +9266,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8628,6 +9280,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8638,6 +9294,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -8648,6 +9308,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8658,6 +9322,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8668,6 +9336,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8678,6 +9350,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8688,6 +9364,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8698,6 +9378,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8708,6 +9392,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8718,6 +9406,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8728,6 +9420,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8738,6 +9434,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8748,6 +9448,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8758,6 +9462,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8768,6 +9476,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8778,6 +9490,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8788,6 +9504,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8798,6 +9518,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8808,6 +9532,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8818,6 +9546,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8828,6 +9560,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8838,6 +9574,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8848,6 +9588,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8858,6 +9602,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8868,6 +9616,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8878,6 +9630,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -8888,6 +9644,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8898,6 +9658,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8908,6 +9672,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -8918,6 +9686,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8928,6 +9700,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8938,6 +9714,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8948,6 +9728,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8958,6 +9742,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -8968,6 +9756,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8978,6 +9770,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8988,6 +9784,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -8998,6 +9798,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9008,6 +9812,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9018,6 +9826,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9028,6 +9840,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9038,6 +9854,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9048,6 +9868,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9058,6 +9882,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9068,6 +9896,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9078,6 +9910,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9088,6 +9924,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9098,6 +9938,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9108,6 +9952,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9118,6 +9966,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9128,6 +9980,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9138,6 +9994,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9148,6 +10008,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9158,6 +10022,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9168,6 +10036,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9178,6 +10050,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9188,6 +10064,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9198,6 +10078,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9208,6 +10092,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9218,6 +10106,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9228,6 +10120,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9238,6 +10134,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9248,6 +10148,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9258,6 +10162,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9268,6 +10176,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9278,6 +10190,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9288,6 +10204,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9298,6 +10218,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9308,6 +10232,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9318,6 +10246,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9328,6 +10260,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9338,6 +10274,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9348,6 +10288,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9358,6 +10302,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9368,6 +10316,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9378,6 +10330,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9388,6 +10344,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9398,6 +10358,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9408,6 +10372,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9418,6 +10386,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9428,6 +10400,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9438,6 +10414,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9448,6 +10428,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9458,6 +10442,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9468,6 +10456,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9478,6 +10470,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9488,6 +10484,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9498,6 +10498,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9508,6 +10512,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9518,6 +10526,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9528,6 +10540,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9538,6 +10554,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9548,6 +10568,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9558,6 +10582,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9568,6 +10596,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9578,6 +10610,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9588,6 +10624,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9598,6 +10638,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9608,6 +10652,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9618,6 +10666,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9628,6 +10680,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9638,6 +10694,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9648,6 +10708,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9658,6 +10722,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9668,6 +10736,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9678,6 +10750,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9688,6 +10764,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9698,6 +10778,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9708,6 +10792,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9718,6 +10806,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9728,6 +10820,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9738,6 +10834,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9748,6 +10848,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9758,6 +10862,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9768,6 +10876,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9778,6 +10890,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9788,6 +10904,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9798,6 +10918,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9808,6 +10932,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9818,6 +10946,10 @@
       "sameLevelAnchors": 3,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 2,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9828,6 +10960,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9838,6 +10974,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9848,6 +10988,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9858,6 +11002,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9868,6 +11016,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9878,6 +11030,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9888,6 +11044,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9898,6 +11058,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9908,6 +11072,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9918,6 +11086,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9928,6 +11100,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9938,6 +11114,10 @@
       "sameLevelAnchors": 3,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 2,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9948,6 +11128,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9958,6 +11142,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9968,6 +11156,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9978,6 +11170,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -9988,6 +11184,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -9998,6 +11198,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10008,6 +11212,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10018,6 +11226,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10028,6 +11240,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10038,6 +11254,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10048,6 +11268,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10058,6 +11282,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10068,6 +11296,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10078,6 +11310,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10088,6 +11324,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10098,6 +11338,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10108,6 +11352,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10118,6 +11366,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10128,6 +11380,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10138,6 +11394,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10148,6 +11408,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10158,6 +11422,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10168,6 +11436,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10178,6 +11450,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -10188,6 +11464,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10198,6 +11478,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10208,6 +11492,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10218,6 +11506,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10228,6 +11520,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10238,6 +11534,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10248,6 +11548,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10258,6 +11562,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10268,6 +11576,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10278,6 +11590,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10288,6 +11604,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10298,6 +11618,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10308,6 +11632,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10318,6 +11646,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10328,6 +11660,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10338,6 +11674,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10348,6 +11688,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10358,6 +11702,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10368,6 +11716,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10378,6 +11730,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10388,6 +11744,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10398,6 +11758,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10408,6 +11772,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10418,6 +11786,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 1,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10428,6 +11800,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10438,6 +11814,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10448,6 +11828,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10458,6 +11842,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10468,6 +11856,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10478,6 +11870,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10488,6 +11884,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10498,6 +11898,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10508,6 +11912,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10518,6 +11926,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10528,6 +11940,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     },
     {
@@ -10538,6 +11954,10 @@
       "sameLevelAnchors": 1,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "unverified_not_proven_missing",
+      "legacyAnchors": 0,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_new_phase_source",
       "productiveAssessment": "unverified"
     },
     {
@@ -10548,6 +11968,10 @@
       "sameLevelAnchors": 2,
       "otherLevelAnchors": 0,
       "rejectedCandidates": 0,
+      "legacyReuseStatus": "reviewed_receptive_use",
+      "legacyAnchors": 1,
+      "authoredPhaseAnchors": 1,
+      "contentDisposition": "reviewed_legacy_source_available",
       "productiveAssessment": "unverified"
     }
   ]

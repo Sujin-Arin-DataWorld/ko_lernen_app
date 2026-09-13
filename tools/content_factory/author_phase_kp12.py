@@ -80,6 +80,8 @@ def kp12():
       'Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe.')
     def email(sender,recipient,day,other):
         return packet(f'학습용 가상 이메일\n받는 사람: {recipient} 담당자\n보낸 사람: {sender}, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 {day}에 보내 드리겠습니다. 가능하시다면 {other}까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.',[
+          choice('opening',loc('인사 뒤 첫 문단은 어떤 역할을 해요?', 'What does the first paragraph after the greeting do?', 'Welche Funktion hat der erste Absatz nach der Begrüßung?'),['문의 이유를 밝히고 확인을 요청해요.','모든 검토가 끝났다고 선언해요.'],email_help),
+          choice('closing',loc('감사 인사 앞의 마무리에서 약속한 것은?', 'What follow-up is offered before the closing thanks?', 'Welcher nächste Schritt wird vor dem abschließenden Dank zugesagt?'),['안내를 받은 뒤 계획을 조정하기','답이 없어도 공개를 시작하기'],email_help),
           choice('request',loc('담당자에게 요청한 것은?', 'What is requested of the staff member?', 'Was wird von der zuständigen Person erbeten?'),['장소·이용 조건 확인과 가능한 자료 검토','발신자의 모든 일을 즉시 대신하기'],email_help),
           choice('deadline',loc('검토 기한은 어떤 요청이에요?', 'How is the review deadline presented?', 'Wie wird die Prüfungsfrist formuliert?'),[f'가능하다면 {other}까지, 어려우면 대안 요청','상대가 이미 확정한 의무'],email_help),
           choice('beneficiary',loc('검토 후 자료를 전달받을 사람은?', 'Who is intended to receive the reviewed material?', 'Wer soll das geprüfte Material erhalten?'),['선생님',sender+'의 개인 고객이라고 명시됨'],email_help),

@@ -83,7 +83,7 @@ def kp10():
       'Separate a changed plan, an actual interruption, a discovery after checking and an earlier precaution. Keep staff statements distinct from direct observations; leave an unconfirmed cause unknown.',
       'Trenne Planänderung, tatsächliche Unterbrechung, Feststellung nach einer Prüfung und frühere Vorbereitung. Unterscheide Aussagen der zuständigen Person von eigener Beobachtung; lasse ungeklärte Ursachen offen.')
     def account(vehicle,destination,work,prepared):
-        return packet(f'동료에게 경위를 설명합니다. 처음에는 {vehicle}를 타려다가 {destination}까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 {work}느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 {prepared}을 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.',[
+        return packet(f'동료에게 경위를 설명합니다. 처음에는 {vehicle}를 타려다가 {destination}까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 {work}느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 {prepared}를 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.',[
             choice('plan',loc('계획만 하다가 바꾼 행동은?', 'Which action was planned and replaced?', 'Welche Handlung war geplant und wurde ersetzt?'),[vehicle+' 타기','자료 읽기'],h),
             choice('interrupted',loc('실제로 하다가 중단한 일은?', 'Which action was actually interrupted?', 'Welche tatsächlich begonnene Handlung wurde unterbrochen?'),['자료 읽기',vehicle+' 타기'],h),
             choice('source',loc('화면 오류를 전한 출처는?', 'Who reported the screen problem?', 'Wer meldete das Bildschirmproblem?'),['담당자','이유를 확인하지 않은 다른 동료'],h),

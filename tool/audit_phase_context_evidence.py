@@ -98,11 +98,17 @@ def audit(root=ROOT):
     for (phase, grammar), level in requirements.items():
         matches = [r for r in reviews if (r['phaseId'], r['grammarKey']) == (phase, grammar)]
         accepted = [r for r in matches if r['decision'] == 'accepted']
+        legacy = [r for r in accepted if r['provenance'] == 'legacy_scenario_or_media']
+        authored = [r for r in accepted if r['provenance'] == 'authored_phase_material']
         rows.append(dict(phaseId=phase, grammarKey=grammar, level=level,
             contextStatus='reviewed_receptive_use' if accepted else 'unverified',
             sameLevelAnchors=sum(r['sameLevel'] for r in accepted),
             otherLevelAnchors=sum(not r['sameLevel'] for r in accepted),
             rejectedCandidates=sum(r['decision'] == 'rejected' for r in matches),
+            legacyReuseStatus='reviewed_receptive_use' if legacy else 'unverified_not_proven_missing',
+            legacyAnchors=len(legacy), authoredPhaseAnchors=len(authored),
+            contentDisposition=('reviewed_legacy_source_available' if legacy else
+                'reviewed_new_phase_source' if authored else 'source_review_required'),
             productiveAssessment='unverified'))
     return dict(schemaVersion=1, reviews=reviews, requirements=rows)
 
@@ -112,6 +118,13 @@ def report(result):
         '실제 대화·지문의 정확한 구절과 앞뒤 맥락 해시를 검증한다. 문법 ID 선언, 제목, 파일명은 용례 근거가 아니다.', '',
         '미검증은 콘텐츠 부재를 뜻하지 않는다. 수용 용례가 있어도 산출 평가·앱 경로가 완성된 것은 아니다. 이 표의 행 수를 신규 제작량으로 사용하지 않는다.', '',
         '신규 Phase 원문과 기존 대화·미디어 재사용 근거를 구별한다. 신규 원문의 검수는 과거 콘텐츠에 이미 있었다는 뜻이 아니다.', '',
+        '## 레벨별 원문 근거와 남은 평가 범위', '',
+        '| 레벨 | Phase 문법 요구 | 원문 근거 확인 | 기존 원문 근거가 있는 요구 | 신규 원문으로 확인한 요구 | 산출 전체 의미 |',
+        '|---|---:|---:|---:|---:|---|']
+    for level in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'):
+        rows = [r for r in result['requirements'] if r['level'] == level]
+        lines.append(f"| {level} | {len(rows)} | {sum(r['contextStatus']=='reviewed_receptive_use' for r in rows)} | {sum(r['legacyAnchors']>0 for r in rows)} | {sum(r['authoredPhaseAnchors']>0 for r in rows)} | 미검증 |")
+    lines += ['', '기존·신규 근거가 함께 있는 요구는 두 열에 각각 나타난다. 기존 근거 미검증은 신규 콘텐츠가 없다는 뜻이 아니다. 제외 후보는 정확한 형태·의미가 다른 경우로 따로 남긴다. 문법 카드 대응 오류는 기존 매트릭스의 검수된 대응표를, 실제 실행 경로는 목표 연결 보고서를 함께 확인한다.', '',
         '| Phase | 문법 요구 키 | 같은 레벨 근거 | 다른 레벨 근거 | 제외 후보 | 산출 평가 |',
         '|---|---|---:|---:|---:|---|']
     for row in result['requirements']:

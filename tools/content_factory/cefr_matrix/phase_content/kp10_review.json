@@ -445,7 +445,7 @@
     },
     {
       "taskId": "KP10:listening:01",
-      "sha256": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+      "sha256": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -454,7 +454,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "Actual peer account: changed transport intention, outbound call then missed callback (chronology clarified), real reading interruption, staff source, cause unresolved, recorded number for later checking. Required plan/interruption/source/cause/precaution questions. Audio phrasing and KO/EN/DE checked."
+      "note": "문의 번호·접수 번호 뒤 목적격 조사를 를로 수정했다. 나머지 인물·사건·정답·KO/EN/DE 의미는 직접 확인했다."
     },
     {
       "taskId": "KP10:reading:01",

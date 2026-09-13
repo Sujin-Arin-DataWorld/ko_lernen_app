@@ -35423,7 +35423,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "접수 문제의 경위와 남긴 기록",
@@ -35440,7 +35440,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "동료에게 경위를 설명합니다. 처음에는 버스를 타려다가 문화센터까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 자료를 찾느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 문의 번호을 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.",
+        "sourceKo": "동료에게 경위를 설명합니다. 처음에는 버스를 타려다가 문화센터까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 자료를 찾느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 문의 번호를 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.",
         "questions": [
           {
             "id": "plan",
@@ -35586,7 +35586,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "동료에게 경위를 설명합니다. 처음에는 택시를 타려다가 도서관까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 회의하느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 접수 번호을 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.",
+        "sourceKo": "동료에게 경위를 설명합니다. 처음에는 택시를 타려다가 도서관까지 걸어갔어요. 도착하자마자 접수 창구에 전화했어요. 잠시 뒤 담당자가 다시 전화했지만, 저는 회의하느라고 그 전화를 바로 받지 못했어요. 이후 자료를 읽다가 안내 방송을 듣고 읽기를 멈췄어요. 담당자에게 다시 물었더니 접수 화면이 열리지 않는다고 했어요. 담당자는 원인을 아직 확인하는 중이라고 했어요. 저는 나중에 필요할까 봐 접수 번호를 미리 적어 두었어요. 같이 의견을 나눈 결과 오늘은 기록만 남기기로 했어요. 이 기록이 다음 확인에 도움이 될 거라고 생각해요.",
         "questions": [
           {
             "id": "plan",
@@ -35730,7 +35730,7 @@
           }
         ]
       },
-      "contentHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422"
+      "contentHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46"
     },
     {
       "id": "KP10:reading:01",
@@ -42777,7 +42777,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "공식 요청 메일의 부담과 대안",
@@ -42796,6 +42796,62 @@
         "sourceKind": "text",
         "sourceKo": "학습용 가상 이메일\n받는 사람: 한빛센터 담당자\n보낸 사람: 하린, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 월요일에 보내 드리겠습니다. 가능하시다면 수요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
         "questions": [
+          {
+            "id": "opening",
+            "kind": "choice",
+            "prompt": {
+              "ko": "인사 뒤 첫 문단은 어떤 역할을 해요?",
+              "en": "What does the first paragraph after the greeting do?",
+              "de": "Welche Funktion hat der erste Absatz nach der Begrüßung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 검토가 끝났다고 선언해요."
+              },
+              {
+                "id": "0",
+                "text": "문의 이유를 밝히고 확인을 요청해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "closing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감사 인사 앞의 마무리에서 약속한 것은?",
+              "en": "What follow-up is offered before the closing thanks?",
+              "de": "Welcher nächste Schritt wird vor dem abschließenden Dank zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안내를 받은 뒤 계획을 조정하기"
+              },
+              {
+                "id": "1",
+                "text": "답이 없어도 공개를 시작하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
           {
             "id": "request",
             "kind": "choice",
@@ -42915,6 +42971,62 @@
         "sourceKo": "학습용 가상 이메일\n받는 사람: 새봄센터 담당자\n보낸 사람: 도윤, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 화요일에 보내 드리겠습니다. 가능하시다면 목요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
         "questions": [
           {
+            "id": "opening",
+            "kind": "choice",
+            "prompt": {
+              "ko": "인사 뒤 첫 문단은 어떤 역할을 해요?",
+              "en": "What does the first paragraph after the greeting do?",
+              "de": "Welche Funktion hat der erste Absatz nach der Begrüßung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 검토가 끝났다고 선언해요."
+              },
+              {
+                "id": "0",
+                "text": "문의 이유를 밝히고 확인을 요청해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "closing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감사 인사 앞의 마무리에서 약속한 것은?",
+              "en": "What follow-up is offered before the closing thanks?",
+              "de": "Welcher nächste Schritt wird vor dem abschließenden Dank zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "답이 없어도 공개를 시작하기"
+              },
+              {
+                "id": "0",
+                "text": "안내를 받은 뒤 계획을 조정하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
             "id": "request",
             "kind": "choice",
             "prompt": {
@@ -43028,7 +43140,7 @@
           }
         ]
       },
-      "contentHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2"
+      "contentHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84"
     },
     {
       "id": "KP12:reading:02",
@@ -116139,7 +116251,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -116368,7 +116480,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -116539,7 +116651,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -116710,7 +116822,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -116766,7 +116878,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -116822,7 +116934,7 @@
       "bindings": [
         {
           "taskId": "KP10:listening:01",
-          "taskHash": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+          "taskHash": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
           "materialIds": [
             "KP10:listening:01/practice/material",
             "KP10:listening:01/assessment/material"
@@ -119248,7 +119360,7 @@
       "bindings": [
         {
           "taskId": "KP12:reading:01",
-          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
           "materialIds": [
             "KP12:reading:01/practice/material",
             "KP12:reading:01/assessment/material"
@@ -119256,6 +119368,8 @@
           "practiceId": "KP12:reading:01/practice",
           "assessmentId": "KP12:reading:01/assessment",
           "criterionIds": [
+            "opening",
+            "closing",
             "request",
             "deadline",
             "beneficiary",
@@ -119278,7 +119392,7 @@
       "bindings": [
         {
           "taskId": "KP12:reading:01",
-          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
           "materialIds": [
             "KP12:reading:01/practice/material",
             "KP12:reading:01/assessment/material"
@@ -119286,6 +119400,8 @@
           "practiceId": "KP12:reading:01/practice",
           "assessmentId": "KP12:reading:01/assessment",
           "criterionIds": [
+            "opening",
+            "closing",
             "request",
             "deadline",
             "beneficiary",
@@ -119554,7 +119670,7 @@
       "bindings": [
         {
           "taskId": "KP12:reading:01",
-          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
           "materialIds": [
             "KP12:reading:01/practice/material",
             "KP12:reading:01/assessment/material"
@@ -119562,6 +119678,8 @@
           "practiceId": "KP12:reading:01/practice",
           "assessmentId": "KP12:reading:01/assessment",
           "criterionIds": [
+            "opening",
+            "closing",
             "request",
             "deadline",
             "beneficiary",
@@ -119837,7 +119955,7 @@
       "bindings": [
         {
           "taskId": "KP12:reading:01",
-          "taskHash": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+          "taskHash": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
           "materialIds": [
             "KP12:reading:01/practice/material",
             "KP12:reading:01/assessment/material"
@@ -119845,6 +119963,8 @@
           "practiceId": "KP12:reading:01/practice",
           "assessmentId": "KP12:reading:01/assessment",
           "criterionIds": [
+            "opening",
+            "closing",
             "request",
             "deadline",
             "beneficiary",
@@ -148196,14 +148316,14 @@
         "KP10:production:15": "933fe831d93a79ef7038ab85879fd28d27052bfc833b6669de95935d4e226f75",
         "KP10:production:16": "9e4cc5f050e5042d986576f0c045f55ac054cbb5e507b24310b42dde33fbb4a3",
         "KP10:production:17": "88ec93ee288d5c078139114eb532ea800144787f5afa21d36689e751bf158713",
-        "KP10:listening:01": "8c4bc2d9077af4958fd72207cac1cafa4cc1c5851e87da0b668207bf32241422",
+        "KP10:listening:01": "e1d69747974ca217bea88a77bd4379ff311f04319927cfb5e4625f28c1dbde46",
         "KP10:reading:01": "d96eb5595fd750ff0fa60755a4a162d037350fcb0d1af2b3b38383fe3518110b",
         "KP10:reading:02": "b3b980af701e2597158fea0294201374b97d64f477044e7f58c4980a6011faa6",
         "KP10:writing:01": "82c6c866baaa2ce827571f961afcb8cefeb1c6ba202254f78a7fcaf75969b4a8",
         "KP10:writing:02": "5f42c617c19f2de9cb13f1e113736e407a6283f10ad63e59a7fb5e8fde4f454b",
         "KP10:speaking:01": "a720d7c5b659c37a3bae2ff2417b27dce178a046172dcc6ec2a1b534845257d3"
       },
-      "contentHash": "7e6fc08451296250824a7e1fc67aab79a90ebc8e63f09d698668b43b52457736"
+      "contentHash": "f038a9701acea2639f94767a3c995ccd7f8fa20d9a74d2fe36a4829efb14e5dc"
     },
     {
       "phaseId": "KP11",
@@ -148278,13 +148398,13 @@
         "KP12:production:12": "f6fc024188b2f45bcb94076eebbd33f5c4b668517dc9517827de3e5e9deea695",
         "KP12:production:13": "e932806d61528aa7ef185a377e5070c6bb341129229c0bb03897193030bd5488",
         "KP12:listening:01": "5526e1cfffaedfa199f3d976b7a9fef2ec32e39dcd8ce6c58c7370451c7d126e",
-        "KP12:reading:01": "80e2f1221c2f1a17d07234cf2e4c63c003e82caed520f6c7d56ae4f241a9ffe2",
+        "KP12:reading:01": "6298bf896c285baaa7890bb0fe9e3c7da7005e570483e9c082adbca0b8d32a84",
         "KP12:reading:02": "fef622d52b06b357eee960b065b8d19c160cf1c3aaf3bd5f6a540e68ee3855c2",
         "KP12:writing:01": "fbd84a3c24b4396b07d0c6a8e1ef58e7d64991dbd573a5aa27e3a14ec02c7eb0",
         "KP12:speaking:01": "3ab3bdf29987ed21dd3f72b962da699ee3ba7591b3df7987c96a0669b2180919",
         "KP12:speaking:02": "3b6c2cf580a2c5924bb2597df2abd603e158f635fa20bca3e3abbf2cb4cd5501"
       },
-      "contentHash": "199b85d110ffc6ccf21d21e1296952c5add5325639c03fc4ffb8a3d057fc5408"
+      "contentHash": "0bb7300683bb023fd4896ca6cd31f831e688b7e17d9f12fd24c6d873d2c47487"
     },
     {
       "phaseId": "KP13",

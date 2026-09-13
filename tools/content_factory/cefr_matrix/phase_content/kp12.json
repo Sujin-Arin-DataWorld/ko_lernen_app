@@ -2667,7 +2667,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "공식 요청 메일의 부담과 대안",
@@ -2686,6 +2686,62 @@
         "sourceKind": "text",
         "sourceKo": "학습용 가상 이메일\n받는 사람: 한빛센터 담당자\n보낸 사람: 하린, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 월요일에 보내 드리겠습니다. 가능하시다면 수요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
         "questions": [
+          {
+            "id": "opening",
+            "kind": "choice",
+            "prompt": {
+              "ko": "인사 뒤 첫 문단은 어떤 역할을 해요?",
+              "en": "What does the first paragraph after the greeting do?",
+              "de": "Welche Funktion hat der erste Absatz nach der Begrüßung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 검토가 끝났다고 선언해요."
+              },
+              {
+                "id": "0",
+                "text": "문의 이유를 밝히고 확인을 요청해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "closing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감사 인사 앞의 마무리에서 약속한 것은?",
+              "en": "What follow-up is offered before the closing thanks?",
+              "de": "Welcher nächste Schritt wird vor dem abschließenden Dank zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "0",
+                "text": "안내를 받은 뒤 계획을 조정하기"
+              },
+              {
+                "id": "1",
+                "text": "답이 없어도 공개를 시작하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
           {
             "id": "request",
             "kind": "choice",
@@ -2804,6 +2860,62 @@
         "sourceKind": "text",
         "sourceKo": "학습용 가상 이메일\n받는 사람: 새봄센터 담당자\n보낸 사람: 도윤, 발표 준비 모임\n제목: 장소 변경 확인과 자료 검토 요청\n안녕하세요. 장소 변경 안내를 오늘 받아 교통편을 다시 알아봐야 합니다. 정확한 장소와 이용 조건을 확인해 주실 수 있습니까?\n자료를 화요일에 보내 드리겠습니다. 가능하시다면 목요일까지 전체 검토를 부탁드립니다. 어려우시면 가능한 날짜와 검토 범위를 알려 주시면 감사하겠습니다.\n검토한 자료는 선생님께 전달하려고 합니다. 접수되었다는 알림만으로 공개 허가를 받은 것으로 처리하지 않겠습니다. 확인 후 안내해 주시면 계획을 조정하겠습니다. 감사합니다.",
         "questions": [
+          {
+            "id": "opening",
+            "kind": "choice",
+            "prompt": {
+              "ko": "인사 뒤 첫 문단은 어떤 역할을 해요?",
+              "en": "What does the first paragraph after the greeting do?",
+              "de": "Welche Funktion hat der erste Absatz nach der Begrüßung?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "모든 검토가 끝났다고 선언해요."
+              },
+              {
+                "id": "0",
+                "text": "문의 이유를 밝히고 확인을 요청해요."
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
+          {
+            "id": "closing",
+            "kind": "choice",
+            "prompt": {
+              "ko": "감사 인사 앞의 마무리에서 약속한 것은?",
+              "en": "What follow-up is offered before the closing thanks?",
+              "de": "Welcher nächste Schritt wird vor dem abschließenden Dank zugesagt?"
+            },
+            "required": true,
+            "options": [
+              {
+                "id": "1",
+                "text": "답이 없어도 공개를 시작하기"
+              },
+              {
+                "id": "0",
+                "text": "안내를 받은 뒤 계획을 조정하기"
+              }
+            ],
+            "acceptedAnswers": [
+              "0"
+            ],
+            "explanation": {
+              "ko": "메일의 발신자·수신자·수혜자와 요청한 행동을 표시하세요. 가능한 범위를 묻는 부탁이지 능력을 시험하는 질문이 아니에요. 접수·확인·승인을 구별하고 불편 사실과 원하는 조치를 나눠 읽어요.",
+              "en": "Identify sender, recipient, beneficiary and requested action. Asking what is feasible is a request, not an ability test. Separate receipt, checking and approval, and distinguish the problem from the requested remedy.",
+              "de": "Bestimme Absender, Empfänger, Begünstigte und gewünschte Handlung. Die Frage nach dem Machbaren ist eine Bitte, kein Fähigkeitstest. Trenne Eingang, Prüfung und Genehmigung sowie Problem und erbetene Abhilfe."
+            }
+          },
           {
             "id": "request",
             "kind": "choice",

@@ -6,36 +6,36 @@
 
 | Phase | 레벨 | 원본 문법 키 | R 연결 키 | P 연결 키 | 과제 | 구조화 채점 과제 | 자유 응답 미검증 | 전체 숙달 |
 |---|---|---:|---:|---:|---:|---:|---|---|
-| KP01 | A1 | 12 | 12 | 12 | 33 | 31 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP02 | A1 | 11 | 11 | 11 | 32 | 30 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP03 | A1 | 12 | 12 | 12 | 32 | 30 | writing, speaking, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP04 | A1 | 11 | 11 | 11 | 31 | 29 | writing, speaking, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP05 | A2 | 9 | 9 | 9 | 29 | 27 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP06 | A2 | 14 | 14 | 14 | 38 | 36 | writing, speaking, writing, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP07 | A2 | 13 | 13 | 13 | 35 | 33 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP08 | A2 | 14 | 14 | 14 | 38 | 36 | writing, speaking, writing, speaking, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing | 미검증 |
-| KP09 | B1 | 11 | 11 | 11 | 28 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
-| KP10 | B1 | 17 | 17 | 17 | 40 | 39 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP11 | B1 | 14 | 14 | 14 | 35 | 33 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
-| KP12 | B1 | 13 | 13 | 13 | 32 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
-| KP13 | B1 | 13 | 13 | 13 | 32 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking, speaking | 미검증 |
-| KP14 | B2 | 10 | 10 | 10 | 25 | 24 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP15 | B2 | 15 | 15 | 15 | 34 | 33 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP16 | B2 | 12 | 12 | 12 | 28 | 27 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP17 | B2 | 13 | 13 | 13 | 31 | 30 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP18 | B2 | 19 | 19 | 19 | 42 | 41 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP19 | C1 | 11 | 11 | 11 | 28 | 27 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP20 | C1 | 9 | 9 | 9 | 22 | 21 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP21 | C1 | 10 | 10 | 10 | 25 | 24 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP22 | C1 | 9 | 9 | 9 | 22 | 21 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP23 | C1 | 8 | 8 | 8 | 21 | 20 | writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP24 | C1 | 12 | 12 | 12 | 29 | 28 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP25 | C2 | 8 | 8 | 8 | 21 | 20 | writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP26 | C2 | 8 | 8 | 8 | 21 | 20 | writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP27 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP28 | C2 | 11 | 11 | 11 | 27 | 26 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP29 | C2 | 10 | 10 | 10 | 26 | 25 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
-| KP30 | C2 | 16 | 16 | 16 | 38 | 37 | writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, writing, speaking | 미검증 |
+| KP01 | A1 | 12 | 12 | 12 | 33 | 31 | speaking, writing | 미검증 |
+| KP02 | A1 | 11 | 11 | 11 | 32 | 30 | speaking, writing | 미검증 |
+| KP03 | A1 | 12 | 12 | 12 | 32 | 30 | speaking, writing | 미검증 |
+| KP04 | A1 | 11 | 11 | 11 | 31 | 29 | speaking, writing | 미검증 |
+| KP05 | A2 | 9 | 9 | 9 | 29 | 25 | speaking, writing | 미검증 |
+| KP06 | A2 | 14 | 14 | 14 | 38 | 34 | speaking, writing | 미검증 |
+| KP07 | A2 | 13 | 13 | 13 | 35 | 32 | speaking, writing | 미검증 |
+| KP08 | A2 | 14 | 14 | 14 | 38 | 35 | speaking, writing | 미검증 |
+| KP09 | B1 | 11 | 11 | 11 | 28 | 25 | speaking, writing | 미검증 |
+| KP10 | B1 | 17 | 17 | 17 | 40 | 37 | speaking, writing | 미검증 |
+| KP11 | B1 | 14 | 14 | 14 | 35 | 32 | speaking, writing | 미검증 |
+| KP12 | B1 | 13 | 13 | 13 | 32 | 29 | speaking, writing | 미검증 |
+| KP13 | B1 | 13 | 13 | 13 | 32 | 29 | speaking, writing | 미검증 |
+| KP14 | B2 | 10 | 10 | 10 | 25 | 23 | speaking, writing | 미검증 |
+| KP15 | B2 | 15 | 15 | 15 | 34 | 32 | speaking, writing | 미검증 |
+| KP16 | B2 | 12 | 12 | 12 | 28 | 26 | speaking, writing | 미검증 |
+| KP17 | B2 | 13 | 13 | 13 | 31 | 29 | speaking, writing | 미검증 |
+| KP18 | B2 | 19 | 19 | 19 | 42 | 40 | speaking, writing | 미검증 |
+| KP19 | C1 | 11 | 11 | 11 | 28 | 25 | speaking, writing | 미검증 |
+| KP20 | C1 | 9 | 9 | 9 | 22 | 20 | speaking, writing | 미검증 |
+| KP21 | C1 | 10 | 10 | 10 | 25 | 23 | speaking, writing | 미검증 |
+| KP22 | C1 | 9 | 9 | 9 | 22 | 20 | speaking, writing | 미검증 |
+| KP23 | C1 | 8 | 8 | 8 | 21 | 19 | speaking, writing | 미검증 |
+| KP24 | C1 | 12 | 12 | 12 | 29 | 27 | speaking, writing | 미검증 |
+| KP25 | C2 | 8 | 8 | 8 | 21 | 19 | speaking, writing | 미검증 |
+| KP26 | C2 | 8 | 8 | 8 | 21 | 19 | speaking, writing | 미검증 |
+| KP27 | C2 | 11 | 11 | 11 | 27 | 25 | speaking, writing | 미검증 |
+| KP28 | C2 | 11 | 11 | 11 | 27 | 25 | speaking, writing | 미검증 |
+| KP29 | C2 | 10 | 10 | 10 | 26 | 24 | speaking, writing | 미검증 |
+| KP30 | C2 | 16 | 16 | 16 | 38 | 36 | speaking, writing | 미검증 |
 
 ## 남은 검증
 
@@ -43,6 +43,10 @@
 - KP01: 표지·명찰 읽기, 소개 듣기, 가상 등록 서식과 소개/부정 문장, 소개·되묻기 녹음을 제공한다. 쓰기는 검수된 문장만 채점하며 다른 자유 표현과 발화 의미는 unscored다.
 - KP02–KP04: 이동·시간표·전화·메뉴·예산·일정 변경의 연습/평가와 메모·제안·녹음을 제공한다. 선택형 문법 연결은 산출 숙달을 증명하지 않는다.
 - KP05–KP08: 조건·허용·금지, 경험·기간, 일정 정정, 공지·출처·말투 전환의 문법 대비와 4기능 과제를 연결했다. 전체 자유 일기·이메일·채팅·게시글은 재작성 루브릭을 제공하고 자동 채점하지 않는다.
-- KP09–KP30: 기존 관련 대화 경로를 유지한다. 전용 자료·연습·평가의 제작과 연결이 남아 있다.
-- W0d2: 기존 원문의 문맥별 근거 연결과 실제 누락 분류가 남아 있다. 이 보고서는 갭 행 수를 제작량으로 변환하지 않는다.
+- KP09–KP13: 기사·강연·격식 이메일·리뷰·서사와 인용 구분을 연결했다. 자유 글의 전체 의미는 미검증이다.
+- KP14–KP18: 학습용 계약·보고서·회의·협상에서 조건·예외·책임·출처를 구별한다. 자유 협상과 보고서 전체 의미는 미검증이다.
+- KP19–KP24: 학술 설명·다중 출처·불확실성·반론·청중별 문체를 연결했다. 자유 요약·중개·발화의 전체 의미는 미검증이다.
+- KP25–KP30: 문학·비평·제도 문어·학술 발표와 문체 전환, 하오체·하게체 인식을 연결했다. 문학 해석의 타당성·독창성·자유 글과 발화 전체 의미는 미검증이다.
+- 구조화 채점 과제는 자동 채점 가능한 문항을 하나 이상 포함한 과제 수다. 같은 과제의 자유 응답은 여전히 미채점일 수 있다.
+- 원문 감사는 phase_context_evidence_report.md에서 기존 대화·신규 Phase 원문·제외 후보를 구별한다. 기존 재사용 근거가 없는 경우를 콘텐츠 부재로 단정하거나 갭 행 수를 제작량으로 변환하지 않는다.
 - Android/Web/iOS 실제 기기 QA는 이 정적 보고서가 증명하지 않는다. PR 검증 결과에 별도 기록한다.

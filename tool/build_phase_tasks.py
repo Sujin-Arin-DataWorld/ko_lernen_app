@@ -169,15 +169,20 @@ def coverage_report(root, bundle):
         tasks = [t for t in bundle['tasks'] if t['phaseId'] == phase['id']]
         def keys(mode):
             return {k for t in tasks if t['mode'] == mode for k in t['requirementKeys']}
-        unscored = [t['skill'] for t in tasks if t['skill'] == 'speaking' or any(q['kind'] in ('boundedSentence', 'freeText') for q in t['assessment']['questions'])]
-        lines.append(f"| {phase['id']} | {phase['level']} | {len(phase['koreanGrammar'])} | {len(keys('R'))} | {len(keys('P'))} | {len(tasks)} | {sum(t['skill'] != 'speaking' for t in tasks)} | {', '.join(unscored) if unscored else 'Phase 전용 경로 미연결'} | 미검증 |")
+        unscored = sorted({t['skill'] for t in tasks if t['skill'] == 'speaking' or any(q['kind'] in ('boundedSentence', 'freeText') for q in t['assessment']['questions'])})
+        structured = sum(any(q['kind'] != 'freeText' for q in t['assessment']['questions']) for t in tasks)
+        lines.append(f"| {phase['id']} | {phase['level']} | {len(phase['koreanGrammar'])} | {len(keys('R'))} | {len(keys('P'))} | {len(tasks)} | {structured} | {', '.join(unscored) if unscored else '—'} | 미검증 |")
     lines += ['', '## 남은 검증', '',
         '- KP01: 문법 12개는 설명·예문·선택형 연습/평가에 연결됐다. 모든 문법의 실제 산출 수행을 인증하지 않는다.',
         '- KP01: 표지·명찰 읽기, 소개 듣기, 가상 등록 서식과 소개/부정 문장, 소개·되묻기 녹음을 제공한다. 쓰기는 검수된 문장만 채점하며 다른 자유 표현과 발화 의미는 unscored다.',
         '- KP02–KP04: 이동·시간표·전화·메뉴·예산·일정 변경의 연습/평가와 메모·제안·녹음을 제공한다. 선택형 문법 연결은 산출 숙달을 증명하지 않는다.',
         '- KP05–KP08: 조건·허용·금지, 경험·기간, 일정 정정, 공지·출처·말투 전환의 문법 대비와 4기능 과제를 연결했다. 전체 자유 일기·이메일·채팅·게시글은 재작성 루브릭을 제공하고 자동 채점하지 않는다.',
-        '- KP09–KP30: 기존 관련 대화 경로를 유지한다. 전용 자료·연습·평가의 제작과 연결이 남아 있다.',
-        '- W0d2: 기존 원문의 문맥별 근거 연결과 실제 누락 분류가 남아 있다. 이 보고서는 갭 행 수를 제작량으로 변환하지 않는다.',
+        '- KP09–KP13: 기사·강연·격식 이메일·리뷰·서사와 인용 구분을 연결했다. 자유 글의 전체 의미는 미검증이다.',
+        '- KP14–KP18: 학습용 계약·보고서·회의·협상에서 조건·예외·책임·출처를 구별한다. 자유 협상과 보고서 전체 의미는 미검증이다.',
+        '- KP19–KP24: 학술 설명·다중 출처·불확실성·반론·청중별 문체를 연결했다. 자유 요약·중개·발화의 전체 의미는 미검증이다.',
+        '- KP25–KP30: 문학·비평·제도 문어·학술 발표와 문체 전환, 하오체·하게체 인식을 연결했다. 문학 해석의 타당성·독창성·자유 글과 발화 전체 의미는 미검증이다.',
+        '- 구조화 채점 과제는 자동 채점 가능한 문항을 하나 이상 포함한 과제 수다. 같은 과제의 자유 응답은 여전히 미채점일 수 있다.',
+        '- 원문 감사는 phase_context_evidence_report.md에서 기존 대화·신규 Phase 원문·제외 후보를 구별한다. 기존 재사용 근거가 없는 경우를 콘텐츠 부재로 단정하거나 갭 행 수를 제작량으로 변환하지 않는다.',
         '- Android/Web/iOS 실제 기기 QA는 이 정적 보고서가 증명하지 않는다. PR 검증 결과에 별도 기록한다.', '']
     return '\n'.join(lines)
 
