@@ -568,9 +568,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppL10n.of(context);
     final version = status.availableVersionCode;
     final confirmed =
-        await showDialog<bool>(
+        await showSoriDialog<bool>(
           context: context,
-          builder: (dialogContext) => AlertDialog(
+          builder: (dialogContext) => SoriDialog(
             title: Text(t.settingsUpdateDialogTitle),
             content: Text(
               version == null
@@ -578,13 +578,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   : t.settingsUpdateDialogBody(version),
             ),
             actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text(t.settingsUpdateLater),
+              SoriButton.ghost(
+                onTap: () => Navigator.pop(dialogContext, false),
+                label: t.settingsUpdateLater,
               ),
-              FilledButton(
-                onPressed: () => Navigator.pop(dialogContext, true),
-                child: Text(t.settingsUpdateStart),
+              SoriButton.filled(
+                onTap: () => Navigator.pop(dialogContext, true),
+                label: t.settingsUpdateStart,
               ),
             ],
           ),
@@ -1312,13 +1312,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.system_update_outlined),
             title: Text(t.settingsUpdateTitle),
-            subtitle: Text(_updateMessage ?? t.settingsUpdateSubtitle),
+            subtitle: Semantics(
+              liveRegion: true,
+              child: Text(_updateMessage ?? t.settingsUpdateSubtitle),
+            ),
             trailing: _updateChecking
-                ? const SizedBox(
-                    width: 18,
-                    height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
+                ? const Icon(Icons.hourglass_top_rounded, size: 18)
                 : const Icon(Icons.refresh_rounded, size: 18),
             onTap: _updateChecking ? null : _checkForUpdate,
           ),

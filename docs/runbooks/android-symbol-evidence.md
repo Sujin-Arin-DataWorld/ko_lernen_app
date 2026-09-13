@@ -8,12 +8,14 @@ release path changes until it is provisioned and enabled below.
 
 ## What the gate does
 
-When enabled, three new steps run after "Record bundle identity" and before
-"Preserve AAB and Dart symbols": pin an exact bundletool/firebase-tools/
-Java/Node toolchain and verify each executable's SHA-256, upload the AAB's
-symbols and independently re-verify the receipt (`upload` then `verify`),
-then archive the receipt and symbols as a 90-day artifact. Any non-zero exit
-fails the job, so the Play upload step never runs on unverified symbols.
+When enabled, the workflow prepares pinned bundletool, Java and the standalone
+Firebase CLI before restoring Android signing secrets. The entire Firebase
+publisher executable (including its runtime and dependencies) is SHA-256 checked
+before it becomes executable. No npm package resolution or lifecycle scripts run.
+After "Record bundle identity", the gate uploads the AAB's symbols, independently
+re-verifies the receipt (`upload` then `verify`), and archives the receipt and
+symbols as a 90-day artifact. Any non-zero exit fails the job, so the Play upload
+step never runs on unverified symbols.
 
 ## Secrets and variables to create (GitHub repo settings)
 
@@ -30,16 +32,16 @@ fails the job, so the Play upload step never runs on unverified symbols.
 ## Verified tool pins
 
 `tool/android_release_tools.json` contains verified executable SHA-256 values
-for the four pinned versions. The public verification chain is recorded in
+for the three pinned versions. The public verification chain is recorded in
 `docs/runbooks/android-release-tools-provenance.json`: exact publisher artifact
-URL, publisher digest metadata, archive SHA-256 or npm integrity, exact archive
+URL, publisher digest metadata, archive SHA-256, exact archive
 member, platform, and the executable SHA-256 consumed by the gate.
 
-Java and Node hashes are for the **Linux x64** binaries installed by the gated
-`setup-java` and `setup-node` steps. They are not hashes of a Windows developer
-runtime. The disabled gate's status step reports the runner's preinstalled
-`java` and `node` only as harvest diagnostics. A baseline runner may contain a
-different Node version, so its hash cannot be reused for pinned Node 24.20.0.
+The Java hash is for the **Linux x64** binary installed by the gated `setup-java`
+step. Firebase uses the official Linux x64 standalone release; the recorded
+hash covers the whole artifact, not only a JavaScript entry point. The disabled
+gate's status step reports the runner's preinstalled `java` and `node` only as
+harvest diagnostics. Those values are not release-tool trust anchors.
 Binary hashes also vary by version, platform, architecture, and publisher
 packaging even when the command name is the same.
 
@@ -48,10 +50,10 @@ packaging even when the command name is the same.
 1. Keep `ANDROID_SYMBOL_EVIDENCE_GATE` disabled while choosing the new exact
    tool version. Do not copy a baseline runner hash into the pin.
 2. Obtain the artifact from the exact publisher URL and verify its archive
-   SHA-256 against independent publisher metadata. For an npm package, verify
-   the tarball against the version metadata's `dist.integrity` value.
-3. Extract the exact member used by CI and compute its SHA-256. For bundletool,
-   the downloaded JAR is itself the verified executable artifact.
+   SHA-256 against independent publisher metadata.
+3. Extract the exact Java member used by CI and compute its SHA-256. For
+   bundletool and Firebase, the entire downloaded artifact is the verified
+   executable. Do not substitute npm entry-point hashes for the standalone CLI.
 4. Update both `tool/android_release_tools.json` and
    `docs/runbooks/android-release-tools-provenance.json`, then run:
 

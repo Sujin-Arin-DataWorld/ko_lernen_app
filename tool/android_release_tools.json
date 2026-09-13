@@ -6,14 +6,11 @@
   },
   "firebase-tools": {
     "version": "15.29.0",
-    "sha256": "1e05ff8373e5a5c7222475a0d90d4db58c85c2f281d44d4884bc96062288b864"
+    "url": "https://github.com/firebase/firebase-tools/releases/download/v15.29.0/firebase-tools-linux",
+    "sha256": "ef0998b3c1eeedf2a7b02b23bbe2b98a84a855855ea73d85d4498af432531ded"
   },
   "java": {
     "version": "17.0.20.1+1",
     "sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
-  },
-  "node": {
-    "version": "24.20.0",
-    "sha256": "89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7"
   }
 }

@@ -1614,9 +1614,9 @@
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
-    "mtime": 1789336649.7937117,
-    "seen": 1789337499.5863638,
-    "ast_hash": "c1e0f1d6952aeb27973d99dc62e70a5a",
+    "mtime": 1789339213.718387,
+    "seen": 1789340173.2169933,
+    "ast_hash": "eb5bd05fa6faa710a7d527a5a3ad8326",
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
@@ -11178,15 +11178,15 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_play_closed_workflow.py": {
-    "mtime": 1789332804.707088,
-    "seen": 1789337499.5157566,
-    "ast_hash": "9cd60802df89ae7ea329406cc95088d8",
+    "mtime": 1789339493.2633007,
+    "seen": 1789340173.0540998,
+    "ast_hash": "010427148666a40e029571d88b5d71dd",
     "semantic_hash": ""
   },
   ".github/workflows/play_closed.yml": {
-    "mtime": 1789332904.1857798,
-    "seen": 1789337499.944909,
-    "ast_hash": "262aef90fa25625e51832bb6ac702d40",
+    "mtime": 1789339471.559113,
+    "seen": 1789340174.4781284,
+    "ast_hash": "98eb1634e3cbeaa5ce6ddd1e03cfa86d",
     "semantic_hash": ""
   },
   "docs/HANDOFF-2026-08-27-waves.md": {
@@ -14028,9 +14028,9 @@
     "semantic_hash": ""
   },
   "tool/android_release_evidence.py": {
-    "mtime": 1789259458.3109944,
-    "seen": 1789263783.7931638,
-    "ast_hash": "ec96897811dda7f84ba35d00427c0034",
+    "mtime": 1789339646.5000966,
+    "seen": 1789340173.7355769,
+    "ast_hash": "79d9f54ffb374a0f22f5ae9481067e90",
     "semantic_hash": ""
   },
   "tool/release_integrity.py": {
@@ -14202,15 +14202,15 @@
     "semantic_hash": ""
   },
   "tool/android_release_tools.json": {
-    "mtime": 1789259458.3129947,
-    "seen": 1789263783.7931664,
-    "ast_hash": "c22ab27340cd4fbf7ced0ab58dbb3c91",
+    "mtime": 1789339368.7513735,
+    "seen": 1789340173.7355833,
+    "ast_hash": "f89f7b92e3cf600eb8d46f27a65a1a64",
     "semantic_hash": ""
   },
   "tool/test_android_release_tools_config.py": {
-    "mtime": 1789259458.4441738,
-    "seen": 1789263783.7934332,
-    "ast_hash": "59f4def731df8e48cd12e80047299a00",
+    "mtime": 1789339441.7664528,
+    "seen": 1789340173.7958167,
+    "ast_hash": "3948467a79ece2b4e312fef141d8d051",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-ci-release-gates/brief.md": {
@@ -14244,9 +14244,9 @@
     "semantic_hash": ""
   },
   "docs/runbooks/android-symbol-evidence.md": {
-    "mtime": 1789259455.0605245,
-    "seen": 1789263783.7953367,
-    "ast_hash": "a8ea3b068153b89922ffb8fdec79e9db",
+    "mtime": 1789339441.7724855,
+    "seen": 1789340174.6825688,
+    "ast_hash": "9765a060fd951325b51cac095e8a3066",
     "semantic_hash": ""
   },
   "test/cloze_dangling_stem_ratchet_test.dart": {
@@ -14268,9 +14268,9 @@
     "semantic_hash": ""
   },
   "test/free_access_release_contract_test.dart": {
-    "mtime": 1789259457.7359967,
-    "seen": 1789263783.7916787,
-    "ast_hash": "9be798fa5109eb0a9506aaa1f4c831ba",
+    "mtime": 1789339213.7198796,
+    "seen": 1789340173.4883742,
+    "ast_hash": "115ff37d61931177eeefe3c99c000c24",
     "semantic_hash": ""
   },
   "test/listen_button_semantics_test.dart": {
@@ -15084,9 +15084,9 @@
     "semantic_hash": ""
   },
   "docs/runbooks/android-release-tools-provenance.json": {
-    "mtime": 1789259455.059487,
-    "seen": 1789263783.790346,
-    "ast_hash": "a0223ab7422a5daa3081327d80a78c85",
+    "mtime": 1789339368.7513735,
+    "seen": 1789340173.0653727,
+    "ast_hash": "c9b209df6ff3d7b1f2a68bb9ccaac10f",
     "semantic_hash": ""
   },
   "test/managed_media_image_test.dart": {

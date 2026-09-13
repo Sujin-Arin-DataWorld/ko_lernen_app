@@ -76,6 +76,43 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         self.assertIn("retention-days: 30", workflow)
         self.assertIn("Preserve Android failure diagnostics", workflow)
 
+    def test_firebase_whole_artifact_is_verified_before_signing_secrets(self):
+        workflow = "\n".join(line for line in self.workflow.splitlines()
+                             if not line.lstrip().startswith("#"))
+        self.assertNotIn("npm install", workflow)
+        self.assertNotIn("uses: actions/setup-node@", workflow)
+        self.assertNotIn("firebase_js", workflow)
+        self.assertIn('"argv": [firebase_bin]', workflow)
+        download = workflow.index("- name: Download and verify firebase-tools")
+        checksum = workflow.index('echo "${FIREBASE_TOOLS_SHA256}  $firebase_bin" | sha256sum -c -', download)
+        executable = workflow.index('chmod 0555 "$firebase_bin"', download)
+        manifest = workflow.index("- name: Write release-evidence tools manifest")
+        signing = workflow.index("- name: Restore Android upload signing")
+        firebase_secret = workflow.index("- name: Materialise Firebase credentials")
+        self.assertLess(checksum, executable)
+        self.assertLess(executable, manifest)
+        self.assertLess(manifest, signing)
+        self.assertLess(signing, firebase_secret)
+        step = workflow[download:manifest]
+        self.assertIn("set -euo pipefail", step)
+        self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'", step)
+        self.assertNotIn("secrets.", step)
+        for name in (
+            "Read pinned release-toolchain versions",
+            "Pin release-toolchain Java",
+            "Download and verify bundletool",
+            "Download and verify firebase-tools",
+            "Write release-evidence tools manifest",
+        ):
+            start = workflow.index(f"- name: {name}")
+            end = workflow.index("      - name:", start)
+            with self.subTest(step=name):
+                self.assertLess(start, signing)
+                self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'",
+                              workflow[start:end])
+        upload = workflow.index("- name: Upload and verify Crashlytics symbol evidence")
+        self.assertEqual(workflow.index("      - name:", firebase_secret), upload - 6)
+
 
 class CiWorkflowAppleConfigTest(unittest.TestCase):
     """ci.yml's release-internal appbundle build must pass the same public
