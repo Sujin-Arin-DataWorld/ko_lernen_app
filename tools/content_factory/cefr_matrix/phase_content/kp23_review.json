@@ -263,7 +263,7 @@
     },
     {
       "taskId": "KP23:speaking:01",
-      "sha256": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+      "sha256": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -272,7 +272,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored."
+      "note": "KO/EN/DE: polite colleague mediation checks both definitions, material/recipient/authority and unknowns; formal briefing point-chain-limits with own evaluation outside quote. Korean mediation question-to-command and hearsay-to-experience shifts; same origin mentioned twice still one source. Recollection paraphrase retains experience and replay marks speaker/quotation boundaries. Meaning/intonation unscored. EN/DE sequence and range punctuation reviewed: commas or ASCII range separator preserve the original meaning; KO source and assessment unchanged."
     }
   ]
 }

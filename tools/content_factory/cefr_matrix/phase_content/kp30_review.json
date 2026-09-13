@@ -471,7 +471,7 @@
     },
     {
       "taskId": "KP30:writing:01",
-      "sha256": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+      "sha256": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -480,7 +480,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification."
+      "note": "KO/EN/DE checked: sixrequiredactualfullresponses,critique/report/presentationscript pluslearner-selectedC2original/revision/audittable. Preservecount/location/rights/duties/exception/hearsay/unknownactor, functionandunderstanding/agreement/permission distinctions. ExplicitownKP25-30selectionandbefore/aftergroundedreasons, honorification/address/titlesseparate, uncertaintyretained. Freewritingmeaning/styleunscored, noC2certification. EN/DE sequence and range punctuation reviewed: commas or ASCII range separator preserve the original meaning; KO source and assessment unchanged."
     },
     {
       "taskId": "KP30:speaking:01",

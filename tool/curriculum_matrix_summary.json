@@ -13022,7 +13022,7 @@
           {
             "objectiveId": "KP23:objective:functions/mediate_between_parties:P",
             "taskId": "KP23:speaking:01",
-            "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "materialIds": [
               "KP23:speaking:01/practice/material",
               "KP23:speaking:01/assessment/material"
@@ -13059,7 +13059,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP23",
             "taskId": "KP23:speaking:01",
-            "contentHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "contentHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -13296,7 +13296,7 @@
           {
             "objectiveId": "KP20:objective:functions/express_certainty_doubt_hedging:P",
             "taskId": "KP20:speaking:01",
-            "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "materialIds": [
               "KP20:speaking:01/practice/material",
               "KP20:speaking:01/assessment/material"
@@ -13347,7 +13347,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP20",
             "taskId": "KP20:speaking:01",
-            "contentHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "contentHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "kind": "published_route_contract_not_device_result"
           },
           {
@@ -14821,7 +14821,7 @@
           {
             "objectiveId": "KP20:objective:speaking/genre/presentation_briefing_talk:P",
             "taskId": "KP20:speaking:01",
-            "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "materialIds": [
               "KP20:speaking:01/practice/material",
               "KP20:speaking:01/assessment/material"
@@ -14834,7 +14834,7 @@
           {
             "objectiveId": "KP23:objective:speaking/genre/presentation_briefing_talk:P",
             "taskId": "KP23:speaking:01",
-            "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "materialIds": [
               "KP23:speaking:01/practice/material",
               "KP23:speaking:01/assessment/material"
@@ -14864,14 +14864,14 @@
             "route": "/learning-phase/task",
             "phaseId": "KP20",
             "taskId": "KP20:speaking:01",
-            "contentHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "contentHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "kind": "published_route_contract_not_device_result"
           },
           {
             "route": "/learning-phase/task",
             "phaseId": "KP23",
             "taskId": "KP23:speaking:01",
-            "contentHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "contentHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -15131,7 +15131,7 @@
           {
             "objectiveId": "KP20:objective:register/hapsyo_formal_business:P",
             "taskId": "KP20:speaking:01",
-            "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "materialIds": [
               "KP20:speaking:01/practice/material",
               "KP20:speaking:01/assessment/material"
@@ -15170,7 +15170,7 @@
           {
             "objectiveId": "KP23:objective:register/hapsyo_formal_business:P",
             "taskId": "KP23:speaking:01",
-            "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "materialIds": [
               "KP23:speaking:01/practice/material",
               "KP23:speaking:01/assessment/material"
@@ -15244,7 +15244,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP20",
             "taskId": "KP20:speaking:01",
-            "contentHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "contentHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "kind": "published_route_contract_not_device_result"
           },
           {
@@ -15265,7 +15265,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP23",
             "taskId": "KP23:speaking:01",
-            "contentHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "contentHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "kind": "published_route_contract_not_device_result"
           },
           {
@@ -15312,7 +15312,7 @@
           {
             "objectiveId": "KP20:objective:register/haeyo_polite:P",
             "taskId": "KP20:speaking:01",
-            "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "materialIds": [
               "KP20:speaking:01/practice/material",
               "KP20:speaking:01/assessment/material"
@@ -15351,7 +15351,7 @@
           {
             "objectiveId": "KP23:objective:register/haeyo_polite:P",
             "taskId": "KP23:speaking:01",
-            "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "materialIds": [
               "KP23:speaking:01/practice/material",
               "KP23:speaking:01/assessment/material"
@@ -15425,7 +15425,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP20",
             "taskId": "KP20:speaking:01",
-            "contentHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+            "contentHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
             "kind": "published_route_contract_not_device_result"
           },
           {
@@ -15446,7 +15446,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP23",
             "taskId": "KP23:speaking:01",
-            "contentHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+            "contentHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
             "kind": "published_route_contract_not_device_result"
           },
           {
@@ -16284,7 +16284,7 @@
           {
             "objectiveId": "KP30:objective:functions/summarise_reconstruct:P",
             "taskId": "KP30:writing:01",
-            "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "materialIds": [
               "KP30:writing:01/practice/material",
               "KP30:writing:01/assessment/material"
@@ -16338,7 +16338,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP30",
             "taskId": "KP30:writing:01",
-            "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -16498,7 +16498,7 @@
           {
             "objectiveId": "KP30:objective:functions/compare_contrast_alternatives:P",
             "taskId": "KP30:writing:01",
-            "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "materialIds": [
               "KP30:writing:01/practice/material",
               "KP30:writing:01/assessment/material"
@@ -16552,7 +16552,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP30",
             "taskId": "KP30:writing:01",
-            "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -17362,7 +17362,7 @@
           {
             "objectiveId": "KP30:objective:writing/genre/report_proposal_official:P",
             "taskId": "KP30:writing:01",
-            "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "materialIds": [
               "KP30:writing:01/practice/material",
               "KP30:writing:01/assessment/material"
@@ -17416,7 +17416,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP30",
             "taskId": "KP30:writing:01",
-            "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -17460,7 +17460,7 @@
           {
             "objectiveId": "KP30:objective:writing/genre/review_critique_text:P",
             "taskId": "KP30:writing:01",
-            "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "materialIds": [
               "KP30:writing:01/practice/material",
               "KP30:writing:01/assessment/material"
@@ -17515,7 +17515,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP30",
             "taskId": "KP30:writing:01",
-            "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -18402,7 +18402,7 @@
           {
             "objectiveId": "KP30:objective:register/written_plain_haeche:P",
             "taskId": "KP30:writing:01",
-            "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "materialIds": [
               "KP30:writing:01/practice/material",
               "KP30:writing:01/assessment/material"
@@ -18506,7 +18506,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP30",
             "taskId": "KP30:writing:01",
-            "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+            "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
             "kind": "published_route_contract_not_device_result"
           }
         ],

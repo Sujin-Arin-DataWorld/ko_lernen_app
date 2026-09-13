@@ -2559,7 +2559,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "출처와 같은 단어의 다른 뜻을 중개하기",
@@ -2568,8 +2568,8 @@
       },
       "teaching": {
         "ko": "발언을 중개하는 동료로서 해요체로 두 집단의 공개 정의를 각각 확인하고, 어떤 자료를 누구에게 어떤 권한으로 전달하라는 것인지 되물으세요. 자료에 없는 계정·접근 명단·위원회 답변은 확인 과제로 남기며 합의한 공통 정의를 만들지 않습니다. 이어 합쇼체 브리핑으로 요점·출처 연쇄·한계 순으로 발표하고 개인 평가를 인용 밖에서 밝힙니다. 모어가 다른 동료에게 한국어로 질문→명령과 전언→직접 경험이라는 두 전이 오류를 짚어 주세요. 같은 출처가 두 번 등장해도 한 원문임을 보존하고, -데요 회고를 -더라고요로 풀어도 출처를 유지하세요. 녹음을 듣고 발화자 전환·인용 경계의 휴지를 표시해 다시 말합니다. 의미·억양은 미채점입니다.",
-        "en": "As a mediating colleague, politely confirm each group’s definition of disclosure and ask which material should go to whom under whose authority. Leave missing accounts, access lists and committee response as checking tasks; invent no agreed common definition. Then give a formal briefing in point–reporting chain–limits order, keeping personal evaluation outside quotations. Explain in Korean two transfer errors to a colleague with another first language: question becomes command and hearsay becomes direct experience. Preserve one original even when its source is mentioned twice; retain the source when paraphrasing recalled 데요 with 더라고요. Replay, mark pauses at speaker changes and quotation boundaries, and revise. Meaning and intonation remain unscored.",
-        "de": "Bestätige als vermittelnde Person höflich die jeweilige Definition von Veröffentlichung. Frage nach Material, Empfänger und Befugnis. Fehlende Konten, Zugangslisten und Ausschussantwort bleiben Prüfaufträge; erfinde keine vereinbarte gemeinsame Definition. Halte danach ein förmliches Briefing in der Reihenfolge Kernpunkt–Übermittlungskette–Grenzen und kennzeichne eigene Bewertung außerhalb von Zitaten. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Frage wird Befehl und Hörensagen eigenes Erleben. Bewahre ein einziges Original auch bei zweimaliger Quellennennung; erhalte die Quelle beim Umformulieren von erinnerndem 데요 mit 더라고요. Höre zu, markiere Pausen bei Sprecherwechsel und Zitatgrenzen und überarbeite. Inhalt und Intonation bleiben unbewertet."
+        "en": "As a mediating colleague, politely confirm each group’s definition of disclosure and ask which material should go to whom under whose authority. Leave missing accounts, access lists and committee response as checking tasks; invent no agreed common definition. Then give a formal briefing, presenting the main point first, followed by the reporting chain and limits. Keep personal evaluation outside quotations. Explain in Korean two transfer errors to a colleague with another first language: question becomes command and hearsay becomes direct experience. Preserve one original even when its source is mentioned twice; retain the source when paraphrasing recalled 데요 with 더라고요. Replay, mark pauses at speaker changes and quotation boundaries, and revise. Meaning and intonation remain unscored.",
+        "de": "Bestätige als vermittelnde Person höflich die jeweilige Definition von Veröffentlichung. Frage nach Material, Empfänger und Befugnis. Fehlende Konten, Zugangslisten und Ausschussantwort bleiben Prüfaufträge; erfinde keine vereinbarte gemeinsame Definition. Halte danach ein förmliches Briefing in der Reihenfolge Kernpunkt, Übermittlungskette, Grenzen und kennzeichne eigene Bewertung außerhalb von Zitaten. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Frage wird Befehl und Hörensagen eigenes Erleben. Bewahre ein einziges Original auch bei zweimaliger Quellennennung; erhalte die Quelle beim Umformulieren von erinnerndem 데요 mit 더라고요. Höre zu, markiere Pausen bei Sprecherwechsel und Zitatgrenzen und überarbeite. Inhalt und Intonation bleiben unbewertet."
       },
       "examplesKo": [],
       "minimumScore": 1,

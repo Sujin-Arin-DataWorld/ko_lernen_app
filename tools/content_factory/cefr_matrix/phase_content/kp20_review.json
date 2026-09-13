@@ -276,7 +276,7 @@
     },
     {
       "taskId": "KP20:speaking:01",
-      "sha256": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+      "sha256": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "checks": [
@@ -285,7 +285,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored."
+      "note": "KO/EN/DE: polite equal colleague questions preserve expected benefit while challenging all/always/must separately, narrower joint conclusion and unknowns. Review worth versus effect likelihood in separate sentences, formal public briefing, Korean mediation of possibility-to-obligation and self-report-to-objective-effect transfer. Replay pauses/focus and revise; meaning/intonation unscored. EN/DE sequence and range punctuation reviewed: commas or ASCII range separator preserve the original meaning; KO source and assessment unchanged."
     }
   ]
 }

@@ -70385,7 +70385,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "질문으로 일반화의 범위 좁히기",
@@ -70394,8 +70394,8 @@
       },
       "teaching": {
         "ko": "동등한 동료에게 해요체로 응답 수와 가설을 나누어 설명하세요. 동료가 “모든 사람에게 항상 효과가 있으니 반드시 도입해야 해요”라고 하면 원 주장 중 효과 기대는 보존하되, 모든 사람·항상·반드시의 근거를 각각 물으세요. 답변 자료가 없으면 제한된 공동 결론과 확인 질문을 제시하세요. 검토할 가치와 효과 발생 가능성을 다른 문장으로 말하고 -는 듯해요·-는 것 같아요의 유보가 확인된 수치까지 흐리지 않게 하세요. 이어 합쇼체 공개 브리핑에서 요점·근거·한계 순으로 설명하고, 모어가 다른 동료에게 가능성에서 의무로 바뀐 점과 자기 보고가 사실 효과로 바뀐 점을 한국어로 짚으세요. 녹음을 듣고 유보·일반화·결론의 휴지와 강조를 고쳐요. 의미·억양은 미채점입니다.",
-        "en": "Politely explain the response count and hypothesis separately to an equal colleague. If they claim it always works for everyone and must be adopted, retain their expectation of benefit but ask separately for evidence for everyone, always and must. Without further data, propose a limited joint conclusion and checking questions. Put review value and likelihood of effect in different sentences; cautious endings must not blur verified figures. Then give a formal public briefing in point–evidence–limits order. Explain in Korean two transfer shifts to a colleague with another first language: possibility becoming obligation and self-report becoming objective effect. Replay and revise pauses and focus around reservations, generalisations and conclusions. Meaning and intonation remain unscored.",
-        "de": "Erkläre einer gleichgestellten Person höflich Antwortzahl und Hypothese getrennt. Behauptet sie, es wirke immer bei allen und müsse eingeführt werden, erhalte die Erwartung eines Vorteils, frage aber getrennt nach Belegen für alle, immer und müssen. Schlage ohne weitere Daten ein begrenztes gemeinsames Fazit und Prüffragen vor. Formuliere Prüfwert und Wirkungschance in getrennten Sätzen; vorsichtige Endungen dürfen bestätigte Zahlen nicht verwischen. Berichte danach förmlich in der Reihenfolge Kernpunkt–Beleg–Grenzen. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Verschiebungen: Möglichkeit wird Pflicht und Selbstauskunft objektiver Effekt. Höre zu und verbessere Pausen und Betonung bei Vorbehalt, Verallgemeinerung und Fazit. Inhalt und Intonation bleiben unbewertet."
+        "en": "Politely explain the response count and hypothesis separately to an equal colleague. If they claim it always works for everyone and must be adopted, retain their expectation of benefit but ask separately for evidence for everyone, always and must. Without further data, propose a limited joint conclusion and checking questions. Put review value and likelihood of effect in different sentences; cautious endings must not blur verified figures. Then give a formal public briefing, presenting the main point first, followed by the evidence and limits. Explain in Korean two transfer shifts to a colleague with another first language: possibility becoming obligation and self-report becoming objective effect. Replay and revise pauses and focus around reservations, generalisations and conclusions. Meaning and intonation remain unscored.",
+        "de": "Erkläre einer gleichgestellten Person höflich Antwortzahl und Hypothese getrennt. Behauptet sie, es wirke immer bei allen und müsse eingeführt werden, erhalte die Erwartung eines Vorteils, frage aber getrennt nach Belegen für alle, immer und müssen. Schlage ohne weitere Daten ein begrenztes gemeinsames Fazit und Prüffragen vor. Formuliere Prüfwert und Wirkungschance in getrennten Sätzen; vorsichtige Endungen dürfen bestätigte Zahlen nicht verwischen. Berichte danach förmlich in der Reihenfolge Kernpunkt, Beleg, Grenzen. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Verschiebungen: Möglichkeit wird Pflicht und Selbstauskunft objektiver Effekt. Höre zu und verbessere Pausen und Betonung bei Vorbehalt, Verallgemeinerung und Fazit. Inhalt und Intonation bleiben unbewertet."
       },
       "examplesKo": [],
       "minimumScore": 1,
@@ -70410,7 +70410,7 @@
         "sourceKo": "학습용 창작 연구 초록 — 솔빛문화관\n목적: 분리배출 표지 변경 뒤 이용자가 느낀 변화를 탐색한다. 이 초록에서 자기 보고는 참여자가 자신의 경험을 말한 응답이며 기기로 확인한 효과와 구별한다.\n방법: 한 시설에서 참여를 자원한 성인 24명에게 도입 전후의 느낌을 물었다. 무작위 배정이나 비교 집단은 없었다. 효과를 나타낼 별도의 객관적 지표는 측정하지 않았으며 조사에 참여하지 않은 이용자의 경험도 모른다.\n결과: 24명 중 15명이 “분리배출이 쉬워졌다”고 답했다. 나머지 응답의 세부 내용은 이 초록에 제시하지 않았다. 따라서 나머지 전원이 반대 효과를 보고했다고 해석할 수 없다.\n해석: 연구자는 안내 변화가 경험에 영향을 준 듯하다고 보았다. 이는 자기 보고에 근거한 잠정 가설이다. 조사 기간의 다른 변화나 자원 참여자의 표본 편향을 배제하지 못했다. 자기 보고상의 변화와 실제 폐기물 감소량는 별개이며 후자는 이 조사에서 측정하지 않았다. 비슷한 조건의 다른 집단에서 같은 경향이 나타나지 않는다면 가설의 적용 범위를 다시 검토해야 한다. 비교 집단을 둔 후속 조사는 제안 단계다.\n\n별도 창작 보도문 — 작은 변화가 모두에게 효과\n솔빛문화관의 새 안내는 모든 이용자에게 언제나 효과가 있는 것으로 밝혀졌다. 조사에서 15명이 좋아졌다고 답했으니 새 안내가 유일한 원인이다. 익숙하지 않은 제도에는 불편이 생기게 마련이지만 이번 결과가 모든 걱정을 없앴다. 기자는 해당 방식을 모든 시설에 즉시 의무화해야 한다고 주장했다. 보도문은 초록 외의 추가 자료를 제시하지 않았다.\n\n별도 동료 논평\n이 제안은 검토할 만하다. 이것은 검토 가치에 대한 판단이며 효과가 확실하다는 뜻은 아니다. 다른 시설에도 도움이 될 법하지만 가능성만으로 시행 의무가 생기지는 않는다. 비용과 이용자의 선택권도 평가 기준이다. 즉시 전면 도입안과 범위를 제한한 후속 조사안을 비교할 수 있다. 전자는 기대한 혜택을 빨리 제공할 수 있으나 검증되지 않은 효과를 확대할 위험이 있다. 후자는 확인 기회를 늘리지만 추가 시간과 비용이 들며 그 크기는 미상이다. 효과 검증과 선택권이라는 같은 기준으로 두 안을 평가해야 한다. 가능성·확신·당위는 양태의 서로 다른 기능이다. 효과의 발생 빈도는 이번 표본 밖에서 알 수 없으므로 “항상”으로 표현해서는 안 된다. 자료를 더 모으는 연구팀을 보고 다시 조사하려나 보다 하고 추측할 수는 있으나, 그 행동만으로 후속 조사의 승인이나 일정을 확정할 수 없다.",
         "questions": []
       },
-      "contentHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02"
+      "contentHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7"
     },
     {
       "id": "KP21:grammar:01",
@@ -78569,7 +78569,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "출처와 같은 단어의 다른 뜻을 중개하기",
@@ -78578,8 +78578,8 @@
       },
       "teaching": {
         "ko": "발언을 중개하는 동료로서 해요체로 두 집단의 공개 정의를 각각 확인하고, 어떤 자료를 누구에게 어떤 권한으로 전달하라는 것인지 되물으세요. 자료에 없는 계정·접근 명단·위원회 답변은 확인 과제로 남기며 합의한 공통 정의를 만들지 않습니다. 이어 합쇼체 브리핑으로 요점·출처 연쇄·한계 순으로 발표하고 개인 평가를 인용 밖에서 밝힙니다. 모어가 다른 동료에게 한국어로 질문→명령과 전언→직접 경험이라는 두 전이 오류를 짚어 주세요. 같은 출처가 두 번 등장해도 한 원문임을 보존하고, -데요 회고를 -더라고요로 풀어도 출처를 유지하세요. 녹음을 듣고 발화자 전환·인용 경계의 휴지를 표시해 다시 말합니다. 의미·억양은 미채점입니다.",
-        "en": "As a mediating colleague, politely confirm each group’s definition of disclosure and ask which material should go to whom under whose authority. Leave missing accounts, access lists and committee response as checking tasks; invent no agreed common definition. Then give a formal briefing in point–reporting chain–limits order, keeping personal evaluation outside quotations. Explain in Korean two transfer errors to a colleague with another first language: question becomes command and hearsay becomes direct experience. Preserve one original even when its source is mentioned twice; retain the source when paraphrasing recalled 데요 with 더라고요. Replay, mark pauses at speaker changes and quotation boundaries, and revise. Meaning and intonation remain unscored.",
-        "de": "Bestätige als vermittelnde Person höflich die jeweilige Definition von Veröffentlichung. Frage nach Material, Empfänger und Befugnis. Fehlende Konten, Zugangslisten und Ausschussantwort bleiben Prüfaufträge; erfinde keine vereinbarte gemeinsame Definition. Halte danach ein förmliches Briefing in der Reihenfolge Kernpunkt–Übermittlungskette–Grenzen und kennzeichne eigene Bewertung außerhalb von Zitaten. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Frage wird Befehl und Hörensagen eigenes Erleben. Bewahre ein einziges Original auch bei zweimaliger Quellennennung; erhalte die Quelle beim Umformulieren von erinnerndem 데요 mit 더라고요. Höre zu, markiere Pausen bei Sprecherwechsel und Zitatgrenzen und überarbeite. Inhalt und Intonation bleiben unbewertet."
+        "en": "As a mediating colleague, politely confirm each group’s definition of disclosure and ask which material should go to whom under whose authority. Leave missing accounts, access lists and committee response as checking tasks; invent no agreed common definition. Then give a formal briefing, presenting the main point first, followed by the reporting chain and limits. Keep personal evaluation outside quotations. Explain in Korean two transfer errors to a colleague with another first language: question becomes command and hearsay becomes direct experience. Preserve one original even when its source is mentioned twice; retain the source when paraphrasing recalled 데요 with 더라고요. Replay, mark pauses at speaker changes and quotation boundaries, and revise. Meaning and intonation remain unscored.",
+        "de": "Bestätige als vermittelnde Person höflich die jeweilige Definition von Veröffentlichung. Frage nach Material, Empfänger und Befugnis. Fehlende Konten, Zugangslisten und Ausschussantwort bleiben Prüfaufträge; erfinde keine vereinbarte gemeinsame Definition. Halte danach ein förmliches Briefing in der Reihenfolge Kernpunkt, Übermittlungskette, Grenzen und kennzeichne eigene Bewertung außerhalb von Zitaten. Erkläre einer Person anderer Erstsprache auf Koreanisch zwei Übertragungsfehler: Frage wird Befehl und Hörensagen eigenes Erleben. Bewahre ein einziges Original auch bei zweimaliger Quellennennung; erhalte die Quelle beim Umformulieren von erinnerndem 데요 mit 더라고요. Höre zu, markiere Pausen bei Sprecherwechsel und Zitatgrenzen und überarbeite. Inhalt und Intonation bleiben unbewertet."
       },
       "examplesKo": [],
       "minimumScore": 1,
@@ -78594,7 +78594,7 @@
         "sourceKo": "[가상 솔빛기록관 자료 협의의 세 녹음. 세 사람은 업무를 조율하는 동료다. 원 발언자는 내부 검토 절차만 안내할 권한이 있고 외부 공개는 위원회가 결정한다.]\n녹음 1. 서하: 화요일까지 초안 11건을 내부 검토함에 올려 주세요. 외부 공개 여부는 위원회에 물어보세요. 저는 외부 공개를 승인한 것이 아닙니다.\n녹음 2. 지수: 제가 방금 서하의 녹음 1을 들었어요. 서하가 내부 검토함에 올리라고 했고, 외부에 공개해도 되는지는 위원회에 물어보라고 했어요. 저는 질문을 대신 전달하겠어요. 함께 검토하자기에 동료들과 자리에 모였습니다. 모였다는 사실과 위원회 승인은 다릅니다.\n녹음 3. 도윤: 저는 지수에게만 들었어요. “외부 공개는 위원회에 물어보라”고 전해 들었는데, 처음에는 공개하라는 지시로 잘못 옮겼습니다. 서하의 원 녹음은 직접 듣지 않았어요. 누군가 “공개가 확정됐다”고도 말했지만 누가 처음 말했는지, 앞의 전언과 같은 출처인지는 모릅니다. 이 말을 독립 확인으로 적으면 안 되겠어요.\n확인 대화. 지수: 여기서 운영팀의 공개는 내부 검토함 공유를 뜻하고, 전시팀의 공개는 관람객에게 보여 주는 것을 뜻해요. 같은 단어라고 같은 범위는 아니에요.\n도윤: 담당자가 자료를 누구에게 제출하라니?라고 친한 동료에게 물었던 것은 받는 사람을 확인하는 질문이었지 새 제출 명령은 아니었어요. 지금은 공손하게 “어느 검토함에 올리라는 지시인지 확인해 주시겠어요?”라고 되묻겠습니다.\n지수: 원문은 내부 검토함이라고만 해요. 구체적인 계정과 접근 명단은 이 녹음에 없으니 확인 과제로 남겨요. 세 녹음은 전언 연쇄이지 세 차례의 독립 승인이 아닙니다.\n[가상 기사 제목] “솔빛기록관, 초안 11건 외부 공개한다”\n[기사 본문] 기자는 도윤에게 들은 이야기를 바탕으로 외부 공개가 결정됐다고 해석했다. 위원회 의결문은 확인하지 않았다. “외부에 공개해도 되는지는 위원회에 물어보라”는 전언을 인용했지만, 제목에서는 허용 여부라는 질문을 확정 진술로 바꿨다.\n[인터뷰 전사 1: 지수]\n질문: 무엇을 직접 확인했나요?\n답: 제가 직접 들은 것은 서하의 녹음입니다. 화요일까지 초안 11건을 내부 검토함에 올리라는 말과 외부 공개는 위원회에 물으라는 말이 있었어요. 제가 초안 두 개를 직접 비교해 보니 한쪽에는 인용이 빠져 있더라고요. 이것은 제가 본 두 초안의 차이지 모든 자료가 잘못됐다는 뜻은 아니에요. 서하가 추가 설명이 필요하다기에 비교 메모를 보냈습니다.\n질문: 운영팀이 말한 공개는 무엇인가요?\n답: 내부 검토함에 공유한다는 뜻이에요. 관람객에게 보여 준다는 뜻으로 쓴 것은 아니에요.\n[인터뷰 전사 2: 도윤]\n질문: 원 녹음과 위원회 의결문을 보셨나요?\n답: 아니요. 지수에게만 들었어요. 기사와 제 전언이 서로 다른 독립 출처인 것처럼 보이면 안 돼요. 누군가 이미 정리했다는 말을 듣고 “그 많은 일을 혼자 감당했다니 놀라워요”라고 했지만 제가 확인한 일은 아닙니다. 전시팀에서 공개는 관람객에게 보여 주는 것을 뜻해요. 운영팀과 같은 뜻으로 합의한 적은 없습니다.\n질문: 직접 경험한 일은 있나요?\n답: 어제 직접 가 보니 전시실이 꽤 조용하데요. 방문 당시 분위기에 관한 회상입니다. 외부 공개 승인 여부를 확인했다는 뜻은 아니에요. 분명하게 설명한다는 것이 오히려 혼란을 키웠어요. 제가 비교 메모에서 물음표를 빼고 보낸 일이 있었거든요. 물음표를 뺀 사실은 인정하지만 처음부터 오해를 만들려던 것은 아닙니다.\n[편집 검토 메모]\n제목과 본문의 화행이 앞뒤가 맞는지, 인용 범위 밖의 기자 해석을 사실처럼 썼는지 확인한다. 그 기사만을 가지고 합의가 있었다고 말하기는 어렵다. 내부 업로드 지시, 외부 허용 질문, 두 초안의 직접 비교, 전언에 대한 감탄, 방문 회고, 전달 의도와 혼란 결과를 별도 명제로 기록한다. 구체 계정·접근 명단·익명 전언의 최초 출처·위원회 답변은 미상이다.",
         "questions": []
       },
-      "contentHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600"
+      "contentHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb"
     },
     {
       "id": "KP24:grammar:01",
@@ -101117,7 +101117,7 @@
       "requirementKeys": [],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "비평·보고·발표와 C2 자기 감사",
@@ -101126,8 +101126,8 @@
       },
       "teaching": {
         "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-        "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-        "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+        "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+        "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
       },
       "examplesKo": [],
       "minimumScore": 1,
@@ -101149,8 +101149,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101166,8 +101166,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101183,8 +101183,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101200,8 +101200,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101217,8 +101217,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101234,8 +101234,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           }
         ]
@@ -101257,8 +101257,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101274,8 +101274,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101291,8 +101291,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101308,8 +101308,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101325,8 +101325,8 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           },
           {
@@ -101342,13 +101342,13 @@
             "acceptedAnswers": [],
             "explanation": {
               "ko": "여섯 칸에 실제 글을 쓰세요. 평가 기준·장점·한계·구절을 갖춘 비평, 목적·근거·결론·실행 조건을 갖춘 보고서, 요점·근거·한계를 전하는 발표 원고를 각각 완성합니다. 수량·장소·권리·의무·예외·전언·미상 승인자를 보존하세요. 옛 말투를 현대 표현으로 바꾸면서 지시·질문·감탄·주의 환기와 이해·동의·허가를 나눕니다. 문어 하다체와 청자 반말은 다릅니다. KP25–KP30에서 자신이 쓴 글 하나를 골라 원문 칸에 붙이고 수정본을 씁니다. 마지막 칸에는 원문 구절→수정 구절→이유의 문체 전환표와 의미 감사표를 만드세요. 주체 높임·청자 대우·호칭은 따로 기록하고 극성·시간·출처·책임·선택권이 바뀐 곳을 고칩니다. 남은 모호성과 다른 읽기를 표시하세요. 이는 자기 감사이며 C2 전체 인증이 아닙니다. 자유 의미·문체 효과는 미채점입니다.",
-              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25–KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
-              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25–KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
+              "en": "Write actual texts in six fields: a complete critique with criteria, strengths, limits and passages; a report with purpose, evidence, conclusion and implementation conditions; and a presentation with points, grounds and limits. Preserve quantity, place, rights, duties, exceptions, hearsay and unknown approvers. Recast older style while separating instructions, questions, exclamations, attention calls and understanding, agreement and permission. Written plain prose is not casual address. Select your own KP25-KP30 text, paste the original and write a revision. In the final field make a source passage→revision→reason style-change and meaning-audit table. Track subject honorification, address and titles separately; repair changed polarity, time, source, responsibility or choice. Mark remaining ambiguity and alternative readings. This is self-audit, not whole-C2 certification; free meaning and stylistic effects remain unscored.",
+              "de": "Schreibe echte Texte in sechs Felder: eine vollständige Kritik mit Kriterien, Stärken, Grenzen und Belegen; einen Bericht mit Zweck, Begründung, Schluss und Ausführungsbedingungen; sowie einen Vortrag mit Punkten, Belegen und Grenzen. Erhalte Menge, Ort, Rechte, Pflichten, Ausnahmen, Hörensagen und unbekannte Genehmigende. Übertrage ältere Stile und trenne Anweisung, Frage, Ausruf, Aufmerksamkeit sowie Verstehen, Zustimmung und Erlaubnis. Schriftlicher Aussagestil ist keine vertrauliche Anrede. Wähle einen eigenen KP25-KP30-Text, füge das Original ein und überarbeite ihn. Erstelle zuletzt eine Tabelle Ausgangsstelle→Neufassung→Grund für Stilwechsel und Bedeutungsprüfung. Erfasse Subjekthonorifikation, Anrede und Titel getrennt und korrigiere veränderte Polarität, Zeit, Quelle, Verantwortung oder Wahlfreiheit. Markiere Mehrdeutigkeit und Alternativlesarten. Dies ist Selbstprüfung, keine Gesamt-C2-Zertifizierung; Inhalt und Stileffekte bleiben unbewertet."
             }
           }
         ]
       },
-      "contentHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd"
+      "contentHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d"
     },
     {
       "id": "KP30:speaking:01",
@@ -131841,7 +131841,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -131866,7 +131866,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -131891,7 +131891,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132033,7 +132033,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132457,7 +132457,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132515,7 +132515,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132573,7 +132573,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132598,7 +132598,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -132623,7 +132623,7 @@
       "bindings": [
         {
           "taskId": "KP20:speaking:01",
-          "taskHash": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02",
+          "taskHash": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7",
           "materialIds": [
             "KP20:speaking:01/practice/material",
             "KP20:speaking:01/assessment/material"
@@ -136284,7 +136284,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136309,7 +136309,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136334,7 +136334,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136535,7 +136535,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136829,7 +136829,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136886,7 +136886,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136940,7 +136940,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136965,7 +136965,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -136990,7 +136990,7 @@
       "bindings": [
         {
           "taskId": "KP23:speaking:01",
-          "taskHash": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600",
+          "taskHash": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb",
           "materialIds": [
             "KP23:speaking:01/practice/material",
             "KP23:speaking:01/assessment/material"
@@ -147077,7 +147077,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147109,7 +147109,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147141,7 +147141,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147173,7 +147173,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147349,7 +147349,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147413,7 +147413,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147530,7 +147530,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -147896,7 +147896,7 @@
       "bindings": [
         {
           "taskId": "KP30:writing:01",
-          "taskHash": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+          "taskHash": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
           "materialIds": [
             "KP30:writing:01/practice/material",
             "KP30:writing:01/assessment/material"
@@ -148700,9 +148700,9 @@
         "KP20:listening:01": "f181d537e0da710bbcf61c49f090e8869276a5894d84640fb0f38e1d8f0c509e",
         "KP20:reading:01": "ec63ab926bb14b9c27c9395a6c35c38f2a3b9d00947e3e7485973522027bc52c",
         "KP20:writing:01": "c946fe4cd72103d11edb704109a8a4e1945de0c2f18905518f96206eb219f339",
-        "KP20:speaking:01": "708903e771ad7b273250d2abfb32a2f738a3fa6bb44d9fabf6ab46eaa99e3d02"
+        "KP20:speaking:01": "28b7f979abdb5895ece21fbc8818b0752f04b2a9776e91fbbd5b27a3c1fa8be7"
       },
-      "contentHash": "697ca564ab89ceee4476f8050df953b60965df13a3e4194474dd306c9b8af6ca"
+      "contentHash": "340ab9d617290300b2b530eb6912ecdf3a5bb5f1548e6a96a29b342503074020"
     },
     {
       "phaseId": "KP21",
@@ -148789,9 +148789,9 @@
         "KP23:listening:02": "a0b8217eb34fe7f1a401dbd44af944f52b3f49aa9804efa752f59841f46366c3",
         "KP23:reading:01": "fb1067147fec4d1726aad2bfc529e88ed9f636667f1999510fcb3e34f9363d91",
         "KP23:writing:01": "c4fb68e6aacd454c7f1c119f2cdeea9faf4daaa9c3bda2dab4ce9f63f31825b2",
-        "KP23:speaking:01": "d1f4ec7eae4f0ff1e43847244bef3f73be974e170a3a66ef1081843b8fccc600"
+        "KP23:speaking:01": "f9f9f4ae8b5dab9756c0909e492a84a8b56fe6bd6cde3307b1fd94642e1426cb"
       },
-      "contentHash": "2dd6c05b17eace96f4e0aa09d8dd04038c3832ffbe4574c48cff5fa995a17664"
+      "contentHash": "6a8aa6300063cf40368df67e026db820c70d6160869d95c11b77eeb5549c9010"
     },
     {
       "phaseId": "KP24",
@@ -149026,10 +149026,10 @@
         "KP30:listening:02": "984b253c8116b7569f1bcc379a3f571ad7ae617ef4305180bd2cce095789165f",
         "KP30:reading:01": "6254b9bbcbe474cf11c2a9a38881ded7c52474bc86c882458f48860add70c74b",
         "KP30:reading:02": "2c2886bb2721bc2f45964b0f19c0d430176c03934f3ffd2240c818d78e1b8803",
-        "KP30:writing:01": "8cf0fb03660b084575724ddd7f37ed0ac87090ab50ccc5e765516849fbd1e7cd",
+        "KP30:writing:01": "4e15e957a6cd777dfc23dd586cfc18ce2bacfa2f87e04eafe475188ab91e2b3d",
         "KP30:speaking:01": "10ecf60145517a0caa0093d92cb63883df256a64a625d9ffd12630faaa161dc4"
       },
-      "contentHash": "6cada47d961cdbb065981fb1f5909705739f7bd8d0b88181fd83ed4b927eecf2"
+      "contentHash": "4eb2321beaca1ceaa1a59481361e1b837cd7b69564f2a6dd9e96ebe551ee98c7"
     }
   ]
 }
