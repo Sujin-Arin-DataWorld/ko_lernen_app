@@ -4956,5 +4956,9 @@
   "onboardingV2HanokGrowthBeforeSemantics": "Hanok vor dem Einbau der Changho-Fenster und -Türen.",
   "onboardingV2HanokGrowthAfterSemantics": "Hanok mit neu eingesetzten Changho-Fenstern und -Türen.",
   "onboardingV2DiscoverGift": "Geschenk entdecken",
-  "onboardingV2ReplayDemo": "Demo wiederholen"
+  "onboardingV2ReplayDemo": "Demo wiederholen",
+  "privacyChoicePending": "Deine Auswahl wird gespeichert.",
+  "privacyChoiceUnconfirmed": "Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.",
+  "privacyWithdrawalUnconfirmed": "Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.",
+  "privacyApplicationUnconfirmed": "Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut."
 }

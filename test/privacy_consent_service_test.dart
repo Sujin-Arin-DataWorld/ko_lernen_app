@@ -82,16 +82,20 @@ void main() {
       expect(crash.recordedFlutterErrors, isEmpty);
     });
 
-    test('with consent framework errors are sent to Crashlytics', () {
-      final crash = _FakeCrashConsentClient();
-      final harness = _ConsentHarness(crashConsent: true, crash: crash);
-      final details = FlutterErrorDetails(exception: StateError('boom'));
+    test(
+      'with applied consent framework errors are sent to Crashlytics',
+      () async {
+        final crash = _FakeCrashConsentClient();
+        final harness = _ConsentHarness(crashConsent: true, crash: crash);
+        await harness.controller.applyStored();
+        final details = FlutterErrorDetails(exception: StateError('boom'));
 
-      harness.controller.handleFlutterError(details, isDebug: false);
+        harness.controller.handleFlutterError(details, isDebug: false);
 
-      expect(harness.presentedErrors, isEmpty);
-      expect(crash.recordedFlutterErrors, <FlutterErrorDetails>[details]);
-    });
+        expect(harness.presentedErrors, isEmpty);
+        expect(crash.recordedFlutterErrors, <FlutterErrorDetails>[details]);
+      },
+    );
 
     test(
       'asynchronous framework report failures use local presentation',

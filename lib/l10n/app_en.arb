@@ -4792,5 +4792,9 @@
   "onboardingV2HanokGrowthBeforeSemantics": "Hanok before its Changho windows and doors are installed.",
   "onboardingV2HanokGrowthAfterSemantics": "Hanok with its new Changho windows and doors installed.",
   "onboardingV2DiscoverGift": "Discover your gift",
-  "onboardingV2ReplayDemo": "Replay demo"
+  "onboardingV2ReplayDemo": "Replay demo",
+  "privacyChoicePending": "Your choice is being saved.",
+  "privacyChoiceUnconfirmed": "Your choice could not be fully applied. Please retry. Collection remains off.",
+  "privacyWithdrawalUnconfirmed": "Collection is off for this session. Saving your withdrawal could not be confirmed. Please retry before closing the app.",
+  "privacyApplicationUnconfirmed": "Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry."
 }

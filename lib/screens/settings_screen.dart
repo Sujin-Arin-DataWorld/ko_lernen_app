@@ -22,7 +22,7 @@ import '../services/audio_policy.dart';
 import '../services/sound_service.dart';
 import '../services/notification_service.dart';
 import '../services/push_service.dart';
-import '../services/privacy_consent_service.dart';
+import '../widgets/sori/privacy_choice_feedback.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/sheet.dart';
 import '../services/personalized_lesson_service.dart';
@@ -502,29 +502,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _voiceSpeedFocusNode.dispose();
     _guideFocusNode.dispose();
     super.dispose();
-  }
-
-  Future<bool> _confirmPronunciationConsent() async {
-    final t = AppL10n.of(context);
-    return await showSoriDialog<bool>(
-          context: context,
-          barrierDismissible: false,
-          builder: (dialogContext) => SoriDialog(
-            title: Text(t.pronunciationConsentTitle),
-            content: Text(t.pronunciationConsentBody),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text(t.pronunciationConsentDecline),
-              ),
-              FilledButton(
-                onPressed: () => Navigator.pop(dialogContext, true),
-                child: Text(t.pronunciationConsentAccept),
-              ),
-            ],
-          ),
-        ) ??
-        false;
   }
 
   Future<void> _loadAppVersion() async {
@@ -1136,49 +1113,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
         //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
         _Section(label: t.settingsPrivacySection),
-        SwitchListTile(
-          secondary: const Icon(Icons.insights_outlined),
-          title: Text(t.settingsAnalyticsTitle),
-          subtitle: Text(t.settingsAnalyticsDesc),
-          value: Storage.analyticsConsent,
-          onChanged: (v) async {
-            await PrivacyConsentService.setAnalytics(v);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: t.settingsAnalyticsTitle,
+          description: t.settingsAnalyticsDesc,
+          icon: Icons.insights_outlined,
         ),
-        SwitchListTile(
-          secondary: const Icon(Icons.bug_report_outlined),
-          title: Text(t.settingsCrashTitle),
-          subtitle: Text(t.settingsCrashDesc),
-          value: Storage.crashConsent,
-          onChanged: (v) async {
-            await PrivacyConsentService.setCrash(v);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.crash,
+          title: t.settingsCrashTitle,
+          description: t.settingsCrashDesc,
+          icon: Icons.bug_report_outlined,
         ),
-        SwitchListTile(
-          secondary: const Icon(Icons.mic_none_rounded),
-          title: Text(t.settingsPronunciationConsentTitle),
-          subtitle: Text(
-            Storage.pronunciationConsent
-                ? t.settingsPronunciationConsentDesc
-                : t.settingsPronunciationConsentOff,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          value: Storage.pronunciationConsent,
-          onChanged: (value) async {
-            if (value && !await _confirmPronunciationConsent()) {
-              return;
-            }
-            await Storage.setPronunciationConsent(value);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.pronunciation,
+          title: t.settingsPronunciationConsentTitle,
+          description: t.settingsPronunciationConsentDesc,
+          icon: Icons.mic_none_rounded,
         ),
 
         // ── Reset ──

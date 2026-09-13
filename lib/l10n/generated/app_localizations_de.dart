@@ -10474,4 +10474,19 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2ReplayDemo => 'Demo wiederholen';
+
+  @override
+  String get privacyChoicePending => 'Deine Auswahl wird gespeichert.';
+
+  @override
+  String get privacyChoiceUnconfirmed =>
+      'Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.';
+
+  @override
+  String get privacyWithdrawalUnconfirmed =>
+      'Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.';
+
+  @override
+  String get privacyApplicationUnconfirmed =>
+      'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.';
 }

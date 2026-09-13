@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart'
     show debugPrint, visibleForTesting, ValueNotifier;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 import '../models/scenario_corpus_generation.dart';
 import '../models/grammar_study_plan.dart';
@@ -19,6 +20,7 @@ import 'pack_completion_record.dart';
 import 'pack_completion_owner.dart';
 
 part 'pack_completion_storage.dart';
+part 'privacy_choice_storage.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -805,7 +807,7 @@ class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
   Object? getValue(String key) => preferences.get(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -827,7 +829,7 @@ class _SharedPreferenceStringStore implements PreferenceStringStore {
   String? getString(String key) => preferences.getString(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -849,7 +851,7 @@ class _SharedPreferenceStringListStore implements PreferenceStringListStore {
   List<String>? getStringList(String key) => preferences.getStringList(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -871,7 +873,7 @@ class _SharedPreferenceIntStore implements PreferenceIntStore {
   int? getInt(String key) => preferences.getInt(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> setInt(String key, int value) => preferences.setInt(key, value);
@@ -889,7 +891,7 @@ class _SharedPreferenceBoolStore implements PreferenceBoolStore {
   bool? getBool(String key) => preferences.getBool(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> setBool(String key, bool value) =>
@@ -1671,6 +1673,7 @@ class Storage {
       }
     }
     _prefs ??= await SharedPreferences.getInstance();
+    PrivacyChoiceStorage.initialize();
     PackCompletionStorage.initialize();
     if (!_srsRecoveryInitialized) {
       _initializeSrsRecoveryView();
@@ -1682,10 +1685,13 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
+    final privacyDrain = PrivacyChoiceStorage.drain();
+    final privacyHasWrites = PrivacyChoiceStorage._native.isNotEmpty;
+    PrivacyChoiceStorage.reset();
     PackCompletionStorage.resetForTesting();
     _packProgressMutation = Future<void>.value();
     _packProgressMutationCount = 0;
-    final drains = <Future<void>>[];
+    final drains = <Future<void>>[if (privacyHasWrites) privacyDrain];
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
       drains.add(previousResetDrain);
@@ -1817,6 +1823,8 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    PrivacyChoiceStorage.retire();
+    unawaited(PrivacyChoiceStorage.refresh());
     // Cache invalidation cannot release an unresolved recovery obligation.
     if (!_srsRecoveryClosed) {
       _initializeSrsRecoveryView();
@@ -2331,6 +2339,7 @@ class Storage {
     String key,
     bool value, {
     PreferenceBoolStore? preferences,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -2339,6 +2348,7 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = await _prepareBoolMutation(store, key);
+    assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
     try {
@@ -4447,11 +4457,10 @@ class Storage {
   static double get pronunciationLastScore =>
       _readPronunciationProgress().lastScore;
 
-  static const String _pronunciationConsentKey = 'kl_pronunciation_consent_v1';
   static bool get pronunciationConsent =>
-      _prefs?.getBool(_pronunciationConsentKey) ?? false;
-  static Future<void> setPronunciationConsent(bool value) async =>
-      _prefs?.setBool(_pronunciationConsentKey, value);
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.pronunciation);
+  static Future<void> setPronunciationConsent(bool value) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.pronunciation, value);
 
   static Future<bool> recordPronunciationPass(
     String assessmentId,
@@ -4945,14 +4954,15 @@ class Storage {
   /// Default **false** — Erhebung erst nach expliziter Einwilligung
   /// (TTDSG §25 / DSGVO Art. 6). Jederzeit in den Einstellungen widerrufbar.
   static bool get analyticsConsent =>
-      _prefs?.getBool('kl_analytics_consent') ?? false;
-  static Future<void> setAnalyticsConsent(bool v) async =>
-      _prefs?.setBool('kl_analytics_consent', v);
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.analytics);
+  static Future<void> setAnalyticsConsent(bool v) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.analytics, v);
 
   /// Opt-in: Absturzberichte (Firebase Crashlytics). Default **false**.
-  static bool get crashConsent => _prefs?.getBool('kl_crash_consent') ?? false;
-  static Future<void> setCrashConsent(bool v) async =>
-      _prefs?.setBool('kl_crash_consent', v);
+  static bool get crashConsent =>
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.crash);
+  static Future<void> setCrashConsent(bool v) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.crash, v);
 
   /// Der nachgelagerte Analytics/Crash-Opt-in-Dialog wurde bereits einmal
   /// gezeigt? Wird in dem Moment gesetzt, in dem das Sheet nach dem ersten
@@ -4995,9 +5005,9 @@ class Storage {
 
   /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
   /// 0 = nicht angegeben. Siehe [AgeGateService].
-  static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;
-  static Future<void> setBirthYear(int year) async =>
-      _prefs?.setInt('kl_birth_year', year);
+  static int get birthYear => PrivacyChoiceStorage.birthYear;
+  static Future<void> setBirthYear(int year) =>
+      PrivacyChoiceStorage.setAge(year);
 
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
@@ -7756,11 +7766,13 @@ class Storage {
     }
     final generation = _xpRewardMutationGeneration;
     _learningResetCount = 1;
+    PrivacyChoiceStorage.retire(close: true);
     _invalidateSrsAttempts();
     late final Future<void> operation;
     operation = () async {
       try {
         await Future.wait([
+          PrivacyChoiceStorage.drain(),
           if (_packProgressMutationCount > 0) _packProgressMutation,
           if (PackCompletionStorage.hasNativeWrites)
             PackCompletionStorage.drainNative(),
@@ -7776,6 +7788,10 @@ class Storage {
       } finally {
         if (generation == _xpRewardMutationGeneration) {
           _learningResetCount = 0;
+          // Session-only resets and failed deletion also release their privacy
+          // fence through fresh local authority, never the retired callback.
+          PrivacyChoiceStorage.retire();
+          unawaited(PrivacyChoiceStorage.refresh());
         }
         if (identical(operation, _learningResetMutation)) {
           _learningResetMutation = null;

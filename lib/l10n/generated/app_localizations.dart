@@ -17765,6 +17765,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Demo wiederholen'**
   String get onboardingV2ReplayDemo;
+
+  /// No description provided for @privacyChoicePending.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl wird gespeichert.'**
+  String get privacyChoicePending;
+
+  /// No description provided for @privacyChoiceUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.'**
+  String get privacyChoiceUnconfirmed;
+
+  /// No description provided for @privacyWithdrawalUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.'**
+  String get privacyWithdrawalUnconfirmed;
+
+  /// No description provided for @privacyApplicationUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.'**
+  String get privacyApplicationUnconfirmed;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

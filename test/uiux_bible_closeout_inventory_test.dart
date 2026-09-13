@@ -147,9 +147,9 @@ void main() {
     }).toList();
     // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
     // Task47 adds pack_completion_recovery_banner to Study and evidence.
-    expect(actual, hasLength(144));
+    expect(actual, hasLength(145));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(144));
+    expect(listed, hasLength(145));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

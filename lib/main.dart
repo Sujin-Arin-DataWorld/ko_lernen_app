@@ -24,6 +24,7 @@ import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
+import 'services/account/cloud_write_session.dart';
 import 'services/cloud_auto_sync.dart';
 import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
@@ -509,6 +510,7 @@ AccountDeletionWorkflow _createAccountDeletionWorkflow() =>
     );
 
 Future<bool> _initFirebase() async {
+  PrivacyConsentService.bindAccountSessions(cloudWriteSessionController);
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -517,7 +519,11 @@ Future<bool> _initFirebase() async {
     // DSGVO/TTDSG: Analytics + Crashlytics sind opt-in. Die Erhebung ist im
     // Manifest/Info.plist deaktiviert; hier wird die gespeicherte
     // Einwilligung (Default: aus) auf die SDKs angewendet.
-    await PrivacyConsentService.applyStored();
+    unawaited(
+      PrivacyConsentService.applyStored().catchError((Object error) {
+        debugPrint('Optional privacy settings need retry');
+      }),
+    );
     // installErrorHandlers() 는 이제 launchKoLernenApp() 맨 앞에서 조기·
     // 무조건 설치된다(finding 7) — 여기 있던 호출은 Firebase 성공에
     // 종속된 중복이라 제거.

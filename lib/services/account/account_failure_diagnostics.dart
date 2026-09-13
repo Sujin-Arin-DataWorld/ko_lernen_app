@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'account_operation_client.dart';
+import '../privacy_consent_service.dart';
 
 /// 계정 작업 실패 한 건을 가리키는 redacted, 코드 전용 레코드.
 ///
@@ -15,7 +16,11 @@ import 'account_operation_client.dart';
 /// 예외 텍스트(`toString()`/`message`)는 여기 절대 담기지 않는다.
 @immutable
 class AccountFailureRecord implements Exception {
-  const AccountFailureRecord({required this.stage, required this.code, this.detail});
+  const AccountFailureRecord({
+    required this.stage,
+    required this.code,
+    this.detail,
+  });
 
   final String stage;
   final String code;
@@ -30,7 +35,8 @@ class AccountFailureRecord implements Exception {
 ///
 /// 프로덕션 기본값은 `debugPrint` + Crashlytics 비치명 기록. 테스트는
 /// [AccountFailureDiagnostics.sink] 에 주입해 캡처한다.
-typedef AccountDiagnosticsSink = void Function(String line, AccountFailureRecord record);
+typedef AccountDiagnosticsSink =
+    void Function(String line, AccountFailureRecord record);
 
 /// **계정 작업 실패를 로그에 남겨도 안전한 한 줄로 요약한다.**
 ///
@@ -133,7 +139,10 @@ abstract final class AccountFailureDiagnostics {
     for (final error in errors) {
       final code = describe(error);
       final line = '$logTag: $stage $code$suffix';
-      sink(line, AccountFailureRecord(stage: stage, code: code, detail: detail));
+      sink(
+        line,
+        AccountFailureRecord(stage: stage, code: code, detail: detail),
+      );
     }
   }
 
@@ -156,7 +165,13 @@ abstract final class AccountFailureDiagnostics {
       return;
     }
     try {
-      FirebaseCrashlytics.instance.log(line);
+      if (!PrivacyConsentService.canCollectCrash) {
+        return;
+      }
+      unawaited(FirebaseCrashlytics.instance.log(line).catchError((_) {}));
+      if (!PrivacyConsentService.canCollectCrash) {
+        return;
+      }
       unawaited(
         FirebaseCrashlytics.instance
             .recordError(

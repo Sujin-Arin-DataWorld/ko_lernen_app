@@ -10421,4 +10421,19 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingV2ReplayDemo => 'Replay demo';
+
+  @override
+  String get privacyChoicePending => 'Your choice is being saved.';
+
+  @override
+  String get privacyChoiceUnconfirmed =>
+      'Your choice could not be fully applied. Please retry. Collection remains off.';
+
+  @override
+  String get privacyWithdrawalUnconfirmed =>
+      'Collection is off for this session. Saving your withdrawal could not be confirmed. Please retry before closing the app.';
+
+  @override
+  String get privacyApplicationUnconfirmed =>
+      'Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry.';
 }

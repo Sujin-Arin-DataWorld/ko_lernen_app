@@ -1957,9 +1957,12 @@ Future<void> _ensureSettingsActionVisible(
     finder,
     scrollDelta,
     scrollable: find.byType(Scrollable).first,
+    // At 320dp/200% the German descriptions extend past 50 short drags.
+    maxScrolls: 100,
   );
   await tester.ensureVisible(finder);
   await tester.pump();
+  expect(finder.hitTestable(), findsOneWidget);
 }
 
 Future<void> _centerInCurrentScrollable(

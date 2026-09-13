@@ -16,6 +16,7 @@ import 'hanok_state_service.dart';
 import 'local_data_lifetime.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
+import 'privacy_consent_service.dart';
 import 'stamp_entitlement_reconciler.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
@@ -252,6 +253,7 @@ class CloudSync {
     })?
     hanokStateMerger,
   }) {
+    PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
     void assertWritable() {
       localLifetime.assertCurrent();
@@ -277,6 +279,7 @@ class CloudSync {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
   }) async {
+    PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
     void assertWritable() {
       localLifetime.assertCurrent();

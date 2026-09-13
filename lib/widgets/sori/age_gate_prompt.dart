@@ -4,6 +4,9 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/age_gate_service.dart';
 import 'dialog.dart';
+import 'privacy_choice_feedback.dart';
+import 'button.dart';
+import '../../services/storage_service.dart';
 
 /// Gye/Community 진입 전 **연령 게이트** (GDPR-K, 16세 — DSGVO Art. 8).
 ///
@@ -24,7 +27,12 @@ Future<bool> ensureGyeAgeAllowed(BuildContext context) async {
     if (year == null) {
       return false; // 취소 → 연령 미확인 → 진입 불가
     }
-    await AgeGateService.saveBirthYear(year);
+    if (!context.mounted || !AgeGateService.isGyeAllowed) {
+      if (context.mounted && AgeGateService.isUnderMinAge) {
+        await _showBlocked(context);
+      }
+      return false;
+    }
     if (AgeGateService.isUnderMinAge) {
       if (context.mounted) {
         await _showBlocked(context);
@@ -32,7 +40,7 @@ Future<bool> ensureGyeAgeAllowed(BuildContext context) async {
       return false;
     }
   }
-  return true;
+  return context.mounted && AgeGateService.isGyeAllowed;
 }
 
 Future<void> _showBlocked(BuildContext context) async {
@@ -74,9 +82,73 @@ class _BirthYearDialog extends StatefulWidget {
 class _BirthYearDialogState extends State<_BirthYearDialog> {
   final TextEditingController _controller = TextEditingController();
   String? _error;
+  bool _saving = false;
+  bool _saveFailed = false;
+  int _epoch = PrivacyChoiceStorage.epoch;
+  int _revision = 0;
+  int? _requestedYear;
+
+  @override
+  void initState() {
+    super.initState();
+    PrivacyChoiceStorage.changes.addListener(_changed);
+  }
+
+  void _changed() {
+    if (!mounted) {
+      return;
+    }
+    if (_epoch != PrivacyChoiceStorage.epoch) {
+      _epoch = PrivacyChoiceStorage.epoch;
+      _revision++;
+      _saving = false;
+      _saveFailed = false;
+      _requestedYear = null;
+    } else if (_requestedYear != null && Storage.birthYear == _requestedYear) {
+      // The editable draft does not own the submitted request's native outcome.
+      _saveFailed = false;
+    }
+    setState(() {});
+  }
+
+  Future<void> _save() async {
+    if (_saving || ModalRoute.of(context)?.isCurrent != true) {
+      return;
+    }
+    final y = int.tryParse(_controller.text.trim());
+    if (y == null || !AgeGateService.isPlausibleYear(y)) {
+      setState(() => _error = AppL10n.of(context).gyeAgeYearHint);
+      return;
+    }
+    final epoch = PrivacyChoiceStorage.epoch;
+    _epoch = epoch;
+    final revision = ++_revision;
+    _requestedYear = y;
+    setState(() {
+      _saving = true;
+      _saveFailed = false;
+      _error = null;
+    });
+    final saved = await AgeGateService.saveBirthYear(y);
+    if (!mounted ||
+        epoch != PrivacyChoiceStorage.epoch ||
+        revision != _revision ||
+        ModalRoute.of(context)?.isCurrent != true) {
+      return;
+    }
+    if (saved) {
+      Navigator.of(context).pop(y);
+    } else {
+      setState(() {
+        _saving = false;
+        _saveFailed = Storage.birthYear != y;
+      });
+    }
+  }
 
   @override
   void dispose() {
+    PrivacyChoiceStorage.changes.removeListener(_changed);
     _controller.dispose();
     super.dispose();
   }
@@ -91,7 +163,14 @@ class _BirthYearDialogState extends State<_BirthYearDialog> {
         children: [
           Text(t.gyeAgeYearBody),
           const SizedBox(height: 12),
+          if (_saving || _saveFailed)
+            PrivacyChoiceFeedback(
+              pending: _saving,
+              withdrawal: false,
+              onRetry: _save,
+            ),
           TextField(
+            enabled: !_saving,
             controller: _controller,
             keyboardType: TextInputType.number,
             maxLength: 4,
@@ -110,16 +189,10 @@ class _BirthYearDialogState extends State<_BirthYearDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: Text(t.btnCancel),
         ),
-        TextButton(
-          onPressed: () {
-            final y = int.tryParse(_controller.text.trim());
-            if (y == null || !AgeGateService.isPlausibleYear(y)) {
-              setState(() => _error = t.gyeAgeYearHint);
-              return;
-            }
-            Navigator.of(context).pop(y);
-          },
-          child: Text(t.btnConfirm),
+        SoriButton.filled(
+          label: t.btnConfirm,
+          size: SoriButtonSize.md,
+          onTap: _saving ? null : _save,
         ),
       ],
     );
