@@ -10283,4 +10283,11 @@ class AppL10nDe extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet';
+
+  @override
+  String get phaseTaskLeaveTitle => 'Aufgabe verlassen?';
+
+  @override
+  String get phaseTaskLeaveBody =>
+      'Deine Aufnahme liegt nur im Speicher und wird verworfen. Getippte Antworten bleiben als Entwurf gespeichert.';
 }

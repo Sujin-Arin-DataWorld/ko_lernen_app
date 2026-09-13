@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'phase_attempt_history.dart';
 import 'phase_task_catalog.dart';
 
 import '../models/can_do_segment.dart';
@@ -1567,8 +1568,14 @@ class CourseMasteryService {
       return _snapshot;
     }
     byId[attemptId] = evidence;
+    // Bounded history: a task's newest current pass is always kept, the rest
+    // is trimmed per task and overall so 902 tasks cannot grow the snapshot
+    // past the account-document limit (PhaseAttemptHistory).
     final next = _snapshot.copyWith(
-      phaseTaskEvidence: List.unmodifiable(byId.values),
+      phaseTaskEvidence: PhaseAttemptHistory.bound(
+        byId.values,
+        isCurrentPass: phaseCatalog.currentlyPassedBy,
+      ),
     );
     // Do not expose a successful in-memory attempt if the durable write fails.
     await _persistSnapshot(

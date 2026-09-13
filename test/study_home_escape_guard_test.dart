@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// §B2(2026-09-03) — [lib/widgets/sori/study_frame.dart]'s `SoriStudyFrame`
 /// owns the sole close (X, leading) and home (trailing) actions; it no
-/// longer accepts a custom `leading` widget. This guard pins the 27-screen
+/// longer accepts a custom `leading` widget. This guard pins the 28-screen
 /// inventory, the confirm-before-leaving contract each active screen wires
 /// through `SoriHomeEscape`, and that the pre-§B2 per-screen close-button
 /// builders (`leading: IconButton(...)`, `Icons.arrow_back_ios_new`,
@@ -25,6 +25,7 @@ void main() {
     'lib/screens/kkeunmari_screen.dart',
     'lib/screens/legacy_vocab_screen.dart',
     'lib/screens/listening_play_screen.dart',
+    'lib/screens/phase_task_screen.dart',
     'lib/screens/pronunciation_studio_screen.dart',
     'lib/screens/review_session_screen.dart',
     'lib/screens/satz_arcade_screen.dart',
@@ -57,6 +58,8 @@ void main() {
     'lib/screens/hard_choice_quiz_screen.dart':
         '!_done && (_idx > 0 || _locked)',
     'lib/screens/kkeunmari_screen.dart': '_end == _End.none && _remaining > 0',
+    'lib/screens/phase_task_screen.dart':
+        '_recording || (_recorded != null && _result == null)',
     'lib/screens/pronunciation_studio_screen.dart':
         '_captureBusy || _assessing',
     'lib/screens/review_session_screen.dart': '!_done && _reviewed > 0',
@@ -96,7 +99,7 @@ void main() {
         .toSet();
 
     expect(actual, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(27));
+    expect(expectedStudyFrameScreens, hasLength(28));
   });
 
   test('all StudyFrame screens rely on the frame-owned home action', () {
@@ -123,7 +126,7 @@ void main() {
     );
   });
 
-  test('active and static home-escape decisions cover all 27 screens', () {
+  test('active and static home-escape decisions cover all 28 screens', () {
     expect(
       activeConfirmContracts.keys.toSet().intersection(
         staticImmediateEscapeScreens,
@@ -146,11 +149,11 @@ void main() {
     () {
       final offenders = <String>[];
       for (final path in expectedStudyFrameScreens) {
-        final source = _blankStringsAndComments(
-          File(path).readAsStringSync(),
-        );
-        final hasLeadingArg = _constructorInvocations(source, 'SoriStudyFrame')
-            .any((invocation) => RegExp(r'\bleading\s*:').hasMatch(invocation));
+        final source = _blankStringsAndComments(File(path).readAsStringSync());
+        final hasLeadingArg = _constructorInvocations(
+          source,
+          'SoriStudyFrame',
+        ).any((invocation) => RegExp(r'\bleading\s*:').hasMatch(invocation));
         if (hasLeadingArg) {
           offenders.add(path);
         }
@@ -166,47 +169,44 @@ void main() {
     },
   );
 
-  test(
-    'the pre-§B2 per-screen close-button builders are fully gone',
-    () {
-      // `Icons.arrow_back_ios_new` was the 2-screen minority of the old
-      // custom-leading inventory (chosung_quiz_screen.dart,
-      // silben_kreuz_screen.dart); `_buildCloseButton` was the ad-hoc
-      // builder name several screens used for the `Icons.close` majority
-      // and for scenario_player_screen.dart's raw-Scaffold exit button
-      // (renamed `_scenarioExitButton` — the one screen that still needs a
-      // bespoke close widget, since it must route through
-      // `ScenarioPlayerScreen.onExit` instead of a bare pop when embedded
-      // by the onboarding journey).
-      final dartFiles = Directory('lib')
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((file) => file.path.endsWith('.dart'));
+  test('the pre-§B2 per-screen close-button builders are fully gone', () {
+    // `Icons.arrow_back_ios_new` was the 2-screen minority of the old
+    // custom-leading inventory (chosung_quiz_screen.dart,
+    // silben_kreuz_screen.dart); `_buildCloseButton` was the ad-hoc
+    // builder name several screens used for the `Icons.close` majority
+    // and for scenario_player_screen.dart's raw-Scaffold exit button
+    // (renamed `_scenarioExitButton` — the one screen that still needs a
+    // bespoke close widget, since it must route through
+    // `ScenarioPlayerScreen.onExit` instead of a bare pop when embedded
+    // by the onboarding journey).
+    final dartFiles = Directory('lib')
+        .listSync(recursive: true)
+        .whereType<File>()
+        .where((file) => file.path.endsWith('.dart'));
 
-      final arrowBackOffenders = <String>[];
-      final buildCloseButtonOffenders = <String>[];
-      for (final file in dartFiles) {
-        final source = file.readAsStringSync();
-        if (source.contains('Icons.arrow_back_ios_new')) {
-          arrowBackOffenders.add(_relativeLibPath(file));
-        }
-        if (source.contains('_buildCloseButton')) {
-          buildCloseButtonOffenders.add(_relativeLibPath(file));
-        }
+    final arrowBackOffenders = <String>[];
+    final buildCloseButtonOffenders = <String>[];
+    for (final file in dartFiles) {
+      final source = file.readAsStringSync();
+      if (source.contains('Icons.arrow_back_ios_new')) {
+        arrowBackOffenders.add(_relativeLibPath(file));
       }
+      if (source.contains('_buildCloseButton')) {
+        buildCloseButtonOffenders.add(_relativeLibPath(file));
+      }
+    }
 
-      expect(
-        arrowBackOffenders,
-        isEmpty,
-        reason: 'Icons.arrow_back_ios_new should be fully retired by §B2.',
-      );
-      expect(
-        buildCloseButtonOffenders,
-        isEmpty,
-        reason: '_buildCloseButton should be fully retired by §B2.',
-      );
-    },
-  );
+    expect(
+      arrowBackOffenders,
+      isEmpty,
+      reason: 'Icons.arrow_back_ios_new should be fully retired by §B2.',
+    );
+    expect(
+      buildCloseButtonOffenders,
+      isEmpty,
+      reason: '_buildCloseButton should be fully retired by §B2.',
+    );
+  });
 
   test('every active surface wires its exact confirmation state', () {
     final failures = <String>[];
@@ -277,41 +277,38 @@ void main() {
     );
   });
 
-  test(
-    'no screen in the inventory builds a raw Scaffold with SoriAppBar',
-    () {
-      // §NAV-1(J2): SoriStudyFrame owns appbar/close/home for every study
-      // screen. A raw `Scaffold(appBar: SoriAppBar(...))` bypasses that
-      // frame and its confirm-before-leaving contract — the one exception
-      // is scenario_player_screen.dart, whose embedded-onboarding exit path
-      // (`ScenarioPlayerMode.onboardingFirstScene`) still needs a bespoke
-      // Scaffold (see the close-button comment above).
-      const allowlist = <String>{'lib/screens/scenario_player_screen.dart'};
-      final offenders = <String>[];
-      for (final path in expectedStudyFrameScreens) {
-        if (allowlist.contains(path)) {
-          continue;
-        }
-        final source = _blankStringsAndComments(File(path).readAsStringSync());
-        final rawScaffoldWithAppBar = _constructorInvocations(
-          source,
-          'Scaffold',
-        ).any((invocation) => invocation.contains('appBar: SoriAppBar('));
-        if (rawScaffoldWithAppBar) {
-          offenders.add(path);
-        }
+  test('no screen in the inventory builds a raw Scaffold with SoriAppBar', () {
+    // §NAV-1(J2): SoriStudyFrame owns appbar/close/home for every study
+    // screen. A raw `Scaffold(appBar: SoriAppBar(...))` bypasses that
+    // frame and its confirm-before-leaving contract — the one exception
+    // is scenario_player_screen.dart, whose embedded-onboarding exit path
+    // (`ScenarioPlayerMode.onboardingFirstScene`) still needs a bespoke
+    // Scaffold (see the close-button comment above).
+    const allowlist = <String>{'lib/screens/scenario_player_screen.dart'};
+    final offenders = <String>[];
+    for (final path in expectedStudyFrameScreens) {
+      if (allowlist.contains(path)) {
+        continue;
       }
+      final source = _blankStringsAndComments(File(path).readAsStringSync());
+      final rawScaffoldWithAppBar = _constructorInvocations(
+        source,
+        'Scaffold',
+      ).any((invocation) => invocation.contains('appBar: SoriAppBar('));
+      if (rawScaffoldWithAppBar) {
+        offenders.add(path);
+      }
+    }
 
-      expect(
-        offenders,
-        isEmpty,
-        reason:
-            'SoriStudyFrame owns appBar/close/home for study screens — use '
-            'it instead of a raw Scaffold(appBar: SoriAppBar(...)).\n'
-            '${offenders.join('\n')}',
-      );
-    },
-  );
+    expect(
+      offenders,
+      isEmpty,
+      reason:
+          'SoriStudyFrame owns appBar/close/home for study screens — use '
+          'it instead of a raw Scaffold(appBar: SoriAppBar(...)).\n'
+          '${offenders.join('\n')}',
+    );
+  });
 }
 
 Iterable<String> _constructorInvocations(String source, String name) sync* {

@@ -1,6 +1,13 @@
 [
   {
-    "origin": ["http://localhost:8797", "http://127.0.0.1:8797"],
+    "origin": [
+      "https://ko-lernen-app.web.app",
+      "https://ko-lernen-app.firebaseapp.com",
+      "http://localhost:8797",
+      "http://127.0.0.1:8797",
+      "http://localhost:4173",
+      "http://127.0.0.1:4173"
+    ],
     "method": ["GET", "HEAD"],
     "responseHeader": ["Content-Type", "Content-Length"],
     "maxAgeSeconds": 3600

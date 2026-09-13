@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 
 class FakeRecorder implements PronunciationRecorder {
   bool allowed = false;
@@ -130,7 +131,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await tap(tester, find.widgetWithText(ChoiceChip, 'Assess'));
+      await tap(tester, find.widgetWithText(Tab, 'Assess'));
       await tester.scrollUntilVisible(
         field,
         300,
@@ -327,6 +328,143 @@ void main() {
     await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
     expect(saved!.score, isNull);
     expect(saved!.passed, isFalse);
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+  });
+  testWidgets(
+    'an unsent recording asks before leaving; without one back pops at once',
+    (tester) async {
+      // PR #301 review (P1): the screen runs inside SoriStudyFrame so X, home
+      // and system back share one confirm-before-leaving rule, and that rule
+      // is the in-memory recording — typed answers are drafted on every edit.
+      final navigatorKey = GlobalKey<NavigatorState>();
+      await tester.pumpWidget(
+        MaterialApp(
+          navigatorKey: navigatorKey,
+          theme: AppTheme.dark,
+          locale: const Locale('en'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: const Scaffold(body: Text('ROOT')),
+        ),
+      );
+      final t = await AppL10n.delegate.load(const Locale('en'));
+      Future<FakeRecorder> open() async {
+        final recorder = FakeRecorder()..allowed = true;
+        navigatorKey.currentState!.push(
+          MaterialPageRoute<void>(
+            builder: (_) => PhaseTaskScreen(
+              arguments: const PhaseTaskRoute(
+                'KP01',
+                'KP01:speaking:01',
+                assessment: true,
+              ),
+              loader: () async => catalog,
+              recorder: recorder,
+              saveAttempt: (_) async {},
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(SoriStudyFrame), findsOneWidget);
+        expect(find.byType(ChoiceChip), findsNothing);
+        return recorder;
+      }
+
+      await open();
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsNothing);
+      expect(find.byType(PhaseTaskScreen), findsNothing);
+      expect(find.text('ROOT'), findsOneWidget);
+
+      final recorder = await open();
+      await tap(tester, find.widgetWithText(SoriButton, 'Record'));
+      // Recording in progress: back asks, staying keeps recording.
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+      expect(find.text(t.phaseTaskLeaveBody), findsOneWidget);
+      await tester.tap(find.text(t.homeActionConfirmStay));
+      await tester.pumpAndSettle();
+      expect(find.byType(PhaseTaskScreen), findsOneWidget);
+      expect(recorder.stops, 0);
+      recorder.controller.add(Uint8List(40000));
+      await tester.pump();
+      await tester.runAsync(() async {
+        await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
+        await Future<void>.delayed(Duration.zero);
+      });
+      await tester.pumpAndSettle();
+      expect(recorder.stops, 1);
+      // A finished but unsent recording is still only in memory: back asks.
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+      await tester.tap(find.text(t.homeActionConfirmStay));
+      await tester.pumpAndSettle();
+      expect(
+        find.widgetWithText(SoriButton, 'Listen to recording'),
+        findsOneWidget,
+      );
+      // Choosing to leave discards it and pops the route.
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(t.homeActionConfirmLeave));
+      await tester.pumpAndSettle();
+      expect(find.byType(PhaseTaskScreen), findsNothing);
+      expect(find.text('ROOT'), findsOneWidget);
+    },
+  );
+  testWidgets('mode tabs are locked while recording and follow the mode', (
+    tester,
+  ) async {
+    final recorder = FakeRecorder()..allowed = true;
+    await tester.pumpWidget(
+      host(
+        PhaseTaskScreen(
+          arguments: const PhaseTaskRoute('KP01', 'KP01:speaking:01'),
+          loader: () async => catalog,
+          recorder: recorder,
+          saveAttempt: (_) async {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    TabBar tabs() => tester.widget<TabBar>(find.byType(TabBar));
+    expect(tabs().controller!.index, 0);
+    await tester.tap(find.widgetWithText(Tab, 'Assess'));
+    await tester.pumpAndSettle();
+    expect(tabs().controller!.index, 1);
+    await tap(tester, find.widgetWithText(SoriButton, 'Record'));
+    expect(
+      tester
+          .widget<IgnorePointer>(
+            find
+                .ancestor(
+                  of: find.byType(TabBar),
+                  matching: find.byType(IgnorePointer),
+                )
+                .first,
+          )
+          .ignoring,
+      isTrue,
+    );
+    await tester.tap(find.widgetWithText(Tab, 'Practice'), warnIfMissed: false);
+    await tester.pumpAndSettle();
+    expect(
+      tabs().controller!.index,
+      1,
+      reason: 'A locked tab bar keeps the mode.',
+    );
+    await tester.runAsync(() async {
+      await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
+      await Future<void>.delayed(Duration.zero);
+    });
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(Tab, 'Practice'));
+    await tester.pumpAndSettle();
+    expect(tabs().controller!.index, 0);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
   });

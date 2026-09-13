@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import '../models/phase_task.dart';
 import '../models/phase_objective_binding.dart';
@@ -6,12 +7,46 @@ export '../models/phase_task.dart';
 export '../models/phase_objective_binding.dart';
 
 class PhaseTaskCatalog {
-  PhaseTaskCatalog._(this.tasks, this.objectives, this.publications);
+  PhaseTaskCatalog._(this.tasks, this.objectives, this.publications)
+    : _byId = {for (final task in tasks) task.id: task};
   static const assetPath = 'assets/data/phase_tasks.json';
   final List<PhaseTask> tasks;
   final List<PhaseObjectiveBinding> objectives;
   final List<PhasePublication> publications;
-  static Future<PhaseTaskCatalog> load() async {
+  final Map<String, PhaseTask> _byId;
+
+  static Future<PhaseTaskCatalog>? _shared;
+
+  /// One parsed, fingerprint-checked catalogue per process (PR #301 review,
+  /// P2). The 7 MB asset is decoded, hashed and validated on the UI isolate,
+  /// and the Phase list, panel, task screen and mastery write all call this
+  /// — without memoisation each of them paid that cost again. A failed load
+  /// is not memoised, so a transient asset error can be retried.
+  static Future<PhaseTaskCatalog> load() {
+    final pending = _shared;
+    if (pending != null) {
+      return pending;
+    }
+    final loading = _loadUncached();
+    _shared = loading;
+    loading.then<void>(
+      (_) {},
+      onError: (Object _) {
+        if (identical(_shared, loading)) {
+          _shared = null;
+        }
+      },
+    );
+    return loading;
+  }
+
+  /// Drops the shared instance so the next [load] parses the asset again.
+  @visibleForTesting
+  static void resetForTesting() {
+    _shared = null;
+  }
+
+  static Future<PhaseTaskCatalog> _loadUncached() async {
     final json =
         jsonDecode(await rootBundle.loadString(assetPath))
             as Map<String, dynamic>;
@@ -131,10 +166,15 @@ class PhaseTaskCatalog {
 
   List<PhaseTask> forPhase(String id) =>
       tasks.where((t) => t.phaseId == id).toList(growable: false);
-  PhaseTask byId(String id) => tasks.firstWhere(
-    (t) => t.id == id,
-    orElse: () => throw const FormatException('Unknown Phase task'),
-  );
+  PhaseTask byId(String id) =>
+      _byId[id] ?? (throw const FormatException('Unknown Phase task'));
   bool accepts(PhaseTaskResult result) =>
       byId(result.task.id).contentHash == result.task.contentHash;
+
+  /// Whether [evidence] is a current pass of a task that is still published.
+  /// Evidence for a withdrawn or revised task is never a current pass.
+  bool currentlyPassedBy(PhaseAttemptEvidence evidence) {
+    final task = _byId[evidence.taskId];
+    return task != null && task.passedBy(evidence);
+  }
 }

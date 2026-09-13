@@ -17459,6 +17459,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
   String get phaseTaskEarlierRevision;
+
+  /// No description provided for @phaseTaskLeaveTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufgabe verlassen?'**
+  String get phaseTaskLeaveTitle;
+
+  /// No description provided for @phaseTaskLeaveBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Aufnahme liegt nur im Speicher und wird verworfen. Getippte Antworten bleiben als Entwurf gespeichert.'**
+  String get phaseTaskLeaveBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

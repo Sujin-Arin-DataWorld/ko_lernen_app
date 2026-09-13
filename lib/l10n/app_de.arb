@@ -4838,5 +4838,7 @@
   "phaseTaskCriterionPassed": "Kriterium erfüllt",
   "phaseTaskCriterionRequired": "Pflichtkriterium",
   "phaseTaskCriterionUnscored": "Diese Formulierung ist nicht automatisch bewertbar.",
-  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet"
+  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet",
+  "phaseTaskLeaveTitle": "Aufgabe verlassen?",
+  "phaseTaskLeaveBody": "Deine Aufnahme liegt nur im Speicher und wird verworfen. Getippte Antworten bleiben als Entwurf gespeichert."
 }

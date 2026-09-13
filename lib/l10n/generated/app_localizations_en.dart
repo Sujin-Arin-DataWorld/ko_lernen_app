@@ -10232,4 +10232,11 @@ class AppL10nEn extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Earlier attempt saved · task has since been revised';
+
+  @override
+  String get phaseTaskLeaveTitle => 'Leave this task?';
+
+  @override
+  String get phaseTaskLeaveBody =>
+      'Your recording is only kept in memory and will be discarded. Typed answers stay saved as a draft.';
 }

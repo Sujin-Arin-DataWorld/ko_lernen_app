@@ -12,7 +12,7 @@ import '../services/pronunciation_recorder.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 class PhaseTaskRoute {
@@ -40,7 +40,7 @@ class PhaseTaskScreen extends StatefulWidget {
 }
 
 class _PhaseTaskScreenState extends State<PhaseTaskScreen>
-    with WidgetsBindingObserver {
+    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
   PhaseTask? _task;
   PhaseTaskDrafts? _drafts;
   late bool _assessment;
@@ -64,10 +64,16 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   final _chunks = <Uint8List>[];
   int _byteCount = 0;
   Uint8List? _recorded;
+  late final TabController _modes;
   @override
   void initState() {
     super.initState();
     _assessment = widget.arguments.assessment;
+    _modes = TabController(
+      length: 2,
+      initialIndex: _assessment ? 1 : 0,
+      vsync: this,
+    );
     WidgetsBinding.instance.addObserver(this);
     cloudWriteSessionController.changes.addListener(_checkAccount);
     unawaited(_load());
@@ -119,8 +125,21 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     }
   }
 
+  /// The mode tab mirrors [_assessment]; a refused or failed switch snaps it
+  /// back so the bar never shows a mode the screen is not in.
+  void _syncModeTab() {
+    final index = _assessment ? 1 : 0;
+    if (_modes.index != index) {
+      _modes.index = index;
+    }
+  }
+
   Future<void> _switchMode(bool assessment) async {
     if (_busy || _recording || _audioBusy || _accountChanged) {
+      _syncModeTab();
+      return;
+    }
+    if (assessment == _assessment) {
       return;
     }
     setState(() => _busy = true);
@@ -148,6 +167,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       }
     } finally {
       if (mounted) {
+        _syncModeTab();
         setState(() => _busy = false);
       }
     }
@@ -357,7 +377,15 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     if (widget.playAudio == null && _audioBusy) {
       unawaited(TtsService.stop());
     }
+    _modes.dispose();
     super.dispose();
+  }
+
+  /// Leaving via X, home or system back: drop the in-memory recording and
+  /// stop playback before the route goes away. Drafts are already saved.
+  void _leave() {
+    unawaited(_stopRecording(discard: true));
+    unawaited(_playerInstance?.stop());
   }
 
   @override
@@ -366,202 +394,215 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
         lang = Localizations.localeOf(context).languageCode;
     final task = _task,
         packet = _assessment ? _task?.assessment : _task?.practice;
-    return SoriStandardFrame(
-      appBarTitle: task?.title.pick(lang) ?? t.phaseTasksTitle,
-      maxWidth: 720,
-      padding: const EdgeInsets.all(Spacing.lg),
-      builder: (context, padding) {
-        if (_accountChanged) {
-          return Padding(
-            padding: padding,
-            child: Text(t.phaseTaskAccountChanged),
-          );
-        }
-        if (task == null || packet == null) {
-          return _error == null
-              ? const AppLoading()
-              : Center(
-                  child: SoriButton.ghost(
-                    key: const ValueKey('phase-task-load-retry'),
-                    onTap: () {
-                      setState(() => _error = null);
-                      unawaited(_load());
-                    },
-                    label: t.phaseTaskRetry,
-                  ),
-                );
-        }
-        final disabled = _busy || _audioBusy || _recording || _result != null;
-        return ListView(
-          padding: padding,
-          children: [
-            Text(task.teaching.pick(lang)),
-            for (final example in task.examplesKo)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Text(example),
-              ),
-            const SizedBox(height: 16),
-            Wrap(
-              spacing: 8,
-              children: [
-                ChoiceChip(
-                  label: Text(t.phaseTaskPractice),
-                  selected: !_assessment,
-                  onSelected: _busy || _recording || _audioBusy
-                      ? null
-                      : (_) => _switchMode(false),
-                ),
-                ChoiceChip(
-                  label: Text(t.phaseTaskAssessment),
-                  selected: _assessment,
-                  onSelected: _busy || _recording || _audioBusy
-                      ? null
-                      : (_) => _switchMode(true),
-                ),
-              ],
-            ),
-            if (packet.sourceKind == 'audio')
-              SoriButton.outlined(
-                onTap: _audioBusy || _busy ? null : _listen,
-                label: t.phaseTaskPlay,
-              ),
-            if (packet.sourceKind != 'audio' || _result != null)
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(packet.sourceKo),
-                ),
-              ),
-            if (packet.sourceKind == 'audio' && !_listened)
-              Text(t.phaseTaskAudioRequired),
-            for (final q in packet.questions)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(q.prompt.pick(lang)),
-                    if (q.requiredForPass) Text(t.phaseTaskCriterionRequired),
-                    if (q.kind == 'choice')
-                      RadioGroup<String>(
-                        groupValue: _answers[q.id],
-                        onChanged: (value) {
-                          if (!disabled && value != null) {
-                            _answer(q.id, value);
-                          }
-                        },
-                        child: Column(
-                          children: [
-                            for (final option in q.options.entries)
-                              RadioListTile<String>(
-                                title: Text(option.value),
-                                value: option.key,
-                                enabled: !disabled,
-                              ),
-                          ],
-                        ),
-                      )
-                    else ...[
-                      const SizedBox(height: 8),
-                      Semantics(
-                        label: q.prompt.pick(lang),
-                        child: TextFormField(
-                          key: ValueKey(
-                            '${task.id}:$_assessment:${q.id}-field',
-                          ),
-                          initialValue: _answers[q.id] ?? '',
-                          // Submitted text stays readable and selectable while
-                          // edits remain blocked until the learner retries.
-                          enabled: _result != null || !disabled,
-                          readOnly: _result != null,
-                          decoration: const InputDecoration(),
-                          onChanged: (v) => _answer(q.id, v),
-                          minLines: q.kind == 'freeText' ? 4 : 1,
-                          maxLines: q.kind == 'freeText' ? 6 : 1,
-                          maxLength: q.kind == 'freeText' ? 6000 : 240,
-                        ),
-                      ),
-                    ],
-                    if (_result != null) ...[
-                      Text(
-                        q.isUnscored(_answers[q.id] ?? '')
-                            ? t.phaseTaskCriterionUnscored
-                            : q.accepts(_answers[q.id] ?? '')
-                            ? t.phaseTaskCriterionPassed
-                            : t.phaseTaskNeedsPractice,
-                      ),
-                      Text(q.explanation.pick(lang)),
-                    ],
+    final modeLocked = _busy || _recording || _audioBusy || _accountChanged;
+    return SoriStudyFrame(
+      title: task?.title.pick(lang) ?? t.phaseTasksTitle,
+      padding: EdgeInsets.zero,
+      // The recording lives only in memory (never uploaded, never drafted),
+      // so X, home and system back ask before discarding one that is still
+      // in progress or not yet submitted. Typed answers are saved as drafts
+      // on every keystroke and restore without a confirmation.
+      homeEscape: SoriHomeEscape(
+        confirmWhen: _recording || (_recorded != null && _result == null),
+        confirmTitle: t.phaseTaskLeaveTitle,
+        confirmBody: t.phaseTaskLeaveBody,
+      ),
+      onLeave: _leave,
+      // Practice/assessment is a mode of the same task, shown as the frame's
+      // standard app-bar tabs rather than pill chips (AGENTS.md: no pill/chip
+      // chrome). Locked while audio, recording or a save is in flight.
+      bottom: task == null || _accountChanged
+          ? null
+          : PreferredSize(
+              preferredSize: const Size.fromHeight(kTextTabBarHeight),
+              child: IgnorePointer(
+                ignoring: modeLocked,
+                child: TabBar(
+                  controller: _modes,
+                  indicatorColor: SoriColors.primary,
+                  labelColor: SoriColors.primary,
+                  unselectedLabelColor: SoriSurfaces.of(context).textMuted,
+                  onTap: (index) => unawaited(_switchMode(index == 1)),
+                  tabs: [
+                    Tab(text: t.phaseTaskPractice),
+                    Tab(text: t.phaseTaskAssessment),
                   ],
                 ),
               ),
-            if (task.skill == 'speaking') ...[
-              Text(t.phaseTaskRecordingNotice),
-              SoriButton.outlined(
-                onTap: _busy || _result != null
-                    ? null
-                    : (_recording ? _stopRecording : _record),
-                label: _recording ? t.phaseTaskStop : t.phaseTaskRecord,
-              ),
-              if (_recorded != null)
-                SoriButton.outlined(
-                  onTap: () async {
-                    try {
-                      await _player.play(
-                        BytesSource(_recorded!, mimeType: 'audio/wav'),
-                      );
-                    } catch (_) {
-                      if (mounted) {
-                        setState(() => _error = t.phaseTaskError);
-                      }
-                    }
-                  },
-                  label: t.phaseTaskReplay,
-                ),
-            ],
-            if (_error != null)
-              Semantics(liveRegion: true, child: Text(_error!)),
-            if (_result == null)
-              SoriButton.filled(
-                key: const ValueKey('phase-task-submit'),
-                onTap:
-                    disabled ||
-                        (task.skill == 'speaking' && _recorded == null) ||
-                        (task.skill == 'listening' && !_listened)
-                    ? null
-                    : _submit,
-                label: t.phaseTaskSubmit,
-              )
-            else ...[
-              Semantics(
-                liveRegion: true,
-                child: Text(
-                  _result!.score == null
-                      ? t.phaseTaskUnscored
-                      : !_assessment
-                      ? t.phaseTaskPracticeComplete
-                      : _result!.passed
-                      ? t.phaseTaskPassed
-                      : t.phaseTaskNeedsPractice,
-                ),
-              ),
-              if (_result!.score != null)
-                Text('${(_result!.score! * 100).round()}%'),
-              SoriButton.outlined(
-                onTap: () => setState(() {
-                  _result = null;
-                  _attemptId = const Uuid().v4();
-                  _occurredAt = null;
-                  _listened = false;
-                  _recorded = null;
-                }),
+            ),
+      child: _body(context, t, lang, task, packet),
+    );
+  }
+
+  Widget _body(
+    BuildContext context,
+    AppL10n t,
+    String lang,
+    PhaseTask? task,
+    PhaseTaskPacket? packet,
+  ) {
+    const padding = EdgeInsets.all(Spacing.lg);
+    if (_accountChanged) {
+      return Padding(padding: padding, child: Text(t.phaseTaskAccountChanged));
+    }
+    if (task == null || packet == null) {
+      return _error == null
+          ? const AppLoading()
+          : Center(
+              child: SoriButton.ghost(
+                key: const ValueKey('phase-task-load-retry'),
+                onTap: () {
+                  setState(() => _error = null);
+                  unawaited(_load());
+                },
                 label: t.phaseTaskRetry,
               ),
-            ],
-          ],
-        );
-      },
+            );
+    }
+    final disabled = _busy || _audioBusy || _recording || _result != null;
+    return ListView(
+      padding: padding,
+      children: [
+        Text(task.teaching.pick(lang)),
+        for (final example in task.examplesKo)
+          Padding(padding: const EdgeInsets.only(top: 8), child: Text(example)),
+        const SizedBox(height: 16),
+        if (packet.sourceKind == 'audio')
+          SoriButton.outlined(
+            onTap: _audioBusy || _busy ? null : _listen,
+            label: t.phaseTaskPlay,
+          ),
+        if (packet.sourceKind != 'audio' || _result != null)
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(packet.sourceKo),
+            ),
+          ),
+        if (packet.sourceKind == 'audio' && !_listened)
+          Text(t.phaseTaskAudioRequired),
+        for (final q in packet.questions)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(q.prompt.pick(lang)),
+                if (q.requiredForPass) Text(t.phaseTaskCriterionRequired),
+                if (q.kind == 'choice')
+                  RadioGroup<String>(
+                    groupValue: _answers[q.id],
+                    onChanged: (value) {
+                      if (!disabled && value != null) {
+                        _answer(q.id, value);
+                      }
+                    },
+                    child: Column(
+                      children: [
+                        for (final option in q.options.entries)
+                          RadioListTile<String>(
+                            title: Text(option.value),
+                            value: option.key,
+                            enabled: !disabled,
+                          ),
+                      ],
+                    ),
+                  )
+                else ...[
+                  const SizedBox(height: 8),
+                  Semantics(
+                    label: q.prompt.pick(lang),
+                    child: TextFormField(
+                      key: ValueKey('${task.id}:$_assessment:${q.id}-field'),
+                      initialValue: _answers[q.id] ?? '',
+                      // Submitted text stays readable and selectable while
+                      // edits remain blocked until the learner retries.
+                      enabled: _result != null || !disabled,
+                      readOnly: _result != null,
+                      decoration: const InputDecoration(),
+                      onChanged: (v) => _answer(q.id, v),
+                      minLines: q.kind == 'freeText' ? 4 : 1,
+                      maxLines: q.kind == 'freeText' ? 6 : 1,
+                      maxLength: q.kind == 'freeText' ? 6000 : 240,
+                    ),
+                  ),
+                ],
+                if (_result != null) ...[
+                  Text(
+                    q.isUnscored(_answers[q.id] ?? '')
+                        ? t.phaseTaskCriterionUnscored
+                        : q.accepts(_answers[q.id] ?? '')
+                        ? t.phaseTaskCriterionPassed
+                        : t.phaseTaskNeedsPractice,
+                  ),
+                  Text(q.explanation.pick(lang)),
+                ],
+              ],
+            ),
+          ),
+        if (task.skill == 'speaking') ...[
+          Text(t.phaseTaskRecordingNotice),
+          SoriButton.outlined(
+            onTap: _busy || _result != null
+                ? null
+                : (_recording ? _stopRecording : _record),
+            label: _recording ? t.phaseTaskStop : t.phaseTaskRecord,
+          ),
+          if (_recorded != null)
+            SoriButton.outlined(
+              onTap: () async {
+                try {
+                  await _player.play(
+                    BytesSource(_recorded!, mimeType: 'audio/wav'),
+                  );
+                } catch (_) {
+                  if (mounted) {
+                    setState(() => _error = t.phaseTaskError);
+                  }
+                }
+              },
+              label: t.phaseTaskReplay,
+            ),
+        ],
+        if (_error != null) Semantics(liveRegion: true, child: Text(_error!)),
+        if (_result == null)
+          SoriButton.filled(
+            key: const ValueKey('phase-task-submit'),
+            onTap:
+                disabled ||
+                    (task.skill == 'speaking' && _recorded == null) ||
+                    (task.skill == 'listening' && !_listened)
+                ? null
+                : _submit,
+            label: t.phaseTaskSubmit,
+          )
+        else ...[
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              _result!.score == null
+                  ? t.phaseTaskUnscored
+                  : !_assessment
+                  ? t.phaseTaskPracticeComplete
+                  : _result!.passed
+                  ? t.phaseTaskPassed
+                  : t.phaseTaskNeedsPractice,
+            ),
+          ),
+          if (_result!.score != null)
+            Text('${(_result!.score! * 100).round()}%'),
+          SoriButton.outlined(
+            onTap: () => setState(() {
+              _result = null;
+              _attemptId = const Uuid().v4();
+              _occurredAt = null;
+              _listened = false;
+              _recorded = null;
+            }),
+            label: t.phaseTaskRetry,
+          ),
+        ],
+      ],
     );
   }
 }
