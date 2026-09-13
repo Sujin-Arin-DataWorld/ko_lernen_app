@@ -2538,9 +2538,9 @@
     "semantic_hash": ""
   },
   "lib/services/tts_service.dart": {
-    "mtime": 1789249263.0155356,
-    "seen": 1789257692.666764,
-    "ast_hash": "808d16fae6a1b61e32e97a3e80497cce",
+    "mtime": 1789270969.1132607,
+    "seen": 1789271285.0677416,
+    "ast_hash": "44827e58a5af3c0862ce6e3bec917629",
     "semantic_hash": ""
   },
   "lib/services/vocab_notebook_parser.dart": {
@@ -15552,9 +15552,9 @@
     "semantic_hash": ""
   },
   "integration_test/phase_tasks_native_test.dart": {
-    "mtime": 1789261689.8311706,
-    "seen": 1789262054.6402996,
-    "ast_hash": "dcaee596c164abd196a94c167c3eed8b",
+    "mtime": 1789271275.4809551,
+    "seen": 1789271284.935788,
+    "ast_hash": "47f96524a57a1445c3d7af95b9dcad12",
     "semantic_hash": ""
   },
   "integration_test/support/phase_native_configuration.dart": {
@@ -15594,9 +15594,9 @@
     "semantic_hash": ""
   },
   "lib/services/tts_public_web_audio.dart": {
-    "mtime": 1789249262.9831004,
-    "seen": 1789257692.6667624,
-    "ast_hash": "7ea4c70a1a94decc95702b2b643907dd",
+    "mtime": 1789270604.7521987,
+    "seen": 1789271285.0677378,
+    "ast_hash": "a9bae17684b91cb91ee51c967cceb428",
     "semantic_hash": ""
   },
   "lib/widgets/phase_task_panel.dart": {
@@ -16389,6 +16389,12 @@
     "mtime": 1789261035.0814464,
     "seen": 1789261652.288534,
     "ast_hash": "1e30e96867699223efabe1d2dff795e7",
+    "semantic_hash": ""
+  },
+  "test/tts_native_public_fallback_test.dart": {
+    "mtime": 1789271044.9579866,
+    "seen": 1789271285.3276968,
+    "ast_hash": "c6a2344b77e3f44311ec8f4e3406f154",
     "semantic_hash": ""
   }
 }
