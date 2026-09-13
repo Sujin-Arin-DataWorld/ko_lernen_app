@@ -91,4 +91,3 @@ jobs:
           path: ${{ runner.temp }}/app-store-screenshots
           if-no-files-found: error
           retention-days: 14
-

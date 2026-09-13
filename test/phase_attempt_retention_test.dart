@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
-import 'package:ko_lernen_app/models/phase_task.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
