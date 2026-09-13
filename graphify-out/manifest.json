@@ -2382,9 +2382,9 @@
     "semantic_hash": ""
   },
   "lib/services/pronunciation_recorder.dart": {
-    "mtime": 1789076528.8613918,
-    "seen": 1789257692.6667008,
-    "ast_hash": "a3fba2e5526f8e3f150f951b9d2889b0",
+    "mtime": 1789260525.674778,
+    "seen": 1789260994.396803,
+    "ast_hash": "5935c99904c4ddd9be0e762923b76746",
     "semantic_hash": ""
   },
   "lib/services/push_service.dart": {
@@ -8124,9 +8124,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1789256126.0894785,
-    "seen": 1789257692.6720996,
-    "ast_hash": "9617388219572d471b01f8528d177ffa",
+    "mtime": 1789261404.924029,
+    "seen": 1789261652.566949,
+    "ast_hash": "37a460f513826891382c1a5f3428be0b",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -15552,9 +15552,9 @@
     "semantic_hash": ""
   },
   "integration_test/phase_tasks_native_test.dart": {
-    "mtime": 1789256595.8198621,
-    "seen": 1789257692.6656804,
-    "ast_hash": "365dd5815d610b15c0bfdfff8bb0a826",
+    "mtime": 1789261689.8311706,
+    "seen": 1789262054.6402996,
+    "ast_hash": "dcaee596c164abd196a94c167c3eed8b",
     "semantic_hash": ""
   },
   "integration_test/support/phase_native_configuration.dart": {
@@ -16377,6 +16377,18 @@
     "mtime": 1789077132.9117022,
     "seen": 1789257692.67304,
     "ast_hash": "19aca83aca13d83ddb3007c56698569f",
+    "semantic_hash": ""
+  },
+  "lib/services/pcm16_stream_normalizer.dart": {
+    "mtime": 1789260525.671754,
+    "seen": 1789260994.393377,
+    "ast_hash": "b9593470b4f0874851468e5a3f19a0ed",
+    "semantic_hash": ""
+  },
+  "test/pcm16_stream_normalizer_test.dart": {
+    "mtime": 1789261035.0814464,
+    "seen": 1789261652.288534,
+    "ast_hash": "1e30e96867699223efabe1d2dff795e7",
     "semantic_hash": ""
   }
 }
