@@ -19,8 +19,7 @@ enum HanokStage {
   sideBuilding, // B2 25-50% — 사랑채
   jongga; // B2 50-100% — 종갓집 완성
 
-  /// 시각 분류 — Phase 3 PNG 자산 경로 키.
-  /// `assets/illustrations/hanok_stages/stage_{slug}_{light|dark}.png`.
+  /// 역사적 12단계 시각 분류 키.
   String get assetSlug => switch (this) {
     HanokStage.empty => 'empty',
     HanokStage.foundation => 'foundation',

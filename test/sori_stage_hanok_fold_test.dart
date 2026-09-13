@@ -3,11 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
@@ -18,10 +17,10 @@ import 'support/real_fonts.dart';
 
 // §W-F F4: the Hanok tab used to hand the map an `Expanded` share of leftover
 // height (`sori_stage_hanok_screen.dart`'s old `Column`), which pushed the
-// place list below the fold on anything shorter than
+// preview below the fold on anything shorter than
 // `kSoriStageMinimumUsableHeight` (640dp). This locks the new sliver
-// structure's promise: header, map preview, shortcut row, and the first
-// accessible place are all on-screen together at a common phone size, the
+// structure's promise: header, map preview, and shortcut row are all on-screen
+// together at a common phone size, the
 // pinned map actually shrinks on scroll, and large text does not throw.
 //
 // §W-F3 root cause: without a real font loaded, `flutter_test`'s default
@@ -39,10 +38,8 @@ import 'support/real_fonts.dart';
 //   gap(8) + shortcut row (quests tile; §W-J2 wraps the row in
 //   `IntrinsicHeight` so it now stretches to match the taller 2-line
 //   "Dojang-Heft" tile instead of sitting shorter inside the same row) 465.5→603.5 (138dp)
-//   gap(12) + first place card top                                 603.5→615.5 (12dp)
-//   -> first place card top = 615.5, fold budget = 764-24 = 740 (124.5dp to spare)
+//   -> shortcut row remains above the fold with room to scroll.
 
-const _compoundRatios = LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1);
 const _bottomTabReserve = 80.0;
 const _viewportSize = Size(390, 844);
 
@@ -59,12 +56,8 @@ void main() {
   });
 
   Future<void> settle(WidgetTester tester) async {
-    // Two independent async chains gate the first real frame: the tab's own
-    // `SoriStageProgressionSnapshot` future (feeds the map preview +
-    // shortcuts) and `HanokWorldScreen`'s internal load (ratios ->
-    // projection -> narrative -> reveal check, each a separate microtask
-    // hop). A single `pump()` only resolves the first hop, so poll a few
-    // frames instead of guessing one fixed delay.
+    // The progression snapshot resolves asynchronously and feeds the shortcut
+    // counts. Poll a few frames instead of guessing one fixed delay.
     for (var i = 0; i < 10; i++) {
       await tester.pump(const Duration(milliseconds: 100));
     }
@@ -81,16 +74,11 @@ void main() {
       ).copyWith(textScaler: TextScaler.linear(textScale)),
       child: child!,
     ),
-    home: SoriStageHanokScreen(
-      loadSnapshot: () async => _snapshot(),
-      worldLoadRatios: () async => _compoundRatios,
-      worldLoadProjection: (ratios) async =>
-          PersonalHanokProjection.from(ratios),
-    ),
+    home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
   );
 
   testWidgets(
-    'keeps header, map preview, shortcuts and the first place within the fold at 390x844',
+    'keeps header, map preview, and shortcuts within the fold at 390x844',
     (tester) async {
       tester.view.physicalSize = _viewportSize;
       tester.view.devicePixelRatio = 1;
@@ -111,28 +99,12 @@ void main() {
       );
       final map = find.byKey(const ValueKey('hanok-map-header'));
       final shortcut = find.byKey(const ValueKey('hanok-shortcut-quests'));
-      final firstPlace = find.byKey(
-        const ValueKey('hanok-world-place-sarangbang'),
-      );
 
       expect(header, findsOneWidget);
       expect(map, findsOneWidget);
       expect(shortcut, findsOneWidget);
-      expect(
-        firstPlace,
-        findsOneWidget,
-        reason:
-            'the first accessible place row should already be built on the '
-            'first frame, not require a scroll to reach',
-      );
 
-      // §W-F3: header/map/shortcuts must be fully on-screen; the first place
-      // card only needs a 24dp peek from its top edge (its title line) — a
-      // scroll affordance, not full visibility (§16 "the map is the
-      // protagonist" — the map keeps its full-size stage instead of
-      // shrinking to fit the whole place card in too). See the real-font
-      // budget table above for why 615.5dp of real content still clears
-      // this with 124.5dp to spare.
+      // Header, preview, and shortcuts must be fully on-screen.
       for (final finder in [header, map, shortcut]) {
         final rect = tester.getRect(finder);
         expect(
@@ -141,14 +113,6 @@ void main() {
           reason: '$finder bottom ${rect.bottom} exceeds the fold $fold',
         );
       }
-      final firstPlaceRect = tester.getRect(firstPlace);
-      expect(
-        firstPlaceRect.top,
-        lessThanOrEqualTo(fold - 24),
-        reason:
-            '${firstPlace}top ${firstPlaceRect.top} does not peek 24dp into '
-            'the fold $fold',
-      );
       expect(tester.takeException(), isNull);
     },
   );
@@ -156,12 +120,12 @@ void main() {
   testWidgets('the map header shrinks and stays pinned after a 600dp scroll', (
     tester,
   ) async {
-    tester.view.physicalSize = _viewportSize;
+    tester.view.physicalSize = const Size(390, 500);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(app());
+    await tester.pumpWidget(app(textScale: 2));
     await settle(tester);
     await tester.pumpAndSettle();
 
@@ -212,7 +176,7 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 1,
   ),
-  hanok: PersonalHanokProjection.from(_compoundRatios),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: [
     QuestProgress(
       questId: 'q_jangdokdae',

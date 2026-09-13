@@ -15,6 +15,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'support/real_fonts.dart';
 
 void main() {
@@ -233,10 +234,7 @@ void main() {
         .whereType<AssetImage>()
         .map((image) => image.assetName)
         .toList(growable: false);
-    expect(
-      imageAssets,
-      contains('assets/illustrations/personal_hanok_v3/world/main-gate.png'),
-    );
+    expect(imageAssets, contains(kIlDuV3PreviewAsset));
     expect(
       imageAssets,
       containsAll(const [
@@ -247,9 +245,7 @@ void main() {
     );
     expect(
       imageAssets.where((asset) => asset.contains('personal_hanok_v3')),
-      everyElement(
-        'assets/illustrations/personal_hanok_v3/world/main-gate.png',
-      ),
+      isEmpty,
     );
 
     final sources = find.byKey(

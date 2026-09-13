@@ -25,7 +25,7 @@
       {
         "situation": "faceted(각진 면분할) 오브젝트 — 목재·석재·기와 등 원래 각진 재질",
         "model": "GPT Image 2 only. Seedream V4.5 is banned (cast shadow, smooth 3D, bright teal).",
-        "evidence": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §2 대조군 시험 — Seedream V4.5는 바닥 그림자·매끈한 3D 렌더로 탈락, GPT Image 2 채택. tool/asset_recipe.py treats allowed:false as a hard --check/--emit failure."
+        "evidence": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §2 대조군 시험 — Seedream V4.5는 바닥 그림자·매끈한 3D 렌더로 탈락, GPT Image 2 채택."
       },
       {
         "situation": "faceted 오브젝트지만 유기적 대상(연기·새·항아리 몸통·등롱) 포함",
@@ -116,7 +116,7 @@
         "shadow": "NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line — free-placement room editor rotates items around their box center, a ground shadow breaks on rotation"
       },
       "promptSkeleton": "Create a NEW illustration in exactly the same illustrated-set style as the reference image (a Korean scholar's-room furniture set: LOW-POLY FACETED planes — every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain visible inside the facets, warm walnut wood with dark lacquer and small muted dancheong accents), but with this subject instead:\n\n{SUBJECT}\n\nDo not redraw any object that appears in the reference image; the reference is for style, palette, camera and lighting only.\n\nCAMERA AND LIGHT: exactly one object, seen from the front and a little from the left, from slightly above eye level (three-quarter view), so the top surface and the front face are both visible; soft light from the upper left; gentle self-shading on the facets only; NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line.\n\nCOMPOSITION RULES: the object is centred in the frame with an even margin of clear green on every side; it is a complete, self-contained cutout with crisp edges; nothing is cropped by the frame; one object only, no variants, no extra props.\n\nBACKGROUND: flat pure #00FF00 chroma-key green everywhere outside the object, no gradient, no vignette, no shadow on the green.\n\nIMPORTANT COLOR: keep exactly the reference palette — wood #A2663A #8F5130 #844A2D with facet shadows #633720 #5A3623 #3B271B, dark lacquer #2C221D #211914, aged hanji ivory #DBBC8D #C6AE8B, dancheong gold #BD924C, deep muted teal #274A3F, dark brick red #6A2316, stone grey #8B8478. Do NOT brighten, do NOT desaturate, do NOT use bright teal or bright red; matte only, no gloss.\n\nABSOLUTELY AVOID: black or dark outlines, line art, watercolour wash, soft painterly blending, gradients inside a facet, cast shadow, drop shadow, ground plane, room interior, white canvas, cute style, glossy 3D render, photorealism, sepia, people, hands, animals, readable text, letters, digits, hangul or hanja on any surface, extra objects, multiple variants of the object.\n\nIMPORTANT: match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference image exactly. This must look like part of the same illustrated set.",
-      "promptSkeletonSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §3 — full text, not a pointer. asset_recipe.assemble_family_prompt injects {SUBJECT} + subjectGuards.",
+      "promptSkeletonSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §3 — full text, not a pointer.",
       "modelRouting": [
         {
           "model": "GPT Image 2",
@@ -252,195 +252,9 @@
         "마당 퀘스트 QuestLayout (madang_background.dart 계열, 이 파일 조사 범위 밖)"
       ]
     },
-    "F-C-estate": {
-      "label": "개인 한옥 지도 — 건물/조경 (1536x1152 고정 캔버스)",
-      "deprecated": "Jin 2026-08-25 정본 선언('기존은 다 폐지해'): 이 패밀리는 legacy 봉인 — 신규 생성·앵커·스타일 참조 금지, 런타임 유지보수만 허용. F-D-ildoo(일두고택)가 유일한 개인 한옥 정본이며, v3 컷오버 시 이 패밀리 자산은 제거 예정. v2 시각 등가 보장 요건도 함께 폐기(전면 대체 컷오버).",
-      "dirs": [
-        "assets/illustrations/personal_hanok_v2/map/structures/",
-        "assets/illustrations/personal_hanok_v2/map/landscape/",
-        "assets/illustrations/personal_hanok_v2/map/stages/"
-      ],
-      "members": [
-        "sotdaeulmun",
-        "haengrangchae",
-        "sarangchae",
-        "anchae",
-        "daecheongmaru",
-        "sadang",
-        "rear_garden",
-        "sotdaeulmun_s1_platform",
-        "sotdaeulmun_s2_frame_roof",
-        "haengrangchae_s1_foundation",
-        "haengrangchae_s2_frame",
-        "haengrangchae_s3_roof",
-        "anchae_s1_platform",
-        "anchae_s2_frame",
-        "anchae_s3_roof",
-        "daecheongmaru_s1_platform",
-        "daecheongmaru_s2_frame",
-        "sadang_s1_platform",
-        "sadang_s2_frame_roof",
-        "rear_garden_s1_hardscape",
-        "rear_garden_s2_bridge"
-      ],
-      "anchors": [
-        "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
-        "assets/illustrations/personal_hanok_v2/map/site_base_light.png"
-      ],
-      "camera": {
-        "canvas": {
-          "width": 1536,
-          "height": 1152
-        },
-        "cameraStyle": "north-up, isometric-ish elevated view — 전체 마당을 한 화면에 담는다",
-        "socketOffset": {
-          "x": 160,
-          "y": 614,
-          "source": "docs/assets/HANOK_V1_ASSET_PROVENANCE.json camera.socket"
-        }
-      },
-      "palette": {
-        "note": "실측(2026-08-18) — 건물 골조 편집은 KEEP된 완성 건물의 목재/석재 톤을 그대로 물려받으므로 별도 hex 표를 두지 않는다. 신규 건물(별당·서고)은 기존 6채 실측 톤을 참조로 삼을 것."
-      },
-      "promptSkeleton": "Edit this illustration of a finished traditional Korean {BUILDING_TYPE_KOREAN_DESC}, seen straight from the front in a slightly elevated view. Show the SAME building at the timber-frame stage of construction, BEFORE the roof was covered... KEEP UNCHANGED, pixel for pixel: {UNCHANGED_ELEMENTS}. REMOVE completely: {REMOVED_ELEMENTS}. ADD the exposed timber frame... Background: replace everything outside the object with flat, pure #00FF00 chroma-key green, no gradient. [전문은 tool/derive_estate_building_stages.py의 FRAME_PROMPTS 딕셔너리 — 건물 4종 전문이 코드에 얼어붙어 있다, Phase 2-3에서 레시피로 옮길 예정]",
-      "modelRouting": [
-        {
-          "model": "Nano Banana Pro",
-          "allowed": true,
-          "when": "KEEP/REMOVE/ADD 골조 편집 — 전 건물",
-          "evidence": "B1B2_BUILDING_STAGES_2026-08-18.md §2"
-        }
-      ],
-      "postProcess": [
-        "tool/derive_estate_building_stages.py --align --target-bbox (출력 자체 알파 bbox 측정 -> 완성건물 bbox로 LANCZOS 리스케일 -> despill 재적용)",
-        "tool/derive_estate_building_stages.py --build (reveal/regionUnion 합성, containment+구조연속성(recall 1.0)+chroma+바이트예산 게이트)"
-      ],
-      "gates": {
-        "satMean": [
-          0.24,
-          0.65
-        ],
-        "valMean": [
-          0.34,
-          0.7
-        ],
-        "neonMax": 0.03,
-        "measured": {
-          "satMean": [
-            0.261,
-            0.61
-          ],
-          "valMean": [
-            0.362,
-            0.663
-          ],
-          "neonMax": 0.0258
-        },
-        "measuredAt": "21 files (건물6+후원1+단계14), 2026-08-18"
-      },
-      "registration": [
-        "pubspec.yaml: assets/illustrations/personal_hanok_v2/map/*",
-        "docs/assets/HANOK_V1_ASSET_PROVENANCE.json: allowedModelInputs(estate_building_source/estate_landscape_source) + generationLedger records(kind: estateStage)",
-        "lib/data/personal_hanok_estate_stage_catalog.dart: revealAssetId -> path (PR-C, 아직 어떤 렌더러도 안 부름)"
-      ]
-    },
-    "F-C-a1states": {
-      "label": "A1 16단계 — 결정론 합성, 사람이 그리지 않음",
-      "successorNote": "Jin 2026-08-25 정본 선언에서 유일하게 존속하는 구 계보 — ILDU_A1C2_PROGRESSION_LOCK 의 A1 구간이 이 17상태를 '문간채'로 재명명해 그대로 재사용한다(promotion-immutable 유지).",
-      "dirs": [
-        "assets/illustrations/personal_hanok_v2/a1/states/"
-      ],
-      "members": [
-        "01_site_setout",
-        "02_plan_layout",
-        "03_foundation_gidan",
-        "04_cornerstones_choseok",
-        "05_timber_preparation",
-        "06_columns",
-        "07_beams_changbang",
-        "08_purlins_sangnyang",
-        "09_rafters_roof_frame",
-        "10_roof_base",
-        "11_giwa_roof",
-        "12_wall_frame_sujang",
-        "13_earth_walls",
-        "14_ondol_maru",
-        "15_changho_finish",
-        "16_landscape_move_in"
-      ],
-      "anchors": [
-        "assets/illustrations/personal_hanok_v2/a1/states/16_landscape_move_in.webp"
-      ],
-      "camera": {
-        "canvas": {
-          "width": 1536,
-          "height": 1152
-        },
-        "socketLayer": {
-          "width": 854,
-          "height": 309,
-          "localAnchor": {
-            "x": 427,
-            "y": 309
-          },
-          "requireExclusiveBottom": true,
-          "source": "docs/assets/HANOK_V1_ASSET_PROVENANCE.json a1TransparentLayerContract.socketLayer"
-        },
-        "chromaKey": {
-          "maxChannelDelta": 8,
-          "alphaMin": 8
-        },
-        "output": {
-          "format": "WebP",
-          "quality": 82,
-          "method": 6,
-          "hardMaxBytes": 350000
-        },
-        "continuity": {
-          "minPreviousRecall": 0.97,
-          "maxEdgeDriftPx": 2
-        }
-      },
-      "palette": {
-        "note": "F-A 팔레트 원칙과 같은 계열(목재/석재/기와)이나 이 family는 별도로 재측정하지 않는다 — 결정론 합성이라 팔레트 드리프트 리스크가 원천적으로 없다."
-      },
-      "promptSkeleton": "이 family는 새 생성이 없다 — 16단계 전부 이미 완성/승격됐고, docs/assets/hanok_a1_kit/*.json 매니페스트로 결정론 합성만 한다. 프롬프트 이력은 docs/assets/prompts/a1_kit_prompts.json 참고(재사용 금지, A1 16은 promotion-immutable).",
-      "modelRouting": [],
-      "postProcess": [
-        "tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_NN.json"
-      ],
-      "gates": {
-        "satMean": [
-          0.34,
-          0.4
-        ],
-        "valMean": [
-          0.55,
-          0.63
-        ],
-        "neonMax": 0.005,
-        "measured": {
-          "satMean": [
-            0.359,
-            0.374
-          ],
-          "valMean": [
-            0.575,
-            0.602
-          ],
-          "neonMax": 0.0001
-        },
-        "measuredAt": "16 files, 2026-08-18",
-        "note": "표준편차가 4개 family 중 가장 좁다(결정론 합성이라 파일마다 편차가 거의 없다) — 이 family에서 게이트 실패는 거의 항상 원본 리소스 손상을 뜻한다."
-      },
-      "registration": [
-        "pubspec.yaml: assets/illustrations/personal_hanok_v2/a1/states/ (all-or-nothing, tool/promote_hanok_a1_states.py)",
-        "docs/assets/HANOK_V1_ASSET_PROVENANCE.json: generationLedger records(kind: state) + runtimeLimits.a1ConstructionStates.expectedFiles"
-      ]
-    },
     "F-D-ildoo": {
       "label": "함양 일두고택 고증 재현 — 누적 증축 (세로 1152x2048 런타임 / 2304x4096 생성)",
-      "note": "F-C-estate로 흡수 불가: 캔버스·앵커·프로토콜·대상이 전부 다르다. F-C-estate는 허구 종가의 완성 건물을 역방향 편집(KEEP/REMOVE/ADD)하고, 여기는 실존 고택을 빈 터에서부터 순방향 누적 증축한다. 계약: docs/assets/HANOK_V2_ART_DIRECTION_LOCK.md v2.0.0. 로스터: docs/data/heritage_houses/ildu_gotaek.json.",
+      "note": "일두고택 V3가 개인 한옥의 유일한 시각 정본이다. 계약: docs/assets/HANOK_V2_ART_DIRECTION_LOCK.md v2.0.0. 로스터: docs/data/heritage_houses/ildu_gotaek.json.",
       "styleStatement": "Hangul Sori uses a Korean heritage-inspired 2.5D mobile-game illustration system. Each asset class has its own canonical register:\n\n- Hanok architecture — stylized hand-painted 2.5D architectural sprite art: believable Korean construction first; precise giwa roof rhythm, warm timber, hanji plaster, stone foundations, selective ink-like linework, matte materials, restrained painterly facets (never triangulated geometry).\n- Camera — elevated three-quarter oblique game view.\n- Props and lesson vignettes (teacup, brush pot, book chest, UI vignettes) — faceted paper-cut vignette illustration: stronger angular polygonal facets, subtle hanji paper grain, compact silhouettes, muted traditional Korean colors.\n- Characters (tiger and magpie) — faceted semi-realistic character illustration: faceted planes with lively, believable expression and anatomy.\n- Mountains, sky, backgrounds — atmospheric faceted painterly environment art.\n- Korean identity — minhwa-inspired palette and decorative vocabulary, never literal minhwa painting.\n\nAll classes share one palette: ink-charcoal giwa, warm walnut timber, hanji cream, muted deep teal, dark brick red, restrained gold accents.\n\nThis is premium contemporary Korean game art, not watercolor, anime, Pixar, or literal low-poly 3D.",
       "styleStatementSource": "Jin 구술 확정 2026-08-23; 자산군별 레지스터 표 확장 Jin 승인 2026-08-25. 이 패밀리의 스타일 SSoT — promptSkeleton 은 이 문장의 건축 레지스터를 따른다. 구도·배치는 placementReference(완성본_최종.png)가 별도 정본이며 이 문장 개정은 구도·위치를 바꾸지 않는다.",
       "registers": {
@@ -464,7 +278,7 @@
         "gate_sadangmun",
         "sadang"
       ],
-      "membersNote": "v1 범위 = 위 7채 + site_base(8 생성). 로스터의 나머지 buildable 행(행랑채·아래채·안사랑채(구 표제 '별당' — 명칭 폐기, Jin 2026-08-25)·곳간채·안곳간채·광채·석가산·우물·장독대·담장·멸실 4동)은 승격될 때마다 이 배열에 추가한다. ildu_unidentified_17은 buildable:false 이므로 영원히 멤버가 되지 않는다.",
+      "membersNote": "완성 전 V3 계획 멤버이며 아직 런타임으로 승격하지 않았다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
       "anchors": [
         "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
         "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png",
@@ -609,7 +423,7 @@
         }
       },
       "palette": {
-        "note": "미실측. 첫 3회 승격 후 tool/check_style_conformance.py 로 재측정해 이 표를 채운다. 그 전까지는 F-C-estate 실측 톤을 상한 참조로 삼되, 일두고택은 단청이 없어 채도가 더 낮게 나와야 정상이다.",
+        "note": "미실측. 첫 3회 승격 후 tool/check_style_conformance.py 로 재측정해 이 표를 채운다. 일두고택은 단청이 없어 채도가 낮게 나오는 것이 정상이다.",
         "measuredAt": null,
         "referenceTones": {
           "giwa": "#4E565C",
@@ -759,13 +573,13 @@
           "model": "Nano Banana Pro",
           "allowed": true,
           "when": "기존 픽셀을 최대한 보존해야 하는 국소 누적 증축 편집. 결과가 수채·부드러운 면으로 흐르면 즉시 GPT Image 2 로 되돌린다.",
-          "evidence": "F-C-estate 의 KEEP/REMOVE/ADD 편집 실적. 단 그쪽은 완성 건물 톤을 물려받는 역방향 편집이라 조건이 다르다 — 여기서는 기본값이 아니다."
+          "evidence": "폐기된 구 한옥 계보의 KEEP/REMOVE/ADD 편집 실적. 완성 건물 톤을 물려받는 역방향 편집이라 여기서는 기본값이 아니다."
         },
         {
           "model": "Seedream V4.5",
           "allowed": false,
           "when": "사용 금지",
-          "evidence": "generationFacts — cast shadow·매끈한 3D·밝은 teal 로 탈락. tool/asset_recipe.py 는 allowed:false 를 하드 실패로 처리한다."
+          "evidence": "generationFacts — cast shadow·매끈한 3D·밝은 teal 로 탈락."
         }
       ],
       "postProcess": [
@@ -792,7 +606,7 @@
         "plaqueBoardException": "편액 판(hyeonpan_board_*)은 F-D 멤버가 아니라 런타임 합성 오버레이 자산이다. 밝은 한지빛 바탕(먹 글씨와의 대비)이 설계 의도라 건물용 valMean 상한 0.7을 적용하지 않는다 — 편액 전용 참고 범위: satMean 0.3~0.6, valMean 0.6~0.9, neonMax 0.03. 실측(2026-08-25, try01 컷 2종): sat 0.487/0.504, val 0.789/0.778, neon 0.0. Jin 승인 2026-08-25('이대로 진행'). 글씨 레이어(hyeonpan_calligraphy_*)는 도면에서 결정론 추출한 먹획 알파이며 게이트 대상이 아니다.",
         "measured": null,
         "measuredAt": "pending — 첫 3회 승격 후 실측해 satMean/valMean 을 좁힌다",
-        "provisionalFrom": "F-C-estate 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다."
+        "provisionalFrom": "폐기된 구 한옥 계보 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다."
       },
       "registration": [
         "pubspec.yaml: assets/illustrations/personal_hanok_v3/map/ 와 .../map/buildings/ 를 리프별로 각각 선언 (Flutter 는 재귀하지 않는다)",
@@ -880,7 +694,7 @@
         "date": "2026-08-24",
         "sourceId": "jin_2026_master_plan",
         "rule": "모든 채·문·마당·조경의 상대 위치는 이 합성본을 정본으로 한다. 스프라이트 배치 판단이 로스터 문장과 충돌하면 이 그림이 이긴다. 제3자 사진이 포함되어 있으므로 이 파일 자체는 모델 입력·출하 금지 — 위치 사실만 읽는다.",
-        "canonDecree": "Jin 2026-08-25: '지금 내가 만든 완성본이랑 에셋이 정본이다. 기존은 다 폐지해.' — 정본 범위를 위치에서 아트 전체로 확대한다. 이 합성본과 personal_hanok_v3 의 승인 스프라이트가 일두고택 아트의 유일 정본이며, 기존 계보(v1.0.0 허구 종가 앵커, F-C-estate 자산, 레거시 12-stage 아트)는 일두고택 작업에서 전부 폐지 — 앵커·스타일 참조·신규 생성 입력 어느 용도로도 쓰지 않는다. 같은 날 추가 확정: '고증 96퍼센트 맞춘거니까 그냥 내가 만든 final이 법이야' — 고증 문헌·로스터·도면과 final 이 충돌하면 final 이 이긴다. 문헌 값은 도감 주석으로만 쓴다.",
+        "canonDecree": "Jin 2026-08-25: '지금 내가 만든 완성본이랑 에셋이 정본이다. 기존은 다 폐지해.' — 정본 범위를 위치에서 아트 전체로 확대한다. 이 합성본과 personal_hanok_v3 의 승인 스프라이트가 일두고택 아트의 유일 정본이며, 기존 계보의 허구 종가 앵커·자산·레거시 단계 아트는 일두고택 작업에서 전부 폐지 — 앵커·스타일 참조·신규 생성 입력 어느 용도로도 쓰지 않는다. 같은 날 추가 확정: '고증 96퍼센트 맞춘거니까 그냥 내가 만든 final이 법이야' — 고증 문헌·로스터·도면과 final 이 충돌하면 final 이 이긴다. 문헌 값은 도감 주석으로만 쓴다.",
         "caveat": "2026-08-25 개정: 구 판타지 데코(정자·연못·홍예교·석등)는 Jin이 합성본에서 직접 지웠다(베이지 마스킹 부위) — 남은 배치가 정본이다. 지워진 자리는 F-D 고증 요소(석가산·우물·장독대·옛터 표석)로 채운다. 합성본 위 사당·사당문 단청은 고증 실재(dancheongMaxExemptMembers 2건)라 유지.",
         "unrelatedFolderWarning": "Jin 확인 2026-08-25('다른거니까 이걸로하라니까'): 구 assets_unused/한옥후보/ 의 일두고택_완성도_final.png(2412x2622, 사진 콜라주 라벨링 스케치)는 이 정본과 무관한 별개 자료다. 해당 폴더는 main에서 제거되어 archive/hanok-pre-v3-20260826 에만 보존된다. 정본은 오직 personal_hanok_v3/일두고택 완성본_최종.png 이다."
       },
@@ -1008,7 +822,6 @@
         ],
         "excludes": [
           "assets/illustrations/mascot/**",
-          "assets/illustrations/personal_hanok_v2/**",
           "assets/illustrations/personal_hanok_v3/**",
           "assets/illustrations/decorations/**",
           "assets/illustrations/listening/**"
@@ -1635,7 +1448,7 @@
         },
         "pipeline": "Seedream V4.5 + 앵커 1장, 4:3 소스 -> LANCZOS 800x600 -> scripts/apply_paper_grain.py 기본값 -> WebP q84 method6. 실행본: scripts/finish_listening_card.sh (게이트 통과 시 자동 --register)."
       },
-      "promptSkeleton": "정본 프롬프트/레시피 전문은 docs/LISTENING_CARD_RECIPE.md — F-C-a1states 의 promptSkeleton 과 같은 관례의 포인터다(전문을 여기 복제하지 않는다).",
+      "promptSkeleton": "정본 프롬프트/레시피 전문은 docs/LISTENING_CARD_RECIPE.md에 두고, 여기에는 포인터만 유지한다.",
       "modelRouting": [
         {
           "model": "Seedream V4.5",

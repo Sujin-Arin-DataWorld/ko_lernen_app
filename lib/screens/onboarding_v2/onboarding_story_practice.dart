@@ -254,10 +254,17 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
     return LayoutBuilder(
       builder: (context, constraints) {
         final scaledBodySize = MediaQuery.textScalerOf(context).scale(16);
+        final largeText = scaledBodySize > 24;
+        final feedbackGap = largeText ? Spacing.xs : Spacing.sm;
         final showDemoNote =
             scaledBodySize <= 18 &&
             (!constraints.hasBoundedHeight || constraints.maxHeight >= 220);
         final giftEnabled = _giftDiscovered && !_opened;
+        final feedback = _correct
+            ? t.onboardingV2RecognitionCorrect
+            : _wrong
+            ? t.onboardingV2RecognitionRetry
+            : t.onboardingV2RecognitionPrompt;
         final scene = AnimatedSwitcher(
           duration: SoriMotion.respect(context, _growthDuration),
           child: !_giftDiscovered
@@ -304,16 +311,14 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
               Expanded(child: scene)
             else
               AspectRatio(aspectRatio: 1.8, child: scene),
-            const SizedBox(height: Spacing.sm),
+            SizedBox(height: feedbackGap),
             if (!_giftDiscovered) ...[
               Semantics(
                 liveRegion: _wrong || _correct,
+                label: feedback,
+                excludeSemantics: true,
                 child: Text(
-                  _correct
-                      ? t.onboardingV2RecognitionCorrect
-                      : _wrong
-                      ? t.onboardingV2RecognitionRetry
-                      : t.onboardingV2RecognitionPrompt,
+                  feedback,
                   key: _correct
                       ? const ValueKey('onboarding-v2-answer-correct')
                       : _wrong
@@ -323,7 +328,7 @@ class _OnboardingRewardPracticeState extends State<OnboardingRewardPractice>
                   style: text.body,
                 ),
               ),
-              const SizedBox(height: Spacing.sm),
+              SizedBox(height: feedbackGap),
             ],
             if (!_correct)
               Row(

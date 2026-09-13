@@ -3,7 +3,7 @@
 
 Every external image input is hash-pinned. Already registered stages are copied
 byte for byte; generated full-building candidates are first given deterministic
-alpha and then passed to ``register_hanok_construction_stages.register``. The
+alpha and then passed to ``register_ildu_construction_stages.register``. The
 tool never writes to a runtime asset directory.
 """
 
@@ -24,14 +24,14 @@ from PIL import Image, ImageDraw, ImageFont
 
 try:
     from tool.extract_checkerboard_alpha import recover_alpha
-    from tool.register_hanok_construction_stages import (
+    from tool.register_ildu_construction_stages import (
         alpha_bbox,
         register,
         resize_premultiplied,
     )
 except ModuleNotFoundError:  # Allow `python tool/assemble_...py` from repo root.
     from extract_checkerboard_alpha import recover_alpha
-    from register_hanok_construction_stages import (
+    from register_ildu_construction_stages import (
         alpha_bbox,
         register,
         resize_premultiplied,

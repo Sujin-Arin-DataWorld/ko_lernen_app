@@ -107,7 +107,7 @@ void main() {
       }
     }
 
-    // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
+    // Hanok V1 retirement: one legacy owner removed, preview owner added.
     expect(seen, hasLength(111));
     expect(documented, hasLength(111));
     expect(seen.difference(documented), isEmpty);
@@ -145,11 +145,10 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    // W10 PR-C: +ListeningShelfScreen; +illustrated_card_grid −shelf_case −scroll_sheet
-    // Task47 adds pack_completion_recovery_banner to Study and evidence.
-    expect(actual, hasLength(145));
+    // Integrated local recovery/privacy widgets and V1 retirement/V3 preview.
+    expect(actual, hasLength(139));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(145));
+    expect(listed, hasLength(139));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

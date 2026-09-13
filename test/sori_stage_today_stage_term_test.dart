@@ -5,15 +5,15 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/sori_term.dart';
+
+import 'support/hanok_competence_fixture.dart';
 
 /// §COPY-2/§COPY-3(J8) — Today's `_HanokProgress` next-piece line renders a
 /// tappable [SoriTerm] (`hanokStageGlossaryTermId`) when the current
@@ -91,8 +91,10 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
   // a1/a2/b1 완료 + b2 < 50% → computeStage 는 HanokStage.sideBuilding
   // (hanok_stage.dart:94) — hanokStageTerm 이 hanokStageDisplayName 과
   // 달라지는 세 단계 중 하나(hanok_stage_names.dart 주석).
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 0.2),
+  hanokCompetence: hanokCompetenceFixture(
+    a1Completed: 4,
+    a2Completed: 4,
+    b1Completed: 4,
   ),
   quests: const [],
   pendingBojagiCount: 0,

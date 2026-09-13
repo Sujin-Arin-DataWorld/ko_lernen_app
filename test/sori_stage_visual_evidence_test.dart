@@ -8,14 +8,13 @@ import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/gye.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
@@ -136,13 +135,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         locale: const Locale('de'),
-        home: SoriStageHanokScreen(
-          loadSnapshot: () async => _snapshot(),
-          worldLoadRatios: () async =>
-              const LevelRatios(a1: 1, a2: 1, b1: .5, b2: 0),
-          worldLoadProjection: (ratios) async =>
-              PersonalHanokProjection.from(ratios),
-        ),
+        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
       ),
     );
     await _settleHanok(tester);
@@ -154,38 +147,30 @@ void main() {
     );
   });
 
-  testWidgets(
-    'capture Hanok at 390dp scrolled 600',
-    skip: !_captureEvidence,
-    (tester) async {
-      _setViewport(tester, const Size(390, 844));
-      await tester.pumpWidget(
-        _app(
-          locale: const Locale('de'),
-          home: SoriStageHanokScreen(
-            loadSnapshot: () async => _snapshot(),
-            worldLoadRatios: () async =>
-                const LevelRatios(a1: 1, a2: 1, b1: .5, b2: 0),
-            worldLoadProjection: (ratios) async =>
-                PersonalHanokProjection.from(ratios),
-          ),
-        ),
-      );
-      await _settleHanok(tester);
-      await _awaitImageDecode(tester);
+  testWidgets('capture Hanok at 390dp scrolled 600', skip: !_captureEvidence, (
+    tester,
+  ) async {
+    _setViewport(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _app(
+        locale: const Locale('de'),
+        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
+      ),
+    );
+    await _settleHanok(tester);
+    await _awaitImageDecode(tester);
 
-      await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
-      await tester.pumpAndSettle();
-      await _awaitImageDecode(tester);
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
+    await tester.pumpAndSettle();
+    await _awaitImageDecode(tester);
 
-      await expectLater(
-        find.byType(SoriStageHanokScreen),
-        matchesGoldenFile(
-          '../docs/screenshots/sori-stage-hanok-390-collapsed.png',
-        ),
-      );
-    },
-  );
+    await expectLater(
+      find.byType(SoriStageHanokScreen),
+      matchesGoldenFile(
+        '../docs/screenshots/sori-stage-hanok-390-collapsed.png',
+      ),
+    );
+  });
 
   testWidgets('capture Gye empty at 390dp', skip: !_captureEvidence, (
     tester,
@@ -237,11 +222,9 @@ Future<void> _awaitImageDecode(WidgetTester tester) async {
   await tester.pump(const Duration(milliseconds: 300));
 }
 
-/// Two independent async chains gate Hanok's first real frame: the tab's
-/// own `SoriStageProgressionSnapshot` future and `HanokWorldScreen`'s
-/// internal load (ratios -> projection -> narrative -> reveal check, each a
-/// separate microtask hop) — a single pump only resolves the first hop.
-/// Mirrors `sori_stage_hanok_fold_test.dart`'s `settle()`.
+/// The Hanok tab resolves its competency snapshot asynchronously before
+/// showing the static V3 preview. A few pumps keep this visual harness aligned
+/// with `sori_stage_hanok_fold_test.dart`'s `settle()` helper.
 Future<void> _settleHanok(WidgetTester tester) async {
   for (var i = 0; i < 10; i++) {
     await tester.pump(const Duration(milliseconds: 100));
@@ -271,9 +254,7 @@ SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 12,
   ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: 1, b1: .5, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 1,
   stampCount: 4,

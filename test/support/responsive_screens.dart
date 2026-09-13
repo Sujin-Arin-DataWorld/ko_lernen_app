@@ -12,8 +12,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
-import 'package:ko_lernen_app/models/personal_room.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
@@ -34,14 +33,13 @@ import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_preview_screen.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
-import 'package:ko_lernen_app/screens/personal_room_furnish_screen.dart';
 import 'package:ko_lernen_app/screens/profile_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
 import 'package:ko_lernen_app/screens/pronunciation_studio_screen.dart';
@@ -60,7 +58,6 @@ import 'package:ko_lernen_app/screens/vocab_notebook_result_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_notebook_studio_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
@@ -75,16 +72,10 @@ import 'scenario_fixtures.dart';
 Map<String, Widget> responsiveScreens() => <String, Widget>{
   'app shell': const AppShell(),
   'home': const SoriStageTodayScreen(),
-  'personal hanok world': const HanokWorldScreen(),
+  'hanok preview': const HanokPreviewScreen(),
   'practice hub': const PracticeHubScreen(),
   'sarangbang study': const SarangbangStudyScreen(),
   'sarangbang furnish': const SarangbangFurnishScreen(),
-  'anbang furnish': const PersonalRoomFurnishScreen(
-    surface: PersonalRoomSurface.anbang,
-  ),
-  'daecheong furnish': const PersonalRoomFurnishScreen(
-    surface: PersonalRoomSurface.daecheongmaru,
-  ),
   'scenarios list': const ScenariosListScreen(),
   'settings': const SettingsScreen(),
   'stats': const StatsScreen(),
@@ -200,9 +191,7 @@ SoriStageProgressionSnapshot _verticalFillGuardStageSnapshot() =>
         destination: TodayLearningDestination(route: '/review'),
         dueCount: 12,
       ),
-      hanok: PersonalHanokProjection.from(
-        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-      ),
+      hanokCompetence: const HanokCompetenceProjection.empty(),
       quests: const [],
       pendingBojagiCount: 1,
       stampCount: 0,

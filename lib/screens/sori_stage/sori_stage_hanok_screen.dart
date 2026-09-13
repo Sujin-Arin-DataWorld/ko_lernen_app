@@ -3,34 +3,26 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../models/hanok_stage.dart';
-import '../../models/personal_hanok.dart';
 import '../../models/sori_stage_progression.dart';
-import '../../services/hanok_stage_service.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
-import '../../widgets/sori/personal_hanok_map.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/screen_background.dart';
-import '../../widgets/sori/updating_scene.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
-import '../hanok_world_screen.dart';
 
 class SoriStageHanokScreen extends StatefulWidget {
   const SoriStageHanokScreen({
     super.key,
     this.loadSnapshot,
     this.active = true,
-    this.worldForTesting,
-    this.worldLoadRatios,
-    this.worldLoadProjection,
   });
 
   /// Test seam; production uses the shared Stage progression snapshot.
@@ -39,22 +31,6 @@ class SoriStageHanokScreen extends StatefulWidget {
   /// The shell keeps every tab alive. Refresh progression whenever this tab
   /// becomes visible so work completed in Today/Learn is reflected here.
   final bool active;
-
-  /// Keeps shortcut tests independent from the production world's async
-  /// unlock-reveal layer. Production callers always render [HanokWorldScreen].
-  @visibleForTesting
-  final Widget? worldForTesting;
-
-  /// Test seams forwarded straight to the embedded [HanokWorldScreen]'s own
-  /// `loadRatios`/`loadProjection`, so a fold test can drive its place list
-  /// and detail panel deterministically without going through [Storage]
-  /// (§W-F F4). Ignored when [worldForTesting] is supplied.
-  @visibleForTesting
-  final Future<LevelRatios> Function()? worldLoadRatios;
-
-  @visibleForTesting
-  final Future<PersonalHanokProjection> Function(LevelRatios ratios)?
-  worldLoadProjection;
 
   @override
   State<SoriStageHanokScreen> createState() => _SoriStageHanokScreenState();
@@ -102,20 +78,6 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    // `HanokWorldScreen(embedded: true)` builds itself as a sliver (§W-F F2);
-    // the test seam substitutes a plain box widget, so that one alone needs
-    // wrapping to satisfy the surrounding `CustomScrollView`'s sliver contract.
-    Widget world() {
-      final override = widget.worldForTesting;
-      return override == null
-          ? HanokWorldScreen(
-              embedded: true,
-              loadRatios: widget.worldLoadRatios,
-              loadProjection: widget.worldLoadProjection,
-            )
-          : SliverToBoxAdapter(child: override);
-    }
-
     // §W-F F1: a single continuous `CustomScrollView` replaces the previous
     // fixed-chrome `Column` (header/`Expanded` map/shortcuts) — the map no
     // longer claims all leftover height and hides the place list below 640dp.
@@ -159,16 +121,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
-                FutureBuilder<SoriStageProgressionSnapshot>(
-                  future: _future,
-                  builder: (context, snapshot) {
-                    final ready =
-                        snapshot.connectionState == ConnectionState.done &&
-                        !snapshot.hasError;
-                    final data = ready ? snapshot.data : null;
-                    return _HanokMapSliver(projection: data?.hanok);
-                  },
-                ),
+                const _HanokMapSliver(),
                 FutureBuilder<SoriStageProgressionSnapshot>(
                   future: _future,
                   builder: (context, snapshot) {
@@ -192,7 +145,6 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     );
                   },
                 ),
-                world(),
               ],
             ),
           ),
@@ -202,17 +154,8 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   }
 }
 
-/// §W-F F1.2/F3: a pinned, shrinking preview of the personal Hanok map.
-///
-/// Purely decorative (no per-zone hotspots) — a tap anywhere opens the same
-/// `/hanok` (`IlDuWorldScreen`) destination as the Today tab's Hanok card, so
-/// the map and that card now agree on a single place to keep browsing the
-/// estate (§W-F F3). The zone-by-zone place list and its detail panel remain
-/// in [HanokWorldScreen.buildEmbeddedSlivers] below.
 class _HanokMapSliver extends StatelessWidget {
-  const _HanokMapSliver({required this.projection});
-
-  final PersonalHanokProjection? projection;
+  const _HanokMapSliver();
 
   @override
   Widget build(BuildContext context) {
@@ -233,10 +176,8 @@ class _HanokMapSliver extends StatelessWidget {
         return SliverPersistentHeader(
           pinned: true,
           delegate: _HanokMapHeaderDelegate(
-            width: w,
             expandedHeight: expandedHeight,
             collapsedHeight: collapsedHeight,
-            projection: projection,
             reduceMotion: reduceMotion,
           ),
         );
@@ -247,19 +188,13 @@ class _HanokMapSliver extends StatelessWidget {
 
 class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
   _HanokMapHeaderDelegate({
-    required this.width,
     required this.expandedHeight,
     required this.collapsedHeight,
-    required this.projection,
     required this.reduceMotion,
   });
 
-  /// The sliver's own cross-axis extent — used to lay the map out at its
-  /// real display width (below) instead of a scaled-up nominal box.
-  final double width;
   final double expandedHeight;
   final double collapsedHeight;
-  final PersonalHanokProjection? projection;
   final bool reduceMotion;
 
   @override
@@ -275,150 +210,27 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
-    final s = SoriSurfaces.of(context);
     final range = (maxExtent - minExtent).clamp(1.0, double.infinity);
     final clampedShrink = shrinkOffset.clamp(0.0, range);
     final rawProgress = clampedShrink / range;
-    // reduce-motion: 중간 보간 없이 두 상태를 즉시 스냅한다(WCAG 2.3.3) —
-    // 패럴랙스도 함께 스냅해 진행에 따라 계속 흘러가는 움직임을 없앤다.
-    final progress = reduceMotion
-        ? (rawProgress < 0.5 ? 0.0 : 1.0)
-        : rawProgress;
-    final currentExtent = (maxExtent - shrinkOffset).clamp(
-      minExtent,
-      maxExtent,
-    );
-    final hintOpacity = (1 - progress).clamp(0.0, 1.0);
-    final translateY = -(progress * range * 0.5);
-
-    final projection = this.projection;
-    Widget mapArt;
-    if (kHanokWorldUpdating) {
-      // Jin 2026-09-03: compound map(항공 부감 합성)이 "지저분하고 이미
-      // 안 쓰는 이미지"라 판단돼, 새 지도가 착지할 때까지 단일 스틸 +
-      // 베일로 대체한다. 탭·힌트 스크림·고스트 예고는 함께 끈다
-      // (kHanokWorldUpdating을 false로 되돌리면 아래 기존 경로가 다시 산다).
-      mapArt = SoriUpdatingScene(
-        asset: 'assets/illustrations/hanok/estate_overview.webp',
-        message: t.soriStageHanokUpdating,
-        alignment: Alignment.center,
-      );
-    } else if (projection == null) {
-      mapArt = ColoredBox(color: s.surfaceAlt);
-    } else {
-      // §W-F F3.2: 0단계(빈 터)는 지도가 텅 비어 보인다 — 다음 단계 PNG를
-      // 살짝 겹쳐 "이게 다음에 온다"는 고스트 예고(Today 한옥 카드와 동일
-      // 규약, §W-D D2.4). 파일이 없으면 조용히 생략.
-      final ghostStage =
-          !projection.usesCompoundMap &&
-              projection.structureStage == HanokStage.empty
-          ? HanokStage.values[projection.structureStage.ordinal + 1]
-          : null;
-      mapArt = Stack(
-        fit: StackFit.expand,
-        children: [
-          PersonalHanokMap(
-            projection: projection,
-            zoneLabel: (_) => '',
-            showTargets: false,
-            onTap: () => Navigator.of(context).pushNamed('/hanok'),
-          ),
-          if (ghostStage != null)
-            IgnorePointer(
-              child: Opacity(
-                opacity: 0.22,
-                child: Image.asset(
-                  'assets/illustrations/hanok_stages/'
-                  'stage_${ghostStage.assetSlug}_light.png',
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                ),
-              ),
-            ),
-        ],
-      );
-    }
+    final currentExtent = reduceMotion
+        ? (rawProgress < 0.5 ? maxExtent : minExtent)
+        : (maxExtent - shrinkOffset).clamp(minExtent, maxExtent);
 
     return ClipRect(
       child: SizedBox(
         key: const ValueKey('hanok-map-header'),
         height: currentExtent,
         width: double.infinity,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            ClipRect(
-              child: Transform.translate(
-                offset: Offset(0, translateY),
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  // 실폭 배치(§W-F F2 개선) — PersonalHanokMap을 이 슬리버의
-                  // 실제 crossAxisExtent(4:3)로 레이아웃한다. FittedBox(cover)는
-                  // 확장 상태에서 스케일 1(그대로), 축소 상태에서만 가운데
-                  // 크롭한다. 이전엔 32×24 참조 박스를 ~12배 확대해 라벨·마커·
-                  // 패딩까지 함께 스케일됐다(showTargets:false라 우연히 안
-                  // 보였을 뿐) — 실폭이면 향후 오버레이도 정상 크기로 그려진다.
-                  child: SizedBox(
-                    width: width,
-                    height: width * 3 / 4,
-                    child: mapArt,
-                  ),
-                ),
-              ),
-            ),
-            if (!kHanokWorldUpdating)
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Visibility(
-                  visible: hintOpacity > 0,
-                  maintainState: false,
-                  child: Opacity(
-                    opacity: hintOpacity,
-                    child: IgnorePointer(
-                      child: Container(
-                        padding: const EdgeInsets.fromLTRB(
-                          Spacing.md,
-                          Spacing.lg,
-                          Spacing.md,
-                          Spacing.sm,
-                        ),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.black.withValues(alpha: 0),
-                              Colors.black.withValues(alpha: 0.5),
-                            ],
-                          ),
-                        ),
-                        // §16 타이포 가드: 화면 콘텐츠를 ellipsis 로 숨기지 않는다 —
-                        // 잘림 대신 자연 줄바꿈(컨테이너에 고정 높이가 없어
-                        // 오버플로 위험 없음).
-                        child: Text(
-                          t.hanokWorldMapHint,
-                          style: tt.meta.copyWith(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-          ],
-        ),
+        child: HanokV3Preview(message: t.soriStageHanokUpdating),
       ),
     );
   }
 
   @override
   bool shouldRebuild(covariant _HanokMapHeaderDelegate oldDelegate) {
-    return width != oldDelegate.width ||
-        expandedHeight != oldDelegate.expandedHeight ||
+    return expandedHeight != oldDelegate.expandedHeight ||
         collapsedHeight != oldDelegate.collapsedHeight ||
-        projection != oldDelegate.projection ||
         reduceMotion != oldDelegate.reduceMotion;
   }
 }

@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 import 'support/real_fonts.dart';
@@ -175,10 +176,7 @@ void main() {
       find.descendant(of: preview, matching: find.byType(Image)),
     );
     expect(image.fit, BoxFit.contain);
-    expect(
-      (image.image as AssetImage).assetName,
-      endsWith('14_ondol_maru.webp'),
-    );
+    expect((image.image as AssetImage).assetName, kIlDuV3PreviewAsset);
   });
 
   testWidgets('gift unwrap stages anticipation, opening and gift burst once', (
@@ -431,10 +429,7 @@ void main() {
         final image = tester.widget<Image>(
           find.byKey(const ValueKey('onboarding-v2-gate-preview-image')),
         );
-        expect(
-          (image.image as AssetImage).assetName,
-          'assets/illustrations/personal_hanok_v3/world/main-gate.png',
-        );
+        expect((image.image as AssetImage).assetName, kIlDuV3PreviewAsset);
         final close = find.byKey(
           const ValueKey('onboarding-v2-gate-preview-close'),
         );

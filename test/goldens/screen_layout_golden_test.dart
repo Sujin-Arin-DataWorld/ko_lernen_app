@@ -5,18 +5,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -186,6 +186,7 @@ void main() {
                     ),
                     context,
                   ),
+                  precacheImage(const AssetImage(kIlDuV3PreviewAsset), context),
                 ]);
               });
               await tester.pump();
@@ -231,9 +232,7 @@ SoriStageProgressionSnapshot _todaySnapshot() => SoriStageProgressionSnapshot(
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 12,
   ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 1,
   stampCount: 4,

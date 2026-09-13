@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail-closed image contract for private Hanok interior room shells."""
+"""Fail-closed image contract for the shipped Sarangbang room surface."""
 
 from pathlib import Path
 
@@ -7,9 +7,34 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_ROOT = ROOT / "assets" / "illustrations" / "personal_hanok_v2" / "interiors"
-CANVAS = (1086, 1448)
-ASSETS = ("anbang_empty.png", "daecheong_empty.png")
+BACKGROUND = ROOT / "assets" / "illustrations" / "hanok" / "sarangbang_empty.png"
+DECORATION_ROOT = ROOT / "assets" / "illustrations" / "decorations"
+BACKGROUND_CANVAS = (1086, 1448)
+ROOM_DECORATIONS = (
+    "decoration_baduk.png",
+    "decoration_bandaji.png",
+    "decoration_bangseok_pair.png",
+    "decoration_boryo_set.png",
+    "decoration_byeongpung_small.png",
+    "decoration_chaekgado.png",
+    "decoration_deungjan.png",
+    "decoration_gat_buchae.png",
+    "decoration_geomungo.png",
+    "decoration_gobi.png",
+    "decoration_hwaro.png",
+    "decoration_hyangno.png",
+    "decoration_jagae_mungap.png",
+    "decoration_mokchim.png",
+    "decoration_munbangsau.png",
+    "decoration_pyeonaek.png",
+    "decoration_sabangtakja.png",
+    "decoration_sagunja_guk.png",
+    "decoration_sagunja_juk.png",
+    "decoration_sagunja_maehwa.png",
+    "decoration_sagunja_nan.png",
+    "decoration_seoan.png",
+    "decoration_soban.png",
+)
 
 
 def _chroma_key_count(image: Image.Image) -> int:
@@ -20,27 +45,37 @@ def _chroma_key_count(image: Image.Image) -> int:
     )
 
 
-def _alpha_bounds(image: Image.Image) -> tuple[int, int]:
-    alpha_values = image.convert("RGBA").getchannel("A").getdata()
-    return min(alpha_values), max(alpha_values)
-
-
-def _check(path: Path) -> list[str]:
+def _check(
+    path: Path,
+    *,
+    expected_size: tuple[int, int] | None = None,
+    require_opaque: bool = False,
+    require_transparency: bool = False,
+) -> list[str]:
     with Image.open(path) as source:
         image = source.copy()
 
+    rgba = image.convert("RGBA")
+    alpha_min, alpha_max = rgba.getchannel("A").getextrema()
+    chroma = _chroma_key_count(rgba)
     errors: list[str] = []
-    if image.size != CANVAS:
-        errors.append(f"size={image.width}x{image.height}, expected=1086x1448")
-    if image.mode not in {"RGB", "RGBA"}:
-        errors.append(f"mode={image.mode}, expected RGB or RGBA")
-    alpha_min, alpha_max = _alpha_bounds(image)
-    if alpha_min != 255 or alpha_max != 255:
+    if expected_size is not None and image.size != expected_size:
+        errors.append(
+            f"size={image.width}x{image.height}, "
+            f"expected={expected_size[0]}x{expected_size[1]}"
+        )
+    if image.mode not in {"RGB", "RGBA", "P"}:
+        errors.append(f"mode={image.mode}, expected RGB, RGBA, or P+tRNS")
+    if require_opaque and (alpha_min != 255 or alpha_max != 255):
         errors.append(f"alpha range={alpha_min}-{alpha_max}, expected fully opaque")
-    chroma = _chroma_key_count(image)
+    if require_transparency and alpha_min == 255:
+        errors.append("expected a transparent cutout")
     if chroma:
         errors.append(f"contains {chroma} opaque #00ff00 chroma-key pixels")
-    detail = f"{image.width}x{image.height} mode={image.mode} alpha={alpha_min}-{alpha_max} key={chroma}"
+    detail = (
+        f"{image.width}x{image.height} mode={image.mode} "
+        f"alpha={alpha_min}-{alpha_max} key={chroma}"
+    )
     relative = path.relative_to(ROOT)
     if errors:
         return [f"[fail] {relative} {detail}: {'; '.join(errors)}"]
@@ -48,14 +83,20 @@ def _check(path: Path) -> list[str]:
 
 
 def main() -> int:
+    specifications = [
+        (BACKGROUND, {"expected_size": BACKGROUND_CANVAS, "require_opaque": True}),
+        *[
+            (DECORATION_ROOT / name, {"require_transparency": True})
+            for name in ROOM_DECORATIONS
+        ],
+    ]
     problems = 0
-    for name in ASSETS:
-        path = ASSET_ROOT / name
+    for path, options in specifications:
         if not path.is_file():
             print(f"[missing] {path.relative_to(ROOT)}")
             problems += 1
             continue
-        for line in _check(path):
+        for line in _check(path, **options):
             print(line)
             if line.startswith("[fail]"):
                 problems += 1

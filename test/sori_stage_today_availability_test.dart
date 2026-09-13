@@ -4,11 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
@@ -271,7 +270,6 @@ void main() {
         'kl_tut_home_tour': true,
         'kl_streak_days': 3,
         'kl_xp': 400,
-        'kl_hanok_stages_seen_v1': <String>['empty'],
       });
       Storage.resetForTesting();
       await Storage.init();
@@ -354,9 +352,7 @@ SoriStageProgressionSnapshot _snapshot(
   List<QuestProgress> quests = const [],
 }) => SoriStageProgressionSnapshot(
   today: today,
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: quests,
   pendingBojagiCount: pendingBojagiCount,
   stampCount: 4,

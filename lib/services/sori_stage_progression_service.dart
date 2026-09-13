@@ -2,30 +2,31 @@ import 'dart:async';
 
 import '../data/sori_activity_catalog.dart';
 import '../models/course_mastery.dart';
-import '../models/personal_hanok.dart';
+import '../models/hanok_competence.dart';
 import '../models/pack_progress.dart';
 import '../models/sori_stage_progression.dart';
 import 'decoration_reward_service.dart';
 import 'course_progress_service.dart';
 import 'gye_service.dart';
-import 'hanok_structure_projection_service.dart';
+import 'hanok_competence_projection_service.dart';
 import 'quest_tracker.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 import 'today_learning_snapshot.dart';
 
 typedef TodaySnapshotReader = Future<TodayLearningSnapshot> Function();
-typedef HanokProjectionReader = Future<PersonalHanokProjection> Function();
+typedef HanokCompetenceProjectionReader =
+    Future<HanokCompetenceProjection> Function();
 
 /// Read-only aggregate used by Today and the journey previews.
 abstract final class SoriStageProgressionService {
   static Future<SoriStageProgressionSnapshot> load({
     TodaySnapshotReader? loadToday,
-    HanokProjectionReader? loadHanok,
+    HanokCompetenceProjectionReader? loadHanokCompetence,
   }) async {
     final todayFuture = (loadToday ?? TodayLearningSnapshotLoader.load)();
     final hanokFuture =
-        (loadHanok ?? HanokStructureProjectionService.loadCurrent)();
+        (loadHanokCompetence ?? HanokCompetenceProjectionService.loadCurrent)();
     final questsFuture = QuestTracker.computeAll();
     final gyeLanternFuture = _loadGyeLanternCount();
 
@@ -38,7 +39,7 @@ abstract final class SoriStageProgressionService {
 
     return SoriStageProgressionSnapshot(
       today: today,
-      hanok: hanok,
+      hanokCompetence: hanok,
       quests: quests,
       pendingBojagiCount: DecorationRewardService.openableBoxCount(),
       stampCount: Storage.earnedStamps.length,
@@ -180,13 +181,13 @@ abstract final class SoriStageProgressionService {
   /// 라운턴은 이번 영수증에 늦게 반영될 수 있다 — 실제 저장된 보상에는
   /// 영향 없음, 영수증 표시만 한 박자 늦을 수 있다).
   static Future<SoriStageNetworkBeforeFields> loadNetworkBeforeFields() async {
-    final hanokFuture = HanokStructureProjectionService.loadCurrent();
+    final hanokFuture = HanokCompetenceProjectionService.loadCurrent();
     final questsFuture = QuestTracker.computeAll();
     final gyeLanternBefore = GyeService.cachedGyeLanternCount;
     unawaited(GyeService.refreshGyeLanternCache());
     return (
       quests: await questsFuture,
-      hanok: await hanokFuture,
+      hanokCompetence: await hanokFuture,
       gyeLanternCount: gyeLanternBefore,
     );
   }

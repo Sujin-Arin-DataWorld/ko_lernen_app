@@ -12,7 +12,8 @@ import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
 import 'course_progress_service.dart';
 import 'firestore_progress_service.dart';
-import 'hanok_state_service.dart';
+import 'ildu_world_state_service.dart';
+import 'legacy_hanok_v1_importer.dart';
 import 'local_data_lifetime.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
@@ -46,6 +47,7 @@ class CloudSync {
     'custom_packs_json',
     'bookshelf_json',
     'course_mastery_json',
+    'ildu_world_state_json',
     'hanok_state_json',
     'study_log_json',
     'gram_plan_json',
@@ -65,7 +67,7 @@ class CloudSync {
   /// catalog-validated canonical v2 state (and completed any safe migration).
   static Future<Map<String, dynamic>> buildBackupPayload({
     CourseMasteryLocalCapture? courseMasteryCapture,
-    HanokStateLocalCapture? hanokStateCapture,
+    IlDuWorldStateLocalCapture? ilduWorldStateCapture,
   }) async {
     PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
@@ -141,11 +143,11 @@ class CloudSync {
     if (courseCapture?.snapshot case final courseMastery?) {
       payload['course_mastery_json'] = jsonEncode(courseMastery.toJson());
     }
-    final hanokCapture =
-        hanokStateCapture ??
-        await const HanokStateService().captureForCloudReconciliation();
-    if (hanokCapture.state case final state?) {
-      payload['hanok_state_json'] = jsonEncode(state.toJson());
+    final ilduCapture =
+        ilduWorldStateCapture ??
+        await const IlDuWorldStateService().captureForCloudReconciliation();
+    if (ilduCapture.state case final state?) {
+      payload['ildu_world_state_json'] = jsonEncode(state.toJson());
     }
     return payload;
   }
@@ -237,7 +239,7 @@ class CloudSync {
     Map<String, dynamic> data, {
     void Function()? beforeWrite,
     String Function()? courseGenerationReader,
-    String Function()? hanokGenerationReader,
+    String Function()? ilduWorldGenerationReader,
     Future<void> Function(
       String raw, {
       required String? expectedGeneration,
@@ -251,7 +253,7 @@ class CloudSync {
       void Function()? beforeRead,
       void Function()? beforeWrite,
     })?
-    hanokStateMerger,
+    ilduWorldStateMerger,
   }) {
     PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
@@ -268,8 +270,8 @@ class CloudSync {
       beforeWrite: assertWritable,
       courseGenerationReader: courseGenerationReader,
       courseSnapshotMerger: courseSnapshotMerger,
-      hanokGenerationReader: hanokGenerationReader,
-      hanokStateMerger: hanokStateMerger,
+      ilduWorldGenerationReader: ilduWorldGenerationReader,
+      ilduWorldStateMerger: ilduWorldStateMerger,
     );
   }
 
@@ -324,7 +326,7 @@ class CloudSync {
     Future<void> Function(String restoredJson)?
     onValidatedLegacyBookshelfRestored,
     String Function()? courseGenerationReader,
-    String Function()? hanokGenerationReader,
+    String Function()? ilduWorldGenerationReader,
     Future<void> Function(
       String raw, {
       required String? expectedGeneration,
@@ -338,7 +340,7 @@ class CloudSync {
       void Function()? beforeRead,
       void Function()? beforeWrite,
     })?
-    hanokStateMerger,
+    ilduWorldStateMerger,
   }) async {
     await PackCompletionStorage.retire(beforeRetire: beforeWrite);
     PackCompletionStorage.assertSnapshotReady();
@@ -648,25 +650,31 @@ class CloudSync {
         );
       }
     }
-    if (data.containsKey('hanok_state_json')) {
-      final rawHanokState = data['hanok_state_json'];
-      if (rawHanokState is! String || rawHanokState.trim().isEmpty) {
-        throw const FormatException('Hanok cloud data must be nonempty JSON.');
+    final rawV3 = data['ildu_world_state_json'];
+    final rawLegacy = data['hanok_state_json'];
+    final rawState = rawV3 ?? rawLegacy;
+    if (rawState != null) {
+      if (rawState is! String || rawState.trim().isEmpty) {
+        throw const FormatException('IlDu cloud data must be nonempty JSON.');
       }
+      final decoded = rawV3 != null
+          ? const IlDuWorldStateService().decode(rawState)
+          : LegacyHanokV1Importer.decode(rawState);
+      final normalized = jsonEncode(decoded.toJson());
       beforeWrite?.call();
       final generation =
-          (hanokGenerationReader ?? () => Storage.hanokStateRawJson)();
-      final merger = hanokStateMerger;
+          (ilduWorldGenerationReader ?? () => Storage.ilduWorldStateRawJson)();
+      final merger = ilduWorldStateMerger;
       if (merger != null) {
         await merger(
-          rawHanokState,
+          normalized,
           expectedGeneration: generation,
           beforeRead: beforeWrite,
           beforeWrite: beforeWrite,
         );
       } else {
-        await const HanokStateService().mergeCloudSnapshotJson(
-          rawHanokState,
+        await const IlDuWorldStateService().mergeCloudSnapshotJson(
+          normalized,
           expectedGeneration: generation,
           beforeRead: beforeWrite,
           beforeWrite: beforeWrite,

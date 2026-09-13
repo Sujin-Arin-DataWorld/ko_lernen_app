@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/sori_stage_reward_receipt_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+
+import 'support/hanok_competence_fixture.dart';
 
 void main() {
   test('receipt contains only positive changes observed after an activity', () {
@@ -14,14 +15,14 @@ void main() {
       xp: 100,
       stamps: 2,
       bojagi: 0,
-      ratios: const LevelRatios(a1: 1, a2: 1, b1: .24, b2: 0),
+      b1Completed: 24,
       questCurrent: 3,
     );
     final after = _snapshot(
       xp: 120,
       stamps: 3,
       bojagi: 1,
-      ratios: const LevelRatios(a1: 1, a2: 1, b1: .25, b2: 0),
+      b1Completed: 25,
       questCurrent: 4,
     );
 
@@ -69,14 +70,14 @@ void main() {
       xp: 120,
       stamps: 3,
       bojagi: 1,
-      ratios: const LevelRatios(a1: 1, a2: 1, b1: .25, b2: 0),
+      b1Completed: 25,
       questCurrent: 4,
     );
     final after = _snapshot(
       xp: 110,
       stamps: 2,
       bojagi: 0,
-      ratios: const LevelRatios(a1: 1, a2: 1, b1: .24, b2: 0),
+      b1Completed: 24,
       questCurrent: 3,
     );
 
@@ -125,9 +126,7 @@ void main() {
     int gyeLanternCount = 0,
   }) => (
     quests: quests,
-    hanok: PersonalHanokProjection.from(
-      const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-    ),
+    hanokCompetence: const HanokCompetenceProjection.empty(),
     gyeLanternCount: gyeLanternCount,
   );
 
@@ -170,46 +169,43 @@ void main() {
     expect(receipt!.items.single.amount, 12);
   });
 
-  test(
-    'local fields are captured synchronously before openActivity(); network '
-    'fields are awaited only after the activity returns (검수#7 race, '
-    'Completer 기반 — 기존 () async => state 고정 테스트는 이 순서를 못 잡았다)',
-    () async {
-      final events = <String>[];
-      final networkCompleter = Completer<SoriStageNetworkBeforeFields>();
+  test('local fields are captured synchronously before openActivity(); network '
+      'fields are awaited only after the activity returns (검수#7 race, '
+      'Completer 기반 — 기존 () async => state 고정 테스트는 이 순서를 못 잡았다)', () async {
+    final events = <String>[];
+    final networkCompleter = Completer<SoriStageNetworkBeforeFields>();
 
-      final receiptFuture = SoriStageRewardReceiptService.capture(
-        activityId: 'course',
-        captureLocalBefore: () {
-          events.add('local-captured');
-          return localFields(xp: 10);
-        },
-        loadNetworkBefore: () {
-          events.add('network-started');
-          return networkCompleter.future;
-        },
-        openActivity: () async {
-          events.add('activity-opened');
-        },
-        loadSnapshot: () async {
-          events.add('after-loaded');
-          return _snapshot(xp: 30);
-        },
-      );
+    final receiptFuture = SoriStageRewardReceiptService.capture(
+      activityId: 'course',
+      captureLocalBefore: () {
+        events.add('local-captured');
+        return localFields(xp: 10);
+      },
+      loadNetworkBefore: () {
+        events.add('network-started');
+        return networkCompleter.future;
+      },
+      openActivity: () async {
+        events.add('activity-opened');
+      },
+      loadSnapshot: () async {
+        events.add('after-loaded');
+        return _snapshot(xp: 30);
+      },
+    );
 
-      // openActivity() 는 이미 실행됐고 network future 는 아직 안 끝났다 —
-      // capture() 가 완료를 기다리지 않고 "병행" 시작했다는 증거.
-      await Future<void>.delayed(Duration.zero);
-      expect(events, ['local-captured', 'network-started', 'activity-opened']);
+    // openActivity() 는 이미 실행됐고 network future 는 아직 안 끝났다 —
+    // capture() 가 완료를 기다리지 않고 "병행" 시작했다는 증거.
+    await Future<void>.delayed(Duration.zero);
+    expect(events, ['local-captured', 'network-started', 'activity-opened']);
 
-      networkCompleter.complete(networkFields());
-      final receipt = await receiptFuture;
+    networkCompleter.complete(networkFields());
+    final receipt = await receiptFuture;
 
-      expect(events.last, 'after-loaded');
-      expect(receipt, isNotNull);
-      expect(receipt!.items.single.amount, 20);
-    },
-  );
+    expect(events.last, 'after-loaded');
+    expect(receipt, isNotNull);
+    expect(receipt!.items.single.amount, 20);
+  });
 }
 
 SoriStageProgressionSnapshot _snapshot({
@@ -217,12 +213,19 @@ SoriStageProgressionSnapshot _snapshot({
   int stamps = 0,
   int bojagi = 0,
   int gyeLanternCount = 0,
-  LevelRatios ratios = const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+  int b1Completed = 0,
   int questCurrent = 0,
   QuestProgress? extraQuest,
 }) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanok: PersonalHanokProjection.from(ratios),
+  hanokCompetence: b1Completed == 0
+      ? const HanokCompetenceProjection.empty()
+      : hanokCompetenceFixture(
+          a1Completed: 4,
+          a2Completed: 4,
+          b1Completed: b1Completed,
+          b1Total: 100,
+        ),
   quests: <QuestProgress>[
     QuestProgress(
       questId: 'tracked',

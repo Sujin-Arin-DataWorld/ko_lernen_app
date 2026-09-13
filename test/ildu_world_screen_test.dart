@@ -6,15 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/course_mastery.dart';
-import 'package:ko_lernen_app/models/curriculum.dart';
-import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/ildu_world_manifest.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/ildu_world_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/ildu_anchor_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_decoration_placement_service.dart';
+import 'package:ko_lernen_app/services/ildu_world_projection_adapter.dart';
 
 void main() {
   late IlDuWorldManifest manifest;
@@ -40,8 +36,9 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         home: IlDuWorldScreen(
           loadManifest: () async => manifest,
-          loadProjection: () async => PersonalHanokProjection.from(
-            const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
+          loadProjection: () async => const IlDuWorldProjection(
+            era: IlDuWorldEra.b2,
+            hasVerifiedEvidence: false,
           ),
           decorationStore: _MemoryDecorationStore(),
           anchorPlacementStore: _MemoryAnchorStore(),
@@ -903,56 +900,14 @@ void _selectMapAnchor(WidgetTester tester, String anchorId) {
   tester.widget<GestureDetector>(tapTarget).onTap!();
 }
 
-PersonalHanokProjection _verifiedA1Projection() {
-  const text = CurriculumText(ko: '사랑채', de: 'Sarangchae', en: 'Sarangchae');
-  final competence = HanokCompetenceProjection.fromSnapshot(
-    snapshot: const CourseMasterySnapshot(completedUnitIds: <String>['a1-1']),
-    courseUnits: const <CourseUnit>[
-      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
-    ],
-  );
-  return PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-    competence: competence,
-  );
-}
+IlDuWorldProjection _verifiedA1Projection() =>
+    const IlDuWorldProjection(era: IlDuWorldEra.a1, hasVerifiedEvidence: true);
 
-PersonalHanokProjection _verifiedB1Projection() {
-  const text = CurriculumText(ko: '솟을대문', de: 'Tor', en: 'Gate');
-  final competence = HanokCompetenceProjection.fromSnapshot(
-    snapshot: const CourseMasterySnapshot(
-      completedUnitIds: <String>['a1-1', 'a2-1', 'b1-1'],
-    ),
-    courseUnits: const <CourseUnit>[
-      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
-      CourseUnit(id: 'a2-1', level: 'a2', order: 1, title: text, canDo: text),
-      CourseUnit(id: 'b1-1', level: 'b1', order: 1, title: text, canDo: text),
-    ],
-  );
-  return PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-    competence: competence,
-  );
-}
+IlDuWorldProjection _verifiedB1Projection() =>
+    const IlDuWorldProjection(era: IlDuWorldEra.b1, hasVerifiedEvidence: true);
 
-PersonalHanokProjection _verifiedB2Projection() {
-  const text = CurriculumText(ko: '사당', de: 'Schrein', en: 'Shrine');
-  final competence = HanokCompetenceProjection.fromSnapshot(
-    snapshot: const CourseMasterySnapshot(
-      completedUnitIds: <String>['a1-1', 'a2-1', 'b1-1', 'b2-1'],
-    ),
-    courseUnits: const <CourseUnit>[
-      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
-      CourseUnit(id: 'a2-1', level: 'a2', order: 1, title: text, canDo: text),
-      CourseUnit(id: 'b1-1', level: 'b1', order: 1, title: text, canDo: text),
-      CourseUnit(id: 'b2-1', level: 'b2', order: 1, title: text, canDo: text),
-    ],
-  );
-  return PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-    competence: competence,
-  );
-}
+IlDuWorldProjection _verifiedB2Projection() =>
+    const IlDuWorldProjection(era: IlDuWorldEra.b2, hasVerifiedEvidence: true);
 
 class _MemoryDecorationStore implements IlDuDecorationPlacementStore {
   List<IlDuDecorationPlacement> placements = const [];

@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -30,10 +31,7 @@ void main() {
           find.descendant(of: preview, matching: find.byType(Image)),
         );
         expect(image.fit, BoxFit.contain);
-        expect(
-          (image.image as AssetImage).assetName,
-          endsWith('14_ondol_maru.webp'),
-        );
+        expect((image.image as AssetImage).assetName, kIlDuV3PreviewAsset);
 
         final details = find.text('Lehrplan und Quellen');
         expect(details, findsOneWidget);

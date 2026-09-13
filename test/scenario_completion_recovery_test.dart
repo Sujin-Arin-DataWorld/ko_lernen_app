@@ -13,7 +13,6 @@ import 'package:ko_lernen_app/services/course_activity_reporter.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -328,7 +327,6 @@ Future<void> _finish(
   CourseProgressService.shared.resetForTesting();
   await tester.runAsync(() async {
     await CurriculumCatalog.load();
-    await HanokStageService.levelRatios();
   });
   await tester.pumpWidget(
     MaterialApp(

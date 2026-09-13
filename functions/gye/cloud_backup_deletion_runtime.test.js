@@ -841,6 +841,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
     progress: { xp: 12 },
     bookshelf_json: "legacy",
     course_mastery_json: '{"version":2}',
+    ildu_world_state_json: '{"schemaVersion":3}',
     hanok_state_json: '{"schemaVersion":1}',
     displayName: "operational profile",
   };
@@ -857,6 +858,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
   assert.deepEqual(store.user.fcmTokens, ["token"]);
   assert.equal(store.user.displayName, "operational profile");
   assert.equal(Object.hasOwn(store.user, "course_mastery_json"), false);
+  assert.equal(Object.hasOwn(store.user, "ildu_world_state_json"), false);
   assert.equal(Object.hasOwn(store.user, "hanok_state_json"), false);
   for (const field of BACKUP_FIELDS) {
     assert.equal(Object.hasOwn(store.user, field), false);

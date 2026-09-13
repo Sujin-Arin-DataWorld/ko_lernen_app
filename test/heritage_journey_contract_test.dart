@@ -236,7 +236,7 @@ HeritageLicenseReference _separatelyApprovedLicense({
 }
 
 const _runtimeAssetPath =
-    'assets/illustrations/personal_hanok_v2/map/site_base_light.png';
+    'assets/illustrations/personal_hanok_v3/world/main-gate.png';
 const _licenseEvidenceId = 'license-approval-test-source-v1';
 const _approvedAsset = HeritageAssetAuthority(
   status: HeritageAssetReviewStatus.approved,

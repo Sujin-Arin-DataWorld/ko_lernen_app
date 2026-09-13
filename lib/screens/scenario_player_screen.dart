@@ -15,7 +15,7 @@ import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
 import '../models/hanok_competence.dart';
-import '../models/personal_hanok.dart';
+import '../models/hanok_stage.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
@@ -23,7 +23,6 @@ import '../services/course_mastery_service.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
-import '../services/hanok_stage_service.dart';
 import '../services/local_data_lifetime.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
@@ -1343,26 +1342,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     CourseUpdate courseUpdate,
   ) async {
     final catalog = await CurriculumCatalog.load();
-    final ratios = await HanokStageService.levelRatios();
     final beforeSnapshot =
         courseUpdate.previousSnapshot ?? courseUpdate.snapshot;
 
-    PersonalHanokProjection project(CourseMasterySnapshot snapshot) =>
-        PersonalHanokProjection.from(
-          ratios,
-          competence: HanokCompetenceProjection.fromSnapshot(
-            snapshot: snapshot,
-            courseUnits: catalog.courseUnits,
-          ),
-        );
+    HanokStage stageFor(CourseMasterySnapshot snapshot) =>
+        HanokCompetenceProjection.fromSnapshot(
+          snapshot: snapshot,
+          courseUnits: catalog.courseUnits,
+        ).stage;
 
     return ScenarioCanDoResult.fromSnapshot(
       snapshot: courseUpdate.snapshot,
       scenarioId: scenario.id,
       courseUnits: catalog.courseUnits,
       contentLinks: catalog.contentLinks,
-      structureStageBefore: project(beforeSnapshot).structureStage,
-      structureStageAfter: project(courseUpdate.snapshot).structureStage,
+      structureStageBefore: stageFor(beforeSnapshot),
+      structureStageAfter: stageFor(courseUpdate.snapshot),
     );
   }
 

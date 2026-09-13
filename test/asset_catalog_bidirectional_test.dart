@@ -7,7 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/pack_artwork_catalog.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/data/sticker_catalog.dart';
-import 'package:ko_lernen_app/models/hanok_stage.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
@@ -167,54 +166,6 @@ void main() {
         reason:
             'assets/illustrations/gye/ 에 있는데 gye_hanok.dart 의 _elements/showcase 에 '
             '없습니다(고아): $orphaned',
-      );
-    });
-  });
-
-  group('hanok_stages', () {
-    // 단방향(키 → 파일)만 고른 이유: `HanokStage` 12종은 진행도 cascade 가
-    // 정확히 12단계일 것을 전제한다 — 파일 결번은 그 단계에서 즉시
-    // 그라데이션 폴백으로 샌다(과거 sidebuilding 오타 사고, 이 파일 주석
-    // 참고). 반대로 `_dark` 파일은 **아직 없는 것이 의도**(라이트 테마만
-    // 우선 제작)이므로 파일→키 역방향은 강제하지 않고, 있어도(light 만)
-    // 실패시키지 않는다 — dark 부재를 실패로 만들면 다음 다크 아트 드롭
-    // 전까지 이 테스트가 영구히 빨간불이 된다.
-    test('assetSlug 12종 모두 stage_{slug}_light.png 가 있다 (키 → 파일)', () {
-      expect(HanokStage.values.length, 12);
-      final missing = <String>[];
-      for (final stage in HanokStage.values) {
-        final path =
-            'assets/illustrations/hanok_stages/stage_${stage.assetSlug}_light.png';
-        if (!File(path).existsSync()) missing.add(path);
-      }
-      expect(
-        missing,
-        isEmpty,
-        reason: 'HanokStage.assetSlug 인데 파일이 없습니다: $missing',
-      );
-    });
-
-    test('모든 stage_*_light.png 가 assetSlug 에 등장한다 (파일 → 키, light 만)', () {
-      final slugs = HanokStage.values.map((s) => s.assetSlug).toSet();
-      final lightStems = Directory('assets/illustrations/hanok_stages')
-          .listSync()
-          .whereType<File>()
-          .map((f) => f.uri.pathSegments.last)
-          .where((name) => name.endsWith('_light.png'))
-          .map(
-            (name) => name.substring(
-              'stage_'.length,
-              name.length - '_light.png'.length,
-            ),
-          );
-      final orphaned = lightStems
-          .where((slug) => !slugs.contains(slug))
-          .toList();
-      expect(
-        orphaned,
-        isEmpty,
-        reason:
-            'stage_*_light.png 인데 HanokStage.assetSlug 어디에도 없습니다(고아): $orphaned',
       );
     });
   });

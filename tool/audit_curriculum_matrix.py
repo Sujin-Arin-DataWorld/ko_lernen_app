@@ -69,6 +69,8 @@ from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import curriculum_evidence_inventory as evidence_inventory
+
 REPO = Path(__file__).resolve().parent.parent
 ASSETS_REL = Path("assets") / "data"
 MATRIX_REL = Path("tools") / "content_factory" / "cefr_matrix"
@@ -148,6 +150,9 @@ class Corpus:
     culture_notes: List[dict]
     can_do_refs: List[dict]
     nikl_grammar_rows: List[dict]
+    # This is deliberately a draft-only ledger.  It is never fed into the
+    # legacy coverage judges, grammar anchors, or runtime/mastery counts.
+    draft_inventory: dict
 
 
 def load_matrix(root: Path = REPO) -> Matrix:
@@ -179,6 +184,34 @@ def load_corpus(root: Path = REPO) -> Corpus:
         return list(data.get(key, [])) if isinstance(data, dict) else list(data)
 
     nikl_path = root / LEXICON_REL / "nikl_kiiq_2017_grammar.csv"
+    draft_path = root / evidence_inventory.SOURCE_RELATIVE_PATH
+    if draft_path.exists():
+        # Do not turn a malformed present source into an empty one: that would
+        # make a broken input look like a verified absence.
+        draft_inventory = evidence_inventory.build_inventory(root)
+        draft_inventory["metadata"] = {
+            **draft_inventory["metadata"],
+            "inputAbsent": False,
+            "evidenceStage": "draft_only",
+        }
+    else:
+        zero_by_kind = {kind: 0 for kind in evidence_inventory.KINDS}
+        draft_inventory = {
+            "metadata": {
+                "sourcePath": evidence_inventory.SOURCE_RELATIVE_PATH.as_posix(),
+                "inputAbsent": True,
+                "evidenceStage": "input_absent",
+                "declaredRuntimeContentApproved": False,
+                "warnings": ["draft input absent; zero holdings are not completion evidence"],
+            },
+            "counts": {
+                "definitions": 0, "projects": 0, "sourceSnippets": 0, "total": 0,
+                "byKind": zero_by_kind,
+                "byLevel": {lv: dict(zero_by_kind) for lv in LEVELS},
+                "unassigned": dict(zero_by_kind), "published": 0, "assessable": 0,
+            },
+            "records": [],
+        }
     return Corpus(
         root=root,
         vocab_rows=_read_csv(assets / "korean_vocab.csv"),
@@ -195,6 +228,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
         culture_notes=_opt_json_list("culture_notes.json", "notes"),
         can_do_refs=can_do_refs,
         nikl_grammar_rows=_read_csv(nikl_path) if nikl_path.exists() else [],
+        draft_inventory=draft_inventory,
     )
 
 
@@ -583,7 +617,11 @@ def scenario_anchored_grammar_ids(corpus: Corpus) -> Set[str]:
 
 def judge_grammar(matrix: Matrix, corpus: Corpus, root: Path) -> Dict[str, dict]:
     bible = _bible_module(root)
-    f1 = bible.build_f1(corpus.grammar_rows, corpus.nikl_grammar_rows)
+    # F1 remains the single matcher for both appendix and matrix.  Its
+    # explicit correspondences are loaded against this same root so the
+    # matrix cannot silently diverge from F1's reviewed semantic links.
+    correspondences = bible.load_grammar_correspondences(root, corpus.grammar_rows, corpus.nikl_grammar_rows)
+    f1 = bible.build_f1(corpus.grammar_rows, corpus.nikl_grammar_rows, correspondences)
     highlights = judge_brief_highlights(bible, matrix, corpus)
     discourse = judge_discourse_features(matrix, corpus)
     anchored = scenario_anchored_grammar_ids(corpus)
@@ -689,8 +727,9 @@ def judge_speech_acts(matrix: Matrix, evidence: Dict[str, Dict[str, dict]]) -> D
 # ---------------------------------------------------------------------------
 
 
-def collect_text_type_evidence(matrix: Matrix, corpus: Corpus) -> Dict[str, Dict[str, Set[str]]]:
+def collect_text_type_evidence(matrix: Matrix, corpus: Corpus) -> Tuple[Dict[str, Dict[str, Set[str]]], dict]:
     evidence: Dict[str, Dict[str, Set[str]]] = {lv: defaultdict(set) for lv in LEVELS}
+    unassigned_culture_notes: List[str] = []
     for tt in matrix.taxonomy["textTypes"]:
         tid = tt["id"]
         m = tt.get("matchers", {})
@@ -722,10 +761,14 @@ def collect_text_type_evidence(matrix: Matrix, corpus: Corpus) -> Dict[str, Dict
             if lv and str(phrase.get("category") or "") in set(m.get("smalltalkCategories", [])):
                 evidence[lv][tid].add(f"smalltalk:{phrase.get('id')}")
         if m.get("cultureNotesAll"):
-            for idx, _note in enumerate(corpus.culture_notes):
-                for lv in LEVELS:  # culture notes are not levelled -> counted for every level
-                    evidence[lv][tid].add(f"culture_note:{idx}")
-    return evidence
+            for idx, note in enumerate(corpus.culture_notes):
+                lv = norm_level(note.get("level"))
+                note_id = str(note.get("id") or idx)
+                if lv:
+                    evidence[lv][tid].add(f"culture_note:{note_id}")
+                else:
+                    unassigned_culture_notes.append(note_id)
+    return evidence, {"unassigned_culture_notes": sorted(set(unassigned_culture_notes))}
 
 
 def judge_text_types(matrix: Matrix, evidence: Dict[str, Dict[str, Set[str]]]) -> Dict[str, List[dict]]:
@@ -909,6 +952,83 @@ def align_topics(matrix: Matrix, evidence: Dict[str, Dict[str, TopicEvidence]]) 
     return rows
 
 
+def build_evidence_requirements(
+    matrix: Matrix,
+    corpus: Corpus,
+    speech_evidence: Dict[str, Dict[str, dict]],
+    text_evidence: Dict[str, Dict[str, Set[str]]],
+) -> List[dict]:
+    """List every R/P requirement without claiming that a candidate is a task.
+
+    W0 only knows placement and keyword matches.  W1 must add an approved
+    binding before any row can acquire task, assessment, or runtime evidence.
+    """
+    indexes = {
+        "speechAct": matrix.axis_index("speechActs"),
+        "textType": matrix.axis_index("textTypes"),
+        "register": matrix.axis_index("registers"),
+    }
+    register_lookup = {
+        app: reg["id"]
+        for reg in matrix.taxonomy["registers"]
+        for app in reg.get("appRegisters", [])
+    }
+    rows: List[dict] = []
+
+    def add(level: str, axis: str, item_id: str, mode: str, candidates: Iterable[str]) -> None:
+        rows.append(OrderedDict([
+            ("requirementKey", f"{level}:{axis}:{item_id}:{mode}"),
+            ("level", level),
+            ("axis", axis),
+            ("id", item_id),
+            ("label", indexes[axis][item_id]["label"]),
+            ("mode", mode),
+            # These preserve the old audit's useful discovery signals while
+            # making their non-verifying status machine-readable.
+            ("contentCandidates", sorted(set(candidates))),
+            ("contentCandidateState", "candidate_observed" if candidates else "no_candidate_observed_not_proven_absent"),
+            # A draft level is not an approved semantic binding to this
+            # requirement.  The complete draft ledger lives once globally in
+            # summary.draftHoldings; W1 may populate this only after binding.
+            ("draftHoldings", []),
+            ("draftBindingState", "no_approved_semantic_binding"),
+            ("evidenceStage", "unverified_unmapped"),
+            ("taskBindings", []),
+            ("assessmentEvidence", []),
+            ("runtimeEvidence", []),
+        ]))
+
+    for lv in LEVELS:
+        level = matrix.ko["levels"][lv]
+        for mode, spec_mode in (("P", "production"), ("R", "recognition")):
+            for item_id in level["speechActs"].get(spec_mode, []):
+                evidence = speech_evidence[lv].get(item_id, {"scenarios": set(), "units": set()})
+                add(lv, "speechAct", item_id, mode, [
+                    *(f"scenario:{value}" for value in evidence["scenarios"]),
+                    *(f"unit:{value}" for value in evidence["units"]),
+                ])
+        for mode in ("R", "P"):
+            for item_id in level["textTypes"].get(mode, []):
+                # A media or scenario match is only an R/P content candidate.
+                # It never becomes a task binding, including when this same
+                # genre id appears in both modes.
+                # Existing surfaces can support discovery for reception, but
+                # have no authored productive-task contract.  Do not let an
+                # R media/scenario item bleed into the P row for the same id.
+                candidates = text_evidence[lv].get(item_id, set()) if mode == "R" else []
+                add(lv, "textType", item_id, mode, candidates)
+        for mode, spec_mode in (("P", "production"), ("R", "recognition")):
+            for item_id in level["registers"].get(spec_mode, []):
+                candidates = [
+                    f"scenario:{scn.get('id') or ''}"
+                    for scn in corpus.scenarios
+                    if norm_level(scn.get("level")) == lv
+                    and register_lookup.get(str(scn.get("register") or "")) == item_id
+                ]
+                add(lv, "register", item_id, mode, candidates)
+    return rows
+
+
 # ---------------------------------------------------------------------------
 # Orchestration
 # ---------------------------------------------------------------------------
@@ -924,6 +1044,8 @@ class AuditResult:
     registers: Dict[str, dict]
     functional_alignment: List[dict]
     topic_alignment: List[dict]
+    evidence_requirements: List[dict]
+    draft_inventory: dict
     diagnostics: dict
 
 
@@ -932,7 +1054,7 @@ def run_audit(root: Path = REPO) -> Tuple[Matrix, Corpus, AuditResult]:
     corpus = load_corpus(root)
     topic_evidence, topic_diag = collect_topic_evidence(matrix, corpus)
     sa_evidence, sa_diag = collect_speech_act_evidence(matrix, corpus)
-    tt_evidence = collect_text_type_evidence(matrix, corpus)
+    tt_evidence, tt_diag = collect_text_type_evidence(matrix, corpus)
     result = AuditResult(
         topics=judge_topics(matrix, topic_evidence),
         grammar=judge_grammar(matrix, corpus, root),
@@ -942,7 +1064,13 @@ def run_audit(root: Path = REPO) -> Tuple[Matrix, Corpus, AuditResult]:
         registers=judge_registers(matrix, corpus),
         functional_alignment=align_functional_grammar(matrix, corpus),
         topic_alignment=align_topics(matrix, topic_evidence),
-        diagnostics={"topics": topic_diag, "speech_acts": sa_diag},
+        evidence_requirements=build_evidence_requirements(matrix, corpus, sa_evidence, tt_evidence),
+        draft_inventory=corpus.draft_inventory,
+        diagnostics={
+            "topics": topic_diag,
+            "speech_acts": sa_diag,
+            "text_types": tt_diag,
+        },
     )
     return matrix, corpus, result
 
@@ -975,12 +1103,39 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
     functional = OrderedDict(sorted(Counter(r["status"] for r in result.functional_alignment).items()))
     gap_rows = build_gap_rows(result)
     totals = OrderedDict(sorted(Counter((r["axis"], r["status"]) for r in gap_rows).items()))
+    requirement_counts: "OrderedDict[str, OrderedDict[str, OrderedDict[str, int]]]" = OrderedDict()
+    for lv in LEVELS:
+        requirement_counts[lv] = OrderedDict()
+        for axis in ("speechAct", "textType", "register"):
+            requirement_counts[lv][axis] = OrderedDict(
+                (mode, sum(r["level"] == lv and r["axis"] == axis and r["mode"] == mode for r in result.evidence_requirements))
+                for mode in ("R", "P")
+            )
+    draft_metadata = result.draft_inventory["metadata"]
+    draft_holdings = OrderedDict([
+        ("inputAbsent", draft_metadata["inputAbsent"]),
+        ("evidenceStage", draft_metadata["evidenceStage"]),
+        ("sourcePath", draft_metadata["sourcePath"]),
+        ("declaredRuntimeContentApproved", draft_metadata["declaredRuntimeContentApproved"]),
+        ("warnings", list(draft_metadata.get("warnings", []))),
+        ("counts", result.draft_inventory["counts"]),
+        ("records", result.draft_inventory["records"]),
+    ])
     return OrderedDict([
         ("generated_from", generated_from),
         ("levels", per_level),
         ("functional_alignment", functional),
         ("gap_total", len(gap_rows)),
         ("gap_counts", OrderedDict((f"{axis}:{status}", n) for (axis, status), n in totals.items())),
+        ("draftHoldings", draft_holdings),
+        ("evidenceRequirements", OrderedDict([
+            ("evidenceStage", "unverified_unmapped"),
+            ("requiredRowCount", len(result.evidence_requirements)),
+            ("requiredRowsByLevelAxisMode", requirement_counts),
+            ("candidateRows", sum(bool(r["contentCandidates"]) for r in result.evidence_requirements)),
+            ("unverifiedUnmappedRows", sum(r["evidenceStage"] == "unverified_unmapped" for r in result.evidence_requirements)),
+            ("rows", result.evidence_requirements),
+        ])),
         ("diagnostics", OrderedDict([
             ("unmapped_vocab_or_cloze_labels", len(result.diagnostics["topics"]["unmapped_vocab_or_cloze_labels"])),
             ("unmapped_pack_ids", len(result.diagnostics["topics"]["unmapped_pack_ids"])),
@@ -988,6 +1143,7 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
             ("unmapped_units_topic", len(result.diagnostics["topics"]["unmapped_units"])),
             ("unmatched_scenarios_speech_act", len(result.diagnostics["speech_acts"]["unmatched_scenarios"])),
             ("unmatched_units_speech_act", len(result.diagnostics["speech_acts"]["unmatched_units"])),
+            ("unassigned_culture_notes", len(result.diagnostics["text_types"]["unassigned_culture_notes"])),
         ])),
     ])
 
@@ -1085,7 +1241,31 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
     L.append("> 문법 매칭은 `tool/build_level_bible_tables.py` 의 F1 매처를 그대로 재사용한다(F1_grammar_map.md 와 항상 일치).")
     L.append("> 판정 어휘: ✅ covered/match · 🟡 thin/level_mismatch · ❌ missing · ⛔ structural_gap(현재 taxonomy에 장르 배치 경로 미매핑) · ➕ beyond_matrix(매트릭스가 그 레벨에 요구하지 않는데 앱에 있음) · ⚠️ no_scenario_anchor(문법 화면에는 있으나 어떤 시나리오·미디어 대사에도 연결되지 않음) · 🔵 app_earlier(앱이 매트릭스보다 먼저 도입 — 정보용).")
     L.append("")
-    L.append("## 0. 요약")
+    L.append("## 0. 증거 요구사항 (W0b 임시 뷰 — 학습 완료 판정 아님)")
+    L.append("")
+    L.append("> 이 표의 모든 행은 KO 매트릭스의 레벨 × 축 × R/P 요구사항이다. 현재 `contentCandidates`는 기존 제목·키워드·배치·미디어 탐색 결과일 뿐이며, 과제·평가·런타임 근거나 숙달 증거가 아니다. W1의 승인된 과제 연결 전에는 모두 `unverified_unmapped`이다. 후보가 없다는 표기는 **검사된 콘텐츠 부재의 증명도 아니다**.")
+    L.append("")
+    draft = summary["draftHoldings"]
+    draft_counts = draft["counts"]
+    L.append(f"- 산출 평가 초안 보유: 정의 {draft_counts['byKind']['definition']} · 프로젝트 {draft_counts['byKind']['project']} · 자료 조각 {draft_counts['byKind']['source_snippet']} · 합계 {draft_counts['total']} · stage `{draft['evidenceStage']}` · inputAbsent `{draft['inputAbsent']}` · published {draft_counts['published']} · assessable {draft_counts['assessable']}")
+    L.append(f"- 레벨 미지정 초안: 정의 {draft_counts['unassigned']['definition']} · 프로젝트 {draft_counts['unassigned']['project']} · 자료 조각 {draft_counts['unassigned']['source_snippet']}. 초안은 문법 앵커·장르 보유·기술·런타임 숙달에 계산하지 않는다.")
+    L.append(f"- 요구 행: {summary['evidenceRequirements']['requiredRowCount']} · 후보 관찰 행: {summary['evidenceRequirements']['candidateRows']} · 미검증/미매핑 행: {summary['evidenceRequirements']['unverifiedUnmappedRows']}")
+    L.append("")
+    L.append("| 초안 레벨 | 정의 | 프로젝트 | 자료 조각 |")
+    L.append("|---|---:|---:|---:|")
+    for lv in LEVELS:
+        counts = draft_counts["byLevel"][lv]
+        L.append(f"| {lv} | {counts['definition']} | {counts['project']} | {counts['source_snippet']} |")
+    L.append("")
+    L.append("| 레벨 | 축 | 요구 키 | R/P | 후보 콘텐츠(참조만) | 초안 연결 | stage | 과제/평가/런타임 |")
+    L.append("|---|---|---|---|---|---:|---|---|")
+    for row in result.evidence_requirements:
+        candidates = ", ".join(row["contentCandidates"][:6]) or "—"
+        if len(row["contentCandidates"]) > 6:
+            candidates += " …"
+        L.append(f"| {row['level']} | {row['axis']} | `{row['requirementKey']}` | {row['mode']} | {_md_escape(candidates)} | {row['draftBindingState']} | `{row['evidenceStage']}` | task=unverified · assessment=unverified · runtime=unverified |")
+    L.append("")
+    L.append("## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)")
     L.append("")
     L.append(f"- 콘텐츠 규모: 어휘 {len(corpus.vocab_rows)} · 문법 {len(corpus.grammar_rows)} · 시나리오 {len(corpus.scenarios)} · 코스유닛 {len(corpus.course_units)} · cloze {len(corpus.cloze_items)} · satz {len(corpus.satz_items)} · 스몰토크 {len(corpus.smalltalk_phrases)} · 미디어 {len(corpus.media_phrases)} · 발음 {len(corpus.pronunciation_phrases)} · 문화노트 {len(corpus.culture_notes)}")
     L.append(f"- 매트릭스 규모: 주제 {len(matrix.taxonomy['topics'])} · 기능 {len(matrix.taxonomy['speechActs'])} · 텍스트 유형 {len(matrix.taxonomy['textTypes'])} · 어휘 영역 {len(matrix.taxonomy['vocabDomains'])} · 기능 문법 {len(matrix.taxonomy['functionalGrammar'])} · 국제통용 문법 {len(corpus.nikl_grammar_rows)}")
@@ -1109,7 +1289,7 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
             np=g["no_scenario_anchor"], ag=g["app_grammar_count"],
         ))
     L.append("")
-    L.append("### 0.1 구조적 결손(레벨 무관)")
+    L.append("### 1.1 구조적 결손(레벨 무관)")
     L.append("")
     structural = sorted({r["id"] for lv in LEVELS for r in result.text_types[lv] if r["status"] == "structural_gap"})
     tt_index = matrix.axis_index("textTypes")
@@ -1227,6 +1407,7 @@ def render_report(matrix: Matrix, corpus: Corpus, result: AuditResult, summary: 
     L.append(f"- 주제를 못 찾은 코스유닛 ({len(d['topics']['unmapped_units'])}): " + (", ".join(d["topics"]["unmapped_units"]) or "없음"))
     L.append(f"- 기능(화행)에 하나도 걸리지 않은 시나리오 ({len(d['speech_acts']['unmatched_scenarios'])}): " + (", ".join(d["speech_acts"]["unmatched_scenarios"]) or "없음"))
     L.append(f"- 기능(화행)에 하나도 걸리지 않은 코스유닛 ({len(d['speech_acts']['unmatched_units'])}): " + (", ".join(d["speech_acts"]["unmatched_units"]) or "없음"))
+    L.append(f"- 레벨이 없어 어떤 요구행에도 배정하지 않은 문화 노트 ({len(d['text_types']['unassigned_culture_notes'])}): " + (", ".join(d["text_types"]["unassigned_culture_notes"]) or "없음"))
     L.append("")
     L.append("## 10. 방법과 한계")
     L.append("")

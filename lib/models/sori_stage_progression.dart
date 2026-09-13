@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'personal_hanok.dart';
+import 'hanok_competence.dart';
 import 'quest.dart';
 import '../services/today_learning_snapshot.dart';
 
@@ -197,7 +197,7 @@ class SoriActivityProgress {
 class SoriStageProgressionSnapshot {
   SoriStageProgressionSnapshot({
     required this.today,
-    required this.hanok,
+    required this.hanokCompetence,
     required List<QuestProgress> quests,
     required this.pendingBojagiCount,
     required this.stampCount,
@@ -212,7 +212,7 @@ class SoriStageProgressionSnapshot {
        gameBests = Map.unmodifiable(gameBests);
 
   final TodayLearningSnapshot today;
-  final PersonalHanokProjection hanok;
+  final HanokCompetenceProjection hanokCompetence;
   final List<QuestProgress> quests;
   final int pendingBojagiCount;
   final int stampCount;
@@ -248,6 +248,6 @@ typedef SoriStageLocalBeforeFields = ({
 /// await 된다 — 라우트 전환을 절대 막지 않는다.
 typedef SoriStageNetworkBeforeFields = ({
   List<QuestProgress> quests,
-  PersonalHanokProjection hanok,
+  HanokCompetenceProjection hanokCompetence,
   int gyeLanternCount,
 });

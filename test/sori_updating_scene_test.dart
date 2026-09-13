@@ -16,6 +16,7 @@ void main() {
     String message = 'Dein Hanok wird gerade erneuert. Bald wieder da.',
     bool disableAnimations = false,
     Alignment messageAlignment = Alignment.center,
+    BoxFit assetFit = BoxFit.cover,
   }) => MaterialApp(
     home: MediaQuery(
       data: MediaQueryData(disableAnimations: disableAnimations),
@@ -27,6 +28,7 @@ void main() {
             asset: asset,
             message: message,
             messageAlignment: messageAlignment,
+            assetFit: assetFit,
           ),
         ),
       ),
@@ -46,6 +48,16 @@ void main() {
       reason: 'expected at least one translucent ColoredBox scrim',
     );
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('keeps cover by default and honors contain when requested', (
+    tester,
+  ) async {
+    await tester.pumpWidget(harness());
+    expect(tester.widget<Image>(find.byType(Image)).fit, BoxFit.cover);
+
+    await tester.pumpWidget(harness(assetFit: BoxFit.contain));
+    expect(tester.widget<Image>(find.byType(Image)).fit, BoxFit.contain);
   });
 
   testWidgets('renders the message under the construction mat', (tester) async {

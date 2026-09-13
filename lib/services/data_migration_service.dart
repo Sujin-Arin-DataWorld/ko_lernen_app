@@ -3,7 +3,11 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart'
     show debugPrint, listEquals, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
+import 'ildu_world_state_service.dart';
+import 'legacy_hanok_v1_importer.dart';
+import 'legacy_preferences_native_snapshot.dart';
 import 'storage_service.dart';
 
 /// 로컬 데이터 마이그레이션 한 단계. 여러 번 실행돼도 안전해야 한다(멱등).
@@ -105,35 +109,27 @@ class DataMigrationResult {
 /// 여기서는 native reload로 관측된 결과만 판단한다. Storage의 잠금 범위는
 /// 기존 SRS/팩 학습 쓰기뿐이며, 다른 저장 경로의 전역 잠금은 아니다.
 ///
-/// ## 지금 등록된 단계가 없는 이유
-///
-/// [_productionSteps] 는 의도적으로 비어 있다. 아직 포맷을 깨는 변경이 없었고,
-/// **없는 마이그레이션을 지어내는 것이 진짜 마이그레이션보다 위험**하기 때문이다.
-/// 이 서비스가 지금 하는 일은 세 가지다:
-///
-/// 1. 기존 설치에 baseline 버전 도장을 찍어, 다음 포맷 변경 때 "이 사용자가
-///    어느 포맷에서 왔는지"를 알 수 있게 한다.
-/// 2. **다운그레이드를 막는다** — 이건 지금 당장 실제로 데이터를 지킨다.
-/// 3. 진단 키(`schemaVersion`)를 제공한다.
-///
-/// 러너 자체는 주입된 단계로 전수 테스트된다(`test/data_migration_test.dart`).
-/// 실제 프로덕션 단계를 등록하기 전에는 별도의 startup/cloud 쓰기 정지
-/// (quiescence) 검토가 필수다. 현재 잠금은 XP·전체 `kl_`·클라우드 복원을 막지
-/// 않으므로, 버전 번호와 단계만 추가해 앱 시작 안전성이 확보되지는 않는다.
+/// Production schema 2 performs the one-time, local-only V1 Hanok preference
+/// import. The runner's journal and backup make the ordered V3 write and V1
+/// cleanup recoverable if any later step fails.
 abstract final class DataMigrationService {
   /// 이 앱 빌드가 이해하는 로컬 스키마 버전.
   ///
   /// 포맷을 깨는 변경을 넣을 때만 올린다. 올릴 때는 [_productionSteps] 에 새
   /// 버전 번호를 키로 하는 단계를 반드시 함께 추가한다.
-  static const int currentSchemaVersion = 1;
+  static const int currentSchemaVersion = 2;
 
   static const String versionPreferenceKey = 'kl_schema_version';
   static const String journalPreferenceKey = 'kl_migration_journal_v1';
   static const String backupPreferenceKey = 'kl_migration_backup_v1';
 
   /// 프로덕션 마이그레이션 단계. 키 = 그 단계를 마치면 도달하는 버전.
-  static const Map<int, DataMigrationStep> _productionSteps =
-      <int, DataMigrationStep>{};
+  static final Map<int, DataMigrationStep> _productionSteps =
+      <int, DataMigrationStep>{
+        2: (preferences) async {
+          await LegacyHanokV1Importer.migratePreferences(preferences);
+        },
+      };
 
   /// 기존 설치를 "새 설치"와 구별하는 표식.
   ///
@@ -146,6 +142,7 @@ abstract final class DataMigrationService {
     'kl_course_mastery_v1',
     'kl_onboarding_completed',
     'kl_xp',
+    LegacyHanokV1Importer.legacyStateKey,
     Storage.listeningRewardLedgerPreferenceKey,
   ];
 
@@ -172,30 +169,45 @@ abstract final class DataMigrationService {
     final target = targetVersion ?? currentSchemaVersion;
     // Admission precedes every await. Reentrant callers must not await the
     // active Future or change its lock, journal or lastResult.
+    DataMigrationResult blocked() => DataMigrationResult(
+      status: DataMigrationStatus.failed,
+      fromVersion: null,
+      toVersion: target,
+      failureCode: DataMigrationFailureCode.alreadyRunning,
+      failurePhase: DataMigrationPhase.acquire,
+    );
     if (_running) {
-      return Future.value(
-        DataMigrationResult(
-          status: DataMigrationStatus.failed,
-          fromVersion: null,
-          toVersion: target,
-          failureCode: DataMigrationFailureCode.alreadyRunning,
-          failurePhase: DataMigrationPhase.acquire,
-        ),
-      );
+      return Future.value(blocked());
     }
-    _running = true;
-    Storage.lockLearningWrites('migration:acquire');
-    return _runOwned(preferences, target, steps ?? _productionSteps);
+    return Storage.trackDataMigration(
+      onBlocked: blocked,
+      action: () {
+        _running = true;
+        Storage.lockLearningWrites('migration:acquire');
+        return _runOwned(
+          preferences,
+          target,
+          steps ?? _productionSteps,
+          production: steps == null,
+        );
+      },
+    );
   }
 
   static Future<DataMigrationResult> _runOwned(
     SharedPreferences? preferences,
     int target,
-    Map<int, DataMigrationStep> registry,
-  ) async {
+    Map<int, DataMigrationStep> registry, {
+    required bool production,
+  }) async {
     try {
       return _finish(
-        await _MigrationRun(preferences, target, registry).execute(),
+        await _MigrationRun(
+          preferences,
+          target,
+          registry,
+          production: production,
+        ).execute(),
       );
     } finally {
       _running = false;
@@ -212,6 +224,13 @@ abstract final class DataMigrationService {
 const _versionKey = DataMigrationService.versionPreferenceKey;
 const _backupKey = DataMigrationService.backupPreferenceKey;
 const _journalKey = DataMigrationService.journalPreferenceKey;
+const _hanokScope = 'hanok_v1_to_ildu_v3';
+const _hanokKeys = <String>{
+  _versionKey,
+  ...LegacyHanokV1Importer.legacyKeys,
+  IlDuWorldStateService.preferenceKey,
+  LegacyHanokV1Importer.markerKey,
+};
 
 bool _isDataKey(String key) =>
     key.startsWith('kl_') && key != _backupKey && key != _journalKey;
@@ -224,11 +243,29 @@ class _MigrationFailure implements Exception {
 
 /// State belongs to one admitted invocation, never to overlapping callers.
 class _MigrationRun {
-  _MigrationRun(this._preferences, this.target, this.registry);
+  _MigrationRun(
+    this._preferences,
+    this.target,
+    this.registry, {
+    required this.production,
+  }) : backend = SharedPreferencesStorePlatform.instance;
 
   final SharedPreferences? _preferences;
   final int target;
   final Map<int, DataMigrationStep> registry;
+  final bool production;
+  final SharedPreferencesStorePlatform backend;
+  Map<String, Object> _nativeValues = {};
+  Map<String, Object> get values => production
+      ? _nativeValues
+      : {
+          for (final key in prefs.getKeys())
+            if (prefs.get(key) != null) key: prefs.get(key)!,
+        };
+  bool get scoped => production && from == 1 && target == 2;
+  Future<Map<String, Object>> _readNativeValues() =>
+      readLegacyPreferencesNativeSnapshot(backend);
+
   SharedPreferences? _loaded;
   SharedPreferences get prefs => _loaded!;
   DataMigrationPhase phase = DataMigrationPhase.acquire;
@@ -236,6 +273,7 @@ class _MigrationRun {
   int? originalMarker;
   bool stepsStarted = false;
   bool committed = false;
+  bool _legacyRecovery = false;
 
   Future<DataMigrationResult> execute() async {
     try {
@@ -246,7 +284,7 @@ class _MigrationRun {
         throw _failure(DataMigrationFailureCode.invalidMetadata);
       }
       originalMarker = _readMarker();
-      from = originalMarker ?? _inferBaseline(prefs.getKeys(), target);
+      from = originalMarker ?? _inferBaseline(values.keys, target);
       if (from! > target) {
         return DataMigrationResult(
           status: DataMigrationStatus.futureVersion,
@@ -276,6 +314,7 @@ class _MigrationRun {
         // An interrupted unstamped migration may have removed all install
         // markers. Infer from the validated original, not the partial dataset.
         from = recovery.journal.from;
+        _legacyRecovery = !recovery.journal.hanokScoped;
         await _restore();
       }
 
@@ -311,11 +350,15 @@ class _MigrationRun {
 
       phase = DataMigrationPhase.prepare;
       if (recovery == null) {
-        final snapshot = _Snapshot.capture(prefs, phase);
+        final snapshot = _Snapshot.capture(
+          values,
+          phase,
+          keys: scoped ? _hanokKeys : null,
+        );
         final raw = snapshot.encode();
         await _checked(() => prefs.setString(_backupKey, raw));
         await _reload();
-        if (prefs.get(_backupKey) != raw) {
+        if (values[_backupKey] != raw) {
           throw _failure(DataMigrationFailureCode.writeRejected);
         }
       }
@@ -327,7 +370,14 @@ class _MigrationRun {
       for (final version in pending) {
         phase = DataMigrationPhase.steps;
         try {
-          await registry[version]!(prefs);
+          if (production && version == 2) {
+            await LegacyHanokV1Importer.migratePreferences(
+              prefs,
+              readNativePreferences: _readNativeValues,
+            );
+          } else {
+            await registry[version]!(prefs);
+          }
         } catch (_) {
           throw _failure(DataMigrationFailureCode.stepFailed);
         }
@@ -408,7 +458,11 @@ class _MigrationRun {
     DataMigrationFailureCode code = DataMigrationFailureCode.readFailed,
   }) async {
     try {
-      await prefs.reload();
+      if (production) {
+        _nativeValues = await _readNativeValues();
+      } else {
+        await prefs.reload();
+      }
     } catch (_) {
       throw _failure(code);
     }
@@ -417,7 +471,7 @@ class _MigrationRun {
   Future<void> _refreshAfterFailure() async {
     if (_loaded != null) {
       try {
-        await prefs.reload();
+        await _reload();
       } catch (_) {
         // The typed failure remains the only diagnostic. Never print data or
         // exceptions from the persistence platform.
@@ -426,10 +480,10 @@ class _MigrationRun {
   }
 
   int? _readMarker() {
-    if (!prefs.containsKey(_versionKey)) {
+    if (!values.containsKey(_versionKey)) {
       return null;
     }
-    final marker = prefs.get(_versionKey);
+    final marker = values[_versionKey];
     if (marker is! int || marker <= 0) {
       throw _failure(DataMigrationFailureCode.invalidMetadata);
     }
@@ -437,8 +491,8 @@ class _MigrationRun {
   }
 
   _Recovery? _readRecovery(int? marker) {
-    final hasJournal = prefs.containsKey(_journalKey);
-    final hasBackup = prefs.containsKey(_backupKey);
+    final hasJournal = values.containsKey(_journalKey);
+    final hasBackup = values.containsKey(_backupKey);
     if (!hasJournal) {
       if (hasBackup) {
         // Without a journal there is no trusted destination/commit relation.
@@ -446,17 +500,27 @@ class _MigrationRun {
       }
       return null;
     }
-    final journal = _Journal.parse(prefs.get(_journalKey), phase);
+    final journal = _Journal.parse(values[_journalKey], phase);
+    if (journal.hanokScoped && !production) {
+      throw _failure(DataMigrationFailureCode.invalidMetadata);
+    }
     if (journal.to > target) {
       throw _failure(DataMigrationFailureCode.invalidMetadata);
     }
     final snapshot = hasBackup
-        ? _Snapshot.parse(prefs.get(_backupKey), phase)
+        ? _Snapshot.parse(values[_backupKey], phase)
         : null;
     if (snapshot != null) {
       final original = snapshot.values[_versionKey];
+      if (journal.hanokScoped &&
+          !snapshot.values.keys.every(_hanokKeys.contains)) {
+        throw _failure(DataMigrationFailureCode.invalidBackup);
+      }
       final baseline =
-          original ?? _inferBaseline(snapshot.values.keys, journal.to);
+          original ??
+          (journal.hanokScoped
+              ? 1
+              : _inferBaseline(snapshot.values.keys, journal.to));
       if (baseline != journal.from) {
         throw _failure(DataMigrationFailureCode.invalidBackup);
       }
@@ -476,10 +540,11 @@ class _MigrationRun {
       'to': target,
       'phase': step == null ? 'started' : 'step_done',
       if (step != null) 'step': step,
+      if (scoped && !_legacyRecovery) 'scope': _hanokScope,
     });
     await _checked(() => prefs.setString(_journalKey, raw));
     await _reload();
-    if (prefs.get(_journalKey) != raw) {
+    if (values[_journalKey] != raw) {
       throw _failure(DataMigrationFailureCode.writeRejected);
     }
   }
@@ -502,14 +567,14 @@ class _MigrationRun {
     // shared_preferences 2.5.5 changes its cache before the native result. Both
     // false and thrown writes may require reconciliation, never cached reads.
     await _reload(code: DataMigrationFailureCode.outcomeUnknown);
-    final marker = prefs.get(_versionKey);
+    final marker = values[_versionKey];
     if (marker is int && marker == target) {
       committed = true;
       return;
     }
     if ((marker is int || marker == null) &&
         marker == originalMarker &&
-        (marker != null || !prefs.containsKey(_versionKey))) {
+        (marker != null || !values.containsKey(_versionKey))) {
       throw writeFailure ?? _failure(DataMigrationFailureCode.writeRejected);
     }
     throw _failure(DataMigrationFailureCode.outcomeUnknown);
@@ -521,7 +586,7 @@ class _MigrationRun {
       await _reload(code: DataMigrationFailureCode.recoveryFailed);
       final marker = _readMarker();
       final recovery = _readRecovery(marker);
-      final snapshot = recovery?.snapshot;
+      var snapshot = recovery?.snapshot;
       if (recovery == null || snapshot == null) {
         throw _failure(DataMigrationFailureCode.invalidBackup);
       }
@@ -530,17 +595,35 @@ class _MigrationRun {
         // An unexpected marker changed by a step must not trigger a rollback.
         throw _failure(DataMigrationFailureCode.outcomeUnknown);
       }
+      // Old unscoped schema-2 journals are fully validated above, but the real
+      // production Hanok transition never owned unrelated learner choices.
+      final keys =
+          production && recovery.journal.from == 1 && recovery.journal.to == 2
+          ? _hanokKeys
+          : null;
+      if (keys != null) {
+        snapshot = _Snapshot({
+          for (final entry in snapshot.values.entries)
+            if (keys.contains(entry.key)) entry.key: entry.value,
+        });
+      }
       // Validate everything above before the first write or removal below.
       for (final entry in snapshot.values.entries) {
         await _checked(() => _setValue(entry.key, entry.value));
       }
-      for (final key in prefs.getKeys().where(_isDataKey).toList()) {
+      for (final key
+          in values.keys
+              .where(
+                (key) =>
+                    _isDataKey(key) && (keys == null || keys.contains(key)),
+              )
+              .toList()) {
         if (!snapshot.values.containsKey(key)) {
           await _checked(() => prefs.remove(key));
         }
       }
       await _reload(code: DataMigrationFailureCode.recoveryFailed);
-      if (!snapshot.matches(prefs)) {
+      if (!snapshot.matches(values, keys: keys)) {
         throw _failure(DataMigrationFailureCode.recoveryFailed);
       }
     } on _MigrationFailure catch (failure) {
@@ -575,10 +658,10 @@ class _MigrationRun {
       // Leave the journal until backup removal is confirmed, so a restart can
       // distinguish committed cleanup from an orphan original snapshot.
       for (final key in [_backupKey, _journalKey]) {
-        if (prefs.containsKey(key)) {
+        if (values.containsKey(key)) {
           await _checked(() => prefs.remove(key));
           await _reload();
-          if (prefs.containsKey(key)) {
+          if (values.containsKey(key)) {
             throw _failure(DataMigrationFailureCode.writeRejected);
           }
         }
@@ -607,9 +690,10 @@ class _Recovery {
 }
 
 class _Journal {
-  const _Journal(this.from, this.to);
+  const _Journal(this.from, this.to, {this.hanokScoped = false});
   final int from;
   final int to;
+  final bool hanokScoped;
 
   static _Journal parse(Object? raw, DataMigrationPhase phase) {
     final failure = _MigrationFailure(
@@ -630,16 +714,21 @@ class _Journal {
       if (from is! int || to is! int || from <= 0 || to <= from) {
         throw failure;
       }
-      if (state == 'started' && decoded.length == 3) {
-        return _Journal(from, to);
+      final hasScope = decoded.containsKey('scope');
+      if (hasScope &&
+          (decoded['scope'] != _hanokScope || from != 1 || to != 2)) {
+        throw failure;
+      }
+      if (state == 'started' && decoded.length == (hasScope ? 4 : 3)) {
+        return _Journal(from, to, hanokScoped: hasScope);
       }
       final step = decoded['step'];
       if (state == 'step_done' &&
-          decoded.length == 4 &&
+          decoded.length == (hasScope ? 5 : 4) &&
           step is int &&
           step > from &&
           step <= to) {
-        return _Journal(from, to);
+        return _Journal(from, to, hanokScoped: hasScope);
       }
       throw failure;
     } catch (_) {
@@ -652,10 +741,16 @@ class _Snapshot {
   const _Snapshot(this.values);
   final Map<String, Object> values;
 
-  static _Snapshot capture(SharedPreferences prefs, DataMigrationPhase phase) {
+  static _Snapshot capture(
+    Map<String, Object> source,
+    DataMigrationPhase phase, {
+    Set<String>? keys,
+  }) {
     final values = <String, Object>{};
-    for (final key in prefs.getKeys().where(_isDataKey)) {
-      final value = prefs.get(key);
+    for (final key in source.keys.where(
+      (key) => _isDataKey(key) && (keys == null || keys.contains(key)),
+    )) {
+      final value = source[key];
       if (value is String ||
           value is bool ||
           value is int ||
@@ -730,18 +825,21 @@ class _Snapshot {
     }
   }
 
-  bool matches(SharedPreferences prefs) {
+  bool matches(Map<String, Object> source, {Set<String>? keys}) {
     // runtimeType comparison assumes native int/double stay distinct on
     // reload, which native platforms preserve; web (dart2js) can blur a
     // stored 2.0 back into an int and read as a false mismatch here. Web is
     // smoke-only for this service, so that gap is accepted rather than
     // widened into a numeric `==` that would also blur real type drift.
-    final keys = prefs.getKeys().where(_isDataKey).toSet();
-    if (keys.length != values.length || !keys.containsAll(values.keys)) {
+    final actualKeys = source.keys
+        .where((key) => _isDataKey(key) && (keys == null || keys.contains(key)))
+        .toSet();
+    if (actualKeys.length != values.length ||
+        !actualKeys.containsAll(values.keys)) {
       return false;
     }
     for (final entry in values.entries) {
-      final actual = prefs.get(entry.key);
+      final actual = source[entry.key];
       final expected = entry.value;
       if (expected is List<String>) {
         if (actual is! List ||

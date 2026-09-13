@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/data_migration_service.dart';
+import 'package:ko_lernen_app/services/ildu_world_state_service.dart';
+import 'package:ko_lernen_app/services/legacy_hanok_v1_importer.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 /// 로컬 데이터 마이그레이션 러너 계약.
@@ -215,7 +217,11 @@ void main() {
       );
 
       expect(result.status, DataMigrationStatus.failed);
-      expect(prefs.getString('kl_keep'), 'original', reason: '변형된 값이 되돌아오지 않았다');
+      expect(
+        prefs.getString('kl_keep'),
+        'original',
+        reason: '변형된 값이 되돌아오지 않았다',
+      );
       expect(
         prefs.getString('kl_half_written'),
         isNull,
@@ -264,7 +270,10 @@ void main() {
         steps: {2: (p) async {}},
       );
 
-      expect(prefs.getString(DataMigrationService.journalPreferenceKey), isNull);
+      expect(
+        prefs.getString(DataMigrationService.journalPreferenceKey),
+        isNull,
+      );
       expect(prefs.getString(DataMigrationService.backupPreferenceKey), isNull);
     });
 
@@ -273,13 +282,12 @@ void main() {
       await DataMigrationService.run(
         preferences: prefs,
         targetVersion: 3,
-        steps: {
-          2: (p) async {},
-          3: (p) async => throw StateError('실패'),
-        },
+        steps: {2: (p) async {}, 3: (p) async => throw StateError('실패')},
       );
 
-      final journal = prefs.getString(DataMigrationService.journalPreferenceKey);
+      final journal = prefs.getString(
+        DataMigrationService.journalPreferenceKey,
+      );
       expect(journal, isNotNull);
       final decoded = jsonDecode(journal!) as Map<String, dynamic>;
       expect(decoded['step'], 2, reason: '2단계까지는 끝났다는 기록이 남아야 한다');
@@ -333,11 +341,7 @@ void main() {
       await bootWith({DataMigrationService.versionPreferenceKey: 99});
       await DataMigrationService.run(preferences: prefs, targetVersion: 1);
 
-      expect(
-        storedVersion(),
-        99,
-        reason: '도장을 낮추면 다음 신버전 실행이 마이그레이션을 다시 돌린다',
-      );
+      expect(storedVersion(), 99, reason: '도장을 낮추면 다음 신버전 실행이 마이그레이션을 다시 돌린다');
     });
 
     test('정상 상태로 돌아오면 잠금이 풀린다', () async {
@@ -392,4 +396,78 @@ void main() {
       expect(prefs.getInt('kl_daily_streak'), 5);
     });
   });
+
+  group('한옥 V1에서 일두 V3로 1회 이전', () {
+    test('프로덕션 schema 2 단계가 V3를 먼저 쓰고 V1 키를 정리한다', () async {
+      final legacy = _legacyHanokJson();
+      await bootWith({
+        DataMigrationService.versionPreferenceKey: 1,
+        LegacyHanokV1Importer.legacyStateKey: legacy,
+        'kl_hanok_cutover_v2': '2',
+        'kl_hanok_stages_seen_v1': <String>['old'],
+        'kl_personal_hanok_milestones_seen_v1': <String>['old'],
+      });
+
+      final result = await DataMigrationService.run(preferences: prefs);
+
+      expect(result.status, DataMigrationStatus.migrated);
+      expect(storedVersion(), 2);
+      expect(prefs.getString(IlDuWorldStateService.preferenceKey), isNotEmpty);
+      for (final key in LegacyHanokV1Importer.legacyKeys) {
+        expect(prefs.containsKey(key), isFalse, reason: key);
+      }
+      expect(prefs.getBool(LegacyHanokV1Importer.markerKey), isTrue);
+    });
+
+    test('a later failing step restores every V1 key and removes V3', () async {
+      final legacy = _legacyHanokJson();
+      final original = <String, Object>{
+        DataMigrationService.versionPreferenceKey: 1,
+        LegacyHanokV1Importer.legacyStateKey: legacy,
+        'kl_hanok_cutover_v2': '2',
+        'kl_hanok_stages_seen_v1': <String>['old'],
+        'kl_personal_hanok_milestones_seen_v1': <String>['old'],
+      };
+      await bootWith(original);
+
+      final result = await DataMigrationService.run(
+        preferences: prefs,
+        targetVersion: 3,
+        steps: {
+          2: (preferences) async {
+            await LegacyHanokV1Importer.migratePreferences(preferences);
+          },
+          3: (_) async => throw StateError('injected failure'),
+        },
+      );
+
+      expect(result.status, DataMigrationStatus.failed);
+      expect(storedVersion(), 1);
+      for (final entry in original.entries) {
+        expect(prefs.get(entry.key), entry.value, reason: entry.key);
+      }
+      expect(prefs.containsKey(IlDuWorldStateService.preferenceKey), isFalse);
+      expect(prefs.containsKey(LegacyHanokV1Importer.markerKey), isFalse);
+    });
+  });
 }
+
+String _legacyHanokJson() => jsonEncode({
+  'schemaVersion': 1,
+  'manifestVersion': 'hanok-grants-v1',
+  'cutoverVersion': 2,
+  'seenRevealIds': ['retired.asset'],
+  'activeLoadout': {
+    'roofForm': {
+      'grantId': 'roof.giwa',
+      'clock': {'counter': 2, 'actorId': 'device-a'},
+    },
+  },
+  'careState': {
+    'vacationMode': false,
+    'displayEnabled': true,
+    'notificationsEnabled': false,
+    'settingsClock': {'counter': 1, 'actorId': 'device-a'},
+    'notifiedTierIds': <String>[],
+  },
+});

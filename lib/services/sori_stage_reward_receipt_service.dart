@@ -24,9 +24,11 @@ abstract final class SoriStageRewardReceiptService {
     Future<SoriStageNetworkBeforeFields> Function()? loadNetworkBefore,
   }) async {
     final captureLocal =
-        captureLocalBefore ?? SoriStageProgressionService.captureLocalBeforeFields;
+        captureLocalBefore ??
+        SoriStageProgressionService.captureLocalBeforeFields;
     final loadNetwork =
-        loadNetworkBefore ?? SoriStageProgressionService.loadNetworkBeforeFields;
+        loadNetworkBefore ??
+        SoriStageProgressionService.loadNetworkBeforeFields;
 
     SoriStageLocalBeforeFields local;
     Future<SoriStageNetworkBeforeFields> networkFuture;
@@ -55,7 +57,7 @@ abstract final class SoriStageRewardReceiptService {
       final network = await networkFuture;
       final before = SoriStageProgressionSnapshot(
         today: const TodayLearningSnapshot(pick: null),
-        hanok: network.hanok,
+        hanokCompetence: network.hanokCompetence,
         quests: network.quests,
         pendingBojagiCount: local.pendingBojagiCount,
         stampCount: local.stamps,
@@ -116,7 +118,9 @@ abstract final class SoriStageRewardReceiptService {
     _appendDelta(
       items,
       kind: SoriRewardKind.hanokProgress,
-      delta: after.hanok.unlocked.length - before.hanok.unlocked.length,
+      delta:
+          after.hanokCompetence.completedUnitCount -
+          before.hanokCompetence.completedUnitCount,
       label: const SoriLocalizedCopy(
         de: 'Neues Hanok-Bauteil',
         en: 'New Hanok building piece',

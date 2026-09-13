@@ -3,15 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 void main() {
   setUp(() async {
@@ -40,7 +40,6 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: SoriStageHanokScreen(
-          worldForTesting: const ColoredBox(color: Colors.transparent),
           loadSnapshot: () async {
             loads++;
             return loads == 1
@@ -62,6 +61,9 @@ void main() {
     );
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.byType(HanokV3Preview), findsOneWidget);
+    expect(find.byKey(const ValueKey('hanok-map-tap-hint')), findsNothing);
 
     expect(loads, 1);
     expect(
@@ -173,7 +175,6 @@ void main() {
           child: child!,
         ),
         home: SoriStageHanokScreen(
-          worldForTesting: const ColoredBox(color: Colors.transparent),
           loadSnapshot: () async =>
               _snapshot(questDone: false, pendingBojagi: 1),
         ),
@@ -210,9 +211,7 @@ SoriStageProgressionSnapshot _snapshot({
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 1,
   ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: [
     QuestProgress(
       questId: 'q_jangdokdae',

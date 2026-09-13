@@ -23,8 +23,6 @@ void main() {
   /// 하고, 없으면 그 폴더를 렌더하는 코드가 사라졌다는 뜻이라 테스트가 깨진다.
   /// 면제 폴더를 늘릴 때는 반드시 근거 문자열을 함께 적을 것.
   const dynamicDirs = <String, String>{
-    // 학습경로 헤더가 진행 단계에 따라 `stage_*_light.png` 를 고른다.
-    'assets/illustrations/hanok_stages/': 'hanok_stages/',
     // 도장은 획득 id 로 `stamp_*.png` 를 조립한다.
     'assets/illustrations/stamps/': 'illustrations/stamps/',
     // 듣기 카드는 chaekgadoCardAsset() 이 `{imageKey}.webp` 를 조립한다
@@ -39,6 +37,9 @@ void main() {
     // 배치한다. 화면은 manifest 외부의 임의 경로를 허용하지 않는다.
     'assets/illustrations/personal_hanok_v3/world/':
         'assets/illustrations/personal_hanok_v3/world/',
+    // 일두 건물 회전표는 카탈로그가 루트와 manifest 파일명을 조립한다.
+    'assets/illustrations/personal_hanok_v3/turnarounds/':
+        'assets/illustrations/personal_hanok_v3/turnarounds/',
     // sha1 파일명이라 lib/ 소스에 리터럴로 안 나온다 — tts_bundled_manifest.dart
     // 가 'assets/tts/' 접두사만 검사(런타임 검증)해 조립한다.
     'assets/tts/v3/female/': 'assets/tts/',

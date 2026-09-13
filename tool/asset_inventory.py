@@ -39,9 +39,8 @@ SCAN_ROOTS = (
 # what produced the rejected 2026-08-17 A2 attempt.
 FAMILIES: tuple[tuple[str, str, str], str] = (
     ("assets/illustrations/decorations/", "F-A/F-B", "사랑방 실내 컷아웃 6 + 마당 장식 18 (앵커: seoan·soban·munbangsau·jagae_mungap)"),
-    ("assets/illustrations/personal_hanok_v2/", "F-C", "개인 한옥 estate 1536×1152 (앵커: map/structures/sarangchae.png)"),
+    ("assets/illustrations/personal_hanok_v3/", "F-C", "일두고택 V3 월드 자산"),
     ("assets/illustrations/hanok/", "F-D", "방 배경·배너·게이트 (sarangbang_empty 1086×1448)"),
-    ("assets/illustrations/hanok_stages/", "F-F", "레거시 12단계 배경 — 신규 참조 금지"),
     ("assets/illustrations/hanok_compound/", "F-F", "동결 프로토타입 — 번들 제외·참조 금지"),
     ("assets/illustrations/gye/", "F-F", "계 공동 한옥 — 개인 한옥 재사용/모델 입력 금지"),
     ("assets/illustrations/packs/", "F-E", "카드 세트 (스타일 앵커: plum.webp)"),

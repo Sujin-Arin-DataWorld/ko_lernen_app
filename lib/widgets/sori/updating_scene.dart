@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'tokens.dart';
 
-/// Jin 2026-09-03: 한옥/계 시각은 재작업 중 — 새 지도가 착지하면 false로.
-///
-/// 항공 부감 compound map(`personal_hanok_v*`)이 "지저분하고 이미 안
-/// 쓰는 이미지"라는 판단에 따라, 새 지도가 준비될 때까지 한 장짜리
-/// 정적 스틸(`estate_overview.webp`) 위에 반투명 베일을 얹어 "업데이트
-/// 중"임을 알린다. 이 플래그를 끄면 각 호출부는 이전 경로(compound
-/// map/`GyeHanok`/`GyeShowcaseArtwork`)로 그대로 되돌아간다.
+/// Keeps unfinished Hanok/Gye visuals behind the static preview notice.
+/// Personal Hanok routes use the approved V3 preview; retired V1 maps are
+/// no longer a fallback when this flag changes.
 const bool kHanokWorldUpdating = true;
 
 /// **SoriUpdatingScene** — 재작업 중인 시각 자산을 가리는 표준 베일.
@@ -26,6 +22,12 @@ class SoriUpdatingScene extends StatelessWidget {
   /// 자산 정렬 — 그림마다 중심 피사체 위치가 달라 호출부에서 지정한다.
   final Alignment alignment;
 
+  /// 자산을 가용 영역에 배치하는 방식. 기존 호출부는 cover를 유지한다.
+  final BoxFit assetFit;
+
+  /// 자산 여백에 사용할 배경색. 지정하지 않으면 현재 Sori surface를 쓴다.
+  final Color? backdropColor;
+
   /// 스크림 불투명도.
   final double veilOpacity;
 
@@ -39,6 +41,8 @@ class SoriUpdatingScene extends StatelessWidget {
     required this.asset,
     required this.message,
     this.alignment = Alignment.center,
+    this.assetFit = BoxFit.cover,
+    this.backdropColor,
     this.veilOpacity = 0.45,
     this.messageAlignment = Alignment.center,
   });
@@ -55,50 +59,70 @@ class SoriUpdatingScene extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           ExcludeSemantics(
-            child: Image.asset(
-              asset,
-              fit: BoxFit.cover,
-              alignment: alignment,
-              errorBuilder: (_, __, ___) => ColoredBox(color: s.surfaceAlt),
+            child: ColoredBox(
+              color: backdropColor ?? s.surfaceAlt,
+              child: Image.asset(
+                asset,
+                fit: assetFit,
+                alignment: alignment,
+                errorBuilder: (_, __, ___) => ColoredBox(color: s.surfaceAlt),
+              ),
             ),
           ),
           ColoredBox(color: s.bg.withValues(alpha: veilOpacity)),
-          Align(
-            key: const ValueKey('sori-updating-scene-message-align'),
-            alignment: messageAlignment,
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.md),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: 28,
-                    height: 28,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: s.surface.withValues(alpha: 0.9),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Icon(
-                      Icons.construction_rounded,
-                      size: 16,
-                      color: SoriColors.accent,
-                    ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final showIcon = constraints.maxHeight >= 120;
+              final compactMessage = constraints.maxHeight < 80;
+              final verticalPadding = showIcon ? Spacing.md : Spacing.xs;
+              return Align(
+                key: const ValueKey('sori-updating-scene-message-align'),
+                alignment: messageAlignment,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Spacing.md,
+                    vertical: verticalPadding,
                   ),
-                  const SizedBox(height: Spacing.xs),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                    child: Text(
-                      message,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      softWrap: true,
-                      style: tt.label,
-                    ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (showIcon) ...[
+                        Container(
+                          width: 28,
+                          height: 28,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: s.surface.withValues(alpha: 0.9),
+                          ),
+                          alignment: Alignment.center,
+                          child: const Icon(
+                            Icons.construction_rounded,
+                            size: 16,
+                            color: SoriColors.accent,
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.xs),
+                      ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.lg,
+                        ),
+                        child: Text(
+                          message,
+                          textAlign: TextAlign.center,
+                          maxLines: compactMessage ? 1 : 2,
+                          overflow: compactMessage
+                              ? TextOverflow.ellipsis
+                              : null,
+                          softWrap: true,
+                          style: tt.label,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
         ],
       ),

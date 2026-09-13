@@ -24,7 +24,7 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/ux_preview_app.dart';
 import 'package:ko_lernen_app/screens/ux_preview_gallery_screen.dart';
-import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_preview_screen.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
 
@@ -76,8 +76,8 @@ void main() {
       '02H': ScenarioPlayerScreen,
       '02I': ScenarioPlayerScreen,
       '02J': ScenarioPlayerScreen,
-      '03A': HanokWorldScreen,
-      '03B': HanokWorldScreen,
+      '03A': HanokPreviewScreen,
+      '03B': HanokPreviewScreen,
       '03C': SarangbangStudyScreen,
       '04A': PracticeHubScreen,
       '04B': DiscoverScreen,

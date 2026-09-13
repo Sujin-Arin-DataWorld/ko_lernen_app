@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
-import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
@@ -17,9 +16,7 @@ import 'support/sori_stage_pump.dart';
 /// 으로 되돌아간다.
 SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
-  ),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
   quests: const [],
   pendingBojagiCount: 0,
   stampCount: 0,
@@ -32,10 +29,7 @@ Widget _app(SoriStageTab tab) => MaterialApp(
   locale: const Locale('en'),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
-  home: SoriStageCatalogScreen(
-    tab: tab,
-    loadSnapshot: () async => _snapshot(),
-  ),
+  home: SoriStageCatalogScreen(tab: tab, loadSnapshot: () async => _snapshot()),
 );
 
 void main() {
@@ -58,9 +52,7 @@ void main() {
   // 활동이 "오늘" 섹션 소속일 때만 승격한다. `hangul`은 이제 "탐색" 섹션
   // 소속이라 더 이상 히어로로 오르지 않는다 — 이 케이스는 그 경계를
   // 검증하도록 다시 썼다(이전엔 반대로 "탐색 활동도 승격한다"를 검증했다).
-  testWidgets('기록한 활동이 탐색/복습 섹션 소속이면 히어로로 승격하지 않는다(오늘 섹션만 승격)', (
-    tester,
-  ) async {
+  testWidgets('기록한 활동이 탐색/복습 섹션 소속이면 히어로로 승격하지 않는다(오늘 섹션만 승격)', (tester) async {
     await Storage.init();
     await Storage.setLastActivityId('hangul');
 
@@ -84,9 +76,7 @@ void main() {
     expect(find.text('Hangul'), findsOneWidget);
   });
 
-  testWidgets('기록한 활동이 "오늘" 섹션 소속이면 히어로로 승격하고 이어하기 라벨이 보인다', (
-    tester,
-  ) async {
+  testWidgets('기록한 활동이 "오늘" 섹션 소속이면 히어로로 승격하고 이어하기 라벨이 보인다', (tester) async {
     await Storage.init();
     await Storage.setLastActivityId('grammar');
 
@@ -134,9 +124,7 @@ void main() {
     expect(find.text('Review'), findsNWidgets(2));
   });
 
-  testWidgets('기록한 활동이 다른 탭 것이면 이 탭은 기존 기본으로 되돌아간다', (
-    tester,
-  ) async {
+  testWidgets('기록한 활동이 다른 탭 것이면 이 탭은 기존 기본으로 되돌아간다', (tester) async {
     await Storage.init();
     // 'chosung'은 Games 탭 활동이다 — Learn 탭엔 없다.
     await Storage.setLastActivityId('chosung');

@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../models/hanok_build_narrative.dart';
+import '../models/hanok_learning_receipt.dart';
 import '../models/personal_room.dart';
 import '../models/room_layout.dart';
 import '../services/decoration_reward_service.dart';
-import '../services/hanok_build_narrative_service.dart';
+import '../services/hanok_learning_receipt_service.dart';
 import '../services/quest_tracker.dart';
 import '../services/room_layout_service.dart';
 import '../services/storage_service.dart';
@@ -177,7 +177,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     try {
       final load = widget.loadTodaySnapshot ?? TodayLearningSnapshotLoader.load;
       final receiptLoad =
-          widget.loadLearningReceipt ?? HanokBuildNarrativeService.loadReceipt;
+          widget.loadLearningReceipt ?? HanokLearningReceiptService.loadReceipt;
       final snapshotFuture = load();
       final receiptFuture = receiptLoad();
       final roomFuture = _loadRoomState();
