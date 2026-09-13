@@ -284,6 +284,9 @@ abstract final class PrivacyChoiceStorage {
         state._confirmed = entry.key == ageKey
             ? (value is int ? value : null)
             : (value is bool ? value : null);
+        // A settled selection belongs to the old snapshot. Pending or denied
+        // choices keep their retry intent through the guards above.
+        state._desired = null;
       }
       _refreshRequired = false;
       _notify();

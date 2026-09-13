@@ -101,6 +101,61 @@ void main() {
   });
 
   testWidgets(
+    'local reset clears settled consent switches in the same process',
+    (tester) async {
+      for (final purpose in PrivacyPurpose.values) {
+        await PrivacyConsentService.setChoice(purpose, true);
+      }
+      Widget choices() => Scaffold(
+        body: Column(
+          children: [
+            for (final purpose in PrivacyPurpose.values)
+              PrivacyChoiceControl(
+                purpose: purpose,
+                title: purpose.name,
+                description: 'Optional',
+                icon: Icons.privacy_tip_outlined,
+              ),
+          ],
+        ),
+      );
+      await _mount(tester, choices());
+      expect(
+        tester
+            .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+            .every((tile) => tile.value),
+        isTrue,
+      );
+
+      await Storage.resetAll();
+      await PrivacyChoiceStorage.refresh();
+      await PrivacyConsentService.applyStored();
+      await _pump(tester);
+      for (final purpose in PrivacyPurpose.values) {
+        expect(PrivacyChoiceStorage.admitted(purpose), isFalse);
+        expect(
+          tester
+              .widget<SwitchListTile>(
+                find.byKey(ValueKey('privacy-choice-${purpose.name}')),
+              )
+              .value,
+          isFalse,
+        );
+      }
+      expect(analytics.applied, isFalse);
+      expect(crash.applied, isFalse);
+      await _mount(tester, choices());
+      expect(
+        tester
+            .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+            .every((tile) => !tile.value),
+        isTrue,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
     'real settings retains failed withdrawal and retries its false value',
     (tester) async {
       await PrivacyConsentService.setAnalytics(true);
