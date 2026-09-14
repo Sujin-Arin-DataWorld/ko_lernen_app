@@ -68,9 +68,10 @@ void main() {
       'docs/store/screenshot-shotlist.md',
     ).readAsStringSync();
 
-    expect(shotList, contains('2752 × 2064 landscape'));
     expect(shotList, contains('2064 × 2752 portrait'));
-    expect(shotList, contains('interactive personal Hanok map'));
+    expect(shotList, contains('five current learning surfaces'));
+    expect(shotList, contains('A1 learning phases'));
+    expect(shotList, contains('Phase reading task'));
     expect(shotList, contains('real iOS simulator or device capture'));
     expect(
       shotList,
@@ -81,7 +82,9 @@ void main() {
     expect(shotList, isNot(contains('App screenshots, web screenshots')));
     expect(shotList, contains('1–10 PNGs per device family'));
     expect(shotList, contains('no alpha channel'));
-    expect(shotList, contains('1290 × 2796'));
+    expect(shotList, contains('1320 × 2868'));
+    expect(shotList, contains('No earned reward'));
+    expect(shotList, isNot(contains('interactive personal Hanok map')));
     expect(shotList, contains('AI mockups cannot be submitted'));
     expect(
       shotList,

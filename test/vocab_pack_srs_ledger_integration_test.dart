@@ -6,12 +6,16 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 
 import 'helpers/deck_actions.dart';
+import 'support/pack_completion_widget_driver.dart';
 
 Vocab _word(int index, {required String packId, bool boss = false}) => Vocab(
   id: '$packId-v$index',
@@ -29,7 +33,12 @@ Vocab _word(int index, {required String packId, bool boss = false}) => Vocab(
   isReviewBoss: boss,
 );
 
-Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
+Future<AppL10n> _pumpPack(
+  WidgetTester tester,
+  VocabPack pack, {
+  bool canonical = false,
+}) async {
+  await tester.runAsync(CurriculumCatalog.load);
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -37,13 +46,15 @@ Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      routes: <String, WidgetBuilder>{
-        '/vocab/result': (_) => const Scaffold(body: Text('pack-result')),
-      },
+      onGenerateRoute: (settings) => MaterialPageRoute<void>(
+        builder: (_) => VocabPackResultScreen.fromArgs(settings.arguments),
+      ),
       home: VocabPackScreen(
         packId: pack.id,
         packLoader: (_) async => pack,
-        siblingPacksLoader: (_) async => <VocabPack>[pack],
+        siblingPacksLoader: canonical
+            ? VocabPackService.packsForLevel
+            : (_) async => <VocabPack>[pack],
       ),
     ),
   );
@@ -75,7 +86,13 @@ Future<void> _answerCurrent(
       .widgetList<QuizChoice>(find.byType(QuizChoice))
       .firstWhere((candidate) => candidate.isCorrect == correct);
   choice.onSelected!();
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
   await tester.pump(const Duration(milliseconds: 900));
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
 }
 
 void main() {
@@ -93,28 +110,17 @@ void main() {
   testWidgets(
     'Learn then correct Quiz and Boss recognition records one positive SRS review per word',
     (tester) async {
-      const packId = 'a1_ledger_positive_1';
-      final pack = VocabPack(
-        id: packId,
-        level: 'A1',
-        words: <Vocab>[
-          _word(1, packId: packId),
-          _word(2, packId: packId),
-          _word(3, packId: packId),
-          _word(4, packId: packId),
-          _word(5, packId: packId, boss: true),
-        ],
+      final pack = await loadCanonicalWidgetPack(tester);
+      await _pumpPack(tester, pack, canonical: true);
+      await completeCanonicalWidgetPack(tester, pack);
+      await pumpUntilPackSignal(
+        tester,
+        () =>
+            find.byType(VocabPackResultScreen).evaluate().isNotEmpty &&
+            find.byType(VocabPackScreen).evaluate().isEmpty,
       );
-      final t = await _pumpPack(tester, pack);
-
-      await _learnKnown(tester, t, count: pack.total);
-      for (var index = 0; index < pack.normalWords.length; index++) {
-        await _answerCurrent(tester, correct: true);
-      }
-      for (var index = 0; index < pack.bossWords.length; index++) {
-        await _answerCurrent(tester, correct: true);
-      }
-
+      expect(PackCompletionStorage.result?.packId, pack.id);
+      expect(find.byType(VocabPackScreen), findsNothing);
       for (final word in pack.words) {
         final card = Storage.srsCard(word.korean);
         expect(card, isNotNull);

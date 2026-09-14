@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,6 +20,7 @@ import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/data_migration_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
+import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 
 final class _RecordingJourneyEventSink implements OnboardingJourneyEventSink {
   final List<OnboardingCompanionPreviewFailure> previewFailures = [];
@@ -62,7 +64,31 @@ final class _RecordingJourneyEventSink implements OnboardingJourneyEventSink {
 /// 세 화면 크기에서 각각 한 번씩 돌린다 (`docs/store/RELEASE_QA_CHECKLIST.md`
 /// §20 기기 매트릭스): compact phone · medium tablet · expanded tablet.
 void main() {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  binding.reportData = {
+    'measurement_scope': 'Flutter screen flows with isolated preferences',
+    'production_bootstrap_executed': false,
+    'persistent_storage_measured': false,
+    'profile_mode': kProfileMode,
+    'explicit_splash_delay_ms': 2000,
+  };
+
+  void screenFlowTest(
+    String name,
+    String reportKey,
+    WidgetTesterCallback callback,
+  ) {
+    testWidgets(name, (tester) async {
+      if (kProfileMode) {
+        await binding.watchPerformance(
+          () => callback(tester),
+          reportKey: reportKey,
+        );
+      } else {
+        await callback(tester);
+      }
+    }, timeout: const Timeout(Duration(minutes: 3)));
+  }
 
   setUp(() async {
     Storage.resetForTesting();
@@ -124,13 +150,17 @@ void main() {
     await tester.pump(const Duration(milliseconds: 250));
   }
 
-  testWidgets('cold start — 신규 사용자가 법적 동의에 도달한다', (tester) async {
+  screenFlowTest('cold start — 신규 사용자가 법적 동의에 도달한다', 'new_user_frames', (
+    tester,
+  ) async {
     await launch(tester);
     expect(find.byType(SplashScreen), findsNothing);
     expect(find.byType(ConsentScreen), findsOneWidget);
   });
 
-  testWidgets('신규 V2 전체 흐름 — 5장부터 Today까지 도달한다', (tester) async {
+  screenFlowTest('신규 V2 전체 흐름 — 5장부터 Today까지 도달한다', 'onboarding_frames', (
+    tester,
+  ) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
     await Storage.init();
@@ -194,7 +224,9 @@ void main() {
     expect(journeyEvents.previewFailures, isEmpty);
   });
 
-  testWidgets('cold start — 기존 사용자가 홈에 도달한다', (tester) async {
+  screenFlowTest('cold start — 기존 사용자가 홈에 도달한다', 'returning_user_frames', (
+    tester,
+  ) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_consent_accepted': true,
@@ -238,7 +270,7 @@ void main() {
     );
   });
 
-  testWidgets('회전해도 앱이 살아 있다', (tester) async {
+  screenFlowTest('회전해도 앱이 살아 있다', 'resize_frames', (tester) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_consent_accepted': true,
@@ -259,6 +291,34 @@ void main() {
 
     expect(find.byType(AppShell), findsOneWidget);
     expect(tester.takeException(), isNull);
+  });
+
+  screenFlowTest('다섯 탭을 반복 전환해도 선택과 화면이 일치한다', 'tab_navigation_frames', (
+    tester,
+  ) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({
+      'kl_consent_accepted': true,
+      'kl_onboarding_completed': true,
+      'kl_session_count': 5,
+    });
+    await Storage.init();
+    await launch(tester);
+    await pumpUntilFound(tester, find.byType(AppShell));
+
+    for (var cycle = 0; cycle < 4; cycle++) {
+      for (final index in [1, 2, 3, 4, 0]) {
+        AppShell.openStageTab(index);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        final navigation = tester.widget<SoriAdaptiveNavigation>(
+          find.byType(SoriAdaptiveNavigation),
+        );
+        expect(navigation.selectedIndex, index);
+        expect(find.byType(AppShell), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    }
   });
 
   // ⚠️ 아래는 **사람이 함께 봐야 하는** 항목이라 자동 단언을 걸지 않는다.

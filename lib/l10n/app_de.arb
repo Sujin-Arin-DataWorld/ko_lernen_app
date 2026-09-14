@@ -1,4 +1,12 @@
 {
+  "packCompletionRetired": "Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.",
+  "packCompletionPending": "Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.",
+  "packCompletionSaved": "Dein Pack-Ergebnis ist gespeichert.",
+  "packCompletionView": "Ergebnis ansehen",
+
+  "srsRecoveryPending": "Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.",
+  "srsRecoveryBlocked": "Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.",
+  "srsRecoveryRetry": "Wiederholung erneut speichern",
   "@@locale": "de",
   "learningPhasesTitle": "30 Lernphasen",
   "learningPhasesIntro": "Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.",
@@ -148,6 +156,7 @@
   "btnConfirm": "OK",
   "btnCancel": "Abbrechen",
   "btnRetry": "Erneut versuchen",
+  "choiceSaveConfirmationFailed": "Wir konnten das Speichern deiner Auswahl nicht bestätigen. Bitte versuche es erneut.",
   "btnClose": "Schließen",
   "btnApply": "Übernehmen",
   "btnPlay": "Üben",
@@ -373,7 +382,33 @@
     "description": "Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13)."
   },
   "settingsPrivacyTitle": "Datenschutzerklärung",
-  "settingsPrivacySubtitle": "Link kopieren",
+  "settingsUpdateTitle": "Nach Updates suchen",
+  "@settingsUpdateTitle": {
+    "description": "Settings row that asks Google Play for the newest build available to this device."
+  },
+  "settingsUpdateSubtitle": "Neueste Version aus Google Play holen",
+  "settingsUpdateChecking": "Wird geprüft",
+  "settingsUpdateUpToDate": "Du hast schon die neueste Version.",
+  "settingsUpdateAvailable": "Neue Version {v} ist da.",
+  "@settingsUpdateAvailable": {
+    "description": "Shown when Google Play reports a newer versionCode.",
+    "placeholders": {"v": {}}
+  },
+  "settingsUpdateDialogTitle": "Update verfügbar",
+  "settingsUpdateDialogBody": "Version {v} wird jetzt über Google Play geladen und installiert.",
+  "@settingsUpdateDialogBody": {
+    "description": "Confirmation before handing the update to Google Play.",
+    "placeholders": {"v": {}}
+  },
+  "settingsUpdateStart": "Jetzt aktualisieren",
+  "settingsUpdateLater": "Später",
+  "settingsUpdateDeclined": "Update abgebrochen.",
+  "settingsUpdateFailed": "Update hat nicht geklappt. Weiter im Play Store.",
+  "settingsUpdateUnavailable": "Hier nicht prüfbar. Im Play Store nachsehen.",
+  "@settingsUpdateUnavailable": {
+    "description": "Shown when Play cannot answer; never claims the build is current."
+  },
+  "settingsPrivacySubtitle": "Datenschutzerklärung öffnen",
   "settingsPrivacyCopied": "Link kopiert: {url}",
   "@settingsPrivacyCopied": {
     "placeholders": {
@@ -1214,8 +1249,10 @@
   "settingsAccountDelete": "Konto und alle Daten löschen",
   "settingsAccountDeleteDesc": "Löscht dein Firebase-Konto, Cloud-Backup und lokale Fortschritte.",
   "settingsAccountDeleteConfirmTitle": "Konto dauerhaft löschen?",
-  "settingsAccountDeleteConfirmBody": "Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.",
-  "settingsAccountDeleteSuccess": "Konto und Daten gelöscht",
+  "settingsAccountDeleteConfirmBody": "Dein Firebase-Konto, dein Cloud-Backup und die lokalen Lerndaten auf diesem Gerät werden dauerhaft gelöscht. Google oder Apple bitten dich möglicherweise zur Bestätigung, dich erneut anzumelden.",
+  "settingsAccountDeleteSuccess": "Löschung angenommen. Lokale Daten entfernt; die Bereinigung auf dem Server läuft im Hintergrund weiter.",
+  "settingsAccountDeleteAppleGuidance": "Prüfe nach der Kontolöschung hier deinen Apple Account unter Anmeldung und Sicherheit > Mit Apple anmelden. Falls Hangul Sori dort noch aufgeführt ist, wähle die App und beende die Nutzung von „Mit Apple anmelden“. Du kannst dein Konto hier löschen, ohne diese Anleitung zu öffnen.",
+  "settingsAccountDeleteAppleHelp": "Apple-Anleitung öffnen",
   "settingsAccountDeleteFailed": "Löschung fehlgeschlagen: {error}",
   "@settingsAccountDeleteFailed": {
     "placeholders": {
@@ -1223,7 +1260,7 @@
     }
   },
   "settingsAccountDeletionTitle": "Konto- und Datenlöschung",
-  "settingsAccountDeletionSubtitle": "Link zur Kontolöschung kopieren",
+  "settingsAccountDeletionSubtitle": "Seite zur Kontolöschung öffnen",
   "statsGotIt": "Gewusst",
   "statsNotGotIt": "Nicht gewusst",
   "statsSkipped": "Übersprungen",
@@ -4829,6 +4866,10 @@
   "onboardingV2DoorMeaning": "Tür",
   "onboardingV2DiscoverGift": "Geschenk entdecken",
   "onboardingV2ReplayDemo": "Demo wiederholen",
+  "privacyChoicePending": "Deine Auswahl wird gespeichert.",
+  "privacyChoiceUnconfirmed": "Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.",
+  "privacyWithdrawalUnconfirmed": "Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.",
+  "privacyApplicationUnconfirmed": "Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.",
   "phaseTasksTitle": "Phase-Aufgaben",
   "phaseTasksScope": "Übungen und strukturierte Bewertungen. Freie Antworten werden nicht automatisch als beherrscht gewertet.",
   "phaseTaskPractice": "Üben",

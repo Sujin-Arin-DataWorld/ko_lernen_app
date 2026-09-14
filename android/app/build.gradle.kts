@@ -52,20 +52,53 @@ gradle.taskGraph.whenReady {
 }
 val hasReleaseKey = releaseSigningError == null
 
-// versionCode 자동 증가 — git 커밋 수 기반. 커밋마다 +1 이라 Play 재업로드 시
-// versionCode 충돌(이미 올라간 20 등)을 원천 차단한다. versionName(2.0.5)은 그대로.
-// git 사용 불가 시(소스 zip 등) 안전 폴백 21(>이미 올라간 20).
-val autoVersionCode: Int = run {
-    try {
+// Play versionCode is app-global, so each upload track owns one lane for a
+// commit: internal=3N, alpha=3N+1, beta=3N+2. The next commit starts at
+// 3(N+1), keeping all lanes unique and monotonically ordered.
+val configuredPlayTrack =
+    System.getenv("PLAY_TRACK")?.trim()?.lowercase().orEmpty()
+val playTrackVersionOffset: Int = when (configuredPlayTrack) {
+    "", "internal" -> 0
+    "alpha" -> 1
+    "beta" -> 2
+    else -> throw GradleException(
+        "Unsupported PLAY_TRACK '$configuredPlayTrack'. " +
+            "Expected internal, alpha, or beta."
+    )
+}
+
+val gitCommitCount: Int? = try {
         val process = ProcessBuilder("git", "rev-list", "--count", "HEAD")
             .directory(rootProject.projectDir)
             .redirectErrorStream(true)
             .start()
         val text = process.inputStream.bufferedReader().readText().trim()
         process.waitFor()
-        text.toInt()
-    } catch (e: Exception) {
-        21
+        if (process.exitValue() == 0) {
+            text.toIntOrNull()?.takeIf { count -> count > 0 }
+        } else {
+            null
+        }
+    } catch (_: Exception) {
+        null
+    }
+
+// Source archives can still configure debug builds without Git metadata. A
+// release task must have the real HEAD count and is rejected below.
+val autoVersionCode: Int = run {
+    val commitCount = gitCommitCount ?: 21
+    commitCount * 3 + playTrackVersionOffset
+}
+gradle.taskGraph.whenReady {
+    val releaseTaskScheduled = allTasks.any { task ->
+        task.project == project &&
+            task.name.contains("release", ignoreCase = true)
+    }
+    if (releaseTaskScheduled && gitCommitCount == null) {
+        throw GradleException(
+            "Cannot derive release versionCode from git HEAD. " +
+                "Release builds require complete Git version history."
+        )
     }
 }
 

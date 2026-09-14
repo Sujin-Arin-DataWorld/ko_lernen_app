@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'support/privacy_preferences_platform.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -18,13 +19,20 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
       'kl_tut_home_tour': true,
+      'kl_birth_year': DateTime.now().year - 25,
     });
     await Storage.init();
-    PrivacyConsentService.analyticsEnabled.value = false;
+    PrivacyConsentService.configureForTesting(
+      analytics: PrivacyFakeAnalytics(),
+      crash: PrivacyFakeCrash(),
+    );
   });
 
   tearDown(() {
-    PrivacyConsentService.analyticsEnabled.value = false;
+    PrivacyConsentService.configureForTesting(
+      analytics: PrivacyFakeAnalytics(),
+      crash: PrivacyFakeCrash(),
+    );
     Storage.resetForTesting();
   });
 
@@ -60,16 +68,18 @@ void main() {
       expect(sink.calls, 0);
       expect(repository.state!.shellEntryEventSent, isFalse);
 
-      await Storage.setAnalyticsConsent(true);
       sink.allowed = true;
-      PrivacyConsentService.analyticsEnabled.value = true;
+      await PrivacyConsentService.setAnalytics(true);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 1));
 
       expect(sink.calls, 1);
       expect(repository.state!.shellEntryEventSent, isTrue);
 
-      PrivacyConsentService.analyticsEnabled.value = false;
+      PrivacyConsentService.configureForTesting(
+        analytics: PrivacyFakeAnalytics(),
+        crash: PrivacyFakeCrash(),
+      );
       PrivacyConsentService.analyticsEnabled.value = true;
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 1));

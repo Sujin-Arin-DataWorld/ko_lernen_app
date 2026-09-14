@@ -54,6 +54,8 @@ void main() {
     expect(closed, isNot(contains('BETA_UNLOCK_ALL')));
     expect(closed, contains('--dart-define=ENABLE_TESTER_FEEDBACK=true'));
     expect(closed, contains(r'--dart-define=GIT_COMMIT=${{ github.sha }}'));
-    expect(closed, contains('tracks: alpha'));
+    expect(closed, contains(r'tracks: ${{ inputs.target_track }}'));
+    expect(closed, contains('default: alpha'));
+    expect(closed, contains('alpha|beta) ;;'));
   });
 }

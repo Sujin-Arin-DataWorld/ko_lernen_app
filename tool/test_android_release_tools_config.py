@@ -1,7 +1,7 @@
 """Schema contract for tool/android_release_tools.json (stdlib only, no network).
 
 This config is reviewed, committed source, not a download target: it holds
-version pins for bundletool/firebase-tools/java/node plus the sha256 of each
+version pins for bundletool/firebase-tools/java plus the sha256 of each
 binary the W2 symbol-evidence gate trusts. A sha256 cannot be computed
 offline at authoring time, so this test accepts the literal placeholder
 string in that field, but every other field must already be a real,
@@ -37,8 +37,8 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         self.assertTrue(value == PLACEHOLDER or SHA256.fullmatch(value),
                         f"sha256 field must be 64-hex or the harvest placeholder, got {value!r}")
 
-    def test_top_level_keys_are_exactly_the_four_pinned_tools(self):
-        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java", "node"})
+    def test_top_level_keys_are_exactly_the_three_pinned_tools(self):
+        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java"})
 
     def test_bundletool_pins_a_real_github_release_jar(self):
         entry = self.config["bundletool"]
@@ -55,11 +55,13 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         )
         self._sha256_field(entry["sha256"])
 
-    def test_firebase_tools_pins_a_real_npm_version(self):
+    def test_firebase_tools_pins_the_complete_publisher_executable(self):
         entry = self.config["firebase-tools"]
-        self.assertEqual(set(entry), {"version", "sha256"})
+        self.assertEqual(set(entry), {"version", "url", "sha256"})
         self.assertIsInstance(entry["version"], str)
         self.assertTrue(SEMVER.fullmatch(entry["version"]), entry["version"])
+        self.assertEqual(entry["url"],
+                         f"https://github.com/firebase/firebase-tools/releases/download/v{entry['version']}/firebase-tools-linux")
         self._sha256_field(entry["sha256"])
 
     def test_java_pins_an_exact_temurin_build(self):
@@ -67,13 +69,6 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         self.assertEqual(set(entry), {"version", "sha256"})
         self.assertIsInstance(entry["version"], str)
         self.assertTrue(JAVA_VERSION.fullmatch(entry["version"]), entry["version"])
-        self._sha256_field(entry["sha256"])
-
-    def test_node_pins_an_exact_release(self):
-        entry = self.config["node"]
-        self.assertEqual(set(entry), {"version", "sha256"})
-        self.assertIsInstance(entry["version"], str)
-        self.assertTrue(SEMVER.fullmatch(entry["version"]), entry["version"])
         self._sha256_field(entry["sha256"])
 
     def test_no_field_other_than_sha256_may_carry_the_harvest_placeholder(self):

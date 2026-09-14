@@ -97,6 +97,48 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @packCompletionRetired.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.'**
+  String get packCompletionRetired;
+
+  /// No description provided for @packCompletionPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.'**
+  String get packCompletionPending;
+
+  /// No description provided for @packCompletionSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Pack-Ergebnis ist gespeichert.'**
+  String get packCompletionSaved;
+
+  /// No description provided for @packCompletionView.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get packCompletionView;
+
+  /// No description provided for @srsRecoveryPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.'**
+  String get srsRecoveryPending;
+
+  /// No description provided for @srsRecoveryBlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.'**
+  String get srsRecoveryBlocked;
+
+  /// No description provided for @srsRecoveryRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholung erneut speichern'**
+  String get srsRecoveryRetry;
+
   /// No description provided for @learningPhasesTitle.
   ///
   /// In de, this message translates to:
@@ -774,6 +816,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Erneut versuchen'**
   String get btnRetry;
+
+  /// No description provided for @choiceSaveConfirmationFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir konnten das Speichern deiner Auswahl nicht bestätigen. Bitte versuche es erneut.'**
+  String get choiceSaveConfirmationFailed;
 
   /// No description provided for @btnClose.
   ///
@@ -1525,10 +1573,82 @@ abstract class AppL10n {
   /// **'Datenschutzerklärung'**
   String get settingsPrivacyTitle;
 
+  /// Settings row that asks Google Play for the newest build available to this device.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach Updates suchen'**
+  String get settingsUpdateTitle;
+
+  /// No description provided for @settingsUpdateSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Neueste Version aus Google Play holen'**
+  String get settingsUpdateSubtitle;
+
+  /// No description provided for @settingsUpdateChecking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird geprüft'**
+  String get settingsUpdateChecking;
+
+  /// No description provided for @settingsUpdateUpToDate.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast schon die neueste Version.'**
+  String get settingsUpdateUpToDate;
+
+  /// Shown when Google Play reports a newer versionCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Version {v} ist da.'**
+  String settingsUpdateAvailable(Object v);
+
+  /// No description provided for @settingsUpdateDialogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Update verfügbar'**
+  String get settingsUpdateDialogTitle;
+
+  /// Confirmation before handing the update to Google Play.
+  ///
+  /// In de, this message translates to:
+  /// **'Version {v} wird jetzt über Google Play geladen und installiert.'**
+  String settingsUpdateDialogBody(Object v);
+
+  /// No description provided for @settingsUpdateStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt aktualisieren'**
+  String get settingsUpdateStart;
+
+  /// No description provided for @settingsUpdateLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get settingsUpdateLater;
+
+  /// No description provided for @settingsUpdateDeclined.
+  ///
+  /// In de, this message translates to:
+  /// **'Update abgebrochen.'**
+  String get settingsUpdateDeclined;
+
+  /// No description provided for @settingsUpdateFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Update hat nicht geklappt. Weiter im Play Store.'**
+  String get settingsUpdateFailed;
+
+  /// Shown when Play cannot answer; never claims the build is current.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier nicht prüfbar. Im Play Store nachsehen.'**
+  String get settingsUpdateUnavailable;
+
   /// No description provided for @settingsPrivacySubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Link kopieren'**
+  /// **'Datenschutzerklärung öffnen'**
   String get settingsPrivacySubtitle;
 
   /// No description provided for @settingsPrivacyCopied.
@@ -4144,14 +4264,26 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeleteConfirmBody.
   ///
   /// In de, this message translates to:
-  /// **'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.'**
+  /// **'Dein Firebase-Konto, dein Cloud-Backup und die lokalen Lerndaten auf diesem Gerät werden dauerhaft gelöscht. Google oder Apple bitten dich möglicherweise zur Bestätigung, dich erneut anzumelden.'**
   String get settingsAccountDeleteConfirmBody;
 
   /// No description provided for @settingsAccountDeleteSuccess.
   ///
   /// In de, this message translates to:
-  /// **'Konto und Daten gelöscht'**
+  /// **'Löschung angenommen. Lokale Daten entfernt; die Bereinigung auf dem Server läuft im Hintergrund weiter.'**
   String get settingsAccountDeleteSuccess;
+
+  /// No description provided for @settingsAccountDeleteAppleGuidance.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe nach der Kontolöschung hier deinen Apple Account unter Anmeldung und Sicherheit > Mit Apple anmelden. Falls Hangul Sori dort noch aufgeführt ist, wähle die App und beende die Nutzung von „Mit Apple anmelden“. Du kannst dein Konto hier löschen, ohne diese Anleitung zu öffnen.'**
+  String get settingsAccountDeleteAppleGuidance;
+
+  /// No description provided for @settingsAccountDeleteAppleHelp.
+  ///
+  /// In de, this message translates to:
+  /// **'Apple-Anleitung öffnen'**
+  String get settingsAccountDeleteAppleHelp;
 
   /// No description provided for @settingsAccountDeleteFailed.
   ///
@@ -4168,7 +4300,7 @@ abstract class AppL10n {
   /// No description provided for @settingsAccountDeletionSubtitle.
   ///
   /// In de, this message translates to:
-  /// **'Link zur Kontolöschung kopieren'**
+  /// **'Seite zur Kontolöschung öffnen'**
   String get settingsAccountDeletionSubtitle;
 
   /// No description provided for @statsGotIt.
@@ -17369,6 +17501,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Demo wiederholen'**
   String get onboardingV2ReplayDemo;
+
+  /// No description provided for @privacyChoicePending.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl wird gespeichert.'**
+  String get privacyChoicePending;
+
+  /// No description provided for @privacyChoiceUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.'**
+  String get privacyChoiceUnconfirmed;
+
+  /// No description provided for @privacyWithdrawalUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.'**
+  String get privacyWithdrawalUnconfirmed;
+
+  /// No description provided for @privacyApplicationUnconfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.'**
+  String get privacyApplicationUnconfirmed;
 
   /// No description provided for @phaseTasksTitle.
   ///

@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 import '../models/ildu_world_state.dart';
 import 'ildu_world_state_service.dart';
+import 'legacy_preferences_native_snapshot.dart';
 
 abstract final class LegacyHanokV1Importer {
   static const String legacyStateKey = 'kl_hanok_state_v1';
@@ -72,13 +74,24 @@ abstract final class LegacyHanokV1Importer {
   static Future<bool> migratePreferences(
     SharedPreferences prefs, {
     Future<bool> Function(String encoded)? writeV3,
+    Future<Map<String, Object>> Function()? readNativePreferences,
   }) async {
-    final raw = prefs.getString(legacyStateKey);
+    final backend = SharedPreferencesStorePlatform.instance;
+    Future<Map<String, Object>> readNative() async {
+      final injected = readNativePreferences;
+      if (injected != null) {
+        return injected();
+      }
+      return readLegacyPreferencesNativeSnapshot(backend);
+    }
+
+    final before = await readNative();
+    final raw = before[legacyStateKey] as String?;
     if (raw == null || raw.trim().isEmpty) {
       return false;
     }
     final imported = decode(raw);
-    final currentRaw = prefs.getString(IlDuWorldStateService.preferenceKey);
+    final currentRaw = before[IlDuWorldStateService.preferenceKey] as String?;
     final current = currentRaw == null || currentRaw.trim().isEmpty
         ? null
         : const IlDuWorldStateService().decode(currentRaw);
@@ -92,12 +105,12 @@ abstract final class LegacyHanokV1Importer {
     if (!accepted) {
       throw StateError('IlDu world state migration write was rejected.');
     }
-    await prefs.reload();
-    if (prefs.getString(IlDuWorldStateService.preferenceKey) != encoded) {
+    final confirmed = await readNative();
+    if (confirmed[IlDuWorldStateService.preferenceKey] != encoded) {
       throw StateError('IlDu world state migration could not be verified.');
     }
     for (final key in legacyKeys) {
-      if (prefs.containsKey(key) && !await prefs.remove(key)) {
+      if (confirmed.containsKey(key) && !await prefs.remove(key)) {
         throw StateError('Legacy Hanok key removal was rejected.');
       }
     }

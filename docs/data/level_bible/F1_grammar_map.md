@@ -8,7 +8,7 @@
 > 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.
 > 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.
 
-**요약:** match 105 · level_mismatch 42 · missing_in_app 189 (nikl 문법 336행) · app_only 88(앱 문법 252개 중)
+**요약:** match 107 · level_mismatch 42 · missing_in_app 187 (nikl 문법 336행) · app_only 86(앱 문법 252개 중)
 
 ## 국제통용 -> 앱 매핑
 
@@ -43,7 +43,7 @@
 | 1(A1) | 조사 | 하고 |  | grammar_a1_with_connector | A1 | match |
 | 1(A1) | 조사 | 한테 |  | grammar_a1_spoken_dative, grammar_a2_dative_person | A1, A1 | match |
 | 1(A1) | 종결어미 | -고4 | -고요 | grammar_a1_sequence_connector | A1 | match |
-| 1(A1) | 종결어미 | -습니까 | -ㅂ니까 | -- | -- | missing_in_app |
+| 1(A1) | 종결어미 | -습니까 | -ㅂ니까 | grammar_a1_formal_question | A1 | match |
 | 1(A1) | 종결어미 | -습니다 | -ㅂ니다 | grammar_a1_formal_statement | A1 | match |
 | 1(A1) | 종결어미 | -어2 | -아2, -여2, -야3, -어요, -아요, -여요, -에요 | grammar_a1_polite_present | A1 | match |
 | 1(A1) | 종결어미 | -으세요 | -세요. -으셔요, -셔요, -으시어요, -시어요 | grammar_a1_polite_request | A1 | match |
@@ -70,7 +70,7 @@
 | 2(A2) | 전성어미 | -은2 | -ㄴ4 | grammar_a1_past_modifier, grammar_a1_topic_particle, grammar_b1_whether | A2, A1, B1 | match |
 | 2(A2) | 전성어미 | -은3 |  | grammar_a1_past_modifier, grammar_a1_topic_particle, grammar_b1_whether | A2, A1, B1 | match |
 | 2(A2) | 전성어미 | -을2 | -ㄹ2 | grammar_a1_future_modifier, grammar_a1_object_particle | A2, A1 | match |
-| 2(A2) | 전성어미 | -음 | -ㅁ | -- | -- | missing_in_app |
+| 2(A2) | 전성어미 | -음 | -ㅁ | grammar_a2_nominalizer_eum | A2 | match |
 | 2(A2) | 조사 | 께 |  | grammar_a1_honorific_kke | A2 | match |
 | 2(A2) | 조사 | 마다 |  | grammar_a2_each | A2 | match |
 | 2(A2) | 조사 | 밖에 |  | grammar_a2_only_negative | A2 | match |
@@ -362,7 +362,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a1_come_purpose |
 | grammar_a1_degree_question |
 | grammar_a1_duration_span |
-| grammar_a1_formal_question |
 | grammar_a1_in_front |
 | grammar_a1_please_particle |
 | grammar_a1_short_negation |
@@ -375,7 +374,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_a2_irregular_digeut |
 | grammar_a2_irregular_eu |
 | grammar_a2_irregular_rieul |
-| grammar_a2_nominalizer_eum |
 | grammar_a2_noun_cause |
 | grammar_a2_permission_check_batch20 |
 | grammar_a2_recommendation |

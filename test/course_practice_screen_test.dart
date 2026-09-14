@@ -242,13 +242,15 @@ void main() {
     var correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
     tester.widget<SoriButton>(correctChoice).onTap!();
     await tester.pump();
-    final t = AppL10n.of(tester.element(find.byType(GrammarScreen)));
-    expect(find.text(t.courseCheckpointSaveError), findsOneWidget);
+    expect(
+      find.byKey(const Key('grammar-checkpoint-save-error')),
+      findsOneWidget,
+    );
     expect(find.textContaining('raw checkpoint failure'), findsNothing);
 
     correctChoice = find.widgetWithText(SoriButton, 'V-았/었더라면');
-    expect(tester.widget<SoriButton>(correctChoice).onTap, isNotNull);
-    tester.widget<SoriButton>(correctChoice).onTap!();
+    expect(tester.widget<SoriButton>(correctChoice).onTap, isNull);
+    await tester.tap(find.byKey(const Key('grammar-checkpoint-retry')));
     await tester.pumpAndSettle();
 
     expect(calls, 2);

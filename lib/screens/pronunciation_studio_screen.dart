@@ -14,11 +14,12 @@ import '../services/pronunciation_playback.dart';
 import '../services/pronunciation_progress_service.dart';
 import '../services/pronunciation_recorder.dart';
 import '../services/storage_service.dart';
+import '../services/privacy_consent_service.dart';
+import '../widgets/sori/privacy_choice_feedback.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
@@ -204,35 +205,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _loadPhrases();
   }
 
-  Future<bool> _ensureConsent() async {
-    if (Storage.pronunciationConsent) {
-      return true;
-    }
-    final t = AppL10n.of(context);
-    final accepted = await showSoriDialog<bool>(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => SoriDialog(
-        title: Text(t.pronunciationConsentTitle),
-        content: Text(t.pronunciationConsentBody),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(t.pronunciationConsentDecline),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: Text(t.pronunciationConsentAccept),
-          ),
-        ],
-      ),
-    );
-    if (accepted == true) {
-      await Storage.setPronunciationConsent(true);
-      return true;
-    }
-    return false;
-  }
+  Future<bool> _ensureConsent() => ensurePronunciationPrivacyConsent(context);
 
   Future<void> _startRecording() async {
     final phrase = _currentPhrase;
@@ -518,9 +491,11 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _PronunciationAttempt attempt,
     int generation,
   ) async {
-    if (!widget.cloudAssessmentEnabled || !Storage.pronunciationConsent) {
+    if (!widget.cloudAssessmentEnabled ||
+        !PrivacyConsentService.canSubmitPronunciation) {
       return;
     }
+    final privacyEpoch = PrivacyChoiceStorage.epoch;
     try {
       final result = await _gateway.assess(
         pcm16: attempt.pcm16,
@@ -530,12 +505,16 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       if (!_isCurrentOperation(generation)) {
         return;
       }
+      if (privacyEpoch != PrivacyChoiceStorage.epoch) {
+        return;
+      }
       if (result.passed) {
         await PronunciationProgressService.recordPass(
           result.assessmentId,
           result.pronunciationScore,
         );
-        if (!_isCurrentOperation(generation)) {
+        if (!_isCurrentOperation(generation) ||
+            privacyEpoch != PrivacyChoiceStorage.epoch) {
           return;
         }
       }

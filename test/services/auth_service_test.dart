@@ -1013,34 +1013,69 @@ void main() {
     },
   );
 
-  test('missing Apple code is a safe typed pre-request failure', () async {
-    final events = <String>[];
-    final operations = _FakeDeletionOperations(events)
-      ..providers = const AuthProviderState(
-        isGoogleLinked: false,
-        isAppleLinked: true,
+  for (final code in <String?>[null, '', '   ']) {
+    test(
+      'successful Apple reauth with code $code still accepts deletion',
+      () async {
+        final events = <String>[];
+        final operations = _FakeDeletionOperations(events)
+          ..providers = const AuthProviderState(
+            isGoogleLinked: false,
+            isAppleLinked: true,
+          )
+          ..appleAuthorizationCode = code
+          ..requestResults.add(
+            _operation(AccountOperationPhase.deletionRequested),
+          );
+        final sessions = _readySessions();
+        final coordinator = AccountDeletionCoordinator(
+          operations: operations,
+          ownershipTransitions: _ownership(events, sessions),
+          sessions: sessions,
+        );
+        await coordinator.deleteAccount();
+        expect(events.first, 'apple-reauth');
+        expect(operations.requestCalls, 1);
+        expect(operations.appleOperationIds, isEmpty);
+        expect(operations.deleteFirebaseUserCalls, 1);
+        expect(operations.recoveryCalls, 1);
+        expect(
+          operations.journal?.operation?.phase,
+          AccountOperationPhase.completed,
+        );
+        expect(operations.receipt?.operationId, 'operation-1');
+      },
+    );
+  }
+
+  for (final errorCode in [
+    'canceled-popup-request',
+    'network-request-failed',
+  ]) {
+    test('Apple reauth $errorCode prevents a new deletion request', () async {
+      final events = <String>[];
+      final operations = _FakeDeletionOperations(events)
+        ..providers = const AuthProviderState(
+          isGoogleLinked: false,
+          isAppleLinked: true,
+        )
+        ..appleReauthFailure = FirebaseAuthException(code: errorCode);
+      final sessions = _readySessions();
+      final coordinator = AccountDeletionCoordinator(
+        operations: operations,
+        ownershipTransitions: _ownership(events, sessions),
+        sessions: sessions,
       );
-    final sessions = _readySessions();
-    final coordinator = AccountDeletionCoordinator(
-      operations: operations,
-      ownershipTransitions: _ownership(events, sessions),
-      sessions: sessions,
-    );
-
-    await expectLater(
-      coordinator.deleteAccount(),
-      throwsA(
-        isA<AccountOperationFailure>().having(
-          (failure) => failure.code,
-          'code',
-          AccountOperationFailureCode.recentAuthenticationRequired,
-        ),
-      ),
-    );
-
-    expect(events, <String>['apple-reauth']);
-    expect(operations.requestCalls, 0);
-  });
+      await expectLater(
+        coordinator.deleteAccount(),
+        throwsA(isA<AccountOperationFailure>()),
+      );
+      expect(events, ['apple-reauth']);
+      expect(operations.requestCalls, 0);
+      expect(operations.journalWrites, isEmpty);
+      expect(operations.deleteFirebaseUserCalls, 0);
+    });
+  }
 
   test('dual-linked deletion selects Apple and never Google reauth', () async {
     final events = <String>[];

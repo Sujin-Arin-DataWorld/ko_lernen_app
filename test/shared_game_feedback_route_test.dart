@@ -15,6 +15,8 @@ import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
@@ -114,6 +116,10 @@ const _packWords = [
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    // Resolve asset I/O before individual widget tests create fake-async zones.
+    await CurriculumCatalog.load();
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -157,6 +163,7 @@ void main() {
   testWidgets('Satz Arcade terminal route exposes feedback context', (
     tester,
   ) async {
+    CourseProgressService.shared.resetForTesting();
     await tester.pumpWidget(_wrap(const SatzArcadeScreen(items: [_satz])));
     await tester.pump();
 
@@ -169,9 +176,17 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('Antwort prüfen'));
     await tester.pump(const Duration(milliseconds: 1201));
-    await tester.pump();
+    // The answer confirms SRS and applicable course evidence before advancing.
+    for (var frame = 0; frame < 30; frame++) {
+      await tester.pump();
+    }
     await tester.pump(const Duration(milliseconds: 301));
-    await tester.pump();
+    for (var frame = 0; frame < 30; frame++) {
+      await tester.pump();
+      if (find.byType(GameOverCard).evaluate().isNotEmpty) {
+        break;
+      }
+    }
 
     _expectTerminalFeedback(tester);
   });
@@ -183,8 +198,15 @@ void main() {
     await tester.pump();
 
     await tester.tap(find.text('하나'));
-    await tester.tap(find.text('eins'));
     await tester.pump();
+    await tester.tap(find.text('eins'));
+    // The selected pair confirms its SRS and daily log before saving the result.
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump();
+      if (find.byType(GameOverCard).evaluate().isNotEmpty) {
+        break;
+      }
+    }
 
     _expectTerminalFeedback(tester);
   });

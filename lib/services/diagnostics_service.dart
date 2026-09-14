@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 
-import 'storage_service.dart';
+import 'privacy_consent_service.dart';
 
 /// 크래시 리포트에 붙일 수 있는 **유일한** 진단 키 목록.
 ///
@@ -83,7 +83,7 @@ abstract final class DiagnosticsService {
   static const int maxMessageLength = 128;
 
   static DiagnosticsSink _sink = const FirebaseDiagnosticsSink();
-  static bool Function() _consent = () => Storage.crashConsent;
+  static bool Function() _consent = () => PrivacyConsentService.canCollectCrash;
 
   /// 마지막으로 설정된 키 값들. 진단·테스트용 거울이며 동의와 무관하게 채워지지
   /// 않는다(동의가 없으면 애초에 setKey 가 no-op).
@@ -99,14 +99,14 @@ abstract final class DiagnosticsService {
     bool Function()? consent,
   }) {
     _sink = sink ?? const FirebaseDiagnosticsSink();
-    _consent = consent ?? () => Storage.crashConsent;
+    _consent = consent ?? () => PrivacyConsentService.canCollectCrash;
     _lastValues.clear();
   }
 
   @visibleForTesting
   static void resetForTesting() {
     _sink = const FirebaseDiagnosticsSink();
-    _consent = () => Storage.crashConsent;
+    _consent = () => PrivacyConsentService.canCollectCrash;
     _lastValues.clear();
   }
 

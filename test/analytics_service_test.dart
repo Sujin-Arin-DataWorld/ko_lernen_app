@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:ko_lernen_app/services/privacy_consent_service.dart';
+import 'support/privacy_preferences_platform.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
@@ -576,10 +578,15 @@ void main() {
       expect(Analytics.canCollect, isFalse);
     });
 
-    test('allows an opted-in adult', () async {
+    test('allows an opted-in adult after SDK application', () async {
       await Storage.setBirthYear(DateTime.now().year - 25);
       await Storage.setAnalyticsConsent(true);
 
+      PrivacyConsentService.configureForTesting(
+        analytics: PrivacyFakeAnalytics(),
+        crash: PrivacyFakeCrash(),
+      );
+      await PrivacyConsentService.applyStored();
       expect(Analytics.canCollect, isTrue);
     });
 

@@ -66,6 +66,12 @@ class CourseProgressService {
   Future<CourseMasteryService>? _serviceFuture;
   Future<void> _tail = Future<void>.value();
 
+  Future<void> get packCompletionDrain => _tail;
+
+  void invalidatePackCompletionCache() {
+    _serviceFuture = null;
+  }
+
   /// Test-only: drops the cached service and its serialization queue so the
   /// next call rebuilds both from scratch in the caller's current Zone.
   ///
@@ -84,8 +90,19 @@ class CourseProgressService {
     _tail = Future<void>.value();
   }
 
-  Future<CourseMasteryService> _service() =>
-      _serviceFuture ??= _serviceLoader();
+  Future<CourseMasteryService> _service() async {
+    final pending = _serviceFuture ??= _serviceLoader();
+    try {
+      return await pending;
+    } catch (_) {
+      // A later learner action may retry initialization; this action still
+      // receives the original failure and is never replayed automatically.
+      if (identical(_serviceFuture, pending)) {
+        _serviceFuture = null;
+      }
+      rethrow;
+    }
+  }
 
   /// Waits for every admitted course mutation, performs a destructive local
   /// storage wipe, then drops the in-memory graph before later callers run.
@@ -105,6 +122,7 @@ class CourseProgressService {
   });
 
   Future<T> _serialized<T>(Future<T> Function(CourseMasteryService) action) {
+    PackCompletionStorage.assertAdmission();
     return _serializedOperation(() async => action(await _service()));
   }
 
@@ -122,7 +140,11 @@ class CourseProgressService {
   /// Read-only screen load. Unlike [refresh], this never synthesizes or
   /// persists a canonical snapshot when the learner has not started a course.
   Future<CourseMasterySnapshot?> readForDisplay() =>
-      _serialized((service) async => service.readForDisplay());
+      _serializedOperation(() async {
+        final service = await _service();
+        await service.confirmDurableState();
+        return service.readForDisplay();
+      });
 
   /// Serializes capture with learner actions so a backup or account
   /// reconciliation sees either the preexisting validated v2 state or the
@@ -148,6 +170,10 @@ class CourseProgressService {
     CourseMasteryService? loadedService;
     Future<CourseMasteryService> service() async =>
         loadedService ??= await _service();
+
+    if (Storage.hasUnconfirmedCourseMasteryState) {
+      await (await service()).confirmDurableState();
+    }
 
     if (Storage.courseMasterySnapshotRawJson.trim().isEmpty &&
         Storage.legacyCourseMasteryRawJson.trim().isNotEmpty) {
@@ -192,6 +218,7 @@ class CourseProgressService {
     bool preserveHistory = false,
     String? expectedGeneration,
   }) => _serialized((service) async {
+    await service.confirmDurableState();
     final normalizedLevel = levelCode.trim().toLowerCase();
     final canonicalGeneration = Storage.courseMasterySnapshotRawJson;
     if (expectedGeneration != null &&
@@ -309,6 +336,8 @@ class CourseProgressService {
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
     double? score,
+    CourseContentEvidenceReceipt? evidenceReceipt,
+    void Function()? assertCurrentWrite,
   }) => _serialized(
     (service) => service.recordContentAttempt(
       kind,
@@ -319,6 +348,8 @@ class CourseProgressService {
       errorReason: errorReason,
       occurredAt: occurredAt,
       score: score,
+      evidenceReceipt: evidenceReceipt,
+      assertCurrentWrite: assertCurrentWrite,
     ),
   );
 

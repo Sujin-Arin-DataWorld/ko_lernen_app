@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/services/privacy_consent_service.dart';
+import 'support/privacy_preferences_platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/diagnostics_service.dart';
@@ -41,7 +43,7 @@ void main() {
       expect(DiagnosticsService.lastValues, isEmpty);
     });
 
-    test('기본 동의 소스는 Storage.crashConsent 다', () async {
+    test('기본 동의 소스는 연령과 SDK 적용을 확인한다', () async {
       DiagnosticsService.configureForTesting(sink: sink);
       // 기본값은 opt-out(false) — 앱 정책과 같다.
       await DiagnosticsService.setKey(DiagnosticKey.windowClass, 'compact');
@@ -49,13 +51,24 @@ void main() {
 
       await Storage.setCrashConsent(true);
       await DiagnosticsService.setKey(DiagnosticKey.windowClass, 'compact');
+      expect(sink.keys, isEmpty);
+      await Storage.setBirthYear(DateTime.now().year - 25);
+      PrivacyConsentService.configureForTesting(
+        analytics: PrivacyFakeAnalytics(),
+        crash: PrivacyFakeCrash(),
+      );
+      await PrivacyConsentService.applyStored();
+      await DiagnosticsService.setKey(DiagnosticKey.windowClass, 'compact');
       expect(sink.keys['windowClass'], 'compact');
     });
   });
 
   group('키 전송', () {
     test('enum 이름을 키로 쓴다', () async {
-      await DiagnosticsService.setKey(DiagnosticKey.currentRoute, '/vocab/pack');
+      await DiagnosticsService.setKey(
+        DiagnosticKey.currentRoute,
+        '/vocab/pack',
+      );
       expect(sink.keys, containsPair('currentRoute', '/vocab/pack'));
     });
 
@@ -100,10 +113,7 @@ void main() {
 
     test('breadcrumb 도 길이 상한을 지킨다', () async {
       await DiagnosticsService.logBreadcrumb('e' * 500);
-      expect(
-        sink.messages.single.length,
-        DiagnosticsService.maxMessageLength,
-      );
+      expect(sink.messages.single.length, DiagnosticsService.maxMessageLength);
     });
 
     test('상한이 사용자 입력을 통째로 담기엔 충분히 짧다', () {

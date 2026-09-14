@@ -166,7 +166,7 @@ def _load_module(path: Path, name: str):
 # F1 -- normalisation + grammar mapping
 # ---------------------------------------------------------------------------
 
-_SLOT_PREFIX_RE = re.compile(r"^(A/V-|V-|A-|N)")
+_SLOT_PREFIX_RE = re.compile(r"^(A/V-|V/A-|V-|A-|N)")
 _TRAILING_DIGITS_RE = re.compile(r"\d+$")
 _TOP_LEVEL_ALT_RE = re.compile(r"\s/\s")
 _BARE_N_TOKEN_RE = re.compile(r"^N")
@@ -373,10 +373,17 @@ def _expand_token(token: str) -> List[str]:
 
     final: List[str] = []
     for v in variants:
-        if "/" in v:
-            final.extend(p for p in v.split("/") if p)
-        else:
+        if not v:
+            # An omitted slot or optional particle remains a valid branch.
             final.append(v)
+            continue
+        for alternative in v.split("/"):
+            # Each branch may repeat slot/ending notation and punctuation,
+            # e.g. V-습니까?/-ㅂ니까?. Strip syntax, never infer conjugation.
+            literal = _SLOT_PREFIX_RE.sub("", alternative, count=1)
+            literal = literal.rstrip("?").strip("-")
+            if literal:
+                final.append(literal)
     return final
 
 

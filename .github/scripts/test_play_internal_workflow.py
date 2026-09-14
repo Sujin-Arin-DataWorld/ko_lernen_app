@@ -16,6 +16,7 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("needs.build.result == 'success'", release)
         self.assertIn("github.ref == 'refs/heads/main'", release)
         self.assertIn("vars.PLAY_INTERNAL_RELEASE_ENABLED == 'true'", release)
+        self.assertNotIn("PLAY_INTERNAL_RELEASE_DISABLED", release)
         self.assertIn("name: google-play-internal", release)
 
     def test_release_is_signed_reproducible_and_targets_internal_only(self):
@@ -32,6 +33,7 @@ class PlayInternalWorkflowTest(unittest.TestCase):
             release, r"r0adkll/upload-google-play@[0-9a-f]{40} # v1\.1\.5\b"
         )
         self.assertIn("Build signed internal-testing bundle", release)
+        self.assertIn("PLAY_TRACK: internal", release)
         self.assertNotIn("closed-testing bundle", release)
         self.assertEqual(release.count("r0adkll/upload-google-play"), 1)
         self.assertEqual(release.count("tracks:"), 1)

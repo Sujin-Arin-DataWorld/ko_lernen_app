@@ -8,12 +8,14 @@ release path changes until it is provisioned and enabled below.
 
 ## What the gate does
 
-When enabled, three new steps run after "Record bundle identity" and before
-"Preserve AAB and Dart symbols": pin an exact bundletool/firebase-tools/
-Java/Node toolchain and verify each executable's SHA-256, upload the AAB's
-symbols and independently re-verify the receipt (`upload` then `verify`),
-then archive the receipt and symbols as a 90-day artifact. Any non-zero exit
-fails the job, so the Play upload step never runs on unverified symbols.
+When enabled, the workflow prepares pinned bundletool, Java and the standalone
+Firebase CLI before restoring Android signing secrets. The entire Firebase
+publisher executable (including its runtime and dependencies) is SHA-256 checked
+before it becomes executable. No npm package resolution or lifecycle scripts run.
+After "Record bundle identity", the gate uploads the AAB's symbols, independently
+re-verifies the receipt (`upload` then `verify`), and archives the receipt and
+symbols as a 90-day artifact. Any non-zero exit fails the job, so the Play upload
+step never runs on unverified symbols.
 
 ## Secrets and variables to create (GitHub repo settings)
 
@@ -27,31 +29,56 @@ fails the job, so the Play upload step never runs on unverified symbols.
   Crashlytics admin/write on this project), scoped to the `google-play-internal`
   environment. Do not reuse the Play upload service account.
 
-## Harvest procedure (one-time, fills the sha256 placeholders)
+## Verified tool pins
 
-1. `tool/android_release_tools.json` already pins the `version`/`url` for
-   bundletool and firebase-tools (real values) and for java/node (choose the
-   exact versions to install). Every `sha256` starts as
-   `"<fill from harvest step>"`.
-2. With the gate variable still unset, run `play_closed.yml` once (or a
-   manual dry run of just the setup steps). The always-on "Symbol evidence
-   gate status" step prints the gate state and, if disabled, the SHA-256 of
-   the runner's already-installed `java` and `node` binaries — this never
-   downloads anything.
-3. Separately obtain the SHA-256 of `bundletool-all-<version>.jar` (from the
-   GitHub release's published checksum, not a fresh download you trust) and
-   of `firebase-tools@<version>`'s `lib/bin/firebase.js` (from the npm
-   package's published integrity metadata).
-4. Fill all four `sha256` fields in `tool/android_release_tools.json` with
-   the verified values, commit, and run `tool/test_android_release_tools_config.py`
-   locally to confirm the schema (still requires every non-sha256 field to be
-   a real value).
+`tool/android_release_tools.json` contains verified executable SHA-256 values
+for the three pinned versions. The public verification chain is recorded in
+`docs/runbooks/android-release-tools-provenance.json`: exact publisher artifact
+URL, publisher digest metadata, archive SHA-256, exact archive
+member, platform, and the executable SHA-256 consumed by the gate.
+
+The Java hash is for the **Linux x64** binary installed by the gated `setup-java`
+step. Firebase uses the official Linux x64 standalone release; the recorded
+hash covers the whole artifact, not only a JavaScript entry point. The disabled
+gate's status step reports the runner's preinstalled `java` and `node` only as
+harvest diagnostics. Those values are not release-tool trust anchors.
+Binary hashes also vary by version, platform, architecture, and publisher
+packaging even when the command name is the same.
+
+## Refreshing a pin
+
+1. Keep `ANDROID_SYMBOL_EVIDENCE_GATE` disabled while choosing the new exact
+   tool version. Do not copy a baseline runner hash into the pin.
+2. Obtain the artifact from the exact publisher URL and verify its archive
+   SHA-256 against independent publisher metadata.
+3. Extract the exact Java member used by CI and compute its SHA-256. For
+   bundletool and Firebase, the entire downloaded artifact is the verified
+   executable. Do not substitute npm entry-point hashes for the standalone CLI.
+4. Update both `tool/android_release_tools.json` and
+   `docs/runbooks/android-release-tools-provenance.json`, then run:
+
+   ```text
+   python -m unittest tool.test_release_integrity tool.test_android_release_evidence tool.test_android_release_tools_config
+   ```
+
+5. Review the publisher URLs, versions, archive verification, member names,
+   platforms, and executable hashes before enabling a release candidate.
 
 ## Enabling and rolling back
 
-- Enable: after both secrets/variables above exist and the harvest is
-  complete, set the `ANDROID_SYMBOL_EVIDENCE_GATE` variable to `true`.
+- Enable only after `FIREBASE_SYMBOLS_SA_JSON` is provisioned as a dedicated
+  symbol-upload credential, `FIREBASE_ANDROID_APP_ID` is set, the verified
+  pins above are complete, and `ANDROID_SYMBOL_EVIDENCE_GATE` is set to `true`.
+  Activation is complete only when an enabled CI run for the exact source SHA
+  verifies the pinned tools and the upload/verification receipt before Play
+  upload.
 - Roll back: set `ANDROID_SYMBOL_EVIDENCE_GATE` back to `false` (or delete
   it). The gated steps are skipped again and the release path returns to
   exactly its current, unverified-by-this-gate behavior. No code revert
   needed.
+
+Repository and environment metadata checks did not expose the required app ID,
+gate variable, or symbol-only credential. No setting was created or changed.
+That metadata result does not prove that any actual Crashlytics symbol upload
+failed; it only means there is no enabled, exact-SHA gate evidence yet. This
+configuration and documentation update does not activate the gate.

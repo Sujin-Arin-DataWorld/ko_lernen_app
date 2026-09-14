@@ -724,6 +724,10 @@ class LocalAccountReconciliationStore {
     required CloudWriteSessionController sessions,
     CourseProgressService? courseProgress,
   }) async {
+    _assertCurrent(session, sessions);
+    await PackCompletionStorage.retire();
+    PackCompletionStorage.assertSnapshotReady();
+    Storage.assertSrsSnapshotReady();
     await CustomPackService.writeReconciledPortable(
       snapshot.customPacks,
       expectedGeneration: snapshot.localCustomPackGeneration,

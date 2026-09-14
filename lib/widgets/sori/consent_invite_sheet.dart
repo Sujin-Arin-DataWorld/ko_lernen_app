@@ -8,6 +8,7 @@ import 'button.dart';
 import 'mascot.dart';
 import 'sheet.dart';
 import 'tokens.dart';
+import 'privacy_choice_feedback.dart';
 
 /// **Nachgelagerte Analytics/Crash-Einwilligung** — kontextbezogen nach dem
 /// ersten Erfolg statt beim kalten ersten Start.
@@ -54,12 +55,22 @@ class ConsentInviteSheet {
     _shownThisSession = true;
     // Sofort als "gefragt" markieren, damit ein Wegtippen des Scrims als
     // "Nicht jetzt" zählt und nie erneut gefragt wird (DSGVO Art. 7).
-    await Storage.setConsentInviteShown();
-    if (!context.mounted) {
+    final epoch = PrivacyChoiceStorage.epoch;
+    final route = ModalRoute.of(context);
+    try {
+      await Storage.setConsentInviteShown();
+    } on Object {
+      debugPrint('Privacy invite marker unavailable');
+      return;
+    }
+    if (!context.mounted ||
+        epoch != PrivacyChoiceStorage.epoch ||
+        route?.isCurrent == false) {
       return;
     }
     await showSoriSheet<void>(
       context: context,
+      maxTextScaleFactor: double.infinity,
       builder: (_) => const _ConsentInviteBody(),
     );
   }
@@ -105,10 +116,110 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
   bool _analytics = false;
   bool _crash = false;
 
+  int _epoch = PrivacyChoiceStorage.epoch;
+  int _revision = 0;
+  bool _saving = false;
+  final _failed = <PrivacyPurpose>{};
+  final _confirmed = <PrivacyPurpose, bool>{};
+  ({bool analytics, bool crash})? _requested;
+
+  @override
+  void initState() {
+    super.initState();
+    PrivacyConsentService.changes.addListener(_changed);
+    PrivacyChoiceStorage.changes.addListener(_changed);
+  }
+
+  void _changed() {
+    if (!mounted) {
+      return;
+    }
+    if (_epoch != PrivacyChoiceStorage.epoch) {
+      _epoch = PrivacyChoiceStorage.epoch;
+      _revision++;
+      _requested = null;
+      _saving = false;
+      _failed.clear();
+      _confirmed.clear();
+    } else if (_requested case final requested?) {
+      for (final purpose in _failed.toList()) {
+        final selected = purpose == PrivacyPurpose.analytics
+            ? requested.analytics
+            : requested.crash;
+        if (PrivacyConsentService.isChoiceSettled(purpose, selected)) {
+          _failed.remove(purpose);
+          _confirmed[purpose] = selected;
+        }
+      }
+    }
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    PrivacyConsentService.changes.removeListener(_changed);
+    PrivacyChoiceStorage.changes.removeListener(_changed);
+    super.dispose();
+  }
+
   Future<void> _apply({required bool analytics, required bool crash}) async {
-    await PrivacyConsentService.setAnalytics(analytics);
-    await PrivacyConsentService.setCrash(crash);
-    if (mounted) {
+    final requested = (analytics: analytics, crash: crash);
+    if (ModalRoute.of(context)?.isCurrent != true ||
+        (_saving && _requested == requested)) {
+      return;
+    }
+    final epoch = PrivacyChoiceStorage.epoch;
+    _epoch = epoch;
+    _requested = requested;
+    final revision = ++_revision;
+    setState(() {
+      _analytics = analytics;
+      _crash = crash;
+      _saving = true;
+      _granular = true;
+      _failed.clear();
+    });
+    final selected = {
+      PrivacyPurpose.analytics: analytics,
+      PrivacyPurpose.crash: crash,
+    };
+    await Future.wait(
+      selected.entries.map((entry) async {
+        if (_confirmed[entry.key] == entry.value &&
+            PrivacyConsentService.isChoiceSettled(entry.key, entry.value)) {
+          return;
+        }
+        try {
+          await PrivacyConsentService.setChoice(entry.key, entry.value);
+          if (mounted &&
+              revision == _revision &&
+              epoch == PrivacyChoiceStorage.epoch) {
+            _confirmed[entry.key] = entry.value;
+          }
+        } on Object {
+          if (mounted &&
+              revision == _revision &&
+              epoch == PrivacyChoiceStorage.epoch) {
+            if (!PrivacyConsentService.isChoiceSettled(
+              entry.key,
+              entry.value,
+            )) {
+              _failed.add(entry.key);
+            }
+          }
+        }
+      }),
+    );
+    if (!mounted ||
+        revision != _revision ||
+        epoch != PrivacyChoiceStorage.epoch ||
+        ModalRoute.of(context)?.isCurrent != true) {
+      return;
+    }
+    setState(() => _saving = false);
+    if (_failed.isEmpty &&
+        _analytics == requested.analytics &&
+        _crash == requested.crash) {
       Navigator.of(context).pop();
     }
   }
@@ -161,26 +272,18 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
             if (!_granular) ...[
               // Zwei gleichwertige Buttons: Ablehnen ist so leicht wie
               // Zustimmen (EDPB 03/2022) — gleiche Größe, klare Sichtbarkeit.
-              Row(
-                children: [
-                  Expanded(
-                    child: SoriButton.filled(
-                      label: t.consentInviteYes,
-                      size: SoriButtonSize.lg,
-                      fullWidth: true,
-                      onTap: () => _apply(analytics: true, crash: true),
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.consentInviteNo,
-                      size: SoriButtonSize.lg,
-                      fullWidth: true,
-                      onTap: () => _apply(analytics: false, crash: false),
-                    ),
-                  ),
-                ],
+              SoriButton.filled(
+                label: t.consentInviteYes,
+                size: SoriButtonSize.lg,
+                fullWidth: true,
+                onTap: () => _apply(analytics: true, crash: true),
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton.outlined(
+                label: t.consentInviteNo,
+                size: SoriButtonSize.lg,
+                fullWidth: true,
+                onTap: () => _apply(analytics: false, crash: false),
               ),
               const SizedBox(height: Spacing.xs),
               Center(
@@ -208,11 +311,44 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
                 onChanged: (v) => setState(() => _crash = v),
               ),
               const SizedBox(height: Spacing.md),
+              if (_saving || _failed.isNotEmpty) ...[
+                PrivacyChoiceFeedback(
+                  pending: _saving,
+                  withdrawal: !_analytics && !_crash,
+                  selectionSaved:
+                      _failed.isNotEmpty &&
+                      _failed.every((purpose) {
+                        final state = PrivacyChoiceStorage.choice(purpose);
+                        final selected = purpose == PrivacyPurpose.analytics
+                            ? _analytics
+                            : _crash;
+                        return !state.pending &&
+                            !state.failed &&
+                            state.confirmed == selected;
+                      }),
+                  onRetry: () => _apply(analytics: _analytics, crash: _crash),
+                ),
+                for (final purpose in _failed)
+                  Text(
+                    purpose == PrivacyPurpose.analytics
+                        ? t.settingsAnalyticsTitle
+                        : t.settingsCrashTitle,
+                  ),
+              ],
+              SoriButton.outlined(
+                label: t.consentInviteNo,
+                size: SoriButtonSize.lg,
+                fullWidth: true,
+                onTap: () => _apply(analytics: false, crash: false),
+              ),
+              const SizedBox(height: Spacing.sm),
               SoriButton.filled(
                 label: t.consentInviteSave,
                 size: SoriButtonSize.lg,
                 fullWidth: true,
-                onTap: () => _apply(analytics: _analytics, crash: _crash),
+                onTap: _saving
+                    ? null
+                    : () => _apply(analytics: _analytics, crash: _crash),
               ),
             ],
           ],

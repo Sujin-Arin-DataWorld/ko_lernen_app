@@ -281,15 +281,15 @@
       "membersNote": "완성 전 V3 계획 멤버이며 아직 런타임으로 승격하지 않았다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
       "anchors": [
         "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/sarangchae-v3-canonical.png",
-        "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png",
+        "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
         "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
         "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
         "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다.",
+      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다.",
       "canonSprites": {
-        "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체.",
-        "sotdaeulmun": "sotdaeulmun_approved_jin_20260824.png",
+        "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 솟을대문은 2026-09-14 승인된 저장소 루트 기준 construction/sotdaeulmun/12_complete.png를 따른다.",
+        "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
         "sarangchae": "../../../assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
         "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
         "anchae": "anchae_final.png",
@@ -812,6 +812,21 @@
           "aspect": "W/H ≈ 3.0 (처마 포함)",
           "facadeStructure": "전면 기둥열이 벽 없이 서고 벽면 전체가 툇마루 깊이만큼 뒤로 물러난다. 좌1칸(부엌방)만 벽이 전면까지 나와 회벽+외짝문(710). 2·3칸은 후퇴면에 머름 위 쌍여닫이(1,220), 4칸(대청)은 후퇴면 전체 4분합(2,320, 하부 머름판 380). 툇마루 하부는 동바리+X가새가 보이고, 우측 끝에서 쪽마루가 벽선 밖으로 살짝 돌출한다.",
           "openings": "WD01 대청 4분합 2320×1900(창1520+머름380) / WD02 방 쌍여닫이 1220×1190 / WD04 방-3 외짝 710×1265 / WW01 부엌 살창 1330×330 / WW02 다락 배면 1230×600"
+        }
+      },
+      "approvedConstructionSeries": {
+        "sotdaeulmun": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "docs/assets/ildu_sotdaeulmun_construction_20260914/construction_catalog.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+          "canonicalSha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+          "stageCount": 12,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/",
+          "presentation": "검정 배경 누적 공정 PNG. 앞뒤 기둥, 깊이 방향 보, 중앙 통로와 좌우 공간을 유지한다.",
+          "scope": "승인 공정 아트 정본 보관. 현재 앱 번들에는 넣지 않으며, 실제 화면 연결 시 번들 등록과 함께 적용한다. 지도 투명 레이어·8방향 교체·진행도 연결은 별도다.",
+          "supersedesCanonical": "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png"
         }
       }
     },

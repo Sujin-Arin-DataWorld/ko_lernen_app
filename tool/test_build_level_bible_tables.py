@@ -34,6 +34,7 @@ from build_level_bible_tables import (  # noqa: E402
     GrammarCorrespondence,
     REPO,
     build_f1,
+    build_f1_md,
     build_f2_md,
     build_f3_md,
     build_f5_md,
@@ -86,6 +87,42 @@ def _write_fixture_sources(dest: Path) -> None:
 
 
 class NormalizeFormVariantsTest(unittest.TestCase):
+    def test_combined_slot_order_is_not_a_literal_alternative(self):
+        for pattern in ("V/A-음", "A/V-음"):
+            with self.subTest(pattern=pattern):
+                self.assertEqual(normalize_form_variants(pattern), frozenset({"음"}))
+
+    def test_empty_slot_and_optional_branch_keep_the_rest_of_the_expression(self):
+        self.assertEqual(normalize_form_variants("N 때문에"), frozenset({"때문에"}))
+        self.assertEqual(
+            normalize_form_variants("N(이) 때문에"),
+            frozenset({"이때문에", "때문에"}),
+        )
+
+    def test_question_punctuation_is_removed_from_each_slash_alternative(self):
+        self.assertEqual(
+            normalize_form_variants("V-습니까?/-ㅂ니까?"),
+            frozenset({"습니까", "ㅂ니까"}),
+        )
+
+    def test_slot_and_hyphen_notation_is_consistent_in_each_alternative(self):
+        for pattern in ("V-습니다/-ㅂ니다", "V-습니다/V-ㅂ니다", "V-습니다 / V-ㅂ니다"):
+            with self.subTest(pattern=pattern):
+                self.assertEqual(
+                    normalize_form_variants(pattern),
+                    frozenset({"습니다", "ㅂ니다"}),
+                )
+
+    def test_notation_cleanup_does_not_infer_inflection_or_sentence_force(self):
+        for left, right in (
+            ("V-습니까?/-ㅂ니까?", "V-습니다/-ㅂ니다"),
+            ("V-지 않아요", "-지 않다"),
+            ("N이/가 아니에요", "이 아니다"),
+            ("V-겠어요", "-겠-"),
+        ):
+            with self.subTest(left=left, right=right):
+                self.assertFalse(normalize_form_variants(left) & normalize_form_variants(right))
+
     def test_slot_prefix_and_eu_l_alternation_match(self):
         # 'V-(으)ㄹ 것 같다' (app grammar.csv pattern) must normalise to the
         # same candidate set as the nikl variants '-을 것 같다' / '-ㄹ 것
@@ -162,6 +199,18 @@ class NormalizeFormVariantsTest(unittest.TestCase):
 
 class BuildF1Test(unittest.TestCase):
     """F1 status logic on a small fixture (no real CSVs)."""
+
+    def test_formal_question_is_mapped_without_crediting_a_statement(self):
+        result = build_f1(
+            [
+                {"id": "question", "level": "A1", "pattern": "V-습니까?/-ㅂ니까?"},
+                {"id": "statement", "level": "A1", "pattern": "V-습니다/-ㅂ니다"},
+            ],
+            [{"grade": "1", "category": "종결어미", "form": "-습니까", "variants": "-ㅂ니까"}],
+        )
+        self.assertEqual(result.rows[0].status, "match")
+        self.assertEqual(result.rows[0].matched_app_ids, ("question",))
+        self.assertEqual(result.app_only_ids, ("statement",))
 
     def _rows(self):
         grammar_rows = [
@@ -466,6 +515,39 @@ class GrammarCorrespondenceValidationTest(unittest.TestCase):
         correspondences = load_grammar_correspondences(root, grammar_rows, nikl_rows)
         result = build_f1(grammar_rows, nikl_rows, correspondences)
         self.assertEqual(result.rows[0].status, "missing_in_app")
+
+
+class F1RepositorySelectionTest(unittest.TestCase):
+    def test_alternate_roots_use_their_own_grammar_and_reference_rows(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            for name, pattern, grade, level in (
+                ("first", "V-습니까?", 1, "A1"),
+                ("second", "V/A-음", 2, "A2"),
+            ):
+                with self.subTest(root=name):
+                    root = Path(temporary) / name
+                    assets = root / "assets" / "data"
+                    lexicon = root / "tools" / "content_factory" / "lexicon"
+                    assets.mkdir(parents=True)
+                    lexicon.mkdir(parents=True)
+                    app_id = "fixture_" + name
+                    (assets / "grammar.csv").write_text(
+                        f"id,level,pattern\n{app_id},{level},{pattern}\n", encoding="utf-8"
+                    )
+                    (lexicon / "nikl_kiiq_2017_grammar.csv").write_text(
+                        f"grade,category,form,variants\n{grade},표현,{pattern},\n", encoding="utf-8"
+                    )
+                    document, result = build_f1_md(root)
+                    self.assertEqual(len(result.rows), 1)
+                    self.assertEqual(result.rows[0].matched_app_ids, (app_id,))
+                    self.assertEqual(result.rows[0].status, "match")
+                    self.assertEqual(result.app_only_ids, ())
+                    self.assertIn(app_id, document)
+
+    def test_missing_selected_repository_does_not_fall_back_to_current_checkout(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaises(FileNotFoundError):
+                build_f1_md(Path(temporary))
 
 
 class ClassifyCultureWordTest(unittest.TestCase):

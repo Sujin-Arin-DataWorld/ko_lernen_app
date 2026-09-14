@@ -13,6 +13,9 @@ const runtime = (() => {
 })();
 const { createTesterFeedbackRuntime } = require("./tester_feedback_runtime");
 
+const { createAuthUserDeletionBridge } = require("../auth_cleanup/bridge");
+const { createLegacyUserDeletionCleanupHandler } = require("./deletion_cleanup_adapters");
+
 const CALLABLE_NAMES = [
   "prepareAnonymousReplacement",
   "attachReplacementTarget",
@@ -2569,7 +2572,8 @@ async () => {
     stored.deletionProgress.statusCode,
     "apple-revocation-unavailable",
   );
-  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(stored.deletionProgress.appleRevocationComplete, false);
+  assert.equal(stored.deletionProgress.appleManualRevocationRequired, true);
   assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
 });
 
@@ -2906,7 +2910,8 @@ test("continues an early-phase deletion when Apple revoke secrets are " +
   const stored = harness.firestore
     .valuesIn("account_operations")
     .find((operation) => operation.id === requested.operationId);
-  assert.equal(stored.deletionProgress.appleRevocationComplete, true);
+  assert.equal(stored.deletionProgress.appleRevocationComplete, false);
+  assert.equal(stored.deletionProgress.appleManualRevocationRequired, true);
   assert.equal(
     stored.deletionProgress.statusCode,
     "apple-revocation-unavailable",
@@ -3385,7 +3390,7 @@ async () => {
   assert.equal(authDeletes, 1);
 });
 
-test("incomplete Apple input wait is never leased and can complete immediately",
+test("manual fallback releases its lease so a fresh Apple code can still revoke",
 async () => {
   const rawAppleCode = "immediate-apple-authorization-code";
   const harness = createHarness({
@@ -3426,7 +3431,9 @@ async () => {
   );
 
   assert.equal(waiting.phase, "appleRevocationPending");
-  assert.deepEqual(afterWait.workerLease, beforeWait.workerLease);
+  assert.ok(afterWait.workerLease.leaseVersion > beforeWait.workerLease.leaseVersion);
+  assert.equal(afterWait.workerLease.leaseUntilMillis, harness.clock.now);
+  assert.equal(afterWait.deletionProgress.appleManualRevocationRequired, true);
   const completed = await harness.handlers.completeAppleRevocation(
     callableRequest("apple", {
       operationId: requested.operationId,
@@ -3981,11 +3988,11 @@ async () => {
 
   assert.deepEqual(
     candidates.map((candidate) => candidate.id),
-    ["actionable-deletion"],
+    ["actionable-deletion", ...Array.from({ length: 10 }, (_, index) => `apple-${index}`)],
   );
 });
 
-test("scheduler includes completed Apple checkpoints but excludes incomplete waits",
+test("scheduler includes incomplete Apple work in its bounded oldest-due queue",
 async () => {
   const source = [
     ...Array.from({ length: 51 }, (_, index) => ({
@@ -4021,7 +4028,7 @@ async () => {
 
   assert.deepEqual(
     candidates.map((candidate) => candidate.id),
-    ["actionable-deletion", "completed-apple-checkpoint"],
+    ["actionable-deletion", ...Array.from({ length: 10 }, (_, index) => `incomplete-apple-${index}`)],
   );
 });
 
@@ -4081,3 +4088,261 @@ test("index exports the account callables and public proof endpoint", () => {
     );
   }
 });
+
+test("early Apple failure plus client Auth deletion finishes server cleanup and receipt",
+async () => {
+  const uid = "apple-recovery-source";
+  const rawAppleCode = "synthetic-apple-code-never-persist";
+  const terminalStatusReceipt = rawProof(91);
+  const authState = { deleted: false };
+  const events = [];
+  const tokens = {
+    apple: decodedToken({ uid, provider: "apple.com" }),
+    replacementApple: decodedToken({
+      uid: "new-uid-for-same-apple-subject",
+      provider: "apple.com",
+    }),
+  };
+  const harness = createHarness({
+    tokens,
+    verifyIdToken: async (token, checkRevoked) => {
+      assert.equal(checkRevoked, true);
+      if (token === "apple" && authState.deleted) {
+        throw Object.assign(new Error("synthetic deleted Auth user"), {
+          code: "auth/user-not-found",
+        });
+      }
+      assert.ok(tokens[token]);
+      return structuredClone(tokens[token]);
+    },
+    revokeAppleAuthorizationCode: async () => {
+      events.push("apple-revoke-attempt");
+      throw new Error("synthetic provider network failure");
+    },
+  });
+  const operation = await harness.handlers.requestAccountDeletion(
+    callableRequest("apple", {
+      requestKey: "apple-recovery-characterization",
+      terminalStatusReceipt,
+    }),
+  );
+  const operationPath = `account_operations/${operation.operationId}`;
+  const markerPath = `account_deletions/${uid}`;
+  harness.firestore.documents.set(`users/${uid}`, { gyeIds: ["gye-one"] });
+  harness.firestore.documents.set(`users/${uid}/progress/item`, { learned: true });
+
+  await assert.rejects(harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: operation.operationId,
+      expectedVersion: operation.version,
+      authorizationCode: rawAppleCode,
+    }),
+  ), { code: "internal", details: { code: "account-operation-failed" } });
+  const failed = harness.firestore.documents.get(operationPath);
+  assert.equal(failed.phase, "deletionRequested");
+  assert.equal(failed.deletionProgress.appleRevocationComplete, false);
+  assert.equal(failed.deletionProgress.statusCode, "apple-revocation-retryable");
+  assert.equal(harness.firestore.documents.get(markerPath).serverOwned, true);
+
+  // Model the client deleting Firebase Auth after swallowing the early failure.
+  authState.deleted = true;
+  const cleanupAdapters = {
+    cleanupCommunity: async () => { events.push("community-cleanup"); },
+    cleanupProcessor: async () => { events.push("processor-cleanup"); },
+  };
+  const legacyHandler = createLegacyUserDeletionCleanupHandler({
+    firestore: harness.firestore,
+    fieldValue: { delete: () => null, serverTimestamp: () => harness.clock.now },
+    cleanupAdapters,
+  });
+  let legacyResult;
+  harness.firestore.recursiveDelete = async (reference) => {
+    const before = harness.firestore.documents.get(reference.path);
+    for (const key of [...harness.firestore.documents.keys()]) {
+      if (key === reference.path || key.startsWith(`${reference.path}/`)) {
+        harness.firestore.documents.delete(key);
+      }
+    }
+    // Simulate the resulting users/{uid} onDocumentDeleted delivery with the
+    // production handler; the Auth bridge itself does not touch operations.
+    legacyResult = await legacyHandler({ uid, before });
+  };
+  const bridge = createAuthUserDeletionBridge({ firestore: harness.firestore });
+  assert.deepEqual(await bridge({ uid }), { status: "bridged" });
+  assert.deepEqual(legacyResult, { status: "server-owned" });
+  assert.equal(harness.firestore.documents.has(`users/${uid}`), false);
+  assert.deepEqual(harness.firestore.documents.get(operationPath), failed);
+
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: {
+      async deleteUser() {
+        events.push("worker-auth-delete");
+        throw Object.assign(new Error("already deleted"), {
+          code: "auth/user-not-found",
+        });
+      },
+    },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    ...cleanupAdapters,
+    nowMillis: () => harness.clock.now,
+  });
+  const pending = await runWorkerUntil(
+    worker, operation.operationId, "appleRevocationPending",
+  );
+  harness.clock.now += 30 * 86_400_000;
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection(() =>
+      harness.firestore.valuesIn("account_operations")),
+    nowMillis: harness.clock.now,
+  });
+  assert.ok(candidates.some((candidate) => candidate.id === operation.operationId));
+  await runWorkerUntil(worker, operation.operationId, "completed");
+  assert.deepEqual(events, ["apple-revoke-attempt", "worker-auth-delete",
+    "community-cleanup", "processor-cleanup"]);
+  assert.equal(harness.firestore.documents.get(markerPath).cleanupComplete, true);
+  const progress = harness.firestore.documents.get(operationPath).deletionProgress;
+  assert.equal(progress.appleRevocationComplete, false);
+  assert.equal(progress.appleManualRevocationRequired, true);
+  const receipt = await harness.handlers.getAccountDeletionStatusByReceipt(
+    callableRequest(null, { terminalStatusReceipt }),
+  );
+  assert.equal(receipt.phase, "completed");
+  await harness.handlers.acknowledgeAccountDeletionStatusReceipt(
+    callableRequest(null, { terminalStatusReceipt }),
+  );
+  await assert.rejects(harness.handlers.completeAppleRevocation(
+    callableRequest("apple", {
+      operationId: operation.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: "synthetic-fresh-code",
+    }),
+  ), { code: "unauthenticated", details: { code: "invalid-auth-token" } });
+
+  // Fresh Apple authentication on a new Firebase UID is not the source UID;
+  // equal Apple subjects must not grant another UID the old operation.
+  tokens.replacementApple.auth_time = Math.floor(harness.clock.now / 1000);
+  await assert.rejects(harness.handlers.completeAppleRevocation(
+    callableRequest("replacementApple", {
+      operationId: operation.operationId,
+      expectedVersion: pending.version,
+      authorizationCode: "synthetic-fresh-code",
+    }),
+  ), { code: "permission-denied", details: { code: "operation-not-authorized" } });
+  const persisted = JSON.stringify([...harness.firestore.documents]);
+  assert.equal(persisted.includes(rawAppleCode), false);
+  assert.equal(persisted.includes(terminalStatusReceipt), false);
+});
+
+test("configuration failure preserves manual-required disposition without claiming revocation",
+async () => {
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({ uid: "apple-config-source", provider: "apple.com" }),
+    },
+    revokeAppleAuthorizationCode: async () => {
+      throw Object.assign(new Error("synthetic config failure"), {
+        code: "apple/revocation-config-invalid",
+      });
+    },
+  });
+  const operation = await harness.handlers.requestAccountDeletion(
+    callableRequest("apple", { requestKey: "apple-config-characterization" }),
+  );
+  await harness.handlers.completeAppleRevocation(callableRequest("apple", {
+    operationId: operation.operationId,
+    expectedVersion: operation.version,
+    authorizationCode: "synthetic-code",
+  }));
+  const stored = harness.firestore.valuesIn("account_operations")[0];
+  assert.equal(stored.deletionProgress.appleRevocationComplete, false);
+  assert.equal(stored.deletionProgress.appleManualRevocationRequired, true);
+  assert.equal(stored.deletionProgress.statusCode, "apple-revocation-unavailable");
+});
+
+test("accepted Apple deletion abandoned before code supply completes after cleanup retry",
+async () => {
+  const harness = createHarness({
+    tokens: {
+      apple: decodedToken({ uid: "apple-abandoned-source", provider: "apple.com" }),
+    },
+  });
+  const operation = await harness.handlers.requestAccountDeletion(
+    callableRequest("apple", {
+      requestKey: "apple-abandoned-characterization",
+      terminalStatusReceipt: rawProof(92),
+    }),
+  );
+  const events = [];
+  let communityAttempts = 0;
+  const worker = runtime.createDeletionWorkerRuntime({
+    repository: harness.repository,
+    auth: { deleteUser: async () => { events.push("auth-delete"); } },
+    deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+    cleanupCommunity: async () => {
+      communityAttempts += 1;
+      if (communityAttempts === 1) throw new Error("synthetic cleanup failure");
+      events.push("community-cleanup");
+    },
+    cleanupProcessor: async () => { events.push("processor-cleanup"); },
+    nowMillis: () => harness.clock.now,
+  });
+  await runWorkerUntil(worker, operation.operationId, "appleRevocationPending");
+  const stored = harness.firestore.valuesIn("account_operations")[0];
+  assert.equal(stored.deletionProgress.userTreeComplete, true);
+  assert.equal(stored.deletionProgress.appleRevocationComplete, false);
+  const candidates = await runtime.fetchActionableDeletionCandidates({
+    collection: fakeAccountOperationCollection(() =>
+      harness.firestore.valuesIn("account_operations")),
+    nowMillis: harness.clock.now,
+  });
+  assert.ok(candidates.some((candidate) => candidate.id === operation.operationId));
+  await runWorkerUntil(worker, operation.operationId, "communityCleanupPending");
+  await runtime.runScheduledDeletionCandidate({
+    candidate: { id: operation.operationId }, repository: harness.repository,
+    workerRuntime: worker, logger: { warn() {} }, nowMillis: () => harness.clock.now,
+  });
+  const failed = harness.firestore.valuesIn("account_operations")[0];
+  assert.equal(failed.deletionProgress.statusCode, "worker-failed");
+  assert.equal(failed.deletionProgress.appleManualRevocationRequired, true);
+  assert.ok(failed.nextAttemptAtMillis > harness.clock.now);
+  harness.clock.now = failed.nextAttemptAtMillis;
+  await runWorkerUntil(worker, operation.operationId, "completed");
+  const completed = harness.firestore.valuesIn("account_operations")[0];
+  assert.equal(completed.deletionProgress.appleManualRevocationRequired, true);
+  assert.equal(completed.deletionProgress.appleRevocationComplete, false);
+  assert.deepEqual(events, ["auth-delete", "community-cleanup", "processor-cleanup"]);
+});
+
+for (const legacyProgress of [
+  { appleRevocationComplete: false },
+  { appleRevocationComplete: true, statusCode: "apple-revocation-unavailable" },
+]) {
+  test(`old pending Apple record recovers truthfully: ${JSON.stringify(legacyProgress)}`, async () => {
+    const harness = createHarness({ tokens: {
+      apple: decodedToken({ uid: "legacy-apple", provider: "apple.com" }),
+    } });
+    const requested = await createDeletionOperation(harness.handlers, "apple");
+    const worker = runtime.createDeletionWorkerRuntime({
+      repository: harness.repository, auth: { async deleteUser() {} },
+      deleteUserTreePage: async () => ({ done: true, nextCursor: null }),
+      cleanupCommunity: async () => {}, cleanupProcessor: async () => {},
+      nowMillis: () => harness.clock.now,
+    });
+    await runWorkerUntil(worker, requested.operationId, "appleRevocationPending");
+    const path = `account_operations/${requested.operationId}`;
+    const old = harness.firestore.documents.get(path);
+    old.deletionProgress = { userTreeComplete: true, ...legacyProgress };
+    delete old.nextAttemptAtMillis;
+    const candidates = await runtime.fetchStagedActionableDeletionCandidates({
+      repository: harness.repository,
+      collection: fakeAccountOperationCollection(() => harness.firestore.valuesIn("account_operations")),
+      nowMillis: harness.clock.now,
+    });
+    assert.ok(candidates.some((candidate) => candidate.id === requested.operationId));
+    await runWorkerUntil(worker, requested.operationId, "completed");
+    const progress = harness.firestore.documents.get(path).deletionProgress;
+    assert.equal(progress.appleRevocationComplete, false);
+    assert.equal(progress.appleManualRevocationRequired, true);
+  });
+}

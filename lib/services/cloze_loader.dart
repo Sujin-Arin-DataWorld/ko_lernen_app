@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/content_id.dart';
@@ -87,11 +88,21 @@ class ClozeLoader {
 
   static List<ClozeItem>? _cache;
 
+  @visibleForTesting
+  static void resetForTesting() {
+    _cache = null;
+    rootBundle.evict('assets/data/cloze.json');
+  }
+
   static Future<List<ClozeItem>> load() async {
     if (_cache != null) {
       return _cache!;
     }
-    final raw = await rootBundle.loadString('assets/data/cloze.json');
+    // The decoded corpus is cached above; do not retain failed string reads.
+    final raw = await rootBundle.loadString(
+      'assets/data/cloze.json',
+      cache: false,
+    );
     final data = jsonDecode(raw) as Map<String, dynamic>;
     final items = (data['items'] as List)
         .map((e) => ClozeItem.fromJson(e as Map<String, dynamic>))

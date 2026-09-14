@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import '../features/onboarding_v2/onboarding_journey_state.dart';
 import '../models/guide_contract.dart';
 import '../models/learner_level.dart';
-import 'age_gate_service.dart';
+import 'privacy_consent_service.dart';
 import 'locale_service.dart';
 import 'storage_service.dart';
 
@@ -131,9 +131,11 @@ class ConsentedFirstLearningActionTracker {
     required this.readPurpose,
     required this.claimDurably,
     required this.record,
+    this.authorityToken,
   });
 
   final bool Function() canCollect;
+  final Object Function()? authorityToken;
   final bool Function() hasCompletedOnboarding;
   final OnboardingPurpose? Function() readPurpose;
   final Future<bool> Function() claimDurably;
@@ -161,8 +163,12 @@ class ConsentedFirstLearningActionTracker {
     // Reserve synchronously before the first await so concurrent observations
     // in this isolate cannot race for the claim.
     _reserved = true;
+    final authority = authorityToken?.call();
     try {
       if (!await claimDurably()) {
+        return;
+      }
+      if (!canCollect() || authority != authorityToken?.call()) {
         return;
       }
       await record(action, readPurpose());
@@ -190,6 +196,11 @@ class Analytics {
   static final ConsentedFirstLearningActionTracker
   _consentedFirstLearningActionTracker = ConsentedFirstLearningActionTracker(
     canCollect: () => canCollect,
+    authorityToken: () => (
+      PrivacyChoiceStorage.epoch,
+      PrivacyChoiceStorage.choice(PrivacyPurpose.analytics).revision,
+      PrivacyChoiceStorage.age.revision,
+    ),
     hasCompletedOnboarding: () => Storage.hasCompletedOnboarding,
     readPurpose: () => OnboardingPurpose.fromCode(Storage.motivation),
     claimDurably: Storage.claimConsentedFirstLearningAction,
@@ -204,8 +215,7 @@ class Analytics {
   /// Effective consent: the stored opt-in AND the conservative local age gate
   /// has positively established eligibility. Unknown age fails closed; it is
   /// never treated as adult. Mirrors [PrivacyConsentService].
-  static bool _consentActive() =>
-      Storage.analyticsConsent && AgeGateService.isGyeAllowed;
+  static bool _consentActive() => PrivacyConsentService.canCollectAnalytics;
 
   /// Whether best-effort product analytics may be attempted right now.
   ///
@@ -214,10 +224,19 @@ class Analytics {
   /// check immediately before every SDK call, so revocation always wins.
   static bool get canCollect => _consentActive();
 
-  static final AnalyticsController _controller = AnalyticsController(
+  static AnalyticsController _controller = AnalyticsController(
     hasConsent: _consentActive,
     client: const FirebaseAnalyticsEventClient(),
   );
+
+  @visibleForTesting
+  static void configureForTesting({AnalyticsEventClient? client}) {
+    _controller = AnalyticsController(
+      hasConsent: _consentActive,
+      client: client ?? const FirebaseAnalyticsEventClient(),
+    );
+    _consentedFirstLearningActionTracker.resetInMemory();
+  }
 
   static Future<void> logEvent(String name, {Map<String, Object>? parameters}) {
     return _controller.logEvent(name, parameters: parameters);

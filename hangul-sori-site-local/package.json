@@ -20,7 +20,7 @@
     "typecheck": "tsc --noEmit --incremental false",
     "test:deployment": "node --test tests/deployment-contract.test.mjs",
     "pretest:unit": "npm run sync:glossary",
-    "test:unit": "node --test tests/rendered-html.test.mjs tests/deployment-contract.test.mjs tests/release-safety.test.mjs tests/cultural-glossary.test.mjs",
+    "test:unit": "node --test tests/rendered-html.test.mjs tests/deployment-contract.test.mjs tests/release-safety.test.mjs tests/cultural-glossary.test.mjs tests/account-deletion-source.test.mjs",
     "test": "npm run build && npm run test:unit",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .wrangler",
     "validate:artifact": "node scripts/validate-artifact.mjs",
