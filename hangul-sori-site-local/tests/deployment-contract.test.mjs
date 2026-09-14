@@ -77,6 +77,11 @@ test("deploys the GitHub-tracked source directly to the production Worker", () =
     directory: "dist/client",
     not_found_handling: "none",
     binding: "ASSETS",
+    run_worker_first: [
+      "/hanok/construction",
+      "/hanok/construction/",
+      "/hanok/construction/index.html",
+    ],
   });
   assert.doesNotMatch(viteConfig, /sites-vite-plugin|\.openai\/hosting|\bsites\(\)/);
   assert.doesNotMatch(npmConfig, /\.sites-runtime/);

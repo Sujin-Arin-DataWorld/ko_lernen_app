@@ -62,6 +62,11 @@ assert.deepEqual(wrangler.assets, {
   directory: "../client",
   not_found_handling: "none",
   binding: "ASSETS",
+  run_worker_first: [
+    "/hanok/construction",
+    "/hanok/construction/",
+    "/hanok/construction/index.html",
+  ],
 });
 assert.deepEqual(wrangler.compatibility_flags, ["nodejs_compat"]);
 assert.deepEqual(

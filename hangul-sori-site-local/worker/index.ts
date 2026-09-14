@@ -25,6 +25,12 @@ interface ExecutionContext {
   passThroughOnException(): void;
 }
 
+const securedGalleryDocuments = new Set([
+  "/hanok/construction",
+  "/hanok/construction/",
+  "/hanok/construction/index.html",
+]);
+
 function createNonce() {
   const bytes = crypto.getRandomValues(new Uint8Array(18));
   return btoa(String.fromCharCode(...bytes));
@@ -108,6 +114,10 @@ const worker = {
           return result.response();
         },
       }, allowedWidths), url);
+    }
+
+    if (securedGalleryDocuments.has(url.pathname)) {
+      return withSecurityHeaders(await env.ASSETS.fetch(request), url);
     }
 
     const appResponse = await handler.fetch(request, env, ctx);

@@ -59,6 +59,59 @@ test("applies the CSP nonce exactly once to every script in the original HTML", 
   await assertPublicAssetBody(response, original, productionHtmlUrl);
 });
 
+test("routes every canonical gallery document alias through the secured asset binding", async () => {
+  const { default: worker } = await import(new URL("../dist/server/index.js", import.meta.url));
+  const original = await readFile(new URL("../public/hanok/construction/index.html", import.meta.url));
+  const requestedPaths = [];
+  const env = {
+    ASSETS: {
+      fetch: async request => {
+        const pathname = new URL(request.url).pathname;
+        requestedPaths.push(pathname);
+        if (pathname !== "/hanok/construction/") {
+          return new Response(null, {
+            status: 307,
+            headers: { location: "/hanok/construction/" },
+          });
+        }
+        return new Response(original, {
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      },
+    },
+  };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  for (const pathname of [
+    "/hanok/construction",
+    "/hanok/construction/",
+    "/hanok/construction/index.html",
+  ]) {
+    let response = await worker.fetch(
+      new Request(new URL(pathname, productionHtmlUrl)),
+      env,
+      ctx,
+    );
+    if (response.status === 307) {
+      response = await worker.fetch(
+        new Request(new URL(response.headers.get("location"), productionHtmlUrl)),
+        env,
+        ctx,
+      );
+    }
+    assert.equal(response.status, 200);
+    await assertPublicAssetBody(response, original, productionHtmlUrl);
+  }
+
+  assert.deepEqual(requestedPaths, [
+    "/hanok/construction",
+    "/hanok/construction/",
+    "/hanok/construction/",
+    "/hanok/construction/index.html",
+    "/hanok/construction/",
+  ]);
+});
+
 test("verifies directory indexes through only their exact canonical redirect", async () => {
   const expected = Buffer.from("<!doctype html><title>한옥 공정</title>");
   const seen = [];
