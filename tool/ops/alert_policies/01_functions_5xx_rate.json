@@ -1,0 +1,50 @@
+{
+  "displayName": "Functions 5xx ratio > 2% (5 min, per service)",
+  "documentation": {
+    "content": "Cloud Run (2nd-gen Functions) revisions in europe-west3 are serving an elevated share of 5xx responses. This covers gye-firebase-functions, tts-firebase-functions, pronunciation-firebase-functions and analyze-korean-text (Python), all deployed as Cloud Run services. First checks: docs/runbooks/ops-alerts.md#01. Metric: run.googleapis.com/request_count (verified live against ko-lernen-app on 2026-09-14).",
+    "mimeType": "text/markdown"
+  },
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "Cloud Run 5xx ratio > 2% over 5m, grouped by service_name",
+      "conditionThreshold": {
+        "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\" AND metric.label.\"response_code_class\"=\"5xx\"",
+        "denominatorFilter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0.02,
+        "duration": "300s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_RATE",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": ["resource.label.service_name"]
+          }
+        ],
+        "denominatorAggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_RATE",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": ["resource.label.service_name"]
+          }
+        ],
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "notificationChannels": [
+    "${NOTIFICATION_CHANNEL_ID}"
+  ],
+  "alertStrategy": {
+    "autoClose": "1800s"
+  },
+  "userLabels": {
+    "pr": "b1-ops-alerts",
+    "component": "functions"
+  },
+  "_unverified": false
+}

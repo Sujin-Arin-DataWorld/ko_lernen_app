@@ -1,0 +1,40 @@
+{
+  "displayName": "account_deletion_worker scheduled executions stalled (0 over 25h)",
+  "documentation": {
+    "content": "Cloud Scheduler job firebase-schedule-account_deletion_worker-europe-west3 normally fires every 5 minutes (confirmed live via `gcloud scheduler jobs list --project=ko-lernen-app --location=europe-west3` on 2026-09-14). If Cloud Monitoring sees no execution_count data for this job for 25 hours straight, the deletion worker has stopped running (Scheduler paused/deleted, IAM broken, or the underlying Cloud Run service failing to invoke) and the account-deletion queue is silently backing up. First checks: docs/runbooks/ops-alerts.md#04. Metric: cloudscheduler.googleapis.com/job/execution_count. UNVERIFIED: see tool/ops/alert_policies/_sources.md for the doc/live-API gap on this metric.",
+    "mimeType": "text/markdown"
+  },
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "No account_deletion_worker executions for 25h",
+      "conditionAbsent": {
+        "filter": "resource.type=\"cloud_scheduler_job\" AND resource.label.\"job_id\"=\"firebase-schedule-account_deletion_worker-europe-west3\" AND metric.type=\"cloudscheduler.googleapis.com/job/execution_count\"",
+        "duration": "90000s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "3600s",
+            "perSeriesAligner": "ALIGN_COUNT",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": []
+          }
+        ],
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "notificationChannels": [
+    "${NOTIFICATION_CHANNEL_ID}"
+  ],
+  "alertStrategy": {
+    "autoClose": "1800s"
+  },
+  "userLabels": {
+    "pr": "b1-ops-alerts",
+    "component": "account-deletion"
+  },
+  "_unverified": true,
+  "_unverified_reason": "cloudscheduler.googleapis.com/job/execution_count could not be confirmed: metricDescriptors.list returned zero cloudscheduler.googleapis.com/* descriptors for project ko-lernen-app on 2026-09-14 (live API check), and the general Cloud Monitoring metrics reference page (docs.cloud.google.com/monitoring/api/metrics_gcp_c) was too large to extract the Cloud Scheduler section via WebFetch (confirmed 'NOT FOUND IN CONTENT' after an explicit targeted search). Resource type/labels (cloud_scheduler_job: project_id, job_id, location) are Google's documented convention but not independently confirmed for this project. Jin should verify with `gcloud alpha monitoring policies create --dry-run` output and/or the Metrics Explorer UI before relying on this alert."
+}

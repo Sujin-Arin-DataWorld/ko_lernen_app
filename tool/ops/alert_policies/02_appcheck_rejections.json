@@ -1,0 +1,41 @@
+{
+  "displayName": "App Check verification rejections spike (>50 / 5 min)",
+  "documentation": {
+    "content": "Firebase App Check is denying an unusually high number of token verifications on ko-lernen-app. Could mean a client build is shipping a stale/invalid attestation, an App Check provider (Play Integrity / DeviceCheck) misconfiguration, or an attack. First checks: docs/runbooks/ops-alerts.md#02. Metric: firebaseappcheck.googleapis.com/services/verification_count, label result=DENY (verified live against ko-lernen-app on 2026-09-14).",
+    "mimeType": "text/markdown"
+  },
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "App Check DENY verdicts > 50 over 5m",
+      "conditionThreshold": {
+        "filter": "resource.type=\"firebaseappcheck.googleapis.com/Service\" AND metric.type=\"firebaseappcheck.googleapis.com/services/verification_count\" AND metric.label.\"result\"=\"DENY\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 50,
+        "duration": "300s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_SUM",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": []
+          }
+        ],
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "notificationChannels": [
+    "${NOTIFICATION_CHANNEL_ID}"
+  ],
+  "alertStrategy": {
+    "autoClose": "1800s"
+  },
+  "userLabels": {
+    "pr": "b1-ops-alerts",
+    "component": "appcheck"
+  },
+  "_unverified": false
+}
