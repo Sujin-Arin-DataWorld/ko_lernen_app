@@ -114,7 +114,18 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
                   });
                   _scroll.jumpTo(0);
                 },
-                child: Text(ilduArtText(catalog.series[i].name, language)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(catalog.series[i].name['ko']!, style: type.body),
+                    if (language != 'ko')
+                      Text(
+                        ilduArtText(catalog.series[i].name, language),
+                        style: type.bodySmall,
+                      ),
+                  ],
+                ),
               ),
           ],
         ),

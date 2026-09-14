@@ -327,7 +327,8 @@ function CulturalHeroIntro({ locale }: { locale: Locale }) {
 
 export function Footer({ locale }: { locale: Locale }) {
   const c = content[locale];
-  return <footer className="site-footer"><div className="footer-top"><Brand/><p>{c.footerLine}</p><div className="footer-links"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><a href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer"><InstagramIcon size={15}/>Instagram</a><Link href="/support">Support</Link><Link href="/privacy">Privacy</Link><Link href="/impressum">Impressum</Link><CookieSettingsButton locale={locale}/></div></div><div className="footer-bottom"><span>© 2026 Hangul Sori</span><span>Frankfurt am Main, Germany</span></div></footer>;
+  const constructionLabel = { ko: "한옥 짓기", en: "How a hanok is built", de: "So entsteht ein Hanok" }[locale];
+  return <footer className="site-footer"><div className="footer-top"><Brand/><p>{c.footerLine}</p><div className="footer-links"><Link href="#how">{c.nav[0]}</Link><Link href="#features">{c.nav[1]}</Link><a href={`/hanok/construction/?lang=${locale === "de" ? "de" : "en"}`}>{constructionLabel}</a><a href="https://www.instagram.com/hangulsori_learnkorean/" target="_blank" rel="noreferrer"><InstagramIcon size={15}/>Instagram</a><Link href="/support">Support</Link><Link href="/privacy">Privacy</Link><Link href="/impressum">Impressum</Link><CookieSettingsButton locale={locale}/></div></div><div className="footer-bottom"><span>© 2026 Hangul Sori</span><span>Frankfurt am Main, Germany</span></div></footer>;
 }
 
 export function Landing({ locale }: { locale: Locale }) {

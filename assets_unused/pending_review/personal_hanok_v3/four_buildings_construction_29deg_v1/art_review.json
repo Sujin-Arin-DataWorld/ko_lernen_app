@@ -1,0 +1,48 @@
+{
+  "status": "artwork_created_structural_registration_pending",
+  "assetCount": 49,
+  "camera": {
+    "targetElevationDegreesAboveGround": 29,
+    "azimuthDegrees": 0,
+    "measured": false
+  },
+  "resolvedInSelectedRevisions": [
+    "Anchae roof-bed: timber supports remain below the continuous earth bedding.",
+    "Jungmunganchae: earth gate passage and single maru deck with crawlspace retained.",
+    "Araechae foundation: restored the completed-frame ground baseline.",
+    "Anchae-store: right two bays now form a continuous storage room.",
+    "Anchae: pale room floors retained when installing lattice doors."
+  ],
+  "openIssues": [
+    {
+      "id": "J03-J04",
+      "buildingId": "jungmunganchae",
+      "stages": [
+        3,
+        4
+      ],
+      "ko": "초기 기둥과 다음 골조 사이에 우측 마루 기둥축·기둥머리 높이 차이가 남아 있습니다.",
+      "criterion": "Corresponding column centers and head heights must remain fixed between stages."
+    },
+    {
+      "id": "A01-A02",
+      "buildingId": "araechae",
+      "stages": [
+        1,
+        2
+      ],
+      "ko": "터잡기와 기단 단계의 앞쪽 외곽선 깊이는 추가 정합이 필요합니다.",
+      "criterion": "Site and foundation front extent should share the same footprint."
+    },
+    {
+      "id": "ALL-JOINTS",
+      "buildingId": "all",
+      "stages": [],
+      "ko": "전체 접합부의 무변형·무부유는 공통 3D 모델이나 부재 좌표로 검증하지 않았습니다.",
+      "criterion": "Fixed part geometry and joint coordinates, with no inter-stage drift."
+    }
+  ],
+  "technicalAudit": "asset_audit.json",
+  "browserAudit": "../../../../docs/mockups/four-buildings-construction-29/browser_qa.json",
+  "runtimePromoted": false
+}

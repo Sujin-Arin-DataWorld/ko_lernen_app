@@ -146,6 +146,10 @@ flutter:
     - assets/illustrations/personal_hanok_v3/sarangchae/
     - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
     - assets/illustrations/personal_hanok_v3/construction/changgo/
+    - assets/illustrations/personal_hanok_v3/construction/jungmunganchae/
+    - assets/illustrations/personal_hanok_v3/construction/araechae/
+    - assets/illustrations/personal_hanok_v3/construction/anchae/
+    - assets/illustrations/personal_hanok_v3/construction/anchae-store/
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/

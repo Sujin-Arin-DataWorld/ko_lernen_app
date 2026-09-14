@@ -1,0 +1,544 @@
+{
+  "generator": "built-in image_gen",
+  "selectedFrames": [
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 1,
+      "file": "jungmunganchae/stage_01_site-route.png",
+      "promptFile": "jungmunganchae/stage_01_site-route.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-6bf64654-af5f-4d1d-9d76-fb15705c0f4c.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_02_stone-foundation.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 2,
+      "file": "jungmunganchae/stage_02_stone-foundation_v02.png",
+      "promptFile": "jungmunganchae/stage_02_stone-foundation_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-b69f9ed7-043d-449e-a940-fbb1626368b7.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_02_stone-foundation.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 3,
+      "file": "jungmunganchae/stage_03_posts_v04.png",
+      "promptFile": "jungmunganchae/stage_03_posts_v04.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-02aab571-7e6a-4f4c-8e31-7651597e4fbe.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_03_posts_v03.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 4,
+      "file": "jungmunganchae/stage_04_beams-purlins.png",
+      "promptFile": "jungmunganchae/stage_04_beams-purlins.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-d8614a57-eff7-429d-90d4-d3273f2cf520.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_05_rafters-eaves.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 5,
+      "file": "jungmunganchae/stage_05_rafters-eaves.png",
+      "promptFile": "jungmunganchae/stage_05_rafters-eaves.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-6fa160d2-f94a-4369-ac6b-80216f146a21.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_06_roof-bed.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 6,
+      "file": "jungmunganchae/stage_06_roof-bed.png",
+      "promptFile": "jungmunganchae/stage_06_roof-bed.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-0738481c-e03f-40b5-8b8d-270d47d9b9f0.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_07_tiles.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 7,
+      "file": "jungmunganchae/stage_07_tiles.png",
+      "promptFile": "jungmunganchae/stage_07_tiles.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-64327663-685a-41ef-8292-f33783f6b7b9.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_08_room-walls.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 8,
+      "file": "jungmunganchae/stage_08_room-walls.png",
+      "promptFile": "jungmunganchae/stage_08_room-walls.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-8fa7bb6f-eee3-4418-9942-9c52c7b2f45f.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_09_ondol-floors.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 9,
+      "file": "jungmunganchae/stage_09_ondol-floors.png",
+      "promptFile": "jungmunganchae/stage_09_ondol-floors.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-3b4f3341-f411-4cca-9dcf-bbb4e12cccf1.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_10_open-maru.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 10,
+      "file": "jungmunganchae/stage_10_open-maru.png",
+      "promptFile": "jungmunganchae/stage_10_open-maru.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-c45f7fc7-1f18-4f2e-b053-5d55b21fe182.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_12_complete-use.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 11,
+      "file": "jungmunganchae/stage_11_gate-changho_v02.png",
+      "promptFile": "jungmunganchae/stage_11_gate-changho_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-8d1bdd20-af32-45ae-a922-d6c128b871db.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\jungmunganchae\\stage_10_open-maru.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "stage": 12,
+      "file": "jungmunganchae/stage_12_complete-use.png",
+      "promptFile": "jungmunganchae/stage_12_complete-use.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-01640c85-acad-4cd5-9414-3f901e6b3227.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_jungmunganchae_v05_final_byte_locked\\transparent_28deg\\00_front_000.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 1,
+      "file": "araechae/stage_01_site-rooms_v02.png",
+      "promptFile": "araechae/stage_01_site-rooms_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-0feea87c-ad52-4122-a208-be2043fd45fb.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_02_stone-foundation_v03.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 2,
+      "file": "araechae/stage_02_stone-foundation_v03.png",
+      "promptFile": "araechae/stage_02_stone-foundation_v03.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-96c85d9e-1b09-4e3f-8548-2918333b7ac1.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_03_posts-floor-support_v02.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 3,
+      "file": "araechae/stage_03_posts-floor-support_v02.png",
+      "promptFile": "araechae/stage_03_posts-floor-support_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-cff1bb69-3d32-4c40-b4b4-f26c740e030a.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_04_beams-purlins.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 4,
+      "file": "araechae/stage_04_beams-purlins.png",
+      "promptFile": "araechae/stage_04_beams-purlins.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-c810006b-e6d6-43c5-afe1-42ad9acf6d90.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_05_rafters-eaves.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 5,
+      "file": "araechae/stage_05_rafters-eaves.png",
+      "promptFile": "araechae/stage_05_rafters-eaves.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-b92b3de6-de0f-4dd3-82c7-7d49eb809689.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_06_roof-bed.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 6,
+      "file": "araechae/stage_06_roof-bed.png",
+      "promptFile": "araechae/stage_06_roof-bed.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-8dc03811-d0b5-4b48-9095-59d91a984e4f.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_07_tiles.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 7,
+      "file": "araechae/stage_07_tiles.png",
+      "promptFile": "araechae/stage_07_tiles.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-89a5ed31-6741-414d-8177-7e549d2e73aa.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_08_room-walls.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 8,
+      "file": "araechae/stage_08_room-walls.png",
+      "promptFile": "araechae/stage_08_room-walls.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-d77cf88f-bf39-4b2a-8a49-ff24810f962b.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_09_ondol.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 9,
+      "file": "araechae/stage_09_ondol.png",
+      "promptFile": "araechae/stage_09_ondol.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-552c606f-1b62-4535-99e8-cff8713de067.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_10_maru.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 10,
+      "file": "araechae/stage_10_maru.png",
+      "promptFile": "araechae/stage_10_maru.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-4b7430dd-fc07-47ba-be03-934204ce3060.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_11_changho.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 11,
+      "file": "araechae/stage_11_changho.png",
+      "promptFile": "araechae/stage_11_changho.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-1ccce844-05c7-44c6-ade0-848a5bbb8ae6.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\araechae\\stage_12_complete-use.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "araechae",
+      "stage": 12,
+      "file": "araechae/stage_12_complete-use.png",
+      "promptFile": "araechae/stage_12_complete-use.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-176a6221-b5b9-4505-b0e7-208231468385.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\araechae_00_front.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 1,
+      "file": "anchae/stage_01_site-household.png",
+      "promptFile": "anchae/stage_01_site-household.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-033bdc02-d84c-4d02-9375-c59426685b7c.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_02_stone-foundation.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 2,
+      "file": "anchae/stage_02_stone-foundation.png",
+      "promptFile": "anchae/stage_02_stone-foundation.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-8ff14f78-80bc-42eb-8eea-a811170aa437.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_08_tiles.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 3,
+      "file": "anchae/stage_03_posts.png",
+      "promptFile": "anchae/stage_03_posts.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-1b9bb4a4-b342-427b-b281-6db3239fe7a0.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_04_beams-purlins.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 4,
+      "file": "anchae/stage_04_beams-purlins.png",
+      "promptFile": "anchae/stage_04_beams-purlins.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-24adc2bf-1d61-4d31-b30c-f33bef5d6674.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_05_hip-frame.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 5,
+      "file": "anchae/stage_05_hip-frame.png",
+      "promptFile": "anchae/stage_05_hip-frame.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-a2253e45-52b1-4daa-84f7-4c3087264f12.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_06_rafters-eaves.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 6,
+      "file": "anchae/stage_06_rafters-eaves.png",
+      "promptFile": "anchae/stage_06_rafters-eaves.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-daf06a63-f75a-48ca-9ff8-548b219fafd1.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_07_roof-bed.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 7,
+      "file": "anchae/stage_07_roof-bed_v02.png",
+      "promptFile": "anchae/stage_07_roof-bed_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-e6831a82-99b5-4e6f-83fd-9c3a7d63d72c.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_07_roof-bed.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 8,
+      "file": "anchae/stage_08_tiles.png",
+      "promptFile": "anchae/stage_08_tiles.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-068d15c9-f4aa-4787-a626-73d3e12df391.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_09_walls-kitchen.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 9,
+      "file": "anchae/stage_09_walls-kitchen.png",
+      "promptFile": "anchae/stage_09_walls-kitchen.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-14e8e1b6-a92a-4c42-9132-eb439b8cfaf9.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_10_kitchen-loft.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 10,
+      "file": "anchae/stage_10_kitchen-loft.png",
+      "promptFile": "anchae/stage_10_kitchen-loft.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-09ed90ff-80e2-4811-b634-ad35ed143376.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_11_ondol.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 11,
+      "file": "anchae/stage_11_ondol.png",
+      "promptFile": "anchae/stage_11_ondol.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-0476e6b5-9c43-4bf3-b79c-20d4d9fbdb80.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_12_daecheong-maru.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 12,
+      "file": "anchae/stage_12_daecheong-maru.png",
+      "promptFile": "anchae/stage_12_daecheong-maru.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-7f3fc138-7204-4c29-9206-c9fee0b50e97.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_13_changho.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 13,
+      "file": "anchae/stage_13_changho_v02.png",
+      "promptFile": "anchae/stage_13_changho_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-a1e4769d-331e-428c-b914-2f998a606eb4.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae\\stage_12_daecheong-maru.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae",
+      "stage": 14,
+      "file": "anchae/stage_14_complete-use.png",
+      "promptFile": "anchae/stage_14_complete-use.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-bcd3dcbe-fcf0-465c-8589-35562a27f67f.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_anchae_blueprint100_v03_28deg_2p5d\\transparent_28deg\\00_front_000_28deg.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 1,
+      "file": "anchae-store/stage_01_site-storage.png",
+      "promptFile": "anchae-store/stage_01_site-storage.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-5ba7934d-65f0-4c30-bbbb-7eee64dd6937.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_02_stone-foundation.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 2,
+      "file": "anchae-store/stage_02_stone-foundation.png",
+      "promptFile": "anchae-store/stage_02_stone-foundation.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-f4f9b4ab-689b-411c-99e3-38725c1388bc.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_11_complete-use.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 3,
+      "file": "anchae-store/stage_03_posts_v03.png",
+      "promptFile": "anchae-store/stage_03_posts_v03.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-f1a3c289-ef81-4891-9e11-e4adb9989ff3.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_03_posts_v02.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 4,
+      "file": "anchae-store/stage_04_beams-purlins.png",
+      "promptFile": "anchae-store/stage_04_beams-purlins.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-4cbd62c3-812a-4cf4-97e8-47ecf598403c.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_05_rafters-eaves.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 5,
+      "file": "anchae-store/stage_05_rafters-eaves.png",
+      "promptFile": "anchae-store/stage_05_rafters-eaves.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-e04d2370-7365-437a-90fe-41810130b455.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_06_roof-bed.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 6,
+      "file": "anchae-store/stage_06_roof-bed.png",
+      "promptFile": "anchae-store/stage_06_roof-bed.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-b5ebdd11-a393-49fa-bb19-69d4af92faac.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_07_tiles.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 7,
+      "file": "anchae-store/stage_07_tiles.png",
+      "promptFile": "anchae-store/stage_07_tiles.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-57e51390-217d-4aad-8934-ffb92f925f53.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_08_compacted-floor.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 8,
+      "file": "anchae-store/stage_08_compacted-floor.png",
+      "promptFile": "anchae-store/stage_08_compacted-floor.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-a9295b3d-ff66-4b04-a9e4-351ff0a74be5.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_09_walls-partition.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 9,
+      "file": "anchae-store/stage_09_walls-partition_v02.png",
+      "promptFile": "anchae-store/stage_09_walls-partition_v02.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-6da223b3-e30e-46bc-a04b-3e11b9160e2a.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_09_walls-partition.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 10,
+      "file": "anchae-store/stage_10_doors-vents.png",
+      "promptFile": "anchae-store/stage_10_doors-vents.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-cb8f16c0-3b63-4f0c-9c3f-bbbf6339eba4.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\four-buildings-construction-design-20260914\\assets_unused\\pending_review\\personal_hanok_v3\\four_buildings_construction_29deg_v1\\anchae-store\\stage_11_complete-use.png"
+      ],
+      "metadataAvailable": true
+    },
+    {
+      "buildingId": "anchae-store",
+      "stage": 11,
+      "file": "anchae-store/stage_11_complete-use.png",
+      "promptFile": "anchae-store/stage_11_complete-use.prompt.txt",
+      "generationSource": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09da9-1ff8-7783-be83-6ec549dbe2e1\\exec-ebd891c0-5bbe-41d6-b77d-cdfa52c4da7d.png",
+      "inputReferences": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_anchae_store_blueprint100_v01_28deg\\final_384x512\\ildu_anchae_store_00_front.png"
+      ],
+      "metadataAvailable": true
+    }
+  ]
+}
