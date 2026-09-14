@@ -65,6 +65,32 @@ void main() {
     },
   );
 
+  test('receipt exposes every newly earned Sarangchae stage once', () {
+    final before = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 14, a1Total: 20),
+    );
+    final after = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 17, a1Total: 20),
+    );
+
+    final receipt = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: before,
+      after: after,
+    );
+    final replay = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: after,
+      after: after,
+    );
+
+    expect(receipt.sarangchaeStageBefore, 14);
+    expect(receipt.sarangchaeStageAfter, 16);
+    expect(receipt.hasSarangchaeUpgrade, isTrue);
+    expect(replay.hasSarangchaeUpgrade, isFalse);
+    expect(replay.isEmpty, isTrue);
+  });
+
   test('unchanged, reduced, and already completed state yields no receipt', () {
     final before = _snapshot(
       xp: 120,
@@ -216,16 +242,19 @@ SoriStageProgressionSnapshot _snapshot({
   int b1Completed = 0,
   int questCurrent = 0,
   QuestProgress? extraQuest,
+  HanokCompetenceProjection? hanokCompetence,
 }) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanokCompetence: b1Completed == 0
-      ? const HanokCompetenceProjection.empty()
-      : hanokCompetenceFixture(
-          a1Completed: 4,
-          a2Completed: 4,
-          b1Completed: b1Completed,
-          b1Total: 100,
-        ),
+  hanokCompetence:
+      hanokCompetence ??
+      (b1Completed == 0
+          ? const HanokCompetenceProjection.empty()
+          : hanokCompetenceFixture(
+              a1Completed: 4,
+              a2Completed: 4,
+              b1Completed: b1Completed,
+              b1Total: 100,
+            )),
   quests: <QuestProgress>[
     QuestProgress(
       questId: 'tracked',

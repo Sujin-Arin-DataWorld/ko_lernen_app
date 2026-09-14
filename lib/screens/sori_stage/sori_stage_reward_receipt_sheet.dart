@@ -1,21 +1,67 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
 
-class SoriStageRewardReceiptSheet extends StatelessWidget {
-  const SoriStageRewardReceiptSheet({super.key, required this.receipt});
+class SoriStageRewardReceiptSheet extends StatefulWidget {
+  const SoriStageRewardReceiptSheet({
+    super.key,
+    required this.receipt,
+    this.loadConstruction,
+  });
 
   final RewardReceipt receipt;
+  final Future<SarangchaeConstruction> Function()? loadConstruction;
+
+  @override
+  State<SoriStageRewardReceiptSheet> createState() =>
+      _SoriStageRewardReceiptSheetState();
+}
+
+class _SoriStageRewardReceiptSheetState
+    extends State<SoriStageRewardReceiptSheet> {
+  Future<SarangchaeConstruction>? _constructionFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.receipt.hasSarangchaeUpgrade) {
+      _constructionFuture =
+          (widget.loadConstruction ?? SarangchaeConstruction.load)();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant SoriStageRewardReceiptSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final receiptChanged =
+        oldWidget.receipt.sarangchaeStageBefore !=
+            widget.receipt.sarangchaeStageBefore ||
+        oldWidget.receipt.sarangchaeStageAfter !=
+            widget.receipt.sarangchaeStageAfter;
+    if (widget.receipt.hasSarangchaeUpgrade &&
+        (!oldWidget.receipt.hasSarangchaeUpgrade ||
+            receiptChanged ||
+            oldWidget.loadConstruction != widget.loadConstruction)) {
+      _constructionFuture =
+          (widget.loadConstruction ?? SarangchaeConstruction.load)();
+    } else if (!widget.receipt.hasSarangchaeUpgrade) {
+      _constructionFuture = null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
+    final receipt = widget.receipt;
     return Semantics(
       container: true,
       liveRegion: true,
@@ -57,6 +103,54 @@ class SoriStageRewardReceiptSheet extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: Spacing.lg),
+              if (receipt.hasSarangchaeUpgrade) ...[
+                Text(
+                  t.sarangchaeNewStages(
+                    receipt.sarangchaeStageAfter -
+                        receipt.sarangchaeStageBefore,
+                  ),
+                  style: tt.h3,
+                ),
+                const SizedBox(height: Spacing.xs),
+                Text(
+                  t.sarangchaeStageTransition(
+                    receipt.sarangchaeStageBefore,
+                    receipt.sarangchaeStageAfter,
+                  ),
+                  style: tt.label,
+                ),
+                const SizedBox(height: Spacing.md),
+                FutureBuilder<SarangchaeConstruction>(
+                  future: _constructionFuture!,
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return snapshot.hasError
+                          ? const SizedBox.shrink()
+                          : const Center(child: CircularProgressIndicator());
+                    }
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _SarangchaeBeforeAfter(
+                          construction: snapshot.data!,
+                          before: receipt.sarangchaeStageBefore,
+                          after: receipt.sarangchaeStageAfter,
+                        ),
+                        const SizedBox(height: Spacing.lg),
+                        SarangchaeConstructionExperience(
+                          construction: snapshot.data!,
+                          earnedStageCount: receipt.sarangchaeStageAfter,
+                          minimumSelectableStage:
+                              receipt.sarangchaeStageBefore + 1,
+                          showLockedStages: false,
+                          compact: true,
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
               for (final item in receipt.items) _RewardLine(item: item),
               const SizedBox(height: Spacing.lg),
               SoriButton(
@@ -70,6 +164,68 @@ class SoriStageRewardReceiptSheet extends StatelessWidget {
       ),
     );
   }
+}
+
+class _SarangchaeBeforeAfter extends StatelessWidget {
+  const _SarangchaeBeforeAfter({
+    required this.construction,
+    required this.before,
+    required this.after,
+  });
+
+  final SarangchaeConstruction construction;
+  final int before;
+  final int after;
+
+  @override
+  Widget build(BuildContext context) => Row(
+    children: [
+      Expanded(
+        child: AspectRatio(
+          aspectRatio: 4 / 3,
+          child: KeyedSubtree(
+            key: const ValueKey('sarangchae-before-artwork'),
+            child: before == 0
+                ? Semantics(
+                    image: true,
+                    label: AppL10n.of(context).sarangchaeStageLocked(0),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: SoriSurfaces.of(context).surfaceAlt,
+                        borderRadius: SoriRadius.brLg,
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.home_work_outlined, size: 28),
+                      ),
+                    ),
+                  )
+                : SarangchaeStageArtwork(
+                    construction: construction,
+                    earnedStageCount: before,
+                    sequence: before,
+                  ),
+          ),
+        ),
+      ),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: Spacing.sm),
+        child: Icon(Icons.arrow_forward_rounded),
+      ),
+      Expanded(
+        child: AspectRatio(
+          aspectRatio: 4 / 3,
+          child: KeyedSubtree(
+            key: const ValueKey('sarangchae-after-artwork'),
+            child: SarangchaeStageArtwork(
+              construction: construction,
+              earnedStageCount: after,
+              sequence: after,
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
 }
 
 class _RewardLine extends StatelessWidget {

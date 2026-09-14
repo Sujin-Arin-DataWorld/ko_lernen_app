@@ -162,6 +162,8 @@ abstract final class SoriStageRewardReceiptService {
       activityId: activityId,
       receiptId: stableId,
       items: List.unmodifiable(items),
+      sarangchaeStageBefore: before.hanokCompetence.sarangchaeConstructionStage,
+      sarangchaeStageAfter: after.hanokCompetence.sarangchaeConstructionStage,
     );
   }
 

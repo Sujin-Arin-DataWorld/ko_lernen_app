@@ -62,7 +62,11 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
-    expect(find.byType(HanokV3Preview), findsOneWidget);
+    expect(find.byType(SarangchaeStageArtwork), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
+      findsOneWidget,
+    );
     expect(find.byKey(const ValueKey('hanok-map-tap-hint')), findsNothing);
 
     expect(loads, 1);

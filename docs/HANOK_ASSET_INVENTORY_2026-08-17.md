@@ -1,7 +1,8 @@
 # 한옥·장식 에셋 전수 인벤토리 (2026-08-17)
 
-**이 문서가 정본이다.** 한옥·장식·카드 계열 이미지가 지금 저장소에 **무엇이 있고 / 어디에 쓰이고 / 무엇이 없는지**를
-파일 실측으로 적는다. 문서를 믿지 말고 파일을 믿는다 — 아래 §7 전수표는 도구가 만든다.
+**2026-09-14 사랑채 갱신:** 현재 사랑채는 [승인한 16단계 런타임 명세](../assets/illustrations/personal_hanok_v3/sarangchae/MANIFEST.json)와 [학습 카탈로그](../assets/data/sarangchae_construction_v3.json)를 따른다. 16장은 모두 1536×1024 PNG이며, 완성 단계의 SHA-256은 `f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a`다. 기존 사랑채 12단계·8방향 원화는 현재 정본으로 사용하지 않는다. 안사랑채는 별도 건물이다.
+
+이하 수량·해시·파일 표는 **2026-08-17 당시 실측 기록**이다. 현재 존재 여부와 사용처는 실제 파일, `STYLE_LOCK.json`, 각 런타임 명세를 우선한다. 아래 §7 전수표는 도구가 만든다.
 
 ```bash
 /usr/local/bin/python3.12 tool/asset_inventory.py            # §7 표 재생성 (markdown)

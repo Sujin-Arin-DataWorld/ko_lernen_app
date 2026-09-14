@@ -1,0 +1,19 @@
+{
+  "source_and_runtime_final_byte_identical": true,
+  "canvas": [
+    1536,
+    1024
+  ],
+  "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "checks": [
+    "flutter test test/sarangchae_construction_catalog_test.dart: 4 passed",
+    "python tool/style_lock.py: passed",
+    "python tool/check_style_lock_docs.py: passed",
+    "interactive browser: all 16 runtime PNG hashes verified"
+  ],
+  "runtime_stage_count": 16,
+  "runtime_catalog": "assets/data/sarangchae_construction_v3.json",
+  "bytes": 2328995,
+  "status": "passed",
+  "runtime_promoted": true
+}

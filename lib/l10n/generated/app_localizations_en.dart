@@ -8332,6 +8332,47 @@ class AppL10nEn extends AppL10n {
       'Your hanok is being rebuilt. Back soon.';
 
   @override
+  String sarangchaeConstructionProgress(int earned, int total) {
+    return '$earned of $total construction stages';
+  }
+
+  @override
+  String get sarangchaeConstructionStages => 'Construction stages';
+
+  @override
+  String get sarangchaeLessonLanguage => 'Lesson language';
+
+  @override
+  String sarangchaeStageTransition(int before, int after) {
+    return 'Stage $before → stage $after';
+  }
+
+  @override
+  String sarangchaeStageUnlocked(int stage) {
+    return 'Stage $stage unlocked';
+  }
+
+  @override
+  String sarangchaeStageLocked(int stage) {
+    return 'Stage $stage is still locked';
+  }
+
+  @override
+  String get sarangchaeStartMission =>
+      'Complete a learning mission to begin your sarangchae.';
+
+  @override
+  String sarangchaeNewStages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count new construction stages',
+      one: '1 new construction stage',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get soriStageOpenMap => 'Open Hanok map';
 
   @override

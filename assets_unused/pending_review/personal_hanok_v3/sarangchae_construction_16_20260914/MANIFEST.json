@@ -1,0 +1,1299 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_runtime_sequence",
+  "scope": "Approved sixteen-stage Sarangchae sequence",
+  "master": "../canonical/sarangchae/sarangchae-v3-canonical.png",
+  "masterSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "completedStage": 16,
+  "tool": "built-in image_gen",
+  "runtimePromoted": true,
+  "constraints": [
+    "Keep stage 16 byte-identical to the approved master.",
+    "Retained parts must stay at source coordinates, with image-space comparison required.",
+    "Columns, beams, purlins and rafters must have visible bearing contacts.",
+    "Preserve original camera, white background, joined roof, outer eave supports, steps and interior depth."
+  ],
+  "rejectedCandidates": [
+    {
+      "path": "candidates/stage_08_rafters_v01.png",
+      "reason": "Roof covering was recolored as wood rather than removed; wood-colored ceramic ornaments remained. Superseded by corrected open-rafter candidate.",
+      "status": "retired_removed_by_user_approval"
+    },
+    {
+      "path": "candidates/stage_07_purlins_v01.png",
+      "reason": "Residual corner rafters and dense overhead sticks belonged to the next stage; corrected in v02.",
+      "status": "retired_removed_by_user_approval"
+    },
+    {
+      "path": "candidates/stage_05_columns_v01.png",
+      "reason": "Right platform and right column feet shifted upward.",
+      "status": "retired_removed_by_user_approval"
+    },
+    {
+      "path": "candidates/stage_05_columns_v02.png",
+      "reason": "Residual right-platform displacement after first correction.",
+      "status": "retired_removed_by_user_approval"
+    },
+    {
+      "path": "candidates/stage_05_columns_v03.png",
+      "reason": "Residual right-platform displacement; restart from unobstructed correct foundation.",
+      "status": "retired_removed_by_user_approval"
+    },
+    {
+      "path": "candidates/stage_11_tiles_v01.png",
+      "reason": "Front skirt panels appeared before the infill stage; regenerated using the open stage 08 structure.",
+      "status": "retired_removed_by_user_approval"
+    }
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "file": "stage_01_site.png",
+      "sha256": "5ed4923fba1894427d3aa34699a62a3469c090f04bc89da2af3ebb654ff47727",
+      "bytes": 1585510,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime"
+    },
+    {
+      "stage": 2,
+      "file": "stage_02_foundation.png",
+      "sha256": "3b328c697cf1bd570dfed11098246a566a6cc44be372e720b558d9759ffc834a",
+      "bytes": 1656482,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            1,
+            0
+          ],
+          "correlation": 0.951
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.966
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.942
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.993
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "file": "stage_03_choseok.png",
+      "sha256": "20d0a220fca2e59081524c9cdd4dee4235b50e198c15ffa7d4e9b5c7e161f337",
+      "bytes": 1685987,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.97
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.971
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.938
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.982
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "file": "stage_04_fitting.png",
+      "sha256": "dfae617098b905d18d83918af8679b5c9011e543daed43548f2b320b32a7b5f1",
+      "bytes": 1715042,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.949
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.957
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.917
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.987
+        }
+      ]
+    },
+    {
+      "stage": 5,
+      "file": "stage_05_columns.png",
+      "sha256": "0f5e796fdc46c27a3d89007c2822c68513c925202b14a0d7257ff01132d589c7",
+      "bytes": 1775293,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            1,
+            -2
+          ],
+          "correlation": 0.9
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            2,
+            -1
+          ],
+          "correlation": 0.508
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.958
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.957
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.915
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            1,
+            0
+          ],
+          "correlation": 0.98
+        }
+      ]
+    },
+    {
+      "stage": 6,
+      "file": "stage_06_beams.png",
+      "sha256": "4f51ff202300881ed9f7a50196ef0e075d329f28f940b6e7c3b4fec497661b8a",
+      "bytes": 1899721,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.953
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.94
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.963
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.97
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.937
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            -1,
+            1
+          ],
+          "correlation": 0.983
+        }
+      ]
+    },
+    {
+      "stage": 7,
+      "file": "stage_07_purlins.png",
+      "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+      "bytes": 1957033,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.935
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.947
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.964
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.976
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.943
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            -1,
+            1
+          ],
+          "correlation": 0.985
+        }
+      ]
+    },
+    {
+      "stage": 8,
+      "file": "stage_08_rafters.png",
+      "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "bytes": 2116848,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.932
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.975
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.958
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.984
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.956
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            1
+          ],
+          "correlation": 0.992
+        }
+      ]
+    },
+    {
+      "stage": 9,
+      "file": "stage_09_decking.png",
+      "sha256": "60ffa4184d6d947c83f479e681395f764dbd28ffa7384acdc72dc42bc929bb26",
+      "bytes": 2026194,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.947
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.96
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.976
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.98
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.953
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            -1,
+            1
+          ],
+          "correlation": 0.986
+        }
+      ]
+    },
+    {
+      "stage": 10,
+      "file": "stage_10_earth_roof.png",
+      "sha256": "21db199864dc73d585872030c23be876caedccc2b9078a0a1e658721eee57c4e",
+      "bytes": 2067248,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.946
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.941
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.97
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.969
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.934
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            -1,
+            1
+          ],
+          "correlation": 0.985
+        }
+      ]
+    },
+    {
+      "stage": 11,
+      "file": "stage_11_tiles.png",
+      "sha256": "4cf7a5138c09244559b41148b81924b53458872975c549d934b4910a56872474",
+      "bytes": 2100803,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            -1
+          ],
+          "correlation": 0.944
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.951
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            -1,
+            0
+          ],
+          "correlation": 0.969
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.982
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.953
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            -1,
+            1
+          ],
+          "correlation": 0.984
+        }
+      ]
+    },
+    {
+      "stage": 12,
+      "file": "stage_12_walls.png",
+      "sha256": "79959bd0f0885612c95021e8e359dbbd162eef32f2d2fd8cb3f3c8043ade46b2",
+      "bytes": 2096304,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.953
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.86
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.972
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            1,
+            0
+          ],
+          "correlation": 0.968
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.943
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.988
+        }
+      ]
+    },
+    {
+      "stage": 13,
+      "file": "stage_13_ondol.png",
+      "sha256": "b3225234ca637a26978a1f1fc5545db7d5cbc1816be4448010fc90ee84e75899",
+      "bytes": 2108299,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.973
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.868
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.977
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            1,
+            0
+          ],
+          "correlation": 0.974
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.965
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.989
+        }
+      ]
+    },
+    {
+      "stage": 14,
+      "file": "stage_14_maru.png",
+      "sha256": "bb5d353c95c9db07c95fe8b43a3c0023886b7da98b7d01fc0b3c007747b402aa",
+      "bytes": 2174873,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.978
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.985
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.978
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.979
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.971
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.994
+        }
+      ]
+    },
+    {
+      "stage": 15,
+      "file": "stage_15_changho.png",
+      "sha256": "dc07735943c511bb25c27aba9b25ddc4555b0f319291966b35e3ccc5246e158a",
+      "bytes": 2247497,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.988
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.992
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.992
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.99
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.988
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 0.995
+        }
+      ]
+    },
+    {
+      "stage": 16,
+      "file": "stage_16_complete.png",
+      "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "bytes": 2328995,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "status": "approved_runtime",
+      "stoneworkAlignmentDiagnostic": [
+        {
+          "region": "left_outer_footing",
+          "sourceCenter": [
+            173,
+            716
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        },
+        {
+          "region": "right_outer_footing",
+          "sourceCenter": [
+            1321,
+            802
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        },
+        {
+          "region": "left_stair_cheek",
+          "sourceCenter": [
+            588,
+            870
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        },
+        {
+          "region": "right_stair_cheek",
+          "sourceCenter": [
+            825,
+            866
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        },
+        {
+          "region": "left_base_corner",
+          "sourceCenter": [
+            119,
+            855
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        },
+        {
+          "region": "right_base_corner",
+          "sourceCenter": [
+            1440,
+            846
+          ],
+          "bestOffsetPx": [
+            0,
+            0
+          ],
+          "correlation": 1
+        }
+      ]
+    }
+  ],
+  "generatedIntermediateCount": 15,
+  "diagnosticScope": "Local normalized grayscale patch correlation in retained masonry only. Column/background appearance changes make texture correlation unsuitable for asserting column position. Column and roof contacts are visually reviewed; the masonry diagnostic does not certify them or historical accuracy.",
+  "visualReview": {
+    "status": "reviewed_candidate_sequence_not_user_approved",
+    "method": "Every selected full-resolution generated image inspected; stage 08 and stage 05 compared with completed-master overlays; final sequence gallery and browser flow reviewed.",
+    "corrections": [
+      "Wood-colored tile remnants removed from stage 08.",
+      "Remaining rafters removed from the stage 07 purlin frame.",
+      "Stage 05 restarted from the unchanged stone base after right-platform drift.",
+      "Stage 11 regenerated from the open frame to avoid premature wall/skirt infill."
+    ],
+    "limitations": [
+      "Generated intermediate images repaint surface pixels; exact pixel preservation is only asserted for stage 16.",
+      "Concealed timber, floor and wall arrangements are illustrative inferences, not a measured reconstruction.",
+      "Roof-junction topology and every hidden bearing surface are not certified by the SVG model or masonry correlation.",
+      "Stage 12 to 13 changes are chiefly room-floor surfaces; a separate conceptual ondol section explains the concealed work."
+    ]
+  },
+  "runtimeManifest": "assets/illustrations/personal_hanok_v3/sarangchae/MANIFEST.json"
+}

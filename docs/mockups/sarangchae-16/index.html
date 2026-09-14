@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>한 채를 짓는 시간 · Hangul Sori</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="structure.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="artwork-index.js" defer></script>
+  <script src="art-review.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="처음 단계로"><span class="brand-mark">소</span><span>Hangul Sori<span class="brand-sub">한 채를 짓는 시간</span></span></a>
+    <div class="header-actions"><span class="prototype-tag">인터랙션 목업</span><div class="languages" aria-label="표시 언어"><button data-lang="ko" aria-pressed="true">한국어</button><button data-lang="en" aria-pressed="false">EN</button><button data-lang="de" aria-pressed="false">DE</button></div><button id="overview" class="quiet-button"><span class="grid-icon" aria-hidden="true">▦</span><span id="overview-label">전체 과정</span></button></div>
+  </header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow" id="eyebrow">나의 첫 한옥 · 사랑채</p><h1 id="page-title">한 채를 짓는 시간</h1></div><div class="journey-count"><strong id="big-count">01</strong><span>/ 16</span></div></div>
+    <nav id="chapters" class="chapters" aria-label="4개의 장"></nav>
+    <div class="workspace">
+      <section class="art-panel" aria-label="사랑채 건축 단계">
+        <div class="art-topline"><span id="art-state" class="state-tag">구조 도해</span><span class="art-location" id="art-location">함양 일두고택에서 배우다</span></div>
+        <div id="scene" class="scene" aria-live="off"></div>
+        <div class="art-bottomline"><span id="scene-caption">자리에서 시작해, 한 채의 집으로.</span><button id="inspect" class="inspect-button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5M10 7v6M7 10h6"/></svg><span id="inspect-label">자세히 보기</span></button></div>
+      </section>
+      <aside class="lesson" aria-live="polite" aria-atomic="false">
+        <div class="lesson-top"><span id="chapter-label" class="eyebrow">1장 · 자리와 돌</span><span id="phase-icon" aria-hidden="true">01</span></div>
+        <h2 id="stage-title">터와 칸 배치</h2><p id="stage-question" class="question"></p>
+        <div class="lesson-rule"></div>
+        <p class="small-label" id="learn-label">오늘 발견할 한 가지</p><p id="stage-body" class="lesson-body"></p>
+        <div class="word"><span class="word-label" id="word-label">한국어로</span><strong id="term"></strong><span id="translation"></span></div>
+        <button id="detail-action" class="detail-action"><span id="detail-action-label">구조 살펴보기</span><span aria-hidden="true">↗</span></button>
+        <div class="lesson-footer"><span id="next-hint"></span><button id="next" class="primary"><span id="next-label">다음 부재 짓기</span><span id="next-arrow" aria-hidden="true">→</span></button></div>
+      </aside>
+    </div>
+    <section class="timeline-section" aria-label="단계 선택">
+      <div class="timeline-heading"><div><strong id="timeline-label">차곡차곡, 열여섯 번</strong><span id="timeline-hint">단계를 눌러 둘러보세요</span></div><button id="play" class="quiet-button" aria-pressed="false"><span id="play-icon" aria-hidden="true">▷</span><span id="play-label">흐름 재생</span></button></div>
+      <div id="timeline" class="timeline" role="group" aria-label="16단계"></div>
+      <div class="timeline-footer"><button id="previous" class="quiet-button">← 이전 단계</button><p id="prototype-note">1–15단계는 구조와 학습 흐름을 보여주는 도해 목업입니다. 16단계는 승인한 사랑채 원화입니다.</p><span class="keyboard-hint">← →</span></div>
+    </section>
+  </main>
+  <dialog id="detail-dialog" class="detail-dialog"><div class="dialog-head"><div><p class="eyebrow" id="dialog-kicker"></p><h2 id="dialog-title"></h2></div><button class="close" id="close-detail" aria-label="닫기">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="overview-dialog" class="overview-dialog"><div class="dialog-head"><div><p class="eyebrow" id="overview-kicker">열여섯 번의 발견</p><h2 id="overview-title">이렇게 한 채가 됩니다.</h2></div><button class="close" id="close-overview" aria-label="닫기">×</button></div><div id="overview-grid" class="overview-grid"></div><p id="overview-note" class="overview-note">16단계의 완성 이미지는 승인 원화로 고정되어 있습니다.</p></dialog>
+</body>
+</html>

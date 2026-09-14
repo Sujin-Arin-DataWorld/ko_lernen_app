@@ -138,10 +138,5 @@
       "retainedOriginMainPath": "assets_unused/pending_review/personal_hanok_v3/맵구조5.png",
       "sha256": "188385fe16cb69e64b9177a0f9214bb6f210eb06d1687b89270159787a2e3591"
     }
-  ],
-  "excludedDuplicateTree": {
-    "path": "assets_unused/pending_review/personal_hanok_v3/sarangchae_rebuild_v4/",
-    "fileCount": 71,
-    "reason": "Every file is byte-identical to an already tracked file in the Sarangchae construction pilot package."
-  }
+  ]
 }

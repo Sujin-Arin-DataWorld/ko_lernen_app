@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_runtime_artwork_explorer",
+  "entry": "index.html",
+  "date": "2026-09-14",
+  "stageCount": 16,
+  "chapterCount": 4,
+  "languages": [
+    "ko",
+    "en",
+    "de"
+  ],
+  "completedStage": {
+    "sequence": 16,
+    "source": "../../../assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+    "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+    "bytes": 2328995,
+    "canvas": [
+      1536,
+      1024
+    ],
+    "rendering": "Original PNG through an img element with object-fit: contain. No image filters, canvas redraw, new generation, crop or re-encoding.",
+    "artworkModified": false
+  },
+  "intermediateStages": {
+    "range": [
+      1,
+      15
+    ],
+    "type": "Approved 1536x1024 PNG construction artwork; optional SVG principles view",
+    "approvedArtwork": true,
+    "measuredReconstruction": false,
+    "geometryExactlyMatchesCanonical": false,
+    "purpose": "Preview cumulative construction, chapter navigation, close-up lessons and the transition to the fixed completed image.",
+    "specialInteractions": {
+      "4": "Fit the illustrated post foot to a foundation stone.",
+      "13": "Toggle heat flow in a separate generic ondol section; no claim about this building's actual hidden channels.",
+      "9-10": "Conceptual exploded roof layers."
+    },
+    "sharedStructure": {
+      "source": "structure.js",
+      "rule": "Posts, beams, purlin supports and rafters reuse shared world coordinates across stages. Rafter support nodes are derived from purlin top faces.",
+      "check": "HANOK_STRUCTURE.validate() checks declared post, beam, strut and rafter support contacts.",
+      "stageArtworkGate": [
+        "Match approved master column positions, roof junction, bays, end eave supports and both plaques before accepting stage artwork.",
+        "Check actual post-to-beam, beam-to-purlin and purlin-to-rafter placement in the stage artwork.",
+        "Keep camera and existing components fixed across all intermediate stages.",
+        "Stage 16 must use the unchanged approved PNG."
+      ],
+      "limits": "Contact checks apply only to this explanatory model. They do not certify structural safety, historical accuracy or absence of all collisions at the main-roof and numaru-roof junction.",
+      "appliesTo": "The schematic SVG view only; generated artwork is reviewed separately against the approved original."
+    },
+    "artworkManifest": "../../../assets/illustrations/personal_hanok_v3/sarangchae/MANIFEST.json"
+  },
+  "navigation": "Next/previous, chapter jump, 16-step timeline, all-stage gallery, keyboard arrows and timed playback that stops at 16.",
+  "runtimeChanges": false,
+  "awardsProgressOrXP": false,
+  "dependencies": "Static HTML, CSS and vanilla JavaScript; repository Paperlogy fonts. No external network resources or library packages.",
+  "reviewInteractions": [
+    "Switch between candidate artwork and explanatory sketch.",
+    "Overlay the unchanged completed master with adjustable opacity.",
+    "Enlarge the candidate artwork; retain separate fitting, roof-layer and ondol detail diagrams."
+  ],
+  "runtimeCatalog": "../../../assets/data/sarangchae_construction_v3.json"
+}

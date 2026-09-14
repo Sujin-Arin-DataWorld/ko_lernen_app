@@ -127,14 +127,13 @@ void main() {
 
     await tester.pumpWidget(app(textScale: 2));
     await settle(tester);
-    await tester.pumpAndSettle();
 
     final mapKey = find.byKey(const ValueKey('hanok-map-header'));
     expect(mapKey, findsOneWidget);
     final expandedHeight = tester.getRect(mapKey).height;
 
     await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 1));
 
     final collapsedRect = tester.getRect(mapKey);
     // 390 crossAxisExtent -> max(390 * 0.25, 88) == 97.5 (§W-F2 §1).
