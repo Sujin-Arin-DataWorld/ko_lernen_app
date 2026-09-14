@@ -18,7 +18,7 @@ SCENES = [
         "register": "polite", "speechStyle": "polite",
         "relationshipContext": "friends", "sidekick": "jieun",
         "emoji": "🏠", "xpReward": 140, "backdrop": "home",
-        "title": tri("월세 말고 총주거비를 봐요", "Nicht nur die Kaltmiete zählt", "Look beyond the base rent"),
+        "title": tri("월세 뿐만 아니라 관리비도 봐야돼요.", "Nicht nur die Kaltmiete zählt", "Look beyond the base rent"),
         "intro": tri(
             "집을 보러 가기 전에 월세, 관리비, 난방비와 교통비를 한 표에 놓고 비교합니다.",
             "Vor der Besichtigung werden Kaltmiete, Nebenkosten, Heizung und Fahrtkosten in einer Übersicht verglichen.",

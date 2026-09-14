@@ -210,8 +210,8 @@
       "concept_c1_evidence_reasoning"
      ],
      "data": {
-      "targetKo": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
-      "audioKo": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
+      "targetKo": "심사 시작 전에 먼저 말씀드릴 것이 있습니다.",
+      "audioKo": "심사 시작 전에 먼저 말씀드릴 것이 있습니다.",
       "promptDe": "Vor Beginn der Bewertung muss ich etwas offenlegen.",
       "promptEn": "Before we start the review, there is something to disclose."
      }

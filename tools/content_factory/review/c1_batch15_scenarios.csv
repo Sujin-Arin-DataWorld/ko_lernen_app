@@ -1,5 +1,5 @@
 id,level,ko,de,en,field_notes,상태,jin_memo
-c1_conflict_interest_disclose_stake,C1,먼저 밝힐 것이 있습니다,Ich muss zuerst etwas offenlegen,There is something I should disclose first,rights: original; shelf=c1_conflict_interest; grammar=N을 감안하면; gap answer=감안하면,draft,
+c1_conflict_interest_disclose_stake,C1,먼저 미리 말씀드리고 싶은 사항이 있습니다,Ich muss zuerst etwas offenlegen,There is something I should disclose first,rights: original; shelf=c1_conflict_interest; grammar=N을 감안하면; gap answer=감안하면,draft,
 c1_conflict_interest_recuse_request,C1,이 건에서는 빠지겠습니다,Bei diesem Fall trete ich zurück,I'll step back from this one,rights: original; shelf=c1_conflict_interest; grammar=V-지 않는 한; gap answer=않는 한,draft,
 c1_conflict_interest_sponsored_talk,C1,협찬 강연은 어디까지 괜찮을까요,Wie weit sind gesponserte Vorträge in Ordnung,How far are sponsored talks acceptable,rights: original; shelf=c1_conflict_interest; grammar=V-(으)ㄹ 여지가 있다; gap answer=여지가,draft,
 c1_conflict_interest_dual_role,C1,두 역할이 겹칩니다,Zwei Rollen überschneiden sich,Two roles overlap here,rights: original; shelf=c1_conflict_interest; grammar=A/V-는 한편; gap answer=한편,draft,
