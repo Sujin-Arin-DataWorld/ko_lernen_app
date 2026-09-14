@@ -146,9 +146,10 @@ void main() {
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
     // Integrated recovery/privacy widgets plus the five-tab catalog surfaces.
-    expect(actual, hasLength(142));
+    // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
+    expect(actual, hasLength(143));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(142));
+    expect(listed, hasLength(143));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

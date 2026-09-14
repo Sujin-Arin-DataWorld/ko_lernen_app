@@ -4862,6 +4862,13 @@ class Storage {
   static Future<void> setIntroSeen() async =>
       _prefs?.setBool('kl_intro_seen', true);
 
+  /// C8 (EU AI Act Art. 50(2)) — wurde die einmalige "KI-Stimme"-Snackbar
+  /// beim allerersten TTS-Playback schon gezeigt? `introSeen`-Muster.
+  static bool get aiVoiceNoticeShownV1 =>
+      _prefs?.getBool('kl_ai_voice_notice_shown_v1') ?? false;
+  static Future<void> setAiVoiceNoticeShownV1() async =>
+      _prefs?.setBool('kl_ai_voice_notice_shown_v1', true);
+
   // ───────── 한글 쓰기 판정 강도 ─────────
 
   /// 한글 Schreiben 탭에서 획순을 엄격히 검사하는가.

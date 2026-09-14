@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/storage_service.dart';
 import '../../services/tts_service.dart';
 import 'pressable.dart';
 import 'route_observer.dart';
@@ -52,6 +53,25 @@ class SoriSpeech {
   static final ValueNotifier<TtsSpeechPhase> phase =
       ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
   static bool _engineListenerBound = false;
+
+  /// C8 (EU AI Act Art. 50(2)) — [speak] 가 앱 통틀어 처음 호출되는 순간
+  /// 한 번 true 로 뒤집힌다. `speak()` 를 부르는 곳이 34곳 넘게 흩어져
+  /// 있어(직접 호출 스크린들 + 두 래퍼 위젯) 위젯 계층 여러 곳에 훅을
+  /// 심는 대신 이 파사드 하나에서 게이트한다 — [AiVoiceNoticeHost] 가
+  /// `MaterialApp.builder` 아래 정확히 한 번 구독해 스낵바를 띄운다.
+  /// [TtsService] 는 건드리지 않는다 — UI-프리로 남는다.
+  ///
+  /// R3 — [Storage.aiVoiceNoticeShownV1] 은 **여기서 쓰지 않는다**.
+  /// [speak] 는 이 신호를 세우기만 하고, [AiVoiceNoticeHost] 가 실제로
+  /// 스낵바를 띄우는 그 순간에만 영구 플래그를 켠다 — 호스트가 안 걸린
+  /// 화면 트리(미리보기/갤러리 하네스 등)에서 `speak()` 만 불려도
+  /// SharedPreferences 에는 아무것도 안 써야 하기 때문이다
+  /// (`ux_gallery_no_write_test.dart`). 같은 값 재대입은 [ValueNotifier]
+  /// 가 리스너를 다시 안 부르므로, 호스트가 처리하기 전에 `speak()` 가
+  /// 여러 번 불려도 이 신호는 자연히 멱등이다.
+  static final ValueNotifier<bool> aiVoiceNoticePending = ValueNotifier(
+    false,
+  );
 
   /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
   /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
@@ -126,6 +146,7 @@ class SoriSpeech {
     // 삼킬 수 있다(Fix round 1, finding 2).
     TtsService.phase.value = TtsSpeechPhase.idle;
     TtsService.activeSpeechText = null;
+    aiVoiceNoticePending.value = false;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
@@ -133,6 +154,26 @@ class SoriSpeech {
   }
 
   static Future<bool> speak(String text, {String? voice}) {
+    // C8 (EU AI Act Art. 50(2)) — 이 앱에서 실제로 오디오가 나가는 유일한
+    // 진입점이 [speak] 다(직접 호출 스크린 34곳 + [SoriSpeakable]/
+    // [SoriSpeechIndicator] 전부 여기로 모인다). 그래서 "첫 TTS 재생"
+    // 고지의 단일 진실 공급원을 TtsService(엔진)가 아니라 여기, 파사드의
+    // 맨 앞에 둔다 — 합류/dedupe 로직보다 먼저 평가하므로 실제로 새
+    // 오디오를 트는지와 무관하게 "사용자가 재생을 트리거했다"는 의도
+    // 자체를 놓치지 않는다.
+    //
+    // R3 — 여기서는 **읽기만** 한다(Storage 쓰기 없음). 미리보기/갤러리
+    // 하네스처럼 [AiVoiceNoticeHost] 가 안 걸린 화면 트리에서 speak() 가
+    // 불려도 SharedPreferences 에 아무것도 쓰지 않아야 한다
+    // (`ux_gallery_no_write_test.dart` 계약). 실제 스낵바를 띄우는
+    // [AiVoiceNoticeHost] 만 그 순간에 [Storage.setAiVoiceNoticeShownV1] 을
+    // 부른다 — 호스트가 없으면 신호는 대기 상태로 남을 뿐 아무것도
+    // 영구화되지 않는다. `pending`이 이미 true 면 [ValueNotifier] 가 같은
+    // 값 재대입을 무시하므로, 호스트가 아직 처리하기 전에 speak() 가
+    // 여러 번 불려도 스낵바가 중복 예약되지 않는다.
+    if (!Storage.aiVoiceNoticeShownV1) {
+      aiVoiceNoticePending.value = true;
+    }
     final resolvedVoice = voice ?? 'auto';
     final key = '$resolvedVoice|$text';
     final existing = _inFlight[key];

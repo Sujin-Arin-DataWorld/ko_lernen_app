@@ -1711,6 +1711,24 @@ abstract class AppL10n {
   /// **'Verwendete Bibliotheken'**
   String get settingsLicensesSubtitle;
 
+  /// C8 (EU AI Act Art. 50(2)) — Titel der KI-Stimmen-Offenlegung: Einstellungen-Zeile und Snackbar-Überschrift.
+  ///
+  /// In de, this message translates to:
+  /// **'KI-Stimme'**
+  String get aiVoiceNoticeTitle;
+
+  /// C8 (EU AI Act Art. 50(2)) — dauerhafter Offenlegungstext in Einstellungen: KI-Synthese statt menschlicher Sprecher.
+  ///
+  /// In de, this message translates to:
+  /// **'Die koreanischen Stimmen in Hangul Sori werden mit Google Cloud Text-to-Speech (Chirp 3 HD) erzeugt. Es sind keine Aufnahmen echter Sprecher. Aussprache und Betonung können von natürlicher Sprache abweichen.'**
+  String get aiVoiceNoticeBody;
+
+  /// C8 (EU AI Act Art. 50(2)) — einmalige Snackbar beim allerersten TTS-Playback (Storage.aiVoiceNoticeShownV1).
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Stimme ist KI-erzeugt.'**
+  String get aiVoiceNoticeFirstPlay;
+
   /// No description provided for @settingsDataSourcesTitle.
   ///
   /// In de, this message translates to:

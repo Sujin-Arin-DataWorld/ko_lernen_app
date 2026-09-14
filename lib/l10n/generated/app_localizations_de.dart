@@ -954,6 +954,16 @@ class AppL10nDe extends AppL10n {
   String get settingsLicensesSubtitle => 'Verwendete Bibliotheken';
 
   @override
+  String get aiVoiceNoticeTitle => 'KI-Stimme';
+
+  @override
+  String get aiVoiceNoticeBody =>
+      'Die koreanischen Stimmen in Hangul Sori werden mit Google Cloud Text-to-Speech (Chirp 3 HD) erzeugt. Es sind keine Aufnahmen echter Sprecher. Aussprache und Betonung können von natürlicher Sprache abweichen.';
+
+  @override
+  String get aiVoiceNoticeFirstPlay => 'Diese Stimme ist KI-erzeugt.';
+
+  @override
   String get settingsDataSourcesTitle => 'Datenquellen';
 
   @override
