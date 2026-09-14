@@ -1,3 +1,9 @@
+import 'dart:async';
+
+import '../services/pack_completion_record.dart';
+import '../services/storage_service.dart';
+import '../services/local_data_lifetime.dart';
+import '../services/data_loader.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -8,6 +14,7 @@ import '../services/pack_session_srs_ledger.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/pack_completion_recovery_banner.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
@@ -19,6 +26,7 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/window_class.dart';
 
 /// **Vocab Pack Result Screen** — Phase 2 의 클리어 결과 화면.
@@ -41,7 +49,7 @@ import '../widgets/sori/window_class.dart';
 ///   - `feedbackContext`: ContentFeedbackContext
 ///   - `showHardWordsCta`: bool (this session has a threshold-reaching miss)
 ///   - `recallSession`: a typed, ephemeral pack-session evidence ledger
-class VocabPackResultScreen extends StatelessWidget {
+class VocabPackResultScreen extends StatefulWidget {
   final String packId;
   final double bossAccuracy;
   final int bossCorrect;
@@ -56,6 +64,9 @@ class VocabPackResultScreen extends StatelessWidget {
   final CoursePracticeContext? courseContext;
   final bool showHardWordsCta;
   final PackRecallSession? recallSession;
+  final String? durableCompletionId;
+  final int? originalXp;
+  final bool recovered;
 
   const VocabPackResultScreen({
     super.key,
@@ -73,6 +84,9 @@ class VocabPackResultScreen extends StatelessWidget {
     this.courseContext,
     this.showHardWordsCta = false,
     this.recallSession,
+    this.durableCompletionId,
+    this.originalXp,
+    this.recovered = false,
   });
 
   /// Factory aus Navigator-args. Falls Map fehlt → defaults.
@@ -82,6 +96,8 @@ class VocabPackResultScreen extends StatelessWidget {
     final packId = m['packId'] as String? ?? '';
     return VocabPackResultScreen(
       packId: packId,
+      durableCompletionId: m['durableCompletionId'] as String?,
+      originalXp: m['originalXp'] as int?,
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
       bossCorrect: (m['bossCorrect'] as num?)?.toInt() ?? 0,
       bossTotal: (m['bossTotal'] as num?)?.toInt() ?? 0,
@@ -103,10 +119,182 @@ class VocabPackResultScreen extends StatelessWidget {
     );
   }
 
+  factory VocabPackResultScreen.fromRecovered(PackCompletionRecord record) =>
+      VocabPackResultScreen(
+        packId: record.packId,
+        packLevel: record.level,
+        bossAccuracy: record.bossAccuracy,
+        bossCorrect: record.bossCorrect,
+        bossTotal: record.bossTotal,
+        quizCorrect: record.quizCorrect,
+        quizTotal: record.quizTotal,
+        justCleared: record.justCleared,
+        nextUnlockedPackId: record.nextPackId,
+        durableCompletionId: record.id,
+        originalXp: record.xp,
+        recovered: true,
+      );
+
+  @override
+  State<VocabPackResultScreen> createState() => _VocabPackResultScreenState();
+}
+
+class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
+  late final _lease = LocalDataLifetime.capture();
+  late final _generation = PackCompletionStorage.presentationGeneration.value;
+  String? _acknowledgedOwner;
+  String? _acknowledgedId;
+  bool _navigating = false;
+
+  @override
+  void initState() {
+    super.initState();
+    PackCompletionStorage.status.addListener(_captureAcknowledgement);
+    _captureAcknowledgement();
+  }
+
+  void _captureAcknowledgement() {
+    final acknowledged = PackCompletionStorage.acknowledgedResult;
+    if (!_retired &&
+        acknowledged != null &&
+        acknowledged.id == durableCompletionId) {
+      _acknowledgedOwner = acknowledged.owner;
+      _acknowledgedId = acknowledged.id;
+    }
+  }
+
+  @override
+  void dispose() {
+    PackCompletionStorage.status.removeListener(_captureAcknowledgement);
+    super.dispose();
+  }
+
+  String get packId => widget.packId;
+  double get bossAccuracy => widget.bossAccuracy;
+  int get bossCorrect => widget.bossCorrect;
+  int get bossTotal => widget.bossTotal;
+  int get quizCorrect => widget.quizCorrect;
+  int get quizTotal => widget.quizTotal;
+  bool get justCleared => widget.justCleared;
+  String? get nextUnlockedPackId => widget.nextUnlockedPackId;
+  ContentFeedbackContext? get feedbackContext => widget.feedbackContext;
+  CoursePracticeContext? get courseContext => widget.courseContext;
+  bool get showHardWordsCta => widget.showHardWordsCta;
+  PackRecallSession? get recallSession => widget.recallSession;
+  String? get durableCompletionId => widget.durableCompletionId;
+  int? get originalXp => widget.originalXp;
+  bool get recovered => widget.recovered;
+
+  bool get _retired =>
+      !_lease.isCurrent ||
+      _generation != PackCompletionStorage.presentationGeneration.value;
+
+  void _navigate(
+    BuildContext context,
+    VoidCallback action, {
+    String? targetPackId,
+  }) {
+    if (!mounted || _retired || _navigating) {
+      return;
+    }
+    final id = durableCompletionId;
+    if (id == null) {
+      action();
+      return;
+    }
+    _navigating = true;
+    unawaited(() async {
+      try {
+        var targetExists = true;
+        if (targetPackId != null) {
+          if (DataLoader.vocabError != null) {
+            DataLoader.resetVocab();
+            VocabPackService.reset();
+          }
+          final catalog = await VocabPackService.loadForDisplay().timeout(
+            const Duration(seconds: 3),
+          );
+          if (!catalog.isAvailable) {
+            throw StateError('Vocabulary source is unavailable.');
+          }
+          targetExists = catalog.packs.any((pack) => pack.id == targetPackId);
+        }
+        if (!context.mounted || _retired) {
+          return;
+        }
+        final acknowledgedOwner = _acknowledgedId == id
+            ? _acknowledgedOwner
+            : null;
+        if (acknowledgedOwner == null) {
+          final owner = PackCompletionStorage.result?.owner;
+          if (owner == null || !await PackCompletionStorage.acknowledge(id)) {
+            throw const PackCompletionPendingException();
+          }
+          _acknowledgedOwner = owner;
+          _acknowledgedId = id;
+        } else {
+          if (!await PackCompletionStorage.confirmAcknowledgedOwner(
+            acknowledgedOwner,
+            _generation,
+          )) {
+            throw const PackCompletionPendingException();
+          }
+        }
+        if (!context.mounted || _retired) {
+          return;
+        }
+        setState(() {});
+        if (!targetExists) {
+          Navigator.of(context).pushReplacementNamed('/vocab');
+        } else {
+          action();
+        }
+      } on Object {
+        if (context.mounted && !_retired) {
+          final t = AppL10n.of(context);
+          unawaited(
+            showSoriActionNotice(
+              context: context,
+              message: t.loadErrorTryAgain,
+              dismissLabel: t.btnClose,
+              actionLabel: t.btnRetry,
+              onAction: () =>
+                  _navigate(context, action, targetPackId: targetPackId),
+            ),
+          );
+        }
+      } finally {
+        _navigating = false;
+      }
+    }());
+  }
+
   bool get _cleared => bossAccuracy >= PackProgressService.bossClearThreshold;
 
   @override
   Widget build(BuildContext context) {
+    if (durableCompletionId == null) {
+      return _buildResult(context);
+    }
+    return ListenableBuilder(
+      listenable: Listenable.merge([
+        PackCompletionStorage.status,
+        PackCompletionStorage.presentationGeneration,
+      ]),
+      builder: (context, _) {
+        if (_retired) {
+          return const PackCompletionRecoveryScreen(retired: true);
+        }
+        return (_acknowledgedOwner != null &&
+                    _acknowledgedId == durableCompletionId) ||
+                PackCompletionStorage.result?.id == durableCompletionId
+            ? _buildResult(context)
+            : const PackCompletionRecoveryScreen();
+      },
+    );
+  }
+
+  Widget _buildResult(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
     final lang = Localizations.localeOf(context).languageCode;
@@ -138,7 +326,7 @@ class VocabPackResultScreen extends StatelessWidget {
                 _cleared
                     ? _CelebrationSequence(
                         motif: motif,
-                        justCleared: justCleared,
+                        justCleared: justCleared && !recovered,
                         mascotKind: MascotPreference.selectedKind,
                       )
                     : SoriEntrance(
@@ -247,11 +435,15 @@ class VocabPackResultScreen extends StatelessWidget {
                       icon: Icons.arrow_forward_rounded,
                       variant: SoriButtonVariant.filled,
                       accent: SoriColors.success,
-                      onTap: () => Navigator.of(context).pushReplacementNamed(
-                        '/vocab/pack',
-                        arguments: vocabPackRouteArguments(
-                          packId: nextUnlockedPackId!,
+                      onTap: () => _navigate(
+                        context,
+                        () => Navigator.of(context).pushReplacementNamed(
+                          '/vocab/pack',
+                          arguments: vocabPackRouteArguments(
+                            packId: nextUnlockedPackId!,
+                          ),
                         ),
+                        targetPackId: nextUnlockedPackId,
                       ),
                     ),
                   ),
@@ -263,11 +455,14 @@ class VocabPackResultScreen extends StatelessWidget {
                       icon: Icons.refresh_rounded,
                       variant: SoriButtonVariant.filled,
                       accent: SoriColors.warning,
-                      onTap: () => Navigator.of(context).pushReplacementNamed(
-                        '/vocab/pack',
-                        arguments: vocabPackRouteArguments(
-                          packId: packId,
-                          courseContext: courseContext,
+                      onTap: () => _navigate(
+                        context,
+                        () => Navigator.of(context).pushReplacementNamed(
+                          '/vocab/pack',
+                          arguments: vocabPackRouteArguments(
+                            packId: packId,
+                            courseContext: courseContext,
+                          ),
                         ),
                       ),
                     ),
@@ -281,12 +476,15 @@ class VocabPackResultScreen extends StatelessWidget {
                       icon: Icons.keyboard_alt_outlined,
                       variant: SoriButtonVariant.outlined,
                       accent: SoriColors.accent,
-                      onTap: () => Navigator.of(context).pushNamed(
-                        '/vocab/recall',
-                        arguments: <String, dynamic>{
-                          'packId': packId,
-                          'recallSession': recallSession,
-                        },
+                      onTap: () => _navigate(
+                        context,
+                        () => Navigator.of(context).pushNamed(
+                          '/vocab/recall',
+                          arguments: <String, dynamic>{
+                            'packId': packId,
+                            'recallSession': recallSession,
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -300,8 +498,10 @@ class VocabPackResultScreen extends StatelessWidget {
                       icon: Icons.bolt_rounded,
                       variant: SoriButtonVariant.outlined,
                       accent: SoriColors.danger,
-                      onTap: () =>
-                          Navigator.of(context).pushNamed('/hard_words'),
+                      onTap: () => _navigate(
+                        context,
+                        () => Navigator.of(context).pushNamed('/hard_words'),
+                      ),
                     ),
                   ),
                 ],
@@ -323,7 +523,8 @@ class VocabPackResultScreen extends StatelessWidget {
                     // 없는 진입 경로(코스 미션, '/path')에서 isFirst 까지
                     // 밀려나 잘못된 화면(Home)에 도착했다 — 아래에 아무것도
                     // 없으면 pop() 은 안전한 no-op.
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () =>
+                        _navigate(context, () => Navigator.of(context).pop()),
                   ),
                 ),
               ],
@@ -335,13 +536,16 @@ class VocabPackResultScreen extends StatelessWidget {
     // The V2 journey itself never asks for tracking. Reuse the existing
     // explicit, default-off invitation only after a verified first pack clear;
     // failures, abandoned attempts, and repeat clears never trigger it.
-    if (_cleared && justCleared) {
+    if (_cleared && justCleared && !recovered) {
       return ConsentInviteTrigger(child: result);
     }
     return result;
   }
 
   int _xpAwarded() {
+    if (originalXp != null) {
+      return originalXp!;
+    }
     // Plan §4.4: wordsTotal*5 + bossCorrect*10. wordsTotal unbekannt im
     // Result-Screen — approx via quizTotal + bossTotal.
     final wordsTotal = quizTotal + bossTotal;

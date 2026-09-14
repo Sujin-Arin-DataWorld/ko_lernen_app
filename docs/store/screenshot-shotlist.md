@@ -1,6 +1,6 @@
 # iOS and iPad Screenshot Shot List
 
-Use this as the capture brief for the final signed iOS build. Screenshot
+Use this as the capture brief for the exact green-main iOS simulator build. Screenshot
 directories are reserved as
 `docs/store/captures/app-store-ios/<locale>/<device>/`; they become valid
 submission material only when populated with actual iOS captures.
@@ -18,37 +18,28 @@ submission material only when populated with actual iOS captures.
 
 ## Required 13-inch iPad set
 
-Capture the landscape map first. It is the clearest proof that Hangul Sori is
-a learning world rather than a static course list.
+Capture five current learning surfaces in portrait at 2064 × 2752. The
+automated capture uses a newly created iPad Pro 13-inch (M4) simulator and the
+same app binary as the iPhone set.
 
 | Order | Required size | App state | Suggested caption (DE / EN) |
 |---|---:|---|---|
-| 1 | 2752 × 2064 landscape | Interactive personal Hanok map; several places visible and a place can be opened | `Dein Hanok wächst mit dir` / `Your hanok grows with you` |
-| 2 | 2064 × 2752 portrait | Sarangbang with today's recommended study and a clear start action | `Heute im Sarangbang lernen` / `Study in the Sarangbang today` |
-| 3 | 2752 × 2064 landscape | Room furnishing with a real owned decoration and picker state | `Richte deinen Lernort ein` / `Furnish your learning place` |
-| 4 | 2064 × 2752 portrait | A themed vocabulary pack or real-life scenario in progress | `Koreanisch für den Alltag` / `Korean for everyday life` |
-| 5 | 2752 × 2064 landscape | Progress surface with Hanok growth and a completed quest reward | `Lernen wird sichtbar` / `Make learning visible` |
-
-The first iPad capture is therefore the interactive personal Hanok map in
-landscape at 2752 × 2064. Capture both orientations before choosing the final
-set, even if App Store Connect ultimately needs fewer images.
+| 1 | 2064 × 2752 portrait | Learn catalog with current activity choices | `Dein Koreanisch, dein Weg` / `Learn Korean your way` |
+| 2 | 2064 × 2752 portrait | A1 learning phases from the bundled catalog | `Klare Ziele von A1 bis C2` / `Clear goals from A1 to C2` |
+| 3 | 2064 × 2752 portrait | A real Phase reading task and its teaching material | `Verstehen und direkt üben` / `Understand, then practise` |
+| 4 | 2064 × 2752 portrait | The current themed vocabulary catalog | `Wortschatz für deinen Alltag` / `Vocabulary for everyday life` |
+| 5 | 2064 × 2752 portrait | Airport real-life scenario introduction | `Übe echte Situationen` / `Practise real situations` |
 
 ## Required 6.9-inch iPhone set
 
-Use the current 6.9-inch iPhone simulator size, `1290 × 2796` portrait or
-`2796 × 1290` landscape, from the same final build. Prepare 4–6 distinct
-screens from this set:
-
-1. Personal Hanok map, with a clearly reachable place.
-2. Sarangbang, showing today's recommended study.
-3. Hangul learning or a themed vocabulary pack.
-4. A real-life scenario in progress.
-5. Bojagi reward or room furnishing.
-6. Progress or a completed special quest.
+Use the iPhone 16 Pro Max simulator at `1320 × 2868` portrait from the same
+exact app binary. Capture the same five learning surfaces in DE and EN so the
+device sets remain truthful and directly comparable. No earned reward,
+furnishing, paywall, or unfinished Hanok image belongs in this release set.
 
 ## Before you capture
 
-1. Use a review-safe guest account or a freshly reset simulator state.
+1. Use the workflow's freshly created simulator and local returning-guest state.
 2. Verify that the chosen state contains no private test data, placeholder
    images, debug labels, or unfinished translations.
 3. Capture only an appearance supported by the final candidate; do not add
@@ -58,3 +49,8 @@ screens from this set:
    `python tool/check_app_store_screenshots.py --target iphone-6.9 <folder>`.
 5. Recheck the current Apple screenshot rules in App Store Connect immediately
    before upload.
+
+The manual `.github/workflows/app_store_screenshots.yml` workflow accepts only
+a full SHA on `main` with successful exact-SHA push CI. Its receipt records the
+source, Xcode and simulator versions, device identities, locale, dimensions,
+RGB PNG hashes, validator result, and driver logs.

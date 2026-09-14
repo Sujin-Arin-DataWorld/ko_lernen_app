@@ -60,25 +60,37 @@ class CustomPackCorpusMatch {
     }
     return CustomPackCorpusMatch(
       cloze: cloze
-          .where((item) => CustomPackCorpusResolver.matches(item.answer, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.matches(item.answer, selected),
+          )
           .toList(growable: false),
       satz: satz
-          .where((item) => CustomPackCorpusResolver.matches(item.vocabKo, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.matches(item.vocabKo, selected),
+          )
           .toList(growable: false),
       vocab: vocab
-          .where((item) => CustomPackCorpusResolver.matches(item.korean, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.matches(item.korean, selected),
+          )
           .toList(growable: false),
       smalltalk: smalltalk
-          .where((item) => CustomPackCorpusResolver.smalltalkMatches(item, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.smalltalkMatches(item, selected),
+          )
           .toList(growable: false),
       pronunciation: pronunciation
           .where((item) => CustomPackCorpusResolver.occursIn(item.ko, selected))
           .toList(growable: false),
       scenarios: scenarios
-          .where((item) => CustomPackCorpusResolver.scenarioMatches(item, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.scenarioMatches(item, selected),
+          )
           .toList(growable: false),
       wordWeb: wordWeb
-          .where((item) => CustomPackCorpusResolver.wordWebMatches(item, selected))
+          .where(
+            (item) => CustomPackCorpusResolver.wordWebMatches(item, selected),
+          )
           .toList(growable: false),
     );
   }
@@ -233,7 +245,8 @@ class CustomPackCorpusResolver {
       }
     }
     for (final expression in cluster.expressions) {
-      if (matches(expression.ko, selected) || occursIn(expression.ko, selected)) {
+      if (matches(expression.ko, selected) ||
+          occursIn(expression.ko, selected)) {
         return true;
       }
     }
@@ -328,14 +341,28 @@ class CustomPackCorpusResolver {
   }
 
   static List<Vocab> notebookChosung(Iterable<ExtractedWord> words) {
-    return notebookVocab(words)
-        .where((item) => isHangulOnly(item.korean))
-        .toList(growable: false);
+    return notebookVocab(
+      words,
+    ).where((item) => isHangulOnly(item.korean)).toList(growable: false);
   }
 
   static Future<CustomPackCorpusLoadResult> forWords(
     Iterable<String> koreanHeadwords,
   ) async {
+    // The notebook's retry calls this boundary again. Invalidate only failed
+    // snapshots so healthy catalogs and the learner's selected rows survive.
+    if (DataLoader.vocabError != null) {
+      DataLoader.resetVocab();
+    }
+    if (SmalltalkLoader.lastError != null) {
+      SmalltalkLoader.reset();
+    }
+    if (PronunciationPhraseLoader.lastError != null) {
+      PronunciationPhraseLoader.reset();
+    }
+    if (ScenarioLoader.fullCorpusError != null) {
+      ScenarioLoader.reset();
+    }
     final failed = <String>[];
     final cloze = await _loadCatalog<List<ClozeItem>>(
       'cloze',
@@ -354,7 +381,7 @@ class CustomPackCorpusResolver {
       failed,
       DataLoader.loadVocab,
       empty: const <Vocab>[],
-      errorOf: () => DataLoader.lastError,
+      errorOf: () => DataLoader.vocabError,
     );
     try {
       await SmalltalkLoader.load();
@@ -376,7 +403,7 @@ class CustomPackCorpusResolver {
       failed,
       ScenarioLoader.load,
       empty: const <Scenario>[],
-      errorOf: () => ScenarioLoader.lastError,
+      errorOf: () => ScenarioLoader.fullCorpusError,
     );
     final wordWeb = await _loadCatalog<List<WordRelationCluster>>(
       'wordWeb',

@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { promisify } from "node:util";
+import { assertDeletionPageContract } from "./deletion-page-contract.mjs";
 
 const execFileAsync = promisify(execFile);
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/sbvJNQSt";
@@ -25,7 +26,7 @@ const routeMarkers = new Map([
   ["/support", "Direkter Kontakt"],
   ["/privacy", "Einwilligungsverwaltung mit Cookiebot"],
   ["/terms", "Kostenloser Start"],
-  ["/account-deletion", "Konto direkt in der App löschen"],
+  ["/account-deletion", "Dauerhafte Kontolöschung per E-Mail anfragen"],
   ["/impressum", "Anbieterkennzeichnung"],
   ["/press", "Hangul Sori in Kürze"],
 ]);
@@ -229,6 +230,9 @@ for (const origin of origins) {
 
     const html = await response.text();
     collectReferencedBuildAssets(html, url, origin);
+    if (path === "/account-deletion") {
+      assertDeletionPageContract(html, { expectedLanguage: "de" });
+    }
     assert.ok(
       visibleText(html).includes(marker),
       `${url} must contain the visible text ${JSON.stringify(marker)}`,

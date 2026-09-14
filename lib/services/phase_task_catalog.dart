@@ -8,17 +8,19 @@ export '../models/phase_objective_binding.dart';
 class PhaseTaskCatalog {
   PhaseTaskCatalog._(this.tasks, this.objectives, this.publications);
   static const assetPath = 'assets/data/phase_tasks.json';
+  static const phaseAssetPath = 'assets/data/learning_phases.json';
+  static PhaseTaskCatalog? _cached;
   final List<PhaseTask> tasks;
   final List<PhaseObjectiveBinding> objectives;
   final List<PhasePublication> publications;
   static Future<PhaseTaskCatalog> load() async {
+    final cached = _cached;
+    if (cached != null) return cached;
     final json =
-        jsonDecode(await rootBundle.loadString(assetPath))
+        jsonDecode(await rootBundle.loadString(assetPath, cache: false))
             as Map<String, dynamic>;
     final phases =
-        jsonDecode(
-              await rootBundle.loadString('assets/data/learning_phases.json'),
-            )
+        jsonDecode(await rootBundle.loadString(phaseAssetPath, cache: false))
             as Map<String, dynamic>;
     final catalog = parse(json);
     if (phases['schemaVersion'] != 2 ||
@@ -41,8 +43,10 @@ class PhaseTaskCatalog {
     if (linked.length != catalog.tasks.length) {
       throw const FormatException('Unbound published Phase task');
     }
-    return catalog;
+    return _cached = catalog;
   }
+
+  static void resetForTesting() => _cached = null;
 
   static PhaseTaskCatalog parse(Map<String, dynamic> json) {
     if (![1, 2].contains(json['schemaVersion']) ||

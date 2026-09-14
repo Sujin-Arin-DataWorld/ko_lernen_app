@@ -1,8 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
+import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart'
+    show debugPrint, visibleForTesting, ValueNotifier;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 import '../models/scenario_corpus_generation.dart';
+import '../models/grammar_study_plan.dart';
 
 import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
@@ -10,6 +15,12 @@ import '../models/learner_level.dart';
 import '../models/personal_room.dart';
 import 'local_data_lifetime.dart';
 import 'media_mutation_lock.dart';
+import 'srs_commit_journal.dart';
+import 'pack_completion_record.dart';
+import 'pack_completion_owner.dart';
+
+part 'pack_completion_storage.dart';
+part 'privacy_choice_storage.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -55,16 +66,164 @@ class _ListeningRewardClaim {
   Map<String, Object> toJson() => {'xp': earnedXp, 'earnedOn': earnedOn};
 }
 
+class _ScenarioRewardClaim {
+  const _ScenarioRewardClaim({required this.scenarioId, required this.reward});
+
+  final String scenarioId;
+  final _ListeningRewardClaim reward;
+
+  factory _ScenarioRewardClaim.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['scenarioId'] is! String ||
+        (value['scenarioId'] as String).trim().isEmpty) {
+      throw const FormatException('Scenario reward claim is invalid.');
+    }
+    return _ScenarioRewardClaim(
+      scenarioId: value['scenarioId'] as String,
+      reward: _ListeningRewardClaim.fromJson(value),
+    );
+  }
+
+  Map<String, Object> toJson() => {
+    'scenarioId': scenarioId,
+    ...reward.toJson(),
+  };
+}
+
+class _OrdinaryXpDay {
+  const _OrdinaryXpDay({required this.date, required this.xp});
+
+  final String date;
+  final int xp;
+
+  factory _OrdinaryXpDay.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['date'] is! String ||
+        !Storage._isCanonicalStudyLogDate(value['date'] as String) ||
+        value['xp'] is! int) {
+      throw const FormatException('Ordinary XP day is invalid.');
+    }
+    return _OrdinaryXpDay(
+      date: value['date'] as String,
+      xp: value['xp'] as int,
+    );
+  }
+
+  Map<String, Object> toJson() => {'date': date, 'xp': xp};
+}
+
+/// One award retained while the same completion is retried in this session.
+/// A new completion uses a new attempt, even if its XP amount is identical.
+class XpAwardAttempt {
+  XpAwardAttempt(
+    this.amount, {
+    DateTime? earnedAt,
+    this.dailyCompletionBonus,
+    this.kkeunmariWin = false,
+  }) : _earnedOn = Storage._isoOf(earnedAt ?? DateTime.now()),
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._xpAwardEpoch;
+
+  final int amount;
+
+  /// Null for ordinary awards; zero also records daily completion without bonus.
+  final int? dailyCompletionBonus;
+  final bool kkeunmariWin;
+  int _earnedXp = 0;
+  int get earnedXp => _committed ? _earnedXp : 0;
+  final String _earnedOn;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool _committed = false;
+
+  bool get _isCurrent => _lifetime.isCurrent && _epoch == Storage._xpAwardEpoch;
+
+  Future<void> save() => Storage._enqueueXpRewardMutation(
+    () => Storage._saveOrdinaryXpAward(this),
+  );
+}
+
+class _DailyChallengeState {
+  const _DailyChallengeState(this.date, this.streak);
+  final String date;
+  final int streak;
+  factory _DailyChallengeState.fromJson(Object? value) {
+    if (value is! Map<String, dynamic> ||
+        value['date'] is! String ||
+        !Storage._isCanonicalStudyLogDate(value['date'] as String) ||
+        value['streak'] is! int ||
+        (value['streak'] as int) < 1) {
+      throw const FormatException('Invalid daily challenge state.');
+    }
+    return _DailyChallengeState(
+      value['date'] as String,
+      value['streak'] as int,
+    );
+  }
+  Map<String, Object> toJson() => {'date': date, 'streak': streak};
+}
+
+/// One personal-best comparison, retained across native acknowledgement loss.
+class GameBestAttempt {
+  GameBestAttempt(this.id, this.score, {this.higherIsBetter = true})
+    : _lifetime = LocalDataLifetime.capture(),
+      _epoch = Storage._xpAwardEpoch;
+  final String id;
+  final int score;
+  final bool higherIsBetter;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool? _wasNewBest;
+  bool _saved = false;
+  int? _best;
+  int? get best => _saved ? _best : null;
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+    if (_epoch != Storage._xpAwardEpoch) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  bool _beats(int? previous) =>
+      previous == null ||
+      (higherIsBetter ? score > previous : score < previous);
+  Future<bool> save() =>
+      Storage._enqueueXpRewardMutation(() => Storage._saveGameBest(this));
+}
+
+class _PendingOrdinaryXpWrite {
+  const _PendingOrdinaryXpWrite({
+    required this.attempt,
+    required this.before,
+    required this.encoded,
+  });
+
+  final XpAwardAttempt attempt;
+  final String before;
+  final String encoded;
+}
+
 /// One durable value is both the listening-claim record and the XP authority.
 /// A crash can therefore never leave "XP written, claim missing" or the
 /// inverse. `kl_xp` remains a best-effort compatibility mirror for old builds.
 class _XpRewardLedger {
-  const _XpRewardLedger({required this.totalXp, required this.claims});
+  const _XpRewardLedger({
+    required this.totalXp,
+    required this.claims,
+    this.scenarioClaims = const {},
+    this.ordinaryDay,
+    this.dailyChallenge,
+    this.kkeunmariWins,
+  });
 
   static const int schemaVersion = 1;
 
   final int totalXp;
   final Map<String, _ListeningRewardClaim> claims;
+  final Map<String, _ScenarioRewardClaim> scenarioClaims;
+  final _OrdinaryXpDay? ordinaryDay;
+  final _DailyChallengeState? dailyChallenge;
+  final int? kkeunmariWins;
 
   factory _XpRewardLedger.decode(String raw) {
     final value = jsonDecode(raw);
@@ -83,14 +242,41 @@ class _XpRewardLedger {
       }
       claims[entry.key] = _ListeningRewardClaim.fromJson(entry.value);
     }
+    final rawScenarios = value.containsKey('scenarioClaims')
+        ? value['scenarioClaims']
+        : <String, dynamic>{};
+    if (rawScenarios is! Map<String, dynamic>) {
+      throw const FormatException('Scenario reward claims are invalid.');
+    }
+    final scenarios = <String, _ScenarioRewardClaim>{};
+    for (final entry in rawScenarios.entries) {
+      if (entry.key.trim().isEmpty) {
+        throw const FormatException('Scenario attempt ID is empty.');
+      }
+      scenarios[entry.key] = _ScenarioRewardClaim.fromJson(entry.value);
+    }
+    final wins = value['kkeunmariWins'];
+    if (value.containsKey('kkeunmariWins') && (wins is! int || wins < 0)) {
+      throw const FormatException('Invalid kkeunmari win count.');
+    }
     return _XpRewardLedger(
+      kkeunmariWins: wins as int?,
       totalXp: value['totalXp'] as int,
       claims: Map.unmodifiable(claims),
+      scenarioClaims: Map.unmodifiable(scenarios),
+      ordinaryDay: value.containsKey('ordinaryDay')
+          ? _OrdinaryXpDay.fromJson(value['ordinaryDay'])
+          : null,
+      dailyChallenge: value.containsKey('dailyChallenge')
+          ? _DailyChallengeState.fromJson(value['dailyChallenge'])
+          : null,
     );
   }
 
   String encode() {
     final orderedClaims = claims.entries.toList()
+      ..sort((a, b) => a.key.compareTo(b.key));
+    final orderedScenarios = scenarioClaims.entries.toList()
       ..sort((a, b) => a.key.compareTo(b.key));
     return jsonEncode({
       'version': schemaVersion,
@@ -98,15 +284,29 @@ class _XpRewardLedger {
       'listeningClaims': {
         for (final entry in orderedClaims) entry.key: entry.value.toJson(),
       },
+      'scenarioClaims': {
+        for (final entry in orderedScenarios) entry.key: entry.value.toJson(),
+      },
+      if (ordinaryDay != null) 'ordinaryDay': ordinaryDay!.toJson(),
+      if (dailyChallenge != null) 'dailyChallenge': dailyChallenge!.toJson(),
+      if (kkeunmariWins != null) 'kkeunmariWins': kkeunmariWins,
     });
   }
 
   _XpRewardLedger copyWith({
     int? totalXp,
     Map<String, _ListeningRewardClaim>? claims,
+    Map<String, _ScenarioRewardClaim>? scenarioClaims,
+    _OrdinaryXpDay? ordinaryDay,
+    _DailyChallengeState? dailyChallenge,
+    int? kkeunmariWins,
   }) => _XpRewardLedger(
     totalXp: totalXp ?? this.totalXp,
     claims: Map.unmodifiable(claims ?? this.claims),
+    scenarioClaims: Map.unmodifiable(scenarioClaims ?? this.scenarioClaims),
+    ordinaryDay: ordinaryDay ?? this.ordinaryDay,
+    dailyChallenge: dailyChallenge ?? this.dailyChallenge,
+    kkeunmariWins: kkeunmariWins ?? this.kkeunmariWins,
   );
 }
 
@@ -140,7 +340,23 @@ abstract interface class PreferenceStringListStore {
   Future<bool> remove(String key);
 }
 
+/// Injectable integer preference boundary for confirmed vocabulary progress.
+abstract interface class PreferenceIntStore {
+  bool containsKey(String key);
+  int? getInt(String key);
+  Future<void> reload();
+  Future<bool> setInt(String key, int value);
+}
+
 /// Outcome of one atomic historical study-log date restore.
+enum SrsRecoveryStatus { ready, pending, recovering, retryRequired, blocked }
+
+class SrsRecoveryPendingException implements Exception {
+  const SrsRecoveryPendingException();
+  @override
+  String toString() => 'SRS/history recovery is not confirmed.';
+}
+
 enum StudyLogDateRestoreResult {
   written,
   skippedExisting,
@@ -149,6 +365,204 @@ enum StudyLogDateRestoreResult {
 
 /// Outcome of one grammar-plan cloud restore attempt.
 enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
+
+enum _ConfirmedChoiceDomain {
+  likedContent('kl_liked_content_v1'),
+  vokFavorite('kl_vok_favorites');
+
+  const _ConfirmedChoiceDomain(this.preferenceKey);
+
+  final String preferenceKey;
+}
+
+/// One explicit add/remove choice for the two learner favorite lists.
+///
+/// The item and desired state are frozen at admission so Retry cannot invert a
+/// choice or accidentally act on a newly rendered card.
+final class ConfirmedLocalChoiceOperation {
+  ConfirmedLocalChoiceOperation._(
+    this._assertCurrentOwner, {
+    required this.itemKey,
+    required this.desired,
+    required _ConfirmedChoiceDomain domain,
+  }) : _domain = domain,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._confirmedChoiceEpoch,
+       _revision = Storage._admitConfirmedChoice(domain, itemKey);
+
+  final String itemKey;
+  final bool desired;
+  final _ConfirmedChoiceDomain _domain;
+  final void Function()? _assertCurrentOwner;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  final int _revision;
+  Future<bool>? _activeSave;
+  bool _completed = false;
+  bool _retired = false;
+
+  Future<bool> save() {
+    try {
+      _assertCurrent();
+    } on Object catch (error, stackTrace) {
+      return Future<bool>.error(error, stackTrace);
+    }
+    final active = _activeSave;
+    if (active != null) {
+      return active;
+    }
+    if (_completed) {
+      return Future<bool>.value(desired);
+    }
+    late final Future<bool> result;
+    result = Storage._saveConfirmedChoice(this).whenComplete(() {
+      if (identical(result, _activeSave)) {
+        _activeSave = null;
+      }
+    });
+    _activeSave = result;
+    return result;
+  }
+
+  void _assertCurrent() {
+    _assertCurrentOwner?.call();
+    if (_retired ||
+        !_lifetime.isCurrent ||
+        _epoch != Storage._confirmedChoiceEpoch ||
+        Storage._learningResetCount > 0 ||
+        Storage._confirmedChoiceRevisions[Storage._confirmedChoiceRevisionKey(
+              _domain,
+              itemKey,
+            )] !=
+            _revision) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  void retire() {
+    _retired = true;
+  }
+}
+
+class GrammarPlanConflictException implements Exception {
+  const GrammarPlanConflictException(this.level);
+
+  final String level;
+
+  @override
+  String toString() => 'Grammar plan changed while saving $level.';
+}
+
+class GrammarPlanRecoveryValueException implements Exception {
+  const GrammarPlanRecoveryValueException();
+
+  @override
+  String toString() => 'The stored grammar plan cannot be safely updated.';
+}
+
+/// One screen-owned, retryable grammar-plan mutation.
+///
+/// The accepted semantic target is frozen at admission. Native calls finish on
+/// every attempt; a later explicit [save] reconciles an indeterminate reply.
+final class GrammarPlanWriteOperation {
+  GrammarPlanWriteOperation._({
+    required GrammarStudyPlan plan,
+    required this.selectedLevel,
+    required this.requiresSelectedLevel,
+    this._assertCurrentOwner,
+  }) : plan = _freezePlan(plan),
+       _lifetime = LocalDataLifetime.capture(),
+       _revision = Storage._admitGrammarPlanOperation(),
+       _baselineRaw = Storage.grammarPlanRawJson,
+       _baselineSelectedLevel = Storage.grammarPlanLevel,
+       _baselineSelectedLevelRevision =
+           Storage._confirmedGrammarPlanLevelRevision;
+
+  factory GrammarPlanWriteOperation.start({
+    required GrammarStudyPlan plan,
+    void Function()? assertCurrentOwner,
+  }) {
+    assertCurrentOwner?.call();
+    return GrammarPlanWriteOperation._(
+      plan: plan,
+      selectedLevel: plan.level,
+      requiresSelectedLevel: true,
+      assertCurrentOwner: assertCurrentOwner,
+    );
+  }
+
+  factory GrammarPlanWriteOperation.completeDay({
+    required GrammarStudyPlan plan,
+    void Function()? assertCurrentOwner,
+  }) {
+    assertCurrentOwner?.call();
+    return GrammarPlanWriteOperation._(
+      plan: plan,
+      selectedLevel: null,
+      requiresSelectedLevel: false,
+      assertCurrentOwner: assertCurrentOwner,
+    );
+  }
+
+  final GrammarStudyPlan plan;
+  final String? selectedLevel;
+  final bool requiresSelectedLevel;
+  final void Function()? _assertCurrentOwner;
+  final LocalDataLifetimeLease _lifetime;
+  final int _revision;
+  final String _baselineRaw;
+  final String? _baselineSelectedLevel;
+  final int _baselineSelectedLevelRevision;
+  String? _candidateRaw;
+  bool _planConfirmed = false;
+  bool _selectedLevelConfirmed = false;
+  bool _completed = false;
+  bool _retired = false;
+  Future<void>? _activeSave;
+
+  Future<void> save() {
+    _assertCurrent();
+    final active = _activeSave;
+    if (active != null) {
+      return active;
+    }
+    if (_completed) {
+      return Future<void>.value();
+    }
+    late final Future<void> result;
+    result = Storage._saveGrammarPlanOperation(this).whenComplete(() {
+      if (identical(result, _activeSave)) {
+        _activeSave = null;
+      }
+    });
+    _activeSave = result;
+    return result;
+  }
+
+  void retire() {
+    _retired = true;
+  }
+
+  void _assertCurrent() {
+    _assertCurrentOwner?.call();
+    if (_retired || !_lifetime.isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (Storage._learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  static GrammarStudyPlan _freezePlan(GrammarStudyPlan plan) =>
+      GrammarStudyPlan(
+        level: plan.level,
+        itemsPerDay: plan.itemsPerDay,
+        servedIdsByDate: Map<String, List<String>>.unmodifiable({
+          for (final entry in plan.servedIdsByDate.entries)
+            entry.key: List<String>.unmodifiable(entry.value),
+        }),
+      );
+}
 
 /// Injectable boolean preference boundary used by strict onboarding commits.
 ///
@@ -244,6 +658,35 @@ class _StringListPreferenceState {
 
   @override
   int get hashCode => Object.hash(isPresent, Object.hashAll(value ?? const []));
+}
+
+class _IntPreferenceState {
+  const _IntPreferenceState._({required this.isPresent, this.value});
+
+  const _IntPreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final int? value;
+
+  static _IntPreferenceState read(PreferenceIntStore store, String key) {
+    if (!store.containsKey(key)) {
+      return const _IntPreferenceState.absent();
+    }
+    final value = store.getInt(key);
+    if (value == null) {
+      throw StateError('Preference $key is not an int.');
+    }
+    return _IntPreferenceState._(isPresent: true, value: value);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _IntPreferenceState &&
+      other.isPresent == isPresent &&
+      other.value == value;
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
 }
 
 class _BoolPreferenceState {
@@ -364,7 +807,7 @@ class _SharedPreferenceRemovalStore implements PreferenceRemovalStore {
   Object? getValue(String key) => preferences.get(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -386,7 +829,7 @@ class _SharedPreferenceStringStore implements PreferenceStringStore {
   String? getString(String key) => preferences.getString(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -408,7 +851,7 @@ class _SharedPreferenceStringListStore implements PreferenceStringListStore {
   List<String>? getStringList(String key) => preferences.getStringList(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> remove(String key) => preferences.remove(key);
@@ -416,6 +859,24 @@ class _SharedPreferenceStringListStore implements PreferenceStringListStore {
   @override
   Future<bool> setStringList(String key, List<String> value) =>
       preferences.setStringList(key, value);
+}
+
+class _SharedPreferenceIntStore implements PreferenceIntStore {
+  const _SharedPreferenceIntStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  int? getInt(String key) => preferences.getInt(key);
+
+  @override
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
+
+  @override
+  Future<bool> setInt(String key, int value) => preferences.setInt(key, value);
 }
 
 class _SharedPreferenceBoolStore implements PreferenceBoolStore {
@@ -430,7 +891,7 @@ class _SharedPreferenceBoolStore implements PreferenceBoolStore {
   bool? getBool(String key) => preferences.getBool(key);
 
   @override
-  Future<void> reload() => preferences.reload();
+  Future<void> reload() => Storage.reloadForPackCompletion(preferences);
 
   @override
   Future<bool> setBool(String key, bool value) =>
@@ -465,6 +926,191 @@ class SrsCard {
     nextReviewIso: j['n'] as String? ?? '',
     reviewCount: (j['r'] as num?)?.toInt() ?? 0,
   );
+}
+
+/// One actual judgment, retained by a caller that offers persistence retry.
+/// A new judgment must use a new attempt; attempts are never serialized.
+class SrsReviewAttempt {
+  SrsReviewAttempt({
+    required this.id,
+    required this.gotIt,
+    this.recordToStudyLog = true,
+  }) : _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._srsAttemptEpoch;
+
+  final String id;
+  final bool gotIt;
+  final bool recordToStudyLog;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+  bool _completed = false;
+  String? _judgmentDate;
+
+  bool get _isCurrent =>
+      _lifetime.isCurrent && _epoch == Storage._srsAttemptEpoch;
+
+  /// Caller authority ends as soon as reset/replacement is admitted, even
+  /// while an immutable storage obligation is still draining.
+  bool get isCurrent => _isCurrent && Storage._learningResetCount == 0;
+
+  Future<bool> save() => Storage._enqueueSrsReviewMutation(
+    (generation) => Storage._srsReviewTransaction(this, generation: generation),
+  );
+}
+
+/// One accepted vocabulary-progress decision retained across persistence retry.
+///
+/// A caller creates this beside its retained SRS attempt and reuses the same
+/// instance until [save] returns true. Successfully committed fields are never
+/// applied again when a later field in the batch needs recovery.
+class VocabProgressAttempt {
+  VocabProgressAttempt({
+    this.correctDelta = 0,
+    this.wrongDelta = 0,
+    this.skippedDelta = 0,
+    this.cursor,
+    this.seenId,
+    this.wrongCountId,
+  }) : minimumCorrect = null,
+       minimumWrong = null,
+       minimumSkipped = null,
+       absoluteCorrect = null,
+       absoluteWrong = null,
+       absoluteSkipped = null,
+       restoreSeenIds = const <String>[],
+       restoreWrongCountJson = null,
+       restoreWrongCountOnlyIfEmpty = false,
+       assertCurrentWrite = null,
+       bypassLearningWriteLock = false,
+       isRestore = false,
+       assert(correctDelta >= 0),
+       assert(wrongDelta >= 0),
+       assert(skippedDelta >= 0),
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  VocabProgressAttempt._absolute({
+    this.absoluteCorrect,
+    this.absoluteWrong,
+    this.absoluteSkipped,
+    this.cursor,
+    this.bypassLearningWriteLock = false,
+  }) : correctDelta = 0,
+       wrongDelta = 0,
+       skippedDelta = 0,
+       seenId = null,
+       wrongCountId = null,
+       minimumCorrect = null,
+       minimumWrong = null,
+       minimumSkipped = null,
+       restoreSeenIds = const <String>[],
+       restoreWrongCountJson = null,
+       restoreWrongCountOnlyIfEmpty = false,
+       assertCurrentWrite = null,
+       isRestore = false,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  VocabProgressAttempt._restore({
+    this.minimumCorrect,
+    this.minimumWrong,
+    this.minimumSkipped,
+    this.cursor,
+    required this.restoreSeenIds,
+    this.restoreWrongCountJson,
+    this.restoreWrongCountOnlyIfEmpty = true,
+    this.assertCurrentWrite,
+  }) : correctDelta = 0,
+       wrongDelta = 0,
+       skippedDelta = 0,
+       absoluteCorrect = null,
+       absoluteWrong = null,
+       absoluteSkipped = null,
+       seenId = null,
+       wrongCountId = null,
+       bypassLearningWriteLock = true,
+       isRestore = true,
+       _lifetime = LocalDataLifetime.capture(),
+       _epoch = Storage._vocabProgressAttemptEpoch;
+
+  final int correctDelta;
+  final int wrongDelta;
+  final int skippedDelta;
+  final int? cursor;
+  final String? seenId;
+  final String? wrongCountId;
+  final int? minimumCorrect;
+  final int? minimumWrong;
+  final int? minimumSkipped;
+  final int? absoluteCorrect;
+  final int? absoluteWrong;
+  final int? absoluteSkipped;
+  final List<String> restoreSeenIds;
+  final String? restoreWrongCountJson;
+  final bool restoreWrongCountOnlyIfEmpty;
+  final void Function()? assertCurrentWrite;
+  final bool bypassLearningWriteLock;
+  final bool isRestore;
+  final LocalDataLifetimeLease _lifetime;
+  final int _epoch;
+
+  bool _correctSaved = false;
+  bool _wrongSaved = false;
+  bool _skippedSaved = false;
+  bool _cursorSaved = false;
+  bool _seenSaved = false;
+  bool _wrongCountSaved = false;
+  bool _restoreCursorEligible = false;
+  bool _restoreEligibilityCaptured = false;
+  bool _completed = false;
+
+  bool get _isCurrent =>
+      _lifetime.isCurrent && _epoch == Storage._vocabProgressAttemptEpoch;
+
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+    if (_epoch != Storage._vocabProgressAttemptEpoch) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    assertCurrentWrite?.call();
+    _lifetime.assertCurrent();
+  }
+
+  Future<bool> save() => Storage._enqueueVocabProgressMutation(
+    () => Storage._saveVocabProgressAttempt(this),
+  );
+}
+
+enum _VocabPreferenceKind { integer, string, stringList }
+
+class _PendingVocabPreferenceWrite {
+  _PendingVocabPreferenceWrite({
+    required this.generation,
+    required this.key,
+    required this.kind,
+    required this.store,
+    required this.before,
+    required this.after,
+    required this.assertOriginCurrent,
+    required this._confirm,
+  });
+
+  final int generation;
+  final String key;
+  final _VocabPreferenceKind kind;
+  final Object store;
+  final Object before;
+  final Object after;
+  final void Function() assertOriginCurrent;
+  final void Function() _confirm;
+  bool sharedCacheReloaded = false;
+
+  void confirm() {
+    _confirm();
+    if (sharedCacheReloaded) {
+      Storage._confirmedVocabAfterReloadKeys.add(key);
+    }
+  }
 }
 
 class _PronunciationProgressRecord {
@@ -568,12 +1214,473 @@ class Storage {
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _xpRewardMutation = Future<void>.value();
+  static Future<void> _packProgressMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
+  static Future<void> _vocabProgressMutation = Future<void>.value();
+  static Future<void>? _grammarPlanMutation;
+  static Future<void>? _learningResetMutation;
+  static Future<void>? _dataMigrationMutation;
   static Future<void> _consentedFirstLearningActionClaimMutation =
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
+  static int _xpRewardMutationGeneration = 0;
+  static int _learningResetCount = 0;
+
+  /// The migration owns actual native work through its rollback/cleanup.
+  /// Register before invoking it so a reset cannot delete beneath that work.
+  static Future<T> trackDataMigration<T>({
+    required Future<T> Function() action,
+    required T Function() onBlocked,
+  }) {
+    if (_learningResetCount > 0 || _dataMigrationMutation != null) {
+      return Future<T>.value(onBlocked());
+    }
+    final completion = Completer<T>();
+    final drain = completion.future.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    _dataMigrationMutation = drain;
+    unawaited(
+      drain.then((_) {
+        if (identical(_dataMigrationMutation, drain)) {
+          _dataMigrationMutation = null;
+        }
+      }),
+    );
+    unawaited(
+      Future<T>.sync(
+        action,
+      ).then<void>(completion.complete, onError: completion.completeError),
+    );
+    return completion.future;
+  }
+
+  static bool _xpRewardWritePending = false;
+  static _XpRewardLedger? _confirmedXpRewardLedger;
+  static int _xpAwardEpoch = 0;
+  static _PendingOrdinaryXpWrite? _pendingOrdinaryXpWrite;
+  static Map<String, int>? _confirmedGameBests;
+  static bool _gameBestWritePending = false;
+  static ({GameBestAttempt attempt, String before, String after})?
+  _pendingGameBestWrite;
+  static final Map<String, List<String>> _confirmedRewardLists = {};
+  static final Set<String> _pendingRewardListKeys = {};
   static int _srsReviewMutationCount = 0;
   static int _srsReviewMutationGeneration = 0;
+  static int _srsAttemptEpoch = 0;
+  static final srsRecoveryStatus = ValueNotifier(SrsRecoveryStatus.ready);
+  static SrsCommitJournal? _srsJournal;
+  static ({String before, String after, String evidenceKey})? _srsNormalization;
+  static SrsReviewAttempt? _srsJournalAttempt;
+  static bool _srsRecoveryInitialized = false;
+  static bool _srsRecoveryClosed = false;
+  static Future<bool>? _activeSrsRecovery;
+  static bool get srsRecoveryPending => _srsRecoveryClosed;
+
+  /// A synchronous capture cannot include a half-committed SRS/history pair.
+  static void assertSrsSnapshotReady() {
+    if (_srsRecoveryClosed ||
+        _srsReviewMutationCount > 0 ||
+        _learningResetCount > 0) {
+      throw const SrsRecoveryPendingException();
+    }
+  }
+
+  // Init establishes admission and a confirmed before-view synchronously from
+  // the loaded native snapshot. Reconciliation runs only behind first frame.
+  static void _initializeSrsRecoveryView() {
+    _srsRecoveryInitialized = true;
+    if (!(_prefs?.containsKey(SrsCommitJournal.key) ?? false)) {
+      return;
+    }
+    _srsRecoveryClosed = true;
+    try {
+      _srsJournal = SrsCommitJournal.decode(_prefs!.get(SrsCommitJournal.key));
+      srsRecoveryStatus.value = SrsRecoveryStatus.pending;
+    } on Object catch (error) {
+      _srsJournal = null;
+      srsRecoveryStatus.value = SrsRecoveryStatus.blocked;
+      debugPrint('Storage: invalid SRS recovery record retained: $error');
+    }
+    _invalidateSrsCache();
+  }
+
+  /// One bounded UI wait; an unresponsive native call retains the serialized
+  /// operation and admission fence. Retry never overlaps that native writer.
+  static Future<bool> retrySrsRecovery() {
+    final active = _activeSrsRecovery;
+    if (active != null) {
+      return active.timeout(const Duration(seconds: 5), onTimeout: () => false);
+    }
+    if (!_srsRecoveryClosed) {
+      return Future.value(true);
+    }
+    final operation = _enqueueSrsReviewMutation(_recoverSrsCommit);
+    _activeSrsRecovery = operation;
+    operation.then((_) {
+      if (identical(_activeSrsRecovery, operation)) {
+        _activeSrsRecovery = null;
+      }
+    });
+    return operation.timeout(
+      const Duration(seconds: 5),
+      onTimeout: () {
+        srsRecoveryStatus.value = SrsRecoveryStatus.retryRequired;
+        return false;
+      },
+    );
+  }
+
+  static void _finishSrsRecovery({required bool completed}) {
+    if (completed &&
+        _learningResetCount == 0 &&
+        (_srsJournalAttempt?._isCurrent ?? false)) {
+      _srsJournalAttempt!._completed = true;
+    }
+    _srsJournal = null;
+    _srsNormalization = null;
+    _srsJournalAttempt = null;
+    _srsRecoveryClosed = false;
+    _unknownStrictKeys.remove('kl_srs_v1');
+    _invalidateSrsCache();
+    srsRecoveryStatus.value = SrsRecoveryStatus.ready;
+  }
+
+  static bool _srsReplayPrecedenceBlocked(SharedPreferences prefs) =>
+      _learningWritesLockReason != null ||
+      _durableAccountJournalPreferenceKeys.any(prefs.containsKey) ||
+      prefs.containsKey('kl_migration_journal_v1') ||
+      prefs.containsKey('kl_migration_backup_v1');
+
+  static Future<bool> _recoverSrsCommit(
+    int generation, {
+    bool cancelUnapplied = false,
+  }) async {
+    final prefs = _prefs;
+    if (prefs == null) {
+      return false;
+    }
+    final deckStore = _srsPersistenceStoreForTesting ?? _stringStore();
+    final historyStore =
+        _studyLogStoreForTesting ?? _SharedPreferenceStringListStore(prefs);
+    srsRecoveryStatus.value = SrsRecoveryStatus.recovering;
+    try {
+      await prefs.reload();
+      if (generation != _srsReviewMutationGeneration) {
+        return false;
+      }
+      if (_srsReplayPrecedenceBlocked(prefs)) {
+        srsRecoveryStatus.value = SrsRecoveryStatus.blocked;
+        return false;
+      }
+      if (_srsNormalization != null) {
+        return _recoverSrsNormalization(generation, deckStore);
+      }
+      final raw = prefs.get(SrsCommitJournal.key);
+      if (raw == null) {
+        // Removal may have committed before its acknowledgement was lost.
+        // Only an in-memory obligation with confirmed final effects can close.
+        final journal = _srsJournal;
+        if (journal == null) {
+          throw const SrsRecoveryPendingException();
+        }
+        final completed = await _srsEffectsMatch(
+          journal,
+          deckStore,
+          historyStore,
+          after: true,
+        );
+        if (!completed &&
+            !await _srsEffectsMatch(
+              journal,
+              deckStore,
+              historyStore,
+              after: false,
+            )) {
+          throw const SrsRecoveryPendingException();
+        }
+        if (generation != _srsReviewMutationGeneration) {
+          return false;
+        }
+        // A lost intent acknowledgement or a lost pre-effect cancellation
+        // reply may leave no journal and exactly the original native values.
+        _finishSrsRecovery(completed: completed);
+        return completed && _learningResetCount == 0;
+      }
+      final journal = SrsCommitJournal.decode(raw);
+      if (_srsJournal != null && _srsJournal!.encode() != journal.encode()) {
+        throw const FormatException('SRS journal changed externally.');
+      }
+      _srsJournal = journal;
+      await deckStore.reload();
+      if (journal.recordHistory) {
+        await historyStore.reload();
+      }
+      final deck = _StringPreferenceState.read(deckStore, 'kl_srs_v1').value;
+      final history = journal.recordHistory
+          ? _StringListPreferenceState.read(
+              historyStore,
+              journal.historyKey,
+            ).value
+          : null;
+      if ((deck != journal.beforeDeck && deck != journal.afterDeck) ||
+          (journal.recordHistory &&
+              !_preferenceValueEquals(history, journal.beforeHistory) &&
+              !_preferenceValueEquals(history, journal.afterHistory))) {
+        throw const FormatException('Conflicting native SRS/history effects.');
+      }
+      if (generation != _srsReviewMutationGeneration) {
+        return false;
+      }
+      if (deck != journal.afterDeck) {
+        try {
+          await deckStore.setString('kl_srs_v1', journal.afterDeck);
+        } on Object catch (error) {
+          debugPrint('Storage: SRS native reply unavailable: $error');
+        }
+        if (generation != _srsReviewMutationGeneration) {
+          await _restoreStaleSrsPrimaryWrite(
+            store: deckStore,
+            before: journal.beforeDeck == null
+                ? const _StringPreferenceState.absent()
+                : _StringPreferenceState._(
+                    isPresent: true,
+                    value: journal.beforeDeck,
+                  ),
+            attemptedJson: journal.afterDeck,
+          );
+          return false;
+        }
+        await deckStore.reload();
+        if (_StringPreferenceState.read(deckStore, 'kl_srs_v1').value !=
+            journal.afterDeck) {
+          // A definitive rejection before either effect can cancel admission.
+          // This is never used for unknown reads or an in-flight setter.
+          if (cancelUnapplied &&
+              await _srsEffectsMatch(
+                journal,
+                deckStore,
+                historyStore,
+                after: false,
+              )) {
+            await _removeSrsJournal(prefs, journal);
+            _finishSrsRecovery(completed: false);
+          }
+          throw const SrsRecoveryPendingException();
+        }
+      }
+      if (_learningWritesLockReason != null) {
+        throw const SrsRecoveryPendingException();
+      }
+      if (journal.recordHistory) {
+        // A native/external writer may have changed history while the deck
+        // setter was pending. Never overwrite a third value from that window.
+        await historyStore.reload();
+        final currentHistory = _StringListPreferenceState.read(
+          historyStore,
+          journal.historyKey,
+        ).value;
+        if (!_preferenceValueEquals(currentHistory, journal.beforeHistory) &&
+            !_preferenceValueEquals(currentHistory, journal.afterHistory)) {
+          throw const FormatException('History changed before its effect.');
+        }
+        if (!_preferenceValueEquals(currentHistory, journal.afterHistory)) {
+          try {
+            await historyStore.setStringList(
+              journal.historyKey,
+              journal.afterHistory!,
+            );
+          } on Object catch (error) {
+            debugPrint('Storage: history native reply unavailable: $error');
+          }
+        }
+      }
+      if (!await _srsEffectsMatch(
+        journal,
+        deckStore,
+        historyStore,
+        after: true,
+      )) {
+        throw const SrsRecoveryPendingException();
+      }
+      if (generation != _srsReviewMutationGeneration) {
+        return false;
+      }
+      await _removeSrsJournal(prefs, journal);
+      if (generation != _srsReviewMutationGeneration) {
+        return false;
+      }
+      _finishSrsRecovery(completed: true);
+      // Separate injected stores need the confirmed deck mirror too.
+      _loadSrs(confirmedRaw: journal.afterDeck);
+      return _learningResetCount == 0;
+    } on Object catch (error) {
+      if (generation == _srsReviewMutationGeneration && _srsRecoveryClosed) {
+        srsRecoveryStatus.value = error is FormatException || error is TypeError
+            ? SrsRecoveryStatus.blocked
+            : SrsRecoveryStatus.retryRequired;
+      }
+      debugPrint('Storage: SRS recovery retained for retry: $error');
+      return false;
+    }
+  }
+
+  static Future<bool> _srsEffectsMatch(
+    SrsCommitJournal journal,
+    PreferenceStringStore deckStore,
+    PreferenceStringListStore historyStore, {
+    required bool after,
+  }) async {
+    await deckStore.reload();
+    final deck = _StringPreferenceState.read(deckStore, 'kl_srs_v1').value;
+    if (deck != (after ? journal.afterDeck : journal.beforeDeck)) {
+      return false;
+    }
+    if (!journal.recordHistory) {
+      return true;
+    }
+    await historyStore.reload();
+    return _preferenceValueEquals(
+      _StringListPreferenceState.read(historyStore, journal.historyKey).value,
+      after ? journal.afterHistory : journal.beforeHistory,
+    );
+  }
+
+  /// Structural repair precedes judgment admission. The retained source is
+  /// durable evidence; neither this step nor its retry advances a card/history.
+  static Future<bool> _recoverSrsNormalization(
+    int generation,
+    PreferenceStringStore store,
+  ) async {
+    final repair = _srsNormalization!;
+    try {
+      await _prefs!.reload();
+      if (_srsReplayPrecedenceBlocked(_prefs!) ||
+          _prefs!.containsKey(SrsCommitJournal.key)) {
+        srsRecoveryStatus.value = SrsRecoveryStatus.blocked;
+        return false;
+      }
+      await store.reload();
+      var deck = _StringPreferenceState.read(store, 'kl_srs_v1').value;
+      if (deck != repair.before && deck != repair.after) {
+        throw const FormatException('SRS changed during structural repair.');
+      }
+      final evidence = _StringPreferenceState.read(store, repair.evidenceKey);
+      if (evidence.isPresent && evidence.value != repair.before) {
+        throw const FormatException('SRS retained-copy key already differs.');
+      }
+      if (generation != _srsReviewMutationGeneration ||
+          _learningWritesLockReason != null) {
+        return false;
+      }
+      if (!evidence.isPresent) {
+        try {
+          await store.setString(repair.evidenceKey, repair.before);
+        } on Object catch (error) {
+          debugPrint('Storage: SRS retained-copy reply unavailable: $error');
+        }
+        await store.reload();
+        if (_StringPreferenceState.read(store, repair.evidenceKey).value !=
+            repair.before) {
+          throw const SrsRecoveryPendingException();
+        }
+      }
+      // Preservation may have waited on native I/O. Recheck both the source
+      // and transition precedence before any structural overwrite.
+      await _prefs!.reload();
+      await store.reload();
+      if (generation != _srsReviewMutationGeneration ||
+          _srsReplayPrecedenceBlocked(_prefs!) ||
+          _prefs!.containsKey(SrsCommitJournal.key)) {
+        srsRecoveryStatus.value = SrsRecoveryStatus.blocked;
+        return false;
+      }
+      if (_StringPreferenceState.read(store, repair.evidenceKey).value !=
+          repair.before) {
+        throw const SrsRecoveryPendingException();
+      }
+      deck = _StringPreferenceState.read(store, 'kl_srs_v1').value;
+      if (deck != repair.before && deck != repair.after) {
+        throw const FormatException('SRS changed before normalization.');
+      }
+      if (deck != repair.after) {
+        try {
+          await store.setString('kl_srs_v1', repair.after);
+        } on Object catch (error) {
+          debugPrint('Storage: SRS normalization reply unavailable: $error');
+        }
+      }
+      await store.reload();
+      if (_StringPreferenceState.read(store, 'kl_srs_v1').value !=
+              repair.after ||
+          _StringPreferenceState.read(store, repair.evidenceKey).value !=
+              repair.before) {
+        throw const SrsRecoveryPendingException();
+      }
+      if (generation != _srsReviewMutationGeneration) {
+        return false;
+      }
+      _finishSrsRecovery(completed: false);
+      return true;
+    } on Object catch (error) {
+      srsRecoveryStatus.value = error is FormatException || error is TypeError
+          ? SrsRecoveryStatus.blocked
+          : SrsRecoveryStatus.retryRequired;
+      debugPrint('Storage: SRS structural repair retained for retry: $error');
+      return false;
+    }
+  }
+
+  static Future<void> _removeSrsJournal(
+    SharedPreferences prefs,
+    SrsCommitJournal journal,
+  ) async {
+    await prefs.reload();
+    if (prefs.get(SrsCommitJournal.key) != journal.encode()) {
+      throw const FormatException('SRS journal changed before retirement.');
+    }
+    try {
+      await prefs.remove(SrsCommitJournal.key);
+    } on Object catch (error) {
+      debugPrint('Storage: SRS journal removal reply unavailable: $error');
+    }
+    await prefs.reload();
+    if (prefs.containsKey(SrsCommitJournal.key)) {
+      throw const SrsRecoveryPendingException();
+    }
+  }
+
+  static int _vocabProgressMutationCount = 0;
+  static int _vocabProgressMutationGeneration = 0;
+  static int _vocabProgressAttemptEpoch = 0;
+  static int _grammarPlanMutationCount = 0;
+  static int _grammarPlanMutationGeneration = 0;
+  static int _grammarPlanAdmissionRevision = 0;
+  static int _confirmedGrammarPlanLevelRevision = 0;
+  static bool _grammarPlanConfirmedViewInitialized = false;
+  static String _confirmedGrammarPlanRaw = '';
+  static String? _confirmedGrammarPlanLevel;
+  static final Set<String> _unconfirmedGrammarPlanLevels = <String>{};
+  static final Map<String, int> _confirmedVocabInts = <String, int>{};
+  static final Set<String> _confirmedVocabAfterReloadKeys = <String>{};
+  // These intervals own actual cache reads, not a logical learning generation.
+  // Reset may retire a writer while an old read still targets the same cache.
+  static final Map<SharedPreferences, int> _packCompletionReloads =
+      Map.identity();
+  static List<String>? _confirmedVokSeenIds;
+  static String? _confirmedWrongCountRaw;
+  static _PendingVocabPreferenceWrite? _pendingVocabPreferenceWrite;
+  static final Map<String, _PendingVocabPreferenceWrite>
+  _quarantinedVocabPreferenceWrites = <String, _PendingVocabPreferenceWrite>{};
+  static final Map<String, _StringListPreferenceState> _confirmedChoiceStates =
+      <String, _StringListPreferenceState>{};
+  static final Map<String, int> _confirmedChoiceRevisions = <String, int>{};
+  static final Map<String, Future<void>> _confirmedChoiceMutations =
+      <String, Future<void>>{};
+  static int _confirmedChoiceEpoch = 0;
+  static int _confirmedChoiceMutationCount = 0;
+  static int _confirmedChoiceMutationGeneration = 0;
   // `resetForTesting()` remains synchronous for its many callers, but a new
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
@@ -598,6 +1705,11 @@ class Storage {
       }
     }
     _prefs ??= await SharedPreferences.getInstance();
+    PrivacyChoiceStorage.initialize();
+    PackCompletionStorage.initialize();
+    if (!_srsRecoveryInitialized) {
+      _initializeSrsRecoveryView();
+    }
   }
 
   /// Test-only: leert den `_prefs`-Cache, damit ein neuer
@@ -605,7 +1717,13 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
-    final drains = <Future<void>>[];
+    final privacyDrain = PrivacyChoiceStorage.drain();
+    final privacyHasWrites = PrivacyChoiceStorage._native.isNotEmpty;
+    PrivacyChoiceStorage.reset();
+    PackCompletionStorage.resetForTesting();
+    _packProgressMutation = Future<void>.value();
+    _packProgressMutationCount = 0;
+    final drains = <Future<void>>[if (privacyHasWrites) privacyDrain];
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
       drains.add(previousResetDrain);
@@ -616,6 +1734,28 @@ class Storage {
           (_) {},
           onError: (Object _, StackTrace __) {},
         ),
+      );
+    }
+    if (_xpRewardMutationCount > 0) {
+      drains.add(_xpRewardMutation);
+    }
+    if (_vocabProgressMutationCount > 0) {
+      drains.add(_vocabProgressMutation);
+    }
+    final grammarPlanMutation = _grammarPlanMutation;
+    if (_grammarPlanMutationCount > 0 && grammarPlanMutation != null) {
+      drains.add(grammarPlanMutation);
+    }
+    if (_confirmedChoiceMutationCount > 0) {
+      drains.addAll(_confirmedChoiceMutations.values);
+    }
+    final learningReset = _learningResetMutation;
+    if (_dataMigrationMutation case final migration?) {
+      drains.add(migration);
+    }
+    if (_learningResetCount > 0 && learningReset != null) {
+      drains.add(
+        learningReset.then<void>((_) {}, onError: (Object _, StackTrace __) {}),
       );
     }
     if (drains.isEmpty) {
@@ -641,6 +1781,13 @@ class Storage {
       );
     }
     _prefs = null;
+    _srsRecoveryInitialized = false;
+    _srsRecoveryClosed = false;
+    _srsJournal = null;
+    _srsJournalAttempt = null;
+    _activeSrsRecovery = null;
+    _srsNormalization = null;
+    srsRecoveryStatus.value = SrsRecoveryStatus.ready;
     _invalidateSrsCache();
     // 팩 캐시도 함께 버린다. 안 그러면 앞 테스트가 채운 `_packCache` 가
     // 다음 테스트의 `setMockInitialValues` 를 덮어써 "새 Storage" 라는 이 함수의
@@ -651,10 +1798,48 @@ class Storage {
     _pronunciationProgressMutation = Future<void>.value();
     _xpRewardMutation = Future<void>.value();
     _srsReviewMutation = Future<void>.value();
+    _vocabProgressMutation = Future<void>.value();
+    _grammarPlanMutation = null;
+    _learningResetMutation = null;
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
+    _xpRewardMutationGeneration++;
+    _learningResetCount = 0;
+    _xpRewardWritePending = false;
+    _confirmedXpRewardLedger = null;
+    _xpAwardEpoch++;
+    _pendingOrdinaryXpWrite = null;
+    _confirmedGameBests = null;
+    _gameBestWritePending = false;
+    _pendingGameBestWrite = null;
+    _confirmedRewardLists.clear();
+    _pendingRewardListKeys.clear();
     _srsReviewMutationCount = 0;
     _srsReviewMutationGeneration++;
+    _invalidateSrsAttempts();
+    _vocabProgressMutationCount = 0;
+    _vocabProgressMutationGeneration++;
+    _vocabProgressAttemptEpoch++;
+    _grammarPlanMutationCount = 0;
+    _grammarPlanMutationGeneration++;
+    _grammarPlanAdmissionRevision++;
+    _confirmedGrammarPlanLevelRevision = _grammarPlanAdmissionRevision;
+    _grammarPlanConfirmedViewInitialized = false;
+    _confirmedGrammarPlanRaw = '';
+    _confirmedGrammarPlanLevel = null;
+    _unconfirmedGrammarPlanLevels.clear();
+    _confirmedVocabInts.clear();
+    _confirmedVocabAfterReloadKeys.clear();
+    _confirmedVokSeenIds = null;
+    _confirmedWrongCountRaw = null;
+    _pendingVocabPreferenceWrite = null;
+    _quarantinedVocabPreferenceWrites.clear();
+    _confirmedChoiceEpoch++;
+    _confirmedChoiceMutationGeneration++;
+    _confirmedChoiceMutationCount = 0;
+    _confirmedChoiceMutations.clear();
+    _confirmedChoiceRevisions.clear();
+    _confirmedChoiceStates.clear();
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -673,6 +1858,38 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    // A draining migration may invalidate caches while deletion still owns
+    // the reset fence. Only the reset's finalizer may release that fence.
+    PrivacyChoiceStorage.retire(close: _learningResetCount > 0);
+    unawaited(PrivacyChoiceStorage.refresh());
+    // Cache invalidation cannot release an unresolved recovery obligation.
+    if (!_srsRecoveryClosed) {
+      _initializeSrsRecoveryView();
+    }
+    _pendingGameBestWrite = null;
+    _confirmedGameBests = null;
+    _gameBestWritePending = false;
+    _xpAwardEpoch++;
+    _pendingOrdinaryXpWrite = null;
+    _invalidateSrsAttempts();
+    _confirmedXpRewardLedger = null;
+    _confirmedRewardLists.clear();
+    _vocabProgressAttemptEpoch++;
+    _confirmedVocabInts.clear();
+    _confirmedVocabAfterReloadKeys.clear();
+    _confirmedVokSeenIds = null;
+    _confirmedWrongCountRaw = null;
+    _pendingVocabPreferenceWrite = null;
+    _quarantinedVocabPreferenceWrites.clear();
+    _confirmedChoiceEpoch++;
+    _confirmedChoiceRevisions.clear();
+    _confirmedChoiceStates.clear();
+    _grammarPlanConfirmedViewInitialized = false;
+    _grammarPlanAdmissionRevision++;
+    _confirmedGrammarPlanLevelRevision = _grammarPlanAdmissionRevision;
+    _confirmedGrammarPlanRaw = '';
+    _confirmedGrammarPlanLevel = null;
+    _unconfirmedGrammarPlanLevels.clear();
     _invalidateSrsCache();
     _invalidatePackCache();
     _courseMasteryCache = null;
@@ -682,15 +1899,93 @@ class Storage {
   }
 
   // ───────── Generic helpers ─────────
-  static int _i(String k) => _prefs?.getInt(k) ?? 0;
-  static String _s(String k) => _prefs?.getString(k) ?? '';
+  static int _i(String k) => (PackCompletionStorage.read(k) as int?) ?? 0;
+  static String _s(String k) =>
+      (PackCompletionStorage.read(k) as String?) ?? '';
   static double _d(String k, [double dflt = 0]) => _prefs?.getDouble(k) ?? dflt;
-  static List<String> _l(String k) => _prefs?.getStringList(k) ?? [];
+  static List<String> _l(String k) =>
+      (PackCompletionStorage.read(k) as List?)?.cast<String>().toList() ?? [];
 
-  static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
-  static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+  static Future<void> _si(String k, int v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setInt(k, v);
+      });
+
+  static Future<void> _ss(String k, String v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setString(k, v);
+      });
+
+  static int _admitGrammarPlanOperation() {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    _captureGrammarPlanConfirmedView();
+    return ++_grammarPlanAdmissionRevision;
+  }
+
+  static void _captureGrammarPlanConfirmedView() {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return;
+    }
+    try {
+      _confirmedGrammarPlanRaw = _s('kl_gram_plan_v1');
+    } on Object {
+      // A legacy wrong-typed value is recovery data. Keep it on disk for the
+      // restore/semantic writer to reject without exposing it as confirmed.
+      _confirmedGrammarPlanRaw = '';
+    }
+    try {
+      _confirmedGrammarPlanLevel = _optionalLearnerLevelCode(
+        grammarPlanLevelPreferenceKey,
+      );
+    } on Object {
+      _confirmedGrammarPlanLevel = null;
+    }
+    _grammarPlanConfirmedViewInitialized = true;
+  }
+
+  static Future<T> _enqueueGrammarPlanMutation<T>(
+    Future<T> Function() mutation,
+  ) {
+    if (_learningResetCount > 0) {
+      return Future<T>.error(const StaleLocalDataLifetimeException());
+    }
+    final generation = _grammarPlanMutationGeneration;
+    final previous = _grammarPlanMutation;
+    _grammarPlanMutationCount++;
+    late final Future<T> result;
+    if (previous == null) {
+      try {
+        result = mutation();
+      } on Object catch (error, stackTrace) {
+        result = Future<T>.error(error, stackTrace);
+      }
+    } else {
+      result = previous.then<T>((_) => mutation());
+    }
+    final tail = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    _grammarPlanMutation = tail;
+    tail.whenComplete(() {
+      if (generation == _grammarPlanMutationGeneration) {
+        _grammarPlanMutationCount--;
+        if (identical(tail, _grammarPlanMutation)) {
+          _grammarPlanMutation = null;
+        }
+      }
+    });
+    return result;
+  }
 
   static Future<T> _enqueueXpRewardMutation<T>(Future<T> Function() mutation) {
+    if (_learningResetCount > 0) {
+      return Future<T>.error(const StaleLocalDataLifetimeException());
+    }
+    PackCompletionStorage.assertAdmission();
+    final generation = _xpRewardMutationGeneration;
     // SharedPreferences updates its in-memory cache when a setter is invoked,
     // before its returned Future completes. Existing game screens rely on that
     // visibility because several legacy XP calls are intentionally
@@ -714,8 +2009,16 @@ class Storage {
       onError: (Object _, StackTrace __) {},
     );
     result.then<void>(
-      (_) => _xpRewardMutationCount--,
-      onError: (Object _, StackTrace __) => _xpRewardMutationCount--,
+      (_) {
+        if (generation == _xpRewardMutationGeneration) {
+          _xpRewardMutationCount--;
+        }
+      },
+      onError: (Object _, StackTrace __) {
+        if (generation == _xpRewardMutationGeneration) {
+          _xpRewardMutationCount--;
+        }
+      },
     );
     return result;
   }
@@ -723,10 +2026,12 @@ class Storage {
   static Future<bool> _enqueueSrsReviewMutation(
     Future<bool> Function(int generation) mutation,
   ) {
-    // SRS callers intentionally fire-and-forget in several game screens. As
-    // with XP, start the idle queue immediately so their in-memory card is
-    // visible at once, while every overlapping review waits for the complete
-    // prior decision, rollback, and optional ledger outcome.
+    if (_learningResetCount > 0) {
+      return Future<bool>.value(false);
+    }
+    // Start an idle queue immediately, but expose only the confirmed pair.
+    // Overlapping reviews wait for journal settlement or an honest failure;
+    // an unresolved obligation retains its independent admission fence.
     final generation = _srsReviewMutationGeneration;
     final startsImmediately = _srsReviewMutationCount == 0;
     _srsReviewMutationCount++;
@@ -767,13 +2072,71 @@ class Storage {
     return result;
   }
 
+  static Future<bool> _enqueueVocabProgressMutation(
+    Future<bool> Function() mutation,
+  ) {
+    if (_learningResetCount > 0) {
+      return Future<bool>.error(const StaleLocalDataLifetimeException());
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final startsImmediately = _vocabProgressMutationCount == 0;
+    _vocabProgressMutationCount++;
+
+    Future<bool> runCurrentMutation() {
+      if (generation != _vocabProgressMutationGeneration) {
+        return Future<bool>.error(const StaleLocalDataLifetimeException());
+      }
+      try {
+        return mutation();
+      } on Object catch (error, stackTrace) {
+        return Future<bool>.error(error, stackTrace);
+      }
+    }
+
+    late final Future<bool> result;
+    if (startsImmediately) {
+      result = runCurrentMutation();
+    } else {
+      result = _vocabProgressMutation.then<bool>((_) => runCurrentMutation());
+    }
+    _vocabProgressMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    result.then<void>(
+      (_) {
+        if (generation == _vocabProgressMutationGeneration) {
+          _vocabProgressMutationCount--;
+        }
+      },
+      onError: (Object _, StackTrace __) {
+        if (generation == _vocabProgressMutationGeneration) {
+          _vocabProgressMutationCount--;
+        }
+      },
+    );
+    return result;
+  }
+
   static _XpRewardLedger? _readXpRewardLedger({required bool strict}) {
+    if (_xpRewardWritePending ||
+        _unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      if (strict) {
+        throw const PreferenceOutcomeUnknownException(
+          listeningRewardLedgerPreferenceKey,
+        );
+      }
+      return _confirmedXpRewardLedger;
+    }
     final raw = _s(listeningRewardLedgerPreferenceKey);
     if (raw.isEmpty) {
+      _confirmedXpRewardLedger = null;
       return null;
     }
     try {
-      return _XpRewardLedger.decode(raw);
+      final ledger = _XpRewardLedger.decode(raw);
+      _confirmedXpRewardLedger = ledger;
+      return ledger;
     } on Object catch (error) {
       if (strict) {
         throw PreferenceWriteException(
@@ -786,26 +2149,55 @@ class Storage {
   }
 
   static int _effectiveXpTotal(_XpRewardLedger ledger) {
-    final compatibilityMirror = _i('kl_xp');
-    return compatibilityMirror > ledger.totalXp
-        ? compatibilityMirror
-        : ledger.totalXp;
+    // Once present, this confirmed record outranks its best-effort mirror.
+    return ledger.totalXp;
   }
 
   static Future<void> _persistXpRewardLedger(_XpRewardLedger ledger) async {
-    await _ssStrict(listeningRewardLedgerPreferenceKey, ledger.encode());
-    // The ledger above is the commit point. This mirror is only for an older
-    // app build that does not understand the ledger yet.
+    _readXpRewardLedger(strict: true);
+    _xpRewardWritePending = true;
     try {
-      await _si('kl_xp', ledger.totalXp);
-    } on Object catch (error) {
-      debugPrint('Storage: XP compatibility mirror failed: $error');
+      await _ssStrict(listeningRewardLedgerPreferenceKey, ledger.encode());
+      _confirmedXpRewardLedger = ledger;
+      // The ledger is the commit point; this older-build mirror is auxiliary.
+      try {
+        await _si('kl_xp', ledger.totalXp);
+      } on Object catch (error) {
+        debugPrint('Storage: XP compatibility mirror failed: $error');
+      }
+    } finally {
+      _xpRewardWritePending = false;
+    }
+  }
+
+  static Future<void> _recoverUnknownXpRewardState() async {
+    final pending = _pendingOrdinaryXpWrite;
+    if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      await _refreshUnknownStringKeys(_stringStore(), [
+        listeningRewardLedgerPreferenceKey,
+      ]);
+    }
+    if (pending != null) {
+      if (!identical(_pendingOrdinaryXpWrite, pending)) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      final raw = _s(listeningRewardLedgerPreferenceKey);
+      if (raw == pending.encoded) {
+        pending.attempt._committed = true;
+      } else if (raw != pending.before) {
+        _unknownStrictKeys.add(listeningRewardLedgerPreferenceKey);
+        throw const PreferenceOutcomeUnknownException(
+          listeningRewardLedgerPreferenceKey,
+        );
+      }
+      _pendingOrdinaryXpWrite = null;
     }
   }
 
   static Future<void> _mirrorListeningCompletion(String id) async {
     try {
-      await addCompletedScenario(id);
+      // The listening claim already owns the reward mutation queue.
+      await _writeRewardListEntry('kl_completed_scenarios', id);
     } on Object catch (error) {
       // The canonical ledger claim still makes completedScenarios contain the
       // ID. A later completion can repair this old-format mirror.
@@ -814,6 +2206,23 @@ class Storage {
   }
 
   static Future<void> _ssStrict(
+    String key,
+    String value, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+    _StringPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _ssStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _ssStrictImpl(
     String key,
     String value, {
     PreferenceStringStore? preferences,
@@ -853,7 +2262,77 @@ class Storage {
     throw PreferenceOutcomeUnknownException(key, cause: failure);
   }
 
+  static Future<void> _siStrict(
+    String key,
+    int value, {
+    PreferenceIntStore? preferences,
+    void Function()? assertCurrentWrite,
+    _IntPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _siStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _siStrictImpl(
+    String key,
+    int value, {
+    PreferenceIntStore? preferences,
+    void Function()? assertCurrentWrite,
+    _IntPreferenceState? beforeState,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceIntStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    final before = beforeState ?? await _prepareIntMutation(store, key);
+    assertCurrentWrite?.call();
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setInt(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) {
+      return;
+    }
+    final after = await _reloadIntState(store, key, operationFailure: failure);
+    if (after.isPresent && after.value == value) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
   static Future<void> _slStrict(
+    String key,
+    List<String> value, {
+    PreferenceStringListStore? preferences,
+    void Function()? assertCurrentWrite,
+    _StringListPreferenceState? beforeState,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _slStrictImpl(
+      key,
+      value,
+      preferences: preferences,
+      assertCurrentWrite: assertCurrentWrite,
+      beforeState: beforeState,
+    ),
+  );
+
+  static Future<void> _slStrictImpl(
     String key,
     List<String> value, {
     PreferenceStringListStore? preferences,
@@ -897,6 +2376,7 @@ class Storage {
     String key,
     bool value, {
     PreferenceBoolStore? preferences,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -905,6 +2385,7 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = await _prepareBoolMutation(store, key);
+    assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
     try {
@@ -941,6 +2422,62 @@ class Storage {
     } on Object catch (error) {
       _unknownStrictKeys.add(key);
       throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<_IntPreferenceState> _prepareIntMutation(
+    PreferenceIntStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      await _refreshUnknownIntKeys(store, [key]);
+      throw PreferenceWriteException(key);
+    }
+    try {
+      return _IntPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<void> _refreshUnknownIntKeys(
+    PreferenceIntStore store,
+    Iterable<String> keys,
+  ) async {
+    final unknown = keys
+        .where(_unknownStrictKeys.contains)
+        .toSet()
+        .toList(growable: false);
+    if (unknown.isEmpty) {
+      return;
+    }
+    try {
+      await store.reload();
+      for (final key in unknown) {
+        _IntPreferenceState.read(store, key);
+      }
+      _unknownStrictKeys.removeAll(unknown);
+    } on Object catch (error) {
+      _unknownStrictKeys.addAll(unknown);
+      throw PreferenceOutcomeUnknownException(unknown.first, cause: error);
+    }
+  }
+
+  static Future<_IntPreferenceState> _reloadIntState(
+    PreferenceIntStore store,
+    String key, {
+    Object? operationFailure,
+  }) async {
+    try {
+      await store.reload();
+      return _IntPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(
+        key,
+        cause: operationFailure ?? error,
+      );
     }
   }
 
@@ -1125,6 +2662,21 @@ class Storage {
     PreferenceStringStore? preferences,
     bool Function(String value)? matches,
     void Function()? assertCurrentWrite,
+  }) => PackCompletionStorage.trackWrite(
+    key,
+    () => _removeStringStrictImpl(
+      key,
+      preferences: preferences,
+      matches: matches,
+      assertCurrentWrite: assertCurrentWrite,
+    ),
+  );
+
+  static Future<String?> _removeStringStrictImpl(
+    String key, {
+    PreferenceStringStore? preferences,
+    bool Function(String value)? matches,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -1239,8 +2791,10 @@ class Storage {
   }
 
   static Future<void> _sd(String k, double v) async => _prefs?.setDouble(k, v);
-  static Future<void> _sl(String k, List<String> v) async =>
-      _prefs?.setStringList(k, v);
+  static Future<void> _sl(String k, List<String> v) =>
+      PackCompletionStorage.trackWrite(k, () async {
+        await _prefs?.setStringList(k, v);
+      });
 
   static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
   static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
@@ -1258,51 +2812,874 @@ class Storage {
   static Future<void> setInterests(List<String> v) => _sl('kl_interests', v);
 
   // ───────── Vokabeln ─────────
-  static int get vokCorrect => _i('kl_vok_correct');
-  static int get vokWrong => _i('kl_vok_wrong');
-  static int get vokSkipped => _i('kl_vok_skipped');
-  static int get vokLastIdx => _i('kl_vok_last_idx');
-  static List<String> get vokSeenIds => _l('kl_vok_seen_ids');
+  static const _vokCorrectKey = 'kl_vok_correct';
+  static const _vokWrongKey = 'kl_vok_wrong';
+  static const _vokSkippedKey = 'kl_vok_skipped';
+  static const _vokLastIdxKey = 'kl_vok_last_idx';
+  static const _vokSeenIdsKey = 'kl_vok_seen_ids';
+  static const _wrongCountKey = 'kl_wrong_count_v1';
 
-  static Future<void> setVokCorrect(int v) => _si('kl_vok_correct', v);
-  static Future<void> setVokWrong(int v) => _si('kl_vok_wrong', v);
-  static Future<void> setVokSkipped(int v) => _si('kl_vok_skipped', v);
-  static Future<void> setVokLastIdx(int v) => _si('kl_vok_last_idx', v);
+  static bool _vocabWriteIsUnconfirmed(String key) =>
+      _pendingVocabPreferenceWrite?.key == key ||
+      _unknownStrictKeys.contains(key);
+
+  static int _readConfirmedVocabInt(String key) {
+    if (_vocabWriteIsUnconfirmed(key) ||
+        _confirmedVocabAfterReloadKeys.contains(key)) {
+      return _confirmedVocabInts[key] ?? 0;
+    }
+    final value = _i(key);
+    _confirmedVocabInts[key] = value;
+    return value;
+  }
+
+  static int get vokCorrect => _readConfirmedVocabInt(_vokCorrectKey);
+  static int get vokWrong => _readConfirmedVocabInt(_vokWrongKey);
+  static int get vokSkipped => _readConfirmedVocabInt(_vokSkippedKey);
+  static int get vokLastIdx => _readConfirmedVocabInt(_vokLastIdxKey);
+  static List<String> get vokSeenIds {
+    if (_vocabWriteIsUnconfirmed(_vokSeenIdsKey) ||
+        _confirmedVocabAfterReloadKeys.contains(_vokSeenIdsKey)) {
+      return List<String>.of(_confirmedVokSeenIds ?? const <String>[]);
+    }
+    final value = _l(_vokSeenIdsKey);
+    _confirmedVokSeenIds = List<String>.unmodifiable(value);
+    return List<String>.of(value);
+  }
+
+  static Future<void> setVokCorrect(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteCorrect: v),
+    );
+  }
+
+  static Future<void> setVokWrong(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteWrong: v),
+    );
+  }
+
+  static Future<void> setVokSkipped(int v) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._absolute(absoluteSkipped: v),
+    );
+  }
+
+  static Future<void> setVokLastIdx(int v) async {
+    await _requireVocabProgress(VocabProgressAttempt._absolute(cursor: v));
+  }
+
   static Future<void> addVokSeen(String id) async {
-    final list = vokSeenIds;
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_vok_seen_ids', list);
+    await _requireVocabProgress(VocabProgressAttempt(seenId: id));
+  }
+
+  static Future<void> _requireVocabProgress(
+    VocabProgressAttempt attempt,
+  ) async {
+    if (!await attempt.save()) {
+      throw const PreferenceWriteException('vocabulary progress');
     }
   }
 
+  static Future<void> restoreVocabularyProgress({
+    int? minimumCorrect,
+    int? minimumWrong,
+    int? minimumSkipped,
+    int? cursor,
+    Iterable<String> seenIds = const <String>[],
+    String? wrongCountJson,
+    void Function()? assertCurrentWrite,
+  }) async {
+    await _requireVocabProgress(
+      VocabProgressAttempt._restore(
+        minimumCorrect: minimumCorrect,
+        minimumWrong: minimumWrong,
+        minimumSkipped: minimumSkipped,
+        cursor: cursor,
+        restoreSeenIds: List<String>.unmodifiable(seenIds),
+        restoreWrongCountJson: wrongCountJson,
+        assertCurrentWrite: assertCurrentWrite,
+      ),
+    );
+  }
+
+  static Future<bool> _saveVocabProgressAttempt(
+    VocabProgressAttempt attempt,
+  ) async {
+    attempt._assertCurrent();
+    if (attempt._completed) {
+      return true;
+    }
+    await _resolvePendingVocabPreferenceWrite();
+    attempt._assertCurrent();
+    if (!attempt.bypassLearningWriteLock && _learningWritesLockReason != null) {
+      return false;
+    }
+
+    if (!attempt._restoreEligibilityCaptured && attempt.isRestore) {
+      attempt._restoreCursorEligible =
+          vokCorrect == 0 &&
+          vokWrong == 0 &&
+          vokSkipped == 0 &&
+          vokLastIdx == 0 &&
+          vokSeenIds.isEmpty;
+      attempt._restoreEligibilityCaptured = true;
+    }
+
+    final shouldWriteCursor =
+        attempt.cursor != null &&
+        (!attempt.isRestore || attempt._restoreCursorEligible);
+    if (!attempt._cursorSaved && shouldWriteCursor) {
+      await _writeVocabInt(
+        attempt,
+        _vokLastIdxKey,
+        attempt.cursor!,
+        () => attempt._cursorSaved = true,
+      );
+    } else if (!attempt._cursorSaved) {
+      attempt._cursorSaved = true;
+    }
+
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokCorrectKey,
+      delta: attempt.correctDelta,
+      absolute: attempt.absoluteCorrect,
+      minimum: attempt.minimumCorrect,
+      isSaved: () => attempt._correctSaved,
+      markSaved: () => attempt._correctSaved = true,
+    );
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokWrongKey,
+      delta: attempt.wrongDelta,
+      absolute: attempt.absoluteWrong,
+      minimum: attempt.minimumWrong,
+      isSaved: () => attempt._wrongSaved,
+      markSaved: () => attempt._wrongSaved = true,
+    );
+    await _applyVocabIntChange(
+      attempt,
+      key: _vokSkippedKey,
+      delta: attempt.skippedDelta,
+      absolute: attempt.absoluteSkipped,
+      minimum: attempt.minimumSkipped,
+      isSaved: () => attempt._skippedSaved,
+      markSaved: () => attempt._skippedSaved = true,
+    );
+
+    if (!attempt._seenSaved) {
+      final additions = <String>[
+        if (attempt.seenId case final id?) id,
+        ...attempt.restoreSeenIds,
+      ];
+      final current = vokSeenIds;
+      final updated = List<String>.of(current);
+      for (final id in additions) {
+        if (!updated.contains(id)) {
+          updated.add(id);
+        }
+      }
+      if (_preferenceValueEquals(current, updated)) {
+        if (additions.isNotEmpty &&
+            _quarantinedVocabPreferenceWrites.containsKey(_vokSeenIdsKey)) {
+          throw PreferenceOutcomeUnknownException(_vokSeenIdsKey);
+        }
+        attempt._seenSaved = true;
+      } else {
+        await _writeVocabStringList(
+          attempt,
+          _vokSeenIdsKey,
+          updated,
+          () => attempt._seenSaved = true,
+        );
+      }
+    }
+
+    if (!attempt._wrongCountSaved) {
+      if (attempt.wrongCountId case final id?) {
+        final updated = Map<String, int>.of(_readWrongCountMap())
+          ..update(id, (count) => count + 1, ifAbsent: () => 1);
+        await _writeVocabString(
+          attempt,
+          _wrongCountKey,
+          jsonEncode(updated),
+          () => attempt._wrongCountSaved = true,
+        );
+      } else if (attempt.restoreWrongCountJson case final restored?) {
+        if (!attempt.restoreWrongCountOnlyIfEmpty ||
+            wrongCountRawJson.isEmpty) {
+          await _writeVocabString(
+            attempt,
+            _wrongCountKey,
+            restored,
+            () => attempt._wrongCountSaved = true,
+          );
+        } else {
+          attempt._wrongCountSaved = true;
+        }
+      } else {
+        attempt._wrongCountSaved = true;
+      }
+    }
+
+    attempt._assertCurrent();
+    attempt._completed = true;
+    return true;
+  }
+
+  static Future<void> _applyVocabIntChange(
+    VocabProgressAttempt attempt, {
+    required String key,
+    required int delta,
+    required int? absolute,
+    required int? minimum,
+    required bool Function() isSaved,
+    required void Function() markSaved,
+  }) async {
+    if (isSaved()) {
+      return;
+    }
+    final current = _readConfirmedVocabInt(key);
+    final target =
+        absolute ??
+        (minimum == null
+            ? current + delta
+            : (current < minimum ? minimum : current));
+    if (target == current) {
+      final hasRequestedChange =
+          delta != 0 || absolute != null || minimum != null;
+      if (hasRequestedChange &&
+          _quarantinedVocabPreferenceWrites.containsKey(key)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      markSaved();
+      return;
+    }
+    await _writeVocabInt(attempt, key, target, markSaved);
+  }
+
+  static Future<void> _resolvePendingVocabPreferenceWrite() async {
+    final pending = _pendingVocabPreferenceWrite;
+    if (pending == null) {
+      return;
+    }
+    if (pending.generation != _vocabProgressMutationGeneration) {
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      _unknownStrictKeys.remove(pending.key);
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (!_vocabPendingOriginIsCurrent(pending)) {
+      _quarantineVocabPreferenceWrite(pending);
+      return;
+    }
+    try {
+      late final Object current;
+      switch (pending.kind) {
+        case _VocabPreferenceKind.integer:
+          final store = pending.store as PreferenceIntStore;
+          await store.reload();
+          current = _IntPreferenceState.read(store, pending.key);
+          break;
+        case _VocabPreferenceKind.string:
+          final store = pending.store as PreferenceStringStore;
+          await store.reload();
+          current = _StringPreferenceState.read(store, pending.key);
+          break;
+        case _VocabPreferenceKind.stringList:
+          final store = pending.store as PreferenceStringListStore;
+          await store.reload();
+          current = _StringListPreferenceState.read(store, pending.key);
+          break;
+      }
+      if (!_vocabPendingOriginIsCurrent(pending)) {
+        _quarantineVocabPreferenceWrite(pending);
+        return;
+      }
+      if (pending.generation != _vocabProgressMutationGeneration) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      final matchesAfter = _vocabPreferenceStateMatches(current, pending.after);
+      if (matchesAfter) {
+        if (!_vocabPendingOriginIsCurrent(pending)) {
+          _quarantineVocabPreferenceWrite(pending);
+          return;
+        }
+        pending.confirm();
+      } else if (current != pending.before) {
+        _unknownStrictKeys.add(pending.key);
+        throw PreferenceOutcomeUnknownException(pending.key);
+      }
+      if (!_quarantinedVocabPreferenceWrites.containsKey(pending.key)) {
+        _unknownStrictKeys.remove(pending.key);
+      }
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+    } on StaleLocalDataLifetimeException {
+      _unknownStrictKeys.remove(pending.key);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    } on PreferenceOutcomeUnknownException {
+      rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(pending.key);
+      throw PreferenceOutcomeUnknownException(pending.key, cause: error);
+    }
+  }
+
+  static bool _vocabPendingOriginIsCurrent(
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    try {
+      pending.assertOriginCurrent();
+      return true;
+    } on Object {
+      return false;
+    }
+  }
+
+  static void _quarantineVocabPreferenceWrite(
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    _quarantinedVocabPreferenceWrites[pending.key] = pending;
+    _unknownStrictKeys.add(pending.key);
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static void _assertVocabPendingOriginAfterNative(
+    VocabProgressAttempt attempt,
+    _PendingVocabPreferenceWrite pending,
+  ) {
+    if (!attempt._isCurrent ||
+        pending.generation != _vocabProgressMutationGeneration) {
+      _unknownStrictKeys.remove(pending.key);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      throw const StaleLocalDataLifetimeException();
+    }
+    try {
+      pending.assertOriginCurrent();
+    } on Object {
+      _quarantineVocabPreferenceWrite(pending);
+      rethrow;
+    }
+  }
+
+  static bool _vocabPreferenceStateMatches(Object state, Object value) =>
+      switch (state) {
+        _IntPreferenceState state => state.isPresent && state.value == value,
+        _StringPreferenceState state => state.isPresent && state.value == value,
+        _StringListPreferenceState state =>
+          state.isPresent && _preferenceValueEquals(state.value, value),
+        _ => false,
+      };
+
+  static Future<_IntPreferenceState> _prepareVocabIntMutation(
+    VocabProgressAttempt attempt,
+    PreferenceIntStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.integer) {
+      attempt._assertCurrent();
+      final current = await _reloadIntState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _IntPreferenceState._(
+        isPresent: true,
+        value: _confirmedVocabInts[key]!,
+      );
+    }
+    return _prepareIntMutation(store, key);
+  }
+
+  static Future<_StringPreferenceState> _prepareVocabStringMutation(
+    VocabProgressAttempt attempt,
+    PreferenceStringStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.string) {
+      attempt._assertCurrent();
+      final current = await _reloadStringState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _StringPreferenceState._(
+        isPresent: true,
+        value: _confirmedWrongCountRaw!,
+      );
+    }
+    return _prepareStringMutation(store, key);
+  }
+
+  static Future<_StringListPreferenceState> _prepareVocabStringListMutation(
+    VocabProgressAttempt attempt,
+    PreferenceStringListStore store,
+    String key,
+  ) async {
+    final quarantined = _quarantinedVocabPreferenceWrites[key];
+    if (quarantined?.kind == _VocabPreferenceKind.stringList) {
+      attempt._assertCurrent();
+      final current = await _reloadStringListState(store, key);
+      attempt._assertCurrent();
+      if (current != quarantined!.before &&
+          !_vocabPreferenceStateMatches(current, quarantined.after)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+      return current;
+    }
+    if (_confirmedVocabAfterReloadKeys.contains(key) &&
+        !_unknownStrictKeys.contains(key)) {
+      return _StringListPreferenceState._(
+        isPresent: true,
+        value: _confirmedVokSeenIds!,
+      );
+    }
+    return _prepareStringListMutation(store, key);
+  }
+
+  static Future<void> _writeVocabInt(
+    VocabProgressAttempt attempt,
+    String key,
+    int value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceIntStore(preferences);
+    final before = await _prepareVocabIntMutation(attempt, store, key);
+    attempt._assertCurrent();
+    _confirmedVocabInts.putIfAbsent(key, () => before.value ?? 0);
+    if (before.isPresent && before.value == value) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      _confirmedVocabInts[key] = value;
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.integer,
+      store: store,
+      before: before,
+      after: value,
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        _confirmedVocabInts[key] = value;
+        markSaved();
+      },
+    );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _siStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static Future<void> _writeVocabString(
+    VocabProgressAttempt attempt,
+    String key,
+    String value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringStore(preferences);
+    final before = await _prepareVocabStringMutation(attempt, store, key);
+    attempt._assertCurrent();
+    if (key == _wrongCountKey) {
+      _confirmedWrongCountRaw ??= before.value ?? '';
+    }
+    if (before.isPresent && before.value == value) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      if (key == _wrongCountKey) {
+        _confirmWrongCountRaw(value);
+      }
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.string,
+      store: store,
+      before: before,
+      after: value,
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        if (key == _wrongCountKey) {
+          _confirmWrongCountRaw(value);
+        }
+        markSaved();
+      },
+    );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _ssStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static Future<void> _writeVocabStringList(
+    VocabProgressAttempt attempt,
+    String key,
+    List<String> value,
+    void Function() markSaved,
+  ) async {
+    attempt._assertCurrent();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringListStore(preferences);
+    final before = await _prepareVocabStringListMutation(attempt, store, key);
+    attempt._assertCurrent();
+    _confirmedVokSeenIds ??= List<String>.unmodifiable(
+      before.value ?? const <String>[],
+    );
+    if (before.isPresent && _preferenceValueEquals(before.value, value)) {
+      _quarantinedVocabPreferenceWrites.remove(key);
+      _unknownStrictKeys.remove(key);
+      _confirmedVokSeenIds = List<String>.unmodifiable(value);
+      markSaved();
+      return;
+    }
+    final generation = _vocabProgressMutationGeneration;
+    final pending = _PendingVocabPreferenceWrite(
+      generation: generation,
+      key: key,
+      kind: _VocabPreferenceKind.stringList,
+      store: store,
+      before: before,
+      after: List<String>.unmodifiable(value),
+      assertOriginCurrent: attempt._assertCurrent,
+      confirm: () {
+        _quarantinedVocabPreferenceWrites.remove(key);
+        _unknownStrictKeys.remove(key);
+        _confirmedVokSeenIds = List<String>.unmodifiable(value);
+        markSaved();
+      },
+    );
+    pending.sharedCacheReloaded = _packCompletionReloads.containsKey(
+      preferences,
+    );
+    _pendingVocabPreferenceWrite = pending;
+    try {
+      await _slStrict(
+        key,
+        value,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: attempt._assertCurrent,
+      );
+    } on PreferenceOutcomeUnknownException {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      rethrow;
+    } on Object {
+      _assertVocabPendingOriginAfterNative(attempt, pending);
+      if (identical(pending, _pendingVocabPreferenceWrite)) {
+        _pendingVocabPreferenceWrite = null;
+      }
+      rethrow;
+    }
+    _assertVocabPendingOriginAfterNative(attempt, pending);
+    pending.confirm();
+    if (identical(pending, _pendingVocabPreferenceWrite)) {
+      _pendingVocabPreferenceWrite = null;
+    }
+  }
+
+  static String _confirmedChoiceRevisionKey(
+    _ConfirmedChoiceDomain domain,
+    String itemKey,
+  ) => '${domain.preferenceKey}\u0000$itemKey';
+
+  static int _admitConfirmedChoice(
+    _ConfirmedChoiceDomain domain,
+    String itemKey,
+  ) {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    final key = _confirmedChoiceRevisionKey(domain, itemKey);
+    final revision = (_confirmedChoiceRevisions[key] ?? 0) + 1;
+    _confirmedChoiceRevisions[key] = revision;
+    return revision;
+  }
+
+  static List<String> _confirmedChoiceList(_ConfirmedChoiceDomain domain) {
+    final key = domain.preferenceKey;
+    final cached = _confirmedChoiceStates[key];
+    if (cached != null) {
+      return List<String>.of(cached.value ?? const <String>[]);
+    }
+    final preferences = _prefs;
+    if (preferences == null) {
+      return <String>[];
+    }
+    try {
+      final state = _StringListPreferenceState.read(
+        _SharedPreferenceStringListStore(preferences),
+        key,
+      );
+      _confirmedChoiceStates[key] = state;
+      return List<String>.of(state.value ?? const <String>[]);
+    } on Object {
+      _unknownStrictKeys.add(key);
+      return <String>[];
+    }
+  }
+
+  static void _publishConfirmedChoice(
+    _ConfirmedChoiceDomain domain,
+    _StringListPreferenceState state,
+  ) {
+    _confirmedChoiceStates[domain.preferenceKey] = state;
+  }
+
+  static Future<_StringListPreferenceState> _prepareConfirmedChoiceMutation(
+    PreferenceStringListStore store,
+    _ConfirmedChoiceDomain domain,
+  ) async {
+    final key = domain.preferenceKey;
+    final requiresNativeRefresh = _unknownStrictKeys.contains(key);
+    if (requiresNativeRefresh) {
+      await _refreshUnknownStringListKeys(store, <String>[key]);
+    } else {
+      final confirmed = _confirmedChoiceStates[key];
+      if (confirmed != null) {
+        return confirmed;
+      }
+    }
+    try {
+      return _StringListPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static void _assertConfirmedChoiceCurrentAfterNative(
+    ConfirmedLocalChoiceOperation operation,
+    String preferenceKey,
+  ) {
+    try {
+      operation._assertCurrent();
+    } on StaleLocalDataLifetimeException {
+      // The setter was already issued, so its durable outcome can differ from
+      // the last confirmed view even when this operation must not publish.
+      // Force the next queued/fresh owner to reconcile native state first.
+      _unknownStrictKeys.add(preferenceKey);
+      rethrow;
+    }
+  }
+
+  static Future<bool> _saveConfirmedChoice(
+    ConfirmedLocalChoiceOperation operation,
+  ) {
+    operation._assertCurrent();
+    final domainKey = operation._domain.preferenceKey;
+    final prior = _confirmedChoiceMutations[domainKey];
+    final generation = _confirmedChoiceMutationGeneration;
+    _confirmedChoiceMutationCount++;
+    late final Future<bool> result;
+    late final Future<void> tail;
+    result = () async {
+      if (prior != null) {
+        await prior;
+      }
+      operation._assertCurrent();
+      final preferences = _prefs;
+      if (preferences == null) {
+        throw PreferenceWriteException(domainKey);
+      }
+      final store = _SharedPreferenceStringListStore(preferences);
+      late final _StringListPreferenceState before;
+      try {
+        before = await _prepareConfirmedChoiceMutation(
+          store,
+          operation._domain,
+        );
+      } on Object {
+        operation._assertCurrent();
+        rethrow;
+      }
+      operation._assertCurrent();
+      final current = before.value ?? const <String>[];
+      _publishConfirmedChoice(operation._domain, before);
+      final contains = current.contains(operation.itemKey);
+      if (contains == operation.desired) {
+        operation._completed = true;
+        return operation.desired;
+      }
+      final next = <String>[
+        for (final item in current)
+          if (item != operation.itemKey) item,
+        if (operation.desired) operation.itemKey,
+      ];
+      try {
+        await _slStrict(
+          domainKey,
+          next,
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: operation._assertCurrent,
+        );
+      } on Object catch (error) {
+        _assertConfirmedChoiceCurrentAfterNative(operation, domainKey);
+        if (error is PreferenceWriteException) {
+          _publishConfirmedChoice(operation._domain, before);
+        }
+        rethrow;
+      }
+      _assertConfirmedChoiceCurrentAfterNative(operation, domainKey);
+      _publishConfirmedChoice(
+        operation._domain,
+        _StringListPreferenceState._(
+          isPresent: true,
+          value: List<String>.unmodifiable(next),
+        ),
+      );
+      operation._completed = true;
+      return operation.desired;
+    }();
+    tail = result.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    _confirmedChoiceMutations[domainKey] = tail;
+    tail.whenComplete(() {
+      if (generation == _confirmedChoiceMutationGeneration) {
+        _confirmedChoiceMutationCount--;
+        if (identical(tail, _confirmedChoiceMutations[domainKey])) {
+          _confirmedChoiceMutations.remove(domainKey);
+        }
+      }
+    });
+    return result;
+  }
+
+  static ConfirmedLocalChoiceOperation likedContentOperation(
+    String key, {
+    required bool desired,
+    void Function()? assertCurrentOwner,
+  }) => ConfirmedLocalChoiceOperation._(
+    assertCurrentOwner,
+    itemKey: key,
+    desired: desired,
+    domain: _ConfirmedChoiceDomain.likedContent,
+  );
+
+  static ConfirmedLocalChoiceOperation vokFavoriteOperation(
+    String id, {
+    required bool desired,
+    void Function()? assertCurrentOwner,
+  }) => ConfirmedLocalChoiceOperation._(
+    assertCurrentOwner,
+    itemKey: id,
+    desired: desired,
+    domain: _ConfirmedChoiceDomain.vokFavorite,
+  );
+
   /// Vokabel-Favoriten — Stern-Markierung für gezieltes Wiederholen.
-  static List<String> get vokFavorites => _l('kl_vok_favorites');
+  static List<String> get vokFavorites =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.vokFavorite);
   static bool isVokFavorite(String id) => vokFavorites.contains(id);
   static Future<void> toggleVokFavorite(String id) async {
-    final list = vokFavorites;
-    if (list.contains(id)) {
-      list.remove(id);
-    } else {
-      list.add(id);
-    }
-    await _sl('kl_vok_favorites', list);
+    await vokFavoriteOperation(id, desired: !isVokFavorite(id)).save();
+  }
+
+  static Future<void> setVokFavorite(String id, bool desired) async {
+    await vokFavoriteOperation(id, desired: desired).save();
   }
 
   /// Liked content keys (`kind|id`) — play-later drawer, not the wordbook.
-  static List<String> get likedContentKeys => _l('kl_liked_content_v1');
+  static List<String> get likedContentKeys =>
+      _confirmedChoiceList(_ConfirmedChoiceDomain.likedContent);
   static bool isLikedContent(String key) => likedContentKeys.contains(key);
   static Future<bool> toggleLikedContent(String key) async {
-    final list = likedContentKeys;
-    final liked = list.contains(key);
-    if (liked) {
-      list.remove(key);
-    } else {
-      list.add(key);
-    }
-    await _sl('kl_liked_content_v1', list);
-    return !liked;
+    return likedContentOperation(key, desired: !isLikedContent(key)).save();
   }
+
+  static Future<bool> setLikedContent(String key, bool desired) =>
+      likedContentOperation(key, desired: desired).save();
 
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
@@ -1368,9 +3745,25 @@ class Storage {
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
   static List<String> get grammarHard => _l('kl_gram_hard');
-  static String get grammarPlanRawJson => _s('kl_gram_plan_v1');
-  static Future<void> setGrammarPlanRawJson(String json) =>
-      _ss('kl_gram_plan_v1', json);
+  static String get grammarPlanRawJson {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return _confirmedGrammarPlanRaw;
+    }
+    return _s('kl_gram_plan_v1');
+  }
+
+  static Future<void> setGrammarPlanRawJson(String json) {
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      await _ssStrict(
+        'kl_gram_plan_v1',
+        json,
+        preferences: _grammarPlanStringStore(),
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = json;
+    });
+  }
 
   /// §A5 (Fable R1, 2026-09-05): which plan level the grammar-screen
   /// onboarding sheet last started/changed to. Screen state (`_planLevel`)
@@ -1381,16 +3774,323 @@ class Storage {
   /// [LearnerLevel] code. This never changes [userLevelCode] itself.
   static const String grammarPlanLevelPreferenceKey = 'kl_gram_plan_level_v1';
 
-  static String? get grammarPlanLevel =>
-      _optionalLearnerLevelCode(grammarPlanLevelPreferenceKey);
+  static String? get grammarPlanLevel {
+    if (_grammarPlanConfirmedViewInitialized) {
+      return _confirmedGrammarPlanLevel;
+    }
+    return _optionalLearnerLevelCode(grammarPlanLevelPreferenceKey);
+  }
 
   static Future<void> setGrammarPlanLevel(String? level) async {
-    if (level == null) {
-      await _prefs?.remove(grammarPlanLevelPreferenceKey);
+    final normalized = level == null ? null : _requiredLearnerLevelCode(level);
+    _captureGrammarPlanConfirmedView();
+    final revision = ++_grammarPlanAdmissionRevision;
+    await _enqueueGrammarPlanMutation(() async {
+      final store = _grammarPlanStringStore();
+      final current = await _reloadGrammarPlanSelectedLevelState(store);
+      final currentLevel = current.isPresent ? current.value : null;
+      if (currentLevel == normalized) {
+        _confirmedGrammarPlanLevel = normalized;
+        _confirmedGrammarPlanLevelRevision = revision;
+        return;
+      }
+      if (normalized == null) {
+        await _removeStringStrict(
+          grammarPlanLevelPreferenceKey,
+          preferences: store,
+          assertCurrentWrite: null,
+        );
+      } else {
+        await _ssStrict(
+          grammarPlanLevelPreferenceKey,
+          normalized,
+          preferences: store,
+          beforeState: current,
+        );
+      }
+      _confirmedGrammarPlanLevel = normalized;
+      _confirmedGrammarPlanLevelRevision = revision;
+    });
+  }
+
+  static PreferenceStringStore _grammarPlanStringStore() {
+    final store =
+        _grammarPlanStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw const PreferenceWriteException('kl_gram_plan_v1');
+    }
+    return store;
+  }
+
+  static Future<void> _saveGrammarPlanOperation(
+    GrammarPlanWriteOperation operation,
+  ) => _enqueueGrammarPlanMutation(() async {
+    operation._assertCurrent();
+    final store = _grammarPlanStringStore();
+    if (!operation._planConfirmed) {
+      await _saveGrammarPlanLeg(operation, store);
+    } else {
+      final current = await _reloadGrammarPlanState(store);
+      final target = _grammarPlanTargetCanonical(current, operation.plan.level);
+      if (target != _grammarPlanCanonical(operation.plan.toJson())) {
+        throw GrammarPlanConflictException(operation.plan.level);
+      }
+      operation._candidateRaw = current.value;
+    }
+    operation._assertCurrent();
+    if (operation.requiresSelectedLevel && !operation._selectedLevelConfirmed) {
+      await _saveGrammarPlanSelectedLevelLeg(operation, store);
+    }
+    operation._assertCurrent();
+    _unconfirmedGrammarPlanLevels.remove(operation.plan.level);
+    _publishGrammarPlanConfirmedCandidate(operation._candidateRaw!);
+    if (operation.requiresSelectedLevel) {
+      _confirmedGrammarPlanLevel = operation.selectedLevel;
+    }
+    operation._completed = true;
+  });
+
+  static Future<void> _saveGrammarPlanLeg(
+    GrammarPlanWriteOperation operation,
+    PreferenceStringStore store,
+  ) async {
+    final current = await _reloadGrammarPlanState(store);
+    final desired = _grammarPlanCanonical(operation.plan.toJson());
+    final target = _grammarPlanTargetCanonical(current, operation.plan.level);
+    if (target == desired) {
+      operation._candidateRaw = current.value;
+      operation._planConfirmed = true;
+      _unconfirmedGrammarPlanLevels.add(operation.plan.level);
       return;
     }
-    await _ss(grammarPlanLevelPreferenceKey, _requiredLearnerLevelCode(level));
+    final baseline = _grammarPlanTargetCanonicalFromRaw(
+      operation._baselineRaw,
+      operation.plan.level,
+    );
+    if (target != baseline) {
+      throw GrammarPlanConflictException(operation.plan.level);
+    }
+    final container = _grammarPlanContainer(current);
+    final existingTarget = _grammarPlanValidatedTarget(
+      container,
+      operation.plan.level,
+    );
+    container[operation.plan.level] = <String, Object?>{
+      ...?existingTarget,
+      ...operation.plan.toJson(),
+    };
+    final candidate = jsonEncode(container);
+    operation._candidateRaw = candidate;
+    operation._assertCurrent();
+    _unconfirmedGrammarPlanLevels.add(operation.plan.level);
+    await _ssStrict(
+      'kl_gram_plan_v1',
+      candidate,
+      preferences: store,
+      beforeState: current,
+      assertCurrentWrite: operation._assertCurrent,
+    );
+    operation._planConfirmed = true;
   }
+
+  static void _publishGrammarPlanConfirmedCandidate(String candidateRaw) {
+    if (_unconfirmedGrammarPlanLevels.isEmpty) {
+      _confirmedGrammarPlanRaw = candidateRaw;
+      return;
+    }
+    final candidate = _grammarPlanContainer(
+      _StringPreferenceState._(isPresent: true, value: candidateRaw),
+    );
+    Map<String, Object?> confirmed;
+    try {
+      confirmed = _confirmedGrammarPlanRaw.isEmpty
+          ? <String, Object?>{}
+          : _grammarPlanContainer(
+              _StringPreferenceState._(
+                isPresent: true,
+                value: _confirmedGrammarPlanRaw,
+              ),
+            );
+    } on GrammarPlanRecoveryValueException {
+      confirmed = <String, Object?>{};
+    }
+    for (final level in _unconfirmedGrammarPlanLevels) {
+      if (confirmed.containsKey(level)) {
+        candidate[level] = confirmed[level];
+      } else {
+        candidate.remove(level);
+      }
+    }
+    if (_grammarPlanCanonical(candidate) == _grammarPlanCanonical(confirmed)) {
+      return;
+    }
+    _confirmedGrammarPlanRaw = jsonEncode(candidate);
+  }
+
+  static Future<void> _saveGrammarPlanSelectedLevelLeg(
+    GrammarPlanWriteOperation operation,
+    PreferenceStringStore store,
+  ) async {
+    final current = await _reloadGrammarPlanSelectedLevelState(store);
+    final desired = operation.selectedLevel;
+    final currentLevel = current.isPresent ? current.value : null;
+    if (currentLevel == desired) {
+      operation._selectedLevelConfirmed = true;
+      _confirmedGrammarPlanLevelRevision = operation._revision;
+      return;
+    }
+    if (currentLevel != operation._baselineSelectedLevel) {
+      final wasConfirmedByEarlierAdmission =
+          _confirmedGrammarPlanLevelRevision >
+              operation._baselineSelectedLevelRevision &&
+          _confirmedGrammarPlanLevelRevision < operation._revision;
+      if (!wasConfirmedByEarlierAdmission) {
+        throw GrammarPlanConflictException(operation.plan.level);
+      }
+    }
+    operation._assertCurrent();
+    if (desired == null) {
+      await _removeStringStrict(
+        grammarPlanLevelPreferenceKey,
+        preferences: store,
+        assertCurrentWrite: operation._assertCurrent,
+      );
+    } else {
+      await _ssStrict(
+        grammarPlanLevelPreferenceKey,
+        desired,
+        preferences: store,
+        beforeState: current,
+        assertCurrentWrite: operation._assertCurrent,
+      );
+    }
+    operation._selectedLevelConfirmed = true;
+    _confirmedGrammarPlanLevelRevision = operation._revision;
+  }
+
+  static Future<_StringPreferenceState> _reloadGrammarPlanState(
+    PreferenceStringStore store,
+  ) async {
+    const key = 'kl_gram_plan_v1';
+    try {
+      await store.reload();
+      final state = _StringPreferenceState.read(store, key);
+      if (state.isPresent) {
+        _grammarPlanContainer(state);
+      }
+      _unknownStrictKeys.remove(key);
+      return state;
+    } on GrammarPlanRecoveryValueException {
+      rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<_StringPreferenceState> _reloadGrammarPlanSelectedLevelState(
+    PreferenceStringStore store,
+  ) async {
+    try {
+      await store.reload();
+      final state = _StringPreferenceState.read(
+        store,
+        grammarPlanLevelPreferenceKey,
+      );
+      _unknownStrictKeys.remove(grammarPlanLevelPreferenceKey);
+      return state;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(grammarPlanLevelPreferenceKey);
+      throw PreferenceOutcomeUnknownException(
+        grammarPlanLevelPreferenceKey,
+        cause: error,
+      );
+    }
+  }
+
+  static Map<String, Object?> _grammarPlanContainer(
+    _StringPreferenceState state,
+  ) {
+    if (!state.isPresent || state.value!.trim().isEmpty) {
+      return <String, Object?>{};
+    }
+    try {
+      final decoded = jsonDecode(state.value!);
+      if (decoded is! Map) {
+        throw const GrammarPlanRecoveryValueException();
+      }
+      return <String, Object?>{
+        for (final entry in decoded.entries) entry.key.toString(): entry.value,
+      };
+    } on GrammarPlanRecoveryValueException {
+      rethrow;
+    } on Object {
+      throw const GrammarPlanRecoveryValueException();
+    }
+  }
+
+  static String? _grammarPlanTargetCanonical(
+    _StringPreferenceState state,
+    String level,
+  ) {
+    final container = _grammarPlanContainer(state);
+    final target = _grammarPlanValidatedTarget(container, level);
+    if (target == null) {
+      return null;
+    }
+    final decoded = GrammarStudyPlan.fromJson(<String, dynamic>{...target});
+    final normalized = decoded.level.isEmpty
+        ? decoded.copyWith(level: level)
+        : decoded;
+    return _grammarPlanCanonical(normalized.toJson());
+  }
+
+  static Map<String, Object?>? _grammarPlanValidatedTarget(
+    Map<String, Object?> container,
+    String level,
+  ) {
+    final raw = container[level];
+    if (raw == null) {
+      return null;
+    }
+    if (raw is! Map) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final target = <String, Object?>{
+      for (final entry in raw.entries) entry.key.toString(): entry.value,
+    };
+    final storedLevel = target['level'];
+    if (storedLevel != null &&
+        (storedLevel is! String ||
+            (storedLevel.isNotEmpty &&
+                storedLevel.toLowerCase() != level.toLowerCase()))) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final itemsPerDay = target['itemsPerDay'];
+    if (itemsPerDay != null &&
+        (itemsPerDay is! num || itemsPerDay.toInt() <= 0)) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    final served = target['servedIdsByDate'];
+    if (served != null && served is! Map) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    if (served is Map && served.values.any((value) => value is! List)) {
+      throw const GrammarPlanRecoveryValueException();
+    }
+    return target;
+  }
+
+  static String? _grammarPlanTargetCanonicalFromRaw(String raw, String level) {
+    final state = raw.isEmpty
+        ? const _StringPreferenceState.absent()
+        : _StringPreferenceState._(isPresent: true, value: raw);
+    return _grammarPlanTargetCanonical(state, level);
+  }
+
+  static String? _grammarPlanCanonical(Object? value) =>
+      value == null ? null : jsonEncode(value);
 
   /// Strict cloud-restore-only writer. A fresh local value wins after the
   /// reload boundary; the caller's session guard is then checked immediately
@@ -1398,55 +4098,47 @@ class Storage {
   static Future<GrammarPlanRestoreResult> setGrammarPlanRawJsonForRestore(
     String json, {
     void Function()? assertCurrentWrite,
-  }) async {
-    const key = 'kl_gram_plan_v1';
-    final store =
-        _grammarPlanStoreForTesting ??
-        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
-    if (store == null) {
-      throw const PreferenceWriteException(key);
-    }
+  }) {
+    _captureGrammarPlanConfirmedView();
+    return _enqueueGrammarPlanMutation(() async {
+      const key = 'kl_gram_plan_v1';
+      final store = _grammarPlanStringStore();
 
-    try {
-      final initial = _StringPreferenceState.read(store, key);
-      if (initial.isPresent && initial.value!.isNotEmpty) {
+      try {
+        if (_unknownStrictKeys.contains(key)) {
+          await _refreshUnknownStringKeys(store, [key]);
+        } else {
+          await store.reload();
+        }
+      } on PreferenceOutcomeUnknownException {
+        rethrow;
+      } on Object catch (error) {
+        _unknownStrictKeys.add(key);
+        throw PreferenceOutcomeUnknownException(key, cause: error);
+      }
+
+      late final _StringPreferenceState before;
+      try {
+        before = _StringPreferenceState.read(store, key);
+      } on Object catch (error) {
+        debugPrint('Storage: malformed grammar plan during restore: $error');
+        return GrammarPlanRestoreResult.skippedRecoveryValue;
+      }
+      if (before.isPresent && before.value!.isNotEmpty) {
+        _publishGrammarPlanConfirmedCandidate(before.value!);
         return GrammarPlanRestoreResult.skippedExisting;
       }
-    } on Object catch (error) {
-      debugPrint('Storage: malformed grammar plan during restore: $error');
-      return GrammarPlanRestoreResult.skippedRecoveryValue;
-    }
-
-    try {
-      if (_unknownStrictKeys.contains(key)) {
-        await _refreshUnknownStringKeys(store, [key]);
-      }
-      await store.reload();
-    } on PreferenceOutcomeUnknownException {
-      rethrow;
-    } on Object catch (error) {
-      _unknownStrictKeys.add(key);
-      throw PreferenceOutcomeUnknownException(key, cause: error);
-    }
-
-    late final _StringPreferenceState before;
-    try {
-      before = _StringPreferenceState.read(store, key);
-    } on Object catch (error) {
-      debugPrint('Storage: malformed grammar plan during restore: $error');
-      return GrammarPlanRestoreResult.skippedRecoveryValue;
-    }
-    if (before.isPresent && before.value!.isNotEmpty) {
-      return GrammarPlanRestoreResult.skippedExisting;
-    }
-    await _ssStrict(
-      key,
-      json,
-      preferences: store,
-      beforeState: before,
-      assertCurrentWrite: assertCurrentWrite,
-    );
-    return GrammarPlanRestoreResult.written;
+      await _ssStrict(
+        key,
+        json,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+      _unconfirmedGrammarPlanLevels.clear();
+      _confirmedGrammarPlanRaw = json;
+      return GrammarPlanRestoreResult.written;
+    });
   }
 
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
@@ -1802,11 +4494,10 @@ class Storage {
   static double get pronunciationLastScore =>
       _readPronunciationProgress().lastScore;
 
-  static const String _pronunciationConsentKey = 'kl_pronunciation_consent_v1';
   static bool get pronunciationConsent =>
-      _prefs?.getBool(_pronunciationConsentKey) ?? false;
-  static Future<void> setPronunciationConsent(bool value) async =>
-      _prefs?.setBool(_pronunciationConsentKey, value);
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.pronunciation);
+  static Future<void> setPronunciationConsent(bool value) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.pronunciation, value);
 
   static Future<bool> recordPronunciationPass(
     String assessmentId,
@@ -1906,7 +4597,9 @@ class Storage {
       _ss('kl_reward_claim_v1', json);
 
   static Future<void> clearDecorationRewardClaimJournal() async {
-    await _prefs?.remove('kl_reward_claim_v1');
+    await PackCompletionStorage.trackWrite('kl_reward_claim_v1', () async {
+      await _prefs?.remove('kl_reward_claim_v1');
+    });
   }
 
   /// 꾸러미 하나를 소비한다. 없으면 false.
@@ -2298,14 +4991,15 @@ class Storage {
   /// Default **false** — Erhebung erst nach expliziter Einwilligung
   /// (TTDSG §25 / DSGVO Art. 6). Jederzeit in den Einstellungen widerrufbar.
   static bool get analyticsConsent =>
-      _prefs?.getBool('kl_analytics_consent') ?? false;
-  static Future<void> setAnalyticsConsent(bool v) async =>
-      _prefs?.setBool('kl_analytics_consent', v);
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.analytics);
+  static Future<void> setAnalyticsConsent(bool v) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.analytics, v);
 
   /// Opt-in: Absturzberichte (Firebase Crashlytics). Default **false**.
-  static bool get crashConsent => _prefs?.getBool('kl_crash_consent') ?? false;
-  static Future<void> setCrashConsent(bool v) async =>
-      _prefs?.setBool('kl_crash_consent', v);
+  static bool get crashConsent =>
+      PrivacyChoiceStorage.admitted(PrivacyPurpose.crash);
+  static Future<void> setCrashConsent(bool v) =>
+      PrivacyChoiceStorage.set(PrivacyPurpose.crash, v);
 
   /// Der nachgelagerte Analytics/Crash-Opt-in-Dialog wurde bereits einmal
   /// gezeigt? Wird in dem Moment gesetzt, in dem das Sheet nach dem ersten
@@ -2348,9 +5042,9 @@ class Storage {
 
   /// Geburtsjahr (optional, Alters-Gate für Gye/Community — GDPR-K §8 DSGVO).
   /// 0 = nicht angegeben. Siehe [AgeGateService].
-  static int get birthYear => _prefs?.getInt('kl_birth_year') ?? 0;
-  static Future<void> setBirthYear(int year) async =>
-      _prefs?.setInt('kl_birth_year', year);
+  static int get birthYear => PrivacyChoiceStorage.birthYear;
+  static Future<void> setBirthYear(int year) =>
+      PrivacyChoiceStorage.setAge(year);
 
   // ───────── SRS (Spaced Repetition, SM-2 vereinfacht) ─────────
   static Map<String, SrsCard>? _srsCache;
@@ -2363,7 +5057,7 @@ class Storage {
 
   /// 이번 실행에서 `kl_srs_v1` 파싱이 실패했는지.
   ///
-  /// 서 있는 동안 [_persistSrs] 는 원본을 덮어쓰지 않는다.
+  /// 서 있는 동안 [_srsReviewTransaction] 는 원본을 덮어쓰지 않는다.
   static bool _srsQuarantined = false;
 
   /// 파싱은 됐지만 개별 항목이 깨져 버려진 개수. 진단용.
@@ -2386,14 +5080,14 @@ class Storage {
   ///
   /// - **전체 손상**(JSON 자체가 깨짐, 최상위가 Map 이 아님) → 원본을
   ///   [srsQuarantinePreferenceKey] 로 보존하고 [_srsQuarantined] 를 세운다.
-  ///   그 뒤 [_persistSrs] 는 write 를 건너뛴다(fail-closed).
-  /// - **부분 손상**(일부 항목만 깨짐) → 유효한 항목은 보존하고 깨진 항목만
-  ///   버린다. `roomPlacement` 정규화와 같은 정책이며, 이 경우는 정상 write 를
-  ///   허용해 남은 덱이 계속 갱신되게 한다.
-  static Map<String, SrsCard> _loadSrs() {
+  ///   그 뒤 [_srsReviewTransaction] 는 write 를 건너뛴다(fail-closed).
+  /// - **부분 손상**(일부 항목만 깨짐) → 읽기에서는 유효한 항목을 보존한다.
+  ///   새 판정 전 원본을 엄격히 보존한 뒤 읽힌 카드만 정규화한다.
+  ///   보존이나 정규화가 확인되지 않으면 새 판정을 허용하지 않는다.
+  static Map<String, SrsCard> _loadSrs({String? confirmedRaw}) {
     if (_srsCache != null) return _srsCache!;
     _srsDroppedEntries = 0;
-    final raw = _s('kl_srs_v1');
+    final raw = confirmedRaw ?? srsRawJson;
     if (raw.isEmpty) {
       _srsQuarantined = false;
       return _srsCache = {};
@@ -2464,62 +5158,15 @@ class Storage {
     _srsDroppedEntries = 0;
   }
 
+  static void _invalidateSrsAttempts() {
+    _srsAttemptEpoch++;
+  }
+
   /// 격리를 해제하고 SRS 덱을 빈 상태로 다시 시작한다.
   ///
   /// 사용자가 "복구 불가, 새로 시작"을 **명시적으로** 선택했을 때만 호출한다.
   /// 격리본은 남겨 둔다.
-  static Future<void> resetQuarantinedSrs() async {
-    _srsQuarantined = false;
-    _srsDroppedEntries = 0;
-    _srsCache = {};
-    await _ss('kl_srs_v1', jsonEncode(const <String, dynamic>{}));
-  }
-
-  static Future<bool> _persistSrs({required int generation}) async {
-    if (_learningWritesLockReason != null) {
-      debugPrint(
-        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_srs_v1 쓰기를 건너뛴다',
-      );
-      return false;
-    }
-    if (_srsQuarantined) {
-      // 손상된 원본 위에 빈/부분 덱을 쓰면 복구 가능성이 사라진다.
-      debugPrint('Storage: SRS 격리 상태 — kl_srs_v1 쓰기를 건너뛴다');
-      return false;
-    }
-    if (_prefs == null) {
-      return false;
-    }
-    final store =
-        _srsPersistenceStoreForTesting ?? _SharedPreferenceStringStore(_prefs!);
-    final json =
-        _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ??
-        const <String, dynamic>{};
-    final encoded = jsonEncode(json);
-    final before = await _prepareStringMutation(store, 'kl_srs_v1');
-    await _ssStrict(
-      'kl_srs_v1',
-      encoded,
-      preferences: store,
-      beforeState: before,
-      // Check at the last synchronous point before issuing the platform
-      // setter. A reset that happens earlier therefore has no write to undo.
-      assertCurrentWrite: () {
-        if (generation != _srsReviewMutationGeneration) {
-          throw StateError('stale SRS generation before primary write');
-        }
-      },
-    );
-    if (generation != _srsReviewMutationGeneration) {
-      await _restoreStaleSrsPrimaryWrite(
-        store: store,
-        before: before,
-        attemptedJson: encoded,
-      );
-      return false;
-    }
-    return true;
-  }
+  static Future<void> resetQuarantinedSrs() => setSrsRawJsonStrict('{}');
 
   /// This runs before the reset drain barrier releases a new [_prefs]. The
   /// captured store is therefore still the old generation's boundary, and no
@@ -2544,21 +5191,60 @@ class Storage {
   }
 
   /// Roh-JSON des SRS-Decks (für CloudSync-Backup). Leer = kein Deck.
-  static String get srsRawJson => _s('kl_srs_v1');
+  static String get srsRawJson => _srsRecoveryClosed
+      ? (_srsNormalization?.before ?? _srsJournal?.beforeDeck ?? '')
+      : _s('kl_srs_v1');
 
   /// SRS-Deck als Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren,
   /// damit der nächste [_loadSrs] neu parst.
-  static Future<void> setSrsRawJson(String json) async {
-    await _ss('kl_srs_v1', json);
-    _invalidateSrsCache();
-  }
+  static Future<void> setSrsRawJson(String json) => setSrsRawJsonStrict(json);
 
   static Future<void> setSrsRawJsonStrict(
     String json, {
     PreferenceStringStore? preferences,
   }) async {
-    await _ssStrict('kl_srs_v1', json, preferences: preferences);
-    _invalidateSrsCache();
+    _invalidateSrsAttempts();
+    final saved = await _enqueueSrsReviewMutation((generation) async {
+      if (_srsRecoveryClosed) {
+        throw const SrsRecoveryPendingException();
+      }
+      // The prior admitted journal has settled. Read native state afresh even
+      // when this replacement is rejected; its confirmed evidence remains.
+      _invalidateSrsCache();
+      final store = _stringStore(preferences);
+      final before = await _prepareStringMutation(store, 'kl_srs_v1');
+      try {
+        await _ssStrict(
+          'kl_srs_v1',
+          json,
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: () {
+            if (generation != _srsReviewMutationGeneration) {
+              throw StateError('stale SRS generation before deck replacement');
+            }
+          },
+        );
+        if (generation != _srsReviewMutationGeneration) {
+          await _restoreStaleSrsPrimaryWrite(
+            store: store,
+            before: before,
+            attemptedJson: json,
+          );
+          return false;
+        }
+        return true;
+      } finally {
+        _invalidateSrsCache();
+        if (_unknownStrictKeys.contains('kl_srs_v1') &&
+            generation == _srsReviewMutationGeneration) {
+          _loadSrs(confirmedRaw: before.value ?? '');
+        }
+      }
+    });
+    if (!saved) {
+      throw const PreferenceWriteException('kl_srs_v1');
+    }
   }
 
   static const int _studyLogMaxIdsPerDay = 500;
@@ -2570,6 +5256,15 @@ class Storage {
 
   /// 명시적으로 판정한 해당 날짜의 SRS id 목록이다.
   static List<String> studyLogIdsFor(String dateIso) {
+    if (_srsRecoveryClosed) {
+      final journal = _srsJournal;
+      if (journal == null) {
+        return const [];
+      }
+      if (journal.recordHistory && journal.date == dateIso) {
+        return List<String>.of(journal.beforeHistory ?? const []);
+      }
+    }
     try {
       return _l(_studyLogKey(dateIso));
     } on Object catch (error) {
@@ -2602,64 +5297,6 @@ class Storage {
     return parsed != null && _today(parsed) == dateIso;
   }
 
-  static Future<bool> _appendStudyLogEntry(
-    String id, {
-    required String dateIso,
-    required int generation,
-  }) async {
-    if (_learningWritesLockReason != null) {
-      return false;
-    }
-    late final List<String> ids;
-    try {
-      ids = _l(_studyLogKey(dateIso));
-    } on Object catch (error) {
-      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
-      return false;
-    }
-    if (ids.contains(id)) {
-      return true;
-    }
-    if (ids.length >= _studyLogMaxIdsPerDay) {
-      return false;
-    }
-    ids.add(id);
-    final key = _studyLogKey(dateIso);
-    final store =
-        _studyLogStoreForTesting ??
-        (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
-    if (store == null) {
-      return false;
-    }
-    late final _StringListPreferenceState before;
-    try {
-      before = _StringListPreferenceState.read(store, key);
-      await _slStrict(
-        key,
-        ids,
-        preferences: store,
-        assertCurrentWrite: () {
-          if (generation != _srsReviewMutationGeneration) {
-            throw StateError('stale SRS generation before study-log write');
-          }
-        },
-      );
-      if (generation != _srsReviewMutationGeneration) {
-        await _restoreStaleStudyLogWrite(
-          store: store,
-          key: key,
-          before: before,
-          attemptedIds: ids,
-        );
-        return false;
-      }
-      return true;
-    } on Object catch (error) {
-      debugPrint('Storage: study-log persistence incomplete for $id: $error');
-      return false;
-    }
-  }
-
   /// Restores one historical ledger entry without changing the SRS deck.
   ///
   /// Cloud restore owns the session-lifetime guard. This helper intentionally
@@ -2670,7 +5307,10 @@ class Storage {
   static Future<bool> appendStudyLogEntryForRestore(
     String dateIso,
     String id,
-  ) async {
+  ) => _enqueueSrsReviewMutation((_) async {
+    if (_srsRecoveryClosed) {
+      throw const SrsRecoveryPendingException();
+    }
     if (!_isCanonicalStudyLogDate(dateIso) || id.trim().isEmpty) {
       return false;
     }
@@ -2701,13 +5341,36 @@ class Storage {
     final next = List<String>.from(ids)..add(id);
     await _slStrict(key, next, preferences: store);
     return true;
-  }
+  });
 
   /// Restores a validated remote date in one strict preference write.
   ///
   /// This prevents a rejected mid-date write from creating a partial local
   /// date that would later win against the complete cloud source.
   static Future<StudyLogDateRestoreResult> restoreStudyLogDateForRestore(
+    String dateIso,
+    List<String> remoteIds, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    StudyLogDateRestoreResult? result;
+    final saved = await _enqueueSrsReviewMutation((_) async {
+      if (_srsRecoveryClosed) {
+        throw const SrsRecoveryPendingException();
+      }
+      result = await _restoreStudyLogDate(
+        dateIso,
+        remoteIds,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+      return true;
+    });
+    if (!saved) {
+      throw const SrsRecoveryPendingException();
+    }
+    return result!;
+  }
+
+  static Future<StudyLogDateRestoreResult> _restoreStudyLogDate(
     String dateIso,
     List<String> remoteIds, {
     void Function()? assertCurrentWrite,
@@ -2785,37 +5448,6 @@ class Storage {
     return StudyLogDateRestoreResult.written;
   }
 
-  /// The reset drain barrier prevents a new preference boundary from opening
-  /// while this conditional rollback settles.
-  static Future<void> _restoreStaleStudyLogWrite({
-    required PreferenceStringListStore store,
-    required String key,
-    required _StringListPreferenceState before,
-    required List<String> attemptedIds,
-  }) async {
-    try {
-      await store.reload();
-      final after = _StringListPreferenceState.read(store, key);
-      if (!after.isPresent ||
-          !_preferenceValueEquals(after.value, attemptedIds)) {
-        return;
-      }
-      if (before.isPresent) {
-        await _slStrict(key, before.value!, preferences: store);
-      } else {
-        final removed = await store.remove(key);
-        if (!removed) {
-          await store.reload();
-          if (_StringListPreferenceState.read(store, key).isPresent) {
-            throw PreferenceWriteException(key);
-          }
-        }
-      }
-    } on Object catch (error) {
-      debugPrint('Storage: stale study-log repair skipped: $error');
-    }
-  }
-
   @visibleForTesting
   static void setSrsPersistenceStoreForTesting(PreferenceStringStore? store) {
     _srsPersistenceStoreForTesting = store;
@@ -2838,6 +5470,16 @@ class Storage {
   static Future<void> pruneStudyLog({
     int keepDays = _studyLogRetentionDays,
   }) async {
+    await _enqueueSrsReviewMutation((_) async {
+      if (_srsRecoveryClosed) {
+        return false;
+      }
+      await _pruneStudyLog(keepDays);
+      return true;
+    });
+  }
+
+  static Future<void> _pruneStudyLog(int keepDays) async {
     final prefs = _prefs;
     if (prefs == null) {
       return;
@@ -2865,13 +5507,9 @@ class Storage {
 
   /// Nach einer Wiederholung aufrufen. `gotIt` = richtig beantwortet?
   ///
-  /// Liefert nur dann `true`, wenn die SRS-Änderung dauerhaft geschrieben und
-  /// der optionale Tages-Eintrag verarbeitet wurde. SRS und Tages-Log liegen
-  /// in getrennten Preference-Keys und können daher nicht atomar committed
-  /// werden: Ist SRS erfolgreich, der Hilfs-Log aber nicht, bleibt SRS bewusst
-  /// erhalten und die Methode meldet `false`. Ein späteres gleiches Urteil
-  /// repariert den fehlenden deduplizierten Tages-Eintrag. Bestehende
-  /// fire-and-forget-Aufrufer erhalten dabei keine neue async Exception.
+  /// Returns true after both immutable native effects and journal retirement
+  /// are confirmed. Partial outcomes retain a durable obligation for recovery.
+  /// A retained attempt retries that obligation without a second advancement.
   ///
   /// Vereinfachter SM-2:
   /// - Erstes Mal richtig → Intervall 1 Tag
@@ -2883,119 +5521,178 @@ class Storage {
     String id, {
     required bool gotIt,
     bool recordToStudyLog = true,
-  }) => _enqueueSrsReviewMutation(
-    (generation) => _srsReviewTransaction(
-      id,
-      gotIt: gotIt,
-      recordToStudyLog: recordToStudyLog,
-      generation: generation,
-    ),
-  );
+  }) => SrsReviewAttempt(
+    id: id,
+    gotIt: gotIt,
+    recordToStudyLog: recordToStudyLog,
+  ).save();
 
   static Future<bool> _srsReviewTransaction(
-    String id, {
-    required bool gotIt,
-    required bool recordToStudyLog,
+    SrsReviewAttempt attempt, {
     required int generation,
   }) async {
-    if (generation != _srsReviewMutationGeneration) {
+    if (generation != _srsReviewMutationGeneration || !attempt._isCurrent) {
       return false;
     }
-    final map = _loadSrs();
-    final hadPreviousCard = map.containsKey(id);
-    final previousCard = map[id];
-    final old =
-        map[id] ??
-        const SrsCard(
-          ease: 2.5,
-          intervalDays: 0,
-          nextReviewIso: '',
-          reviewCount: 0,
+    if (attempt._completed) {
+      return true;
+    }
+    if (_srsRecoveryClosed) {
+      if (_srsNormalization != null) {
+        if (!await _recoverSrsCommit(generation)) {
+          return false;
+        }
+      } else {
+        if (!identical(attempt, _srsJournalAttempt)) {
+          return false;
+        }
+        return await _recoverSrsCommit(generation) && attempt.isCurrent;
+      }
+    }
+    if (_learningWritesLockReason != null || _prefs == null) {
+      return false;
+    }
+    final deckStore = _srsPersistenceStoreForTesting ?? _stringStore();
+    final historyStore =
+        _studyLogStoreForTesting ?? _SharedPreferenceStringListStore(_prefs!);
+    try {
+      await deckStore.reload();
+      var beforeDeck = _StringPreferenceState.read(deckStore, 'kl_srs_v1');
+      attempt._judgmentDate ??= _today(DateTime.now());
+      final date = attempt._judgmentDate!;
+      List<String>? beforeHistory;
+      List<String>? afterHistory;
+      if (attempt.recordToStudyLog) {
+        await historyStore.reload();
+        beforeHistory = _StringListPreferenceState.read(
+          historyStore,
+          _studyLogKey(date),
+        ).value;
+        if (!SrsCommitJournal.validHistory(beforeHistory)) {
+          return false;
+        }
+        afterHistory = List<String>.of(beforeHistory ?? const []);
+        if (!afterHistory.contains(attempt.id)) {
+          if (afterHistory.length >= _studyLogMaxIdsPerDay) {
+            return false;
+          }
+          afterHistory.add(attempt.id);
+        }
+      }
+      if (generation != _srsReviewMutationGeneration ||
+          !attempt.isCurrent ||
+          _learningWritesLockReason != null) {
+        return false;
+      }
+      if (!SrsCommitJournal.validDeck(beforeDeck.value)) {
+        _invalidateSrsCache();
+        final readable = _loadSrs(confirmedRaw: beforeDeck.value ?? '');
+        if (_srsQuarantined || readable.isEmpty) {
+          return false;
+        }
+        final normalized = jsonEncode(
+          readable.map((key, card) => MapEntry(key, card.toJson())),
         );
-    final now = DateTime.now();
-    final judgmentDate = _today(now);
-
-    final SrsCard updated;
-    if (gotIt) {
-      final newInterval = old.intervalDays == 0
+        if (!SrsCommitJournal.validDeck(normalized)) {
+          return false;
+        }
+        await _prefs!.reload();
+        if (_srsReplayPrecedenceBlocked(_prefs!) ||
+            _prefs!.containsKey(SrsCommitJournal.key) ||
+            !attempt.isCurrent) {
+          return false;
+        }
+        final raw = beforeDeck.value!;
+        _srsNormalization = (
+          before: raw,
+          after: normalized,
+          evidenceKey:
+              '${srsQuarantinePreferenceKey}_${sha256.convert(utf8.encode(raw))}',
+        );
+        _srsRecoveryClosed = true;
+        srsRecoveryStatus.value = SrsRecoveryStatus.pending;
+        if (!await _recoverSrsNormalization(generation, deckStore) ||
+            !attempt.isCurrent) {
+          return false;
+        }
+        beforeDeck = _StringPreferenceState.read(deckStore, 'kl_srs_v1');
+      }
+      _invalidateSrsCache();
+      final map = Map<String, SrsCard>.of(
+        _loadSrs(confirmedRaw: beforeDeck.value ?? ''),
+      );
+      final old =
+          map[attempt.id] ??
+          const SrsCard(
+            ease: 2.5,
+            intervalDays: 0,
+            nextReviewIso: '',
+            reviewCount: 0,
+          );
+      final interval = !attempt.gotIt
+          ? 1
+          : old.intervalDays == 0
           ? 1
           : old.intervalDays == 1
           ? 3
           : (old.intervalDays * old.ease).round().clamp(1, 365);
-      updated = SrsCard(
-        ease: (old.ease + 0.05).clamp(1.3, 3.5),
-        intervalDays: newInterval,
-        nextReviewIso: _isoOf(now.add(Duration(days: newInterval))),
+      map[attempt.id] = SrsCard(
+        ease: (old.ease + (attempt.gotIt ? 0.05 : -0.2)).clamp(1.3, 3.5),
+        intervalDays: interval,
+        nextReviewIso: _isoOf(
+          DateTime.parse(date).add(Duration(days: interval)),
+        ),
         reviewCount: old.reviewCount + 1,
       );
-    } else {
-      updated = SrsCard(
-        ease: (old.ease - 0.2).clamp(1.3, 3.5),
-        intervalDays: 1,
-        nextReviewIso: _isoOf(now.add(const Duration(days: 1))),
-        reviewCount: old.reviewCount + 1,
+      final journal = SrsCommitJournal(
+        date: date,
+        recordHistory: attempt.recordToStudyLog,
+        beforeDeck: beforeDeck.value,
+        afterDeck: jsonEncode(map.map((k, v) => MapEntry(k, v.toJson()))),
+        beforeHistory: beforeHistory == null
+            ? null
+            : List.unmodifiable(beforeHistory),
+        afterHistory: afterHistory == null
+            ? null
+            : List.unmodifiable(afterHistory),
       );
-    }
-    map[id] = updated;
-    bool persisted;
-    try {
-      persisted = await _persistSrs(generation: generation);
+      // Strict decoding also validates newly admitted records.
+      SrsCommitJournal.decode(journal.encode());
+      final prefs = _prefs!;
+      await prefs.reload();
+      if (generation != _srsReviewMutationGeneration ||
+          !attempt._isCurrent ||
+          _srsReplayPrecedenceBlocked(prefs)) {
+        return false;
+      }
+      if (prefs.containsKey(SrsCommitJournal.key)) {
+        _initializeSrsRecoveryView();
+        return false;
+      }
+      _srsRecoveryClosed = true;
+      _srsJournal = journal;
+      _srsJournalAttempt = attempt;
+      srsRecoveryStatus.value = SrsRecoveryStatus.pending;
+      try {
+        await prefs.setString(SrsCommitJournal.key, journal.encode());
+      } on Object catch (error) {
+        debugPrint('Storage: SRS intent acknowledgement unavailable: $error');
+      }
+      await prefs.reload();
+      if (prefs.get(SrsCommitJournal.key) != journal.encode()) {
+        if (!prefs.containsKey(SrsCommitJournal.key)) {
+          _finishSrsRecovery(completed: false);
+        }
+        return false;
+      }
+      return await _recoverSrsCommit(generation, cancelUnapplied: true) &&
+          attempt.isCurrent;
     } on Object catch (error) {
-      _restoreSrsCacheEntry(
-        map,
-        id,
-        hadPreviousCard: hadPreviousCard,
-        previousCard: previousCard,
-      );
-      debugPrint('Storage: SRS persistence incomplete for $id: $error');
+      if (_srsRecoveryClosed) {
+        srsRecoveryStatus.value = SrsRecoveryStatus.retryRequired;
+      }
+      debugPrint('Storage: SRS commit incomplete: $error');
       return false;
-    }
-    if (generation != _srsReviewMutationGeneration) {
-      return false;
-    }
-    if (!persisted) {
-      _restoreSrsCacheEntry(
-        map,
-        id,
-        hadPreviousCard: hadPreviousCard,
-        previousCard: previousCard,
-      );
-      return false;
-    }
-    if (!recordToStudyLog) {
-      return true;
-    }
-    final ledgerRecorded = await _appendStudyLogEntry(
-      id,
-      dateIso: judgmentDate,
-      generation: generation,
-    );
-    if (generation != _srsReviewMutationGeneration) {
-      return false;
-    }
-    if (!ledgerRecorded) {
-      // Der SRS-Write ist die primäre Autorität. Da das tägliche Log in einem
-      // separaten Key liegt, ist hier kein atomarer Rollback möglich; wir
-      // melden den unvollständigen Hilfs-Write ohne fire-and-forget-Aufrufer
-      // mit einer neuen Exception zu belasten.
-      debugPrint('Storage: study-log result incomplete for $id');
-      return false;
-    }
-    return true;
-  }
-
-  /// Stellt die vor dem versuchten Urteil unveränderliche Kartenreferenz
-  /// wieder her. [SrsCard] ist immutable; daher genügt der Snapshot ohne Kopie.
-  static void _restoreSrsCacheEntry(
-    Map<String, SrsCard> map,
-    String id, {
-    required bool hadPreviousCard,
-    required SrsCard? previousCard,
-  }) {
-    if (hadPreviousCard) {
-      map[id] = previousCard!;
-    } else {
-      map.remove(id);
     }
   }
 
@@ -3151,36 +5848,51 @@ class Storage {
   // 두지 않는다 — 파싱 실패 시 빈 맵으로 관대하게 시작.
   static Map<String, int>? _wrongCountCache;
 
-  static Map<String, int> _loadWrongCounts() {
-    if (_wrongCountCache != null) return _wrongCountCache!;
-    final raw = _s('kl_wrong_count_v1');
-    if (raw.isEmpty) return _wrongCountCache = {};
+  static Map<String, int> _decodeWrongCounts(String raw) {
+    if (raw.isEmpty) {
+      return <String, int>{};
+    }
     try {
       final decoded = jsonDecode(raw);
-      if (decoded is! Map<String, dynamic>) return _wrongCountCache = {};
+      if (decoded is! Map<String, dynamic>) {
+        return <String, int>{};
+      }
       final out = <String, int>{};
       decoded.forEach((k, v) {
         if (v is int && v > 0) {
           out[k] = v;
         }
       });
-      return _wrongCountCache = out;
+      return out;
     } catch (_) {
-      return _wrongCountCache = {};
+      return <String, int>{};
     }
   }
 
-  static Future<void> _persistWrongCounts() async {
-    if (_learningWritesLockReason != null) {
-      debugPrint(
-        'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_wrong_count_v1 쓰기를 건너뛴다',
-      );
-      return;
+  static void _confirmWrongCountRaw(String raw) {
+    _confirmedWrongCountRaw = raw;
+    _wrongCountCache = _decodeWrongCounts(raw);
+  }
+
+  static String _readConfirmedWrongCountRaw() {
+    if (_vocabWriteIsUnconfirmed(_wrongCountKey) ||
+        _confirmedVocabAfterReloadKeys.contains(_wrongCountKey)) {
+      return _confirmedWrongCountRaw ?? '';
     }
-    await _ss(
-      'kl_wrong_count_v1',
-      jsonEncode(_wrongCountCache ?? const <String, int>{}),
-    );
+    final raw = _s(_wrongCountKey);
+    _confirmWrongCountRaw(raw);
+    return raw;
+  }
+
+  static Map<String, int> _readWrongCountMap() {
+    if (_wrongCountCache != null) {
+      return _wrongCountCache!;
+    }
+    return _wrongCountCache = _decodeWrongCounts(_readConfirmedWrongCountRaw());
+  }
+
+  static Map<String, int> _loadWrongCounts() {
+    return _readWrongCountMap();
   }
 
   /// 누적 실패 횟수 (모든 리트리벌 실패 — 같은 세션 내 반복 실패도 각각 셈).
@@ -3188,9 +5900,7 @@ class Storage {
 
   /// 실패 1회 기록. `srsReview(gotIt: false)` 를 부르는 지점 옆에 병치한다.
   static Future<void> incrementWrongCount(String id) async {
-    final map = _loadWrongCounts();
-    map[id] = (map[id] ?? 0) + 1;
-    await _persistWrongCounts();
+    await _requireVocabProgress(VocabProgressAttempt(wrongCountId: id));
   }
 
   /// [threshold]회 이상 틀린 단어 IDs — Extra-Lernset 의 명시적 절반
@@ -3216,12 +5926,17 @@ class Storage {
   }
 
   /// Roh-JSON (CloudSync-Backup/Export). Leer = nie etwas falsch.
-  static String get wrongCountRawJson => _s('kl_wrong_count_v1');
+  static String get wrongCountRawJson => _readConfirmedWrongCountRaw();
 
   /// Roh-JSON setzen (CloudSync-Restore) + Cache invalidieren.
   static Future<void> setWrongCountRawJson(String json) async {
-    await _ss('kl_wrong_count_v1', json);
-    _wrongCountCache = null;
+    await _requireVocabProgress(
+      VocabProgressAttempt._restore(
+        restoreSeenIds: const <String>[],
+        restoreWrongCountJson: json,
+        restoreWrongCountOnlyIfEmpty: false,
+      ),
+    );
   }
 
   // ───────── Szenarien (Phase 5) ─────────
@@ -3310,6 +6025,56 @@ class Storage {
   static String get courseMasterySnapshotRawJson =>
       _courseMasteryCache ?? _s(courseMasterySnapshotPreferenceKey);
 
+  static const _courseMasteryStateKeys = <String>{
+    courseMasterySnapshotPreferenceKey,
+    placementLevelPreferenceKey,
+    courseUnitPreferenceKey,
+    browseLevelPreferenceKey,
+    'kl_user_level',
+  };
+
+  /// Allows an empty placement capture to avoid loading the course catalog
+  /// unless its preference boundary actually needs recovery.
+  static bool get hasUnconfirmedCourseMasteryState =>
+      _courseMasteryStateKeys.any(_unknownStrictKeys.contains);
+
+  /// Synchronous course readers cannot resolve an uncertain platform cache.
+  /// Keep them closed until the course owner confirms the durable state.
+  static void assertCourseMasteryStateConfirmed() {
+    for (final key in _courseMasteryStateKeys) {
+      if (_unknownStrictKeys.contains(key)) {
+        throw PreferenceOutcomeUnknownException(key);
+      }
+    }
+  }
+
+  /// Confirms an uncertain course transaction before a new candidate is built.
+  /// Returns whether the caller must discard its loaded graph and read again.
+  /// This only reads durable state; it never replays or rolls back an action.
+  static Future<bool> confirmCourseMasteryState({
+    PreferenceStringStore? preferences,
+  }) async {
+    if (!hasUnconfirmedCourseMasteryState) {
+      return false;
+    }
+    final store = _stringStore(preferences);
+    await _refreshUnknownStringKeys(store, _courseMasteryStateKeys);
+    try {
+      final canonical = _StringPreferenceState.read(
+        store,
+        courseMasterySnapshotPreferenceKey,
+      );
+      _courseMasteryCache = canonical.value ?? '';
+    } on Object catch (error) {
+      _unknownStrictKeys.add(courseMasterySnapshotPreferenceKey);
+      throw PreferenceOutcomeUnknownException(
+        courseMasterySnapshotPreferenceKey,
+        cause: error,
+      );
+    }
+    return true;
+  }
+
   /// Retained as a read-only migration source. No production code writes it.
   static String get legacyCourseMasteryRawJson =>
       _s(legacyCourseMasteryPreferenceKey);
@@ -3331,12 +6096,13 @@ class Storage {
     assertCurrentWrite: assertCurrentWrite,
   );
 
-  static Future<void> setPlacementLevelCode(String code) async {
-    final normalized = _requiredLearnerLevelCode(code);
-    await _ss(placementLevelPreferenceKey, normalized);
-    // Compatibility mirror only. Browse-level writes must not do this.
-    await setUserLevelCode(normalized);
-  }
+  static Future<void> setPlacementLevelCode(String code) =>
+      PackCompletionStorage.trackWrite(placementLevelPreferenceKey, () async {
+        final normalized = _requiredLearnerLevelCode(code);
+        await _ss(placementLevelPreferenceKey, normalized);
+        // Compatibility mirror only. Browse-level writes must not do this.
+        await setUserLevelCode(normalized);
+      });
 
   /// Reconciliation-only course mirror write. The root account/library level
   /// has its own merge semantics and must not be overwritten by course restore.
@@ -3384,16 +6150,19 @@ class Storage {
     String json, {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
-  }) async {
-    // The cache changes only after strict storage confirms the requested value.
-    await _ssStrict(
-      courseMasterySnapshotPreferenceKey,
-      json,
-      preferences: preferences,
-      assertCurrentWrite: assertCurrentWrite,
-    );
-    _courseMasteryCache = json;
-  }
+  }) => PackCompletionStorage.trackWrite(
+    courseMasterySnapshotPreferenceKey,
+    () async {
+      // The cache changes only after strict storage confirms the requested value.
+      await _ssStrict(
+        courseMasterySnapshotPreferenceKey,
+        json,
+        preferences: preferences,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+      _courseMasteryCache = json;
+    },
+  );
 
   /// Replaces the canonical course graph and its scalar compatibility mirrors
   /// as one recoverable local operation.
@@ -3411,91 +6180,96 @@ class Storage {
     required bool mirrorLegacyUserLevel,
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
-  }) async {
-    if (canonicalSnapshotJson.trim().isEmpty) {
-      throw ArgumentError.value(
-        canonicalSnapshotJson,
-        'canonicalSnapshotJson',
-        'must not be empty',
-      );
-    }
-    final placement = placementLevelCode == null
-        ? null
-        : _requiredLearnerLevelCode(placementLevelCode);
-    final unit = currentCourseUnitId?.trim();
-    if (unit != null && unit.isEmpty) {
-      throw ArgumentError.value(
-        currentCourseUnitId,
-        'currentCourseUnitId',
-        'must not be empty',
-      );
-    }
-    final browse = browseLevelCode == null
-        ? null
-        : _requiredLearnerLevelCode(browseLevelCode);
-
-    final store = _stringStore(preferences);
-    final targets = <String, String?>{
-      placementLevelPreferenceKey: placement,
-      if (mirrorLegacyUserLevel && placement != null)
-        'kl_user_level': placement,
-      if (browse != null) browseLevelPreferenceKey: browse,
-      courseUnitPreferenceKey: unit,
-      // The validated graph is the commit marker and must remain last.
-      courseMasterySnapshotPreferenceKey: canonicalSnapshotJson,
-    };
-    final before = <String, _StringPreferenceState>{};
-    for (final key in targets.keys) {
-      before[key] = await _prepareStringMutation(store, key);
-    }
-    assertCurrentWrite?.call();
-
-    final attempted = <String>[];
-    Object? primaryFailure;
-    StackTrace? primaryStack;
-    try {
-      for (final entry in targets.entries) {
-        final target = entry.value == null
-            ? const _StringPreferenceState.absent()
-            : _StringPreferenceState._(isPresent: true, value: entry.value);
-        if (before[entry.key] == target) continue;
-        attempted.add(entry.key);
-        await _writeStringStateStrict(store, entry.key, target);
+  }) => PackCompletionStorage.trackWrite(
+    courseMasterySnapshotPreferenceKey,
+    () async {
+      if (canonicalSnapshotJson.trim().isEmpty) {
+        throw ArgumentError.value(
+          canonicalSnapshotJson,
+          'canonicalSnapshotJson',
+          'must not be empty',
+        );
       }
-      _courseMasteryCache = canonicalSnapshotJson;
-      return;
-    } on Object catch (error, stack) {
-      primaryFailure = error;
-      primaryStack = stack;
-    }
+      final placement = placementLevelCode == null
+          ? null
+          : _requiredLearnerLevelCode(placementLevelCode);
+      final unit = currentCourseUnitId?.trim();
+      if (unit != null && unit.isEmpty) {
+        throw ArgumentError.value(
+          currentCourseUnitId,
+          'currentCourseUnitId',
+          'must not be empty',
+        );
+      }
+      final browse = browseLevelCode == null
+          ? null
+          : _requiredLearnerLevelCode(browseLevelCode);
 
-    final rollbackFailures = <Object>[];
-    try {
-      await _refreshUnknownStringKeys(store, attempted);
-    } on Object catch (error) {
-      rollbackFailures.add(error);
-    }
-    for (final key in attempted.reversed) {
+      final store = _stringStore(preferences);
+      final targets = <String, String?>{
+        placementLevelPreferenceKey: placement,
+        if (mirrorLegacyUserLevel && placement != null)
+          'kl_user_level': placement,
+        if (browse != null) browseLevelPreferenceKey: browse,
+        courseUnitPreferenceKey: unit,
+        // The validated graph is the commit marker and must remain last.
+        courseMasterySnapshotPreferenceKey: canonicalSnapshotJson,
+      };
+      final before = <String, _StringPreferenceState>{};
+      for (final key in targets.keys) {
+        before[key] = await _prepareStringMutation(store, key);
+      }
+      assertCurrentWrite?.call();
+
+      final attempted = <String>[];
+      Object? primaryFailure;
+      StackTrace? primaryStack;
       try {
-        final current = _StringPreferenceState.read(store, key);
-        final original = before[key]!;
-        if (current != original) {
-          await _writeStringStateStrict(store, key, original);
+        for (final entry in targets.entries) {
+          final target = entry.value == null
+              ? const _StringPreferenceState.absent()
+              : _StringPreferenceState._(isPresent: true, value: entry.value);
+          if (before[entry.key] == target) continue;
+          attempted.add(entry.key);
+          await _writeStringStateStrict(store, entry.key, target);
         }
+        _courseMasteryCache = canonicalSnapshotJson;
+        return;
+      } on Object catch (error, stack) {
+        primaryFailure = error;
+        primaryStack = stack;
+      }
+
+      final rollbackFailures = <Object>[];
+      try {
+        await _refreshUnknownStringKeys(store, attempted);
       } on Object catch (error) {
         rollbackFailures.add(error);
       }
-    }
-    if (rollbackFailures.isNotEmpty) {
-      _unknownStrictKeys.addAll(attempted);
-      _courseMasteryCache = null;
-      throw PreferenceOutcomeUnknownException(
-        attempted.isEmpty ? courseMasterySnapshotPreferenceKey : attempted.last,
-        cause: <Object>[primaryFailure, ...rollbackFailures],
-      );
-    }
-    Error.throwWithStackTrace(primaryFailure, primaryStack);
-  }
+      for (final key in attempted.reversed) {
+        try {
+          final current = _StringPreferenceState.read(store, key);
+          final original = before[key]!;
+          if (current != original) {
+            await _writeStringStateStrict(store, key, original);
+          }
+        } on Object catch (error) {
+          rollbackFailures.add(error);
+        }
+      }
+      if (rollbackFailures.isNotEmpty) {
+        _unknownStrictKeys.addAll(attempted);
+        _courseMasteryCache = null;
+        throw PreferenceOutcomeUnknownException(
+          attempted.isEmpty
+              ? courseMasterySnapshotPreferenceKey
+              : attempted.last,
+          cause: <Object>[primaryFailure, ...rollbackFailures],
+        );
+      }
+      Error.throwWithStackTrace(primaryFailure, primaryStack);
+    },
+  );
 
   static Future<void> _writeStringStateStrict(
     PreferenceStringStore store,
@@ -3526,6 +6300,42 @@ class Storage {
   }
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
+  static Future<void> get packCompletionXpDrain => _xpRewardMutation;
+
+  /// A native reload can replace a setter's optimistic cache before its reply.
+  /// Mark both existing and newly admitted writes throughout the actual read.
+  /// Only their native confirmation may retain a value; getter observations
+  /// and a caller timeout never acquire or release this authority.
+  static Future<void> reloadForPackCompletion(
+    SharedPreferences preferences,
+  ) async {
+    _packCompletionReloads.update(
+      preferences,
+      (count) => count + 1,
+      ifAbsent: () => 1,
+    );
+    try {
+      if (identical(preferences, _prefs)) {
+        _pendingVocabPreferenceWrite?.sharedCacheReloaded = true;
+      }
+      await preferences.reload();
+    } finally {
+      final remaining = _packCompletionReloads[preferences]! - 1;
+      if (remaining == 0) {
+        _packCompletionReloads.remove(preferences);
+      } else {
+        _packCompletionReloads[preferences] = remaining;
+      }
+    }
+  }
+
+  static void refreshPackCompletionCaches() {
+    _invalidatePackCache();
+    _courseMasteryCache = null;
+    _confirmedXpRewardLedger = null;
+    _confirmedRewardLists.clear();
+  }
+
   static int get xp {
     final ledger = _readXpRewardLedger(strict: false);
     return ledger == null ? _i('kl_xp') : _effectiveXpTotal(ledger);
@@ -3537,34 +6347,162 @@ class Storage {
     if (value < 0) {
       throw ArgumentError.value(value, 'value', 'XP cannot be negative.');
     }
+    // An explicit balance restore supersedes older session-local awards.
+    _xpAwardEpoch++;
     return _enqueueXpRewardMutation(() async {
-      final ledger = _readXpRewardLedger(strict: true);
-      if (ledger == null) {
-        await _si('kl_xp', value);
-        return;
+      if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+        await _recoverUnknownXpRewardState();
       }
+      final ledger =
+          _readXpRewardLedger(strict: true) ??
+          _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
       await _persistXpRewardLedger(ledger.copyWith(totalXp: value));
     });
   }
 
-  static Future<void> addXp(int amount) {
-    return _enqueueXpRewardMutation(() async {
-      final ledger = _readXpRewardLedger(strict: true);
-      if (ledger == null) {
-        final updated = _i('kl_xp') + amount;
-        if (updated < 0) {
-          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
-        }
-        await _si('kl_xp', updated);
-      } else {
-        final updated = _effectiveXpTotal(ledger) + amount;
-        if (updated < 0) {
-          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
-        }
-        await _persistXpRewardLedger(ledger.copyWith(totalXp: updated));
+  static Future<void> addXp(int amount) => XpAwardAttempt(amount).save();
+
+  static _OrdinaryXpDay? _ordinaryXpDay(_XpRewardLedger ledger) {
+    if (ledger.ordinaryDay != null) {
+      return ledger.ordinaryDay;
+    }
+    final date = _s('kl_xp_today_date');
+    return _isCanonicalStudyLogDate(date)
+        ? _OrdinaryXpDay(date: date, xp: _i('kl_xp_today_raw'))
+        : null;
+  }
+
+  static _XpRewardLedger _ordinaryXpAfter(
+    _XpRewardLedger ledger,
+    int earnedXp,
+    String earnedOn, {
+    _DailyChallengeState? daily,
+    int? wins,
+  }) {
+    final total = ledger.totalXp + earnedXp;
+    if (total < 0) {
+      throw ArgumentError.value(earnedXp, 'amount', 'XP cannot be negative.');
+    }
+    final previous = _ordinaryXpDay(ledger);
+    final _OrdinaryXpDay day;
+    if (previous == null || previous.date.compareTo(earnedOn) < 0) {
+      day = _OrdinaryXpDay(date: earnedOn, xp: earnedXp);
+    } else if (previous.date == earnedOn) {
+      day = _OrdinaryXpDay(date: previous.date, xp: previous.xp + earnedXp);
+    } else {
+      // A retry from an earlier day may change total XP, but cannot replace
+      // the newer day's already-earned amount.
+      day = previous;
+    }
+    return ledger.copyWith(
+      totalXp: total,
+      ordinaryDay: day,
+      dailyChallenge: daily,
+      kkeunmariWins: wins,
+    );
+  }
+
+  /// Prepared inside terminal admission after the ordinary reward owner drains.
+  static String preparePackCompletionXp(int amount, String earnedOn) {
+    final ledger =
+        _readXpRewardLedger(strict: true) ??
+        _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+    return _ordinaryXpAfter(
+      ledger,
+      amount,
+      earnedOn,
+      daily: ledger.dailyChallenge,
+      wins: ledger.kkeunmariWins,
+    ).encode();
+  }
+
+  static Future<void> _saveOrdinaryXpAward(XpAwardAttempt attempt) async {
+    if (!attempt._isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (attempt._committed ||
+        (attempt.amount == 0 &&
+            attempt.dailyCompletionBonus == null &&
+            !attempt.kkeunmariWin)) {
+      return;
+    }
+    if (_unknownStrictKeys.contains(listeningRewardLedgerPreferenceKey)) {
+      await _recoverUnknownXpRewardState();
+    }
+    if (!attempt._isCurrent) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (attempt._committed) {
+      return;
+    }
+    final ledger =
+        _readXpRewardLedger(strict: true) ??
+        _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+    var wins = ledger.kkeunmariWins;
+    if (attempt.kkeunmariWin) {
+      final previousWins = wins ?? _i('kl_kkeunmari_wins');
+      if (previousWins < 0) {
+        throw const FormatException('Invalid legacy kkeunmari win count.');
       }
-      await _bumpXpToday(amount);
-    });
+      wins = previousWins + 1;
+    }
+    var earnedXp = attempt.amount;
+    var daily = ledger.dailyChallenge;
+    final dailyBonus = attempt.dailyCompletionBonus;
+    if (dailyBonus != null) {
+      if (dailyBonus < 0 || attempt.amount < 0) {
+        throw ArgumentError('Daily challenge rewards must be nonnegative.');
+      }
+      final last = daily?.date ?? _s('kl_daily_last');
+      if (last.isNotEmpty && !_isCanonicalStudyLogDate(last)) {
+        throw const FormatException('Invalid legacy daily challenge date.');
+      }
+      final legacyStreak = daily?.streak ?? _i('kl_daily_streak');
+      // Old split writes could save the date but lose its streak value.
+      final streak = legacyStreak < 1 ? 1 : legacyStreak;
+      if (last.isEmpty || last.compareTo(attempt._earnedOn) < 0) {
+        final earnedDate = DateTime.parse(attempt._earnedOn);
+        final yesterday = _isoOf(
+          DateTime(earnedDate.year, earnedDate.month, earnedDate.day - 1),
+        );
+        daily = _DailyChallengeState(
+          attempt._earnedOn,
+          last == yesterday ? streak + 1 : 1,
+        );
+        earnedXp += dailyBonus;
+      } else if (daily == null && _isCanonicalStudyLogDate(last)) {
+        daily = _DailyChallengeState(last, streak < 1 ? 1 : streak);
+      }
+    }
+    final updated = _ordinaryXpAfter(
+      ledger,
+      earnedXp,
+      attempt._earnedOn,
+      daily: daily,
+      wins: wins,
+    );
+    attempt._earnedXp = earnedXp;
+    final pending = _PendingOrdinaryXpWrite(
+      attempt: attempt,
+      before: _s(listeningRewardLedgerPreferenceKey),
+      encoded: updated.encode(),
+    );
+    _pendingOrdinaryXpWrite = pending;
+    var unknown = false;
+    try {
+      await _persistXpRewardLedger(updated);
+      if (!attempt._isCurrent) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      attempt._committed = true;
+    } on PreferenceOutcomeUnknownException {
+      unknown = true;
+      rethrow;
+    } finally {
+      if (!unknown && identical(_pendingOrdinaryXpWrite, pending)) {
+        _pendingOrdinaryXpWrite = null;
+      }
+    }
   }
 
   /// Claims the first-completion listening reward exactly once.
@@ -3597,6 +6535,14 @@ class Storage {
 
     _pendingListeningRewardClaims.add(id);
     final result = _enqueueXpRewardMutation(() async {
+      await _recoverUnknownXpRewardState();
+      if (_unknownStrictKeys.contains('kl_completed_scenarios')) {
+        await _prepareStringListMutation(
+          _SharedPreferenceStringListStore(_prefs!),
+          'kl_completed_scenarios',
+        );
+        _completedScenariosCache = null;
+      }
       final persistedCompleted = _l('kl_completed_scenarios');
       if (persistedCompleted.contains(id)) {
         return ListeningRewardClaimResult.alreadyClaimed;
@@ -3637,19 +6583,72 @@ class Storage {
     });
   }
 
+  /// A single durable value couples one scenario attempt's reward and XP.
+  /// Retrying the same attempt cannot pay twice, even after a lost native reply.
+  /// A genuine replay uses a new attempt ID and retains the existing XP policy.
+  static Future<void> claimScenarioCompletionReward({
+    required String attemptId,
+    required String scenarioId,
+    required int earnedXp,
+    DateTime? now,
+  }) {
+    if (attemptId.trim().isEmpty || scenarioId.trim().isEmpty || earnedXp < 0) {
+      throw ArgumentError(
+        'A scenario reward needs valid IDs and non-negative XP.',
+      );
+    }
+    if (earnedXp == 0) {
+      return Future<void>.value();
+    }
+    return _enqueueXpRewardMutation(() async {
+      await _recoverUnknownXpRewardState();
+      final current =
+          _readXpRewardLedger(strict: true) ??
+          _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+      final existing = current.scenarioClaims[attemptId];
+      if (existing != null) {
+        if (existing.scenarioId != scenarioId ||
+            existing.reward.earnedXp != earnedXp) {
+          throw ArgumentError('A scenario attempt cannot change its reward.');
+        }
+        return;
+      }
+      final claims =
+          Map<String, _ScenarioRewardClaim>.from(current.scenarioClaims)
+            ..[attemptId] = _ScenarioRewardClaim(
+              scenarioId: scenarioId,
+              reward: _ListeningRewardClaim(
+                earnedXp: earnedXp,
+                earnedOn: _isoOf(now ?? DateTime.now()),
+              ),
+            );
+      await _persistXpRewardLedger(
+        current.copyWith(
+          totalXp: _effectiveXpTotal(current) + earnedXp,
+          scenarioClaims: claims,
+        ),
+      );
+    });
+  }
+
   // ───────── Tagesziel (일일 목표 진행 — 리텐션 모멘텀) ─────────
   /// 오늘 획득한 XP(자정 리셋). 저장 날짜가 오늘이 아니면 0.
   static int get xpToday {
     final today = _isoOf(DateTime.now());
+    final ledger = _readXpRewardLedger(strict: false);
+    final day = ledger?.ordinaryDay;
     final ordinaryXp = xpTodayValue(
-      _s('kl_xp_today_date'),
-      _i('kl_xp_today_raw'),
+      day?.date ?? _s('kl_xp_today_date'),
+      day?.xp ?? _i('kl_xp_today_raw'),
       today,
     );
-    final listeningXp = _readXpRewardLedger(strict: false)?.claims.values
+    final listeningXp = ledger?.claims.values
         .where((claim) => claim.earnedOn == today)
         .fold<int>(0, (total, claim) => total + claim.earnedXp);
-    return ordinaryXp + (listeningXp ?? 0);
+    final scenarioXp = ledger?.scenarioClaims.values
+        .where((claim) => claim.reward.earnedOn == today)
+        .fold<int>(0, (total, claim) => total + claim.reward.earnedXp);
+    return ordinaryXp + (listeningXp ?? 0) + (scenarioXp ?? 0);
   }
 
   /// 순수 함수(테스트 대상) — 저장 날짜가 오늘이면 raw, 아니면 0(자정 리셋).
@@ -3663,26 +6662,21 @@ class Storage {
     return m > 0 ? m * 3 : 30;
   }
 
-  static Future<void> _bumpXpToday(int amount) async {
-    final today = _isoOf(DateTime.now());
-    if (_s('kl_xp_today_date') != today) {
-      await _ss('kl_xp_today_date', today);
-      await _si('kl_xp_today_raw', amount);
-    } else {
-      await _si('kl_xp_today_raw', _i('kl_xp_today_raw') + amount);
-    }
-  }
-
   // ── Persönliche Bestleistung pro Spiel (Highscore) ──────────────────
   // Eine JSON-Map gameId -> best (int). Selbst-Wettbewerb, KEINE Ranglisten.
   static Map<String, int> get _gameBests {
+    if (_gameBestWritePending || _unknownStrictKeys.contains('kl_game_best')) {
+      return _confirmedGameBests ?? const {};
+    }
     final raw = _s('kl_game_best');
     if (raw.isEmpty) {
-      return {};
+      return _confirmedGameBests = const {};
     }
     try {
       final m = jsonDecode(raw) as Map<String, dynamic>;
-      return m.map((k, v) => MapEntry(k, (v as num).toInt()));
+      return _confirmedGameBests = Map.unmodifiable(
+        m.map((k, v) => MapEntry(k, (v as num).toInt())),
+      );
     } catch (_) {
       return {};
     }
@@ -3697,23 +6691,93 @@ class Storage {
     String id,
     int value, {
     bool higherIsBetter = true,
-  }) async {
-    final map = _gameBests;
-    final cur = map[id];
-    final better = cur == null || (higherIsBetter ? value > cur : value < cur);
-    if (!better) {
-      return false;
+  }) => GameBestAttempt(id, value, higherIsBetter: higherIsBetter).save();
+
+  static Future<bool> _saveGameBest(GameBestAttempt attempt) async {
+    attempt._assertCurrent();
+    if (attempt._saved) {
+      return attempt._wasNewBest!;
     }
-    map[id] = value;
-    await _ss('kl_game_best', jsonEncode(map));
-    return true;
+    const key = 'kl_game_best';
+    final store = _stringStore();
+    await _refreshUnknownStringKeys(store, [key]);
+    final pending = _pendingGameBestWrite;
+    if (pending != null) {
+      final native = store.getString(key) ?? '';
+      if (native == pending.after) {
+        pending.attempt._saved = true;
+        pending.attempt._best = pending.attempt.score;
+      } else if (native == pending.before) {
+        pending.attempt._wasNewBest = null;
+      } else {
+        _unknownStrictKeys.add(key);
+        throw const PreferenceOutcomeUnknownException(key);
+      }
+      _pendingGameBestWrite = null;
+    }
+    attempt._assertCurrent();
+    if (attempt._saved) {
+      return attempt._wasNewBest!;
+    }
+    final before = await _prepareStringMutation(store, key);
+    attempt._assertCurrent();
+    final raw = before.value ?? '';
+    // Malformed recovery data must not be replaced by an empty-looking map.
+    final current = raw.isEmpty
+        ? <String, int>{}
+        : (jsonDecode(raw) as Map<String, dynamic>).map(
+            (k, v) => MapEntry(k, (v as num).toInt()),
+          );
+    _confirmedGameBests = Map.unmodifiable(current);
+    attempt._wasNewBest ??= attempt._beats(current[attempt.id]);
+    if (attempt._beats(current[attempt.id])) {
+      final updated = Map<String, int>.of(current)
+        ..[attempt.id] = attempt.score;
+      final write = (attempt: attempt, before: raw, after: jsonEncode(updated));
+      _pendingGameBestWrite = write;
+      _gameBestWritePending = true;
+      var unknown = false;
+      try {
+        await _ssStrict(
+          key,
+          jsonEncode(updated),
+          preferences: store,
+          beforeState: before,
+          assertCurrentWrite: attempt._assertCurrent,
+        );
+        attempt._assertCurrent();
+        _confirmedGameBests = Map.unmodifiable(updated);
+        current[attempt.id] = attempt.score;
+      } on PreferenceOutcomeUnknownException {
+        unknown = true;
+        rethrow;
+      } on PreferenceWriteException {
+        // A confirmed rejection did not establish a record. Compare again
+        // if another round has updated this game before the user retries.
+        attempt._wasNewBest = null;
+        rethrow;
+      } finally {
+        _gameBestWritePending = false;
+        if (!unknown && _pendingGameBestWrite == write) {
+          _pendingGameBestWrite = null;
+        }
+      }
+    }
+    attempt._assertCurrent();
+    attempt._best = current[attempt.id];
+    attempt._saved = true;
+    return attempt._wasNewBest!;
   }
 
   // ── Tages-Challenge (오늘의 도전) — täglicher Selbst-Streak ──────────
   // Datums-Seed-Puzzle (alle Nutzer:innen bekommen dasselbe Tagesset).
   // Selbst-Wettbewerb (Streak), KEINE Rangliste.
-  static String get dailyChallengeLastDone => _s('kl_daily_last');
-  static int get dailyChallengeStreak => _i('kl_daily_streak');
+  static String get dailyChallengeLastDone =>
+      _readXpRewardLedger(strict: false)?.dailyChallenge?.date ??
+      _s('kl_daily_last');
+  static int get dailyChallengeStreak =>
+      _readXpRewardLedger(strict: false)?.dailyChallenge?.streak ??
+      _i('kl_daily_streak');
 
   static bool dailyChallengeDoneToday({DateTime? now}) =>
       dailyChallengeLastDone == _isoOf(now ?? DateTime.now());
@@ -3721,19 +6785,8 @@ class Storage {
   /// Markiert die heutige Tages-Challenge als erledigt und pflegt den
   /// Selbst-Streak: gestern erledigt → +1, sonst Reset auf 1; heute schon
   /// erledigt → no-op (kein Doppel-Bonus).
-  static Future<void> markDailyChallengeDone({DateTime? now}) async {
-    final n = now ?? DateTime.now();
-    final today = _isoOf(n);
-    if (dailyChallengeLastDone == today) {
-      return;
-    }
-    final yesterday = _isoOf(n.subtract(const Duration(days: 1)));
-    final newStreak = dailyChallengeLastDone == yesterday
-        ? dailyChallengeStreak + 1
-        : 1;
-    await _ss('kl_daily_last', today);
-    await _si('kl_daily_streak', newStreak);
-  }
+  static Future<void> markDailyChallengeDone({DateTime? now}) =>
+      XpAwardAttempt(0, earnedAt: now, dailyCompletionBonus: 0).save();
 
   /// 계 피드에 마지막으로 broadcast 한 레벨 (2픽 levelUp 중복 방지).
   static int get lastGyeLevel => _i('kl_gye_level');
@@ -3748,6 +6801,9 @@ class Storage {
     final cached = _scenarioStarsCache;
     if (cached != null) {
       return cached;
+    }
+    if (_unknownStrictKeys.contains('kl_scenario_stars')) {
+      return const {};
     }
     final raw = _s('kl_scenario_stars');
     Map<String, int> parsed;
@@ -3766,17 +6822,36 @@ class Storage {
     return unmodifiable;
   }
 
-  static Future<void> setScenarioStars(String id, int stars) async {
-    final current = scenarioStars;
-    final alreadyRecorded = current.containsKey(id);
-    // 0성 최초 완료도 반드시 기록돼야 한다 — 완료 여부(=키 존재) 자체가
-    // 코스 체크포인트 "0/2→1/2" 판정의 입력이다(지시서 4.15). 이후 재도전은
-    // 여전히 단조 증가만 허용(더 낮은 점수로 덮어쓰지 않음).
-    if (!alreadyRecorded || (current[id] ?? 0) < stars) {
-      final updated = Map<String, int>.of(current)..[id] = stars;
-      _scenarioStarsCache = Map<String, int>.unmodifiable(updated);
-      await _ss('kl_scenario_stars', jsonEncode(updated));
+  static Future<void> setScenarioStars(String id, int stars) {
+    if (id.trim().isEmpty || stars < 0 || stars > 3) {
+      throw ArgumentError(
+        'Scenario stars need an ID and a value from zero to three.',
+      );
     }
+    return _enqueueXpRewardMutation(() async {
+      const key = 'kl_scenario_stars';
+      final store = _stringStore();
+      await _refreshUnknownStringKeys(store, [key]);
+      final before = await _prepareStringMutation(store, key);
+      final raw = before.value ?? '';
+      final current = raw.isEmpty
+          ? <String, int>{}
+          : (jsonDecode(raw) as Map<String, dynamic>).map(
+              (key, value) => MapEntry(key, (value as num).toInt()),
+            );
+      _scenarioStarsCache = Map.unmodifiable(current);
+      // Zero-star completion remains recorded; replays can only improve it.
+      if (!current.containsKey(id) || current[id]! < stars) {
+        final updated = Map<String, int>.of(current)..[id] = stars;
+        await _ssStrict(
+          key,
+          jsonEncode(updated),
+          preferences: store,
+          beforeState: before,
+        );
+        _scenarioStarsCache = Map.unmodifiable(updated);
+      }
+    });
   }
 
   /// §W2-Task4: `completedScenarios` 는 로컬 리스트 + XP 보상 원장의 클레임
@@ -3792,7 +6867,7 @@ class Storage {
     if (cached != null) {
       return cached;
     }
-    final completed = _l('kl_completed_scenarios');
+    final completed = List<String>.of(_rewardList('kl_completed_scenarios'));
     // XP claims are permanent financial/reward history. After a scenario
     // corpus migration they must not resurrect old completion progress.
     if (scenarioCorpusGeneration != ScenarioCorpusGeneration.legacy) {
@@ -3811,12 +6886,40 @@ class Storage {
     return unmodifiable;
   }
 
-  static Future<void> addCompletedScenario(String id) async {
-    final list = _l('kl_completed_scenarios');
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_completed_scenarios', list);
-      _completedScenariosCache = null;
+  static Future<void> addCompletedScenario(String id) =>
+      _enqueueXpRewardMutation(
+        () => _writeRewardListEntry('kl_completed_scenarios', id),
+      );
+
+  static List<String> _rewardList(String key) =>
+      _unknownStrictKeys.contains(key) || _pendingRewardListKeys.contains(key)
+      ? (_confirmedRewardLists[key] ?? const [])
+      : _l(key);
+
+  static Future<void> _writeRewardListEntry(String key, String id) async {
+    if (id.trim().isEmpty) {
+      throw ArgumentError.value(id, 'id', 'Reward ID is empty.');
+    }
+    final prefs = _prefs;
+    if (prefs == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringListStore(prefs);
+    final before = await _prepareStringListMutation(store, key);
+    final current = List<String>.of(before.value ?? const []);
+    _confirmedRewardLists[key] = List.unmodifiable(current);
+    _pendingRewardListKeys.add(key);
+    try {
+      if (!current.contains(id)) {
+        final updated = [...current, id];
+        await _slStrict(key, updated, preferences: store, beforeState: before);
+        _confirmedRewardLists[key] = List.unmodifiable(updated);
+      }
+    } finally {
+      _pendingRewardListKeys.remove(key);
+      if (key == 'kl_completed_scenarios') {
+        _completedScenariosCache = null;
+      }
     }
   }
 
@@ -3859,14 +6962,11 @@ class Storage {
     return true;
   }
 
-  static List<String> get earnedBadges => _l('kl_earned_badges');
-  static Future<void> earnBadge(String id) async {
-    final list = earnedBadges;
-    if (!list.contains(id)) {
-      list.add(id);
-      await _sl('kl_earned_badges', list);
-    }
-  }
+  static List<String> get earnedBadges =>
+      List.unmodifiable(_rewardList('kl_earned_badges'));
+  static Future<void> earnBadge(String id) => _enqueueXpRewardMutation(
+    () => _writeRewardListEntry('kl_earned_badges', id),
+  );
 
   // ── Phase 2 (stately-rising-jongga) ── Pack-Fortschritt (lokal) ──────
   //
@@ -3881,6 +6981,33 @@ class Storage {
   // keine model-Abhängigkeit haben (zirkulär bei Tests). Stattdessen
   // raw JSON Maps; `PackProgressService` dekodiert.
   // ─────────────────────────────────────────────────────────────────────
+
+  static int _packProgressMutationCount = 0;
+
+  static Future<void> get packCompletionPackDrain => _packProgressMutation;
+
+  static Future<void> _enqueuePackProgressMutation(
+    Future<void> Function() work,
+  ) {
+    PackCompletionStorage.assertAdmission();
+    final immediate = _packProgressMutationCount++ == 0;
+    final operation = immediate
+        ? Future<void>.sync(work)
+        : _packProgressMutation.then((_) => work());
+    operation.then<void>(
+      (_) {
+        _packProgressMutationCount--;
+      },
+      onError: (Object _, StackTrace __) {
+        _packProgressMutationCount--;
+      },
+    );
+    _packProgressMutation = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return operation;
+  }
 
   static const String _packProgressKey = 'kl_pack_progress_v1';
   static Map<String, dynamic>? _packCache;
@@ -3908,7 +7035,7 @@ class Storage {
   /// ⚠️ [_loadSrs] 와 **같은 무음 소실 버그**가 여기에도 있었다. `catch (_) → {}`
   /// 로 삼킨 뒤 [setPackProgressJson] 한 번이 그 빈 캐시에 팩 하나만 얹어
   /// 저장해서, 깨진 blob 하나로 61팩 진행도가 통째로 사라졌다.
-  /// 정책은 SRS 와 동일하다 — 전체 손상은 격리 후 write 잠금, 부분 손상은
+  /// 전체 손상은 격리 후 write 잠금, 부분 손상은
   /// 유효 항목 보존.
   static Map<String, Map<String, dynamic>> _loadPackJson() {
     if (_packCache != null) {
@@ -3982,6 +7109,7 @@ class Storage {
   /// 격리를 해제하고 팩 진행도를 빈 상태로 다시 시작한다.
   /// 사용자가 명시적으로 "새로 시작"을 택했을 때만. 격리본은 남긴다.
   static Future<void> resetQuarantinedPackProgress() async {
+    await PackCompletionStorage.retire();
     _packQuarantined = false;
     _packCache = <String, dynamic>{};
     await _ss(_packProgressKey, jsonEncode(const <String, dynamic>{}));
@@ -4017,9 +7145,9 @@ class Storage {
   /// 설치하면, 옛 코드가 자기가 이해하지 못하는 새 포맷 위에 옛 포맷을 써서
   /// 데이터를 망가뜨릴 수 있다. 그때 읽기는 허용하되 쓰기만 막는다.
   ///
-  /// ⚠️ **범위**: SRS 덱(`kl_srs_v1`)과 단어팩 진행도(`kl_pack_progress_v1`) 두
-  /// blob 만 막는다. 스트릭·XP 같은 스칼라 키와 클라우드 복원(`*Strict`) 경로는
-  /// 막지 않는다 — 복원은 원본을 통째로 교체하므로 오히려 회복 수단이다.
+  /// ⚠️ **범위**: SRS 덱(`kl_srs_v1`), 단어팩 진행도(`kl_pack_progress_v1`),
+  /// 공유 어휘 진행도를 막는다. 스트릭·XP 같은 다른 스칼라 키와 클라우드 복원
+  /// 경로는 막지 않는다 — 복원은 원본을 통째로 교체하므로 오히려 회복 수단이다.
   static void lockLearningWrites(String reason) {
     _learningWritesLockReason = reason;
     debugPrint('Storage: 학습 데이터 쓰기 잠금 — $reason');
@@ -4046,7 +7174,7 @@ class Storage {
   static Future<void> setPackProgressJson(
     String packId,
     Map<String, dynamic> json,
-  ) async {
+  ) => _enqueuePackProgressMutation(() async {
     // ⚠️ 먼저 로드한다. 예전에는 `_packCache ?? {}` 로 시작해서, 캐시가 아직
     // 비어 있는 콜드 스타트에 이 함수가 먼저 불리면 **저장된 나머지 팩 진행도를
     // 통째로 덮어썼다**(읽기 전 쓰기 = 전면 손실). 로드는 캐시가 있으면 no-op 다.
@@ -4058,12 +7186,12 @@ class Storage {
       return;
     }
     await _ss(_packProgressKey, jsonEncode(cache));
-  }
+  });
 
   /// Mehrere Packs gleichzeitig schreiben (Migration / Cloud-restore).
   static Future<void> setManyPackProgressJson(
     Map<String, Map<String, dynamic>> entries,
-  ) async {
+  ) => _enqueuePackProgressMutation(() async {
     // 위와 같은 이유로 먼저 로드한다.
     _loadPackJson();
     final cache = _packCache ?? <String, dynamic>{};
@@ -4073,12 +7201,12 @@ class Storage {
       return;
     }
     await _ss(_packProgressKey, jsonEncode(cache));
-  }
+  });
 
   static Future<void> setAllPackProgressJsonStrict(
     Map<String, Map<String, dynamic>> entries, {
     PreferenceStringStore? preferences,
-  }) async {
+  }) => PackCompletionStorage.trackWrite(_packProgressKey, () async {
     final encoded = jsonEncode(entries);
     await _ssStrict(_packProgressKey, encoded, preferences: preferences);
     // 원본을 통째로 교체하는 복원 경로다 — 손상 격리를 여기서 해제한다.
@@ -4087,7 +7215,7 @@ class Storage {
       for (final entry in entries.entries)
         entry.key: Map<String, dynamic>.from(entry.value),
     };
-  }
+  });
 
   /// Test-only: Pack-Cache invalidieren.
   @visibleForTesting
@@ -4413,9 +7541,11 @@ class Storage {
   //
   // Wird in `kkeunmari_screen._endGame()` inkrementiert bei Sieg
   // (tigerStuck / deadEnd). Quest `q_punggyeong` braucht ≥ 10.
-  static int get kkeunmariWins => _i('kl_kkeunmari_wins');
+  static int get kkeunmariWins =>
+      _readXpRewardLedger(strict: false)?.kkeunmariWins ??
+      _i('kl_kkeunmari_wins');
   static Future<void> incKkeunmariWins() =>
-      _si('kl_kkeunmari_wins', kkeunmariWins + 1);
+      XpAwardAttempt(0, kkeunmariWin: true).save();
 
   // ── Phase 4 (stately-rising-jongga) ── Quest-Abschluss-Persistenz ────
   //
@@ -4464,26 +7594,30 @@ class Storage {
         preferences ??
         (_prefs == null ? null : _SharedPreferenceRemovalStore(_prefs!));
     if (store == null) return;
-    await _assertDurableAccountResetAllowed(
-      store,
-      allowJournalPreservingReset: true,
-    );
-    // Invalidate admitted remote restores before the first deletion. A late
-    // remote response must belong to the old data lifetime and fail closed.
-    LocalDataLifetime.invalidate();
-    try {
-      final keys = store.getKeys();
-      for (final k in keys) {
-        if (k.startsWith('kl_') &&
-            !_durableAccountJournalPreferenceKeys.contains(k)) {
-          await store.remove(k);
+    await _withLearningReset(() async {
+      // Reload after admitted native writes settle, so their new keys remain
+      // visible to deletion even if they were absent before their reply.
+      await _assertDurableAccountResetAllowed(
+        store,
+        allowJournalPreservingReset: true,
+      );
+      await PackCompletionStorage.retire(preferences: store);
+      await _retireSrsJournalForReset(store);
+      LocalDataLifetime.invalidate();
+      try {
+        final keys = store.getKeys();
+        for (final k in keys) {
+          if (k.startsWith('kl_') &&
+              !_durableAccountJournalPreferenceKeys.contains(k)) {
+            await store.remove(k);
+          }
         }
+      } finally {
+        // Account/local deletion must never leave a removed course graph or
+        // wrong-answer history reachable through optimistic in-memory mirrors.
+        resetCachesAfterExternalWrite();
       }
-    } finally {
-      // Account/local deletion must never leave a removed course graph or
-      // wrong-answer history reachable through optimistic in-memory mirrors.
-      resetCachesAfterExternalWrite();
-    }
+    });
   }
 
   /// Account-deletion reset that verifies every app-owned preference removal.
@@ -4497,82 +7631,133 @@ class Storage {
     canonicalizeAccountDeletionCheckpoint,
   }) async {
     final store = preferences ?? _preferenceRemovalStore();
-    await _assertDurableAccountResetAllowed(
-      store,
-      allowAccountDeletionCheckpoint:
-          canonicalizeAccountDeletionCheckpoint != null,
-    );
-    // This is deliberately synchronous and precedes checkpoint
-    // canonicalization as well as preference removal. Even a partially
-    // failing strict reset must never leave an old restore lease writable.
-    LocalDataLifetime.invalidate();
-    final failedKeys = <String>[];
-    final causes = <Object>[];
-    final canonicalCheckpointKeys = <String>[];
-    if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
-      canonicalCheckpointKeys.addAll(
-        <String>[
-          accountDeletionCheckpointPreferenceKey,
-          accountDeletionFeedbackActivationCheckpointPreferenceKey,
-        ].where(store.containsKey),
+    await _withLearningReset(() async {
+      await _assertDurableAccountResetAllowed(
+        store,
+        allowAccountDeletionCheckpoint:
+            canonicalizeAccountDeletionCheckpoint != null,
       );
-      if (canonicalCheckpointKeys.isEmpty) {
-        throw const FormatException('Missing account deletion checkpoint.');
-      }
-      for (final checkpointKey in canonicalCheckpointKeys) {
-        String canonicalCheckpoint;
-        try {
-          final raw = store.getValue(checkpointKey);
-          if (raw is! String || raw.isEmpty) {
-            throw const FormatException('Missing account deletion checkpoint.');
-          }
-          canonicalCheckpoint = canonicalize(raw);
-          if (canonicalCheckpoint.isEmpty) {
-            throw const FormatException('Empty account deletion checkpoint.');
-          }
-        } catch (error, stackTrace) {
+      await PackCompletionStorage.retire(preferences: store);
+      await _retireSrsJournalForReset(store);
+      // Invalidate before checkpoint canonicalization and preference removal.
+      LocalDataLifetime.invalidate();
+      final failedKeys = <String>[];
+      final causes = <Object>[];
+      final canonicalCheckpointKeys = <String>[];
+      if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
+        canonicalCheckpointKeys.addAll(
+          <String>[
+            accountDeletionCheckpointPreferenceKey,
+            accountDeletionFeedbackActivationCheckpointPreferenceKey,
+          ].where(store.containsKey),
+        );
+        if (canonicalCheckpointKeys.isEmpty) {
+          throw const FormatException('Missing account deletion checkpoint.');
+        }
+        for (final checkpointKey in canonicalCheckpointKeys) {
+          String canonicalCheckpoint;
           try {
-            await _removeValueStrict(store, checkpointKey);
-          } catch (removalError) {
-            throw PreferenceResetException(
-              failedKeys: <String>[checkpointKey],
-              causes: <Object>[error, removalError],
-            );
+            final raw = store.getValue(checkpointKey);
+            if (raw is! String || raw.isEmpty) {
+              throw const FormatException(
+                'Missing account deletion checkpoint.',
+              );
+            }
+            canonicalCheckpoint = canonicalize(raw);
+            if (canonicalCheckpoint.isEmpty) {
+              throw const FormatException('Empty account deletion checkpoint.');
+            }
+          } catch (error, stackTrace) {
+            try {
+              await _removeValueStrict(store, checkpointKey);
+            } catch (removalError) {
+              throw PreferenceResetException(
+                failedKeys: <String>[checkpointKey],
+                causes: <Object>[error, removalError],
+              );
+            }
+            Error.throwWithStackTrace(error, stackTrace);
           }
-          Error.throwWithStackTrace(error, stackTrace);
-        }
-        await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
-      }
-    }
-    final keys =
-        {...store.getKeys(), ..._unknownStrictKeys}
-            .where(
-              (key) =>
-                  key.startsWith('kl_') &&
-                  !_durableAccountJournalPreferenceKeys.contains(key),
-            )
-            .toList()
-          ..sort();
-
-    try {
-      for (final key in keys) {
-        try {
-          await _removeValueStrict(store, key);
-        } catch (error) {
-          failedKeys.add(key);
-          causes.add(error);
+          await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
         }
       }
-    } finally {
-      resetCachesAfterExternalWrite();
-    }
+      final keys =
+          {...store.getKeys(), ..._unknownStrictKeys}
+              .where(
+                (key) =>
+                    key.startsWith('kl_') &&
+                    !_durableAccountJournalPreferenceKeys.contains(key),
+              )
+              .toList()
+            ..sort();
 
-    if (failedKeys.isNotEmpty) {
-      throw PreferenceResetException(
-        failedKeys: List.unmodifiable(failedKeys),
-        causes: List.unmodifiable(causes),
+      try {
+        for (final key in keys) {
+          try {
+            await _removeValueStrict(store, key);
+          } catch (error) {
+            failedKeys.add(key);
+            causes.add(error);
+          }
+        }
+      } finally {
+        resetCachesAfterExternalWrite();
+      }
+
+      if (failedKeys.isNotEmpty) {
+        throw PreferenceResetException(
+          failedKeys: List.unmodifiable(failedKeys),
+          causes: List.unmodifiable(causes),
+        );
+      }
+    });
+  }
+
+  /// Drain admitted reward/SRS/vocabulary writes before deletion and reject new admissions.
+  /// This prevents a delayed native completion from restoring erased progress.
+  static Future<void> _withLearningReset(Future<void> Function() reset) {
+    if (_learningResetCount > 0) {
+      return Future<void>.error(
+        StateError('A learning-data reset is already in progress.'),
       );
     }
+    final generation = _xpRewardMutationGeneration;
+    _learningResetCount = 1;
+    PrivacyChoiceStorage.retire(close: true);
+    _invalidateSrsAttempts();
+    late final Future<void> operation;
+    operation = () async {
+      try {
+        await Future.wait([
+          if (_dataMigrationMutation case final migration?) migration,
+          PrivacyChoiceStorage.drain(),
+          if (_packProgressMutationCount > 0) _packProgressMutation,
+          if (PackCompletionStorage.hasNativeWrites)
+            PackCompletionStorage.drainNative(),
+          if (_xpRewardMutationCount > 0) _xpRewardMutation,
+          if (_srsReviewMutationCount > 0) _srsReviewMutation,
+          if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
+          if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)
+            _grammarPlanMutation!,
+          if (_confirmedChoiceMutationCount > 0)
+            ..._confirmedChoiceMutations.values,
+        ]);
+        await reset();
+      } finally {
+        if (generation == _xpRewardMutationGeneration) {
+          _learningResetCount = 0;
+          // Session-only resets and failed deletion also release their privacy
+          // fence through fresh local authority, never the retired callback.
+          PrivacyChoiceStorage.retire();
+          unawaited(PrivacyChoiceStorage.refresh());
+        }
+        if (identical(operation, _learningResetMutation)) {
+          _learningResetMutation = null;
+        }
+      }
+    }();
+    _learningResetMutation = operation;
+    return operation;
   }
 
   static PreferenceRemovalStore _preferenceRemovalStore() {
@@ -4581,6 +7766,26 @@ class Storage {
       throw StateError('Storage has not been initialized.');
     }
     return _SharedPreferenceRemovalStore(preferences);
+  }
+
+  // Destructive owner operations retire replay authority before touching data.
+  // Unlike ordinary confirmed reads, reset may discard a malformed journal.
+  static Future<void> _retireSrsJournalForReset(
+    PreferenceRemovalStore store,
+  ) async {
+    await store.reload();
+    if (store.containsKey(SrsCommitJournal.key)) {
+      try {
+        await store.remove(SrsCommitJournal.key);
+      } on Object catch (error) {
+        debugPrint('Storage: reset journal removal reply unavailable: $error');
+      }
+      await store.reload();
+      if (store.containsKey(SrsCommitJournal.key)) {
+        throw const SrsRecoveryPendingException();
+      }
+    }
+    _finishSrsRecovery(completed: false);
   }
 
   static Future<void> _assertDurableAccountResetAllowed(
@@ -4627,11 +7832,26 @@ class Storage {
       );
 
   static Future<void> resetSession() async {
-    // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben
-    await _si('kl_vok_correct', 0);
-    await _si('kl_vok_wrong', 0);
-    await _si('kl_vok_skipped', 0);
-    await _si('kl_vok_last_idx', 0);
-    await _sl('kl_vok_seen_ids', []);
+    await _withLearningReset(() async {
+      // Game-Punkte zurücksetzen, Streak/Profil-Daten bleiben.
+      await _resolvePendingVocabPreferenceWrite();
+      _vocabProgressAttemptEpoch++;
+      final reset = VocabProgressAttempt._absolute(
+        absoluteCorrect: 0,
+        absoluteWrong: 0,
+        absoluteSkipped: 0,
+        cursor: 0,
+        bypassLearningWriteLock: true,
+      );
+      await _saveVocabProgressAttempt(reset);
+      var seenSaved = false;
+      await _writeVocabStringList(
+        reset,
+        _vokSeenIdsKey,
+        const <String>[],
+        () => seenSaved = true,
+      );
+      assert(seenSaved);
+    });
   }
 }

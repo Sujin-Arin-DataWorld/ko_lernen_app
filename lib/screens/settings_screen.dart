@@ -22,7 +22,7 @@ import '../services/audio_policy.dart';
 import '../services/sound_service.dart';
 import '../services/notification_service.dart';
 import '../services/push_service.dart';
-import '../services/privacy_consent_service.dart';
+import '../widgets/sori/privacy_choice_feedback.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/sheet.dart';
 import '../services/personalized_lesson_service.dart';
@@ -31,6 +31,7 @@ import '../services/locale_service.dart';
 import '../services/data_loader.dart';
 import '../services/auth_service.dart';
 import '../services/app_version_service.dart';
+import '../services/app_update_service.dart';
 import '../services/account/account_failure_diagnostics.dart';
 import '../services/account/account_failure_reason.dart';
 import '../services/account/account_transition_coordinator.dart';
@@ -340,6 +341,8 @@ class SettingsScreen extends StatefulWidget {
     this.cloudDataDeletionJournalState,
     this.resetAllData,
     this.appVersionReader,
+    this.appUpdateChecker,
+    this.appStoreOpener,
     this.initialFocus,
     this.notificationOperations,
   });
@@ -352,6 +355,8 @@ class SettingsScreen extends StatefulWidget {
   cloudDataDeletionJournalState;
   final Future<void> Function()? resetAllData;
   final AppVersionReader? appVersionReader;
+  final AppUpdateChecker? appUpdateChecker;
+  final Future<void> Function(String url)? appStoreOpener;
   final SettingsInitialFocus? initialFocus;
   final NotificationSettingsOperations? notificationOperations;
 
@@ -361,6 +366,8 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   String _appVersion = '-';
+  bool _updateChecking = false;
+  String? _updateMessage;
   DateTime? _lastBackupAt;
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _courseStartKey = GlobalKey();
@@ -386,6 +393,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
+
+  AppUpdateChecker get _appUpdateChecker =>
+      widget.appUpdateChecker ?? const PlayStoreAppUpdateChecker();
 
   AccountDeletionWorkflow get _accountDeletionWorkflow =>
       widget.accountDeletionWorkflow ??
@@ -504,29 +514,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.dispose();
   }
 
-  Future<bool> _confirmPronunciationConsent() async {
-    final t = AppL10n.of(context);
-    return await showSoriDialog<bool>(
-          context: context,
-          barrierDismissible: false,
-          builder: (dialogContext) => SoriDialog(
-            title: Text(t.pronunciationConsentTitle),
-            content: Text(t.pronunciationConsentBody),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text(t.pronunciationConsentDecline),
-              ),
-              FilledButton(
-                onPressed: () => Navigator.pop(dialogContext, true),
-                child: Text(t.pronunciationConsentAccept),
-              ),
-            ],
-          ),
-        ) ??
-        false;
-  }
-
   Future<void> _loadAppVersion() async {
     try {
       final version = await _appVersionReader.readVersion();
@@ -536,6 +523,106 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       // Keep the neutral placeholder when native package metadata is absent.
     }
+  }
+
+  Future<void> _checkForUpdate() async {
+    if (_updateChecking) return;
+    final t = AppL10n.of(context);
+    setState(() {
+      _updateChecking = true;
+      _updateMessage = t.settingsUpdateChecking;
+    });
+
+    AppUpdateStatus status;
+    try {
+      status = await _appUpdateChecker.check();
+    } catch (_) {
+      status = AppUpdateStatus.unsupported;
+    }
+    if (!mounted) return;
+    setState(() => _updateChecking = false);
+
+    switch (status.availability) {
+      case AppUpdateAvailability.upToDate:
+        setState(() => _updateMessage = t.settingsUpdateUpToDate);
+        soriNotice(context, t.settingsUpdateUpToDate);
+        return;
+      case AppUpdateAvailability.unsupported:
+        setState(() => _updateMessage = t.settingsUpdateUnavailable);
+        soriNotice(context, t.settingsUpdateUnavailable);
+        await _openStore();
+        return;
+      case AppUpdateAvailability.updateAvailable:
+        final version = status.availableVersionCode;
+        setState(
+          () => _updateMessage = version == null
+              ? t.settingsUpdateDialogTitle
+              : t.settingsUpdateAvailable(version),
+        );
+        await _startUpdate(status);
+        return;
+    }
+  }
+
+  Future<void> _startUpdate(AppUpdateStatus status) async {
+    final t = AppL10n.of(context);
+    final version = status.availableVersionCode;
+    final confirmed =
+        await showSoriDialog<bool>(
+          context: context,
+          builder: (dialogContext) => SoriDialog(
+            title: Text(t.settingsUpdateDialogTitle),
+            content: Text(
+              version == null
+                  ? t.settingsUpdateSubtitle
+                  : t.settingsUpdateDialogBody(version),
+            ),
+            actions: [
+              SoriButton.ghost(
+                onTap: () => Navigator.pop(dialogContext, false),
+                label: t.settingsUpdateLater,
+              ),
+              SoriButton.filled(
+                onTap: () => Navigator.pop(dialogContext, true),
+                label: t.settingsUpdateStart,
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!confirmed || !mounted) return;
+
+    AppUpdateStartResult result;
+    try {
+      result = await _appUpdateChecker.start(status);
+    } catch (_) {
+      result = AppUpdateStartResult.failed;
+    }
+    if (!mounted) return;
+    switch (result) {
+      case AppUpdateStartResult.started:
+        return;
+      case AppUpdateStartResult.declined:
+        soriNotice(context, t.settingsUpdateDeclined);
+        return;
+      case AppUpdateStartResult.failed:
+      case AppUpdateStartResult.unsupported:
+        soriNotice(context, t.settingsUpdateFailed);
+        await _openStore();
+        return;
+    }
+  }
+
+  Future<void> _openStore() async {
+    final injectedOpener = widget.appStoreOpener;
+    if (injectedOpener != null) {
+      await injectedOpener(_playStoreUrl);
+      return;
+    }
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.android || !mounted) {
+      return;
+    }
+    await openExternalUrl(context, _playStoreUrl);
   }
 
   Future<void> _loadLastBackupAt() async {
@@ -1136,49 +1223,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
         //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
         _Section(label: t.settingsPrivacySection),
-        SwitchListTile(
-          secondary: const Icon(Icons.insights_outlined),
-          title: Text(t.settingsAnalyticsTitle),
-          subtitle: Text(t.settingsAnalyticsDesc),
-          value: Storage.analyticsConsent,
-          onChanged: (v) async {
-            await PrivacyConsentService.setAnalytics(v);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: t.settingsAnalyticsTitle,
+          description: t.settingsAnalyticsDesc,
+          icon: Icons.insights_outlined,
         ),
-        SwitchListTile(
-          secondary: const Icon(Icons.bug_report_outlined),
-          title: Text(t.settingsCrashTitle),
-          subtitle: Text(t.settingsCrashDesc),
-          value: Storage.crashConsent,
-          onChanged: (v) async {
-            await PrivacyConsentService.setCrash(v);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.crash,
+          title: t.settingsCrashTitle,
+          description: t.settingsCrashDesc,
+          icon: Icons.bug_report_outlined,
         ),
-        SwitchListTile(
-          secondary: const Icon(Icons.mic_none_rounded),
-          title: Text(t.settingsPronunciationConsentTitle),
-          subtitle: Text(
-            Storage.pronunciationConsent
-                ? t.settingsPronunciationConsentDesc
-                : t.settingsPronunciationConsentOff,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          value: Storage.pronunciationConsent,
-          onChanged: (value) async {
-            if (value && !await _confirmPronunciationConsent()) {
-              return;
-            }
-            await Storage.setPronunciationConsent(value);
-            if (mounted) {
-              setState(() {});
-            }
-          },
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.pronunciation,
+          title: t.settingsPronunciationConsentTitle,
+          description: t.settingsPronunciationConsentDesc,
+          icon: Icons.mic_none_rounded,
         ),
 
         // ── Reset ──
@@ -1247,6 +1308,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             soriNotice(context, t.settingsVersionCopied);
           },
         ),
+        if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
+          ListTile(
+            leading: const Icon(Icons.system_update_outlined),
+            title: Text(t.settingsUpdateTitle),
+            subtitle: Semantics(
+              liveRegion: true,
+              child: Text(_updateMessage ?? t.settingsUpdateSubtitle),
+            ),
+            trailing: _updateChecking
+                ? const Icon(Icons.hourglass_top_rounded, size: 18)
+                : const Icon(Icons.refresh_rounded, size: 18),
+            onTap: _updateChecking ? null : _checkForUpdate,
+          ),
         ListTile(
           leading: const Icon(Icons.auto_stories_outlined),
           title: Text(t.settingsOriginStoryTitle),
@@ -1258,15 +1332,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           leading: const Icon(Icons.privacy_tip_outlined),
           title: Text(t.settingsPrivacyTitle),
           subtitle: Text(t.settingsPrivacySubtitle),
-          trailing: const Icon(Icons.copy_rounded, size: 18),
-          onTap: _copyPrivacyUrl,
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: _openPrivacyPolicy,
         ),
         ListTile(
           leading: const Icon(Icons.manage_accounts_outlined),
           title: Text(t.settingsAccountDeletionTitle),
           subtitle: Text(t.settingsAccountDeletionSubtitle),
-          trailing: const Icon(Icons.copy_rounded, size: 18),
-          onTap: _copyDeletionUrl,
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: _openAccountDeletionPage,
         ),
         ListTile(
           leading: const Icon(Icons.gavel_outlined),
@@ -1463,20 +1537,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
+  static const String _playStoreUrl =
+      'https://play.google.com/store/apps/details?id=com.sujinarin.ko_lernen_app';
   static const String _privacyUrl = 'https://hangul-sori.com/privacy';
   static const String _termsUrl = 'https://hangul-sori.com/terms';
   static const String _impressumUrl = 'https://hangul-sori.com/impressum';
   static const String _deletionUrl = 'https://hangul-sori.com/account-deletion';
 
-  Future<void> _copyPrivacyUrl() async {
-    await _copyUrl(_privacyUrl);
+  Future<void> _openPrivacyPolicy() async {
+    await _openPublicPage(_localizedLegalUrl(_privacyUrl));
   }
 
-  Future<void> _copyDeletionUrl() async {
-    await _copyUrl(_deletionUrl);
+  Future<void> _openAccountDeletionPage() async {
+    await _openPublicPage(_localizedLegalUrl(_deletionUrl));
   }
 
-  Future<void> _copyUrl(String url) async {
+  String _localizedLegalUrl(String canonicalUrl) {
+    return Localizations.localeOf(context).languageCode == 'en'
+        ? '$canonicalUrl?lang=en'
+        : canonicalUrl;
+  }
+
+  Future<void> _openPublicPage(String url) async {
     // Im Browser öffnen; bei Fehler (kein Browser/Web-Sandbox) Fallback auf
     // Zwischenablage + Snackbar (in [openExternalUrl]).
     HapticFeedback.selectionClick();
@@ -2003,9 +2085,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _confirmAccountDelete() {
     final t = AppL10n.of(context);
+    final account = widget.account ?? AuthService.accountSnapshot;
+    final hasApple = account.providers.isAppleLinked;
     _showDangerConfirm(
       title: t.settingsAccountDeleteConfirmTitle,
-      body: t.settingsAccountDeleteConfirmBody,
+      body: hasApple
+          ? '${t.settingsAccountDeleteConfirmBody}\n\n${t.settingsAccountDeleteAppleGuidance}'
+          : t.settingsAccountDeleteConfirmBody,
+      secondaryActionLabel: hasApple ? t.settingsAccountDeleteAppleHelp : null,
+      onSecondaryAction: hasApple
+          ? () => openExternalUrl(
+              context,
+              Localizations.localeOf(context).languageCode == 'de'
+                  ? 'https://support.apple.com/de-de/102571'
+                  : 'https://support.apple.com/en-us/102571',
+            )
+          : null,
       confirmLabel: t.btnDelete,
       onConfirm: _onDeleteAccount,
     );

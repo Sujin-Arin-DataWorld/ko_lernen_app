@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:uuid/uuid.dart';
 
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
@@ -9,6 +10,102 @@ import '../models/scenario.dart';
 import 'cloud_sync.dart';
 import 'course_mastery_service.dart';
 import 'course_progress_service.dart';
+import 'curriculum_catalog.dart';
+import 'local_data_lifetime.dart';
+
+enum CourseContentAttemptResult { persisted, notApplicable }
+
+/// One accepted answer retained across persistence retries.
+///
+/// [occurredAt] is captured once and becomes the durable evidence identity.
+/// A retry can therefore reconcile an outcome-unknown native write instead of
+/// minting a second course observation. Free-browse content without a graph
+/// link is represented explicitly by [CourseContentAttemptResult.notApplicable].
+final class CourseContentAttempt {
+  CourseContentAttempt({
+    required this.kind,
+    required this.contentId,
+    required this.isCorrect,
+    this.isApplicable,
+    this.courseContext,
+    this.errorReason,
+    this.conceptId,
+    this.score,
+    DateTime? occurredAt,
+  }) : occurredAt = (occurredAt ?? DateTime.now()).toUtc(),
+       _lifetime = LocalDataLifetime.capture(),
+       _receipt = CourseContentEvidenceReceipt(const Uuid().v4());
+
+  final CurriculumContentKind kind;
+  final String contentId;
+  final bool isCorrect;
+  final bool? isApplicable;
+  final CoursePracticeContext? courseContext;
+  final MasteryErrorReason? errorReason;
+  final String? conceptId;
+  final double? score;
+  final DateTime occurredAt;
+  final LocalDataLifetimeLease _lifetime;
+  final CourseContentEvidenceReceipt _receipt;
+
+  CourseContentAttemptResult? _result;
+  Future<CourseContentAttemptResult>? _inFlight;
+
+  Future<CourseContentAttemptResult> save() {
+    if (!_lifetime.isCurrent) {
+      return Future.error(const StaleLocalDataLifetimeException());
+    }
+    final result = _result;
+    if (result != null) {
+      return Future.value(result);
+    }
+    final running = _inFlight;
+    if (running != null) {
+      return running;
+    }
+    late final Future<CourseContentAttemptResult> pending;
+    pending = _save().whenComplete(() {
+      if (identical(_inFlight, pending)) {
+        _inFlight = null;
+      }
+    });
+    _inFlight = pending;
+    return pending;
+  }
+
+  Future<CourseContentAttemptResult> _save() async {
+    _lifetime.assertCurrent();
+    var applicable = isApplicable;
+    if (applicable == null) {
+      final catalog = await CurriculumCatalog.load();
+      _lifetime.assertCurrent();
+      applicable = catalog.linksForContent(kind, contentId).isNotEmpty;
+    }
+    if (!applicable) {
+      if (courseContext != null) {
+        throw StateError('Course-routed content has no graph link.');
+      }
+      return _result = CourseContentAttemptResult.notApplicable;
+    }
+    final update = await CourseActivityReporter.recordContentAttemptStrict(
+      kind,
+      contentId,
+      isCorrect,
+      courseContext: courseContext,
+      errorReason: errorReason,
+      conceptId: conceptId,
+      score: score,
+      occurredAt: occurredAt,
+      evidenceReceipt: _receipt,
+      assertCurrentWrite: _lifetime.assertCurrent,
+    );
+    _lifetime.assertCurrent();
+    if (!_receipt.confirms(update.snapshot)) {
+      throw StateError('Course evidence is not confirmed.');
+    }
+    return _result = CourseContentAttemptResult.persisted;
+  }
+}
 
 /// Maps each existing scenario exercise to the narrowest correction category
 /// that can be offered without free-form speech scoring.
@@ -76,31 +173,60 @@ class CourseActivityReporter {
     double? score,
   }) async {
     try {
-      final override = recordContentAttemptForTesting;
-      return override != null
-          ? await override(
-              kind,
-              contentId,
-              isCorrect,
-              courseContext,
-              errorReason,
-              conceptId,
-              score,
-            )
-          : await CourseProgressService.shared.recordContentAttempt(
-              kind,
-              contentId,
-              isCorrect,
-              courseContext: courseContext,
-              conceptId: conceptId,
-              errorReason: errorReason,
-              score: score,
-            );
+      return await recordContentAttemptStrict(
+        kind,
+        contentId,
+        isCorrect,
+        courseContext: courseContext,
+        errorReason: errorReason,
+        conceptId: conceptId,
+        score: score,
+      );
     } catch (error, stackTrace) {
       debugPrint('Course evidence skipped for $kind:$contentId: $error');
       debugPrintStack(stackTrace: stackTrace);
       return null;
     }
+  }
+
+  /// Strict course evidence boundary for flows that must not advance until
+  /// the canonical snapshot has confirmed their accepted answer.
+  static Future<CourseUpdate> recordContentAttemptStrict(
+    CurriculumContentKind kind,
+    String contentId,
+    bool isCorrect, {
+    CoursePracticeContext? courseContext,
+    MasteryErrorReason? errorReason,
+    String? conceptId,
+    double? score,
+    DateTime? occurredAt,
+    CourseContentEvidenceReceipt? evidenceReceipt,
+    void Function()? assertCurrentWrite,
+  }) {
+    assertCurrentWrite?.call();
+    final override = recordContentAttemptForTesting;
+    return override != null
+        ? override(
+            kind,
+            contentId,
+            isCorrect,
+            courseContext,
+            errorReason,
+            conceptId,
+            score,
+          )
+        : CourseProgressService.shared.recordContentAttempt(
+            kind,
+            contentId,
+            isCorrect,
+            courseContext: courseContext,
+            conceptId: conceptId,
+            errorReason: errorReason,
+            occurredAt: occurredAt,
+            score: score,
+            evidenceReceipt: evidenceReceipt,
+            assertCurrentWrite: assertCurrentWrite,
+          );
   }
 
   static Future<CourseUpdate?> recordScenarioCheckpoint(

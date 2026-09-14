@@ -692,6 +692,8 @@ jobs:
       # bool.fromEnvironment falls back to its own defaultValue (false).
       # Server-side gates remain authoritative either way.
       - name: Build signed internal-testing bundle
+        env:
+          PLAY_TRACK: internal
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
@@ -720,8 +722,15 @@ jobs:
           set -euo pipefail
           aab=build/app/outputs/bundle/release/app-release.aab
           sha256sum "$aab" | tee "$aab.sha256"
+          commit_count="$(git rev-list --count HEAD)"
+          if [[ ! "$commit_count" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Cannot derive versionCode from git HEAD."
+            exit 1
+          fi
+          version_code="$(( commit_count * 3 + 0 ))"
           short_sha="${GITHUB_SHA:0:8}"
-          echo "name=${GITHUB_RUN_NUMBER} · ${short_sha}" >> "$GITHUB_OUTPUT"
+          echo "version-code=$version_code" >> "$GITHUB_OUTPUT"
+          echo "name=${GITHUB_RUN_NUMBER} · internal · v${version_code} · ${short_sha}" >> "$GITHUB_OUTPUT"
 
       - name: Preserve AAB and Dart symbols
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

@@ -11,6 +11,7 @@ import '../models/curriculum.dart';
 import '../models/learner_level.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/data_loader.dart';
 import '../services/hanok_competence_projection_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
@@ -128,6 +129,8 @@ class _LevelGroup {
   const _LevelGroup(this.level, this.packs);
 }
 
+enum _LegacyLoadFailure { vocabulary, progressStore }
+
 class _LearningPathScreenState extends State<LearningPathScreen>
     with ScreenCoachMixin<LearningPathScreen> {
   bool _loading = true;
@@ -140,6 +143,12 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   String _courseLevel = 'A1';
   List<CourseUnit> _courseUnits = const [];
   CourseMasterySnapshot? _courseSnapshot;
+  bool _courseLoading = true;
+  bool _courseLoadFailed = false;
+  bool _legacyLoading = true;
+  _LegacyLoadFailure? _legacyLoadFailure;
+  int _courseLoadGeneration = 0;
+  int _legacyLoadGeneration = 0;
   bool _showLegacyPractice = false;
 
   static final List<String> _levels = List.unmodifiable(
@@ -202,6 +211,8 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       courseUnits: preview.courseUnits,
       fallbackBrowseLevel: _selectedLevel,
     );
+    _courseLoading = false;
+    _legacyLoading = false;
     _loading = false;
   }
 
@@ -263,88 +274,217 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       }
       return;
     }
-    final stage = (await HanokCompetenceProjectionService.loadCurrent()).stage;
     final selectedLevel = pathLegacyBrowseVisibleLevel(
       browseLevelCode: Storage.browseLevelCode,
       placementLevelCode: Storage.placementLevelCode,
       legacyUserLevelCode: Storage.userLevelCode,
     );
-    final groups = <_LevelGroup>[];
-    int cleared = 0;
-    int total = 0;
-    // 헤더의 "집 전체" 진행도는 전 레벨 합산 — 팩 뷰는 전부 로드한다.
-    for (final lv in _levels) {
-      final view = await PackProgressService.loadLevelView(lv);
-      groups.add(_LevelGroup(lv, view));
-      for (final e in view) {
-        total++;
-        if (e.progress.status == PackStatus.cleared) {
-          cleared++;
-        }
-      }
+    if (mounted) {
+      setState(() => _selectedLevel = selectedLevel);
     }
-    // "Jetzt" 노드는 렌더되는(선택한) 레벨 안에서만 고른다 — 낮은 레벨의 미완
-    // 팩이 선택 레벨 뷰에서 하이라이트/자동스크롤을 훔치지 않도록.
-    String? now;
-    for (final g in groups) {
-      if (g.level != selectedLevel) {
-        continue;
-      }
-      for (final e in g.packs) {
-        if (e.progress.status != PackStatus.cleared) {
-          now = e.pack.id;
-          break;
-        }
-      }
-      break;
+    await (_loadCourse(selectedLevel), _loadLegacy(selectedLevel)).wait;
+  }
+
+  Future<void> _loadCourse(String selectedLevel) async {
+    final generation = ++_courseLoadGeneration;
+    if (mounted) {
+      setState(() {
+        _courseLoading = true;
+        _courseLoadFailed = false;
+        _loading = _courseUnits.isEmpty && _groups.isEmpty;
+      });
     }
-    CurriculumCatalog? courseCatalog;
-    CourseMasterySnapshot? courseSnapshot;
     try {
-      courseCatalog = await CurriculumCatalog.load();
-      courseSnapshot =
+      final courseCatalog = await CurriculumCatalog.load();
+      final courseSnapshot =
           await (widget.courseSnapshotLoader ??
               CourseProgressService.shared.readForDisplay)();
-    } catch (_) {
-      // Existing pack path remains usable if a local curriculum asset is
-      // invalid; the mission screen will surface the actionable error.
-    }
-    if (!mounted) {
-      return;
-    }
-    final courseUnits = List<CourseUnit>.unmodifiable(
-      courseCatalog?.courseUnits ?? const <CourseUnit>[],
-    );
-    final courseLevel = courseSnapshot == null
-        ? selectedLevel
-        : pathCourseVisibleLevel(
-            snapshot: courseSnapshot,
-            courseUnits: courseUnits,
-            fallbackBrowseLevel: selectedLevel,
+      if (!mounted || generation != _courseLoadGeneration) {
+        return;
+      }
+      final courseUnits = List<CourseUnit>.unmodifiable(
+        courseCatalog.courseUnits,
+      );
+      final courseLevel = courseSnapshot == null
+          ? selectedLevel
+          : pathCourseVisibleLevel(
+              snapshot: courseSnapshot,
+              courseUnits: courseUnits,
+              fallbackBrowseLevel: selectedLevel,
+            );
+      final hasCurrentCourseTarget =
+          courseSnapshot?.currentCourseUnitId != null &&
+          courseUnits.any(
+            (unit) => unit.id == courseSnapshot?.currentCourseUnitId,
           );
-    final hasCurrentCourseTarget =
-        courseSnapshot?.currentCourseUnitId != null &&
-        courseUnits.any(
-          (unit) => unit.id == courseSnapshot?.currentCourseUnitId,
+      final revealLegacyForCoach =
+          !hasCurrentCourseTarget &&
+          _nowPackId != null &&
+          !Storage.tutSeen(coachId);
+      final shouldAutoScroll = !_showLegacyPractice && revealLegacyForCoach;
+      setState(() {
+        _courseLevel = courseLevel;
+        _courseUnits = courseUnits;
+        _courseSnapshot = courseSnapshot;
+        _courseLoading = false;
+        _courseLoadFailed = false;
+        _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
+        _loading = false;
+      });
+      if (shouldAutoScroll) {
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => _autoScrollToTarget(),
         );
-    final revealLegacyForCoach =
-        !hasCurrentCourseTarget && now != null && !Storage.tutSeen(coachId);
-    setState(() {
-      _stage = stage;
-      _groups
-        ..clear()
-        ..addAll(groups);
-      _clearedTotal = cleared;
-      _packTotal = total;
-      _nowPackId = now;
-      _selectedLevel = selectedLevel;
-      _courseLevel = courseLevel;
-      _courseUnits = courseUnits;
-      _courseSnapshot = courseSnapshot;
-      _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
-      _loading = false;
-    });
-    WidgetsBinding.instance.addPostFrameCallback((_) => _autoScrollToTarget());
+      }
+    } catch (_) {
+      if (!mounted || generation != _courseLoadGeneration) {
+        return;
+      }
+      final revealLegacyForCoach =
+          _nowPackId != null && !Storage.tutSeen(coachId);
+      final shouldAutoScroll = !_showLegacyPractice && revealLegacyForCoach;
+      setState(() {
+        _courseUnits = const [];
+        _courseSnapshot = null;
+        _courseLoading = false;
+        _courseLoadFailed = true;
+        _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
+        _loading = false;
+      });
+      if (shouldAutoScroll) {
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => _autoScrollToTarget(),
+        );
+      }
+    }
+  }
+
+  Future<void> _loadLegacy(String selectedLevel) async {
+    final generation = ++_legacyLoadGeneration;
+    if (mounted) {
+      setState(() {
+        _legacyLoading = true;
+        _legacyLoadFailure = null;
+        _loading = _courseUnits.isEmpty && _groups.isEmpty;
+      });
+    }
+    var failure = _LegacyLoadFailure.progressStore;
+    try {
+      final packCatalog = await VocabPackService.loadForDisplay();
+      if (!packCatalog.isAvailable) {
+        failure = _LegacyLoadFailure.vocabulary;
+        if (!mounted || generation != _legacyLoadGeneration) {
+          return;
+        }
+        setState(() {
+          _groups.clear();
+          _clearedTotal = 0;
+          _packTotal = 0;
+          _nowPackId = null;
+          _legacyLoading = false;
+          _legacyLoadFailure = failure;
+          _loading = false;
+        });
+        return;
+      }
+
+      final stage =
+          (await HanokCompetenceProjectionService.loadCurrent()).stage;
+      final groups = <_LevelGroup>[];
+      int cleared = 0;
+      int total = 0;
+      // 헤더의 "집 전체" 진행도는 전 레벨 합산 — 팩 뷰는 전부 로드한다.
+      for (final lv in _levels) {
+        final view = await PackProgressService.loadLevelView(lv);
+        groups.add(_LevelGroup(lv, view));
+        for (final e in view) {
+          total++;
+          if (e.progress.status == PackStatus.cleared) {
+            cleared++;
+          }
+        }
+      }
+      // "Jetzt" 노드는 렌더되는(선택한) 레벨 안에서만 고른다 — 낮은 레벨의 미완
+      // 팩이 선택 레벨 뷰에서 하이라이트/자동스크롤을 훔치지 않도록.
+      String? now;
+      for (final g in groups) {
+        if (g.level != selectedLevel) {
+          continue;
+        }
+        for (final e in g.packs) {
+          if (e.progress.status != PackStatus.cleared) {
+            now = e.pack.id;
+            break;
+          }
+        }
+        break;
+      }
+      if (!mounted || generation != _legacyLoadGeneration) {
+        return;
+      }
+      final hasCurrentCourseTarget =
+          _courseSnapshot?.currentCourseUnitId != null &&
+          _courseUnits.any(
+            (unit) => unit.id == _courseSnapshot?.currentCourseUnitId,
+          );
+      final revealLegacyForCoach =
+          !_courseLoading &&
+          !hasCurrentCourseTarget &&
+          now != null &&
+          !Storage.tutSeen(coachId);
+      setState(() {
+        _stage = stage;
+        _groups
+          ..clear()
+          ..addAll(groups);
+        _clearedTotal = cleared;
+        _packTotal = total;
+        _nowPackId = now;
+        _selectedLevel = selectedLevel;
+        _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
+        _legacyLoading = false;
+        _legacyLoadFailure = null;
+        _loading = false;
+      });
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _autoScrollToTarget(),
+      );
+    } catch (_) {
+      if (!mounted || generation != _legacyLoadGeneration) {
+        return;
+      }
+      setState(() {
+        _groups.clear();
+        _clearedTotal = 0;
+        _packTotal = 0;
+        _nowPackId = null;
+        _legacyLoading = false;
+        _legacyLoadFailure = failure;
+        _loading = false;
+      });
+    }
+  }
+
+  Future<void> _retryCourse() => _loadCourse(_selectedLevel);
+
+  Future<void> _retryLegacy() async {
+    if (_legacyLoadFailure == _LegacyLoadFailure.vocabulary) {
+      VocabPackService.reset();
+      if (DataLoader.vocabError != null) {
+        DataLoader.resetVocab();
+      }
+    }
+    await _loadLegacy(_selectedLevel);
+  }
+
+  Future<void> _refresh() async {
+    if (_legacyLoadFailure == _LegacyLoadFailure.vocabulary) {
+      VocabPackService.reset();
+      if (DataLoader.vocabError != null) {
+        DataLoader.resetVocab();
+      }
+    }
+    await _load();
   }
 
   Future<void> _openPack(VocabPack pack) async {
@@ -398,6 +538,22 @@ class _LearningPathScreenState extends State<LearningPathScreen>
             },
           ),
           const SizedBox(height: Spacing.lg),
+          if (_courseLoading && _courseUnits.isEmpty) ...[
+            _PathSectionLoading(
+              key: const ValueKey('path-course-loading'),
+              label: t.pathCourseMissionsTitle,
+            ),
+            const SizedBox(height: Spacing.xl),
+          ] else if (_courseLoadFailed) ...[
+            _PathSectionError(
+              key: const ValueKey('path-course-load-error'),
+              title: t.pathCourseMissionsTitle,
+              body: t.courseMissionLoadError,
+              retryLabel: t.btnRetry,
+              onRetry: _retryCourse,
+            ),
+            const SizedBox(height: Spacing.xl),
+          ],
           if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
             _CourseMissionPath(
               courseUnits: _courseUnits,
@@ -417,22 +573,36 @@ class _LearningPathScreenState extends State<LearningPathScreen>
             ),
             const SizedBox(height: Spacing.xl),
           ],
-          SoriButton.outlined(
-            key: const ValueKey('path-legacy-practice-toggle'),
-            label: _showLegacyPractice
-                ? t.pathHideMorePractice
-                : t.pathShowMorePractice,
-            trailingIcon: _showLegacyPractice
-                ? Icons.expand_less_rounded
-                : Icons.expand_more_rounded,
-            fullWidth: true,
-            onTap: () =>
-                setState(() => _showLegacyPractice = !_showLegacyPractice),
-          ),
+          if (_legacyLoading && _groups.isEmpty)
+            _PathSectionLoading(
+              key: const ValueKey('path-legacy-loading'),
+              label: t.pathShowMorePractice,
+            )
+          else if (_legacyLoadFailure != null)
+            _PathSectionError(
+              key: const ValueKey('path-legacy-load-error'),
+              title: t.pathShowMorePractice,
+              body: t.loadErrorTryAgain,
+              retryLabel: t.btnRetry,
+              onRetry: _retryLegacy,
+            )
+          else
+            SoriButton.outlined(
+              key: const ValueKey('path-legacy-practice-toggle'),
+              label: _showLegacyPractice
+                  ? t.pathHideMorePractice
+                  : t.pathShowMorePractice,
+              trailingIcon: _showLegacyPractice
+                  ? Icons.expand_less_rounded
+                  : Icons.expand_more_rounded,
+              fullWidth: true,
+              onTap: () =>
+                  setState(() => _showLegacyPractice = !_showLegacyPractice),
+            ),
         ];
 
         return RefreshIndicator(
-          onRefresh: _load,
+          onRefresh: _refresh,
           // W10 T-V3(2026-09-05, Jin D-4): 접힌 기본 상태는 카드 몇 개 +
           // 버튼 하나뿐이라 긴 뷰포트에서 위쪽에 뭉쳤다 — 그때만
           // ConstrainedBox(minHeight)+IntrinsicHeight 로 감싸 중앙 정렬한다.
@@ -450,7 +620,10 @@ class _LearningPathScreenState extends State<LearningPathScreen>
           // 스크롤 위치도 자연히 이어진다.
           child: LayoutBuilder(
             builder: (context, constraints) {
-              final content = _showLegacyPractice
+              final content =
+                  _showLegacyPractice &&
+                      _legacyLoadFailure == null &&
+                      !(_legacyLoading && _groups.isEmpty)
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -552,6 +725,93 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       ),
       const SizedBox(height: Spacing.lg),
     ];
+  }
+}
+
+class _PathSectionLoading extends StatelessWidget {
+  const _PathSectionLoading({super.key, required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) => SoriCard(
+    variant: SoriCardVariant.compact,
+    child: Row(
+      children: [
+        const SizedBox.square(
+          dimension: 20,
+          child: CircularProgressIndicator(strokeWidth: 2),
+        ),
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Text(label, style: SoriTextTheme.of(context).bodySmall),
+        ),
+      ],
+    ),
+  );
+}
+
+class _PathSectionError extends StatelessWidget {
+  const _PathSectionError({
+    super.key,
+    required this.title,
+    required this.body,
+    required this.retryLabel,
+    required this.onRetry,
+  });
+
+  final String title;
+  final String body;
+  final String retryLabel;
+  final Future<void> Function() onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.danger,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.refresh_rounded,
+                color: SoriColors.danger,
+                size: 24,
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: SoriTextTheme.of(context).h3),
+                    const SizedBox(height: Spacing.xs),
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        body,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(color: surfaces.textMuted),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            label: retryLabel,
+            fullWidth: true,
+            onTap: onRetry,
+          ),
+        ],
+      ),
+    );
   }
 }
 

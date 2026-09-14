@@ -1,3 +1,6 @@
+import '../services/storage_service.dart';
+import '../services/pack_completion_record.dart';
+import '../widgets/sori/pack_completion_recovery_banner.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -91,9 +94,15 @@ class _AppShellState extends State<AppShell> {
   }
 
   @override
-  Widget build(BuildContext context) => SoriStageShell(
-    replayHomeTour: AppShell.replayHomeTour,
-    requestedTab: AppShell.requestedStageTab,
-    loadTodaySnapshot: widget.loadTodaySnapshot,
-  );
+  Widget build(BuildContext context) =>
+      ValueListenableBuilder<PackCompletionStatus>(
+        valueListenable: PackCompletionStorage.status,
+        builder: (context, _, _) => PackCompletionStorage.invalid
+            ? const PackCompletionRecoveryScreen()
+            : SoriStageShell(
+                replayHomeTour: AppShell.replayHomeTour,
+                requestedTab: AppShell.requestedStageTab,
+                loadTodaySnapshot: widget.loadTodaySnapshot,
+              ),
+      );
 }

@@ -21,8 +21,10 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../services/custom_pack_service.dart';
 import '../services/liked_content_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/ko_wrap.dart';
 import '../widgets/sori/level_filter_bar.dart';
@@ -69,14 +71,41 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   Set<String>? _courseContentIds;
   Map<String, ContentLink> _courseAssessmentLinks =
       const <String, ContentLink>{};
+  CoursePracticeContext? _courseAssessmentSourceContext;
+  List<SmalltalkPhrase>? _courseAssessmentPreviewIdentity;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   bool _loadFailed = false;
   int _phraseIndex = 0;
+  String? _relationshipEvidencePhraseId;
+  int _relationshipEvidenceGeneration = 0;
+  final LocalDataLifetimeLease _relationshipEvidenceLifetime =
+      LocalDataLifetime.capture();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
+
+  bool get _relationshipEvidenceLocked =>
+      _relationshipEvidencePhraseId != null ||
+      !_relationshipEvidenceLifetime.isCurrent;
 
   bool get _isCoursePractice => widget.courseContext != null;
 
   bool get _isInjected => widget.phrases != null;
+
+  @override
+  void didUpdateWidget(covariant SmalltalkScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final oldContext = oldWidget.courseContext;
+    final currentContext = widget.courseContext;
+    if (oldContext?.courseUnitId != currentContext?.courseUnitId ||
+        oldContext?.contentKind != currentContext?.contentKind ||
+        oldContext?.initialContentId != currentContext?.initialContentId ||
+        oldContext?.contentLinkId != currentContext?.contentLinkId ||
+        !identical(oldWidget.phrases, widget.phrases)) {
+      _relationshipEvidenceGeneration += 1;
+      _relationshipEvidencePhraseId = null;
+      _choiceOwner.replaceSource();
+    }
+  }
 
   // ── 코치마크 타겟 ──
   final GlobalKey _categoryKey = GlobalKey();
@@ -111,6 +140,15 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     if (_isInjected) {
       _level = null;
     } else if (!_isCoursePractice) {
@@ -118,6 +156,36 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     }
     _load();
     scheduleCoach();
+  }
+
+  @override
+  void dispose() {
+    _choiceOwner.dispose();
+    super.dispose();
+  }
+
+  Future<void> _likePhrase(SmalltalkPhrase phrase, int presentation) async {
+    final categories = _visibleCategories;
+    if (presentation != _relationshipEvidenceGeneration || categories.isEmpty) {
+      return;
+    }
+    final current = categories.firstWhere(
+      (category) => category.id == _cat,
+      orElse: () => categories.first,
+    );
+    final phrases = _phrasesFor(category: current.id, level: _level);
+    if (phrases.isEmpty ||
+        phrases[_phraseIndex.clamp(0, phrases.length - 1)].id != phrase.id) {
+      return;
+    }
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: phrase.ko,
+        kind: LikedContentService.smalltalk,
+        id: phrase.id,
+      ),
+    );
   }
 
   Future<void> _load() async {
@@ -138,6 +206,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         setState(() {
           _courseContentIds = {for (final phrase in injected) phrase.id};
           _courseAssessmentLinks = const <String, ContentLink>{};
+          _courseAssessmentSourceContext = null;
+          _courseAssessmentPreviewIdentity = injected;
           _missionStep = null;
           _missionTitle = null;
           _level = null;
@@ -200,6 +270,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       setState(() {
         _courseContentIds = courseContentIds;
         _courseAssessmentLinks = courseAssessmentLinks;
+        _courseAssessmentSourceContext = courseAssessmentLinks.isEmpty
+            ? null
+            : courseContext;
+        _courseAssessmentPreviewIdentity = widget.phrases;
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _cat = preferred.isNotEmpty
@@ -225,6 +299,23 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   List<SmalltalkCategory> get _visibleCategories =>
       _categoriesFor(_courseContentIds);
 
+  bool get _courseAssessmentProvenanceIsCurrent {
+    final source = _courseAssessmentSourceContext;
+    final current = widget.courseContext;
+    return source != null &&
+        current != null &&
+        identical(widget.phrases, _courseAssessmentPreviewIdentity) &&
+        current.courseUnitId == source.courseUnitId &&
+        current.contentKind == source.contentKind &&
+        current.initialContentId == source.initialContentId &&
+        current.contentLinkId == source.contentLinkId;
+  }
+
+  ContentLink? _assessmentLinkFor(SmalltalkPhrase phrase) =>
+      _courseAssessmentProvenanceIsCurrent
+      ? _courseAssessmentLinks[phrase.id]
+      : null;
+
   /// 주제 목록 + 현재 레벨 기준 문장 수. 있는 주제가 먼저, 그 안에서는
   /// 카탈로그 순서를 지킨다 (사라진 주제를 찾아 헤매지 않게).
   List<MapEntry<SmalltalkCategory, int>> _categoriesByAvailability(
@@ -244,20 +335,24 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   /// C1/C2 는 23 개 주제 중 9 개에만 문장이 있다. 개수를 안 보여 주면 학습자는
   /// 빈 주제를 골라 놓고 "배치가 안 돼 있다"고 읽는다 (2026-08-19 Jin).
   int _phraseCount({String? level, String? category}) {
+    return _phrasesFor(level: level, category: category).length;
+  }
+
+  List<SmalltalkPhrase> _phrasesFor({String? level, String? category}) {
     final ids = _courseContentIds;
-    return SmalltalkLoader.phrases
+    return (widget.phrases ?? SmalltalkLoader.phrases)
         .where(
           (phrase) =>
               (level == null || phrase.level == level) &&
               (category == null || phrase.category == category) &&
               (ids == null || ids.contains(phrase.id)),
         )
-        .length;
+        .toList(growable: false);
   }
 
   List<SmalltalkCategory> _categoriesFor(Set<String>? contentIds) {
     if (contentIds == null) return SmalltalkLoader.categories;
-    final visibleCategoryIds = SmalltalkLoader.phrases
+    final visibleCategoryIds = (widget.phrases ?? SmalltalkLoader.phrases)
         .where((phrase) => contentIds.contains(phrase.id))
         .map((phrase) => phrase.category)
         .toSet();
@@ -288,6 +383,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   void _setLevel(String? level) {
+    if (_relationshipEvidenceLocked) {
+      return;
+    }
     final categories = _visibleCategories;
     final available = _categoriesWithPhrasesAtLevel(
       categories,
@@ -295,6 +393,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       contentIds: _courseContentIds,
     );
     setState(() {
+      _relationshipEvidenceGeneration += 1;
       _level = level;
       _phraseIndex = 0;
       if (available.isNotEmpty &&
@@ -305,6 +404,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   void _retryLoad() {
+    if (_relationshipEvidenceLocked) {
+      return;
+    }
+    _relationshipEvidenceGeneration += 1;
     if (widget.loadSmalltalk == null) {
       SmalltalkLoader.reset();
     }
@@ -342,13 +445,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       (c) => c.id == _cat,
       orElse: () => cats.first,
     );
-    final phrases = SmalltalkLoader.filter(category: _cat, level: _level)
-        .where(
-          (phrase) =>
-              _courseContentIds == null ||
-              _courseContentIds!.contains(phrase.id),
-        )
-        .toList(growable: false);
+    final phrases = _phrasesFor(category: current.id, level: _level);
 
     return SoriAdaptiveStudyBody(
       minHeight: 480,
@@ -377,7 +474,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               borderRadius: SoriRadius.brMd,
               child: Semantics(
                 button: true,
-                onTap: () => _showCategorySheet(t, lang),
+                enabled: !_relationshipEvidenceLocked,
+                onTap: _relationshipEvidenceLocked
+                    ? null
+                    : () => _showCategorySheet(t, lang),
                 excludeSemantics: true,
                 label:
                     '${t.smalltalkPickCategory}: '
@@ -385,7 +485,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                 child: InkWell(
                   key: const Key('smalltalk-category-selector'),
                   excludeFromSemantics: true,
-                  onTap: () => _showCategorySheet(t, lang),
+                  onTap: _relationshipEvidenceLocked
+                      ? null
+                      : () => _showCategorySheet(t, lang),
                   borderRadius: SoriRadius.brMd,
                   child: Container(
                     constraints: const BoxConstraints(minHeight: 48),
@@ -439,28 +541,84 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                     builder: (context) {
                       final i = _phraseIndex.clamp(0, phrases.length - 1);
                       final phrase = phrases[i];
+                      final presentation = _relationshipEvidenceGeneration;
                       return _PhraseCard(
-                        key: ValueKey('smalltalk_${phrase.id}_$i'),
+                        key: ValueKey(
+                          'smalltalk_${phrase.id}_${i}_'
+                          '$_relationshipEvidenceGeneration',
+                        ),
                         p: phrase,
                         lang: lang,
                         coachKey: i == 0 ? _firstCardKey : null,
                         courseContext: widget.courseContext,
-                        assessmentLink: _courseAssessmentLinks[phrase.id],
-                        onNext: i < phrases.length - 1
-                            ? () => setState(() => _phraseIndex = i + 1)
+                        assessmentLink: _assessmentLinkFor(phrase),
+                        evidenceLifetime: _relationshipEvidenceLifetime,
+                        evidenceGeneration: _relationshipEvidenceGeneration,
+                        evidenceOriginIsCurrent: (phraseId, generation) =>
+                            mounted &&
+                            _courseAssessmentProvenanceIsCurrent &&
+                            generation == _relationshipEvidenceGeneration &&
+                            phraseId == phrase.id,
+                        onNext:
+                            !_relationshipEvidenceLocked &&
+                                i < phrases.length - 1
+                            ? () {
+                                if (_relationshipEvidenceLocked ||
+                                    phrases[_phraseIndex.clamp(
+                                              0,
+                                              phrases.length - 1,
+                                            )]
+                                            .id !=
+                                        phrase.id) {
+                                  return;
+                                }
+                                setState(() {
+                                  _relationshipEvidenceGeneration += 1;
+                                  _phraseIndex = i + 1;
+                                });
+                              }
                             : null,
-                        onPrevious: i > 0
-                            ? () => setState(() => _phraseIndex = i - 1)
+                        onPrevious: !_relationshipEvidenceLocked && i > 0
+                            ? () {
+                                if (_relationshipEvidenceLocked ||
+                                    phrases[_phraseIndex.clamp(
+                                              0,
+                                              phrases.length - 1,
+                                            )]
+                                            .id !=
+                                        phrase.id) {
+                                  return;
+                                }
+                                setState(() {
+                                  _relationshipEvidenceGeneration += 1;
+                                  _phraseIndex = i - 1;
+                                });
+                              }
                             : null,
-                        onLike: () async {
-                          await LikedContentService.toggle(
-                            kind: LikedContentService.smalltalk,
-                            id: phrase.id,
-                          );
-                          if (mounted) {
-                            setState(() {});
-                          }
-                        },
+                        onEvidencePendingChanged:
+                            (phraseId, generation, pending) {
+                              if (!mounted ||
+                                  generation !=
+                                      _relationshipEvidenceGeneration ||
+                                  phraseId != phrase.id) {
+                                return;
+                              }
+                              if (pending) {
+                                if (phraseId == phrase.id &&
+                                    _relationshipEvidencePhraseId == null) {
+                                  setState(
+                                    () => _relationshipEvidencePhraseId =
+                                        phraseId,
+                                  );
+                                }
+                              } else if (_relationshipEvidencePhraseId ==
+                                  phraseId) {
+                                setState(
+                                  () => _relationshipEvidencePhraseId = null,
+                                );
+                              }
+                            },
+                        onLike: () => _likePhrase(phrase, presentation),
                         liked: LikedContentService.isLiked(
                           kind: LikedContentService.smalltalk,
                           id: phrase.id,
@@ -476,7 +634,11 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
   void _selectCategory(BuildContext sheetContext, String categoryId) {
+    if (_relationshipEvidenceLocked) {
+      return;
+    }
     setState(() {
+      _relationshipEvidenceGeneration += 1;
       _cat = categoryId;
       _phraseIndex = 0;
     });
@@ -484,6 +646,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   void _showCategorySheet(AppL10n t, String lang) {
+    if (_relationshipEvidenceLocked) {
+      return;
+    }
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
     final cats = _visibleCategories;
@@ -551,10 +716,15 @@ class _PhraseCard extends StatefulWidget {
   final GlobalKey? coachKey;
   final CoursePracticeContext? courseContext;
   final ContentLink? assessmentLink;
+  final LocalDataLifetimeLease evidenceLifetime;
+  final int evidenceGeneration;
+  final bool Function(String phraseId, int generation) evidenceOriginIsCurrent;
   final VoidCallback? onNext;
   final VoidCallback? onPrevious;
   final VoidCallback? onLike;
   final bool liked;
+  final void Function(String phraseId, int generation, bool pending)?
+  onEvidencePendingChanged;
   const _PhraseCard({
     super.key,
     required this.p,
@@ -562,14 +732,48 @@ class _PhraseCard extends StatefulWidget {
     this.coachKey,
     this.courseContext,
     this.assessmentLink,
+    required this.evidenceLifetime,
+    required this.evidenceGeneration,
+    required this.evidenceOriginIsCurrent,
     this.onNext,
     this.onPrevious,
     this.onLike,
     this.liked = false,
+    this.onEvidencePendingChanged,
   });
 
   @override
   State<_PhraseCard> createState() => _PhraseCardState();
+}
+
+final class _RetainedSmalltalkRelationship {
+  _RetainedSmalltalkRelationship({
+    required this.phrase,
+    required this.question,
+    required this.selectedContext,
+    required this.assessmentLink,
+    required this.sourceContext,
+  }) : attempt = CourseContentAttempt(
+         kind: CurriculumContentKind.smalltalk,
+         contentId: phrase.id,
+         isCorrect: question.isCorrect(selectedContext),
+         isApplicable: true,
+         courseContext: CoursePracticeContext.fromLink(assessmentLink),
+         conceptId: assessmentLink.conceptIds.single,
+         errorReason: question.isCorrect(selectedContext)
+             ? null
+             : MasteryErrorReason.speechStyle,
+       );
+
+  final SmalltalkPhrase phrase;
+  final SmalltalkRelationshipCheckpoint question;
+  final SmalltalkRelationshipContext selectedContext;
+  final ContentLink assessmentLink;
+  final CoursePracticeContext sourceContext;
+  final CourseContentAttempt attempt;
+  bool saving = false;
+  bool failed = false;
+  bool expired = false;
 }
 
 class _PhraseCardState extends State<_PhraseCard> {
@@ -578,12 +782,46 @@ class _PhraseCardState extends State<_PhraseCard> {
   bool _showRelationshipCheck = false;
   bool _savingRelationshipCheck = false;
   SmalltalkRelationshipContext? _submittedRelationshipContext;
+  _RetainedSmalltalkRelationship? _pendingRelationship;
+  bool _relationshipEvidenceRetired = false;
 
   bool get _isCoursePractice => widget.courseContext != null;
   bool get _canRecordRelationshipCheckpoint =>
       _isCoursePractice &&
       widget.assessmentLink?.role == ContentLinkRole.assess &&
       widget.assessmentLink?.conceptIds.length == 1;
+
+  @override
+  void didUpdateWidget(covariant _PhraseCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.p.id != widget.p.id ||
+        oldWidget.assessmentLink?.id != widget.assessmentLink?.id ||
+        oldWidget.courseContext?.contentLinkId !=
+            widget.courseContext?.contentLinkId ||
+        oldWidget.evidenceGeneration != widget.evidenceGeneration) {
+      if (_pendingRelationship != null) {
+        final retiredPhraseId = oldWidget.p.id;
+        final releaseParent = oldWidget.onEvidencePendingChanged;
+        WidgetsBinding.instance.addPostFrameCallback(
+          (_) => releaseParent?.call(
+            retiredPhraseId,
+            oldWidget.evidenceGeneration,
+            false,
+          ),
+        );
+      }
+      _relationshipEvidenceRetired = true;
+      _pendingRelationship = null;
+      _savingRelationshipCheck = false;
+    }
+  }
+
+  @override
+  void dispose() {
+    _relationshipEvidenceRetired = true;
+    _pendingRelationship = null;
+    super.dispose();
+  }
 
   Future<void> _savePhrase() async {
     final phrase = widget.p;
@@ -604,33 +842,168 @@ class _PhraseCardState extends State<_PhraseCard> {
   Future<void> _submitRelationshipCheck(
     SmalltalkRelationshipContext selectedContext,
   ) async {
-    if (_submittedRelationshipContext != null || _savingRelationshipCheck) {
+    if (_submittedRelationshipContext != null ||
+        _savingRelationshipCheck ||
+        _relationshipEvidenceRetired ||
+        !widget.evidenceLifetime.isCurrent ||
+        !widget.evidenceOriginIsCurrent(
+          widget.p.id,
+          widget.evidenceGeneration,
+        ) ||
+        !(ModalRoute.of(context)?.isActive ?? true)) {
+      return;
+    }
+    final retained = _pendingRelationship;
+    if (retained != null) {
       return;
     }
     final assessmentLink = widget.assessmentLink;
-    if (assessmentLink == null || !_canRecordRelationshipCheckpoint) return;
-    final question = SmalltalkRelationshipCheckpoint.forPhrase(widget.p);
-    setState(() => _savingRelationshipCheck = true);
-    final update = await CourseActivityReporter.recordContentAttempt(
-      CurriculumContentKind.smalltalk,
-      widget.p.id,
-      question.isCorrect(selectedContext),
-      courseContext: widget.courseContext,
-      conceptId: assessmentLink.conceptIds.single,
-      errorReason: question.isCorrect(selectedContext)
-          ? null
-          : MasteryErrorReason.speechStyle,
-    );
-    if (!mounted) return;
-    setState(() {
-      _savingRelationshipCheck = false;
-      if (update != null) {
-        _submittedRelationshipContext = selectedContext;
-      }
-    });
-    if (update == null) {
-      soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
+    if (assessmentLink == null || !_canRecordRelationshipCheckpoint) {
+      return;
     }
+    final question = SmalltalkRelationshipCheckpoint.forPhrase(widget.p);
+    final sourceContext = widget.courseContext;
+    if (sourceContext == null) {
+      return;
+    }
+    final pending = _RetainedSmalltalkRelationship(
+      phrase: widget.p,
+      question: question,
+      selectedContext: selectedContext,
+      assessmentLink: assessmentLink,
+      sourceContext: sourceContext,
+    );
+    setState(() => _pendingRelationship = pending);
+    widget.onEvidencePendingChanged?.call(
+      widget.p.id,
+      widget.evidenceGeneration,
+      true,
+    );
+    await _saveRelationshipCheck(pending);
+  }
+
+  bool _relationshipAttemptOriginIsCurrent(
+    _RetainedSmalltalkRelationship pending,
+  ) {
+    final source = widget.courseContext;
+    final link = widget.assessmentLink;
+    return mounted &&
+        !_relationshipEvidenceRetired &&
+        (ModalRoute.of(context)?.isActive ?? true) &&
+        widget.evidenceOriginIsCurrent(
+          pending.phrase.id,
+          widget.evidenceGeneration,
+        ) &&
+        identical(_pendingRelationship, pending) &&
+        widget.p.id == pending.phrase.id &&
+        source != null &&
+        source.courseUnitId == pending.sourceContext.courseUnitId &&
+        source.contentKind == pending.sourceContext.contentKind &&
+        source.initialContentId == pending.sourceContext.initialContentId &&
+        source.contentLinkId == pending.sourceContext.contentLinkId &&
+        link?.id == pending.assessmentLink.id &&
+        link?.courseUnitId == pending.assessmentLink.courseUnitId &&
+        link?.contentKind == CurriculumContentKind.smalltalk &&
+        link?.contentId == pending.phrase.id &&
+        link?.role == ContentLinkRole.assess &&
+        link?.conceptIds.length == 1;
+  }
+
+  bool _relationshipAttemptIsCurrent(_RetainedSmalltalkRelationship pending) =>
+      widget.evidenceLifetime.isCurrent &&
+      _relationshipAttemptOriginIsCurrent(pending);
+
+  Future<void> _saveRelationshipCheck(
+    _RetainedSmalltalkRelationship pending,
+  ) async {
+    if (!_relationshipAttemptIsCurrent(pending) || pending.saving) {
+      return;
+    }
+    setState(() {
+      pending.saving = true;
+      pending.failed = false;
+      pending.expired = false;
+      _savingRelationshipCheck = true;
+    });
+    try {
+      await pending.attempt.save();
+      if (!_relationshipAttemptIsCurrent(pending)) {
+        _expireRelationshipAttemptIfCurrent(pending);
+        return;
+      }
+      setState(() {
+        _savingRelationshipCheck = false;
+        _submittedRelationshipContext = pending.selectedContext;
+        _pendingRelationship = null;
+      });
+      widget.onEvidencePendingChanged?.call(
+        pending.phrase.id,
+        widget.evidenceGeneration,
+        false,
+      );
+    } catch (error, stackTrace) {
+      debugPrint(
+        'Smalltalk relationship save failed for ${pending.phrase.id}: $error',
+      );
+      debugPrintStack(stackTrace: stackTrace);
+      if (_relationshipAttemptOriginIsCurrent(pending)) {
+        setState(() {
+          pending.saving = false;
+          pending.failed = true;
+          pending.expired = !widget.evidenceLifetime.isCurrent;
+          _savingRelationshipCheck = false;
+        });
+        if (pending.expired) {
+          widget.onEvidencePendingChanged?.call(
+            pending.phrase.id,
+            widget.evidenceGeneration,
+            false,
+          );
+        }
+        if (!mounted) {
+          return;
+        }
+        soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
+      }
+    }
+  }
+
+  void _expireRelationshipAttemptIfCurrent(
+    _RetainedSmalltalkRelationship pending,
+  ) {
+    if (widget.evidenceLifetime.isCurrent ||
+        !_relationshipAttemptOriginIsCurrent(pending)) {
+      return;
+    }
+    setState(() {
+      pending.saving = false;
+      pending.failed = true;
+      pending.expired = true;
+      _savingRelationshipCheck = false;
+    });
+    widget.onEvidencePendingChanged?.call(
+      pending.phrase.id,
+      widget.evidenceGeneration,
+      false,
+    );
+  }
+
+  void _closeExpiredRelationshipCheckpoint(
+    _RetainedSmalltalkRelationship pending,
+  ) {
+    if (!pending.expired || !identical(_pendingRelationship, pending)) {
+      return;
+    }
+    setState(() {
+      _pendingRelationship = null;
+      _savingRelationshipCheck = false;
+      _showRelationshipCheck = false;
+    });
+    widget.onEvidencePendingChanged?.call(
+      pending.phrase.id,
+      widget.evidenceGeneration,
+      false,
+    );
   }
 
   @override
@@ -642,6 +1015,7 @@ class _PhraseCardState extends State<_PhraseCard> {
     final tt = SoriTextTheme.of(context);
     final hasReply = p.reply != null;
     final relationshipQuestion = SmalltalkRelationshipCheckpoint.forPhrase(p);
+    final pendingRelationship = _pendingRelationship;
 
     return Semantics(
       // finding 9: SoriContentFeed 의 onNext/onPrevious 는 세로 스와이프
@@ -719,7 +1093,9 @@ class _PhraseCardState extends State<_PhraseCard> {
                           Align(
                             alignment: Alignment.center,
                             child: TextButton.icon(
-                              onPressed: _savingRelationshipCheck
+                              onPressed:
+                                  _savingRelationshipCheck ||
+                                      !widget.evidenceLifetime.isCurrent
                                   ? null
                                   : () => setState(
                                       () => _showRelationshipCheck = true,
@@ -760,11 +1136,60 @@ class _PhraseCardState extends State<_PhraseCard> {
                                     option != p.relationshipContext,
                                 onTap:
                                     _savingRelationshipCheck ||
-                                        _submittedRelationshipContext != null
+                                        _submittedRelationshipContext != null ||
+                                        pendingRelationship != null
                                     ? null
                                     : () => _submitRelationshipCheck(option),
                               ),
                             ),
+                          if (pendingRelationship?.saving == true) ...[
+                            const SizedBox(height: Spacing.xs),
+                            Row(
+                              key: const Key('smalltalk-checkpoint-saving'),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ExcludeSemantics(
+                                  child: SoriButton.ghost(
+                                    label: t.onboardingV2Saving,
+                                    loading: true,
+                                    onTap: () => _saveRelationshipCheck(
+                                      pendingRelationship!,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: Spacing.sm),
+                                Text(t.onboardingV2Saving),
+                              ],
+                            ),
+                          ],
+                          if (pendingRelationship?.failed == true) ...[
+                            const SizedBox(height: Spacing.xs),
+                            Text(
+                              t.courseCheckpointSaveError,
+                              key: const Key('smalltalk-checkpoint-save-error'),
+                              textAlign: TextAlign.center,
+                              style: tt.bodySmall.copyWith(
+                                color: SoriColors.danger,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.sm),
+                            SoriButton.outlined(
+                              key: const Key('smalltalk-checkpoint-retry'),
+                              label: pendingRelationship?.expired == true
+                                  ? t.btnClose
+                                  : t.btnRetry,
+                              fullWidth: true,
+                              onTap: pendingRelationship!.saving
+                                  ? null
+                                  : pendingRelationship.expired
+                                  ? () => _closeExpiredRelationshipCheckpoint(
+                                      pendingRelationship,
+                                    )
+                                  : () => _saveRelationshipCheck(
+                                      pendingRelationship,
+                                    ),
+                            ),
+                          ],
                         ],
                         if (_canRecordRelationshipCheckpoint &&
                             _submittedRelationshipContext != null)

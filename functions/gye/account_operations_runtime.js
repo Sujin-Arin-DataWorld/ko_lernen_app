@@ -186,8 +186,8 @@ async function fetchActionableDeletionCandidates({
     ),
     getSnapshot(
       collection
+        .where("kind", "==", "deletion")
         .where("phase", "==", "appleRevocationPending")
-        .where("deletionProgress.appleRevocationComplete", "==", true)
         .where("nextAttemptAtMillis", "<=", nowMillis)
         .orderBy("nextAttemptAtMillis")
         .orderBy("updatedAtMillis"),
@@ -517,6 +517,9 @@ function createFirestoreAccountOperationRepository({
 
   function workerProgress(stored) {
     const progress = stored?.deletionProgress;
+    // Older config-invalid checkpoints falsely marked provider revocation as
+    // complete. This preserved safe code identifies that specific legacy case.
+    const knownUnavailable = progress?.statusCode === "apple-revocation-unavailable";
     return {
       cursor: typeof progress?.cursor === "string"
         ? progress.cursor
@@ -526,7 +529,9 @@ function createFirestoreAccountOperationRepository({
       communityComplete: progress?.communityComplete === true,
       processorComplete: progress?.processorComplete === true,
       appleRevocationComplete:
-        progress?.appleRevocationComplete === true,
+        progress?.appleRevocationComplete === true && !knownUnavailable,
+      appleManualRevocationRequired:
+        progress?.appleManualRevocationRequired === true || knownUnavailable,
       statusCode: typeof progress?.statusCode === "string"
         ? progress.statusCode
         : null,
@@ -1515,15 +1520,6 @@ function createFirestoreAccountOperationRepository({
       if (TERMINAL_PHASES.has(operation.phase)) {
         return { ...workerResult(stored), leaseAcquired: false };
       }
-      const progress = workerProgress(stored);
-      if (operation.phase === "appleRevocationPending" &&
-          !progress.appleRevocationComplete &&
-          allowAppleRevocationInput !== true) {
-        return {
-          ...workerResult(stored),
-          leaseAcquired: false,
-        };
-      }
       const currentTime = nowMillis();
       const activeLease = stored.workerLease || {};
       if (Number.isFinite(activeLease.leaseUntilMillis) &&
@@ -2020,8 +2016,8 @@ function createDeletionWorkerRuntime({
       // Auth user is deleted in this same tick: checkpointDeletionWork passes
       // that progress flag to nextPhases(), which then admits the direct
       // userTreeDeleting -> authDeleted transition. Without the proof the
-      // operation parks in appleRevocationPending until the client supplies
-      // the authorization code.
+      // operation gets a separate fair queue tick for manual-revocation
+      // fallback. No transient authorization code is retained by the worker.
       if (operation.appleRevocationRequired &&
           !claim.progress.appleRevocationComplete) {
         return checkpoint({ toPhase: "appleRevocationPending" });
@@ -2042,18 +2038,26 @@ function createDeletionWorkerRuntime({
     }
 
     if (operation.phase === "appleRevocationPending") {
-      if (claim.progress.appleRevocationComplete) {
-        await renew();
-        try {
-          await runDestructiveUnit(() =>
-            auth.deleteUser(operation.sourceUid));
-        } catch (error) {
-          if (error?.code !== "auth/user-not-found") throw error;
-        }
-        assertWithinDeadline();
-        return checkpoint({ toPhase: "authDeleted" });
+      // TN3194 requires deletion even when no revocation input remains.
+      // Persist the manual disposition before deleting Auth; it survives
+      // retries independently of the mutable worker status code.
+      if (!claim.progress.appleRevocationComplete &&
+          !claim.progress.appleManualRevocationRequired) {
+        return checkpoint({
+          progress: {
+            appleManualRevocationRequired: true,
+            statusCode: "apple-revocation-unavailable",
+          },
+        });
       }
-      return operationResult(operation);
+      await renew();
+      try {
+        await runDestructiveUnit(() => auth.deleteUser(operation.sourceUid));
+      } catch (error) {
+        if (error?.code !== "auth/user-not-found") throw error;
+      }
+      assertWithinDeadline();
+      return checkpoint({ toPhase: "authDeleted" });
     }
 
     if (operation.phase === "communityCleanupPending") {
@@ -2638,7 +2642,8 @@ function createAccountOperationRuntime({
           }
           await checkpoint({
             progress: {
-              appleRevocationComplete: true,
+              appleRevocationComplete: !revocationUnavailable,
+              appleManualRevocationRequired: revocationUnavailable,
               statusCode: revocationUnavailable
                 ? "apple-revocation-unavailable"
                 : null,
@@ -2672,7 +2677,8 @@ function createAccountOperationRuntime({
         }
         await checkpoint({
           progress: {
-            appleRevocationComplete: true,
+            appleRevocationComplete: !revocationUnavailable,
+            appleManualRevocationRequired: revocationUnavailable,
             statusCode: revocationUnavailable
               ? "apple-revocation-unavailable"
               : null,

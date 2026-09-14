@@ -121,6 +121,7 @@ async function synthesizeSpeech(text, voiceKey) {
 }
 
 async function synthesizeTts(request) {
+    let stage = "validation";
     try {
       const { text, voice, installationId } = validateTtsRequest(request);
 
@@ -129,6 +130,7 @@ async function synthesizeTts(request) {
       const db = admin.firestore();
       const fileRef = admin.storage().bucket(BUCKET).file(key.storagePath);
       const assertAccountActive = async () => {
+        stage = "account";
         const marker = await db.collection("account_deletions").doc(request.auth.uid).get();
         if (marker.exists) {
           throw new HttpsError("failed-precondition", "Account deletion is in progress.");
@@ -137,6 +139,7 @@ async function synthesizeTts(request) {
       const responseFor = async (bytes) => {
         await assertAccountActive();
         if (key.isCanonical) return { audioBase64: bytes.toString("base64"), cacheScope: "canonical" };
+        stage = "cache_read";
         const [metadata] = await fileRef.getMetadata();
         if (!privateMetadataIsCurrent(metadata)) {
           throw new HttpsError("unavailable", "TTS audio is not available.");
@@ -152,6 +155,7 @@ async function synthesizeTts(request) {
       };
       await assertAccountActive();
 
+      stage = "cache_read";
       let audioBuffer = await loadUsableAudio(fileRef, key);
       if (isUsableAudioBuffer(audioBuffer)) {
         return await responseFor(audioBuffer);
@@ -159,6 +163,7 @@ async function synthesizeTts(request) {
 
       let claim;
       try {
+        stage = "replay";
         claim = await claimTtsReplay(db, key.storagePath);
       } catch {
         throw new HttpsError(
@@ -168,6 +173,7 @@ async function synthesizeTts(request) {
       }
       const consume = claim.consume;
 
+      stage = "provider";
       if (!ttsProviderBreaker.allow()) {
         if (consume) {
           try {
@@ -186,6 +192,7 @@ async function synthesizeTts(request) {
       if (consume) {
         let quota;
         try {
+          stage = "quota";
           quota = await underDailyTtsQuotas(db, {
             uid: request.auth.uid,
             installationId,
@@ -213,9 +220,11 @@ async function synthesizeTts(request) {
         }
       }
 
+      stage = "cache_read";
       audioBuffer = await loadUsableAudio(fileRef, key);
       let plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       if (plan.action === "wait") {
+        stage = "cache_read";
         audioBuffer = await waitForUsableAudio(fileRef, key);
         plan = ttsSynthesisPlan(claim, isUsableAudioBuffer(audioBuffer));
       }
@@ -247,10 +256,13 @@ async function synthesizeTts(request) {
             }
           }
         } else {
+          stage = "cost";
           await confirmTtsCost(db, costReservation);
           await assertAccountActive();
+          stage = "provider";
           audioBuffer = await synthesizeSpeech(text, voiceKey);
           await assertAccountActive();
+          stage = "cache_save";
           await fileRef.save(audioBuffer, cacheSaveOptions(key));
           try {
             await assertAccountActive();
@@ -266,6 +278,7 @@ async function synthesizeTts(request) {
           ttsProviderBreaker.recordSuccess();
         }
         try {
+          stage = "replay";
           await completeTtsReplay(db, key.storagePath);
         } catch {
           // Storage already has the usable object; the receipt is optional.
@@ -311,7 +324,7 @@ async function synthesizeTts(request) {
       if (e instanceof HttpsError) {
         throw e;
       }
-      console.error("synthesize_tts error", ttsLogErrorCode(e));
+      console.error("synthesize_tts error", {stage, code: ttsLogErrorCode(e)});
       throw new HttpsError("internal", "TTS synthesis failed.");
     }
 }

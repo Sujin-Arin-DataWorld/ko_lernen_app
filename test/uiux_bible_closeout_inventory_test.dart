@@ -145,10 +145,10 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    // Hanok V1 retirement removes seven Sori widgets and adds hanok_v3_preview.
-    expect(actual, hasLength(133));
+    // Integrated local recovery/privacy widgets and V1 retirement/V3 preview.
+    expect(actual, hasLength(139));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(133));
+    expect(listed, hasLength(139));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();
