@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -187,28 +189,6 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                             ] else
                               const LinearProgressIndicator(),
                             const SizedBox(height: Spacing.lg),
-                            LayoutBuilder(
-                              builder: (context, constraints) => Center(
-                                child: SizedBox(
-                                  key: const ValueKey('hanok-full-preview'),
-                                  width: constraints.maxWidth,
-                                  height: (constraints.maxWidth * 1376 / 768)
-                                      .clamp(0.0, 400.0),
-                                  child: HanokV3Preview(
-                                    message: t.soriStageHanokUpdating,
-                                    showOverlay: false,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: Spacing.sm),
-                            Text(
-                              t.soriStageHanokUpdating,
-                              key: const ValueKey('hanok-preview-status'),
-                              textAlign: TextAlign.center,
-                              style: SoriTextTheme.of(context).bodySmall,
-                            ),
-                            const SizedBox(height: Spacing.xl),
                             _ShortcutTiles(
                               snapshot: data,
                               onOpen: _openShortcut,

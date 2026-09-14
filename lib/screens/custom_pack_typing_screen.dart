@@ -258,9 +258,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     );
     if (!studyEvidenceIsCurrent || presentation != _presentation) return;
     _abandonTracker.markCompleted();
-    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
-      setState(() => _outcome = outcome);
-    }
+    setState(() => _outcome = outcome);
   }
 
   @override

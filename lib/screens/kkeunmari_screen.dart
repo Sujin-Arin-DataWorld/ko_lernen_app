@@ -643,7 +643,6 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (reason == _End.timeUp) {
       Analytics.questFailed(questType: 'kkeunmari', failReason: 'timeout');
     }
-    final writes = <Future<dynamic>>[];
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (_acceptsInput && generation == _roundGeneration && _end == reason) {

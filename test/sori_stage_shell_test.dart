@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/course_mission_brief.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/services/course_attempt_companion.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
@@ -269,6 +270,108 @@ void main() {
       expect(scope.notifier!.launching, isFalse);
       expect(scope.notifier!.generation, refreshed);
       expect(Storage.xp, 25, reason: 'presentation cannot award twice');
+      await tester.pumpWidget(const SizedBox());
+    },
+  );
+
+  testWidgets(
+    'queued companion for the focused unit is not offered again after Back',
+    (tester) async {
+      SoundService.playImpl = (_) {};
+      addTearDown(SoundService.resetForTesting);
+      final nav = GlobalKey<NavigatorState>();
+      final replay = ValueNotifier(0);
+      addTearDown(replay.dispose);
+      const unit = CourseUnit(
+        id: 'a1-01',
+        level: 'a1',
+        order: 0,
+        title: CurriculumText(ko: '인사', de: 'Gruß', en: 'Greeting'),
+        canDo: CurriculumText(ko: '인사해요', de: 'Ich grüße.', en: 'I greet.'),
+      );
+      final snapshot = _snapshot(
+        const TodayLearningSnapshot(
+          pick: null,
+          destination: TodayLearningDestination(route: '/owned'),
+        ),
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          navigatorKey: nav,
+          navigatorObservers: [
+            LearningJourneyObserver.shared,
+            soriRouteObserver,
+          ],
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: SoriStageShell(
+            replayHomeTour: replay,
+            loadTodaySnapshot: () async => snapshot,
+            loadLearningFocus: () async => LearningFocus(
+              today: snapshot.today,
+              brief: CourseMissionBrief.from(
+                unit: unit,
+                links: const <ContentLink>[],
+                scenarios: const [],
+                isCurrent: true,
+              ),
+              destination: const TodayLearningDestination(route: '/owned'),
+            ),
+            loadReceiptNetworkBefore: () async => (
+              hanokCompetence: const HanokCompetenceProjection.empty(),
+              quests: <QuestProgress>[],
+              gyeLanternCount: 0,
+            ),
+          ),
+          onGenerateRoute: (_) => MaterialPageRoute<void>(
+            builder: (_) => const Scaffold(body: Text('owned activity')),
+          ),
+        ),
+      );
+      await pumpSoriStage(tester);
+      final caller = tester.element(find.byType(SoriLearningFocus).first);
+      final scope = LearningFocusScope.maybeOf(caller)!;
+      expect(scope.notifier!.value!.ready, isTrue);
+      final returned = scope.open(
+        caller,
+        scope.notifier!.value!.destination!,
+        activityId: 'grammar',
+      );
+      await pumpUntilFound(tester, find.text('owned activity'));
+      final journey = LearningJourneyObserver.shared.active!;
+      final link = ContentLink(
+        id: 'assess-grammar',
+        contentKind: CurriculumContentKind.grammar,
+        contentId: 'grammar-a',
+        courseUnitId: unit.id,
+        conceptIds: ['greeting'],
+        role: ContentLinkRole.assess,
+      );
+      final evidence = MasteryEvidence(
+        conceptId: 'greeting',
+        contentKind: link.contentKind,
+        contentId: link.contentId,
+        courseUnitId: unit.id,
+        missionContentLinkId: link.id,
+        isCorrect: true,
+        occurredAt: DateTime.utc(2026, 9, 14),
+        courseEligible: true,
+      );
+      journey.afterReturn[unit.id] = (context) => CourseAttemptCompanion.offer(
+        context,
+        unit: unit,
+        evidenceIdsBefore: {},
+        links: [link],
+        after: CourseMasterySnapshot(evidence: [evidence]),
+      );
+      nav.currentState!.pop();
+      await pumpUntilFound(tester, find.byType(FirstVoiceSuccessScreen));
+      nav.currentState!.pop();
+      await pumpSoriStage(tester);
+      expect(find.byType(FirstVoiceSuccessScreen), findsNothing);
+      await returned;
+      expect(scope.notifier!.launching, isFalse);
       await tester.pumpWidget(const SizedBox());
     },
   );

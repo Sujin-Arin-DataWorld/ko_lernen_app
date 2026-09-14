@@ -145,10 +145,10 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    // Integrated local recovery/privacy widgets and V1 retirement/V3 preview.
-    expect(actual, hasLength(139));
+    // Integrated recovery/privacy widgets plus the five-tab catalog surfaces.
+    expect(actual, hasLength(142));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(139));
+    expect(listed, hasLength(142));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

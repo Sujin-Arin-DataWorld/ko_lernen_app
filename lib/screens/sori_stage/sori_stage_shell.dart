@@ -31,6 +31,7 @@ class SoriStageShell extends StatefulWidget {
     required this.replayHomeTour,
     this.requestedTab,
     this.loadTodaySnapshot,
+    this.loadLearningFocus,
     this.loadReceiptNetworkBefore,
   });
 
@@ -41,6 +42,10 @@ class SoriStageShell extends StatefulWidget {
   /// [SoriStageTodayScreen.loadSnapshot]. Production leaves this null (the
   /// tab loads via its own default `compute()`-backed loader).
   final Future<SoriStageProgressionSnapshot> Function()? loadTodaySnapshot;
+
+  /// Test seam for one already-assembled focus. Production uses the same
+  /// [LearningFocus.load] path as Today and Learn.
+  final Future<LearningFocus> Function()? loadLearningFocus;
 
   /// Optional receipt baseline loader; it never gates activity entry.
   final Future<SoriStageNetworkBeforeFields> Function()?
@@ -210,11 +215,14 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   void initState() {
     super.initState();
     _focus = LearningFocusController(
-      loader: widget.loadTodaySnapshot == null
-          ? null
-          : () async => LearningFocus.load(
-              loadToday: () async => (await widget.loadTodaySnapshot!()).today,
-            ),
+      loader:
+          widget.loadLearningFocus ??
+          (widget.loadTodaySnapshot == null
+              ? null
+              : () async => LearningFocus.load(
+                  loadToday: () async =>
+                      (await widget.loadTodaySnapshot!()).today,
+                )),
     );
     unawaited(_focus.refresh());
     cloudWriteSessionController.changes.addListener(_accountChanged);
@@ -226,7 +234,8 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   @override
   void didUpdateWidget(covariant SoriStageShell oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.loadTodaySnapshot != widget.loadTodaySnapshot) {
+    if (oldWidget.loadTodaySnapshot != widget.loadTodaySnapshot ||
+        oldWidget.loadLearningFocus != widget.loadLearningFocus) {
       unawaited(_focus.refresh(force: true));
     }
     if (oldWidget.replayHomeTour != widget.replayHomeTour) {

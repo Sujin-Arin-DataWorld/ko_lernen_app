@@ -21,7 +21,6 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
-import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/stepper.dart';
 import 'support/catalog_test_support.dart';
@@ -214,16 +213,12 @@ void main() {
           expect(action.hitTestable(), findsOneWidget);
         } else if (tab == 'hanok') {
           expect(
-            tester.widget<HanokV3Preview>(find.byType(HanokV3Preview)).fit,
-            BoxFit.contain,
+            find.byKey(const ValueKey('hanok-map-header')),
+            findsOneWidget,
           );
           final art = tester.getRect(
-            find.byKey(const ValueKey('hanok-full-preview')),
+            find.byKey(const ValueKey('hanok-map-header')),
           );
-          final status = tester.getRect(
-            find.byKey(const ValueKey('hanok-preview-status')),
-          );
-          expect(status.top, greaterThanOrEqualTo(art.bottom));
           final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
           for (final id in ['quests', 'dojang', 'bojagi']) {
             final label = find.byKey(ValueKey('hanok-shortcut-label-$id'));

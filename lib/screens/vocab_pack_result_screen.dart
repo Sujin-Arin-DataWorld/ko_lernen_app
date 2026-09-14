@@ -53,6 +53,8 @@ import '../widgets/sori/window_class.dart';
 ///   - `showHardWordsCta`: bool (this session has a threshold-reaching miss)
 ///   - `recallSession`: a typed, ephemeral pack-session evidence ledger
 class VocabPackResultScreen extends StatefulWidget {
+  final int? actualXpAwarded;
+  final LearningAttempt? learningAttempt;
   final String packId;
   final double bossAccuracy;
   final int bossCorrect;

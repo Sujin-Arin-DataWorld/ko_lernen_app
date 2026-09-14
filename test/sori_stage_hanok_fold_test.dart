@@ -15,7 +15,7 @@ import 'package:ko_lernen_app/widgets/sori/collapsing_header.dart';
 
 import 'support/real_fonts.dart';
 
-// Full original portrait and readable status replace retired shrinking map chrome.
+// The current construction portrait owns the fold and keeps the first actions visible.
 const _bottomTabReserve = 80.0;
 const _viewportSize = Size(390, 844);
 
@@ -73,15 +73,15 @@ void main() {
     final header = find.byKey(
       const ValueKey('sori-collapsing-header-expanded'),
     );
-    final map = find.byKey(const ValueKey('hanok-full-preview'));
+    final map = find.byKey(const ValueKey('hanok-map-header'));
     final shortcut = find.byKey(const ValueKey('hanok-shortcut-quests'));
 
     expect(header, findsOneWidget);
     expect(map, findsOneWidget);
     expect(shortcut, findsOneWidget);
 
-    // Header, preview, and shortcuts must be fully on-screen.
-    for (final finder in [header, map]) {
+    // Header, current construction portrait, and the first action are visible.
+    for (final finder in [header, map, shortcut]) {
       final rect = tester.getRect(finder);
       expect(
         rect.bottom,
@@ -92,7 +92,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('the complete portrait scrolls normally without shrinking', (
+  testWidgets('the construction portrait collapses to a useful pinned map', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(390, 500);
@@ -103,7 +103,7 @@ void main() {
     await tester.pumpWidget(app(textScale: 2));
     await settle(tester);
 
-    final mapKey = find.byKey(const ValueKey('hanok-full-preview'));
+    final mapKey = find.byKey(const ValueKey('hanok-map-header'));
     expect(mapKey, findsOneWidget);
     final expandedHeight = tester.getRect(mapKey).height;
 
@@ -111,8 +111,9 @@ void main() {
     await tester.pump(const Duration(seconds: 1));
 
     final scrolledRect = tester.getRect(mapKey);
-    expect(scrolledRect.height, expandedHeight);
-    expect(scrolledRect.top, lessThan(kToolbarHeight));
+    expect(scrolledRect.height, lessThan(expandedHeight));
+    expect(scrolledRect.height, greaterThanOrEqualTo(88));
+    expect(scrolledRect.top, lessThanOrEqualTo(80));
     expect(tester.takeException(), isNull);
   });
 
@@ -128,7 +129,7 @@ void main() {
     // skipOffstage:false — at 1.6x text scale these can legitimately sit
     // beyond the fold; this test only asserts they exist and nothing threw.
     expect(
-      find.byKey(const ValueKey('hanok-full-preview'), skipOffstage: false),
+      find.byKey(const ValueKey('hanok-map-header'), skipOffstage: false),
       findsOneWidget,
     );
     expect(

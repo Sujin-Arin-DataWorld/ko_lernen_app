@@ -1,5 +1,6 @@
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/game_reward.dart';
 import '../models/sori_stage_progression.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -166,6 +167,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   DateTime? _lifecyclePauseStarted;
   bool _roundComplete = false;
   bool _roundNewBest = false;
+  GameOutcome? _roundOutcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
 
@@ -303,8 +305,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       _roundCorrect = 0;
       _roundDurationsMs.clear();
       _roundComplete = false;
-      _roundXp = 0;
       _roundNewBest = false;
+      _roundOutcome = null;
     });
     _ctrl.clear();
     _questionStart = DateTime.now();
@@ -536,7 +538,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       // 라운드 종료 — XP 보상 + 개인 최고기록(정확도%).
       final accuracy = _roundCorrect / _roundSize;
       final xp = _roundCorrect * 4;
-      _roundXp = xp;
       final outcome = await saveGameResult(
         gameId: 'chosung',
         xp: xp,
@@ -548,7 +549,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
           outcome == null) {
         return;
       }
-      setState(() => _roundNewBest = outcome.isNewBest);
+      setState(() {
+        _roundOutcome = outcome;
+        _roundNewBest = outcome.isNewBest;
+      });
       _feedbackCompletion.complete(
         () => FeedbackCompletion.chosung(
           contentLabel: AppL10n.of(context).gameChosungTitle,
@@ -596,6 +600,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       return;
     }
     HapticFeedback.selectionClick();
+    _roundOutcome = null;
     _feedbackCompletion.reset();
     resetGameResult();
     setState(() {
