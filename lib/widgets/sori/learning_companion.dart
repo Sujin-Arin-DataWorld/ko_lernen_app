@@ -105,7 +105,7 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
       builder: (context, constraints) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
         final stacked =
-            constraints.maxWidth < SoriAdaptiveWidth.illustrationCopyRow ||
+            constraints.maxWidth < SoriAdaptiveWidth.learningCompanionRow ||
             largeText;
         // Paint the external texture first and the text last. This also keeps
         // the greeting outside the texture layer on Android compositors.

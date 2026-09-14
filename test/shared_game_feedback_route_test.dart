@@ -309,10 +309,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 451));
         await finish();
         expect(awarded, [_packWords.length * 4, _packWords.length * 3]);
-        var card = tester.widget<GameOverCard>(find.byType(GameOverCard));
-        expect(card.xpGained, 0);
-        expect(card.outcome, isNull);
-        expect(card.rewardReady, isFalse);
+        expect(find.byType(GameOverCard), findsNothing);
         expect(find.text('+0 XP'), findsNothing);
         if (failSecond) {
           second.completeError(StateError('persistence failed'));
@@ -320,14 +317,18 @@ void main() {
           second.complete(GameOutcome(xpGained: awarded.last));
         }
         await tester.pump();
-        card = tester.widget<GameOverCard>(find.byType(GameOverCard));
-        expect(card.xpGained, failSecond ? 0 : _packWords.length * 3);
         if (failSecond) {
-          expect(card.outcome, isNull);
-          expect(card.rewardReady, isFalse);
+          expect(find.byType(GameOverCard), findsNothing);
+          expect(find.text(t.courseCheckpointSaveError), findsOneWidget);
+          expect(find.text(t.btnRetry), findsOneWidget);
           expect(find.text('+0 XP'), findsNothing);
         } else {
+          final card = tester.widget<GameOverCard>(find.byType(GameOverCard));
+          expect(card.xpGained, _packWords.length * 3);
           expect(card.rewardReady, isTrue);
+          // Recovery inserts a fresh result only after confirmation, so its
+          // entrance and XP count-up start on the following animation frame.
+          await tester.pump(const Duration(milliseconds: 400));
           await tester.pump(const Duration(milliseconds: 1000));
           expect(find.text('+${_packWords.length * 3} XP'), findsOneWidget);
         }

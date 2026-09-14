@@ -1,12 +1,12 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import '../services/pack_completion_record.dart';
 import '../services/storage_service.dart';
 import '../services/local_data_lifetime.dart';
 import '../services/data_loader.dart';
-import '../widgets/sori/game_reward.dart';
-import '../services/learning_journey.dart';
-import '../models/sori_stage_progression.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -103,10 +103,10 @@ class VocabPackResultScreen extends StatefulWidget {
     final packId = m['packId'] as String? ?? '';
     return VocabPackResultScreen(
       packId: packId,
-      durableCompletionId: m['durableCompletionId'] as String?,
-      originalXp: m['originalXp'] as int?,
       actualXpAwarded: m['actualXpAwarded'] as int?,
       learningAttempt: m['learningAttempt'] as LearningAttempt?,
+      durableCompletionId: m['durableCompletionId'] as String?,
+      originalXp: m['originalXp'] as int?,
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
       bossCorrect: (m['bossCorrect'] as num?)?.toInt() ?? 0,
       bossTotal: (m['bossTotal'] as num?)?.toInt() ?? 0,
@@ -178,6 +178,8 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
     super.dispose();
   }
 
+  int? get actualXpAwarded => widget.actualXpAwarded;
+  LearningAttempt? get learningAttempt => widget.learningAttempt;
   String get packId => widget.packId;
   double get bossAccuracy => widget.bossAccuracy;
   int get bossCorrect => widget.bossCorrect;
@@ -192,8 +194,6 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
   PackRecallSession? get recallSession => widget.recallSession;
   String? get durableCompletionId => widget.durableCompletionId;
   int? get originalXp => widget.originalXp;
-  int? get actualXpAwarded => widget.actualXpAwarded;
-  LearningAttempt? get learningAttempt => widget.learningAttempt;
   bool get recovered => widget.recovered;
 
   bool get _retired =>
@@ -407,13 +407,13 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
                             label: t.vocabPackResultQuizLabel,
                             value: '$quizCorrect / $quizTotal',
                           ),
-                        if (actualXpAwarded != null && _cleared)
+                        if (_hasAwardedXp && _cleared)
                           _XpPayoffLine(
                             label: t.vocabPackResultXpLabel,
                             xp: _xpAwarded(),
                             learningAttempt: learningAttempt,
                           )
-                        else if (actualXpAwarded != null)
+                        else if (_hasAwardedXp)
                           LearningRewardPresentation(
                             attempt: learningAttempt,
                             kind: SoriRewardKind.xp,
@@ -560,18 +560,9 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
     return result;
   }
 
-  int _xpAwarded() {
-    if (actualXpAwarded != null) {
-      return actualXpAwarded!;
-    }
-    if (originalXp != null) {
-      return originalXp!;
-    }
-    // Plan §4.4: wordsTotal*5 + bossCorrect*10. wordsTotal unbekannt im
-    // Result-Screen — approx via quizTotal + bossTotal.
-    final wordsTotal = quizTotal + bossTotal;
-    return wordsTotal * 5 + bossCorrect * 10;
-  }
+  bool get _hasAwardedXp => actualXpAwarded != null || originalXp != null;
+
+  int _xpAwarded() => actualXpAwarded ?? originalXp ?? 0;
 }
 
 class _StatLine extends StatelessWidget {

@@ -1,4 +1,24 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+
+export async function assertPublicAssetBody(response, original, assetUrl) {
+  let expected = Buffer.from(original);
+  const isHtml = new URL(assetUrl).pathname.endsWith(".html");
+  if (isHtml) {
+    assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i, `${assetUrl} must serve HTML`);
+    const scriptDirective = (response.headers.get("content-security-policy") ?? "")
+      .split(";").map(value => value.trim()).find(value => value.startsWith("script-src "));
+    const nonce = /^script-src 'nonce-([A-Za-z0-9+/]{24})' 'strict-dynamic'(?:\s|$)/.exec(scriptDirective ?? "")?.[1];
+    assert.ok(nonce, `${assetUrl} must declare the production script nonce`);
+    // The production Worker adds exactly this nonce to every script tag.
+    // Reconstruct that permitted response from the original; do not strip markup.
+    expected = Buffer.from(expected.toString("utf8").replace(/<script(?=\s|>)/g, `<script nonce="${nonce}"`));
+  }
+  const actual = Buffer.from(await response.arrayBuffer());
+  assert.ok(actual.byteLength > 0, `${assetUrl} must not be empty`);
+  const hash = bytes => createHash("sha256").update(bytes).digest("hex");
+  assert.equal(hash(actual), hash(expected), `${assetUrl} must match the owned public asset ${isHtml ? "with only its production script nonce" : "byte-for-byte"}`);
+}
 
 export async function requestPublicAsset(assetUrl, request) {
   const url = new URL(assetUrl);

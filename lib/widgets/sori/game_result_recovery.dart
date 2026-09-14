@@ -13,6 +13,7 @@ import 'study_frame.dart';
 mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
   final _gameLifetime = LocalDataLifetime.capture();
   GameResultAttempt? _gameAttempt;
+  Future<GameOutcome> Function()? _saveOverride;
   Completer<GameOutcome?>? _gameCompletion;
   bool _gameSaving = false;
   bool _gameFailed = false;
@@ -40,6 +41,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
   void resetGameResult() {
     retireGameResult();
     _gameAttempt = null;
+    _saveOverride = null;
     _gameCompletion = null;
     _gameSaving = false;
     _gameFailed = false;
@@ -54,6 +56,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
     bool higherIsBetter = true,
     int? dailyCompletionBonus,
     bool kkeunmariWin = false,
+    Future<GameOutcome> Function()? saveOverride,
   }) {
     if (!mounted || _gameRetired || !_gameRouteIsActive) {
       return Future.value(null);
@@ -77,6 +80,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
       dailyCompletionBonus: dailyCompletionBonus,
       kkeunmariWin: kkeunmariWin,
     );
+    _saveOverride = saveOverride;
     _gameCompletion = Completer<GameOutcome?>();
     unawaited(_trySaveGameResult());
     return _gameCompletion!.future;
@@ -99,7 +103,7 @@ mixin GameResultRecovery<T extends StatefulWidget> on State<T> {
       _gameFailed = false;
     });
     try {
-      final outcome = await attempt.save();
+      final outcome = await (_saveOverride?.call() ?? attempt.save());
       if (!mounted || _gameRetired || !identical(attempt, _gameAttempt)) {
         return;
       }

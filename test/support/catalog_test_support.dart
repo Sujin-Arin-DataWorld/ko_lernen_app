@@ -64,6 +64,7 @@ Widget catalogTestApp({
   Future<SoriStageProgressionSnapshot> Function()? loadSnapshot,
   ScrollController? scrollController,
 }) => MaterialApp(
+  debugShowCheckedModeBanner: false,
   theme: theme ?? AppTheme.light,
   locale: Locale(locale),
   supportedLocales: AppL10n.supportedLocales,

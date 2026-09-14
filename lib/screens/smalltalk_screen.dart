@@ -772,6 +772,8 @@ final class _RetainedSmalltalkRelationship {
   final ContentLink assessmentLink;
   final CoursePracticeContext sourceContext;
   final CourseContentAttempt attempt;
+  final LearningAttempt? learningAttempt =
+      LearningJourneyObserver.beginAttempt();
   bool saving = false;
   bool failed = false;
   bool expired = false;
@@ -927,15 +929,18 @@ class _PhraseCardState extends State<_PhraseCard> {
       _savingRelationshipCheck = true;
     });
     try {
-      await trackLearningPersistence(
-        LearningJourneyObserver.beginAttempt(),
-        pending.attempt.save(),
-        passed: pending.question.isCorrect(pending.selectedContext),
-      );
+      final work = pending.attempt.save();
+      final learningAttempt = pending.learningAttempt;
+      await (learningAttempt == null
+          ? work
+          : learningAttempt.journey.track(work, learningAttempt));
       if (!_relationshipAttemptIsCurrent(pending)) {
         _expireRelationshipAttemptIfCurrent(pending);
         return;
       }
+      learningAttempt?.complete(
+        passed: pending.question.isCorrect(pending.selectedContext),
+      );
       setState(() {
         _savingRelationshipCheck = false;
         _submittedRelationshipContext = pending.selectedContext;

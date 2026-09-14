@@ -675,6 +675,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   bool _completionDelivered = false;
   bool _resultSaving = false;
   bool _resultPersisted = false;
+  LearningAttempt? _resultLearningAttempt;
   ScenarioCanDoResult? _canDoResult;
   ScenarioResultPreparation? _resultPreparation;
   final String _rewardAttemptId = const Uuid().v4();
@@ -1382,7 +1383,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     setState(() => _resultSaving = true);
     try {
       final canDoResult = await trackLearningPersistence(
-        LearningJourneyObserver.beginAttempt(),
+        _resultLearningAttempt ??= LearningJourneyObserver.beginAttempt(),
         _persistResult(stars, earnedXp),
       );
       if (!mounted) return;

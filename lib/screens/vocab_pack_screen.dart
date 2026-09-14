@@ -1,7 +1,7 @@
+import '../services/learning_journey.dart';
 import 'vocab_pack_result_screen.dart';
 import '../services/pack_completion_record.dart';
 import '../widgets/sori/pack_completion_recovery_banner.dart';
-import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -235,6 +235,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
   late final QuestAbandonTracker _abandonTracker;
   late final VocabPackFinishCoordinator _finishCoordinator;
   VocabPackFinishRequest? _finishRequest;
+  LearningAttempt? _finishLearningAttempt;
   bool _finishing = false;
   String? _finishError;
   Timer? _advanceTimer;
@@ -1073,7 +1074,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       _finishError = null;
     });
 
-    final learningAttempt = LearningJourneyObserver.beginAttempt();
+    final learningAttempt = _finishLearningAttempt ??=
+        LearningJourneyObserver.beginAttempt();
     late final VocabPackFinishOutcome outcome;
     try {
       final work = _finishCoordinator.finish(request);
@@ -1118,12 +1120,12 @@ class _VocabPackScreenState extends State<VocabPackScreen>
           courseContext: request.courseContext,
           showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
           recallSession: _recallSession,
-          actualXpAwarded: request.xpAward,
-          learningAttempt: learningAttempt,
         ),
         if (PackCompletionStorage.result?.id == request.completionId)
           'durableCompletionId': request.completionId,
         'originalXp': request.xpAward,
+        'actualXpAwarded': request.xpAward,
+        'learningAttempt': learningAttempt,
       },
     );
   }

@@ -115,6 +115,8 @@ final class _RetainedGrammarCheckpoint {
   final CoursePracticeContext sourceContext;
   final GrammarCheckpointAttempt legacyAttempt;
   final CourseContentAttempt courseAttempt;
+  final LearningAttempt? learningAttempt =
+      LearningJourneyObserver.beginAttempt();
   bool saving = false;
   bool failed = false;
   bool expired = false;
@@ -1215,18 +1217,20 @@ class _GrammarScreenState extends State<GrammarScreen>
     _checkpointSheetRefreshes[pending.target.id]?.call();
     try {
       final recorder = widget.checkpointRecorder;
-      final persistence = recorder == null
+      final work = recorder == null
           ? pending.courseAttempt.save()
           : recorder(pending.legacyAttempt);
-      await trackLearningPersistence(
-        LearningJourneyObserver.beginAttempt(),
-        persistence,
-        passed: pending.question.isCorrect(pending.answerId),
-      );
+      final learningAttempt = pending.learningAttempt;
+      await (learningAttempt == null
+          ? work
+          : learningAttempt.journey.track(work, learningAttempt));
       if (!_grammarCheckpointIsCurrent(pending)) {
         _expireGrammarCheckpointIfCurrent(pending);
         return;
       }
+      learningAttempt?.complete(
+        passed: pending.question.isCorrect(pending.answerId),
+      );
       setState(() {
         _submittedAnswers[pending.target.id] = pending.answerId;
         _pendingCheckpoints.remove(pending.target.id);

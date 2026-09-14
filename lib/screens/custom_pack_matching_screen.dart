@@ -1,6 +1,5 @@
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/toast.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -78,11 +77,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   String? _wrongRight; // 방금 틀린 뜻 (빨강 플래시)
   String? _statusMessage;
   int _misses = 0; // 라운드 내 오답 탭 수 (XP 보상에 반영)
+  GameOutcome? _outcome;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _boardKey = GlobalKey();
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
-  GameOutcome? _outcome;
   late final QuestAbandonTracker _abandonTracker;
 
   @override
@@ -174,8 +173,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _wrongRight = null;
     _statusMessage = null;
     _misses = 0;
-    _outcome = null;
     _feedbackCompletion.reset();
+    _outcome = null;
     resetGameResult();
   }
 
@@ -280,17 +279,14 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     if (!_acceptsInput) return;
     final presentation = _presentation;
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    GameOutcome? outcome;
-    try {
-      outcome = widget.recordResult == null
-          ? await saveGameResult(gameId: 'cp_matching', xp: _roundXp)
-          : await widget.recordResult!(gameId: 'cp_matching', xp: _roundXp);
-    } catch (_) {
-      if (mounted && presentation == _presentation) {
-        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
-      }
-      return;
-    }
+    final recorder = widget.recordResult;
+    final outcome = await saveGameResult(
+      gameId: 'cp_matching',
+      xp: _roundXp,
+      saveOverride: recorder == null
+          ? null
+          : () => recorder(gameId: 'cp_matching', xp: _roundXp),
+    );
     if (!mounted ||
         !studyEvidenceIsCurrent ||
         presentation != _presentation ||

@@ -38,3 +38,9 @@ docs/data/*.md text eol=lf
 *.sh text eol=lf
 *.bat text eol=crlf
 *.ps1 text eol=crlf
+
+# Public gallery text is byte-compared with the committed blob during website builds.
+# Keep it LF on Windows so the copied deploy artifact remains reproducible.
+hangul-sori-site-local/public/hanok/construction/*.js text eol=lf
+hangul-sori-site-local/public/hanok/construction/*.css text eol=lf
+hangul-sori-site-local/public/hanok/construction/*.html text eol=lf
