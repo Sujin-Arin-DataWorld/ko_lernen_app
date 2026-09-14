@@ -12,8 +12,6 @@ fi
 
 output_root="$1"
 runtime_id="com.apple.CoreSimulator.SimRuntime.iOS-26-2"
-iphone_type="com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max"
-ipad_type="com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M4"
 app_path="$PWD/build/ios/Debug-iphonesimulator/Runner.app"
 bundle_id="com.hangulsori.app"
 
@@ -22,9 +20,15 @@ mkdir -p "$output_root/captures" "$output_root/logs"
 xcrun simctl list runtimes available -j | python3 -c \
   'import json,sys; wanted=sys.argv[1]; rows=json.load(sys.stdin)["runtimes"]; assert any(r["identifier"] == wanted and r["isAvailable"] for r in rows), wanted' \
   "$runtime_id"
-xcrun simctl list devicetypes -j | python3 -c \
-  'import json,sys; wanted=set(sys.argv[1:]); actual={d["identifier"] for d in json.load(sys.stdin)["devicetypes"]}; missing=wanted-actual; assert not missing, sorted(missing)' \
-  "$iphone_type" "$ipad_type"
+device_types_json="$output_root/logs/device-types.json"
+selected_devices_json="$output_root/logs/selected-device-types.json"
+xcrun simctl list devicetypes -j > "$device_types_json"
+python3 .github/scripts/select_app_store_simulator_devices.py \
+  "$device_types_json" > "$selected_devices_json"
+iphone_type="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["iphone-6.9"]["typeIdentifier"])' "$selected_devices_json")"
+iphone_name="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["iphone-6.9"]["name"])' "$selected_devices_json")"
+ipad_type="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["ipad-13"]["typeIdentifier"])' "$selected_devices_json")"
+ipad_name="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["ipad-13"]["name"])' "$selected_devices_json")"
 
 run_suffix="${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-1}"
 iphone_id="$(xcrun simctl create "HangulSori-iPhone-$run_suffix" "$iphone_type" "$runtime_id")"
@@ -70,12 +74,12 @@ cat > "$output_root/device-manifest.json" <<EOF
   },
   "devices": {
     "iphone-6.9": {
-      "name": "iPhone 16 Pro Max",
+      "name": "$iphone_name",
       "typeIdentifier": "$iphone_type",
       "udid": "$iphone_id"
     },
     "ipad-13": {
-      "name": "iPad Pro 13-inch (M4)",
+      "name": "$ipad_name",
       "typeIdentifier": "$ipad_type",
       "udid": "$ipad_id"
     }
