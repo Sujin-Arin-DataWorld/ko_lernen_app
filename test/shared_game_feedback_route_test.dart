@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
@@ -243,6 +244,76 @@ void main() {
     await _expectMyWordsReturn(tester, t.btnClose);
   });
 
+  for (final failSecond in [false, true]) {
+    testWidgets(
+      'matching retry clears prior reward while next write is ${failSecond ? 'failed' : 'delayed'}',
+      (tester) async {
+        final second = Completer<GameOutcome>();
+        final awarded = <int>[];
+        await tester.pumpWidget(
+          _wrap(
+            CustomPackMatchingScreen(
+              packId: 'personal-pack',
+              recordResult: ({required gameId, required xp}) {
+                awarded.add(xp);
+                return awarded.length == 1
+                    ? Future.value(GameOutcome(xpGained: xp))
+                    : second.future;
+              },
+            ),
+          ),
+        );
+        await tester.pump();
+        Future<void> finish() async {
+          for (final word in _packWords) {
+            await tester.tap(find.text(word.korean));
+            await tester.pump();
+            await tester.tap(find.text(word.translationDe));
+            await tester.pump();
+          }
+        }
+
+        await finish();
+        expect(
+          tester.widget<GameOverCard>(find.byType(GameOverCard)).xpGained,
+          _packWords.length * 4,
+        );
+        final t = AppL10n.of(tester.element(find.byType(GameOverCard)));
+        await tester.tap(find.text(t.quizAgain));
+        await tester.pump();
+        await tester.tap(find.text(_packWords.first.korean));
+        await tester.pump();
+        await tester.tap(find.text(_packWords.last.translationDe));
+        await tester.pump(const Duration(milliseconds: 451));
+        await finish();
+        expect(awarded, [_packWords.length * 4, _packWords.length * 3]);
+        var card = tester.widget<GameOverCard>(find.byType(GameOverCard));
+        expect(card.xpGained, 0);
+        expect(card.outcome, isNull);
+        expect(card.rewardReady, isFalse);
+        expect(find.text('+0 XP'), findsNothing);
+        if (failSecond) {
+          second.completeError(StateError('persistence failed'));
+        } else {
+          second.complete(GameOutcome(xpGained: awarded.last));
+        }
+        await tester.pump();
+        card = tester.widget<GameOverCard>(find.byType(GameOverCard));
+        expect(card.xpGained, failSecond ? 0 : _packWords.length * 3);
+        if (failSecond) {
+          expect(card.outcome, isNull);
+          expect(card.rewardReady, isFalse);
+          expect(find.text('+0 XP'), findsNothing);
+        } else {
+          expect(card.rewardReady, isTrue);
+          await tester.pump(const Duration(milliseconds: 1000));
+          expect(find.text('+${_packWords.length * 3} XP'), findsOneWidget);
+        }
+        await tester.pumpWidget(const SizedBox());
+        await tester.pump(const Duration(seconds: 5));
+      },
+    );
+  }
   testWidgets('custom typing terminal route exposes feedback context', (
     tester,
   ) async {

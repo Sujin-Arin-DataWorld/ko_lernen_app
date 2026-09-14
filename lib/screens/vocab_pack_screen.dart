@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -101,7 +102,11 @@ Map<String, dynamic> vocabPackResultArguments({
   CoursePracticeContext? courseContext,
   bool showHardWordsCta = false,
   PackRecallSession? recallSession,
+  int? actualXpAwarded,
+  LearningAttempt? learningAttempt,
 }) => <String, dynamic>{
+  'actualXpAwarded': actualXpAwarded,
+  'learningAttempt': learningAttempt,
   'packId': packId,
   'packLevel': packLevel,
   'bossAccuracy': bossAccuracy,
@@ -875,9 +880,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _finishError = null;
     });
 
+    final learningAttempt = LearningJourneyObserver.beginAttempt();
     late final VocabPackFinishOutcome outcome;
     try {
-      outcome = await _finishCoordinator.finish(request);
+      final work = _finishCoordinator.finish(request);
+      outcome = await (learningAttempt == null
+          ? work
+          : learningAttempt.journey.track(work, learningAttempt));
+      learningAttempt?.complete(
+        passed: request.bossAccuracy >= PackProgressService.bossClearThreshold,
+      );
     } catch (_) {
       if (mounted) {
         setState(() {
@@ -909,6 +921,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         courseContext: request.courseContext,
         showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
         recallSession: _recallSession,
+        actualXpAwarded: request.xpAward,
+        learningAttempt: learningAttempt,
       ),
     );
   }

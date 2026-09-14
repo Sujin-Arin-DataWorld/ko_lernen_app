@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -370,15 +373,25 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     super.dispose();
   }
 
+  LearningAttempt? _learningAttempt;
+  bool _rewardPersisted = false;
   void _onSolved() {
     setState(() => _solved = true);
+    _rewardPersisted = false;
+    final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
     final done = _solvedCount(_level);
-    if (_index + 1 > done) {
-      // ignore: discarded_futures
-      Storage.recordGameBest(_progressKey(_level), _index + 1);
-    }
-    // ignore: discarded_futures
-    Storage.addXp(_xpPerPuzzle);
+    final writes = <Future<dynamic>>[
+      if (_index + 1 > done)
+        Storage.recordGameBest(_progressKey(_level), _index + 1),
+      Storage.addXp(_xpPerPuzzle),
+    ];
+    unawaited(
+      trackLearningPersistence(attempt, Future.wait(writes)).then((_) {
+        if (mounted && identical(_learningAttempt, attempt)) {
+          setState(() => _rewardPersisted = true);
+        }
+      }, onError: (_) {}),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
         SoriCelebration.burst(context);
@@ -840,12 +853,20 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         tinted: true,
         child: Column(
           children: [
-            Text(
-              '${t.wordleResultWin} +$_xpPerPuzzle XP',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                color: SoriColors.success,
+            LearningRewardPresentation(
+              attempt: _learningAttempt,
+              kind: SoriRewardKind.xp,
+              amount: _xpPerPuzzle,
+              presentationComplete: _rewardPersisted,
+              child: Text(
+                _rewardPersisted
+                    ? '${t.wordleResultWin} +$_xpPerPuzzle XP'
+                    : t.wordleResultWin,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: SoriColors.success,
+                ),
               ),
             ),
             const SizedBox(height: Spacing.md),

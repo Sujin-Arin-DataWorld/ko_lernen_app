@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -230,6 +233,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _turn = _Turn.user;
       _end = _End.none;
       _newBest = false;
+      _learningAttempt = null;
+      _persistedXp = null;
       _dictionaryChecking = false;
       _errorMsg = '';
       _remaining = _turnSeconds;
@@ -470,6 +475,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _focusNode.requestFocus();
   }
 
+  LearningAttempt? _learningAttempt;
+  int? _persistedXp;
   void _endGame(_End reason) {
     if (_end != _End.none) return;
     _stopTimer();
@@ -500,22 +507,38 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (reason == _End.timeUp) {
       Analytics.questFailed(questType: 'kkeunmari', failReason: 'timeout');
     }
+    final writes = <Future<dynamic>>[];
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);
       });
       // ignore: discarded_futures
-      Storage.incKkeunmariWins();
+      writes.add(Storage.incKkeunmariWins());
     }
     // XP 보상 — chain length × 10. 최소 20.
     final earned = (_chain.length * 10).clamp(20, 500);
     // ignore: discarded_futures
-    Storage.addXp(earned);
-    // Persönliche Bestleistung = längste Kette (Selbst-Wettbewerb, keine Rangliste).
-    // ignore: discarded_futures
-    Storage.recordGameBest('kkeunmari', _chain.length).then((b) {
-      if (mounted && b) setState(() => _newBest = true);
-    });
+    final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
+    _persistedXp = null;
+    writes.add(Storage.addXp(earned));
+    writes.add(
+      Storage.recordGameBest('kkeunmari', _chain.length).then((best) {
+        if (mounted && best && identical(_learningAttempt, attempt)) {
+          setState(() => _newBest = true);
+        }
+      }),
+    );
+    unawaited(
+      trackLearningPersistence(
+        attempt,
+        Future.wait(writes),
+        passed: didWin,
+      ).then((_) {
+        if (mounted && identical(_learningAttempt, attempt)) {
+          setState(() => _persistedXp = earned);
+        }
+      }, onError: (_) {}),
+    );
   }
 
   @override
@@ -597,8 +620,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
               if (_end != _End.none)
                 _ResultCard(
                   end: _end,
+                  learningAttempt: _learningAttempt,
                   chainLength: _chain.length,
-                  xpEarned: (_chain.length * 10).clamp(20, 500),
+                  xpEarned: _persistedXp ?? 0,
+                  rewardReady: _persistedXp != null,
                   isNewBest: _newBest,
                   feedbackCompletion: _feedbackCompletion.current,
                   onAgain: _start,
@@ -985,18 +1010,22 @@ class _LastWordCard extends StatelessWidget {
 // ─── Result Card ──────────────────────────────────────────────────────────────
 
 class _ResultCard extends StatelessWidget {
+  final LearningAttempt? learningAttempt;
   final _End end;
   final int chainLength;
   final int xpEarned;
+  final bool rewardReady;
   final bool isNewBest;
   final FeedbackCompletion? feedbackCompletion;
   final VoidCallback onAgain;
   final VoidCallback onHome;
 
   const _ResultCard({
+    this.learningAttempt,
     required this.end,
     required this.chainLength,
     required this.xpEarned,
+    required this.rewardReady,
     required this.isNewBest,
     required this.feedbackCompletion,
     required this.onAgain,
@@ -1063,29 +1092,41 @@ class _ResultCard extends StatelessWidget {
                   accent: SoriColors.accent,
                 ),
                 const SizedBox(width: Spacing.sm),
-                SoriBadge.xp(xpEarned, size: 24),
+                if (rewardReady)
+                  LearningRewardPresentation(
+                    attempt: learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: xpEarned,
+                    child: SoriBadge.xp(xpEarned, size: 24),
+                  ),
               ],
             ),
-            if (isNewBest) ...[
+            if (rewardReady && isNewBest) ...[
               const SizedBox(height: Spacing.sm),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    SoriGlyph.record,
-                    size: 15,
-                    color: SoriColors.gold,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    t.gameNewBest,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+              LearningRewardPresentation(
+                attempt: learningAttempt,
+                kind: SoriRewardKind.personalBest,
+                amount: 1,
+                identity: 'kkeunmari',
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      SoriGlyph.record,
+                      size: 15,
                       color: SoriColors.gold,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 5),
+                    Text(
+                      t.gameNewBest,
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.gold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
             if (feedbackCompletion != null &&

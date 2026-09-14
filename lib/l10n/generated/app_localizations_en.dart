@@ -4628,7 +4628,7 @@ class AppL10nEn extends AppL10n {
       'A 계 is a small group that holds a weekly intention together.';
 
   @override
-  String get gyeFindOrCreate => 'Find or create a 계';
+  String get gyeFindOrCreate => 'Join or create a group';
 
   @override
   String get gyeContinueSolo => 'Continue without a group';
@@ -8329,7 +8329,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageHanokUpdating =>
-      'Your hanok is being rebuilt. Back soon.';
+      'Hanok preview · the new view is in progress.';
 
   @override
   String get soriStageOpenMap => 'Open Hanok map';
@@ -10000,7 +10000,7 @@ class AppL10nEn extends AppL10n {
       'This opens the existing word-review deck. Saved grammar, sentences, expressions, and Hangeul are not presented as words.';
 
   @override
-  String get todayGuideTitle => 'Hangul Sori start guide';
+  String get todayGuideTitle => 'Get to know the app';
 
   @override
   String get todayGuideDescription =>
@@ -10232,4 +10232,164 @@ class AppL10nEn extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Earlier attempt saved · task has since been revised';
+
+  @override
+  String get learningFocusDestinationUnavailable =>
+      'This activity could not be opened. Please try again.';
+
+  @override
+  String learningFocusMinutes(int minutes) {
+    return 'About $minutes min.';
+  }
+
+  @override
+  String get catalogDetails => 'Details';
+
+  @override
+  String get catalogHowItWorks => 'How it works';
+
+  @override
+  String get catalogStartSession => 'Start session';
+
+  @override
+  String get catalogRecentlyOpened => 'Recently opened';
+
+  @override
+  String get catalogChoosePractice => 'Choose your practice';
+
+  @override
+  String get catalogWords => 'Words';
+
+  @override
+  String get catalogListen => 'Listen';
+
+  @override
+  String get catalogHangul => 'Hangul';
+
+  @override
+  String get catalogReview => 'Review';
+
+  @override
+  String get catalogWordsSection => 'Words & sentences';
+
+  @override
+  String get catalogListenSection => 'Listen & speak';
+
+  @override
+  String get catalogHangulSection => 'Hangul & writing';
+
+  @override
+  String get catalogReviewSection => 'Review & my words';
+
+  @override
+  String get catalogAnotherRound => 'Another round?';
+
+  @override
+  String get catalogProgressUnavailable =>
+      'Your progress could not be loaded. You can still practice.';
+
+  @override
+  String catalogBestScore(int count) {
+    return 'Best score: $count';
+  }
+
+  @override
+  String catalogPacksCompleted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count packs completed',
+      one: '1 pack completed',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogScenesCompleted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count scenes completed',
+      one: '1 scene completed',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogPronunciationPassed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pronunciation checks passed',
+      one: '1 pronunciation check passed',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogDaysPracticed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Practiced on $count days',
+      one: 'Practiced on 1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get learningFocusStart => 'Start learning';
+
+  @override
+  String get learningFocusViewCourse => 'View course';
+
+  @override
+  String learningFocusCoursePosition(String level, int number) {
+    return '$level · Unit $number';
+  }
+
+  @override
+  String get catalogImageUnavailable => 'No image';
+
+  @override
+  String get todayGuideExpand => 'Show all guide topics';
+
+  @override
+  String get todayGuideCollapse => 'Show next topic only';
+
+  @override
+  String soriStageConfirmedUnits(int built, int total) {
+    return '$built / $total course units confirmed';
+  }
+
+  @override
+  String get soriStageOpenHanok => 'View Hanok';
+
+  @override
+  String get soriStageHanokLearningSummary => 'What you have learned';
+
+  @override
+  String get soriStageHanokProgressUnavailable =>
+      'Your learning progress could not be loaded.';
+
+  @override
+  String get soriStageHanokNoUnits => 'No course units available yet.';
+
+  @override
+  String get soriStageNoQuests => 'None yet';
+
+  @override
+  String get gyeRootPurpose => 'Work towards a weekly goal together.';
+
+  @override
+  String get gyeRootPrivacy => 'Your answers and results stay private.';
+
+  @override
+  String get soriStageHanokTasks => 'Tasks';
+
+  @override
+  String get soriStageHanokStamps => 'Stamps';
+
+  @override
+  String get soriStageHanokGifts => 'Gifts';
 }

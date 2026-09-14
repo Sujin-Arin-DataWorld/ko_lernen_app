@@ -345,12 +345,15 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       ),
     );
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
+    final completionIdentity = _feedbackCompletion.current;
     final outcome = await recordGameResult(
       gameId: 'cloze',
       xp: _score * 5,
       score: pct,
     );
-    if (mounted) setState(() => _outcome = outcome);
+    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
+      setState(() => _outcome = outcome);
+    }
   }
 
   @override
@@ -479,10 +482,12 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _score * 5,
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(Storage.gameBest('cloze')),

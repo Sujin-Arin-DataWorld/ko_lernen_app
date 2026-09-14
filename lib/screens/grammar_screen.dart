@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -802,8 +803,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                 errorReason: correct ? null : MasteryErrorReason.unknown,
               );
               try {
-                await (widget.checkpointRecorder ?? _recordGrammarCheckpoint)(
-                  attempt,
+                await trackLearningPersistence(
+                  LearningJourneyObserver.beginAttempt(),
+                  (widget.checkpointRecorder ?? _recordGrammarCheckpoint)(
+                    attempt,
+                  ),
+                  passed: correct,
                 );
               } catch (_) {
                 if (sheetContext.mounted) {
@@ -904,6 +909,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _finishSession() async {
     if (_sessionSeen.isEmpty) return;
     _recordSessionCompleted();
+    LearningJourneyObserver.beginAttempt()?.complete();
     final t = AppL10n.of(context);
     final completion = _feedbackCompletion.complete(
       () => FeedbackCompletion.grammarSession(

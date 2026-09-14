@@ -146,9 +146,9 @@ void main() {
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
     // Hanok V1 retirement removes seven Sori widgets and adds hanok_v3_preview.
-    expect(actual, hasLength(133));
+    expect(actual, hasLength(136));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(133));
+    expect(listed, hasLength(136));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

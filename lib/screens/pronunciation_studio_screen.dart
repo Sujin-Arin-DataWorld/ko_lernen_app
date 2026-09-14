@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:typed_data';
@@ -530,15 +531,21 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       if (!_isCurrentOperation(generation)) {
         return;
       }
+      final learningAttempt = LearningJourneyObserver.beginAttempt();
       if (result.passed) {
-        await PronunciationProgressService.recordPass(
-          result.assessmentId,
-          result.pronunciationScore,
+        await trackLearningPersistence(
+          learningAttempt,
+          PronunciationProgressService.recordPass(
+            result.assessmentId,
+            result.pronunciationScore,
+          ),
+          passed: true,
         );
         if (!_isCurrentOperation(generation)) {
           return;
         }
       }
+      learningAttempt?.complete(passed: result.passed);
       setState(() {
         _result = result;
         _assessmentFailure = null;

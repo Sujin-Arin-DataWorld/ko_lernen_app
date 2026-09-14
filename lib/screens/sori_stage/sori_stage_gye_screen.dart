@@ -4,23 +4,21 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/gye.dart';
 import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/collapsing_header.dart';
-import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import '../gye_tab_screen.dart';
 
-/// **Gye 탭** (§W-G, W-F `SoriStageHanokScreen`과 같은 슬리버 계약).
-///
-/// 이전엔 `SoriStageSafeViewport` → 고정 헤더 `Column` → `Expanded(GyeTabScreen
-/// (embedded))` 였고, `GyeTabScreen`이 임베드 모드에서도 자체 `Scaffold` +
-/// `ListView`를 그려 이중 스크롤이었다(§W-G G 브리프). 이제 Hanok 탭처럼
-/// 헤더·스텝퍼·계 목록이 전부 슬리버로 한 `CustomScrollView`를 공유한다 —
-/// `GyeTabScreen(embedded: true)`가 스스로 슬리버를 반환한다
-/// (`buildEmbedded`, 다른 Sori Stage 탭과 같은 계약, §W-F F2).
+/// A single scroll surface for optional group entry and actual memberships.
 class SoriStageGyeScreen extends StatelessWidget {
-  const SoriStageGyeScreen({super.key, this.active = true, this.loadGyeMetas});
+  const SoriStageGyeScreen({
+    super.key,
+    this.active = true,
+    this.loadGyeMetas,
+    this.onContinueSolo,
+    this.refreshGeneration = 0,
+  });
 
   /// The shell keeps every tab alive; other tabs refresh their own
   /// progression on activation. This tab has no such refresh-on-activation
@@ -28,6 +26,8 @@ class SoriStageGyeScreen extends StatelessWidget {
   /// find-or-create round trip), so this flag only forwards to the embedded
   /// tab.
   final bool active;
+  final VoidCallback? onContinueSolo;
+  final int refreshGeneration;
 
   /// Test seam forwarded straight to the embedded [GyeTabScreen] (§W-G
   /// G5.3) — production leaves this null so the tab keeps reading the
@@ -55,8 +55,10 @@ class SoriStageGyeScreen extends StatelessWidget {
                     right: padding.right,
                   ),
                   sliver: SoriCollapsingHeader(
-                    eyebrow: t.soriStageNavGye,
-                    title: t.soriStageGyePromise,
+                    title: t.soriStageNavGye,
+                    titleStyle: SoriTextTheme.of(
+                      context,
+                    ).h1.copyWith(fontSize: 26, height: 1.35),
                     // 접힌 56dp 크롬 바용 짧은 제목(§W-G G5.1) — 없으면
                     // title 전체가 ellipsis 로 잘린다.
                     collapsedTitle: t.soriStageNavGye,
@@ -66,27 +68,26 @@ class SoriStageGyeScreen extends StatelessWidget {
                     trailingSlots: 2,
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        CulturalHelpButton(termId: 'gye'),
-                        SizedBox(width: Spacing.xs),
-                        SoriAvatar(),
+                      children: [
+                        IconButton(
+                          key: const ValueKey('cultural_help_gye'),
+                          tooltip: t.gyeExplainMore,
+                          onPressed: () => showGyeDetails(context),
+                          icon: const Icon(Icons.help_outline_rounded),
+                        ),
+                        const SizedBox(width: Spacing.xs),
+                        const SoriAvatar(),
                       ],
                     ),
                   ),
                 ),
-                // §W-G G5.1: 헤더 다음 첫 콘텐츠 간격은 Spacing.xl 하나 —
-                // 카탈로그의 `Spacing.xl + padding.bottom` 72dp 패턴은
-                // 여기서 복제하지 않는다(Hanok 탭과 같은 규약).
-                //
-                // §W-G2 item 1: 스텝퍼는 더 이상 여기서 그리지 않는다 — 현재
-                // 단계가 `metas`(로드한 계 목록)에서 파생되는데, 이 화면은
-                // 그 값을 모른다. `GyeTabScreen._buildStepperSliver`가 이
-                // 자리(첫 임베디드 슬리버)에서 대신 그린다.
-                const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
+                const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),
                 GyeTabScreen(
                   embedded: true,
                   active: active,
+                  refreshGeneration: refreshGeneration,
                   loadGyeMetas: loadGyeMetas,
+                  onContinueSolo: onContinueSolo,
                 ),
               ],
             ),

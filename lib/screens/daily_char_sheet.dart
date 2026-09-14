@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -141,7 +142,10 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     final iso =
         '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
     setState(() => _finishing = true);
-    await Storage.addCalligraphyDate(iso);
+    await trackLearningPersistence(
+      LearningJourneyObserver.beginAttempt(),
+      Storage.addCalligraphyDate(iso),
+    );
     if (!mounted) {
       return;
     }

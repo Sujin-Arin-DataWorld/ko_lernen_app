@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
+import 'package:flutter/foundation.dart'
+    show ValueNotifier, debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/scenario_corpus_generation.dart';
@@ -10,6 +11,10 @@ import '../models/learner_level.dart';
 import '../models/personal_room.dart';
 import 'local_data_lifetime.dart';
 import 'media_mutation_lock.dart';
+import '../data/sori_activity_catalog.dart';
+import '../models/sori_stage_progression.dart' show SoriStageTab;
+import 'account/cloud_write_session.dart';
+import 'catalog_history_lease.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -567,6 +572,11 @@ class Storage {
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
+  static Future<void> _catalogHistoryMutation = Future<void>.value();
+  static int _catalogHistoryMutationCount = 0;
+  static int _catalogHistoryGeneration = 0;
+  static int _catalogHistoryResetting = 0;
+  static final catalogHistoryChanges = ValueNotifier<int>(0);
   static Future<void> _xpRewardMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
   static Future<void> _consentedFirstLearningActionClaimMutation =
@@ -605,6 +615,7 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
+    CatalogHistoryLease.resetForTesting();
     final drains = <Future<void>>[];
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
@@ -618,6 +629,10 @@ class Storage {
         ),
       );
     }
+    if (_catalogHistoryMutationCount > 0) {
+      drains.add(_catalogHistoryMutation);
+    }
+    _catalogHistoryGeneration++;
     if (drains.isEmpty) {
       // Do not carry even a completed Future into the next widget-test
       // fake-async zone. With no old SRS work, init must enter the new
@@ -649,6 +664,9 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    _catalogHistoryMutation = Future<void>.value();
+    _catalogHistoryMutationCount = 0;
+    _catalogHistoryResetting = 0;
     _xpRewardMutation = Future<void>.value();
     _srsReviewMutation = Future<void>.value();
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
@@ -3305,6 +3323,129 @@ class Storage {
     await _ss(lastActivityIdPreferenceKey, normalized);
   }
 
+  static const recentLearnActivityPreferenceKey = 'kl_recent_learn_activity_v1';
+  static const recentGamesActivityPreferenceKey = 'kl_recent_games_activity_v1';
+
+  static String _catalogHistoryKey(SoriStageTab tab) => switch (tab) {
+    SoriStageTab.learn => recentLearnActivityPreferenceKey,
+    SoriStageTab.games => recentGamesActivityPreferenceKey,
+    _ => throw ArgumentError.value(tab, 'tab', 'must be Learn or Games'),
+  };
+
+  /// Device-local presentation history, never course progress or a resume claim.
+  /// Persist the owner UID so a completed old-account write stays invisible
+  /// after a switch, even when its platform Future completes late.
+  static String? recentCatalogActivityId(SoriStageTab tab) {
+    final session = cloudWriteSessionController.current;
+    if (session != null && session.mode != CloudWriteMode.ready) {
+      return null;
+    }
+    final raw = _optionalString(_catalogHistoryKey(tab));
+    if (raw == null) {
+      return null;
+    }
+    try {
+      final value = jsonDecode(raw);
+      if (value is! Map ||
+          value['uid'] != cloudWriteSessionController.current?.uid) {
+        return null;
+      }
+      final id = value['id'];
+      return soriActivityCatalog.any((e) => e.id == id && e.tab == tab)
+          ? id as String
+          : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  static Future<void> _enqueueCatalogHistory(
+    CatalogHistoryLease lease,
+    Future<void> Function() action,
+  ) {
+    if (_catalogHistoryResetting > 0 || !lease.isCurrent) {
+      return Future<void>.value();
+    }
+    final generation = _catalogHistoryGeneration;
+    final immediate = _catalogHistoryMutationCount == 0;
+    _catalogHistoryMutationCount++;
+    Future<void> run() async {
+      try {
+        if (generation != _catalogHistoryGeneration || !lease.isCurrent) {
+          return;
+        }
+        await init();
+        if (generation != _catalogHistoryGeneration ||
+            _catalogHistoryResetting > 0 ||
+            !lease.isCurrent) {
+          return;
+        }
+        await action();
+        if (generation == _catalogHistoryGeneration && lease.isCurrent) {
+          catalogHistoryChanges.value++;
+        }
+      } catch (_) {
+        // A preference failure must never block an accepted activity launch.
+      } finally {
+        if (generation == _catalogHistoryGeneration) {
+          _catalogHistoryMutationCount--;
+        }
+      }
+    }
+
+    return _catalogHistoryMutation = immediate
+        ? run()
+        : _catalogHistoryMutation.then((_) => run());
+  }
+
+  /// Lazy, idempotent migration outside build. A newer tab launch wins because
+  /// this rechecks the same serialized queue immediately before the setter.
+  static Future<void> initializeCatalogHistory({CatalogHistoryLease? lease}) {
+    final captured = lease ?? CatalogHistoryLease.capture();
+    return _enqueueCatalogHistory(captured, () async {
+      final legacy = lastActivityId;
+      if (legacy == null) {
+        return;
+      }
+      final matches = soriActivityCatalog.where((entry) => entry.id == legacy);
+      // Consume the unowned legacy source before the owned write. If identity
+      // changes during either platform operation, it cannot later migrate into
+      // a different account as though it were that account's history.
+      await _prefs!.remove(lastActivityIdPreferenceKey);
+      if (!captured.isCurrent || matches.isEmpty) {
+        return;
+      }
+      final entry = matches.single;
+      if (recentCatalogActivityId(entry.tab) == null) {
+        await _prefs!.setString(
+          _catalogHistoryKey(entry.tab),
+          jsonEncode({'id': entry.id, 'uid': captured.session?.uid}),
+        );
+      }
+    });
+  }
+
+  /// Call only after Navigator accepts the route, with a pre-await lease.
+  static Future<void> recordCatalogActivity(
+    String activityId, {
+    CatalogHistoryLease? lease,
+  }) {
+    final matches = soriActivityCatalog.where(
+      (entry) => entry.id == activityId,
+    );
+    if (matches.isEmpty) {
+      return Future<void>.value();
+    }
+    final entry = matches.single;
+    final captured = lease ?? CatalogHistoryLease.capture();
+    return _enqueueCatalogHistory(captured, () async {
+      await _prefs!.setString(
+        _catalogHistoryKey(entry.tab),
+        jsonEncode({'id': entry.id, 'uid': captured.session?.uid}),
+      );
+    });
+  }
+
   /// Canonical v2 JSON owned by [CourseMasteryService]. Storage does not parse
   /// it so the service can reject malformed or catalog-incompatible evidence.
   static String get courseMasterySnapshotRawJson =>
@@ -4471,18 +4612,26 @@ class Storage {
     // Invalidate admitted remote restores before the first deletion. A late
     // remote response must belong to the old data lifetime and fail closed.
     LocalDataLifetime.invalidate();
+    _catalogHistoryResetting++;
     try {
-      final keys = store.getKeys();
-      for (final k in keys) {
-        if (k.startsWith('kl_') &&
-            !_durableAccountJournalPreferenceKeys.contains(k)) {
-          await store.remove(k);
+      await _catalogHistoryMutation;
+      await store.reload();
+      try {
+        final keys = store.getKeys();
+        for (final k in keys) {
+          if (k.startsWith('kl_') &&
+              !_durableAccountJournalPreferenceKeys.contains(k)) {
+            await store.remove(k);
+          }
         }
+      } finally {
+        // Account/local deletion must never leave a removed course graph or
+        // wrong-answer history reachable through optimistic in-memory mirrors.
+        resetCachesAfterExternalWrite();
       }
     } finally {
-      // Account/local deletion must never leave a removed course graph or
-      // wrong-answer history reachable through optimistic in-memory mirrors.
-      resetCachesAfterExternalWrite();
+      _catalogHistoryResetting--;
+      catalogHistoryChanges.value++;
     }
   }
 
@@ -4506,72 +4655,82 @@ class Storage {
     // canonicalization as well as preference removal. Even a partially
     // failing strict reset must never leave an old restore lease writable.
     LocalDataLifetime.invalidate();
-    final failedKeys = <String>[];
-    final causes = <Object>[];
-    final canonicalCheckpointKeys = <String>[];
-    if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
-      canonicalCheckpointKeys.addAll(
-        <String>[
-          accountDeletionCheckpointPreferenceKey,
-          accountDeletionFeedbackActivationCheckpointPreferenceKey,
-        ].where(store.containsKey),
-      );
-      if (canonicalCheckpointKeys.isEmpty) {
-        throw const FormatException('Missing account deletion checkpoint.');
-      }
-      for (final checkpointKey in canonicalCheckpointKeys) {
-        String canonicalCheckpoint;
-        try {
-          final raw = store.getValue(checkpointKey);
-          if (raw is! String || raw.isEmpty) {
-            throw const FormatException('Missing account deletion checkpoint.');
-          }
-          canonicalCheckpoint = canonicalize(raw);
-          if (canonicalCheckpoint.isEmpty) {
-            throw const FormatException('Empty account deletion checkpoint.');
-          }
-        } catch (error, stackTrace) {
-          try {
-            await _removeValueStrict(store, checkpointKey);
-          } catch (removalError) {
-            throw PreferenceResetException(
-              failedKeys: <String>[checkpointKey],
-              causes: <Object>[error, removalError],
-            );
-          }
-          Error.throwWithStackTrace(error, stackTrace);
-        }
-        await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
-      }
-    }
-    final keys =
-        {...store.getKeys(), ..._unknownStrictKeys}
-            .where(
-              (key) =>
-                  key.startsWith('kl_') &&
-                  !_durableAccountJournalPreferenceKeys.contains(key),
-            )
-            .toList()
-          ..sort();
-
+    _catalogHistoryResetting++;
     try {
-      for (final key in keys) {
-        try {
-          await _removeValueStrict(store, key);
-        } catch (error) {
-          failedKeys.add(key);
-          causes.add(error);
+      await _catalogHistoryMutation;
+      await store.reload();
+      final failedKeys = <String>[];
+      final causes = <Object>[];
+      final canonicalCheckpointKeys = <String>[];
+      if (canonicalizeAccountDeletionCheckpoint case final canonicalize?) {
+        canonicalCheckpointKeys.addAll(
+          <String>[
+            accountDeletionCheckpointPreferenceKey,
+            accountDeletionFeedbackActivationCheckpointPreferenceKey,
+          ].where(store.containsKey),
+        );
+        if (canonicalCheckpointKeys.isEmpty) {
+          throw const FormatException('Missing account deletion checkpoint.');
         }
+        for (final checkpointKey in canonicalCheckpointKeys) {
+          String canonicalCheckpoint;
+          try {
+            final raw = store.getValue(checkpointKey);
+            if (raw is! String || raw.isEmpty) {
+              throw const FormatException(
+                'Missing account deletion checkpoint.',
+              );
+            }
+            canonicalCheckpoint = canonicalize(raw);
+            if (canonicalCheckpoint.isEmpty) {
+              throw const FormatException('Empty account deletion checkpoint.');
+            }
+          } catch (error, stackTrace) {
+            try {
+              await _removeValueStrict(store, checkpointKey);
+            } catch (removalError) {
+              throw PreferenceResetException(
+                failedKeys: <String>[checkpointKey],
+                causes: <Object>[error, removalError],
+              );
+            }
+            Error.throwWithStackTrace(error, stackTrace);
+          }
+          await _writeValueStrict(store, checkpointKey, canonicalCheckpoint);
+        }
+      }
+      final keys =
+          {...store.getKeys(), ..._unknownStrictKeys}
+              .where(
+                (key) =>
+                    key.startsWith('kl_') &&
+                    !_durableAccountJournalPreferenceKeys.contains(key),
+              )
+              .toList()
+            ..sort();
+
+      try {
+        for (final key in keys) {
+          try {
+            await _removeValueStrict(store, key);
+          } catch (error) {
+            failedKeys.add(key);
+            causes.add(error);
+          }
+        }
+      } finally {
+        resetCachesAfterExternalWrite();
+      }
+
+      if (failedKeys.isNotEmpty) {
+        throw PreferenceResetException(
+          failedKeys: List.unmodifiable(failedKeys),
+          causes: List.unmodifiable(causes),
+        );
       }
     } finally {
-      resetCachesAfterExternalWrite();
-    }
-
-    if (failedKeys.isNotEmpty) {
-      throw PreferenceResetException(
-        failedKeys: List.unmodifiable(failedKeys),
-        causes: List.unmodifiable(causes),
-      );
+      _catalogHistoryResetting--;
+      catalogHistoryChanges.value++;
     }
   }
 

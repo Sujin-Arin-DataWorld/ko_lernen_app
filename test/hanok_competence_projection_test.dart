@@ -13,6 +13,22 @@ CourseUnit _unit(String id, String level, int order) =>
     CourseUnit(id: id, level: level, order: order, title: _text, canDo: _text);
 
 void main() {
+  test(
+    'honest read propagates corrupt progress while legacy API remains compatible',
+    () async {
+      Future<CurriculumCatalog> broken() async =>
+          throw const FormatException('corrupt progress');
+      await expectLater(
+        HanokCompetenceProjectionService.readCurrent(catalogLoader: broken),
+        throwsFormatException,
+      );
+      final legacy = await HanokCompetenceProjectionService.loadCurrent(
+        catalogLoader: broken,
+      );
+      expect(legacy.completedUnitCount, 0);
+    },
+  );
+
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(

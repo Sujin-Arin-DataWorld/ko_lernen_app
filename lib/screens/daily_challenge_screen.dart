@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:math';
 import 'dart:async';
 
@@ -180,15 +181,21 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     // Bonus nur beim ERSTEN Abschluss heute (kein Doppel-Bonus beim Üben).
     final firstToday = !Storage.dailyChallengeDoneToday();
     final bonus = firstToday ? _completionBonus : 0;
+    final learningAttempt = LearningJourneyObserver.beginAttempt();
     if (firstToday) {
-      await Storage.markDailyChallengeDone();
+      final write = Storage.markDailyChallengeDone();
+      await (learningAttempt == null
+          ? write
+          : learningAttempt.journey.track(write, learningAttempt));
     }
+    final completionIdentity = _feedbackCompletion.current;
     final outcome = await recordGameResult(
       gameId: 'daily',
+      learningAttempt: learningAttempt,
       xp: _score * 5 + bonus,
       score: pct,
     );
-    if (mounted) {
+    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
       setState(() {
         _outcome = outcome;
         _streak = Storage.dailyChallengeStreak;
@@ -330,11 +337,13 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
           // tatsächlich gutgeschriebener Wert (eine Quelle der Wahrheit).
-          xpGained: _outcome?.xpGained ?? (_score * 5),
+          xpGained: _outcome?.xpGained ?? 0,
           // echter Genauigkeits-Rekord (vom recordGameResult), nicht der Streak.
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,

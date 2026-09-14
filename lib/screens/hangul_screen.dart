@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -142,6 +143,9 @@ class _HangulScreenState extends State<HangulScreen>
   }
 
   Future<void> _finishCards(int interactionCount) async {
+    if (interactionCount > 0) {
+      LearningJourneyObserver.beginAttempt()?.complete();
+    }
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'cards');
     _abandonTracker.markCompleted();
@@ -156,6 +160,9 @@ class _HangulScreenState extends State<HangulScreen>
   }
 
   Future<void> _finishWriting(HangulWritingResult result) async {
+    if (result.letters > 0) {
+      LearningJourneyObserver.beginAttempt()?.complete();
+    }
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'writing');
     _abandonTracker.markCompleted();
@@ -248,9 +255,7 @@ class _HangulScreenState extends State<HangulScreen>
         // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
         // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
         // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-        physics: _tabIndex == 0
-            ? null
-            : const NeverScrollableScrollPhysics(),
+        physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
         children: [
           _OverviewTab(speak: _speakJamo),
           _CardsTab(
@@ -284,11 +289,7 @@ class _OverviewTab extends StatelessWidget {
         padding: padding,
         children: [
           _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-          _CharGrid(
-            chars: consonants,
-            color: SoriColors.primary,
-            speak: speak,
-          ),
+          _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
           const SizedBox(height: 24),
           _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
           _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),

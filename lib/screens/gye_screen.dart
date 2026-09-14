@@ -780,8 +780,6 @@ class _GyeWeeklyPromise extends StatelessWidget {
             ),
           ],
           const SizedBox(height: Spacing.md),
-          board,
-          const SizedBox(height: Spacing.md),
           FutureBuilder<GyePromiseNavigationResolution>(
             future: navigation,
             builder: (context, snapshot) {
@@ -815,6 +813,8 @@ class _GyeWeeklyPromise extends StatelessWidget {
               );
             },
           ),
+          const SizedBox(height: Spacing.md),
+          board,
           TextButton(
             onPressed: () => _showPromiseIntention(context, meta),
             style: TextButton.styleFrom(minimumSize: const Size(48, 48)),

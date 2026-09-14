@@ -1,3 +1,4 @@
+import '../widgets/sori/toast.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -30,7 +31,16 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackMatchingScreen({super.key, required this.packId, this.words});
+  const CustomPackMatchingScreen({
+    super.key,
+    required this.packId,
+    this.words,
+    this.recordResult,
+  });
+
+  /// Injects the existing result write for delayed/failing persistence tests.
+  final Future<GameOutcome> Function({required String gameId, required int xp})?
+  recordResult;
 
   @override
   State<CustomPackMatchingScreen> createState() =>
@@ -151,6 +161,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _statusMessage = null;
     _misses = 0;
     _feedbackCompletion.reset();
+    _outcome = null;
   }
 
   void _tapLeft(int i) {
@@ -216,6 +227,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     }
   }
 
+  GameOutcome? _outcome;
   Future<void> _finish() async {
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackMatching(
@@ -225,7 +237,23 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       ),
     );
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    await recordGameResult(gameId: 'cp_matching', xp: _roundXp);
+    final completionIdentity = _feedbackCompletion.current;
+    GameOutcome outcome;
+    try {
+      outcome = await (widget.recordResult ?? recordGameResult)(
+        gameId: 'cp_matching',
+        xp: _roundXp,
+      );
+    } catch (_) {
+      if (mounted &&
+          identical(_feedbackCompletion.current, completionIdentity)) {
+        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
+      }
+      return;
+    }
+    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
+      setState(() => _outcome = outcome);
+    }
     await Analytics.gameCompleted(
       gameType: 'matching',
       result: 'win',
@@ -391,10 +419,12 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       liveRegion: true,
       label: '${t.wbMatchingDone}. ${t.wbMatchingDoneBody}',
       child: GameOverCard(
+        outcome: _outcome,
+        rewardReady: _outcome != null,
         headline: t.wbMatchingDone,
         scoreLabel: t.wbMatchingDoneBody,
         feedbackContext: _feedbackCompletion.current?.context,
-        xpGained: _roundXp,
+        xpGained: _outcome?.xpGained ?? 0,
         mascotKind: MascotKind.magpie,
         mascotEmotion: MascotEmotion.celebrate,
         actions: [

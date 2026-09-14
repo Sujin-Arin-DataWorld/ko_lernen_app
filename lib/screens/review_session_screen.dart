@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -349,6 +352,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     return unambiguousReviewLevel(_deck.map((word) => word.level));
   }
 
+  final List<Future<void>> _reviewWrites = [];
+  LearningAttempt? _learningAttempt;
+  bool _rewardPersisted = false;
+
   void _answer(bool gotIt) {
     final queue = _queue;
     if (queue == null || !queue.canJudgeCurrent) {
@@ -361,7 +368,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
     if (shouldRecordEvidence) {
       // ignore: discarded_futures
-      Storage.srsReview(card.korean, gotIt: gotIt);
+      final work = Storage.srsReview(card.korean, gotIt: gotIt);
+      final persisted = work.then<void>((saved) {
+        if (!saved) {
+          throw StateError('Review evidence was not saved');
+        }
+      });
+      _reviewWrites.add(persisted);
+      unawaited(persisted.then<void>((_) {}, onError: (_) {}));
     }
     if (!gotIt) {
       // ignore: discarded_futures
@@ -385,7 +399,18 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           total: queue.originalCount,
         ),
       );
-      Storage.addXp(_reviewed * 2);
+      final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
+      final work = Future.wait<void>([
+        ..._reviewWrites,
+        Storage.addXp(_reviewed * 2),
+      ]);
+      unawaited(
+        trackLearningPersistence(attempt, work).then((_) {
+          if (mounted) {
+            setState(() => _rewardPersisted = true);
+          }
+        }, onError: (_) {}),
+      );
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);
@@ -486,12 +511,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   style: tt.body.copyWith(color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.md),
-                Text(
-                  '+${_reviewed * 2} XP',
-                  // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
-                  // 카드 위 장식 금색과는 다른 이야기.
-                  style: tt.h2.copyWith(color: SoriColors.gold),
-                ),
+                if (_rewardPersisted)
+                  LearningRewardPresentation(
+                    attempt: _learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: _reviewed * 2,
+                    presentationComplete: _rewardPersisted,
+                    child: Text(
+                      '+${_reviewed * 2} XP',
+                      // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
+                      // 카드 위 장식 금색과는 다른 이야기.
+                      style: tt.h2.copyWith(color: SoriColors.gold),
+                    ),
+                  ),
                 // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
                 if (widget.bonusPhrase != null) ...[
                   const SizedBox(height: Spacing.xl),

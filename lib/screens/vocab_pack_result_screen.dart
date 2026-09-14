@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -42,6 +45,8 @@ import '../widgets/sori/window_class.dart';
 ///   - `showHardWordsCta`: bool (this session has a threshold-reaching miss)
 ///   - `recallSession`: a typed, ephemeral pack-session evidence ledger
 class VocabPackResultScreen extends StatelessWidget {
+  final int? actualXpAwarded;
+  final LearningAttempt? learningAttempt;
   final String packId;
   final double bossAccuracy;
   final int bossCorrect;
@@ -60,6 +65,8 @@ class VocabPackResultScreen extends StatelessWidget {
   const VocabPackResultScreen({
     super.key,
     required this.packId,
+    this.actualXpAwarded,
+    this.learningAttempt,
     required this.bossAccuracy,
     required this.bossCorrect,
     required this.bossTotal,
@@ -82,6 +89,8 @@ class VocabPackResultScreen extends StatelessWidget {
     final packId = m['packId'] as String? ?? '';
     return VocabPackResultScreen(
       packId: packId,
+      actualXpAwarded: m['actualXpAwarded'] as int?,
+      learningAttempt: m['learningAttempt'] as LearningAttempt?,
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
       bossCorrect: (m['bossCorrect'] as num?)?.toInt() ?? 0,
       bossTotal: (m['bossTotal'] as num?)?.toInt() ?? 0,
@@ -138,6 +147,7 @@ class VocabPackResultScreen extends StatelessWidget {
                 _cleared
                     ? _CelebrationSequence(
                         motif: motif,
+                        learningAttempt: learningAttempt,
                         justCleared: justCleared,
                         mascotKind: MascotPreference.selectedKind,
                       )
@@ -207,16 +217,22 @@ class VocabPackResultScreen extends StatelessWidget {
                             label: t.vocabPackResultQuizLabel,
                             value: '$quizCorrect / $quizTotal',
                           ),
-                        if (_cleared)
+                        if (actualXpAwarded != null && _cleared)
                           _XpPayoffLine(
                             label: t.vocabPackResultXpLabel,
                             xp: _xpAwarded(),
+                            learningAttempt: learningAttempt,
                           )
-                        else
-                          _StatLine(
-                            icon: Icons.workspace_premium_outlined,
-                            label: t.vocabPackResultXpLabel,
-                            value: '+${_xpAwarded()} XP',
+                        else if (actualXpAwarded != null)
+                          LearningRewardPresentation(
+                            attempt: learningAttempt,
+                            kind: SoriRewardKind.xp,
+                            amount: _xpAwarded(),
+                            child: _StatLine(
+                              icon: Icons.workspace_premium_outlined,
+                              label: t.vocabPackResultXpLabel,
+                              value: '+${_xpAwarded()} XP',
+                            ),
                           ),
                       ],
                     ),
@@ -341,12 +357,7 @@ class VocabPackResultScreen extends StatelessWidget {
     return result;
   }
 
-  int _xpAwarded() {
-    // Plan §4.4: wordsTotal*5 + bossCorrect*10. wordsTotal unbekannt im
-    // Result-Screen — approx via quizTotal + bossTotal.
-    final wordsTotal = quizTotal + bossTotal;
-    return wordsTotal * 5 + bossCorrect * 10;
-  }
+  int _xpAwarded() => actualXpAwarded ?? 0;
 }
 
 class _StatLine extends StatelessWidget {
@@ -412,10 +423,12 @@ class _StatLine extends StatelessWidget {
 // 단일 컨트롤러가 도장→캐릭터를 한 박자로 구동하고, 도장 착지 순간
 // confetti 1회. reduce-motion / 재클리어 시 최종 정지 프레임.
 class _CelebrationSequence extends StatefulWidget {
+  final LearningAttempt? learningAttempt;
   final DancheongMotif motif;
   final bool justCleared;
   final MascotKind? mascotKind;
   const _CelebrationSequence({
+    this.learningAttempt,
     required this.motif,
     required this.justCleared,
     required this.mascotKind,
@@ -533,11 +546,18 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                       widget.motif,
                     ),
                     excludeSemantics: true,
-                    child: DancheongStamp(
-                      motif: widget.motif,
-                      size: 120,
-                      animate: false,
-                      stamped: true,
+                    child: LearningRewardPresentation(
+                      attempt: widget.learningAttempt,
+                      kind: SoriRewardKind.stamp,
+                      amount: widget.justCleared ? 1 : 0,
+                      identity: widget.motif.name,
+                      presentationComplete: _ctrl.isCompleted,
+                      child: DancheongStamp(
+                        motif: widget.motif,
+                        size: 120,
+                        animate: false,
+                        stamped: true,
+                      ),
                     ),
                   ),
                 ),
@@ -552,9 +572,14 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
 
 // 클리어 시 XP payoff — 숫자 카운트업 + gold 채움 바로 보상감 강화.
 class _XpPayoffLine extends StatelessWidget {
+  final LearningAttempt? learningAttempt;
   final int xp;
   final String label;
-  const _XpPayoffLine({required this.label, required this.xp});
+  const _XpPayoffLine({
+    required this.label,
+    required this.xp,
+    this.learningAttempt,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -585,9 +610,15 @@ class _XpPayoffLine extends StatelessWidget {
                   tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
                   duration: dur,
                   curve: Curves.easeOutCubic,
-                  builder: (context, t, _) => Text(
-                    '+${(xp * t).round()} XP',
-                    style: tt.h3.copyWith(color: SoriColors.gold),
+                  builder: (context, t, _) => LearningRewardPresentation(
+                    attempt: learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: xp,
+                    presentationComplete: t >= 1,
+                    child: Text(
+                      '+${(xp * t).round()} XP',
+                      style: tt.h3.copyWith(color: SoriColors.gold),
+                    ),
                   ),
                 ),
               ],

@@ -199,6 +199,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       ),
     );
     final pct = ((_score / _order.length) * 100).round();
+    final completionIdentity = _feedbackCompletion.current;
     final outcome = await recordGameResult(
       gameId: 'cp_typing',
       xp: _score * 5,
@@ -210,7 +211,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       score: pct,
     );
     _abandonTracker.markCompleted();
-    if (mounted) {
+    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
       setState(() => _outcome = outcome);
     }
   }
@@ -367,10 +368,12 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         liveRegion: true,
         label: '${t.quizResultTitle}. ${t.quizScore(_score, _order.length)}',
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _order.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _score * 5,
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_typing')),

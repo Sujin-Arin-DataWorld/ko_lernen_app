@@ -222,12 +222,15 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       ),
     );
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
+    final completionIdentity = _feedbackCompletion.current;
     final outcome = await recordGameResult(
       gameId: 'satz_arcade',
       xp: _passed * 5,
       score: pct,
     );
-    if (mounted) setState(() => _outcome = outcome);
+    if (mounted && identical(_feedbackCompletion.current, completionIdentity)) {
+      setState(() => _outcome = outcome);
+    }
   }
 
   @override
@@ -309,10 +312,12 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_passed, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _outcome?.xpGained ?? (_passed * 5),
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(_outcome?.best ?? 0),

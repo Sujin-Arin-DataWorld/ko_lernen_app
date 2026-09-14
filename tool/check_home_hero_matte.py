@@ -62,6 +62,7 @@ TOLERANCE = 2
 # pixels as background drift.
 MIN_MATCH_RATIO = 0.99
 EXPECTED_FRAMES = {
+    "tiger_sitting2_hanji.mp4": 121,
     "tiger_thinking_hanji.mp4": 240,
     "magpie_walking_front_hanji.mp4": 113,
 }
@@ -173,7 +174,10 @@ def check(path: Path, ffmpeg: str, ffprobe: str) -> dict:
                 "-i",
                 str(path),
                 "-vf",
-                f"scale={GRID}:{GRID}",
+                # Read authored pixels. The default bicubic scaler adds a
+                # one-level luma ringing error even in a flat 640px matte.
+                # Nearest sampling preserves the native YUV corner values.
+                f"scale={GRID}:{GRID}:flags=neighbor",
                 "-f",
                 "rawvideo",
                 # 4:4:4 로 받아 모서리마다 자기 크로마를 갖게 한다. 여기서는

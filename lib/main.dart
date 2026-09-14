@@ -1,3 +1,4 @@
+import 'services/learning_journey.dart';
 import 'screens/phase_task_screen.dart';
 import 'dart:async';
 
@@ -614,6 +615,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
         // analyticsRouteObserver: 명명 라우트를 screen_view 로 기록(동의 시에만).
         navigatorObservers: [
+          LearningJourneyObserver.shared,
           soriRouteObserver,
           DiagnosticsRouteObserver(),
           analyticsRouteObserver,

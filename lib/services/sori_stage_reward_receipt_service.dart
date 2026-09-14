@@ -1,3 +1,4 @@
+import 'storage_service.dart';
 import 'dart:async';
 
 import '../models/quest.dart';
@@ -20,6 +21,7 @@ abstract final class SoriStageRewardReceiptService {
     required String activityId,
     required Future<SoriStageProgressionSnapshot> Function() loadSnapshot,
     required Future<void> Function() openActivity,
+    Duration measurementTimeout = const Duration(seconds: 5),
     SoriStageLocalBeforeFields Function()? captureLocalBefore,
     Future<SoriStageNetworkBeforeFields> Function()? loadNetworkBefore,
   }) async {
@@ -30,6 +32,7 @@ abstract final class SoriStageRewardReceiptService {
         loadNetworkBefore ??
         SoriStageProgressionService.loadNetworkBeforeFields;
 
+    Set<String>? stampIds;
     SoriStageLocalBeforeFields local;
     Future<SoriStageNetworkBeforeFields> networkFuture;
     try {
@@ -37,7 +40,12 @@ abstract final class SoriStageRewardReceiptService {
       // 구간 안에서 읽는다 — 사이에 await 이 없어 다른 코드가 끼어들 여지가
       // 없다. 네트워크 조회는 여기서 "시작만" 하고 기다리지 않는다.
       local = captureLocal();
-      networkFuture = loadNetwork();
+      try {
+        stampIds = Storage.earnedStamps.toSet();
+      } catch (_) {
+        /* unavailable provenance */
+      }
+      networkFuture = loadNetwork().timeout(measurementTimeout);
       // §정리#1: openActivity() 가 돌아올 때까지(수 분 뒤일 수 있음) 이
       // future 는 여기서 await 되지 않는다 — 그 사이 실패하면 아무도 안 듣는
       // 채로 Dart 가 루트 존에 미청취 비동기 에러를 보고한다. 지금 바로
@@ -61,6 +69,7 @@ abstract final class SoriStageRewardReceiptService {
         quests: network.quests,
         pendingBojagiCount: local.pendingBojagiCount,
         stampCount: local.stamps,
+        stampIds: stampIds,
         xp: local.xp,
         streakDays: local.streakDays,
         todayReward: null,
@@ -70,7 +79,7 @@ abstract final class SoriStageRewardReceiptService {
       final receipt = compare(
         activityId: activityId,
         before: before,
-        after: await loadSnapshot(),
+        after: await loadSnapshot().timeout(measurementTimeout),
       );
       return receipt.isEmpty ? null : receipt;
     } catch (_) {
@@ -95,16 +104,33 @@ abstract final class SoriStageRewardReceiptService {
         key: SoriCopyKey.rewardXp,
       ),
     );
-    _appendDelta(
-      items,
-      kind: SoriRewardKind.stamp,
-      delta: after.stampCount - before.stampCount,
-      label: const SoriLocalizedCopy(
-        de: 'Dojang-Stempel',
-        en: 'Dojang stamp',
-        key: SoriCopyKey.rewardStamp,
-      ),
-    );
+    if (before.stampIds != null && after.stampIds != null) {
+      for (final id in after.stampIds!.difference(before.stampIds!)) {
+        items.add(
+          RewardReceiptItem(
+            kind: SoriRewardKind.stamp,
+            amount: 1,
+            identity: id,
+            label: const SoriLocalizedCopy(
+              de: 'Dojang-Stempel',
+              en: 'Dojang stamp',
+              key: SoriCopyKey.rewardStamp,
+            ),
+          ),
+        );
+      }
+    } else {
+      _appendDelta(
+        items,
+        kind: SoriRewardKind.stamp,
+        delta: after.stampCount - before.stampCount,
+        label: const SoriLocalizedCopy(
+          de: 'Dojang-Stempel',
+          en: 'Dojang stamp',
+          key: SoriCopyKey.rewardStamp,
+        ),
+      );
+    }
     _appendDelta(
       items,
       kind: SoriRewardKind.questProgress,
@@ -137,16 +163,22 @@ abstract final class SoriStageRewardReceiptService {
         key: SoriCopyKey.rewardBojagi,
       ),
     );
-    _appendDelta(
-      items,
-      kind: SoriRewardKind.personalBest,
-      delta: _personalBestDelta(before.gameBests, after.gameBests),
-      label: const SoriLocalizedCopy(
-        de: 'Persönliche Bestleistung',
-        en: 'Personal best',
-        key: SoriCopyKey.rewardBest,
-      ),
-    );
+    for (final entry in after.gameBests.entries) {
+      if (entry.value > (before.gameBests[entry.key] ?? 0)) {
+        items.add(
+          RewardReceiptItem(
+            kind: SoriRewardKind.personalBest,
+            identity: entry.key,
+            amount: 1,
+            label: const SoriLocalizedCopy(
+              de: 'Persönliche Bestleistung',
+              en: 'Personal best',
+              key: SoriCopyKey.rewardBest,
+            ),
+          ),
+        );
+      }
+    }
     _appendDelta(
       items,
       kind: SoriRewardKind.gyeLantern,
@@ -184,20 +216,6 @@ abstract final class SoriStageRewardReceiptService {
       }
     }
     return delta;
-  }
-
-  static int _personalBestDelta(
-    Map<String, int> before,
-    Map<String, int> after,
-  ) {
-    var improved = 0;
-    for (final entry in after.entries) {
-      final previous = before[entry.key] ?? 0;
-      if (entry.value > previous) {
-        improved++;
-      }
-    }
-    return improved;
   }
 
   static String _stableReceiptId(

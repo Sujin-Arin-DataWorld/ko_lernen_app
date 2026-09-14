@@ -1,3 +1,4 @@
+import '../models/sori_stage_progression.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -156,7 +157,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   DateTime? _questionStart;
   DateTime? _lifecyclePauseStarted;
   bool _roundComplete = false;
-  int _roundXp = 0;
   bool _roundNewBest = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final QuestAbandonTracker _abandonTracker;
@@ -434,19 +434,25 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       // 라운드 종료 — XP 보상 + 개인 최고기록(정확도%).
       final accuracy = _roundCorrect / _roundSize;
       final xp = _roundCorrect * 4;
-      _roundXp = xp;
       Analytics.gameCompleted(
         gameType: 'chosung',
         result: accuracy >= 0.8 ? 'win' : 'lose',
         score: (accuracy * 100).round(),
       );
       _abandonTracker.markCompleted();
+      final completionIdentity = _feedbackCompletion.current;
       recordGameResult(
         gameId: 'chosung',
         xp: xp,
         score: (accuracy * 100).round(),
       ).then((o) {
-        if (mounted) setState(() => _roundNewBest = o.isNewBest);
+        if (mounted &&
+            identical(_feedbackCompletion.current, completionIdentity)) {
+          setState(() {
+            _roundOutcome = o;
+            _roundNewBest = o.isNewBest;
+          });
+        }
       });
       // 정확도 ≥80% 때만 단청 별 burst (과한 축하 자제).
       if (accuracy >= 0.8) {
@@ -466,7 +472,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     _focusNode.requestFocus();
   }
 
+  GameOutcome? _roundOutcome;
+
   void _startNewRound() {
+    _roundOutcome = null;
     HapticFeedback.selectionClick();
     _feedbackCompletion.reset();
     setState(() {
@@ -646,9 +655,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                         final t = AppL10n.of(context);
                         return _RoundSummaryCard(
                           correct: _roundCorrect,
+                          outcome: _roundOutcome,
                           total: _roundSize,
                           durationsMs: _roundDurationsMs,
-                          earnedXp: _roundXp,
+                          earnedXp: _roundOutcome?.xpGained ?? 0,
                           isNewBest: _roundNewBest,
                           recommendation: _recommendation(t),
                           feedbackCompletion: _feedbackCompletion.current,
@@ -765,6 +775,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
 // ── 라운드 요약 카드 ──────────────────────────────────────────────────────────
 class _RoundSummaryCard extends StatelessWidget {
+  final GameOutcome? outcome;
   final int correct;
   final int total;
   final List<int> durationsMs;
@@ -775,6 +786,7 @@ class _RoundSummaryCard extends StatelessWidget {
   final VoidCallback onContinue;
 
   const _RoundSummaryCard({
+    this.outcome,
     required this.correct,
     required this.total,
     required this.durationsMs,
@@ -873,30 +885,45 @@ class _RoundSummaryCard extends StatelessWidget {
                   const SizedBox(width: Spacing.sm),
                   _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
                   const SizedBox(width: Spacing.sm),
-                  _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
+                  if (outcome != null)
+                    LearningRewardPresentation(
+                      attempt: outcome?.attempt,
+                      kind: SoriRewardKind.xp,
+                      amount: earnedXp,
+                      child: _Stat(
+                        label: '+$earnedXp XP',
+                        color: SoriColors.gold,
+                      ),
+                    ),
                 ],
               ),
             ),
-            if (isNewBest) ...[
+            if (outcome != null && isNewBest) ...[
               const SizedBox(height: Spacing.sm),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    SoriGlyph.record,
-                    size: 15,
-                    color: SoriColors.gold,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    t.gameNewBest,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+              LearningRewardPresentation(
+                attempt: outcome?.attempt,
+                kind: SoriRewardKind.personalBest,
+                amount: outcome?.isNewBest == true ? 1 : 0,
+                identity: 'chosung',
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      SoriGlyph.record,
+                      size: 15,
                       color: SoriColors.gold,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 5),
+                    Text(
+                      t.gameNewBest,
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.gold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
             if (recommendation != null) ...[

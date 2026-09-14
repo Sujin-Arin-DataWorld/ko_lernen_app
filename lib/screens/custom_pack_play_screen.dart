@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -226,6 +227,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       _idx++;
       _serve++;
       if (_idx >= pack.words.length) {
+        if (pack.words.isNotEmpty) {
+          LearningJourneyObserver.beginAttempt()?.complete();
+        }
         _feedbackCompletion.complete(
           () => FeedbackCompletion.customPackPlay(
             packId: pack.id,

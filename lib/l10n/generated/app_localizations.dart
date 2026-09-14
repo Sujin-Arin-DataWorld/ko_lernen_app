@@ -8049,7 +8049,7 @@ abstract class AppL10n {
   /// No description provided for @gyeFindOrCreate.
   ///
   /// In de, this message translates to:
-  /// **'Eine 계 finden oder gründen'**
+  /// **'Gruppe beitreten oder gründen'**
   String get gyeFindOrCreate;
 
   /// No description provided for @gyeContinueSolo.
@@ -14427,7 +14427,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageHanokNow.
   ///
   /// In de, this message translates to:
-  /// **'Deine Hanok jetzt'**
+  /// **'Dein Hanok'**
   String get soriStageHanokNow;
 
   /// No description provided for @soriStageNextPiece.
@@ -14541,7 +14541,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageHanokUpdating.
   ///
   /// In de, this message translates to:
-  /// **'Dein Hanok wird gerade erneuert. Bald wieder da.'**
+  /// **'Hanok-Vorschau · die neue Ansicht entsteht.'**
   String get soriStageHanokUpdating;
 
   /// No description provided for @soriStageOpenMap.
@@ -17043,7 +17043,7 @@ abstract class AppL10n {
   /// No description provided for @todayGuideTitle.
   ///
   /// In de, this message translates to:
-  /// **'Hangul-Sori-Start-Anleitung'**
+  /// **'Die App kennenlernen'**
   String get todayGuideTitle;
 
   /// No description provided for @todayGuideDescription.
@@ -17459,6 +17459,240 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
   String get phaseTaskEarlierRevision;
+
+  /// No description provided for @learningFocusDestinationUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übung konnte nicht geöffnet werden. Versuch es bitte erneut.'**
+  String get learningFocusDestinationUnavailable;
+
+  /// No description provided for @learningFocusMinutes.
+  ///
+  /// In de, this message translates to:
+  /// **'Ca. {minutes} Min.'**
+  String learningFocusMinutes(int minutes);
+
+  /// No description provided for @catalogDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Details'**
+  String get catalogDetails;
+
+  /// No description provided for @catalogHowItWorks.
+  ///
+  /// In de, this message translates to:
+  /// **'So funktioniert’s'**
+  String get catalogHowItWorks;
+
+  /// No description provided for @catalogStartSession.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde starten'**
+  String get catalogStartSession;
+
+  /// No description provided for @catalogRecentlyOpened.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuletzt geöffnet'**
+  String get catalogRecentlyOpened;
+
+  /// No description provided for @catalogChoosePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Selbst üben'**
+  String get catalogChoosePractice;
+
+  /// No description provided for @catalogWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter'**
+  String get catalogWords;
+
+  /// No description provided for @catalogListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören'**
+  String get catalogListen;
+
+  /// No description provided for @catalogHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul'**
+  String get catalogHangul;
+
+  /// No description provided for @catalogReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get catalogReview;
+
+  /// No description provided for @catalogWordsSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter & Sätze'**
+  String get catalogWordsSection;
+
+  /// No description provided for @catalogListenSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören & Sprechen'**
+  String get catalogListenSection;
+
+  /// No description provided for @catalogHangulSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul & Schreiben'**
+  String get catalogHangulSection;
+
+  /// No description provided for @catalogReviewSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen & eigene Wörter'**
+  String get catalogReviewSection;
+
+  /// No description provided for @catalogAnotherRound.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch eine Runde?'**
+  String get catalogAnotherRound;
+
+  /// No description provided for @catalogProgressUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt konnte nicht geladen werden. Du kannst trotzdem üben.'**
+  String get catalogProgressUnavailable;
+
+  /// No description provided for @catalogBestScore.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestleistung: {count}'**
+  String catalogBestScore(int count);
+
+  /// No description provided for @catalogPacksCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Paket abgeschlossen} other{{count} Pakete abgeschlossen}}'**
+  String catalogPacksCompleted(int count);
+
+  /// No description provided for @catalogScenesCompleted.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Szene abgeschlossen} other{{count} Szenen abgeschlossen}}'**
+  String catalogScenesCompleted(int count);
+
+  /// No description provided for @catalogPronunciationPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Ausspracheprüfung bestanden} other{{count} Ausspracheprüfungen bestanden}}'**
+  String catalogPronunciationPassed(int count);
+
+  /// No description provided for @catalogDaysPracticed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{An 1 Tag geübt} other{An {count} Tagen geübt}}'**
+  String catalogDaysPracticed(int count);
+
+  /// No description provided for @learningFocusStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt lernen'**
+  String get learningFocusStart;
+
+  /// No description provided for @learningFocusViewCourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurs ansehen'**
+  String get learningFocusViewCourse;
+
+  /// No description provided for @learningFocusCoursePosition.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · Einheit {number}'**
+  String learningFocusCoursePosition(String level, int number);
+
+  /// No description provided for @catalogImageUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Bild fehlt'**
+  String get catalogImageUnavailable;
+
+  /// No description provided for @todayGuideExpand.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Themen anzeigen'**
+  String get todayGuideExpand;
+
+  /// No description provided for @todayGuideCollapse.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur nächstes Thema anzeigen'**
+  String get todayGuideCollapse;
+
+  /// Verified course units, never constructed buildings
+  ///
+  /// In de, this message translates to:
+  /// **'{built} / {total} Kurseinheiten bestätigt'**
+  String soriStageConfirmedUnits(int built, int total);
+
+  /// No description provided for @soriStageOpenHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok ansehen'**
+  String get soriStageOpenHanok;
+
+  /// No description provided for @soriStageHanokLearningSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Was du gelernt hast'**
+  String get soriStageHanokLearningSummary;
+
+  /// No description provided for @soriStageHanokProgressUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernfortschritt konnte nicht geladen werden.'**
+  String get soriStageHanokProgressUnavailable;
+
+  /// No description provided for @soriStageHanokNoUnits.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Kurseinheiten verfügbar.'**
+  String get soriStageHanokNoUnits;
+
+  /// No description provided for @soriStageNoQuests.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine'**
+  String get soriStageNoQuests;
+
+  /// No description provided for @gyeRootPurpose.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsam auf ein Wochenziel hinarbeiten.'**
+  String get gyeRootPurpose;
+
+  /// No description provided for @gyeRootPrivacy.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antworten und Ergebnisse bleiben privat.'**
+  String get gyeRootPrivacy;
+
+  /// No description provided for @soriStageHanokTasks.
+  ///
+  /// In de, this message translates to:
+  /// **'Aufgaben'**
+  String get soriStageHanokTasks;
+
+  /// No description provided for @soriStageHanokStamps.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel'**
+  String get soriStageHanokStamps;
+
+  /// No description provided for @soriStageHanokGifts.
+  ///
+  /// In de, this message translates to:
+  /// **'Geschenke'**
+  String get soriStageHanokGifts;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

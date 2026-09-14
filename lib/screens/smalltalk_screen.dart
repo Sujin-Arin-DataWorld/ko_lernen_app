@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -611,7 +612,8 @@ class _PhraseCardState extends State<_PhraseCard> {
     if (assessmentLink == null || !_canRecordRelationshipCheckpoint) return;
     final question = SmalltalkRelationshipCheckpoint.forPhrase(widget.p);
     setState(() => _savingRelationshipCheck = true);
-    final update = await CourseActivityReporter.recordContentAttempt(
+    final learningAttempt = LearningJourneyObserver.beginAttempt();
+    final work = CourseActivityReporter.recordContentAttempt(
       CurriculumContentKind.smalltalk,
       widget.p.id,
       question.isCorrect(selectedContext),
@@ -621,6 +623,14 @@ class _PhraseCardState extends State<_PhraseCard> {
           ? null
           : MasteryErrorReason.speechStyle,
     );
+    final update = await (learningAttempt == null
+        ? work
+        : learningAttempt.journey.track(work, learningAttempt));
+    if (update != null) {
+      learningAttempt?.complete(passed: question.isCorrect(selectedContext));
+    } else {
+      learningAttempt?.failed();
+    }
     if (!mounted) return;
     setState(() {
       _savingRelationshipCheck = false;

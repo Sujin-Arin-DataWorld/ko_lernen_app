@@ -83,7 +83,7 @@ void main() {
       '1',
     );
 
-    await tester.tap(find.text('Quests'));
+    await tester.tap(find.text('Tasks'));
     await tester.pumpAndSettle();
     expect(find.text('Return from quests'), findsOneWidget);
 
@@ -109,9 +109,9 @@ void main() {
     );
 
     expect(
-      tester.getSemantics(find.bySemanticsLabel('Quests, 1 / 1')),
+      tester.getSemantics(find.bySemanticsLabel('Tasks, 1 / 1')),
       matchesSemantics(
-        label: 'Quests, 1 / 1',
+        label: 'Tasks, 1 / 1',
         isButton: true,
         hasTapAction: true,
       ),
