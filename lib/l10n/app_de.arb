@@ -427,6 +427,18 @@
   "settingsImpressumTitle": "Impressum",
   "settingsLicensesTitle": "Open-Source-Lizenzen",
   "settingsLicensesSubtitle": "Verwendete Bibliotheken",
+  "aiVoiceNoticeTitle": "KI-Stimme",
+  "@aiVoiceNoticeTitle": {
+    "description": "C8 (EU AI Act Art. 50(2)) — Titel der KI-Stimmen-Offenlegung: Einstellungen-Zeile und Snackbar-Überschrift."
+  },
+  "aiVoiceNoticeBody": "Die koreanischen Stimmen in Hangul Sori werden mit Google Cloud Text-to-Speech (Chirp 3 HD) erzeugt. Es sind keine Aufnahmen echter Sprecher. Aussprache und Betonung können von natürlicher Sprache abweichen.",
+  "@aiVoiceNoticeBody": {
+    "description": "C8 (EU AI Act Art. 50(2)) — dauerhafter Offenlegungstext in Einstellungen: KI-Synthese statt menschlicher Sprecher."
+  },
+  "aiVoiceNoticeFirstPlay": "Diese Stimme ist KI-erzeugt.",
+  "@aiVoiceNoticeFirstPlay": {
+    "description": "C8 (EU AI Act Art. 50(2)) — einmalige Snackbar beim allerersten TTS-Playback (Storage.aiVoiceNoticeShownV1)."
+  },
   "settingsDataSourcesTitle": "Datenquellen",
   "settingsDataSourcesSubtitle": "Wörterbücher, Frequenzlisten, Übersetzungen",
   "settingsDataSourcesIntro": "Die Inhalte dieser App bauen auf öffentlich zugänglichen Sprachdaten auf. Jede Quelle ist hier mit Lizenz und Attribution genannt.",

@@ -1373,7 +1373,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
           trailing: const Icon(Icons.chevron_right_rounded),
           onTap: _showDataSources,
         ),
+        ListTile(
+          leading: const Icon(Icons.info_outline),
+          title: Text(t.aiVoiceNoticeTitle),
+          subtitle: Text(
+            t.aiVoiceNoticeBody,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          trailing: const Icon(Icons.chevron_right_rounded),
+          onTap: _showAiVoiceNotice,
+        ),
       ],
+    );
+  }
+
+  // C8 (EU AI Act Art. 50(2)) — dauerhafte Offenlegung: die koreanischen
+  // Stimmen sind KI-synthetisiert, keine Aufnahme eines echten Sprechers.
+  // Gleiches Sheet-Muster wie [_showOriginStory] — reiner Text, keine
+  // Badge/Chip-UI.
+  void _showAiVoiceNotice() {
+    final t = AppL10n.of(context);
+    showSoriSheet<void>(
+      context: context,
+      maxTextScaleFactor: 2.0,
+      builder: (ctx) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            header: true,
+            child: Text(t.aiVoiceNoticeTitle, style: SoriTextTheme.of(ctx).h2),
+          ),
+          const SizedBox(height: Spacing.md),
+          Text(t.aiVoiceNoticeBody, style: SoriTextTheme.of(ctx).body),
+          const SizedBox(height: Spacing.lg),
+          SoriButton.outlined(
+            label: MaterialLocalizations.of(ctx).closeButtonLabel,
+            fullWidth: true,
+            onTap: () => Navigator.of(ctx).pop(),
+          ),
+        ],
+      ),
     );
   }
 

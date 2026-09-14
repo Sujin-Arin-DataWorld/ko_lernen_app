@@ -3,10 +3,25 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/storage_service.dart';
 import '../../services/tts_service.dart';
 import 'pressable.dart';
 import 'route_observer.dart';
+import 'toast.dart';
 import 'tokens.dart';
+
+/// C8 (EU AI Act Art. 50(2)) — 사용자가 처음으로 한국어 TTS 재생을 트리거한
+/// 순간, 그 음성이 사람이 아니라 AI 합성(Google Cloud TTS, Chirp 3 HD)임을
+/// 스낵바로 딱 한 번 알린다. `Storage.aiVoiceNoticeShownV1` 로 게이트한다.
+///
+/// 트리거는 [TtsService]/[SoriSpeech](서비스·파사드 — UI-프리)가 아니라
+/// 여기, 실제로 탭을 받는 위젯([SoriSpeakable]/[SoriSpeechIndicator]) 안에
+/// 둔다 — 이 둘만 스낵바를 띄우는 데 필요한 `BuildContext`를 갖고 있다.
+void _announceAiVoiceOnce(BuildContext context) {
+  if (Storage.aiVoiceNoticeShownV1) return;
+  Storage.setAiVoiceNoticeShownV1();
+  soriNotice(context, AppL10n.of(context).aiVoiceNoticeFirstPlay);
+}
 
 /// **SoriSpeech** — TtsService 위 얇은 파사드.
 ///
@@ -373,6 +388,7 @@ class SoriSpeakable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void handleTap() {
+      _announceAiVoiceOnce(context);
       SoriSpeech.speak(text, voice: voice);
     }
 
@@ -430,6 +446,7 @@ class SoriSpeechIndicator extends StatelessWidget {
           if (phase != TtsSpeechPhase.idle) {
             SoriSpeech.stop();
           } else {
+            _announceAiVoiceOnce(context);
             SoriSpeech.speak(text, voice: voice);
           }
         }

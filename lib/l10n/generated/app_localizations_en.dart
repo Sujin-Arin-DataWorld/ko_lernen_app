@@ -952,6 +952,16 @@ class AppL10nEn extends AppL10n {
   String get settingsLicensesSubtitle => 'Bundled libraries';
 
   @override
+  String get aiVoiceNoticeTitle => 'AI Voice';
+
+  @override
+  String get aiVoiceNoticeBody =>
+      'The Korean voices in Hangul Sori are generated with Google Cloud Text-to-Speech (Chirp 3 HD). They are not recordings of a real speaker. Pronunciation and intonation may differ from natural speech.';
+
+  @override
+  String get aiVoiceNoticeFirstPlay => 'This voice is AI-generated.';
+
+  @override
   String get settingsDataSourcesTitle => 'Data sources';
 
   @override
