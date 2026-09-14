@@ -9,6 +9,31 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get packCompletionRetired =>
+      'This result is no longer active. Return to your vocabulary packs.';
+
+  @override
+  String get packCompletionPending =>
+      'Your pack result is still being saved. You can retry saving it.';
+
+  @override
+  String get packCompletionSaved => 'Your pack result is saved.';
+
+  @override
+  String get packCompletionView => 'View result';
+
+  @override
+  String get srsRecoveryPending =>
+      'Your last review is still being saved. Review progress will stay paused until it is recovered.';
+
+  @override
+  String get srsRecoveryBlocked =>
+      'Your last review could not be recovered yet. Finish any pending account recovery, then try again.';
+
+  @override
+  String get srsRecoveryRetry => 'Retry saving review';
+
+  @override
   String get learningPhasesTitle => '30 learning phases';
 
   @override
@@ -403,6 +428,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get btnRetry => 'Try again';
+
+  @override
+  String get choiceSaveConfirmationFailed =>
+      'We couldn’t confirm that your choice was saved. Please try again.';
 
   @override
   String get btnClose => 'Close';
@@ -844,7 +873,50 @@ class AppL10nEn extends AppL10n {
   String get settingsPrivacyTitle => 'Privacy Policy';
 
   @override
-  String get settingsPrivacySubtitle => 'Copy link';
+  String get settingsUpdateTitle => 'Check for updates';
+
+  @override
+  String get settingsUpdateSubtitle =>
+      'Get the newest version from Google Play';
+
+  @override
+  String get settingsUpdateChecking => 'Checking';
+
+  @override
+  String get settingsUpdateUpToDate => 'You already have the newest version.';
+
+  @override
+  String settingsUpdateAvailable(Object v) {
+    return 'New version $v is here.';
+  }
+
+  @override
+  String get settingsUpdateDialogTitle => 'Update available';
+
+  @override
+  String settingsUpdateDialogBody(Object v) {
+    return 'Version $v will now be downloaded and installed through Google Play.';
+  }
+
+  @override
+  String get settingsUpdateStart => 'Update now';
+
+  @override
+  String get settingsUpdateLater => 'Later';
+
+  @override
+  String get settingsUpdateDeclined => 'Update cancelled.';
+
+  @override
+  String get settingsUpdateFailed =>
+      'The update did not work. Continue in the Play Store.';
+
+  @override
+  String get settingsUpdateUnavailable =>
+      'Cannot check here. Look in the Play Store.';
+
+  @override
+  String get settingsPrivacySubtitle => 'Open privacy policy';
 
   @override
   String settingsPrivacyCopied(Object url) {
@@ -2381,10 +2453,18 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.';
+      'This permanently deletes your Firebase account, cloud backup, and local learning data on this device. Google or Apple may ask you to sign in again to confirm.';
 
   @override
-  String get settingsAccountDeleteSuccess => 'Account and data deleted';
+  String get settingsAccountDeleteSuccess =>
+      'Deletion accepted. Local data cleared; server cleanup continues in the background.';
+
+  @override
+  String get settingsAccountDeleteAppleGuidance =>
+      'After deleting your account here, check your Apple Account under Sign-In & Security > Sign in with Apple. If Hangul Sori is still listed, select it and stop using Sign in with Apple. You can delete your account here without opening these instructions.';
+
+  @override
+  String get settingsAccountDeleteAppleHelp => 'Open Apple instructions';
 
   @override
   String settingsAccountDeleteFailed(Object error) {
@@ -2395,7 +2475,7 @@ class AppL10nEn extends AppL10n {
   String get settingsAccountDeletionTitle => 'Account & data deletion';
 
   @override
-  String get settingsAccountDeletionSubtitle => 'Copy account-deletion link';
+  String get settingsAccountDeletionSubtitle => 'Open account deletion page';
 
   @override
   String get statsGotIt => 'Got it';
@@ -8332,6 +8412,47 @@ class AppL10nEn extends AppL10n {
       'Hanok preview · the new view is in progress.';
 
   @override
+  String sarangchaeConstructionProgress(int earned, int total) {
+    return '$earned of $total construction stages';
+  }
+
+  @override
+  String get sarangchaeConstructionStages => 'Construction stages';
+
+  @override
+  String get sarangchaeLessonLanguage => 'Lesson language';
+
+  @override
+  String sarangchaeStageTransition(int before, int after) {
+    return 'Stage $before → stage $after';
+  }
+
+  @override
+  String sarangchaeStageUnlocked(int stage) {
+    return 'Stage $stage unlocked';
+  }
+
+  @override
+  String sarangchaeStageLocked(int stage) {
+    return 'Stage $stage is still locked';
+  }
+
+  @override
+  String get sarangchaeStartMission =>
+      'Complete a learning mission to begin your sarangchae.';
+
+  @override
+  String sarangchaeNewStages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count new construction stages',
+      one: '1 new construction stage',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get soriStageOpenMap => 'Open Hanok map';
 
   @override
@@ -10156,6 +10277,21 @@ class AppL10nEn extends AppL10n {
   String get onboardingV2ReplayDemo => 'Replay demo';
 
   @override
+  String get privacyChoicePending => 'Your choice is being saved.';
+
+  @override
+  String get privacyChoiceUnconfirmed =>
+      'Your choice could not be fully applied. Please retry. Collection remains off.';
+
+  @override
+  String get privacyWithdrawalUnconfirmed =>
+      'Collection is off for this session. Saving your withdrawal could not be confirmed. Please retry before closing the app.';
+
+  @override
+  String get privacyApplicationUnconfirmed =>
+      'Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry.';
+
+  @override
   String get phaseTasksTitle => 'Phase tasks';
 
   @override
@@ -10232,6 +10368,59 @@ class AppL10nEn extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Earlier attempt saved · task has since been revised';
+
+  @override
+  String get sarangchaeLanguageKorean => '한국어';
+
+  @override
+  String get sarangchaeLanguageGerman => 'Deutsch';
+
+  @override
+  String get sarangchaeLanguageEnglish => 'English';
+
+  @override
+  String get ilduConstructionTitle => 'How a hanok is built';
+
+  @override
+  String get ilduConstructionIntro =>
+      'Watch the small gate and storehouse take shape, and practise Korean along the way.';
+
+  @override
+  String ilduConstructionStep(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get ilduConstructionPrevious => 'Previous step';
+
+  @override
+  String get ilduConstructionNext => 'Next step';
+
+  @override
+  String get ilduConstructionCorrect =>
+      'That\'s right. Find that part in the picture.';
+
+  @override
+  String get ilduConstructionTryAgain => 'Look at the picture and try again.';
+
+  @override
+  String get ilduConstructionScene => 'The situation';
+
+  @override
+  String get ilduConstructionTerms => 'Construction terms';
+
+  @override
+  String get ilduConstructionCulture => 'The space and its role';
+
+  @override
+  String get ilduConstructionEmptyTitle => 'An empty site';
+
+  @override
+  String get ilduConstructionEmptyBody =>
+      'Before construction begins, there is an open space. Watch a building take shape here.';
+
+  @override
+  String get ilduConstructionStart => 'Start building';
 
   @override
   String get learningFocusDestinationUnavailable =>

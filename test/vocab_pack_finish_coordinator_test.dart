@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
+import 'package:ko_lernen_app/services/local_data_lifetime.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   group('VocabPackFinishCoordinator', () {
@@ -53,6 +56,54 @@ void main() {
         expect(operations.callCount(step), 1);
       }
     });
+
+    for (final pendingStep in <String>['boss', 'course']) {
+      test(
+        'local reset while $pendingStep is pending prevents every later finish write',
+        () async {
+          Storage.resetForTesting();
+          SharedPreferences.setMockInitialValues(<String, Object>{});
+          await Storage.init();
+          final gate = Completer<void>();
+          final operations = _FakeFinishOperations(
+            bossGate: pendingStep == 'boss' ? gate : null,
+            courseGate: pendingStep == 'course' ? gate : null,
+          );
+          final coordinator = VocabPackFinishCoordinator(operations);
+          final request = _request();
+
+          final finishing = coordinator.finish(request);
+          await Future<void>.delayed(Duration.zero);
+          expect(
+            operations.calls,
+            pendingStep == 'boss'
+                ? <String>['boss']
+                : <String>['boss', 'course'],
+          );
+          final previousLifetime = LocalDataLifetime.capture();
+          final reset = Storage.resetAllStrict();
+          while (previousLifetime.isCurrent) {
+            await Future<void>.delayed(Duration.zero);
+          }
+          gate.complete();
+          await expectLater(
+            finishing,
+            throwsA(isA<StaleLocalDataLifetimeException>()),
+          );
+          await reset;
+          final writesAfterReset = List<String>.of(operations.calls);
+
+          await expectLater(
+            coordinator.finish(request),
+            throwsA(isA<StaleLocalDataLifetimeException>()),
+          );
+          expect(operations.calls, writesAfterReset);
+          expect(operations.calls, isNot(contains('xp')));
+          expect(operations.calls, isNot(contains('stamp')));
+          expect(operations.calls, isNot(contains('pending')));
+        },
+      );
+    }
   });
 }
 
@@ -60,7 +111,7 @@ const _stepNames = <String>['boss', 'course', 'xp', 'stamp', 'pending'];
 
 VocabPackFinishRequest _request() {
   const pack = VocabPack(id: 'a1_pack', level: 'A1', words: []);
-  return const VocabPackFinishRequest(
+  return VocabPackFinishRequest(
     pack: pack,
     siblingPacks: [pack],
     bossAccuracy: 1,
@@ -73,10 +124,11 @@ VocabPackFinishRequest _request() {
 }
 
 class _FakeFinishOperations implements VocabPackFinishOperations {
-  _FakeFinishOperations({this.failOnceAt, this.bossGate});
+  _FakeFinishOperations({this.failOnceAt, this.bossGate, this.courseGate});
 
   final int? failOnceAt;
   final Completer<void>? bossGate;
+  final Completer<void>? courseGate;
   final List<String> calls = <String>[];
   bool _failed = false;
 
@@ -104,8 +156,10 @@ class _FakeFinishOperations implements VocabPackFinishOperations {
   }
 
   @override
-  Future<void> recordCourseAttempt(VocabPackFinishRequest request) =>
-      _run('course');
+  Future<void> recordCourseAttempt(VocabPackFinishRequest request) async {
+    await _run('course');
+    await courseGate?.future;
+  }
 
   @override
   Future<void> awardXp(VocabPackFinishRequest request) => _run('xp');

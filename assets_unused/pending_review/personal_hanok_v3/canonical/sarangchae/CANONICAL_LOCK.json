@@ -1,0 +1,55 @@
+{
+  "schema": "hanok-canonical-art-master-v1",
+  "buildingId": "sarangchae",
+  "status": "approved_canonical_runtime_sequence",
+  "approvedBy": "Jin",
+  "approvedAt": "2026-09-14",
+  "approvalEvidence": "아 좋다.이걸로 정본화 시켜주고, 이 사랑채를 단계별로 짓는다고 가정한다면 몇단계로 나눠서 지으면 가장 멋지게 한옥 설계를 외국인들한테 알려줄수있을까?? 한번 조사해봐. 기존에는 12단계로 햇거든.",
+  "file": "sarangchae-v3-canonical.png",
+  "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "bytes": 2328995,
+  "canvas": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "background": "original white/off-white",
+  "copiedWithoutReencoding": true,
+  "provenance": {
+    "generationTool": "built-in image_gen",
+    "approvedCandidate": "sarangchae-v3-maintained-v03",
+    "approvedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+    "originalArchitectureSha256": "0657f5c46430923dc3abd46c20f0cd456ea0ec4ea468111b84dac302fb357548",
+    "supersededSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+    "retiredSourceFilesRemovedByUserApproval": true
+  },
+  "authority": {
+    "styleRegistry": "docs/assets/STYLE_LOCK.json#families.F-D-ildoo",
+    "role": "Approved completed-building illustration; authority for future Sarangchae construction artwork in this view.",
+    "appearance": "Highly detailed hand-painted 2.5D Hanok, meticulously maintained inhabited condition, restrained idealization.",
+    "invariants": [
+      "Complete silhouette, camera, framing, canvas and ground registration of this approved image.",
+      "Roof masses and joint, projecting right numaru, bay arrangement and both outer eave supports.",
+      "Staircase, masonry boundaries, lattice pattern, rail cutouts, door opening angles and both plaques.",
+      "Real interior depth: visible room, rear surfaces, beams, porch and numaru underside.",
+      "Fine healthy material texture; no return to neglected weathering and no low-poly simplification."
+    ],
+    "constructionCompletion": "Use these exact image bytes for the completed stage in the approved source view; do not regenerate the final frame.",
+    "constructionIntermediateStages": "All fifteen intermediate images and exact completed stage approved by Jin on 2026-09-14; runtime MANIFEST.json locks every image hash.",
+    "historicalAccuracy": "Approval of illustration identity, not certification of hidden structure or a measured reconstruction. Plaque translation requires separate textual verification."
+  },
+  "runtime": {
+    "promoted": true,
+    "manifest": "assets/illustrations/personal_hanok_v3/sarangchae/MANIFEST.json",
+    "catalog": "assets/data/sarangchae_construction_v3.json",
+    "completedAsset": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+    "worldCompatibilityCopy": "assets/illustrations/personal_hanok_v3/world/sarangchae.png",
+    "presentation": "Single approved view, complete image with contain sizing and no filters; retired eight-angle set removed."
+  },
+  "sequenceApproval": {
+    "approvedBy": "Jin",
+    "approvedAt": "2026-09-14",
+    "stageCount": 16,
+    "evidence": "너무 좋다. 이거 정본 승인해서 라이브되게해주고 메인에 병합 해주고, 이것외에 다른 사랑채 전부 삭제해도돼."
+  }
+}

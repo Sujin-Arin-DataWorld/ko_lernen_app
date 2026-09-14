@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'phase_task_catalog.dart';
 
 import '../models/can_do_segment.dart';
+import '../models/content_id.dart';
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
@@ -14,6 +15,41 @@ import 'curriculum_catalog.dart';
 import 'course_segment_catalog.dart';
 import 'productive_assessment_service.dart';
 import 'storage_service.dart';
+
+/// Process-retained identity and prepared evidence for one accepted answer.
+///
+/// The prepared entries capture mission provenance before the native write.
+/// When that write's outcome is unknown, the same object can distinguish a
+/// committed snapshot from a rolled-back one without deriving a new answer.
+final class CourseContentEvidenceReceipt {
+  CourseContentEvidenceReceipt(this.id) {
+    if (id.trim().isEmpty) {
+      throw ArgumentError.value(id, 'id', 'must not be empty');
+    }
+  }
+
+  final String id;
+  List<MasteryEvidence>? _preparedEvidence;
+
+  List<MasteryEvidence> get _requiredEvidence =>
+      _preparedEvidence ??
+      (throw StateError('Course content evidence has not been prepared.'));
+
+  bool confirms(CourseMasterySnapshot snapshot) {
+    final required = _requiredEvidence;
+    for (final expected in required) {
+      final matches = snapshot.evidence.where(
+        (entry) =>
+            entry.id == expected.id &&
+            jsonEncode(entry.toJson()) == jsonEncode(expected.toJson()),
+      );
+      if (matches.length != 1) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
 
 /// A corrective activity for an answer that needs more than vocabulary SRS.
 class RemediationRecommendation {
@@ -84,10 +120,42 @@ class CourseMasteryService {
   /// active-mission unlock inputs take priority over ordinary history.
   static const int evidenceCap = 300;
 
+  /// Extra Phase attempt history kept after the newest state and distinct
+  /// assessment outcomes for every published task revision are protected.
+  static const int phaseTaskRepeatHistoryCap = 300;
+
   final CurriculumCatalog catalog;
   final PreferenceStringStore? snapshotPreferences;
   CourseMasterySnapshot _snapshot = const CourseMasterySnapshot.empty();
   bool _loaded = false;
+  bool _preparingPackCompletion = false;
+
+  /// Uses the same validation/evidence/advancement reducer as live evidence,
+  /// on a private service instance and without initializing native storage.
+  Future<CourseMasterySnapshot> preparePackCompletion({
+    required CoursePracticeContext context,
+    required double score,
+    required DateTime occurredAt,
+    required String completionId,
+  }) async {
+    _preparingPackCompletion = true;
+    try {
+      readForDisplay();
+      final update = await recordContentAttempt(
+        CurriculumContentKind.vocab,
+        context.initialContentId,
+        score >= .70,
+        courseContext: context,
+        score: score,
+        occurredAt: occurredAt,
+        errorReason: score >= .70 ? null : MasteryErrorReason.vocabularyRecall,
+        evidenceReceipt: CourseContentEvidenceReceipt(completionId),
+      );
+      return update.snapshot;
+    } finally {
+      _preparingPackCompletion = false;
+    }
+  }
 
   CourseMasterySnapshot get snapshot => _snapshot;
   CourseUnit? get currentUnit => _snapshot.currentCourseUnitId == null
@@ -162,14 +230,14 @@ class CourseMasteryService {
       bodyOf: (entry) => jsonEncode(entry.toJson()),
       conflicts: conflicts,
     );
-    final phaseEvidence = _mergeIdentityHistory<PhaseAttemptEvidence>(
+    final mergedPhaseEvidence = _mergeIdentityHistory<PhaseAttemptEvidence>(
       effectiveLocal?.phaseTaskEvidence ?? const [],
       effectiveRemote?.phaseTaskEvidence ?? const [],
       kind: CourseMasteryMergeConflictKind.phaseTaskEvidence,
       idOf: (e) => e.attemptId,
       bodyOf: (e) => jsonEncode(e.toJson()),
       conflicts: conflicts,
-    )..sort((a, b) => a.attemptId.compareTo(b.attemptId));
+    );
     final checkpoints = _mergeIdentityHistory<ScenarioCheckpointEvidence>(
       effectiveLocal?.scenarioCheckpoints ?? const [],
       effectiveRemote?.scenarioCheckpoints ?? const [],
@@ -226,6 +294,10 @@ class CourseMasteryService {
     if (conflicts.isNotEmpty) {
       return CourseMasteryMergeResult.conflicted(_sortedConflicts(conflicts));
     }
+
+    // Compact only after every stable-ID conflict has been checked. A
+    // conflicting attempt must not disappear merely because it is old.
+    final phaseEvidence = _retainedPhaseTaskEvidence(mergedPhaseEvidence);
 
     final completedIds = completed.toList()..sort(_compareUnitIds);
     final bypassedIds = bypassed.toList()..sort(_compareUnitIds);
@@ -300,6 +372,7 @@ class CourseMasteryService {
     String? expectedGeneration,
   }) async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     if (expectedGeneration != null &&
         Storage.courseMasterySnapshotRawJson != expectedGeneration) {
       throw const LocalReconciliationGenerationConflict();
@@ -311,7 +384,7 @@ class CourseMasteryService {
     // Placement may reset active course history, but archived productive proof
     // is durable reward authority and must survive independently of that flag.
     final previous = hasDurableSnapshot
-        ? readForDisplay() ?? const CourseMasterySnapshot.empty()
+        ? readForReconciliation() ?? const CourseMasterySnapshot.empty()
         : const CourseMasterySnapshot.empty();
     final targetRank = _levelRank(level);
     final completed = preserveHistory
@@ -388,22 +461,24 @@ class CourseMasteryService {
   /// evidence is rejected before it can be aggregated into mastery/unlocks.
   Future<CourseMasterySnapshot> refresh() async {
     _ensureCatalogUsable();
+    _loaded = false;
+    await confirmDurableState();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     final raw = canonicalRaw.isNotEmpty
         ? canonicalRaw
         : Storage.legacyCourseMasteryRawJson.trim();
     if (raw.isEmpty) {
-      _snapshot = CourseMasterySnapshot(
+      final candidate = CourseMasterySnapshot(
         curriculumGeneration: catalog.scenarioCorpusGeneration,
         placementLevel: Storage.placementLevelCode,
         currentCourseUnitId: Storage.courseUnitId,
       );
-      _validateSnapshot(_snapshot);
-      _loaded = true;
-      await _persist();
+      await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
       await Storage.migrateScenarioProgressGeneration(
         catalog.scenarioCorpusGeneration,
       );
+      _snapshot = candidate;
+      _loaded = true;
       return _snapshot;
     }
     final decoded = jsonDecode(raw);
@@ -416,19 +491,20 @@ class CourseMasteryService {
     final decodedSnapshot = CourseMasterySnapshot.decodeAndMigrate(
       snapshotJson,
     );
-    _snapshot = _migrateForCatalogGeneration(decodedSnapshot);
-    _validateSnapshot(_snapshot);
-    _loaded = true;
+    final candidate = _migrateForCatalogGeneration(decodedSnapshot);
+    _validateSnapshot(candidate);
     if (canonicalRaw.isEmpty ||
         CourseMasterySnapshot.sourceVersionFor(snapshotJson) !=
             CourseMasterySnapshot.currentVersion ||
         decodedSnapshot.curriculumGeneration !=
-            _snapshot.curriculumGeneration) {
-      await _persist();
+            candidate.curriculumGeneration) {
+      await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
     }
     await Storage.migrateScenarioProgressGeneration(
       catalog.scenarioCorpusGeneration,
     );
+    _snapshot = candidate;
+    _loaded = true;
     return _snapshot;
   }
 
@@ -451,6 +527,7 @@ class CourseMasteryService {
   /// particular, the unrelated legacy user-level fallback is not course state.
   CourseMasterySnapshot? readForReconciliation() {
     _ensureCatalogUsable();
+    Storage.assertCourseMasteryStateConfirmed();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     final legacyRaw = Storage.legacyCourseMasteryRawJson.trim();
     final raw = canonicalRaw.isNotEmpty ? canonicalRaw : legacyRaw;
@@ -488,6 +565,7 @@ class CourseMasteryService {
   /// them. Browse and legacy account-level state are never inputs here.
   Future<CourseMasterySnapshot?> migrateForCloudCapture() async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     final canonicalRaw = Storage.courseMasterySnapshotRawJson.trim();
     if (canonicalRaw.isNotEmpty) {
       final snapshotJson = _decodeStoredSnapshotJson(canonicalRaw);
@@ -553,6 +631,7 @@ class CourseMasteryService {
     void Function()? assertCurrentWrite,
   }) async {
     _ensureCatalogUsable();
+    await confirmDurableState();
     if (expectedGeneration != null &&
         Storage.courseMasterySnapshotRawJson != expectedGeneration) {
       throw const LocalReconciliationGenerationConflict();
@@ -585,8 +664,9 @@ class CourseMasteryService {
     if (!_canActivate(target)) {
       throw StateError('Course unit ${target.id} is not unlocked.');
     }
-    _snapshot = _snapshot.copyWith(currentCourseUnitId: target.id);
-    await _persist();
+    final candidate = _snapshot.copyWith(currentCourseUnitId: target.id);
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return _snapshot;
   }
 
@@ -604,8 +684,12 @@ class CourseMasteryService {
     MasteryErrorReason? errorReason,
     DateTime? occurredAt,
     double? score,
+    CourseContentEvidenceReceipt? evidenceReceipt,
+    void Function()? assertCurrentWrite,
   }) async {
+    assertCurrentWrite?.call();
     await _ensureLoaded();
+    assertCurrentWrite?.call();
     final previousSnapshot = _snapshot;
     final timestamp = _validTimestamp(occurredAt ?? DateTime.now().toUtc());
     final checkedScore = _validOptionalScore(score);
@@ -712,8 +796,6 @@ class CourseMasteryService {
     if (conceptIds.isEmpty) {
       throw const FormatException('Content attempt has no linked concept.');
     }
-
-    final entries = <MasteryEvidence>[..._snapshot.evidence];
     for (final id in conceptIds) {
       _requireKnownConcept(id);
       final matchingLinks = eligibleLinks
@@ -724,32 +806,92 @@ class CourseMasteryService {
           'Content ${kind.code}:$normalizedContentId is not linked to concept $id.',
         );
       }
+    }
+
+    final prepared = evidenceReceipt?._preparedEvidence;
+    if (prepared != null) {
+      final preparedConceptIds = prepared
+          .map((entry) => entry.conceptId)
+          .toSet();
+      final requestMatches =
+          prepared.length == conceptIds.length &&
+          preparedConceptIds.length == conceptIds.length &&
+          preparedConceptIds.containsAll(conceptIds) &&
+          prepared.every(
+            (entry) =>
+                entry.contentKind == kind &&
+                entry.contentId == normalizedContentId &&
+                entry.isCorrect == isCorrect &&
+                entry.occurredAt == timestamp &&
+                entry.errorReason == errorReason &&
+                entry.score == checkedScore,
+          );
+      if (!requestMatches) {
+        throw StateError('Retained course attempt changed before retry.');
+      }
+      final presentIds = _snapshot.evidence
+          .where((entry) => prepared.any((item) => item.id == entry.id))
+          .map((entry) => entry.id)
+          .toSet();
+      if (presentIds.isNotEmpty && !evidenceReceipt!.confirms(_snapshot)) {
+        throw StateError('Retained course evidence is only partly confirmed.');
+      }
+      if (evidenceReceipt!.confirms(_snapshot)) {
+        final queue = reviewQueue;
+        return CourseUpdate(
+          snapshot: _snapshot,
+          currentUnit: currentUnit,
+          previousSnapshot: previousSnapshot,
+          remediation: queue.isEmpty ? null : queue.first,
+        );
+      }
+    }
+
+    final List<MasteryEvidence> attemptEvidence;
+    if (prepared != null) {
+      attemptEvidence = prepared;
+    } else {
       final activeLink =
           contextEntry != null && currentUnit?.id == contextEntry.courseUnitId
           ? contextEntry
           : null;
-      entries.add(
-        MasteryEvidence(
-          conceptId: id,
-          contentKind: kind,
-          contentId: normalizedContentId,
-          courseUnitId: activeLink?.courseUnitId,
-          missionContentLinkId: activeLink?.id,
-          isCorrect: isCorrect,
-          occurredAt: timestamp,
-          errorReason: errorReason,
-          score: checkedScore,
-          // Only an exact assessment edge may change sequential mastery.
-          // Typed practice still keeps its unit provenance so the mission
-          // brief can advance without pretending that practice was a test.
-          courseEligible:
-              activeLink?.role == ContentLinkRole.assess &&
-              _requiresTypedMissionContext(kind),
-        ),
-      );
+      attemptEvidence = [
+        for (final id in conceptIds)
+          MasteryEvidence(
+            id: evidenceReceipt == null
+                ? null
+                : stableContentId('retained_evidence', [
+                    evidenceReceipt.id,
+                    id,
+                  ]),
+            conceptId: id,
+            contentKind: kind,
+            contentId: normalizedContentId,
+            courseUnitId: activeLink?.courseUnitId,
+            missionContentLinkId: activeLink?.id,
+            isCorrect: isCorrect,
+            occurredAt: timestamp,
+            errorReason: errorReason,
+            score: checkedScore,
+            courseEligible:
+                activeLink?.role == ContentLinkRole.assess &&
+                _requiresTypedMissionContext(kind),
+          ),
+      ];
+      evidenceReceipt?._preparedEvidence = List.unmodifiable(attemptEvidence);
     }
-    _snapshot = _snapshot.copyWith(evidence: _boundedEvidence(entries));
-    return _commitUpdate(previousSnapshot: previousSnapshot);
+    for (final entry in attemptEvidence) {
+      _validateEvidence(entry);
+    }
+
+    final entries = <MasteryEvidence>[..._snapshot.evidence];
+    entries.addAll(attemptEvidence);
+    final candidate = _snapshot.copyWith(evidence: _boundedEvidence(entries));
+    return _commitUpdate(
+      candidate,
+      previousSnapshot: previousSnapshot,
+      assertCurrentWrite: assertCurrentWrite,
+    );
   }
 
   /// Records a scenario's aggregate checkpoint score. Only a score completed
@@ -800,7 +942,7 @@ class CourseMasteryService {
               .cast<ContentLink?>()
               .firstWhere((link) => link != null, orElse: () => null);
     final sourceLink = activeCheckpoint ?? _preferredLink(links);
-    _snapshot = _snapshot.copyWith(
+    final candidate = _snapshot.copyWith(
       scenarioCheckpoints: _boundedCheckpoints([
         ..._snapshot.scenarioCheckpoints,
         ScenarioCheckpointEvidence(
@@ -813,7 +955,7 @@ class CourseMasteryService {
         ),
       ]),
     );
-    return _commitUpdate(previousSnapshot: previousSnapshot);
+    return _commitUpdate(candidate, previousSnapshot: previousSnapshot);
   }
 
   /// Records a deterministic receipt for source-review step 1 or 3 without
@@ -903,13 +1045,13 @@ class CourseMasteryService {
         entry.id: entry,
       accepted.id: accepted,
     }.values.toList()..sort(_compareProductiveProjectStepEvidence);
-    _snapshot = _snapshot.copyWith(productiveProjectStepEvidence: merged);
-    _validateSnapshot(_snapshot);
-    await _persist();
-    if (_snapshot.currentCourseUnitId != beforeCurrent ||
-        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+    final candidate = _snapshot.copyWith(productiveProjectStepEvidence: merged);
+    if (candidate.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(candidate.completedUnitIds, beforeCompleted)) {
       throw StateError('Project source review mutated course progression.');
     }
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return ProductiveProjectStepUpdate(
       snapshot: _snapshot,
       acceptedEvidence: accepted,
@@ -1067,13 +1209,13 @@ class CourseMasteryService {
               entry.rubricVersion == definition.rubricVersion,
         ),
     ];
-    _snapshot = _snapshot.copyWith(productiveEvidence: merged);
-    _validateSnapshot(_snapshot);
-    await _persist();
-    if (_snapshot.currentCourseUnitId != beforeCurrent ||
-        !_sameOrderedStrings(_snapshot.completedUnitIds, beforeCompleted)) {
+    final candidate = _snapshot.copyWith(productiveEvidence: merged);
+    if (candidate.currentCourseUnitId != beforeCurrent ||
+        !_sameOrderedStrings(candidate.completedUnitIds, beforeCompleted)) {
       throw StateError('Productive evidence mutated course progression.');
     }
+    await _persistSnapshot(candidate, mirrorLegacyUserLevel: true);
+    _snapshot = candidate;
     return ProductiveCourseUpdate(
       snapshot: _snapshot,
       acceptedEvidence: List.unmodifiable(selected),
@@ -1125,20 +1267,50 @@ class CourseMasteryService {
   }
 
   Future<void> _ensureLoaded() async {
-    if (!_loaded) await refresh();
+    await confirmDurableState();
+    if (!_loaded) {
+      await refresh();
+    }
   }
 
-  Future<CourseUpdate> _commitUpdate({
+  /// Resolves unknown persistence through this service's preference boundary.
+  /// It only reads and invalidates stale loaded state; it does not initialize,
+  /// migrate, or persist a course. Synchronous readers still validate the graph.
+  Future<void> confirmDurableState() async {
+    if (await Storage.confirmCourseMasteryState(
+      preferences: snapshotPreferences,
+    )) {
+      _loaded = false;
+    }
+  }
+
+  Future<CourseUpdate> _commitUpdate(
+    CourseMasterySnapshot candidate, {
     CourseMasterySnapshot? previousSnapshot,
+    void Function()? assertCurrentWrite,
   }) async {
     // Compact legacy oversized snapshots before the next durable write too,
     // not only when the corresponding list was appended in this call.
-    _snapshot = _snapshot.copyWith(
-      evidence: _boundedEvidence(_snapshot.evidence),
-      scenarioCheckpoints: _boundedCheckpoints(_snapshot.scenarioCheckpoints),
+    candidate = candidate.copyWith(
+      evidence: _boundedEvidence(candidate.evidence),
+      scenarioCheckpoints: _boundedCheckpoints(candidate.scenarioCheckpoints),
     );
-    final newlyUnlocked = _advanceIfPassed();
-    await _persist();
+    final advanced = _advanceIfPassed(candidate);
+    if (!_preparingPackCompletion) {
+      await _persistSnapshot(
+        advanced,
+        mirrorLegacyUserLevel: true,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+    } else {
+      _ensureCatalogUsable();
+      _validateSnapshot(advanced);
+    }
+    _snapshot = advanced;
+    final newlyUnlocked =
+        advanced.currentCourseUnitId != candidate.currentCourseUnitId
+        ? currentUnit
+        : null;
     final queue = reviewQueue;
     return CourseUpdate(
       snapshot: _snapshot,
@@ -1149,14 +1321,16 @@ class CourseMasteryService {
     );
   }
 
-  CourseUnit? _advanceIfPassed() {
+  CourseMasterySnapshot _advanceIfPassed(CourseMasterySnapshot snapshot) {
     final unit = currentUnit;
-    if (unit == null || !_unitPassed(unit)) return null;
-    final completed = <String>{..._snapshot.completedUnitIds, unit.id}.toList()
+    if (unit == null || !_unitPassed(unit, snapshot)) {
+      return snapshot;
+    }
+    final completed = <String>{...snapshot.completedUnitIds, unit.id}.toList()
       ..sort(_compareUnitIds);
     final resolved = <String>{
       ...completed,
-      ..._snapshot.bypassedPrerequisiteUnitIds,
+      ...snapshot.bypassedPrerequisiteUnitIds,
     };
     CourseUnit? next;
     for (final candidate in _orderedUnits) {
@@ -1167,19 +1341,18 @@ class CourseMasteryService {
         break;
       }
     }
-    _snapshot = _snapshot.copyWith(
+    return snapshot.copyWith(
       completedUnitIds: completed,
       currentCourseUnitId: next?.id,
       clearCurrentCourseUnitId: next == null,
     );
-    return next;
   }
 
-  bool _unitPassed(CourseUnit unit) {
+  bool _unitPassed(CourseUnit unit, CourseMasterySnapshot snapshot) {
     final threshold = unit.passThreshold;
     final latestScenarioEvidenceAt = <String, DateTime>{};
     for (final conceptId in unit.requiredConceptIds) {
-      final evidence = _snapshot.evidence
+      final evidence = snapshot.evidence
           .where(
             (item) =>
                 _isVerifiedCourseEligibleEvidence(item) &&
@@ -1211,7 +1384,7 @@ class CourseMasteryService {
       }
 
       if (kind == CurriculumContentKind.scenario) {
-        final verifiedMatching = _snapshot.scenarioCheckpoints
+        final verifiedMatching = snapshot.scenarioCheckpoints
             .where(
               (item) =>
                   item.courseEligible &&
@@ -1239,7 +1412,7 @@ class CourseMasteryService {
           kind != CurriculumContentKind.smalltalk) {
         return false;
       }
-      final verifiedMatching = _snapshot.evidence
+      final verifiedMatching = snapshot.evidence
           .where(
             (item) =>
                 item.courseUnitId == unit.id &&
@@ -1543,6 +1716,83 @@ class CourseMasteryService {
     return List.unmodifiable([for (final index in ordered) entries[index]]);
   }
 
+  /// Bounds repeated Phase history without erasing progress for old or current
+  /// published task revisions.
+  ///
+  /// Every full task-revision identity keeps its newest attempt. Assessment
+  /// attempts additionally keep the newest representative of every distinct
+  /// evaluator outcome. Exact outcome equivalence is intentionally stricter
+  /// than score ordering or criterion-set inclusion: without the matching
+  /// [PhaseTaskCatalog], neither of those relationships proves that a newer
+  /// record would satisfy [PhaseTask.passedBy]. The newest non-anchor attempts
+  /// are then retained up to [phaseTaskRepeatHistoryCap]. Semantic anchors may
+  /// exceed that repeat-history cap when many revisions or outcomes exist.
+  List<PhaseAttemptEvidence> _retainedPhaseTaskEvidence(
+    Iterable<PhaseAttemptEvidence> source,
+  ) {
+    final ordered = source.toList()..sort(_comparePhaseTaskEvidence);
+    if (ordered.isEmpty) {
+      return const <PhaseAttemptEvidence>[];
+    }
+
+    final newestByRevision = <String, PhaseAttemptEvidence>{};
+    final newestByAssessmentOutcome = <String, PhaseAttemptEvidence>{};
+    for (final entry in ordered) {
+      final revisionKey = _phaseTaskRevisionKey(entry);
+      newestByRevision[revisionKey] = entry;
+      if (entry.assessment) {
+        newestByAssessmentOutcome[_phaseTaskOutcomeKey(entry, revisionKey)] =
+            entry;
+      }
+    }
+
+    final selectedIds = <String>{
+      for (final entry in newestByRevision.values) entry.attemptId,
+      for (final entry in newestByAssessmentOutcome.values) entry.attemptId,
+    };
+    var repeatsRemaining = phaseTaskRepeatHistoryCap;
+    for (
+      var index = ordered.length - 1;
+      index >= 0 && repeatsRemaining > 0;
+      index--
+    ) {
+      final entry = ordered[index];
+      if (selectedIds.add(entry.attemptId)) {
+        repeatsRemaining--;
+      }
+    }
+    return List.unmodifiable(
+      ordered.where((entry) => selectedIds.contains(entry.attemptId)),
+    );
+  }
+
+  String _phaseTaskRevisionKey(PhaseAttemptEvidence entry) => jsonEncode([
+    entry.phaseId,
+    entry.taskId,
+    entry.contentHash,
+    entry.contentRevision,
+    entry.rubricVersion,
+    entry.minimumScore,
+    entry.evaluatorVersion,
+    entry.assessment,
+  ]);
+
+  String _phaseTaskOutcomeKey(
+    PhaseAttemptEvidence entry,
+    String revisionKey,
+  ) {
+    final criteria = entry.passedCriterionIds.toList()..sort();
+    return jsonEncode([revisionKey, entry.score, criteria]);
+  }
+
+  int _comparePhaseTaskEvidence(
+    PhaseAttemptEvidence left,
+    PhaseAttemptEvidence right,
+  ) {
+    final time = left.occurredAt.compareTo(right.occurredAt);
+    return time != 0 ? time : left.attemptId.compareTo(right.attemptId);
+  }
+
   /// Records a task attempt without advancing the sequential course or rewards.
   Future<CourseMasterySnapshot> recordPhaseAttempt({
     required PhaseTaskResult result,
@@ -1568,7 +1818,7 @@ class CourseMasteryService {
     }
     byId[attemptId] = evidence;
     final next = _snapshot.copyWith(
-      phaseTaskEvidence: List.unmodifiable(byId.values),
+      phaseTaskEvidence: _retainedPhaseTaskEvidence(byId.values),
     );
     // Do not expose a successful in-memory attempt if the durable write fails.
     await _persistSnapshot(
@@ -1580,15 +1830,6 @@ class CourseMasteryService {
     return next;
   }
 
-  Future<void> _persist({
-    bool mirrorLegacyUserLevel = true,
-    void Function()? assertCurrentWrite,
-  }) => _persistSnapshot(
-    _snapshot,
-    mirrorLegacyUserLevel: mirrorLegacyUserLevel,
-    assertCurrentWrite: assertCurrentWrite,
-  );
-
   Future<void> _persistSnapshot(
     CourseMasterySnapshot snapshot, {
     required bool mirrorLegacyUserLevel,
@@ -1597,15 +1838,22 @@ class CourseMasteryService {
   }) async {
     _ensureCatalogUsable();
     _validateSnapshot(snapshot);
-    await Storage.setCourseMasteryStateAtomically(
-      canonicalSnapshotJson: jsonEncode(snapshot.toJson()),
-      placementLevelCode: snapshot.placementLevel,
-      browseLevelCode: browseLevelCode,
-      currentCourseUnitId: snapshot.currentCourseUnitId,
-      mirrorLegacyUserLevel: mirrorLegacyUserLevel,
-      preferences: snapshotPreferences,
-      assertCurrentWrite: assertCurrentWrite,
-    );
+    try {
+      await Storage.setCourseMasteryStateAtomically(
+        canonicalSnapshotJson: jsonEncode(snapshot.toJson()),
+        placementLevelCode: snapshot.placementLevel,
+        browseLevelCode: browseLevelCode,
+        currentCourseUnitId: snapshot.currentCourseUnitId,
+        mirrorLegacyUserLevel: mirrorLegacyUserLevel,
+        preferences: snapshotPreferences,
+        assertCurrentWrite: assertCurrentWrite,
+      );
+    } on PreferenceOutcomeUnknownException {
+      // The old snapshot remains the last confirmed publication, but no new
+      // mutation may derive from it until durable recovery has completed.
+      _loaded = false;
+      rethrow;
+    }
   }
 
   void _ensureCatalogUsable() {

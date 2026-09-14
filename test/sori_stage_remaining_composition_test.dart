@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
@@ -30,9 +31,11 @@ import 'support/real_fonts.dart';
 
 void main() {
   late LearningFocus focus;
+  late SarangchaeConstruction construction;
   late SoriStageProgressionSnapshot firstSnapshot;
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
+    construction = await SarangchaeConstruction.load();
     focus = await loadFirstCatalogFocus();
     firstSnapshot = SoriStageProgressionSnapshot(
       today: focus.today,
@@ -175,6 +178,7 @@ void main() {
     ),
     'hanok' => SoriStageHanokScreen(
       loadSnapshot: load ?? () async => firstSnapshot,
+      loadConstruction: () async => construction,
     ),
     _ => SoriStageGyeScreen(
       loadGyeMetas: groups ?? () async => [],
@@ -213,17 +217,27 @@ void main() {
           );
           expect(action.hitTestable(), findsOneWidget);
         } else if (tab == 'hanok') {
+          expect(find.byType(HanokV3Preview), findsNothing);
+          final artwork = tester.widget<SarangchaeStageArtwork>(
+            find.byType(SarangchaeStageArtwork),
+          );
+          expect(artwork.earnedStageCount, 0);
+          final image = tester.widget<Image>(
+            find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
+          );
+          expect(image.fit, BoxFit.contain);
           expect(
-            tester.widget<HanokV3Preview>(find.byType(HanokV3Preview)).fit,
-            BoxFit.contain,
+            (image.image as AssetImage).assetName,
+            construction.stage(1).assetPath,
           );
           final art = tester.getRect(
             find.byKey(const ValueKey('hanok-full-preview')),
           );
-          final status = tester.getRect(
-            find.byKey(const ValueKey('hanok-preview-status')),
+          expect(find.byIcon(Icons.lock_rounded), findsWidgets);
+          expect(
+            find.byKey(const ValueKey('hanok-construction-entry')),
+            findsOneWidget,
           );
-          expect(status.top, greaterThanOrEqualTo(art.bottom));
           final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
           for (final id in ['quests', 'dojang', 'bojagi']) {
             final label = find.byKey(ValueKey('hanok-shortcut-label-$id'));

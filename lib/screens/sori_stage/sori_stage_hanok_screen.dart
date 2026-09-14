@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
+import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
-import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
+import '../../widgets/sori/hanok_v3_preview.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
 
 class SoriStageHanokScreen extends StatefulWidget {
   const SoriStageHanokScreen({
     super.key,
     this.loadSnapshot,
+    this.loadConstruction,
     this.active = true,
     this.refreshGeneration = 0,
   });
 
   /// Test seam; production uses the shared Stage progression snapshot.
   final Future<SoriStageProgressionSnapshot> Function()? loadSnapshot;
+
+  /// Test seam; production loads the approved bundled catalog.
+  final Future<SarangchaeConstruction> Function()? loadConstruction;
 
   /// The shell keeps every tab alive. Refresh progression whenever this tab
   /// becomes visible so work completed in Today/Learn is reflected here.
@@ -39,13 +46,19 @@ class SoriStageHanokScreen extends StatefulWidget {
 
 class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   Future<SoriStageProgressionSnapshot>? _future;
+  late Future<SarangchaeConstruction> _constructionFuture;
+  int? _selectedSequence;
 
   Future<SoriStageProgressionSnapshot> _load() =>
       (widget.loadSnapshot ?? SoriStageProgressionService.load)();
 
+  Future<SarangchaeConstruction> _loadConstruction() =>
+      (widget.loadConstruction ?? SarangchaeConstruction.load)();
+
   @override
   void initState() {
     super.initState();
+    _constructionFuture = _loadConstruction();
     if (widget.active) {
       _future = _load();
     }
@@ -57,6 +70,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
     if (widget.active &&
         (!oldWidget.active ||
             oldWidget.loadSnapshot != widget.loadSnapshot ||
+            oldWidget.loadConstruction != widget.loadConstruction ||
             oldWidget.refreshGeneration != widget.refreshGeneration)) {
       _refresh();
     }
@@ -65,6 +79,8 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   void _refresh() {
     setState(() {
       _future = _load();
+      _constructionFuture = _loadConstruction();
+      _selectedSequence = null;
     });
   }
 
@@ -166,26 +182,14 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                             ] else
                               const LinearProgressIndicator(),
                             const SizedBox(height: Spacing.lg),
-                            LayoutBuilder(
-                              builder: (context, constraints) => Center(
-                                child: SizedBox(
-                                  key: const ValueKey('hanok-full-preview'),
-                                  width: constraints.maxWidth,
-                                  height: (constraints.maxWidth * 1376 / 768)
-                                      .clamp(0.0, 400.0),
-                                  child: HanokV3Preview(
-                                    message: t.soriStageHanokUpdating,
-                                    showOverlay: false,
-                                  ),
-                                ),
+                            SizedBox(
+                              key: const ValueKey('hanok-full-preview'),
+                              height: 320,
+                              child: _CurrentSarangchaeArtwork(
+                                progressionFuture: _future,
+                                constructionFuture: _constructionFuture,
+                                selectedSequence: _selectedSequence,
                               ),
-                            ),
-                            const SizedBox(height: Spacing.sm),
-                            Text(
-                              t.soriStageHanokUpdating,
-                              key: const ValueKey('hanok-preview-status'),
-                              textAlign: TextAlign.center,
-                              style: SoriTextTheme.of(context).bodySmall,
                             ),
                             const SizedBox(height: Spacing.xl),
                             _ShortcutTiles(
@@ -199,6 +203,31 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     );
                   },
                 ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding.left,
+                    12,
+                    padding.right,
+                    12,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: SoriButton.filled(
+                      key: const ValueKey('hanok-construction-entry'),
+                      label: t.ilduConstructionTitle,
+                      onTap: () => Navigator.of(
+                        context,
+                      ).pushNamed('/hanok/construction'),
+                    ),
+                  ),
+                ),
+                _SarangchaeConstructionSliver(
+                  progressionFuture: _future,
+                  constructionFuture: _constructionFuture,
+                  padding: padding,
+                  onRetry: _refresh,
+                  onStageSelected: (sequence) =>
+                      setState(() => _selectedSequence = sequence),
+                ),
               ],
             ),
           ),
@@ -206,6 +235,124 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
       ),
     );
   }
+}
+
+class _CurrentSarangchaeArtwork extends StatelessWidget {
+  const _CurrentSarangchaeArtwork({
+    required this.progressionFuture,
+    required this.constructionFuture,
+    required this.selectedSequence,
+  });
+
+  final Future<SoriStageProgressionSnapshot>? progressionFuture;
+  final Future<SarangchaeConstruction> constructionFuture;
+  final int? selectedSequence;
+
+  @override
+  Widget build(BuildContext context) => FutureBuilder<SarangchaeConstruction>(
+    future: constructionFuture,
+    builder: (context, constructionSnapshot) {
+      if (constructionSnapshot.hasError) {
+        return Semantics(
+          label: AppL10n.of(context).loadErrorTryAgain,
+          child: const Center(child: Icon(Icons.error_outline_rounded)),
+        );
+      }
+      if (!constructionSnapshot.hasData) {
+        return const AppLoading();
+      }
+      return FutureBuilder<SoriStageProgressionSnapshot>(
+        future: progressionFuture,
+        builder: (context, progressionSnapshot) {
+          if (progressionSnapshot.hasError) {
+            return Semantics(
+              label: AppL10n.of(context).loadErrorTryAgain,
+              child: const Center(child: Icon(Icons.error_outline_rounded)),
+            );
+          }
+          final earned = progressionSnapshot
+              .data
+              ?.hanokCompetence
+              .sarangchaeConstructionStage;
+          if (earned == null && progressionFuture != null) {
+            return const AppLoading();
+          }
+          return SarangchaeStageArtwork(
+            construction: constructionSnapshot.data!,
+            earnedStageCount: earned ?? 0,
+            sequence: selectedSequence,
+          );
+        },
+      );
+    },
+  );
+}
+
+class _SarangchaeConstructionSliver extends StatelessWidget {
+  const _SarangchaeConstructionSliver({
+    required this.progressionFuture,
+    required this.constructionFuture,
+    required this.padding,
+    required this.onRetry,
+    required this.onStageSelected,
+  });
+
+  final Future<SoriStageProgressionSnapshot>? progressionFuture;
+  final Future<SarangchaeConstruction> constructionFuture;
+  final EdgeInsets padding;
+  final VoidCallback onRetry;
+  final ValueChanged<int> onStageSelected;
+
+  @override
+  Widget build(BuildContext context) => SliverPadding(
+    padding: EdgeInsets.fromLTRB(padding.left, 8, padding.right, 24),
+    sliver: SliverToBoxAdapter(
+      child: FutureBuilder<SarangchaeConstruction>(
+        future: constructionFuture,
+        builder: (context, constructionSnapshot) =>
+            FutureBuilder<SoriStageProgressionSnapshot>(
+              future: progressionFuture,
+              builder: (context, progressionSnapshot) {
+                if (constructionSnapshot.hasError ||
+                    progressionSnapshot.hasError) {
+                  final t = AppL10n.of(context);
+                  return SoriCard(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(t.loadErrorTryAgain),
+                        const SizedBox(height: Spacing.md),
+                        SoriButton(
+                          label: t.btnRetry,
+                          onTap: onRetry,
+                          fullWidth: true,
+                        ),
+                      ],
+                    ),
+                  );
+                }
+                if (!constructionSnapshot.hasData ||
+                    (progressionFuture != null &&
+                        !progressionSnapshot.hasData)) {
+                  return const SizedBox.shrink();
+                }
+                return SarangchaeConstructionExperience(
+                  key: ObjectKey(progressionFuture),
+                  construction: constructionSnapshot.data!,
+                  earnedStageCount:
+                      progressionSnapshot
+                          .data
+                          ?.hanokCompetence
+                          .sarangchaeConstructionStage ??
+                      0,
+                  showArtwork: false,
+                  onStageSelected: onStageSelected,
+                );
+              },
+            ),
+      ),
+    ),
+  );
 }
 
 class _ShortcutTiles extends StatelessWidget {

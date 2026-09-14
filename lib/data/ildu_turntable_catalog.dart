@@ -63,21 +63,6 @@ IlDuTurntableFrame _frame(
   viewportBounds: viewportBounds,
 );
 
-final IlDuTurntableSpec kIlDuSarangchaeTurntable = IlDuTurntableSpec(
-  anchorId: 'sarangchae',
-  mapAspectRatio: 1.25,
-  frames: <IlDuTurntableFrame>[
-    _frame('ildu_sarangchae_00_front.png', 384, 512, 8, 259, 376, 472),
-    _frame('ildu_sarangchae_01_front_right.png', 384, 512, 23, 230, 360, 472),
-    _frame('ildu_sarangchae_02_right.png', 384, 512, 19, 264, 364, 472),
-    _frame('ildu_sarangchae_03_rear_right.png', 384, 512, 34, 235, 349, 472),
-    _frame('ildu_sarangchae_04_rear.png', 384, 512, 10, 282, 374, 472),
-    _frame('ildu_sarangchae_05_rear_left.png', 384, 512, 21, 230, 362, 472),
-    _frame('ildu_sarangchae_06_left.png', 384, 512, 20, 243, 363, 472),
-    _frame('ildu_sarangchae_07_front_left.png', 384, 512, 30, 247, 353, 472),
-  ],
-);
-
 final IlDuTurntableSpec kIlDuAnsarangchaeTurntable = IlDuTurntableSpec(
   anchorId: 'ansarang',
   mapAspectRatio: 1.1,
@@ -394,7 +379,6 @@ final IlDuTurntableSpec kIlDuToiletSouthTurntable = IlDuTurntableSpec(
 
 final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
-      kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
       kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
       kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuAnchaeTurntable.anchorId: kIlDuAnchaeTurntable,

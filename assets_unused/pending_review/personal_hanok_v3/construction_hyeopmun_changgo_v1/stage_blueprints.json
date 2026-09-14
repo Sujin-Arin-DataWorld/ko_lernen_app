@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "interpretationStatus": "Human-visible drawings inspected; reconstruction remains a model interpretation pending structural review.",
+  "numericPlanReading": {
+    "lengthMm": 13280,
+    "depthMm": 2880,
+    "frontBayWidthsMm": [
+      2300,
+      2340,
+      2160,
+      2160,
+      2160,
+      2160
+    ],
+    "frontPostAxes": 7,
+    "postRows": 2,
+    "partitionAfterBays": [
+      1,
+      3,
+      4
+    ],
+    "roomBayGroups": [
+      1,
+      2,
+      1,
+      2
+    ]
+  },
+  "stageBlueprintRefs": {
+    "hyeopmun-foundation": [
+      "hyeopmun_detail"
+    ],
+    "hyeopmun-frame": [
+      "hyeopmun_detail"
+    ],
+    "hyeopmun-rafters": [
+      "hyeopmun_detail"
+    ],
+    "hyeopmun-roof-bed": [
+      "hyeopmun_detail",
+      "AURI-roof"
+    ],
+    "hyeopmun-roof-tiles": [
+      "hyeopmun_detail"
+    ],
+    "hyeopmun-complete": [
+      "hyeopmun_detail"
+    ],
+    "changgo-foundation": [
+      "changgo_plan",
+      "changgo_front",
+      "changgo_right"
+    ],
+    "changgo-posts": [
+      "changgo_plan",
+      "changgo_section_cross"
+    ],
+    "changgo-beams": [
+      "changgo_section_long",
+      "changgo_section_cross",
+      "changgo_reflected_plan"
+    ],
+    "changgo-rafters": [
+      "changgo_section_cross",
+      "changgo_reflected_plan"
+    ],
+    "changgo-roof-bed": [
+      "changgo_section_cross",
+      "AURI-roof"
+    ],
+    "changgo-roof-tiles": [
+      "changgo_roof_plan",
+      "changgo_front"
+    ],
+    "changgo-walls": [
+      "changgo_plan",
+      "changgo_section_long",
+      "changgo_right"
+    ],
+    "changgo-complete": [
+      "changgo_front",
+      "changgo_right"
+    ]
+  },
+  "publicSources": [
+    {
+      "id": "AURI-roof",
+      "title": "한옥 고치는 책Ⅰ, Chapter 3 지붕, 천장 및 설비, 인쇄면 123",
+      "url": "https://www.auri.re.kr/publicationFileDirect.es?bid=paper&list_no=729&seq=1",
+      "evidence": "Search-indexed primary PDF text describes roof boarding above rafters and jeoksim/boto layers. Full PDF tool opening exceeded its size limit.",
+      "scope": "General roof sequence, not proof of this building's exact historic roof layer specification."
+    },
+    {
+      "id": "KTO-ildu",
+      "title": "한국관광공사 일두고택 안내",
+      "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c0b997e1-da0d-4781-8aec-481dd76a601b",
+      "scope": "User-supplied cultural reference and planning-stage source; latest full-page fetch timed out."
+    }
+  ],
+  "authorityBoundary": "Final front door artwork follows the locked canonical image. Interior grouping follows the local floor plan; do not claim every stylized facade door duplicates the historical drawing."
+}

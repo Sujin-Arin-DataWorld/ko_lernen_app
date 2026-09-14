@@ -1,6 +1,7 @@
 import 'course_mastery.dart';
 import 'curriculum.dart';
 import 'hanok_stage.dart';
+import 'sarangchae_construction.dart';
 
 /// Read-only structural evidence for the personal Hanok.
 ///
@@ -41,6 +42,12 @@ class HanokCompetenceProjection {
   final HanokStage stage;
 
   bool get hasVerifiedStructure => completedUnitCount > 0;
+
+  /// The approved Sarangchae sequence is a presentation of durable course
+  /// completion. It has no counter of its own, so a reinstall, reconciliation,
+  /// or replay always derives the same owned stage from the mastery snapshot.
+  int get sarangchaeConstructionStage =>
+      completedUnitCount.clamp(0, SarangchaeConstruction.stageCount).toInt();
 
   /// Creates a projection only from current catalog units and completed
   /// course-unit ids. A bypass is an onboarding placement choice, not a

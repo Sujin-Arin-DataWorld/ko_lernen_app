@@ -1,4 +1,11 @@
 {
+  "packCompletionRetired": "This result is no longer active. Return to your vocabulary packs.",
+  "packCompletionPending": "Your pack result is still being saved. You can retry saving it.",
+  "packCompletionSaved": "Your pack result is saved.",
+  "packCompletionView": "View result",
+  "srsRecoveryPending": "Your last review is still being saved. Review progress will stay paused until it is recovered.",
+  "srsRecoveryBlocked": "Your last review could not be recovered yet. Finish any pending account recovery, then try again.",
+  "srsRecoveryRetry": "Retry saving review",
   "@@locale": "en",
   "learningPhasesTitle": "30 learning phases",
   "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
@@ -148,6 +155,7 @@
   "btnConfirm": "OK",
   "btnCancel": "Cancel",
   "btnRetry": "Try again",
+  "choiceSaveConfirmationFailed": "We couldn’t confirm that your choice was saved. Please try again.",
   "btnClose": "Close",
   "btnApply": "Apply",
   "btnPlay": "Practice",
@@ -373,7 +381,37 @@
     "description": "Snackbar shown after long-pressing the About row to copy the version+build+commit string (§RELEASE-2 J13)."
   },
   "settingsPrivacyTitle": "Privacy Policy",
-  "settingsPrivacySubtitle": "Copy link",
+  "settingsUpdateTitle": "Check for updates",
+  "@settingsUpdateTitle": {
+    "description": "Settings row that asks Google Play for the newest build available to this device."
+  },
+  "settingsUpdateSubtitle": "Get the newest version from Google Play",
+  "settingsUpdateChecking": "Checking",
+  "settingsUpdateUpToDate": "You already have the newest version.",
+  "settingsUpdateAvailable": "New version {v} is here.",
+  "@settingsUpdateAvailable": {
+    "description": "Shown when Google Play reports a newer versionCode.",
+    "placeholders": {
+      "v": {}
+    }
+  },
+  "settingsUpdateDialogTitle": "Update available",
+  "settingsUpdateDialogBody": "Version {v} will now be downloaded and installed through Google Play.",
+  "@settingsUpdateDialogBody": {
+    "description": "Confirmation before handing the update to Google Play.",
+    "placeholders": {
+      "v": {}
+    }
+  },
+  "settingsUpdateStart": "Update now",
+  "settingsUpdateLater": "Later",
+  "settingsUpdateDeclined": "Update cancelled.",
+  "settingsUpdateFailed": "The update did not work. Continue in the Play Store.",
+  "settingsUpdateUnavailable": "Cannot check here. Look in the Play Store.",
+  "@settingsUpdateUnavailable": {
+    "description": "Shown when Play cannot answer; never claims the build is current."
+  },
+  "settingsPrivacySubtitle": "Open privacy policy",
   "settingsPrivacyCopied": "Link copied: {url}",
   "@settingsPrivacyCopied": {
     "placeholders": {
@@ -1207,8 +1245,10 @@
   "settingsAccountDelete": "Delete account and all data",
   "settingsAccountDeleteDesc": "Deletes your Firebase account, cloud backup, and local progress.",
   "settingsAccountDeleteConfirmTitle": "Delete account permanently?",
-  "settingsAccountDeleteConfirmBody": "This deletes your Firebase account, Google and Apple links, Firestore cloud backup, and local learning data on this device. This cannot be undone. Google or Apple may ask you to sign in again to confirm.",
-  "settingsAccountDeleteSuccess": "Account and data deleted",
+  "settingsAccountDeleteConfirmBody": "This permanently deletes your Firebase account, cloud backup, and local learning data on this device. Google or Apple may ask you to sign in again to confirm.",
+  "settingsAccountDeleteSuccess": "Deletion accepted. Local data cleared; server cleanup continues in the background.",
+  "settingsAccountDeleteAppleGuidance": "After deleting your account here, check your Apple Account under Sign-In & Security > Sign in with Apple. If Hangul Sori is still listed, select it and stop using Sign in with Apple. You can delete your account here without opening these instructions.",
+  "settingsAccountDeleteAppleHelp": "Open Apple instructions",
   "settingsAccountDeleteFailed": "Deletion failed: {error}",
   "@settingsAccountDeleteFailed": {
     "placeholders": {
@@ -1216,7 +1256,7 @@
     }
   },
   "settingsAccountDeletionTitle": "Account & data deletion",
-  "settingsAccountDeletionSubtitle": "Copy account-deletion link",
+  "settingsAccountDeletionSubtitle": "Open account deletion page",
   "statsGotIt": "Got it",
   "statsNotGotIt": "Didn't know",
   "statsSkipped": "Skipped",
@@ -3909,6 +3949,55 @@
   "soriStageHanokTitle": "Your hanok grows with you.",
   "soriStageHanokBody": "Every word you learn builds here.",
   "soriStageHanokUpdating": "Hanok preview · the new view is in progress.",
+  "sarangchaeConstructionProgress": "{earned} of {total} construction stages",
+  "@sarangchaeConstructionProgress": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeConstructionStages": "Construction stages",
+  "sarangchaeLessonLanguage": "Lesson language",
+  "sarangchaeStageTransition": "Stage {before} → stage {after}",
+  "@sarangchaeStageTransition": {
+    "placeholders": {
+      "before": {
+        "type": "int"
+      },
+      "after": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStageUnlocked": "Stage {stage} unlocked",
+  "@sarangchaeStageUnlocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStageLocked": "Stage {stage} is still locked",
+  "@sarangchaeStageLocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStartMission": "Complete a learning mission to begin your sarangchae.",
+  "sarangchaeNewStages": "{count, plural, =1{1 new construction stage} other{{count} new construction stages}}",
+  "@sarangchaeNewStages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageOpenMap": "Open Hanok map",
   "soriStageQuests": "Quests",
   "soriStageDojang": "Stamp book",
@@ -4652,6 +4741,10 @@
   "onboardingV2DoorMeaning": "door",
   "onboardingV2DiscoverGift": "Discover your gift",
   "onboardingV2ReplayDemo": "Replay demo",
+  "privacyChoicePending": "Your choice is being saved.",
+  "privacyChoiceUnconfirmed": "Your choice could not be fully applied. Please retry. Collection remains off.",
+  "privacyWithdrawalUnconfirmed": "Collection is off for this session. Saving your withdrawal could not be confirmed. Please retry before closing the app.",
+  "privacyApplicationUnconfirmed": "Your choice is saved. Collection is blocked in this app, but applying the setting could not be confirmed. Please retry.",
   "phaseTasksTitle": "Phase tasks",
   "phaseTasksScope": "Practice and structured assessments. Free responses do not automatically count as mastery.",
   "phaseTaskPractice": "Practice",
@@ -4675,9 +4768,78 @@
   "phaseTaskCriterionRequired": "Required criterion",
   "phaseTaskCriterionUnscored": "This wording cannot be scored automatically.",
   "phaseTaskEarlierRevision": "Earlier attempt saved · task has since been revised",
+  "sarangchaeLanguageKorean": "한국어",
+  "sarangchaeLanguageGerman": "Deutsch",
+  "sarangchaeLanguageEnglish": "English",
+  "ilduConstructionTitle": "How a hanok is built",
+  "@ilduConstructionTitle": {
+    "description": "Approved Hanok construction artwork learning: Title"
+  },
+  "ilduConstructionIntro": "Watch the small gate and storehouse take shape, and practise Korean along the way.",
+  "@ilduConstructionIntro": {
+    "description": "Approved Hanok construction artwork learning: Intro"
+  },
+  "ilduConstructionStep": "Step {current} of {total}",
+  "@ilduConstructionStep": {
+    "description": "Approved Hanok construction artwork learning: Step",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ilduConstructionPrevious": "Previous step",
+  "@ilduConstructionPrevious": {
+    "description": "Approved Hanok construction artwork learning: Previous"
+  },
+  "ilduConstructionNext": "Next step",
+  "@ilduConstructionNext": {
+    "description": "Approved Hanok construction artwork learning: Next"
+  },
+  "ilduConstructionCorrect": "That's right. Find that part in the picture.",
+  "@ilduConstructionCorrect": {
+    "description": "Approved Hanok construction artwork learning: Correct"
+  },
+  "ilduConstructionTryAgain": "Look at the picture and try again.",
+  "@ilduConstructionTryAgain": {
+    "description": "Approved Hanok construction artwork learning: TryAgain"
+  },
+  "ilduConstructionScene": "The situation",
+  "@ilduConstructionScene": {
+    "description": "Approved Hanok construction artwork learning: Scene"
+  },
+  "ilduConstructionTerms": "Construction terms",
+  "@ilduConstructionTerms": {
+    "description": "Approved Hanok construction artwork learning: Terms"
+  },
+  "ilduConstructionCulture": "The space and its role",
+  "@ilduConstructionCulture": {
+    "description": "Approved Hanok construction artwork learning: Culture"
+  },
+  "ilduConstructionEmptyTitle": "An empty site",
+  "@ilduConstructionEmptyTitle": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionEmptyBody": "Before construction begins, there is an open space. Watch a building take shape here.",
+  "@ilduConstructionEmptyBody": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionStart": "Start building",
+  "@ilduConstructionStart": {
+    "description": "Empty site before the first construction stage"
+  },
   "learningFocusDestinationUnavailable": "This activity could not be opened. Please try again.",
   "learningFocusMinutes": "About {minutes} min.",
-  "@learningFocusMinutes": {"placeholders": {"minutes": {"type": "int"}}},
+  "@learningFocusMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "catalogDetails": "Details",
   "catalogHowItWorks": "How it works",
   "catalogStartSession": "Start session",
@@ -4753,7 +4915,17 @@
   "soriStageOpenHanok": "View Hanok",
   "soriStageHanokLearningSummary": "What you have learned",
   "soriStageHanokProgressUnavailable": "Your learning progress could not be loaded.",
-  "@soriStageConfirmedUnits": {"description": "Verified course units, never constructed buildings", "placeholders": {"built": {"type": "int"}, "total": {"type": "int"}}},
+  "@soriStageConfirmedUnits": {
+    "description": "Verified course units, never constructed buildings",
+    "placeholders": {
+      "built": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageHanokNoUnits": "No course units available yet.",
   "soriStageNoQuests": "None yet",
   "gyeRootPurpose": "Work towards a weekly goal together.",

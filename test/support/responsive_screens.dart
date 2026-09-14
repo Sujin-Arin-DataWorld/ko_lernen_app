@@ -6,6 +6,8 @@
 //
 // ⚠️ 파일명이 `_test.dart` 가 아니라 `flutter test` 가 테스트로 수집하지 않는다.
 
+import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
@@ -72,7 +75,10 @@ import 'scenario_fixtures.dart';
 Map<String, Widget> responsiveScreens() => <String, Widget>{
   'app shell': const AppShell(),
   'home': const SoriStageTodayScreen(),
-  'hanok preview': const HanokPreviewScreen(),
+  'hanok preview': HanokPreviewScreen(
+    loadSnapshot: () async => _verticalFillGuardStageSnapshot(),
+    loadConstruction: () async => _verticalFillGuardConstruction(),
+  ),
   'practice hub': const PracticeHubScreen(),
   'sarangbang study': const SarangbangStudyScreen(),
   'sarangbang furnish': const SarangbangFurnishScreen(),
@@ -180,7 +186,8 @@ const _verticalFillGuardPhrases = <PronunciationPhrase>[
 
 /// W10 PR-D(2026-09-06): 순수 widget-test 하네스에서 `compute()`(isolate)로
 /// 끝나는 프로덕션 로더는 절대 안 돌아온다 — `scenarios list`/`app shell`/
-/// `home` 이 세로 채움 가드에서 로딩 스피너에 멈춰 RED였다. 각 화면이 이미
+/// `home`/`hanok preview` 가 세로 채움 가드에서 로딩 스피너에 멈춰 RED였다.
+/// 각 화면이 이미
 /// 갖고 있는(또는 이 PR에서 새로 뚫은) 로더 주입 구멍으로 실측값을 즉시
 /// 반환해, 가드가 **실제 레이아웃**을 판정하게 한다 — allowlist가 아니라
 /// 진짜 데이터로 통과시킨다.
@@ -198,6 +205,11 @@ SoriStageProgressionSnapshot _verticalFillGuardStageSnapshot() =>
       xp: 320,
       streakDays: 7,
       todayReward: null,
+    );
+
+SarangchaeConstruction _verticalFillGuardConstruction() =>
+    SarangchaeConstruction.fromJson(
+      jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync()),
     );
 
 /// `scenarioAirportArrivalFixture` 하나만 넘기면 헤더+레벨 섹션 하나뿐이라

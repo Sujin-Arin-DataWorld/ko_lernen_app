@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -33,7 +34,7 @@ void main() {
     final t = await _pumpPack(tester, pack, timers);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     expect(timers.created, hasLength(1));
     expect(timers.created.single.isActive, isTrue);
 
@@ -53,11 +54,11 @@ void main() {
     final t = await _pumpPack(tester, pack, timers);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     final first = timers.created.single;
     first.fire();
     await tester.pump();
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
 
     expect(timers.created, hasLength(2));
     expect(first.cancelCalls, 1);
@@ -75,7 +76,7 @@ void main() {
     final t = await _pumpPack(tester, pack, timers, operations: operations);
     await _learnAll(tester, t, pack.total);
 
-    _answerCorrect(tester);
+    await _answerCorrect(tester);
     final timer = timers.created.single;
     timer.fire();
     await tester.pump();
@@ -95,6 +96,7 @@ Future<AppL10n> _pumpPack(
   _TimerFactory timers, {
   VocabPackFinishOperations? operations,
 }) async {
+  await tester.runAsync(CurriculumCatalog.load);
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
@@ -129,11 +131,14 @@ Future<void> _learnAll(WidgetTester tester, AppL10n t, int count) async {
   }
 }
 
-void _answerCorrect(WidgetTester tester) {
+Future<void> _answerCorrect(WidgetTester tester) async {
   tester
       .widgetList<QuizChoice>(find.byType(QuizChoice))
       .singleWhere((choice) => choice.isCorrect)
       .onSelected!();
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
 }
 
 VocabPack _pack({required int normalWords}) => VocabPack(

@@ -1,0 +1,28 @@
+1. STYLE: Preserve the exact fine hand-painted 2.5D hanok architecture of the references: dense fine detail, healthy maintained warm timber, matte materials, restrained painterly shadows and selective fine linework. No watercolor, anime, Pixar, low-poly 3D, photorealistic PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the edit target at the adjacent construction stage. Image 2 is the immutable completed master, used ONLY to maintain architecture, placements, scale, materials and lighting; do not restore later components being removed. This is the same particular Sarangchae, not a new building.
+3. CAMERA: One 1536x1024 landscape image, exact same white background, framing, view and scale. Retained parts must remain stationary. No added labels or numbering.
+4. REQUIRED EDIT AND TEN WANTS:
+WANT 1. Create stage 12: walls and fixed opening frames are in place, before the ondol room floors are finished.
+WANT 2. In the rear room floor areas only, remove the smooth pale finished floor and reveal the bare compacted earth subfloor beneath, a subtle lower brown earthen surface.
+WANT 3. Keep the exposed timber floor joists of the open front maru and projecting numaru in place.
+WANT 4. Keep all cream wall infill and fixed door/window opening frames at their original coordinates.
+WANT 5. Keep the full original roof and all roof tiles exactly unchanged.
+WANT 6. Keep all full-height posts, beams and the two outer slender eave supports unchanged.
+WANT 7. Keep all stonework and the stair entrance unchanged.
+WANT 8. Retain visible depth behind the open room apertures and underneath the open numaru.
+WANT 9. Keep all decorative railings, finished maru floorboards, door leaves, lattice infills and plaques absent.
+WANT 10. Distinguish bare earth room subfloors from the already assembled wood joists of the ventilated maru; there is no finished heated room floor yet.
+5. CONNECTIONS: Retained column feet meet the same stones; column heads meet their beams; roof purlins bear on supported timber and rafters bear on purlins. Preserve the connected main-body/right-numaru junction and actual spatial depth. Never invent free-floating members or unrelated new front columns.
+6. TEN NOTS:
+NOT 1. Do not move, rescale, mirror or rotate the building.
+NOT 2. Do not change the retained curved roof silhouette or joined right wing.
+NOT 3. Do not change retained stone outlines, staircase edges or the foundation footprint.
+NOT 4. Do not move, thicken or arbitrarily add a visible column.
+NOT 5. Do not remove structural framing while removing finish layers.
+NOT 6. Do not flatten the rooms or hide the numaru underfloor depth.
+NOT 7. Do not restore plaques or add any writing or blank signboards.
+NOT 8. Do not add workers, tools, scaffold, furniture, plants or construction clutter.
+NOT 9. Do not bleach, saturate, weather, decay, smooth away detail or restyle retained materials.
+NOT 10. Do not create a collage, cutaway detached from the building, border, watermark or cropped close-up.
+7. MATERIALS: Same maintained sound timber, fine natural grain, same upper-left light and clean traditional stone. Keep the source palette, material texture and spatial shadows.
+8. OUTPUT: A single polished earlier construction-stage image, visually continuous with its adjacent stage and the approved completed source. Do not show a completed ondol, pipes, flames, a chimney, new cutaway, floating diagram or heating effect. The difference from stage 13 is confined to the unfinished room floor surfaces.

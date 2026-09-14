@@ -2,18 +2,15 @@
   "bundletool": {
     "version": "1.18.3",
     "url": "https://github.com/google/bundletool/releases/download/1.18.3/bundletool-all-1.18.3.jar",
-    "sha256": "<fill from harvest step>"
+    "sha256": "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29"
   },
   "firebase-tools": {
     "version": "15.29.0",
-    "sha256": "<fill from harvest step>"
+    "url": "https://github.com/firebase/firebase-tools/releases/download/v15.29.0/firebase-tools-linux",
+    "sha256": "ef0998b3c1eeedf2a7b02b23bbe2b98a84a855855ea73d85d4498af432531ded"
   },
   "java": {
     "version": "17.0.20.1+1",
-    "sha256": "<fill from harvest step>"
-  },
-  "node": {
-    "version": "24.20.0",
-    "sha256": "<fill from harvest step>"
+    "sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
   }
 }

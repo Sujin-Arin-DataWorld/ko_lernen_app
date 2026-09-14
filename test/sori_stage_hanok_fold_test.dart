@@ -102,14 +102,13 @@ void main() {
 
     await tester.pumpWidget(app(textScale: 2));
     await settle(tester);
-    await tester.pumpAndSettle();
 
     final mapKey = find.byKey(const ValueKey('hanok-full-preview'));
     expect(mapKey, findsOneWidget);
     final expandedHeight = tester.getRect(mapKey).height;
 
     await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 1));
 
     final scrolledRect = tester.getRect(mapKey);
     expect(scrolledRect.height, expandedHeight);

@@ -1,7 +1,7 @@
 """Fail-closed Android Crashlytics symbol evidence, without release wiring.
 
 Requires Python 3.11+, an explicitly pinned Java/bundletool command and a
-pinned Node/Firebase CLI command (Firebase >= 11.9.0). No downloads, login,
+pinned Firebase CLI command (Firebase >= 11.9.0). No downloads, login,
 permission changes, Play upload, or credential-content reads occur here.
 Each executable/script/JAR in a command must have a SHA-256 supplied through
 reviewed provisioning, not a hash calculated and trusted on first use.
@@ -18,7 +18,7 @@ same immutable artifacts and receipt immediately before using them.
 CLI: upload|verify|archive --tools-json <private reviewed command config> ...
 tools JSON: {"bundletool": {"argv": ["/abs/java", "-jar", "/abs/tool.jar"],
 "sha256": {"/abs/java": "<64 hex>", "/abs/tool.jar": "<64 hex>"}},
-"firebase": {"argv": ["/abs/node", "/abs/firebase.js"], "sha256": {...}}}
+"firebase": {"argv": ["/abs/firebase-tools-linux"], "sha256": {...}}}
 Authentication requires an explicit GOOGLE_APPLICATION_CREDENTIALS file.
 Firebase CLI performs actual authentication; this helper neither inspects
 the principal nor widens its authority. Use an isolated CI account without

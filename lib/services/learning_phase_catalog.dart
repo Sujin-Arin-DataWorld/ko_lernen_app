@@ -50,24 +50,37 @@ class LearningPhase {
 class LearningPhaseCatalog {
   static const assetPath = 'assets/data/learning_phases.json';
   static const illustrationRoot = 'assets/illustrations/phases/';
+  static List<LearningPhase>? _cached;
   static final List<String> levels = List.unmodifiable(
     LearnerLevel.values.map((level) => level.display),
   );
 
   /// Reads packaged metadata only; opening a Phase never changes saved progress.
   static Future<List<LearningPhase>> load() async {
-    final raw = await rootBundle.loadString(assetPath);
+    final cached = _cached;
+    if (cached != null) {
+      return cached;
+    }
+    // A retry must read again after a failed read or malformed metadata.
+    final raw = await rootBundle.loadString(assetPath, cache: false);
     final curriculum = await CurriculumCatalog.load();
     final json = jsonDecode(raw) as Map<String, dynamic>;
     final phases = parse(json, curriculum.courseUnits);
     if (json['schemaVersion'] == 2) {
       final taskJson =
-          jsonDecode(await rootBundle.loadString(PhaseTaskCatalog.assetPath))
+          jsonDecode(
+                await rootBundle.loadString(
+                  PhaseTaskCatalog.assetPath,
+                  cache: false,
+                ),
+              )
               as Map<String, dynamic>;
       validateTasks(json, phases, taskJson);
     }
-    return phases;
+    return _cached = List.unmodifiable(phases);
   }
+
+  static void resetForTesting() => _cached = null;
 
   static void validateTasks(
     Map<String, dynamic> json,

@@ -76,6 +76,8 @@ class DecorationRewardService {
   /// 두 번째 요청은 첫 번째의 journal 정리 뒤 현재 큐를 다시 읽는다.
   static Future<void> _mutation = Future<void>.value();
 
+  static Future<void> get packCompletionDrain => _mutation;
+
   /// 화면 테스트 사이의 전역 직렬 큐를 격리한다.
   ///
   /// [SynchronousFuture]를 써서 다음 테스트의 fake-async frame에서 즉시 새
@@ -471,6 +473,7 @@ class DecorationRewardService {
   }
 
   static Future<T> _serialize<T>(Future<T> Function() operation) {
+    PackCompletionStorage.assertAdmission();
     final result = _mutation.then<T>((_) => operation());
     _mutation = result.then<void>(
       (_) {},

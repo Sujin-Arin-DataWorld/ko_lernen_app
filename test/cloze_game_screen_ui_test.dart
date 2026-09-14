@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/l10n/cloze_topic_group_localizations.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -229,6 +231,8 @@ void main() {
     final items = await ClozeLoader.load();
     final transition = _firstNonzeroToZeroTransition(items);
     await Storage.setBrowseLevelCode(transition.sourceLevel);
+    CourseProgressService.shared.resetForTesting();
+    await tester.runAsync(CurriculumCatalog.load);
 
     await tester.pumpWidget(
       _host(
@@ -242,13 +246,26 @@ void main() {
     final first = tester.widget<ClozePromptCard>(find.byType(ClozePromptCard));
 
     await tester.tap(find.widgetWithText(QuizChoice, first.item.answer));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 1100));
-    await tester.pump();
+    for (var attempt = 0; attempt < 40; attempt++) {
+      await tester.pump(const Duration(milliseconds: 100));
+      final frames = find.byType(SoriStudyFrame).evaluate();
+      if (frames.length == 1 &&
+          (tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).eyebrow ??
+                  '')
+              .startsWith('2 / ')) {
+        break;
+      }
+    }
     expect(
       tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).eyebrow,
       startsWith('2 / '),
     );
+    final snapshot = await CourseProgressService.shared.readForDisplay();
+    final evidence = snapshot!.evidence
+        .where((entry) => entry.contentId == first.item.id)
+        .toList();
+    expect(evidence, isNotEmpty);
+    expect(evidence.every((entry) => entry.isCorrect), isTrue);
 
     await tester.tap(find.byKey(const Key('cloze-group-filter')));
     await tester.pumpAndSettle();
@@ -404,11 +421,9 @@ void main() {
 
       await tester.tap(find.text(_item.answer));
       await tester.pump();
-      expect(
-        speechStub.spoken,
-        [_item.fullKo],
-        reason: '답 공개 직후 완성 문장을 1회 자동으로 읽어야 한다',
-      );
+      expect(speechStub.spoken, [
+        _item.fullKo,
+      ], reason: '답 공개 직후 완성 문장을 1회 자동으로 읽어야 한다');
       expect(tester.takeException(), isNull);
       await tester.pump(const Duration(milliseconds: 1100));
     },
@@ -430,11 +445,9 @@ void main() {
 
       await tester.tap(find.text(_item.distractors.first));
       await tester.pump();
-      expect(
-        speechStub.spoken,
-        [_item.fullKo],
-        reason: '오답이어도 정/오답 무관하게 완성 문장을 1회 자동으로 읽어야 한다',
-      );
+      expect(speechStub.spoken, [
+        _item.fullKo,
+      ], reason: '오답이어도 정/오답 무관하게 완성 문장을 1회 자동으로 읽어야 한다');
       expect(tester.takeException(), isNull);
       await tester.pump(const Duration(milliseconds: 700));
     },
@@ -506,11 +519,10 @@ void main() {
       await tester.tap(find.byType(ClozePromptCard));
       await tester.pump();
 
-      expect(
-        speechStub.spoken,
-        [_item.fullKo, _item.fullKo],
-        reason: '공개 후엔 카드를 탭하면 완성 문장을 다시 들을 수 있어야 한다',
-      );
+      expect(speechStub.spoken, [
+        _item.fullKo,
+        _item.fullKo,
+      ], reason: '공개 후엔 카드를 탭하면 완성 문장을 다시 들을 수 있어야 한다');
       expect(tester.takeException(), isNull);
       await tester.pump(const Duration(milliseconds: 700));
     },

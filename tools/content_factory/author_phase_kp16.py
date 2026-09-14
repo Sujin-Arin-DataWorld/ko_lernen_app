@@ -40,7 +40,7 @@ def kp16():
        ('허가가 없는 한 외부에 전달할 수 없습니다.','허가가 없는 동안에는 외부 전달 불가','허가를 받으면 다른 조건 없이 무제한 공개')),
       ('G4:-는다거나2',loc('가능한 행동을 예로 열거해요. 모든 선택지를 빠짐없이 제시한 목록이나 이미 누가 했다는 인용이 아니에요.','List examples of possible actions, not an exhaustive list or a quotation of what someone already did.','Nenne Beispiele möglicher Handlungen, keine vollständige Liste und kein Zitat bereits ausgeführter Handlungen.'),
        ('직접 만난다거나 전화로 이야기하는 방법이 있어요.','만남과 전화는 가능한 방법의 예','두 방법을 모두 이미 실행했다고 보고'),
-       ('요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요.','요약과 표는 검토할 방법의 예','요약문과 표 제출이 모두 확정 의무')), 
+       ('요약을 쓴다거나 표로 정리하는 방법을 생각해 보세요.','요약과 표는 검토할 방법의 예','요약문과 표 제출이 모두 확정 의무')),
     ]
     tasks=[grammar_task('KP16',i,*r) for i,r in enumerate(rows,1)]
     prod=[

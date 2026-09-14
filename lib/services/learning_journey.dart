@@ -15,6 +15,7 @@ class LearningAttempt {
 
   void complete({bool? passed}) {
     completed = true;
+    saveFailed = false;
     this.passed = passed;
   }
 

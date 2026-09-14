@@ -118,13 +118,18 @@ class RewardReceipt {
     required this.activityId,
     required this.receiptId,
     required this.items,
+    this.sarangchaeStageBefore = 0,
+    this.sarangchaeStageAfter = 0,
   });
 
   final String activityId;
   final String receiptId;
   final List<RewardReceiptItem> items;
+  final int sarangchaeStageBefore;
+  final int sarangchaeStageAfter;
 
   bool get isEmpty => items.isEmpty;
+  bool get hasSarangchaeUpgrade => sarangchaeStageAfter > sarangchaeStageBefore;
 }
 
 @immutable

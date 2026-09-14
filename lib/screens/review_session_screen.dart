@@ -18,6 +18,7 @@ import '../services/culture_notes_service.dart';
 import '../widgets/sori/culture_note_card.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../services/storage_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/content_share_recovery.dart';
@@ -52,6 +54,23 @@ String? unambiguousReviewLevel(Iterable<String> deckLevels) {
 typedef ReviewableLoader = Future<List<Vocab>> Function();
 
 enum ReviewLoadState { loading, ready, empty, error }
+
+/// Retains the learner's answer while its durable evidence is retried.
+class _ReviewJudgment {
+  _ReviewJudgment({
+    required this.id,
+    required this.gotIt,
+    required this.needsEvidence,
+  }) : srs = needsEvidence ? SrsReviewAttempt(id: id, gotIt: gotIt) : null,
+       progress = gotIt ? null : VocabProgressAttempt(wrongCountId: id);
+
+  final String id;
+  final bool gotIt;
+  final bool needsEvidence;
+  final SrsReviewAttempt? srs;
+  final VocabProgressAttempt? progress;
+  bool appliedToQueue = false;
+}
 
 /// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
 ///
@@ -97,16 +116,34 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   bool _cardRevealed = false;
   int _reviewed = 0;
   bool _done = false;
+  bool _saving = false;
+  bool _saveFailed = false;
+  bool _sessionExpired = false;
+  bool _leaving = false;
+  ModalRoute<dynamic>? _route;
+  final _sessionLifetime = LocalDataLifetime.capture();
+  _ReviewJudgment? _pendingJudgment;
+  XpAwardAttempt? _completionXp;
+  int _presentation = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final _speech = ContentSpeechController();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
 
   bool get _loading => _loadState == ReviewLoadState.loading;
+  bool get _routeIsActive => _route?.isActive ?? true;
+  bool get _routeCanUpdate => mounted && !_leaving && _routeIsActive;
+  bool get _sessionIsCurrent => _routeCanUpdate && _sessionLifetime.isCurrent;
+  bool get _acceptsInput =>
+      _sessionIsCurrent && !_saving && _pendingJudgment == null;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final route = ModalRoute.of(context);
-    if (route != null) _speech.subscribe(route);
+    if (route != null) {
+      _route = route;
+      _speech.subscribe(route);
+    }
   }
 
   @override
@@ -125,7 +162,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   String get coachId => 'review';
 
   @override
-  bool get coachReady => !_loading && _queue?.current != null && !_done;
+  bool get coachReady =>
+      _acceptsInput && !_loading && _queue?.current != null && !_done;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -149,6 +187,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () => _sessionIsCurrent,
+      onConfirmed: () {
+        if (_sessionIsCurrent) {
+          setState(() {});
+        }
+      },
+    );
     _load().then((_) {
       if (mounted && _queue?.current != null) {
         _speech.playOnEnter(_card.korean);
@@ -157,6 +203,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
     unawaited(_loadCultureNotes());
+  }
+
+  @override
+  void didUpdateWidget(covariant ReviewSessionScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.deck, widget.deck) ||
+        !identical(oldWidget.reviewableLoader, widget.reviewableLoader)) {
+      _presentation++;
+      _choiceOwner.replaceSource();
+    }
   }
 
   Future<void> _loadCultureNotes() async {
@@ -247,13 +303,14 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _speech.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
 
   void _saveCurrent() {
-    if (_loading || _done || _queue?.current == null) {
+    if (!_acceptsInput || _loading || _done || _queue?.current == null) {
       return;
     }
     final card = _card;
@@ -272,20 +329,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Future<void> _likeCurrent() async {
-    if (_loading || _done || _queue?.current == null) {
+    if (!_acceptsInput || _loading || _done || _queue?.current == null) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: _card.korean,
+    final card = _card;
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: card.korean,
+        kind: LikedContentService.vocab,
+        id: card.korean,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent() async {
-    if (_loading || _done || _queue?.current == null) {
+    if (!_acceptsInput || _loading || _done || _queue?.current == null) {
       return;
     }
     final lang = Localizations.localeOf(context).languageCode;
@@ -299,11 +358,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   /// ↓ 스킵 (§P2-2) — 현재 카드를 미판정 큐 맨 뒤로 보낸다. SRS 기록 없음.
   void _deferCurrent() {
     final queue = _queue;
-    if (_loading || _done || queue == null || !queue.canDefer) {
+    if (!_acceptsInput ||
+        _loading ||
+        _done ||
+        queue == null ||
+        !queue.canDefer) {
       return;
     }
     HapticFeedback.selectionClick();
     setState(() {
+      _presentation++;
       queue.defer();
       _flipped = false;
       _cardRevealed = false;
@@ -313,11 +377,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   void _showPrevious() {
     final queue = _queue;
-    if (queue == null || !queue.canGoPrevious) {
+    if (!_acceptsInput || queue == null || !queue.canGoPrevious) {
       return;
     }
     HapticFeedback.selectionClick();
     setState(() {
+      _presentation++;
       queue.previous();
       _flipped = false;
       _cardRevealed = false;
@@ -327,11 +392,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   void _showNextHistory() {
     final queue = _queue;
-    if (queue == null || !queue.canGoForward) {
+    if (!_acceptsInput || queue == null || !queue.canGoForward) {
       return;
     }
     HapticFeedback.selectionClick();
     setState(() {
+      _presentation++;
       queue.nextHistory();
       _flipped = false;
       _cardRevealed = false;
@@ -340,6 +406,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   void _toggleFlip() {
+    if (!_acceptsInput) {
+      return;
+    }
     setState(() {
       if (!_flipped) {
         _cardRevealed = true;
@@ -352,41 +421,91 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     return unambiguousReviewLevel(_deck.map((word) => word.level));
   }
 
-  final List<Future<void>> _reviewWrites = [];
   LearningAttempt? _learningAttempt;
   bool _rewardPersisted = false;
 
   void _answer(bool gotIt) {
     final queue = _queue;
-    if (queue == null || !queue.canJudgeCurrent) {
+    if (!_acceptsInput ||
+        !_cardRevealed ||
+        queue == null ||
+        !queue.canJudgeCurrent) {
       return;
     }
-    final card = _card;
-    final shouldRecordEvidence = queue.currentNeedsEvidence;
-
-    // 답변 순간 촉각 피드백 — 맞으면 강하게, 틀리면 가볍게.
+    _presentation++;
     gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
-    if (shouldRecordEvidence) {
-      // ignore: discarded_futures
-      final work = Storage.srsReview(card.korean, gotIt: gotIt);
-      final persisted = work.then<void>((saved) {
-        if (!saved) {
-          throw StateError('Review evidence was not saved');
-        }
-      });
-      _reviewWrites.add(persisted);
-      unawaited(persisted.then<void>((_) {}, onError: (_) {}));
-    }
-    if (!gotIt) {
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(card.korean);
-    }
-    if (shouldRecordEvidence) {
-      _reviewed++;
-    }
-    queue.recordJudgment(correct: gotIt);
+    _pendingJudgment = _ReviewJudgment(
+      id: _card.korean,
+      gotIt: gotIt,
+      needsEvidence: queue.currentNeedsEvidence,
+    );
+    unawaited(_savePendingJudgment());
+  }
 
-    if (queue.isComplete) {
+  Future<void> _savePendingJudgment() async {
+    final judgment = _pendingJudgment;
+    final queue = _queue;
+    if (_saving || !_sessionIsCurrent || judgment == null || queue == null) {
+      return;
+    }
+    setState(() {
+      _saving = true;
+      _saveFailed = false;
+    });
+    try {
+      _sessionLifetime.assertCurrent();
+      if (!judgment.appliedToQueue) {
+        final srs = judgment.srs;
+        if (srs != null && !await srs.save()) {
+          if (!srs.isCurrent) {
+            throw const StaleLocalDataLifetimeException();
+          }
+          _sessionLifetime.assertCurrent();
+          throw StateError('Review evidence has not been confirmed.');
+        }
+        if (!_routeCanUpdate) {
+          return;
+        }
+        _sessionLifetime.assertCurrent();
+        final progress = judgment.progress;
+        if (progress != null && !await progress.save()) {
+          _sessionLifetime.assertCurrent();
+          throw StateError('Vocabulary progress has not been confirmed.');
+        }
+        if (!_routeCanUpdate) {
+          return;
+        }
+        _sessionLifetime.assertCurrent();
+        if (judgment.needsEvidence) {
+          _reviewed++;
+        }
+        queue.recordJudgment(correct: judgment.gotIt);
+        judgment.appliedToQueue = true;
+      }
+      if (!queue.isComplete) {
+        setState(() {
+          _pendingJudgment = null;
+          _flipped = false;
+          _cardRevealed = false;
+        });
+        _speech.playOnEnter(_card.korean);
+        final next = queue.peekNext;
+        _speech.prefetchNeighbors([if (next != null) next.korean]);
+        return;
+      }
+      final learningAttempt = _learningAttempt ??=
+          LearningJourneyObserver.beginAttempt();
+      final rewardWrite = (_completionXp ??= XpAwardAttempt(
+        _reviewed * 2,
+      )).save();
+      await (learningAttempt == null
+          ? rewardWrite
+          : learningAttempt.journey.track(rewardWrite, learningAttempt));
+      if (!_routeCanUpdate) {
+        return;
+      }
+      _sessionLifetime.assertCurrent();
+      learningAttempt?.complete();
       _feedbackCompletion.complete(
         () => FeedbackCompletion.review(
           contentId: widget.feedbackContentId,
@@ -399,30 +518,27 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           total: queue.originalCount,
         ),
       );
-      final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
-      final work = Future.wait<void>([
-        ..._reviewWrites,
-        Storage.addXp(_reviewed * 2),
-      ]);
-      unawaited(
-        trackLearningPersistence(attempt, work).then((_) {
-          if (mounted) {
-            setState(() => _rewardPersisted = true);
-          }
-        }, onError: (_) {}),
-      );
-      setState(() => _done = true);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) SoriCelebration.burst(context);
-      });
-    } else {
       setState(() {
-        _flipped = false;
-        _cardRevealed = false;
+        _done = true;
+        _rewardPersisted = true;
+        _pendingJudgment = null;
       });
-      _speech.playOnEnter(_card.korean);
-      final next = queue.peekNext;
-      _speech.prefetchNeighbors([if (next != null) next.korean]);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_sessionIsCurrent) {
+          SoriCelebration.burst(context);
+        }
+      });
+    } catch (error) {
+      if (_routeCanUpdate) {
+        setState(() {
+          _saveFailed = true;
+          _sessionExpired = error is StaleLocalDataLifetimeException;
+        });
+      }
+    } finally {
+      if (_routeCanUpdate) {
+        setState(() => _saving = false);
+      }
     }
   }
 
@@ -433,7 +549,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
     return SoriStudyFrame(
       title: widget.title ?? t.reviewTitle,
-      homeEscape: SoriHomeEscape(confirmWhen: !_done && _reviewed > 0),
+      homeEscape: SoriHomeEscape(
+        confirmWhen: !_done && (_reviewed > 0 || _pendingJudgment != null),
+      ),
+      onLeave: () => _leaving = true,
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
@@ -452,7 +571,21 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           messageLiveRegion: true,
         ),
         ReviewLoadState.empty => _buildEmpty(t),
-        ReviewLoadState.ready => _done ? _buildDone(t, s) : _buildCard(t, s),
+        ReviewLoadState.ready =>
+          _saving
+              ? const AppLoading()
+              : _saveFailed
+              ? AppError(
+                  message: t.courseCheckpointSaveError,
+                  messageLiveRegion: true,
+                  retryLabel: _sessionExpired ? t.btnClose : t.btnRetry,
+                  onRetry: _sessionExpired
+                      ? () => Navigator.of(context).maybePop()
+                      : () => unawaited(_savePendingJudgment()),
+                )
+              : _done
+              ? _buildDone(t, s)
+              : _buildCard(t, s),
       },
     );
   }
@@ -598,6 +731,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     final total = queue.originalCount;
     final browsingHistory = queue.isBrowsingHistory;
     final tt = SoriTextTheme.of(context);
+    final presentation = _presentation;
+    VoidCallback forThisCard(VoidCallback action) => () {
+      if (mounted && _acceptsInput && presentation == _presentation) {
+        action();
+      }
+    };
 
     // §P2-5: 4방향 덱 코치 — 기존 review 코치가 이미 표시된 뒤에만.
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -673,9 +812,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
                     if (queue.canGoPrevious)
                       CustomSemanticsAction(label: t.legacyVocabPrevious):
-                          _showPrevious,
+                          forThisCard(_showPrevious),
                     if (queue.canGoForward)
-                      CustomSemanticsAction(label: t.btnNext): _showNextHistory,
+                      CustomSemanticsAction(label: t.btnNext): forThisCard(
+                        _showNextHistory,
+                      ),
                   },
                   child: SoriContentFeed(
                     key: _answerRowKey,
@@ -687,28 +828,30 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     judgmentsEnabled: browsingHistory || _cardRevealed,
                     onBlockedJudgment: browsingHistory
                         ? null
-                        : () => _flipHintTrigger.value++,
+                        : forThisCard(() => _flipHintTrigger.value++),
                     flipHintTrigger: _flipHintTrigger,
                     onNext: browsingHistory
-                        ? _showNextHistory
-                        : () => _answer(true),
+                        ? forThisCard(_showNextHistory)
+                        : forThisCard(() => _answer(true)),
                     // In history mode this remains non-null at the oldest
                     // card. SoriContentFeed otherwise falls a downward fling
                     // through to onNext and moves in the wrong direction.
                     onPrevious: browsingHistory || queue.canGoPrevious
-                        ? _showPrevious
+                        ? forThisCard(_showPrevious)
                         : null,
-                    onHard: browsingHistory ? null : () => _answer(false),
+                    onHard: browsingHistory
+                        ? null
+                        : forThisCard(() => _answer(false)),
                     onSkip: !browsingHistory && queue.canDefer
-                        ? _deferCurrent
+                        ? forThisCard(_deferCurrent)
                         : null,
                     skipEnabled: !browsingHistory && queue.canDefer,
-                    onLike: _likeCurrent,
-                    onBookmark: _saveCurrent,
+                    onLike: forThisCard(_likeCurrent),
+                    onBookmark: forThisCard(_saveCurrent),
                     bookmarkKey: _card.korean,
                     topAccessory: SoriSpeechIndicator(text: _card.korean),
-                    onShare: _shareCurrent,
-                    onFlip: _toggleFlip,
+                    onShare: forThisCard(_shareCurrent),
+                    onFlip: forThisCard(_toggleFlip),
                     liked: LikedContentService.isLiked(
                       kind: LikedContentService.vocab,
                       id: card.korean,
@@ -732,7 +875,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     bookmarkLabel: t.deckActionSave,
                     child: SoriPressable(
                       key: _cardKey,
-                      onTap: _toggleFlip,
+                      onTap: forThisCard(_toggleFlip),
                       haptic: SoriHaptic.selection,
                       child: SizedBox(
                         key: const ValueKey('deck-card-slot'),

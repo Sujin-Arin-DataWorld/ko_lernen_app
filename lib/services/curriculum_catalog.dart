@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -19,6 +20,8 @@ import 'smalltalk_loader.dart';
 class CurriculumCatalog {
   static const assetPath = 'assets/data/curriculum_manifest.json';
   static CurriculumCatalog? _cache;
+  static Future<CurriculumCatalog>? _pending;
+  static int _generation = 0;
 
   final List<CourseUnit> courseUnits;
   final List<Concept> concepts;
@@ -59,31 +62,79 @@ class CurriculumCatalog {
        _linksByContentKey = _groupByContentKey(contentLinks),
        _linksByUnitId = _groupByUnitId(contentLinks);
 
-  static Future<CurriculumCatalog> load() async {
-    if (_cache != null) return _cache!;
-    final raw = await rootBundle.loadString(assetPath);
-    final decoded = jsonDecode(raw);
-    if (decoded is! Map) {
-      throw const FormatException('curriculum_manifest.json must be an object');
+  static Future<CurriculumCatalog> load() {
+    if (_cache != null) {
+      return Future.value(_cache!);
     }
+    return _pending ??= _load(_generation);
+  }
 
-    final vocabFuture = DataLoader.loadVocab();
-    final grammarFuture = DataLoader.loadGrammar();
-    final scenarioFuture = ScenarioLoader.load();
-    final clozeFuture = ClozeLoader.load();
-    final satzFuture = SatzLoader.load();
-    await SmalltalkLoader.load();
+  static Future<CurriculumCatalog> _load(int generation) async {
+    try {
+      // The complete graph is cached here. A failed/invalid manifest must be
+      // read again on a later attempt, rather than retained by rootBundle.
+      final raw = await rootBundle.loadString(assetPath, cache: false);
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map) {
+        throw const FormatException(
+          'curriculum_manifest.json must be an object',
+        );
+      }
 
-    _cache = fromDataForTesting(
-      manifestJson: _copyMap(decoded),
-      vocab: await vocabFuture,
-      grammar: await grammarFuture,
-      smalltalk: SmalltalkLoader.phrases,
-      cloze: await clozeFuture,
-      satz: await satzFuture,
-      scenarios: await scenarioFuture,
-    );
-    return _cache!;
+      // Best-effort library loaders keep an error/empty result until retry.
+      // Reopen only failed corpora, preserving successful decoded content.
+      if (DataLoader.vocabError != null) {
+        DataLoader.resetVocab();
+      }
+      if (DataLoader.grammarError != null) {
+        DataLoader.resetGrammar();
+      }
+      if (ScenarioLoader.fullCorpusError != null) {
+        ScenarioLoader.reset();
+      }
+      if (SmalltalkLoader.lastError != null) {
+        SmalltalkLoader.reset();
+      }
+      // Attach error handlers to every input immediately. Sequential awaits
+      // can leave an early cloze/sentence failure unhandled during other I/O.
+      final (vocab, grammar, scenarios, cloze, satz, _) = await (
+        DataLoader.loadVocab(),
+        DataLoader.loadGrammar(),
+        ScenarioLoader.load(),
+        ClozeLoader.load(),
+        SatzLoader.load(),
+        SmalltalkLoader.load(),
+      ).wait;
+      if (DataLoader.vocabError != null ||
+          DataLoader.grammarError != null ||
+          ScenarioLoader.fullCorpusError != null ||
+          SmalltalkLoader.lastError != null) {
+        throw StateError('Curriculum content could not be loaded completely.');
+      }
+
+      final catalog = fromDataForTesting(
+        manifestJson: _copyMap(decoded),
+        vocab: vocab,
+        grammar: grammar,
+        smalltalk: SmalltalkLoader.phrases,
+        cloze: cloze,
+        satz: satz,
+        scenarios: scenarios,
+      );
+      if (catalog.validationIssues.isNotEmpty) {
+        throw FormatException(
+          'Invalid curriculum: ${catalog.validationIssues.join('; ')}',
+        );
+      }
+      if (generation == _generation) {
+        _cache = catalog;
+      }
+      return catalog;
+    } finally {
+      if (generation == _generation) {
+        _pending = null;
+      }
+    }
   }
 
   /// Pure construction seam for data tooling and order-independence tests.
@@ -144,7 +195,11 @@ class CurriculumCatalog {
     );
   }
 
-  static void reset() => _cache = null;
+  static void reset() {
+    _generation++;
+    _cache = null;
+    _pending = null;
+  }
 
   CourseUnit? courseUnitFor(String id) => _unitById[id];
   Concept? conceptFor(String id) => _conceptById[id];

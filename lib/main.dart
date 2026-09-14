@@ -1,4 +1,7 @@
 import 'services/learning_journey.dart';
+import 'widgets/sori/pack_completion_recovery_banner.dart';
+import 'services/pack_completion_owner.dart';
+import 'services/vocab_pack_finish_coordinator.dart';
 import 'screens/phase_task_screen.dart';
 import 'dart:async';
 
@@ -18,10 +21,12 @@ import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
+import 'widgets/sori/srs_recovery_banner.dart';
 import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
 import 'services/ad_service.dart';
 import 'services/auth_service.dart';
+import 'services/account/cloud_write_session.dart';
 import 'services/cloud_auto_sync.dart';
 import 'services/book_image_service.dart';
 import 'services/bookshelf_service.dart';
@@ -98,6 +103,7 @@ import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_preview_screen.dart';
+import 'screens/ildu_construction_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
@@ -240,6 +246,36 @@ Future<void> _finishStartupInBackground() async {
   // 이 게이트 뒤에서만 시작해야 V1→V3 가져오기와 같은 로컬 변환을 덮지 않는다.
   final migration = await runStartupMigrationBeforeCloudServices();
 
+  await finishPostMigrationStartup(migration);
+
+  // AdMob best-effort initialisieren (im Hintergrund)
+  // ignore: discarded_futures, unawaited_futures
+  _initAds();
+
+  // Lokale Benachrichtigungen (M3) best-effort initialisieren.
+  // ignore: discarded_futures, unawaited_futures
+  NotificationService.init();
+
+  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
+  // ignore: discarded_futures, unawaited_futures
+  _recordStartupDiagnostics(migration);
+}
+
+/// Production post-migration sequence; platform effects are injectable for
+/// a deterministic native-recovery liveness test.
+@visibleForTesting
+Future<void> finishPostMigrationStartup(
+  DataMigrationResult? migration, {
+  Future<void> Function()? applyAudioContext,
+  Future<void> Function()? initializeManagedMedia,
+  Future<void> Function()? recoverCrop,
+  Future<void> Function()? recoverPicker,
+}) async {
+  // The native recovery owns a separate admission gate. Its bounded wait
+  // cannot hold first frame or delay unrelated startup services indefinitely.
+  DefaultVocabPackFinishOperations.initializeRecovery();
+  unawaited(PackCompletionStorage.retry());
+  unawaited(Storage.retrySrsRecovery());
   await runPostMigrationStudyLogMaintenance(migration);
 
   final streakBefore = Storage.streakDays;
@@ -256,43 +292,34 @@ Future<void> _finishStartupInBackground() async {
   // — 여기서 던지면 finally 가 markReady() 를 보장해, 스플래시가 예외로
   // 상한 1500ms 를 다 채우고 나서야 넘어가는 일이 없다.
   try {
-    await AudioPolicy.instance.applyPlatformAudioContext();
+    await (applyAudioContext ??
+        AudioPolicy.instance.applyPlatformAudioContext)();
   } finally {
     // §W2-Task6: 스플래시가 기다리는 두 단계(마이그레이션+오디오 컨텍스트)가
     // 여기서 끝난다 — BookImageService 이후 단계들은 게이트와 무관.
     SplashGate.markReady();
   }
   try {
-    await BookImageService.initialize();
+    await (initializeManagedMedia ?? BookImageService.initialize)();
   } catch (error) {
     debugPrint('Managed media reconciliation skipped: $error');
   }
   try {
-    await CropRecoveryService.recoverAtStartup(
-      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
-    );
+    await (recoverCrop ??
+        () => CropRecoveryService.recoverAtStartup(
+          isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+        ))();
   } catch (error) {
     debugPrint('Android crop recovery skipped: $error');
   }
   try {
-    await PickerRecoveryService.recoverAtStartup(
-      isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
-    );
+    await (recoverPicker ??
+        () => PickerRecoveryService.recoverAtStartup(
+          isAndroid: !kIsWeb && defaultTargetPlatform == TargetPlatform.android,
+        ))();
   } catch (error) {
     debugPrint('Android picker recovery skipped: $error');
   }
-
-  // AdMob best-effort initialisieren (im Hintergrund)
-  // ignore: discarded_futures, unawaited_futures
-  _initAds();
-
-  // Lokale Benachrichtigungen (M3) best-effort initialisieren.
-  // ignore: discarded_futures, unawaited_futures
-  NotificationService.init();
-
-  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
-  // ignore: discarded_futures, unawaited_futures
-  _recordStartupDiagnostics(migration);
 }
 
 /// Finishes the local schema transaction before any cloud reconciliation can
@@ -328,7 +355,10 @@ Future<void> runPostMigrationStudyLogMaintenance(
   Future<void> Function()? pruneStudyLog,
   void Function(Object error)? onPruneFailure,
 }) async {
-  if (migration?.writesAllowed != true) {
+  // Pruning shares the native SRS lane. An unacknowledged recovery must keep
+  // that lane fenced without queuing an awaited startup dependency behind it.
+  // The next startup or calendar entry can perform this noncritical cleanup.
+  if (migration?.writesAllowed != true || Storage.srsRecoveryPending) {
     return;
   }
   try {
@@ -381,7 +411,14 @@ Future<void> _startCloudServices() async {
         debugPrint('App Check activation failed; continuing without it.');
       }
     },
-    ensureSignedIn: AuthService.ensureSignedIn,
+    ensureSignedIn: () async {
+      try {
+        await AuthService.ensureSignedIn();
+      } finally {
+        PackCompletionOwner.authenticationInitialized = true;
+        unawaited(PackCompletionStorage.retry());
+      }
+    },
     currentUserId: () => AuthService.current?.uid,
     restorePendingAccountState: AuthService.restorePendingAccountState,
     synchronizeReadySession: AuthService.synchronizeReadyCloudWriteSession,
@@ -489,6 +526,7 @@ AccountDeletionWorkflow _createAccountDeletionWorkflow() =>
     );
 
 Future<bool> _initFirebase() async {
+  PrivacyConsentService.bindAccountSessions(cloudWriteSessionController);
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -497,7 +535,11 @@ Future<bool> _initFirebase() async {
     // DSGVO/TTDSG: Analytics + Crashlytics sind opt-in. Die Erhebung ist im
     // Manifest/Info.plist deaktiviert; hier wird die gespeicherte
     // Einwilligung (Default: aus) auf die SDKs angewendet.
-    await PrivacyConsentService.applyStored();
+    unawaited(
+      PrivacyConsentService.applyStored().catchError((Object error) {
+        debugPrint('Optional privacy settings need retry');
+      }),
+    );
     // installErrorHandlers() 는 이제 launchKoLernenApp() 맨 앞에서 조기·
     // 무조건 설치된다(finding 7) — 여기 있던 호출은 Firebase 성공에
     // 종속된 중복이라 제거.
@@ -591,6 +633,7 @@ class KoLernenApp extends StatefulWidget {
 }
 
 class _KoLernenAppState extends State<KoLernenApp> {
+  final _packRecoveryNavigator = GlobalKey<NavigatorState>();
   final _resumeDeliveryNotifier = ContentFeedbackResumeDeliveryNotifier();
 
   @override
@@ -604,6 +647,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
     return ListenableBuilder(
       listenable: Listenable.merge([localeNotifier, paletteVariantNotifier]),
       builder: (_, __) => MaterialApp(
+        navigatorKey: _packRecoveryNavigator,
         title: 'Hangul Sori',
         debugShowCheckedModeBanner: false,
         // Dark Mode deaktiviert (v2.0): App immer im Light-Theme.
@@ -640,7 +684,23 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
                 // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
                 // 고장과 구분이 안 된다.
-                child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+                child: PackCompletionRecoveryBanner(
+                  onViewResult: () {
+                    final record = PackCompletionStorage.result;
+                    if (record != null) {
+                      _packRecoveryNavigator.currentState?.push(
+                        SoriTransitions.page(
+                          (_) => VocabPackResultScreen.fromRecovered(record),
+                        ),
+                      );
+                    }
+                  },
+                  child: SrsRecoveryBanner(
+                    child: TtsUnavailableBanner(
+                      child: child ?? const SizedBox(),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -651,6 +711,21 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
         initialRoute: '/splash',
         onGenerateRoute: (settings) {
+          final name = settings.name ?? '';
+          if (PackCompletionStorage.invalid &&
+              name != '/' &&
+              name != '/splash' &&
+              name != '/intro' &&
+              name != '/quick_onboarding' &&
+              name != '/character_selection' &&
+              !name.startsWith('/onboarding') &&
+              !name.startsWith('/settings') &&
+              !name.startsWith('/privacy')) {
+            return SoriTransitions.page(
+              (_) => const PackCompletionRecoveryScreen(),
+              settings: settings,
+            );
+          }
           switch (settings.name) {
             case '/splash':
               return SoriTransitions.page(
@@ -1111,6 +1186,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/dojangcheop':
               return SoriTransitions.page(
                 (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
+            case '/hanok/construction':
+              return SoriTransitions.page(
+                (_) => const IlDuConstructionScreen(),
                 settings: settings,
               );
             case '/hanok':

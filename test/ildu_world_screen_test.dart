@@ -64,7 +64,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('turning the selected Sarangchae updates its map frame', (
+  testWidgets('Sarangchae uses its single world view without rotation', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(1179, 2556);
@@ -89,21 +89,10 @@ void main() {
 
     expect(
       find.byKey(const ValueKey('ildu-turntable-sarangchae')),
-      findsOneWidget,
+      findsNothing,
     );
     expect(
-      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-0')),
-      findsOneWidget,
-    );
-
-    await tester.drag(
-      find.byKey(const ValueKey('hanok-turntable-drag-area')),
-      const Offset(-40, 0),
-    );
-    await tester.pumpAndSettle();
-
-    expect(
-      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-1')),
+      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-null')),
       findsOneWidget,
     );
     expect(tester.takeException(), isNull);
@@ -551,7 +540,9 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('dragging Sarangchae saves its map placement', (tester) async {
+  testWidgets('dragging Jungmunganchae saves its map placement', (
+    tester,
+  ) async {
     // Keep the map anchor clear of the persistent detail sheet so this test
     // exercises the real nested gesture arena instead of invoking callbacks.
     tester.view.physicalSize = const Size(1179, 4000);
@@ -576,11 +567,11 @@ void main() {
     await tester.pumpAndSettle();
 
     final anchor = find.byKey(
-      const ValueKey('ildu-map-turntable-sarangchae-0'),
+      const ValueKey('ildu-map-turntable-jungmunganchae-2'),
     );
     expect(anchor, findsOneWidget);
     final dragTarget = find.byKey(
-      const ValueKey('ildu-anchor-gesture-sarangchae'),
+      const ValueKey('ildu-anchor-gesture-jungmunganchae'),
     );
     final mapController = tester
         .widget<InteractiveViewer>(find.byType(InteractiveViewer))
@@ -590,9 +581,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(anchorStore.placements, hasLength(1));
-    expect(anchorStore.placements.single.anchorId, 'sarangchae');
-    expect(anchorStore.placements.single.x, greaterThan(48.2));
-    expect(anchorStore.placements.single.y, greaterThan(55.8));
+    expect(anchorStore.placements.single.anchorId, 'jungmunganchae');
+    expect(anchorStore.placements.single.x, greaterThan(40.3));
+    expect(anchorStore.placements.single.y, greaterThan(43.6));
     expect(anchorStore.placements.single.scale, 1);
     expect(anchorStore.saveCalls, 1);
     expect(mapController.value, mapTransformBeforeDrag);
@@ -806,6 +797,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    _selectMapAnchor(tester, 'jungmunganchae');
+    await tester.pumpAndSettle();
     await tester.drag(
       find.byKey(const ValueKey('hanok-turntable-drag-area')),
       const Offset(-40, 0),
@@ -815,7 +808,7 @@ void main() {
     expect(anchorStore.maximumConcurrentSaves, 1);
 
     final slider = tester.widget<Slider>(
-      find.byKey(const ValueKey('ildu-scale-slider-sarangchae')),
+      find.byKey(const ValueKey('ildu-scale-slider-jungmunganchae')),
     );
     slider.onChanged!(1.35);
     slider.onChangeEnd!(1.35);
@@ -835,7 +828,7 @@ void main() {
     await tester.pump();
 
     expect(anchorStore.placements, hasLength(1));
-    expect(anchorStore.placements.single.direction, 1);
+    expect(anchorStore.placements.single.direction, 3);
     expect(anchorStore.placements.single.scale, closeTo(1.35, .001));
     expect(tester.takeException(), isNull);
   });
@@ -866,13 +859,15 @@ void main() {
     final screenContext = tester.element(find.byType(IlDuWorldScreen));
     final saveError = AppL10n.of(screenContext).ilduWorldSaveError;
 
+    _selectMapAnchor(tester, 'jungmunganchae');
+    await tester.pumpAndSettle();
     await tester.drag(
       find.byKey(const ValueKey('hanok-turntable-drag-area')),
       const Offset(-40, 0),
     );
     await tester.pump();
     final slider = tester.widget<Slider>(
-      find.byKey(const ValueKey('ildu-scale-slider-sarangchae')),
+      find.byKey(const ValueKey('ildu-scale-slider-jungmunganchae')),
     );
     slider.onChanged!(1.35);
     slider.onChangeEnd!(1.35);
@@ -883,7 +878,7 @@ void main() {
     anchorStore.completeNextSave();
     await tester.pump();
 
-    expect(anchorStore.placements.single.direction, 1);
+    expect(anchorStore.placements.single.direction, 3);
     expect(anchorStore.placements.single.scale, closeTo(1.35, .001));
     expect(find.text(saveError), findsNothing);
     expect(tester.takeException(), isNull);

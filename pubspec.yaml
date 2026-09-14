@@ -19,6 +19,7 @@ dependencies:
   # ── Daten / Persistenz ──────────────────────────────────
   csv: ^6.0.0
   shared_preferences: ^2.3.0
+  shared_preferences_platform_interface: ^2.4.2
   # Exact pin: 7.0 keeps the current iOS/Xcode floor while supporting this
   # project's Flutter 3.44, AGP 9.0, and Gradle 9.1 toolchain.
   connectivity_plus: 7.0.0
@@ -98,6 +99,7 @@ dependencies:
   firebase_app_check_platform_interface: ^0.4.2
   flutter_secure_storage: ^10.3.1
   package_info_plus: ^10.2.1
+  in_app_update: ^5.0.0
   device_info_plus: ^13.2.0
   uuid: ^4.5.1
 
@@ -110,7 +112,6 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  shared_preferences_platform_interface: ^2.4.2
   xml: ^6.6.1
 
   # ── Icon / Splash Generierung ───────────────────────────
@@ -142,6 +143,10 @@ flutter:
     # authored assets; bundling them does not expose the unfinished map.
     - assets/illustrations/personal_hanok_v3/world/
     - assets/illustrations/personal_hanok_v3/turnarounds/
+    - assets/illustrations/personal_hanok_v3/sarangchae/
+    - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
+    - assets/illustrations/personal_hanok_v3/construction/changgo/
+    - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
     - assets/illustrations/stamps/

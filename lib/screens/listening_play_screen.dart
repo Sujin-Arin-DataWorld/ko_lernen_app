@@ -23,6 +23,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_share_recovery.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -72,6 +73,8 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   int _completionXp = 0;
   final GlobalKey _speedKey = GlobalKey();
   final GlobalKey _conversationKey = GlobalKey();
+  late final ConfirmedChoiceActionOwner _choiceOwner;
+  int _likeSourceGeneration = 0;
 
   Scenario get _scenario => widget.scenario;
 
@@ -105,6 +108,15 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     WidgetsBinding.instance.addObserver(this);
     _playback = ListeningPlaybackController(
       lines: _scenario.dialog,
@@ -123,6 +135,15 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       questId: _scenario.id,
       lastStepReached: () => 'line_${_playback.currentIndex}',
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant ListeningPlayScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.scenario, widget.scenario)) {
+      _likeSourceGeneration++;
+      _choiceOwner.replaceSource();
+    }
   }
 
   @override
@@ -160,6 +181,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     WidgetsBinding.instance.removeObserver(this);
     _playback.removeListener(_onPlaybackChanged);
     _playback.dispose();
@@ -180,7 +202,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     _abandonTracker?.markCompleted();
     final lang = Localizations.localeOf(context).languageCode;
     final earned = (_scenario.dialog.length * 8).clamp(40, 120);
-    final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
+    final attempt = _learningAttempt ??= LearningJourneyObserver.beginAttempt();
     final work = _feedbackCompletion.finish(
       persistXp: () async {
         final claim = await Storage.claimListeningCompletionReward(
@@ -215,14 +237,27 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     setState(() {});
   }
 
-  Future<void> _likeLine(int index) async {
-    await LikedContentService.toggle(
-      kind: LikedContentService.listening,
-      id: '${_scenario.id}:$index',
-    );
-    if (mounted) {
-      setState(() {});
+  Future<void> _likeLine(
+    Scenario scenario,
+    DialogLine line,
+    int index,
+    int sourceGeneration,
+  ) async {
+    if (index < 0 ||
+        index >= scenario.dialog.length ||
+        sourceGeneration != _likeSourceGeneration ||
+        !identical(scenario, _scenario) ||
+        !identical(line, scenario.dialog[index])) {
+      return;
     }
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: line.ko,
+        kind: LikedContentService.listening,
+        id: '${scenario.id}:$index',
+      ),
+    );
   }
 
   Future<void> _shareLine(int index) async {
@@ -368,6 +403,8 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   }
 
   Widget _buildConversation(AppL10n t, String lang) {
+    final scenario = _scenario;
+    final likeSourceGeneration = _likeSourceGeneration;
     final review = _playback.phase == ListeningPlaybackPhase.review;
     return Column(
       key: _conversationKey,
@@ -402,9 +439,9 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               ],
               for (var index = 0; index < _playback.revealedCount; index++)
                 _DialogueBubble(
-                  line: _scenario.dialog[index],
-                  speakerName: _speakerName(t, _scenario.dialog[index].speaker),
-                  gloss: _scenario.dialog[index].pick(lang),
+                  line: scenario.dialog[index],
+                  speakerName: _speakerName(t, scenario.dialog[index].speaker),
+                  gloss: scenario.dialog[index].pick(lang),
                   current: index == _playback.currentIndex,
                   review: review,
                   translationExpanded: _playback.expandedTranslations.contains(
@@ -418,11 +455,16 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
                   shareLabel: t.shareTooltip,
                   liked: LikedContentService.isLiked(
                     kind: LikedContentService.listening,
-                    id: '${_scenario.id}:$index',
+                    id: '${scenario.id}:$index',
                   ),
                   onTranslation: () => _playback.toggleTranslation(index),
                   onReplay: () => _playback.replayLine(index),
-                  onLike: () => _likeLine(index),
+                  onLike: () => _likeLine(
+                    scenario,
+                    scenario.dialog[index],
+                    index,
+                    likeSourceGeneration,
+                  ),
                   onShare: () => _shareLine(index),
                 ),
             ],

@@ -6,7 +6,6 @@ import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
-import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/legacy_vocab_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
@@ -24,11 +23,11 @@ import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/illustrated_card_grid.dart';
-import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/deck_actions.dart';
+import 'support/pack_completion_widget_driver.dart';
 
 const _privatePackName =
     'private.name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
@@ -189,53 +188,23 @@ void main() {
   testWidgets(
     'vocab pack feedback follows the actual result-route replacement',
     (tester) async {
-      const pack = VocabPack(
-        id: 'a1_terminal',
-        level: 'A1',
-        words: [
-          Vocab(
-            korean: '\uB2E8\uC5B4',
-            romanization: 'daneo',
-            german: 'Wort',
-            english: 'word',
-            level: 'A1',
-            posDe: 'Nomen',
-            exampleKorean: '',
-            exampleGerman: '',
-            topic: 'test',
-            isReviewBoss: true,
-          ),
-        ],
-      );
+      final pack = await loadCanonicalWidgetPack(tester);
       await tester.pumpWidget(
-        _app(
-          VocabPackScreen(
-            packId: pack.id,
-            packLoader: (_) async => pack,
-            siblingPacksLoader: (_) async => [pack],
-          ),
-        ),
+        _app(VocabPackScreen(packId: pack.id, packLoader: (_) async => pack)),
       );
       await tester.pump();
       await tester.pump();
 
-      // Current-pack Boss words are taught in Learn before their recognition
-      // assessment, so reveal the gloss and complete the Learn card first.
-      tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      tapDeckAction(tester, 'Gewusst');
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-
-      final correct = find.byWidgetPredicate(
-        (widget) => widget is QuizChoice && widget.isCorrect,
+      expect(find.byType(ContentFeedbackCard), findsNothing);
+      await completeCanonicalWidgetPack(tester, pack);
+      await pumpUntilPackSignal(
+        tester,
+        () =>
+            find.byType(VocabPackResultScreen).evaluate().isNotEmpty &&
+            find.byType(VocabPackScreen).evaluate().isEmpty,
       );
-      expect(correct, findsOneWidget);
-      tester.widget<QuizChoice>(correct).onSelected!();
-      await tester.pump(const Duration(seconds: 2));
-      await tester.pump(const Duration(seconds: 2));
-
+      expect(find.byType(VocabPackScreen), findsNothing);
+      expect(PackCompletionStorage.result?.packId, pack.id);
       _expectFeedback(tester, type: 'vocab_pack');
     },
   );

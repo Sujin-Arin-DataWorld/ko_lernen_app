@@ -2,41 +2,96 @@ import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import 'data_loader.dart';
 
+/// One vocabulary-pack read together with the availability of its source.
+///
+/// [packs] remains empty for a failed corpus so tolerant callers keep their
+/// existing fallback. Display callers can use [isAvailable] to avoid treating
+/// that fallback as a successful zero-pack catalog.
+class VocabPackLoadResult {
+  const VocabPackLoadResult({required this.packs, required this.isAvailable});
+
+  final List<VocabPack> packs;
+  final bool isAvailable;
+}
+
 /// VocabPack 로더 + 진행도 헬퍼.
 ///
 /// Phase 1 (stately-rising-jongga): 단순한 in-memory 그룹화.
 /// Phase 2 부터: 화면 (VocabPacksScreen, VocabPackScreen) 에서 사용.
 class VocabPackService {
   /// 메모리 캐시 — 한 세션 내 재호출 시 즉시 반환.
-  static List<VocabPack>? _cache;
+  static VocabPackLoadResult? _cache;
+  static Future<VocabPackLoadResult>? _pending;
+  static int _generation = 0;
 
   /// 모든 팩 (level → pack_order → sub_index 순).
   ///
   /// 첫 호출 시 `DataLoader.loadVocab()` 가 CSV 를 한 번 읽고,
   /// 결과를 그룹화한다. 재호출은 캐시 hit.
-  static Future<List<VocabPack>> loadAll() async {
-    if (_cache != null) return _cache!;
+  static Future<List<VocabPack>> loadAll() async =>
+      (await loadForDisplay()).packs;
 
-    final all = await DataLoader.loadVocab();
-    final grouped = <String, List<Vocab>>{};
-    for (final v in all) {
-      if (v.packId.isEmpty) continue; // 팩 미할당 → 무시 (방어적)
-      grouped.putIfAbsent(v.packId, () => []).add(v);
+  /// Loads packs while preserving whether the vocabulary corpus was readable.
+  ///
+  /// Concurrent tolerant and display callers share the same grouping work.
+  /// Failed reads still return an empty list, but are never cached here, so a
+  /// later underlying corpus retry can repopulate packs in the same app run.
+  static Future<VocabPackLoadResult> loadForDisplay() {
+    final cached = _cache;
+    if (cached != null) {
+      return Future.value(cached);
     }
+    return _pending ??= _load(_generation);
+  }
 
-    final packs = grouped.entries.map((e) {
-      final words = List<Vocab>.from(e.value)
-        ..sort((a, b) => a.packOrder.compareTo(b.packOrder));
-      return VocabPack(
-        id: e.key,
-        level: words.isEmpty ? '' : words.first.level,
-        words: words,
+  static Future<VocabPackLoadResult> _load(int generation) async {
+    try {
+      final all = await DataLoader.loadVocab();
+      if (generation != _generation || !DataLoader.isCurrentVocabResult(all)) {
+        return const VocabPackLoadResult(
+          packs: <VocabPack>[],
+          isAvailable: false,
+        );
+      }
+      if (DataLoader.vocabError != null) {
+        return const VocabPackLoadResult(
+          packs: <VocabPack>[],
+          isAvailable: false,
+        );
+      }
+
+      final grouped = <String, List<Vocab>>{};
+      for (final v in all) {
+        if (v.packId.isEmpty) {
+          continue; // 팩 미할당 → 무시 (방어적)
+        }
+        grouped.putIfAbsent(v.packId, () => []).add(v);
+      }
+
+      final packs = grouped.entries.map((e) {
+        final words = List<Vocab>.from(e.value)
+          ..sort((a, b) => a.packOrder.compareTo(b.packOrder));
+        return VocabPack(
+          id: e.key,
+          level: words.isEmpty ? '' : words.first.level,
+          words: words,
+        );
+      }).toList();
+
+      packs.sort(_packComparator);
+      final result = VocabPackLoadResult(
+        packs: List<VocabPack>.unmodifiable(packs),
+        isAvailable: true,
       );
-    }).toList();
-
-    packs.sort(_packComparator);
-    _cache = packs;
-    return packs;
+      if (generation == _generation) {
+        _cache = result;
+      }
+      return result;
+    } finally {
+      if (generation == _generation) {
+        _pending = null;
+      }
+    }
   }
 
   /// 특정 레벨의 팩 (a1_…).
@@ -73,7 +128,9 @@ class VocabPackService {
 
   /// 캐시 무효화 (테스트 / 핫리로드 후).
   static void reset() {
+    _generation++;
     _cache = null;
+    _pending = null;
   }
 
   // ── 정렬 ─────────────────────────────────────────────────────────────

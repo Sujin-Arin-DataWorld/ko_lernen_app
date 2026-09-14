@@ -7,6 +7,7 @@ import '../../config/tester_feedback_feature.dart';
 import '../../models/content_feedback.dart';
 import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
+import '../../services/local_data_lifetime.dart';
 import 'celebration.dart';
 import 'character_clip.dart';
 import 'content_feedback_card.dart';
@@ -245,6 +246,83 @@ class GameOutcome {
   });
 }
 
+/// Reuse this attempt for the same completed round, including after failure.
+/// A new round gets a new attempt. This does not resume a killed process.
+class GameResultAttempt {
+  GameResultAttempt({
+    required String gameId,
+    required int xp,
+    int? score,
+    bool higherIsBetter = true,
+    int? dailyCompletionBonus,
+    bool kkeunmariWin = false,
+    LearningAttempt? learningAttempt,
+  }) : _learningAttempt =
+           learningAttempt ?? LearningJourneyObserver.beginAttempt(),
+       _gameId = gameId,
+       _xp = XpAwardAttempt(
+         xp,
+         dailyCompletionBonus: dailyCompletionBonus,
+         kkeunmariWin: kkeunmariWin,
+       ),
+       _best = score == null
+           ? null
+           : GameBestAttempt(gameId, score, higherIsBetter: higherIsBetter);
+  final LearningAttempt? _learningAttempt;
+  final String _gameId;
+  final XpAwardAttempt _xp;
+  final GameBestAttempt? _best;
+  final _lifetime = LocalDataLifetime.capture();
+  bool _cancelled = false;
+  GameOutcome? _outcome;
+  Future<GameOutcome>? _pending;
+  void cancel() {
+    _cancelled = true;
+  }
+
+  void _assertCurrent() {
+    _lifetime.assertCurrent();
+    if (_cancelled) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
+  Future<GameOutcome> save() {
+    final pending = _pending;
+    if (pending != null) {
+      return pending;
+    }
+    final work = _save().whenComplete(() => _pending = null);
+    final attempt = _learningAttempt;
+    return _pending = attempt == null
+        ? work
+        : attempt.journey.track(work, attempt);
+  }
+
+  Future<GameOutcome> _save() async {
+    _assertCurrent();
+    if (_outcome != null) {
+      return _outcome!;
+    }
+    await _xp.save();
+    _assertCurrent();
+    final best = _best;
+    final isNewBest = best != null && await best.save();
+    _assertCurrent();
+    final outcome = GameOutcome(
+      xpGained: _xp.earnedXp,
+      attempt: _learningAttempt,
+      gameId: _gameId,
+      best: best?.best,
+      isNewBest: isNewBest,
+    );
+    _outcome = outcome;
+    _learningAttempt?.complete();
+    SoundService.complete();
+    return outcome;
+  }
+}
+
 /// **Einheitliche Belohnung am Spielende.** XP gutschreiben, persönliche
 /// Bestleistung aktualisieren, Abschluss-Sound spielen. Jedes Spiel ruft das
 /// auf → ein konsistentes Dopamin-Loop statt zufälliger, halbfertiger
@@ -264,36 +342,13 @@ Future<GameOutcome> recordGameResult({
   int? score,
   bool higherIsBetter = true,
   LearningAttempt? learningAttempt,
-}) async {
-  final attempt = learningAttempt ?? LearningJourneyObserver.beginAttempt();
-  Future<GameOutcome> persist() async {
-    if (xp > 0) {
-      await Storage.addXp(xp);
-    }
-    var isNewBest = false;
-    int? best;
-    if (score != null) {
-      isNewBest = await Storage.recordGameBest(
-        gameId,
-        score,
-        higherIsBetter: higherIsBetter,
-      );
-      best = Storage.gameBest(gameId);
-    }
-    SoundService.complete();
-    attempt?.complete();
-    return GameOutcome(
-      xpGained: xp,
-      best: best,
-      isNewBest: isNewBest,
-      attempt: attempt,
-      gameId: gameId,
-    );
-  }
-
-  final work = persist();
-  return attempt == null ? work : attempt.journey.track(work, attempt);
-}
+}) => GameResultAttempt(
+  gameId: gameId,
+  xp: xp,
+  score: score,
+  higherIsBetter: higherIsBetter,
+  learningAttempt: learningAttempt,
+).save();
 
 /// **GameOverCard** — einheitlicher, erwachsen-eleganter Abschluss-Körper.
 ///
