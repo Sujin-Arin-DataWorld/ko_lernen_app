@@ -23,6 +23,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/cultural_help.dart';
+import '../../widgets/sori/hanok_stage_names.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/learning_companion.dart';
@@ -926,8 +927,7 @@ class _PendingBojagi extends StatelessWidget {
               builder: (context, constraints) {
                 final textScale = MediaQuery.textScalerOf(context).scale(1);
                 final stacked =
-                    constraints.maxWidth <
-                        SoriAdaptiveWidth.criticalActionRow ||
+                    constraints.maxWidth < SoriAdaptiveWidth.footerActionRow ||
                     textScale >= 1.6;
                 final details = Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1035,6 +1035,14 @@ class _HanokProgress extends StatelessWidget {
                 ),
                 const SizedBox(height: Spacing.sm),
                 Text(t.soriStageHanokUpdating, style: text.caption),
+                if (hanokStageGlossaryTermId(snapshot.hanokCompetence.stage)
+                    case final termId?)
+                  SoriTerm(
+                    termId: termId,
+                    text: hanokStageTerm(t, snapshot.hanokCompetence.stage),
+                    style: text.caption,
+                    surface: 'today_hanok_progress',
+                  ),
                 const SizedBox(height: Spacing.sm),
                 Text(
                   t.soriStageOpenHanok,

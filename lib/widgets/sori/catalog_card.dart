@@ -7,6 +7,7 @@ import 'button.dart';
 import 'card.dart';
 import 'localized_copy.dart';
 import 'tokens.dart';
+import 'window_class.dart';
 
 /// Catalog-only natural-height cards. Details is an independent focusable
 /// action, outside the route button's semantics and gesture target.
@@ -111,7 +112,7 @@ class SoriCatalogCard extends StatelessWidget {
                 borderRadius: SoriRadius.brSm,
                 child: art(width: 128),
               );
-              if (constraints.maxWidth < 285 ||
+              if (constraints.maxWidth < SoriAdaptiveWidth.catalogFeaturedRow ||
                   MediaQuery.textScalerOf(context).scale(16) >= 24) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

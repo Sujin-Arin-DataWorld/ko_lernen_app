@@ -142,6 +142,18 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// The featured catalog's 128dp artwork fits beside its title and description.
+  static const double catalogFeaturedRow = 285;
+
+  /// Learning-focus artwork and the mission title share a readable content row.
+  static const double learningFocusHeroRow = 300;
+
+  /// Learning-focus position and the learning-path action fit beside each other.
+  static const double learningFocusFooterRow = 285;
+
+  /// The grounded companion leaves enough room beside it for the greeting.
+  static const double learningCompanionRow = 300;
+
   /// A companion's German and Korean names fit together inside its choice tile.
   static const double companionNameRow = 160;
 

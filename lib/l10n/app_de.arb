@@ -2478,12 +2478,9 @@
   "pathNextAfterEvidence": "Als Nächstes nach deinem Beweis",
   "pathShowMorePractice": "Weitere Übungen anzeigen",
   "pathHideMorePractice": "Weitere Übungen ausblenden",
-  "gyeVoluntaryEyebrow": "Freiwillige Lerngemeinschaft",
   "gyeEmptyHeadline": "Allein lernen ist vollständig. Zusammen kann es wärmer sein.",
-  "gyeEmptyLead": "Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.",
   "gyeFindOrCreate": "Gruppe beitreten oder gründen",
   "gyeContinueSolo": "Ohne Gruppe weiterlernen",
-  "gyeEmptyPreviewCaption": "Die Vorschau zeigt den gemeinsamen Hof. Er ist keine Voraussetzung für deinen Lernweg.",
   "homePathCardTitle": "Lernpfad",
   "homePathCardSub": "Sieh, wo du stehst",
   "homeBrowseTitle": "Alles entdecken",
@@ -2821,10 +2818,6 @@
   "gyeExplainHow": "Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei, wenn du bereit bist.",
   "gyePrivacyTitle": "Was andere sehen",
   "gyePrivacyBody": "Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.",
-  "gyeExplainWhatShort": "Eine kleine, freiwillige Lerngruppe.",
-  "gyeExplainWhyShort": "Ein gemeinsames Hanok, kein Wettbewerb.",
-  "gyeExplainHowShort": "Beitritt mit 6-stelligem Code.",
-  "gyeShowcaseCaption": "So kann euer gemeinsames Hanok aussehen",
   "gyeExplainMore": "Mehr erfahren",
   "gyeWeeklyEyebrow": "Diese Woche zusammen",
   "gyeWeeklyTitle": "Haltet gemeinsam die Lichter im Hof an.",
@@ -4071,28 +4064,10 @@
   "soriStageBojagiBody": "Wähle eines von drei Stücken für dein Zimmer.",
   "soriStageOpenBojagi": "Bojagi öffnen",
   "soriStageHanokNow": "Dein Hanok",
-  "soriStageNextPiece": "Nächstes Bauteil",
-  "soriStageHanokPieces": "{built} / {total} Bauteile",
-  "@soriStageHanokPieces": {
-    "placeholders": {
-      "built": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "soriStageClosestQuests": "Fast geschafft",
   "soriStageNextQuests": "Als Nächstes",
   "soriStageLearnTitle": "Wähle, wie du lernen möchtest.",
   "soriStageLearnBody": "Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.",
-  "soriStageLearnSectionToday": "Heute lernen",
-  "soriStageLearnSectionExplore": "Entdecken & üben",
-  "soriStageLearnSectionReview": "Wiederholen",
-  "soriStageGamesTitle": "Spiele mit einem klaren Ziel.",
-  "soriStageGamesBody": "Sieh XP, Bestleistung und passende Quest, bevor du startest.",
-  "soriStageContinueEyebrow": "Weiter mit",
   "soriStageMinutes": "{minutes} Min.",
   "@soriStageMinutes": {
     "placeholders": {
@@ -4118,8 +4093,6 @@
       }
     }
   },
-  "soriStageHanokTitle": "Dein Hanok wächst mit dir.",
-  "soriStageHanokBody": "Jedes Wort baut hier weiter.",
   "soriStageHanokUpdating": "Hanok-Vorschau · die neue Ansicht entsteht.",
   "sarangchaeConstructionProgress": "{earned} von {total} Bauabschnitten",
   "@sarangchaeConstructionProgress": {
@@ -4171,16 +4144,9 @@
     }
   },
   "soriStageOpenMap": "Hanok-Karte öffnen",
-  "soriStageQuests": "Quests",
-  "soriStageDojang": "Dojang-Heft",
-  "soriStageBojagi": "Bojagi",
   "soriStageRooms": "Räume und Einrichtung",
-  "soriStageGyePromise": "Versprechen dieser Woche",
   "soriStageGyeFlow": "Mission abschließen → Laterne → gemeinsame Hanok",
   "soriStageGyeUpdating": "Der gemeinsame Hof wird gerade erneuert.",
-  "gyeStepMission": "Mission",
-  "gyeStepLantern": "Laterne",
-  "gyeStepHanok": "Gemeinsame Hanok",
   "pronunciationTitle": "Aussprache-Studio",
   "pronunciationEyebrow": "AUSSPRACHE ÜBEN",
   "pronunciationIntro": "Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.",
@@ -4235,7 +4201,6 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
-  "soriStageActivityNew": "Neu",
   "soriStageActivityTitle": "{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_practice{Eigene Wörter üben} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
@@ -5060,7 +5025,7 @@
     }
   },
   "learningFocusStart": "Jetzt lernen",
-  "learningFocusViewCourse": "Kurs ansehen",
+  "learningFocusViewCourse": "Lernpfad ansehen",
   "learningFocusCoursePosition": "{level} · Einheit {number}",
   "@learningFocusCoursePosition": {
     "placeholders": {
@@ -5075,7 +5040,7 @@
   "catalogImageUnavailable": "Bild fehlt",
   "todayGuideExpand": "Alle Themen anzeigen",
   "todayGuideCollapse": "Nur nächstes Thema anzeigen",
-  "soriStageConfirmedUnits": "{built} / {total} Kurseinheiten bestätigt",
+  "soriStageConfirmedUnits": "{built} / {total} Lerneinheiten bestätigt",
   "soriStageOpenHanok": "Hanok ansehen",
   "soriStageHanokLearningSummary": "Was du gelernt hast",
   "soriStageHanokProgressUnavailable": "Dein Lernfortschritt konnte nicht geladen werden.",
@@ -5090,7 +5055,7 @@
       }
     }
   },
-  "soriStageHanokNoUnits": "Noch keine Kurseinheiten verfügbar.",
+  "soriStageHanokNoUnits": "Noch keine Lerneinheiten verfügbar.",
   "soriStageNoQuests": "Noch keine",
   "gyeRootPurpose": "Gemeinsam auf ein Wochenziel hinarbeiten.",
   "gyeRootPrivacy": "Deine Antworten und Ergebnisse bleiben privat.",

@@ -60,32 +60,32 @@ void main() {
       >[
         (
           root: 'Learn',
-          deTitle: (t) => t.soriStageLearnTitle,
-          enTitle: (t) => t.soriStageLearnTitle,
+          deTitle: (t) => t.soriStageNavLearn,
+          enTitle: (t) => t.soriStageNavLearn,
           deNav: (t) => t.soriStageNavLearn,
           enNav: (t) => t.soriStageNavLearn,
           trailingSlots: 1,
         ),
         (
           root: 'Games',
-          deTitle: (t) => t.soriStageGamesTitle,
-          enTitle: (t) => t.soriStageGamesTitle,
+          deTitle: (t) => t.soriStageNavGames,
+          enTitle: (t) => t.soriStageNavGames,
           deNav: (t) => t.soriStageNavGames,
           enNav: (t) => t.soriStageNavGames,
           trailingSlots: 1,
         ),
         (
           root: 'Hanok',
-          deTitle: (t) => t.soriStageHanokTitle,
-          enTitle: (t) => t.soriStageHanokTitle,
+          deTitle: (t) => t.soriStageNavHanok,
+          enTitle: (t) => t.soriStageNavHanok,
           deNav: (t) => t.soriStageNavHanok,
           enNav: (t) => t.soriStageNavHanok,
           trailingSlots: 1,
         ),
         (
           root: 'Gye',
-          deTitle: (t) => t.soriStageGyePromise,
-          enTitle: (t) => t.soriStageGyePromise,
+          deTitle: (t) => t.soriStageNavGye,
+          enTitle: (t) => t.soriStageNavGye,
           deNav: (t) => t.soriStageNavGye,
           enNav: (t) => t.soriStageNavGye,
           // §W-G G5.2 (D4 확정): trailing = CulturalHelpButton + SoriAvatar,
@@ -97,9 +97,7 @@ void main() {
   test('root hero titles wrap within budget and nav labels fit one line', () {
     final de = AppL10nDe();
     final en = AppL10nEn();
-    final table = StringBuffer(
-      'root  locale  width  titleLines  navFits\n',
-    );
+    final table = StringBuffer('root  locale  width  titleLines  navFits\n');
     final failures = <String>[];
 
     for (final row in rows) {
@@ -136,10 +134,7 @@ void main() {
               ) *
               0.9;
           final navPainter = TextPainter(
-            text: TextSpan(
-              text: navLabel,
-              style: _chromeTitleStyle,
-            ),
+            text: TextSpan(text: navLabel, style: _chromeTitleStyle),
             textDirection: TextDirection.ltr,
             maxLines: 1,
           )..layout(maxWidth: navTextWidth);

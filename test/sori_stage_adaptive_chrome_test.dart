@@ -338,7 +338,24 @@ void main() {
       expect(text.maxLines, isNull);
       expect(text.overflow, isNull);
     }
-    expect(find.bySemanticsLabel(RegExp('Dojang-Heft, ')), findsOneWidget);
+    await tester.ensureVisible(dojang);
+    await tester.pumpAndSettle();
+    final t = AppL10n.of(tester.element(dojang));
+    final stampCount = tester.widget<Text>(
+      find.byKey(const ValueKey('hanok-shortcut-count-dojang')),
+    );
+    final stampAction = find.bySemanticsLabel(
+      '${t.soriStageHanokStamps}, ${stampCount.data}',
+    );
+    expect(stampAction, findsOneWidget);
+    // Exercise the same screen-reader action as the Bojagi contract above.
+    // ignore: deprecated_member_use
+    tester.binding.pipelineOwner.semanticsOwner!.performAction(
+      tester.getSemantics(stampAction).id,
+      ui.SemanticsAction.tap,
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('/dojangcheop'), findsOneWidget);
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });
