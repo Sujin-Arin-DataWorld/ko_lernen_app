@@ -27,8 +27,11 @@
   const lang=byId('language');
   lang.value='en'; lang.dispatchEvent(new Event('change',{bubbles:true}));
   const en=byId('sentence-translation').textContent;
+  const enNext=byId('next').textContent;
+  controls.push({check:'English navigation and description',pass:enNext==='Next stage →'&&byId('building-role').textContent==='Kitchen · rooms · main hall'});
   lang.value='de'; lang.dispatchEvent(new Event('change',{bubbles:true}));
   controls.push({check:'Korean retained across English/German',pass:ko===byId('sentence-ko').textContent&&en!==byId('sentence-translation').textContent&&!!en&&!!byId('sentence-translation').textContent});
+  controls.push({check:'German navigation and description',pass:byId('next').textContent==='Nächster Bauschritt →'&&byId('building-role').textContent==='Küche · Zimmer · Haupthalle'});
   byId('overlay').value=45; byId('overlay').dispatchEvent(new Event('input',{bubbles:true}));
   controls.push({check:'completion overlay opacity',pass:byId('complete-image').style.opacity==='0.45'&&byId('opacity').textContent==='45%'});
   byId('overlay').value=0; byId('overlay').dispatchEvent(new Event('input',{bubbles:true}));
