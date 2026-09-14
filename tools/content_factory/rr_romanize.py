@@ -20,11 +20,20 @@ CSV):
   words this module's own test vectors require; any other word with that
   surface pattern defaults to plain liaison and is flagged by
   regenerate_romanization.py for manual review.
-* The 체언 exception to ㅎ-aspiration merging (묵호 "Mukho", 집현전
-  "Jiphyeonjeon", 역할 "yeokhal") is applied via a POS heuristic
-  (`is_cheoneon_pos`), not true morphological analysis: entries tagged as a
-  noun/expression/pronoun/phrase/adverb skip the merge, entries tagged as a
-  verb/verb phrase/adjective take it. This is documented, not perfect.
+* ㅎ-aspiration merging (격음화) only fires for a coda immediately before or
+  after the ㅎ that belongs to a verb/adjective's OWN stem or a native
+  passive/causative infix: stem-final ㅎ/ㄶ/ㅀ + ㄱ/ㄷ/ㅈ ending (좋고
+  "joko", 많다 "manta", 싫다 "silta") and stop coda + -히-/-혀- infix inside
+  a verb (먹히다 "meokida", 잡혀 "japyeo"). A stop coda before the
+  noun-forming auxiliary 하다 (반박하다 "banbakhada", not "banbakada") or a
+  하다-stem's own -히 adverb (정확히 "jeonghwakhi") keeps ㅎ instead, even
+  though the whole word's POS is "Verb" -- `_HADA_AUX_VOWELS` recognizes 하
+  다-paradigm 하/해/했 (Sino-Korean-root + 하다, never a native infix, so
+  this vowel test is POS-independent), a word-final 히 is treated as the
+  parallel -히 adverb suffix, and `is_cheoneon_pos` is kept as a fallback
+  for the cases neither surface pattern catches (묵호 "Mukho", 집현전
+  "Jiphyeonjeon"). This is a lexical/surface heuristic, not true
+  morphological analysis -- see `_apply_sound_changes` rule 1.
 * Complex (two-jamo) finals (ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅄ) get a
   best-effort standard-neutralization + liaison treatment; they are rare in
   the common-noun/verb vocabulary this module targets.
@@ -85,6 +94,20 @@ _JONG_CLASS = {
 }
 _STOP_TO_ASPIRATE = {1: "k", 7: "t", 17: "p", 22: "ch"}  # ㄱㄷㅂㅈ + ㅎ ->
 _H_PLUS_STOP_TO_ASPIRATE = {0: "k", 3: "t", 7: "p", 12: "ch"}  # ㅎ + ㄱㄷㅂㅈ ->
+# jong index -> (keep_jong_when_merging, aspirate_map) for the reverse
+# direction (stem-final ㅎ/ㄶ/ㅀ + ㄱ/ㄷ/ㅈ ending, 표기법 §3-1-4 다만): the
+# ㅎ always merges into the aspirate on the *next* syllable's onset, but a
+# complex final (ㄶ/ㅀ) keeps its non-ㅎ component as this syllable's coda
+# (많다 -> "man" + "ta", not "ma" + "nta").
+_H_COMPLEX_KEEP = {27: 0, 6: 4, 15: 8}  # ㅎ->none, ㄶ->keep ㄴ, ㅀ->keep ㄹ
+# 하다-paradigm vowel: 하/해/했 etc. are always the noun-forming auxiliary
+# verb 하다 (Sino-Korean root + 하다), never a native verb's own passive/
+# causative infix -- so a stop coda before one of these never merges,
+# regardless of the whole word's POS (반박하다 "banbakhada", not
+# "banbakada" -- Fable ruling 2026-09-15, 표기법 §3-1-4 다만 + NIKL/
+# Wiktionary RR module precedent: 축하하다 "chukhahada", 도착하다
+# "dochakhada").
+_HADA_AUX_VOWELS = frozenset((0, 1))  # 아, 애 (하, 해/했)
 
 _SINO_L_SUFFIXES = frozenset(("란", "량", "력", "령", "례", "로", "론", "료"))
 
@@ -95,6 +118,9 @@ _WORD_OVERRIDES = {
     "학여울": "hangnyeoul",
     "담요": "damnyo",
     "알약": "allyak",
+    # 밟다's ㄼ is the one common lexical exception that keeps ㅂ instead of
+    # the usual ㄹ (표준발음법 10항 다만): 밟히다 "balpida", not "*bolida".
+    "밟히다": "balpida",
 }
 
 _CHEONEON_POS = frozenset((
@@ -156,22 +182,45 @@ def _apply_sound_changes(
         l_jong, r_cho, r_jung = left[2], right[0], right[1]
         l_class = _JONG_CLASS.get(l_jong)
 
-        # 1) Aspiration merge (격음화), both directions -- skipped for 체언.
-        if not cheoneon and l_jong in _STOP_TO_ASPIRATE and r_cho == _CHO_H:
-            aspirate = _STOP_TO_ASPIRATE[l_jong]
-            if l_jong == 7 and r_jung == _JUNG_I:  # 굳히다 -> further palatalizes
-                aspirate = "ch"
-            left[2] = 0
-            right[0] = -1  # sentinel: onset replaced wholesale below
-            right.append(aspirate)  # type: ignore[arg-type]
-            _tag("aspiration_merge")
-            continue
-        if not cheoneon and l_jong == 27 and r_cho in _H_PLUS_STOP_TO_ASPIRATE:
-            left[2] = 0
+        # 1a) Reverse aspiration merge: stem-final ㅎ/ㄶ/ㅀ + ㄱ/ㄷ/ㅈ ending
+        #     (표기법 §3-1-4 다만) -- always fires, no POS gate needed: this
+        #     shape only ever occurs at a native verb/adjective stem's own
+        #     final consonant (좋다, 많다, 싫다, 않다, 괜찮다, 옳지 ...),
+        #     never inside a noun. A complex final (ㄶ/ㅀ) keeps its non-ㅎ
+        #     component as this syllable's coda (많다 -> "man" + "ta").
+        if l_jong in _H_COMPLEX_KEEP and r_cho in _H_PLUS_STOP_TO_ASPIRATE:
+            left[2] = _H_COMPLEX_KEEP[l_jong]
             right[0] = -1
             right.append(_H_PLUS_STOP_TO_ASPIRATE[r_cho])  # type: ignore[arg-type]
             _tag("aspiration_merge")
             continue
+
+        # 1b) Forward aspiration merge: stop coda + ㅎ. This shape is
+        #     ambiguous on jamo alone -- it merges for a native verb's own
+        #     passive/causative -히-/-혀- infix (먹히다 "meokida", 잡혀
+        #     "japyeo") but keeps ㅎ before the noun-forming auxiliary 하다
+        #     (하/해/했, POS-independent: 반박하다 "banbakhada" even though
+        #     the whole word is tagged Verb) or a 하다-stem's own
+        #     word-final -히 adverb (정확히 "jeonghwakhi"), and keeps ㅎ for
+        #     any other 체언 as a fallback (묵호 "Mukho", 집현전
+        #     "Jiphyeonjeon") -- Fable ruling 2026-09-15 (표기법 §3-1-4
+        #     다만 + NIKL/Wiktionary RR module precedent).
+        if l_jong in _STOP_TO_ASPIRATE and r_cho == _CHO_H:
+            is_word_final_h = (i + 1) == len(run) - 1
+            keep_h = (
+                r_jung in _HADA_AUX_VOWELS
+                or (r_jung == _JUNG_I and is_word_final_h)
+                or cheoneon
+            )
+            if not keep_h:
+                aspirate = _STOP_TO_ASPIRATE[l_jong]
+                if l_jong == 7 and r_jung == _JUNG_I:  # 굳히다 -> further palatalizes
+                    aspirate = "ch"
+                left[2] = 0
+                right[0] = -1  # sentinel: onset replaced wholesale below
+                right.append(aspirate)  # type: ignore[arg-type]
+                _tag("aspiration_merge")
+                continue
 
         # 2) Direct palatalization (구개음화): ㄷ/ㅌ + unlinked 이.
         if l_jong in (7, 25) and r_cho == _CHO_NULL and r_jung == _JUNG_I:

@@ -89,17 +89,48 @@ class SoundChangeVectorTests(unittest.TestCase):
         self.assertEqual(romanize_korean("같이"), "gachi")
         self.assertEqual(romanize_korean("굳히다"), "guchida")
 
-    def test_aspiration_merge_verbs(self):
-        # Verb/adjective POS -> ㅎ merges with the adjacent stop.
+    def test_aspiration_merge_stem_final_h(self):
+        # Case (a), Fable ruling 2026-09-15: stem-final ㅎ/ㄶ/ㅀ + ㄱ/ㄷ/ㅈ
+        # ending always merges -- this shape only occurs at a native
+        # verb/adjective stem's own final consonant. No POS gate needed.
         self.assertEqual(romanize_korean("좋고", pos="Verb"), "joko")
         self.assertEqual(romanize_korean("놓다", pos="Verb"), "nota")
-        self.assertEqual(romanize_korean("잡혀", pos="Verb"), "japyeo")
         self.assertEqual(romanize_korean("낳지", pos="Verb"), "nachi")
-        self.assertEqual(romanize_korean("반박하다", pos="Verb"), "banbakada")
-        self.assertEqual(romanize_korean("타협하다", pos="Verb"), "tahyeopada")
+        self.assertEqual(romanize_korean("많다", pos="Adjektiv"), "manta")
+        self.assertEqual(romanize_korean("싫다", pos="Adjektiv"), "silta")
+        self.assertEqual(romanize_korean("않다", pos="Verb"), "anta")
+        self.assertEqual(romanize_korean("괜찮다", pos="Adjektiv"), "gwaenchanta")
+        self.assertEqual(romanize_korean("옳지", pos="Adjektiv"), "olchi")
 
-    def test_aspiration_merge_skipped_for_cheoneon_nouns(self):
-        # Noun/expression POS -> ㅎ stays, preceding stop keeps its coda form.
+    def test_aspiration_merge_passive_causative_infix(self):
+        # Case (b), Fable ruling 2026-09-15: stop coda + verb-stem's own
+        # -히-/-혀- passive/causative infix merges.
+        self.assertEqual(romanize_korean("잡혀", pos="Verb"), "japyeo")
+        self.assertEqual(romanize_korean("굳히다", pos="Verb"), "guchida")
+        self.assertEqual(romanize_korean("먹히다", pos="Verb"), "meokida")
+        self.assertEqual(romanize_korean("막히다", pos="Verb"), "makida")
+        self.assertEqual(romanize_korean("밟히다", pos="Verb"), "balpida")
+        self.assertEqual(romanize_korean("업히다", pos="Verb"), "eopida")
+
+    def test_aspiration_merge_skipped_for_hada_and_cheoneon(self):
+        # Fable ruling 2026-09-15 (표기법 §3-1-4 다만 + NIKL/Wiktionary RR
+        # module: 축하하다 chukhahada, 도착하다 dochakhada; Cornell/LibGuides
+        # haengbokhada): a stop coda before the noun-forming auxiliary 하다
+        # (하/해/했) or a 하다-stem's own word-final -히 adverb keeps ㅎ --
+        # POS-independent, so this holds even when the whole word is
+        # tagged Verb (반박하다, 타협하다, 협력하다 all conjugate as verbs).
+        self.assertEqual(romanize_korean("도착하다", pos="Verb"), "dochakhada")
+        self.assertEqual(romanize_korean("행복하다", pos="Adjektiv"), "haengbokhada")
+        self.assertEqual(romanize_korean("축하하다", pos="Verb"), "chukhahada")
+        self.assertEqual(romanize_korean("반박하다", pos="Verb"), "banbakhada")
+        self.assertEqual(romanize_korean("타협하다", pos="Verb"), "tahyeophada")
+        self.assertEqual(romanize_korean("협력하다", pos="Verb"), "hyeomnyeokhada")
+        self.assertEqual(romanize_korean("정확하다", pos="Adjektiv"), "jeonghwakhada")
+        self.assertEqual(romanize_korean("정확히", pos="Adverb"), "jeonghwakhi")
+        self.assertEqual(romanize_korean("입학", pos="Nomen"), "iphak")
+        self.assertEqual(romanize_korean("입학하다", pos="Verb"), "iphakhada")
+        # `is_cheoneon_pos` fallback: neither surface pattern above catches
+        # these (vowel 오/여, not word-final), only the POS tag does.
         self.assertEqual(romanize_korean("묵호", pos="Nomen"), "mukho")
         self.assertEqual(romanize_korean("집현전", pos="Nomen"), "jiphyeonjeon")
         self.assertEqual(romanize_korean("역할", pos="Nomen"), "yeokhal")
@@ -128,10 +159,14 @@ class SampledDefectTests(unittest.TestCase):
     """The 10 vocab.csv rows sampled as RR-rule-caused romanization defects."""
 
     def test_ban_bak_ha_da(self):
-        self.assertEqual(romanize_korean("반박하다", pos="Verb"), "banbakada")
+        # Fable ruling 2026-09-15: the original brief's "banbakada" vector
+        # was wrong -- 하다 here is the noun-forming auxiliary on the
+        # Sino-Korean root 반박, so ㅎ is kept (표기법 §3-1-4 다만).
+        self.assertEqual(romanize_korean("반박하다", pos="Verb"), "banbakhada")
 
     def test_ta_hyeop_ha_da(self):
-        self.assertEqual(romanize_korean("타협하다", pos="Verb"), "tahyeopada")
+        # Fable ruling 2026-09-15: same correction as 반박하다.
+        self.assertEqual(romanize_korean("타협하다", pos="Verb"), "tahyeophada")
 
     def test_muri_haeseo(self):
         self.assertEqual(romanize_korean("무리해서"), "murihaeseo")
