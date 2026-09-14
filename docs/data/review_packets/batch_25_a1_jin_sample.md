@@ -1,0 +1,194 @@
+# Batch 25 (C3, A1 보강 초안) — Jin 10% 표본 패킷
+
+> 생성 2026-09-15 · 대상: A1(1급) 결손 어휘 보강 64단어 초안(신규 팩 없음, 기존 A1 팩 19개를 각 12단어로 채움).
+> **승인 전 — 앱 데이터(`assets/data/**`) 무수정.** `tools/content_factory/drafts/batch_25_a1_*` 초안만 존재하며, 매니페스트 `provenance.approval`은 비어 있다.
+> F8 D-4 절차: 전체 64건 중 **표본** 7건(약 10%, 8~9번째 간격 결정적 추출)을 먼저 보고 ok/반려를 적는다. 나머지 57건은 참고용 압축 표.
+
+판정 3항목(F8): ① 한국인이 봐도 자연스러운가 ② DE·EN이 같은 사건인가(정답 누설 없음) ③ 레벨 안인가(A1 = 국제통용 1급 어휘·문법, 문화어 1개 예외).
+
+## 선정 요약
+
+- 출처: `docs/data/level_bible/F2_vocab_coverage.md` 1급(A1) 결손 321어 목록.
+- 우선순위 (1) 12단어 미만 A1 팩부터 12단어로 채움 — 신규 팩은 만들지 않았다(64단어로 28개 후보 팩 전부를 채우기엔 부족해, 팩당 목표 12를 정확히 채울 수 있는 19개 팩을 우선 완주시켰다).
+- 채운 팩 19개(전부 12/12 도달): `a1_self_intro`(+4), `a1_food_2`(+4), `a1_time_2`(+4), `a1_numbers_3`(+4), `a1_time_3`(+4), `a1_greetings_2`(+4), `a1_daily_4`(+4), `a1_payment_delivery_1`(+4), `a1_greetings_1`(+3), `a1_daily_1`(+3), `a1_family_1`(+3), `a1_food_1`(+3), `a1_time_1`(+3), `a1_family_2`(+3), `a1_daily_2`(+3), `a1_misc_2`(+3), `a1_numbers_1`(+3), `a1_numbers_2`(+3), `a1_body`(+2).
+- 손대지 않은 12단어 미만 팩(단어 소진, 후속 배치 대상): `a1_colors`(6 — A1 색 어휘가 F2 결손 목록에 더 없음, 남은 색 형용사는 전부 2급), `a1_misc_1`(10), `a1_repair_language_1`(10), `a1_city_services_2026_1`(10), `a1_transport`(11), `a1_partner_meet_names_1`(11), `a1_weekend_promise_1`(11), `a1_particles_in_use_1`(11).
+- 인물명: 세종 교재 인물명 대신 앱 페르소나 **크리스티안**만 사용(§D 규칙, 2건: 회사원·여보세요).
+- cloze 배분어: 정답과 같은 받침 유형(조사/코퓰러가 받침에 따라 형태가 바뀌는 자리)만 필터링해 정답 유출 방지, 검수 중 `값`↔`가격`(batch 23에서 이미 라이브로 들어간 동의어) 1건을 배분어에서 수동 제외.
+
+## 표본 7건 (전체 KO/DE/EN + cloze + satz)
+
+### vocab_a1_0459 — 회사원 (hoesawon)
+
+- 팩: `a1_self_intro` (order 9) · 품사: Nomen/Noun · 주제: Person
+- DE: Angestellte/r, Büroangestellte/r · EN: office worker
+- 예문 KO: 크리스티안은 회사원이에요.
+- 예문 DE: Christian ist Angestellter.
+- 예문 EN: Christian is an office worker.
+- Cloze `cloze_a1_0393`: 크리스티안은 ＿＿＿이에요. → 정답 `회사원` · 배분어 ['설날', '장인어른', '밤']
+- Satz `satz_a1_0374`: 목표 `크리스티안은 회사원이에요.` · 배분 타일 ['별로', '왼쪽']
+- Jin 판정: 
+
+### vocab_a1_0468 — 그저께 (geujeokke)
+
+- 팩: `a1_time_2` (order 10) · 품사: Adverb/Adverb · 주제: Zeit
+- DE: vorgestern · EN: the day before yesterday
+- 예문 KO: 그저께 학교에 안 갔어요.
+- 예문 DE: Vorgestern bin ich nicht zur Schule gegangen.
+- 예문 EN: I didn't go to school the day before yesterday.
+- Cloze `cloze_a1_0402`: ＿＿＿ 학교에 안 갔어요. → 정답 `그저께` · 배분어 ['입구', '미안해요', '더']
+- Satz `satz_a1_0383`: 목표 `그저께 학교에 안 갔어요.` · 배분 타일 ['호칭', '검은색']
+- Jin 판정: 
+
+### vocab_a1_0477 — 주로 (juro)
+
+- 팩: `a1_time_3` (order 11) · 품사: Adverb/Adverb · 주제: Zeit
+- DE: hauptsächlich, meistens · EN: mainly, usually
+- 예문 KO: 저는 주로 아침에 커피를 마셔요.
+- 예문 DE: Ich trinke morgens meistens Kaffee.
+- 예문 EN: I usually drink coffee in the morning.
+- Cloze `cloze_a1_0411`: 저는 ＿＿＿ 아침에 커피를 마셔요. → 정답 `주로` · 배분어 ['오다', '국물', '죄송하다']
+- Satz `satz_a1_0392`: 목표 `저는 주로 아침에 커피를 마셔요.` · 배분 타일 ['죄송하다', '점심']
+- Jin 판정: 
+
+### vocab_a1_0486 — 함께 (hamkke)
+
+- 팩: `a1_daily_4` (order 12) · 품사: Adverb/Adverb · 주제: Alltag
+- DE: zusammen · EN: together
+- 예문 KO: 우리 함께 가요.
+- 예문 DE: Lass uns zusammen gehen.
+- 예문 EN: Let's go together.
+- Cloze `cloze_a1_0420`: 우리 ＿＿＿ 가요. → 정답 `함께` · 배분어 ['화이팅', '시끄럽다', '싫어하다']
+- Satz `satz_a1_0401`: 목표 `우리 함께 가요.` · 배분 타일 ['핸드폰', '며칠']
+- Jin 판정: 
+
+### vocab_a1_0495 — 모자 (moja)
+
+- 팩: `a1_daily_1` (order 11) · 품사: Nomen/Noun · 주제: Alltag
+- DE: Hut, Mütze · EN: hat
+- 예문 KO: 오늘 모자를 썼어요.
+- 예문 DE: Heute habe ich eine Mütze getragen.
+- 예문 EN: Today I wore a hat.
+- Cloze `cloze_a1_0429`: 오늘 ＿＿＿를 썼어요. → 정답 `모자` · 배분어 ['기다리다', '늦게', '어렵다']
+- Satz `satz_a1_0410`: 목표 `오늘 모자를 썼어요.` · 배분 타일 ['사귀다', '원']
+- Jin 판정: 
+
+### vocab_a1_0504 — 날 (nal)
+
+- 팩: `a1_time_1` (order 11) · 품사: Nomen/Noun · 주제: Zeit
+- DE: Tag · EN: day
+- 예문 KO: 오늘은 아주 좋은 날이에요.
+- 예문 DE: Heute ist ein sehr guter Tag.
+- 예문 EN: Today is a very good day.
+- Cloze `cloze_a1_0438`: 오늘은 아주 좋은 ＿＿＿이에요. → 정답 `날` · 배분어 ['노란색', '한국', '연습']
+- Satz `satz_a1_0419`: 목표 `오늘은 아주 좋은 날이에요.` · 배분 타일 ['감사합니다', '처음']
+- Jin 판정: 
+
+### vocab_a1_0513 — 빌리다 (billida)
+
+- 팩: `a1_misc_2` (order 11) · 품사: Verb/Verb · 주제: Einkaufen
+- DE: leihen, ausleihen · EN: to borrow, to rent
+- 예문 KO: 저는 친구한테 책을 빌려요.
+- 예문 DE: Ich leihe mir ein Buch von meinem Freund.
+- 예문 EN: I borrow a book from my friend.
+- Cloze `cloze_a1_0447`: 저는 친구한테 책을 ＿＿＿. → 정답 `빌려요` · 배분어 ['크다', '초록색', '작다']
+- Satz `satz_a1_0428`: 목표 `저는 친구한테 책을 빌려요.` · 배분 타일 ['예약', '별로']
+- Jin 판정: 
+
+## 전체 64건 압축 표 (표본 포함)
+
+| 표본 | ID | 표제어 | RR | 팩 | order | DE | EN | 예문 KO |
+|---|---|---|---|---|---|---|---|---|
+| **표본** | `vocab_a1_0459` | 회사원 | hoesawon | `a1_self_intro` | 9 | Angestellte/r, Büroangestellte/r | office worker | 크리스티안은 회사원이에요. |
+|  | `vocab_a1_0460` | 주부 | jubu | `a1_self_intro` | 10 | Hausfrau/Hausmann | housewife, homemaker | 제 어머니는 주부예요. |
+|  | `vocab_a1_0461` | 누구 | nugu | `a1_self_intro` | 11 | wer | who | 저 사람은 누구예요? |
+|  | `vocab_a1_0462` | 여러분 | yeoreobun | `a1_self_intro` | 12 | alle (Anrede an eine Gruppe) | everyone, all of you | 여러분, 안녕하세요! |
+|  | `vocab_a1_0463` | 우유 | uyu | `a1_food_2` | 9 | Milch | milk | 아침에 우유를 마셔요. |
+|  | `vocab_a1_0464` | 귤 | gyul | `a1_food_2` | 10 | Mandarine | tangerine, mandarin orange | 저는 귤을 좋아해요. |
+|  | `vocab_a1_0465` | 바나나 | banana | `a1_food_2` | 11 | Banane | banana | 저는 바나나를 좋아해요. |
+|  | `vocab_a1_0466` | 케이크 | keikeu | `a1_food_2` | 12 | Kuchen, Torte | cake | 생일에 케이크를 먹어요. |
+|  | `vocab_a1_0467` | 모레 | more | `a1_time_2` | 9 | übermorgen | the day after tomorrow | 모레 다시 만나요. |
+| **표본** | `vocab_a1_0468` | 그저께 | geujeokke | `a1_time_2` | 10 | vorgestern | the day before yesterday | 그저께 학교에 안 갔어요. |
+|  | `vocab_a1_0469` | 작년 | jangnyeon | `a1_time_2` | 11 | letztes Jahr | last year | 작년에 한국에 왔어요. |
+|  | `vocab_a1_0470` | 내년 | naenyeon | `a1_time_2` | 12 | nächstes Jahr | next year | 내년에 독일에 가요. |
+|  | `vocab_a1_0471` | 한 | han | `a1_numbers_3` | 9 | ein(e) (Zählwort) | one (counter modifier) | 친구 한 명 있어요. |
+|  | `vocab_a1_0472` | 두 | du | `a1_numbers_3` | 10 | zwei (Zählwort) | two (counter modifier) | 친구 두 명 있어요. |
+|  | `vocab_a1_0473` | 세 | se | `a1_numbers_3` | 11 | drei (Zählwort) | three (counter modifier) | 가족이 세 명이에요. |
+|  | `vocab_a1_0474` | 어느 | eoneu | `a1_numbers_3` | 12 | welche(r/s) | which | 어느 나라에서 왔어요? |
+|  | `vocab_a1_0475` | 이따가 | ittaga | `a1_time_3` | 9 | später, gleich | later, in a bit | 이따가 학교에 가요. |
+|  | `vocab_a1_0476` | 바로 | baro | `a1_time_3` | 10 | sofort, direkt | right away, immediately | 저는 지금 바로 가요. |
+| **표본** | `vocab_a1_0477` | 주로 | juro | `a1_time_3` | 11 | hauptsächlich, meistens | mainly, usually | 저는 주로 아침에 커피를 마셔요. |
+|  | `vocab_a1_0478` | 어서 | eoseo | `a1_time_3` | 12 | schnell, bitte gleich | quickly, please (go ahead) | 어서 오세요! |
+|  | `vocab_a1_0479` | 예 | ye | `a1_greetings_2` | 9 | ja (formell) | yes (formal) | 예, 알겠습니다. |
+|  | `vocab_a1_0480` | 글쎄요 | geulsseyo | `a1_greetings_2` | 10 | Na ja... (unsicher) | well... (hedging) | 글쎄요, 모르겠어요. |
+|  | `vocab_a1_0481` | 와 | wa | `a1_greetings_2` | 11 | Wow! | wow | 와, 진짜 좋아요! |
+|  | `vocab_a1_0482` | 음 | eum | `a1_greetings_2` | 12 | Hm... | hmm | 음, 모르겠어요. |
+|  | `vocab_a1_0483` | 다 | da | `a1_daily_4` | 9 | alle(s), ganz | all, entirely | 밥을 다 먹었어요. |
+|  | `vocab_a1_0484` | 좀 | jom | `a1_daily_4` | 10 | ein bisschen, bitte | a bit, please | 물 좀 주세요. |
+|  | `vocab_a1_0485` | 꼭 | kkok | `a1_daily_4` | 11 | unbedingt, bestimmt | surely, without fail | 내일 꼭 오세요. |
+| **표본** | `vocab_a1_0486` | 함께 | hamkke | `a1_daily_4` | 12 | zusammen | together | 우리 함께 가요. |
+|  | `vocab_a1_0487` | 물건 | mulgeon | `a1_payment_delivery_1` | 9 | Ding, Sache, Ware | item, thing | 이 물건을 주세요. |
+|  | `vocab_a1_0488` | 값 | gap | `a1_payment_delivery_1` | 10 | Preis | price | 이 신발 값이 싸요. |
+|  | `vocab_a1_0489` | 필요 | piryo | `a1_payment_delivery_1` | 11 | Bedarf, Notwendigkeit | need, necessity | 물이 필요해요. |
+|  | `vocab_a1_0490` | 가게 | gage | `a1_payment_delivery_1` | 12 | Laden, Geschäft | shop, store | 이 가게는 커피가 맛있어요. |
+|  | `vocab_a1_0491` | 인사 | insa | `a1_greetings_1` | 10 | Gruß, Begrüßung | greeting | 저는 매일 인사를 해요. |
+|  | `vocab_a1_0492` | 축하 | chuka | `a1_greetings_1` | 11 | Glückwunsch | congratulations | 생일 축하해요! |
+|  | `vocab_a1_0493` | 여보세요 | yeoboseyo | `a1_greetings_1` | 12 | Hallo? (am Telefon) | hello (on the phone) | 여보세요, 크리스티안이에요. |
+|  | `vocab_a1_0494` | 안경 | angyeong | `a1_daily_1` | 10 | Brille | glasses | 저는 안경을 써요. |
+| **표본** | `vocab_a1_0495` | 모자 | moja | `a1_daily_1` | 11 | Hut, Mütze | hat | 오늘 모자를 썼어요. |
+|  | `vocab_a1_0496` | 신발 | sinbal | `a1_daily_1` | 12 | Schuhe | shoes | 신발이 아주 작아요. |
+|  | `vocab_a1_0497` | 할머니 | halmeoni | `a1_family_1` | 10 | Oma | grandmother | 할머니가 저를 사랑하세요. |
+|  | `vocab_a1_0498` | 할아버지 | harabeoji | `a1_family_1` | 11 | Opa | grandfather | 할아버지는 신문을 읽으세요. |
+|  | `vocab_a1_0499` | 부모님 | bumonim | `a1_family_1` | 12 | Eltern | parents | 부모님이 이번 주에 오세요. |
+|  | `vocab_a1_0500` | 아이스크림 | aiseukeurim | `a1_food_1` | 10 | Eis, Eiscreme | ice cream | 저는 아이스크림을 자주 먹어요. |
+|  | `vocab_a1_0501` | 초콜릿 | chokollit | `a1_food_1` | 11 | Schokolade | chocolate | 저는 초콜릿을 진짜 좋아해요. |
+|  | `vocab_a1_0502` | 주스 | juseu | `a1_food_1` | 12 | Saft | juice | 오렌지 주스가 맛있어요. |
+|  | `vocab_a1_0503` | 낮 | nat | `a1_time_1` | 10 | Tag(eszeit) | daytime | 낮에 친구를 만나요. |
+| **표본** | `vocab_a1_0504` | 날 | nal | `a1_time_1` | 11 | Tag | day | 오늘은 아주 좋은 날이에요. |
+|  | `vocab_a1_0505` | 날짜 | naljja | `a1_time_1` | 12 | Datum | date | 오늘 날짜가 며칠이에요? |
+|  | `vocab_a1_0506` | 딸 | ttal | `a1_family_2` | 10 | Tochter | daughter | 제 딸은 다섯 살이에요. |
+|  | `vocab_a1_0507` | 돕다 | dopda | `a1_family_2` | 11 | helfen | to help | 저는 친구를 도와요. |
+|  | `vocab_a1_0508` | 도와주다 | dowajuda | `a1_family_2` | 12 | (jmdm.) helfen, einen Gefallen tun | to help (someone), to do a favor | 언니가 저를 도와줘요. |
+|  | `vocab_a1_0509` | 가지다 | gajida | `a1_daily_2` | 10 | haben, besitzen | to have, to own | 저는 책을 가지고 있어요. |
+|  | `vocab_a1_0510` | 끝나다 | kkeunnada | `a1_daily_2` | 11 | enden, zu Ende sein | to end, to finish | 수업이 세 시에 끝나요. |
+|  | `vocab_a1_0511` | 다니다 | danida | `a1_daily_2` | 12 | (regelmäßig) besuchen, gehen | to attend, to go regularly | 저는 매일 학교에 다녀요. |
+|  | `vocab_a1_0512` | 고르다 | goreuda | `a1_misc_2` | 10 | (aus)wählen | to choose, to pick | 저는 이 옷을 골랐어요. |
+| **표본** | `vocab_a1_0513` | 빌리다 | billida | `a1_misc_2` | 11 | leihen, ausleihen | to borrow, to rent | 저는 친구한테 책을 빌려요. |
+|  | `vocab_a1_0514` | 팔다 | palda | `a1_misc_2` | 12 | verkaufen | to sell | 이 가게는 과일을 팔아요. |
+|  | `vocab_a1_0515` | 이십 | isip | `a1_numbers_1` | 10 | zwanzig | twenty | 제 남동생은 이십 살이에요. |
+|  | `vocab_a1_0516` | 삼십 | samsip | `a1_numbers_1` | 11 | dreißig | thirty | 제 방 번호는 삼십 번이에요. |
+|  | `vocab_a1_0517` | 사십 | sasip | `a1_numbers_1` | 12 | vierzig | forty | 우리 학교에는 학생이 사십 명 있어요. |
+|  | `vocab_a1_0518` | 오십 | osip | `a1_numbers_2` | 10 | fünfzig | fifty | 이 학교에는 선생님이 오십 명 있어요. |
+|  | `vocab_a1_0519` | 육십 | yuksip | `a1_numbers_2` | 11 | sechzig | sixty | 할아버지는 육십 살이세요. |
+|  | `vocab_a1_0520` | 칠십 | chilsip | `a1_numbers_2` | 12 | siebzig | seventy | 이 버스는 칠십 번이에요. |
+|  | `vocab_a1_0521` | 목 | mok | `a1_body` | 11 | Hals, Nacken | neck, throat | 제 목이 길어요. |
+|  | `vocab_a1_0522` | 얼굴 | eolgul | `a1_body` | 12 | Gesicht | face | 제 얼굴이 작아요. |
+
+## Fable 3단 검수 체크리스트 (형식 → 언어 → 레벨)
+
+### 1단 형식
+- [x] 64행, `korean_vocab.csv` 헤더와 정확히 동일한 컬럼 순서(`batch_25_a1_rows.csv`).
+- [x] 모든 `id`가 현재 라이브 최대값(`vocab_a1_0458`) 다음부터 연속(`vocab_a1_0459`~`0522`), 팩 내 `pack_order` 연속(9~12 또는 10~12 또는 11~12), `is_review_boss=false` 전부.
+- [x] cloze/satz 각 64건, `sourceVocabId`로 vocab 행과 1:1 대응(파생 계약: `fullKo`/`targetKo` = vocab 행 `example_korean` 재사용, TTS 키 공유 예정).
+- [x] `romanization` 컬럼이 `[a-z ]`만 포함(자동 테스트 `test_batch_25_draft.py::test_romanization_charset`).
+- [x] 매니페스트 `provenance.approval`이 비어 있음 — 승인 전 상태 명시.
+
+### 2단 언어 (KO 자연스러움 · DE/EN 충실도 · 인물명)
+- [x] 모든 예문이 실제 구어체(해요체/합쇼체), 교과서투·번역투 없음(직독 확인, 예: `번역투(~에 대해 남발)` 0건).
+- [x] DE/EN은 같은 사건을 각 언어에서 독립적으로 자연스럽게 표현 — 존대(Sie/du) 일치, 정보량 일치, 정답 누설 없음.
+- [x] 세종 교재 인물명 미사용, 앱 페르소나(크리스티안)만 2건에 사용.
+- [ ] Jin 10% 표본 7건 자연스러움 확인 대기.
+
+### 3단 레벨 (§C 판정 절차)
+- [x] 표제어 64개 전부 F2 1급(A1) 결손 목록에서만 선택(국립국어원 2017 kiiq, 공공누리 1유형 근거).
+- [x] 예문 문법이 §B.1 A1 문법 45항목 범위 내(선어말어미 -겠-/-었-/-으시- 다수 활용, 표현 -고 있다 1건) — A2 이상 문형(-으면, -어 보다, -을게, -기 때문에 등) 사용 안 함(초안 작성 중 `-을게요` 2건 발견해 A1 종결형으로 교체).
+- [x] 예문 ≤8어절, 절 1~2개, 문장당 미등재 A1 밖 단어는 사용하지 않음(예문에 등장하는 F2 결손 단어도 전부 1급 판정 확인: 살,명,번,생일,이번,신문,오렌지 등).
+- [x] 자동 회귀: `tools/content_factory/test_batch_25_draft.py` — 행 수 60~68, 라이브 CSV와 `korean` 중복 없음, `pack_id` 전부 라이브에 존재, 예문 ≤8어절, 정답(활용형)이 예문에 포함, 금지 문형 정규식(다고/라고 하/ㄹ지/더라도/는 바람에) 0건, cloze 정답이 배분어의 부분 문자열이 아님, RR 문자셋.
+- [ ] Jin/Fable 레벨 최종 승인 대기 — 승인 후 PR-L3b에서 `apply_review.py`+수동 병합으로 `assets/data/**` 반영, TTS는 Jin 로컬에서 `--missing-from-storage`.
+
+## 판정 필요 항목 (불확실 표시)
+
+- `주로`(mainly, usually) 예문 "저는 주로 아침에 운동해요"의 '운동하다'는 F2 결손 목록에 없는 기존 라이브 A1 단어로 가정했다 — 라이브 존재 여부 재확인 필요(문법·레벨 자체는 안전, 어휘 실재 여부만 확인 대상).
+- `회사원`/`주부`처럼 성별 중립이 어색한 독일어 직업명사는 `Angestellte/r`, `Hausfrau/Hausmann` 슬래시 표기를 썼다 — 기존 `Lehrer/in` 관례를 따랐으나 Jin 확인 바람.
+- `a1_greetings_2`에 넣은 4개 감탄사(예·글쎄요·와·음)는 다시 묻기/공손 화용 범주로 분류했지만, 기존 팩 표시명이 "Begrüßung/Höflichkeit"라 순수 인사말은 아니다 — 화용 범주가 팩 표시명과 완전히 일치하는지 판정 필요.
+- `a1_colors`(6개)와 4개 팩(`a1_misc_1`·`a1_repair_language_1`·`a1_city_services_2026_1`)은 F2 결손 목록에서 자연스러운 후보를 찾지 못해 12단어 미도달로 남겨뒀다 — 다음 배치(Batch 26)에서 신규 팩 또는 하향 흡수로 처리할지 Jin 판단 필요.
+
