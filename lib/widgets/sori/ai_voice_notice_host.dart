@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../services/storage_service.dart';
 import 'speakable.dart';
 import 'toast.dart';
 
@@ -12,12 +13,19 @@ import 'toast.dart';
 /// 왜 여기 하나뿐인가: `SoriSpeech.speak()` 호출부가 화면 30여 곳에 흩어져
 /// 있어(퀘스트 엔진, 온보딩 데모, 시나리오 자동재생 등) 위젯 여러 곳에
 /// 훅을 심으면 커버리지 구멍이 남거나(실제로 첫 라운드에서 그랬다) 두 번
-/// 뜰 위험이 생긴다. `SoriSpeech.speak()` 자신은 [Storage] 만 알고
-/// `BuildContext`/스낵바는 모르는 UI-프리 파사드로 남기고, 대신 이
-/// 위젯이 [SoriSpeech.aiVoiceNoticePending] 신호 하나만 구독해 실제
-/// 스낵바를 띄운다 — `MaterialApp.builder` 아래 정확히 한 번만 마운트해야
-/// 한다(그래야 `context` 가 `ScaffoldMessenger`/`Localizations` 조상을
+/// 뜰 위험이 생긴다. `SoriSpeech.speak()` 자신은 [BuildContext]/스낵바를
+/// 모르는 UI-프리 파사드로 남기고, 대신 이 위젯이
+/// [SoriSpeech.aiVoiceNoticePending] 신호 하나만 구독해 실제 스낵바를
+/// 띄운다 — `MaterialApp.builder` 아래 정확히 한 번만 마운트해야 한다
+/// (그래야 `context` 가 `ScaffoldMessenger`/`Localizations` 조상을
 /// 보장받는다).
+///
+/// R3 — [Storage.setAiVoiceNoticeShownV1] 도 [speak] 가 아니라 **여기,
+/// 실제로 스낵바를 띄우는 이 순간에만** 부른다. `speak()` 가 영구 플래그를
+/// 직접 쓰면 이 위젯이 안 걸린 화면 트리(미리보기/갤러리 하네스 등)에서도
+/// 재생 한 번에 SharedPreferences 가 바뀐다 — `ux_gallery_no_write_test.dart`
+/// 가 정확히 이 회귀를 잡아냈다. 이 위젯이 없으면 신호는 대기 상태로 남을
+/// 뿐 아무것도 영구화되지 않는다.
 class AiVoiceNoticeHost extends StatefulWidget {
   const AiVoiceNoticeHost({super.key, required this.child});
 
@@ -47,6 +55,7 @@ class _AiVoiceNoticeHostState extends State<AiVoiceNoticeHost> {
     SoriSpeech.aiVoiceNoticePending.value = false;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
+      Storage.setAiVoiceNoticeShownV1();
       soriNotice(context, AppL10n.of(context).aiVoiceNoticeFirstPlay);
     });
   }

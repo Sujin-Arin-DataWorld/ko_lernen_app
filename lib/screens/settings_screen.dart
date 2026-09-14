@@ -1376,11 +1376,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ListTile(
           leading: const Icon(Icons.info_outline),
           title: Text(t.aiVoiceNoticeTitle),
-          subtitle: Text(
-            t.aiVoiceNoticeBody,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
+          subtitle: Text(t.aiVoiceNoticeBody, softWrap: true),
           trailing: const Icon(Icons.chevron_right_rounded),
           onTap: _showAiVoiceNotice,
         ),
