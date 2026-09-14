@@ -1,0 +1,372 @@
+{
+  "status": "INCOMPLETE",
+  "checks": [
+    {
+      "check": "14 learning stages",
+      "status": "PASS",
+      "detail": 14
+    },
+    {
+      "check": "unique stage ids",
+      "status": "PASS",
+      "detail": [
+        "hyeopmun-foundation",
+        "hyeopmun-frame",
+        "hyeopmun-rafters",
+        "hyeopmun-roof-bed",
+        "hyeopmun-roof-tiles",
+        "hyeopmun-complete",
+        "changgo-foundation",
+        "changgo-posts",
+        "changgo-beams",
+        "changgo-rafters",
+        "changgo-roof-bed",
+        "changgo-roof-tiles",
+        "changgo-walls",
+        "changgo-complete"
+      ]
+    },
+    {
+      "check": "hyeopmun stage sequence",
+      "status": "PASS",
+      "detail": 6
+    },
+    {
+      "check": "changgo stage sequence",
+      "status": "PASS",
+      "detail": 8
+    },
+    {
+      "check": "all 3 languages complete",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "hyeopmun-frame choice answer",
+      "status": "PASS",
+      "detail": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "check": "hyeopmun-roof-tiles choice answer",
+      "status": "PASS",
+      "detail": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "check": "changgo-foundation choice answer",
+      "status": "PASS",
+      "detail": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "check": "changgo-posts choice answer",
+      "status": "PASS",
+      "detail": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "check": "changgo-roof-bed choice answer",
+      "status": "PASS",
+      "detail": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "check": "changgo-walls choice answer",
+      "status": "PASS",
+      "detail": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "check": "hyeopmun canonical source hash",
+      "status": "PASS",
+      "detail": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+    },
+    {
+      "check": "hyeopmun final exact bytes",
+      "status": "PASS",
+      "detail": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+    },
+    {
+      "check": "hyeopmun original canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "changgo canonical source hash",
+      "status": "PASS",
+      "detail": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+    },
+    {
+      "check": "changgo final exact bytes",
+      "status": "PASS",
+      "detail": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+    },
+    {
+      "check": "changgo original canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "hyeopmun_detail source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/hyeopmun_detail.jpg"
+    },
+    {
+      "check": "changgo_plan source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_plan.jpg"
+    },
+    {
+      "check": "changgo_front source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_front.jpg"
+    },
+    {
+      "check": "changgo_right source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_right.jpg"
+    },
+    {
+      "check": "changgo_section_long source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_section_long.jpg"
+    },
+    {
+      "check": "changgo_section_cross source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_section_cross.jpg"
+    },
+    {
+      "check": "changgo_roof_plan source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_roof_plan.jpg"
+    },
+    {
+      "check": "changgo_reflected_plan source hash",
+      "status": "PASS",
+      "detail": "references/blueprints/changgo_reflected_plan.jpg"
+    },
+    {
+      "check": "hyeopmun/raw/stage_01_try01.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "hyeopmun/raw/stage_01_try02.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "hyeopmun/raw/stage_01_try03.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "hyeopmun/raw/stage_02_try01.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "hyeopmun/raw/stage_02_try02.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "hyeopmun/raw/stage_03_try01.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "hyeopmun/raw/stage_03_try02.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "hyeopmun/raw/stage_03_try03.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "hyeopmun/raw/stage_04_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "hyeopmun/raw/stage_05_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_01_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_02_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_03_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_04_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_05_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_06_try01.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "changgo/raw/stage_07_try01.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "changgo/raw/stage_07_try02.png provenance",
+      "status": "PASS",
+      "detail": "rejected"
+    },
+    {
+      "check": "changgo/raw/stage_07_try03.png provenance",
+      "status": "PASS",
+      "detail": "candidate"
+    },
+    {
+      "check": "hyeopmun-foundation deliverable exists",
+      "status": "FAIL",
+      "detail": "hyeopmun/stages/stage_01_foundation.png"
+    },
+    {
+      "check": "hyeopmun-frame deliverable exists",
+      "status": "FAIL",
+      "detail": "hyeopmun/stages/stage_02_frame.png"
+    },
+    {
+      "check": "hyeopmun-rafters deliverable exists",
+      "status": "FAIL",
+      "detail": "hyeopmun/stages/stage_03_rafters.png"
+    },
+    {
+      "check": "hyeopmun-roof-bed deliverable exists",
+      "status": "FAIL",
+      "detail": "hyeopmun/stages/stage_04_roof_bed.png"
+    },
+    {
+      "check": "hyeopmun-roof-tiles deliverable exists",
+      "status": "FAIL",
+      "detail": "hyeopmun/stages/stage_05_roof_tiles.png"
+    },
+    {
+      "check": "hyeopmun-complete deliverable exists",
+      "status": "PASS",
+      "detail": "hyeopmun/stages/stage_06_complete.png"
+    },
+    {
+      "check": "hyeopmun-complete exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-complete transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "check": "changgo-foundation deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_01_foundation.png"
+    },
+    {
+      "check": "changgo-posts deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_02_posts.png"
+    },
+    {
+      "check": "changgo-beams deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_03_beams.png"
+    },
+    {
+      "check": "changgo-rafters deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_04_rafters.png"
+    },
+    {
+      "check": "changgo-roof-bed deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_05_roof_bed.png"
+    },
+    {
+      "check": "changgo-roof-tiles deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_06_roof_tiles.png"
+    },
+    {
+      "check": "changgo-walls deliverable exists",
+      "status": "FAIL",
+      "detail": "changgo/stages/stage_07_walls.png"
+    },
+    {
+      "check": "changgo-complete deliverable exists",
+      "status": "PASS",
+      "detail": "changgo/stages/stage_08_complete.png"
+    },
+    {
+      "check": "changgo-complete exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-complete transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    }
+  ],
+  "passed": 50,
+  "failed": 12,
+  "structuralReview": "NOT_PASSED",
+  "edgeReview": "NOT_PASSED",
+  "smallScreenReview": "NOT_PASSED",
+  "reason": "Machine checks cannot establish structural continuity or historical reconstruction accuracy."
+}

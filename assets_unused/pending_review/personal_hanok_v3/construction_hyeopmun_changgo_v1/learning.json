@@ -1,0 +1,1043 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_REVIEW_DRAFT",
+  "scope": "Construction artwork and learning copy only; no runtime rewards or progress changes.",
+  "sourceLanguage": "ko",
+  "locales": [
+    "ko",
+    "en",
+    "de"
+  ],
+  "scenePolicy": "All modern dialogues are authored teaching situations, not historical testimony. Adult interlocutors use Korean haeyo and German Sie. German learner instructions use du. No names, gender, age hierarchy or job authority is inferred.",
+  "variantPolicy": "semantic; listed variants are additional examples, not an exhaustive exact-match grading key",
+  "culture": {
+    "hyeopmun": {
+      "sourceRefs": [
+        "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c0b997e1-da0d-4781-8aec-481dd76a601b"
+      ],
+      "ko": "협문은 공간 사이를 오가는 작은 문이에요. 일두고택에서는 사당, 안사랑채, 장독대 쪽 공간으로 통하는 협문을 볼 수 있어요. 문이 있다는 사실만으로 누구나 들어갈 수 있다고 단정하지 않고, 오늘날의 방문 장면에서 허락을 묻는 표현을 연습해요.",
+      "en": "A hyeopmun is a small gate connecting spaces. At Ildu Historic House, such gates lead towards the family shrine, Ansarangchae and the jar-storage area. A gate alone does not tell us whether entry is permitted. We practise asking permission in a present-day visit.",
+      "de": "Ein Hyeopmun ist ein kleines Tor zwischen verschiedenen Bereichen. Im Ildu-Anwesen führen solche Tore unter anderem zum Ahnenschrein, zum Ansarangchae und zum Bereich mit Vorratskrügen. Ein Tor bedeutet nicht automatisch, dass man eintreten darf. Wir üben, bei einem heutigen Besuch um Erlaubnis zu fragen.",
+      "forbiddenClaims": [
+        "All gates in Korea had the same access rules",
+        "This exact gate can only be used by a particular gender or social class"
+      ]
+    },
+    "changgo": {
+      "sourceRefs": [
+        "local:references/blueprints/changgo_plan.jpg"
+      ],
+      "ko": "창고는 물건을 보관하며 생활을 뒷받침하는 공간이에요. 정본의 전면 여섯 칸과 도면의 내부 구획은 구분해서 봐요. 특정 칸에 무엇을 보관했는지는 확인되지 않았어요. 아래의 상자와 천은 보관·정리 표현을 연습하기 위한 현대 장면의 물건이에요.",
+      "en": "A changgo supports everyday life by providing storage. Distinguish the six front bays in the approved artwork from the interior divisions in the plan. What was stored in each compartment has not been established. The boxes and cloth in these lessons belong to invented modern situations for practising storage and organisation.",
+      "de": "Ein Changgo dient als Lagerraum und unterstützt damit den Alltag. Die sechs vorderen Gebäudefelder im freigegebenen Bild sind von der Raumaufteilung im Grundriss zu unterscheiden. Was in den einzelnen Bereichen gelagert wurde, ist nicht belegt. Die Kisten und Tücher in den Übungen gehören zu erfundenen heutigen Situationen rund ums Aufbewahren und Ordnen.",
+      "forbiddenClaims": [
+        "Six front bays necessarily mean six rooms",
+        "Each depicted door proves a separate historical room",
+        "Specific historical contents without documentary evidence"
+      ]
+    }
+  },
+  "stages": [
+    {
+      "stageId": "hyeopmun-foundation",
+      "buildingId": "hyeopmun",
+      "sequence": 1,
+      "asset": "hyeopmun/stages/stage_01_foundation.png",
+      "processTags": [
+        "site",
+        "foundation"
+      ],
+      "title": {
+        "ko": "발 디딜 곳 만들기",
+        "en": "Build the stone base",
+        "de": "Die Steinbasis setzen"
+      },
+      "observe": {
+        "ko": "세 단의 계단 위에 기둥을 받을 돌 두 개가 있어요.",
+        "en": "Two post bases sit above the three stone steps.",
+        "de": "Über den drei Steinstufen liegen zwei Steine für die Pfosten."
+      },
+      "scene": {
+        "ko": "방문객이 아래에서 올라오고 있어요. 안내하는 사람은 계단 위에서 기다려요.",
+        "en": "A visitor is coming up from below. The person showing them around waits at the top.",
+        "de": "Ein Gast kommt von unten herauf. Die begleitende Person wartet oben an der Treppe."
+      },
+      "precedingLineKo": "올라갈게요.",
+      "line": {
+        "ko": "조심해서 올라오세요.",
+        "en": "Please come up carefully.",
+        "de": "Kommen Sie bitte vorsichtig hoch."
+      },
+      "task": {
+        "ko": "계단 위에서 방문객을 맞이한다고 생각하고 한마디 해 보세요.",
+        "en": "Imagine you are welcoming the visitor from the top of the steps. Say something to them.",
+        "de": "Stell dir vor, du empfängst den Gast oben an der Treppe. Sprich ihn an."
+      },
+      "target": [
+        "위",
+        "아래",
+        "올라오다"
+      ],
+      "speechAct": "cautious invitation",
+      "acceptedVariants": [
+        "천천히 조심해서 올라오세요."
+      ],
+      "criterion": "Invite the visitor upward towards the speaker and express care; do not reverse 올라오다 into departure away from the speaker.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "hyeopmun-frame",
+      "buildingId": "hyeopmun",
+      "sequence": 2,
+      "asset": "hyeopmun/stages/stage_02_frame.png",
+      "processTags": [
+        "framePosts",
+        "frameBeams"
+      ],
+      "title": {
+        "ko": "문 골조 세우기",
+        "en": "Raise the gate frame",
+        "de": "Den Torrahmen aufrichten"
+      },
+      "observe": {
+        "ko": "기둥 사이에는 지나갈 수 있는 빈 공간이 남아요.",
+        "en": "An open passage remains between the posts.",
+        "de": "Zwischen den Pfosten bleibt ein Durchgang frei."
+      },
+      "scene": {
+        "ko": "방문객이 길을 물어요. 안내하는 사람이 함께 지나갈 통로를 가리켜요.",
+        "en": "A visitor asks the way. The person guiding them points to the passage they will take together.",
+        "de": "Ein Gast fragt nach dem Weg. Die begleitende Person zeigt auf den gemeinsamen Weg durch das Tor."
+      },
+      "precedingLineKo": "어디로 가요?",
+      "line": {
+        "ko": "이 사이로 지나가요.",
+        "en": "We go through here.",
+        "de": "Wir gehen hier hindurch."
+      },
+      "task": {
+        "ko": "그림에서 두 기둥 사이로 지나는 길을 골라 보세요.",
+        "en": "Choose the route through the space between the posts.",
+        "de": "Wähle den Weg zwischen den Pfosten."
+      },
+      "target": [
+        "사이",
+        "지나가다"
+      ],
+      "speechAct": "route explanation",
+      "acceptedVariants": [
+        "두 기둥 사이로 지나가요."
+      ],
+      "criterion": "Indicate the route through the space between the posts, rather than around the gate.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "label": {
+              "ko": "두 기둥 사이",
+              "en": "Between the two posts",
+              "de": "Zwischen den beiden Pfosten"
+            }
+          },
+          {
+            "id": "b",
+            "label": {
+              "ko": "문 바깥을 돌아가기",
+              "en": "Around the outside of the gate",
+              "de": "Außen um das Tor herum"
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "hyeopmun-rafters",
+      "buildingId": "hyeopmun",
+      "sequence": 3,
+      "asset": "hyeopmun/stages/stage_03_rafters.png",
+      "processTags": [
+        "frameBeams",
+        "raftersSanja"
+      ],
+      "title": {
+        "ko": "지붕 뼈대 얹기",
+        "en": "Assemble the roof frame",
+        "de": "Das Dachgerüst aufsetzen"
+      },
+      "observe": {
+        "ko": "서까래가 도리에 걸쳐 지붕의 경사를 만들어요.",
+        "en": "The rafters rest on the purlins and establish the roof slope.",
+        "de": "Die Sparren liegen auf den Pfetten und bilden die Dachneigung."
+      },
+      "scene": {
+        "ko": "체험 모형을 함께 조립해요. 상대가 어느 쪽을 잡을지 물어요.",
+        "en": "Two adults assemble a demonstration model together. One asks which side to hold.",
+        "de": "Zwei Erwachsene bauen gemeinsam ein Anschauungsmodell. Eine Person fragt, welche Seite sie halten soll."
+      },
+      "precedingLineKo": "어느 쪽을 잡을까요?",
+      "line": {
+        "ko": "이쪽을 잡아 주세요.",
+        "en": "Please hold this side.",
+        "de": "Halten Sie bitte diese Seite fest."
+      },
+      "task": {
+        "ko": "잡아 줄 부분을 가리키며 정중하게 부탁해 보세요.",
+        "en": "Point to the part you need held and ask politely for help.",
+        "de": "Zeige auf die Stelle, die festgehalten werden soll, und bitte höflich um Hilfe."
+      },
+      "target": [
+        "이쪽",
+        "잡다",
+        "-아 주세요"
+      ],
+      "speechAct": "request",
+      "acceptedVariants": [
+        "이 부분을 잡아 주세요."
+      ],
+      "criterion": "Ask the other person to hold the indicated side; preserve the request rather than ordering them to let go.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "hyeopmun-roof-bed",
+      "buildingId": "hyeopmun",
+      "sequence": 4,
+      "asset": "hyeopmun/stages/stage_04_roof_bed.png",
+      "processTags": [
+        "roofBed"
+      ],
+      "title": {
+        "ko": "지붕 바탕 만들기",
+        "en": "Lay the roof bedding",
+        "de": "Die Dachunterlage herstellen"
+      },
+      "observe": {
+        "ko": "나무 바탕 위에 기와를 받을 흙 층이 생겨요.",
+        "en": "An earth layer above the timber boarding will support the tiles.",
+        "de": "Über der Holzschalung entsteht eine Erdschicht als Unterlage für die Ziegel."
+      },
+      "scene": {
+        "ko": "오늘날의 방문 장면이에요. 두 사람이 밖에 있는데 비가 오기 시작해요. 들어가도 되는 실내 공간이 가까이 있어요.",
+        "en": "During a present-day visit, rain starts while two people are outside. An indoor space they may enter is nearby.",
+        "de": "Bei einem heutigen Besuch beginnt es zu regnen. Zwei Personen stehen draußen; ein zugänglicher Innenraum ist in der Nähe."
+      },
+      "precedingLineKo": "어, 빗방울이 떨어져요.",
+      "line": {
+        "ko": "비가 와요. 안으로 들어가요.",
+        "en": "It's raining. Let's go inside.",
+        "de": "Es regnet. Gehen wir hinein."
+      },
+      "task": {
+        "ko": "함께 있는 사람에게 안으로 들어가자고 말해 보세요.",
+        "en": "Suggest going inside together.",
+        "de": "Schlage vor, gemeinsam hineinzugehen."
+      },
+      "target": [
+        "비가 오다",
+        "안으로",
+        "들어가다"
+      ],
+      "speechAct": "observation and suggestion",
+      "acceptedVariants": [
+        "비가 오네요. 안으로 들어가요."
+      ],
+      "criterion": "Notice the rain and suggest moving inside together. The unfinished gate itself is not described as a room or proven rainproof roof.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "hyeopmun-roof-tiles",
+      "buildingId": "hyeopmun",
+      "sequence": 5,
+      "asset": "hyeopmun/stages/stage_05_roof_tiles.png",
+      "processTags": [
+        "roofTiles"
+      ],
+      "title": {
+        "ko": "기와 덮기",
+        "en": "Cover the roof with tiles",
+        "de": "Das Dach mit Ziegeln decken"
+      },
+      "observe": {
+        "ko": "기와가 겹쳐지고 용마루가 마감돼요.",
+        "en": "Overlapping tiles and the finished ridge complete the roof covering.",
+        "de": "Überlappende Ziegel und der fertige First schließen die Dachdeckung ab."
+      },
+      "scene": {
+        "ko": "방문객이 지붕의 역할을 물어요. 안내하는 사람이 짧게 설명해요.",
+        "en": "A visitor asks what the roof does. The person showing them around gives a brief explanation.",
+        "de": "Ein Gast fragt nach der Aufgabe des Dachs. Die begleitende Person erklärt sie kurz."
+      },
+      "precedingLineKo": "지붕은 무슨 역할을 해요?",
+      "line": {
+        "ko": "지붕이 비를 막아 줘요.",
+        "en": "The roof keeps the rain off.",
+        "de": "Das Dach hält den Regen ab."
+      },
+      "task": {
+        "ko": "비를 막아 주는 부분을 골라 보세요.",
+        "en": "Choose the part that keeps the rain off.",
+        "de": "Wähle den Teil, der den Regen abhält."
+      },
+      "target": [
+        "지붕",
+        "비",
+        "막아 주다"
+      ],
+      "speechAct": "explanation",
+      "acceptedVariants": [
+        "지붕이 비를 막아요."
+      ],
+      "criterion": "Explain protection from rain without claiming that every construction stage is already watertight.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "label": {
+              "ko": "돌계단",
+              "en": "The stone steps",
+              "de": "Die Steinstufen"
+            }
+          },
+          {
+            "id": "a",
+            "label": {
+              "ko": "기와지붕",
+              "en": "The tiled roof",
+              "de": "Das Ziegeldach"
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "hyeopmun-complete",
+      "buildingId": "hyeopmun",
+      "sequence": 6,
+      "asset": "hyeopmun/stages/stage_06_complete.png",
+      "processTags": [
+        "doorsChangho",
+        "identityFinish",
+        "complete"
+      ],
+      "title": {
+        "ko": "문 달고 완성하기",
+        "en": "Hang the doors and finish",
+        "de": "Die Torflügel einsetzen"
+      },
+      "observe": {
+        "ko": "두 짝의 판문과 손잡이가 달려 정본 모습이 완성돼요.",
+        "en": "Two plank door leaves and their handles bring the gate to its approved finished appearance.",
+        "de": "Zwei Brettertürflügel mit Griffen vervollständigen die freigegebene Toransicht."
+      },
+      "scene": {
+        "ko": "처음 방문한 공간의 문 앞이에요. 방문객은 출입이 가능한지 안내하는 사람에게 물어요.",
+        "en": "At the gate to an unfamiliar space, a visitor asks the person guiding them whether they may enter.",
+        "de": "Vor dem Tor zu einem unbekannten Bereich fragt ein Gast die begleitende Person, ob er eintreten darf."
+      },
+      "precedingLineKo": "이 문 안쪽이 다음 공간이에요.",
+      "line": {
+        "ko": "들어가도 돼요?",
+        "en": "May I go in?",
+        "de": "Darf ich hineingehen?"
+      },
+      "task": {
+        "ko": "처음 가 보는 공간에 들어가기 전에 허락을 물어보세요.",
+        "en": "Ask permission before entering an unfamiliar space.",
+        "de": "Frage um Erlaubnis, bevor du einen unbekannten Bereich betrittst."
+      },
+      "target": [
+        "들어가다",
+        "-아도 되다"
+      ],
+      "speechAct": "permission question",
+      "acceptedVariants": [
+        "안으로 들어가도 돼요?",
+        "들어가도 될까요?"
+      ],
+      "criterion": "Ask whether entry is permitted. Do not replace permission with physical ability or infer an affirmative answer.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "changgo-foundation",
+      "buildingId": "changgo",
+      "sequence": 1,
+      "asset": "changgo/stages/stage_01_foundation.png",
+      "processTags": [
+        "site",
+        "foundation"
+      ],
+      "title": {
+        "ko": "기초 놓기",
+        "en": "Set the foundations",
+        "de": "Die Fundamente setzen"
+      },
+      "observe": {
+        "ko": "낮은 돌기단이 길게 이어져요. 계단은 없어요.",
+        "en": "The low stone base extends lengthwise. There are no stairs.",
+        "de": "Der niedrige Steinsockel zieht sich in die Länge. Eine Treppe gibt es nicht."
+      },
+      "scene": {
+        "ko": "두 사람이 완성 참고 그림과 기초를 함께 봐요. 한 사람이 창고의 모양을 물어요.",
+        "en": "Two people look at the finished reference and the foundations. One asks about the storehouse's shape.",
+        "de": "Zwei Personen betrachten die fertige Referenzansicht und die Fundamente. Eine Person fragt nach der Form des Lagerhauses."
+      },
+      "precedingLineKo": "이 창고는 어떤 모양이에요?",
+      "line": {
+        "ko": "길고 낮아요.",
+        "en": "It's long and low.",
+        "de": "Es ist lang und niedrig."
+      },
+      "task": {
+        "ko": "창고의 모양에 맞는 표현을 골라 보세요.",
+        "en": "Choose the description that fits the storehouse.",
+        "de": "Wähle die passende Beschreibung des Lagerhauses."
+      },
+      "target": [
+        "길다",
+        "낮다",
+        "-고"
+      ],
+      "speechAct": "description",
+      "acceptedVariants": [
+        "길면서 낮아요."
+      ],
+      "criterion": "Describe the same storehouse as long and low; do not confuse low with short in length.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "label": {
+              "ko": "길고 낮아요.",
+              "en": "It's long and low.",
+              "de": "Es ist lang und niedrig."
+            }
+          },
+          {
+            "id": "b",
+            "label": {
+              "ko": "짧고 높아요.",
+              "en": "It's short and tall.",
+              "de": "Es ist kurz und hoch."
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "changgo-posts",
+      "buildingId": "changgo",
+      "sequence": 2,
+      "asset": "changgo/stages/stage_02_posts.png",
+      "processTags": [
+        "framePosts"
+      ],
+      "title": {
+        "ko": "기둥 세우기",
+        "en": "Raise the posts",
+        "de": "Die Pfosten aufrichten"
+      },
+      "observe": {
+        "ko": "앞줄과 뒷줄의 기둥 사이로 건물의 깊이가 보여요.",
+        "en": "The gap between the front and rear post rows reveals the building's depth.",
+        "de": "Zwischen der vorderen und hinteren Pfostenreihe wird die Gebäudetiefe sichtbar."
+      },
+      "scene": {
+        "ko": "건축 모형 설명을 듣는 사람이 기둥 배치를 물어요. 설명하는 사람이 앞줄과 뒷줄을 가리켜요.",
+        "en": "Someone asks how the posts are arranged in a building model. The demonstrator points to the front and rear rows.",
+        "de": "Bei einer Modellvorführung fragt jemand nach der Anordnung der Pfosten. Die vorführende Person zeigt auf die vordere und hintere Reihe."
+      },
+      "precedingLineKo": "기둥은 어떻게 세워요?",
+      "line": {
+        "ko": "앞뒤로 나란히 세워요.",
+        "en": "We set them in parallel rows at the front and back.",
+        "de": "Wir stellen sie vorne und hinten in parallelen Reihen auf."
+      },
+      "task": {
+        "ko": "앞줄과 뒷줄의 기둥을 모두 가리키는 설명을 골라 보세요.",
+        "en": "Choose the description that includes both post rows.",
+        "de": "Wähle die Beschreibung, die beide Pfostenreihen erfasst."
+      },
+      "target": [
+        "앞뒤",
+        "나란히",
+        "세우다"
+      ],
+      "speechAct": "process explanation",
+      "acceptedVariants": [
+        "앞쪽과 뒤쪽에 나란히 세워요."
+      ],
+      "criterion": "Identify both parallel rows, not only the visible facade posts.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "label": {
+              "ko": "앞쪽에만 세워요.",
+              "en": "We set them only at the front.",
+              "de": "Wir stellen sie nur vorne auf."
+            }
+          },
+          {
+            "id": "a",
+            "label": {
+              "ko": "앞뒤로 나란히 세워요.",
+              "en": "We set them in parallel rows at the front and back.",
+              "de": "Wir stellen sie vorne und hinten in parallelen Reihen auf."
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "changgo-beams",
+      "buildingId": "changgo",
+      "sequence": 3,
+      "asset": "changgo/stages/stage_03_beams.png",
+      "processTags": [
+        "frameBeams"
+      ],
+      "title": {
+        "ko": "보와 도리 연결하기",
+        "en": "Connect beams and purlins",
+        "de": "Balken und Pfetten verbinden"
+      },
+      "observe": {
+        "ko": "가로 부재가 기둥을 연결해 하나의 골조를 만들어요.",
+        "en": "Horizontal members connect the posts into one frame.",
+        "de": "Waagerechte Hölzer verbinden die Pfosten zu einem Gerüst."
+      },
+      "scene": {
+        "ko": "체험 모형의 긴 부품을 옮겨요. 상대가 도울 일이 있는지 물어요.",
+        "en": "A long component of a demonstration model needs moving. The other person offers help.",
+        "de": "Ein langes Bauteil eines Anschauungsmodells muss versetzt werden. Die andere Person bietet Hilfe an."
+      },
+      "precedingLineKo": "도와드릴까요?",
+      "line": {
+        "ko": "같이 옮겨 주세요.",
+        "en": "Please help me move it.",
+        "de": "Helfen Sie mir bitte, es zu versetzen."
+      },
+      "task": {
+        "ko": "긴 부품을 함께 옮겨 달라고 부탁해 보세요.",
+        "en": "Ask the other person to help you move the long component.",
+        "de": "Bitte die andere Person, dir beim Versetzen des langen Bauteils zu helfen."
+      },
+      "target": [
+        "같이",
+        "옮기다",
+        "-어 주세요"
+      ],
+      "speechAct": "request for joint action",
+      "acceptedVariants": [
+        "함께 옮겨 주세요."
+      ],
+      "criterion": "Ask for joint movement of the same part; do not turn the request into an instruction to move it alone.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "changgo-rafters",
+      "buildingId": "changgo",
+      "sequence": 4,
+      "asset": "changgo/stages/stage_04_rafters.png",
+      "processTags": [
+        "raftersSanja"
+      ],
+      "title": {
+        "ko": "서까래와 바탕널 얹기",
+        "en": "Add rafters and boarding",
+        "de": "Sparren und Schalung auflegen"
+      },
+      "observe": {
+        "ko": "서까래가 앞뒤 지붕면을 만들고 처마까지 이어져요.",
+        "en": "The rafters form the front and rear roof slopes and extend to the eaves.",
+        "de": "Die Sparren bilden beide Dachflächen und reichen bis zur Traufe."
+      },
+      "scene": {
+        "ko": "체험 모형을 조립하는 두 사람이 받침 위치를 보고 있어요. 부품을 든 사람이 놓을 곳을 물어요.",
+        "en": "Two adults assembling a model look at a support. The person holding a component asks where to put it.",
+        "de": "Zwei Erwachsene betrachten beim Modellbau eine Auflage. Die Person mit dem Bauteil fragt, wohin es soll."
+      },
+      "precedingLineKo": "이건 어디에 놓을까요?",
+      "line": {
+        "ko": "그 위에 올려 주세요.",
+        "en": "Please put it on top of that.",
+        "de": "Legen Sie es bitte darauf."
+      },
+      "task": {
+        "ko": "받침을 가리키며 부품을 올려놓을 곳을 알려 주세요.",
+        "en": "Point to the support and say where the component should go.",
+        "de": "Zeige auf die Auflage und sage, wo das Bauteil hingelegt werden soll."
+      },
+      "target": [
+        "위에",
+        "올리다",
+        "-어 주세요"
+      ],
+      "speechAct": "placement request",
+      "acceptedVariants": [
+        "그 위에 놓아 주세요."
+      ],
+      "criterion": "Request placement on top of the indicated support; preserve the demonstrative referent.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "changgo-roof-bed",
+      "buildingId": "changgo",
+      "sequence": 5,
+      "asset": "changgo/stages/stage_05_roof_bed.png",
+      "processTags": [
+        "roofBed"
+      ],
+      "title": {
+        "ko": "지붕 바탕 만들기",
+        "en": "Prepare the roof bedding",
+        "de": "Die Dachunterlage vorbereiten"
+      },
+      "observe": {
+        "ko": "서까래 위 바탕널과 흙 층이 기와를 받칠 면을 만들어요.",
+        "en": "Boarding and an earth layer above the rafters create a bed for the tiles.",
+        "de": "Schalung und Erdschicht über den Sparren bilden die Unterlage für die Ziegel."
+      },
+      "scene": {
+        "ko": "현대의 보관 공간에서 마른 천을 정리해요. 상대가 어떻게 보관하는지 물어요.",
+        "en": "Two people organise dry cloth in a modern storage space. One asks how it is stored.",
+        "de": "In einem heutigen Lagerraum wird ein trockenes Tuch weggeräumt. Eine Person fragt, wie es aufbewahrt wird."
+      },
+      "precedingLineKo": "이 천은 어떻게 보관해요?",
+      "line": {
+        "ko": "젖지 않게 보관해요.",
+        "en": "We store it so it doesn't get wet.",
+        "de": "Wir bewahren es so auf, dass es nicht nass wird."
+      },
+      "task": {
+        "ko": "마른 천을 보관하려고 해요. 알맞은 방법을 골라 보세요.",
+        "en": "You want to store dry cloth. Choose the appropriate method.",
+        "de": "Du möchtest ein trockenes Tuch aufbewahren. Wähle die passende Methode."
+      },
+      "target": [
+        "젖다",
+        "-지 않게",
+        "보관하다"
+      ],
+      "speechAct": "method explanation",
+      "acceptedVariants": [
+        "젖지 않도록 보관해요."
+      ],
+      "criterion": "Preserve prevention of becoming wet, not a claim that the cloth is already wet or that the incomplete roof is waterproof.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "label": {
+              "ko": "젖지 않게 보관해요.",
+              "en": "We store it so it doesn't get wet.",
+              "de": "Wir bewahren es so auf, dass es nicht nass wird."
+            }
+          },
+          {
+            "id": "b",
+            "label": {
+              "ko": "비를 맞는 곳에 두어요.",
+              "en": "We leave it where rain can reach it.",
+              "de": "Wir lassen es an einer Stelle liegen, an die Regen gelangt."
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "changgo-roof-tiles",
+      "buildingId": "changgo",
+      "sequence": 6,
+      "asset": "changgo/stages/stage_06_roof_tiles.png",
+      "processTags": [
+        "roofTiles"
+      ],
+      "title": {
+        "ko": "기와 덮기",
+        "en": "Lay the roof tiles",
+        "de": "Die Dachziegel verlegen"
+      },
+      "observe": {
+        "ko": "길게 이어진 기와지붕이 골조 위를 덮어요.",
+        "en": "The long tiled roof covers the timber frame.",
+        "de": "Das lange Ziegeldach bedeckt das Holzgerüst."
+      },
+      "scene": {
+        "ko": "현대의 보관 공간에서 빈 상자를 함께 정리해요. 상자를 든 사람이 둘 곳을 물어요.",
+        "en": "Two people organise empty boxes in a modern storage space. The person holding a box asks where to put it.",
+        "de": "Zwei Personen räumen in einem heutigen Lagerraum leere Kisten ein. Die Person mit einer Kiste fragt, wohin sie soll."
+      },
+      "precedingLineKo": "이 상자는 어디에 둘까요?",
+      "line": {
+        "ko": "안에 넣어 두세요.",
+        "en": "Please put it inside and leave it there.",
+        "de": "Stellen Sie sie bitte hinein und lassen Sie sie dort."
+      },
+      "task": {
+        "ko": "상자를 안에 넣어 보관해 달라고 말해 보세요.",
+        "en": "Ask the other person to put the box inside and leave it there for storage.",
+        "de": "Bitte die andere Person, die Kiste hineinzustellen und dort aufzubewahren."
+      },
+      "target": [
+        "안에",
+        "넣어 두다"
+      ],
+      "speechAct": "storage request",
+      "acceptedVariants": [
+        "안쪽에 넣어 두세요."
+      ],
+      "criterion": "Preserve both inward placement and the resulting stored state; do not turn 넣어 두다 into immediate removal.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    },
+    {
+      "stageId": "changgo-walls",
+      "buildingId": "changgo",
+      "sequence": 7,
+      "asset": "changgo/stages/stage_07_walls.png",
+      "processTags": [
+        "wallInfill"
+      ],
+      "title": {
+        "ko": "벽과 칸막이 만들기",
+        "en": "Build walls and partitions",
+        "de": "Wände und Trennwände einbauen"
+      },
+      "observe": {
+        "ko": "뒤와 옆이 막히고, 내부는 도면의 구획대로 나뉘어요.",
+        "en": "The rear and sides close in, while the interior is divided according to the plan.",
+        "de": "Rückseite und Seiten werden geschlossen; innen entstehen die im Plan vorgesehenen Unterteilungen."
+      },
+      "scene": {
+        "ko": "현대의 보관 공간에서 여러 종류의 물건을 정리해요. 상대가 정리 방법을 물어요.",
+        "en": "Two people organise different kinds of objects in a modern storage space. One asks how to sort them.",
+        "de": "In einem heutigen Lagerraum werden verschiedene Gegenstände geordnet. Eine Person fragt nach der Sortierung."
+      },
+      "precedingLineKo": "이 물건들은 어떻게 정리해요?",
+      "line": {
+        "ko": "종류별로 나눠 놓아요.",
+        "en": "We separate them by type.",
+        "de": "Wir ordnen sie nach Art."
+      },
+      "task": {
+        "ko": "같은 종류의 물건끼리 모아 두는 방법을 골라 보세요.",
+        "en": "Choose the method that keeps objects of the same type together.",
+        "de": "Wähle die Methode, bei der gleichartige Gegenstände zusammenbleiben."
+      },
+      "target": [
+        "종류별로",
+        "나누다",
+        "-아 놓다"
+      ],
+      "speechAct": "organisation explanation",
+      "acceptedVariants": [
+        "종류별로 나누어 놓아요."
+      ],
+      "criterion": "Group by type without inventing historical contents or fixed assignments for particular bays.",
+      "exercise": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "label": {
+              "ko": "종류를 섞어 놓아요.",
+              "en": "We mix the different types together.",
+              "de": "Wir mischen die verschiedenen Arten."
+            }
+          },
+          {
+            "id": "a",
+            "label": {
+              "ko": "종류별로 나눠 놓아요.",
+              "en": "We separate them by type.",
+              "de": "Wir ordnen sie nach Art."
+            }
+          }
+        ],
+        "correctOptionId": "a"
+      }
+    },
+    {
+      "stageId": "changgo-complete",
+      "buildingId": "changgo",
+      "sequence": 8,
+      "asset": "changgo/stages/stage_08_complete.png",
+      "processTags": [
+        "doorsChangho",
+        "identityFinish",
+        "complete"
+      ],
+      "title": {
+        "ko": "판문 달고 완성하기",
+        "en": "Fit the doors and finish",
+        "de": "Die Brettertüren einsetzen"
+      },
+      "observe": {
+        "ko": "정본의 전면 판문과 철물이 달려 창고가 완성돼요.",
+        "en": "The front plank doors and fittings complete the approved storehouse appearance.",
+        "de": "Die vorderen Brettertüren und Beschläge vervollständigen die freigegebene Lagerhausansicht."
+      },
+      "scene": {
+        "ko": "공동으로 쓰는 물건을 빌리는 장면이에요. 물건을 받은 사람이 사용 후 둘 곳을 물어요.",
+        "en": "Someone borrows a shared item and asks where to leave it after use.",
+        "de": "Jemand leiht sich einen gemeinsam genutzten Gegenstand und fragt, wohin er nach Gebrauch soll."
+      },
+      "precedingLineKo": "다 쓰면 어디에 둘까요?",
+      "line": {
+        "ko": "쓰고 나면 제자리에 놓아 주세요.",
+        "en": "Please put it back in its place after using it.",
+        "de": "Legen Sie es nach Gebrauch bitte wieder an seinen Platz."
+      },
+      "task": {
+        "ko": "빌려 쓰는 사람에게 사용 후 제자리에 놓아 달라고 부탁해 보세요.",
+        "en": "Ask the borrower to return the item to its place after use.",
+        "de": "Bitte die ausleihende Person, den Gegenstand nach Gebrauch wieder an seinen Platz zu legen."
+      },
+      "target": [
+        "쓰고 나면",
+        "제자리",
+        "놓다"
+      ],
+      "speechAct": "return request",
+      "acceptedVariants": [
+        "사용한 뒤에는 제자리에 놓아 주세요."
+      ],
+      "criterion": "Request return to the established place after use, without inventing blame or a previous failure to return the item.",
+      "exercise": {
+        "kind": "spoken_request_or_suggestion"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "초석",
+      "label": {
+        "ko": "초석",
+        "en": "Post base",
+        "de": "Pfostenstein"
+      },
+      "explanation": {
+        "ko": "기둥 아래에서 기둥을 받치는 돌이에요.",
+        "en": "A stone supporting the foot of a post.",
+        "de": "Ein Stein, der den Fuß eines Pfostens trägt."
+      },
+      "stageIds": [
+        "hyeopmun-foundation",
+        "changgo-foundation",
+        "changgo-posts"
+      ],
+      "sourceRefs": [
+        "hyeopmun_detail",
+        "changgo_section_cross"
+      ]
+    },
+    {
+      "term": "기단",
+      "label": {
+        "ko": "기단",
+        "en": "Raised base",
+        "de": "Sockel"
+      },
+      "explanation": {
+        "ko": "건물 아래에 마련한 받침 부분이에요. 창고 정본에서는 낮고 길게 보여요.",
+        "en": "The raised base beneath the building; it is long and low in the storehouse reference.",
+        "de": "Der Sockel unter dem Gebäude; beim Lagerhaus ist er lang und niedrig."
+      },
+      "stageIds": [
+        "changgo-foundation"
+      ],
+      "sourceRefs": [
+        "changgo_front",
+        "changgo_right"
+      ]
+    },
+    {
+      "term": "보",
+      "label": {
+        "ko": "보",
+        "en": "Beam",
+        "de": "Balken"
+      },
+      "explanation": {
+        "ko": "기둥 위를 가로질러 연결하고 위의 구조를 받치는 나무예요.",
+        "en": "A horizontal timber connecting posts and supporting the structure above.",
+        "de": "Ein waagerechtes Holz, das Pfosten verbindet und die Konstruktion darüber trägt."
+      },
+      "stageIds": [
+        "hyeopmun-frame",
+        "changgo-beams"
+      ],
+      "sourceRefs": [
+        "hyeopmun_detail",
+        "changgo_section_cross"
+      ]
+    },
+    {
+      "term": "도리",
+      "label": {
+        "ko": "도리",
+        "en": "Purlin",
+        "de": "Pfette"
+      },
+      "explanation": {
+        "ko": "지붕의 긴 방향으로 이어지며 서까래를 받치는 나무예요.",
+        "en": "A timber running lengthwise along the roof to support the rafters.",
+        "de": "Ein längs durch das Dach verlaufendes Holz, das die Sparren trägt."
+      },
+      "stageIds": [
+        "hyeopmun-rafters",
+        "changgo-beams"
+      ],
+      "sourceRefs": [
+        "hyeopmun_detail",
+        "changgo_section_long"
+      ]
+    },
+    {
+      "term": "서까래",
+      "label": {
+        "ko": "서까래",
+        "en": "Rafter",
+        "de": "Sparren"
+      },
+      "explanation": {
+        "ko": "지붕의 경사를 따라 놓이는 나무예요. 처마 쪽으로 이어져요.",
+        "en": "A timber following the roof slope towards the eaves.",
+        "de": "Ein Holz entlang der Dachneigung, das zur Traufe führt."
+      },
+      "stageIds": [
+        "hyeopmun-rafters",
+        "changgo-rafters"
+      ],
+      "sourceRefs": [
+        "changgo_section_cross",
+        "AURI-roof"
+      ]
+    },
+    {
+      "term": "바탕널",
+      "label": {
+        "ko": "바탕널",
+        "en": "Roof boarding",
+        "de": "Dachschalung"
+      },
+      "explanation": {
+        "ko": "서까래 위에 놓아 그 위의 지붕 바탕을 받치는 널이에요.",
+        "en": "Boards above the rafters that support the roof bedding.",
+        "de": "Bretter über den Sparren, die die Dachunterlage tragen."
+      },
+      "stageIds": [
+        "hyeopmun-rafters",
+        "changgo-rafters"
+      ],
+      "sourceRefs": [
+        "AURI-roof"
+      ]
+    },
+    {
+      "term": "보토",
+      "label": {
+        "ko": "보토",
+        "en": "Earth bedding",
+        "de": "Erdschicht im Dach"
+      },
+      "explanation": {
+        "ko": "지붕 바탕에 까는 흙이에요. 그림에서는 기와를 얹기 전의 층을 관찰해요.",
+        "en": "Earth laid in the roof bedding, visible here before the tiles are added.",
+        "de": "Erde in der Dachunterlage, hier vor dem Auflegen der Ziegel sichtbar."
+      },
+      "stageIds": [
+        "hyeopmun-roof-bed",
+        "changgo-roof-bed"
+      ],
+      "sourceRefs": [
+        "AURI-roof"
+      ]
+    },
+    {
+      "term": "용마루",
+      "label": {
+        "ko": "용마루",
+        "en": "Roof ridge",
+        "de": "Dachfirst"
+      },
+      "explanation": {
+        "ko": "지붕의 두 경사면이 가장 높이 만나는 부분이에요.",
+        "en": "The highest line where the two roof slopes meet.",
+        "de": "Die oberste Linie, an der sich die beiden Dachflächen treffen."
+      },
+      "stageIds": [
+        "hyeopmun-roof-tiles",
+        "changgo-roof-tiles"
+      ],
+      "sourceRefs": [
+        "hyeopmun_detail",
+        "changgo_front"
+      ]
+    },
+    {
+      "term": "판문",
+      "label": {
+        "ko": "판문",
+        "en": "Plank door",
+        "de": "Brettertür"
+      },
+      "explanation": {
+        "ko": "나무 판을 이어 만든 문이에요. 완성 단계에서 열고 닫는 부분을 찾아보세요.",
+        "en": "A door made with timber boards. Find the part that opens and closes.",
+        "de": "Eine Tür aus Holzbrettern. Suche den Teil, der sich öffnen und schließen lässt."
+      },
+      "stageIds": [
+        "hyeopmun-complete",
+        "changgo-complete"
+      ],
+      "sourceRefs": [
+        "hyeopmun_detail",
+        "changgo_front"
+      ]
+    },
+    {
+      "term": "칸",
+      "label": {
+        "ko": "칸",
+        "en": "Structural bay",
+        "de": "Gebäudefeld"
+      },
+      "explanation": {
+        "ko": "여기서는 기둥 사이의 구조 단위를 뜻해요. 한 칸이 반드시 방 하나는 아니에요.",
+        "en": "Here, a structural space between post axes. One bay does not necessarily mean one room.",
+        "de": "Hier ein konstruktives Feld zwischen Pfostenachsen. Ein Feld ist nicht zwangsläufig ein Raum."
+      },
+      "stageIds": [
+        "changgo-posts",
+        "changgo-walls"
+      ],
+      "sourceRefs": [
+        "changgo_plan"
+      ]
+    }
+  ]
+}
