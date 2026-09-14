@@ -1299,10 +1299,25 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
     _scenario_spec("a2_feeling_sick", "a2", "a2_04_feelings_health", "gym_class_cancel"),
     _scenario_spec("a2_cafe_starbucks_basic", "a2", "a2_05_delivery_services", "a2_w10_buy"),
     _scenario_spec("a2_myeongdong_shopping", "a2", "a2_05_delivery_services", "clothing_refund_size"),
+    _named_spec(
+        "a2_cafe_study", "a2", "a2_06_study_work",
+        "vocabPack", "a2_school_supplies_1",
+        ("카페에서 공부하기", "Im Café lernen", "Studying at a café"),
+        "connectedProduction",
+    ),
     _scenario_spec("a2_subway_transfer", "a2", "a2_07_travel_repair", "train_seat_swap"),
     _scenario_spec("a2_taxi_street", "a2", "a2_07_travel_repair", "taxi_slow_down"),
     _scenario_spec("a2_subway_directions", "a2", "a2_07_travel_repair", "jeju_bus_missed"),
-    _scenario_spec("a2_lost_phone", "a2", "a2_07_travel_repair", "lost_phone"),
+    # KNOWN_MISSING_SCENARIO_SLOTS (see test_build_can_do_segments.py): scenario
+    # "lost_phone" was retired by the 2026-09-01 canonical_120_v1 corpus promotion
+    # with no direct replacement written yet. Explicit text keeps this segment
+    # buildable until the A2/B1 enrichment wave writes real scenario content.
+    _named_spec(
+        "a2_lost_phone", "a2", "a2_07_travel_repair",
+        "scenario", "lost_phone",
+        ("휴대폰을 잃어버렸을 때", "Wenn du dein Handy verloren hast", "When you've lost your phone"),
+        "connectedProduction",
+    ),
     _scenario_spec("a2_ktx_ticket", "a2", "a2_08_home_money", "library_card_problem"),
     _scenario_spec("a2_rent_bank_transfer", "a2", "a2_08_home_money", "a2_w10_money"),
     _scenario_spec("b1_plans_with_reasons", "b1", "b1_01_experience_reasons", "jeju_rain_plan_change"),
@@ -1319,11 +1334,28 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
         ("매체 주장 전달", "Aussagen aus Medien wiedergeben", "Relaying a media claim"),
         "connectedProduction",
     ),
-    _scenario_spec("b1_bank_soft_request", "b1", "b1_03_work_softening", "bank_account"),
+    # KNOWN_MISSING_SCENARIO_SLOTS (see test_build_can_do_segments.py): scenario
+    # "bank_account" was retired by the 2026-09-01 canonical_120_v1 corpus
+    # promotion with no direct replacement written yet. Explicit text keeps
+    # this segment buildable until the A2/B1 enrichment wave writes real
+    # scenario content.
+    _named_spec(
+        "b1_bank_soft_request", "b1", "b1_03_work_softening",
+        "scenario", "bank_account",
+        ("은행 계좌 만들기", "Ein Bankkonto eröffnen", "Opening a bank account"),
+        "connectedProduction",
+    ),
     _scenario_spec("b1_team_role_coordination", "b1", "b1_03_work_softening", "work_message_too_direct"),
     _scenario_spec("b1_attendance_and_coverage", "b1", "b1_03_work_softening", "company_instagram_wrong_account"),
     _scenario_spec("b1_schedule_softening", "b1", "b1_03_work_softening", "community_festival_shift"),
-    _scenario_spec("b1_shared_document_old_version", "b1", "b1_03_work_softening", "shared_document_old_version"),
+    # "shared_document_old_version" (moved A2->B1 by PR-L2a's scenario
+    # relevel, docs/data/relevel_L2a_report.md row for that id) has no
+    # published can-do segment yet -- the relevel report itself flags this
+    # spec as added without a matching can_do_segments.json entry ("자산은
+    # 재생성하지 않는다"), and the report note that it is "worth a look if
+    # it is ever unfrozen". Publishing the segment is a content decision,
+    # not tooling drift, so it stays out of AB_SPECS; see
+    # KNOWN_UNPUBLISHED_LIVE_SCENARIOS for the matching coverage exemption.
     _scenario_spec("b1_encouragement", "b1", "b1_04_relationships", "speech_level_after_friendship"),
     _scenario_spec("b1_intimate_feelings", "b1", "b1_04_relationships", "date_or_friendly_coffee"),
     _named_spec(
@@ -1415,6 +1447,24 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
         "guidedProduction",
     ),
 )
+
+
+# Content gaps documented alongside test_build_can_do_segments.py's
+# ABSpecScenarioReferencesLiveTest.KNOWN_MISSING_SCENARIO_SLOTS: the
+# 2026-09-01 canonical_120_v1 corpus promotion (ca00acad) retired scenarios
+# "lost_phone" and "bank_account" with no direct replacement written yet.
+# a2_lost_phone/b1_bank_soft_request above carry explicit fallback text so
+# the catalog stays buildable; this keeps the exact-coverage check below
+# honest about the gap instead of silently dropping it. Remove once the
+# A2/B1 enrichment wave writes real scenario content for both slots.
+KNOWN_MISSING_SCENARIO_SLOTS: frozenset[str] = frozenset({"lost_phone", "bank_account"})
+
+# The inverse drift: these scenarios exist in the live corpus (written by
+# PR-L2a's scenario relevel) but have no published can_do_segments.json
+# segment yet, so AB_SPECS must not claim them and the exact-coverage check
+# below must not require them. Remove once a follow-up PR publishes the
+# segment(s).
+KNOWN_UNPUBLISHED_LIVE_SCENARIOS: frozenset[str] = frozenset({"shared_document_old_version"})
 
 
 C_TEXT: dict[str, tuple[dict[str, str], dict[str, str]]] = {
@@ -2700,24 +2750,33 @@ class SourceIndex:
         expected_parent: str,
     ) -> None:
         if reference.kind == "scenario":
-            row = _require(self.scenarios, reference.id, "scenario")
-            actual_level = row["level"]
-            if (
-                _promotion_segment_key("scenario", reference.id) is not None
-                or (reference.kind, reference.id) in self.published_content_routes
-                or (
-                    actual_level in ("c1", "c2")
-                    and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
-                )
-            ):
-                # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
-                # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
-                # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
-                # 이 우회가 없으면 그 유닛의 시나리오는 어디에도 붙지 못한다.
-                # cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+            if reference.id in KNOWN_MISSING_SCENARIO_SLOTS:
+                # Content gap, not a routing decision: this scenario was
+                # retired by the 2026-09-01 canonical_120_v1 corpus
+                # promotion and has no live row to resolve against yet.
+                # Trust the spec's own level/parent until the A2/B1
+                # enrichment wave writes real scenario content.
+                actual_level = expected_level
                 actual_parent = expected_parent
             else:
-                actual_parent = row["courseUnitId"]
+                row = _require(self.scenarios, reference.id, "scenario")
+                actual_level = row["level"]
+                if (
+                    _promotion_segment_key("scenario", reference.id) is not None
+                    or (reference.kind, reference.id) in self.published_content_routes
+                    or (
+                        actual_level in ("c1", "c2")
+                        and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
+                    )
+                ):
+                    # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
+                    # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
+                    # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
+                    # 이 우회가 없으면 그 유닛의 시나리오는 어디에도 붙지 못한다.
+                    # cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+                    actual_parent = expected_parent
+                else:
+                    actual_parent = row["courseUnitId"]
         elif reference.kind == "vocabPack":
             base_pack_id = re.sub(r"_\d+$", "", reference.id)
             mapped_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
@@ -3440,6 +3499,14 @@ def _expand_ab_practice(
 
     ab_scenario_ids = []
     for scenario_id, row in sorted(source.scenarios.items()):
+        if scenario_id in KNOWN_UNPUBLISHED_LIVE_SCENARIOS:
+            # Written to the live corpus by PR-L2a's scenario relevel but
+            # never published to can_do_segments.json (see
+            # KNOWN_UNPUBLISHED_LIVE_SCENARIOS above). Do not let the
+            # course-unit fallback silently absorb it into another
+            # segment's evidence -- that would drift the generated catalog
+            # away from the published asset.
+            continue
         level = row["level"]
         promoted_target = _promotion_segment_key("scenario", scenario_id)
         if level in ("c1", "c2"):
@@ -3709,7 +3776,8 @@ def _expand_ab_practice(
     _require_exact_direct_coverage(
         owners_by_reference,
         kind="scenario",
-        expected_ids=set(source.scenarios),
+        expected_ids=(set(source.scenarios) - KNOWN_UNPUBLISHED_LIVE_SCENARIOS)
+        | KNOWN_MISSING_SCENARIO_SLOTS,
     )
     _require_exact_derived_coverage(
         owners_by_reference,
