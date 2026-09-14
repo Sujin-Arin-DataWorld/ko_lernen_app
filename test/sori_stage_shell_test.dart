@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:ko_lernen_app/services/sound_service.dart';
 import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/course_mission_brief.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/services/onboarding_companion_service.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/services/course_attempt_companion.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
@@ -39,6 +42,173 @@ void main() {
     });
     await Storage.init();
   });
+
+  for (final baselineState in ['failed', 'pending', 'historical', 'fresh']) {
+    testWidgets(
+      '$baselineState companion baseline never gates ready learning or invents fresh evidence',
+      (tester) async {
+        final nav = GlobalKey<NavigatorState>();
+        final replay = ValueNotifier(0);
+        addTearDown(replay.dispose);
+        final pending = Completer<CourseMasterySnapshot?>();
+        late CourseUnit unit;
+        late ContentLink link;
+        late CourseMasterySnapshot before;
+        Future<void> writeSuccess() async {
+          await CourseProgressService.shared.recordContentAttempt(
+            link.contentKind,
+            link.contentId,
+            true,
+            courseContext: CoursePracticeContext.fromLink(link),
+            conceptId: link.conceptIds.first,
+            score: 1,
+          );
+        }
+
+        await tester.runAsync(() async {
+          final catalog = await CurriculumCatalog.load();
+          final initialized = await CourseProgressService.shared
+              .initializeForPlacement('a1');
+          unit = catalog.courseUnits.singleWhere(
+            (candidate) => candidate.id == initialized.currentCourseUnitId,
+          );
+          link = catalog
+              .linksForCourseUnit(unit.id)
+              .firstWhere(
+                (candidate) =>
+                    candidate.role == ContentLinkRole.assess &&
+                    candidate.contentKind == CurriculumContentKind.scenario,
+              );
+          if (baselineState != 'fresh') {
+            await writeSuccess();
+          }
+          before = (await CourseProgressService.shared.readForDisplay())!;
+        });
+        // The setup ran in runAsync; let the widget's zone own the subsequent
+        // serialization queue while keeping the actual persisted evidence.
+        CourseProgressService.shared.resetForTesting();
+        if (baselineState != 'fresh') {
+          expect(
+            OnboardingCompanionService.shouldOfferAfterAttempt(
+              introPreviewSeen: false,
+              activeCourseUnitId: unit.id,
+              activeCourseLevel: unit.level,
+              evidenceIdsBefore: {},
+              evidenceAfter: before.evidence,
+              contentLinks: [link],
+            ),
+            isTrue,
+            reason:
+                'An empty fallback would incorrectly count this persisted historical success.',
+          );
+        }
+        final events = <String>[];
+        final focus = LearningFocus(
+          today: const TodayLearningSnapshot(pick: null),
+          destination: const TodayLearningDestination(route: '/ready/activity'),
+          brief: CourseMissionBrief.from(
+            unit: unit,
+            links: [link],
+            scenarios: [],
+            isCurrent: true,
+          ),
+        );
+        await tester.pumpWidget(
+          MaterialApp(
+            navigatorKey: nav,
+            navigatorObservers: [LearningJourneyObserver.shared],
+            locale: const Locale('en'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: SoriStageShell(
+              replayHomeTour: replay,
+              loadTodaySnapshot: () async =>
+                  _snapshot(const TodayLearningSnapshot(pick: null)),
+              loadReceiptNetworkBefore: () async =>
+                  throw StateError('optional receipt unavailable'),
+              loadCompanionBefore: () {
+                events.add('capture');
+                if (baselineState == 'failed') {
+                  throw StateError('optional evidence unavailable');
+                }
+                if (baselineState == 'pending') {
+                  return pending.future;
+                }
+                return CourseProgressService.shared.readForDisplay();
+              },
+            ),
+            onGenerateRoute: (_) {
+              events.add('route');
+              return MaterialPageRoute<void>(
+                builder: (_) => const Scaffold(body: Text('ready activity')),
+              );
+            },
+          ),
+        );
+        await pumpSoriStage(tester);
+        final caller = tester.element(find.byType(SoriLearningFocus).first);
+        final scope = LearningFocusScope.maybeOf(caller)!;
+        final returned = scope.open(
+          caller,
+          focus.destination!,
+          focus: focus,
+          activityId: 'grammar',
+        );
+        await pumpSoriStage(tester);
+        expect(events, ['capture', 'route']);
+        expect(find.text('ready activity'), findsOneWidget);
+        if (baselineState == 'fresh') {
+          var written = false;
+          Object? writeError;
+          unawaited(
+            writeSuccess().then<void>(
+              (_) => written = true,
+              onError: (Object error, StackTrace _) {
+                writeError = error;
+                written = true;
+              },
+            ),
+          );
+          for (var frame = 0; frame < 50 && !written; frame++) {
+            await pumpSoriStage(tester, frames: 1);
+            await tester.runAsync(
+              () => Future<void>.delayed(const Duration(milliseconds: 1)),
+            );
+          }
+          expect(
+            written,
+            isTrue,
+            reason:
+                'The queued course write must settle after the pre-attempt read.',
+          );
+          expect(writeError, isNull);
+        }
+        nav.currentState!.pop();
+        await pumpSoriStage(tester);
+        if (baselineState == 'fresh') {
+          await pumpUntilFound(tester, find.byType(FirstVoiceSuccessScreen));
+          expect(find.byType(FirstVoiceSuccessScreen), findsOneWidget);
+          nav.currentState!.pop();
+          await pumpSoriStage(tester);
+        }
+        await returned;
+        expect(find.byType(FirstVoiceSuccessScreen), findsNothing);
+        expect(scope.notifier!.launching, isFalse);
+        expect(tester.takeException(), isNull);
+        if (baselineState == 'pending') {
+          expect(
+            pending.isCompleted,
+            isFalse,
+            reason: 'Returning must not wait for optional evidence.',
+          );
+          pending.complete(before);
+          await pumpSoriStage(tester);
+          expect(find.byType(FirstVoiceSuccessScreen), findsNothing);
+        }
+        await tester.pumpWidget(const SizedBox());
+      },
+    );
+  }
 
   testWidgets(
     'actual shell return releases launch after stalled ancillary baseline expires',
