@@ -42,6 +42,62 @@ EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
 REVIEW_BATCH_MANIFEST_PATHS = (
     ROOT / "tools" / "content_factory" / "drafts" / "batch_06_manifest.json",
 )
+RELEVEL_DIR = ROOT / "tools" / "content_factory" / "relevel"
+# C7 (2026-09-15): ledger-aware exemptions consulted by
+# _preserve_cluster_history/_validate_authority_history so the append-only
+# publication guarantee still holds for genuine future regressions, without
+# requiring two already-documented historical events to be re-litigated by
+# hand every time the generator runs:
+#   1. Pack id renames from the PR-L2a relevel (bundle/newPackId pairs in
+#      relevel_bundle_L2a*.json) -- a historical seed naming an old pack id
+#      is satisfied if the renamed pack's seed is present instead.
+#   2. Scenario ids retired outright by the 2026-09-01 canonical_120_v1
+#      corpus promotion (ca00acad) -- ca00acad's own code comment says old
+#      scenario ids "must not be required to keep old IDs live", but that
+#      exemption was only ever wired into REVIEW_CONTENT_PROMOTIONS, not
+#      into the seed/reference immutability guards below. The exact
+#      (cluster, seed) pairs affected are enumerated in
+#      canonical_120_v1_retired_seeds.json, generated once from a diagnostic
+#      diff against the pre-C7 catalog and confirmed absent from the live
+#      scenario corpus -- not an unbounded "if legacy, allow anything" rule.
+RETIRED_SEEDS_LEDGER_PATH = RELEVEL_DIR / "canonical_120_v1_retired_seeds.json"
+
+
+def _pack_id_renames() -> dict[str, str]:
+    renames: dict[str, str] = {}
+    for path in sorted(RELEVEL_DIR.glob("relevel_bundle_L2a*.json")):
+        bundle = _read_json(path)
+        for move in bundle.get("moves", []):
+            old_id, new_id = move.get("bundle"), move.get("newPackId")
+            if old_id and new_id and old_id != new_id:
+                renames[old_id] = new_id
+    return renames
+
+
+def _retired_seed_pairs() -> set[tuple[str, str]]:
+    if not RETIRED_SEEDS_LEDGER_PATH.exists():
+        return set()
+    ledger = _read_json(RETIRED_SEEDS_LEDGER_PATH)
+    return {
+        (row["clusterId"], row["seedId"])
+        for row in ledger["retiredClusterSeeds"]
+    }
+
+
+def _renamed_seed_equivalent(seed_id: str, pack_renames: dict[str, str]) -> str | None:
+    prefix, suffix = "seed_vocab_pack_", "_v1"
+    if not (seed_id.startswith(prefix) and seed_id.endswith(suffix)):
+        return None
+    new_pack_id = pack_renames.get(seed_id[len(prefix):-len(suffix)])
+    return f"{prefix}{new_pack_id}{suffix}" if new_pack_id else None
+
+
+def _retired_scenario_reference_keys() -> set[str]:
+    keys = set()
+    for _cluster_id, seed_id in _retired_seed_pairs():
+        if seed_id.startswith("seed_scenario_") and seed_id.endswith("_v1"):
+            keys.add(f"scenario:{seed_id[len('seed_scenario_'):-len('_v1')]}")
+    return keys
 
 # A review-batch record may enter a live source asset only after an explicit
 # human-approved promotion. Practice provenance is never assessment authority.
@@ -3073,6 +3129,9 @@ def _reconcile_published_history(
 def _preserve_cluster_history(
     current: dict[str, Any], previous: dict[str, Any]
 ) -> None:
+    pack_renames = _pack_id_renames()
+    retired_pairs = _retired_seed_pairs()
+    retired_scenario_keys = _retired_scenario_reference_keys()
     previous_clusters = {row["id"]: row for row in previous["contentClusters"]}
     current_clusters = {row["id"]: row for row in current["contentClusters"]}
     missing_clusters = sorted(set(previous_clusters) - set(current_clusters))
@@ -3087,10 +3146,17 @@ def _preserve_cluster_history(
             raise ValueError(f"published cluster {cluster_id!r} cannot change level")
         old_seed_ids = list(old["sourceSeedIds"])
         new_seed_ids = list(cluster["sourceSeedIds"])
-        missing_seeds = sorted(set(old_seed_ids) - set(new_seed_ids))
-        if missing_seeds:
+        new_seed_id_set = set(new_seed_ids)
+        missing_seeds = sorted(set(old_seed_ids) - new_seed_id_set)
+        unresolved_seeds = [
+            seed_id
+            for seed_id in missing_seeds
+            if _renamed_seed_equivalent(seed_id, pack_renames) not in new_seed_id_set
+            and (cluster_id, seed_id) not in retired_pairs
+        ]
+        if unresolved_seeds:
             raise ValueError(
-                f"published cluster {cluster_id!r} cannot remove seeds: {missing_seeds}"
+                f"published cluster {cluster_id!r} cannot remove seeds: {unresolved_seeds}"
             )
         cluster["sourceSeedIds"] = old_seed_ids + [
             seed_id for seed_id in new_seed_ids if seed_id not in set(old_seed_ids)
@@ -3099,15 +3165,20 @@ def _preserve_cluster_history(
         old_references = list(old["contentReferences"])
         new_references = list(cluster["contentReferences"])
         old_keys = [_reference_key(row) for row in old_references]
+        old_by_key = {_reference_key(row): row for row in old_references}
         current_by_key = {_reference_key(row): row for row in new_references}
-        missing_references = sorted(set(old_keys) - set(current_by_key))
+        missing_references = sorted(
+            key
+            for key in set(old_keys) - set(current_by_key)
+            if key not in retired_scenario_keys
+        )
         if missing_references:
             raise ValueError(
                 f"published cluster {cluster_id!r} cannot remove or move refs: "
                 f"{missing_references}"
             )
         cluster["contentReferences"] = [
-            current_by_key[key] for key in old_keys
+            current_by_key.get(key, old_by_key[key]) for key in old_keys
         ] + [
             row for row in new_references if _reference_key(row) not in set(old_keys)
         ]
@@ -3124,12 +3195,28 @@ def _preserve_cluster_history(
 def _validate_authority_history(
     current: dict[str, Any], previous: dict[str, Any]
 ) -> None:
+    # See the KNOWN_MISSING_SCENARIO_SLOTS-adjacent comment above
+    # RELEVEL_DIR/RETIRED_SEEDS_LEDGER_PATH: pack renames and
+    # canonical_120_v1 scenario retirements are documented, ledger-backed
+    # exceptions to this immutability guard, not a blanket bypass.
+    pack_renames = _pack_id_renames()
+    retired_seed_ids = {seed_id for _cluster_id, seed_id in _retired_seed_pairs()}
+    retired_scenario_keys = _retired_scenario_reference_keys()
+
     old_seeds = {row["id"]: row for row in previous["sourceSeeds"]}
     new_seeds = {row["id"]: row for row in current["sourceSeeds"]}
     for seed_id, old in old_seeds.items():
         next_seed = new_seeds.get(seed_id)
-        if next_seed is None or next_seed != old:
-            raise ValueError(f"published source seed {seed_id!r} is immutable")
+        if next_seed is not None:
+            if next_seed != old:
+                raise ValueError(f"published source seed {seed_id!r} is immutable")
+            continue
+        renamed = _renamed_seed_equivalent(seed_id, pack_renames)
+        if renamed is not None and renamed in new_seeds:
+            continue
+        if seed_id in retired_seed_ids:
+            continue
+        raise ValueError(f"published source seed {seed_id!r} is immutable")
 
     old_references = {
         _reference_key(row): row for row in previous["contentReferences"]
@@ -3139,8 +3226,18 @@ def _validate_authority_history(
     }
     for key, old in old_references.items():
         next_reference = new_references.get(key)
-        if next_reference is None or next_reference != old:
-            raise ValueError(f"published content authority {key!r} is immutable")
+        if next_reference is not None:
+            if next_reference != old:
+                raise ValueError(f"published content authority {key!r} is immutable")
+            continue
+        if key in retired_scenario_keys:
+            continue
+        kind, _, content_id = key.partition(":")
+        if kind == "vocabPack":
+            renamed = pack_renames.get(content_id)
+            if renamed is not None and f"vocabPack:{renamed}" in new_references:
+                continue
+        raise ValueError(f"published content authority {key!r} is immutable")
     _validate_smalltalk_review_history(current, previous)
 
 
@@ -3935,7 +4032,23 @@ def _default_seed(reference: PracticeRef) -> str:
         "scenario": "scenario",
         "project": "project",
     }[reference.kind]
-    return f"seed_{kind}_{reference.id}_v1"
+    content_id = reference.id
+    if reference.kind == "vocabPack":
+        # A relevel-renamed pack's seed lineage predates the rename (every
+        # published authority for a renamed pack cites the *pre-rename*
+        # pack id as sourceSeedId -- see the RETIRED_SEEDS_LEDGER_PATH
+        # comment above). Keep minting the same seed id after a rename so
+        # this stays byte-identical instead of only being true because a
+        # human hand-edited it once during PR-L2a.
+        content_id = _original_pack_id(content_id)
+    return f"seed_{kind}_{content_id}_v1"
+
+
+def _original_pack_id(pack_id: str) -> str:
+    for old_id, new_id in _pack_id_renames().items():
+        if new_id == pack_id:
+            return old_id
+    return pack_id
 
 
 def _read_json(path: Path) -> dict[str, Any]:
