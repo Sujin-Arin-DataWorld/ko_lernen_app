@@ -3904,8 +3904,10 @@
         "en": "Ansarangchae",
         "de": "Ansarangchae"
       },
-      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
-      "canonicalSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp",
+      "canonicalSha256": "c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95",
+      "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+      "approvedCanonicalPngSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
       "width": 1536,
       "height": 1024,
       "culture": {
@@ -3918,7 +3920,7 @@
           "stageId": "ansarangchae-site",
           "buildingId": "ansarangchae",
           "sequence": 1,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.webp",
           "title": {
             "ko": "터와 방 자리",
             "en": "Site and room layout",
@@ -3964,11 +3966,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_01_site.png",
           "approvedPngSha256": "cfa48b0538c2622dfbcbc2541d1e1caa1f693d82205041304f31833be603dcb8",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "fd68ecdb563892a38c380c6ed9db9d08b5a401c876960fb6f33c6c2e4d72d66c",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.png",
+          "sourcePngSha256": "fd68ecdb563892a38c380c6ed9db9d08b5a401c876960fb6f33c6c2e4d72d66c",
+          "sourcePngBytes": 1499519,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "275f9e1adcfb116d7f7c1b278f77c7bdfb38b8049e94176f4cbd8e4b2f4434f1",
           "width": 1536,
           "height": 1024,
-          "bytes": 1499519,
+          "bytes": 1030672,
+          "rgbaSha256": "c7f61c0c858e256c80010dfdd1fe9680f20a71620b50a24f92acafd6a0189c94",
           "processTags": [
             "site"
           ]
@@ -3977,7 +3984,7 @@
           "stageId": "ansarangchae-foundation",
           "buildingId": "ansarangchae",
           "sequence": 2,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.webp",
           "title": {
             "ko": "기단",
             "en": "Raised stone base",
@@ -4023,11 +4030,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_02_foundation.png",
           "approvedPngSha256": "d483e96b083bf7bb4d375f5faa81d6198fcb6ecfca34394386a16b3af1726b9c",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "76cf1cabe6917da1fd382c50ebc82f09fe91758a6b084b6cac86294f0239571e",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.png",
+          "sourcePngSha256": "76cf1cabe6917da1fd382c50ebc82f09fe91758a6b084b6cac86294f0239571e",
+          "sourcePngBytes": 1449462,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "660317cb7db43ce5a599b2ac5bd5c3eb07e025aef811441847fd375afad5df16",
           "width": 1536,
           "height": 1024,
-          "bytes": 1449462,
+          "bytes": 982918,
+          "rgbaSha256": "77f67f9b134809e8ae2c02757e21a185e0f6b97ce913b154b365fa38e2ee23af",
           "processTags": [
             "foundation"
           ]
@@ -4036,7 +4048,7 @@
           "stageId": "ansarangchae-padstones",
           "buildingId": "ansarangchae",
           "sequence": 3,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.webp",
           "title": {
             "ko": "초석과 기둥 밑 맞춤",
             "en": "Padstones and post bases",
@@ -4082,11 +4094,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_03_padstones.png",
           "approvedPngSha256": "6ad66d62ca0d89e09bce33fea944d61dd1f7125c7af3915de36095c5b39afbe3",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "04453c8596eca4e1e448011d837e65d6777e087817664c402d5bc4e29b0cd96b",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.png",
+          "sourcePngSha256": "04453c8596eca4e1e448011d837e65d6777e087817664c402d5bc4e29b0cd96b",
+          "sourcePngBytes": 1412603,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "ef6d187bfbe5d3bf483cfdedee82ef8c7cb5486a0f521034282a8434cff1e6fe",
           "width": 1536,
           "height": 1024,
-          "bytes": 1412603,
+          "bytes": 958236,
+          "rgbaSha256": "00106af5048c6888cb4ecad04fb6328390bc8ff84947be28141681bd8eb624b9",
           "processTags": [
             "padstones"
           ]
@@ -4095,7 +4112,7 @@
           "stageId": "ansarangchae-posts",
           "buildingId": "ansarangchae",
           "sequence": 4,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.webp",
           "title": {
             "ko": "앞뒤 기둥열",
             "en": "Front and rear posts",
@@ -4141,11 +4158,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_04_posts.png",
           "approvedPngSha256": "2d5d7b2491f767aeb04759af547a9ac95ff0677716e94f55655a29a929122262",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "cf1f1d3151a4646a648955b3ff9af0f6f0b4ff7a6b06cca2a2eb7e0a0d6dfe65",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.png",
+          "sourcePngSha256": "cf1f1d3151a4646a648955b3ff9af0f6f0b4ff7a6b06cca2a2eb7e0a0d6dfe65",
+          "sourcePngBytes": 1514076,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "d1b393f34037b6d51de0d58806bdd20829e52afe29c189491f9a6eddd859e2c7",
           "width": 1536,
           "height": 1024,
-          "bytes": 1514076,
+          "bytes": 1020124,
+          "rgbaSha256": "2b62406816bd84963e56e736e325a368c2047a0b6865c9a4938538a101ceb1e2",
           "processTags": [
             "posts"
           ]
@@ -4154,7 +4176,7 @@
           "stageId": "ansarangchae-beams",
           "buildingId": "ansarangchae",
           "sequence": 5,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.webp",
           "title": {
             "ko": "보와 도리",
             "en": "Beams and purlins",
@@ -4200,11 +4222,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_05_beams.png",
           "approvedPngSha256": "d9fe11a880e0be74c076258cab4aa0f14575c726080d037a9916554351749b0c",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "a821d519f6c4c2a9cf3ae639786a6a0f502d78f7eb05e8b9aa88c590be0ab696",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.png",
+          "sourcePngSha256": "a821d519f6c4c2a9cf3ae639786a6a0f502d78f7eb05e8b9aa88c590be0ab696",
+          "sourcePngBytes": 1964516,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "e23a7a3f3a73380a9a9b31ce5bd6c2f25231f503de8149a43feb9d8b71d1da3f",
           "width": 1536,
           "height": 1024,
-          "bytes": 1964516,
+          "bytes": 1344142,
+          "rgbaSha256": "04a9ca97ed76d4713ff0cf8b96eb7eb3403ca9b22e37d4b9d51fdb3834fb5534",
           "processTags": [
             "beams"
           ]
@@ -4213,7 +4240,7 @@
           "stageId": "ansarangchae-rafters",
           "buildingId": "ansarangchae",
           "sequence": 6,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.webp",
           "title": {
             "ko": "서까래와 추녀",
             "en": "Rafters and corner rafters",
@@ -4259,11 +4286,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_06_rafters.png",
           "approvedPngSha256": "e16c19958ecd720beffa7ced23a011aafe9f36932c9c032b5bb7b3cfdf7b3b18",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "252306a9887b35119047300ce4cd05c6f5e2f44dc55aaa8f94d3b94066224b28",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.png",
+          "sourcePngSha256": "252306a9887b35119047300ce4cd05c6f5e2f44dc55aaa8f94d3b94066224b28",
+          "sourcePngBytes": 2210504,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "64b0fd2a6ec8716324f2ad80deb57d6761f64f8845c66af70bf8977ffe1cd8de",
           "width": 1536,
           "height": 1024,
-          "bytes": 2210504,
+          "bytes": 1530060,
+          "rgbaSha256": "bb6768b9e34318d8d14ea2f9f229f9915c0831efafc1b0569fe70ce639a9a803",
           "processTags": [
             "rafters"
           ]
@@ -4272,7 +4304,7 @@
           "stageId": "ansarangchae-roof_bed",
           "buildingId": "ansarangchae",
           "sequence": 7,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.webp",
           "title": {
             "ko": "지붕 바탕",
             "en": "Roof underlayers",
@@ -4318,11 +4350,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_07_roof_bed.png",
           "approvedPngSha256": "2b46a83157e3ec28dfbc33467ed44aa4531af697b4ce8b2ed4d7f38ef5348371",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "6d9e6455f004cf228fced6d70b9387a5452c2d9ac2e59475da63b6bd92dbbabf",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.png",
+          "sourcePngSha256": "6d9e6455f004cf228fced6d70b9387a5452c2d9ac2e59475da63b6bd92dbbabf",
+          "sourcePngBytes": 2234247,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "57d8d9dab6ca861996e50b30148e1917715515c18a1e7cfc3150b733464e40e5",
           "width": 1536,
           "height": 1024,
-          "bytes": 2234247,
+          "bytes": 1477212,
+          "rgbaSha256": "f562b9377f6ddcd024c9558d034712e14ef26778385c0774e25e355c106c03bb",
           "processTags": [
             "roofBed"
           ]
@@ -4331,7 +4368,7 @@
           "stageId": "ansarangchae-tiles",
           "buildingId": "ansarangchae",
           "sequence": 8,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.webp",
           "title": {
             "ko": "기와와 용마루",
             "en": "Roof tiles and ridge",
@@ -4377,11 +4414,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_08_tiles.png",
           "approvedPngSha256": "628033fbe44b2d8faccd37548af318791daac09f7fa71119b24cf12ac0f4ce2c",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "4e6f8cac0ebf6206bb367c7ae365d40878856100456b70bf40e69eaf55bd09f8",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.png",
+          "sourcePngSha256": "4e6f8cac0ebf6206bb367c7ae365d40878856100456b70bf40e69eaf55bd09f8",
+          "sourcePngBytes": 2193118,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "64904a13e7d5db515dea3a3bb31722a434c4bedf3488da0ea471cf48cb486ed3",
           "width": 1536,
           "height": 1024,
-          "bytes": 2193118,
+          "bytes": 1464056,
+          "rgbaSha256": "c7ae0960736266a374cf67110d277262004acc68bd0b1b2899ffb3fbf40f5aa2",
           "processTags": [
             "tiles"
           ]
@@ -4390,7 +4432,7 @@
           "stageId": "ansarangchae-walls",
           "buildingId": "ansarangchae",
           "sequence": 9,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.webp",
           "title": {
             "ko": "벽체와 방 구획",
             "en": "Walls and room divisions",
@@ -4436,11 +4478,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_09_walls.png",
           "approvedPngSha256": "54b28ca6d235882281afa05a230bc1d2cfb6c80fae4b3020a3ac7169a1b743be",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "57121a27b21035b435a2706ec226f069d968b40f43feffb5e98cbce4c181a787",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.png",
+          "sourcePngSha256": "57121a27b21035b435a2706ec226f069d968b40f43feffb5e98cbce4c181a787",
+          "sourcePngBytes": 2184140,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "5ce6b597cc909b53ee71e68cef4f4fbd21b63f49932c04d58fb97f65938d6947",
           "width": 1536,
           "height": 1024,
-          "bytes": 2184140,
+          "bytes": 1453830,
+          "rgbaSha256": "45e8dd5ac3db1ad04f0e535bf1824794d71babc985573bf53512bd10d9ef1a68",
           "processTags": [
             "walls"
           ]
@@ -4449,7 +4496,7 @@
           "stageId": "ansarangchae-ondol",
           "buildingId": "ansarangchae",
           "sequence": 10,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.webp",
           "title": {
             "ko": "부엌과 온돌",
             "en": "Kitchen and ondol heating",
@@ -4495,11 +4542,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_10_ondol.png",
           "approvedPngSha256": "ba97ceebc30719c05456973e4fad1b88d0fa15e7721ff1baa6dbef04d3499b43",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "7b0ef78627dac12a4ceeea93bb1c46b64b799d06a6f941ca592d98f1b22d50f1",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.png",
+          "sourcePngSha256": "7b0ef78627dac12a4ceeea93bb1c46b64b799d06a6f941ca592d98f1b22d50f1",
+          "sourcePngBytes": 2141546,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "e9140ecff0741c13ae76624d8ecf12b11a0c2eacc2dde18f50b1a2c9cbe8ad10",
           "width": 1536,
           "height": 1024,
-          "bytes": 2141546,
+          "bytes": 1431590,
+          "rgbaSha256": "6a985bddeda57103f694f42fe206a43912e338b5f3b6dd2a80dea91c5b74f030",
           "processTags": [
             "ondol"
           ]
@@ -4508,7 +4560,7 @@
           "stageId": "ansarangchae-maru_interior",
           "buildingId": "ansarangchae",
           "sequence": 11,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.webp",
           "title": {
             "ko": "대청마루",
             "en": "Daecheong wooden hall",
@@ -4554,11 +4606,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_11_maru_interior.png",
           "approvedPngSha256": "fe23a461d161fb86737cb4e116f37d75049b422a71ec332ba40f4f684a18f5f4",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "6fda15a52dacf0b72aec17ea60d5b1187bc1b79e0f24974ca82f96595f5d47fa",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.png",
+          "sourcePngSha256": "6fda15a52dacf0b72aec17ea60d5b1187bc1b79e0f24974ca82f96595f5d47fa",
+          "sourcePngBytes": 2193734,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "b2a6085665b56435388cba128b58bd3127cb671fff9362bdb4ff0d9cb8a8d30f",
           "width": 1536,
           "height": 1024,
-          "bytes": 2193734,
+          "bytes": 1468742,
+          "rgbaSha256": "e307a57dbbcb5ab5e6809cb61469770d162d0781087dced547ac0c5e4e2de47b",
           "processTags": [
             "maruInterior"
           ]
@@ -4567,7 +4624,7 @@
           "stageId": "ansarangchae-maru_porch",
           "buildingId": "ansarangchae",
           "sequence": 12,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.webp",
           "title": {
             "ko": "앞·옆 툇마루",
             "en": "Front and side veranda",
@@ -4613,11 +4670,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_12_maru_porch.png",
           "approvedPngSha256": "13b6787826edb668d7b5e2ba163e4fd4ad6b37eea93bca3c424ceb84dda9bd27",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "0c263c99bb71f5e0c5bd7fab1b5fb56e9fc64ed0800107cf7bec4ffc0c7e2eaf",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.png",
+          "sourcePngSha256": "0c263c99bb71f5e0c5bd7fab1b5fb56e9fc64ed0800107cf7bec4ffc0c7e2eaf",
+          "sourcePngBytes": 2170761,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "ffe3728de102cbaffe6a35948ed567fdfebacc52af94da69d6c4b49730bf953f",
           "width": 1536,
           "height": 1024,
-          "bytes": 2170761,
+          "bytes": 1451584,
+          "rgbaSha256": "1be0fc46b2c9cb77ef44580d8d31d7c9790a498549b3a669e8cb1364e824c678",
           "processTags": [
             "maruPorch"
           ]
@@ -4626,7 +4688,7 @@
           "stageId": "ansarangchae-doors",
           "buildingId": "ansarangchae",
           "sequence": 13,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.webp",
           "title": {
             "ko": "창호",
             "en": "Doors and windows",
@@ -4672,11 +4734,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_13_doors.png",
           "approvedPngSha256": "cb12a0d58012fcca61fde8538b88aa3247bda716617f5fc1708a7e8c78502f2f",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "613677ea7a16b5c90ec75a09e9a2eed14acfdab54d2e229bca9f191f4f81e611",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.png",
+          "sourcePngSha256": "613677ea7a16b5c90ec75a09e9a2eed14acfdab54d2e229bca9f191f4f81e611",
+          "sourcePngBytes": 2276875,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "6c0ffc40e655a9691552ecee803effc970222f19084cb3f2d5003b1b47097b5a",
           "width": 1536,
           "height": 1024,
-          "bytes": 2276875,
+          "bytes": 1512596,
+          "rgbaSha256": "ac3977c01c766ac03a08a09f1322b408250f623708e4999d19967003ccf74d51",
           "processTags": [
             "doors"
           ]
@@ -4685,7 +4752,7 @@
           "stageId": "ansarangchae-complete",
           "buildingId": "ansarangchae",
           "sequence": 14,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp",
           "title": {
             "ko": "안사랑채 완성",
             "en": "Completed Ansarangchae",
@@ -4731,11 +4798,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
           "approvedPngSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
+          "sourcePngSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "sourcePngBytes": 2358471,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95",
           "width": 1536,
           "height": 1024,
-          "bytes": 2358471,
+          "bytes": 1553862,
+          "rgbaSha256": "7edf44df2b7f112279df6c509502a66cca4a8e8e85cefa3f1a06a3f271c839f5",
           "processTags": [
             "complete"
           ]
@@ -4750,8 +4822,10 @@
         "en": "Sadangmun",
         "de": "Schreintor"
       },
-      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
-      "canonicalSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
+      "canonicalSha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
+      "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+      "approvedCanonicalPngSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
       "width": 1086,
       "height": 1448,
       "culture": {
@@ -4764,7 +4838,7 @@
           "stageId": "sadangmun-foundation",
           "buildingId": "sadangmun",
           "sequence": 1,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.webp",
           "title": {
             "ko": "문터와 돌받침",
             "en": "Gate site and stone base",
@@ -4810,11 +4884,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_01_foundation.png",
           "approvedPngSha256": "cda8bc1c8d242fe0cb7c2a3b3943d43640499366efdaef1ec84358c6273b776a",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "700b482132a141d57b6859872d519abb5d4a33a646bc798eb51685a009a4b7ab",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.png",
+          "sourcePngSha256": "700b482132a141d57b6859872d519abb5d4a33a646bc798eb51685a009a4b7ab",
+          "sourcePngBytes": 1202614,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "41334087690b3e86d7ac209b147c44ca7ec2ccee9a1ab810c81b48cd319fece4",
           "width": 1086,
           "height": 1448,
-          "bytes": 1202614,
+          "bytes": 816174,
+          "rgbaSha256": "82e5df4c426664e4372c331cd7a6cbee734f2868e4a212d18130e98bfa1d55ca",
           "processTags": [
             "foundation"
           ]
@@ -4823,7 +4902,7 @@
           "stageId": "sadangmun-posts",
           "buildingId": "sadangmun",
           "sequence": 2,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.webp",
           "title": {
             "ko": "양쪽 문기둥",
             "en": "Two gate posts",
@@ -4869,11 +4948,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_02_posts.png",
           "approvedPngSha256": "532fb63454a77464bccd5e36ed1cc647649a2a088af5b310ca937c4ac7bd0d8f",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "e38574ff1e1da590e620dc629e1e57b1437012b7e3f99d2ebe80049911d88546",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.png",
+          "sourcePngSha256": "e38574ff1e1da590e620dc629e1e57b1437012b7e3f99d2ebe80049911d88546",
+          "sourcePngBytes": 1352770,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "9b67da2af1c8b5c600cc87bb166582d99b75177d73ba94bbf1f0a126077e1d0a",
           "width": 1086,
           "height": 1448,
-          "bytes": 1352770,
+          "bytes": 899996,
+          "rgbaSha256": "b836a5b538c8371522840aaf604a8e86b10677315d90fa0e1597181d8608017f",
           "processTags": [
             "posts"
           ]
@@ -4882,7 +4966,7 @@
           "stageId": "sadangmun-beams",
           "buildingId": "sadangmun",
           "sequence": 3,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.webp",
           "title": {
             "ko": "문틀과 위쪽 연결재",
             "en": "Gate frame and upper members",
@@ -4928,11 +5012,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_03_beams.png",
           "approvedPngSha256": "25e7cac12055d65ae5faf6309229772900b4355a5f4d3f1f787c9d21927007d4",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "80b244c33aeddcb858215619f0456b1b2084935e6a6cf04fdb87546f69bb67c3",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.png",
+          "sourcePngSha256": "80b244c33aeddcb858215619f0456b1b2084935e6a6cf04fdb87546f69bb67c3",
+          "sourcePngBytes": 1538616,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "f52ae46930b9727b4ebd6ac9ad91bf9bf2bfeff2e32447cafed07ed5cd7695b5",
           "width": 1086,
           "height": 1448,
-          "bytes": 1538616,
+          "bytes": 1028140,
+          "rgbaSha256": "cc5f74a3863a0324424e4f9609f37bb9475fa2d791c7d90edf9204ecfa1ce61c",
           "processTags": [
             "beams"
           ]
@@ -4941,7 +5030,7 @@
           "stageId": "sadangmun-rafters",
           "buildingId": "sadangmun",
           "sequence": 4,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.webp",
           "title": {
             "ko": "서까래",
             "en": "Rafters",
@@ -4987,11 +5076,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_04_rafters.png",
           "approvedPngSha256": "90e63f1cb7fa7e02b662402059d577dede70068955e73ed5d4de7ca4b5504550",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "ddcffd53b1a89049bd2d6d68a2dacbdb5a8c66e1d0615e1cbb032e0672c6516a",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.png",
+          "sourcePngSha256": "ddcffd53b1a89049bd2d6d68a2dacbdb5a8c66e1d0615e1cbb032e0672c6516a",
+          "sourcePngBytes": 1844239,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "581d7f4744fcb505de4207fd6e0eb1f2357f9e4d43fe9e1f028cfa5b93c20424",
           "width": 1086,
           "height": 1448,
-          "bytes": 1844239,
+          "bytes": 1238526,
+          "rgbaSha256": "2e2dc9e5962127d5c4124597d051812d21fcd6c15b5989fb8cb3925fdc869672",
           "processTags": [
             "rafters"
           ]
@@ -5000,7 +5094,7 @@
           "stageId": "sadangmun-roof_bed",
           "buildingId": "sadangmun",
           "sequence": 5,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.webp",
           "title": {
             "ko": "지붕 바탕",
             "en": "Roof underlayers",
@@ -5046,11 +5140,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_05_roof_bed.png",
           "approvedPngSha256": "f7be6a585347486fe722dec4963780842e62c11171a92930e84697588630d9e5",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "2495297932adbee16a2d879ff2f6f140a614f11806754c87af7d50c2221e2c87",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.png",
+          "sourcePngSha256": "2495297932adbee16a2d879ff2f6f140a614f11806754c87af7d50c2221e2c87",
+          "sourcePngBytes": 2000518,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "61160f6763656029659b31511a9f7a932b3df20e5fde1acfdbdf293913a82299",
           "width": 1086,
           "height": 1448,
-          "bytes": 2000518,
+          "bytes": 1325402,
+          "rgbaSha256": "c8ddc715607068c77626f9b7cf788c417d992219a4dc49aa6892bfb98259b27e",
           "processTags": [
             "roofBed"
           ]
@@ -5059,7 +5158,7 @@
           "stageId": "sadangmun-tiles",
           "buildingId": "sadangmun",
           "sequence": 6,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.webp",
           "title": {
             "ko": "기와",
             "en": "Roof tiles",
@@ -5105,11 +5204,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_06_tiles.png",
           "approvedPngSha256": "1af15764cc640f93ec20b839e18d3ffba6966d951351def0e7ee3dbc8c7b1f72",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "c59c10f36c23099ace7152e49b69a098da2e1cf80cbcce9a1ef9f81cb802236f",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.png",
+          "sourcePngSha256": "c59c10f36c23099ace7152e49b69a098da2e1cf80cbcce9a1ef9f81cb802236f",
+          "sourcePngBytes": 1876927,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "7980d076a6f083a8d6b857ecaf090b07ca5d50819be3066fef38820e859c5f6f",
           "width": 1086,
           "height": 1448,
-          "bytes": 1876927,
+          "bytes": 1241588,
+          "rgbaSha256": "88d68ff2236365e981bb49953ae1200a4955dc0279da4e07d081b6a6cd70f14a",
           "processTags": [
             "tiles"
           ]
@@ -5118,7 +5222,7 @@
           "stageId": "sadangmun-doors",
           "buildingId": "sadangmun",
           "sequence": 7,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.webp",
           "title": {
             "ko": "문짝과 철물",
             "en": "Door leaves and iron fittings",
@@ -5164,11 +5268,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_07_doors.png",
           "approvedPngSha256": "d086cd92875f3a03af69ed3e06174bf5ba72774a059337ad072c7d0190919914",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "b1ff339d338b407b2a329b43bc77e2d7cce42dc8d79733543aa63b6fe12ec85d",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.png",
+          "sourcePngSha256": "b1ff339d338b407b2a329b43bc77e2d7cce42dc8d79733543aa63b6fe12ec85d",
+          "sourcePngBytes": 1947038,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "1732811fea530c6d033b165333f5122fd5a3b49dd4fe692e794bdfff8dcffeee",
           "width": 1086,
           "height": 1448,
-          "bytes": 1947038,
+          "bytes": 1300270,
+          "rgbaSha256": "d9855eb503ad0a3d9d357f2bf5d8ba94cd8c1aa38a646307f5fb80ad188423c9",
           "processTags": [
             "doors"
           ]
@@ -5177,7 +5286,7 @@
           "stageId": "sadangmun-complete",
           "buildingId": "sadangmun",
           "sequence": 8,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
           "title": {
             "ko": "단청·태극·사당문 완성",
             "en": "Paintwork, taegeuk and completed gate",
@@ -5223,11 +5332,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
           "approvedPngSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+          "sourcePngSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "sourcePngBytes": 2027089,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
           "width": 1086,
           "height": 1448,
-          "bytes": 2027089,
+          "bytes": 1348602,
+          "rgbaSha256": "6be4821e1b7093819310c2f117366bc3bd3aea81ce51b4155a42ffc29ce0c9bb",
           "processTags": [
             "complete"
           ]
@@ -5242,8 +5356,10 @@
         "en": "Sadang",
         "de": "Ahnenschrein"
       },
-      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
-      "canonicalSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp",
+      "canonicalSha256": "5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811",
+      "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
+      "approvedCanonicalPngSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
       "width": 1536,
       "height": 1024,
       "culture": {
@@ -5256,7 +5372,7 @@
           "stageId": "sadang-site",
           "buildingId": "sadang",
           "sequence": 1,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.webp",
           "title": {
             "ko": "사당과 앞마당 자리",
             "en": "Shrine and forecourt layout",
@@ -5302,11 +5418,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_01_site.png",
           "approvedPngSha256": "f78924efbb06b46c52b8c66512626a70956060ae79a73b5ea6d7284f3a1030ff",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "9fe97f2087c224ad59c5fb4b54cf047416a341a7c77df2e8defb79fe8a983ae7",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.png",
+          "sourcePngSha256": "9fe97f2087c224ad59c5fb4b54cf047416a341a7c77df2e8defb79fe8a983ae7",
+          "sourcePngBytes": 1411479,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "9070886da13bc219b6eae7d6ecacb2e0e623645559c974fc3ead1623522f6a0e",
           "width": 1536,
           "height": 1024,
-          "bytes": 1411479,
+          "bytes": 973320,
+          "rgbaSha256": "7ff71fb464b4cee02fbfa0669b2571e6199a6c5d1d639491ca31c2690bd985f6",
           "processTags": [
             "site"
           ]
@@ -5315,7 +5436,7 @@
           "stageId": "sadang-foundation",
           "buildingId": "sadang",
           "sequence": 2,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.webp",
           "title": {
             "ko": "기단과 디딤돌",
             "en": "Stone base and step",
@@ -5361,11 +5482,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_02_foundation.png",
           "approvedPngSha256": "90f2b1ca8720588c8b3741bb7fd6f11f016632578cf65501f5a1307f6496f02b",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "131215cb79d55f8c2fe836f481773394f8dfbf77e630a5c77cbd2c01553c6588",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.png",
+          "sourcePngSha256": "131215cb79d55f8c2fe836f481773394f8dfbf77e630a5c77cbd2c01553c6588",
+          "sourcePngBytes": 1344664,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "b8d34813e18e63128206d376d93b8cdd5c2bf2c5c1af429d135be90363095d84",
           "width": 1536,
           "height": 1024,
-          "bytes": 1344664,
+          "bytes": 917910,
+          "rgbaSha256": "ef2fb3b003297efb5106538b638432e08c4f1441b33346812c9af18687a20e3c",
           "processTags": [
             "foundation"
           ]
@@ -5374,7 +5500,7 @@
           "stageId": "sadang-padstones",
           "buildingId": "sadang",
           "sequence": 3,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.webp",
           "title": {
             "ko": "초석 배치",
             "en": "Placing the padstones",
@@ -5420,11 +5546,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_03_padstones.png",
           "approvedPngSha256": "00d0411f7e34e3d9eeafb7fd5a82f2fcd772ec1997fa4f77e992bc8b60c254d2",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "bbbb73a6e220b8b13b918185e6a9998f9bc878065a00658653abbf9dca51afc0",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.png",
+          "sourcePngSha256": "bbbb73a6e220b8b13b918185e6a9998f9bc878065a00658653abbf9dca51afc0",
+          "sourcePngBytes": 1376362,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "723331284d260034ba155862e6efd177b0fdba32d28ee850063c363d7614301d",
           "width": 1536,
           "height": 1024,
-          "bytes": 1376362,
+          "bytes": 936696,
+          "rgbaSha256": "2e0f1883a08895e3fd44ee28e323be89a8ce2075d745452f77c60a0bbab13c0a",
           "processTags": [
             "padstones"
           ]
@@ -5433,7 +5564,7 @@
           "stageId": "sadang-posts",
           "buildingId": "sadang",
           "sequence": 4,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.webp",
           "title": {
             "ko": "앞뒤 기둥열",
             "en": "Front and rear posts",
@@ -5479,11 +5610,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_04_posts.png",
           "approvedPngSha256": "ac3fda00b5ce43a463443a4a78b8e01aaff7e1d689485f10ea8aa68fdc03358d",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "982672950241d32b33163142fc88b9052818eb04e878b16ee3ab4911f1246a09",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.png",
+          "sourcePngSha256": "982672950241d32b33163142fc88b9052818eb04e878b16ee3ab4911f1246a09",
+          "sourcePngBytes": 1579288,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "aa7384d8b0d67659d7bab56592706164124f0b5e34979033d7a8a72d40cd9cab",
           "width": 1536,
           "height": 1024,
-          "bytes": 1579288,
+          "bytes": 1058962,
+          "rgbaSha256": "90e189ce45c8aa6f1a8fbd12b568e16a5987aae179961683030e1ec94d075b0a",
           "processTags": [
             "posts"
           ]
@@ -5492,7 +5628,7 @@
           "stageId": "sadang-brackets",
           "buildingId": "sadang",
           "sequence": 5,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.webp",
           "title": {
             "ko": "공포·보·도리",
             "en": "Brackets, beams and purlins",
@@ -5538,11 +5674,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_05_brackets.png",
           "approvedPngSha256": "db1ecfe7b6601e6490555acb933ad30b352b2621396d26ca04633eb1b4405cef",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "3eae57711b0ad6c0c24cbd78154117e8c16fbf52fd46b93cc7fcc8a617e9e94c",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.png",
+          "sourcePngSha256": "3eae57711b0ad6c0c24cbd78154117e8c16fbf52fd46b93cc7fcc8a617e9e94c",
+          "sourcePngBytes": 1894823,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "a8be7c2f0fad97ed4e23b586e1beafb9aef3b390e09abc8771f2c0f2376ed2ae",
           "width": 1536,
           "height": 1024,
-          "bytes": 1894823,
+          "bytes": 1290158,
+          "rgbaSha256": "5e396f65a5593cf935ab067a9db3c257a7bc92ad34e8653d2aeac8f729648dd6",
           "processTags": [
             "brackets"
           ]
@@ -5551,7 +5692,7 @@
           "stageId": "sadang-rafters",
           "buildingId": "sadang",
           "sequence": 6,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.webp",
           "title": {
             "ko": "맞배 서까래",
             "en": "Gable-roof rafters",
@@ -5597,11 +5738,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_06_rafters.png",
           "approvedPngSha256": "e944e6ec6434d97ef485da15c93bcc5d6686d5a885d5bc462e4fe48bc780560b",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "faea955dda77a59708a6c82f70563498b832738574f3ba57814c4bc4114c3fce",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.png",
+          "sourcePngSha256": "faea955dda77a59708a6c82f70563498b832738574f3ba57814c4bc4114c3fce",
+          "sourcePngBytes": 2151824,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "6dc9f6e080af42ff699e751bf978556274df1b7d611d7d1aa32fe69f8b006a2e",
           "width": 1536,
           "height": 1024,
-          "bytes": 2151824,
+          "bytes": 1481842,
+          "rgbaSha256": "52a685f7028b613c17aad49bca873e98fa1127beaa9685b5f6721230a8849055",
           "processTags": [
             "rafters"
           ]
@@ -5610,7 +5756,7 @@
           "stageId": "sadang-roof_bed",
           "buildingId": "sadang",
           "sequence": 7,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.webp",
           "title": {
             "ko": "지붕 바탕",
             "en": "Roof underlayers",
@@ -5656,11 +5802,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_07_roof_bed.png",
           "approvedPngSha256": "0dd51cc4497abb46e12303cbc0e68d14eac87ace4ee2832669f2c6fafae70ecf",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "bcc7376372af5452a3d084b49fd4d0ea86d9b454b1f7d04414a5c7530352b4ea",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.png",
+          "sourcePngSha256": "bcc7376372af5452a3d084b49fd4d0ea86d9b454b1f7d04414a5c7530352b4ea",
+          "sourcePngBytes": 2251436,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "065e167a2560226cf9f4b3c027b0d3a242717818f248b2138bdc6c661ff3506c",
           "width": 1536,
           "height": 1024,
-          "bytes": 2251436,
+          "bytes": 1500094,
+          "rgbaSha256": "98e825381e9481e6e5219073ce8e5eaccbc68c0457b4d3248eb333cd175648d3",
           "processTags": [
             "roofBed"
           ]
@@ -5669,7 +5820,7 @@
           "stageId": "sadang-tiles",
           "buildingId": "sadang",
           "sequence": 8,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.webp",
           "title": {
             "ko": "기와와 박공",
             "en": "Roof tiles and gable",
@@ -5715,11 +5866,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_08_tiles.png",
           "approvedPngSha256": "d05287de23cde48c7eb4f6ed88209963e4564166a40ead073eb815bf91f63bb8",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "3494bfa9cf958a424daddcf8b3ef9e5b8909a3e3eda3501b886704d0a16768c4",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.png",
+          "sourcePngSha256": "3494bfa9cf958a424daddcf8b3ef9e5b8909a3e3eda3501b886704d0a16768c4",
+          "sourcePngBytes": 2209670,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "486076cfaf36fb23d7c89b5bee404f2b200b758378e80cffa399f2d2eb11770d",
           "width": 1536,
           "height": 1024,
-          "bytes": 2209670,
+          "bytes": 1475644,
+          "rgbaSha256": "0d83cda2e5350c19a8500dbf8b68cfecad93547aff4b812c7beb3f3034473d47",
           "processTags": [
             "tiles"
           ]
@@ -5728,7 +5884,7 @@
           "stageId": "sadang-maru_interior",
           "buildingId": "sadang",
           "sequence": 9,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.webp",
           "title": {
             "ko": "마루틀과 마루",
             "en": "Floor frame and boards",
@@ -5774,11 +5930,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_09_maru_interior.png",
           "approvedPngSha256": "c3a7f5daae74c22ab1f5fef7cfa90ea0e1a2d3a04e853035fc0d665504f257c3",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "e6a74d3b3625b6ba57ff052429bc1d53b545c31d6776b3340dbf516ee0bf7c33",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.png",
+          "sourcePngSha256": "e6a74d3b3625b6ba57ff052429bc1d53b545c31d6776b3340dbf516ee0bf7c33",
+          "sourcePngBytes": 2148630,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "0d495e15c20813f08400f8880d2464f6af44de221167487f1a11de2695e38a51",
           "width": 1536,
           "height": 1024,
-          "bytes": 2148630,
+          "bytes": 1438012,
+          "rgbaSha256": "73571a90a0f90254877242188b567707a491d5ebec360a30ef96b0a51f9d29c9",
           "processTags": [
             "maruInterior"
           ]
@@ -5787,7 +5948,7 @@
           "stageId": "sadang-walls",
           "buildingId": "sadang",
           "sequence": 10,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.webp",
           "title": {
             "ko": "벽체와 창호",
             "en": "Walls and lattice doors",
@@ -5833,11 +5994,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_10_walls.png",
           "approvedPngSha256": "226389541a7f29fa69c79f216aab8931a30828b3a4dae23c4f9dd1f6e65e35fb",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "1af575c94ad80655dec4d90ea215a12ec2c4f878e372f0ff192ff3a6686684ff",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.png",
+          "sourcePngSha256": "1af575c94ad80655dec4d90ea215a12ec2c4f878e372f0ff192ff3a6686684ff",
+          "sourcePngBytes": 2248690,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "5c5286ab726e4d891063a0a24ba6690a6c1f6bd0b2f7a6db4ddc08c37638bf1b",
           "width": 1536,
           "height": 1024,
-          "bytes": 2248690,
+          "bytes": 1499718,
+          "rgbaSha256": "74171f630015d14cf686fa3b6fc4f3d55cebb391068e6e75edf19ce2f75cc036",
           "processTags": [
             "walls"
           ]
@@ -5846,7 +6012,7 @@
           "stageId": "sadang-finish",
           "buildingId": "sadang",
           "sequence": 11,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.webp",
           "title": {
             "ko": "단청과 세부 마감",
             "en": "Dancheong and finishing",
@@ -5892,11 +6058,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_11_finish.png",
           "approvedPngSha256": "75ef52239bea20f229b4359a8806d8f5dc415df9d9def3dd549c51670ffc081d",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "eef52f6da300c34e53157bf4dc21c001dcf2f65145e662f3028af590b3eda0cc",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.png",
+          "sourcePngSha256": "eef52f6da300c34e53157bf4dc21c001dcf2f65145e662f3028af590b3eda0cc",
+          "sourcePngBytes": 2401790,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "ed0e406ad24176009d9ee951fbfbfd1cf308059dca303f158d4c556371a72a05",
           "width": 1536,
           "height": 1024,
-          "bytes": 2401790,
+          "bytes": 1632662,
+          "rgbaSha256": "d0dea9fda272b0ee55ec2adeb7766da5cd92f30667b5d1799a7bc44fbbd0f988",
           "processTags": [
             "finish"
           ]
@@ -5905,7 +6076,7 @@
           "stageId": "sadang-complete",
           "buildingId": "sadang",
           "sequence": 12,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp",
           "title": {
             "ko": "사당 완성",
             "en": "Completed ancestral shrine",
@@ -5951,11 +6122,16 @@
           ],
           "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
           "approvedPngSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
-          "runtimeEncoding": "original PNG; measured at registration",
-          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+          "sourcePathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
+          "sourcePngSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "sourcePngBytes": 2516697,
+          "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
+          "sha256": "5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811",
           "width": 1536,
           "height": 1024,
-          "bytes": 2516697,
+          "bytes": 1709474,
+          "rgbaSha256": "3a7f40e022d31981935ec431a011aa3231f4277519cc2372e4728295a3209745",
           "processTags": [
             "complete"
           ]

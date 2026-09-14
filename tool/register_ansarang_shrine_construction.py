@@ -1,26 +1,30 @@
-"""Register real Ansarangchae and shrine construction PNGs in the app catalog.
+"""Register pixel-identical construction WebPs while preserving PNG provenance.
 
-The tool never creates artwork. It fails if any expected PNG is absent, reads
-each file's real SHA-256 and dimensions, and only mutates the runtime catalog
-when ``--apply`` is passed.
+The tool never creates artwork. It compares decoded WebP RGBA against the frozen
+PNG measurements from SOURCE_COMMIT, verifies current original PNG RGB, and
+checks approved final PNGs directly. Historical source paths are Git references,
+not current filesystem paths. Only ``--apply`` mutates the runtime catalog.
 """
 
 from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import re
-import struct
 from pathlib import Path
 from typing import Any
 
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "docs/assets/ildu_ansarang_shrine_construction_20260914/construction_design.json"
 ART_MANIFEST = ROOT / "docs/assets/ildu_ansarang_shrine_construction_20260914/ART_MANIFEST.json"
+LOSSLESS_VALIDATION = DESIGN.with_name("lossless_validation.json")
 CATALOG = ROOT / "assets/data/ildu_construction_art_v1.json"
 RUNTIME_ROOT = "assets/illustrations/personal_hanok_v3/construction"
+SOURCE_COMMIT = "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b"
 EXPECTED_COUNTS = {"ansarangchae": 14, "sadangmun": 8, "sadang": 12}
 MAP_ANCHORS = {
     "ansarangchae": "ansarang",
@@ -56,19 +60,20 @@ def normalize_step_id(value: str) -> str:
     return snake
 
 
-def png_facts(path: Path) -> dict[str, int | str]:
+def image_facts(path: Path, image_format: str) -> tuple[dict[str, int | str], bytes]:
     data = path.read_bytes()
-    if data[:8] != b"\x89PNG\r\n\x1a\n" or data[12:16] != b"IHDR":
-        raise ValueError(f"{path}: expected a PNG with an IHDR header")
-    width, height = struct.unpack(">II", data[16:24])
-    if width <= 0 or height <= 0:
-        raise ValueError(f"{path}: invalid dimensions")
+    with Image.open(io.BytesIO(data)) as image:
+        if image.format != image_format or getattr(image, "n_frames", 1) != 1:
+            raise ValueError(f"{path}: expected a single-frame {image_format}")
+        width, height = image.size
+        rgba = image.convert("RGBA").tobytes()
     return {
         "sha256": hashlib.sha256(data).hexdigest(),
         "width": width,
         "height": height,
         "bytes": len(data),
-    }
+        "rgbaSha256": hashlib.sha256(rgba).hexdigest(),
+    }, rgba
 
 
 def _building_name(building: dict[str, Any], path: str) -> dict[str, str]:
@@ -118,6 +123,20 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
     }
     if len(records_by_key) != sum(EXPECTED_COUNTS.values()):
         raise ValueError(f"{art_manifest_path}: expected 34 unique stage records")
+    validation_path = root / LOSSLESS_VALIDATION.relative_to(ROOT)
+    validation = _read_json(validation_path)
+    source_files = validation.get("sourceFiles")
+    if validation.get("sourceCommit") != SOURCE_COMMIT:
+        raise ValueError(f"{validation_path}: source commit drift")
+    if not isinstance(source_files, list):
+        raise ValueError(f"{validation_path}: expected frozen source files")
+    sources_by_key = {
+        (source.get("building"), source.get("number")): source
+        for source in source_files
+        if isinstance(source, dict)
+    }
+    if len(source_files) != 34 or len(sources_by_key) != 34:
+        raise ValueError(f"{validation_path}: expected 34 unique frozen source files")
 
     result: list[dict[str, Any]] = []
     for building_id, expected_count in EXPECTED_COUNTS.items():
@@ -139,13 +158,13 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
             if step_id in normalized_ids:
                 raise ValueError(f"{building_id}: duplicate step id {step_id}")
             normalized_ids.add(step_id)
-            filename = f"stage_{expected_number:02}_{step_id}.png"
+            filename = f"stage_{expected_number:02}_{step_id}.webp"
             expected_files.add(filename)
             relative = f"{RUNTIME_ROOT}/{building_id}/{filename}"
             image = root / relative
             if not image.is_file():
                 raise FileNotFoundError(f"missing real construction art: {image}")
-            facts = png_facts(image)
+            facts, runtime_rgba = image_facts(image, "WEBP")
             record = records_by_key.get((building_id, expected_number))
             if not isinstance(record, dict):
                 raise ValueError(f"{building_id}: missing stage {expected_number} manifest")
@@ -157,6 +176,39 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
                 or expected_size != [facts["width"], facts["height"]]
             ):
                 raise ValueError(f"{building_id}: stage {expected_number} manifest drift")
+            source_path = (
+                f"{RUNTIME_ROOT}/{building_id}/"
+                f"stage_{expected_number:02}_{step_id}.png"
+            )
+            source = sources_by_key.get((building_id, expected_number))
+            if not isinstance(source, dict):
+                raise ValueError(f"{building_id}: stage {expected_number} frozen source missing")
+            source_hash = source.get("sha256")
+            source_rgba_hash = source.get("rgbaSha256")
+            if (
+                source.get("pathAtCommit") != source_path
+                or not isinstance(source_hash, str)
+                or not re.fullmatch(r"[a-f0-9]{64}", source_hash)
+                or not isinstance(source_rgba_hash, str)
+                or not re.fullmatch(r"[a-f0-9]{64}", source_rgba_hash)
+                or type(source.get("bytes")) is not int
+                or source["bytes"] <= 0
+                or record.get("sourceCommit") != SOURCE_COMMIT
+                or record.get("sourcePathAtCommit") != source_path
+                or record.get("sourcePngSha256") != source_hash
+                or record.get("sourcePngBytes") != source["bytes"]
+            ):
+                raise ValueError(f"{building_id}: stage {expected_number} source metadata drift")
+            if facts["rgbaSha256"] != source_rgba_hash:
+                raise ValueError(f"{building_id}: stage {expected_number} RGBA pixel drift")
+            is_final = expected_number == expected_count
+            if (
+                record.get("rgbaSha256") != facts["rgbaSha256"]
+                or record.get("rgbaPixelsIdentical") is not True
+                or record.get("finalExactApprovedBytes") is not False
+                or record.get("finalExactApprovedPixels", False) is not is_final
+            ):
+                raise ValueError(f"{building_id}: stage {expected_number} RGBA provenance drift")
             title = _translations(step.get("title"), f"{building_id}.{source_id}.title")
             observe = _translations(
                 step.get("observe"), f"{building_id}.{source_id}.observe"
@@ -183,12 +235,20 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
                 raise FileNotFoundError(
                     f"missing approved construction source: {approved_source_path}"
                 )
-            if png_facts(approved_source_path)["sha256"] != approved_hash:
+            approved_facts, approved_rgba = image_facts(approved_source_path, "PNG")
+            if approved_facts["sha256"] != approved_hash:
                 raise ValueError(f"{building_id}: stage {expected_number} raw source hash drift")
+            if (
+                [approved_facts["width"], approved_facts["height"]] != expected_size
+                or any(approved_rgba[channel::4] != runtime_rgba[channel::4]
+                       for channel in range(3))
+            ):
+                raise ValueError(f"{building_id}: stage {expected_number} raw RGB pixel drift")
             if (
                 record.get("rgbChangedPixels") != 0
                 or not isinstance(record.get("transparentPixels"), int)
                 or record["transparentPixels"] <= 0
+                or record["transparentPixels"] != runtime_rgba[3::4].count(0)
             ):
                 raise ValueError(
                     f"{building_id}: stage {expected_number} provenance is invalid"
@@ -214,7 +274,11 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
                     ],
                     "approvedPngAsset": approved_source,
                     "approvedPngSha256": approved_hash,
-                    "runtimeEncoding": "original PNG; measured at registration",
+                    "sourceCommit": SOURCE_COMMIT,
+                    "sourcePathAtCommit": source_path,
+                    "sourcePngSha256": source_hash,
+                    "sourcePngBytes": source["bytes"],
+                    "runtimeEncoding": "lossless WebP; decoded RGBA matches frozen source PNG",
                     **facts,
                     "processTags": [source_id],
                 }
@@ -222,11 +286,11 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
 
         if (
             stages[-1]["asset"].split("/")[-1]
-            != f"stage_{expected_count:02}_complete.png"
+            != f"stage_{expected_count:02}_complete.webp"
         ):
             raise ValueError(f"{building_id}: final step id must be complete")
         runtime_directory = root / RUNTIME_ROOT / building_id
-        actual_files = {path.name for path in runtime_directory.glob("*.png")}
+        actual_files = {path.name for path in runtime_directory.iterdir()}
         if actual_files != expected_files:
             missing = sorted(expected_files - actual_files)
             extra = sorted(actual_files - expected_files)
@@ -238,22 +302,34 @@ def build_series(root: Path = ROOT) -> list[dict[str, Any]]:
         expected_final_hash = _required_text(
             canonical.get("sha256"), f"{building_id}.canonical.sha256"
         ).lower()
-        if stages[-1]["sha256"] != expected_final_hash:
+        if stages[-1]["sourcePngSha256"] != expected_final_hash:
             raise ValueError(
-                f"{building_id}: final runtime PNG is not byte-identical to canonical"
+                f"{building_id}: final source PNG hash differs from canonical"
             )
-        canonical_source = root / stages[-1]["approvedPngAsset"]
+        canonical_asset = _required_text(
+            canonical.get("assetPath"), f"{building_id}.canonical.assetPath"
+        )
+        canonical_source = root / canonical_asset
         if not canonical_source.is_file():
             raise FileNotFoundError(f"missing canonical PNG: {canonical_source}")
-        if png_facts(canonical_source)["sha256"] != expected_final_hash:
+        canonical_facts, canonical_rgba = image_facts(canonical_source, "PNG")
+        if canonical_facts["sha256"] != expected_final_hash:
             raise ValueError(f"{building_id}: canonical source hash drifted")
+        if (
+            [canonical_facts["width"], canonical_facts["height"]]
+            != [stages[-1]["width"], stages[-1]["height"]]
+            or canonical_rgba != runtime_rgba
+        ):
+            raise ValueError(f"{building_id}: final canonical RGBA pixel drift")
         result.append(
             {
                 "buildingId": building_id,
                 "mapAnchorId": MAP_ANCHORS[building_id],
                 "name": _building_name(building, building_id),
                 "canonicalAsset": stages[-1]["asset"],
-                "canonicalSha256": expected_final_hash,
+                "canonicalSha256": stages[-1]["sha256"],
+                "approvedCanonicalPngAsset": canonical_asset,
+                "approvedCanonicalPngSha256": expected_final_hash,
                 "width": stages[-1]["width"],
                 "height": stages[-1]["height"],
                 "culture": role,

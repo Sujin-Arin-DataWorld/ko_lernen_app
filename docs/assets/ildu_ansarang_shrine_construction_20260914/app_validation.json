@@ -1,18 +1,57 @@
 {
   "date": "2026-09-14",
-  "scope": "Local Flutter app source and bundled assets, actual Flutter web renderer, not a separate HTML mockup",
-  "flutterTestsUniquePassed": 59,
-  "pythonTestsPassed": 13,
-  "flutterAnalysis": "PASS",
-  "actualAppNavigation": "App ansehen > Persönliche Hanok-Karte > So entsteht ein Hanok",
-  "stageNavigationVerified": {"ansarangchae": 14, "sadangmun": 8, "sadang": 12},
-  "paintedRaftersAndFinalsVisuallyInspected": true,
-  "learningLanguagesInspected": ["ko", "en", "de"],
-  "smallViewport": {"width": 390, "height": 844, "scene": "sadang final with Korean and German learning content", "imageTextControlsFit": true, "overrideReset": true},
-  "latestCopyInRebuiltApp": "Corrected Ansarangchae stages 1 and 3 inspected after full rebuild and reload",
-  "consoleErrorsAfterFullRebuildReload": 0,
-  "developmentNote": "Earlier hot restarts retained the old JSON bundle and emitted disposed EngineFlutterView assertions. A full Flutter process restart and browser reload refreshed the bundle; those assertions did not recur during final inspection.",
-  "nativeDeviceInstalledOrTested": false,
-  "committedPushedMergedOrReleased": false,
-  "rasterMemberAlignmentMeasured": false
+  "scope": "PNG app integration baseline plus pixel-identical lossless WebP runtime follow-up; PR exact-head build and CI evidence is tracked in PR #317.",
+  "pngAppBaseline": {
+    "date": "2026-09-14",
+    "scope": "Local Flutter app source and bundled assets, actual Flutter web renderer, not a separate HTML mockup",
+    "flutterTestsUniquePassed": 59,
+    "pythonTestsPassed": 13,
+    "flutterAnalysis": "PASS",
+    "actualAppNavigation": "App ansehen > Persönliche Hanok-Karte > So entsteht ein Hanok",
+    "stageNavigationVerified": {
+      "ansarangchae": 14,
+      "sadangmun": 8,
+      "sadang": 12
+    },
+    "paintedRaftersAndFinalsVisuallyInspected": true,
+    "learningLanguagesInspected": [
+      "ko",
+      "en",
+      "de"
+    ],
+    "smallViewport": {
+      "width": 390,
+      "height": 844,
+      "scene": "sadang final with Korean and German learning content",
+      "imageTextControlsFit": true,
+      "overrideReset": true
+    },
+    "latestCopyInRebuiltApp": "Corrected Ansarangchae stages 1 and 3 inspected after full rebuild and reload",
+    "consoleErrorsAfterFullRebuildReload": 0,
+    "developmentNote": "Earlier hot restarts retained the old JSON bundle and emitted disposed EngineFlutterView assertions. A full Flutter process restart and browser reload refreshed the bundle; those assertions did not recur during final inspection.",
+    "nativeDeviceInstalledOrTested": false,
+    "committedPushedMergedOrReleased": false,
+    "rasterMemberAlignmentMeasured": false
+  },
+  "losslessRuntimeFollowup": {
+    "stageCount": 34,
+    "runtimeEncoding": "lossless WebP",
+    "finalCanonicalPngBytesPreserved": 3,
+    "runtimeBytes": 43792814,
+    "savedAssetBytes": 21335922,
+    "pythonRegistrationTestsPassed": 14,
+    "styleLockTestsPassed": 10,
+    "validation": "lossless_validation.json",
+    "mergeAndStoreUpload": "held by coordinating task",
+    "allRgbaPixelsIdenticalToSourceCommitPng": true,
+    "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+    "flutterFocusedTestsPassed": 21,
+    "flutterFocusedTestBreakdown": {
+      "assetIntegrity": 3,
+      "constructionScreen": 13,
+      "rewardReceipt": 5
+    },
+    "dartAssetTestAnalysis": "No issues found",
+    "decodedPixels": "Dart image decoder verifies all 34 real bundled WebPs against source PNG RGBA hashes, actual raw RGB, and final canonical PNG RGBA."
+  }
 }

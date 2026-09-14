@@ -24,6 +24,15 @@ def snake(value):
 
 
 def main():
+    manifest = DOCS / 'ART_MANIFEST.json'
+    if manifest.exists():
+        current = json.loads(manifest.read_text(encoding='utf-8'))
+        if current.get('runtimeEncoding') == 'lossless WebP':
+            raise ValueError(
+                'Runtime WebP has been promoted. Preserve the PNG archive and '
+                'use register_ansarang_shrine_construction.py to verify it; '
+                'do not recreate runtime PNG copies.'
+            )
     data = json.loads((DOCS / 'construction_design.json').read_text(encoding='utf-8'))
     calls = json.loads((DOCS / 'generation_calls.json').read_text(encoding='utf-8'))['calls']
     records = []

@@ -2,7 +2,7 @@
 
 승인한 고화질 완성 PNG 3장을 그대로 등록하고, 그 시점과 공간 관계에서 안사랑채 14·사당문 8·사당 12단계를 설계한다. 사람들이 살고 쉬고 지나가며 제례를 행하던 공간의 깊이가 핵심이다.
 
-[실제 공정 PNG 목록](ART_MANIFEST.json) · [생성 원문](generation_calls.json) · [구조와 한국어·영어·독일어 데이터](construction_design.json) · [검증 결과](design_validation.json)
+[실제 공정 원화·런타임 파일 목록](ART_MANIFEST.json) · [생성 원문](generation_calls.json) · [구조와 한국어·영어·독일어 데이터](construction_design.json) · [검증 결과](design_validation.json)
 
 ## 정본과 제작 상태
 
@@ -14,9 +14,9 @@ Jin의 2026-09-14 승인: “그걸로 최종 완성된 정본으로 올리고, 
 | 사당문 | [1086×1448 PNG](../../../assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png) | `336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e` |
 | 사당 | [1536×1024 PNG](../../../assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png) | `8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069` |
 
-폴더별 CANONICAL_LOCK.json과 STYLE_LOCK.json이 위 파일을 완성 외관의 정본으로 등록한다. 투명 PNG를 재인코딩하지 않고 복사했다. 원본 알파·색·크기·시점·캔버스 여백을 유지한다. 앱 최종 단계는 assets/illustrations/personal_hanok_v3/construction/ 아래에 같은 바이트로 복사한 PNG를 사용한다.
+폴더별 CANONICAL_LOCK.json과 STYLE_LOCK.json이 위 파일을 완성 외관의 정본으로 등록한다. 투명 PNG를 재인코딩하지 않고 복사했다. 원본 알파·색·크기·시점·캔버스 여백을 유지한다. 앱은 assets/illustrations/personal_hanok_v3/construction/ 아래의 무손실 WebP를 사용한다. 승인 정본 PNG는 위 경로에 같은 바이트로 보존하고, 최종 WebP를 디코딩한 RGBA는 승인 정본과 모든 픽셀이 같다.
 
-중간 공정 31장을 실제 채색 PNG로 제작하고 완성 정본 3장과 함께 Flutter 앱에 연결했다. 안사랑채 14·사당문 8·사당 12단계 모두 투명 배경이다. PNG 생성에는 image_gen을 사용하고 임시 배경 제거는 알파만 수정했다(RGB 변경 0픽셀). 완성 원본은 재생성하지 않았다. 기존 SVG 화면은 역사적인 구조 가이드이며 앱에 사용하지 않는다. 앱은 IlDuConstructionArtCatalog, IlDuConstructionScreen과 단원 완료 SoriStageRewardReceiptSheet에서 실제 PNG를 읽는다. 중간 원화의 검토 주체는 에이전트이고 세 완성 정본의 승인자는 Jin이다.
+중간 공정 31장을 실제 채색 PNG로 제작하고 완성 정본 3장과 함께 Flutter 앱에 연결했다. 안사랑채 14·사당문 8·사당 12단계 모두 투명 배경이다. PNG 생성에는 image_gen을 사용하고 임시 배경 제거는 알파만 수정했다(RGB 변경 0픽셀). 완성 원본은 재생성하지 않았다. 기존 SVG 화면은 역사적인 구조 가이드이며 앱에 사용하지 않는다. 앱은 IlDuConstructionArtCatalog, IlDuConstructionScreen과 단원 완료 SoriStageRewardReceiptSheet에서 무손실 WebP를 읽는다. 중간 원화의 검토 주체는 에이전트이고 세 완성 정본의 승인자는 Jin이다.
 
 ## 앱 진행 연결
 
@@ -67,7 +67,7 @@ Jin의 2026-09-14 승인: “그걸로 최종 완성된 정본으로 올리고, 
 4. 통과한 구조와 완성 정본을 기준으로 나머지 공정을 파생한다. 이미 설치된 부재는 같은 위치·굵기·재질로 유지한다. 새 부재에 가려질 때만 가시 영역이 바뀐다.
 5. 기와와 벽으로 덮기 전 구조를 점검한다. 방, 마루 아래, 옆 통로, 문 회전 공간을 확대해서 본다. 승인된 건강한 목재·온전한 기와·정돈된 창호·단청을 유지한다.
 6. 각 단계와 직전 단계의 기둥·기단·처마를 같은 캔버스에서 대조한다. 서까래가 너무 일찍 나타난 결과와 기둥을 늘린 사당문 결과는 폐기했고, 지붕 바탕 위에 목재가 잘못 놓인 결과도 다시 수정했다. 픽셀 단위 정렬 오차 계측은 이 검사의 범위가 아니다.
-7. 마지막 단계는 원본 PNG를 직접 사용하고 SHA-256을 비교한다. 완성 단계용 이미지를 새로 생성하지 않는다. 중간 원화가 완성된 뒤에만 런타임 소비 경로와 묶음 등록을 진행한다.
+7. 마지막 단계의 승인 원본 PNG는 SHA-256으로 고정하고, 앱용 무손실 WebP는 디코딩한 RGBA를 승인 원본과 비교한다. 완성 단계용 이미지를 새로 생성하지 않는다. 중간 원화가 완성된 뒤에만 런타임 소비 경로와 묶음 등록을 진행한다.
 
 이미지 수정·드로잉은 이미지 생성 도구로 진행한다. 승인된 Python 알파 작업을 RGB 채색이나 건물 재작성으로 확대하지 않는다. 정본의 새 버전이 필요하면 별도 경로에서 생성하며 기존 파일을 덮어쓰지 않는다.
 
@@ -96,7 +96,7 @@ Jin의 2026-09-14 승인: “그걸로 최종 완성된 정본으로 올리고, 
 | 11 | 대청마루 | 마루 아래에는 빈 공간이 있어요. | 귀틀 위에 청판을 놓고 바닥 아래 받침과 빈 공간을 함께 보여 줍니다. |
 | 12 | 앞·옆 툇마루 | 앞마루가 옆마루로 이어져요. | 오른쪽 기둥 사이와 옆마루 아래의 투명 공간을 보존합니다. |
 | 13 | 창호 | 문을 열면 방 안이 보여요. | 문짝 두께와 회전축을 고정하고 벽·기둥을 통과하지 않게 합니다. |
-| 14 | 안사랑채 완성 | 마루에서 잠깐 쉬어요. | 승인한 완성 PNG를 그대로 사용합니다. 방·부엌·대청·툇마루의 생활 동선을 설명합니다. |
+| 14 | 안사랑채 완성 | 마루에서 잠깐 쉬어요. | 승인한 완성 PNG와 픽셀이 같은 무손실 WebP를 사용합니다. 방·부엌·대청·툇마루의 생활 동선을 설명합니다. |
 
 ## 사당문 — 8단계
 
@@ -134,9 +134,9 @@ Jin의 2026-09-14 승인: “그걸로 최종 완성된 정본으로 올리고, 
 
 ## 검증
 
-실제 번들, 9개 건물 시리즈, B2 최초 완료와 건물 경계, 리시트, 학습 언어 전환, 스크롤 유지, 데모의 무저장 동작을 포함한 Flutter 테스트 59개가 통과했다. 전체 Flutter 정적 분석도 통과했다. PNG 등록 계약 테스트 3개와 STYLE_LOCK 테스트 10개가 통과했으며, 마지막 관찰 문구 수정 뒤 관련 Flutter 테스트 11개를 다시 실행했다(59개에 포함).
+PNG 적용 단계에서는 실제 번들, 9개 건물 시리즈, B2 최초 완료와 건물 경계, 리시트, 학습 언어 전환, 스크롤 유지, 데모의 무저장 동작을 포함한 Flutter 테스트 59개가 통과했다. 전체 Flutter 정적 분석도 통과했다. PNG 등록 계약 테스트 3개와 STYLE_LOCK 테스트 10개가 통과했으며, 마지막 관찰 문구 수정 뒤 관련 Flutter 테스트 11개를 다시 실행했다(59개에 포함).
 
-34개 PNG의 실제 해시·해상도·파일 크기·알파를 검사했고, 중간 이미지의 RGB 변경은 0픽셀, 완성 이미지 3개의 파일 해시는 승인 원본과 같다. 이 결과는 `art_validation.json`에 기록했다. 한·영·독 관찰 문구 검토 범위는 `copy_validation.json`에 기록했다.
+PNG 제작 단계에서 34장의 해시·해상도·알파를 검사했고 중간 이미지의 RGB 변경은 0픽셀이었다. 무손실 WebP 전환 뒤에도 모든 RGBA 픽셀이 같으며, 최종 단계의 보관 PNG 3장은 승인 정본과 파일 해시도 같다. `art_validation.json`과 `lossless_validation.json`에 기록했다. 한·영·독 관찰 문구 검토 범위는 `copy_validation.json`에 기록했다.
 
 ```powershell
 python tool/validate_ansarang_shrine_design.py --write-report
@@ -147,3 +147,14 @@ flutter test --no-pub test/ildu_ansarang_shrine_construction_art_test.dart test/
 ```
 
 검증 도구는 원본 해시, 최종 파일 재사용, 초석·기둥 접점, 앞뒤 공간, 도리·서까래 공통 지지점, 지붕 형태, 공정 누적 관계와 3개 언어 누락을 검사한다. 일부러 정본 해시·기둥 발·서까래 지지·단계별 카메라 등을 잘못 바꾼 8개 입력이 거부되는지도 확인한다. 새 공정 원화의 픽셀 정합이나 앱 기기 QA를 대신하지 않는다.
+
+
+무손실 런타임 전환: 앱용 PNG 34장 65,128,736바이트를 WebP 43,792,814바이트로 교체했다. 21,335,922바이트(32.76%) 절감이며 해상도·캔버스·모든 RGBA 픽셀은 그대로다. 전환 전 런타임 PNG 34장은 Git 커밋 `547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b`에 같은 바이트로 남아 있다. `lossless_validation.json`에 원본 커밋·경로·파일 해시·RGBA 해시를 고정하며, 중복 PNG 폴더는 추가하지 않는다. 원래 생성 결과 `raw/`와 세 승인 정본 `canonical/`도 유지한다. `pubspec.yaml`은 WebP 34개 파일을 명시적으로 등록한다.
+
+`python tool/register_ansarang_shrine_construction.py`는 실제 WebP·생성 원본의 해시와 크기를 확인하고, WebP의 전체 RGBA 해시를 원본 커밋에서 계측한 PNG 해시 기록과 비교한다. 전환 시에는 Git의 실제 PNG 바이트 34개를 다시 읽어 픽셀 일치를 검증했다. 완성 단계는 승인 정본 PNG와 다시 대조하며, 런타임 폴더에 PNG가 중복되거나 한 픽셀이라도 달라지면 실패한다. Flutter 번들 검사도 Dart 디코더로 같은 픽셀 일치를 확인한다. 런타임 WebP SHA와 승인 PNG SHA는 다른 인코딩의 별도 식별자다. 승인 원본 자체를 WebP로 덮어쓰지 않는다.
+
+병합 및 Google Play 업로드는 통합 작업의 요청으로 보류 중이다. 정확한 커밋의 AAB 기기별 크기와 CI·Playwright 결과는 PR #317에 별도로 기록한다. 전체 건물이 완성되기 전에는 Lernweg 단계 연결을 새로 설계하지 않는다.
+
+WebP 전환 뒤 Flutter 검증 21개(실제 번들·픽셀 무결성 3, 건축 화면 13, 전후 리시트 5)와 변경된 Dart 테스트의 정적 분석이 통과했다.
+
+Git 원본 참조·픽셀 드리프트·원본 RGB·완성 정본을 검사하는 Python 등록 계약 테스트 14개와 실제 34개 WebP 등록 검증도 통과했다.

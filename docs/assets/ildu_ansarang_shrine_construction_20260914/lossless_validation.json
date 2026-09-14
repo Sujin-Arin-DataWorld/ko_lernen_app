@@ -1,8 +1,9 @@
 {
-  "method": "Generated PNG artwork and alpha-only extraction; original PNGs retained in canonical/raw and source commit; lossless WebP runtime copies with exact decoded RGBA verification",
-  "stageCount": 34,
-  "expectedStageCount": 34,
-  "completed": true,
+  "count": 34,
+  "runtimeBytes": 43792814,
+  "rgbaPixelsIdentical": 34,
+  "canonicalPngBytesPreserved": 3,
+  "encoding": "Existing Pillow lossless=True quality=100 method=4 exact=True probe copies; no pixel editing",
   "records": [
     {
       "building": "ansarangchae",
@@ -923,5 +924,283 @@
       "sourcePngBytes": 2516697
     }
   ],
-  "runtimeEncoding": "lossless WebP"
+  "savedBytes": 21335922,
+  "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+  "sourceFiles": [
+    {
+      "building": "ansarangchae",
+      "number": 1,
+      "sha256": "fd68ecdb563892a38c380c6ed9db9d08b5a401c876960fb6f33c6c2e4d72d66c",
+      "bytes": 1499519,
+      "rgbaSha256": "c7f61c0c858e256c80010dfdd1fe9680f20a71620b50a24f92acafd6a0189c94",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 2,
+      "sha256": "76cf1cabe6917da1fd382c50ebc82f09fe91758a6b084b6cac86294f0239571e",
+      "bytes": 1449462,
+      "rgbaSha256": "77f67f9b134809e8ae2c02757e21a185e0f6b97ce913b154b365fa38e2ee23af",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 3,
+      "sha256": "04453c8596eca4e1e448011d837e65d6777e087817664c402d5bc4e29b0cd96b",
+      "bytes": 1412603,
+      "rgbaSha256": "00106af5048c6888cb4ecad04fb6328390bc8ff84947be28141681bd8eb624b9",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 4,
+      "sha256": "cf1f1d3151a4646a648955b3ff9af0f6f0b4ff7a6b06cca2a2eb7e0a0d6dfe65",
+      "bytes": 1514076,
+      "rgbaSha256": "2b62406816bd84963e56e736e325a368c2047a0b6865c9a4938538a101ceb1e2",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 5,
+      "sha256": "a821d519f6c4c2a9cf3ae639786a6a0f502d78f7eb05e8b9aa88c590be0ab696",
+      "bytes": 1964516,
+      "rgbaSha256": "04a9ca97ed76d4713ff0cf8b96eb7eb3403ca9b22e37d4b9d51fdb3834fb5534",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 6,
+      "sha256": "252306a9887b35119047300ce4cd05c6f5e2f44dc55aaa8f94d3b94066224b28",
+      "bytes": 2210504,
+      "rgbaSha256": "bb6768b9e34318d8d14ea2f9f229f9915c0831efafc1b0569fe70ce639a9a803",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 7,
+      "sha256": "6d9e6455f004cf228fced6d70b9387a5452c2d9ac2e59475da63b6bd92dbbabf",
+      "bytes": 2234247,
+      "rgbaSha256": "f562b9377f6ddcd024c9558d034712e14ef26778385c0774e25e355c106c03bb",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 8,
+      "sha256": "4e6f8cac0ebf6206bb367c7ae365d40878856100456b70bf40e69eaf55bd09f8",
+      "bytes": 2193118,
+      "rgbaSha256": "c7ae0960736266a374cf67110d277262004acc68bd0b1b2899ffb3fbf40f5aa2",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 9,
+      "sha256": "57121a27b21035b435a2706ec226f069d968b40f43feffb5e98cbce4c181a787",
+      "bytes": 2184140,
+      "rgbaSha256": "45e8dd5ac3db1ad04f0e535bf1824794d71babc985573bf53512bd10d9ef1a68",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 10,
+      "sha256": "7b0ef78627dac12a4ceeea93bb1c46b64b799d06a6f941ca592d98f1b22d50f1",
+      "bytes": 2141546,
+      "rgbaSha256": "6a985bddeda57103f694f42fe206a43912e338b5f3b6dd2a80dea91c5b74f030",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 11,
+      "sha256": "6fda15a52dacf0b72aec17ea60d5b1187bc1b79e0f24974ca82f96595f5d47fa",
+      "bytes": 2193734,
+      "rgbaSha256": "e307a57dbbcb5ab5e6809cb61469770d162d0781087dced547ac0c5e4e2de47b",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 12,
+      "sha256": "0c263c99bb71f5e0c5bd7fab1b5fb56e9fc64ed0800107cf7bec4ffc0c7e2eaf",
+      "bytes": 2170761,
+      "rgbaSha256": "1be0fc46b2c9cb77ef44580d8d31d7c9790a498549b3a669e8cb1364e824c678",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 13,
+      "sha256": "613677ea7a16b5c90ec75a09e9a2eed14acfdab54d2e229bca9f191f4f81e611",
+      "bytes": 2276875,
+      "rgbaSha256": "ac3977c01c766ac03a08a09f1322b408250f623708e4999d19967003ccf74d51",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.png"
+    },
+    {
+      "building": "ansarangchae",
+      "number": 14,
+      "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "bytes": 2358471,
+      "rgbaSha256": "7edf44df2b7f112279df6c509502a66cca4a8e8e85cefa3f1a06a3f271c839f5",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 1,
+      "sha256": "700b482132a141d57b6859872d519abb5d4a33a646bc798eb51685a009a4b7ab",
+      "bytes": 1202614,
+      "rgbaSha256": "82e5df4c426664e4372c331cd7a6cbee734f2868e4a212d18130e98bfa1d55ca",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 2,
+      "sha256": "e38574ff1e1da590e620dc629e1e57b1437012b7e3f99d2ebe80049911d88546",
+      "bytes": 1352770,
+      "rgbaSha256": "b836a5b538c8371522840aaf604a8e86b10677315d90fa0e1597181d8608017f",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 3,
+      "sha256": "80b244c33aeddcb858215619f0456b1b2084935e6a6cf04fdb87546f69bb67c3",
+      "bytes": 1538616,
+      "rgbaSha256": "cc5f74a3863a0324424e4f9609f37bb9475fa2d791c7d90edf9204ecfa1ce61c",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 4,
+      "sha256": "ddcffd53b1a89049bd2d6d68a2dacbdb5a8c66e1d0615e1cbb032e0672c6516a",
+      "bytes": 1844239,
+      "rgbaSha256": "2e2dc9e5962127d5c4124597d051812d21fcd6c15b5989fb8cb3925fdc869672",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 5,
+      "sha256": "2495297932adbee16a2d879ff2f6f140a614f11806754c87af7d50c2221e2c87",
+      "bytes": 2000518,
+      "rgbaSha256": "c8ddc715607068c77626f9b7cf788c417d992219a4dc49aa6892bfb98259b27e",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 6,
+      "sha256": "c59c10f36c23099ace7152e49b69a098da2e1cf80cbcce9a1ef9f81cb802236f",
+      "bytes": 1876927,
+      "rgbaSha256": "88d68ff2236365e981bb49953ae1200a4955dc0279da4e07d081b6a6cd70f14a",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 7,
+      "sha256": "b1ff339d338b407b2a329b43bc77e2d7cce42dc8d79733543aa63b6fe12ec85d",
+      "bytes": 1947038,
+      "rgbaSha256": "d9855eb503ad0a3d9d357f2bf5d8ba94cd8c1aa38a646307f5fb80ad188423c9",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.png"
+    },
+    {
+      "building": "sadangmun",
+      "number": 8,
+      "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "bytes": 2027089,
+      "rgbaSha256": "6be4821e1b7093819310c2f117366bc3bd3aea81ce51b4155a42ffc29ce0c9bb",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png"
+    },
+    {
+      "building": "sadang",
+      "number": 1,
+      "sha256": "9fe97f2087c224ad59c5fb4b54cf047416a341a7c77df2e8defb79fe8a983ae7",
+      "bytes": 1411479,
+      "rgbaSha256": "7ff71fb464b4cee02fbfa0669b2571e6199a6c5d1d639491ca31c2690bd985f6",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.png"
+    },
+    {
+      "building": "sadang",
+      "number": 2,
+      "sha256": "131215cb79d55f8c2fe836f481773394f8dfbf77e630a5c77cbd2c01553c6588",
+      "bytes": 1344664,
+      "rgbaSha256": "ef2fb3b003297efb5106538b638432e08c4f1441b33346812c9af18687a20e3c",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.png"
+    },
+    {
+      "building": "sadang",
+      "number": 3,
+      "sha256": "bbbb73a6e220b8b13b918185e6a9998f9bc878065a00658653abbf9dca51afc0",
+      "bytes": 1376362,
+      "rgbaSha256": "2e0f1883a08895e3fd44ee28e323be89a8ce2075d745452f77c60a0bbab13c0a",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.png"
+    },
+    {
+      "building": "sadang",
+      "number": 4,
+      "sha256": "982672950241d32b33163142fc88b9052818eb04e878b16ee3ab4911f1246a09",
+      "bytes": 1579288,
+      "rgbaSha256": "90e189ce45c8aa6f1a8fbd12b568e16a5987aae179961683030e1ec94d075b0a",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.png"
+    },
+    {
+      "building": "sadang",
+      "number": 5,
+      "sha256": "3eae57711b0ad6c0c24cbd78154117e8c16fbf52fd46b93cc7fcc8a617e9e94c",
+      "bytes": 1894823,
+      "rgbaSha256": "5e396f65a5593cf935ab067a9db3c257a7bc92ad34e8653d2aeac8f729648dd6",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.png"
+    },
+    {
+      "building": "sadang",
+      "number": 6,
+      "sha256": "faea955dda77a59708a6c82f70563498b832738574f3ba57814c4bc4114c3fce",
+      "bytes": 2151824,
+      "rgbaSha256": "52a685f7028b613c17aad49bca873e98fa1127beaa9685b5f6721230a8849055",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.png"
+    },
+    {
+      "building": "sadang",
+      "number": 7,
+      "sha256": "bcc7376372af5452a3d084b49fd4d0ea86d9b454b1f7d04414a5c7530352b4ea",
+      "bytes": 2251436,
+      "rgbaSha256": "98e825381e9481e6e5219073ce8e5eaccbc68c0457b4d3248eb333cd175648d3",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.png"
+    },
+    {
+      "building": "sadang",
+      "number": 8,
+      "sha256": "3494bfa9cf958a424daddcf8b3ef9e5b8909a3e3eda3501b886704d0a16768c4",
+      "bytes": 2209670,
+      "rgbaSha256": "0d83cda2e5350c19a8500dbf8b68cfecad93547aff4b812c7beb3f3034473d47",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.png"
+    },
+    {
+      "building": "sadang",
+      "number": 9,
+      "sha256": "e6a74d3b3625b6ba57ff052429bc1d53b545c31d6776b3340dbf516ee0bf7c33",
+      "bytes": 2148630,
+      "rgbaSha256": "73571a90a0f90254877242188b567707a491d5ebec360a30ef96b0a51f9d29c9",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.png"
+    },
+    {
+      "building": "sadang",
+      "number": 10,
+      "sha256": "1af575c94ad80655dec4d90ea215a12ec2c4f878e372f0ff192ff3a6686684ff",
+      "bytes": 2248690,
+      "rgbaSha256": "74171f630015d14cf686fa3b6fc4f3d55cebb391068e6e75edf19ce2f75cc036",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.png"
+    },
+    {
+      "building": "sadang",
+      "number": 11,
+      "sha256": "eef52f6da300c34e53157bf4dc21c001dcf2f65145e662f3028af590b3eda0cc",
+      "bytes": 2401790,
+      "rgbaSha256": "d0dea9fda272b0ee55ec2adeb7766da5cd92f30667b5d1799a7bc44fbbd0f988",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.png"
+    },
+    {
+      "building": "sadang",
+      "number": 12,
+      "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "bytes": 2516697,
+      "rgbaSha256": "3a7f40e022d31981935ec431a011aa3231f4277519cc2372e4728295a3209745",
+      "pathAtCommit": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png"
+    }
+  ],
+  "sourcePngStorage": "Original runtime PNG bytes in sourceCommit Git history; approved canonical/master and original raw PNGs remain in their existing directories. No duplicate png/ archive is bundled or committed.",
+  "gitSourcePngFilesVerified": 34,
+  "sourcePngBytes": 65128736
 }
