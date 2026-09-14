@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-const _catalogPath = 'assets/data/ildu_sotdaeulmun_construction_art_v1.json';
+const _catalogPath =
+    'docs/assets/ildu_sotdaeulmun_construction_20260914/construction_catalog.json';
 const _approvedFinalSha =
     '85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44';
 
@@ -13,10 +14,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'approved gate stages load unchanged from the actual asset bundle',
+    'approved gate stages remain byte-identical in the canonical folder',
     () async {
       final catalog =
-          jsonDecode(await rootBundle.loadString(_catalogPath))
+          jsonDecode(await File(_catalogPath).readAsString())
               as Map<String, dynamic>;
       expect(catalog['status'], 'approved_canonical');
       expect(catalog['buildingId'], 'sotdaeulmun');
@@ -35,11 +36,8 @@ void main() {
             'assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/',
           ),
         );
-        final bytes = await rootBundle.load(path);
-        final data = bytes.buffer.asUint8List(
-          bytes.offsetInBytes,
-          bytes.lengthInBytes,
-        );
+        final data = await File(path).readAsBytes();
+        final bytes = ByteData.sublistView(data);
         expect(data.take(8), [137, 80, 78, 71, 13, 10, 26, 10], reason: path);
         expect(bytes.getUint32(16), stage['width'], reason: path);
         expect(bytes.getUint32(20), stage['height'], reason: path);
@@ -58,7 +56,7 @@ void main() {
     'style authority points to the same approved construction art',
     () async {
       final catalog =
-          jsonDecode(await rootBundle.loadString(_catalogPath))
+          jsonDecode(await File(_catalogPath).readAsString())
               as Map<String, dynamic>;
       final lock =
           jsonDecode(File('docs/assets/STYLE_LOCK.json').readAsStringSync())

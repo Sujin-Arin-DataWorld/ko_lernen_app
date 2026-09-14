@@ -21,9 +21,9 @@
   "dimensionsNote": "Native tool output preserved. Nine frames are 1447x1087 and three are 1448x1086. No resampling or canvas edits.",
   "status": "approved_canonical",
   "approvedOn": "2026-09-14",
-  "catalog": "assets/data/ildu_sotdaeulmun_construction_art_v1.json",
+  "catalog": "docs/assets/ildu_sotdaeulmun_construction_20260914/construction_catalog.json",
   "canonicalPath": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
-  "bundled": true,
+  "bundled": false,
   "appProgressionIntegrated": false,
   "files": [
     {

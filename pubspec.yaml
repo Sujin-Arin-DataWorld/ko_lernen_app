@@ -142,7 +142,6 @@ flutter:
     # authored assets; bundling them does not expose the unfinished map.
     - assets/illustrations/personal_hanok_v3/world/
     - assets/illustrations/personal_hanok_v3/turnarounds/
-    - assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
     - assets/illustrations/stamps/

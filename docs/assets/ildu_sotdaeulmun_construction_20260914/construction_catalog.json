@@ -16,7 +16,8 @@
     "resampled": false,
     "mapCompositingReady": false,
     "progressionIntegrated": false,
-    "completedEightDirections": "separate_from_construction_stages"
+    "completedEightDirections": "separate_from_construction_stages",
+    "bundled": false
   },
   "depthContract": {
     "frontAndRearPostRows": true,

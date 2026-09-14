@@ -800,13 +800,13 @@
           "status": "approved_canonical",
           "approvedBy": "Jin",
           "approvedOn": "2026-09-14",
-          "catalog": "assets/data/ildu_sotdaeulmun_construction_art_v1.json",
+          "catalog": "docs/assets/ildu_sotdaeulmun_construction_20260914/construction_catalog.json",
           "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
           "canonicalSha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
           "stageCount": 12,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/",
           "presentation": "검정 배경 누적 공정 PNG. 앞뒤 기둥, 깊이 방향 보, 중앙 통로와 좌우 공간을 유지한다.",
-          "scope": "공정 아트 정본과 앱 번들 등록. 지도 투명 레이어·8방향 교체·진행도 연결 승격을 뜻하지 않는다.",
+          "scope": "승인 공정 아트 정본 보관. 현재 앱 번들에는 넣지 않으며, 실제 화면 연결 시 번들 등록과 함께 적용한다. 지도 투명 레이어·8방향 교체·진행도 연결은 별도다.",
           "supersedesCanonical": "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png"
         }
       }
