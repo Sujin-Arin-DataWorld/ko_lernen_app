@@ -67,15 +67,10 @@ class LearningPhaseCatalog {
     final json = jsonDecode(raw) as Map<String, dynamic>;
     final phases = parse(json, curriculum.courseUnits);
     if (json['schemaVersion'] == 2) {
-      final taskJson =
-          jsonDecode(
-                await rootBundle.loadString(
-                  PhaseTaskCatalog.assetPath,
-                  cache: false,
-                ),
-              )
-              as Map<String, dynamic>;
-      validateTasks(json, phases, taskJson);
+      // Shares the one parsed catalogue with the panel, task screen and
+      // mastery writes; PhaseTaskCatalog.load() already verifies that this
+      // publication's fingerprint matches the task asset it parsed.
+      validateBindings(phases, await PhaseTaskCatalog.load());
     }
     return _cached = List.unmodifiable(phases);
   }
@@ -90,7 +85,13 @@ class LearningPhaseCatalog {
     if (json['phaseTaskSourceSha256'] != phaseFingerprint(taskJson)) {
       throw const FormatException('Phase task publication hash mismatch');
     }
-    final catalog = PhaseTaskCatalog.parse(taskJson);
+    validateBindings(phases, PhaseTaskCatalog.parse(taskJson));
+  }
+
+  static void validateBindings(
+    List<LearningPhase> phases,
+    PhaseTaskCatalog catalog,
+  ) {
     final linked = <String>{};
     for (final phase in phases) {
       final tasks = catalog.forPhase(phase.id);

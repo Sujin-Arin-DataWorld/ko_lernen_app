@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
 import 'package:ko_lernen_app/features/guide/guide_runtime.dart';
 import 'package:ko_lernen_app/features/guide/today_guide_checklist_card.dart';
@@ -28,11 +29,13 @@ import 'support/sori_stage_pump.dart';
 import 'support/real_fonts.dart';
 
 void main() {
+  late SarangchaeConstruction construction;
   late LearningFocus focus;
   late SoriStageProgressionSnapshot firstSnapshot;
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
     focus = await loadFirstCatalogFocus();
+    construction = await SarangchaeConstruction.load();
     firstSnapshot = SoriStageProgressionSnapshot(
       today: focus.today,
       hanokCompetence: HanokCompetenceProjection.fromSnapshot(
@@ -173,6 +176,7 @@ void main() {
       now: () => DateTime(2026, 9, 14, 10),
     ),
     'hanok' => SoriStageHanokScreen(
+      loadConstruction: () async => construction,
       loadSnapshot: load ?? () async => firstSnapshot,
     ),
     _ => SoriStageGyeScreen(
@@ -212,6 +216,11 @@ void main() {
           );
           expect(action.hitTestable(), findsOneWidget);
         } else if (tab == 'hanok') {
+          expect(
+            find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
+            findsOneWidget,
+            reason: 'Capture the confirmed first-stage preview, not its loader.',
+          );
           expect(
             find.byKey(const ValueKey('hanok-map-header')),
             findsOneWidget,

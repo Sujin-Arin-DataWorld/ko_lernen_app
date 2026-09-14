@@ -1,4 +1,5 @@
 import '../../services/storage_service.dart';
+import '../../models/course_mastery.dart';
 import '../../services/catalog_history_lease.dart';
 import '../../widgets/sori/toast.dart';
 import 'dart:async';
@@ -33,6 +34,7 @@ class SoriStageShell extends StatefulWidget {
     this.loadTodaySnapshot,
     this.loadLearningFocus,
     this.loadReceiptNetworkBefore,
+    this.loadCompanionBefore,
   });
 
   final ValueListenable<int> replayHomeTour;
@@ -50,6 +52,9 @@ class SoriStageShell extends StatefulWidget {
   /// Optional receipt baseline loader; it never gates activity entry.
   final Future<SoriStageNetworkBeforeFields> Function()?
   loadReceiptNetworkBefore;
+
+  /// Optional pre-attempt evidence capture; it never gates activity entry.
+  final Future<CourseMasterySnapshot?> Function()? loadCompanionBefore;
 
   @override
   State<SoriStageShell> createState() => _SoriStageShellState();
@@ -116,9 +121,24 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
     final journey = origin == null ? null : observer?.begin(origin);
     try {
       final unit = focus?.brief?.unit;
-      final before = unit == null
-          ? null
-          : await CourseProgressService.shared.readForDisplay();
+      Set<String>? evidenceIdsBefore;
+      if (unit != null) {
+        // Enqueue the read before navigation and therefore before this
+        // activity's serialized course writes. A missing/failed/pending
+        // capture must not turn historical evidence into a new success.
+        unawaited(
+          Future<CourseMasterySnapshot?>.sync(
+            widget.loadCompanionBefore ??
+                CourseProgressService.shared.readForDisplay,
+          ).then<void>((snapshot) {
+            if (snapshot != null) {
+              evidenceIdsBefore = snapshot.evidence
+                  .map((item) => item.id)
+                  .toSet();
+            }
+          }, onError: (Object _, StackTrace __) {}),
+        );
+      }
       if (!context.mounted || account != cloudWriteSessionController.current) {
         observer?.cancel();
         return;
@@ -184,8 +204,10 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
           await offer(context);
         }
       }
+      final capturedEvidence = evidenceIdsBefore;
       if (unit != null &&
           !focusedUnitOfferAlreadyQueued &&
+          capturedEvidence != null &&
           mounted &&
           context.mounted &&
           account == cloudWriteSessionController.current &&
@@ -193,8 +215,7 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
         await CourseAttemptCompanion.offer(
           context,
           unit: unit,
-          evidenceIdsBefore:
-              before?.evidence.map((item) => item.id).toSet() ?? {},
+          evidenceIdsBefore: capturedEvidence,
         );
       }
     } catch (_) {

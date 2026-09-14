@@ -112,7 +112,7 @@ class SoriCatalogCard extends StatelessWidget {
                 borderRadius: SoriRadius.brSm,
                 child: art(width: 128),
               );
-              if (constraints.maxWidth < SoriAdaptiveWidth.compactMetadataRow ||
+              if (constraints.maxWidth < SoriAdaptiveWidth.catalogFeaturedRow ||
                   MediaQuery.textScalerOf(context).scale(16) >= 24) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

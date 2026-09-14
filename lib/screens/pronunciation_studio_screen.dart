@@ -82,6 +82,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   bool _recorderFailed = false;
   PronunciationAssessmentFailureCategory? _assessmentFailure;
   _PronunciationAttempt? _capturedAttempt;
+  _PronunciationAttempt? _journeyCapture;
+  LearningAttempt? _learningAttempt;
   PronunciationAssessmentResult? _result;
   int _operationGeneration = 0;
   bool _disposed = false;
@@ -509,7 +511,11 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       if (privacyEpoch != PrivacyChoiceStorage.epoch) {
         return;
       }
-      final learningAttempt = LearningJourneyObserver.beginAttempt();
+      if (!identical(_journeyCapture, attempt)) {
+        _journeyCapture = attempt;
+        _learningAttempt = LearningJourneyObserver.beginAttempt();
+      }
+      final learningAttempt = _learningAttempt;
       if (result.passed) {
         await trackLearningPersistence(
           learningAttempt,

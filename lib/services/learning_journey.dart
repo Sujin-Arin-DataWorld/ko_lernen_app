@@ -118,11 +118,21 @@ class LearningJourney {
         );
       }
     }
+    final remainingStages = items
+        .where((item) => item.kind == SoriRewardKind.hanokProgress)
+        .fold<int>(0, (sum, item) => sum + (item.amount ?? 0));
     return RewardReceipt(
       activityId: receipt.activityId,
       receiptId: receipt.receiptId,
       items: items,
-      sarangchaeStageBefore: receipt.sarangchaeStageBefore,
+      // Keep the actual stage bounds while advancing past stages already
+      // presented natively. An XP-only remainder must not replay the upgrade.
+      sarangchaeStageBefore: receipt.hasSarangchaeUpgrade
+          ? (receipt.sarangchaeStageAfter - remainingStages).clamp(
+              receipt.sarangchaeStageBefore,
+              receipt.sarangchaeStageAfter,
+            )
+          : receipt.sarangchaeStageBefore,
       sarangchaeStageAfter: receipt.sarangchaeStageAfter,
       b2ConstructionStageBefore: receipt.b2ConstructionStageBefore,
       b2ConstructionStageAfter: receipt.b2ConstructionStageAfter,

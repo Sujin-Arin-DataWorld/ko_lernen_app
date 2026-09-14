@@ -63,7 +63,9 @@ void main() {
       findsNothing,
       reason: '임베디드에서는 자체 헤드라인을 제거한다 (§P5-1-1)',
     );
+    // Keep the negative contract without retaining unused production copy.
     expect(find.text('Freiwillige Lerngemeinschaft'), findsNothing);
+    expect(find.text('Optional learning community'), findsNothing);
 
     // CTA 가 스크롤 없이 화면 안에 있다 (±1줄 = 24px 허용).
     final cta = find.text(t.gyeFindOrCreate);

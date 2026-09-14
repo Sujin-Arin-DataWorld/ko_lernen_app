@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_recall_screen.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/services/pack_session_srs_ledger.dart';
+import 'package:ko_lernen_app/services/learning_journey.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -72,6 +73,94 @@ void main() {
     for (var i = 0; i < 30; i++) {
       await tester.pump(const Duration(milliseconds: 50));
     }
+  }
+
+  for (final failed in [false, true]) {
+    testWidgets(
+      'recovered ${failed ? 'failed' : 'cleared'} result shows saved XP without another write or journey attempt',
+      (tester) async {
+        await tester.runAsync(() async {
+          final request = await packCompletionRequest(failed: failed);
+          await VocabPackFinishCoordinator(
+            DefaultVocabPackFinishOperations(),
+          ).finish(request);
+          await Storage.setConsentInviteShown();
+        });
+        final record = PackCompletionStorage.result!;
+        final xpBefore = Storage.xp;
+        final writesBefore = Map<String, int>.of(native.writes);
+        final valuesBefore = Map<String, Object>.of(native.values);
+        final observer = LearningJourneyObserver.shared;
+        observer.cancel();
+        addTearDown(observer.cancel);
+        final navigator = GlobalKey<NavigatorState>();
+        late Route<dynamic> origin;
+        await tester.pumpWidget(
+          MaterialApp(
+            navigatorKey: navigator,
+            navigatorObservers: [observer],
+            theme: AppTheme.light,
+            locale: const Locale('en'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: true),
+              child: child!,
+            ),
+            home: Builder(
+              builder: (context) {
+                origin = ModalRoute.of(context)!;
+                return const Text('origin');
+              },
+            ),
+          ),
+        );
+        final journey = observer.begin(origin)!;
+        navigator.currentState!.push(
+          MaterialPageRoute<void>(
+            builder: (_) => VocabPackResultScreen.fromRecovered(record),
+          ),
+        );
+        await frames(tester);
+        final screen = tester.widget<VocabPackResultScreen>(
+          find.byType(VocabPackResultScreen),
+        );
+        expect(screen.actualXpAwarded, isNull);
+        expect(screen.originalXp, record.xp);
+        expect(screen.learningAttempt, isNull);
+        final reward = find.text('+${record.xp} XP');
+        expect(reward, findsOneWidget);
+        await tester.ensureVisible(reward);
+        await frames(tester);
+        expect(reward.hitTestable(), findsOneWidget);
+        expect(Storage.xp, xpBefore);
+        expect(native.writes, writesBefore);
+        expect(native.values, valuesBefore);
+        expect(journey.attempts, isEmpty);
+
+        // An ordinary result without either authoritative XP field stays unknown.
+        navigator.currentState!.pushReplacement(
+          MaterialPageRoute<void>(
+            builder: (_) => VocabPackResultScreen.fromArgs({
+              'packId': record.packId,
+              'bossAccuracy': record.bossAccuracy,
+              'bossCorrect': record.bossCorrect,
+              'bossTotal': record.bossTotal,
+            }),
+          ),
+        );
+        await frames(tester);
+        final t = AppL10n.of(
+          tester.element(find.byType(VocabPackResultScreen)),
+        );
+        expect(find.text(t.vocabPackResultXpLabel), findsNothing);
+        expect(find.text('+0 XP'), findsNothing);
+        expect(native.writes, writesBefore);
+        expect(journey.attempts, isEmpty);
+        expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox.shrink());
+      },
+    );
   }
 
   Future<VocabPackFinishRequest> showResult(
