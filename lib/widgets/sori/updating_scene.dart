@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'tokens.dart';
 
-/// Jin 2026-09-03: 한옥/계 시각은 재작업 중 — 새 지도가 착지하면 false로.
-///
-/// 항공 부감 compound map(`personal_hanok_v*`)이 "지저분하고 이미 안
-/// 쓰는 이미지"라는 판단에 따라, 새 지도가 준비될 때까지 한 장짜리
-/// 정적 스틸(`estate_overview.webp`) 위에 반투명 베일을 얹어 "업데이트
-/// 중"임을 알린다. 이 플래그를 끄면 각 호출부는 이전 경로(compound
-/// map/`GyeHanok`/`GyeShowcaseArtwork`)로 그대로 되돌아간다.
+/// Keeps unfinished Hanok/Gye visuals behind the static preview notice.
+/// Personal Hanok routes use the approved V3 preview; retired V1 maps are
+/// no longer a fallback when this flag changes.
 const bool kHanokWorldUpdating = true;
 
 /// **SoriUpdatingScene** — 재작업 중인 시각 자산을 가리는 표준 베일.
@@ -58,6 +54,7 @@ class SoriUpdatingScene extends StatelessWidget {
     return Semantics(
       label: message,
       image: true,
+      excludeSemantics: true,
       child: Stack(
         fit: StackFit.expand,
         children: [

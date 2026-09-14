@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { assertDeletionPageContract } from "../scripts/deletion-page-contract.mjs";
 
 test("renders finished site metadata", async () => {
   const releaseManifest = JSON.parse(
@@ -299,7 +300,7 @@ test("renders every public route with the expected launch content", async () => 
     ["/support", "Direkter Kontakt"],
     ["/privacy", "Einwilligungsverwaltung mit Cookiebot"],
     ["/terms", "Kostenloser Start"],
-    ["/account-deletion", "Konto direkt in der App löschen"],
+    ["/account-deletion", "Dauerhafte Kontolöschung per E-Mail anfragen"],
     ["/impressum", "Anbieterkennzeichnung"],
     ["/press", "Hangul Sori in Kürze"],
   ]);
@@ -313,6 +314,9 @@ test("renders every public route with the expected launch content", async () => 
     assert.equal(response.status, 200, `${path} should render`);
     const html = await response.text();
     const visibleText = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ");
+    if (path === "/account-deletion") {
+      assertDeletionPageContract(html, { expectedLanguage: "de" });
+    }
     assert.match(visibleText, new RegExp(expected, "i"), `${path} should contain its primary content`);
     if (path === "/impressum") {
       assert.match(html, /Kurfürstenstraße 14/i);

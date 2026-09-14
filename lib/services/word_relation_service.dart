@@ -35,7 +35,9 @@ class WordRelationService {
     if (_clusters != null && assetLoader == null) {
       return _clusters!;
     }
-    final raw = await (assetLoader ?? rootBundle.loadString)(assetPath);
+    final raw =
+        await (assetLoader?.call(assetPath) ??
+            rootBundle.loadString(assetPath, cache: false));
     final parsed = parseClusters(raw);
     if (assetLoader == null) {
       _clusters = parsed;

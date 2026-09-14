@@ -9,6 +9,31 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get packCompletionRetired =>
+      'Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.';
+
+  @override
+  String get packCompletionPending =>
+      'Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.';
+
+  @override
+  String get packCompletionSaved => 'Dein Pack-Ergebnis ist gespeichert.';
+
+  @override
+  String get packCompletionView => 'Ergebnis ansehen';
+
+  @override
+  String get srsRecoveryPending =>
+      'Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.';
+
+  @override
+  String get srsRecoveryBlocked =>
+      'Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.';
+
+  @override
+  String get srsRecoveryRetry => 'Wiederholung erneut speichern';
+
+  @override
   String get learningPhasesTitle => '30 Lernphasen';
 
   @override
@@ -403,6 +428,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get btnRetry => 'Erneut versuchen';
+
+  @override
+  String get choiceSaveConfirmationFailed =>
+      'Wir konnten das Speichern deiner Auswahl nicht bestätigen. Bitte versuche es erneut.';
 
   @override
   String get btnClose => 'Schließen';
@@ -846,7 +875,49 @@ class AppL10nDe extends AppL10n {
   String get settingsPrivacyTitle => 'Datenschutzerklärung';
 
   @override
-  String get settingsPrivacySubtitle => 'Link kopieren';
+  String get settingsUpdateTitle => 'Nach Updates suchen';
+
+  @override
+  String get settingsUpdateSubtitle => 'Neueste Version aus Google Play holen';
+
+  @override
+  String get settingsUpdateChecking => 'Wird geprüft';
+
+  @override
+  String get settingsUpdateUpToDate => 'Du hast schon die neueste Version.';
+
+  @override
+  String settingsUpdateAvailable(Object v) {
+    return 'Neue Version $v ist da.';
+  }
+
+  @override
+  String get settingsUpdateDialogTitle => 'Update verfügbar';
+
+  @override
+  String settingsUpdateDialogBody(Object v) {
+    return 'Version $v wird jetzt über Google Play geladen und installiert.';
+  }
+
+  @override
+  String get settingsUpdateStart => 'Jetzt aktualisieren';
+
+  @override
+  String get settingsUpdateLater => 'Später';
+
+  @override
+  String get settingsUpdateDeclined => 'Update abgebrochen.';
+
+  @override
+  String get settingsUpdateFailed =>
+      'Update hat nicht geklappt. Weiter im Play Store.';
+
+  @override
+  String get settingsUpdateUnavailable =>
+      'Hier nicht prüfbar. Im Play Store nachsehen.';
+
+  @override
+  String get settingsPrivacySubtitle => 'Datenschutzerklärung öffnen';
 
   @override
   String settingsPrivacyCopied(Object url) {
@@ -2392,10 +2463,18 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsAccountDeleteConfirmBody =>
-      'Dadurch werden dein Firebase-Konto, deine Google- und Apple-Verknüpfungen, das Firestore-Cloud-Backup und lokale Lerndaten auf diesem Gerät gelöscht. Das lässt sich nicht rückgängig machen. Google oder Apple bitten dich zur Bestätigung eventuell um eine erneute Anmeldung.';
+      'Dein Firebase-Konto, dein Cloud-Backup und die lokalen Lerndaten auf diesem Gerät werden dauerhaft gelöscht. Google oder Apple bitten dich möglicherweise zur Bestätigung, dich erneut anzumelden.';
 
   @override
-  String get settingsAccountDeleteSuccess => 'Konto und Daten gelöscht';
+  String get settingsAccountDeleteSuccess =>
+      'Löschung angenommen. Lokale Daten entfernt; die Bereinigung auf dem Server läuft im Hintergrund weiter.';
+
+  @override
+  String get settingsAccountDeleteAppleGuidance =>
+      'Prüfe nach der Kontolöschung hier deinen Apple Account unter Anmeldung und Sicherheit > Mit Apple anmelden. Falls Hangul Sori dort noch aufgeführt ist, wähle die App und beende die Nutzung von „Mit Apple anmelden“. Du kannst dein Konto hier löschen, ohne diese Anleitung zu öffnen.';
+
+  @override
+  String get settingsAccountDeleteAppleHelp => 'Apple-Anleitung öffnen';
 
   @override
   String settingsAccountDeleteFailed(Object error) {
@@ -2407,7 +2486,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsAccountDeletionSubtitle =>
-      'Link zur Kontolöschung kopieren';
+      'Seite zur Kontolöschung öffnen';
 
   @override
   String get statsGotIt => 'Gewusst';
@@ -10206,6 +10285,21 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2ReplayDemo => 'Demo wiederholen';
+
+  @override
+  String get privacyChoicePending => 'Deine Auswahl wird gespeichert.';
+
+  @override
+  String get privacyChoiceUnconfirmed =>
+      'Deine Auswahl konnte nicht vollständig angewendet werden. Bitte versuche es erneut. Die Erfassung bleibt aus.';
+
+  @override
+  String get privacyWithdrawalUnconfirmed =>
+      'Die Erfassung ist für diese Sitzung aus. Dein Widerruf konnte nicht sicher gespeichert werden. Bitte versuche es vor dem Schließen der App erneut.';
+
+  @override
+  String get privacyApplicationUnconfirmed =>
+      'Deine Auswahl ist gespeichert. Die Erhebung ist in dieser App gesperrt, aber die Anwendung der Einstellung konnte nicht bestätigt werden. Bitte versuche es erneut.';
 
   @override
   String get phaseTasksTitle => 'Phase-Aufgaben';

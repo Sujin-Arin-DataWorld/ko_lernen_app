@@ -18,6 +18,23 @@ class LikedContentService {
   static Future<bool> toggle({required String kind, required String id}) =>
       Storage.toggleLikedContent(keyFor(kind: kind, id: id));
 
+  static Future<bool> setLiked({
+    required String kind,
+    required String id,
+    required bool liked,
+  }) => Storage.setLikedContent(keyFor(kind: kind, id: id), liked);
+
+  static ConfirmedLocalChoiceOperation operation({
+    required String kind,
+    required String id,
+    required bool liked,
+    void Function()? assertCurrentOwner,
+  }) => Storage.likedContentOperation(
+    keyFor(kind: kind, id: id),
+    desired: liked,
+    assertCurrentOwner: assertCurrentOwner,
+  );
+
   static List<LikedContent> all() {
     return [
       for (final raw in Storage.likedContentKeys)

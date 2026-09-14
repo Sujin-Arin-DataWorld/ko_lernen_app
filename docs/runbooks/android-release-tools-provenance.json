@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "scope": "Android Crashlytics symbol-evidence gate release tools",
+  "tools": {
+    "bundletool": {
+      "version": "1.18.3",
+      "platform": "java-jar",
+      "publisher_url": "https://github.com/google/bundletool/releases/download/1.18.3/bundletool-all-1.18.3.jar",
+      "publisher_metadata_url": "https://api.github.com/repos/google/bundletool/releases/tags/1.18.3",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29"
+      },
+      "archive_member": "bundletool-all-1.18.3.jar",
+      "archive_member_kind": "downloaded-artifact",
+      "executable_sha256": "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29"
+    },
+    "firebase-tools": {
+      "version": "15.29.0",
+      "platform": "linux-x64-standalone",
+      "publisher_url": "https://github.com/firebase/firebase-tools/releases/download/v15.29.0/firebase-tools-linux",
+      "publisher_metadata_url": "https://api.github.com/repos/firebase/firebase-tools/releases/tags/v15.29.0",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "ef0998b3c1eeedf2a7b02b23bbe2b98a84a855855ea73d85d4498af432531ded"
+      },
+      "archive_member": "firebase-tools-linux",
+      "archive_member_kind": "downloaded-artifact",
+      "executable_sha256": "ef0998b3c1eeedf2a7b02b23bbe2b98a84a855855ea73d85d4498af432531ded"
+    },
+    "java": {
+      "version": "17.0.20.1+1",
+      "platform": "linux-x64",
+      "publisher_url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+      "publisher_metadata_url": "https://api.github.com/repos/adoptium/temurin17-binaries/releases/tags/jdk-17.0.20.1%2B1",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "3808d1d15e3ec6bd5b84057fb5d84c33d8a1536a258146bcea2e603fc726e08e"
+      },
+      "archive_member": "jdk-17.0.20.1+1/bin/java",
+      "executable_sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
+    }
+  }
+}

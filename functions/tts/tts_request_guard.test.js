@@ -41,7 +41,7 @@ test("synthesis treats empty Storage objects as a miss and bounds Cloud TTS", ()
   assert.match(source, /already in progress/);
   assert.match(source, /ttsLogErrorCode/);
   assert.doesNotMatch(source, /consume = true;/);
-  assert.match(source, /console\.error\("synthesize_tts error", ttsLogErrorCode\(e\)\)/);
+  assert.match(source, /console\.error\("synthesize_tts error", \{stage, code: ttsLogErrorCode\(e\)\}\)/);
   assert.doesNotMatch(source, /console\.error\(\s*e\s*[,)]/);
 });
 
@@ -308,6 +308,21 @@ test("error logs keep only a safe provider code, never request text", () => {
     ttsLogErrorCode({ code: "unavailable", message: "provider prompt" }),
     "unavailable",
   );
+  const grpcCodes = [
+    "ok", "cancelled", "unknown", "invalid-argument", "deadline-exceeded",
+    "not-found", "already-exists", "permission-denied", "resource-exhausted",
+    "failed-precondition", "aborted", "out-of-range", "unimplemented",
+    "internal", "unavailable", "data-loss", "unauthenticated",
+  ];
+  grpcCodes.forEach((name, code) => {
+    assert.equal(ttsLogErrorCode({ code }), name);
+    assert.equal(ttsLogErrorCode({ code: name }), name);
+  });
+  assert.equal(ttsLogErrorCode({ code: -1 }), "internal");
+  assert.equal(ttsLogErrorCode({ code: 17 }), "internal");
+  assert.equal(ttsLogErrorCode({ code: 7.5 }), "internal");
+  assert.equal(ttsLogErrorCode({ code: "7" }), "internal");
+  assert.equal(ttsLogErrorCode({ code: "PRIVATE_CANARY_7193" }), "internal");
   assert.equal(ttsLogErrorCode({ code: "안녕하세요" }), "internal");
 });
 

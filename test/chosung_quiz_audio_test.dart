@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
@@ -13,9 +15,27 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late SoriSpeechStub stub;
-  setUp(() {
+  setUp(() async {
     stub = stubSoriSpeech();
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
   });
+  tearDown(() {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+  });
+
+  Future<void> waitForAnswerReveal(WidgetTester tester) async {
+    // SRS 카드와 학습 기록 저장을 기다리되 자동 다음 문항 타이머는 진행하지 않는다.
+    for (var frame = 0; frame < 20; frame++) {
+      await tester.pump();
+      if (find.byType(SoriSpeakable).evaluate().isNotEmpty) {
+        return;
+      }
+    }
+    expect(find.byType(SoriSpeakable), findsOneWidget);
+  }
 
   Widget host() => MaterialApp(
     theme: AppTheme.light,
@@ -49,14 +69,12 @@ void main() {
     expect(stub.spoken, isEmpty);
   });
 
-  testWidgets('정답을 맞히면 공개 직후 1회 자동으로 읽고, 카드 탭으로도 재생할 수 있다', (
-    tester,
-  ) async {
+  testWidgets('정답을 맞히면 공개 직후 1회 자동으로 읽고, 카드 탭으로도 재생할 수 있다', (tester) async {
     await tester.pumpWidget(host());
     await tester.pump();
     await tester.enterText(find.byType(TextField), '사과');
     await tester.testTextInput.receiveAction(TextInputAction.done);
-    await tester.pump();
+    await waitForAnswerReveal(tester);
     // T1(2.9) — chosung_quiz_screen.dart _submit()이 공개 직후 자동으로
     // SoriSpeech.speak(_card.korean)을 1회 호출한다.
     expect(stub.spoken, ['사과'], reason: '답 공개 직후 자동으로 1회 읽어야 한다');
@@ -94,12 +112,8 @@ void main() {
     await tester.pump();
     await tester.enterText(find.byType(TextField), '바나나');
     await tester.testTextInput.receiveAction(TextInputAction.done);
-    await tester.pump();
-    expect(
-      stub.spoken,
-      ['사과'],
-      reason: '오답이어도 정답 단어를 공개 직후 자동으로 1회 읽어야 한다',
-    );
+    await waitForAnswerReveal(tester);
+    expect(stub.spoken, ['사과'], reason: '오답이어도 정답 단어를 공개 직후 자동으로 1회 읽어야 한다');
     expect(find.byType(SoriSpeakable), findsOneWidget);
     expect(
       find.byKey(const Key('chosung-quiz-speak')),
@@ -108,11 +122,10 @@ void main() {
     );
     await tester.tap(find.byType(SoriSpeakable));
     await tester.pump();
-    expect(
-      stub.spoken,
-      ['사과', '사과'],
-      reason: '뜻 유출 방지 카드에서도 발음은 항상 정답 단어여야 한다',
-    );
+    expect(stub.spoken, [
+      '사과',
+      '사과',
+    ], reason: '뜻 유출 방지 카드에서도 발음은 항상 정답 단어여야 한다');
     // 오답 제출은 1000ms 뒤 다음 문항으로 넘어가는 Future.delayed를 예약한다
     // (chosung_quiz_screen.dart _submit) — 테스트 종료 전에 흘려보내지 않으면
     // "Timer is still pending" 프레임워크 불변식 검사에 걸린다.

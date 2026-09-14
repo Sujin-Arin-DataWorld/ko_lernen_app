@@ -7,6 +7,7 @@ import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
 import '../services/vocab_notebook_parser.dart';
+import '../widgets/display_sized_file_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
@@ -312,15 +313,21 @@ class _BookPreviewImage extends StatelessWidget {
           if (file == null) {
             return _BookPreviewImageFallback(color: surfaces.textDim);
           }
-          return Image.file(
-            file,
-            key: const ValueKey<String>('book-preview-image'),
-            width: double.infinity,
-            height: bookPreviewImageMaxHeight,
-            fit: BoxFit.contain,
-            gaplessPlayback: true,
-            errorBuilder: (_, __, ___) =>
-                _BookPreviewImageFallback(color: surfaces.textDim),
+          return LayoutBuilder(
+            builder: (context, constraints) => Image(
+              image: DisplaySizedFileImage(
+                file,
+                constraints.biggest * MediaQuery.devicePixelRatioOf(context),
+                BoxFit.contain,
+              ),
+              key: const ValueKey<String>('book-preview-image'),
+              width: double.infinity,
+              height: bookPreviewImageMaxHeight,
+              fit: BoxFit.contain,
+              gaplessPlayback: true,
+              errorBuilder: (_, __, ___) =>
+                  _BookPreviewImageFallback(color: surfaces.textDim),
+            ),
           );
         },
       ),

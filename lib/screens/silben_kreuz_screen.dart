@@ -19,6 +19,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -47,7 +48,9 @@ class SilbenKreuzScreen extends StatefulWidget {
 }
 
 class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
-    with ScreenCoachMixin<SilbenKreuzScreen> {
+    with
+        ScreenCoachMixin<SilbenKreuzScreen>,
+        GameResultRecovery<SilbenKreuzScreen> {
   static final _levels = LearnerLevel.values
       .map((level) => level.display)
       .toList(growable: false);
@@ -56,6 +59,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   Map<String, List<SilbenPuzzle>> _byLevel = {};
   bool _loading = true;
   bool _loadFailed = false;
+  int _loadGeneration = 0;
 
   String _level = 'A1';
   int _index = 0;
@@ -79,6 +83,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   // 2026-08-12 실기기). 십자말 격자가 성글어서 그 첫 칸이 우측 상단처럼 보인다.
   SilbenWord? _activeWord;
   bool _solved = false;
+  bool _finishing = false;
+  int _presentation = 0;
   int _wrongTick = 0;
   (int, int)? _wrongCell;
   Timer? _wrongFeedbackTimer;
@@ -135,6 +141,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Future<void> _load() async {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        (_loading && _loadGeneration > 0)) {
+      return;
+    }
+    final generation = ++_loadGeneration;
     if (!_loading) {
       setState(() {
         _loading = true;
@@ -146,7 +158,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     try {
       data = await (widget.puzzleLoader ?? SilbenPuzzleLoader.load)();
     } catch (_) {
-      if (!mounted) {
+      if (!gameResultAcceptsInput || generation != _loadGeneration) {
         return;
       }
       setState(() {
@@ -156,7 +168,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       });
       return;
     }
-    if (!mounted) {
+    if (!gameResultAcceptsInput || generation != _loadGeneration) {
       return;
     }
     setState(() {
@@ -176,7 +188,14 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
   }
 
-  Future<void> _retryLoad() async {
+  Future<void> _retryLoad(int generation) async {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        generation != _loadGeneration ||
+        _loading ||
+        !_loadFailed) {
+      return;
+    }
     if (widget.puzzleLoader == null) {
       SilbenPuzzleLoader.reset();
     }
@@ -184,6 +203,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   void _openLevel(String level) {
+    if (!gameResultAcceptsInput || _finishing) return;
     final list = _byLevel[level] ?? const [];
     if (list.isEmpty) {
       return;
@@ -196,6 +216,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Future<void> _showLevelFilter(AppL10n t) async {
+    final presentation = _presentation;
+    if (!gameResultAcceptsInput || _finishing) return;
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level,
@@ -203,7 +225,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       allLabel: t.filterAll,
       countFor: (level) => (_byLevel[level] ?? const []).length,
     );
-    if (!mounted || next == null) return;
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation ||
+        next == null) {
+      return;
+    }
     _openLevel(next);
   }
 
@@ -220,6 +247,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   void _openPuzzle() {
+    resetGameResult();
+    _presentation++;
+    _finishing = false;
     final p = _puzzles[_index];
     setState(() {
       _puzzle = p;
@@ -280,7 +310,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     return null;
   }
 
-  void _onCellTap((int, int) cell) {
+  void _onCellTap((int, int) cell, int presentation) {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation) {
+      return;
+    }
     if (_solved || _locked.contains(cell)) {
       return;
     }
@@ -291,7 +326,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     });
   }
 
-  void _onClueTap(SilbenWord w) {
+  void _onClueTap(SilbenWord w, int presentation) {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation) {
+      return;
+    }
     for (final c in w.cells) {
       if (!_locked.contains(c)) {
         HapticFeedback.selectionClick();
@@ -311,7 +351,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   String _speechFor(SilbenWord w) =>
       w.exampleKo.isEmpty ? w.answer : '${w.answer}. ${w.exampleKoSpoken}';
 
-  void _onTileTap(int i) {
+  void _onTileTap(int i, int presentation) {
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        presentation != _presentation) {
+      return;
+    }
     if (_solved || _tileUsed[i]) {
       return;
     }
@@ -370,17 +415,21 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     super.dispose();
   }
 
-  void _onSolved() {
-    setState(() => _solved = true);
-    final done = _solvedCount(_level);
-    if (_index + 1 > done) {
-      // ignore: discarded_futures
-      Storage.recordGameBest(_progressKey(_level), _index + 1);
-    }
-    // ignore: discarded_futures
-    Storage.addXp(_xpPerPuzzle);
+  Future<void> _onSolved() async {
+    if (!gameResultAcceptsInput || _finishing || _solved) return;
+    _finishing = true;
+    final outcome = await saveGameResult(
+      gameId: _progressKey(_level),
+      xp: _xpPerPuzzle,
+      score: _index + 1,
+    );
+    if (!mounted || outcome == null) return;
+    setState(() {
+      _solved = true;
+      _finishing = false;
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
+      if (gameResultAcceptsInput && _solved) {
         SoriCelebration.burst(context);
       }
     });
@@ -388,8 +437,14 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   /// 다음 퍼즐 → 없으면 미완료 레벨로 → 전부 끝이면 null.
   VoidCallback? get _nextAction {
+    final presentation = _presentation;
     if (_index + 1 < _puzzles.length) {
       return () {
+        if (!gameResultAcceptsInput ||
+            !_solved ||
+            presentation != _presentation) {
+          return;
+        }
         setState(() => _index++);
         _openPuzzle();
       };
@@ -397,7 +452,15 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     for (final l in _levels) {
       final list = _byLevel[l] ?? const [];
       if (list.isNotEmpty && _solvedCount(l) < list.length) {
-        return () => _openLevel(l);
+        return () {
+          if (!gameResultAcceptsInput ||
+              !_solved ||
+              presentation != _presentation) {
+            return;
+          }
+          _finishing = false;
+          _openLevel(l);
+        };
       }
     }
     return null;
@@ -406,10 +469,14 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final generation = _loadGeneration;
+    final recovery = gameResultRecoveryFrame(t.screenWordleTitle);
+    if (recovery != null) return recovery;
     final s = SoriSurfaces.of(context);
 
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.screenWordleTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -423,11 +490,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
     if (_loadFailed) {
       return SoriStudyFrame(
+        onLeave: retireGameResult,
         title: t.screenWordleTitle,
         padding: EdgeInsets.zero,
         child: AppError(
           message: t.loadErrorTryAgain,
-          onRetry: _retryLoad,
+          onRetry: () => _retryLoad(generation),
           messageLiveRegion: true,
         ),
       );
@@ -435,6 +503,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
     final p = _puzzle;
     return SoriStudyFrame(
+      onLeave: retireGameResult,
       title: t.screenWordleTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
@@ -537,6 +606,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Widget _cellBox((int, int) cell, double size, SoriSurfaces s) {
+    final presentation = _presentation;
     final syllable = _solution[cell];
     if (syllable == null) {
       return SizedBox(width: size, height: size);
@@ -652,17 +722,18 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       enabled: !locked,
       selected: selected,
       label: '${semanticsParts.join('. ')}.',
-      onTap: locked ? null : () => _onCellTap(cell),
+      onTap: locked ? null : () => _onCellTap(cell, presentation),
       excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: locked ? null : () => _onCellTap(cell),
+        onTap: locked ? null : () => _onCellTap(cell, presentation),
         child: box,
       ),
     );
   }
 
   Widget _tilePool(SilbenPuzzle p, SoriSurfaces s) {
+    final presentation = _presentation;
     return Wrap(
       alignment: WrapAlignment.center,
       // 8→12: 음절 타일이 다닥다닥 붙어 낱개 선택지로 안 보였다.
@@ -677,11 +748,11 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               button: true,
               enabled: !_tileUsed[i],
               label: p.pool[i],
-              onTap: _tileUsed[i] ? null : () => _onTileTap(i),
+              onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
               excludeSemantics: true,
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
-                onTap: _tileUsed[i] ? null : () => _onTileTap(i),
+                onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
                 child: Container(
                   width: 46,
                   height: 46,
@@ -747,12 +818,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Widget _clueRow(SilbenWord w, int declaredIndex, SoriSurfaces s) {
+    final presentation = _presentation;
     final done = _spoken.contains(w.answer);
     final active = _activeWord == w;
     final label = done
         ? '${w.answer} · ${w.german}. ${w.exampleDe} ${w.exampleKo}'
         : '${w.german}. ${w.exampleDe} ${w.exampleKo}';
-    void onTap() => _onClueTap(w);
+    void onTap() => _onClueTap(w, presentation);
     return Semantics(
       key: ValueKey('silben-clue-$declaredIndex'),
       button: true,

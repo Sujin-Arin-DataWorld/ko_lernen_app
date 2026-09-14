@@ -1,4 +1,5 @@
 import 'storage_service.dart';
+import 'privacy_consent_service.dart';
 
 /// **AgeGateService** — Alters-Gate für Community-Features (계/Gye).
 ///
@@ -28,9 +29,13 @@ class AgeGateService {
   /// Geschätztes Alter aus Geburtsjahr (jahr-genau). null wenn unbekannt/unplausibel.
   static int? get ageEstimate {
     final y = Storage.birthYear;
-    if (y <= 0) return null;
+    if (y <= 0) {
+      return null;
+    }
     final age = DateTime.now().year - y;
-    if (age < 0 || age > 120) return null; // unplausibel → wie unbekannt
+    if (age < 0 || age > 120) {
+      return null;
+    } // unplausibel → wie unbekannt
     return age;
   }
 
@@ -60,8 +65,14 @@ class AgeGateService {
 
   /// Geburtsjahr speichern (validiert). Gibt `true` zurück wenn gespeichert.
   static Future<bool> saveBirthYear(int year) async {
-    if (!isPlausibleYear(year)) return false;
-    await Storage.setBirthYear(year);
-    return true;
+    if (!isPlausibleYear(year)) {
+      return false;
+    }
+    try {
+      await Storage.setBirthYear(year).timeout(PrivacyConsentService.waitLimit);
+      return Storage.birthYear == year;
+    } on Object {
+      return false;
+    }
   }
 }

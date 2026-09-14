@@ -98,7 +98,7 @@ void main() {
   test(
     'takeCallableAudio blocks quota and does not retry a completed miss',
     () async {
-      TtsService.lastError = null;
+      TtsService.lastError = 'caller owns diagnostics';
       var quotaCalls = 0;
       final quotaError = expectLater(
         TtsService.takeCallableAudio(
@@ -120,9 +120,9 @@ void main() {
       );
       await quotaError;
       expect(quotaCalls, 1);
-      expect(TtsService.lastError, TtsCallableFailure.quotaMessage);
+      expect(TtsService.lastError, 'caller owns diagnostics');
 
-      TtsService.lastError = null;
+      TtsService.lastError = 'caller still owns diagnostics';
       var missCalls = 0;
       final missError = expectLater(
         TtsService.takeCallableAudio(
@@ -144,7 +144,7 @@ void main() {
       );
       await missError;
       expect(missCalls, 1);
-      expect(TtsService.lastError, TtsCallableFailure.audioUnavailableMessage);
+      expect(TtsService.lastError, 'caller still owns diagnostics');
     },
   );
 

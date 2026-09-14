@@ -10,7 +10,15 @@ class ScenarioLoader {
   static const List<LearnerLevel> shardLevels = LearnerLevel.values;
 
   static List<Scenario>? _cached;
+  static Future<List<Scenario>>? _pending;
+  static int _generation = 0;
+  static final Map<LearnerLevel, Future<(List<Scenario>, int)>>
+  _pendingShardParses = {};
   static String? lastError;
+  static String? _fullCorpusError;
+
+  /// Failure of the cached full corpus, independent of later level reads.
+  static String? get fullCorpusError => _fullCorpusError;
 
   static String shardPath(LearnerLevel level) =>
       'assets/data/scenarios_${level.code}.json';
@@ -43,17 +51,20 @@ class ScenarioLoader {
   }
 
   /// Alle Level. Für Korpus-weite Konsumenten (Kurs-Katalog, Wortschatz-Suche).
-  static Future<List<Scenario>> load() async {
+  static Future<List<Scenario>> load() {
     if (_cached != null) {
-      return _cached!;
+      return Future.value(_cached!);
     }
+    return _pending ??= _loadAll(_generation);
+  }
+
+  static Future<List<Scenario>> _loadAll(int generation) async {
     final list = <Scenario>[];
     var skipped = 0;
     final failed = <String>[];
     for (final level in shardLevels) {
       try {
-        final raw = await rootBundle.loadString(shardPath(level));
-        final (parsed, shardSkipped) = await compute(_parseShard, raw);
+        final (parsed, shardSkipped) = await _loadShard(level, generation);
         list.addAll(parsed);
         skipped += shardSkipped;
       } catch (e) {
@@ -61,15 +72,49 @@ class ScenarioLoader {
         failed.add(level.code);
       }
     }
-    _cached = list;
-    if (failed.isNotEmpty) {
-      lastError = 'Szenarien-Shards fehlgeschlagen: ${failed.join(", ")}';
-    } else if (list.isEmpty && skipped > 0) {
-      lastError = 'Keine gültigen Szenarien ($skipped übersprungen).';
-    } else {
-      lastError = null;
+    if (generation == _generation) {
+      _cached = list;
+      _pending = null;
+      if (failed.isNotEmpty) {
+        _fullCorpusError =
+            'Szenarien-Shards fehlgeschlagen: ${failed.join(", ")}';
+      } else if (list.isEmpty && skipped > 0) {
+        _fullCorpusError = 'Keine gültigen Szenarien ($skipped übersprungen).';
+      } else {
+        _fullCorpusError = null;
+      }
+      lastError = _fullCorpusError;
     }
     return list;
+  }
+
+  /// Full-corpus and level readers share the same pending isolate parse.
+  /// A reset separates generations, including readers still finishing a corpus.
+  static Future<(List<Scenario>, int)> _loadShard(
+    LearnerLevel level,
+    int generation,
+  ) {
+    if (generation != _generation) {
+      return _readShard(level, generation);
+    }
+    return _pendingShardParses.putIfAbsent(
+      level,
+      () => _readShard(level, generation),
+    );
+  }
+
+  static Future<(List<Scenario>, int)> _readShard(
+    LearnerLevel level,
+    int generation,
+  ) async {
+    try {
+      final raw = await rootBundle.loadString(shardPath(level));
+      return await compute(_parseShard, raw);
+    } finally {
+      if (generation == _generation) {
+        _pendingShardParses.remove(level);
+      }
+    }
   }
 
   /// Wie viele Level-Shards gleichzeitig im Speicher bleiben dürfen (Spec §6).
@@ -83,30 +128,41 @@ class ScenarioLoader {
 
   /// Lädt nur den Shard eines Levels. Das Regal (Hören) braucht die anderen
   /// fünf Level nicht — bei 3.600 Szenarien wären das 22 MB statt 3,7 MB.
-  static Future<List<Scenario>> loadLevel(LearnerLevel level) async {
-    final full = _cached;
-    if (full != null) {
-      // Voller Korpus liegt schon: kein zweites Lesen derselben Daten.
-      return full.where((s) => s.level == level).toList();
+  static Future<List<Scenario>> loadLevel(LearnerLevel level) =>
+      _loadLevel(level, _generation);
+
+  static Future<List<Scenario>> _loadLevel(
+    LearnerLevel level,
+    int generation,
+  ) async {
+    if (generation == _generation) {
+      final full = _cached;
+      if (full != null) {
+        // Voller Korpus liegt schon: kein zweites Lesen derselben Daten.
+        return full.where((s) => s.level == level).toList();
+      }
+      final resident = _shards[level];
+      if (resident != null) {
+        _touch(level);
+        return resident;
+      }
     }
-    final resident = _shards[level];
-    if (resident != null) {
-      _touch(level);
-      return resident;
-    }
-    final list = <Scenario>[];
+    List<Scenario> list;
+    String? failure;
     try {
-      final raw = await rootBundle.loadString(shardPath(level));
-      final (parsed, _) = await compute(_parseShard, raw);
-      list.addAll(parsed);
-      lastError = null;
+      final (parsed, _) = await _loadShard(level, generation);
+      list = parsed;
     } catch (e) {
-      lastError = 'Szenarien (${level.code}) konnten nicht geladen werden: $e';
+      list = <Scenario>[];
+      failure = 'Szenarien (${level.code}) konnten nicht geladen werden: $e';
     }
-    _shards[level] = list;
-    _touch(level);
-    while (_lru.length > maxResidentShards) {
-      _shards.remove(_lru.removeAt(0));
+    if (generation == _generation) {
+      lastError = failure;
+      _shards[level] = list;
+      _touch(level);
+      while (_lru.length > maxResidentShards) {
+        _shards.remove(_lru.removeAt(0));
+      }
     }
     return list;
   }
@@ -140,11 +196,13 @@ class ScenarioLoader {
     String id, {
     LearnerLevel? preferredLevel,
   }) async {
+    // Keep one generation across every await in this multi-level search.
+    final generation = _generation;
     if (_cached != null) {
       return byId(id);
     }
     if (preferredLevel != null) {
-      final shard = await loadLevel(preferredLevel);
+      final shard = await _loadLevel(preferredLevel, generation);
       for (final s in shard) {
         if (s.id == id) {
           return s;
@@ -155,7 +213,7 @@ class ScenarioLoader {
       if (level == preferredLevel) {
         continue;
       }
-      final shard = await loadLevel(level);
+      final shard = await _loadLevel(level, generation);
       for (final s in shard) {
         if (s.id == id) {
           return s;
@@ -170,9 +228,16 @@ class ScenarioLoader {
 
   /// Cache invalidieren — z.B. nach reset oder Hot-Reload.
   static void reset() {
+    _generation++;
     _cached = null;
+    _pending = null;
+    _pendingShardParses.clear();
     _shards.clear();
     _lru.clear();
     lastError = null;
+    _fullCorpusError = null;
+    for (final level in shardLevels) {
+      rootBundle.evict(shardPath(level));
+    }
   }
 }

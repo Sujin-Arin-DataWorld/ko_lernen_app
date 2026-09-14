@@ -17,6 +17,7 @@ import 'legacy_hanok_v1_importer.dart';
 import 'local_data_lifetime.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
+import 'privacy_consent_service.dart';
 import 'stamp_entitlement_reconciler.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
@@ -68,6 +69,8 @@ class CloudSync {
     CourseMasteryLocalCapture? courseMasteryCapture,
     IlDuWorldStateLocalCapture? ilduWorldStateCapture,
   }) async {
+    PackCompletionStorage.assertSnapshotReady();
+    Storage.assertSrsSnapshotReady();
     final payload = <String, dynamic>{
       'vok': {
         'correct': Storage.vokCorrect,
@@ -252,6 +255,7 @@ class CloudSync {
     })?
     ilduWorldStateMerger,
   }) {
+    PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
     void assertWritable() {
       localLifetime.assertCurrent();
@@ -277,6 +281,7 @@ class CloudSync {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
   }) async {
+    PrivacyConsentService.retireForImport();
     final localLifetime = LocalDataLifetime.capture();
     void assertWritable() {
       localLifetime.assertCurrent();
@@ -337,40 +342,34 @@ class CloudSync {
     })?
     ilduWorldStateMerger,
   }) async {
+    await PackCompletionStorage.retire(beforeRetire: beforeWrite);
+    PackCompletionStorage.assertSnapshotReady();
+    Storage.assertSrsSnapshotReady();
     final vok = _map(data['vok']);
-    final vocabularyWasUninitialized =
-        Storage.vokCorrect == 0 &&
-        Storage.vokWrong == 0 &&
-        Storage.vokSkipped == 0 &&
-        Storage.vokLastIdx == 0 &&
-        Storage.vokSeenIds.isEmpty;
-    await _maxMergeInt(
-      vok['correct'],
-      Storage.vokCorrect,
-      Storage.setVokCorrect,
-      beforeWrite: beforeWrite,
+    final wrongCountJson = _structuredJson(
+      data['wrong_count_json'],
+      hasExpectedShape: (decoded) => decoded is Map,
     );
-    await _maxMergeInt(
-      vok['wrong'],
-      Storage.vokWrong,
-      Storage.setVokWrong,
-      beforeWrite: beforeWrite,
-    );
-    await _maxMergeInt(
-      vok['skipped'],
-      Storage.vokSkipped,
-      Storage.setVokSkipped,
-      beforeWrite: beforeWrite,
-    );
+    final cloudVokCorrect = _nonNegativeInt(vok['correct']);
+    final cloudVokWrong = _nonNegativeInt(vok['wrong']);
+    final cloudVokSkipped = _nonNegativeInt(vok['skipped']);
     final cloudVokCursor = _nonNegativeInt(vok['last_idx']);
-    if (vocabularyWasUninitialized && cloudVokCursor != null) {
-      await _guardedWrite(
-        beforeWrite,
-        () => Storage.setVokLastIdx(cloudVokCursor),
+    final cloudVokSeen = _stringValues(vok['seen_ids']).toList();
+    if (cloudVokCorrect != null ||
+        cloudVokWrong != null ||
+        cloudVokSkipped != null ||
+        cloudVokCursor != null ||
+        cloudVokSeen.isNotEmpty ||
+        wrongCountJson != null) {
+      await Storage.restoreVocabularyProgress(
+        minimumCorrect: cloudVokCorrect,
+        minimumWrong: cloudVokWrong,
+        minimumSkipped: cloudVokSkipped,
+        cursor: cloudVokCursor,
+        seenIds: cloudVokSeen,
+        wrongCountJson: wrongCountJson,
+        assertCurrentWrite: beforeWrite,
       );
-    }
-    for (final id in _stringValues(vok['seen_ids'])) {
-      await _guardedWrite(beforeWrite, () => Storage.addVokSeen(id));
     }
 
     final ch = _map(data['chosung']);
@@ -528,16 +527,6 @@ class CloudSync {
     );
     if (srsJson != null && Storage.srsRawJson.isEmpty) {
       await _guardedWrite(beforeWrite, () => Storage.setSrsRawJson(srsJson));
-    }
-    final wrongCountJson = _structuredJson(
-      data['wrong_count_json'],
-      hasExpectedShape: (decoded) => decoded is Map,
-    );
-    if (wrongCountJson != null && Storage.wrongCountRawJson.isEmpty) {
-      await _guardedWrite(
-        beforeWrite,
-        () => Storage.setWrongCountRawJson(wrongCountJson),
-      );
     }
     final customPacksJson = _portableRestoreJson(
       data['custom_packs_json'],

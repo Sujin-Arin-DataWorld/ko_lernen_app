@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
@@ -46,6 +47,9 @@ Future<void> _answerCorrect(WidgetTester tester) async {
   );
   expect(correct, findsOneWidget);
   tester.widget<QuizChoice>(correct).onSelected!();
+  for (var index = 0; index < 30; index++) {
+    await tester.pump();
+  }
   await tester.pump(const Duration(milliseconds: 900));
 }
 
@@ -103,6 +107,7 @@ void main() {
       level: 'A1',
       words: [_word(1), _word(2), _word(3, boss: true), _word(4, boss: true)],
     );
+    await tester.runAsync(CurriculumCatalog.load);
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,

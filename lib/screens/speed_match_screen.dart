@@ -1,3 +1,5 @@
+import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -45,7 +47,10 @@ class SpeedMatchScreen extends StatefulWidget {
 }
 
 class _SpeedMatchScreenState extends State<SpeedMatchScreen>
-    with WidgetsBindingObserver {
+    with
+        WidgetsBindingObserver,
+        GameResultRecovery<SpeedMatchScreen>,
+        StudyEvidenceRecovery<SpeedMatchScreen> {
   static const _seconds = 60;
   static const _regularSlots = 5;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -75,8 +80,25 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
   bool _running = false;
   bool _lifecyclePaused = false;
   int _slotCount = _regularSlots;
+  int? _pendingSlotCount;
+  int _loadGeneration = 0;
+  int _roundGeneration = 0;
+  int _presentation = 0;
   GameOutcome? _outcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    _loadGeneration++;
+    _roundGeneration++;
+    _presentation++;
+    _pendingSlotCount = null;
+    _timer?.cancel();
+    _timer = null;
+    retireStudyEvidence();
+    retireGameResult();
+  }
 
   @override
   void initState() {
@@ -90,7 +112,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     switch (state) {
       case AppLifecycleState.resumed:
         _lifecyclePaused = false;
-        if (_running && _remaining > 0 && _timer == null) {
+        if (_acceptsInput && _running && _remaining > 0 && _timer == null) {
           _runTimer();
         }
       case AppLifecycleState.inactive:
@@ -112,25 +134,52 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       textScaleFactor: scaler.scale(16) / 16,
     );
     if (_slotCount == nextSlotCount) {
+      _pendingSlotCount = null;
       return;
     }
-    _slotCount = nextSlotCount;
+    if (!_acceptsInput) {
+      if (!_loading && _running && studyEvidenceIsCurrent) {
+        _pendingSlotCount = nextSlotCount;
+      }
+      return;
+    }
+    if (!_loading && !_running) {
+      return;
+    }
     if (_loading) {
+      _slotCount = nextSlotCount;
       return;
     }
 
+    _applySlotCount(nextSlotCount);
+  }
+
+  void _applySlotCount(int nextSlotCount) {
+    _pendingSlotCount = null;
+    _slotCount = nextSlotCount;
     while (_active.length > _slotCount) {
       _pool.add(_active.removeLast());
     }
     while (_active.length < _slotCount && _pool.isNotEmpty) {
       _active.add(_pool.removeLast());
     }
+    _presentation++;
     _selLeftKo = null;
     _wrongRightKo = null;
     _reshuffleRight();
   }
 
+  void _applyPendingSlotCount() {
+    final pending = _pendingSlotCount;
+    if (pending != null && pending != _slotCount) {
+      _applySlotCount(pending);
+    } else {
+      _pendingSlotCount = null;
+    }
+  }
+
   Future<void> _load() async {
+    final generation = ++_loadGeneration;
     if (!_loading) {
       setState(() {
         _loading = true;
@@ -143,7 +192,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
           ? await Future<List<Vocab>>.value(widget.items!)
           : await (widget.vocabLoader ?? DataLoader.loadVocab)();
     } catch (_) {
-      if (!mounted) {
+      if (!_acceptsInput || generation != _loadGeneration) {
         return;
       }
       setState(() {
@@ -152,7 +201,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       });
       return;
     }
-    if (!mounted) {
+    if (!mounted || !_acceptsInput || generation != _loadGeneration) {
       return;
     }
     final defaultLoadFailed =
@@ -192,7 +241,13 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     }
   }
 
-  Future<void> _retryLoad() async {
+  Future<void> _retryLoad(int loadGeneration) async {
+    if (!_acceptsInput ||
+        loadGeneration != _loadGeneration ||
+        _loading ||
+        !_loadFailed) {
+      return;
+    }
     if (widget.items == null && widget.vocabLoader == null) {
       DataLoader.resetVocab();
     }
@@ -204,8 +259,16 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     return _all.where((v) => v.level.toLowerCase() == _level).toList();
   }
 
-  void _startRound() {
+  void _startRound({int? expectedGeneration}) {
+    if (!_acceptsInput ||
+        (expectedGeneration != null &&
+            expectedGeneration != _roundGeneration)) {
+      return;
+    }
     _timer?.cancel();
+    _roundGeneration++;
+    _presentation++;
+    _pendingSlotCount = null;
     final pool = List<Vocab>.of(_filtered())..shuffle(_rng);
     _pool
       ..clear()
@@ -224,6 +287,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       _wrongRightKo = null;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
       _running = _active.length >= 2;
       _reshuffleRight();
     });
@@ -232,10 +296,18 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
 
   void _runTimer() {
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (!mounted || !_running) return;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!identical(timer, _timer)) {
+        timer.cancel();
+        return;
+      }
+      if (!_acceptsInput || !_running) {
+        return;
+      }
       setState(() => _remaining--);
-      if (_remaining <= 0) _end();
+      if (_remaining <= 0) {
+        unawaited(_end(_roundGeneration));
+      }
     });
   }
 
@@ -244,6 +316,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
   }
 
   void _setLevel(String? level) {
+    if (!_acceptsInput) {
+      return;
+    }
     _level = level;
     _startRound();
   }
@@ -252,7 +327,17 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       ? _all.length
       : _all.where((item) => item.level.toLowerCase() == level).length;
 
-  Future<void> _showLevelFilter(AppL10n t) async {
+  Future<void> _showLevelFilter(
+    AppL10n t,
+    int generation,
+    int presentation,
+  ) async {
+    if (!_acceptsInput ||
+        !_running ||
+        generation != _roundGeneration ||
+        presentation != _presentation) {
+      return;
+    }
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level ?? _allLevels,
@@ -260,17 +345,23 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       allLabel: t.clozeLevelAll,
       countFor: _levelCount,
     );
-    if (!mounted || next == null) return;
+    if (!_acceptsInput ||
+        !_running ||
+        generation != _roundGeneration ||
+        presentation != _presentation ||
+        next == null) {
+      return;
+    }
     _setLevel(next == _allLevels ? null : next);
   }
 
-  Widget _levelChrome(AppL10n t) {
+  Widget _levelChrome(AppL10n t, int generation, int presentation) {
     final selected = _level ?? _allLevels;
     final label = _level == null ? t.clozeLevelAll : _level!.toUpperCase();
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SoriChromeRow(
-        onFilterTap: () => _showLevelFilter(t),
+        onFilterTap: () => _showLevelFilter(t, generation, presentation),
         filterSemanticLabel: t.clozeLevelLabel,
         meta: Text(
           '$label · ${_levelCount(selected)}',
@@ -280,23 +371,66 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     );
   }
 
-  void _tapLeft(String ko) {
-    if (!_running) return;
+  void _tapLeft(String ko, int presentation) {
+    if (!_acceptsInput ||
+        !_running ||
+        presentation != _presentation ||
+        !_active.any((word) => word.korean == ko)) {
+      return;
+    }
     HapticFeedback.selectionClick();
-    setState(() => _selLeftKo = ko);
+    setState(() {
+      _presentation++;
+      _selLeftKo = ko;
+      _wrongRightKo = null;
+    });
   }
 
-  void _tapRight(Vocab right) {
-    if (!_running || _selLeftKo == null) return;
+  Future<void> _tapRight(Vocab right, int presentation) async {
+    if (!_acceptsInput ||
+        !_running ||
+        presentation != _presentation ||
+        _selLeftKo == null) {
+      return;
+    }
     final lang = Localizations.localeOf(context).languageCode;
-    final correct = _selLeftKo == right.korean;
+    final selectedKorean = _selLeftKo!;
+    final correct = selectedKorean == right.korean;
+    final generation = _roundGeneration;
+    final judgment = ++_presentation;
+    final firstMiss = !_missedKorean.contains(selectedKorean);
+    if (firstMiss) {
+      final attempt = SrsReviewAttempt(id: selectedKorean, gotIt: correct);
+      final progress = correct
+          ? null
+          : VocabProgressAttempt(wrongCountId: selectedKorean);
+      if (!await saveStudyEvidence(() async {
+        if (!await attempt.save()) {
+          return false;
+        }
+        if (!studyEvidenceIsCurrent) {
+          return false;
+        }
+        return progress?.save() ?? true;
+      })) {
+        return;
+      }
+    }
+    if (!_isCurrentMatch(
+      generation: generation,
+      presentation: judgment,
+      selectedKorean: selectedKorean,
+      right: right,
+    )) {
+      return;
+    }
+    _resumeTimerAfterEvidence();
     if (correct) {
       HapticFeedback.lightImpact();
       _score++;
       _combo++;
-      if (_combo > _bestCombo) _bestCombo = _combo;
-      if (!_missedKorean.contains(right.korean)) {
-        unawaited(Storage.srsReview(right.korean, gotIt: true));
+      if (_combo > _bestCombo) {
+        _bestCombo = _combo;
       }
       if (_combo >= 3) {
         SoundService.combo();
@@ -304,46 +438,90 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         SoundService.correct();
       }
       _active.removeWhere((v) => v.korean == right.korean);
-      if (_pool.isNotEmpty) _active.add(_pool.removeLast());
+      if (_pool.isNotEmpty) {
+        _active.add(_pool.removeLast());
+      }
       setState(() {
         _selLeftKo = null;
         _wrongRightKo = null;
         _reshuffleRight();
+        _applyPendingSlotCount();
       });
-      if (_active.length < 2) _end(); // Vorrat erschöpft → früh beenden
+      if (_active.length < 2) {
+        unawaited(_end(generation)); // Vorrat erschöpft → früh beenden
+      }
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
-      final missedKorean = _selLeftKo!;
-      if (_missedKorean.add(missedKorean)) {
-        unawaited(Storage.srsReview(missedKorean, gotIt: false));
-        unawaited(Storage.incrementWrongCount(missedKorean));
+      if (firstMiss) {
+        _missedKorean.add(selectedKorean);
       }
-      setState(() => _wrongRightKo = right.translationFor(lang));
+      setState(() {
+        _applyPendingSlotCount();
+        _wrongRightKo = right.translationFor(lang);
+      });
+      final feedbackPresentation = _presentation;
       Future.delayed(const Duration(milliseconds: 400), () {
-        if (mounted) setState(() => _wrongRightKo = null);
+        if (_acceptsInput &&
+            generation == _roundGeneration &&
+            feedbackPresentation == _presentation) {
+          setState(() => _wrongRightKo = null);
+        }
       });
     }
   }
 
-  Future<void> _end() async {
-    if (!_running) return;
+  bool _isCurrentMatch({
+    required int generation,
+    required int presentation,
+    required String selectedKorean,
+    required Vocab right,
+  }) =>
+      _acceptsInput &&
+      _running &&
+      generation == _roundGeneration &&
+      presentation == _presentation &&
+      _selLeftKo == selectedKorean &&
+      _active.any((word) => word.korean == selectedKorean) &&
+      _rightOrder.any((word) => identical(word, right));
+
+  void _resumeTimerAfterEvidence() {
+    if (_acceptsInput &&
+        _running &&
+        !_lifecyclePaused &&
+        _remaining > 0 &&
+        _timer == null) {
+      _runTimer();
+    }
+  }
+
+  Future<void> _end(int generation) async {
+    if (!_acceptsInput || !_running || generation != _roundGeneration) {
+      return;
+    }
     _timer?.cancel();
     _timer = null;
     _running = false;
+
+    HapticFeedback.heavyImpact();
+    final outcome = await saveGameResult(
+      gameId: 'speed_match',
+      xp: _score * 3,
+      score: _score, // höher = besser
+    );
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        generation != _roundGeneration ||
+        outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.speedMatch(
         contentLabel: AppL10n.of(context).speedMatchTitle,
         level: _level,
         score: _score,
       ),
-    );
-    HapticFeedback.heavyImpact();
-    final outcome = await recordGameResult(
-      gameId: 'speed_match',
-      xp: _score * 3,
-      score: _score, // höher = besser
     );
     if (mounted) setState(() => _outcome = outcome);
   }
@@ -357,9 +535,19 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
 
   @override
   Widget build(BuildContext context) {
+    final title = AppL10n.of(context).speedMatchTitle;
+    final recovery =
+        studyEvidenceRecoveryFrame(title) ?? gameResultRecoveryFrame(title);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
+    final loadGeneration = _loadGeneration;
+    final roundGeneration = _roundGeneration;
+    final presentation = _presentation;
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.speedMatchTitle,
         padding: EdgeInsets.zero,
         child: Semantics(
@@ -372,11 +560,12 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     }
     if (_loadFailed) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.speedMatchTitle,
         padding: EdgeInsets.zero,
         child: AppError(
           message: t.loadErrorTryAgain,
-          onRetry: _retryLoad,
+          onRetry: () => _retryLoad(loadGeneration),
           messageLiveRegion: true,
         ),
       );
@@ -385,6 +574,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       final canUseAllLevels =
           widget.items == null && _level != null && _all.length >= 2;
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.speedMatchTitle,
         child: Center(
           child: SoriEmptyState(
@@ -393,13 +583,25 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
             title: t.speedMatchTitle,
             body: t.speedMatchEmptyBody,
             ctaLabel: canUseAllLevels ? t.speedMatchAllLevels : null,
-            onCta: canUseAllLevels ? () => _setLevel(null) : null,
+            onCta: canUseAllLevels
+                ? () {
+                    if (_acceptsInput &&
+                        loadGeneration == _loadGeneration &&
+                        roundGeneration == _roundGeneration &&
+                        presentation == _presentation &&
+                        !_running &&
+                        _outcome == null &&
+                        _active.length < 2) {
+                      _setLevel(null);
+                    }
+                  }
+                : null,
           ),
         ),
       );
     }
     if (!_running && _outcome != null) {
-      return _buildDone(t);
+      return _buildDone(t, roundGeneration);
     }
 
     final lang = Localizations.localeOf(context).languageCode;
@@ -408,6 +610,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     final compact = _slotCount < _regularSlots;
 
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       title: t.speedMatchTitle,
       homeEscape: SoriHomeEscape(confirmWhen: _running),
       padding: EdgeInsets.symmetric(
@@ -419,7 +622,8 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.items == null) _levelChrome(t),
+            if (widget.items == null)
+              _levelChrome(t, roundGeneration, presentation),
             Wrap(
               alignment: WrapAlignment.spaceBetween,
               crossAxisAlignment: WrapCrossAlignment.center,
@@ -512,7 +716,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                                 expandForText: expandForText,
                                 selected: _selLeftKo == v.korean,
                                 accent: SoriColors.primary,
-                                onTap: () => _tapLeft(v.korean),
+                                onTap: () => _tapLeft(v.korean, presentation),
                               ),
                           ],
                         ),
@@ -529,7 +733,8 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                                 expandForText: expandForText,
                                 wrong: _wrongRightKo == v.translationFor(lang),
                                 accent: SoriColors.accent,
-                                onTap: () => _tapRight(v),
+                                onTap: () =>
+                                    unawaited(_tapRight(v, presentation)),
                               ),
                           ],
                         ),
@@ -595,8 +800,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     return false;
   }
 
-  Widget _buildDone(AppL10n t) {
+  Widget _buildDone(AppL10n t, int generation) {
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       automaticallyImplyLeading: false,
       title: t.speedMatchTitle,
       padding: EdgeInsets.zero,
@@ -623,13 +829,27 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                 variant: SoriButtonVariant.filled,
                 accent: SoriColors.tiger,
                 fullWidth: true,
-                onTap: _startRound,
+                onTap: () {
+                  if (_acceptsInput &&
+                      generation == _roundGeneration &&
+                      !_running &&
+                      _outcome != null) {
+                    _startRound(expectedGeneration: generation);
+                  }
+                },
               ),
               SoriButton(
                 label: t.btnClose,
                 variant: SoriButtonVariant.ghost,
                 fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
+                onTap: () {
+                  if (_acceptsInput &&
+                      generation == _roundGeneration &&
+                      !_running &&
+                      _outcome != null) {
+                    Navigator.of(context).maybePop();
+                  }
+                },
               ),
             ],
           ),

@@ -4,13 +4,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
+
+import 'support/reward_preferences_platform.dart';
 
 Vocab _v(String ko, String de) => Vocab(
   id: 'hc_$ko',
@@ -41,11 +45,21 @@ Future<void> _pump(WidgetTester tester, List<Vocab> deck) async {
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  final original = SharedPreferencesStorePlatform.instance;
+  late RewardPreferencesPlatform platform;
 
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
+    platform = RewardPreferencesPlatform();
+    SharedPreferencesStorePlatform.instance = platform;
     await Storage.init();
+  });
+
+  tearDown(() {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    SharedPreferencesStorePlatform.instance = original;
   });
 
   testWidgets('renders translation prompt + 4 options incl. the correct one', (
@@ -103,5 +117,35 @@ void main() {
     expect(find.text(t.hardQuizScore(1, 1)), findsOneWidget);
     expect(Storage.wrongCountOf('하다'), 0);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('wrong-count rejection blocks feedback and retries one answer', (
+    tester,
+  ) async {
+    await _pump(tester, [_v('하다', 'machen')]);
+    platform.rejectKey = 'kl_wrong_count_v1';
+    final wrong = tester
+        .widgetList<QuizChoice>(find.byType(QuizChoice))
+        .firstWhere((choice) => !choice.isCorrect);
+    wrong.onSelected!();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.byType(AppError), findsOneWidget);
+    expect(Storage.srsCard('하다')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('하다'), 0);
+
+    platform.rejectKey = null;
+    final retry = tester.widget<AppError>(find.byType(AppError)).onRetry!;
+    retry();
+    retry();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.byType(AppError), findsNothing);
+    expect(Storage.srsCard('하다')?.reviewCount, 1);
+    expect(Storage.wrongCountOf('하다'), 1);
+    expect(platform.writes['kl_wrong_count_v1'], 2);
+    await tester.pump(const Duration(milliseconds: 900));
   });
 }

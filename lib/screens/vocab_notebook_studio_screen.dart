@@ -358,12 +358,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
         ),
         const SizedBox(height: Spacing.sm),
         if (_loading)
-          Semantics(
-            liveRegion: true,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: Spacing.lg),
-              child: AppLoading(message: t.vocabNotebookStudioLoading),
-            ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: Spacing.lg),
+            child: AppLoading(message: t.vocabNotebookStudioLoading),
           )
         else ...<Widget>[
           if (_loadFailed) ...<Widget>[

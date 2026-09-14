@@ -1,3 +1,6 @@
+import 'vocab_pack_result_screen.dart';
+import '../services/pack_completion_record.dart';
+import '../widgets/sori/pack_completion_recovery_banner.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -35,6 +38,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
@@ -46,6 +50,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -157,8 +162,11 @@ bool shouldOfferHardWordPractice(Iterable<String> sessionMissedWordIds) {
       Storage.frequentlyMissedIds(ids).isNotEmpty;
 }
 
-class _VocabPackScreenState extends State<VocabPackScreen> {
+class _VocabPackScreenState extends State<VocabPackScreen>
+    with StudyEvidenceRecovery<VocabPackScreen> {
   bool _loading = true;
+  int _presentation = 0;
+  int _loadGeneration = 0;
   String? _error;
   VocabPack? _pack;
   bool _learningStartRecorded = false;
@@ -225,11 +233,30 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   bool _finishing = false;
   String? _finishError;
   Timer? _advanceTimer;
+  late final ConfirmedChoiceActionOwner _choiceOwner;
+  int _likeSourceGeneration = 0;
+  String? _loadedLikePackId;
+  CoursePracticeContext? _loadedLikeCourseContext;
+  Future<VocabPack?> Function(String packId)? _loadedLikePackLoader;
+
+  bool get _likeSourceIsCurrent =>
+      _pack != null &&
+      _loadedLikePackId == widget.packId &&
+      _loadedLikeCourseContext == widget.courseContext &&
+      identical(_loadedLikePackLoader, widget.packLoader);
+
+  @override
+  void retireStudyEvidence() {
+    _cancelAdvanceTimer();
+    _persistLearnProgress();
+    super.retireStudyEvidence();
+  }
 
   @override
   void dispose() {
+    PackCompletionStorage.status.removeListener(_completionChanged);
+    _choiceOwner.dispose();
     _cancelAdvanceTimer();
-    _persistLearnProgress();
     _abandonTracker.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
@@ -238,6 +265,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          studyEvidenceIsCurrent &&
+          _likeSourceIsCurrent &&
+          (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (studyEvidenceIsCurrent) {
+          setState(() {});
+        }
+      },
+    );
     _featureCoachComplete = Storage.tutVocabPackSeen;
     _abandonTracker = QuestAbandonTracker(
       questType: 'vocab_pack',
@@ -245,12 +283,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       lastStepReached: () => '${_stage.name}_$_qIdx',
     );
     _finishCoordinator = VocabPackFinishCoordinator(
-      widget.finishOperations ?? const DefaultVocabPackFinishOperations(),
+      widget.finishOperations ?? DefaultVocabPackFinishOperations(),
     );
+    DefaultVocabPackFinishOperations.initializeRecovery();
+    PackCompletionStorage.status.addListener(_completionChanged);
     _load();
     // 첫 진입 시 3단계 코치마크 1회 표시.
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (!mounted) {
+      if (!mounted ||
+          PackCompletionStorage.record != null ||
+          PackCompletionStorage.pending) {
         return;
       }
       if (!Storage.tutVocabPackSeen) {
@@ -263,7 +305,50 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     });
   }
 
+  @override
+  void didUpdateWidget(covariant VocabPackScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.packId != widget.packId ||
+        oldWidget.courseContext != widget.courseContext ||
+        !identical(oldWidget.packLoader, widget.packLoader)) {
+      _likeSourceGeneration++;
+      _choiceOwner.replaceSource();
+      _presentation++;
+      _stage = _Stage.learn;
+      _qIdx = 0;
+      unawaited(_load());
+    }
+  }
+
+  bool _recoveryResultPresented = false;
+  PackCompletionRecord? _presentedRecoveredResult;
+
+  void _completionChanged() {
+    if (PackCompletionStorage.result != null) {
+      _recoveryResultPresented = true;
+    }
+    if (mounted) {
+      setState(() {});
+      if (_pack == null &&
+          !_recoveryResultPresented &&
+          !PackCompletionStorage.pending &&
+          PackCompletionStorage.result == null) {
+        unawaited(_load());
+      }
+    }
+  }
+
   Future<void> _load() async {
+    if (PackCompletionStorage.pending || PackCompletionStorage.result != null) {
+      _loading = false;
+      return;
+    }
+    if (!studyEvidenceAcceptsInput ||
+        _finishing ||
+        (_loadGeneration > 0 && _error == null && _likeSourceIsCurrent)) {
+      return;
+    }
+    final generation = ++_loadGeneration;
     setState(() {
       _loading = true;
       _error = null;
@@ -273,7 +358,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       final pack = providedPackLoader != null
           ? await providedPackLoader(widget.packId)
           : await VocabPackService.findById(widget.packId);
-      if (!mounted) return;
+      if (!mounted ||
+          !studyEvidenceAcceptsInput ||
+          generation != _loadGeneration) {
+        return;
+      }
       if (pack == null) {
         setState(() {
           _loading = false;
@@ -290,7 +379,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       final catalog = courseContext?.isFor(CurriculumContentKind.vocab) == true
           ? await CurriculumCatalog.load()
           : null;
-      if (!mounted) return;
+      if (!mounted ||
+          !studyEvidenceAcceptsInput ||
+          generation != _loadGeneration) {
+        return;
+      }
       final languageCode = Localizations.localeOf(context).languageCode;
       final pool = <Vocab>[
         ...pack.words,
@@ -324,6 +417,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 .courseUnitFor(packCourseContext.courseUnitId)
                 ?.title
                 .pick(languageCode);
+      if (courseContext != null && missionStep == null) {
+        setState(() {
+          _loading = false;
+          _error = AppL10n.of(context).courseCheckpointSaveError;
+          _missionStep = null;
+          _missionTitle = null;
+        });
+        return;
+      }
       if (!_learningStartRecorded) {
         _learningStartRecorded = true;
         Analytics.lessonStarted(
@@ -332,6 +434,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           level: pack.level.toUpperCase(),
         );
       }
+      _loadedLikePackId = widget.packId;
+      _loadedLikeCourseContext = widget.courseContext;
+      _loadedLikePackLoader = widget.packLoader;
       setState(() {
         _pack = pack;
         _siblingPacks = siblings;
@@ -355,7 +460,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       });
       _prepareNextQuestion(); // pre-warm choice cache for stage 1 → 2 transition
     } catch (_) {
-      if (!mounted) return;
+      if (!studyEvidenceAcceptsInput || generation != _loadGeneration) return;
       setState(() {
         _loading = false;
         _error = AppL10n.of(context).loadErrorTryAgain;
@@ -380,44 +485,76 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   // ── Stage 1 (Learn) ────────────────────────────────────────────────
 
-  void _learnGotIt() {
-    if (!_learnCardRevealed) {
+  Future<void> _learnGotIt(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        !_learnCardRevealed) {
       return;
     }
     final cur = _currentLearn;
     if (cur == null) return;
-    HapticFeedback.lightImpact();
-    Storage.addVokSeen(cur.korean);
-    if (_learnSrsRated.add(cur.korean)) {
-      // 처음 몰랐다가 재출제에서 맞힌 단어는 이 분기에 안 들어온다 —
-      // 최초의 정직한 "몰랐다" 평가가 유지된다.
-      _recordSessionSrs(cur.korean, gotIt: true);
+    final firstSrsRating = !_learnSrsRated.contains(cur.korean);
+    final progress = VocabProgressAttempt(seenId: cur.korean);
+    if (!await _recordSessionSrs(
+      cur.korean,
+      gotIt: true,
+      progress: progress,
+      saveSrs: firstSrsRating,
+    )) {
+      return;
     }
+    if (firstSrsRating) {
+      // 처음 몰랐다가 재출제에서 맞힌 단어는 SRS를 다시 덮지 않는다.
+      _learnSrsRated.add(cur.korean);
+    }
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
+    HapticFeedback.lightImpact();
     _learnQueue?.markKnown();
     _advanceLearn();
   }
 
-  void _learnDontKnow() {
-    if (!_learnCardRevealed) {
+  Future<void> _learnDontKnow(int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        !_learnCardRevealed) {
       return;
     }
     final cur = _currentLearn;
     if (cur == null) return;
-    HapticFeedback.mediumImpact();
-    Storage.addVokSeen(cur.korean);
-    if (_learnSrsRated.add(cur.korean)) {
-      _recordSessionSrs(cur.korean, gotIt: false);
+    final firstSrsRating = !_learnSrsRated.contains(cur.korean);
+    final progress = VocabProgressAttempt(
+      seenId: cur.korean,
+      wrongCountId: cur.korean,
+    );
+    if (!await _recordSessionSrs(
+      cur.korean,
+      gotIt: false,
+      progress: progress,
+      saveSrs: firstSrsRating,
+    )) {
+      return;
     }
+    if (firstSrsRating) {
+      _learnSrsRated.add(cur.korean);
+    }
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
+    HapticFeedback.mediumImpact();
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
     _sessionMissedWordIds.add(cur.korean);
-    // ignore: discarded_futures
-    Storage.incrementWrongCount(cur.korean);
     _learnQueue?.markUnknown();
     _advanceLearn();
   }
 
   void _advanceLearn() {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
+    _presentation++;
     final pack = _pack;
     if (pack == null) return;
     final queue = _learnQueue;
@@ -461,13 +598,21 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   /// 여러 번 불러도 멱등 — 세션당 완주 시 1회(_advanceLearn) + 이탈 시 1회
   /// (dispose) = 최대 2회.
   void _persistLearnProgress() {
+    if (!studyEvidenceMayFlushAcceptedProgress ||
+        _finishRequest != null ||
+        PackCompletionStorage.admissionClosed) {
+      return;
+    }
     final pack = _pack;
     if (pack == null) return;
     // ignore: discarded_futures
     PackProgressService.recordWordLearned(pack);
   }
 
-  void _toggleLearnFlip() {
+  void _toggleLearnFlip(int presentation) {
+    if (!studyEvidenceAcceptsInput || presentation != _presentation) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() {
       if (!_flipped) {
@@ -499,18 +644,26 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     );
   }
 
-  Future<void> _likeCurrent() async {
-    final cur = _currentLearn;
-    if (cur == null) {
+  Future<void> _likeCurrent(
+    Vocab cur,
+    int presentation,
+    int sourceGeneration,
+  ) async {
+    if (presentation != _presentation ||
+        sourceGeneration != _likeSourceGeneration ||
+        !identical(cur, _currentLearn) ||
+        !studyEvidenceAcceptsInput ||
+        !_likeSourceIsCurrent) {
       return;
     }
-    await LikedContentService.toggle(
-      kind: LikedContentService.vocab,
-      id: cur.korean,
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: cur.korean,
+        kind: LikedContentService.vocab,
+        id: cur.korean,
+      ),
     );
-    if (mounted) {
-      setState(() {});
-    }
   }
 
   Future<void> _shareCurrent() async {
@@ -528,7 +681,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. 아직 보지 않은 카드가 있으면
   /// 그 뒤로 보내고, 모든 고유 카드를 한 번씩 확인한 시점에는 평가로 간다.
-  void _learnDefer() {
+  void _learnDefer(int presentation) {
+    if (!studyEvidenceAcceptsInput || presentation != _presentation) {
+      return;
+    }
     final queue = _learnQueue;
     if (queue == null || queue.isDone) {
       return;
@@ -538,25 +694,42 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     _advanceLearn();
   }
 
-  void _recordSessionSrs(String korean, {required bool gotIt}) {
+  Future<bool> _recordSessionSrs(
+    String korean, {
+    required bool gotIt,
+    required VocabProgressAttempt progress,
+    CourseContentAttempt? courseAttempt,
+    bool saveSrs = true,
+  }) async {
     final session = _recallSession;
-    if (session == null) {
-      return;
-    }
-    final action = gotIt
-        ? session.recordPositiveFor(
-            expectedPackId: session.packId,
+    final attempt = session == null || !saveSrs
+        ? null
+        : session.evidenceAttempt(
+            expectedPackId: widget.packId,
             wordId: korean,
-          )
-        : session.recordNegativeFor(
-            expectedPackId: session.packId,
-            wordId: korean,
+            gotIt: gotIt,
           );
-    if (!action.writesSrs) {
-      return;
-    }
-    // ignore: discarded_futures
-    Storage.srsReview(korean, gotIt: action.gotIt!);
+    return saveStudyEvidence(() async {
+      if (attempt != null && !await attempt.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent) {
+        return false;
+      }
+      if (!await progress.save()) {
+        return false;
+      }
+      if (!studyEvidenceIsCurrent) {
+        return false;
+      }
+      if (courseAttempt != null) {
+        await courseAttempt.save();
+        if (!studyEvidenceIsCurrent) {
+          return false;
+        }
+      }
+      return true;
+    });
   }
 
   // ── Stage 2 / 3 (Quiz / Boss) ──────────────────────────────────────
@@ -581,6 +754,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _enterQuiz() {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_quizQuestions.isEmpty) {
@@ -623,6 +799,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Future<void> _enterBoss() async {
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_bossQuestions.isEmpty) {
@@ -667,6 +846,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   /// 4지선다 옵션 생성 — 정답 + 같은 품사·레벨 우선 3 distractor
   /// (계층 폴백은 `quiz_distractor_service.dart`).
   void _prepareNextQuestion() {
+    _presentation++;
     final cur = _currentQuiz;
     if (cur == null) return;
     final lang = Localizations.localeOf(context).languageCode;
@@ -717,8 +897,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     SoriSpeech.speak(cur.korean);
   }
 
-  void _selectChoice(int i) {
-    if (_choiceLocked || _finishing) return;
+  Future<void> _selectChoice(int i, int presentation) async {
+    if (!studyEvidenceAcceptsInput ||
+        presentation != _presentation ||
+        _choiceLocked ||
+        _finishing) {
+      return;
+    }
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) return;
@@ -729,17 +914,29 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _choiceLocked = true;
       _hasSubmittedAssessment = true;
     });
-    // Only scored recognition-assessment stages become course evidence. The
-    // earlier card self-rating stays in SRS only, so a tap cannot unlock a
-    // mission. `vocabularyRecall` is a legacy enum name, not a claim that the
-    // four-choice Boss is independent recall.
-    // ignore: discarded_futures
-    CourseActivityReporter.recordContentAttempt(
-      CurriculumContentKind.vocab,
-      cur.id,
-      isCorrect,
+    final progress = VocabProgressAttempt(
+      seenId: isCorrect ? cur.korean : null,
+      wrongCountId: isCorrect ? null : cur.korean,
+    );
+    final courseAttempt = CourseContentAttempt(
+      kind: CurriculumContentKind.vocab,
+      contentId: cur.id,
+      isCorrect: isCorrect,
+      // Course-routed content must fail closed when its graph edge is invalid.
+      // Global per-answer observations intentionally keep no mission context.
+      isApplicable: _missionStep == null ? null : true,
       errorReason: isCorrect ? null : MasteryErrorReason.vocabularyRecall,
     );
+    if (!await _recordSessionSrs(
+          cur.korean,
+          gotIt: isCorrect,
+          progress: progress,
+          courseAttempt: courseAttempt,
+        ) ||
+        !mounted ||
+        !studyEvidenceAcceptsInput) {
+      return;
+    }
     if (isCorrect) {
       // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
       HapticFeedback.lightImpact();
@@ -758,12 +955,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       }
       if (_stage == _Stage.quiz) {
         _quizCorrect++;
-        Storage.addVokSeen(cur.korean);
-        _recordSessionSrs(cur.korean, gotIt: true);
       } else {
         _bossCorrect++;
-        Storage.addVokSeen(cur.korean);
-        _recordSessionSrs(cur.korean, gotIt: true);
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
@@ -771,9 +964,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       SoundService.wrong();
       _combo = 0;
       _sessionMissedWordIds.add(cur.korean);
-      _recordSessionSrs(cur.korean, gotIt: false);
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(cur.korean);
     }
     // 짧은 피드백 후 다음 질문
     _scheduleAdvance();
@@ -781,9 +971,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   void _scheduleAdvance() {
     _cancelAdvanceTimer();
+    final presentation = _presentation;
     final createTimer = widget.advanceTimerFactory ?? Timer.new;
     _advanceTimer = createTimer(const Duration(milliseconds: 850), () {
-      if (!mounted || _finishing) {
+      if (!studyEvidenceAcceptsInput ||
+          presentation != _presentation ||
+          _finishing) {
         return;
       }
       unawaited(_advanceQuiz());
@@ -797,7 +990,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   Future<void> _advanceQuiz() async {
     _cancelAdvanceTimer();
-    if (!mounted) {
+    if (!studyEvidenceAcceptsInput || !_choiceLocked) {
       return;
     }
     final isQuiz = _stage == _Stage.quiz;
@@ -842,7 +1035,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     required int bossTotal,
   }) async {
     _cancelAdvanceTimer();
-    if (_finishing) {
+    if (!studyEvidenceAcceptsInput || _finishing) {
       return;
     }
     final pack = _pack;
@@ -888,6 +1081,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       return;
     }
 
+    if (!studyEvidenceAcceptsInput) {
+      return;
+    }
     _abandonTracker.markCompleted();
     unawaited(_recordFinishAnalytics(request, outcome));
     if (!mounted) {
@@ -895,21 +1091,26 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
     Navigator.of(context).pushReplacementNamed(
       '/vocab/result',
-      arguments: vocabPackResultArguments(
-        packId: pack.id,
-        packLevel: pack.level,
-        bossAccuracy: request.bossAccuracy,
-        bossCorrect: request.bossCorrect,
-        bossTotal: request.bossTotal,
-        quizCorrect: request.quizCorrect,
-        quizTotal: request.quizTotal,
-        justCleared: outcome.justCleared,
-        nextUnlockedPackId: outcome.nextUnlockedPackId,
-        feedbackCompletion: feedbackCompletion,
-        courseContext: request.courseContext,
-        showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
-        recallSession: _recallSession,
-      ),
+      arguments: <String, dynamic>{
+        ...vocabPackResultArguments(
+          packId: pack.id,
+          packLevel: pack.level,
+          bossAccuracy: request.bossAccuracy,
+          bossCorrect: request.bossCorrect,
+          bossTotal: request.bossTotal,
+          quizCorrect: request.quizCorrect,
+          quizTotal: request.quizTotal,
+          justCleared: outcome.justCleared,
+          nextUnlockedPackId: outcome.nextUnlockedPackId,
+          feedbackCompletion: feedbackCompletion,
+          courseContext: request.courseContext,
+          showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
+          recallSession: _recallSession,
+        ),
+        if (PackCompletionStorage.result?.id == request.completionId)
+          'durableCompletionId': request.completionId,
+        'originalXp': request.xpAward,
+      },
     );
   }
 
@@ -973,10 +1174,27 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_finishRequest == null) {
+      // Optional practice keeps this route underneath it. Acknowledgement may
+      // remove the journal, but the child's current owner/retirement guards
+      // still govern this already-presented result until the route is left.
+      final result = _presentedRecoveredResult ??= PackCompletionStorage.result;
+      if (result != null) {
+        return VocabPackResultScreen.fromRecovered(result);
+      }
+      if (PackCompletionStorage.pending) {
+        return const PackCompletionRecoveryScreen();
+      }
+    }
     final t = AppL10n.of(context);
-
+    final recovery = studyEvidenceRecoveryFrame(t.vocabPackPlayTitle);
+    if (recovery != null) {
+      return recovery;
+    }
+    final generation = _loadGeneration;
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackPlayTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
@@ -984,9 +1202,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
     if (_error != null || _pack == null) {
       return SoriStudyFrame(
+        onLeave: retireStudyEvidence,
         title: t.vocabPackPlayTitle,
         padding: EdgeInsets.zero,
-        child: AppError(message: _error ?? 'unknown error', onRetry: _load),
+        child: AppError(
+          message: _error ?? 'unknown error',
+          onRetry: () {
+            if (generation == _loadGeneration && !_loading && _error != null) {
+              _load();
+            }
+          },
+        ),
       );
     }
 
@@ -1001,6 +1227,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final Vocab? addable = _currentQuiz;
 
     return SoriStudyFrame(
+      onLeave: retireStudyEvidence,
       title: title,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAssessment),
       actions: [
@@ -1068,6 +1295,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Widget _buildLearn(AppL10n t) {
+    final presentation = _presentation;
+    final likeSourceGeneration = _likeSourceGeneration;
     final cur = _currentLearn;
     if (cur == null) {
       // 빈 팩 edge case → 바로 quiz/boss
@@ -1111,14 +1340,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 judgmentsEnabled: _learnCardRevealed,
                 onBlockedJudgment: () => _flipHintTrigger.value++,
                 flipHintTrigger: _flipHintTrigger,
-                onNext: _learnGotIt,
-                onHard: _learnDontKnow,
-                onSkip: _learnDefer,
-                onLike: _likeCurrent,
+                onNext: () => _learnGotIt(presentation),
+                onHard: () => _learnDontKnow(presentation),
+                onSkip: () => _learnDefer(presentation),
+                onLike: () =>
+                    _likeCurrent(cur, presentation, likeSourceGeneration),
                 onBookmark: _saveCurrent,
                 bookmarkKey: cur.korean,
                 onShare: _shareCurrent,
-                onFlip: _toggleLearnFlip,
+                onFlip: () => _toggleLearnFlip(presentation),
                 liked: LikedContentService.isLiked(
                   kind: LikedContentService.vocab,
                   id: cur.korean,
@@ -1149,7 +1379,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       return FlipCard(
                         key: ValueKey('learn-$_learnServe'),
                         flipped: _flipped,
-                        onTap: _toggleLearnFlip,
+                        onTap: () => _toggleLearnFlip(presentation),
                         front: _FlipFront(
                           v: cur,
                           h: h,
@@ -1203,6 +1433,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Widget _buildQuiz(AppL10n t) {
+    final presentation = _presentation;
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) {
@@ -1314,7 +1545,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                               minHeight: 60,
                               onSelected: _choiceLocked || _finishing
                                   ? null
-                                  : () => _selectChoice(i),
+                                  : () => _selectChoice(i, presentation),
                             ),
                           ),
                       ],

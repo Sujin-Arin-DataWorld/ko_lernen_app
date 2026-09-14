@@ -1,9 +1,12 @@
+import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../data/cloze_topic_groups.dart';
 import '../l10n/cloze_topic_group_localizations.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/course_practice_context.dart';
@@ -59,7 +62,10 @@ class ClozeGameScreen extends StatefulWidget {
   State<ClozeGameScreen> createState() => _ClozeGameScreenState();
 }
 
-class _ClozeGameScreenState extends State<ClozeGameScreen> {
+class _ClozeGameScreenState extends State<ClozeGameScreen>
+    with
+        GameResultRecovery<ClozeGameScreen>,
+        StudyEvidenceRecovery<ClozeGameScreen> {
   static const _roundSize = 10;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
   static const _allLevels = '';
@@ -71,6 +77,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   String? _level; // null = alle
   ClozeTopicGroupId? _group; // null = all topic groups
   int _roundId = 0;
+  int _presentation = 0;
+  int _loadGeneration = 0;
 
   List<ClozeItem> _round = const [];
   int _idx = 0;
@@ -82,7 +90,28 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   bool _retried = false;
   GameOutcome? _outcome;
   CoursePracticeContext? _missionContext;
+  Set<String>? _linkedCourseClozeIds;
+  bool _courseRouteRejected = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
+  bool _isCurrentQuestion(int presentation, ClozeItem item) =>
+      _acceptsInput && _canFlushQuestion(presentation, item);
+
+  bool _canFlushQuestion(int presentation, ClozeItem item) =>
+      mounted &&
+      studyEvidenceIsCurrent &&
+      gameResultAcceptsInput &&
+      presentation == _presentation &&
+      _idx >= 0 &&
+      _idx < _round.length &&
+      identical(_round[_idx], item);
 
   @override
   void initState() {
@@ -91,6 +120,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   }
 
   Future<void> _load() async {
+    final loadGeneration = ++_loadGeneration;
+    ++_presentation;
     final loaded = widget.items ?? await ClozeLoader.load();
     final all = List<ClozeItem>.of(loaded);
     // An injected item list is a deterministic test fixture, not a partial
@@ -104,7 +135,12 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final catalog = courseUnitId == null
         ? null
         : await CurriculumCatalog.load();
-    if (!mounted) return;
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        !gameResultAcceptsInput ||
+        loadGeneration != _loadGeneration) {
+      return;
+    }
     // Startlevel = Nutzerlevel, falls es dafür Items gibt; sonst alle.
     final user = Storage.browseLevelCode ?? Storage.placementLevelCode;
     final start = (user != null && all.any((c) => c.level == user))
@@ -135,11 +171,29 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 )
         ? null
         : requestedContext;
+    if (requestedContext != null && missionContext == null) {
+      setState(() {
+        _loading = false;
+        _courseRouteRejected = true;
+        _missionContext = null;
+        _linkedCourseClozeIds = null;
+      });
+      return;
+    }
     setState(() {
       _all = scoped;
       _vocabByKo = {for (final v in vocab) v.korean: v};
       _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
+      _linkedCourseClozeIds = widget.items != null && courseUnitId == null
+          ? const <String>{}
+          : catalog?.contentLinks
+                .where(
+                  (link) => link.contentKind == CurriculumContentKind.cloze,
+                )
+                .map((link) => link.contentId)
+                .toSet();
+      _courseRouteRejected = false;
       _loading = false;
     });
     _newRound();
@@ -149,7 +203,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     }
   }
 
-  void _newRound() {
+  void _newRound([int? expectedPresentation]) {
+    if (expectedPresentation != null &&
+        (!_acceptsInput || expectedPresentation != _presentation)) {
+      return;
+    }
     final pool = ClozeTopicGroups.filterItems(
       _all,
       level: _level,
@@ -163,6 +221,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       }
     }
     setState(() {
+      _presentation++;
       _roundId++;
       _round = pool.take(_roundSize).toList();
       _idx = 0;
@@ -171,17 +230,24 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       _retried = false;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
     });
   }
 
-  void _setLevel(String? level) {
+  void _setLevel(String? level, int presentation) {
+    if (!_acceptsInput || presentation != _presentation) {
+      return;
+    }
     _level = level;
-    _newRound();
+    _newRound(presentation);
   }
 
-  void _setGroup(ClozeTopicGroupId? group) {
+  void _setGroup(ClozeTopicGroupId? group, int presentation) {
+    if (!_acceptsInput || presentation != _presentation) {
+      return;
+    }
     _group = group;
-    _newRound();
+    _newRound(presentation);
   }
 
   int _levelCount(String level) => level == _allLevels
@@ -189,6 +255,10 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       : _all.where((item) => item.level == level).length;
 
   Future<void> _showLevelFilter(AppL10n t) async {
+    if (!_acceptsInput) {
+      return;
+    }
+    final presentation = _presentation;
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level ?? _allLevels,
@@ -196,56 +266,81 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       allLabel: t.clozeLevelAll,
       countFor: _levelCount,
     );
-    if (!mounted || next == null) return;
-    _setLevel(next == _allLevels ? null : next);
+    if (!mounted ||
+        next == null ||
+        !_acceptsInput ||
+        presentation != _presentation) {
+      return;
+    }
+    _setLevel(next == _allLevels ? null : next, presentation);
   }
 
   Future<void> _showGroupFilter(AppL10n t) async {
+    if (!_acceptsInput) {
+      return;
+    }
+    final presentation = _presentation;
     final levelItems = ClozeTopicGroups.filterItems(_all, level: _level);
     final counts = ClozeTopicGroups.countsForLevel(_all, level: _level);
     final next = await showSoriSheet<String>(
       context: context,
-      builder: (sheetContext) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            t.clozeGroupFilterLabel,
-            style: SoriTextTheme.of(sheetContext).h3,
-          ),
-          const SizedBox(height: Spacing.md),
-          _ClozeGroupChoice(
-            choiceKey: const ValueKey('cloze-group-sheet-all'),
-            label: t.clozeGroupAll,
-            count: levelItems.length,
-            selected: _group == null,
-            onTap: _group == null
-                ? null
-                : () => Navigator.of(sheetContext).pop(_allGroups),
-          ),
-          for (final group in ClozeTopicGroups.ordered) ...[
-            const SizedBox(height: Spacing.xs),
-            _ClozeGroupChoice(
-              choiceKey: ValueKey('cloze-group-sheet-${group.name}'),
-              label: group.localizedLabel(t),
-              description: group.localizedDescription(t),
-              count: counts[group]!,
-              selected: _group == group,
-              onTap: _group == group || counts[group] == 0
-                  ? null
-                  : () => Navigator.of(sheetContext).pop(group.name),
+      builder: (sheetContext) {
+        void closeCurrentSheet(String selection) {
+          if (!sheetContext.mounted ||
+              ModalRoute.of(sheetContext)?.isCurrent != true) {
+            return;
+          }
+          Navigator.of(sheetContext).pop(selection);
+        }
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              t.clozeGroupFilterLabel,
+              style: SoriTextTheme.of(sheetContext).h3,
             ),
+            const SizedBox(height: Spacing.md),
+            _ClozeGroupChoice(
+              choiceKey: const ValueKey('cloze-group-sheet-all'),
+              label: t.clozeGroupAll,
+              count: levelItems.length,
+              selected: _group == null,
+              onTap: _group == null
+                  ? null
+                  : () => closeCurrentSheet(_allGroups),
+            ),
+            for (final group in ClozeTopicGroups.ordered) ...[
+              const SizedBox(height: Spacing.xs),
+              _ClozeGroupChoice(
+                choiceKey: ValueKey('cloze-group-sheet-${group.name}'),
+                label: group.localizedLabel(t),
+                description: group.localizedDescription(t),
+                count: counts[group]!,
+                selected: _group == group,
+                onTap: _group == group || counts[group] == 0
+                    ? null
+                    : () => closeCurrentSheet(group.name),
+              ),
+            ],
           ],
-        ],
-      ),
+        );
+      },
     );
-    if (!mounted || next == null) return;
+    if (!mounted ||
+        next == null ||
+        !_acceptsInput ||
+        presentation != _presentation) {
+      return;
+    }
     _setGroup(
       next == _allGroups ? null : ClozeTopicGroupId.values.byName(next),
+      presentation,
     );
   }
 
-  Widget _levelChrome(AppL10n t) {
+  Widget _levelChrome(AppL10n t, int presentation) {
     if (widget.courseContext != null || widget.courseUnitId != null) {
       return const SizedBox.shrink();
     }
@@ -261,7 +356,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SoriChromeRow(
-        onFilterTap: () => _showLevelFilter(t),
+        onFilterTap: () {
+          if (_acceptsInput && presentation == _presentation) {
+            _showLevelFilter(t);
+          }
+        },
         filterSemanticLabel: t.clozeLevelLabel,
         meta: SoriChip(
           key: const Key('cloze-group-filter'),
@@ -271,52 +370,84 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
           selected: _group != null,
           variant: SoriChipVariant.soft,
           minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
-          onTap: () => _showGroupFilter(t),
+          onTap: () {
+            if (_acceptsInput && presentation == _presentation) {
+              _showGroupFilter(t);
+            }
+          },
         ),
       ),
     );
   }
 
-  void _pick(ClozeItem item, String option) {
-    if (_picked != null) return;
+  Future<void> _pick(ClozeItem item, String option, int presentation) async {
+    if (!_isCurrentQuestion(presentation, item) || _picked != null) {
+      return;
+    }
     final ok = item.accepts(option);
     // 첫 시도 여부를 **기록 전에** 잡는다 — 재시도로 맞혀도 점수·SRS·코스
     // 숙달도는 첫 시도 결과를 따른다. 안 그러면 재시도 허용이 곧 전원 만점이
     // 되어 `n / 10 richtig` 카운터가 의미를 잃는다.
     final firstTry = !_retried;
-    setState(() => _picked = option);
+    final judgment = ++_presentation;
+    if (firstTry) {
+      final srsAttempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
+      final courseAttempt = CourseContentAttempt(
+        kind: CurriculumContentKind.cloze,
+        contentId: item.id,
+        isCorrect: ok,
+        isApplicable: _linkedCourseClozeIds?.contains(item.id),
+        courseContext: _missionContext?.initialContentId == item.id
+            ? _missionContext
+            : null,
+        errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
+      );
+      final saved = await saveStudyEvidence(() async {
+        if (!await srsAttempt.save()) {
+          return false;
+        }
+        if (!_canFlushQuestion(judgment, item)) {
+          return false;
+        }
+        final result = await courseAttempt.save();
+        return result == CourseContentAttemptResult.persisted ||
+            result == CourseContentAttemptResult.notApplicable;
+      });
+      if (!saved || !_isCurrentQuestion(judgment, item)) {
+        return;
+      }
+    }
+    if (!_isCurrentQuestion(judgment, item)) {
+      return;
+    }
+    setState(() {
+      _picked = option;
+      if (firstTry && ok) {
+        _score++;
+      }
+    });
     // 2.9 잔여 — 답 공개 직후(정/오답 무관) 완성 문장을 1회 자동으로 읽는다.
     // 카드 좌상단 인디케이터(cloze_prompt.dart)·탭 재생은 같은
     // item.fullKo 텍스트를 쓰므로 SoriSpeech 의 텍스트별 in-flight
     // dedupe 로 인디케이터 탭=정지 계약이 그대로 성립한다.
     SoriSpeech.speak(item.fullKo);
 
-    if (firstTry) {
-      Storage.srsReview(item.answer, gotIt: ok); // Kontext-Abruf → Haupt-SRS
-      // ignore: discarded_futures
-      CourseActivityReporter.recordContentAttempt(
-        CurriculumContentKind.cloze,
-        item.id,
-        ok,
-        courseContext: _missionContext?.initialContentId == item.id
-            ? _missionContext
-            : null,
-        errorReason: ok ? null : MasteryErrorReason.vocabularyRecall,
-      );
-      if (ok) _score++;
-    }
-
     if (ok) {
       HapticFeedback.lightImpact();
       SoundService.correct();
       Future.delayed(const Duration(milliseconds: 1100), () {
-        if (!mounted) return;
+        if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+          return;
+        }
         setState(() {
+          _presentation++;
           _idx++;
           _picked = null;
           _retried = false;
         });
-        if (_idx >= _round.length) _finish();
+        if (_idx >= _round.length) {
+          _finish(_presentation);
+        }
       });
       return;
     }
@@ -327,15 +458,35 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     HapticFeedback.mediumImpact();
     SoundService.wrong();
     Future.delayed(const Duration(milliseconds: 700), () {
-      if (!mounted) return;
+      if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+        return;
+      }
       setState(() {
+        _presentation++;
         _picked = null;
         _retried = true;
       });
     });
   }
 
-  Future<void> _finish() async {
+  Future<void> _finish(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _idx < _round.length) {
+      return;
+    }
+    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'cloze',
+      xp: _score * 5,
+      score: pct,
+    );
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        presentation != _presentation ||
+        outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.cloze(
         contentLabel: AppL10n.of(context).clozeTitle,
@@ -344,30 +495,53 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
         total: _round.length,
       ),
     );
-    final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'cloze',
-      xp: _score * 5,
-      score: pct,
-    );
     if (mounted) setState(() => _outcome = outcome);
   }
 
   @override
   Widget build(BuildContext context) {
+    final presentation = _presentation;
+    final recovery =
+        studyEvidenceRecoveryFrame(AppL10n.of(context).clozeTitle) ??
+        gameResultRecoveryFrame(AppL10n.of(context).clozeTitle);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
 
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
         child: const AppLoading(),
       );
     }
 
+    if (_courseRouteRejected) {
+      return SoriStudyFrame(
+        onLeave: _retireStudy,
+        title: t.clozeTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.courseCheckpointSaveError,
+          onRetry: () {
+            if (_acceptsInput && _courseRouteRejected && !_loading) {
+              setState(() {
+                _loading = true;
+                _courseRouteRejected = false;
+              });
+              _load();
+            }
+          },
+        ),
+      );
+    }
+
     if (_round.isEmpty) {
       final selectedGroup = _group;
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.clozeTitle,
         padding: EdgeInsets.zero,
         child: Column(
@@ -375,7 +549,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
             if (widget.items == null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                child: _levelChrome(t),
+                child: _levelChrome(t, presentation),
               ),
             Expanded(
               child: Center(
@@ -389,13 +563,19 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                       ? t.clozeEmptyBody
                       : t.clozeGroupEmptyBody,
                   ctaLabel: selectedGroup == null ? null : t.clozeGroupAll,
-                  onCta: selectedGroup == null ? null : () => _setGroup(null),
+                  onCta: selectedGroup == null
+                      ? null
+                      : () => _setGroup(null, presentation),
                   secondaryLabel: selectedGroup == null
                       ? null
                       : t.clozeGroupChooseAnother,
                   onSecondary: selectedGroup == null
                       ? null
-                      : () => _showGroupFilter(t),
+                      : () {
+                          if (_acceptsInput && presentation == _presentation) {
+                            _showGroupFilter(t);
+                          }
+                        },
                 ),
               ),
             ),
@@ -405,7 +585,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     }
 
     if (_idx >= _round.length) {
-      return _buildDone(t);
+      return _buildDone(t, presentation);
     }
 
     final s = SoriSurfaces.of(context);
@@ -422,6 +602,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     );
 
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       title: t.clozeTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: _idx > 0 || _picked != null || _retried,
@@ -434,7 +615,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.items == null) _levelChrome(t),
+            if (widget.items == null) _levelChrome(t, presentation),
             Text(
               t.clozeInstruction,
               style: SoriTextTheme.of(
@@ -462,7 +643,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 acceptedAnswers: item.acceptedAnswers,
                 picked: _picked,
                 revealed: revealed,
-                onPick: (opt) => _pick(item, opt),
+                onPick: (opt) => _pick(item, opt, presentation),
               ),
             ),
           ],
@@ -471,9 +652,10 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     );
   }
 
-  Widget _buildDone(AppL10n t) {
+  Widget _buildDone(AppL10n t, int presentation) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       automaticallyImplyLeading: false,
       title: t.clozeTitle,
       padding: EdgeInsets.zero,
@@ -498,13 +680,19 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
               variant: SoriButtonVariant.filled,
               accent: SoriColors.contentCta,
               fullWidth: true,
-              onTap: _newRound,
+              onTap: () => _newRound(presentation),
             ),
             SoriButton(
               label: t.btnClose,
               variant: SoriButtonVariant.ghost,
               fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () {
+                if (_acceptsInput &&
+                    presentation == _presentation &&
+                    _outcome != null) {
+                  Navigator.of(context).maybePop();
+                }
+              },
             ),
           ],
         ),
