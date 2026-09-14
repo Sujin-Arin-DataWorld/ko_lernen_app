@@ -86,7 +86,10 @@ void main() {
         }, before);
 
         final recovered = await LearningPhaseCatalog.load();
-        expect(reads[LearningPhaseCatalog.assetPath], 2);
+        // The failed read, the recovering read, and the shared task
+        // catalogue's own binding check against the same publication file.
+        expect(reads[LearningPhaseCatalog.assetPath], 3);
+        expect(reads[PhaseTaskCatalog.assetPath], 1);
         expect(
           recovered.map((phase) => phase.id),
           List.generate(30, (i) => 'KP${(i + 1).toString().padLeft(2, '0')}'),

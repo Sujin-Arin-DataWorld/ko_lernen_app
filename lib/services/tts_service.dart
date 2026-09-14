@@ -1028,6 +1028,13 @@ class TtsService {
     // 웹은 파일시스템이 없다. 예전에는 여기서 1~3단이 통째로 죽고 OS 음성만
     // 남아 브라우저 독일어 음성이 한국어를 읽었다. 이제 같은 Storage 객체를
     // 메모리로 받아 재생한다 — 웹도 같은 서버 오디오 경로다.
+    //
+    // 네이티브에서 캐시 디렉터리를 못 만들어도(권한·가득 찬 디스크·손상된
+    // 캐시 경로) 여기서 끝내지 않는다 — 그러면 Storage/공개 티어에 닿기도
+    // 전에 검수된 정본 음성이 전부 끊긴다(#303 리뷰 P2). 웹과 같은
+    // 파일 없는 경로(file == null)로 계속 가서 받은 바이트를 메모리 캐시에
+    // 두고 그대로 재생한다. 디스크 캐시는 선택 사항이라 lastError 는 남기지
+    // 않는다 — 그 필드는 해석 실패(errorReporter) 전용이다.
     final Directory? dir = kIsWeb ? null : await _ensureCacheDir();
     final File? file = dir == null
         ? null

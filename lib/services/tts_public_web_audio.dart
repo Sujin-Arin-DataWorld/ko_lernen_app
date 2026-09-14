@@ -15,7 +15,9 @@ final class TtsPublicWebAudio {
     required Duration timeout,
     http.Client? client,
   }) async {
-    if (!await TtsCanonicalManifest.contains(key)) return null;
+    if (!await TtsCanonicalManifest.contains(key)) {
+      return null;
+    }
     final transport = client ?? http.Client();
     try {
       return await (() async {
@@ -40,7 +42,9 @@ final class TtsPublicWebAudio {
         }
         final bytes = BytesBuilder(copy: false);
         await for (final chunk in response.stream) {
-          if (bytes.length + chunk.length > maxBytes) return null;
+          if (bytes.length + chunk.length > maxBytes) {
+            return null;
+          }
           bytes.add(chunk);
         }
         final data = bytes.takeBytes();
@@ -49,7 +53,9 @@ final class TtsPublicWebAudio {
     } catch (_) {
       return null;
     } finally {
-      if (client == null) transport.close();
+      if (client == null) {
+        transport.close();
+      }
     }
   }
 }
