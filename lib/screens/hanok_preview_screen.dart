@@ -116,12 +116,24 @@ class _HanokPreviewScreenState extends State<HanokPreviewScreen> {
                       child: Center(
                         child: ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 760),
-                          child: SarangchaeConstructionExperience(
-                            construction: constructionSnapshot.data!,
-                            earnedStageCount: progressionSnapshot
-                                .data!
-                                .hanokCompetence
-                                .sarangchaeConstructionStage,
+                          child: Column(
+                            children: [
+                              SarangchaeConstructionExperience(
+                                construction: constructionSnapshot.data!,
+                                earnedStageCount: progressionSnapshot
+                                    .data!
+                                    .hanokCompetence
+                                    .sarangchaeConstructionStage,
+                              ),
+                              const SizedBox(height: Spacing.xl),
+                              SoriButton.filled(
+                                key: const ValueKey('hanok-construction-entry'),
+                                label: t.ilduConstructionTitle,
+                                onTap: () => Navigator.of(
+                                  context,
+                                ).pushNamed('/hanok/construction'),
+                              ),
+                            ],
                           ),
                         ),
                       ),

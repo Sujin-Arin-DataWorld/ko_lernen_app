@@ -10427,4 +10427,49 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get sarangchaeLanguageEnglish => 'English';
+
+  @override
+  String get ilduConstructionTitle => 'So entsteht ein Hanok';
+
+  @override
+  String get ilduConstructionIntro =>
+      'Schau zu, wie das kleine Tor und das Lagerhaus entstehen, und übe dabei Koreanisch.';
+
+  @override
+  String ilduConstructionStep(int current, int total) {
+    return 'Schritt $current von $total';
+  }
+
+  @override
+  String get ilduConstructionPrevious => 'Vorheriger Schritt';
+
+  @override
+  String get ilduConstructionNext => 'Nächster Schritt';
+
+  @override
+  String get ilduConstructionCorrect =>
+      'Richtig. Zeige auf diese Stelle im Bild.';
+
+  @override
+  String get ilduConstructionTryAgain =>
+      'Schau dir das Bild an und versuche es noch einmal.';
+
+  @override
+  String get ilduConstructionScene => 'Die Situation';
+
+  @override
+  String get ilduConstructionTerms => 'Bauteile kennenlernen';
+
+  @override
+  String get ilduConstructionCulture => 'Der Ort und seine Bedeutung';
+
+  @override
+  String get ilduConstructionEmptyTitle => 'Ein freier Bauplatz';
+
+  @override
+  String get ilduConstructionEmptyBody =>
+      'Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.';
+
+  @override
+  String get ilduConstructionStart => 'Mit dem Bau beginnen';
 }

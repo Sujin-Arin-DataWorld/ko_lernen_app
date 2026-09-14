@@ -17681,6 +17681,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'English'**
   String get sarangchaeLanguageEnglish;
+
+  /// Approved Hanok construction artwork learning: Title
+  ///
+  /// In de, this message translates to:
+  /// **'So entsteht ein Hanok'**
+  String get ilduConstructionTitle;
+
+  /// Approved Hanok construction artwork learning: Intro
+  ///
+  /// In de, this message translates to:
+  /// **'Schau zu, wie das kleine Tor und das Lagerhaus entstehen, und übe dabei Koreanisch.'**
+  String get ilduConstructionIntro;
+
+  /// Approved Hanok construction artwork learning: Step
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt {current} von {total}'**
+  String ilduConstructionStep(int current, int total);
+
+  /// Approved Hanok construction artwork learning: Previous
+  ///
+  /// In de, this message translates to:
+  /// **'Vorheriger Schritt'**
+  String get ilduConstructionPrevious;
+
+  /// Approved Hanok construction artwork learning: Next
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Schritt'**
+  String get ilduConstructionNext;
+
+  /// Approved Hanok construction artwork learning: Correct
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig. Zeige auf diese Stelle im Bild.'**
+  String get ilduConstructionCorrect;
+
+  /// Approved Hanok construction artwork learning: TryAgain
+  ///
+  /// In de, this message translates to:
+  /// **'Schau dir das Bild an und versuche es noch einmal.'**
+  String get ilduConstructionTryAgain;
+
+  /// Approved Hanok construction artwork learning: Scene
+  ///
+  /// In de, this message translates to:
+  /// **'Die Situation'**
+  String get ilduConstructionScene;
+
+  /// Approved Hanok construction artwork learning: Terms
+  ///
+  /// In de, this message translates to:
+  /// **'Bauteile kennenlernen'**
+  String get ilduConstructionTerms;
+
+  /// Approved Hanok construction artwork learning: Culture
+  ///
+  /// In de, this message translates to:
+  /// **'Der Ort und seine Bedeutung'**
+  String get ilduConstructionCulture;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Ein freier Bauplatz'**
+  String get ilduConstructionEmptyTitle;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.'**
+  String get ilduConstructionEmptyBody;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dem Bau beginnen'**
+  String get ilduConstructionStart;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

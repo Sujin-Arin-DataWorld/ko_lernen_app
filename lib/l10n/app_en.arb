@@ -4731,5 +4731,65 @@
   "phaseTaskEarlierRevision": "Earlier attempt saved · task has since been revised",
   "sarangchaeLanguageKorean": "한국어",
   "sarangchaeLanguageGerman": "Deutsch",
-  "sarangchaeLanguageEnglish": "English"
+  "sarangchaeLanguageEnglish": "English",
+  "ilduConstructionTitle": "How a hanok is built",
+  "@ilduConstructionTitle": {
+    "description": "Approved Hanok construction artwork learning: Title"
+  },
+  "ilduConstructionIntro": "Watch the small gate and storehouse take shape, and practise Korean along the way.",
+  "@ilduConstructionIntro": {
+    "description": "Approved Hanok construction artwork learning: Intro"
+  },
+  "ilduConstructionStep": "Step {current} of {total}",
+  "@ilduConstructionStep": {
+    "description": "Approved Hanok construction artwork learning: Step",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ilduConstructionPrevious": "Previous step",
+  "@ilduConstructionPrevious": {
+    "description": "Approved Hanok construction artwork learning: Previous"
+  },
+  "ilduConstructionNext": "Next step",
+  "@ilduConstructionNext": {
+    "description": "Approved Hanok construction artwork learning: Next"
+  },
+  "ilduConstructionCorrect": "That's right. Find that part in the picture.",
+  "@ilduConstructionCorrect": {
+    "description": "Approved Hanok construction artwork learning: Correct"
+  },
+  "ilduConstructionTryAgain": "Look at the picture and try again.",
+  "@ilduConstructionTryAgain": {
+    "description": "Approved Hanok construction artwork learning: TryAgain"
+  },
+  "ilduConstructionScene": "The situation",
+  "@ilduConstructionScene": {
+    "description": "Approved Hanok construction artwork learning: Scene"
+  },
+  "ilduConstructionTerms": "Construction terms",
+  "@ilduConstructionTerms": {
+    "description": "Approved Hanok construction artwork learning: Terms"
+  },
+  "ilduConstructionCulture": "The space and its role",
+  "@ilduConstructionCulture": {
+    "description": "Approved Hanok construction artwork learning: Culture"
+  },
+  "ilduConstructionEmptyTitle": "An empty site",
+  "@ilduConstructionEmptyTitle": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionEmptyBody": "Before construction begins, there is an open space. Watch a building take shape here.",
+  "@ilduConstructionEmptyBody": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionStart": "Start building",
+  "@ilduConstructionStart": {
+    "description": "Empty site before the first construction stage"
+  }
 }

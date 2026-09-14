@@ -166,6 +166,23 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     );
                   },
                 ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding.left,
+                    12,
+                    padding.right,
+                    12,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: SoriButton.filled(
+                      key: const ValueKey('hanok-construction-entry'),
+                      label: t.ilduConstructionTitle,
+                      onTap: () => Navigator.of(
+                        context,
+                      ).pushNamed('/hanok/construction'),
+                    ),
+                  ),
+                ),
                 _SarangchaeConstructionSliver(
                   progressionFuture: _future,
                   constructionFuture: _constructionFuture,
@@ -259,13 +276,22 @@ class _HanokMapHeaderDelegate extends SliverPersistentHeaderDelegate {
     final currentExtent = reduceMotion
         ? (rawProgress < 0.5 ? maxExtent : minExtent)
         : (maxExtent - shrinkOffset).clamp(minExtent, maxExtent);
+    // The sliver's layout extent follows scroll continuously. Snapping that
+    // extent for reduced motion can make paintExtent smaller than layoutExtent.
+    // Snap only the artwork inside the continuously sized, clipped viewport.
+    final layoutExtent = (maxExtent - shrinkOffset).clamp(minExtent, maxExtent);
 
     return ClipRect(
       child: SizedBox(
         key: const ValueKey('hanok-map-header'),
-        height: currentExtent,
+        height: layoutExtent,
         width: double.infinity,
-        child: child,
+        child: OverflowBox(
+          alignment: Alignment.topCenter,
+          minHeight: currentExtent,
+          maxHeight: currentExtent,
+          child: child,
+        ),
       ),
     );
   }
