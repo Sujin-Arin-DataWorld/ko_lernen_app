@@ -92,6 +92,10 @@ function renderSingle(){
  const s=list[index-1],m=meta(s);
  $("heroArt").innerHTML=imageMarkup(s);$("heroSource").innerHTML='<a href="'+esc(path(m.reviewImage))+'">'+esc(m.reviewImage)+'</a>';
  $("lesson").innerHTML=badge(m)+'<p class="step">'+s.sequence+' / '+list.length+'</p><h2>'+esc(s.title.ko)+'</h2>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.title[locale])+'</p>':'')+'<p class="observe">'+esc(s.observe[locale])+'</p><p class="quote" lang="ko">'+esc(s.line.ko)+'</p>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.line[locale])+'</p>':'')+'<div class="task"><strong>'+tr("해 보기","Try it","Probier es aus")+'</strong><p>'+esc(s.task[locale])+'</p><div class="choices" id="choices"></div><p class="feedback" id="feedback" aria-live="polite"></p></div><details><summary>'+tr("대화 상황과 표현","Situation and expression","Situation und Ausdruck")+'</summary><p class="scene">'+esc(s.scene[locale])+'</p><p class="scene" lang="ko">'+esc(s.precedingLineKo)+'</p><p class="scene">'+esc(s.target.join(" · "))+'</p></details>';
+ if(s.lessonIllustration){
+  const l=s.lessonIllustration;
+  $("lesson").insertAdjacentHTML("beforeend",'<figure><img style="max-width:200px;width:100%" src="'+esc(path("lessons/"+l.asset.split("/").pop()))+'" alt="'+esc(l.alt[locale])+'"><figcaption>'+esc(l.caption[locale])+'</figcaption></figure>');
+ }
  if(s.exercise?.kind==="choice"){
   for(const option of s.exercise.options){
    const b=document.createElement("button");b.textContent=option.label[locale];b.onclick=()=>{

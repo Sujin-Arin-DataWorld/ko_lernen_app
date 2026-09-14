@@ -100,6 +100,7 @@ final class IlDuConstructionArtStage {
     required this.options,
     required this.correctOptionId,
     required this.glossary,
+    this.lessonIllustration,
   });
 
   final String id;
@@ -116,6 +117,7 @@ final class IlDuConstructionArtStage {
   final Map<String, IlDuArtText> options;
   final String? correctOptionId;
   final List<({IlDuArtText label, IlDuArtText explanation})> glossary;
+  final IlDuLessonIllustration? lessonIllustration;
 
   factory IlDuConstructionArtStage.fromJson(Object? value, String buildingId) {
     final json = _object(value);
@@ -165,6 +167,9 @@ final class IlDuConstructionArtStage {
       task: _translated(json['task']),
       options: Map.unmodifiable(options),
       correctOptionId: correct,
+      lessonIllustration: json['lessonIllustration'] == null
+          ? null
+          : IlDuLessonIllustration.fromJson(json['lessonIllustration']),
       glossary: List.unmodifiable([
         for (final item in _array(json['glossary']))
           (
@@ -172,6 +177,29 @@ final class IlDuConstructionArtStage {
             explanation: _translated(_object(item)['explanation']),
           ),
       ]),
+    );
+  }
+}
+
+final class IlDuLessonIllustration {
+  const IlDuLessonIllustration(this.asset, this.caption, this.alt);
+
+  final String asset;
+  final IlDuArtText caption;
+  final IlDuArtText alt;
+
+  factory IlDuLessonIllustration.fromJson(Object? value) {
+    final json = _object(value);
+    final asset = _text(json['asset']);
+    if (!RegExp(
+      r'^assets/illustrations/personal_hanok_v3/construction/lessons/[a-z_]+\.png$',
+    ).hasMatch(asset)) {
+      throw const FormatException('Lesson illustration must be a bundled PNG.');
+    }
+    return IlDuLessonIllustration(
+      asset,
+      _translated(json['caption']),
+      _translated(json['alt']),
     );
   }
 }

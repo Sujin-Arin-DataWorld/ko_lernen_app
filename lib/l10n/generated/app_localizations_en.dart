@@ -10361,4 +10361,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ilduConstructionCulture => 'The space and its role';
+
+  @override
+  String get ilduConstructionEmptyTitle => 'An empty site';
+
+  @override
+  String get ilduConstructionEmptyBody =>
+      'Before construction begins, there is an open space. Watch a building take shape here.';
+
+  @override
+  String get ilduConstructionStart => 'Start building';
 }

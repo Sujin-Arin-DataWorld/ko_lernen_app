@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/services.dart';
@@ -73,6 +72,27 @@ void main() {
       }
     }
   });
+
+  test(
+    'modern example objects are separately bundled with their own provenance',
+    () async {
+      final json = source();
+      final stages = (json['series'][1]['stages'] as List)
+          .where((s) => s['lessonIllustration'] != null)
+          .toList();
+      expect(stages, hasLength(4));
+      for (final stage in stages) {
+        final lesson = stage['lessonIllustration'];
+        final data = await rootBundle.load(lesson['asset'] as String);
+        expect(
+          sha256.convert(Uint8List.sublistView(data)).toString(),
+          lesson['sha256'],
+        );
+        expect(lesson['asset'], isNot(stage['asset']));
+        expect((lesson['caption']['ko'] as String), contains('현대 생활 예시'));
+      }
+    },
+  );
 
   for (final defect in [
     'approval',

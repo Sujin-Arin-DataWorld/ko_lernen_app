@@ -1,0 +1,24 @@
+[
+  {
+    "stageIds": [
+      "changgo-roof-bed",
+      "changgo-roof-tiles",
+      "changgo-walls",
+      "changgo-complete"
+    ],
+    "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+    "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+    "width": 1448,
+    "height": 1086,
+    "caption": {
+      "ko": "현대 생활 예시 · 상자와 천",
+      "en": "An everyday example today · box and cloth",
+      "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+    },
+    "alt": {
+      "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+      "en": "Dry folded cloth inside and beside an open wooden box",
+      "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+    }
+  }
+]

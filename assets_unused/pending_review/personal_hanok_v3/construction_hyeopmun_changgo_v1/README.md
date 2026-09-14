@@ -57,3 +57,5 @@ python build_review.py --check
 기계 검사 결과는 86개 통과, 0개 실패다. 14장 파일·캔버스·투명 알파·최종 해시와 언어 필드·도면 연결을 검사한다. 구조의 픽셀 정합과 역사적 복원 정확도를 대신 판정하지 않는다.
 
 원화의 작은 형태 차이는 QA.md에 기록했다. 앱 API·진행도 저장·보상은 유지하며 승인한 공정 그림과 학습 설명을 별도 런타임 카탈로그에 연결한다.
+
+별도 학습 삽화: lessons/storage_box_cloth.png (현대 생활 예시). 프롬프트는 lesson_illustration_prompt.txt, 파일·해시는 lesson_illustrations.json에 있다. 건물 PNG와 합성하지 않았다.

@@ -76,13 +76,12 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(
-          tester.widget<SoriButton>(key('ildu-construction-previous')).onTap,
-          isNull,
-        );
+        expect(key('ildu-construction-empty'), findsOneWidget);
 
         for (final series in catalog.series) {
           await tapVisible(tester, 'ildu-construction-${series.id}');
+          expect(key('ildu-construction-empty'), findsOneWidget);
+          await tapVisible(tester, 'ildu-construction-start');
           for (var i = 0; i < series.stages.length; i++) {
             final stage = series.stages[i];
             expect(find.text(stage.title['ko']!), findsOneWidget);
@@ -118,6 +117,7 @@ void main() {
       app(IlDuConstructionScreen(loader: () async => catalog)),
     );
     await tester.pumpAndSettle();
+    await tapVisible(tester, 'ildu-construction-start');
     await tapVisible(tester, 'ildu-construction-next');
     final stage = catalog.series.first.stages[1];
     await tapVisible(
@@ -128,7 +128,7 @@ void main() {
     await tapVisible(tester, 'ildu-construction-next');
     expect(key('ildu-construction-feedback'), findsNothing);
     await tapVisible(tester, 'ildu-construction-changgo');
-    expect(find.text('기초 놓기'), findsOneWidget);
+    expect(key('ildu-construction-empty'), findsOneWidget);
     expect(key('ildu-construction-feedback'), findsNothing);
     expect(tester.takeException(), isNull);
   });
@@ -151,7 +151,7 @@ void main() {
     expect(find.byType(AppError), findsOneWidget);
     tester.widget<AppError>(find.byType(AppError)).onRetry!();
     await tester.pumpAndSettle();
-    expect(find.text('발 디딜 곳 만들기'), findsOneWidget);
+    expect(key('ildu-construction-empty'), findsOneWidget);
     expect(attempts, 2);
     expect(tester.takeException(), isNull);
   });
@@ -169,9 +169,16 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    await tapVisible(tester, 'ildu-construction-start');
     await tapVisible(tester, 'ildu-construction-next');
     await tapVisible(tester, 'ildu-construction-changgo');
+    await tapVisible(tester, 'ildu-construction-start');
     await tapVisible(tester, 'ildu-construction-next');
+    await tester.scrollUntilVisible(
+      find.text('기둥 세우기'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('기둥 세우기'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
@@ -187,7 +194,7 @@ void main() {
       await tester.pumpAndSettle();
       await tapVisible(tester, 'hanok-construction-entry');
       expect(find.byType(IlDuConstructionScreen), findsOneWidget);
-      expect(find.text('발 디딜 곳 만들기'), findsOneWidget);
+      expect(key('ildu-construction-empty'), findsOneWidget);
       await tester.pumpWidget(const SizedBox.shrink());
     }
     expect(tester.takeException(), isNull);

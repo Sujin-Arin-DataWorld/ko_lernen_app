@@ -106,7 +106,11 @@ def main():
     data = read("learning.json")
     data["glossary"] = read("glossary.json")
     exercise_design = read("exercise_design.json")
+    lessons = read("lesson_illustrations.json")
     for stage in data["stages"]:
+        lesson = next((v for v in lessons if stage["stageId"] in v["stageIds"]), None)
+        if lesson:
+            stage["lessonIllustration"] = lesson
         design = exercise_design["overrides"].get(stage["stageId"])
         if design:
             stage["task"] = design["task"]

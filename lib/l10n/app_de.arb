@@ -4927,5 +4927,17 @@
   "ilduConstructionCulture": "Der Ort und seine Bedeutung",
   "@ilduConstructionCulture": {
     "description": "Approved Hanok construction artwork learning: Culture"
+  },
+  "ilduConstructionEmptyTitle": "Ein freier Bauplatz",
+  "@ilduConstructionEmptyTitle": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionEmptyBody": "Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.",
+  "@ilduConstructionEmptyBody": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionStart": "Mit dem Bau beginnen",
+  "@ilduConstructionStart": {
+    "description": "Empty site before the first construction stage"
   }
 }

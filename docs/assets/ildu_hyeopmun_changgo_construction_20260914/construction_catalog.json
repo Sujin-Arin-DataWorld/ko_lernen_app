@@ -1196,6 +1196,28 @@
               ]
             }
           ],
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            }
+          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_05_try01.png",
           "sourceSha256": "a15e83aa1159294e30bd6ec8df376bb5153a4b05c07969dad9a751b8dc086d00"
         },
@@ -1278,6 +1300,28 @@
               ]
             }
           ],
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            }
+          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_06_try01.png",
           "sourceSha256": "814ec1ae8ee2884f4033af69c06436e3441ea03c8ae345e0b41b464c6d8b1cea"
         },
@@ -1379,6 +1423,28 @@
               ]
             }
           ],
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            }
+          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_07_try03.png",
           "sourceSha256": "43a643374c4775925f51d67209df8324dc923cc3e1839afd361517c5c6ffcd3f"
         },
@@ -1464,6 +1530,28 @@
               ]
             }
           ],
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            }
+          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/references/changgo_final.png",
           "sourceSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
         }

@@ -22,6 +22,7 @@ def write_json(path,data):
 def main():
     learning=json.loads((ROOT/"learning.json").read_text(encoding="utf-8-sig"))
     ledger=json.loads((ROOT/"generation_ledger.json").read_text(encoding="utf-8-sig"))
+    lessons=json.loads((ROOT/"lesson_illustrations.json").read_text(encoding="utf-8"))
     series=[]
     all_stages=[]
     for building,count,size,final_sha in [
@@ -48,6 +49,10 @@ def main():
             row={**s,"asset":dest.relative_to(REPO).as_posix(),"width":size[0],"height":size[1],
                  "bytes":dest.stat().st_size,"sha256":digest(dest),"alphaBBox":list(alpha.getbbox())}
             row["glossary"]=[g for g in learning["glossary"] if s["stageId"] in g["stageIds"]]
+            lesson=next((item for item in lessons if s["stageId"] in item["stageIds"]),None)
+            if lesson:
+                assert digest(REPO/lesson["asset"])==lesson["sha256"]
+                row["lessonIllustration"]=lesson
             if s["sequence"]<count:
                 selected=next(a for a in ledger["attempts"] if a["building"]==building and a["stage"]==s["sequence"] and a["decision"]=="candidate")
                 row["sourceAsset"]=(ROOT/selected["file"]).relative_to(REPO).as_posix()
@@ -78,4 +83,3 @@ def main():
     print(json.dumps({"stages":len(all_stages),"runtimeBytes":sum(s["bytes"] for s in all_stages),"catalog":str(DATA)},ensure_ascii=False))
 if __name__=="__main__":
     main()
-

@@ -24,7 +24,7 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
   late Future<IlDuConstructionArtCatalog> _catalog;
   final ScrollController _scroll = ScrollController();
   int _building = 0;
-  int _step = 0;
+  int _step = -1;
   String? _answer;
 
   Future<IlDuConstructionArtCatalog> _load() =>
@@ -65,7 +65,7 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
               message: t.loadErrorTryAgain,
               onRetry: () => setState(() {
                 _building = 0;
-                _step = 0;
+                _step = -1;
                 _answer = null;
                 _catalog = _load();
               }),
@@ -89,7 +89,7 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
     final type = SoriTextTheme.of(context);
     final language = Localizations.localeOf(context).languageCode;
     final series = catalog.series[_building];
-    final stage = series.stages[_step];
+    final stage = _step < 0 ? null : series.stages[_step];
     return ListView(
       controller: _scroll,
       key: const ValueKey('ildu-construction-content'),
@@ -102,130 +102,183 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
           runSpacing: Spacing.sm,
           children: [
             for (var i = 0; i < catalog.series.length; i++)
-              ChoiceChip(
+              SoriCard(
                 key: ValueKey('ildu-construction-${catalog.series[i].id}'),
-                label: Text(ilduArtText(catalog.series[i].name, language)),
+                selectable: true,
                 selected: _building == i,
-                onSelected: (_) {
+                onTap: () {
                   setState(() {
                     _building = i;
-                    _step = 0;
+                    _step = -1;
                     _answer = null;
                   });
                   _scroll.jumpTo(0);
                 },
+                child: Text(ilduArtText(catalog.series[i].name, language)),
               ),
           ],
         ),
         const SizedBox(height: Spacing.lg),
-        Text(
-          t.ilduConstructionStep(stage.sequence, series.stages.length),
-          key: const ValueKey('ildu-construction-step'),
-          style: type.bodySmall,
-        ),
-        const SizedBox(height: Spacing.sm),
-        Text(stage.title['ko']!, style: type.h2),
-        if (language != 'ko')
-          Text(ilduArtText(stage.title, language), style: type.body),
-        const SizedBox(height: Spacing.md),
-        _ConstructionImage(key: ValueKey(stage.id), stage: stage),
-        const SizedBox(height: Spacing.md),
-        Wrap(
-          spacing: Spacing.md,
-          runSpacing: Spacing.sm,
-          children: [
-            SoriButton.outlined(
-              key: const ValueKey('ildu-construction-previous'),
-              label: t.ilduConstructionPrevious,
-              icon: Icons.arrow_back,
-              onTap: _step == 0 ? null : () => _selectStep(_step - 1),
+        if (stage == null) ...[
+          Text(
+            t.ilduConstructionStep(0, series.stages.length),
+            style: type.bodySmall,
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriCard(
+            key: const ValueKey('ildu-construction-empty'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 48),
+              child: Column(
+                children: [
+                  const Icon(Icons.landscape_outlined, size: 64),
+                  const SizedBox(height: Spacing.md),
+                  Text(t.ilduConstructionEmptyTitle, style: type.h2),
+                  const SizedBox(height: Spacing.md),
+                  Text(t.ilduConstructionEmptyBody, style: type.body),
+                ],
+              ),
             ),
-            SoriButton.filled(
-              key: const ValueKey('ildu-construction-next'),
-              label: t.ilduConstructionNext,
-              icon: Icons.arrow_forward,
-              onTap: _step == series.stages.length - 1
-                  ? null
-                  : () => _selectStep(_step + 1),
-            ),
-          ],
-        ),
-        const SizedBox(height: Spacing.lg),
-        Text(ilduArtText(stage.observe, language), style: type.body),
-        const SizedBox(height: Spacing.lg),
-        SoriCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          const SizedBox(height: Spacing.lg),
+          SoriButton.filled(
+            key: const ValueKey('ildu-construction-start'),
+            label: t.ilduConstructionStart,
+            icon: Icons.arrow_forward,
+            onTap: () => _selectStep(0),
+          ),
+        ] else ...[
+          Text(
+            t.ilduConstructionStep(stage.sequence, series.stages.length),
+            key: const ValueKey('ildu-construction-step'),
+            style: type.bodySmall,
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(stage.title['ko']!, style: type.h2),
+          if (language != 'ko')
+            Text(ilduArtText(stage.title, language), style: type.body),
+          const SizedBox(height: Spacing.md),
+          _ConstructionImage(key: ValueKey(stage.id), stage: stage),
+          const SizedBox(height: Spacing.md),
+          Wrap(
+            spacing: Spacing.md,
+            runSpacing: Spacing.sm,
             children: [
-              Text(stage.line['ko']!, style: type.h2),
-              if (language != 'ko') ...[
-                const SizedBox(height: Spacing.sm),
-                Text(ilduArtText(stage.line, language), style: type.body),
-              ],
-              const SizedBox(height: Spacing.md),
-              Text(ilduArtText(stage.task, language), style: type.body),
-              const SizedBox(height: Spacing.md),
-              for (final option in stage.options.entries)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: Spacing.sm),
-                  child: SoriCard(
-                    key: ValueKey('ildu-construction-option-${option.key}'),
-                    selectable: true,
-                    selected: _answer == option.key,
-                    onTap: () => setState(() => _answer = option.key),
-                    child: Text(
-                      ilduArtText(option.value, language),
+              SoriButton.outlined(
+                key: const ValueKey('ildu-construction-previous'),
+                label: t.ilduConstructionPrevious,
+                icon: Icons.arrow_back,
+                onTap: () => _selectStep(_step - 1),
+              ),
+              SoriButton.filled(
+                key: const ValueKey('ildu-construction-next'),
+                label: t.ilduConstructionNext,
+                icon: Icons.arrow_forward,
+                onTap: _step == series.stages.length - 1
+                    ? null
+                    : () => _selectStep(_step + 1),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.lg),
+          Text(ilduArtText(stage.observe, language), style: type.body),
+          const SizedBox(height: Spacing.lg),
+          SoriCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (stage.lessonIllustration case final lesson?) ...[
+                  Image.asset(
+                    lesson.asset,
+                    height: 160,
+                    fit: BoxFit.contain,
+                    cacheWidth: 480,
+                    semanticLabel: ilduArtText(lesson.alt, language),
+                    errorBuilder: (context, error, stackTrace) => Text(
+                      ilduArtText(lesson.alt, language),
                       style: type.body,
                     ),
                   ),
-                ),
-              if (_answer != null)
-                Semantics(
-                  liveRegion: true,
-                  child: Text(
-                    _answer == stage.correctOptionId
-                        ? t.ilduConstructionCorrect
-                        : t.ilduConstructionTryAgain,
-                    key: const ValueKey('ildu-construction-feedback'),
-                    style: type.body,
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    ilduArtText(lesson.caption, language),
+                    style: type.bodySmall,
                   ),
-                ),
-            ],
-          ),
-        ),
-        const SizedBox(height: Spacing.md),
-        ExpansionTile(
-          title: Text(t.ilduConstructionScene, style: type.body),
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(Spacing.md),
-              child: Text(ilduArtText(stage.scene, language), style: type.body),
+                  const SizedBox(height: Spacing.md),
+                ],
+                Text(stage.line['ko']!, style: type.h2),
+                if (language != 'ko') ...[
+                  const SizedBox(height: Spacing.sm),
+                  Text(ilduArtText(stage.line, language), style: type.body),
+                ],
+                const SizedBox(height: Spacing.md),
+                Text(ilduArtText(stage.task, language), style: type.body),
+                const SizedBox(height: Spacing.md),
+                for (final option in stage.options.entries)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: Spacing.sm),
+                    child: SoriCard(
+                      key: ValueKey('ildu-construction-option-${option.key}'),
+                      selectable: true,
+                      selected: _answer == option.key,
+                      onTap: () => setState(() => _answer = option.key),
+                      child: Text(
+                        ilduArtText(option.value, language),
+                        style: type.body,
+                      ),
+                    ),
+                  ),
+                if (_answer != null)
+                  Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      _answer == stage.correctOptionId
+                          ? t.ilduConstructionCorrect
+                          : t.ilduConstructionTryAgain,
+                      key: const ValueKey('ildu-construction-feedback'),
+                      style: type.body,
+                    ),
+                  ),
+              ],
             ),
-          ],
-        ),
-        if (stage.glossary.isNotEmpty)
+          ),
+          const SizedBox(height: Spacing.md),
           ExpansionTile(
-            title: Text(t.ilduConstructionTerms, style: type.body),
+            title: Text(t.ilduConstructionScene, style: type.body),
             children: [
-              for (final term in stage.glossary)
-                ListTile(
-                  title: Text(ilduArtText(term.label, language)),
-                  subtitle: Text(ilduArtText(term.explanation, language)),
+              Padding(
+                padding: const EdgeInsets.all(Spacing.md),
+                child: Text(
+                  ilduArtText(stage.scene, language),
+                  style: type.body,
                 ),
+              ),
             ],
           ),
-        ExpansionTile(
-          title: Text(t.ilduConstructionCulture, style: type.body),
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(Spacing.md),
-              child: Text(
-                ilduArtText(series.culture, language),
-                style: type.body,
-              ),
+          if (stage.glossary.isNotEmpty)
+            ExpansionTile(
+              title: Text(t.ilduConstructionTerms, style: type.body),
+              children: [
+                for (final term in stage.glossary)
+                  ListTile(
+                    title: Text(ilduArtText(term.label, language)),
+                    subtitle: Text(ilduArtText(term.explanation, language)),
+                  ),
+              ],
             ),
-          ],
-        ),
+          ExpansionTile(
+            title: Text(t.ilduConstructionCulture, style: type.body),
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(Spacing.md),
+                child: Text(
+                  ilduArtText(series.culture, language),
+                  style: type.body,
+                ),
+              ),
+            ],
+          ),
+        ],
       ],
     );
   }

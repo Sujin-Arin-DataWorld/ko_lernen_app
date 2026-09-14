@@ -17675,6 +17675,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Der Ort und seine Bedeutung'**
   String get ilduConstructionCulture;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Ein freier Bauplatz'**
+  String get ilduConstructionEmptyTitle;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.'**
+  String get ilduConstructionEmptyBody;
+
+  /// Empty site before the first construction stage
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dem Bau beginnen'**
+  String get ilduConstructionStart;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

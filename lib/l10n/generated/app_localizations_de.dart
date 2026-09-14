@@ -10412,4 +10412,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduConstructionCulture => 'Der Ort und seine Bedeutung';
+
+  @override
+  String get ilduConstructionEmptyTitle => 'Ein freier Bauplatz';
+
+  @override
+  String get ilduConstructionEmptyBody =>
+      'Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.';
+
+  @override
+  String get ilduConstructionStart => 'Mit dem Bau beginnen';
 }

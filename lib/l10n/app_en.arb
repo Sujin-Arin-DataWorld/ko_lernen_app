@@ -4763,5 +4763,17 @@
   "ilduConstructionCulture": "The space and its role",
   "@ilduConstructionCulture": {
     "description": "Approved Hanok construction artwork learning: Culture"
+  },
+  "ilduConstructionEmptyTitle": "An empty site",
+  "@ilduConstructionEmptyTitle": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionEmptyBody": "Before construction begins, there is an open space. Watch a building take shape here.",
+  "@ilduConstructionEmptyBody": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionStart": "Start building",
+  "@ilduConstructionStart": {
+    "description": "Empty site before the first construction stage"
   }
 }
