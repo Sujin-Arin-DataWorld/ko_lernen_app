@@ -4879,5 +4879,53 @@
   "phaseTaskCriterionPassed": "Kriterium erfüllt",
   "phaseTaskCriterionRequired": "Pflichtkriterium",
   "phaseTaskCriterionUnscored": "Diese Formulierung ist nicht automatisch bewertbar.",
-  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet"
+  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet",
+  "ilduConstructionTitle": "So entsteht ein Hanok",
+  "@ilduConstructionTitle": {
+    "description": "Approved Hanok construction artwork learning: Title"
+  },
+  "ilduConstructionIntro": "Schau zu, wie das kleine Tor und das Lagerhaus entstehen, und übe dabei Koreanisch.",
+  "@ilduConstructionIntro": {
+    "description": "Approved Hanok construction artwork learning: Intro"
+  },
+  "ilduConstructionStep": "Schritt {current} von {total}",
+  "@ilduConstructionStep": {
+    "description": "Approved Hanok construction artwork learning: Step",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ilduConstructionPrevious": "Vorheriger Schritt",
+  "@ilduConstructionPrevious": {
+    "description": "Approved Hanok construction artwork learning: Previous"
+  },
+  "ilduConstructionNext": "Nächster Schritt",
+  "@ilduConstructionNext": {
+    "description": "Approved Hanok construction artwork learning: Next"
+  },
+  "ilduConstructionCorrect": "Richtig. Zeige auf diese Stelle im Bild.",
+  "@ilduConstructionCorrect": {
+    "description": "Approved Hanok construction artwork learning: Correct"
+  },
+  "ilduConstructionTryAgain": "Schau dir das Bild an und versuche es noch einmal.",
+  "@ilduConstructionTryAgain": {
+    "description": "Approved Hanok construction artwork learning: TryAgain"
+  },
+  "ilduConstructionScene": "Die Situation",
+  "@ilduConstructionScene": {
+    "description": "Approved Hanok construction artwork learning: Scene"
+  },
+  "ilduConstructionTerms": "Bauteile kennenlernen",
+  "@ilduConstructionTerms": {
+    "description": "Approved Hanok construction artwork learning: Terms"
+  },
+  "ilduConstructionCulture": "Der Ort und seine Bedeutung",
+  "@ilduConstructionCulture": {
+    "description": "Approved Hanok construction artwork learning: Culture"
+  }
 }

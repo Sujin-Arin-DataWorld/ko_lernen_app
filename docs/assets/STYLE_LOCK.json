@@ -284,23 +284,24 @@
         "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
         "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
         "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
-        "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png"
+        "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+        "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다.",
+      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계도 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다.",
       "canonSprites": {
-        "note": "Jin 정본 선언 2026-08-25 기준 채별 정본 파일(assets_unused/pending_review/personal_hanok_v3/). 시리즈가 여럿인 채는 최신·실측 정합본을 기본 정본으로 두고 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 예외: 솟을대문은 2026-09-14 승인 원화의 저장소 루트 기준 경로다.",
+        "note": "Jin 정본 선언 2026-08-25 기준 채별 정본 파일(assets_unused/pending_review/personal_hanok_v3/). 시리즈가 여럿인 채는 최신·실측 정합본을 기본 정본으로 두고 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 예외: 솟을대문은 2026-09-14 승인 원화의 저장소 루트 기준 경로다. 협문과 창고도 승인 후 저장소 루트 기준 런타임 경로를 사용한다.",
         "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
         "sarangchae": "sarangchae_try07_edit.png",
         "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
         "anchae": "anchae_final.png",
         "anchae_gokganchae": "안채곳간채.png",
         "gokganchae": "gokganchae_try02_5kan.png",
-        "changgo_gwangchae": "changgo_try04_lowlong.png",
+        "changgo_gwangchae": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
         "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
         "sadang": "sadang_try03_oblique.png (지정 대기 — try02_oneroof 병존)",
         "sadangmun": "sadangmun_try02_small.png",
         "ansarangchae": "byeoldang_try02_colonnade.png (파일명의 byeoldang 은 구 표제 — 채명은 안사랑채, '별당' 폐기. 전면 개방 기둥열이 실측 정합; byeoldang_ansarang_try01 병존, 지정 대기)",
-        "hyeopmun_shared": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)",
+        "hyeopmun_shared": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
         "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
         "hongyemun": "안사랑채-외부 출입문.png",
         "gulttuk": "굴뚝.png",
@@ -808,6 +809,32 @@
           "presentation": "검정 배경 누적 공정 PNG. 앞뒤 기둥, 깊이 방향 보, 중앙 통로와 좌우 공간을 유지한다.",
           "scope": "승인 공정 아트 정본 보관. 현재 앱 번들에는 넣지 않으며, 실제 화면 연결 시 번들 등록과 함께 적용한다. 지도 투명 레이어·8방향 교체·진행도 연결은 별도다.",
           "supersedesCanonical": "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png"
+        },
+        "hyeopmun": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+          "canonicalSha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884",
+          "stageCount": 6,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/",
+          "presentation": "투명 PNG 공정 그림. 승인한 원화의 미세한 기둥 및 기단 차이는 유지하며 픽셀 단위 누적 정합을 주장하지 않는다.",
+          "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
+          "supersedesCanonical": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)"
+        },
+        "changgo": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+          "canonicalSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488",
+          "stageCount": 8,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/changgo/",
+          "presentation": "투명 PNG 공정 그림. 승인한 원화의 미세한 기둥 및 기단 차이는 유지하며 픽셀 단위 누적 정합을 주장하지 않는다.",
+          "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
+          "supersedesCanonical": "changgo_try04_lowlong.png"
         }
       }
     },

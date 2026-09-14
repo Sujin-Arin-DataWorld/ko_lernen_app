@@ -1,0 +1,78 @@
+{
+  "status": "approved_canonical",
+  "approvedOn": "2026-09-14",
+  "catalog": "assets/data/ildu_construction_art_v1.json",
+  "stages": [
+    {
+      "stageId": "hyeopmun-foundation",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_01_foundation.png",
+      "sha256": "c3e1f7e227dddfd51e36ce37335fbbb584321cbe6814ae2937d770ec38bfc564"
+    },
+    {
+      "stageId": "hyeopmun-frame",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_02_frame.png",
+      "sha256": "c6c243b803b8526cd2a5f17d2905c20d1417ed030bae4b1023d96cada14d275c"
+    },
+    {
+      "stageId": "hyeopmun-rafters",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_03_rafters.png",
+      "sha256": "207a9bee6ed97e768e3b5c437b9a2558cd75d1d286e6fb65aec42af589b8e412"
+    },
+    {
+      "stageId": "hyeopmun-roof-bed",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_04_roof_bed.png",
+      "sha256": "3b3bd65fd5da82b764a8b496c2a81c9b2229f2bf2b369121e55384963494af64"
+    },
+    {
+      "stageId": "hyeopmun-roof-tiles",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_05_roof_tiles.png",
+      "sha256": "5d6e2fb356c230f748aa28afc91974235c3f351775926c9e29301ec83621934b"
+    },
+    {
+      "stageId": "hyeopmun-complete",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+      "sha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+    },
+    {
+      "stageId": "changgo-foundation",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_01_foundation.png",
+      "sha256": "fcc7006575538dfab7753e40d443bab438cf9510db48225c9161fa89a94d4ce8"
+    },
+    {
+      "stageId": "changgo-posts",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_02_posts.png",
+      "sha256": "2b53770adc49bec724279bf1fa7cc3f3db235db2df8ecd749dcfda881f72d39c"
+    },
+    {
+      "stageId": "changgo-beams",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_03_beams.png",
+      "sha256": "fc53d3e375666f530e98723184fa42571698885871386e139d728363fa612575"
+    },
+    {
+      "stageId": "changgo-rafters",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_04_rafters.png",
+      "sha256": "f05165413ce5e98a86a79c504f3b26c52e5293faa46e5657d6bb0a4d6859e0e6"
+    },
+    {
+      "stageId": "changgo-roof-bed",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_05_roof_bed.png",
+      "sha256": "270d80530dcc8f964cf420723b0563da2defeff29d2cc58231bc50aa89b60f41"
+    },
+    {
+      "stageId": "changgo-roof-tiles",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_06_roof_tiles.png",
+      "sha256": "799ccbd0ce8ae0e246cde17cd2d369a98e66a348dc05fd4d0f4192a395b8d96a"
+    },
+    {
+      "stageId": "changgo-walls",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_07_walls.png",
+      "sha256": "53b20450b8154f33ac2778af51ad88298280253fdcef33d9713462c15fc399ff"
+    },
+    {
+      "stageId": "changgo-complete",
+      "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+      "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+    }
+  ],
+  "remainingVisualLimitations": "User-selected generated forms are retained. Small frame/base differences across stages remain; pixel-identical member continuity is not claimed."
+}

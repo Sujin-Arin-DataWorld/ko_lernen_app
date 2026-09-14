@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(77));
+    expect(registered, hasLength(78));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(77));
+    expect(documented, hasLength(78));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -108,8 +108,8 @@ void main() {
     }
 
     // Phase task screen plus the current Hanok preview owners.
-    expect(seen, hasLength(112));
-    expect(documented, hasLength(112));
+    expect(seen, hasLength(113));
+    expect(documented, hasLength(113));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

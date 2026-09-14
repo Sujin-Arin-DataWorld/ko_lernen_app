@@ -10327,4 +10327,38 @@ class AppL10nEn extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Earlier attempt saved · task has since been revised';
+
+  @override
+  String get ilduConstructionTitle => 'How a hanok is built';
+
+  @override
+  String get ilduConstructionIntro =>
+      'Watch the small gate and storehouse take shape, and practise Korean along the way.';
+
+  @override
+  String ilduConstructionStep(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get ilduConstructionPrevious => 'Previous step';
+
+  @override
+  String get ilduConstructionNext => 'Next step';
+
+  @override
+  String get ilduConstructionCorrect =>
+      'That\'s right. Find that part in the picture.';
+
+  @override
+  String get ilduConstructionTryAgain => 'Look at the picture and try again.';
+
+  @override
+  String get ilduConstructionScene => 'The situation';
+
+  @override
+  String get ilduConstructionTerms => 'Construction terms';
+
+  @override
+  String get ilduConstructionCulture => 'The space and its role';
 }

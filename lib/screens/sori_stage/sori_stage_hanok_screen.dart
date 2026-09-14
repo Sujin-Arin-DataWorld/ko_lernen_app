@@ -7,6 +7,7 @@ import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
@@ -144,6 +145,24 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                       ),
                     );
                   },
+                ),
+                SliverPadding(
+                  padding: EdgeInsets.fromLTRB(
+                    padding.left,
+                    12,
+                    padding.right,
+                    padding.bottom,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: SoriButton.filled(
+                      key: const ValueKey('hanok-construction-entry'),
+                      label: t.ilduConstructionTitle,
+                      icon: Icons.carpenter_outlined,
+                      onTap: () => Navigator.of(
+                        context,
+                      ).pushNamed('/hanok/construction'),
+                    ),
+                  ),
                 ),
               ],
             ),

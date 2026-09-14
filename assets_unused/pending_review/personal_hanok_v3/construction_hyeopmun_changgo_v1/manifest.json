@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "status": "INCOMPLETE_RAW_REVIEW",
+  "status": "approved_canonical",
   "baseCommit": "3b6d1ca1327d7429b6bf6f244aea8f61f09bc97d",
-  "scope": "Review artwork and teaching copy only. No app integration.",
+  "scope": "Approved construction artwork and teaching copy; runtime route /hanok/construction.",
   "counts": {
     "plannedStages": 14,
     "canonicalFinals": 2,
-    "rawCandidates": 12,
+    "approvedIntermediates": 12,
     "generationAttempts": 19,
-    "deliverablePngs": 2
+    "deliverablePngs": 14
   },
   "originals": [
     {
@@ -114,14 +114,32 @@
       "plannedAsset": "hyeopmun/stages/stage_01_foundation.png",
       "output": {
         "file": "hyeopmun/stages/stage_01_foundation.png",
-        "exists": false
+        "exists": true,
+        "bytes": 2891685,
+        "sha256": "c3e1f7e227dddfd51e36ce37335fbbb584321cbe6814ae2937d770ec38bfc564",
+        "size": [
+          1568,
+          2021
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1568,
+          2021
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "hyeopmun_detail"
       ],
-      "reviewImage": "hyeopmun/raw/stage_01_try03.png",
+      "reviewImage": "hyeopmun/stages/stage_01_foundation.png",
       "candidateNote": "Magenta background; alpha, alignment and shared-stone continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "hyeopmun-frame",
@@ -130,14 +148,32 @@
       "plannedAsset": "hyeopmun/stages/stage_02_frame.png",
       "output": {
         "file": "hyeopmun/stages/stage_02_frame.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4274836,
+        "sha256": "c6c243b803b8526cd2a5f17d2905c20d1417ed030bae4b1023d96cada14d275c",
+        "size": [
+          1568,
+          2021
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1568,
+          2021
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "hyeopmun_detail"
       ],
-      "reviewImage": "hyeopmun/raw/stage_02_try02.png",
+      "reviewImage": "hyeopmun/stages/stage_02_frame.png",
       "candidateNote": "Corrected frame proportions; alpha and geometric continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "hyeopmun-rafters",
@@ -146,14 +182,32 @@
       "plannedAsset": "hyeopmun/stages/stage_03_rafters.png",
       "output": {
         "file": "hyeopmun/stages/stage_03_rafters.png",
-        "exists": false
+        "exists": true,
+        "bytes": 5057341,
+        "sha256": "207a9bee6ed97e768e3b5c437b9a2558cd75d1d286e6fb65aec42af589b8e412",
+        "size": [
+          1568,
+          2021
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1568,
+          2021
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "hyeopmun_detail"
       ],
-      "reviewImage": "hyeopmun/raw/stage_03_try03.png",
+      "reviewImage": "hyeopmun/stages/stage_03_rafters.png",
       "candidateNote": "Plain ridge timber and rafters; cumulative geometry remains unverified.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "hyeopmun-roof-bed",
@@ -162,15 +216,33 @@
       "plannedAsset": "hyeopmun/stages/stage_04_roof_bed.png",
       "output": {
         "file": "hyeopmun/stages/stage_04_roof_bed.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4957139,
+        "sha256": "3b3bd65fd5da82b764a8b496c2a81c9b2229f2bf2b369121e55384963494af64",
+        "size": [
+          1568,
+          2021
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1568,
+          2021
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "hyeopmun_detail",
         "AURI-roof"
       ],
-      "reviewImage": "hyeopmun/raw/stage_04_try01.png",
+      "reviewImage": "hyeopmun/stages/stage_04_roof_bed.png",
       "candidateNote": "Earth bedding visible; alpha and frame continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "hyeopmun-roof-tiles",
@@ -179,14 +251,32 @@
       "plannedAsset": "hyeopmun/stages/stage_05_roof_tiles.png",
       "output": {
         "file": "hyeopmun/stages/stage_05_roof_tiles.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4513983,
+        "sha256": "5d6e2fb356c230f748aa28afc91974235c3f351775926c9e29301ec83621934b",
+        "size": [
+          1568,
+          2021
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1568,
+          2021
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "hyeopmun_detail"
       ],
-      "reviewImage": "hyeopmun/raw/stage_05_try01.png",
+      "reviewImage": "hyeopmun/stages/stage_05_roof_tiles.png",
       "candidateNote": "Completed roof and open passage; alignment with canonical final pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "hyeopmun-complete",
@@ -229,16 +319,34 @@
       "plannedAsset": "changgo/stages/stage_01_foundation.png",
       "output": {
         "file": "changgo/stages/stage_01_foundation.png",
-        "exists": false
+        "exists": true,
+        "bytes": 2447811,
+        "sha256": "fcc7006575538dfab7753e40d443bab438cf9510db48225c9161fa89a94d4ce8",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_plan",
         "changgo_front",
         "changgo_right"
       ],
-      "reviewImage": "changgo/raw/stage_01_try01.png",
+      "reviewImage": "changgo/stages/stage_01_foundation.png",
       "candidateNote": "Long low foundation and two rows of post bases; exact alignment pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-posts",
@@ -247,15 +355,33 @@
       "plannedAsset": "changgo/stages/stage_02_posts.png",
       "output": {
         "file": "changgo/stages/stage_02_posts.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4327108,
+        "sha256": "2b53770adc49bec724279bf1fa7cc3f3db235db2df8ecd749dcfda881f72d39c",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_plan",
         "changgo_section_cross"
       ],
-      "reviewImage": "changgo/raw/stage_02_try01.png",
+      "reviewImage": "changgo/stages/stage_02_posts.png",
       "candidateNote": "Front and rear post rows present; exact continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-beams",
@@ -264,16 +390,34 @@
       "plannedAsset": "changgo/stages/stage_03_beams.png",
       "output": {
         "file": "changgo/stages/stage_03_beams.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4698869,
+        "sha256": "fc53d3e375666f530e98723184fa42571698885871386e139d728363fa612575",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_section_long",
         "changgo_section_cross",
         "changgo_reflected_plan"
       ],
-      "reviewImage": "changgo/raw/stage_03_try01.png",
+      "reviewImage": "changgo/stages/stage_03_beams.png",
       "candidateNote": "Frame connects in both directions; ridge shifts in following stage, requires repair.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-rafters",
@@ -282,15 +426,33 @@
       "plannedAsset": "changgo/stages/stage_04_rafters.png",
       "output": {
         "file": "changgo/stages/stage_04_rafters.png",
-        "exists": false
+        "exists": true,
+        "bytes": 5380766,
+        "sha256": "f05165413ce5e98a86a79c504f3b26c52e5293faa46e5657d6bb0a4d6859e0e6",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_section_cross",
         "changgo_reflected_plan"
       ],
-      "reviewImage": "changgo/raw/stage_04_try01.png",
+      "reviewImage": "changgo/stages/stage_04_rafters.png",
       "candidateNote": "Roof slope and rafters visible; ridge height differs from previous stage.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-roof-bed",
@@ -299,15 +461,33 @@
       "plannedAsset": "changgo/stages/stage_05_roof_bed.png",
       "output": {
         "file": "changgo/stages/stage_05_roof_bed.png",
-        "exists": false
+        "exists": true,
+        "bytes": 5879220,
+        "sha256": "270d80530dcc8f964cf420723b0563da2defeff29d2cc58231bc50aa89b60f41",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_section_cross",
         "AURI-roof"
       ],
-      "reviewImage": "changgo/raw/stage_05_try01.png",
+      "reviewImage": "changgo/stages/stage_05_roof_bed.png",
       "candidateNote": "Roof bedding present; alpha and structural continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-roof-tiles",
@@ -316,15 +496,33 @@
       "plannedAsset": "changgo/stages/stage_06_roof_tiles.png",
       "output": {
         "file": "changgo/stages/stage_06_roof_tiles.png",
-        "exists": false
+        "exists": true,
+        "bytes": 4926889,
+        "sha256": "799ccbd0ce8ae0e246cde17cd2d369a98e66a348dc05fd4d0f4192a395b8d96a",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_roof_plan",
         "changgo_front"
       ],
-      "reviewImage": "changgo/raw/stage_06_try01.png",
+      "reviewImage": "changgo/stages/stage_06_roof_tiles.png",
       "candidateNote": "Long tiled roof above open frame; exact canonical alignment pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-walls",
@@ -333,16 +531,34 @@
       "plannedAsset": "changgo/stages/stage_07_walls.png",
       "output": {
         "file": "changgo/stages/stage_07_walls.png",
-        "exists": false
+        "exists": true,
+        "bytes": 6196461,
+        "sha256": "53b20450b8154f33ac2778af51ad88298280253fdcef33d9713462c15fc399ff",
+        "size": [
+          2736,
+          1536
+        ],
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          2736,
+          1536
+        ],
+        "hasTransparentPixels": true
       },
       "blueprintRefs": [
         "changgo_plan",
         "changgo_section_long",
         "changgo_right"
       ],
-      "reviewImage": "changgo/raw/stage_07_try03.png",
+      "reviewImage": "changgo/stages/stage_07_walls.png",
       "candidateNote": "Seven front posts and partition groups 1+2+1+2 restored; metric continuity pending.",
-      "status": "RAW_CANDIDATE"
+      "status": "APPROVED_INTERMEDIATE"
     },
     {
       "stageId": "changgo-complete",
@@ -867,14 +1083,89 @@
       "detail": "Original alpha bbox reaches the canvas edges; no added padding or crop is applied to final."
     }
   ],
+  "approval": {
+    "status": "approved_canonical",
+    "approvedOn": "2026-09-14",
+    "catalog": "assets/data/ildu_construction_art_v1.json",
+    "stages": [
+      {
+        "stageId": "hyeopmun-foundation",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_01_foundation.png",
+        "sha256": "c3e1f7e227dddfd51e36ce37335fbbb584321cbe6814ae2937d770ec38bfc564"
+      },
+      {
+        "stageId": "hyeopmun-frame",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_02_frame.png",
+        "sha256": "c6c243b803b8526cd2a5f17d2905c20d1417ed030bae4b1023d96cada14d275c"
+      },
+      {
+        "stageId": "hyeopmun-rafters",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_03_rafters.png",
+        "sha256": "207a9bee6ed97e768e3b5c437b9a2558cd75d1d286e6fb65aec42af589b8e412"
+      },
+      {
+        "stageId": "hyeopmun-roof-bed",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_04_roof_bed.png",
+        "sha256": "3b3bd65fd5da82b764a8b496c2a81c9b2229f2bf2b369121e55384963494af64"
+      },
+      {
+        "stageId": "hyeopmun-roof-tiles",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_05_roof_tiles.png",
+        "sha256": "5d6e2fb356c230f748aa28afc91974235c3f351775926c9e29301ec83621934b"
+      },
+      {
+        "stageId": "hyeopmun-complete",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+        "sha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884"
+      },
+      {
+        "stageId": "changgo-foundation",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_01_foundation.png",
+        "sha256": "fcc7006575538dfab7753e40d443bab438cf9510db48225c9161fa89a94d4ce8"
+      },
+      {
+        "stageId": "changgo-posts",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_02_posts.png",
+        "sha256": "2b53770adc49bec724279bf1fa7cc3f3db235db2df8ecd749dcfda881f72d39c"
+      },
+      {
+        "stageId": "changgo-beams",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_03_beams.png",
+        "sha256": "fc53d3e375666f530e98723184fa42571698885871386e139d728363fa612575"
+      },
+      {
+        "stageId": "changgo-rafters",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_04_rafters.png",
+        "sha256": "f05165413ce5e98a86a79c504f3b26c52e5293faa46e5657d6bb0a4d6859e0e6"
+      },
+      {
+        "stageId": "changgo-roof-bed",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_05_roof_bed.png",
+        "sha256": "270d80530dcc8f964cf420723b0563da2defeff29d2cc58231bc50aa89b60f41"
+      },
+      {
+        "stageId": "changgo-roof-tiles",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_06_roof_tiles.png",
+        "sha256": "799ccbd0ce8ae0e246cde17cd2d369a98e66a348dc05fd4d0f4192a395b8d96a"
+      },
+      {
+        "stageId": "changgo-walls",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_07_walls.png",
+        "sha256": "53b20450b8154f33ac2778af51ad88298280253fdcef33d9713462c15fc399ff"
+      },
+      {
+        "stageId": "changgo-complete",
+        "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+        "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+      }
+    ],
+    "remainingVisualLimitations": "User-selected generated forms are retained. Small frame/base differences across stages remain; pixel-identical member continuity is not claimed."
+  },
   "unresolved": [
-    "12 intermediate PNG deliverables have not been promoted from raw candidates.",
-    "Generated RGB backgrounds are opaque; most selected candidates use magenta.",
-    "Generated dimensions differ from the fixed canonical canvases.",
-    "Posts, stone bases and roof anchors drift across candidates. Pixel-stable shared layers are not established.",
-    "Changgo stage 3 ridge height differs from stage 4 and requires repair.",
-    "Small-screen comparison and full edge inspection must be repeated after corrected outputs exist."
+    "Posts, stone bases and roof anchors have small differences across approved generated stages. Pixel-stable shared layers are not claimed.",
+    "Changgo stage 3 ridge height differs from stage 4; the user-selected generated forms are retained.",
+    "This is an educational visualization, not a verified historical reconstruction."
   ],
-  "runtimeModified": false,
-  "humanApproved": false
+  "runtimeModified": true,
+  "humanApproved": true
 }

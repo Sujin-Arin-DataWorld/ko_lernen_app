@@ -1,5 +1,5 @@
 {
-  "status": "INCOMPLETE",
+  "status": "APPROVED_WITH_DOCUMENTED_VARIATIONS",
   "checks": [
     {
       "check": "14 learning stages",
@@ -262,28 +262,108 @@
     },
     {
       "check": "hyeopmun-foundation deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "hyeopmun/stages/stage_01_foundation.png"
     },
     {
+      "check": "hyeopmun-foundation exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-foundation transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "hyeopmun-frame deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "hyeopmun/stages/stage_02_frame.png"
     },
     {
+      "check": "hyeopmun-frame exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-frame transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "hyeopmun-rafters deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "hyeopmun/stages/stage_03_rafters.png"
     },
     {
+      "check": "hyeopmun-rafters exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-rafters transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "hyeopmun-roof-bed deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "hyeopmun/stages/stage_04_roof_bed.png"
     },
     {
+      "check": "hyeopmun-roof-bed exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-roof-bed transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "hyeopmun-roof-tiles deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "hyeopmun/stages/stage_05_roof_tiles.png"
+    },
+    {
+      "check": "hyeopmun-roof-tiles exact canvas",
+      "status": "PASS",
+      "detail": [
+        1568,
+        2021
+      ]
+    },
+    {
+      "check": "hyeopmun-roof-tiles transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
     },
     {
       "check": "hyeopmun-complete deliverable exists",
@@ -308,38 +388,150 @@
     },
     {
       "check": "changgo-foundation deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_01_foundation.png"
     },
     {
+      "check": "changgo-foundation exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-foundation transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-posts deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_02_posts.png"
     },
     {
+      "check": "changgo-posts exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-posts transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-beams deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_03_beams.png"
     },
     {
+      "check": "changgo-beams exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-beams transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-rafters deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_04_rafters.png"
     },
     {
+      "check": "changgo-rafters exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-rafters transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-roof-bed deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_05_roof_bed.png"
     },
     {
+      "check": "changgo-roof-bed exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-roof-bed transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-roof-tiles deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_06_roof_tiles.png"
     },
     {
+      "check": "changgo-roof-tiles exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-roof-tiles transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
       "check": "changgo-walls deliverable exists",
-      "status": "FAIL",
+      "status": "PASS",
       "detail": "changgo/stages/stage_07_walls.png"
+    },
+    {
+      "check": "changgo-walls exact canvas",
+      "status": "PASS",
+      "detail": [
+        2736,
+        1536
+      ]
+    },
+    {
+      "check": "changgo-walls transparency",
+      "status": "PASS",
+      "detail": [
+        0,
+        255
+      ]
     },
     {
       "check": "changgo-complete deliverable exists",
@@ -363,10 +555,10 @@
       ]
     }
   ],
-  "passed": 50,
-  "failed": 12,
-  "structuralReview": "NOT_PASSED",
-  "edgeReview": "NOT_PASSED",
-  "smallScreenReview": "NOT_PASSED",
+  "passed": 86,
+  "failed": 0,
+  "structuralReview": "VARIATIONS_RETAINED_NOT_PIXEL_IDENTICAL",
+  "edgeReview": "TRANSPARENT_OUTPUTS_WITH_INHERITED_FINAL_DEFECTS",
+  "smallScreenReview": "CONTACT_SHEETS_INSPECTED",
   "reason": "Machine checks cannot establish structural continuity or historical reconstruction accuracy."
 }

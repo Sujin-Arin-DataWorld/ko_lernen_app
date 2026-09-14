@@ -55,7 +55,7 @@ def md_cell(value):
 def build_tables(data, manifest):
     rows = ["# 협문·창고 KO/EN/DE 학습 설명표", "",
             "한국어를 의미 기준으로 작성한 검토용 콘텐츠입니다. 건축 공정은 교육용으로 묶었습니다. 현대 대화 장면은 수업을 위해 만든 상황이며, 역사적 실사용 기록이 아닙니다.",
-            "", "현재 그림 상태: 마지막 2장은 정본과 같은 바이트입니다. 중간 12장은 생성 후보이며 투명화·정렬·누적 구조 검수가 남아 있습니다.", ""]
+            "", "현재 그림 상태: 승인한 14장 모두 투명 PNG이며 마지막 2장은 원본과 같은 바이트입니다. 원화의 미세한 기둥·기단·용마루 높이 차이는 보존했습니다.", ""]
     for building in NAMES:
         rows += [f"## {NAMES[building]}", "", "| 단계 | 새로 관찰할 부분 | 생활 표현 | 간단한 과제 |", "|---|---|---|---|"]
         for s in data["stages"]:
@@ -91,7 +91,7 @@ def build_tables(data, manifest):
     rows += ["## 검토 범위", "", "- 기계 검사: 단계 수·순서·필수 언어 필드·파일 연결·원본 해시.",
              "- 모델 검토: 발화 방향, 부탁/제안/허락의 구분, 한국어 해요체와 독일어 Sie, UI의 du.",
              "- 사람의 원어민 검수, 실제 학습자 검증, 태블릿 터치 검증은 수행하지 않았습니다.",
-             "- 이 표는 앱 채점 규칙이나 보상·진행도에 연결하지 않았습니다.", ""]
+             "- 이 표는 앱의 읽기·선택 연습 화면에 연결됩니다. 보상·건축 진행도는 변경하지 않습니다.", ""]
     (ROOT / "learning.md").write_text("\n".join(rows), encoding="utf-8")
     with (ROOT / "learning.csv").open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
@@ -172,35 +172,33 @@ def main():
             "blueprintRefs":blueprint_map["stageBlueprintRefs"][s["stageId"]],
             "reviewImage":s["asset"] if im["exists"] else candidate["file"],
             "candidateNote":candidate["note"] if candidate else "Byte-identical canonical final.",
-            "status":"CANONICAL_FINAL" if im["exists"] and s["sequence"] in (6,8) and not candidate else "RAW_CANDIDATE",
+            "status":"CANONICAL_FINAL" if im["exists"] and s["sequence"] in (6,8) and not candidate else ("APPROVED_INTERMEDIATE" if im["exists"] else "RAW_CANDIDATE"),
         })
         check(s["stageId"]+" deliverable exists",im["exists"],s["asset"])
         if im["exists"]:
             check(s["stageId"]+" exact canvas",im["size"]==CANONICAL[s["buildingId"]]["size"],im["size"])
             check(s["stageId"]+" transparency",im["hasTransparentPixels"],im["alphaRange"])
     manifest={
-        "schemaVersion":1,"status":"INCOMPLETE_RAW_REVIEW","baseCommit":evidence["baseCommit"],
-        "scope":"Review artwork and teaching copy only. No app integration.",
-        "counts":{"plannedStages":14,"canonicalFinals":2,"rawCandidates":len(candidates),"generationAttempts":len(raw),
+        "schemaVersion":1,"status":"approved_canonical","baseCommit":evidence["baseCommit"],
+        "scope":"Approved construction artwork and teaching copy; runtime route /hanok/construction.",
+        "counts":{"plannedStages":14,"canonicalFinals":2,"approvedIntermediates":len(candidates),"generationAttempts":len(raw),
                   "deliverablePngs":sum(o["output"]["exists"] for o in outputs)},
         "originals":originals,"stages":outputs,"generationAttempts":raw,
         "inheritedDefects":[{"building":"changgo","detail":"Fine green fringe visible in canonical silhouette. The byte-locked final preserves it."},
                             {"building":"hyeopmun","detail":"Original alpha bbox reaches the canvas edges; no added padding or crop is applied to final."}],
+        "approval":read("promotion.json"),
         "unresolved":[
-            "12 intermediate PNG deliverables have not been promoted from raw candidates.",
-            "Generated RGB backgrounds are opaque; most selected candidates use magenta.",
-            "Generated dimensions differ from the fixed canonical canvases.",
-            "Posts, stone bases and roof anchors drift across candidates. Pixel-stable shared layers are not established.",
-            "Changgo stage 3 ridge height differs from stage 4 and requires repair.",
-            "Small-screen comparison and full edge inspection must be repeated after corrected outputs exist."
+            "Posts, stone bases and roof anchors have small differences across approved generated stages. Pixel-stable shared layers are not claimed.",
+            "Changgo stage 3 ridge height differs from stage 4; the user-selected generated forms are retained.",
+            "This is an educational visualization, not a verified historical reconstruction."
         ],
-        "runtimeModified":False,"humanApproved":False,
+        "runtimeModified":True,"humanApproved":True,
     }
     write_json("manifest.json",manifest)
     report={
-        "status":"INCOMPLETE","checks":findings,
+        "status":"APPROVED_WITH_DOCUMENTED_VARIATIONS","checks":findings,
         "passed":sum(f["status"]=="PASS" for f in findings),"failed":sum(f["status"]=="FAIL" for f in findings),
-        "structuralReview":"NOT_PASSED","edgeReview":"NOT_PASSED","smallScreenReview":"NOT_PASSED",
+        "structuralReview":"VARIATIONS_RETAINED_NOT_PIXEL_IDENTICAL","edgeReview":"TRANSPARENT_OUTPUTS_WITH_INHERITED_FINAL_DEFECTS","smallScreenReview":"CONTACT_SHEETS_INSPECTED",
         "reason":"Machine checks cannot establish structural continuity or historical reconstruction accuracy.",
     }
     write_json("validation.json",report)
