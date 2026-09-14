@@ -85,11 +85,13 @@ void main() {
         localCacheBlock.indexOf('on TimeoutException'),
       );
       expect(
-        RegExp(r'\}\s*catch\s*\(_\)\s*\{').hasMatch(afterTimeout),
+        RegExp(
+          r'\}\s*catch\s*\((_|error(,\s*stackTrace)?)\)\s*\{',
+        ).hasMatch(afterTimeout),
         isTrue,
         reason:
-            'TimeoutException 전용 catch 뒤에 일반 catch(_) 가 없으면 '
-            'FileSystemException 등이 _resolveAudio 전체를 throw 해 '
+            'TimeoutException 전용 catch 뒤에 일반 catch(_ 또는 error, stackTrace) 가 '
+            '없으면 FileSystemException 등이 _resolveAudio 전체를 throw 해 '
             'Storage/CF 폴백을 건너뛴다 (finding 1a)',
       );
     },
