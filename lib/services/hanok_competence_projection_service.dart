@@ -17,17 +17,28 @@ abstract final class HanokCompetenceProjectionService {
     HanokCompetenceSnapshotReader? snapshotReader,
   }) async {
     try {
-      final catalog = await (catalogLoader ?? CurriculumCatalog.load)();
-      final snapshot =
-          (snapshotReader ?? _readStoredSnapshot)(catalog) ??
-          const CourseMasterySnapshot.empty();
-      return HanokCompetenceProjection.fromSnapshot(
-        snapshot: snapshot,
-        courseUnits: catalog.courseUnits,
+      return await readCurrent(
+        catalogLoader: catalogLoader,
+        snapshotReader: snapshotReader,
       );
     } catch (_) {
       return const HanokCompetenceProjection.empty();
     }
+  }
+
+  /// Honest read for presentation/receipts; legacy loadCurrent keeps fallback.
+  static Future<HanokCompetenceProjection> readCurrent({
+    HanokCompetenceCatalogLoader? catalogLoader,
+    HanokCompetenceSnapshotReader? snapshotReader,
+  }) async {
+    final catalog = await (catalogLoader ?? CurriculumCatalog.load)();
+    final snapshot =
+        (snapshotReader ?? _readStoredSnapshot)(catalog) ??
+        const CourseMasterySnapshot.empty();
+    return HanokCompetenceProjection.fromSnapshot(
+      snapshot: snapshot,
+      courseUnits: catalog.courseUnits,
+    );
   }
 
   static CourseMasterySnapshot? _readStoredSnapshot(

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import '../data/sori_activity_catalog.dart';
-import '../models/course_mastery.dart';
 import '../models/hanok_competence.dart';
 import '../models/pack_progress.dart';
 import '../models/sori_stage_progression.dart';
@@ -26,10 +25,18 @@ abstract final class SoriStageProgressionService {
   }) async {
     final todayFuture = (loadToday ?? TodayLearningSnapshotLoader.load)();
     final hanokFuture =
-        (loadHanokCompetence ?? HanokCompetenceProjectionService.loadCurrent)();
+        (loadHanokCompetence ?? HanokCompetenceProjectionService.readCurrent)();
     final questsFuture = QuestTracker.computeAll();
     final gyeLanternFuture = _loadGyeLanternCount();
 
+    for (final future in <Future<dynamic>>[
+      todayFuture,
+      hanokFuture,
+      questsFuture,
+      gyeLanternFuture,
+    ]) {
+      unawaited(future.then<void>((_) {}, onError: (_) {}));
+    }
     final today = await todayFuture;
     final hanok = await hanokFuture;
     final quests = await questsFuture;
@@ -43,6 +50,7 @@ abstract final class SoriStageProgressionService {
       quests: quests,
       pendingBojagiCount: DecorationRewardService.openableBoxCount(),
       stampCount: Storage.earnedStamps.length,
+      stampIds: Storage.earnedStamps.toSet(),
       xp: Storage.xp,
       streakDays: Storage.streakDays,
       todayReward: activity?.reward,
@@ -55,12 +63,7 @@ abstract final class SoriStageProgressionService {
   static Future<Map<String, SoriActivityProgress>>
   _loadActivityProgress() async {
     final progress = <String, SoriActivityProgress>{};
-    CourseMasterySnapshot? course;
-    try {
-      course = await CourseProgressService.shared.readForDisplay();
-    } catch (_) {
-      course = null;
-    }
+    final course = await CourseProgressService.shared.readForDisplay();
     progress['course'] = _progress(
       'course',
       current: course?.completedUnitIds.length ?? 0,
@@ -136,29 +139,23 @@ abstract final class SoriStageProgressionService {
     );
   }
 
-  static Map<String, int> _loadGameBests() => Map.unmodifiable(<String, int>{
-    'daily_game': Storage.gameBest('daily'),
-    'chosung': Storage.gameBest('chosung'),
-    'syllable_cross': <int>[
-      Storage.gameBest('skz_a1'),
-      Storage.gameBest('skz_a2'),
-      Storage.gameBest('skz_b1'),
-      Storage.gameBest('skz_b2'),
-    ].reduce((left, right) => left > right ? left : right),
-    'cloze': Storage.gameBest('cloze'),
-    'speed_match': Storage.gameBest('speed_match'),
-    'sentence_arcade': Storage.gameBest('satz_arcade'),
-    'kkeunmari': Storage.gameBest('kkeunmari'),
-    // W10 T-L3: the catalog merged 'custom_quiz'/'custom_matching'/
-    // 'custom_typing' into one 'custom_practice' tile — the three
-    // underlying per-mode scores still live separately in Storage (the
-    // quiz/matching/typing exercises inside Meine Wörter are unchanged),
-    // so this takes their max, same pattern as 'syllable_cross' above.
-    'custom_practice': <int>[
-      Storage.gameBest('cp_quiz'),
-      Storage.gameBest('cp_matching'),
-      Storage.gameBest('cp_typing'),
-    ].reduce((left, right) => left > right ? left : right),
+  static Map<String, int> _loadGameBests() => Map.unmodifiable({
+    for (final id in [
+      'daily',
+      'chosung',
+      'skz_a1',
+      'skz_a2',
+      'skz_b1',
+      'skz_b2',
+      'cloze',
+      'speed_match',
+      'satz_arcade',
+      'kkeunmari',
+      'cp_quiz',
+      'cp_matching',
+      'cp_typing',
+    ])
+      id: Storage.gameBest(id),
   });
 
   static Future<int> _loadGyeLanternCount() =>
@@ -181,8 +178,10 @@ abstract final class SoriStageProgressionService {
   /// 라운턴은 이번 영수증에 늦게 반영될 수 있다 — 실제 저장된 보상에는
   /// 영향 없음, 영수증 표시만 한 박자 늦을 수 있다).
   static Future<SoriStageNetworkBeforeFields> loadNetworkBeforeFields() async {
-    final hanokFuture = HanokCompetenceProjectionService.loadCurrent();
+    final hanokFuture = HanokCompetenceProjectionService.readCurrent();
     final questsFuture = QuestTracker.computeAll();
+    unawaited(hanokFuture.then<void>((_) {}, onError: (_) {}));
+    unawaited(questsFuture.then<void>((_) {}, onError: (_) {}));
     final gyeLanternBefore = GyeService.cachedGyeLanternCount;
     unawaited(GyeService.refreshGyeLanternCache());
     return (

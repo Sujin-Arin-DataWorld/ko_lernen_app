@@ -28,6 +28,9 @@ class HomeHeroClips {
   /// 경계에서 자세가 크게 튄다. 경계 여백과 이음새가 안전한 standing idle을
   /// 한지 매트로 사전 합성해 홈 전용으로 쓴다.
   static const String tigerThinking = '$_homeBase/tiger_thinking_hanji.mp4';
+  /// Heute card-edge companion: the user-selected front-facing sitting2 loop.
+  /// Original clip remains unchanged in CharacterClips; only matte is baked.
+  static const String tigerSitting2 = '$_homeBase/tiger_sitting2_hanji.mp4';
   static const String magpieWalkingFront =
       '$_homeBase/magpie_walking_front_hanji.mp4';
 

@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -80,6 +83,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   _End _end = _End.none;
   bool _finishing = false;
   bool _newBest = false; // diese Runde = längste Kette aller Zeiten?
+  LearningAttempt? _learningAttempt;
+  int? _persistedXp;
   bool _dictionaryChecking = false;
   int _roundGeneration = 0;
   int _turnGeneration = 0;
@@ -266,6 +271,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _turnGeneration++;
       _end = _End.none;
       _newBest = false;
+      _learningAttempt = null;
+      _persistedXp = null;
       _dictionaryChecking = false;
       _errorMsg = '';
       _remaining = _turnSeconds;
@@ -609,6 +616,8 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       return;
     }
     _newBest = outcome.isNewBest;
+    _learningAttempt = outcome.attempt;
+    _persistedXp = outcome.xpGained;
     HapticFeedback.heavyImpact();
     _feedbackCompletion.complete(
       () => FeedbackCompletion.kkeunmari(
@@ -746,9 +755,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
                 if (_end != _End.none)
                   _ResultCard(
+                    learningAttempt: _learningAttempt,
                     end: _end,
                     chainLength: _chain.length,
-                    xpEarned: (_chain.length * 10).clamp(20, 500),
+                    xpEarned: _persistedXp ?? 0,
+                    rewardReady: _persistedXp != null,
                     isNewBest: _newBest,
                     feedbackCompletion: _feedbackCompletion.current,
                     onAgain: () {
@@ -1150,18 +1161,22 @@ class _LastWordCard extends StatelessWidget {
 // ─── Result Card ──────────────────────────────────────────────────────────────
 
 class _ResultCard extends StatelessWidget {
+  final LearningAttempt? learningAttempt;
   final _End end;
   final int chainLength;
   final int xpEarned;
+  final bool rewardReady;
   final bool isNewBest;
   final FeedbackCompletion? feedbackCompletion;
   final VoidCallback onAgain;
   final VoidCallback onHome;
 
   const _ResultCard({
+    this.learningAttempt,
     required this.end,
     required this.chainLength,
     required this.xpEarned,
+    required this.rewardReady,
     required this.isNewBest,
     required this.feedbackCompletion,
     required this.onAgain,
@@ -1228,29 +1243,41 @@ class _ResultCard extends StatelessWidget {
                   accent: SoriColors.accent,
                 ),
                 const SizedBox(width: Spacing.sm),
-                SoriBadge.xp(xpEarned, size: 24),
+                if (rewardReady)
+                  LearningRewardPresentation(
+                    attempt: learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: xpEarned,
+                    child: SoriBadge.xp(xpEarned, size: 24),
+                  ),
               ],
             ),
-            if (isNewBest) ...[
+            if (rewardReady && isNewBest) ...[
               const SizedBox(height: Spacing.sm),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    SoriGlyph.record,
-                    size: 15,
-                    color: SoriColors.gold,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    t.gameNewBest,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+              LearningRewardPresentation(
+                attempt: learningAttempt,
+                kind: SoriRewardKind.personalBest,
+                amount: 1,
+                identity: 'kkeunmari',
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      SoriGlyph.record,
+                      size: 15,
                       color: SoriColors.gold,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 5),
+                    Text(
+                      t.gameNewBest,
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.gold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
             if (feedbackCompletion != null &&

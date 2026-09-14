@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
@@ -12,11 +13,13 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
+import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -97,11 +100,7 @@ void main() {
         // §P3 (2026-08-14): Today 미션 카드 v2·한옥 배너·퀘스트 카드의 배치
         // 골든. 결정적 렌더를 위해 now/loadSnapshot 시임 주입 (1차 핸드오프
         // §3-4 픽스처 원칙 — sori_stage_today_matte_test 와 같은 스냅샷).
-        'sori_today': () => SoriStageTodayScreen(
-          loadSnapshot: () async => _todaySnapshot(),
-          now: () => DateTime(2026, 8, 14, 9),
-          forceStaticHero: true,
-        ),
+        'sori_today': _scopedToday,
       };
 
       final viewports = <String, Size>{
@@ -127,6 +126,22 @@ void main() {
 
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
+            if (screen.key == 'settings') {
+              // The medium viewport includes the companion avatar. Await its
+              // actual decode instead of capturing a timing-dependent blank.
+              final context = tester.element(find.byType(SettingsScreen));
+              final providers = tester
+                  .widgetList<Image>(find.byType(Image))
+                  .map((image) => image.image)
+                  .toList(growable: false);
+              await tester.runAsync(() async {
+                await Future.wait([
+                  for (final provider in providers)
+                    precacheImage(provider, context),
+                ]);
+              });
+              await tester.pump();
+            }
             if (screen.key == 'vocab_packs') {
               await tester.runAsync(() async {
                 final context = tester.element(find.byType(VocabPacksScreen));
@@ -222,6 +237,30 @@ Widget _wrap(Widget child) => MaterialApp(
   home: child,
   onGenerateRoute: (settings) => null,
 );
+
+/// Exercise the same shared-focus composition that the app shell provides.
+/// The standalone legacy mission fallback is not the production home layout.
+Widget _scopedToday() {
+  final snapshot = _todaySnapshot();
+  final focus = LearningFocus(
+    today: snapshot.today,
+    destination: snapshot.today.destination,
+    minutes: activityForRoute('/review')!.minutes,
+  );
+  final controller = LearningFocusController(loader: () async => focus)
+    ..value = focus
+    ..loading = false;
+  addTearDown(controller.dispose);
+  return LearningFocusScope(
+    controller: controller,
+    open: (_, _, {focus, activityId}) async {},
+    child: SoriStageTodayScreen(
+      loadSnapshot: () async => snapshot,
+      now: () => DateTime(2026, 8, 14, 9),
+      forceStaticHero: true,
+    ),
+  );
+}
 
 /// sori_today 골든 픽스처 — 미션 스테이지 일러스트·보자기·한옥 배너의
 /// 결정적 레이아웃. 보상행과 퀘스트 진행 카드의 rich-state 계약은

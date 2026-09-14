@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -118,6 +119,9 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
       return;
     }
     if (_idx + 1 >= _items.length) {
+      if (_items.isNotEmpty) {
+        LearningJourneyObserver.beginAttempt()?.complete();
+      }
       setState(() => _done = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {

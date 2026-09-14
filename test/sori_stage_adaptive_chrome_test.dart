@@ -338,7 +338,13 @@ void main() {
       expect(text.maxLines, isNull);
       expect(text.overflow, isNull);
     }
-    expect(find.bySemanticsLabel(RegExp('Dojang-Heft, ')), findsOneWidget);
+    final t = AppL10n.of(tester.element(dojang));
+    expect(
+      find.bySemanticsLabel(
+        RegExp('^${RegExp.escape(t.soriStageHanokStamps)}, '),
+      ),
+      findsOneWidget,
+    );
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });

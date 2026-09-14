@@ -812,10 +812,12 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         label: t.quizResultTitle,
         child: SoriCenterClamp(
           child: GameOverCard(
+            outcome: _outcome,
+            rewardReady: _outcome != null,
             headline: t.quizResultTitle,
             scoreLabel: t.speedMatchScore(_score),
             feedbackContext: _feedbackCompletion.current?.context,
-            xpGained: _score * 3,
+            xpGained: _outcome?.xpGained ?? 0,
             isNewBest: _outcome?.isNewBest ?? false,
             newBestLabel: t.gameNewBest,
             bestLabel: t.speedMatchBest(Storage.gameBest('speed_match')),

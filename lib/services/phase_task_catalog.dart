@@ -6,16 +6,35 @@ export '../models/phase_task.dart';
 export '../models/phase_objective_binding.dart';
 
 class PhaseTaskCatalog {
-  PhaseTaskCatalog._(this.tasks, this.objectives, this.publications);
+  PhaseTaskCatalog._(this.tasks, this.objectives, this.publications)
+    : _byId = {for (final task in tasks) task.id: task};
   static const assetPath = 'assets/data/phase_tasks.json';
   static const phaseAssetPath = 'assets/data/learning_phases.json';
-  static PhaseTaskCatalog? _cached;
+  static Future<PhaseTaskCatalog>? _shared;
   final List<PhaseTask> tasks;
   final List<PhaseObjectiveBinding> objectives;
   final List<PhasePublication> publications;
-  static Future<PhaseTaskCatalog> load() async {
-    final cached = _cached;
-    if (cached != null) return cached;
+  final Map<String, PhaseTask> _byId;
+
+  static Future<PhaseTaskCatalog> load() {
+    final pending = _shared;
+    if (pending != null) {
+      return pending;
+    }
+    final loading = _loadValidated();
+    _shared = loading;
+    loading.then<void>(
+      (_) {},
+      onError: (Object _) {
+        if (identical(_shared, loading)) {
+          _shared = null;
+        }
+      },
+    );
+    return loading;
+  }
+
+  static Future<PhaseTaskCatalog> _loadValidated() async {
     final json =
         jsonDecode(await rootBundle.loadString(assetPath, cache: false))
             as Map<String, dynamic>;
@@ -43,10 +62,10 @@ class PhaseTaskCatalog {
     if (linked.length != catalog.tasks.length) {
       throw const FormatException('Unbound published Phase task');
     }
-    return _cached = catalog;
+    return catalog;
   }
 
-  static void resetForTesting() => _cached = null;
+  static void resetForTesting() => _shared = null;
 
   static PhaseTaskCatalog parse(Map<String, dynamic> json) {
     if (![1, 2].contains(json['schemaVersion']) ||
@@ -135,10 +154,8 @@ class PhaseTaskCatalog {
 
   List<PhaseTask> forPhase(String id) =>
       tasks.where((t) => t.phaseId == id).toList(growable: false);
-  PhaseTask byId(String id) => tasks.firstWhere(
-    (t) => t.id == id,
-    orElse: () => throw const FormatException('Unknown Phase task'),
-  );
+  PhaseTask byId(String id) =>
+      _byId[id] ?? (throw const FormatException('Unknown Phase task'));
   bool accepts(PhaseTaskResult result) =>
       byId(result.task.id).contentHash == result.task.contentHash;
 }

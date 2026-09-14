@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -84,6 +87,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   SilbenWord? _activeWord;
   bool _solved = false;
   bool _finishing = false;
+  LearningAttempt? _learningAttempt;
+  bool _rewardPersisted = false;
   int _presentation = 0;
   int _wrongTick = 0;
   (int, int)? _wrongCell;
@@ -250,6 +255,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     resetGameResult();
     _presentation++;
     _finishing = false;
+    _learningAttempt = null;
+    _rewardPersisted = false;
     final p = _puzzles[_index];
     setState(() {
       _puzzle = p;
@@ -427,6 +434,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     setState(() {
       _solved = true;
       _finishing = false;
+      _learningAttempt = outcome.attempt;
+      _rewardPersisted = true;
     });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (gameResultAcceptsInput && _solved) {
@@ -912,12 +921,20 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         tinted: true,
         child: Column(
           children: [
-            Text(
-              '${t.wordleResultWin} +$_xpPerPuzzle XP',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                color: SoriColors.success,
+            LearningRewardPresentation(
+              attempt: _learningAttempt,
+              kind: SoriRewardKind.xp,
+              amount: _xpPerPuzzle,
+              presentationComplete: _rewardPersisted,
+              child: Text(
+                _rewardPersisted
+                    ? '${t.wordleResultWin} +$_xpPerPuzzle XP'
+                    : t.wordleResultWin,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: SoriColors.success,
+                ),
               ),
             ),
             const SizedBox(height: Spacing.md),

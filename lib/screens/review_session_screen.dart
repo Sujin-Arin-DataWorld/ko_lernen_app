@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -227,6 +230,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (mounted) {
       setState(() {
         _loadState = ReviewLoadState.loading;
+        _learningAttempt = null;
+        _rewardPersisted = false;
+        _completionXp = null;
       });
     }
     // M5: vorgegebener personalisierter Deck hat Vorrang.
@@ -418,6 +424,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     return unambiguousReviewLevel(_deck.map((word) => word.level));
   }
 
+  LearningAttempt? _learningAttempt;
+  bool _rewardPersisted = false;
+
   void _answer(bool gotIt) {
     final queue = _queue;
     if (!_acceptsInput ||
@@ -487,7 +496,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _speech.prefetchNeighbors([if (next != null) next.korean]);
         return;
       }
-      await (_completionXp ??= XpAwardAttempt(_reviewed * 2)).save();
+      final attempt = _learningAttempt ??=
+          LearningJourneyObserver.beginAttempt();
+      await trackLearningPersistence(
+        attempt,
+        (_completionXp ??= XpAwardAttempt(_reviewed * 2)).save(),
+      );
       if (!_routeCanUpdate) {
         return;
       }
@@ -507,6 +521,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       setState(() {
         _done = true;
         _pendingJudgment = null;
+        _rewardPersisted = true;
       });
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (_sessionIsCurrent) {
@@ -629,12 +644,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   style: tt.body.copyWith(color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.md),
-                Text(
-                  '+${_reviewed * 2} XP',
-                  // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
-                  // 카드 위 장식 금색과는 다른 이야기.
-                  style: tt.h2.copyWith(color: SoriColors.gold),
-                ),
+                if (_rewardPersisted)
+                  LearningRewardPresentation(
+                    attempt: _learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: _reviewed * 2,
+                    presentationComplete: _rewardPersisted,
+                    child: Text(
+                      '+${_reviewed * 2} XP',
+                      // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
+                      // 카드 위 장식 금색과는 다른 이야기.
+                      style: tt.h2.copyWith(color: SoriColors.gold),
+                    ),
+                  ),
                 // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
                 if (widget.bonusPhrase != null) ...[
                   const SizedBox(height: Spacing.xl),

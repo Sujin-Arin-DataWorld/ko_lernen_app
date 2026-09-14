@@ -19,15 +19,18 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
+import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
 
 const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
+late LearningFocusController _focusController;
 
 /// §LAYOUT-4(J14) — 5 root evidence PNGs (today/learn/hanok/gye) share one
 /// pipeline. Flag OFF (default `flutter test`): every `skip:
@@ -63,6 +66,11 @@ void main() {
       GuideProgressService.todayCardDismissedKey: true,
     });
     await Storage.init();
+    _focusController = LearningFocusController(
+      loader: () =>
+          LearningFocus.load(loadToday: () async => _snapshot().today),
+    );
+    await _focusController.refresh();
     // §W-J2(c): `CulturalHelpButton` gates on
     // `CulturalGlossaryRepository.load()` (a real rootBundle JSON read
     // cached process-wide) — inject a synchronous-after-one-await catalog
@@ -75,6 +83,7 @@ void main() {
   });
 
   tearDown(CulturalGlossaryRepository.resetForTesting);
+  tearDown(() => _focusController.dispose());
 
   testWidgets('capture Today at 390dp', skip: !_captureEvidence, (
     tester,
@@ -158,6 +167,27 @@ void main() {
     );
   });
 
+  testWidgets('capture Games at 390dp', skip: !_captureEvidence, (
+    tester,
+  ) async {
+    _setViewport(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _app(
+        locale: const Locale('de'),
+        home: SoriStageCatalogScreen(
+          tab: SoriStageTab.games,
+          loadSnapshot: () async => _snapshot(),
+        ),
+      ),
+    );
+    await pumpSoriStage(tester);
+    await _awaitImageDecode(tester);
+    await expectLater(
+      find.byType(SoriStageCatalogScreen),
+      matchesGoldenFile('../docs/screenshots/sori-stage-games-390.png'),
+    );
+  });
+
   testWidgets('capture Hanok at 390dp scrolled 600', skip: !_captureEvidence, (
     tester,
   ) async {
@@ -191,7 +221,10 @@ void main() {
   ) async {
     _setViewport(tester, const Size(390, 844));
     await tester.pumpWidget(
-      _app(locale: const Locale('de'), home: const SoriStageGyeScreen()),
+      _app(
+        locale: const Locale('de'),
+        home: SoriStageGyeScreen(loadGyeMetas: () async => const []),
+      ),
     );
     await pumpSoriStage(tester);
     await _awaitImageDecode(tester);
@@ -229,8 +262,15 @@ void main() {
 /// §W-J2: unifies the fix originally found for Gye's 8-layer `GyeHanok`
 /// composite across every capture (Today's mascot art, Hanok's map, etc.).
 Future<void> _awaitImageDecode(WidgetTester tester) async {
+  final context = tester.element(find.byType(MaterialApp));
+  final providers = tester
+      .widgetList<Image>(find.byType(Image))
+      .map((image) => image.image)
+      .toList(growable: false);
   await tester.runAsync(() async {
-    await Future<void>.delayed(const Duration(milliseconds: 150));
+    await Future.wait([
+      for (final provider in providers) precacheImage(provider, context),
+    ]);
   });
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 300));
@@ -344,7 +384,11 @@ Widget _app({required Locale locale, required Widget home}) => MaterialApp(
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: MediaQuery(
     data: const MediaQueryData(disableAnimations: true),
-    child: home,
+    child: LearningFocusScope(
+      controller: _focusController,
+      open: (_, destination, {focus, activityId}) async {},
+      child: home,
+    ),
   ),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),

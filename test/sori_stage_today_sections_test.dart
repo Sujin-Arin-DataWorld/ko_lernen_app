@@ -18,7 +18,7 @@ import 'support/hanok_competence_fixture.dart';
 /// **§W-D D3/D7** — Today 퀘스트 행이 fraction 으로 "Fast geschafft"(≥60%)와
 /// "Als Nächstes"(<60%) 두 섹션으로 갈리는지, 빈 섹션은 헤더까지 숨는지.
 /// **§W-D D2/D7** — 한옥 카드가 더 이상 맨 `'$built / $total'` 을 쓰지 않고
-/// [AppL10n.soriStageHanokPieces] 문구를 쓰며, 그 total 이 모델의
+/// [AppL10n.soriStageConfirmedUnits] 문구를 쓰며, 그 total 이 모델의
 /// [HanokCompetenceProjection.totalUnitCount] 와 일치하는지.
 void main() {
   setUp(() async {
@@ -175,7 +175,7 @@ void main() {
   });
 
   testWidgets(
-    '한옥 카드는 맨 fraction 대신 soriStageHanokPieces 문구를 쓰고 total 은 모델과 일치한다',
+    '한옥 카드는 맨 fraction 대신 soriStageConfirmedUnits 문구를 쓰고 total 은 모델과 일치한다',
     (tester) async {
       final t = await AppL10n.delegate.load(const Locale('de'));
       final hanok = hanokCompetenceFixture();
@@ -187,7 +187,7 @@ void main() {
       // 맨 '0 / 7' 텍스트(부재 단위 없는 옛 오버레이 문구)는 어디에도 없다.
       expect(find.text('0 / ${hanok.totalUnitCount}'), findsNothing);
       expect(
-        find.text(t.soriStageHanokPieces(0, hanok.totalUnitCount)),
+        find.text(t.soriStageConfirmedUnits(0, hanok.totalUnitCount)),
         findsOneWidget,
       );
     },

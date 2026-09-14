@@ -396,11 +396,13 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
           // tatsächlich gutgeschriebener Wert (eine Quelle der Wahrheit).
-          xpGained: _outcome?.xpGained ?? (_score * 5),
+          xpGained: _outcome?.xpGained ?? 0,
           // echter Genauigkeits-Rekord (vom recordGameResult), nicht der Streak.
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,

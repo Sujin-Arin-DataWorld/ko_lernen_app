@@ -1,4 +1,7 @@
+import '../../services/learning_journey.dart';
+import '../../models/sori_stage_progression.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../config/tester_feedback_feature.dart';
 import '../../models/content_feedback.dart';
@@ -35,13 +38,209 @@ Widget _iconLine(IconData icon, String text, Color color) => Row(
   ],
 );
 
+/// Records a persisted reward only once its exact row has been painted, fully
+/// exposed in every enclosing viewport, and finished its presentation. Parent
+/// fades can reuse a composited child, so their animations are observed too.
+class LearningRewardPresentation extends StatefulWidget {
+  const LearningRewardPresentation({
+    super.key,
+    required this.attempt,
+    required this.kind,
+    required this.amount,
+    required this.child,
+    this.identity,
+    this.presentationComplete = true,
+  });
+
+  final LearningAttempt? attempt;
+  final SoriRewardKind kind;
+  final int amount;
+  final String? identity;
+  final bool presentationComplete;
+  final Widget child;
+
+  @override
+  State<LearningRewardPresentation> createState() =>
+      _LearningRewardPresentationState();
+}
+
+class _LearningRewardPresentationState
+    extends State<LearningRewardPresentation> {
+  final _paintKey = GlobalKey();
+  final Set<Listenable> _fades = {};
+  ScrollPosition? _scroll;
+  bool _painted = false;
+  bool _scheduled = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final scroll = Scrollable.maybeOf(context)?.position;
+    if (!identical(scroll, _scroll)) {
+      _scroll?.removeListener(_schedule);
+      _scroll = scroll;
+      _scroll?.addListener(_schedule);
+    }
+    _schedule();
+  }
+
+  @override
+  void didUpdateWidget(covariant LearningRewardPresentation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.attempt != widget.attempt ||
+        oldWidget.amount != widget.amount ||
+        oldWidget.identity != widget.identity) {
+      _painted = false;
+    }
+    _schedule();
+  }
+
+  void _didPaint() {
+    _painted = true;
+    _schedule();
+  }
+
+  void _schedule() {
+    if (_scheduled || !mounted) {
+      return;
+    }
+    _scheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scheduled = false;
+      if (mounted) {
+        _check();
+      }
+    });
+  }
+
+  void _check() {
+    final box = _paintKey.currentContext?.findRenderObject();
+    if (box is! RenderBox || !box.attached || !box.hasSize) {
+      return;
+    }
+    context.visitAncestorElements((element) {
+      final ancestorWidget = element.widget;
+      if (ancestorWidget is AnimatedWidget &&
+          _fades.add(ancestorWidget.listenable)) {
+        ancestorWidget.listenable.addListener(_schedule);
+      }
+      return true;
+    });
+    var exposed = true;
+    final bounds = MatrixUtils.transformRect(
+      box.getTransformTo(null),
+      box.paintBounds,
+    );
+    if (bounds.isEmpty || !bounds.isFinite) {
+      return;
+    }
+    bool contains(Rect viewport) =>
+        viewport.inflate(0.01).contains(bounds.topLeft) &&
+        viewport.inflate(0.01).contains(bounds.bottomRight);
+    exposed = contains(Offset.zero & MediaQuery.sizeOf(context));
+    RenderObject? ancestor = box.parent;
+    while (ancestor != null) {
+      if (ancestor is RenderOffstage && ancestor.offstage) {
+        exposed = false;
+      }
+      if (ancestor is RenderOpacity && ancestor.opacity < 1) {
+        exposed = false;
+      }
+      if (ancestor is RenderAnimatedOpacity) {
+        if (_fades.add(ancestor.opacity)) {
+          ancestor.opacity.addListener(_schedule);
+        }
+        if (ancestor.opacity.value < 1) {
+          exposed = false;
+        }
+      }
+      if (ancestor is RenderAbstractViewport) {
+        exposed =
+            exposed &&
+            contains(
+              MatrixUtils.transformRect(
+                ancestor.getTransformTo(null),
+                ancestor.paintBounds,
+              ),
+            );
+      }
+      ancestor = ancestor.parent;
+    }
+    if (_painted &&
+        exposed &&
+        widget.presentationComplete &&
+        ModalRoute.of(context)?.isCurrent == true) {
+      widget.attempt?.shown(
+        widget.kind,
+        widget.amount,
+        identity: widget.identity,
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _scroll?.removeListener(_schedule);
+    for (final fade in _fades) {
+      fade.removeListener(_schedule);
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Register route visibility so a covered result can be acknowledged when
+    // exposed again, without a synthetic rebuild or a new persistence result.
+    ModalRoute.of(context);
+    return _RewardPaintProbe(
+      key: _paintKey,
+      onPaint: _didPaint,
+      child: widget.child,
+    );
+  }
+}
+
+class _RewardPaintProbe extends SingleChildRenderObjectWidget {
+  const _RewardPaintProbe({
+    super.key,
+    required this.onPaint,
+    required super.child,
+  });
+  final VoidCallback onPaint;
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RewardPaintBox(onPaint);
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    covariant _RewardPaintBox renderObject,
+  ) {
+    renderObject.onPaint = onPaint;
+    renderObject.markNeedsPaint();
+  }
+}
+
+class _RewardPaintBox extends RenderProxyBox {
+  _RewardPaintBox(this.onPaint);
+  VoidCallback onPaint;
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    super.paint(context, offset);
+    onPaint();
+  }
+}
+
 /// Ergebnis einer Spielrunde — XP + persönliche Bestleistung.
 class GameOutcome {
   final int xpGained;
+  final LearningAttempt? attempt;
+  final String? gameId;
   final int? best;
   final bool isNewBest;
   const GameOutcome({
     required this.xpGained,
+    this.attempt,
+    this.gameId,
     this.best,
     this.isNewBest = false,
   });
@@ -57,7 +256,11 @@ class GameResultAttempt {
     bool higherIsBetter = true,
     int? dailyCompletionBonus,
     bool kkeunmariWin = false,
-  }) : _xp = XpAwardAttempt(
+    LearningAttempt? learningAttempt,
+  }) : _gameId = gameId,
+       _learningAttempt =
+           learningAttempt ?? LearningJourneyObserver.beginAttempt(),
+       _xp = XpAwardAttempt(
          xp,
          dailyCompletionBonus: dailyCompletionBonus,
          kkeunmariWin: kkeunmariWin,
@@ -65,6 +268,8 @@ class GameResultAttempt {
        _best = score == null
            ? null
            : GameBestAttempt(gameId, score, higherIsBetter: higherIsBetter);
+  final String _gameId;
+  final LearningAttempt? _learningAttempt;
   final XpAwardAttempt _xp;
   final GameBestAttempt? _best;
   final _lifetime = LocalDataLifetime.capture();
@@ -82,8 +287,10 @@ class GameResultAttempt {
     }
   }
 
-  Future<GameOutcome> save() =>
-      _pending ??= _save().whenComplete(() => _pending = null);
+  Future<GameOutcome> save() => _pending ??= trackLearningPersistence(
+    _learningAttempt,
+    _save(),
+  ).whenComplete(() => _pending = null);
   Future<GameOutcome> _save() async {
     _assertCurrent();
     if (_outcome != null) {
@@ -96,6 +303,8 @@ class GameResultAttempt {
     _assertCurrent();
     final outcome = GameOutcome(
       xpGained: _xp.earnedXp,
+      attempt: _learningAttempt,
+      gameId: _gameId,
       best: best?.best,
       isNewBest: isNewBest,
     );
@@ -123,11 +332,13 @@ Future<GameOutcome> recordGameResult({
   required int xp,
   int? score,
   bool higherIsBetter = true,
+  LearningAttempt? learningAttempt,
 }) => GameResultAttempt(
   gameId: gameId,
   xp: xp,
   score: score,
   higherIsBetter: higherIsBetter,
+  learningAttempt: learningAttempt,
 ).save();
 
 /// **GameOverCard** — einheitlicher, erwachsen-eleganter Abschluss-Körper.
@@ -137,6 +348,11 @@ Future<GameOutcome> recordGameResult({
 /// (reduce-motion-sicher). Spiele behalten ihr eigenes Scaffold; sie geben die
 /// Buttons als [actions] hinein (untereinander, mit Abstand gerendert).
 class GameOverCard extends StatefulWidget {
+  final GameOutcome? outcome;
+
+  /// False while an outcome-backed reward is unknown. Legacy callers can still
+  /// display an explicitly known zero-XP result with the default true value.
+  final bool rewardReady;
   final String headline;
   final String? scoreLabel;
   final int xpGained;
@@ -165,6 +381,8 @@ class GameOverCard extends StatefulWidget {
   const GameOverCard({
     super.key,
     required this.headline,
+    this.outcome,
+    this.rewardReady = true,
     required this.xpGained,
     this.scoreLabel,
     this.bestLabel,
@@ -307,44 +525,62 @@ class _GameOverCardState extends State<GameOverCard>
                           style: TextStyle(fontSize: 15, color: s.textMuted),
                         ),
                       ],
-                      const SizedBox(height: Spacing.lg),
-                      AnimatedBuilder(
-                        animation: _ctrl,
-                        builder: (_, __) {
-                          final shown = (widget.xpGained * _ctrl.value).round();
-                          return Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 18,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                              color: SoriColors.gold.withValues(alpha: 0.14),
-                              borderRadius: BorderRadius.circular(
-                                SoriRadius.pill,
+                      if (widget.rewardReady) ...[
+                        const SizedBox(height: Spacing.lg),
+                        AnimatedBuilder(
+                          animation: _ctrl,
+                          builder: (rewardContext, __) {
+                            final shown = (widget.xpGained * _ctrl.value)
+                                .round();
+                            return Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 18,
+                                vertical: 8,
                               ),
-                              border: Border.all(
-                                color: SoriColors.gold.withValues(alpha: 0.5),
+                              decoration: BoxDecoration(
+                                color: SoriColors.gold.withValues(alpha: 0.14),
+                                borderRadius: BorderRadius.circular(
+                                  SoriRadius.pill,
+                                ),
+                                border: Border.all(
+                                  color: SoriColors.gold.withValues(alpha: 0.5),
+                                ),
                               ),
-                            ),
-                            child: Text(
-                              '+$shown XP',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: SoriColors.gold,
+                              child: LearningRewardPresentation(
+                                attempt: widget.outcome?.attempt,
+                                kind: SoriRewardKind.xp,
+                                amount: widget.outcome?.xpGained ?? 0,
+                                presentationComplete: _ctrl.isCompleted,
+                                child: Text(
+                                  '+$shown XP',
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: SoriColors.gold,
+                                  ),
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                      if (widget.isNewBest && widget.newBestLabel != null) ...[
-                        const SizedBox(height: Spacing.md),
-                        _iconLine(
-                          SoriGlyph.record,
-                          widget.newBestLabel!,
-                          SoriColors.gold,
+                            );
+                          },
                         ),
-                      ] else if (widget.bestLabel != null) ...[
+                      ],
+                      if (widget.rewardReady &&
+                          widget.isNewBest &&
+                          widget.newBestLabel != null) ...[
+                        const SizedBox(height: Spacing.md),
+                        LearningRewardPresentation(
+                          attempt: widget.outcome?.attempt,
+                          kind: SoriRewardKind.personalBest,
+                          amount: widget.outcome?.isNewBest == true ? 1 : 0,
+                          identity: widget.outcome?.gameId,
+                          child: _iconLine(
+                            SoriGlyph.record,
+                            widget.newBestLabel!,
+                            SoriColors.gold,
+                          ),
+                        ),
+                      ] else if (widget.rewardReady &&
+                          widget.bestLabel != null) ...[
                         const SizedBox(height: Spacing.md),
                         Text(
                           widget.bestLabel!,

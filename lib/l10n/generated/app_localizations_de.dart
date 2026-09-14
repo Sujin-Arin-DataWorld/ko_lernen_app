@@ -4715,25 +4715,14 @@ class AppL10nDe extends AppL10n {
   String get pathHideMorePractice => 'Weitere Übungen ausblenden';
 
   @override
-  String get gyeVoluntaryEyebrow => 'Freiwillige Lerngemeinschaft';
-
-  @override
   String get gyeEmptyHeadline =>
       'Allein lernen ist vollständig. Zusammen kann es wärmer sein.';
 
   @override
-  String get gyeEmptyLead =>
-      'Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.';
-
-  @override
-  String get gyeFindOrCreate => 'Eine 계 finden oder gründen';
+  String get gyeFindOrCreate => 'Gruppe beitreten oder gründen';
 
   @override
   String get gyeContinueSolo => 'Ohne Gruppe weiterlernen';
-
-  @override
-  String get gyeEmptyPreviewCaption =>
-      'Die Vorschau zeigt den gemeinsamen Hof. Er ist keine Voraussetzung für deinen Lernweg.';
 
   @override
   String get homePathCardTitle => 'Lernpfad';
@@ -5446,18 +5435,6 @@ class AppL10nDe extends AppL10n {
   @override
   String get gyePrivacyBody =>
       'Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.';
-
-  @override
-  String get gyeExplainWhatShort => 'Eine kleine, freiwillige Lerngruppe.';
-
-  @override
-  String get gyeExplainWhyShort => 'Ein gemeinsames Hanok, kein Wettbewerb.';
-
-  @override
-  String get gyeExplainHowShort => 'Beitritt mit 6-stelligem Code.';
-
-  @override
-  String get gyeShowcaseCaption => 'So kann euer gemeinsames Hanok aussehen';
 
   @override
   String get gyeExplainMore => 'Mehr erfahren';
@@ -8381,47 +8358,13 @@ class AppL10nDe extends AppL10n {
   String get soriStageOpenBojagi => 'Bojagi öffnen';
 
   @override
-  String get soriStageHanokNow => 'Deine Hanok jetzt';
-
-  @override
-  String get soriStageNextPiece => 'Nächstes Bauteil';
-
-  @override
-  String soriStageHanokPieces(int built, int total) {
-    return '$built / $total Bauteile';
-  }
+  String get soriStageHanokNow => 'Dein Hanok';
 
   @override
   String get soriStageClosestQuests => 'Fast geschafft';
 
   @override
   String get soriStageNextQuests => 'Als Nächstes';
-
-  @override
-  String get soriStageLearnTitle => 'Wähle, wie du lernen möchtest.';
-
-  @override
-  String get soriStageLearnBody =>
-      'Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.';
-
-  @override
-  String get soriStageLearnSectionToday => 'Heute lernen';
-
-  @override
-  String get soriStageLearnSectionExplore => 'Entdecken & üben';
-
-  @override
-  String get soriStageLearnSectionReview => 'Wiederholen';
-
-  @override
-  String get soriStageGamesTitle => 'Spiele mit einem klaren Ziel.';
-
-  @override
-  String get soriStageGamesBody =>
-      'Sieh XP, Bestleistung und passende Quest, bevor du startest.';
-
-  @override
-  String get soriStageContinueEyebrow => 'Weiter mit';
 
   @override
   String soriStageMinutes(int minutes) {
@@ -8442,14 +8385,8 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get soriStageHanokTitle => 'Dein Hanok wächst mit dir.';
-
-  @override
-  String get soriStageHanokBody => 'Jedes Wort baut hier weiter.';
-
-  @override
   String get soriStageHanokUpdating =>
-      'Dein Hanok wird gerade erneuert. Bald wieder da.';
+      'Hanok-Vorschau · die neue Ansicht entsteht.';
 
   @override
   String sarangchaeConstructionProgress(int earned, int total) {
@@ -8496,19 +8433,7 @@ class AppL10nDe extends AppL10n {
   String get soriStageOpenMap => 'Hanok-Karte öffnen';
 
   @override
-  String get soriStageQuests => 'Quests';
-
-  @override
-  String get soriStageDojang => 'Dojang-Heft';
-
-  @override
-  String get soriStageBojagi => 'Bojagi';
-
-  @override
   String get soriStageRooms => 'Räume und Einrichtung';
-
-  @override
-  String get soriStageGyePromise => 'Versprechen dieser Woche';
 
   @override
   String get soriStageGyeFlow =>
@@ -8516,15 +8441,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageGyeUpdating => 'Der gemeinsame Hof wird gerade erneuert.';
-
-  @override
-  String get gyeStepMission => 'Mission';
-
-  @override
-  String get gyeStepLantern => 'Laterne';
-
-  @override
-  String get gyeStepHanok => 'Gemeinsame Hanok';
 
   @override
   String get pronunciationTitle => 'Aussprache-Studio';
@@ -8713,9 +8629,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageActivityCompleted => 'Abgeschlossen';
-
-  @override
-  String get soriStageActivityNew => 'Neu';
 
   @override
   String soriStageActivityTitle(String activityId) {
@@ -10171,7 +10084,7 @@ class AppL10nDe extends AppL10n {
       'Dadurch öffnet sich der bestehende Wort-Wiederholungsstapel. Gespeicherte Grammatik, Sätze, Ausdrücke und Hangeul werden nicht als Wörter ausgegeben.';
 
   @override
-  String get todayGuideTitle => 'Hangul-Sori-Start-Anleitung';
+  String get todayGuideTitle => 'Die App kennenlernen';
 
   @override
   String get todayGuideDescription =>
@@ -10472,4 +10385,172 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduConstructionStart => 'Mit dem Bau beginnen';
+
+  @override
+  String get phaseTaskLeaveTitle => 'Aufgabe verlassen?';
+
+  @override
+  String get phaseTaskLeaveBody =>
+      'Nicht abgegebene Aufnahmen und noch nicht gespeicherte Antworten können verloren gehen. Trotzdem verlassen?';
+
+  @override
+  String get learningFocusDestinationUnavailable =>
+      'Diese Übung konnte nicht geöffnet werden. Versuch es bitte erneut.';
+
+  @override
+  String learningFocusMinutes(int minutes) {
+    return 'Ca. $minutes Min.';
+  }
+
+  @override
+  String get catalogDetails => 'Details';
+
+  @override
+  String get catalogHowItWorks => 'So funktioniert’s';
+
+  @override
+  String get catalogStartSession => 'Runde starten';
+
+  @override
+  String get catalogRecentlyOpened => 'Zuletzt geöffnet';
+
+  @override
+  String get catalogChoosePractice => 'Selbst üben';
+
+  @override
+  String get catalogWords => 'Wörter';
+
+  @override
+  String get catalogListen => 'Hören';
+
+  @override
+  String get catalogHangul => 'Hangul';
+
+  @override
+  String get catalogReview => 'Wiederholen';
+
+  @override
+  String get catalogWordsSection => 'Wörter & Sätze';
+
+  @override
+  String get catalogListenSection => 'Hören & Sprechen';
+
+  @override
+  String get catalogHangulSection => 'Hangul & Schreiben';
+
+  @override
+  String get catalogReviewSection => 'Wiederholen & eigene Wörter';
+
+  @override
+  String get catalogAnotherRound => 'Noch eine Runde?';
+
+  @override
+  String get catalogProgressUnavailable =>
+      'Dein Fortschritt konnte nicht geladen werden. Du kannst trotzdem üben.';
+
+  @override
+  String catalogBestScore(int count) {
+    return 'Bestleistung: $count';
+  }
+
+  @override
+  String catalogPacksCompleted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Pakete abgeschlossen',
+      one: '1 Paket abgeschlossen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogScenesCompleted(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Szenen abgeschlossen',
+      one: '1 Szene abgeschlossen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogPronunciationPassed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ausspracheprüfungen bestanden',
+      one: '1 Ausspracheprüfung bestanden',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String catalogDaysPracticed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'An $count Tagen geübt',
+      one: 'An 1 Tag geübt',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get learningFocusStart => 'Jetzt lernen';
+
+  @override
+  String get learningFocusViewCourse => 'Lernpfad ansehen';
+
+  @override
+  String learningFocusCoursePosition(String level, int number) {
+    return '$level · Einheit $number';
+  }
+
+  @override
+  String get catalogImageUnavailable => 'Bild fehlt';
+
+  @override
+  String get todayGuideExpand => 'Alle Themen anzeigen';
+
+  @override
+  String get todayGuideCollapse => 'Nur nächstes Thema anzeigen';
+
+  @override
+  String soriStageConfirmedUnits(int built, int total) {
+    return '$built / $total Lernpfad-Einheiten bestätigt';
+  }
+
+  @override
+  String get soriStageOpenHanok => 'Hanok ansehen';
+
+  @override
+  String get soriStageHanokLearningSummary => 'Was du gelernt hast';
+
+  @override
+  String get soriStageHanokProgressUnavailable =>
+      'Dein Lernfortschritt konnte nicht geladen werden.';
+
+  @override
+  String get soriStageHanokNoUnits =>
+      'Noch keine Lernpfad-Einheiten verfügbar.';
+
+  @override
+  String get soriStageNoQuests => 'Noch keine';
+
+  @override
+  String get gyeRootPurpose => 'Gemeinsam auf ein Wochenziel hinarbeiten.';
+
+  @override
+  String get gyeRootPrivacy => 'Deine Antworten und Ergebnisse bleiben privat.';
+
+  @override
+  String get soriStageHanokTasks => 'Aufgaben';
+
+  @override
+  String get soriStageHanokStamps => 'Stempel';
+
+  @override
+  String get soriStageHanokGifts => 'Geschenke';
 }

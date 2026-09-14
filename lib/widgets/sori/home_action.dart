@@ -1,3 +1,4 @@
+import '../../services/learning_journey.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -44,6 +45,10 @@ class SoriHomeAction extends StatelessWidget {
     }
     onLeave?.call();
     if (!context.mounted) return;
+    if (LearningJourneyObserver.forContext(context)?.returnHome(context) ==
+        true) {
+      return;
+    }
     Navigator.of(
       context,
       rootNavigator: true,
@@ -145,8 +150,10 @@ Future<bool> showLeaveConfirmSheet(
   }
   final confirmed = await showSoriSheet<bool>(
     context: context,
-    builder: (sheetContext) =>
-        _LeaveConfirmSheet(title: escape.confirmTitle, body: escape.confirmBody),
+    builder: (sheetContext) => _LeaveConfirmSheet(
+      title: escape.confirmTitle,
+      body: escape.confirmBody,
+    ),
   );
   return confirmed == true;
 }

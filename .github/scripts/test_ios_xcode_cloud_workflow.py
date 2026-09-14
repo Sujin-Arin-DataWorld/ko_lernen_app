@@ -94,9 +94,20 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
         self.assertIn('touch "${RIVE_NATIVE_IOS_MARKER}"', self.post_clone)
 
     def test_post_clone_retries_transient_cocoapods_download_failures(self):
-        self.assertIn('while [ "${POD_INSTALL_ATTEMPT}" -le 3 ]; do', self.post_clone)
+        self.assertIn("POD_INSTALL_MAX_ATTEMPTS=5", self.post_clone)
+        self.assertIn(
+            'while [ "${POD_INSTALL_ATTEMPT}" -le "${POD_INSTALL_MAX_ATTEMPTS}" ]; do',
+            self.post_clone,
+        )
         self.assertIn("if pod install; then", self.post_clone)
-        self.assertIn('if [ "${POD_INSTALL_ATTEMPT}" -eq 3 ]; then', self.post_clone)
+        self.assertIn(
+            'if [ "${POD_INSTALL_ATTEMPT}" -eq "${POD_INSTALL_MAX_ATTEMPTS}" ]; then',
+            self.post_clone,
+        )
+        self.assertIn(
+            "CocoaPods installation failed after ${POD_INSTALL_MAX_ATTEMPTS} attempts.",
+            self.post_clone,
+        )
         self.assertIn('sleep "${POD_INSTALL_RETRY_DELAY}"', self.post_clone)
 
 

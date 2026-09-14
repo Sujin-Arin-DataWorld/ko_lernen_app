@@ -1,3 +1,6 @@
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -66,6 +69,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   final ScrollController _scrollController = ScrollController();
   QuestAbandonTracker? _abandonTracker;
   bool _completionPersisted = false;
+  LearningAttempt? _learningAttempt;
   int _completionXp = 0;
   final GlobalKey _speedKey = GlobalKey();
   final GlobalKey _conversationKey = GlobalKey();
@@ -198,7 +202,8 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     _abandonTracker?.markCompleted();
     final lang = Localizations.localeOf(context).languageCode;
     final earned = (_scenario.dialog.length * 8).clamp(40, 120);
-    final completion = await _feedbackCompletion.finish(
+    final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
+    final work = _feedbackCompletion.finish(
       persistXp: () async {
         final claim = await Storage.claimListeningCompletionReward(
           scenarioId: _scenario.id,
@@ -216,6 +221,14 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         rate: Storage.ttsSpeed,
       ),
     );
+    final completion = await (attempt == null
+        ? work
+        : attempt.journey.track(work, attempt));
+    if (completion != null) {
+      attempt?.complete();
+    } else {
+      attempt?.failed();
+    }
     if (!mounted || completion == null) {
       return;
     }
@@ -505,15 +518,29 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
             ).h2.copyWith(color: SoriColors.contentCta),
           ),
           const SizedBox(height: Spacing.sm),
-          Text(
-            xp > 0
-                ? t.listeningCompleteBody(_scenario.dialog.length, xp)
-                : t.listeningCompleteReplayBody(_scenario.dialog.length),
-            textAlign: TextAlign.center,
-            style: SoriTextTheme.of(context).body,
-          ),
+          if (_completionPersisted)
+            LearningRewardPresentation(
+              attempt: _learningAttempt,
+              kind: SoriRewardKind.xp,
+              amount: xp,
+              presentationComplete: _completionPersisted,
+              child: Text(
+                xp > 0
+                    ? t.listeningCompleteBody(_scenario.dialog.length, xp)
+                    : t.listeningCompleteReplayBody(_scenario.dialog.length),
+                textAlign: TextAlign.center,
+                style: SoriTextTheme.of(context).body,
+              ),
+            ),
           const SizedBox(height: Spacing.md),
-          if (xp > 0) SoriBadge.xp(xp, size: 28),
+          if (_completionPersisted && xp > 0)
+            LearningRewardPresentation(
+              attempt: _learningAttempt,
+              kind: SoriRewardKind.xp,
+              amount: xp,
+              presentationComplete: _completionPersisted,
+              child: SoriBadge.xp(xp, size: 28),
+            ),
           if (feedbackScope != null &&
               feedbackScope.featureGate.isEnabled &&
               _feedbackCompletion.current != null) ...[

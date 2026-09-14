@@ -21,6 +21,22 @@
       "reason": ""
     },
     {
+      "path": "tiger_sitting2_hanji.mp4",
+      "bytes": 470572,
+      "sha256": "CE76479CAB748BD96C10155405B7E082A30ACE8C2BC244FAD65D1EEA72110BF9",
+      "ok": true,
+      "color_tags": {
+        "color_space": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": "bt709",
+        "color_range": "tv"
+      },
+      "matte": "#FBF5EB",
+      "match_ratio": 1.0,
+      "frames_sampled": 121,
+      "reason": ""
+    },
+    {
       "path": "tiger_thinking_hanji.mp4",
       "bytes": 574250,
       "sha256": "1102664DB4DF6A43D993C5FC38860D69440913859134B46077EC25D494D13ECB",

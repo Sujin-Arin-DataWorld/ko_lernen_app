@@ -37,16 +37,19 @@ flutter pub get
 echo "▸ pod install"
 cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"
 POD_INSTALL_ATTEMPT=1
-while [ "${POD_INSTALL_ATTEMPT}" -le 3 ]; do
+POD_INSTALL_MAX_ATTEMPTS=5
+while [ "${POD_INSTALL_ATTEMPT}" -le "${POD_INSTALL_MAX_ATTEMPTS}" ]; do
   if pod install; then
     break
   fi
 
-  if [ "${POD_INSTALL_ATTEMPT}" -eq 3 ]; then
-    echo "CocoaPods installation failed after 3 attempts." >&2
+  if [ "${POD_INSTALL_ATTEMPT}" -eq "${POD_INSTALL_MAX_ATTEMPTS}" ]; then
+    echo "CocoaPods installation failed after ${POD_INSTALL_MAX_ATTEMPTS} attempts." >&2
     exit 1
   fi
 
+  # Git-sourced pods can fail independently during a transient GitHub outage.
+  # Give later attempts enough time for DNS and clone connectivity to recover.
   POD_INSTALL_RETRY_DELAY=$((POD_INSTALL_ATTEMPT * 10))
   echo "CocoaPods download failed; retrying in ${POD_INSTALL_RETRY_DELAY}s." >&2
   sleep "${POD_INSTALL_RETRY_DELAY}"
