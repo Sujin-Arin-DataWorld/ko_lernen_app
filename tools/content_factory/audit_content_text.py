@@ -239,6 +239,30 @@ SURFACES: tuple[ContentSurface, ...] = (
         ("clusters",),
         "synonyms, antonyms, relations, and example sentences",
     ),
+    # C7 (2026-09-15): 3 files shipped after this audit's last update, never
+    # classified. All three are learner-facing KO/DE/EN copy, so they get a
+    # full review scope rather than the "no independent copy" derived shape.
+    ContentSurface(
+        "ildu_construction_art_v1.json",
+        "approved construction lessons",
+        "IlDuConstructionArtCatalog",
+        ("series",),
+        "KO/DE/EN building names and culture notes",
+    ),
+    ContentSurface(
+        "onboarding_journey_paths.json",
+        "onboarding journey path catalog",
+        "OnboardingPathScene",
+        ("A1", "A2", "B1", "B2", "C1", "C2", "new"),
+        "DE/EN path labels and KO/DE/EN example sentences",
+    ),
+    ContentSurface(
+        "onboarding_v3_demo_content.json",
+        "onboarding demo preview content",
+        "OnboardingDemoContent",
+        ("levels",),
+        "KO/DE/EN course, smalltalk and scenario preview copy",
+    ),
 )
 
 # Only fields that can appear as learner-facing or pedagogical copy belong in

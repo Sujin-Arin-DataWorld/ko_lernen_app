@@ -7,6 +7,7 @@ import csv
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -172,12 +173,21 @@ class SceneContractTest(unittest.TestCase):
 
 class BuildOutputTest(unittest.TestCase):
     def setUp(self):
-        self.counts = builder.build()
+        # build() writes to `root` (default ROOT, the real checkout) with no
+        # override support beyond the parameter itself -- point it at a
+        # scratch tree so this test does not dirty tracked drafts/review
+        # files on every run.
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        root = Path(tmp.name)
+        (root / "tools/content_factory/drafts").mkdir(parents=True)
+        (root / "tools/content_factory/review").mkdir(parents=True)
+        self.counts = builder.build(root=root)
         self.draft = json.loads(
-            (ROOT / "tools/content_factory/drafts/c1_batch11_scenarios_a1_c2.json").read_text(encoding="utf-8"))
+            (root / "tools/content_factory/drafts/c1_batch11_scenarios_a1_c2.json").read_text(encoding="utf-8"))
         self.manifest = json.loads(
-            (ROOT / "tools/content_factory/drafts/batch_11_manifest.json").read_text(encoding="utf-8"))
-        with (ROOT / "tools/content_factory/review/c1_batch11_scenarios.csv").open(
+            (root / "tools/content_factory/drafts/batch_11_manifest.json").read_text(encoding="utf-8"))
+        with (root / "tools/content_factory/review/c1_batch11_scenarios.csv").open(
                 encoding="utf-8", newline="") as handle:
             self.review = list(csv.DictReader(handle))
 

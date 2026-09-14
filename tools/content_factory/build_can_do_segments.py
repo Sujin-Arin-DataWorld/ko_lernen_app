@@ -42,6 +42,62 @@ EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
 REVIEW_BATCH_MANIFEST_PATHS = (
     ROOT / "tools" / "content_factory" / "drafts" / "batch_06_manifest.json",
 )
+RELEVEL_DIR = ROOT / "tools" / "content_factory" / "relevel"
+# C7 (2026-09-15): ledger-aware exemptions consulted by
+# _preserve_cluster_history/_validate_authority_history so the append-only
+# publication guarantee still holds for genuine future regressions, without
+# requiring two already-documented historical events to be re-litigated by
+# hand every time the generator runs:
+#   1. Pack id renames from the PR-L2a relevel (bundle/newPackId pairs in
+#      relevel_bundle_L2a*.json) -- a historical seed naming an old pack id
+#      is satisfied if the renamed pack's seed is present instead.
+#   2. Scenario ids retired outright by the 2026-09-01 canonical_120_v1
+#      corpus promotion (ca00acad) -- ca00acad's own code comment says old
+#      scenario ids "must not be required to keep old IDs live", but that
+#      exemption was only ever wired into REVIEW_CONTENT_PROMOTIONS, not
+#      into the seed/reference immutability guards below. The exact
+#      (cluster, seed) pairs affected are enumerated in
+#      canonical_120_v1_retired_seeds.json, generated once from a diagnostic
+#      diff against the pre-C7 catalog and confirmed absent from the live
+#      scenario corpus -- not an unbounded "if legacy, allow anything" rule.
+RETIRED_SEEDS_LEDGER_PATH = RELEVEL_DIR / "canonical_120_v1_retired_seeds.json"
+
+
+def _pack_id_renames() -> dict[str, str]:
+    renames: dict[str, str] = {}
+    for path in sorted(RELEVEL_DIR.glob("relevel_bundle_L2a*.json")):
+        bundle = _read_json(path)
+        for move in bundle.get("moves", []):
+            old_id, new_id = move.get("bundle"), move.get("newPackId")
+            if old_id and new_id and old_id != new_id:
+                renames[old_id] = new_id
+    return renames
+
+
+def _retired_seed_pairs() -> set[tuple[str, str]]:
+    if not RETIRED_SEEDS_LEDGER_PATH.exists():
+        return set()
+    ledger = _read_json(RETIRED_SEEDS_LEDGER_PATH)
+    return {
+        (row["clusterId"], row["seedId"])
+        for row in ledger["retiredClusterSeeds"]
+    }
+
+
+def _renamed_seed_equivalent(seed_id: str, pack_renames: dict[str, str]) -> str | None:
+    prefix, suffix = "seed_vocab_pack_", "_v1"
+    if not (seed_id.startswith(prefix) and seed_id.endswith(suffix)):
+        return None
+    new_pack_id = pack_renames.get(seed_id[len(prefix):-len(suffix)])
+    return f"{prefix}{new_pack_id}{suffix}" if new_pack_id else None
+
+
+def _retired_scenario_reference_keys() -> set[str]:
+    keys = set()
+    for _cluster_id, seed_id in _retired_seed_pairs():
+        if seed_id.startswith("seed_scenario_") and seed_id.endswith("_v1"):
+            keys.add(f"scenario:{seed_id[len('seed_scenario_'):-len('_v1')]}")
+    return keys
 
 # A review-batch record may enter a live source asset only after an explicit
 # human-approved promotion. Practice provenance is never assessment authority.
@@ -1299,10 +1355,25 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
     _scenario_spec("a2_feeling_sick", "a2", "a2_04_feelings_health", "gym_class_cancel"),
     _scenario_spec("a2_cafe_starbucks_basic", "a2", "a2_05_delivery_services", "a2_w10_buy"),
     _scenario_spec("a2_myeongdong_shopping", "a2", "a2_05_delivery_services", "clothing_refund_size"),
+    _named_spec(
+        "a2_cafe_study", "a2", "a2_06_study_work",
+        "vocabPack", "a2_school_supplies_1",
+        ("카페에서 공부하기", "Im Café lernen", "Studying at a café"),
+        "connectedProduction",
+    ),
     _scenario_spec("a2_subway_transfer", "a2", "a2_07_travel_repair", "train_seat_swap"),
     _scenario_spec("a2_taxi_street", "a2", "a2_07_travel_repair", "taxi_slow_down"),
     _scenario_spec("a2_subway_directions", "a2", "a2_07_travel_repair", "jeju_bus_missed"),
-    _scenario_spec("a2_lost_phone", "a2", "a2_07_travel_repair", "lost_phone"),
+    # KNOWN_MISSING_SCENARIO_SLOTS (see test_build_can_do_segments.py): scenario
+    # "lost_phone" was retired by the 2026-09-01 canonical_120_v1 corpus promotion
+    # with no direct replacement written yet. Explicit text keeps this segment
+    # buildable until the A2/B1 enrichment wave writes real scenario content.
+    _named_spec(
+        "a2_lost_phone", "a2", "a2_07_travel_repair",
+        "scenario", "lost_phone",
+        ("휴대폰을 잃어버렸을 때", "Wenn du dein Handy verloren hast", "When you've lost your phone"),
+        "connectedProduction",
+    ),
     _scenario_spec("a2_ktx_ticket", "a2", "a2_08_home_money", "library_card_problem"),
     _scenario_spec("a2_rent_bank_transfer", "a2", "a2_08_home_money", "a2_w10_money"),
     _scenario_spec("b1_plans_with_reasons", "b1", "b1_01_experience_reasons", "jeju_rain_plan_change"),
@@ -1319,11 +1390,28 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
         ("매체 주장 전달", "Aussagen aus Medien wiedergeben", "Relaying a media claim"),
         "connectedProduction",
     ),
-    _scenario_spec("b1_bank_soft_request", "b1", "b1_03_work_softening", "bank_account"),
+    # KNOWN_MISSING_SCENARIO_SLOTS (see test_build_can_do_segments.py): scenario
+    # "bank_account" was retired by the 2026-09-01 canonical_120_v1 corpus
+    # promotion with no direct replacement written yet. Explicit text keeps
+    # this segment buildable until the A2/B1 enrichment wave writes real
+    # scenario content.
+    _named_spec(
+        "b1_bank_soft_request", "b1", "b1_03_work_softening",
+        "scenario", "bank_account",
+        ("은행 계좌 만들기", "Ein Bankkonto eröffnen", "Opening a bank account"),
+        "connectedProduction",
+    ),
     _scenario_spec("b1_team_role_coordination", "b1", "b1_03_work_softening", "work_message_too_direct"),
     _scenario_spec("b1_attendance_and_coverage", "b1", "b1_03_work_softening", "company_instagram_wrong_account"),
     _scenario_spec("b1_schedule_softening", "b1", "b1_03_work_softening", "community_festival_shift"),
-    _scenario_spec("b1_shared_document_old_version", "b1", "b1_03_work_softening", "shared_document_old_version"),
+    # "shared_document_old_version" (moved A2->B1 by PR-L2a's scenario
+    # relevel, docs/data/relevel_L2a_report.md row for that id) has no
+    # published can-do segment yet -- the relevel report itself flags this
+    # spec as added without a matching can_do_segments.json entry ("자산은
+    # 재생성하지 않는다"), and the report note that it is "worth a look if
+    # it is ever unfrozen". Publishing the segment is a content decision,
+    # not tooling drift, so it stays out of AB_SPECS; see
+    # KNOWN_UNPUBLISHED_LIVE_SCENARIOS for the matching coverage exemption.
     _scenario_spec("b1_encouragement", "b1", "b1_04_relationships", "speech_level_after_friendship"),
     _scenario_spec("b1_intimate_feelings", "b1", "b1_04_relationships", "date_or_friendly_coffee"),
     _named_spec(
@@ -1415,6 +1503,24 @@ AB_SPECS: tuple[SegmentSpec, ...] = (
         "guidedProduction",
     ),
 )
+
+
+# Content gaps documented alongside test_build_can_do_segments.py's
+# ABSpecScenarioReferencesLiveTest.KNOWN_MISSING_SCENARIO_SLOTS: the
+# 2026-09-01 canonical_120_v1 corpus promotion (ca00acad) retired scenarios
+# "lost_phone" and "bank_account" with no direct replacement written yet.
+# a2_lost_phone/b1_bank_soft_request above carry explicit fallback text so
+# the catalog stays buildable; this keeps the exact-coverage check below
+# honest about the gap instead of silently dropping it. Remove once the
+# A2/B1 enrichment wave writes real scenario content for both slots.
+KNOWN_MISSING_SCENARIO_SLOTS: frozenset[str] = frozenset({"lost_phone", "bank_account"})
+
+# The inverse drift: these scenarios exist in the live corpus (written by
+# PR-L2a's scenario relevel) but have no published can_do_segments.json
+# segment yet, so AB_SPECS must not claim them and the exact-coverage check
+# below must not require them. Remove once a follow-up PR publishes the
+# segment(s).
+KNOWN_UNPUBLISHED_LIVE_SCENARIOS: frozenset[str] = frozenset({"shared_document_old_version"})
 
 
 C_TEXT: dict[str, tuple[dict[str, str], dict[str, str]]] = {
@@ -2700,24 +2806,33 @@ class SourceIndex:
         expected_parent: str,
     ) -> None:
         if reference.kind == "scenario":
-            row = _require(self.scenarios, reference.id, "scenario")
-            actual_level = row["level"]
-            if (
-                _promotion_segment_key("scenario", reference.id) is not None
-                or (reference.kind, reference.id) in self.published_content_routes
-                or (
-                    actual_level in ("c1", "c2")
-                    and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
-                )
-            ):
-                # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
-                # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
-                # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
-                # 이 우회가 없으면 그 유닛의 시나리오는 어디에도 붙지 못한다.
-                # cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+            if reference.id in KNOWN_MISSING_SCENARIO_SLOTS:
+                # Content gap, not a routing decision: this scenario was
+                # retired by the 2026-09-01 canonical_120_v1 corpus
+                # promotion and has no live row to resolve against yet.
+                # Trust the spec's own level/parent until the A2/B1
+                # enrichment wave writes real scenario content.
+                actual_level = expected_level
                 actual_parent = expected_parent
             else:
-                actual_parent = row["courseUnitId"]
+                row = _require(self.scenarios, reference.id, "scenario")
+                actual_level = row["level"]
+                if (
+                    _promotion_segment_key("scenario", reference.id) is not None
+                    or (reference.kind, reference.id) in self.published_content_routes
+                    or (
+                        actual_level in ("c1", "c2")
+                        and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
+                    )
+                ):
+                    # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
+                    # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
+                    # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
+                    # 이 우회가 없으면 그 유닛의 시나리오는 어디에도 붙지 못한다.
+                    # cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+                    actual_parent = expected_parent
+                else:
+                    actual_parent = row["courseUnitId"]
         elif reference.kind == "vocabPack":
             base_pack_id = re.sub(r"_\d+$", "", reference.id)
             mapped_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
@@ -3014,6 +3129,9 @@ def _reconcile_published_history(
 def _preserve_cluster_history(
     current: dict[str, Any], previous: dict[str, Any]
 ) -> None:
+    pack_renames = _pack_id_renames()
+    retired_pairs = _retired_seed_pairs()
+    retired_scenario_keys = _retired_scenario_reference_keys()
     previous_clusters = {row["id"]: row for row in previous["contentClusters"]}
     current_clusters = {row["id"]: row for row in current["contentClusters"]}
     missing_clusters = sorted(set(previous_clusters) - set(current_clusters))
@@ -3028,10 +3146,17 @@ def _preserve_cluster_history(
             raise ValueError(f"published cluster {cluster_id!r} cannot change level")
         old_seed_ids = list(old["sourceSeedIds"])
         new_seed_ids = list(cluster["sourceSeedIds"])
-        missing_seeds = sorted(set(old_seed_ids) - set(new_seed_ids))
-        if missing_seeds:
+        new_seed_id_set = set(new_seed_ids)
+        missing_seeds = sorted(set(old_seed_ids) - new_seed_id_set)
+        unresolved_seeds = [
+            seed_id
+            for seed_id in missing_seeds
+            if _renamed_seed_equivalent(seed_id, pack_renames) not in new_seed_id_set
+            and (cluster_id, seed_id) not in retired_pairs
+        ]
+        if unresolved_seeds:
             raise ValueError(
-                f"published cluster {cluster_id!r} cannot remove seeds: {missing_seeds}"
+                f"published cluster {cluster_id!r} cannot remove seeds: {unresolved_seeds}"
             )
         cluster["sourceSeedIds"] = old_seed_ids + [
             seed_id for seed_id in new_seed_ids if seed_id not in set(old_seed_ids)
@@ -3040,15 +3165,20 @@ def _preserve_cluster_history(
         old_references = list(old["contentReferences"])
         new_references = list(cluster["contentReferences"])
         old_keys = [_reference_key(row) for row in old_references]
+        old_by_key = {_reference_key(row): row for row in old_references}
         current_by_key = {_reference_key(row): row for row in new_references}
-        missing_references = sorted(set(old_keys) - set(current_by_key))
+        missing_references = sorted(
+            key
+            for key in set(old_keys) - set(current_by_key)
+            if key not in retired_scenario_keys
+        )
         if missing_references:
             raise ValueError(
                 f"published cluster {cluster_id!r} cannot remove or move refs: "
                 f"{missing_references}"
             )
         cluster["contentReferences"] = [
-            current_by_key[key] for key in old_keys
+            current_by_key.get(key, old_by_key[key]) for key in old_keys
         ] + [
             row for row in new_references if _reference_key(row) not in set(old_keys)
         ]
@@ -3065,12 +3195,28 @@ def _preserve_cluster_history(
 def _validate_authority_history(
     current: dict[str, Any], previous: dict[str, Any]
 ) -> None:
+    # See the KNOWN_MISSING_SCENARIO_SLOTS-adjacent comment above
+    # RELEVEL_DIR/RETIRED_SEEDS_LEDGER_PATH: pack renames and
+    # canonical_120_v1 scenario retirements are documented, ledger-backed
+    # exceptions to this immutability guard, not a blanket bypass.
+    pack_renames = _pack_id_renames()
+    retired_seed_ids = {seed_id for _cluster_id, seed_id in _retired_seed_pairs()}
+    retired_scenario_keys = _retired_scenario_reference_keys()
+
     old_seeds = {row["id"]: row for row in previous["sourceSeeds"]}
     new_seeds = {row["id"]: row for row in current["sourceSeeds"]}
     for seed_id, old in old_seeds.items():
         next_seed = new_seeds.get(seed_id)
-        if next_seed is None or next_seed != old:
-            raise ValueError(f"published source seed {seed_id!r} is immutable")
+        if next_seed is not None:
+            if next_seed != old:
+                raise ValueError(f"published source seed {seed_id!r} is immutable")
+            continue
+        renamed = _renamed_seed_equivalent(seed_id, pack_renames)
+        if renamed is not None and renamed in new_seeds:
+            continue
+        if seed_id in retired_seed_ids:
+            continue
+        raise ValueError(f"published source seed {seed_id!r} is immutable")
 
     old_references = {
         _reference_key(row): row for row in previous["contentReferences"]
@@ -3080,8 +3226,18 @@ def _validate_authority_history(
     }
     for key, old in old_references.items():
         next_reference = new_references.get(key)
-        if next_reference is None or next_reference != old:
-            raise ValueError(f"published content authority {key!r} is immutable")
+        if next_reference is not None:
+            if next_reference != old:
+                raise ValueError(f"published content authority {key!r} is immutable")
+            continue
+        if key in retired_scenario_keys:
+            continue
+        kind, _, content_id = key.partition(":")
+        if kind == "vocabPack":
+            renamed = pack_renames.get(content_id)
+            if renamed is not None and f"vocabPack:{renamed}" in new_references:
+                continue
+        raise ValueError(f"published content authority {key!r} is immutable")
     _validate_smalltalk_review_history(current, previous)
 
 
@@ -3440,6 +3596,14 @@ def _expand_ab_practice(
 
     ab_scenario_ids = []
     for scenario_id, row in sorted(source.scenarios.items()):
+        if scenario_id in KNOWN_UNPUBLISHED_LIVE_SCENARIOS:
+            # Written to the live corpus by PR-L2a's scenario relevel but
+            # never published to can_do_segments.json (see
+            # KNOWN_UNPUBLISHED_LIVE_SCENARIOS above). Do not let the
+            # course-unit fallback silently absorb it into another
+            # segment's evidence -- that would drift the generated catalog
+            # away from the published asset.
+            continue
         level = row["level"]
         promoted_target = _promotion_segment_key("scenario", scenario_id)
         if level in ("c1", "c2"):
@@ -3709,7 +3873,8 @@ def _expand_ab_practice(
     _require_exact_direct_coverage(
         owners_by_reference,
         kind="scenario",
-        expected_ids=set(source.scenarios),
+        expected_ids=(set(source.scenarios) - KNOWN_UNPUBLISHED_LIVE_SCENARIOS)
+        | KNOWN_MISSING_SCENARIO_SLOTS,
     )
     _require_exact_derived_coverage(
         owners_by_reference,
@@ -3867,7 +4032,23 @@ def _default_seed(reference: PracticeRef) -> str:
         "scenario": "scenario",
         "project": "project",
     }[reference.kind]
-    return f"seed_{kind}_{reference.id}_v1"
+    content_id = reference.id
+    if reference.kind == "vocabPack":
+        # A relevel-renamed pack's seed lineage predates the rename (every
+        # published authority for a renamed pack cites the *pre-rename*
+        # pack id as sourceSeedId -- see the RETIRED_SEEDS_LEDGER_PATH
+        # comment above). Keep minting the same seed id after a rename so
+        # this stays byte-identical instead of only being true because a
+        # human hand-edited it once during PR-L2a.
+        content_id = _original_pack_id(content_id)
+    return f"seed_{kind}_{content_id}_v1"
+
+
+def _original_pack_id(pack_id: str) -> str:
+    for old_id, new_id in _pack_id_renames().items():
+        if new_id == pack_id:
+            return old_id
+    return pack_id
 
 
 def _read_json(path: Path) -> dict[str, Any]:
