@@ -4,6 +4,9 @@ import '../services/pack_completion_record.dart';
 import '../services/storage_service.dart';
 import '../services/local_data_lifetime.dart';
 import '../services/data_loader.dart';
+import '../widgets/sori/game_reward.dart';
+import '../services/learning_journey.dart';
+import '../models/sori_stage_progression.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -71,6 +74,8 @@ class VocabPackResultScreen extends StatefulWidget {
   const VocabPackResultScreen({
     super.key,
     required this.packId,
+    this.actualXpAwarded,
+    this.learningAttempt,
     required this.bossAccuracy,
     required this.bossCorrect,
     required this.bossTotal,
@@ -98,6 +103,8 @@ class VocabPackResultScreen extends StatefulWidget {
       packId: packId,
       durableCompletionId: m['durableCompletionId'] as String?,
       originalXp: m['originalXp'] as int?,
+      actualXpAwarded: m['actualXpAwarded'] as int?,
+      learningAttempt: m['learningAttempt'] as LearningAttempt?,
       bossAccuracy: (m['bossAccuracy'] as num?)?.toDouble() ?? 0.0,
       bossCorrect: (m['bossCorrect'] as num?)?.toInt() ?? 0,
       bossTotal: (m['bossTotal'] as num?)?.toInt() ?? 0,
@@ -183,6 +190,8 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
   PackRecallSession? get recallSession => widget.recallSession;
   String? get durableCompletionId => widget.durableCompletionId;
   int? get originalXp => widget.originalXp;
+  int? get actualXpAwarded => widget.actualXpAwarded;
+  LearningAttempt? get learningAttempt => widget.learningAttempt;
   bool get recovered => widget.recovered;
 
   bool get _retired =>
@@ -326,6 +335,7 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
                 _cleared
                     ? _CelebrationSequence(
                         motif: motif,
+                        learningAttempt: learningAttempt,
                         justCleared: justCleared && !recovered,
                         mascotKind: MascotPreference.selectedKind,
                       )
@@ -395,16 +405,22 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
                             label: t.vocabPackResultQuizLabel,
                             value: '$quizCorrect / $quizTotal',
                           ),
-                        if (_cleared)
+                        if (actualXpAwarded != null && _cleared)
                           _XpPayoffLine(
                             label: t.vocabPackResultXpLabel,
                             xp: _xpAwarded(),
+                            learningAttempt: learningAttempt,
                           )
-                        else
-                          _StatLine(
-                            icon: Icons.workspace_premium_outlined,
-                            label: t.vocabPackResultXpLabel,
-                            value: '+${_xpAwarded()} XP',
+                        else if (actualXpAwarded != null)
+                          LearningRewardPresentation(
+                            attempt: learningAttempt,
+                            kind: SoriRewardKind.xp,
+                            amount: _xpAwarded(),
+                            child: _StatLine(
+                              icon: Icons.workspace_premium_outlined,
+                              label: t.vocabPackResultXpLabel,
+                              value: '+${_xpAwarded()} XP',
+                            ),
                           ),
                       ],
                     ),
@@ -543,6 +559,9 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
   }
 
   int _xpAwarded() {
+    if (actualXpAwarded != null) {
+      return actualXpAwarded!;
+    }
     if (originalXp != null) {
       return originalXp!;
     }
@@ -616,10 +635,12 @@ class _StatLine extends StatelessWidget {
 // 단일 컨트롤러가 도장→캐릭터를 한 박자로 구동하고, 도장 착지 순간
 // confetti 1회. reduce-motion / 재클리어 시 최종 정지 프레임.
 class _CelebrationSequence extends StatefulWidget {
+  final LearningAttempt? learningAttempt;
   final DancheongMotif motif;
   final bool justCleared;
   final MascotKind? mascotKind;
   const _CelebrationSequence({
+    this.learningAttempt,
     required this.motif,
     required this.justCleared,
     required this.mascotKind,
@@ -737,11 +758,18 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                       widget.motif,
                     ),
                     excludeSemantics: true,
-                    child: DancheongStamp(
-                      motif: widget.motif,
-                      size: 120,
-                      animate: false,
-                      stamped: true,
+                    child: LearningRewardPresentation(
+                      attempt: widget.learningAttempt,
+                      kind: SoriRewardKind.stamp,
+                      amount: widget.justCleared ? 1 : 0,
+                      identity: widget.motif.name,
+                      presentationComplete: _ctrl.isCompleted,
+                      child: DancheongStamp(
+                        motif: widget.motif,
+                        size: 120,
+                        animate: false,
+                        stamped: true,
+                      ),
                     ),
                   ),
                 ),
@@ -756,9 +784,14 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
 
 // 클리어 시 XP payoff — 숫자 카운트업 + gold 채움 바로 보상감 강화.
 class _XpPayoffLine extends StatelessWidget {
+  final LearningAttempt? learningAttempt;
   final int xp;
   final String label;
-  const _XpPayoffLine({required this.label, required this.xp});
+  const _XpPayoffLine({
+    required this.label,
+    required this.xp,
+    this.learningAttempt,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -789,9 +822,15 @@ class _XpPayoffLine extends StatelessWidget {
                   tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
                   duration: dur,
                   curve: Curves.easeOutCubic,
-                  builder: (context, t, _) => Text(
-                    '+${(xp * t).round()} XP',
-                    style: tt.h3.copyWith(color: SoriColors.gold),
+                  builder: (context, t, _) => LearningRewardPresentation(
+                    attempt: learningAttempt,
+                    kind: SoriRewardKind.xp,
+                    amount: xp,
+                    presentationComplete: t >= 1,
+                    child: Text(
+                      '+${(xp * t).round()} XP',
+                      style: tt.h3.copyWith(color: SoriColors.gold),
+                    ),
                   ),
                 ),
               ],

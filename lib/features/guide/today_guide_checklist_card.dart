@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../models/guide_contract.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'guide_presentation.dart';
 
-class TodayGuideChecklistCard extends StatelessWidget {
+class TodayGuideChecklistCard extends StatefulWidget {
   const TodayGuideChecklistCard({
     super.key,
     required this.copy,
@@ -26,13 +27,25 @@ class TodayGuideChecklistCard extends StatelessWidget {
   final GuideTopicCallback? onNonLiveTopicRequested;
 
   @override
+  State<TodayGuideChecklistCard> createState() =>
+      _TodayGuideChecklistCardState();
+}
+
+class _TodayGuideChecklistCardState extends State<TodayGuideChecklistCard> {
+  bool _expanded = false;
+
+  @override
   Widget build(BuildContext context) {
+    final copy = widget.copy;
+    final topics = widget.topics;
+    final incomplete = topics.where((topic) => !topic.isCompleted);
+    final visible = _expanded ? topics : incomplete.take(1).toList();
+    final t = AppL10n.of(context);
     final textTheme = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
     return SoriCard(
       key: const ValueKey('today-guide-checklist-card'),
-      variant: SoriCardVariant.hero,
-      accent: SoriColors.primary,
+      variant: SoriCardVariant.compact,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,10 +55,17 @@ class TodayGuideChecklistCard extends StatelessWidget {
               Expanded(
                 child: Semantics(
                   header: true,
-                  child: Text(copy.title, style: textTheme.h2),
+                  child: Text(copy.title, style: textTheme.cardTitle),
                 ),
               ),
               const SizedBox(width: Spacing.sm),
+              IconButton(
+                key: const ValueKey('today-guide-expand'),
+                tooltip: _expanded ? t.todayGuideCollapse : t.todayGuideExpand,
+                onPressed: () => setState(() => _expanded = !_expanded),
+                icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              ),
               Semantics(
                 button: true,
                 label: copy.dismissLabel,
@@ -56,40 +76,40 @@ class TodayGuideChecklistCard extends StatelessWidget {
                     minWidth: 48,
                     minHeight: 48,
                   ),
-                  onPressed: onDismiss,
+                  onPressed: widget.onDismiss,
                   icon: const Icon(Icons.close_rounded),
                 ),
               ),
             ],
           ),
-          Text(copy.description, style: textTheme.bodySmall),
-          const SizedBox(height: Spacing.md),
-          Text(
-            copy.progressLabel,
-            style: textTheme.label.copyWith(color: surfaces.text),
-          ),
-          const SizedBox(height: Spacing.md),
-          for (var index = 0; index < topics.length; index++) ...[
+
+          if (_expanded)
+            Text(
+              copy.progressLabel,
+              style: textTheme.label.copyWith(color: surfaces.text),
+            ),
+          if (_expanded) const SizedBox(height: Spacing.md),
+          for (var index = 0; index < visible.length; index++) ...[
             _ChecklistTopicRow(
-              topic: topics[index],
+              topic: visible[index],
               completedLabel: copy.completedLabel,
               onActivate: guideTopicActivation(
-                topic: topics[index].spec,
-                onLiveTopicRequested: onDestinationRequested,
-                onNonLiveTopicRequested: onNonLiveTopicRequested,
+                topic: visible[index].spec,
+                onLiveTopicRequested: widget.onDestinationRequested,
+                onNonLiveTopicRequested: widget.onNonLiveTopicRequested,
               ),
             ),
-            if (index != topics.length - 1)
+            if (index != visible.length - 1)
               Divider(height: 1, color: surfaces.border),
           ],
-          const SizedBox(height: Spacing.lg),
-          SoriButton.outlined(
-            key: const ValueKey('today-guide-open-hub'),
-            label: copy.openGuideLabel,
-            trailingIcon: Icons.arrow_forward_rounded,
-            fullWidth: true,
-            onTap: onOpenGuide,
-          ),
+          if (_expanded)
+            SoriButton.ghost(
+              key: const ValueKey('today-guide-open-hub'),
+              label: copy.openGuideLabel,
+              trailingIcon: Icons.arrow_forward_rounded,
+              fullWidth: true,
+              onTap: widget.onOpenGuide,
+            ),
         ],
       ),
     );
@@ -131,7 +151,7 @@ class _ChecklistTopicRow extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(topic.title, style: textTheme.h3),
+                  Text(topic.title, style: textTheme.body),
                   const SizedBox(height: Spacing.xs),
                   Text(
                     topic.isCompleted

@@ -1,5 +1,6 @@
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/toast.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -32,7 +33,16 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackMatchingScreen({super.key, required this.packId, this.words});
+  const CustomPackMatchingScreen({
+    super.key,
+    required this.packId,
+    this.words,
+    this.recordResult,
+  });
+
+  /// Injects the existing result write for delayed/failing persistence tests.
+  final Future<GameOutcome> Function({required String gameId, required int xp})?
+  recordResult;
 
   @override
   State<CustomPackMatchingScreen> createState() =>
@@ -72,6 +82,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   // ── 코치마크 타겟 ──
   final GlobalKey _boardKey = GlobalKey();
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  GameOutcome? _outcome;
   late final QuestAbandonTracker _abandonTracker;
 
   @override
@@ -163,6 +174,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     _wrongRight = null;
     _statusMessage = null;
     _misses = 0;
+    _outcome = null;
     _feedbackCompletion.reset();
     resetGameResult();
   }
@@ -268,13 +280,24 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     if (!_acceptsInput) return;
     final presentation = _presentation;
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    final outcome = await saveGameResult(gameId: 'cp_matching', xp: _roundXp);
+    GameOutcome? outcome;
+    try {
+      outcome = widget.recordResult == null
+          ? await saveGameResult(gameId: 'cp_matching', xp: _roundXp)
+          : await widget.recordResult!(gameId: 'cp_matching', xp: _roundXp);
+    } catch (_) {
+      if (mounted && presentation == _presentation) {
+        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
+      }
+      return;
+    }
     if (!mounted ||
         !studyEvidenceIsCurrent ||
         presentation != _presentation ||
         outcome == null) {
       return;
     }
+    setState(() => _outcome = outcome);
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackMatching(
         packId: widget.packId,
@@ -472,10 +495,12 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       liveRegion: true,
       label: '${t.wbMatchingDone}. ${t.wbMatchingDoneBody}',
       child: GameOverCard(
+        outcome: _outcome,
+        rewardReady: _outcome != null,
         headline: t.wbMatchingDone,
         scoreLabel: t.wbMatchingDoneBody,
         feedbackContext: _feedbackCompletion.current?.context,
-        xpGained: _roundXp,
+        xpGained: _outcome?.xpGained ?? 0,
         mascotKind: MascotKind.magpie,
         mascotEmotion: MascotEmotion.celebrate,
         actions: [

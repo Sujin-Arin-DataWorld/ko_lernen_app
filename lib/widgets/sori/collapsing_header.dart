@@ -42,6 +42,7 @@ class SoriCollapsingHeader extends StatelessWidget {
     this.trailing,
     this.trailingSlots = 1,
     this.expandedBuilder,
+    this.titleStyle,
     required this.collapsedTitle,
   });
 
@@ -50,6 +51,7 @@ class SoriCollapsingHeader extends StatelessWidget {
   final String? eyebrow;
 
   final String title;
+  final TextStyle? titleStyle;
   final String? body;
 
   /// 펼친 헤더와 접힌 56dp 크롬 바 양쪽에 그려지는 우측 액션 (예: 프로필
@@ -97,6 +99,7 @@ class SoriCollapsingHeader extends StatelessWidget {
       SoriPageHeader(
         eyebrow: eyebrow,
         title: title,
+        titleStyle: titleStyle,
         body: body,
         trailing: trailing,
       );
@@ -132,7 +135,7 @@ class SoriCollapsingHeader extends StatelessWidget {
     if (eyebrow case final eyebrowText?) {
       height += lineHeight(eyebrowText, tt.eyebrow) + Spacing.xs;
     }
-    height += lineHeight(title, tt.hero);
+    height += lineHeight(title, titleStyle ?? tt.hero);
     if (body case final bodyText?) {
       height += Spacing.sm + lineHeight(bodyText, tt.body);
     }

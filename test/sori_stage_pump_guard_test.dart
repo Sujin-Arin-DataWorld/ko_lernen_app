@@ -28,6 +28,7 @@ void main() {
         'test/illustrated_card_overflow_guard_test.dart',
     // W10 T-L1: Learn tab's three labeled sections.
     'learn_sections': 'test/sori_stage_learn_sections_test.dart',
+    'catalog_test_support': 'test/support/catalog_test_support.dart',
   };
 
   const ceilings = <String, int>{
@@ -53,30 +54,34 @@ void main() {
     'catalog_header_gap': 0,
     'illustrated_card_overflow_guard': 0,
     'learn_sections': 0,
+    'catalog_test_support': 0,
   };
 
-  test('tracked SoriStage screens keep pumpAndSettle() at or below their ceiling', () {
-    final failures = <String>[];
-    for (final entry in trackedFiles.entries) {
-      final file = File(entry.value);
-      if (!file.existsSync()) {
-        failures.add('${entry.value}: file missing');
-        continue;
+  test(
+    'tracked SoriStage screens keep pumpAndSettle() at or below their ceiling',
+    () {
+      final failures = <String>[];
+      for (final entry in trackedFiles.entries) {
+        final file = File(entry.value);
+        if (!file.existsSync()) {
+          failures.add('${entry.value}: file missing');
+          continue;
+        }
+        final clean = _blankStringsAndComments(file.readAsStringSync());
+        final count = 'pumpAndSettle('.allMatches(clean).length;
+        final ceiling = ceilings[entry.key]!;
+        if (count > ceiling) {
+          failures.add(
+            '${entry.value}: $count pumpAndSettle( calls (ceiling $ceiling) — '
+            'use test/support/sori_stage_pump.dart (pumpSoriStage/'
+            'pumpUntilFound) instead; an active SoriPulse never settles.',
+          );
+        }
       }
-      final clean = _blankStringsAndComments(file.readAsStringSync());
-      final count = 'pumpAndSettle('.allMatches(clean).length;
-      final ceiling = ceilings[entry.key]!;
-      if (count > ceiling) {
-        failures.add(
-          '${entry.value}: $count pumpAndSettle( calls (ceiling $ceiling) — '
-          'use test/support/sori_stage_pump.dart (pumpSoriStage/'
-          'pumpUntilFound) instead; an active SoriPulse never settles.',
-        );
-      }
-    }
 
-    expect(failures, isEmpty, reason: failures.join('\n'));
-  });
+      expect(failures, isEmpty, reason: failures.join('\n'));
+    },
+  );
 
   test(
     'every test file that renders SoriStageCatalogScreen(/SoriStageShell( is tracked',

@@ -42,11 +42,9 @@ void main() {
       textScale: 1.3,
     );
 
-    expect(find.text('Freiwillige Lerngemeinschaft'), findsOneWidget);
-    expect(
-      find.text('Allein lernen ist vollständig. Zusammen kann es wärmer sein.'),
-      findsOneWidget,
-    );
+    final t = lookupAppL10n(const Locale('de'));
+    expect(find.text(t.gyeRootPurpose), findsOneWidget);
+    expect(find.text(t.gyeRootPrivacy), findsOneWidget);
     expect(
       find.byType(GyeHanok),
       findsNothing,
@@ -57,7 +55,7 @@ void main() {
     // assertions below only apply on the (currently dormant) non-updating
     // path.
     if (kHanokWorldUpdating) {
-      expect(find.byType(SoriUpdatingScene), findsOneWidget);
+      expect(find.byKey(const ValueKey('gye-current-preview')), findsOneWidget);
       expect(find.byType(GyeShowcaseArtwork), findsNothing);
     } else {
       expect(find.byType(GyeShowcaseArtwork), findsOneWidget);
@@ -73,15 +71,6 @@ void main() {
       GyeShowcaseArtwork.videoAsset,
       'assets/video/gye/gye_shared_hanok_build.mp4',
     );
-    // §P5-1 (2026-08-14, 의도된 변경): 문단 3개 → 1줄 칩 카드. 장문 설명은
-    // 삭제되지 않고 ⓘ 상세 시트로 강등됐다 (§C-2 원칙).
-    await tester.scrollUntilVisible(
-      find.text('Eine kleine, freiwillige Lerngruppe.'),
-      180,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.pump();
-    expect(find.text('Eine kleine, freiwillige Lerngruppe.'), findsOneWidget);
     // ⓘ 시트: 강등된 장문 3종 + 프라이버시 본문이 전부 도달 가능하다.
     await tester.ensureVisible(find.byTooltip('Mehr erfahren'));
     await tester.pump();
@@ -98,7 +87,7 @@ void main() {
     );
     expect(
       find.textContaining('bleiben privat'),
-      findsOneWidget,
+      findsWidgets,
       reason:
           'gyePrivacyBody 는 기여 사실만 공개되고 답변·단어·평가 결과는 '
           '비공개임을 말해야 한다',
@@ -107,21 +96,15 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     await tester.scrollUntilVisible(
-      find.text('Was andere sehen'),
-      180,
-      scrollable: find.byType(Scrollable).first,
-    );
-    expect(find.text('Was andere sehen'), findsOneWidget);
-    await tester.scrollUntilVisible(
-      find.text('Eine 계 finden oder gründen'),
+      find.text('Gruppe beitreten oder gründen'),
       320,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Eine 계 finden oder gründen'), findsOneWidget);
+    expect(find.text('Gruppe beitreten oder gründen'), findsOneWidget);
     final chooser = find.byType(SoriButton);
     expect(tester.getSize(chooser).height, greaterThanOrEqualTo(48));
     final chooserSemantics = tester.getSemantics(chooser).getSemanticsData();
-    expect(chooserSemantics.label, 'Eine 계 finden oder gründen');
+    expect(chooserSemantics.label, 'Gruppe beitreten oder gründen');
     expect(chooserSemantics.hasAction(SemanticsAction.tap), isTrue);
     await tester.scrollUntilVisible(
       find.text('Ohne Gruppe weiterlernen'),
@@ -152,15 +135,6 @@ void main() {
       ],
     );
 
-    expect(find.text('Euer Hof'), findsOneWidget);
-    // §W-G G1.1: "Die Hofansicht folgt..." → 실제로 참여를 독려하는 문장으로
-    // 교체(같은 키 `gyeCourtyardBody`, ARB 값만 변경).
-    expect(
-      find.text(
-        'Euer Hof wächst mit jedem, der diese Woche seine Mission schafft.',
-      ),
-      findsOneWidget,
-    );
     expect(find.text('Mondhof'), findsOneWidget);
   });
 

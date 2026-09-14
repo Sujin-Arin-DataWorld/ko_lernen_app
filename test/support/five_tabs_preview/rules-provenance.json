@@ -1,0 +1,74 @@
+{
+  "scope": "Review-only mechanics copy; actual reward conditions are read from sori_activity_catalog",
+  "sources": {
+    "course": [
+      "lib/models/course_mission_step_plan.dart",
+      "lib/models/course_mission_brief.dart"
+    ],
+    "vocab_packs": [
+      "lib/screens/vocab_pack_screen.dart",
+      "lib/services/vocab_pack_service.dart",
+      "test/support/five_tabs_preview/first_activity.json"
+    ],
+    "daily_game": [
+      "lib/screens/daily_challenge_screen.dart"
+    ],
+    "chosung": [
+      "lib/screens/chosung_quiz_screen.dart"
+    ],
+    "hangul": [
+      "lib/screens/hangul_screen.dart"
+    ],
+    "calligraphy": [
+      "lib/screens/daily_char_sheet.dart"
+    ],
+    "pronunciation": [
+      "lib/screens/pronunciation_studio_screen.dart"
+    ],
+    "srs": [
+      "lib/screens/review_session_screen.dart"
+    ],
+    "my_words": [
+      "lib/screens/my_words_screen.dart"
+    ],
+    "grammar": [
+      "lib/screens/grammar_screen.dart",
+      "lib/screens/grammar_choice_quiz_screen.dart"
+    ],
+    "listening": [
+      "lib/screens/listening_play_screen.dart"
+    ],
+    "scenarios": [
+      "lib/screens/scenario_player_screen.dart"
+    ],
+    "smalltalk": [
+      "lib/screens/smalltalk_screen.dart"
+    ],
+    "word_web": [
+      "lib/screens/word_web_study_screen.dart",
+      "lib/screens/word_web_quiz_screen.dart"
+    ],
+    "syllable_cross": [
+      "lib/main.dart",
+      "lib/screens/silben_kreuz_screen.dart"
+    ],
+    "cloze": [
+      "lib/screens/cloze_game_screen.dart"
+    ],
+    "speed_match": [
+      "lib/screens/speed_match_screen.dart"
+    ],
+    "sentence_arcade": [
+      "lib/screens/satz_arcade_screen.dart"
+    ],
+    "kkeunmari": [
+      "lib/screens/kkeunmari_screen.dart"
+    ],
+    "custom_practice": [
+      "lib/data/sori_activity_catalog.dart",
+      "lib/screens/my_words_screen.dart"
+    ]
+  },
+  "first_pack": "9 learning words, 7 quiz, 2 boss; current first_activity fixture",
+  "corrections": "syllable_cross follows current /wordle -> SilbenKreuzScreen, not obsolete Wordle ARB help; listening follows dialogue player"
+}

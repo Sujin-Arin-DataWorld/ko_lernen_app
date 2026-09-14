@@ -14,6 +14,8 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/reward_thumb.dart';
@@ -49,14 +51,17 @@ void main() {
         locale: locale,
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        home: MediaQuery(
-          data: MediaQueryData(
-            disableAnimations: true,
-            textScaler: TextScaler.linear(textScale),
-          ),
-          child: SoriStageTodayScreen(
-            loadSnapshot: () async => snapshot ?? _snapshot(),
-            now: () => DateTime(2026, 8, 14, 9),
+        home: TickerMode(
+          enabled: false,
+          child: MediaQuery(
+            data: MediaQueryData(
+              disableAnimations: true,
+              textScaler: TextScaler.linear(textScale),
+            ),
+            child: SoriStageTodayScreen(
+              loadSnapshot: () async => snapshot ?? _snapshot(),
+              now: () => DateTime(2026, 8, 14, 9),
+            ),
           ),
         ),
         onGenerateRoute: (_) => MaterialPageRoute<void>(
@@ -82,7 +87,7 @@ void main() {
   testWidgets('마스코트 히어로와 스탯 톱바가 Today 를 이끈다 (RootHeader 부재)', (tester) async {
     await pumpToday(tester);
 
-    expect(find.byType(SoriCharacterHero), findsOneWidget);
+    expect(find.byType(SoriLearningCompanion), findsOneWidget);
     expect(find.byType(SoriStatsTopBar), findsOneWidget);
     // 2026-08-13 롤백 사유의 수리 증명: 텍스트 RootHeader 는 이 탭에 없다.
     expect(find.byType(SoriStageRootHeader), findsNothing);
@@ -90,18 +95,26 @@ void main() {
     expect(find.byTooltip('Profile'), findsOneWidget);
   });
 
-  testWidgets('Today 호랑이는 무크롭 standing idle을 중앙 확대한다', (tester) async {
+  testWidgets('Today uses sitting2 and clips only its empty lower matte', (
+    tester,
+  ) async {
+    final previous = TigerStageVideo.videoReady;
+    TigerStageVideo.videoReady = true;
+    addTearDown(() => TigerStageVideo.videoReady = previous);
     await pumpToday(tester);
 
     final player = tester.widget<CharacterClipPlayer>(
       find.byType(CharacterClipPlayer),
     );
-    expect(player.asset, HomeHeroClips.tigerThinking);
+    expect(player.asset, HomeHeroClips.tigerSitting2);
     expect(player.loop, isTrue);
-    final scale = tester.widget<Transform>(
-      find.byKey(const ValueKey('home_hero_tiger_scale')),
+    expect(player.applyMultiplyFilter, isFalse);
+    final ground = tester.getSize(
+      find.byKey(const ValueKey('learning-companion-ground')),
     );
-    expect(scale.alignment, Alignment.center);
+    expect(ground, const Size(144, 125));
+    // Source all-frame maximum body y=552, verified by the bake tool.
+    expect(player.size * 553 / 640, lessThan(ground.height));
   });
 
   testWidgets('까치 홈 히어로는 기존 보행 루프와 하단 기준을 유지한다', (tester) async {

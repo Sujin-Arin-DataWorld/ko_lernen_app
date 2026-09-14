@@ -3,7 +3,6 @@
   "packCompletionPending": "Your pack result is still being saved. You can retry saving it.",
   "packCompletionSaved": "Your pack result is saved.",
   "packCompletionView": "View result",
-
   "srsRecoveryPending": "Your last review is still being saved. Review progress will stay paused until it is recovered.",
   "srsRecoveryBlocked": "Your last review could not be recovered yet. Finish any pending account recovery, then try again.",
   "srsRecoveryRetry": "Retry saving review",
@@ -392,13 +391,17 @@
   "settingsUpdateAvailable": "New version {v} is here.",
   "@settingsUpdateAvailable": {
     "description": "Shown when Google Play reports a newer versionCode.",
-    "placeholders": {"v": {}}
+    "placeholders": {
+      "v": {}
+    }
   },
   "settingsUpdateDialogTitle": "Update available",
   "settingsUpdateDialogBody": "Version {v} will now be downloaded and installed through Google Play.",
   "@settingsUpdateDialogBody": {
     "description": "Confirmation before handing the update to Google Play.",
-    "placeholders": {"v": {}}
+    "placeholders": {
+      "v": {}
+    }
   },
   "settingsUpdateStart": "Update now",
   "settingsUpdateLater": "Later",
@@ -2349,7 +2352,7 @@
   "gyeVoluntaryEyebrow": "Optional learning community",
   "gyeEmptyHeadline": "Learning alone is complete. Together can feel warmer.",
   "gyeEmptyLead": "A 계 is a small group that holds a weekly intention together.",
-  "gyeFindOrCreate": "Find or create a 계",
+  "gyeFindOrCreate": "Join or create a group",
   "gyeContinueSolo": "Continue without a group",
   "gyeEmptyPreviewCaption": "This is a preview of the shared courtyard. It is not required for your learning path.",
   "homePathCardTitle": "Learning path",
@@ -3945,20 +3948,56 @@
   },
   "soriStageHanokTitle": "Your hanok grows with you.",
   "soriStageHanokBody": "Every word you learn builds here.",
-  "soriStageHanokUpdating": "Your hanok is being rebuilt. Back soon.",
+  "soriStageHanokUpdating": "Hanok preview · the new view is in progress.",
   "sarangchaeConstructionProgress": "{earned} of {total} construction stages",
-  "@sarangchaeConstructionProgress": {"placeholders": {"earned": {"type": "int"}, "total": {"type": "int"}}},
+  "@sarangchaeConstructionProgress": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "sarangchaeConstructionStages": "Construction stages",
   "sarangchaeLessonLanguage": "Lesson language",
   "sarangchaeStageTransition": "Stage {before} → stage {after}",
-  "@sarangchaeStageTransition": {"placeholders": {"before": {"type": "int"}, "after": {"type": "int"}}},
+  "@sarangchaeStageTransition": {
+    "placeholders": {
+      "before": {
+        "type": "int"
+      },
+      "after": {
+        "type": "int"
+      }
+    }
+  },
   "sarangchaeStageUnlocked": "Stage {stage} unlocked",
-  "@sarangchaeStageUnlocked": {"placeholders": {"stage": {"type": "int"}}},
+  "@sarangchaeStageUnlocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
   "sarangchaeStageLocked": "Stage {stage} is still locked",
-  "@sarangchaeStageLocked": {"placeholders": {"stage": {"type": "int"}}},
+  "@sarangchaeStageLocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
   "sarangchaeStartMission": "Complete a learning mission to begin your sarangchae.",
   "sarangchaeNewStages": "{count, plural, =1{1 new construction stage} other{{count} new construction stages}}",
-  "@sarangchaeNewStages": {"placeholders": {"count": {"type": "int"}}},
+  "@sarangchaeNewStages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageOpenMap": "Open Hanok map",
   "soriStageQuests": "Quests",
   "soriStageDojang": "Stamp book",
@@ -4645,7 +4684,7 @@
   "studyLibraryBookmarkWriteError": "The bookmark could not be changed. Your existing study data was not altered.",
   "studyLibraryStartWordReview": "Open today's word review",
   "studyLibraryReviewScopeNote": "This opens the existing word-review deck. Saved grammar, sentences, expressions, and Hangeul are not presented as words.",
-  "todayGuideTitle": "Hangul Sori start guide",
+  "todayGuideTitle": "Get to know the app",
   "todayGuideDescription": "Guide topics are ordered for your learning goal, so you can start with what matters most.",
   "todayGuideProgress": "{completed} of {total} topics completed",
   "@todayGuideProgress": {
@@ -4793,5 +4832,107 @@
     "description": "Empty site before the first construction stage"
   },
   "phaseTaskLeaveTitle": "Leave this task?",
-  "phaseTaskLeaveBody": "Unsubmitted recordings and answers that have not been saved may be lost. Leave anyway?"
+  "phaseTaskLeaveBody": "Unsubmitted recordings and answers that have not been saved may be lost. Leave anyway?",
+  "learningFocusDestinationUnavailable": "This activity could not be opened. Please try again.",
+  "learningFocusMinutes": "About {minutes} min.",
+  "@learningFocusMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogDetails": "Details",
+  "catalogHowItWorks": "How it works",
+  "catalogStartSession": "Start session",
+  "catalogRecentlyOpened": "Recently opened",
+  "catalogChoosePractice": "Choose your practice",
+  "catalogWords": "Words",
+  "catalogListen": "Listen",
+  "catalogHangul": "Hangul",
+  "catalogReview": "Review",
+  "catalogWordsSection": "Words & sentences",
+  "catalogListenSection": "Listen & speak",
+  "catalogHangulSection": "Hangul & writing",
+  "catalogReviewSection": "Review & my words",
+  "catalogAnotherRound": "Another round?",
+  "catalogProgressUnavailable": "Your progress could not be loaded. You can still practice.",
+  "catalogBestScore": "Best score: {count}",
+  "@catalogBestScore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogPacksCompleted": "{count, plural, =1{1 pack completed} other{{count} packs completed}}",
+  "@catalogPacksCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogScenesCompleted": "{count, plural, =1{1 scene completed} other{{count} scenes completed}}",
+  "@catalogScenesCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogPronunciationPassed": "{count, plural, =1{1 pronunciation check passed} other{{count} pronunciation checks passed}}",
+  "@catalogPronunciationPassed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogDaysPracticed": "{count, plural, =1{Practiced on 1 day} other{Practiced on {count} days}}",
+  "@catalogDaysPracticed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "learningFocusStart": "Start learning",
+  "learningFocusViewCourse": "View course",
+  "learningFocusCoursePosition": "{level} · Unit {number}",
+  "@learningFocusCoursePosition": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogImageUnavailable": "No image",
+  "todayGuideExpand": "Show all guide topics",
+  "todayGuideCollapse": "Show next topic only",
+  "soriStageConfirmedUnits": "{built} / {total} course units confirmed",
+  "soriStageOpenHanok": "View Hanok",
+  "soriStageHanokLearningSummary": "What you have learned",
+  "soriStageHanokProgressUnavailable": "Your learning progress could not be loaded.",
+  "@soriStageConfirmedUnits": {
+    "description": "Verified course units, never constructed buildings",
+    "placeholders": {
+      "built": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "soriStageHanokNoUnits": "No course units available yet.",
+  "soriStageNoQuests": "None yet",
+  "gyeRootPurpose": "Work towards a weekly goal together.",
+  "gyeRootPrivacy": "Your answers and results stay private.",
+  "soriStageHanokTasks": "Tasks",
+  "soriStageHanokStamps": "Stamps",
+  "soriStageHanokGifts": "Gifts"
 }

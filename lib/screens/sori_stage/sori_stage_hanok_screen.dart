@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -10,6 +8,7 @@ import '../../services/storage_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
@@ -27,6 +26,7 @@ class SoriStageHanokScreen extends StatefulWidget {
     this.loadSnapshot,
     this.loadConstruction,
     this.active = true,
+    this.refreshGeneration = 0,
   });
 
   /// Test seam; production uses the shared Stage progression snapshot.
@@ -38,6 +38,7 @@ class SoriStageHanokScreen extends StatefulWidget {
   /// The shell keeps every tab alive. Refresh progression whenever this tab
   /// becomes visible so work completed in Today/Learn is reflected here.
   final bool active;
+  final int refreshGeneration;
 
   @override
   State<SoriStageHanokScreen> createState() => _SoriStageHanokScreenState();
@@ -69,7 +70,8 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
     if (widget.active &&
         (!oldWidget.active ||
             oldWidget.loadSnapshot != widget.loadSnapshot ||
-            oldWidget.loadConstruction != widget.loadConstruction)) {
+            oldWidget.loadConstruction != widget.loadConstruction ||
+            oldWidget.refreshGeneration != widget.refreshGeneration)) {
       _refresh();
     }
   }
@@ -95,20 +97,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    // §W-F F1: a single continuous `CustomScrollView` replaces the previous
-    // fixed-chrome `Column` (header/`Expanded` map/shortcuts) — the map no
-    // longer claims all leftover height and hides the place list below 640dp.
-    // The large-text (≥1.6) `ListView` fallback is gone too: this sliver
-    // structure already reflows for any text scale, so `SoriStageSafeViewport`
-    // is no longer needed on this tab.
-    //
-    // §W-F2 J11: the header wraps exactly like
-    // `sori_stage_catalog_screen.dart`'s — a clamp builder feeding a
-    // `SliverPadding(left/right)` around the header, so its text shares the
-    // same edges as the shortcut row and place list instead of touching the
-    // screen edge. `maxWidth`/`base.left`/`base.right` (960 / 20) are the
-    // same clamp inputs `buildEmbeddedSlivers` uses for the place list, so
-    // all three stay aligned at any width, phone or tablet.
+    // One scroll surface: verified learning, current portrait, then collections.
     return Scaffold(
       body: SoriScreenBackground(
         child: SafeArea(
@@ -128,13 +117,22 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     right: padding.right,
                   ),
                   sliver: SoriCollapsingHeader(
-                    eyebrow: t.soriStageNavHanok,
-                    title: t.soriStageHanokTitle,
-                    body: t.soriStageHanokBody,
+                    title: t.soriStageNavHanok,
+                    titleStyle: SoriTextTheme.of(
+                      context,
+                    ).h1.copyWith(fontSize: 26, height: 1.35),
                     // 접힌 56dp 크롬 바용 짧은 제목 — 없으면 title 전체가
                     // ellipsis 로 잘린다.
                     collapsedTitle: t.soriStageNavHanok,
-                    trailing: const CulturalHelpButton(termId: 'hanok'),
+                    trailingSlots: 2,
+                    trailing: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CulturalHelpButton(termId: 'hanok'),
+                        SizedBox(width: Spacing.xs),
+                        SoriAvatar(),
+                      ],
+                    ),
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
@@ -158,9 +156,65 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                         12,
                       ),
                       sliver: SliverToBoxAdapter(
-                        child: _ShortcutTiles(
-                          snapshot: data,
-                          onOpen: _openShortcut,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              t.soriStageHanokLearningSummary,
+                              style: SoriTextTheme.of(context).cardTitle,
+                            ),
+                            const SizedBox(height: Spacing.sm),
+                            if (data != null)
+                              Text(
+                                data.hanokCompetence.totalUnitCount == 0
+                                    ? t.soriStageHanokNoUnits
+                                    : t.soriStageConfirmedUnits(
+                                        data.hanokCompetence.completedUnitCount,
+                                        data.hanokCompetence.totalUnitCount,
+                                      ),
+                                key: const ValueKey('hanok-confirmed-units'),
+                                style: SoriTextTheme.of(context).body,
+                              )
+                            else if (snapshot.hasError) ...[
+                              Text(
+                                t.soriStageHanokProgressUnavailable,
+                                key: const ValueKey('hanok-progress-error'),
+                              ),
+                              TextButton(
+                                onPressed: _refresh,
+                                child: Text(t.btnRetry),
+                              ),
+                            ] else
+                              const LinearProgressIndicator(),
+                            const SizedBox(height: Spacing.lg),
+                            LayoutBuilder(
+                              builder: (context, constraints) => Center(
+                                child: SizedBox(
+                                  key: const ValueKey('hanok-full-preview'),
+                                  width: constraints.maxWidth,
+                                  height: (constraints.maxWidth * 1376 / 768)
+                                      .clamp(0.0, 400.0),
+                                  child: HanokV3Preview(
+                                    message: t.soriStageHanokUpdating,
+                                    showOverlay: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.sm),
+                            Text(
+                              t.soriStageHanokUpdating,
+                              key: const ValueKey('hanok-preview-status'),
+                              textAlign: TextAlign.center,
+                              style: SoriTextTheme.of(context).bodySmall,
+                            ),
+                            const SizedBox(height: Spacing.xl),
+                            _ShortcutTiles(
+                              snapshot: data,
+                              onOpen: _openShortcut,
+                            ),
+                            const SizedBox(height: Spacing.xl),
+                          ],
                         ),
                       ),
                     );
@@ -440,7 +494,7 @@ class _ShortcutTiles extends StatelessWidget {
       final total = quests
           .where((quest) => quest.active || quest.completed)
           .length;
-      questsCount = '$done / $total';
+      questsCount = total == 0 ? t.soriStageNoQuests : '$done / $total';
     }
 
     const motifs = DancheongMotif.values;
@@ -455,7 +509,7 @@ class _ShortcutTiles extends StatelessWidget {
     final tiles = <Widget>[
       _ShortcutTile(
         id: 'quests',
-        label: t.soriStageQuests,
+        label: t.soriStageHanokTasks,
         count: questsCount,
         thumb: const SoriRewardThumb(
           // 대표 마당 장식 1장 — 실재 화이트리스트 슬러그.
@@ -468,7 +522,7 @@ class _ShortcutTiles extends StatelessWidget {
       ),
       _ShortcutTile(
         id: 'dojang',
-        label: t.soriStageDojang,
+        label: t.soriStageHanokStamps,
         count: dojangCount,
         thumb: Image.asset(
           'assets/illustrations/stamps/stamp_lotus.png',
@@ -485,7 +539,7 @@ class _ShortcutTiles extends StatelessWidget {
       ),
       _ShortcutTile(
         id: 'bojagi',
-        label: t.soriStageBojagi,
+        label: t.soriStageHanokGifts,
         count: bojagiCount,
         thumb: Image.asset(
           kBojagiClosed,
@@ -574,6 +628,7 @@ class _ShortcutTile extends StatelessWidget {
         child: ExcludeSemantics(
           child: SoriCard(
             variant: SoriCardVariant.compact,
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
             onTap: onTap,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -584,7 +639,7 @@ class _ShortcutTile extends StatelessWidget {
                   label,
                   key: ValueKey('hanok-shortcut-label-$id'),
                   textAlign: TextAlign.center,
-                  style: tt.cardTitle,
+                  style: tt.label.copyWith(fontSize: 15, height: 1.35),
                 ),
                 if (count != null)
                   Text(

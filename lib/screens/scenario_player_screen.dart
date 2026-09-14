@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
@@ -1380,7 +1381,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final done = _scenario;
     setState(() => _resultSaving = true);
     try {
-      final canDoResult = await _persistResult(stars, earnedXp);
+      final canDoResult = await trackLearningPersistence(
+        LearningJourneyObserver.beginAttempt(),
+        _persistResult(stars, earnedXp),
+      );
       if (!mounted) return;
       if (done != null) {
         Analytics.lessonCompleted(

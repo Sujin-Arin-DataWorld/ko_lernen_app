@@ -447,6 +447,16 @@ void main() {
         ),
       );
 
+      expect(
+        find.byKey(const ValueKey('today-guide-topic-learn')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const ValueKey('today-guide-topic-cards-and-memory')),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
+      await tester.pump();
       final liveRow = find.byKey(const ValueKey('today-guide-topic-learn'));
       final liveSemantics = tester.getSemantics(liveRow).getSemanticsData();
       expect(liveSemantics.hasAction(ui.SemanticsAction.tap), isTrue);
@@ -512,6 +522,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(tester.takeException(), isNull);
+      await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
+      await tester.pumpAndSettle();
       expect(
         tester
             .getSize(find.byKey(const ValueKey('today-guide-open-hub')))
@@ -769,6 +781,9 @@ GuideTopicViewModel _viewModel({
 
 Widget _testApp(Widget home, {double textScale = 1}) {
   return MaterialApp(
+    locale: const Locale('en'),
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
     builder: (context, child) => MediaQuery(
       data: MediaQuery.of(
         context,

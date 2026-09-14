@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -926,7 +927,11 @@ class _PhraseCardState extends State<_PhraseCard> {
       _savingRelationshipCheck = true;
     });
     try {
-      await pending.attempt.save();
+      await trackLearningPersistence(
+        LearningJourneyObserver.beginAttempt(),
+        pending.attempt.save(),
+        passed: pending.question.isCorrect(pending.selectedContext),
+      );
       if (!_relationshipAttemptIsCurrent(pending)) {
         _expireRelationshipAttemptIfCurrent(pending);
         return;
