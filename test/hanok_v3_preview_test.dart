@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -90,36 +91,6 @@ final class _TinyPngBundle extends CachingAssetBundle {
       : rootBundle.load(key);
 }
 
-SarangchaeConstruction _construction() => SarangchaeConstruction.fromJson({
-  'id': 'sarangchae-v3-16',
-  'canonicalSha256': SarangchaeConstruction.canonicalSha256,
-  'completedStage': SarangchaeConstruction.stageCount,
-  'stages': [
-    for (
-      var sequence = 1;
-      sequence <= SarangchaeConstruction.stageCount;
-      sequence++
-    )
-      {
-        'stageId': sequence == SarangchaeConstruction.stageCount
-            ? 'sarangchae-complete'
-            : 'stage-$sequence',
-        'sequence': sequence,
-        'assetPath':
-            'assets/illustrations/personal_hanok_v3/sarangchae/stage_${sequence.toString().padLeft(2, '0')}.png',
-        'sha256': sequence == SarangchaeConstruction.stageCount
-            ? SarangchaeConstruction.canonicalSha256
-            : 'fixture-$sequence',
-        'term': '부재',
-        for (final field in const [
-          'gloss',
-          'chapter',
-          'title',
-          'question',
-          'body',
-          'caption',
-        ])
-          field: const {'ko': '설명', 'en': 'Detail', 'de': 'Detail'},
-      },
-  ],
-});
+SarangchaeConstruction _construction() => SarangchaeConstruction.fromJson(
+  jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync()),
+);
