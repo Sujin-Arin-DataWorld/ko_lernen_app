@@ -47,7 +47,7 @@ const copy = {
       jungmunganchae: 'Passage · two rooms · open maru',
       araechae: 'Rooms · wooden porch · everyday life',
       anchae: 'Kitchen · rooms · main hall',
-      'anchae-store': 'Two storage spaces · everyday supplies'
+      'anchae-store': 'Two storage spaces · stored objects'
     }
   },
   de: {
@@ -65,7 +65,7 @@ const copy = {
       jungmunganchae: 'Durchgang · zwei Räume · offener Maru',
       araechae: 'Räume · Holzvorbau · Alltag',
       anchae: 'Küche · Zimmer · Haupthalle',
-      'anchae-store': 'Zwei Lagerräume · Alltagsvorräte'
+      'anchae-store': 'Zwei Lagerräume · Gegenstände'
     }
   }
 };

@@ -232,8 +232,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           },
           "sha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
           "observe": {
@@ -469,8 +469,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           },
           "sha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
           "observe": {
@@ -669,7 +669,7 @@
           "sentence": {
             "ko": "다락은 부엌 위에 있어요.",
             "en": "The loft is above the kitchen.",
-            "de": "Der erhöhte Boden liegt über der Küche."
+            "de": "Der Dachraum liegt über der Küche."
           },
           "sha256": "425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a",
           "observe": {
@@ -744,8 +744,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           },
           "sha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
           "observe": {
@@ -773,7 +773,7 @@
           "sentence": {
             "ko": "이 길로 물건을 옮겨요.",
             "en": "We carry things along this path.",
-            "de": "Auf diesem Weg tragen wir die Vorräte hinein."
+            "de": "Auf diesem Weg tragen wir Gegenstände."
           },
           "sha256": "7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838",
           "observe": {
@@ -962,8 +962,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           },
           "sha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
           "observe": {
