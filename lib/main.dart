@@ -21,6 +21,7 @@ import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
 import 'services/storage_service.dart';
+import 'widgets/sori/ai_voice_notice_host.dart';
 import 'widgets/sori/srs_recovery_banner.dart';
 import 'services/audio_policy.dart';
 import 'services/locale_service.dart';
@@ -668,36 +669,45 @@ class _KoLernenAppState extends State<KoLernenApp> {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg
-        builder: (context, child) => SoriTypeScale(
-          child: ContentFeedbackControllerScope(
-            featureGate: _contentFeedbackLifecycle.featureGate,
-            submitFeedback: _contentFeedbackLifecycle.submit,
-            resumePending: _contentFeedbackLifecycle.resumePending,
-            resumeDeliveryNotifier: _resumeDeliveryNotifier,
-            readPassportState: _contentFeedbackLifecycle.readPassportState,
-            child: ContentFeedbackLifecycleObserver(
+        //
+        // AiVoiceNoticeHost umschließt die gesamte bisherige builder-Kette
+        // als neue äußerste Schicht (C8, EU AI Act Art. 50(2)) — es ersetzt
+        // nichts darunter. Es muss unter MaterialApp hängen, damit sein
+        // context ScaffoldMessenger/Localizations erreicht (siehe
+        // ai_voice_notice_host.dart).
+        builder: (context, child) => AiVoiceNoticeHost(
+          child: SoriTypeScale(
+            child: ContentFeedbackControllerScope(
+              featureGate: _contentFeedbackLifecycle.featureGate,
+              submitFeedback: _contentFeedbackLifecycle.submit,
               resumePending: _contentFeedbackLifecycle.resumePending,
-              onResumeResult: _resumeDeliveryNotifier.report,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
-                // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
-                // 고장과 구분이 안 된다.
-                child: PackCompletionRecoveryBanner(
-                  onViewResult: () {
-                    final record = PackCompletionStorage.result;
-                    if (record != null) {
-                      _packRecoveryNavigator.currentState?.push(
-                        SoriTransitions.page(
-                          (_) => VocabPackResultScreen.fromRecovered(record),
-                        ),
-                      );
-                    }
-                  },
-                  child: SrsRecoveryBanner(
-                    child: TtsUnavailableBanner(
-                      child: child ?? const SizedBox(),
+              resumeDeliveryNotifier: _resumeDeliveryNotifier,
+              readPassportState: _contentFeedbackLifecycle.readPassportState,
+              child: ContentFeedbackLifecycleObserver(
+                resumePending: _contentFeedbackLifecycle.resumePending,
+                onResumeResult: _resumeDeliveryNotifier.report,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
+                  // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
+                  // 고장과 구분이 안 된다.
+                  child: PackCompletionRecoveryBanner(
+                    onViewResult: () {
+                      final record = PackCompletionStorage.result;
+                      if (record != null) {
+                        _packRecoveryNavigator.currentState?.push(
+                          SoriTransitions.page(
+                            (_) =>
+                                VocabPackResultScreen.fromRecovered(record),
+                          ),
+                        );
+                      }
+                    },
+                    child: SrsRecoveryBanner(
+                      child: TtsUnavailableBanner(
+                        child: child ?? const SizedBox(),
+                      ),
                     ),
                   ),
                 ),

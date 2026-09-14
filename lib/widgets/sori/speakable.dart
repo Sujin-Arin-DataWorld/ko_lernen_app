@@ -7,21 +7,7 @@ import '../../services/storage_service.dart';
 import '../../services/tts_service.dart';
 import 'pressable.dart';
 import 'route_observer.dart';
-import 'toast.dart';
 import 'tokens.dart';
-
-/// C8 (EU AI Act Art. 50(2)) — 사용자가 처음으로 한국어 TTS 재생을 트리거한
-/// 순간, 그 음성이 사람이 아니라 AI 합성(Google Cloud TTS, Chirp 3 HD)임을
-/// 스낵바로 딱 한 번 알린다. `Storage.aiVoiceNoticeShownV1` 로 게이트한다.
-///
-/// 트리거는 [TtsService]/[SoriSpeech](서비스·파사드 — UI-프리)가 아니라
-/// 여기, 실제로 탭을 받는 위젯([SoriSpeakable]/[SoriSpeechIndicator]) 안에
-/// 둔다 — 이 둘만 스낵바를 띄우는 데 필요한 `BuildContext`를 갖고 있다.
-void _announceAiVoiceOnce(BuildContext context) {
-  if (Storage.aiVoiceNoticeShownV1) return;
-  Storage.setAiVoiceNoticeShownV1();
-  soriNotice(context, AppL10n.of(context).aiVoiceNoticeFirstPlay);
-}
 
 /// **SoriSpeech** — TtsService 위 얇은 파사드.
 ///
@@ -67,6 +53,19 @@ class SoriSpeech {
   static final ValueNotifier<TtsSpeechPhase> phase =
       ValueNotifier<TtsSpeechPhase>(TtsSpeechPhase.idle);
   static bool _engineListenerBound = false;
+
+  /// C8 (EU AI Act Art. 50(2)) — [speak] 가 앱 통틀어 처음 호출되는 순간
+  /// 한 번 true 로 뒤집힌다. [Storage.aiVoiceNoticeShownV1] 이 이미
+  /// 단일 진실 공급원이므로 이 노티파이어는 상태를 갖지 않는다 — 그저
+  /// "방금 그 첫 호출이 일어났다"는 1회성 신호일 뿐이다. `speak()` 를
+  /// 부르는 곳이 34곳 넘게 흩어져 있어(직접 호출 스크린들 + 두 래퍼
+  /// 위젯) 위젯 계층 여러 곳에 훅을 심는 대신 이 파사드 하나에서
+  /// 게이트한다 — [AiVoiceNoticeHost] 가 `MaterialApp.builder` 아래
+  /// 정확히 한 번 구독해 스낵바를 띄운다. [TtsService] 는 건드리지
+  /// 않는다 — UI-프리로 남는다.
+  static final ValueNotifier<bool> aiVoiceNoticePending = ValueNotifier(
+    false,
+  );
 
   /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
   /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
@@ -141,6 +140,7 @@ class SoriSpeech {
     // 삼킬 수 있다(Fix round 1, finding 2).
     TtsService.phase.value = TtsSpeechPhase.idle;
     TtsService.activeSpeechText = null;
+    aiVoiceNoticePending.value = false;
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     speakSlowImpl = (text, voice) => TtsService.speakSlow(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
@@ -148,6 +148,17 @@ class SoriSpeech {
   }
 
   static Future<bool> speak(String text, {String? voice}) {
+    // C8 (EU AI Act Art. 50(2)) — 이 앱에서 실제로 오디오가 나가는 유일한
+    // 진입점이 [speak] 다(직접 호출 스크린 34곳 + [SoriSpeakable]/
+    // [SoriSpeechIndicator] 전부 여기로 모인다). 그래서 "첫 TTS 재생"
+    // 고지의 단일 진실 공급원을 TtsService(엔진)가 아니라 여기, 파사드의
+    // 맨 앞에 둔다 — 합류/dedupe 로직보다 먼저 평가하므로 실제로 새
+    // 오디오를 트는지와 무관하게 "사용자가 재생을 트리거했다"는 의도
+    // 자체를 놓치지 않는다.
+    if (!Storage.aiVoiceNoticeShownV1) {
+      Storage.setAiVoiceNoticeShownV1();
+      aiVoiceNoticePending.value = true;
+    }
     final resolvedVoice = voice ?? 'auto';
     final key = '$resolvedVoice|$text';
     final existing = _inFlight[key];
@@ -388,7 +399,6 @@ class SoriSpeakable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void handleTap() {
-      _announceAiVoiceOnce(context);
       SoriSpeech.speak(text, voice: voice);
     }
 
@@ -446,7 +456,6 @@ class SoriSpeechIndicator extends StatelessWidget {
           if (phase != TtsSpeechPhase.idle) {
             SoriSpeech.stop();
           } else {
-            _announceAiVoiceOnce(context);
             SoriSpeech.speak(text, voice: voice);
           }
         }
