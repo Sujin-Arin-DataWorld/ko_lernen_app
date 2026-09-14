@@ -454,6 +454,9 @@ jobs:
             2>&1 | tee "$RUNNER_TEMP/native-privacy-build-test.log"
       - name: Retain native test results
         if: always()
+        # XCTest is the gate. A transient artifact-service outage must not turn
+        # a successful privacy run red after the result bundle already exists.
+        continue-on-error: true
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: native-privacy-results
@@ -570,6 +573,9 @@ jobs:
           test "$native_failed" -eq 0
       - name: Retain Phase native results
         if: always()
+        # The integration command above owns pass/fail; this upload is
+        # diagnostic evidence and can be retried from a later run.
+        continue-on-error: true
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: phase-native-results

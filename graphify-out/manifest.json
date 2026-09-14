@@ -8124,9 +8124,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1789332904.1837797,
-    "seen": 1789368152.2057796,
-    "ast_hash": "898c04b54dfb6a8ccf6c83c9f74279bf",
+    "mtime": 1789377261.2311728,
+    "seen": 1789377483.5360665,
+    "ast_hash": "8918ebdf96c3fafc20a2e8de1666302b",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -10050,21 +10050,21 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1789365791.2109802,
-    "seen": 1789368152.2064002,
-    "ast_hash": "77114862c5779f0ffe8261dffc02c9ba",
+    "mtime": 1789373557.0819166,
+    "seen": 1789377483.6763532,
+    "ast_hash": "df7ae0924b8e08bb74e290e4a23a7f15",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1789365791.2109802,
-    "seen": 1789368152.2064013,
-    "ast_hash": "243604ab5b02082ab69224e3903da7e8",
+    "mtime": 1789373557.0840786,
+    "seen": 1789377483.6763594,
+    "ast_hash": "d5fc903ff57474c5bab461766afe77ec",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1789365791.2109802,
-    "seen": 1789368152.2064025,
-    "ast_hash": "ae3baebac687cc1377d819bceaf4c438",
+    "mtime": 1789373557.086235,
+    "seen": 1789377483.6763642,
+    "ast_hash": "931a6f95306ffbad7a36fdc28808c20e",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
