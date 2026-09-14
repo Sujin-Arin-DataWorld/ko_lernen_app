@@ -14,6 +14,9 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 class FakeRecorder implements PronunciationRecorder {
   bool allowed = false;
   int stops = 0;
+  // When set, stop() does not return until the gate completes — the window
+  // in which the screen is finalising a take.
+  Completer<void>? stopGate;
   final controller = StreamController<Uint8List>();
   @override
   Future<bool> requestPermission() async => allowed;
@@ -22,6 +25,7 @@ class FakeRecorder implements PronunciationRecorder {
   @override
   Future<void> stop() async {
     stops++;
+    await stopGate?.future;
   }
 
   @override
@@ -414,6 +418,99 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(PhaseTaskScreen), findsNothing);
       expect(find.text('ROOT'), findsOneWidget);
+    },
+  );
+  testWidgets(
+    'back while a take is still being finalised asks; leaving drops it',
+    (tester) async {
+      // Codex review on #305 (P2): after Stop, _recording is already false
+      // while the recorder and stream are still winding down, so the leave
+      // confirmation has to cover that window too.
+      final navigatorKey = GlobalKey<NavigatorState>();
+      await tester.pumpWidget(
+        MaterialApp(
+          navigatorKey: navigatorKey,
+          theme: AppTheme.dark,
+          locale: const Locale('en'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          home: const Scaffold(body: Text('ROOT')),
+        ),
+      );
+      final t = await AppL10n.delegate.load(const Locale('en'));
+      Future<FakeRecorder> openAndStopMidway() async {
+        final recorder = FakeRecorder()
+          ..allowed = true
+          ..stopGate = Completer<void>();
+        navigatorKey.currentState!.push(
+          MaterialPageRoute<void>(
+            builder: (_) => PhaseTaskScreen(
+              arguments: const PhaseTaskRoute(
+                'KP01',
+                'KP01:speaking:01',
+                assessment: true,
+              ),
+              loader: () async => catalog,
+              recorder: recorder,
+              saveAttempt: (_) async {},
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        await tap(tester, find.widgetWithText(SoriButton, 'Record'));
+        recorder.controller.add(Uint8List(40000));
+        await tester.pump();
+        await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
+        await tester.pump();
+        expect(recorder.stops, 1);
+        return recorder;
+      }
+
+      Future<void> settle() async {
+        for (var i = 0; i < 5; i++) {
+          await tester.pump(const Duration(milliseconds: 200));
+        }
+      }
+
+      // Stop tapped, recorder not finished: back must still ask.
+      final kept = await openAndStopMidway();
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await settle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+      await tester.tap(find.text(t.homeActionConfirmStay));
+      await settle();
+      expect(find.byType(PhaseTaskScreen), findsOneWidget);
+      // Once the recorder finishes, the take is there to listen to.
+      // StreamSubscription.cancel() resolves in the root zone, so the real
+      // event loop has to run the finalisation before the fake clock pumps.
+      kept.stopGate!.complete();
+      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+      await tester.pumpAndSettle();
+      expect(
+        find.widgetWithText(SoriButton, 'Listen to recording'),
+        findsOneWidget,
+      );
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(t.homeActionConfirmLeave));
+      await tester.pumpAndSettle();
+      expect(find.text('ROOT'), findsOneWidget);
+
+      // Leaving during finalisation confirms, pops, and the late bytes are
+      // dropped without touching the gone screen.
+      final dropped = await openAndStopMidway();
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await settle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+      await tester.tap(find.text(t.homeActionConfirmLeave));
+      await settle();
+      expect(find.byType(PhaseTaskScreen), findsNothing);
+      expect(find.text('ROOT'), findsOneWidget);
+      dropped.stopGate!.complete();
+      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      expect(find.byType(PhaseTaskScreen), findsNothing);
     },
   );
   testWidgets('mode tabs are locked while recording and follow the mode', (

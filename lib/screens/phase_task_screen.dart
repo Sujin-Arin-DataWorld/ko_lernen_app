@@ -64,6 +64,12 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   final _chunks = <Uint8List>[];
   int _byteCount = 0;
   Uint8List? _recorded;
+  // Stop was tapped but the recorder/stream are still winding down: the take
+  // exists only as PCM chunks until the WAV is assembled, so leaving must
+  // still ask (Codex review on #305, P2). _discardPending drops that take
+  // when the screen is left meanwhile.
+  bool _finalizing = false;
+  bool _discardPending = false;
   late final TabController _modes;
   @override
   void initState() {
@@ -278,9 +284,14 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     _limit?.cancel();
     _limit = null;
     if (!_recording) {
+      if (discard && _finalizing) {
+        _discardPending = true;
+      }
       return;
     }
     _recording = false;
+    _finalizing = true;
+    _discardPending = discard;
     if (mounted) {
       setState(() => _busy = true);
     }
@@ -288,10 +299,10 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       await _recorder.stop();
       await _stream?.cancel();
     } catch (_) {
-      discard = true;
+      _discardPending = true;
     }
     _stream = null;
-    if (!discard && !_accountChanged && _byteCount >= 32000) {
+    if (!_discardPending && !_accountChanged && _byteCount >= 32000) {
       final bytes = Uint8List(44 + _byteCount);
       void ascii(int at, String s) {
         bytes.setRange(at, at + s.length, s.codeUnits);
@@ -320,6 +331,8 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     }
     _chunks.clear();
     _byteCount = 0;
+    _finalizing = false;
+    _discardPending = false;
     if (mounted) {
       setState(() => _busy = false);
     }
@@ -381,8 +394,9 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     super.dispose();
   }
 
-  /// Leaving via X, home or system back: drop the in-memory recording and
-  /// stop playback before the route goes away. Drafts are already saved.
+  /// Leaving via X, home or system back: drop the in-memory recording (or the
+  /// take still being finalised) and stop playback before the route goes
+  /// away. Drafts are already saved.
   void _leave() {
     unawaited(_stopRecording(discard: true));
     unawaited(_playerInstance?.stop());
@@ -400,10 +414,12 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       padding: EdgeInsets.zero,
       // The recording lives only in memory (never uploaded, never drafted),
       // so X, home and system back ask before discarding one that is still
-      // in progress or not yet submitted. Typed answers are saved as drafts
-      // on every keystroke and restore without a confirmation.
+      // in progress, still being finalised after Stop, or not yet submitted.
+      // Typed answers are saved as drafts on every keystroke and restore
+      // without a confirmation.
       homeEscape: SoriHomeEscape(
-        confirmWhen: _recording || (_recorded != null && _result == null),
+        confirmWhen:
+            _recording || _finalizing || (_recorded != null && _result == null),
         confirmTitle: t.phaseTaskLeaveTitle,
         confirmBody: t.phaseTaskLeaveBody,
       ),

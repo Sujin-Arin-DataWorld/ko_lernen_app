@@ -59,7 +59,7 @@ void main() {
         '!_done && (_idx > 0 || _locked)',
     'lib/screens/kkeunmari_screen.dart': '_end == _End.none && _remaining > 0',
     'lib/screens/phase_task_screen.dart':
-        '_recording || (_recorded != null && _result == null)',
+        '_recording || _finalizing || (_recorded != null && _result == null)',
     'lib/screens/pronunciation_studio_screen.dart':
         '_captureBusy || _assessing',
     'lib/screens/review_session_screen.dart':
