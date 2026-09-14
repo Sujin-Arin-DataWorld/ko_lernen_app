@@ -167,8 +167,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           }
         }
       ]
@@ -332,8 +332,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           }
         }
       ]
@@ -472,7 +472,7 @@
           "sentence": {
             "ko": "다락은 부엌 위에 있어요.",
             "en": "The loft is above the kitchen.",
-            "de": "Der erhöhte Boden liegt über der Küche."
+            "de": "Der Dachraum liegt über der Küche."
           }
         },
         {
@@ -523,8 +523,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           }
         }
       ]
@@ -546,7 +546,7 @@
           "sentence": {
             "ko": "이 길로 물건을 옮겨요.",
             "en": "We carry things along this path.",
-            "de": "Auf diesem Weg tragen wir die Vorräte hinein."
+            "de": "Auf diesem Weg tragen wir Gegenstände."
           }
         },
         {
@@ -675,8 +675,8 @@
           "de": "Das fertige Gebäude",
           "sentence": {
             "ko": "사람이 살고 사용하던 공간이에요.",
-            "en": "This is a place where people lived and worked.",
-            "de": "Hier haben Menschen gewohnt und gearbeitet."
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
           }
         }
       ]

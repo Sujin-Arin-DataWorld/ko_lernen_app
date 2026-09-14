@@ -696,9 +696,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/deploy-production.mjs": {
-    "mtime": 1789259456.6621559,
-    "seen": 1789368152.202819,
-    "ast_hash": "2e8d6b1bca6ff222a634b9e17f8c9df2",
+    "mtime": 1789389410.703939,
+    "seen": 1789389661.10925,
+    "ast_hash": "1b9a6d2fb28437b733d2eb9f86cfc12e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/release-id.mjs": {
@@ -750,9 +750,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/release-safety.test.mjs": {
-    "mtime": 1789259456.6737528,
-    "seen": 1789368152.202831,
-    "ast_hash": "1f0768883cba0e96ac4bddb7c170c8df",
+    "mtime": 1789389410.7095335,
+    "seen": 1789389661.1112206,
+    "ast_hash": "f95095a6452ac4cb9a673e55db03b597",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/rendered-html.test.mjs": {
@@ -942,20 +942,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1789386058.905187,
-    "seen": 1789386289.5885062,
+    "mtime": 1789388622.6115422,
+    "seen": 1789389661.1262643,
     "ast_hash": "33b052d46dbc841537dfb6a4d03867bc",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1789386058.908763,
-    "seen": 1789386289.588512,
+    "mtime": 1789388622.4243536,
+    "seen": 1789389661.126267,
     "ast_hash": "1b4df2ec6df46f578f5a72093d8594c5",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1789386058.9102437,
-    "seen": 1789386289.5885153,
+    "mtime": 1789388622.5116735,
+    "seen": 1789389661.1262736,
     "ast_hash": "75a929d79939ab84a1e98dc39b3ef5b1",
     "semantic_hash": ""
   },
@@ -9630,15 +9630,15 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-1280.png": {
-    "mtime": 1789384436.0625358,
-    "seen": 1789385470.651809,
-    "ast_hash": "5b1c6e406e92381f661a3bd6f9dba46a",
+    "mtime": 1789386100.0,
+    "seen": 1789389661.7540429,
+    "ast_hash": "907b4611373e740aa7c74ee875b46152",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-today-390.png": {
-    "mtime": 1789384436.0665457,
-    "seen": 1789385470.6518126,
-    "ast_hash": "1b99e93c433f7af54f6b1b2d269dccc2",
+    "mtime": 1789386099.0,
+    "seen": 1789389661.7540464,
+    "ast_hash": "19a1c0cf7a675b143bd6cff1253af466",
     "semantic_hash": ""
   },
   "docs/social/bbanana/hangul-sori-one-sound-one-space-background-v2.png": {
@@ -10050,9 +10050,9 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1789384436.109408,
-    "seen": 1789385470.6719356,
-    "ast_hash": "df7ae0924b8e08bb74e290e4a23a7f15",
+    "mtime": 1789386270.0,
+    "seen": 1789389661.7704191,
+    "ast_hash": "3d92357ebf218a9021f5b383c85e4b7b",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
@@ -14064,33 +14064,33 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390-empty.png": {
-    "mtime": 1789384436.0544412,
-    "seen": 1789385470.651799,
-    "ast_hash": "68292352d3dbb98f7414922e664e2cde",
+    "mtime": 1789386102.0,
+    "seen": 1789389661.7540324,
+    "ast_hash": "1b5c1a3a5470fd9156711065166152c8",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-gye-390.png": {
-    "mtime": 1789384436.0564473,
-    "seen": 1789385470.6518018,
-    "ast_hash": "c55ca278bd6831407d56b0069a4e6d35",
+    "mtime": 1789386102.0,
+    "seen": 1789389661.7540348,
+    "ast_hash": "254490d9c7e91f709cd1862c0ae23944",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390-collapsed.png": {
-    "mtime": 1789384436.0585556,
-    "seen": 1789385470.651804,
-    "ast_hash": "f65e7b45895d5640b76eb3745d1a29f1",
+    "mtime": 1789386102.0,
+    "seen": 1789389661.7540376,
+    "ast_hash": "83004dd2060a2c2deeea19d5e05c2d7d",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390.png": {
-    "mtime": 1789384436.0605302,
-    "seen": 1789385470.6518064,
-    "ast_hash": "7a02a37251a27a36bdd48807b3e895b6",
+    "mtime": 1789386101.0,
+    "seen": 1789389661.7540405,
+    "ast_hash": "31371864b4d52466b70d4bef9cbf64bd",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390.png": {
-    "mtime": 1789384436.0645406,
-    "seen": 1789385470.651811,
-    "ast_hash": "692c0e3a34f48ab2ae4b7ee2fa9403f3",
+    "mtime": 1789386101.0,
+    "seen": 1789389661.7540448,
+    "ast_hash": "10527bb3813a3f52e7a5673ad840fe5b",
     "semantic_hash": ""
   },
   "lib/widgets/sori/updating_scene.dart": {
@@ -17232,15 +17232,15 @@
     "semantic_hash": ""
   },
   "test/sori_stage_remaining_composition_test.dart": {
-    "mtime": 1789384436.1239264,
-    "seen": 1789385470.2170718,
-    "ast_hash": "bb1dcae01aaece1cb25e359df95654c7",
+    "mtime": 1789386540.401296,
+    "seen": 1789389661.4384344,
+    "ast_hash": "9f816b7aaa8298c7a87cdd81766b8072",
     "semantic_hash": ""
   },
   "test/support/catalog_test_support.dart": {
-    "mtime": 1789384436.1239264,
-    "seen": 1789385470.233542,
-    "ast_hash": "8c403009428e6e5abee3151bbfd4a748",
+    "mtime": 1789386540.387791,
+    "seen": 1789389661.4535985,
+    "ast_hash": "268950606709bcbbc7ede6ab84dfc340",
     "semantic_hash": ""
   },
   "test/support/five_tabs_preview/first_activity.json": {
@@ -17286,9 +17286,9 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-games-390.png": {
-    "mtime": 1789384436.0524364,
-    "seen": 1789385470.6517951,
-    "ast_hash": "ab1607c0673b6fdc67a2494d9faff38d",
+    "mtime": 1789386101.0,
+    "seen": 1789389661.7540283,
+    "ast_hash": "495a3fcff8f22925d048619607939702",
     "semantic_hash": ""
   },
   "test/support/five_tabs_preview/video_poster.png": {
@@ -17304,9 +17304,9 @@
     "semantic_hash": ""
   },
   "docs/mockups/four-buildings-construction-29/app.js": {
-    "mtime": 1789386058.280126,
-    "seen": 1789386289.525511,
-    "ast_hash": "836eb887af6ac42bdb421df84d8d8e08",
+    "mtime": 1789389410.678588,
+    "seen": 1789389661.0781748,
+    "ast_hash": "56fff89496e3b1860293679ef0ed4209",
     "semantic_hash": ""
   },
   "docs/mockups/four-buildings-construction-29/verify_viewer.js": {
@@ -17316,21 +17316,21 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/app.js": {
-    "mtime": 1789386058.3041983,
-    "seen": 1789386289.5641227,
-    "ast_hash": "51c865f3d841917775806c14adb1fd94",
+    "mtime": 1789389410.6999195,
+    "seen": 1789389661.1088324,
+    "ast_hash": "800e77e35a008bc2beb255a1e38e3d49",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/construction_catalog.json": {
-    "mtime": 1789386058.3051996,
-    "seen": 1789386289.5641267,
-    "ast_hash": "de6a6a52e218a9d34f3e182f4466fac1",
+    "mtime": 1789389410.7029195,
+    "seen": 1789389661.1088352,
+    "ast_hash": "a04ccfd5eacb82e393ae41483fef086d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/four-buildings-gallery.test.mjs": {
-    "mtime": 1789386058.896896,
-    "seen": 1789386289.5675142,
-    "ast_hash": "199528889863126a545d16e3f430348f",
+    "mtime": 1789389410.7075045,
+    "seen": 1789389661.1112182,
+    "ast_hash": "f6ba0dda8d6040a288e9ef267c1bb715",
     "semantic_hash": ""
   },
   "test/ildu_four_buildings_construction_art_test.dart": {
@@ -17364,302 +17364,302 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/index.html": {
-    "mtime": 1789386058.8958614,
-    "seen": 1789386290.1443472,
-    "ast_hash": "365a5892e6e89b76a5052c08d4ea6f7d",
+    "mtime": 1789386939.7474024,
+    "seen": 1789389661.732661,
+    "ast_hash": "2641c5cd0671447509a56abadb2c9002",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_01_site_storage.png": {
-    "mtime": 1789386058.3179393,
-    "seen": 1789386290.172316,
+    "mtime": 1789386349.2783859,
+    "seen": 1789389661.760351,
     "ast_hash": "b81b81541a6b233c667865fe2ee9d066",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_02_stone_foundation.png": {
-    "mtime": 1789386058.3328383,
-    "seen": 1789386290.1723187,
+    "mtime": 1789386349.281385,
+    "seen": 1789389661.7603543,
     "ast_hash": "06e102e3de9c3ec8fd1187b1b6e406f4",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_03_posts.png": {
-    "mtime": 1789386058.3470273,
-    "seen": 1789386290.1723206,
+    "mtime": 1789386349.286644,
+    "seen": 1789389661.7603571,
     "ast_hash": "542f20cb3bef25bda3d3c24b28408717",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_04_beams_purlins.png": {
-    "mtime": 1789386058.3586276,
-    "seen": 1789386290.1723218,
+    "mtime": 1789386349.2906945,
+    "seen": 1789389661.7603588,
     "ast_hash": "e78c57aada1a9e9832c662a0e1b077e6",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_05_rafters_eaves.png": {
-    "mtime": 1789386058.3693383,
-    "seen": 1789386290.1723232,
+    "mtime": 1789386349.2946959,
+    "seen": 1789389661.7603614,
     "ast_hash": "6d9f0289269d50d87ad9275632cfa338",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_06_roof_bed.png": {
-    "mtime": 1789386058.3813212,
-    "seen": 1789386290.1723247,
+    "mtime": 1789386349.2986977,
+    "seen": 1789389661.760364,
     "ast_hash": "f379bf66bb3a45d6238709cdf24a35a4",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_07_tiles.png": {
-    "mtime": 1789386058.3942714,
-    "seen": 1789386290.172326,
+    "mtime": 1789386349.3038058,
+    "seen": 1789389661.7603667,
     "ast_hash": "fd4b27cab71c17dc07d304028cfb52df",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_08_compacted_floor.png": {
-    "mtime": 1789386058.406973,
-    "seen": 1789386290.1723287,
+    "mtime": 1789386349.308323,
+    "seen": 1789389661.760368,
     "ast_hash": "58b3884eebb7af0c563b48c486257346",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_09_walls_partition.png": {
-    "mtime": 1789386058.4185252,
-    "seen": 1789386290.1723304,
+    "mtime": 1789386349.3123236,
+    "seen": 1789389661.76037,
     "ast_hash": "7b61103ef04f74ae0f90a2837a3d63e6",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_10_doors_vents.png": {
-    "mtime": 1789386058.431661,
-    "seen": 1789386290.1723316,
+    "mtime": 1789386349.3173287,
+    "seen": 1789389661.7603736,
     "ast_hash": "0ab115bd02006331e7f9bad3ece463ea",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_11_complete_use.png": {
-    "mtime": 1789386058.4423883,
-    "seen": 1789386290.172333,
+    "mtime": 1789386349.321988,
+    "seen": 1789389661.7603755,
     "ast_hash": "2047c9bc4d6e8aa50e1b08e62098c43f",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_01_site_household.png": {
-    "mtime": 1789386058.4541278,
-    "seen": 1789386290.1723347,
+    "mtime": 1789386349.2172854,
+    "seen": 1789389661.7603774,
     "ast_hash": "bdbf77202fc66fde66e64d454d683cac",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_02_stone_foundation.png": {
-    "mtime": 1789386058.4626288,
-    "seen": 1789386290.1723378,
+    "mtime": 1789386349.2218735,
+    "seen": 1789389661.7603793,
     "ast_hash": "3a81edf7a952f62eecd1cc025e75564b",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_03_posts.png": {
-    "mtime": 1789386058.473009,
-    "seen": 1789386290.1723394,
+    "mtime": 1789386349.2260146,
+    "seen": 1789389661.7603822,
     "ast_hash": "4a187f0a6b6f5fbf2e80ac829c66b2be",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_04_beams_purlins.png": {
-    "mtime": 1789386058.484294,
-    "seen": 1789386290.1723416,
+    "mtime": 1789386349.2290394,
+    "seen": 1789389661.7603848,
     "ast_hash": "6a670098575431b53fd1f4f83f287425",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_05_hip_frame.png": {
-    "mtime": 1789386058.4953763,
-    "seen": 1789386290.1723435,
+    "mtime": 1789386349.2330382,
+    "seen": 1789389661.7603865,
     "ast_hash": "e4a38203a342437d6658898f891512e9",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_06_rafters_eaves.png": {
-    "mtime": 1789386058.5081642,
-    "seen": 1789386290.1723452,
+    "mtime": 1789386349.2384775,
+    "seen": 1789389661.7603884,
     "ast_hash": "fe41ea30c935fb0d1f93157b2ecc1d85",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_07_roof_bed.png": {
-    "mtime": 1789386058.5195694,
-    "seen": 1789386290.172347,
+    "mtime": 1789386349.2427647,
+    "seen": 1789389661.7603903,
     "ast_hash": "019f980800edade68d3aced33dfd91e6",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_08_tiles.png": {
-    "mtime": 1789386058.5308492,
-    "seen": 1789386290.1723487,
+    "mtime": 1789386349.2467864,
+    "seen": 1789389661.7603927,
     "ast_hash": "33c0f9bbffc76fa3053491e285ea80d7",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_09_walls_kitchen.png": {
-    "mtime": 1789386058.5433283,
-    "seen": 1789386290.1723506,
+    "mtime": 1789386349.251064,
+    "seen": 1789389661.7603943,
     "ast_hash": "6ab4797cd2d865394998bba074af69b9",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_10_kitchen_loft.png": {
-    "mtime": 1789386058.5560145,
-    "seen": 1789386290.1723535,
+    "mtime": 1789386349.2564547,
+    "seen": 1789389661.7603967,
     "ast_hash": "3478189338e8bea26cc6e52e2a5a2be0",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_11_ondol.png": {
-    "mtime": 1789386058.5692842,
-    "seen": 1789386290.1723547,
+    "mtime": 1789386349.2611544,
+    "seen": 1789389661.7603993,
     "ast_hash": "46d2fafc4050708a71ab8455bf179f06",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_12_daecheong_maru.png": {
-    "mtime": 1789386058.5804482,
-    "seen": 1789386290.1723561,
+    "mtime": 1789386349.2654605,
+    "seen": 1789389661.760401,
     "ast_hash": "fcb15e069c3e31b9513f1327e8b0d44e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_13_changho.png": {
-    "mtime": 1789386058.5927675,
-    "seen": 1789386290.1723573,
+    "mtime": 1789386349.2694411,
+    "seen": 1789389661.760403,
     "ast_hash": "a550a151ec167fdae07e32b4694fe103",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_14_complete_use.png": {
-    "mtime": 1789386058.6045382,
-    "seen": 1789386290.1723592,
+    "mtime": 1789386349.2743857,
+    "seen": 1789389661.7604048,
     "ast_hash": "ce37c2542ad8dfb5bd71dff7ebd4910d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_01_site_rooms.png": {
-    "mtime": 1789386058.6162212,
-    "seen": 1789386290.172361,
+    "mtime": 1789386349.1653714,
+    "seen": 1789389661.7604065,
     "ast_hash": "1b610d4190a383d7e42ce2493d788f6e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_02_stone_foundation.png": {
-    "mtime": 1789386058.6265154,
-    "seen": 1789386290.1723628,
+    "mtime": 1789386349.17038,
+    "seen": 1789389661.7604089,
     "ast_hash": "0edd51800937e4aa4a7f39d8653ee2b5",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_03_posts_floor_support.png": {
-    "mtime": 1789386058.6375692,
-    "seen": 1789386290.1723645,
+    "mtime": 1789386349.17441,
+    "seen": 1789389661.7604108,
     "ast_hash": "8dca04ea9acdac9e5714c87fc7053218",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_04_beams_purlins.png": {
-    "mtime": 1789386058.6478112,
-    "seen": 1789386290.1723661,
+    "mtime": 1789386349.1774058,
+    "seen": 1789389661.7604127,
     "ast_hash": "9267e2677ffd7c6202c9cd11939bd9fa",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_05_rafters_eaves.png": {
-    "mtime": 1789386058.658993,
-    "seen": 1789386290.172368,
+    "mtime": 1789386349.1814065,
+    "seen": 1789389661.7604144,
     "ast_hash": "758462aba2eba6259551ade910ad27a3",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_06_roof_bed.png": {
-    "mtime": 1789386058.6708345,
-    "seen": 1789386290.1723695,
+    "mtime": 1789386349.1869793,
+    "seen": 1789389661.760416,
     "ast_hash": "f4cc7a6ed2d13202d9f4132c85c72093",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_07_tiles.png": {
-    "mtime": 1789386058.6827526,
-    "seen": 1789386290.1723714,
+    "mtime": 1789386349.1905048,
+    "seen": 1789389661.7604175,
     "ast_hash": "a3293f03414a6a0b795dbb287640d1c2",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_08_room_walls.png": {
-    "mtime": 1789386058.6939113,
-    "seen": 1789386290.172373,
+    "mtime": 1789386349.195497,
+    "seen": 1789389661.760419,
     "ast_hash": "157e2880532383451b2fdd02efc7b493",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_09_ondol.png": {
-    "mtime": 1789386058.7070317,
-    "seen": 1789386290.172375,
+    "mtime": 1789386349.1995757,
+    "seen": 1789389661.7604206,
     "ast_hash": "f2b9d45057a7347fda23249525be1de6",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_10_maru.png": {
-    "mtime": 1789386058.7190948,
-    "seen": 1789386290.1723769,
+    "mtime": 1789386349.2037642,
+    "seen": 1789389661.760422,
     "ast_hash": "f43702a12d6a575fce54c2b92d879c4b",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_11_changho.png": {
-    "mtime": 1789386058.7325711,
-    "seen": 1789386290.1723783,
+    "mtime": 1789386349.209282,
+    "seen": 1789389661.7604237,
     "ast_hash": "d7553f07a2961a7dfd41a68c65f1a738",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_12_complete_use.png": {
-    "mtime": 1789386058.744876,
-    "seen": 1789386290.1723797,
+    "mtime": 1789386349.2132852,
+    "seen": 1789389661.7604249,
     "ast_hash": "3eb1ed5677c091971416b0aad46707d5",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_01_site_route.png": {
-    "mtime": 1789386058.755247,
-    "seen": 1789386290.172381,
+    "mtime": 1789386349.1084254,
+    "seen": 1789389661.760427,
     "ast_hash": "b456b00755399f075693ab46bcd3c5f9",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_02_stone_foundation.png": {
-    "mtime": 1789386058.7690916,
-    "seen": 1789386290.1723828,
+    "mtime": 1789386349.1127806,
+    "seen": 1789389661.760429,
     "ast_hash": "f29e54c6826d991c983432ab70b6d51f",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_03_posts.png": {
-    "mtime": 1789386058.7840235,
-    "seen": 1789386290.172384,
+    "mtime": 1789386349.1177852,
+    "seen": 1789389661.7604306,
     "ast_hash": "b4bbf1aee4bfcc75d1f57b3b23da9bee",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_04_beams_purlins.png": {
-    "mtime": 1789386058.7956593,
-    "seen": 1789386290.1723855,
+    "mtime": 1789386349.1222985,
+    "seen": 1789389661.7604315,
     "ast_hash": "eece6884b2e558bd97b632ec769efe37",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_05_rafters_eaves.png": {
-    "mtime": 1789386058.8080244,
-    "seen": 1789386290.1723871,
+    "mtime": 1789386349.1273122,
+    "seen": 1789389661.760433,
     "ast_hash": "f4f4fa657544efcf20d807b3293b7a5c",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_06_roof_bed.png": {
-    "mtime": 1789386058.8193984,
-    "seen": 1789386290.1723886,
+    "mtime": 1789386349.1313117,
+    "seen": 1789389661.7604342,
     "ast_hash": "5c1419ee5fe96f2298b74d9bd191d8bc",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_07_tiles.png": {
-    "mtime": 1789386058.832093,
-    "seen": 1789386290.1723902,
+    "mtime": 1789386349.1373148,
+    "seen": 1789389661.7604368,
     "ast_hash": "016c914e56b5ed96eaff8f67a67868a5",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_08_room_walls.png": {
-    "mtime": 1789386058.8431835,
-    "seen": 1789386290.1723914,
+    "mtime": 1789386349.1418364,
+    "seen": 1789389661.7604382,
     "ast_hash": "3c9e06b7c9d835c68ced4cc389ff2115",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_09_ondol_floors.png": {
-    "mtime": 1789386058.856772,
-    "seen": 1789386290.1723926,
+    "mtime": 1789386349.1458352,
+    "seen": 1789389661.7604403,
     "ast_hash": "3daed28eccc6777ac50c1e67db81bffd",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_10_open_maru.png": {
-    "mtime": 1789386058.870329,
-    "seen": 1789386290.1723945,
+    "mtime": 1789386349.1508365,
+    "seen": 1789389661.760442,
     "ast_hash": "40105769916ec1493d1038de5b01f9bc",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_11_gate_changho.png": {
-    "mtime": 1789386058.883076,
-    "seen": 1789386290.1723955,
+    "mtime": 1789386349.1563642,
+    "seen": 1789389661.7604444,
     "ast_hash": "4168d35f445cbf3ef4567d979026bfc0",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_12_complete_use.png": {
-    "mtime": 1789386058.8948605,
-    "seen": 1789386290.172397,
+    "mtime": 1789386349.161372,
+    "seen": 1789389661.7604458,
     "ast_hash": "14b0fabcd05283de0cc788e7cbaf0524",
     "semantic_hash": ""
   }

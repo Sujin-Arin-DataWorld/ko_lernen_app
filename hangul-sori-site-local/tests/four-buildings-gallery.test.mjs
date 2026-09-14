@@ -12,6 +12,9 @@ const hash = bytes => createHash("sha256").update(bytes).digest("hex");
 test("the public gallery contains the 49 approved PNGs and no production notes", async () => {
   const catalog = await readJson(resolve(gallery, "construction_catalog.json"));
   const adoption = await readJson(resolve(root, "docs/assets/ildu_four_buildings_construction_20260914/promotion_manifest.json"));
+  const source = await readJson(resolve(root, "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/construction_catalog.json"));
+  const runtime = await readJson(resolve(root, "assets/data/ildu_construction_art_v1.json"));
+  const approved = await readJson(resolve(root, "docs/assets/ildu_four_buildings_construction_20260914/construction_catalog.json"));
   assert.equal(catalog.status, "approved_canonical");
   assert.deepEqual(catalog.buildings.map(b => [b.id, b.steps.length]), [
     ["jungmunganchae", 12], ["araechae", 12], ["anchae", 14], ["anchae-store", 11]
@@ -19,9 +22,16 @@ test("the public gallery contains the 49 approved PNGs and no production notes",
   assert.equal(adoption.files.length, 49);
   for (const building of catalog.buildings) {
     const paths = [];
+    const sourceStages = source.buildings.find(b => b.id === building.id).steps;
+    const runtimeStages = runtime.series.find(b => b.buildingId === building.id).stages;
+    const approvedStages = approved.series.find(b => b.buildingId === building.id).stages;
     for (const stage of building.steps) {
       const record = adoption.files.find(r => r.buildingId === building.id && r.sequence === stage.number);
       assert.ok(record);
+      const sentence = sourceStages.find(s => s.number === stage.number).sentence;
+      assert.deepEqual(stage.sentence, sentence);
+      assert.deepEqual(runtimeStages.find(s => s.sequence === stage.number).line, sentence);
+      assert.deepEqual(approvedStages.find(s => s.sequence === stage.number).line, sentence);
       const publicBytes = await readFile(resolve(gallery, stage.file));
       assert.equal(hash(publicBytes), record.sha256);
       assert.equal(hash(publicBytes), stage.sha256);

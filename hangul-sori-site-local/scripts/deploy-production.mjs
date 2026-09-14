@@ -93,9 +93,9 @@ export function createDeployArguments(releaseSha, { bootstrap = false } = {}) {
   ];
 }
 
-async function git(args) {
+async function git(args, cwd = projectRoot) {
   const { stdout } = await execFileAsync("git", args, {
-    cwd: projectRoot,
+    cwd,
     encoding: "utf8",
     maxBuffer: 16 * 1024 * 1024,
     windowsHide: true,
@@ -103,16 +103,39 @@ async function git(args) {
   return stdout.trim();
 }
 
-async function gitExitCode(args) {
+async function gitExitCode(args, cwd = projectRoot) {
   return new Promise((resolveCode, reject) => {
     const child = spawn("git", args, {
-      cwd: projectRoot,
+      cwd,
       stdio: "ignore",
       windowsHide: true,
     });
     child.once("error", reject);
     child.once("exit", (code) => resolveCode(code ?? 1));
   });
+}
+
+export async function isReleaseAncestor(ancestor, releaseSha, cwd = projectRoot) {
+  if (![ancestor, releaseSha].every((sha) => GIT_SHA_PATTERN.test(sha))) {
+    throw new Error("Release ancestry requires full Git SHAs.");
+  }
+  const argumentsList = ["merge-base", "--is-ancestor", ancestor, releaseSha];
+  const initialCode = await gitExitCode(argumentsList, cwd);
+  if (initialCode === 0) return true;
+
+  try {
+    const shallow = await git(["rev-parse", "--is-shallow-repository"], cwd) === "true";
+    if (!shallow && initialCode === 1) return false;
+    // Workers Builds starts with shallow history. A live release can be much
+    // older than 100 commits; fetch its ancestry without downloading old media.
+    await git([
+      "fetch", "--no-tags", "--filter=blob:none",
+      ...(shallow ? ["--unshallow"] : []), "origin", "main",
+    ], cwd);
+  } catch {
+    return false;
+  }
+  return await gitExitCode(argumentsList, cwd) === 0;
 }
 
 async function readActiveDeployment() {
@@ -223,26 +246,7 @@ async function ensureTargetIsCurrentMain(releaseSha, previousLiveRelease) {
     throw new Error(`Live production exposes an unrecognized release ID: ${previousLiveRelease}`);
   }
 
-  let ancestryCode = await gitExitCode([
-    "merge-base",
-    "--is-ancestor",
-    previousLiveRelease,
-    releaseSha,
-  ]);
-  if (ancestryCode > 1) {
-    try {
-      await git(["fetch", "--no-tags", "--depth=100", "origin", "main"]);
-    } catch {
-      // The next ancestry check remains fail-closed if the object is unavailable.
-    }
-    ancestryCode = await gitExitCode([
-      "merge-base",
-      "--is-ancestor",
-      previousLiveRelease,
-      releaseSha,
-    ]);
-  }
-  if (ancestryCode !== 0) {
+  if (!await isReleaseAncestor(previousLiveRelease, releaseSha)) {
     throw new Error(
       `Refusing stale deployment: live release ${previousLiveRelease} is not a known ancestor of ${releaseSha}.`,
     );
