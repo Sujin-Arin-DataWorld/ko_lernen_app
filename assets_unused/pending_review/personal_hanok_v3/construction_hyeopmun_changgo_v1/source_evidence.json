@@ -1,0 +1,74 @@
+{
+  "baseCommit": "3b6d1ca1327d7429b6bf6f244aea8f61f09bc97d",
+  "blueprints": [
+    {
+      "id": "hyeopmun_detail",
+      "file": "references/blueprints/hyeopmun_detail.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_협문_상세도 (1).jpg",
+      "sha256": "fa50039cb92450f4abcc032c2e9c2d264c680665b224941a794ba8ed05bf7d2e",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_plan",
+      "file": "references/blueprints/changgo_plan.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_평면도.jpg",
+      "sha256": "0e60d3aa948708a98ff06a3666d6b887be655577f3230e1dcc397e58c6a8622a",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_front",
+      "file": "references/blueprints/changgo_front.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_정면도.jpg",
+      "sha256": "92ced89629a3f51a0fc9dcd2d1fab8229926e618781aca93d2b4df9eba728343",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_right",
+      "file": "references/blueprints/changgo_right.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_우측면도.jpg",
+      "sha256": "20b39d3046bcfe23ab0dd471165ef0ff05aba4ff85a722df3eec2dd38f1ac29f",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_section_long",
+      "file": "references/blueprints/changgo_section_long.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_종단면도.jpg",
+      "sha256": "e7326bf203157a687b64d7a623301873db382ca5b6623fc44f34a20a6d870bf6",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_section_cross",
+      "file": "references/blueprints/changgo_section_cross.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_횡단면도.jpg",
+      "sha256": "c6b96582add630dcdb05b6e740c77e4e614460d8bff082b4df96de6c97e48eaf",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_roof_plan",
+      "file": "references/blueprints/changgo_roof_plan.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_와복도.jpg",
+      "sha256": "5a307f3ce8483327ecfa9f2a00e0c8c827c4f6f57534358bb8cef45dfd6372b1",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    },
+    {
+      "id": "changgo_reflected_plan",
+      "file": "references/blueprints/changgo_reflected_plan.jpg",
+      "originalPath": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_함양_정병호_가옥_보수공사_창고_앙시도.jpg",
+      "sha256": "f3489a7eecd569862133bea5d5e6869928ba937c36b7623fd4d9795d5dd1ba6d",
+      "role": "geometry_evidence_only",
+      "usedAsModelInput": false
+    }
+  ],
+  "structuralFindings": {
+    "hyeopmun": "Single opening, three stone steps, two main posts; roof ridge extends across front view.",
+    "changgo": "Long six-bay frame with seven transverse post axes and front/rear rows; internal partition lines after bays 1, 3, 4 give groups 1+2+1+2. Six facade bays do not equal six rooms.",
+    "authorityBoundary": "Final image geometry and material follow the user-locked artwork. Historic floor-plan door positions must not be claimed identical to the stylized six-door front artwork."
+  }
+}

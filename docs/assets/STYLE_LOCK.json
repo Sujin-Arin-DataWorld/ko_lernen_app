@@ -230,7 +230,7 @@
         ],
         "valMean": [
           0.25,
-          1.0
+          1
         ],
         "neonMax": 0.35,
         "measured": {
@@ -278,35 +278,54 @@
         "gate_sadangmun",
         "sadang"
       ],
-      "membersNote": "완성 전 V3 계획 멤버이며 아직 런타임으로 승격하지 않았다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
+      "membersNote": "V3 계획 멤버 목록이다. 사랑채 16단계는 2026-09-14 승인되어 런타임에 등록됐다. 채별 승격 상태는 canonicalMasterApprovals와 approvedConstructionSeries의 개별 기록을 확인한다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
       "anchors": [
-        "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
-        "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png",
+        "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/sarangchae-v3-canonical.png",
+        "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
         "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
         "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
-        "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png"
+        "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+        "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다.",
+      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계는 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다.",
       "canonSprites": {
-        "note": "Jin 정본 선언 2026-08-25 기준 채별 정본 파일(assets_unused/pending_review/personal_hanok_v3/). 시리즈가 여럿인 채는 최신·실측 정합본을 기본 정본으로 두고 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체.",
-        "sotdaeulmun": "sotdaeulmun_approved_jin_20260824.png",
-        "sarangchae": "sarangchae_try07_edit.png",
+        "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 솟을대문은 2026-09-14 승인된 저장소 루트 기준 construction/sotdaeulmun/12_complete.png를 따른다. 협문과 창고도 승인 후 저장소 루트 기준 런타임 경로를 사용한다.",
+        "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+        "sarangchae": "../../../assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
         "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
         "anchae": "anchae_final.png",
         "anchae_gokganchae": "안채곳간채.png",
         "gokganchae": "gokganchae_try02_5kan.png",
-        "changgo_gwangchae": "changgo_try04_lowlong.png",
+        "changgo_gwangchae": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
         "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
         "sadang": "sadang_try03_oblique.png (지정 대기 — try02_oneroof 병존)",
         "sadangmun": "sadangmun_try02_small.png",
         "ansarangchae": "byeoldang_try02_colonnade.png (파일명의 byeoldang 은 구 표제 — 채명은 안사랑채, '별당' 폐기. 전면 개방 기둥열이 실측 정합; byeoldang_ansarang_try01 병존, 지정 대기)",
-        "hyeopmun_shared": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)",
+        "hyeopmun_shared": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
         "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
         "hongyemun": "안사랑채-외부 출입문.png",
         "gulttuk": "굴뚝.png",
         "cheukgan": "화장실.png",
         "hyeonpan_boards": "hyeonpan_board_baekse_cheongpung_try01.png / hyeonpan_board_takcheongjae_try01.png (+ 글씨 레이어 hyeonpan_calligraphy_*_v1.png)",
-        "retired": "retired/ 하위 = 폐지 확정본(협문 try01 PBR, hyeopmun_try02_measured, sarangchae_try06_lowleft). sarangchae_try05 는 try07 의 비율 출처라 보존."
+        "retired": "retired/ 하위는 폐지 기록이다. 사랑채 구 후보와 이전 12단계·8방향 이미지는 2026-09-14 사용자 승인으로 제거하고 현재 16단계만 사용한다."
+      },
+      "canonicalMasterApprovals": {
+        "sarangchae": {
+          "status": "approved_canonical_runtime_sequence",
+          "approvedBy": "Jin",
+          "approvedAt": "2026-09-14",
+          "manifest": "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/CANONICAL_LOCK.json",
+          "sourceVersion": "sarangchae-v3-maintained-v03",
+          "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+          "scope": "현재 구도의 사랑채 완성 원화와 이후 건축 단계 일러스트의 외형·디테일·화풍 기준. 1536x1024 RGB, 흰 배경. 마지막 단계는 이 원화 바이트를 그대로 사용한다.",
+          "materialOverride": "사람이 살며 아주 잘 관리하는 한옥. 정교한 나뭇결·기와·창살·석재 이음새는 유지하되 검은 물얼룩, 깊은 노후 균열, 거친 마모 대신 건강하고 정비된 표면을 표현한다. 공통 프롬프트의 weathered/aged를 방치된 재질로 적용하지 않는다. 두 기존 현판의 글자 형태는 승인 원화 그대로 보존한다.",
+          "runtimePromoted": true,
+          "derivativeViews": "현재 승인한 단일 시점과 16단계만 사용한다. 이전 8방향 사랑채와 구 후보는 삭제한다. 새 파생 시점은 별도 제작과 검수가 필요하다.",
+          "runtimeManifest": "assets/illustrations/personal_hanok_v3/sarangchae/MANIFEST.json",
+          "completedStage": 16,
+          "completedAsset": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+          "historicalSourceSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212"
+        }
       },
       "camera": {
         "canvas": {
@@ -328,20 +347,12 @@
         "cameraId": "personal_map_north_up_oblique_v3",
         "cameraStyle": "정면 얕은 부감(10~15°) — 용마루 수평, 지붕 물매면은 넓게 보이되 용마루 윗면은 거의 안 보인다. 기단 상단면은 얇은 띠로만. 채는 각자의 실측 좌향대로 앉힌다(planYaw) — 카메라는 정북향 고정이다. 진입(하단)에서 후원(상단)으로 테라스 상승.",
         "groundBands": {
-          "source": "docs/data/heritage_houses/ildu_gotaek.json buildings[].groundBand → 테라스 매핑",
           "0": {
             "yRange": [
               2150,
               2622
             ],
             "label": "진입 — 前窄. 솟을대문·문간채·행랑채·행랑마당"
-          },
-          "1-2": {
-            "yRange": [
-              1450,
-              2150
-            ],
-            "label": "사랑 켜 — 사랑마당·사랑채·석가산·일각문·중문간채"
           },
           "3": {
             "yRange": [
@@ -367,6 +378,14 @@
               2337
             ],
             "label": "사당 별곽 — 자체 담 안 최고 지반, 담 두께 최대"
+          },
+          "source": "docs/data/heritage_houses/ildu_gotaek.json buildings[].groundBand → 테라스 매핑",
+          "1-2": {
+            "yRange": [
+              1450,
+              2150
+            ],
+            "label": "사랑 켜 — 사랑마당·사랑채·석가산·일각문·중문간채"
           }
         },
         "podiumCourseHeightPx": 18,
@@ -380,9 +399,9 @@
           ],
           "source": "docs/data/heritage_houses/ildu_gotaek.json buildings[].planYaw",
           "assignment": {
-            "-20": "남동향 채 — 사랑채",
             "0": "정남 — 문·담·행랑 계열",
-            "20": "남서향 채 — 안채"
+            "20": "남서향 채 — 안채",
+            "-20": "남동향 채 — 사랑채"
           },
           "evidence": "사랑채 남동향 p38 / 안채 남서향 p39~40 (문화재청 2007 기록화보고서). 실제 각은 약 45°이나 정면 리듬·편액 가독을 위해 20°로 축약 — Jin 참고사진 각도 승인 2026-08-24.",
           "promptPhrasing": "각도를 도(°)로 쓰지 않는다. 모델은 각도를 못 지키고 비율은 지킨다. 이렇게 쓴다 — '앞으로 나온 날개의 정면과 함께 그 측면이 좁은 띠로 보이는데, 그 띠의 폭은 날개 정면 폭의 약 절반이다. 몸채 정면은 거의 정면으로 남는다.'",
@@ -390,7 +409,8 @@
           "anchorYNote": "yaw가 붙으면 접지선이 대각이다. anchorY = 알파 bbox 하단이 아니라 관찰자에 가장 가까운 접지점으로 정의한다(페인터 알고리즘 정합 전제)."
         },
         "approvedReference": {
-          "sprite": "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
+          "sprite": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+          "scopeNote": "2026-09-14 승인한 단일 시점 사랑채 완성 원본. 구 8방향 지도 카메라를 대체하며 원본 비율과 흰 배경을 유지한다.",
           "approvedBy": "Jin",
           "approvedAt": "2026-08-24",
           "taskId": "task-unified-1787564504-z95k5gvp",
@@ -529,10 +549,10 @@
             "measured_mungan": {
               "source": "Jin 제공 정면 사진 2026-08-24 (reference_only_user_supplied)",
               "bands": {
+                "71": "행랑 용마루 top == 솟을대문 처마 밑면 — 거의 맞닿는다",
                 "0-34": "막돌 돌담 — 단일 최대 띠",
                 "34-54": "회벽, 살창은 이 띠의 아래 절반",
                 "54-71": "행랑 지붕",
-                "71": "행랑 용마루 top == 솟을대문 처마 밑면 — 거의 맞닿는다",
                 "71-100": "솟을대문 지붕"
               },
               "keyRelation": "돌담(34) > 회벽(20) + 행랑지붕(17) 을 합친 것보다 크다",
@@ -793,6 +813,95 @@
           "aspect": "W/H ≈ 3.0 (처마 포함)",
           "facadeStructure": "전면 기둥열이 벽 없이 서고 벽면 전체가 툇마루 깊이만큼 뒤로 물러난다. 좌1칸(부엌방)만 벽이 전면까지 나와 회벽+외짝문(710). 2·3칸은 후퇴면에 머름 위 쌍여닫이(1,220), 4칸(대청)은 후퇴면 전체 4분합(2,320, 하부 머름판 380). 툇마루 하부는 동바리+X가새가 보이고, 우측 끝에서 쪽마루가 벽선 밖으로 살짝 돌출한다.",
           "openings": "WD01 대청 4분합 2320×1900(창1520+머름380) / WD02 방 쌍여닫이 1220×1190 / WD04 방-3 외짝 710×1265 / WW01 부엌 살창 1330×330 / WW02 다락 배면 1230×600"
+        }
+      },
+      "approvedConstructionSeries": {
+        "sotdaeulmun": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "docs/assets/ildu_sotdaeulmun_construction_20260914/construction_catalog.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+          "canonicalSha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+          "stageCount": 12,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/",
+          "presentation": "검정 배경 누적 공정 PNG. 앞뒤 기둥, 깊이 방향 보, 중앙 통로와 좌우 공간을 유지한다.",
+          "scope": "승인 공정 아트 정본 보관. 현재 앱 번들에는 넣지 않으며, 실제 화면 연결 시 번들 등록과 함께 적용한다. 지도 투명 레이어·8방향 교체·진행도 연결은 별도다.",
+          "supersedesCanonical": "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png"
+        },
+        "hyeopmun": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+          "canonicalSha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884",
+          "stageCount": 6,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/",
+          "presentation": "승인 PNG 원본을 보존하며 앱 중간 단계는 같은 캔버스·동일 알파의 WebP q82를 사용한다. 마지막 PNG는 정본과 바이트가 같다. 승인 원화의 미세한 기둥·기단 차이는 유지한다.",
+          "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
+          "supersedesCanonical": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)"
+        },
+        "changgo": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+          "canonicalSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488",
+          "stageCount": 8,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/changgo/",
+          "presentation": "승인 PNG 원본을 보존하며 앱 중간 단계는 같은 캔버스·동일 알파의 WebP q82를 사용한다. 마지막 PNG는 정본과 바이트가 같다. 승인 원화의 미세한 기둥·기단 차이는 유지한다.",
+          "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
+          "supersedesCanonical": "changgo_try04_lowlong.png"
+        },
+        "jungmunganchae": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_12_complete_use.png",
+          "canonicalSha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+          "stageCount": 12,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/",
+          "presentation": "정면 29도 부감 목표의 2.5D 누적 공정. 승인 RGB PNG 바이트 그대로 사용. 생성 단계 사이의 미세한 부재 차이는 유지한다.",
+          "scope": "앱 /hanok/construction 및 공개 공정 보기. 완성 8면도와 지도 배치는 그대로 유지한다."
+        },
+        "araechae": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_12_complete_use.png",
+          "canonicalSha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+          "stageCount": 12,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/araechae/",
+          "presentation": "정면 29도 부감 목표의 2.5D 누적 공정. 승인 RGB PNG 바이트 그대로 사용. 생성 단계 사이의 미세한 부재 차이는 유지한다.",
+          "scope": "앱 /hanok/construction 및 공개 공정 보기. 완성 8면도와 지도 배치는 그대로 유지한다."
+        },
+        "anchae": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_14_complete_use.png",
+          "canonicalSha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+          "stageCount": 14,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/anchae/",
+          "presentation": "정면 29도 부감 목표의 2.5D 누적 공정. 승인 RGB PNG 바이트 그대로 사용. 생성 단계 사이의 미세한 부재 차이는 유지한다.",
+          "scope": "앱 /hanok/construction 및 공개 공정 보기. 완성 8면도와 지도 배치는 그대로 유지한다."
+        },
+        "anchae-store": {
+          "status": "approved_canonical",
+          "approvedBy": "Jin",
+          "approvedOn": "2026-09-14",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_11_complete_use.png",
+          "canonicalSha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+          "stageCount": 11,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/anchae-store/",
+          "presentation": "정면 29도 부감 목표의 2.5D 누적 공정. 승인 RGB PNG 바이트 그대로 사용. 생성 단계 사이의 미세한 부재 차이는 유지한다.",
+          "scope": "앱 /hanok/construction 및 공개 공정 보기. 완성 8면도와 지도 배치는 그대로 유지한다."
         }
       }
     },
@@ -1459,8 +1568,8 @@
       ],
       "grain": {
         "scriptParams": {
-          "fine": 5.0,
-          "coarse": 4.0,
+          "fine": 5,
+          "coarse": 4,
           "tool": "scripts/apply_paper_grain.py"
         },
         "measuredAcceptance": {

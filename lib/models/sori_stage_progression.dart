@@ -6,11 +6,8 @@ import '../services/today_learning_snapshot.dart';
 
 enum SoriStageTab { today, learn, games, hanok, gye }
 
-/// W10 T-L1: the Learn tab renders its catalog in three labeled sections —
-/// today's core learning path first, then the wider practice surface, then
-/// the review/reinforcement tools at the bottom (Jin, 2026-09-05). Games-tab
-/// entries never carry a section (stays `null`).
-enum SoriLearnSection { today, explore, review }
+/// Independent practice groups. The course is represented by the shared focus.
+enum SoriLearnSection { words, listen, hangul, review }
 
 enum SoriActivityColorRole {
   listening,
@@ -105,11 +102,13 @@ class RewardReceiptItem {
     required this.kind,
     required this.label,
     this.amount,
+    this.identity,
   });
 
   final SoriRewardKind kind;
   final SoriLocalizedCopy label;
   final int? amount;
+  final String? identity;
 }
 
 /// Only concrete changes observed after an activity may enter this receipt.
@@ -119,13 +118,18 @@ class RewardReceipt {
     required this.activityId,
     required this.receiptId,
     required this.items,
+    this.sarangchaeStageBefore = 0,
+    this.sarangchaeStageAfter = 0,
   });
 
   final String activityId;
   final String receiptId;
   final List<RewardReceiptItem> items;
+  final int sarangchaeStageBefore;
+  final int sarangchaeStageAfter;
 
   bool get isEmpty => items.isEmpty;
+  bool get hasSarangchaeUpgrade => sarangchaeStageAfter > sarangchaeStageBefore;
 }
 
 @immutable
@@ -201,6 +205,7 @@ class SoriStageProgressionSnapshot {
     required List<QuestProgress> quests,
     required this.pendingBojagiCount,
     required this.stampCount,
+    this.stampIds,
     required this.xp,
     required this.streakDays,
     required this.todayReward,
@@ -216,6 +221,7 @@ class SoriStageProgressionSnapshot {
   final List<QuestProgress> quests;
   final int pendingBojagiCount;
   final int stampCount;
+  final Set<String>? stampIds;
   final int xp;
   final int streakDays;
   final RewardContract? todayReward;

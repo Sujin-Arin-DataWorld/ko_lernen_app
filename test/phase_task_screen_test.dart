@@ -1,25 +1,30 @@
 import 'dart:async';
 import 'dart:typed_data';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/phase_task_screen.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'support/privacy_preferences_platform.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 
 class FakeRecorder implements PronunciationRecorder {
   bool allowed = false;
   int stops = 0;
-  // When set, stop() does not return until the gate completes — the window
-  // in which the screen is finalising a take.
-  Completer<void>? stopGate;
+  Completer<void>? permissionGate, stopGate;
   final controller = StreamController<Uint8List>();
   @override
-  Future<bool> requestPermission() async => allowed;
+  Future<bool> requestPermission() async {
+    await permissionGate?.future;
+    return allowed;
+  }
+
   @override
   Future<Stream<Uint8List>> startPcm16Stream() async => controller.stream;
   @override
@@ -31,6 +36,36 @@ class FakeRecorder implements PronunciationRecorder {
   @override
   Future<void> dispose() async {
     await controller.close();
+  }
+}
+
+class FakeRecordingPlayer extends Fake implements AudioPlayer {
+  bool playing = false;
+  @override
+  Source? source;
+  Completer<void>? stopGate;
+  @override
+  Future<void> play(
+    Source source, {
+    double? volume,
+    double? balance,
+    AudioContext? ctx,
+    Duration? position,
+    PlayerMode? mode,
+  }) async {
+    this.source = source;
+    playing = true;
+  }
+
+  @override
+  Future<void> stop() async {
+    await stopGate?.future;
+    playing = false;
+  }
+
+  @override
+  Future<void> dispose() async {
+    playing = false;
   }
 }
 
@@ -401,6 +436,34 @@ void main() {
       });
       await tester.pumpAndSettle();
       expect(recorder.stops, 1);
+      // An unsent recording locks both mode tabs without presenting a
+      // navigation dialog whose action labels would misdescribe the switch.
+      expect(
+        tester
+            .widget<IgnorePointer>(
+              find
+                  .ancestor(
+                    of: find.byType(TabBar),
+                    matching: find.byType(IgnorePointer),
+                  )
+                  .first,
+            )
+            .ignoring,
+        isTrue,
+      );
+      await tester.tap(
+        find.widgetWithText(Tab, 'Practice'),
+        warnIfMissed: false,
+      );
+      await tester.pumpAndSettle();
+      expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
+      await tester.tap(find.widgetWithText(Tab, 'Assess'), warnIfMissed: false);
+      await tester.pumpAndSettle();
+      expect(find.text(t.phaseTaskLeaveTitle), findsNothing);
+      expect(
+        find.widgetWithText(SoriButton, 'Listen to recording'),
+        findsOneWidget,
+      );
       // A finished but unsent recording is still only in memory: back asks.
       expect(await tester.binding.handlePopRoute(), isTrue);
       await tester.pumpAndSettle();
@@ -418,99 +481,6 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(PhaseTaskScreen), findsNothing);
       expect(find.text('ROOT'), findsOneWidget);
-    },
-  );
-  testWidgets(
-    'back while a take is still being finalised asks; leaving drops it',
-    (tester) async {
-      // Codex review on #305 (P2): after Stop, _recording is already false
-      // while the recorder and stream are still winding down, so the leave
-      // confirmation has to cover that window too.
-      final navigatorKey = GlobalKey<NavigatorState>();
-      await tester.pumpWidget(
-        MaterialApp(
-          navigatorKey: navigatorKey,
-          theme: AppTheme.dark,
-          locale: const Locale('en'),
-          localizationsDelegates: AppL10n.localizationsDelegates,
-          supportedLocales: AppL10n.supportedLocales,
-          home: const Scaffold(body: Text('ROOT')),
-        ),
-      );
-      final t = await AppL10n.delegate.load(const Locale('en'));
-      Future<FakeRecorder> openAndStopMidway() async {
-        final recorder = FakeRecorder()
-          ..allowed = true
-          ..stopGate = Completer<void>();
-        navigatorKey.currentState!.push(
-          MaterialPageRoute<void>(
-            builder: (_) => PhaseTaskScreen(
-              arguments: const PhaseTaskRoute(
-                'KP01',
-                'KP01:speaking:01',
-                assessment: true,
-              ),
-              loader: () async => catalog,
-              recorder: recorder,
-              saveAttempt: (_) async {},
-            ),
-          ),
-        );
-        await tester.pumpAndSettle();
-        await tap(tester, find.widgetWithText(SoriButton, 'Record'));
-        recorder.controller.add(Uint8List(40000));
-        await tester.pump();
-        await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
-        await tester.pump();
-        expect(recorder.stops, 1);
-        return recorder;
-      }
-
-      Future<void> settle() async {
-        for (var i = 0; i < 5; i++) {
-          await tester.pump(const Duration(milliseconds: 200));
-        }
-      }
-
-      // Stop tapped, recorder not finished: back must still ask.
-      final kept = await openAndStopMidway();
-      expect(await tester.binding.handlePopRoute(), isTrue);
-      await settle();
-      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
-      await tester.tap(find.text(t.homeActionConfirmStay));
-      await settle();
-      expect(find.byType(PhaseTaskScreen), findsOneWidget);
-      // Once the recorder finishes, the take is there to listen to.
-      // StreamSubscription.cancel() resolves in the root zone, so the real
-      // event loop has to run the finalisation before the fake clock pumps.
-      kept.stopGate!.complete();
-      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
-      await tester.pumpAndSettle();
-      expect(
-        find.widgetWithText(SoriButton, 'Listen to recording'),
-        findsOneWidget,
-      );
-      expect(await tester.binding.handlePopRoute(), isTrue);
-      await tester.pumpAndSettle();
-      await tester.tap(find.text(t.homeActionConfirmLeave));
-      await tester.pumpAndSettle();
-      expect(find.text('ROOT'), findsOneWidget);
-
-      // Leaving during finalisation confirms, pops, and the late bytes are
-      // dropped without touching the gone screen.
-      final dropped = await openAndStopMidway();
-      expect(await tester.binding.handlePopRoute(), isTrue);
-      await settle();
-      expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
-      await tester.tap(find.text(t.homeActionConfirmLeave));
-      await settle();
-      expect(find.byType(PhaseTaskScreen), findsNothing);
-      expect(find.text('ROOT'), findsOneWidget);
-      dropped.stopGate!.complete();
-      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
-      await tester.pumpAndSettle();
-      expect(tester.takeException(), isNull);
-      expect(find.byType(PhaseTaskScreen), findsNothing);
     },
   );
   testWidgets('mode tabs are locked while recording and follow the mode', (
@@ -554,17 +524,176 @@ void main() {
       1,
       reason: 'A locked tab bar keeps the mode.',
     );
+    recorder.controller.add(Uint8List(40000));
+    await tester.pump();
     await tester.runAsync(() async {
       await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
       await Future<void>.delayed(Duration.zero);
     });
     await tester.pumpAndSettle();
-    await tester.tap(find.widgetWithText(Tab, 'Practice'));
+    await tester.tap(find.widgetWithText(Tab, 'Practice'), warnIfMissed: false);
     await tester.pumpAndSettle();
-    expect(tabs().controller!.index, 0);
+    expect(tabs().controller!.index, 1);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpAndSettle();
   });
+  testWidgets('slow recording setup and finish remain protected from back', (
+    tester,
+  ) async {
+    final recorder = FakeRecorder()
+      ..allowed = true
+      ..permissionGate = Completer<void>();
+    await tester.pumpWidget(
+      host(
+        PhaseTaskScreen(
+          arguments: const PhaseTaskRoute('KP01', 'KP01:speaking:01'),
+          loader: () async => catalog,
+          recorder: recorder,
+          saveAttempt: (_) async {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.widgetWithText(SoriButton, 'Record'));
+    await tester.tap(find.widgetWithText(SoriButton, 'Record'));
+    await tester.pump();
+    SoriStudyFrame frame() =>
+        tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame));
+    expect(frame().homeEscape.confirmWhen, isTrue);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+    await tester.tap(find.text(t.homeActionConfirmStay));
+    recorder.permissionGate!.complete();
+    await tester.pumpAndSettle();
+    recorder.controller.add(Uint8List(40000));
+    await tester.pump();
+    recorder.stopGate = Completer<void>();
+    await tester.runAsync(() async {
+      await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
+      await Future<void>.delayed(Duration.zero);
+    });
+    await tester.pump();
+    expect(recorder.stops, 1);
+    expect(frame().homeEscape.confirmWhen, isTrue);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text(t.phaseTaskLeaveTitle), findsOneWidget);
+    await tester.tap(find.text(t.homeActionConfirmStay));
+    await tester.runAsync(() async {
+      recorder.stopGate!.complete();
+      await Future<void>.delayed(Duration.zero);
+    });
+    await tester.pumpAndSettle();
+    expect(
+      find.widgetWithText(SoriButton, 'Listen to recording'),
+      findsOneWidget,
+    );
+  });
+  testWidgets('failed draft saves guard departure and keep the actual mode', (
+    tester,
+  ) async {
+    const id = 'KP06:writing:02';
+    final native = PrivacyPreferencesPlatform()
+      ..rejectKey =
+          'kl_phase_draft_local_${catalog.byId(id).contentHash}:false';
+    SharedPreferencesStorePlatform.instance = native;
+    await tester.pumpWidget(
+      host(
+        PhaseTaskScreen(
+          arguments: const PhaseTaskRoute('KP06', id),
+          loader: () async => catalog,
+          saveAttempt: (_) async {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final field = find.byKey(const ValueKey('$id:false:draft-field'));
+    await tester.ensureVisible(field);
+    await tester.enterText(field, '저장되지 않은 답안');
+    await tester.pumpAndSettle();
+    expect(
+      tester
+          .widget<SoriStudyFrame>(find.byType(SoriStudyFrame))
+          .homeEscape
+          .confirmWhen,
+      isTrue,
+    );
+    await tester.tap(find.widgetWithText(Tab, 'Assess'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 0);
+    expect(find.byKey(const ValueKey('$id:false:draft-field')), findsOneWidget);
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text(t.phaseTaskLeaveBody), findsOneWidget);
+    await tester.tap(find.text(t.homeActionConfirmStay));
+    await tester.pumpAndSettle();
+    expect(find.byType(PhaseTaskScreen), findsOneWidget);
+    native.rejectKey = null;
+    await tester.ensureVisible(field);
+    await tester.enterText(field, '이번 답안은 저장됩니다');
+    await tester.pumpAndSettle();
+    expect(
+      tester
+          .widget<SoriStudyFrame>(find.byType(SoriStudyFrame))
+          .homeEscape
+          .confirmWhen,
+      isFalse,
+    );
+    await tester.tap(find.widgetWithText(Tab, 'Assess'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
+  });
+  testWidgets(
+    'submitted recording mode change awaits replay stop before switching',
+    (tester) async {
+      final recorder = FakeRecorder()..allowed = true;
+      final player = FakeRecordingPlayer();
+      await tester.pumpWidget(
+        host(
+          PhaseTaskScreen(
+            arguments: const PhaseTaskRoute('KP01', 'KP01:speaking:01'),
+            loader: () async => catalog,
+            recorder: recorder,
+            recordingPlayer: player,
+            saveAttempt: (_) async {},
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tap(tester, find.widgetWithText(SoriButton, 'Record'));
+      recorder.controller.add(Uint8List(40000));
+      await tester.pump();
+      await tester.runAsync(() async {
+        await tester.tap(find.widgetWithText(SoriButton, 'Stop recording'));
+        await Future<void>.delayed(Duration.zero);
+      });
+      await tester.pumpAndSettle();
+      await tap(tester, find.byKey(const ValueKey('phase-task-submit')));
+      await tap(tester, find.widgetWithText(SoriButton, 'Listen to recording'));
+      final source = player.source as BytesSource;
+      expect(source.bytes, hasLength(40044));
+      player.stopGate = Completer<void>();
+      addTearDown(() {
+        if (!player.stopGate!.isCompleted) player.stopGate!.complete();
+      });
+      await tester.tap(find.widgetWithText(Tab, 'Assess'));
+      await tester.pumpAndSettle();
+      expect(player.playing, isTrue);
+      expect(identical(player.source, source), isTrue);
+      expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 0);
+      player.stopGate!.complete();
+      await tester.pumpAndSettle();
+      expect(player.playing, isFalse);
+      expect(tester.widget<TabBar>(find.byType(TabBar)).controller!.index, 1);
+      expect(
+        find.widgetWithText(SoriButton, 'Listen to recording'),
+        findsNothing,
+      );
+    },
+  );
   testWidgets('invalid route exposes working retry without saving', (
     tester,
   ) async {

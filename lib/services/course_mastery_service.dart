@@ -1777,7 +1777,10 @@ class CourseMasteryService {
     entry.assessment,
   ]);
 
-  String _phaseTaskOutcomeKey(PhaseAttemptEvidence entry, String revisionKey) {
+  String _phaseTaskOutcomeKey(
+    PhaseAttemptEvidence entry,
+    String revisionKey,
+  ) {
     final criteria = entry.passedCriterionIds.toList()..sort();
     return jsonEncode([revisionKey, entry.score, criteria]);
   }

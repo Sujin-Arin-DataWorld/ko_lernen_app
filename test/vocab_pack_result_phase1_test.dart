@@ -89,6 +89,7 @@ void main() {
           localizationsDelegates: AppL10n.localizationsDelegates,
           home: const VocabPackResultScreen(
             packId: 'a1_greetings_1',
+            actualXpAwarded: 45,
             bossAccuracy: 1,
             bossCorrect: 2,
             bossTotal: 2,

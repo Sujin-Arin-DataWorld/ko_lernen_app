@@ -261,9 +261,51 @@ CourseMissionBrief _missionBrief() => CourseMissionBrief.from(
   isCurrent: true,
 );
 
-Widget _earlyHanok() => const HanokPreviewScreen();
+Widget _earlyHanok() =>
+    HanokPreviewScreen(loadSnapshot: () => _loadHanokPreview(stage: 5));
 
-Widget _hanokMap() => const HanokPreviewScreen();
+Widget _hanokMap() =>
+    HanokPreviewScreen(loadSnapshot: () => _loadHanokPreview(stage: 16));
+
+Future<SoriStageProgressionSnapshot> _loadHanokPreview({
+  required int stage,
+}) async {
+  final units = [
+    for (var sequence = 1; sequence <= 16; sequence++)
+      CourseUnit(
+        id: 'ux_preview_a1_$sequence',
+        level: 'a1',
+        order: sequence,
+        title: const CurriculumText(
+          ko: '사랑채 짓기',
+          de: 'Sarangchae bauen',
+          en: 'Build the sarangchae',
+        ),
+        canDo: const CurriculumText(
+          ko: '한국어로 임무를 완수할 수 있어요.',
+          de: 'Ich kann die Lernmission auf Koreanisch abschließen.',
+          en: 'I can complete the learning mission in Korean.',
+        ),
+      ),
+  ];
+  return SoriStageProgressionSnapshot(
+    today: const TodayLearningSnapshot(pick: null),
+    hanokCompetence: HanokCompetenceProjection.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        completedUnitIds: [
+          for (final unit in units.take(stage.clamp(0, 16).toInt())) unit.id,
+        ],
+      ),
+      courseUnits: units,
+    ),
+    quests: const [],
+    pendingBojagiCount: 0,
+    stampCount: 0,
+    xp: 0,
+    streakDays: 0,
+    todayReward: null,
+  );
+}
 
 Widget _sarangbang() => SarangbangStudyScreen.preview(
   todaySnapshot: const TodayLearningSnapshot(

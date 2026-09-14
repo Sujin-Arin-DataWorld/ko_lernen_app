@@ -13,7 +13,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_companion.dart';
 
 /// The Stage shell must keep [TodayLearningSnapshot]'s availability contract:
 /// a partial recommendation is never displayed or recorded as a fresh Today
@@ -61,19 +61,19 @@ void main() {
 
     await Storage.setMotivation('travel');
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
-    final travelBubble = tester
-        .widget<SoriCharacterHero>(find.byType(SoriCharacterHero))
-        .bubble;
+    final travelGreeting = tester
+        .widget<SoriLearningCompanion>(find.byType(SoriLearningCompanion))
+        .greeting;
 
     await tester.pumpWidget(const SizedBox.shrink());
     await Storage.setMotivation('kdrama');
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
-    final contentBubble = tester
-        .widget<SoriCharacterHero>(find.byType(SoriCharacterHero))
-        .bubble;
+    final contentGreeting = tester
+        .widget<SoriLearningCompanion>(find.byType(SoriLearningCompanion))
+        .greeting;
 
-    expect(travelBubble, t.homeTigerBubbleResume);
-    expect(contentBubble, travelBubble);
+    expect(travelGreeting, t.homeHeroGreetingMorning);
+    expect(contentGreeting, travelGreeting);
   });
 
   testWidgets('ready snapshot still allows an explicitly replayed home tour', (

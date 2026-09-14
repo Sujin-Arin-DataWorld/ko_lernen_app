@@ -1,0 +1,141 @@
+{
+  "unit": {
+    "id": "a1_01_greetings_hangul",
+    "level": "a1",
+    "order": 1,
+    "title": {
+      "ko": "첫 인사와 다시 묻기",
+      "de": "Erste Begrüßung und Nachfragen",
+      "en": "First greetings and asking again"
+    },
+    "canDo": {
+      "ko": "처음 만난 사람에게 인사하고 짧은 질문을 확인할 수 있어요.",
+      "de": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+      "en": "I can greet someone new and clarify a short question."
+    },
+    "prerequisiteUnitIds": [],
+    "requiredConceptIds": [
+      "concept_hangul_batchim",
+      "concept_greeting_politeness"
+    ],
+    "checkpointContentIds": [
+      "scenario:airport_arrival"
+    ],
+    "passThreshold": 0.7,
+    "isPilot": true
+  },
+  "link": {
+    "id": "link:7849990bd117c4018585eaad",
+    "contentKind": "vocab",
+    "contentId": "vocab_a1_0001",
+    "courseUnitId": "a1_01_greetings_hangul",
+    "conceptIds": [
+      "concept_hangul_batchim",
+      "concept_greeting_politeness"
+    ],
+    "role": "introduce"
+  },
+  "next_route": "/vocab/pack",
+  "total_remaining_course_phases": 3,
+  "course_brief_minutes_to_scene": 4,
+  "first_phase": "listen",
+  "first_phase_minutes": 1,
+  "pack_id": "a1_greetings_1",
+  "pack_title_de": "Begrüßung & Höflichkeit (1)",
+  "pack_title_en": "Greetings & Politeness (1)",
+  "pack_total_words": 9,
+  "pack_quiz_words": 7,
+  "pack_boss_words": 2,
+  "pack_words": [
+    {
+      "id": "vocab_a1_0001",
+      "ko": "안녕하세요",
+      "de": "Hallo (höflich)",
+      "en": "Hello (polite)",
+      "boss": false,
+      "example_ko": "안녕하세요, 처음 뵙겠습니다.",
+      "example_de": "Hallo, freut mich.",
+      "example_en": "Hello, nice to meet you."
+    },
+    {
+      "id": "vocab_a1_0002",
+      "ko": "안녕",
+      "de": "Hallo / Tschüss (informell)",
+      "en": "Hi / Bye (informal)",
+      "boss": false,
+      "example_ko": "안녕, 오랜만이야!",
+      "example_de": "Hey, lange her!",
+      "example_en": "Hey, it's been a while!"
+    },
+    {
+      "id": "vocab_a1_0003",
+      "ko": "감사합니다",
+      "de": "Vielen Dank (formell)",
+      "en": "Thank you (formal)",
+      "boss": false,
+      "example_ko": "도와주셔서 감사합니다.",
+      "example_de": "Vielen Dank für Ihre Hilfe.",
+      "example_en": "Thank you for your help."
+    },
+    {
+      "id": "vocab_a1_0004",
+      "ko": "고마워요",
+      "de": "Danke (höflich)",
+      "en": "Thanks (polite)",
+      "boss": false,
+      "example_ko": "정말 고마워요.",
+      "example_de": "Wirklich vielen Dank.",
+      "example_en": "Thank you so much."
+    },
+    {
+      "id": "vocab_a1_0005",
+      "ko": "죄송합니다",
+      "de": "Entschuldigung (formell)",
+      "en": "I'm sorry (formal)",
+      "boss": false,
+      "example_ko": "늦어서 죄송합니다.",
+      "example_de": "Entschuldigen Sie, dass ich zu spät bin.",
+      "example_en": "I'm sorry I'm late."
+    },
+    {
+      "id": "vocab_a1_0006",
+      "ko": "미안해요",
+      "de": "Tut mir leid (höflich)",
+      "en": "I'm sorry (polite)",
+      "boss": false,
+      "example_ko": "진짜 미안해요.",
+      "example_de": "Es tut mir wirklich leid.",
+      "example_en": "I'm really sorry."
+    },
+    {
+      "id": "vocab_a1_0165",
+      "ko": "안녕히 가세요",
+      "de": "Auf Wiedersehen (zur Person, die geht)",
+      "en": "Goodbye (to someone leaving)",
+      "boss": false,
+      "example_ko": "조심히 안녕히 가세요.",
+      "example_de": "Kommen Sie gut nach Hause.",
+      "example_en": "Goodbye, get home safe."
+    },
+    {
+      "id": "vocab_a1_0166",
+      "ko": "안녕히 계세요",
+      "de": "Auf Wiedersehen (zur Person, die bleibt)",
+      "en": "Goodbye (to someone staying)",
+      "boss": true,
+      "example_ko": "저 먼저 갈게요. 안녕히 계세요.",
+      "example_de": "Ich gehe schon mal. Auf Wiedersehen.",
+      "example_en": "I'm heading out first. Take care."
+    },
+    {
+      "id": "vocab_a1_0167",
+      "ko": "잘 자요",
+      "de": "Gute Nacht",
+      "en": "Good night",
+      "boss": true,
+      "example_ko": "오늘 수고했어요. 잘 자요.",
+      "example_de": "Heute war viel. Schlaf gut.",
+      "example_en": "You did a lot today. Sleep well."
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>협문·창고 — 공정 그림 검토</title>
+<style>
+:root{color-scheme:light;--paper:#f5f3ec;--ink:#243a34;--muted:#68756c;--line:#d6ddd2;--accent:#285e4b;--warn:#78571b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+button,input,select{font:inherit}button,select,a{touch-action:manipulation}button,select{min-height:44px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 16px;color:var(--ink)}
+button{cursor:pointer}button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #bc7138;outline-offset:3px}
+a{color:var(--accent);text-underline-offset:3px}header,main,footer{max-width:1420px;margin:auto;padding:28px 32px}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);margin:0 0 10px}h1{font-size:clamp(26px,4vw,42px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px}h2{font-size:23px;line-height:1.4;margin:0 0 14px}h3{font-size:18px;margin:0}
+.intro{max-width:920px;margin:0;color:var(--muted)}.notice{margin-top:22px;padding:14px 18px;border:1px solid #ddc58b;border-radius:9px;background:#fff7e5;color:var(--warn);font-size:14px}
+nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}.spacer{flex:1}.control-label{font-size:14px;color:var(--muted)}
+main{padding-top:0}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.viewer{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(310px,1fr);gap:28px;align-items:start}
+.art{border-radius:10px;background-color:#edf0e8;background-image:linear-gradient(45deg,#e3e8de 25%,transparent 25%),linear-gradient(-45deg,#e3e8de 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e3e8de 75%),linear-gradient(-45deg,transparent 75%,#e3e8de 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-art{height:540px}.art img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.empty{display:grid;place-items:center;text-align:center;width:100%;height:100%;color:var(--muted);background:#e8eddf}.empty small{display:block}
+.source{font-size:12px;word-break:break-all;color:var(--muted);margin:8px 0 0}.badge{display:inline-block;font-size:12px;border-radius:20px;padding:3px 10px;background:#fff0d5;color:var(--warn);margin-bottom:12px}.badge.final{color:#24543e;background:#dfeddf}
+.step{font-size:13px;color:var(--muted);margin:2px 0 8px}.observe{margin:16px 0;font-size:17px}.quote{margin:20px 0 6px;font-size:clamp(22px,2.5vw,30px);font-weight:650;letter-spacing:-.03em}
+.translation{color:var(--muted);margin:0 0 20px}.task{padding-top:18px;border-top:1px solid var(--line)}.task p{margin:7px 0 10px}.task strong{font-size:13px}
+.choices{display:flex;gap:8px;flex-wrap:wrap}.feedback{min-height:25px;font-size:14px;color:var(--accent)}
+details{margin-top:16px}summary{cursor:pointer;min-height:40px;padding:7px 0;font-size:14px}.scene{color:var(--muted);font-size:14px}
+.sliderbar{display:flex;align-items:center;gap:14px;margin-top:22px}.sliderbar input{flex:1;min-width:80px;accent-color:var(--accent)}.sliderbar output{min-width:44px;text-align:center}
+.deck{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}.card .art{height:280px;margin-bottom:14px}.card.wide .art{height:195px}.card .quote{font-size:19px;margin-top:12px}.card .observe,.card .translation,.card .task{font-size:14px}.card .badge{margin:0 0 8px}.card .source{font-size:10px}
+.context{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}.context section{border-top:1px solid var(--line);padding-top:18px}.context p,.context li{font-size:14px;color:var(--muted)}
+.counts{font-size:13px;color:var(--muted);margin-top:12px}.all-link{font-size:14px}.small-mode .art{height:110px}.small-mode .art img{width:100px;height:100px}
+footer{padding-top:10px;font-size:13px;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:900px){.viewer{grid-template-columns:1fr}.hero-art{height:430px}.deck{grid-template-columns:repeat(2,minmax(0,1fr))}.context{grid-template-columns:1fr}}
+@media(max-width:580px){header,main,footer{padding-left:16px;padding-right:16px}.panel{padding:16px}.hero-art{height:350px}.deck{grid-template-columns:1fr}.card .art{height:310px}.spacer{display:none}nav{gap:7px}button,select{padding:8px 12px}.sliderbar{gap:8px}.card.wide .art{height:180px}}
+@media print{header,main{max-width:none;padding:12px}nav,.notice,.sliderbar,.context,.source,.all-link,footer{display:none}.deck{grid-template-columns:repeat(3,1fr);gap:10px}.card{break-inside:avoid}.card .art{height:190px}.card.wide .art{height:130px}.panel{border:0}.viewer{display:none}}
+</style></head>
+<body>
+<header>
+<p class="eyebrow">HANGUL SORI · CONSTRUCTION ART REVIEW</p>
+<h1>공간이 만들어지고,<br>한국어가 연결되는 과정</h1>
+<p class="intro">협문은 출입과 부탁을, 창고는 보관과 정리를 배웁니다. 같은 건물이 공정마다 어떻게 달라지는지 그림과 문장을 함께 살펴보세요.</p>
+<div class="notice" role="note"><strong>승인 공정 정본</strong> · 14장 모두 투명 PNG입니다. 마지막 2장은 원본과 바이트가 같습니다. 승인한 원화의 미세한 기둥·기단·용마루 차이는 검수 기록에 남겼습니다.</div>
+<nav aria-label="그림 검토 설정">
+<button id="gate" aria-pressed="true">협문 · 6단계</button><button id="storehouse" aria-pressed="false">창고 · 8단계</button>
+<span class="spacer"></span>
+<label class="control-label" for="language">보조 언어</label><select id="language"><option value="ko">한국어</option><option value="en">English</option><option value="de">Deutsch</option></select>
+<button id="mode" aria-pressed="false">전체 단계 비교</button><button id="small" aria-pressed="false" hidden>100px 보기</button>
+</nav>
+<p class="counts">승인 정본 14장 · 마지막 2장 원본 SHA 일치 · 학습 설명 14단계 × 3개 언어</p>
+</header>
+<main>
+<section id="single" class="panel" aria-label="단계별 그림과 학습">
+<div class="viewer">
+<div><div id="heroArt" class="art hero-art"></div><p id="heroSource" class="source"></p></div>
+<div id="lesson"></div>
+</div>
+<div class="sliderbar"><button id="previous" aria-label="이전 단계">← 이전</button><label for="stage" class="control-label">공정</label><input id="stage" type="range" min="0" max="6" value="1" step="1"><output id="stepOutput" for="stage"></output><button id="next" aria-label="다음 단계">다음 →</button></div>
+</section>
+<section id="comparison" hidden aria-label="전체 단계 비교"><h2 id="comparisonTitle"></h2><div id="deck" class="deck"></div></section>
+<div class="context">
+<section><h2>공간과 문화</h2><div id="culture"></div><div id="cultureSources"></div></section>
+<section><h2>검토할 부분</h2><ul id="reviewNotes"></ul><p>기둥·기단·골조의 고정, 도면과의 연결, 가장자리, 100px 크기의 단계 구별을 함께 검토합니다. 승인 공정 정본은 앱 학습 화면에 연결하며 건축 진행도는 변경하지 않습니다.</p>
+<a id="learningLink" href="learning.md">KO/EN/DE 설명표</a> · <a id="manifestLink" href="manifest.json">파일·해시 기록</a> · <a id="qaLink" href="validation.json">검사 결과</a></section>
+</div>
+</main>
+<footer>문화 설명과 생활 대화는 구분합니다. 상자·천은 현대 학습 장면의 물건이며 특정 역사적 칸의 수장품을 뜻하지 않습니다.</footer>
+<script id="reviewData" type="application/json">__REVIEW_DATA__</script>
+<script>
+"use strict";
+const D=JSON.parse(document.getElementById("reviewData").textContent);
+const $=id=>document.getElementById(id);
+let building=D.initialBuilding,locale="ko",index=1,all=D.comparisonOnly,small=false;
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const path=v=>D.prefix+v;
+const stages=()=>D.learning.stages.filter(s=>s.buildingId===building);
+const meta=s=>D.manifest.stages.find(m=>m.stageId===s.stageId);
+const names={hyeopmun:"협문",changgo:"창고"};
+const tr=(ko,en,de)=>({ko,en,de}[locale]);
+function badge(m){return m.status==="CANONICAL_FINAL"?'<span class="badge final">정본 원본 · SHA 일치</span>':'<span class="badge">승인 공정 정본 · 투명 PNG</span>';}
+function imageMarkup(s){const m=meta(s);return '<img src="'+esc(path(m.reviewImage))+'" alt="'+esc(names[building]+" "+s.sequence+"단계: "+s.title.ko)+'">';}
+function card(s){
+ const m=meta(s);
+ return '<article class="card '+(building==="changgo"?"wide":"")+'"><div class="art">'+imageMarkup(s)+'</div>'+badge(m)+'<p class="step">'+s.sequence+' / '+stages().length+'</p><h3>'+esc(s.title.ko)+'</h3>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.title[locale])+'</p>':'')+'<p class="observe">'+esc(s.observe[locale])+'</p><p class="quote" lang="ko">'+esc(s.line.ko)+'</p>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.line[locale])+'</p>':'')+'<div class="task"><strong>'+tr("해 보기","Try it","Probier es aus")+'</strong><p>'+esc(s.task[locale])+'</p></div><p class="source"><a href="'+esc(path(m.reviewImage))+'">'+esc(m.reviewImage)+'</a></p></article>';
+}
+function renderSingle(){
+ const list=stages();$("stage").max=list.length;$("stage").value=index;$("stepOutput").value=index+" / "+list.length;
+ $("previous").disabled=index===0;$("next").disabled=index===list.length;
+ if(index===0){
+  $("heroArt").innerHTML='<div class="empty"><div>빈터<small>건물을 세우기 전의 시작 화면</small></div></div>';
+  $("heroSource").textContent="시작 화면 · 공정 PNG 수에 포함하지 않음";
+  $("lesson").innerHTML='<p class="step">0 / '+list.length+'</p><h2>'+names[building]+'를 세워 볼까요?</h2><p>다음 단계부터 기초와 골조가 차례로 생깁니다.</p>';
+  return;
+ }
+ const s=list[index-1],m=meta(s);
+ $("heroArt").innerHTML=imageMarkup(s);$("heroSource").innerHTML='<a href="'+esc(path(m.reviewImage))+'">'+esc(m.reviewImage)+'</a>';
+ $("lesson").innerHTML=badge(m)+'<p class="step">'+s.sequence+' / '+list.length+'</p><h2>'+esc(s.title.ko)+'</h2>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.title[locale])+'</p>':'')+'<p class="observe">'+esc(s.observe[locale])+'</p><p class="quote" lang="ko">'+esc(s.line.ko)+'</p>'+(locale!=="ko"?'<p class="translation" lang="'+locale+'">'+esc(s.line[locale])+'</p>':'')+'<div class="task"><strong>'+tr("해 보기","Try it","Probier es aus")+'</strong><p>'+esc(s.task[locale])+'</p><div class="choices" id="choices"></div><p class="feedback" id="feedback" aria-live="polite"></p></div><details><summary>'+tr("대화 상황과 표현","Situation and expression","Situation und Ausdruck")+'</summary><p class="scene">'+esc(s.scene[locale])+'</p><p class="scene" lang="ko">'+esc(s.precedingLineKo)+'</p><p class="scene">'+esc(s.target.join(" · "))+'</p></details>';
+ if(s.lessonIllustration){
+  const l=s.lessonIllustration;
+  $("lesson").insertAdjacentHTML("beforeend",'<figure><img style="max-width:200px;width:100%" src="'+esc(path("lessons/"+l.asset.split("/").pop()))+'" alt="'+esc(l.alt[locale])+'"><figcaption>'+esc(l.caption[locale])+'</figcaption></figure>');
+ }
+ if(s.exercise?.kind==="choice"){
+  for(const option of s.exercise.options){
+   const b=document.createElement("button");b.textContent=option.label[locale];b.onclick=()=>{
+    $("feedback").textContent=option.id===s.exercise.correctOptionId?tr("맞아요. 그림에서 그 부분을 짚어 보세요.","That's right. Point to that part in the picture.","Richtig. Zeige auf diese Stelle im Bild."):tr("관찰 문장을 읽고 한 번 더 골라 보세요.","Read the observation and try again.","Lies den Beobachtungssatz und wähle noch einmal.");
+   };$("choices").append(b);
+  }
+ }else{$("feedback").textContent=tr("그림을 짚으며 한 문장으로 말해 보세요.","Point to the picture and say one sentence.","Zeige auf das Bild und sprich einen Satz.");}
+ const terms=D.learning.glossary.filter(t=>t.stageIds.includes(s.stageId));
+ if(terms.length){$("lesson").insertAdjacentHTML("beforeend",'<details><summary>'+tr("부재 이름 더 알아보기","Construction terms","Bauteile kennenlernen")+'</summary>'+terms.map(t=>'<p class="scene"><strong>'+esc(t.label[locale])+'</strong> · '+esc(t.explanation[locale])+'</p>').join("")+'</details>');}
+}
+function render(){
+ $("gate").setAttribute("aria-pressed",building==="hyeopmun");$("storehouse").setAttribute("aria-pressed",building==="changgo");
+ $("mode").setAttribute("aria-pressed",all);$("mode").textContent=all?"단계별로 보기":"전체 단계 비교";
+ $("small").hidden=!all;$("small").setAttribute("aria-pressed",small);$("small").textContent=small?"큰 그림 보기":"100px 보기";
+ $("single").hidden=all;$("comparison").hidden=!all;
+ if(all){$("comparisonTitle").textContent=names[building]+" 전체 "+stages().length+"단계";$("deck").classList.toggle("small-mode",small);$("deck").innerHTML=stages().map(card).join("");}else renderSingle();
+ const c=D.learning.culture[building];$("culture").innerHTML='<p>'+esc(c[locale])+'</p>';
+ $("cultureSources").innerHTML=c.sourceRefs.map(u=>u.startsWith("local:")?'<a class="all-link" href="'+esc(path(u.slice(6)))+'">도면 원본 보기</a>':'<a class="all-link" href="'+esc(u)+'">한국관광공사 일두고택 안내</a>').join(" · ");
+ const notes=building==="hyeopmun"?["돌계단 3단과 좌우 버팀대 유지","도리·서까래와 가로 용마루의 방향","단계 사이 기둥·기단의 미세한 차이는 승인 원화에 남아 있음"]:["낮은 돌기단, 계단 없는 형태","앞뒤 기둥열과 내부 깊이","도면의 내부 구획: 1칸·2칸·1칸·2칸","3→4단계 용마루 높이 차이는 승인 원화에 남아 있음","정본에 이미 있는 녹색 가장자리 기록"];
+ $("reviewNotes").innerHTML=notes.map(n=>"<li>"+esc(n)+"</li>").join("");
+ $("learningLink").href=path("learning.md");$("manifestLink").href=path("manifest.json");$("qaLink").href=path("validation.json");
+}
+$("gate").onclick=()=>{building="hyeopmun";index=1;render();};$("storehouse").onclick=()=>{building="changgo";index=1;render();};
+$("language").onchange=e=>{locale=e.target.value;render();};$("mode").onclick=()=>{all=!all;render();};$("small").onclick=()=>{small=!small;render();};
+$("stage").oninput=e=>{index=Number(e.target.value);renderSingle();};$("previous").onclick=()=>{index=Math.max(0,index-1);renderSingle();};$("next").onclick=()=>{index=Math.min(stages().length,index+1);renderSingle();};
+render();
+</script></body></html>

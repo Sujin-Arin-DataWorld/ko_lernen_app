@@ -1,46 +1,21 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
-import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/sori_term.dart';
 
 import 'support/hanok_competence_fixture.dart';
 
-/// §COPY-2/§COPY-3(J8) — Today's `_HanokProgress` next-piece line renders a
-/// tappable [SoriTerm] (`hanokStageGlossaryTermId`) when the current
-/// structure stage is `sideBuilding` (사랑채). This exercises the full
-/// stack: the mapping helper -> a real glossary entry -> the sheet.
+/// Today's compact Hanok summary reports confirmed learning-path units and
+/// opens the full Hanok tab. Detailed construction terms belong to that tab.
 void main() {
-  late CulturalGlossary catalog;
-
-  setUpAll(() async {
-    catalog = CulturalGlossary.fromJsonString(
-      await File(CulturalGlossaryRepository.assetPath).readAsString(),
-    );
-  });
-
-  setUp(() {
-    CulturalGlossaryRepository.setLoaderForTesting(() async => catalog);
-  });
-
-  tearDown(() {
-    CulturalGlossaryRepository.resetForTesting();
-  });
-
   testWidgets(
-    'sideBuilding stage renders a SoriTerm(sarangchae) that opens the '
-    'glossary sheet on tap',
+    'Hanok summary uses learning-path terminology and opens the Hanok tab',
     (tester) async {
-      final semantics = tester.ensureSemantics();
       tester.view.physicalSize = const Size(390, 2400);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
@@ -59,25 +34,25 @@ void main() {
               now: () => DateTime(2026, 8, 14, 9),
             ),
           ),
-          onGenerateRoute: (_) => MaterialPageRoute<void>(
-            builder: (_) => const Scaffold(body: Text('route')),
+          onGenerateRoute: (settings) => MaterialPageRoute<void>(
+            builder: (_) => Scaffold(body: Text(settings.name ?? 'route')),
           ),
         ),
       );
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
-      final term = find.byWidgetPredicate(
-        (widget) => widget is SoriTerm && widget.termId == 'sarangchae',
+      final summary = find.byKey(const ValueKey('today-hanok-summary'));
+      expect(summary, findsOneWidget);
+      expect(
+        find.textContaining('Lernpfad-Einheiten bestätigt'),
+        findsOneWidget,
       );
-      expect(term, findsOneWidget);
 
-      await tester.tap(term);
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(summary);
+      await tester.pumpAndSettle();
 
-      expect(find.text('사랑채'), findsOneWidget);
-      semantics.dispose();
+      expect(find.text('/hanok'), findsOneWidget);
     },
   );
 }

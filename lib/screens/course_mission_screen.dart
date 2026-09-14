@@ -1,3 +1,5 @@
+import '../services/learning_journey.dart';
+import '../services/course_attempt_companion.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -5,14 +7,10 @@ import '../models/course_mission_brief.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/scenario.dart';
-import '../motion/transitions.dart';
-import '../services/analytics_service.dart';
 import '../services/course_mission_navigation.dart';
-import '../services/onboarding_companion_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/scenario_loader.dart';
-import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/course_mission_brief.dart';
@@ -21,7 +19,6 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
-import 'first_voice_success_screen.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
 /// action here is selected from the active mission's graph links.
@@ -58,7 +55,6 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   List<Scenario> _scenarios = const [];
   Object? _error;
   bool _loading = true;
-  bool _learningStartRecorded = false;
 
   @override
   void initState() {
@@ -87,14 +83,6 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
         throw const FormatException('No current course mission exists.');
       }
       if (!mounted) return;
-      if (!_learningStartRecorded) {
-        _learningStartRecorded = true;
-        Analytics.lessonStarted(
-          lessonType: 'course',
-          lessonId: unit.id,
-          level: unit.level,
-        );
-      }
       setState(() {
         _catalog = catalog;
         _snapshot = snapshot ?? const CourseMasterySnapshot.empty();
@@ -141,6 +129,18 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     final evidenceIdsBefore =
         _snapshot?.evidence.map((item) => item.id).toSet() ?? const <String>{};
     if (!mounted) return;
+    final journey = LearningJourneyObserver.forContext(context)?.active;
+    if (journey != null) {
+      journey.afterReturn.putIfAbsent(
+        unit.id,
+        () =>
+            (originContext) => CourseAttemptCompanion.offer(
+              originContext,
+              unit: unit,
+              evidenceIdsBefore: evidenceIdsBefore,
+            ),
+      );
+    }
     await Navigator.of(
       context,
     ).pushNamed(destination.route, arguments: destination.arguments);
@@ -148,24 +148,15 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     await _load();
     if (!mounted) return;
 
-    final snapshot = _snapshot;
-    if (snapshot == null ||
-        !OnboardingCompanionService.shouldOfferAfterAttempt(
-          introPreviewSeen: Storage.introPreviewSeen,
-          activeCourseUnitId: unit.id,
-          activeCourseLevel: unit.level,
-          evidenceIdsBefore: evidenceIdsBefore,
-          evidenceAfter: snapshot.evidence,
-          contentLinks: _catalog?.contentLinks ?? const <ContentLink>[],
-        )) {
+    if (journey != null) {
       return;
     }
-
-    final languageCode = Localizations.localeOf(context).languageCode;
-    await Navigator.of(context).push<void>(
-      SoriTransitions.page<void>(
-        (_) => FirstVoiceSuccessScreen(canDo: unit.canDo.pick(languageCode)),
-      ),
+    await CourseAttemptCompanion.offer(
+      context,
+      unit: unit,
+      evidenceIdsBefore: evidenceIdsBefore,
+      after: _snapshot,
+      links: _catalog?.contentLinks,
     );
   }
 

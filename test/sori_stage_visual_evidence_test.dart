@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -7,23 +8,29 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
+import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
 
 const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
+late LearningFocusController _focusController;
 
 /// §LAYOUT-4(J14) — 5 root evidence PNGs (today/learn/hanok/gye) share one
 /// pipeline. Flag OFF (default `flutter test`): every `skip:
@@ -34,11 +41,15 @@ const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
 /// bullet for the exact regeneration command.
 void main() {
   late CulturalGlossary glossary;
+  late SarangchaeConstruction construction;
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
     glossary = CulturalGlossary.fromJsonString(
       await File(CulturalGlossaryRepository.assetPath).readAsString(),
+    );
+    construction = SarangchaeConstruction.fromJson(
+      jsonDecode(await File(SarangchaeConstruction.assetPath).readAsString()),
     );
   });
 
@@ -55,6 +66,11 @@ void main() {
       GuideProgressService.todayCardDismissedKey: true,
     });
     await Storage.init();
+    _focusController = LearningFocusController(
+      loader: () =>
+          LearningFocus.load(loadToday: () async => _snapshot().today),
+    );
+    await _focusController.refresh();
     // §W-J2(c): `CulturalHelpButton` gates on
     // `CulturalGlossaryRepository.load()` (a real rootBundle JSON read
     // cached process-wide) — inject a synchronous-after-one-await catalog
@@ -67,6 +83,7 @@ void main() {
   });
 
   tearDown(CulturalGlossaryRepository.resetForTesting);
+  tearDown(() => _focusController.dispose());
 
   testWidgets('capture Today at 390dp', skip: !_captureEvidence, (
     tester,
@@ -135,7 +152,10 @@ void main() {
     await tester.pumpWidget(
       _app(
         locale: const Locale('de'),
-        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
+        home: SoriStageHanokScreen(
+          loadSnapshot: () async => _snapshot(hanok: true),
+          loadConstruction: () async => construction,
+        ),
       ),
     );
     await _settleHanok(tester);
@@ -147,6 +167,27 @@ void main() {
     );
   });
 
+  testWidgets('capture Games at 390dp', skip: !_captureEvidence, (
+    tester,
+  ) async {
+    _setViewport(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _app(
+        locale: const Locale('de'),
+        home: SoriStageCatalogScreen(
+          tab: SoriStageTab.games,
+          loadSnapshot: () async => _snapshot(),
+        ),
+      ),
+    );
+    await pumpSoriStage(tester);
+    await _awaitImageDecode(tester);
+    await expectLater(
+      find.byType(SoriStageCatalogScreen),
+      matchesGoldenFile('../docs/screenshots/sori-stage-games-390.png'),
+    );
+  });
+
   testWidgets('capture Hanok at 390dp scrolled 600', skip: !_captureEvidence, (
     tester,
   ) async {
@@ -154,7 +195,10 @@ void main() {
     await tester.pumpWidget(
       _app(
         locale: const Locale('de'),
-        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
+        home: SoriStageHanokScreen(
+          loadSnapshot: () async => _snapshot(hanok: true),
+          loadConstruction: () async => construction,
+        ),
       ),
     );
     await _settleHanok(tester);
@@ -177,7 +221,10 @@ void main() {
   ) async {
     _setViewport(tester, const Size(390, 844));
     await tester.pumpWidget(
-      _app(locale: const Locale('de'), home: const SoriStageGyeScreen()),
+      _app(
+        locale: const Locale('de'),
+        home: SoriStageGyeScreen(loadGyeMetas: () async => const []),
+      ),
     );
     await pumpSoriStage(tester);
     await _awaitImageDecode(tester);
@@ -215,15 +262,22 @@ void main() {
 /// §W-J2: unifies the fix originally found for Gye's 8-layer `GyeHanok`
 /// composite across every capture (Today's mascot art, Hanok's map, etc.).
 Future<void> _awaitImageDecode(WidgetTester tester) async {
+  final context = tester.element(find.byType(MaterialApp));
+  final providers = tester
+      .widgetList<Image>(find.byType(Image))
+      .map((image) => image.image)
+      .toList(growable: false);
   await tester.runAsync(() async {
-    await Future<void>.delayed(const Duration(milliseconds: 150));
+    await Future.wait([
+      for (final provider in providers) precacheImage(provider, context),
+    ]);
   });
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 300));
 }
 
 /// The Hanok tab resolves its competency snapshot asynchronously before
-/// showing the static V3 preview. A few pumps keep this visual harness aligned
+/// showing the approved construction stage. A few pumps keep this harness aligned
 /// with `sori_stage_hanok_fold_test.dart`'s `settle()` helper.
 Future<void> _settleHanok(WidgetTester tester) async {
   for (var i = 0; i < 10; i++) {
@@ -248,54 +302,79 @@ GyeMeta _gyeMeta() => const GyeMeta(
   weeklyPromiseWeekKey: '2026-W36',
 );
 
-SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
-  today: const TodayLearningSnapshot(
-    pick: ReviewPick(dueCount: 12),
-    destination: TodayLearningDestination(route: '/review'),
-    dueCount: 12,
-  ),
-  hanokCompetence: const HanokCompetenceProjection.empty(),
-  quests: const [],
-  pendingBojagiCount: 1,
-  stampCount: 4,
-  xp: 320,
-  streakDays: 6,
-  todayReward: const RewardContract(
-    activityId: 'srs',
-    condition: SoriLocalizedCopy(
-      key: SoriCopyKey.finishSession,
-      de: 'Wenn du die Runde abschließt',
-      en: 'When you finish the session',
-    ),
-    items: <RewardContractItem>[
-      RewardContractItem(
-        kind: SoriRewardKind.xp,
-        amount: 15,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardXp,
-          de: 'Lern-XP',
-          en: 'XP',
-        ),
+SoriStageProgressionSnapshot _snapshot({bool hanok = false}) =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
       ),
-      RewardContractItem(
-        kind: SoriRewardKind.questProgress,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardQuest,
-          de: 'Quest',
-          en: 'Quest',
+      hanokCompetence: hanok
+          ? HanokCompetenceProjection.fromSnapshot(
+              snapshot: CourseMasterySnapshot(
+                completedUnitIds: [for (var i = 1; i <= 8; i++) 'a1_$i'],
+              ),
+              courseUnits: [
+                for (var i = 1; i <= 16; i++)
+                  CourseUnit(
+                    id: 'a1_$i',
+                    level: 'a1',
+                    order: i,
+                    title: const CurriculumText(
+                      ko: '학습',
+                      de: 'Lernen',
+                      en: 'Learn',
+                    ),
+                    canDo: const CurriculumText(
+                      ko: '학습',
+                      de: 'Lernen',
+                      en: 'Learn',
+                    ),
+                  ),
+              ],
+            )
+          : const HanokCompetenceProjection.empty(),
+      quests: const [],
+      pendingBojagiCount: 1,
+      stampCount: 4,
+      xp: 320,
+      streakDays: 6,
+      todayReward: const RewardContract(
+        activityId: 'srs',
+        condition: SoriLocalizedCopy(
+          key: SoriCopyKey.finishSession,
+          de: 'Wenn du die Runde abschließt',
+          en: 'When you finish the session',
         ),
+        items: <RewardContractItem>[
+          RewardContractItem(
+            kind: SoriRewardKind.xp,
+            amount: 15,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardXp,
+              de: 'Lern-XP',
+              en: 'XP',
+            ),
+          ),
+          RewardContractItem(
+            kind: SoriRewardKind.questProgress,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardQuest,
+              de: 'Quest',
+              en: 'Quest',
+            ),
+          ),
+          RewardContractItem(
+            kind: SoriRewardKind.hanokProgress,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardHanok,
+              de: 'Hanok-Bauteil',
+              en: 'Hanok piece',
+            ),
+          ),
+        ],
       ),
-      RewardContractItem(
-        kind: SoriRewardKind.hanokProgress,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardHanok,
-          de: 'Hanok-Bauteil',
-          en: 'Hanok piece',
-        ),
-      ),
-    ],
-  ),
-);
+    );
 
 Widget _app({required Locale locale, required Widget home}) => MaterialApp(
   debugShowCheckedModeBanner: false,
@@ -305,7 +384,11 @@ Widget _app({required Locale locale, required Widget home}) => MaterialApp(
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: MediaQuery(
     data: const MediaQueryData(disableAnimations: true),
-    child: home,
+    child: LearningFocusScope(
+      controller: _focusController,
+      open: (_, destination, {focus, activityId}) async {},
+      child: home,
+    ),
   ),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),

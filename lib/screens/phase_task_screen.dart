@@ -29,12 +29,14 @@ class PhaseTaskScreen extends StatefulWidget {
     this.saveAttempt,
     this.playAudio,
     this.recorder,
+    this.recordingPlayer,
   });
   final PhaseTaskRoute arguments;
   final Future<PhaseTaskCatalog> Function()? loader;
   final Future<void> Function(PhaseTaskResult)? saveAttempt;
   final Future<bool> Function(String)? playAudio;
   final PronunciationRecorder? recorder;
+  final AudioPlayer? recordingPlayer;
   @override
   State<PhaseTaskScreen> createState() => _PhaseTaskScreenState();
 }
@@ -47,10 +49,13 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   bool _busy = false,
       _audioBusy = false,
       _recording = false,
+      _captureBusy = false,
       _listened = false,
       _accountChanged = false;
   String? _error;
   final _answers = <String, String>{};
+  int _draftRevision = 0, _savedDraftRevision = 0;
+  bool get _hasUnsavedAnswers => _draftRevision != _savedDraftRevision;
   PhaseTaskResult? _result;
   String _attemptId = const Uuid().v4();
   DateTime? _occurredAt;
@@ -58,18 +63,13 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   PronunciationRecorder get _recorder =>
       _recorderInstance ??= widget.recorder ?? RecordPronunciationRecorder();
   AudioPlayer? _playerInstance;
-  AudioPlayer get _player => _playerInstance ??= AudioPlayer();
+  AudioPlayer get _player =>
+      _playerInstance ??= widget.recordingPlayer ?? AudioPlayer();
   StreamSubscription<Uint8List>? _stream;
   Timer? _limit;
   final _chunks = <Uint8List>[];
   int _byteCount = 0;
   Uint8List? _recorded;
-  // Stop was tapped but the recorder/stream are still winding down: the take
-  // exists only as PCM chunks until the WAV is assembled, so leaving must
-  // still ask (Codex review on #305, P2). _discardPending drops that take
-  // when the screen is left meanwhile.
-  bool _finalizing = false;
-  bool _discardPending = false;
   late final TabController _modes;
   @override
   void initState() {
@@ -114,6 +114,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       _drafts?.assertCurrent();
     } catch (_) {
       _answers.clear();
+      _savedDraftRevision = ++_draftRevision;
       _chunks.clear();
       _recorded = null;
       unawaited(_stopRecording(discard: true));
@@ -150,7 +151,9 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     }
     setState(() => _busy = true);
     try {
-      await _drafts!.save(_assessment, _answers);
+      _syncModeTab();
+      await _playerInstance?.stop();
+      await _saveDraft();
       final saved = await _drafts!.load(assessment);
       if (!mounted) {
         return;
@@ -181,16 +184,25 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
 
   void _answer(String id, String value) {
     _answers[id] = value;
+    _draftRevision++;
     _attemptId = const Uuid().v4();
     _occurredAt = null;
     setState(() => _error = null);
     unawaited(
-      _drafts!.save(_assessment, _answers).catchError((Object _) {
+      _saveDraft().catchError((Object _) {
         if (mounted) {
           setState(() => _error = AppL10n.of(context).phaseTaskError);
         }
       }),
     );
+  }
+
+  Future<void> _saveDraft() async {
+    final revision = _draftRevision, assessment = _assessment;
+    await _drafts!.save(assessment, _answers);
+    if (mounted && revision == _draftRevision && assessment == _assessment) {
+      setState(() => _savedDraftRevision = revision);
+    }
   }
 
   Future<void> _listen() async {
@@ -225,6 +237,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   Future<void> _record() async {
     setState(() {
       _busy = true;
+      _captureBusy = true;
       _error = null;
     });
     try {
@@ -275,7 +288,10 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       }
     } finally {
       if (mounted) {
-        setState(() => _busy = false);
+        setState(() {
+          _busy = false;
+          _captureBusy = false;
+        });
       }
     }
   }
@@ -284,25 +300,23 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     _limit?.cancel();
     _limit = null;
     if (!_recording) {
-      if (discard && _finalizing) {
-        _discardPending = true;
-      }
       return;
     }
     _recording = false;
-    _finalizing = true;
-    _discardPending = discard;
     if (mounted) {
-      setState(() => _busy = true);
+      setState(() {
+        _busy = true;
+        _captureBusy = true;
+      });
     }
     try {
       await _recorder.stop();
       await _stream?.cancel();
     } catch (_) {
-      _discardPending = true;
+      discard = true;
     }
     _stream = null;
-    if (!_discardPending && !_accountChanged && _byteCount >= 32000) {
+    if (!discard && !_accountChanged && _byteCount >= 32000) {
       final bytes = Uint8List(44 + _byteCount);
       void ascii(int at, String s) {
         bytes.setRange(at, at + s.length, s.codeUnits);
@@ -331,10 +345,11 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     }
     _chunks.clear();
     _byteCount = 0;
-    _finalizing = false;
-    _discardPending = false;
     if (mounted) {
-      setState(() => _busy = false);
+      setState(() {
+        _busy = false;
+        _captureBusy = false;
+      });
     }
   }
 
@@ -353,6 +368,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
         throw StateError('Required audio missing');
       }
       final result = _task!.evaluate(_answers, assessment: _assessment);
+      await _saveDraft();
       _occurredAt ??= DateTime.now().toUtc();
       if (widget.saveAttempt != null) {
         await widget.saveAttempt!(result);
@@ -394,9 +410,8 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     super.dispose();
   }
 
-  /// Leaving via X, home or system back: drop the in-memory recording (or the
-  /// take still being finalised) and stop playback before the route goes
-  /// away. Drafts are already saved.
+  /// Leaving via X, home or system back: drop the in-memory recording and
+  /// stop playback before the route goes away. Drafts are already saved.
   void _leave() {
     unawaited(_stopRecording(discard: true));
     unawaited(_playerInstance?.stop());
@@ -408,18 +423,25 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
         lang = Localizations.localeOf(context).languageCode;
     final task = _task,
         packet = _assessment ? _task?.assessment : _task?.practice;
-    final modeLocked = _busy || _recording || _audioBusy || _accountChanged;
+    final modeLocked =
+        _busy ||
+        _recording ||
+        _audioBusy ||
+        _accountChanged ||
+        (_recorded != null && _result == null);
     return SoriStudyFrame(
       title: task?.title.pick(lang) ?? t.phaseTasksTitle,
       padding: EdgeInsets.zero,
       // The recording lives only in memory (never uploaded, never drafted),
       // so X, home and system back ask before discarding one that is still
-      // in progress, still being finalised after Stop, or not yet submitted.
-      // Typed answers are saved as drafts on every keystroke and restore
-      // without a confirmation.
+      // in progress or not yet submitted. Answers also need protection until
+      // the latest draft write is confirmed by local storage.
       homeEscape: SoriHomeEscape(
         confirmWhen:
-            _recording || _finalizing || (_recorded != null && _result == null),
+            _captureBusy ||
+            _recording ||
+            (_recorded != null && _result == null) ||
+            _hasUnsavedAnswers,
         confirmTitle: t.phaseTaskLeaveTitle,
         confirmBody: t.phaseTaskLeaveBody,
       ),

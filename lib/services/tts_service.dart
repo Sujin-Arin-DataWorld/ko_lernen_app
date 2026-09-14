@@ -1183,6 +1183,18 @@ class TtsService {
     _cacheDir = dir;
   }
 
+  static Future<Directory> Function()? _applicationCacheDirectoryOverride;
+
+  @visibleForTesting
+  static void setApplicationCacheDirectoryForTesting(
+    Future<Directory> Function()? provider,
+  ) {
+    _applicationCacheDirectoryOverride = provider;
+  }
+
+  static Future<Directory> _applicationCacheDirectory() =>
+      (_applicationCacheDirectoryOverride ?? getApplicationCacheDirectory)();
+
   @visibleForTesting
   static void setCanonicalDownloadForTesting(
     Future<Uint8List?> Function(TtsCacheKey key)? download,
@@ -1685,24 +1697,6 @@ class TtsService {
     }
     final base = await _applicationCacheDirectory();
     return Directory('${base.path}/tts_cache');
-  }
-
-  static Future<Directory> Function()? _applicationCacheDirectoryOverride;
-
-  static Future<Directory> _applicationCacheDirectory() =>
-      (_applicationCacheDirectoryOverride ?? getApplicationCacheDirectory)();
-
-  /// 테스트 전용 — `_ensureCacheDir()` 이 캐시 디렉터리를 만들 때 쓰는
-  /// 앱 캐시 루트 조회를 갈아끼운다. [setCacheDirForTesting] 은 이미 만들어진
-  /// 디렉터리를 주입하므로 "디렉터리 생성 자체가 실패하는" 경로(#303 리뷰
-  /// P2)를 재현할 수 없다 — 파일이 차지한 경로를 루트로 넘기면 실제
-  /// `Directory.create` 가 ENOTDIR 로 던진다. `null` 로 되돌리면
-  /// `path_provider` 를 다시 쓴다. 테스트 tearDown 에서 반드시 되돌릴 것.
-  @visibleForTesting
-  static void setApplicationCacheDirectoryForTesting(
-    Future<Directory> Function()? provider,
-  ) {
-    _applicationCacheDirectoryOverride = provider;
   }
 
   static Future<Directory?> _ensureCacheDir() async {

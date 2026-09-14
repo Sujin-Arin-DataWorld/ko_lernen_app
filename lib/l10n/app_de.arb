@@ -3,7 +3,6 @@
   "packCompletionPending": "Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.",
   "packCompletionSaved": "Dein Pack-Ergebnis ist gespeichert.",
   "packCompletionView": "Ergebnis ansehen",
-
   "srsRecoveryPending": "Deine letzte Wiederholung wird noch gespeichert. Dein Wiederholungsfortschritt bleibt bis zur Wiederherstellung pausiert.",
   "srsRecoveryBlocked": "Deine letzte Wiederholung konnte noch nicht wiederhergestellt werden. Schließe eine ausstehende Kontowiederherstellung ab und versuche es erneut.",
   "srsRecoveryRetry": "Wiederholung erneut speichern",
@@ -392,13 +391,17 @@
   "settingsUpdateAvailable": "Neue Version {v} ist da.",
   "@settingsUpdateAvailable": {
     "description": "Shown when Google Play reports a newer versionCode.",
-    "placeholders": {"v": {}}
+    "placeholders": {
+      "v": {}
+    }
   },
   "settingsUpdateDialogTitle": "Update verfügbar",
   "settingsUpdateDialogBody": "Version {v} wird jetzt über Google Play geladen und installiert.",
   "@settingsUpdateDialogBody": {
     "description": "Confirmation before handing the update to Google Play.",
-    "placeholders": {"v": {}}
+    "placeholders": {
+      "v": {}
+    }
   },
   "settingsUpdateStart": "Jetzt aktualisieren",
   "settingsUpdateLater": "Später",
@@ -2475,12 +2478,9 @@
   "pathNextAfterEvidence": "Als Nächstes nach deinem Beweis",
   "pathShowMorePractice": "Weitere Übungen anzeigen",
   "pathHideMorePractice": "Weitere Übungen ausblenden",
-  "gyeVoluntaryEyebrow": "Freiwillige Lerngemeinschaft",
   "gyeEmptyHeadline": "Allein lernen ist vollständig. Zusammen kann es wärmer sein.",
-  "gyeEmptyLead": "Eine 계 ist eine kleine Gruppe, die eine Wochenabsicht miteinander hält.",
-  "gyeFindOrCreate": "Eine 계 finden oder gründen",
+  "gyeFindOrCreate": "Gruppe beitreten oder gründen",
   "gyeContinueSolo": "Ohne Gruppe weiterlernen",
-  "gyeEmptyPreviewCaption": "Die Vorschau zeigt den gemeinsamen Hof. Er ist keine Voraussetzung für deinen Lernweg.",
   "homePathCardTitle": "Lernpfad",
   "homePathCardSub": "Sieh, wo du stehst",
   "homeBrowseTitle": "Alles entdecken",
@@ -2818,10 +2818,6 @@
   "gyeExplainHow": "Gründe eine Gruppe oder tritt mit einem 6-stelligen Code bei, wenn du bereit bist.",
   "gyePrivacyTitle": "Was andere sehen",
   "gyePrivacyBody": "Es wird nur angezeigt, dass du beigetragen hast. Antworten, Wörter und Prüfungsergebnisse bleiben privat.",
-  "gyeExplainWhatShort": "Eine kleine, freiwillige Lerngruppe.",
-  "gyeExplainWhyShort": "Ein gemeinsames Hanok, kein Wettbewerb.",
-  "gyeExplainHowShort": "Beitritt mit 6-stelligem Code.",
-  "gyeShowcaseCaption": "So kann euer gemeinsames Hanok aussehen",
   "gyeExplainMore": "Mehr erfahren",
   "gyeWeeklyEyebrow": "Diese Woche zusammen",
   "gyeWeeklyTitle": "Haltet gemeinsam die Lichter im Hof an.",
@@ -4067,29 +4063,9 @@
   "soriStageBojagiTitle": "Ein Bojagi wartet",
   "soriStageBojagiBody": "Wähle eines von drei Stücken für dein Zimmer.",
   "soriStageOpenBojagi": "Bojagi öffnen",
-  "soriStageHanokNow": "Deine Hanok jetzt",
-  "soriStageNextPiece": "Nächstes Bauteil",
-  "soriStageHanokPieces": "{built} / {total} Bauteile",
-  "@soriStageHanokPieces": {
-    "placeholders": {
-      "built": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
+  "soriStageHanokNow": "Dein Hanok",
   "soriStageClosestQuests": "Fast geschafft",
   "soriStageNextQuests": "Als Nächstes",
-  "soriStageLearnTitle": "Wähle, wie du lernen möchtest.",
-  "soriStageLearnBody": "Jede Aktivität bleibt mit deinen Quests und deiner Hanok verbunden.",
-  "soriStageLearnSectionToday": "Heute lernen",
-  "soriStageLearnSectionExplore": "Entdecken & üben",
-  "soriStageLearnSectionReview": "Wiederholen",
-  "soriStageGamesTitle": "Spiele mit einem klaren Ziel.",
-  "soriStageGamesBody": "Sieh XP, Bestleistung und passende Quest, bevor du startest.",
-  "soriStageContinueEyebrow": "Weiter mit",
   "soriStageMinutes": "{minutes} Min.",
   "@soriStageMinutes": {
     "placeholders": {
@@ -4115,20 +4091,60 @@
       }
     }
   },
-  "soriStageHanokTitle": "Dein Hanok wächst mit dir.",
-  "soriStageHanokBody": "Jedes Wort baut hier weiter.",
-  "soriStageHanokUpdating": "Dein Hanok wird gerade erneuert. Bald wieder da.",
+  "soriStageHanokUpdating": "Hanok-Vorschau · die neue Ansicht entsteht.",
+  "sarangchaeConstructionProgress": "{earned} von {total} Bauabschnitten",
+  "@sarangchaeConstructionProgress": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeConstructionStages": "Bauabschnitte",
+  "sarangchaeLessonLanguage": "Lernsprache",
+  "sarangchaeStageTransition": "Bauabschnitt {before} → Bauabschnitt {after}",
+  "@sarangchaeStageTransition": {
+    "placeholders": {
+      "before": {
+        "type": "int"
+      },
+      "after": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStageUnlocked": "Bauabschnitt {stage} freigeschaltet",
+  "@sarangchaeStageUnlocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStageLocked": "Bauabschnitt {stage} ist noch gesperrt",
+  "@sarangchaeStageLocked": {
+    "placeholders": {
+      "stage": {
+        "type": "int"
+      }
+    }
+  },
+  "sarangchaeStartMission": "Schließe eine Lernmission ab, um dein Sarangchae zu beginnen.",
+  "sarangchaeNewStages": "{count, plural, =1{1 neuer Bauabschnitt} other{{count} neue Bauabschnitte}}",
+  "@sarangchaeNewStages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageOpenMap": "Hanok-Karte öffnen",
-  "soriStageQuests": "Quests",
-  "soriStageDojang": "Dojang-Heft",
-  "soriStageBojagi": "Bojagi",
   "soriStageRooms": "Räume und Einrichtung",
-  "soriStageGyePromise": "Versprechen dieser Woche",
   "soriStageGyeFlow": "Mission abschließen → Laterne → gemeinsame Hanok",
   "soriStageGyeUpdating": "Der gemeinsame Hof wird gerade erneuert.",
-  "gyeStepMission": "Mission",
-  "gyeStepLantern": "Laterne",
-  "gyeStepHanok": "Gemeinsame Hanok",
   "pronunciationTitle": "Aussprache-Studio",
   "pronunciationEyebrow": "AUSSPRACHE ÜBEN",
   "pronunciationIntro": "Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.",
@@ -4183,7 +4199,6 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
-  "soriStageActivityNew": "Neu",
   "soriStageActivityTitle": "{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_practice{Eigene Wörter üben} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
@@ -4796,7 +4811,7 @@
   "studyLibraryBookmarkWriteError": "Das Lesezeichen konnte nicht geändert werden. Deine vorhandenen Lerndaten wurden nicht verändert.",
   "studyLibraryStartWordReview": "Heutige Wort-Wiederholung öffnen",
   "studyLibraryReviewScopeNote": "Dadurch öffnet sich der bestehende Wort-Wiederholungsstapel. Gespeicherte Grammatik, Sätze, Ausdrücke und Hangeul werden nicht als Wörter ausgegeben.",
-  "todayGuideTitle": "Hangul-Sori-Start-Anleitung",
+  "todayGuideTitle": "Die App kennenlernen",
   "todayGuideDescription": "Die Anleitungsthemen sind passend zu deinem Lernziel sortiert, damit du mit dem Wichtigsten beginnen kannst.",
   "todayGuideProgress": "{completed} von {total} Themen abgeschlossen",
   "@todayGuideProgress": {
@@ -4880,6 +4895,171 @@
   "phaseTaskCriterionRequired": "Pflichtkriterium",
   "phaseTaskCriterionUnscored": "Diese Formulierung ist nicht automatisch bewertbar.",
   "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet",
+  "sarangchaeLanguageKorean": "한국어",
+  "sarangchaeLanguageGerman": "Deutsch",
+  "sarangchaeLanguageEnglish": "English",
+  "ilduConstructionTitle": "So entsteht ein Hanok",
+  "@ilduConstructionTitle": {
+    "description": "Approved Hanok construction artwork learning: Title"
+  },
+  "ilduConstructionIntro": "Entdecke, wie sechs Hanok-Gebäude entstehen. Schau in ihre Räume und Alltagsbereiche und übe dabei Koreanisch.",
+  "@ilduConstructionIntro": {
+    "description": "Approved Hanok construction artwork learning: Intro"
+  },
+  "ilduConstructionStep": "Schritt {current} von {total}",
+  "@ilduConstructionStep": {
+    "description": "Approved Hanok construction artwork learning: Step",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ilduConstructionPrevious": "Vorheriger Schritt",
+  "@ilduConstructionPrevious": {
+    "description": "Approved Hanok construction artwork learning: Previous"
+  },
+  "ilduConstructionNext": "Nächster Schritt",
+  "@ilduConstructionNext": {
+    "description": "Approved Hanok construction artwork learning: Next"
+  },
+  "ilduConstructionCorrect": "Richtig. Zeige auf diese Stelle im Bild.",
+  "@ilduConstructionCorrect": {
+    "description": "Approved Hanok construction artwork learning: Correct"
+  },
+  "ilduConstructionTryAgain": "Schau dir das Bild an und versuche es noch einmal.",
+  "@ilduConstructionTryAgain": {
+    "description": "Approved Hanok construction artwork learning: TryAgain"
+  },
+  "ilduConstructionScene": "Die Situation",
+  "@ilduConstructionScene": {
+    "description": "Approved Hanok construction artwork learning: Scene"
+  },
+  "ilduConstructionTerms": "Bauteile kennenlernen",
+  "@ilduConstructionTerms": {
+    "description": "Approved Hanok construction artwork learning: Terms"
+  },
+  "ilduConstructionCulture": "Der Ort und seine Bedeutung",
+  "@ilduConstructionCulture": {
+    "description": "Approved Hanok construction artwork learning: Culture"
+  },
+  "ilduConstructionEmptyTitle": "Ein freier Bauplatz",
+  "@ilduConstructionEmptyTitle": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionEmptyBody": "Noch steht hier kein Gebäude. Schau zu, wie es Schritt für Schritt entsteht.",
+  "@ilduConstructionEmptyBody": {
+    "description": "Empty site before the first construction stage"
+  },
+  "ilduConstructionStart": "Mit dem Bau beginnen",
+  "@ilduConstructionStart": {
+    "description": "Empty site before the first construction stage"
+  },
   "phaseTaskLeaveTitle": "Aufgabe verlassen?",
-  "phaseTaskLeaveBody": "Deine Aufnahme liegt nur im Speicher und wird verworfen. Getippte Antworten bleiben als Entwurf gespeichert."
+  "phaseTaskLeaveBody": "Nicht abgegebene Aufnahmen und noch nicht gespeicherte Antworten können verloren gehen. Trotzdem verlassen?",
+  "learningFocusDestinationUnavailable": "Diese Übung konnte nicht geöffnet werden. Versuch es bitte erneut.",
+  "learningFocusMinutes": "Ca. {minutes} Min.",
+  "@learningFocusMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogDetails": "Details",
+  "catalogHowItWorks": "So funktioniert’s",
+  "catalogStartSession": "Runde starten",
+  "catalogRecentlyOpened": "Zuletzt geöffnet",
+  "catalogChoosePractice": "Selbst üben",
+  "catalogWords": "Wörter",
+  "catalogListen": "Hören",
+  "catalogHangul": "Hangul",
+  "catalogReview": "Wiederholen",
+  "catalogWordsSection": "Wörter & Sätze",
+  "catalogListenSection": "Hören & Sprechen",
+  "catalogHangulSection": "Hangul & Schreiben",
+  "catalogReviewSection": "Wiederholen & eigene Wörter",
+  "catalogAnotherRound": "Noch eine Runde?",
+  "catalogProgressUnavailable": "Dein Fortschritt konnte nicht geladen werden. Du kannst trotzdem üben.",
+  "catalogBestScore": "Bestleistung: {count}",
+  "@catalogBestScore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogPacksCompleted": "{count, plural, =1{1 Paket abgeschlossen} other{{count} Pakete abgeschlossen}}",
+  "@catalogPacksCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogScenesCompleted": "{count, plural, =1{1 Szene abgeschlossen} other{{count} Szenen abgeschlossen}}",
+  "@catalogScenesCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogPronunciationPassed": "{count, plural, =1{1 Ausspracheprüfung bestanden} other{{count} Ausspracheprüfungen bestanden}}",
+  "@catalogPronunciationPassed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogDaysPracticed": "{count, plural, =1{An 1 Tag geübt} other{An {count} Tagen geübt}}",
+  "@catalogDaysPracticed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "learningFocusStart": "Jetzt lernen",
+  "learningFocusViewCourse": "Lernpfad ansehen",
+  "learningFocusCoursePosition": "{level} · Einheit {number}",
+  "@learningFocusCoursePosition": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "catalogImageUnavailable": "Bild fehlt",
+  "todayGuideExpand": "Alle Themen anzeigen",
+  "todayGuideCollapse": "Nur nächstes Thema anzeigen",
+  "soriStageConfirmedUnits": "{built} / {total} Lernpfad-Einheiten bestätigt",
+  "soriStageOpenHanok": "Hanok ansehen",
+  "soriStageHanokLearningSummary": "Was du gelernt hast",
+  "soriStageHanokProgressUnavailable": "Dein Lernfortschritt konnte nicht geladen werden.",
+  "@soriStageConfirmedUnits": {
+    "description": "Verified course units, never constructed buildings",
+    "placeholders": {
+      "built": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "soriStageHanokNoUnits": "Noch keine Lernpfad-Einheiten verfügbar.",
+  "soriStageNoQuests": "Noch keine",
+  "gyeRootPurpose": "Gemeinsam auf ein Wochenziel hinarbeiten.",
+  "gyeRootPrivacy": "Deine Antworten und Ergebnisse bleiben privat.",
+  "soriStageHanokTasks": "Aufgaben",
+  "soriStageHanokStamps": "Stempel",
+  "soriStageHanokGifts": "Geschenke"
 }

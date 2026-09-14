@@ -57,13 +57,13 @@ void main() {
     final t = await AppL10n.delegate.load(const Locale('de'));
 
     // 셸 헤더가 유일한 대형 텍스트 — 임베디드 자체 eyebrow/헤드라인/리드 없음.
-    expect(find.text(t.soriStageGyePromise), findsOneWidget);
+    expect(find.text(t.soriStageNavGye), findsOneWidget);
     expect(
       find.text(t.gyeEmptyHeadline),
       findsNothing,
       reason: '임베디드에서는 자체 헤드라인을 제거한다 (§P5-1-1)',
     );
-    expect(find.text(t.gyeVoluntaryEyebrow), findsNothing);
+    expect(find.text('Freiwillige Lerngemeinschaft'), findsNothing);
 
     // CTA 가 스크롤 없이 화면 안에 있다 (±1줄 = 24px 허용).
     final cta = find.text(t.gyeFindOrCreate);

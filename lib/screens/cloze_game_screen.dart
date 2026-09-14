@@ -661,10 +661,12 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _score * 5,
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(Storage.gameBest('cloze')),

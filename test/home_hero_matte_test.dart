@@ -80,11 +80,12 @@ void main() {
     );
   });
 
-  test('report covers exactly the two bundled home hero clips', () {
+  test('report covers exactly the bundled home hero clips', () {
     final onDisk = clips().map((file) => file.uri.pathSegments.last).toSet();
     expect(onDisk, {
       'magpie_walking_front_hanji.mp4',
       'tiger_thinking_hanji.mp4',
+      'tiger_sitting2_hanji.mp4',
     });
     expect(byName.keys.toSet(), onDisk);
   });
@@ -136,6 +137,7 @@ void main() {
   });
 
   test('derived clips preserve the source frame counts', () {
+    expect(byName['tiger_sitting2_hanji.mp4']?['frames_sampled'], 121);
     expect(byName['magpie_walking_front_hanji.mp4']?['frames_sampled'], 113);
     expect(byName['tiger_thinking_hanji.mp4']?['frames_sampled'], 240);
   });

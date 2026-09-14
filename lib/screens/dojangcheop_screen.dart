@@ -10,7 +10,6 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sori_term.dart';
@@ -110,10 +109,9 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
       builder: (context, padding) => ListView(
         padding: padding,
         children: [
-          SoriPageHeader(
-            title: t.dojangTitle,
-            body: t.dojangProgress(got, motifs.length),
-            titleStyle: SoriTextTheme.of(context).cultureTitle,
+          Text(
+            t.dojangProgress(got, motifs.length),
+            style: SoriTextTheme.of(context).body,
           ),
           if (got == 0) ...[
             const SizedBox(height: Spacing.lg),

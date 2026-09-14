@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import '../models/phase_task.dart';
 import '../models/phase_objective_binding.dart';
@@ -11,24 +10,18 @@ class PhaseTaskCatalog {
     : _byId = {for (final task in tasks) task.id: task};
   static const assetPath = 'assets/data/phase_tasks.json';
   static const phaseAssetPath = 'assets/data/learning_phases.json';
+  static Future<PhaseTaskCatalog>? _shared;
   final List<PhaseTask> tasks;
   final List<PhaseObjectiveBinding> objectives;
   final List<PhasePublication> publications;
   final Map<String, PhaseTask> _byId;
 
-  static Future<PhaseTaskCatalog>? _shared;
-
-  /// One parsed, fingerprint-checked catalogue per process (PR #301 review,
-  /// P2). The 7 MB asset is decoded, hashed and validated on the UI isolate,
-  /// and the Phase list, panel, task screen and mastery write all call this
-  /// — without memoisation each of them paid that cost again. A failed load
-  /// is not memoised, so a transient asset error can be retried.
   static Future<PhaseTaskCatalog> load() {
     final pending = _shared;
     if (pending != null) {
       return pending;
     }
-    final loading = _loadUncached();
+    final loading = _loadValidated();
     _shared = loading;
     loading.then<void>(
       (_) {},
@@ -41,13 +34,7 @@ class PhaseTaskCatalog {
     return loading;
   }
 
-  /// Drops the shared instance so the next [load] parses the asset again.
-  @visibleForTesting
-  static void resetForTesting() {
-    _shared = null;
-  }
-
-  static Future<PhaseTaskCatalog> _loadUncached() async {
+  static Future<PhaseTaskCatalog> _loadValidated() async {
     final json =
         jsonDecode(await rootBundle.loadString(assetPath, cache: false))
             as Map<String, dynamic>;
@@ -77,6 +64,8 @@ class PhaseTaskCatalog {
     }
     return catalog;
   }
+
+  static void resetForTesting() => _shared = null;
 
   static PhaseTaskCatalog parse(Map<String, dynamic> json) {
     if (![1, 2].contains(json['schemaVersion']) ||

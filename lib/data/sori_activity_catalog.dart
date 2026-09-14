@@ -24,11 +24,7 @@ RewardContract _contract(
 
 const _xp = RewardContractItem(
   kind: SoriRewardKind.xp,
-  label: SoriLocalizedCopy(
-    de: 'Lern-XP',
-    en: 'XP',
-    key: SoriCopyKey.rewardXp,
-  ),
+  label: SoriLocalizedCopy(de: 'Lern-XP', en: 'XP', key: SoriCopyKey.rewardXp),
 );
 
 const _quest = RewardContractItem(
@@ -133,7 +129,6 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'route',
     reward: _contract('course', _verifiedLearning, [_xp, _hanok, _quest]),
-    learnSection: SoriLearnSection.today,
   ),
   _entry(
     id: 'hangul',
@@ -147,7 +142,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'hangul',
     reward: _contract('hangul', _finishSession, [_quest]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.hangul,
   ),
   _entry(
     id: 'calligraphy',
@@ -161,7 +156,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'brush',
     reward: _contract('calligraphy', _finishSession, [_quest]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.hangul,
   ),
   _entry(
     id: 'pronunciation',
@@ -175,7 +170,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'mic',
     reward: _contract('pronunciation', _verifiedLearning, [_quest]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.listen,
   ),
   _entry(
     id: 'vocab_packs',
@@ -190,7 +185,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'cards',
     reward: _contract('vocab_packs', _firstClear, [_xp, _stamp, _quest]),
-    learnSection: SoriLearnSection.today,
+    learnSection: SoriLearnSection.words,
   ),
   _entry(
     id: 'srs',
@@ -239,7 +234,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.completion,
     icon: 'grammar',
     reward: _contract('grammar', _finishSession, [_noDirectReward]),
-    learnSection: SoriLearnSection.today,
+    learnSection: SoriLearnSection.words,
   ),
   _entry(
     id: 'listening',
@@ -253,7 +248,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.listening,
     icon: 'headphones',
     reward: _contract('listening', _finishSession, [_xp]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.listen,
   ),
   _entry(
     id: 'scenarios',
@@ -268,7 +263,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'dialogue',
     reward: _contract('scenarios', _verifiedLearning, [_xp, _hanok, _quest]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.listen,
   ),
   _entry(
     id: 'smalltalk',
@@ -282,7 +277,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.speaking,
     icon: 'chat',
     reward: _contract('smalltalk', _finishSession, [_noDirectReward]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.listen,
   ),
   _entry(
     id: 'word_web',
@@ -296,7 +291,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     color: SoriActivityColorRole.review,
     icon: 'hub',
     reward: _contract('word_web', _finishSession, [_noDirectReward]),
-    learnSection: SoriLearnSection.explore,
+    learnSection: SoriLearnSection.words,
   ),
   // W10 T-L2: 'vocab_notebook' 타일 제거 — Vokabelheft는 이제 카탈로그 타일이
   // 아니라 Meine Wörter("my_words") 화면의 "+" 시트에서만 들어간다. 라우트

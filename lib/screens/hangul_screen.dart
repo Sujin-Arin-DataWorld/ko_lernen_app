@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -143,6 +144,9 @@ class _HangulScreenState extends State<HangulScreen>
   }
 
   Future<void> _finishCards(int interactionCount) async {
+    if (interactionCount > 0) {
+      LearningJourneyObserver.beginAttempt()?.complete();
+    }
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'cards');
     _abandonTracker.markCompleted();
@@ -157,6 +161,9 @@ class _HangulScreenState extends State<HangulScreen>
   }
 
   Future<void> _finishWriting(HangulWritingResult result) async {
+    if (result.letters > 0) {
+      LearningJourneyObserver.beginAttempt()?.complete();
+    }
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'writing');
     _abandonTracker.markCompleted();

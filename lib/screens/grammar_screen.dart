@@ -1,3 +1,4 @@
+import '../services/learning_journey.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -1214,11 +1215,14 @@ class _GrammarScreenState extends State<GrammarScreen>
     _checkpointSheetRefreshes[pending.target.id]?.call();
     try {
       final recorder = widget.checkpointRecorder;
-      if (recorder == null) {
-        await pending.courseAttempt.save();
-      } else {
-        await recorder(pending.legacyAttempt);
-      }
+      final persistence = recorder == null
+          ? pending.courseAttempt.save()
+          : recorder(pending.legacyAttempt);
+      await trackLearningPersistence(
+        LearningJourneyObserver.beginAttempt(),
+        persistence,
+        passed: pending.question.isCorrect(pending.answerId),
+      );
       if (!_grammarCheckpointIsCurrent(pending)) {
         _expireGrammarCheckpointIfCurrent(pending);
         return;
@@ -1292,6 +1296,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _finishSession() async {
     if (_sessionSeen.isEmpty) return;
     _recordSessionCompleted();
+    LearningJourneyObserver.beginAttempt()?.complete();
     final t = AppL10n.of(context);
     final completion = _feedbackCompletion.complete(
       () => FeedbackCompletion.grammarSession(

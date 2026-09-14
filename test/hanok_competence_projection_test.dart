@@ -13,6 +13,22 @@ CourseUnit _unit(String id, String level, int order) =>
     CourseUnit(id: id, level: level, order: order, title: _text, canDo: _text);
 
 void main() {
+  test(
+    'honest read propagates corrupt progress while legacy API remains compatible',
+    () async {
+      Future<CurriculumCatalog> broken() async =>
+          throw const FormatException('corrupt progress');
+      await expectLater(
+        HanokCompetenceProjectionService.readCurrent(catalogLoader: broken),
+        throwsFormatException,
+      );
+      final legacy = await HanokCompetenceProjectionService.loadCurrent(
+        catalogLoader: broken,
+      );
+      expect(legacy.completedUnitCount, 0);
+    },
+  );
+
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
@@ -43,8 +59,33 @@ void main() {
       expect(projection.totalUnitCount, 4);
       expect(projection.a1Ratio, .25);
       expect(projection.stage, HanokStage.foundation);
+      expect(projection.sarangchaeConstructionStage, 1);
     },
   );
+
+  test('Sarangchae projection clamps at 16 and ignores replay or bypass', () {
+    final units = [
+      for (var index = 1; index <= 20; index++) _unit('a1_$index', 'a1', index),
+    ];
+    final projection = HanokCompetenceProjection.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        completedUnitIds: [
+          for (var index = 1; index <= 20; index++) 'a1_$index',
+          'a1_01',
+          'unknown',
+        ],
+        bypassedPrerequisiteUnitIds: const ['a1_19', 'a1_20'],
+      ),
+      courseUnits: units,
+    );
+
+    expect(projection.completedUnitCount, 18);
+    expect(projection.sarangchaeConstructionStage, 16);
+    expect(
+      const HanokCompetenceProjection.empty().sarangchaeConstructionStage,
+      0,
+    );
+  });
 
   test('a completed course path raises structure from competence alone', () {
     final units = [

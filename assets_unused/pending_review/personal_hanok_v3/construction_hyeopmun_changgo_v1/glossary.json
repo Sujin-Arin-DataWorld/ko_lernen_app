@@ -1,0 +1,209 @@
+[
+  {
+    "term": "초석",
+    "label": {
+      "ko": "초석",
+      "en": "Post base",
+      "de": "Pfostenstein"
+    },
+    "explanation": {
+      "ko": "기둥 아래에서 기둥을 받치는 돌이에요.",
+      "en": "A stone supporting the foot of a post.",
+      "de": "Ein Stein, der den Fuß eines Pfostens trägt."
+    },
+    "stageIds": [
+      "hyeopmun-foundation",
+      "changgo-foundation",
+      "changgo-posts"
+    ],
+    "sourceRefs": [
+      "hyeopmun_detail",
+      "changgo_section_cross"
+    ]
+  },
+  {
+    "term": "기단",
+    "label": {
+      "ko": "기단",
+      "en": "Raised base",
+      "de": "Sockel"
+    },
+    "explanation": {
+      "ko": "건물 아래에 마련한 받침 부분이에요. 창고 정본에서는 낮고 길게 보여요.",
+      "en": "The raised base beneath the building; it is long and low in the storehouse reference.",
+      "de": "Der Sockel unter dem Gebäude; beim Lagerhaus ist er lang und niedrig."
+    },
+    "stageIds": [
+      "changgo-foundation"
+    ],
+    "sourceRefs": [
+      "changgo_front",
+      "changgo_right"
+    ]
+  },
+  {
+    "term": "보",
+    "label": {
+      "ko": "보",
+      "en": "Beam",
+      "de": "Balken"
+    },
+    "explanation": {
+      "ko": "기둥 위를 가로질러 연결하고 위의 구조를 받치는 나무예요.",
+      "en": "A horizontal timber connecting posts and supporting the structure above.",
+      "de": "Ein waagerechtes Holz, das Pfosten verbindet und die Konstruktion darüber trägt."
+    },
+    "stageIds": [
+      "hyeopmun-frame",
+      "changgo-beams"
+    ],
+    "sourceRefs": [
+      "hyeopmun_detail",
+      "changgo_section_cross"
+    ]
+  },
+  {
+    "term": "도리",
+    "label": {
+      "ko": "도리",
+      "en": "Purlin",
+      "de": "Pfette"
+    },
+    "explanation": {
+      "ko": "지붕의 긴 방향으로 이어지며 서까래를 받치는 나무예요.",
+      "en": "A timber running lengthwise along the roof to support the rafters.",
+      "de": "Ein längs durch das Dach verlaufendes Holz, das die Sparren trägt."
+    },
+    "stageIds": [
+      "hyeopmun-rafters",
+      "changgo-beams"
+    ],
+    "sourceRefs": [
+      "hyeopmun_detail",
+      "changgo_section_long"
+    ]
+  },
+  {
+    "term": "서까래",
+    "label": {
+      "ko": "서까래",
+      "en": "Rafter",
+      "de": "Sparren"
+    },
+    "explanation": {
+      "ko": "지붕의 경사를 따라 놓이는 나무예요. 처마 쪽으로 이어져요.",
+      "en": "A timber following the roof slope towards the eaves.",
+      "de": "Ein Holz entlang der Dachneigung, das zur Traufe führt."
+    },
+    "stageIds": [
+      "hyeopmun-rafters",
+      "changgo-rafters"
+    ],
+    "sourceRefs": [
+      "changgo_section_cross",
+      "AURI-roof"
+    ]
+  },
+  {
+    "term": "바탕널",
+    "label": {
+      "ko": "바탕널",
+      "en": "Roof boarding",
+      "de": "Dachschalung"
+    },
+    "explanation": {
+      "ko": "서까래 위에 놓아 그 위의 지붕 바탕을 받치는 널이에요.",
+      "en": "Boards above the rafters that support the roof bedding.",
+      "de": "Bretter über den Sparren, die die Dachunterlage tragen."
+    },
+    "stageIds": [
+      "hyeopmun-rafters",
+      "changgo-rafters"
+    ],
+    "sourceRefs": [
+      "AURI-roof"
+    ]
+  },
+  {
+    "term": "보토",
+    "label": {
+      "ko": "보토",
+      "en": "Earth bedding",
+      "de": "Erdschicht im Dach"
+    },
+    "explanation": {
+      "ko": "지붕 바탕에 까는 흙이에요. 그림에서는 기와를 얹기 전의 층을 관찰해요.",
+      "en": "Earth laid in the roof bedding, visible here before the tiles are added.",
+      "de": "Erde in der Dachunterlage, hier vor dem Auflegen der Ziegel sichtbar."
+    },
+    "stageIds": [
+      "hyeopmun-roof-bed",
+      "changgo-roof-bed"
+    ],
+    "sourceRefs": [
+      "AURI-roof"
+    ]
+  },
+  {
+    "term": "용마루",
+    "label": {
+      "ko": "용마루",
+      "en": "Roof ridge",
+      "de": "Dachfirst"
+    },
+    "explanation": {
+      "ko": "지붕의 두 경사면이 가장 높이 만나는 부분이에요.",
+      "en": "The highest line where the two roof slopes meet.",
+      "de": "Die oberste Linie, an der sich die beiden Dachflächen treffen."
+    },
+    "stageIds": [
+      "hyeopmun-roof-tiles",
+      "changgo-roof-tiles"
+    ],
+    "sourceRefs": [
+      "hyeopmun_detail",
+      "changgo_front"
+    ]
+  },
+  {
+    "term": "판문",
+    "label": {
+      "ko": "판문",
+      "en": "Plank door",
+      "de": "Brettertür"
+    },
+    "explanation": {
+      "ko": "나무 판을 이어 만든 문이에요. 완성 단계에서 열고 닫는 부분을 찾아보세요.",
+      "en": "A door made with timber boards. Find the part that opens and closes.",
+      "de": "Eine Tür aus Holzbrettern. Suche den Teil, der sich öffnen und schließen lässt."
+    },
+    "stageIds": [
+      "hyeopmun-complete",
+      "changgo-complete"
+    ],
+    "sourceRefs": [
+      "hyeopmun_detail",
+      "changgo_front"
+    ]
+  },
+  {
+    "term": "칸",
+    "label": {
+      "ko": "칸",
+      "en": "Structural bay",
+      "de": "Gebäudefeld"
+    },
+    "explanation": {
+      "ko": "여기서는 기둥 사이의 구조 단위를 뜻해요. 한 칸이 반드시 방 하나는 아니에요.",
+      "en": "Here, a structural space between post axes. One bay does not necessarily mean one room.",
+      "de": "Hier ein konstruktives Feld zwischen Pfostenachsen. Ein Feld ist nicht zwangsläufig ein Raum."
+    },
+    "stageIds": [
+      "changgo-posts",
+      "changgo-walls"
+    ],
+    "sourceRefs": [
+      "changgo_plan"
+    ]
+  }
+]

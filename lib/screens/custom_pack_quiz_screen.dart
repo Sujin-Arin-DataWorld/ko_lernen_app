@@ -490,10 +490,12 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         liveRegion: true,
         label: '${t.quizResultTitle}. ${t.quizScore(_score, _order.length)}',
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_score, _order.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _score * 4,
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_quiz')),

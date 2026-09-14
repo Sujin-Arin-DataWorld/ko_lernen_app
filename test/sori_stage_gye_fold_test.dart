@@ -13,48 +13,11 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/avatar.dart';
 import 'package:ko_lernen_app/widgets/sori/stepper.dart';
-import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
 
 import 'support/real_fonts.dart';
 
-// §W-G G5.1 locks the Gye tab's new sliver promise (mirrors
-// `sori_stage_hanok_fold_test.dart`, §W-F F4): header, stepper, and the
-// empty-state poster + CTA (or, once a gye exists, the first gye card) are
-// all reachable at a common phone size without the old fixed-chrome
-// `SoriStageSafeViewport` swallowing the fold.
-//
-// §W-F3 root cause applies here too: without a real font, `flutter_test`'s
-// default binding renders every glyph as a fixed 1em-wide square, inflating
-// measured header/stepper height 2-3x and making the fold look impossibly
-// tight. `loadSoriRealFonts()` loads the real Paperlogy/MaruBuri faces so
-// this test measures what a device actually shows.
-//
-// Real-font budget at 390×844dp·de (§W-G, measured via `tester.getRect`,
-// `tester.view.physicalSize = Size(390, 844)`, `devicePixelRatio = 1`):
-//
-// Empty state (`loadGyeMetas: () async => const []`):
-//   header (eyebrow + hero title, top padding 20)        20.0  -> 118.0  (98dp)
-//   gap (Spacing.xl)                                      118.0 -> 142.0  (24dp)
-//   stepper (SliverPadding bottom: Spacing.lg)             142.0 -> 204.0  (62dp)
-//   poster (`gye-showcase-artwork`, AspectRatio 393/220)   224.0 -> 419.9
-//   CTA ("+ Gye erstellen")                                706.9 -> 728.9
-//   -> fold budget = 844-80 = 764; every measured bottom above (118.0,
-//      204.0, 419.9, 728.9) clears it with margin to spare — the CTA alone
-//      has 35.1dp headroom, the tightest of the four.
-//
-// 1-gye state (`loadGyeMetas` resolves one `GyeMeta`):
-//   header + stepper, identical to the empty state         20.0 -> 204.0
-//   first gye card ("gye-card-<id>")                       299.0 -> 520.1
-//   -> fold - 24 = 740; the card's top (299.0) clears this by 441dp — a
-//      single short card fits with room left over, it does not merely
-//      "peek" the way Hanok's first place card does (§W-F F4's 124.5dp
-//      margin was already generous; a lone gye card leaves even more).
-//
-// The 600dp-scroll test below needs more than one gye — one gye's total
-// content is shorter than the 844dp viewport (`maxScrollExtent == 0`, a
-// drag moves nothing), so it loads 5 to give the `CustomScrollView`
-// something to actually scroll before asserting the collapsed chrome bar.
+// Compact root prioritizes a real group goal or the optional entry action.
 const _bottomTabReserve = 80.0;
 const _viewportSize = Size(390, 844);
 
@@ -140,16 +103,16 @@ void main() {
       // for SoriUpdatingScene while compound-map art is retired — same
       // fold slot, different widget/key.
       final poster = kHanokWorldUpdating
-          ? find.byType(SoriUpdatingScene)
+          ? find.byKey(const ValueKey('gye-current-preview'))
           : find.byKey(const ValueKey('gye-showcase-artwork'));
       final cta = find.text(t.gyeFindOrCreate);
 
       expect(header, findsOneWidget);
-      expect(stepper, findsOneWidget);
+      expect(stepper, findsNothing);
       expect(poster, findsOneWidget);
       expect(cta, findsOneWidget, reason: 'CTA는 스크롤 없이 첫 화면에서 빌드돼야 한다');
 
-      for (final finder in [header, stepper, poster, cta]) {
+      for (final finder in [header, poster, cta]) {
         final rect = tester.getRect(finder);
         expect(
           rect.bottom,
@@ -194,14 +157,14 @@ void main() {
       final firstCard = find.byKey(const ValueKey('gye-card-g1'));
 
       expect(header, findsOneWidget);
-      expect(stepper, findsOneWidget);
+      expect(stepper, findsNothing);
       expect(
         firstCard,
         findsOneWidget,
         reason: '첫 계 카드는 스크롤 없이 첫 화면에서 빌드돼야 한다',
       );
 
-      for (final finder in [header, stepper]) {
+      for (final finder in [header]) {
         final rect = tester.getRect(finder);
         expect(
           rect.bottom,
@@ -218,31 +181,7 @@ void main() {
             'the fold $fold',
       );
 
-      // §W-G2 item 1: 목표 달성 계가 있으면 스텝퍼 step 1(아이콘
-      // `light_mode_rounded`)만 `SoriColors.primary`, step 0(`flag_outlined`)
-      // 은 muted — 데이터에서 파생된 현재 단계가 실제로 강조되는지 확인.
-      final step0Icon = tester.widget<Icon>(
-        find.descendant(
-          of: find.byKey(const ValueKey('sori-stepper-step-0')),
-          matching: find.byIcon(Icons.flag_outlined),
-        ),
-      );
-      final step1Icon = tester.widget<Icon>(
-        find.descendant(
-          of: find.byKey(const ValueKey('sori-stepper-step-1')),
-          matching: find.byIcon(Icons.light_mode_rounded),
-        ),
-      );
-      expect(
-        step1Icon.color,
-        SoriColors.primary,
-        reason: 'step 1 should be highlighted once the weekly goal is met',
-      );
-      expect(
-        step0Icon.color,
-        isNot(SoriColors.primary),
-        reason: 'step 0 should stay muted once step 1 is current',
-      );
+      expect(find.text('5 / 5'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
@@ -307,10 +246,13 @@ void main() {
 
     // skipOffstage:false — at 1.6x text scale these can legitimately sit
     // beyond the fold; this test only asserts they exist and nothing threw.
-    expect(find.byType(SoriStepper, skipOffstage: false), findsOneWidget);
+    expect(find.byType(SoriStepper, skipOffstage: false), findsNothing);
     expect(
       kHanokWorldUpdating
-          ? find.byType(SoriUpdatingScene, skipOffstage: false)
+          ? find.byKey(
+              const ValueKey('gye-current-preview'),
+              skipOffstage: false,
+            )
           : find.byKey(
               const ValueKey('gye-showcase-artwork'),
               skipOffstage: false,

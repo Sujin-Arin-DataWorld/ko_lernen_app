@@ -1,0 +1,152 @@
+import 'package:flutter/material.dart';
+
+import '../../l10n/generated/app_localizations.dart';
+import '../../models/sori_stage_progression.dart';
+import 'activity_illustration.dart';
+import 'button.dart';
+import 'card.dart';
+import 'localized_copy.dart';
+import 'tokens.dart';
+
+/// Featured catalog activity. The original artwork always keeps its 4:3 frame.
+/// This is deliberately separate from pack and listening card layouts.
+class SoriActivityFeatureCard extends StatelessWidget {
+  const SoriActivityFeatureCard({
+    super.key,
+    required this.entry,
+    required this.onStart,
+    required this.onDetails,
+    this.status,
+    this.eyebrow,
+  });
+
+  final ActivityCatalogEntry entry;
+  final VoidCallback onStart;
+  final VoidCallback onDetails;
+  final Widget? status;
+  final String? eyebrow;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
+    final title = localCopy(context, entry.title);
+    final art = ClipRRect(
+      borderRadius: SoriRadius.brMd,
+      child: AspectRatio(
+        aspectRatio: 4 / 3,
+        child: Image.asset(
+          activityIllustrationAsset(entry.id),
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => Center(
+            child: Text(t.soriStageArtUnavailable, style: tt.bodySmall),
+          ),
+        ),
+      ),
+    );
+    final copy = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: tt.h3),
+        const SizedBox(height: Spacing.xs),
+        Text(activitySummary(t, entry), style: tt.bodySmall),
+        const SizedBox(height: Spacing.xs),
+        Text(t.soriStageMinutes(entry.minutes), style: tt.bodySmall),
+      ],
+    );
+    return SoriCard(
+      key: ValueKey('activity-feature-${entry.id}'),
+      padding: const EdgeInsets.all(Spacing.md),
+      onTap: onStart,
+      onLongPress: onDetails,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (eyebrow != null) ...[
+            Text(eyebrow!, style: tt.eyebrow),
+            const SizedBox(height: Spacing.sm),
+          ],
+          LayoutBuilder(builder: (context, constraints) {
+            final largeText = MediaQuery.textScalerOf(context).scale(16) >= 25.6;
+            if (largeText && constraints.maxWidth < 500) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(width: 128, child: art),
+                  const SizedBox(height: Spacing.md),
+                  copy,
+                ],
+              );
+            }
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(width: constraints.maxWidth < 310 ? 112 : 128, child: art),
+                const SizedBox(width: Spacing.md),
+                Expanded(child: copy),
+              ],
+            );
+          }),
+          if (status != null) ...[
+            const SizedBox(height: Spacing.sm),
+            status!,
+          ],
+          const SizedBox(height: Spacing.sm),
+          Row(
+            children: [
+              Expanded(
+                child: SoriButton.filled(
+                  key: ValueKey('activity-start-${entry.id}'),
+                  label: t.soriStageMissionStart,
+                  semanticLabel: t.soriStageOpenActivity(title),
+                  size: SoriButtonSize.md,
+                  fullWidth: true,
+                  onTap: onStart,
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              ActivityDetailsButton(entry: entry, onTap: onDetails),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ActivityDetailsButton extends StatelessWidget {
+  const ActivityDetailsButton({super.key, required this.entry, required this.onTap});
+  final ActivityCatalogEntry entry;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return TextButton(
+      key: ValueKey('activity-details-${entry.id}'),
+      style: TextButton.styleFrom(
+        minimumSize: const Size(48, 48),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+        textStyle: SoriTextTheme.of(context).cardSubtitle,
+      ),
+      onPressed: onTap,
+      child: Text(t.soriStageDetailsAction,
+        semanticsLabel: t.soriStageActivityDetails(localCopy(context, entry.title))),
+    );
+  }
+}
+
+String activitySummary(AppL10n t, ActivityCatalogEntry entry) => switch (entry.id) {
+  'vocab_packs' => t.soriStageSummaryVocab,
+  'course' => t.soriStageSummaryCourse,
+  'grammar' => t.soriStageSummaryGrammar,
+  'daily_game' => t.soriStageSummaryDaily,
+  'chosung' => t.soriStageSummaryChosung,
+  'syllable_cross' => t.soriStageSummarySyllable,
+  'cloze' => t.soriStageSummaryCloze,
+  'speed_match' => t.soriStageSummaryPairs,
+  'sentence_arcade' => t.soriStageSummarySentence,
+  'kkeunmari' => t.soriStageSummaryKkeunmari,
+  'custom_practice' => t.soriStageSummaryCustom,
+  _ => entry.description.resolve(t.localeName),
+};

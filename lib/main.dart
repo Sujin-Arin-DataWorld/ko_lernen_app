@@ -1,6 +1,7 @@
 import 'widgets/sori/pack_completion_recovery_banner.dart';
 import 'services/pack_completion_owner.dart';
 import 'services/vocab_pack_finish_coordinator.dart';
+import 'services/learning_journey.dart';
 import 'screens/phase_task_screen.dart';
 import 'dart:async';
 
@@ -102,6 +103,7 @@ import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
 import 'screens/hanok_preview_screen.dart';
+import 'screens/ildu_construction_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
 import 'screens/sarangbang_furnish_screen.dart';
@@ -657,6 +659,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // 디코더를 놓을 수 있다 (route_observer.dart 주석 참조).
         // analyticsRouteObserver: 명명 라우트를 screen_view 로 기록(동의 시에만).
         navigatorObservers: [
+          LearningJourneyObserver.shared,
           soriRouteObserver,
           DiagnosticsRouteObserver(),
           analyticsRouteObserver,
@@ -1183,6 +1186,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/dojangcheop':
               return SoriTransitions.page(
                 (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
+            case '/hanok/construction':
+              return SoriTransitions.page(
+                (_) => const IlDuConstructionScreen(),
                 settings: settings,
               );
             case '/hanok':

@@ -405,10 +405,12 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen>
       padding: EdgeInsets.zero,
       child: SoriCenterClamp(
         child: GameOverCard(
+          outcome: _outcome,
+          rewardReady: _outcome != null,
           headline: t.quizResultTitle,
           scoreLabel: t.quizScore(_passed, _round.length),
           feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _outcome?.xpGained ?? (_passed * 5),
+          xpGained: _outcome?.xpGained ?? 0,
           isNewBest: _outcome?.isNewBest ?? false,
           newBestLabel: t.gameNewBest,
           bestLabel: t.gameBestAccuracy(_outcome?.best ?? 0),

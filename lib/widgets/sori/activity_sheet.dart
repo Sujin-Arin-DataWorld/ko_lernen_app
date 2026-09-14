@@ -68,17 +68,14 @@ class _ActivitySheetContent extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(SoriRadius.lg),
               child: AspectRatio(
-                aspectRatio: 16 / 10,
+                aspectRatio: 4 / 3,
                 child: Image.asset(
                   activityIllustrationAsset(entry.id),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   errorBuilder: (_, __, ___) => Container(
                     color: color.withValues(alpha: 0.08),
                     child: Center(
-                      child: ActivityIconFallback(
-                        iconName: entry.iconName,
-                        colorRole: entry.colorRole,
-                      ),
+                      child: Text(t.catalogImageUnavailable, style: tt.body),
                     ),
                   ),
                 ),
