@@ -3,6 +3,7 @@ import 'dart:async';
 import '../config/tester_feedback_feature.dart';
 import '../models/content_feedback.dart';
 import 'content_feedback_service.dart';
+import 'diagnostics_service.dart';
 
 typedef ContentFeedbackServiceFactory = ContentFeedbackService Function();
 typedef ContentFeedbackIdentityReader =
@@ -96,9 +97,16 @@ class ContentFeedbackLifecycle implements FeedbackOutbox {
         !identical(_current, oldService)) {
       try {
         await replacement.closeAndDiscard();
-      } catch (_) {
+      } catch (error, stackTrace) {
         // It was never published, so its failed best-effort clear cannot make
         // it reachable by any feedback entrypoint.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'content_feedback_lifecycle.discard_unpublished_replacement',
+            error,
+            stackTrace,
+          ),
+        );
       }
       return false;
     }

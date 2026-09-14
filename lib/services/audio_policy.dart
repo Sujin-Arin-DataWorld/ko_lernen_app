@@ -4,6 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 
 import 'storage_service.dart';
+import 'diagnostics_service.dart';
 
 /// 소리 카테고리 — 실제 존재하는 소스에서만 뽑았다 (ADR-002 §3-1).
 /// 없는 소리를 위한 카테고리는 만들지 않는다.
@@ -244,8 +245,15 @@ class AudioPolicy extends ChangeNotifier {
                 ),
         ),
       );
-    } catch (_) {
+    } catch (error, stackTrace) {
       // best-effort — 플랫폼 미지원 시 기존 기본값으로 동작.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'audio_policy.apply_platform_audio_context',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 

@@ -6,6 +6,8 @@ import 'decoration_reward_service.dart';
 import 'gye_service.dart';
 import 'gye_member_quest_service.dart';
 import 'storage_service.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 /// Phase 4 (stately-rising-jongga) — Quest-Progress Computation.
 ///
@@ -113,16 +115,30 @@ class QuestTracker {
           await GyeService.broadcastFeed(GyeFeedType.questCompleted, {
             'questId': p.questId,
           });
-        } catch (_) {
+        } catch (error, stackTrace) {
           // 보상은 이미 지급됨 — 소셜 broadcast 실패는 무시.
+          unawaited(
+            DiagnosticsService.reportSwallowed(
+              'quest_tracker.persist_completions_broadcast',
+              error,
+              stackTrace,
+            ),
+          );
         }
       }
     }
     // 2픽: 레벨업도 계 피드에 동기화 (순환 회피 — 여기서 pull) — best-effort.
     try {
       await GyeService.syncLevelUp();
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 소셜 동기화는 로컬 보상 루프에 필수가 아님.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'quest_tracker.persist_completions_sync_level_up',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -136,8 +152,15 @@ class QuestTracker {
     try {
       final progresses = await computeAll();
       await persistNewCompletions(progresses);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 비차단: 보상 동기화 실패는 절대 UI 로 전파하지 않는다.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'quest_tracker.sync_earned_rewards',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 

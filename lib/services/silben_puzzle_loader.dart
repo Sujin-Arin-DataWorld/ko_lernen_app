@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/silben_puzzle.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 /// Silben-Kreuz 퍼즐 번들 로더 — smalltalk_loader 와 같은 정적 캐시 패턴.
 class SilbenPuzzleLoader {
@@ -26,8 +28,15 @@ class SilbenPuzzleLoader {
       for (final item in entry.value as List) {
         try {
           list.add(SilbenPuzzle.fromJson(item as Map<String, dynamic>));
-        } catch (_) {
+        } catch (error, stackTrace) {
           // 깨진 항목은 건너뛴다 — 생성기 검증이 있으므로 사실상 발생 안 함.
+          unawaited(
+            DiagnosticsService.reportSwallowed(
+              'silben_puzzle_loader.load_item',
+              error,
+              stackTrace,
+            ),
+          );
         }
       }
       out[entry.key] = list;

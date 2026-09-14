@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 
 import 'account_operation_client.dart';
 import '../privacy_consent_service.dart';
+import '../diagnostics_service.dart';
 
 /// 계정 작업 실패 한 건을 가리키는 redacted, 코드 전용 레코드.
 ///
@@ -183,8 +184,15 @@ abstract final class AccountFailureDiagnostics {
             )
             .catchError((_) {}),
       );
-    } catch (_) {
+    } catch (error, stackTrace) {
       // Crashlytics 미초기화 등 — 진단 기록 실패가 계정 흐름을 막으면 안 된다.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'account_failure_diagnostics.default_sink',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 }

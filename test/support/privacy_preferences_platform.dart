@@ -164,4 +164,13 @@ class PrivacyFakeCrash implements CrashConsentClient, DiagnosticsSink {
   }) async {
     calls.add('platform');
   }
+
+  @override
+  Future<void> recordNonFatal(
+    String scope,
+    Object error,
+    StackTrace stackTrace,
+  ) async {
+    calls.add('nonFatal:$scope');
+  }
 }

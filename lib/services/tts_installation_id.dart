@@ -1,6 +1,10 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:uuid/uuid.dart';
 
+import 'dart:async' show unawaited;
+
+import 'diagnostics_service.dart';
+
 abstract interface class TtsInstallationIdStore {
   Future<String?> read();
   Future<void> write(String value);
@@ -73,8 +77,15 @@ class TtsInstallationIdProvider {
       if (stored != null && _uuidV4.hasMatch(stored)) {
         return stored;
       }
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 계정·전체 서버 한도는 유지되므로 세션 UUID로 안전하게 계속한다.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_installation_id.load_or_create_read',
+          error,
+          stackTrace,
+        ),
+      );
     }
 
     final created = _createId();
@@ -85,8 +96,15 @@ class TtsInstallationIdProvider {
     }
     try {
       await _store.write(created);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 현재 프로세스에서는 _cached가 같은 값을 유지한다.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_installation_id.load_or_create_write',
+          error,
+          stackTrace,
+        ),
+      );
     }
     return created;
   }

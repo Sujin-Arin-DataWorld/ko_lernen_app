@@ -29,6 +29,8 @@ import 'bookshelf_service.dart';
 import 'pack_progress_service.dart';
 import 'push_service.dart';
 import 'storage_service.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 @immutable
 class AuthProviderState {
@@ -1946,8 +1948,15 @@ class AccountStartupJournalResolver {
   Future<void> _discardDeletion() async {
     try {
       await discardDeletion?.call();
-    } catch (_) {
+    } catch (error, stackTrace) {
       // Best-effort — a failed discard must never fence a deletion journal.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'auth_service.discard_deletion',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -2202,7 +2211,16 @@ class AuthService {
           preferences.containsKey(
             accountDeletionFeedbackActivationCheckpointPreferenceKey,
           );
-    } catch (_) {
+    } catch (error, stackTrace) {
+      // Fail-closed on purpose: an unreadable check must not let a second
+      // durable journal go unblocked.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'auth_service.has_other_durable_account_journal',
+          error,
+          stackTrace,
+        ),
+      );
       return true;
     }
   }
@@ -2579,8 +2597,15 @@ class AuthService {
     if (name.isEmpty) return;
     try {
       await user.updateDisplayName(name);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // best-effort — Name ist optional.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'auth_service.maybe_set_apple_name',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 

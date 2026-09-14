@@ -22,6 +22,7 @@ import 'tts_canonical_manifest.dart';
 import 'tts_private_cache.dart';
 import 'tts_private_playback.dart';
 import 'tts_public_web_audio.dart';
+import 'diagnostics_service.dart';
 
 export 'tts_cache_key.dart';
 
@@ -260,8 +261,15 @@ class TtsSpeechAudioContext {
     }
     try {
       await setContext(build());
-    } catch (_) {
+    } catch (error, stackTrace) {
       // Best effort. Do not block playback; the next utterance retries.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.reapply_audio_context',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 }
@@ -491,8 +499,15 @@ class TtsPlaybackEngine {
             await platform.stop();
           }
         });
-      } catch (_) {
+      } catch (error, stackTrace) {
         // A failed cleanup must not escape the public bool contract.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.playback_engine_speak_cleanup',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
     return completed;
@@ -504,8 +519,15 @@ class TtsPlaybackEngine {
     _cancellation = null;
     try {
       await _serialize<void>(platform.stop);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // Public stop is best effort and must not leak platform errors.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.playback_engine_stop',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -861,11 +883,20 @@ class TtsService {
       if (audio == null) {
         _prefetchAttempted.remove(key);
       }
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 일시적 실패(시한 초과·오프라인)는 메모에서 뺀다. 예전에는 시도
       // **전에** 기록해서, 한 번 삐끗한 문자열이 그 세션 내내 봉인됐다 —
       // 한글 탭에 들어오자마자 자모 40개를 던지는 화면에서 특히 잘 터졌다.
       _prefetchAttempted.remove(key);
+      // scope 에 원문 텍스트를 넣지 않는다 — 해시만으로 같은 키의 반복
+      // 실패를 세션당 한 번으로 묶는다(재시도 폭주 방지).
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.prefetch key=${key.hashCode}',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -947,7 +978,15 @@ class TtsService {
       // Cold stop/account cleanup must not initialize a native plugin merely
       // to stop it. Playback still creates the shared player on first use.
       await _existingPlayer?.stop();
-    } catch (_) {}
+    } catch (error, stackTrace) {
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.stop_platforms',
+          error,
+          stackTrace,
+        ),
+      );
+    }
   }
 
   /// 0.1 (langsam) … 1.0 (schnell). mp3 재생 속도의 기준값 + 저장.
@@ -1011,8 +1050,15 @@ class TtsService {
         }
       } on TimeoutException {
         // A stalled rootBundle read falls through to the existing cache tiers.
-      } catch (_) {
+      } catch (error, stackTrace) {
         // Missing/corrupt declared bytes must never block disk/network fallback.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.resolve_audio_bundled_bytes',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
 
@@ -1051,16 +1097,30 @@ class TtsService {
           }
           try {
             await file.delete();
-          } catch (_) {
+          } catch (error, stackTrace) {
             // Never return this file. The next lookup still rejects junk bytes.
+            unawaited(
+              DiagnosticsService.reportSwallowed(
+                'tts_service.resolve_audio_delete_junk_file',
+                error,
+                stackTrace,
+              ),
+            );
           }
         }
       } on TimeoutException {
         // 디스크가 막혔다 — Storage 로 넘어간다.
-      } catch (_) {
+      } catch (error, stackTrace) {
         // FileSystemException 등 그 외 I/O 실패(권한·손상 매체 등) —
         // 여기서 던지면 _resolveAudio 전체가 throw 해 Storage/CF 폴백을
         // 건너뛴다(finding 1a). Storage 로 넘어간다.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.resolve_audio_local_cache_io',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
     final cached = _memoryCache[key.localFileName];
@@ -1087,8 +1147,15 @@ class TtsService {
       }
     } on TimeoutException {
       // 느린 회선 — 무한정 붙잡느니 CF 를 시도한다.
-    } catch (_) {
+    } catch (error, stackTrace) {
       // object-not-found / 오프라인 → CF 시도
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.resolve_audio_storage_tier',
+          error,
+          stackTrace,
+        ),
+      );
     }
 
     // A native SDK miss must not hide an available reviewed public object.
@@ -1357,8 +1424,15 @@ class TtsService {
   static Future<void> _touchCacheFile(File file) async {
     try {
       await file.setLastModified(DateTime.now()).timeout(_diskTimeout);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // best-effort — mtime 갱신 실패가 재생을 막으면 안 된다.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.touch_cache_file',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -1418,8 +1492,15 @@ class TtsService {
     } catch (_) {
       try {
         await tmp.delete();
-      } catch (_) {
+      } catch (error, stackTrace) {
         // 임시 파일 정리 실패는 무해하다.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.write_atomically_temp_cleanup',
+            error,
+            stackTrace,
+          ),
+        );
       }
       rethrow;
     }
@@ -1566,8 +1647,15 @@ class TtsService {
   }) async {
     try {
       await clearCacheStrict(cacheDirectory: cacheDirectory);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // best effort
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.clear_cache',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -1670,8 +1758,15 @@ class TtsService {
   }) async {
     try {
       await pruneCacheStrict(directory: directory, maxBytes: maxBytes);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // best effort
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'tts_service.prune_cache_best_effort',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 

@@ -13,6 +13,7 @@ import '../models/sori_stage_progression.dart' show SoriStageTab;
 
 import 'account/account_switch_coordinator.dart' show AccountSwitchJournal;
 import 'account/account_transition_journal.dart';
+import 'diagnostics_service.dart';
 import 'account/cloud_write_session.dart';
 import 'catalog_history_lease.dart';
 import '../models/learner_level.dart';
@@ -6102,8 +6103,15 @@ class Storage {
         if (generation == _catalogHistoryGeneration && lease.isCurrent) {
           catalogHistoryChanges.value++;
         }
-      } catch (_) {
+      } catch (error, stackTrace) {
         // A preference failure must never block an accepted activity launch.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'storage_service.catalog_history_mutation',
+            error,
+            stackTrace,
+          ),
+        );
       } finally {
         if (generation == _catalogHistoryGeneration) {
           _catalogHistoryMutationCount--;

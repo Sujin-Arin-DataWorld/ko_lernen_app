@@ -174,6 +174,7 @@ void main() {
 class _RecordingSink implements DiagnosticsSink {
   final Map<String, String> keys = {};
   final List<String> messages = [];
+  final List<(String, Object, StackTrace)> recordedErrors = [];
 
   @override
   Future<void> log(String message) async => messages.add(message);
@@ -181,6 +182,13 @@ class _RecordingSink implements DiagnosticsSink {
   @override
   Future<void> setCustomKey(String key, String value) async =>
       keys[key] = value;
+
+  @override
+  Future<void> recordNonFatal(
+    String scope,
+    Object error,
+    StackTrace stackTrace,
+  ) async => recordedErrors.add((scope, error, stackTrace));
 }
 
 class _ThrowingSink implements DiagnosticsSink {
@@ -190,4 +198,11 @@ class _ThrowingSink implements DiagnosticsSink {
   @override
   Future<void> setCustomKey(String key, String value) async =>
       throw StateError('sink down');
+
+  @override
+  Future<void> recordNonFatal(
+    String scope,
+    Object error,
+    StackTrace stackTrace,
+  ) async => throw StateError('sink down');
 }

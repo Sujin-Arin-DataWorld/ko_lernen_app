@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'account/cloud_write_session.dart';
+
+import 'diagnostics_service.dart';
 
 typedef FirebaseInitializer = Future<bool> Function();
 typedef StartupStep = Future<void> Function();
@@ -126,8 +130,15 @@ class AppStartupCoordinator {
           await ensureSignedIn();
           try {
             await resumeAccountSwitch();
-          } catch (_) {
+          } catch (error, stackTrace) {
             // Logged inside AuthService.resumePendingAccountSwitch.
+            unawaited(
+              DiagnosticsService.reportSwallowed(
+                'app_startup_coordinator.resume_account_switch',
+                error,
+                stackTrace,
+              ),
+            );
           }
           break;
         case AccountStartupRestorationKind.cloudBackupDeletion:

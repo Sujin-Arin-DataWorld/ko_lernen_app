@@ -8,6 +8,8 @@ import 'package:http/http.dart' as http;
 import '../models/book_page.dart';
 import 'book_analysis_text.dart';
 import 'book_ocr_document.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 /// Phase 5 (stately-rising-jongga) — Cloud Function 클라이언트 + 로컬 fallback.
 ///
@@ -131,8 +133,15 @@ class BookAnalysisService {
           analysisLanguage: language,
         );
       }
-    } catch (_) {
+    } catch (error, stackTrace) {
       // A remote failure must never expose backend details in the app.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'book_analysis_service.analyze_remote',
+          error,
+          stackTrace,
+        ),
+      );
     }
 
     // Local fallback — Grammar-Patterns matchen, Wörter mit Placeholders.
@@ -583,8 +592,15 @@ class BookAnalysisService {
               ),
             );
           }
-        } catch (_) {
+        } catch (error, stackTrace) {
           // bad regex — skip
+          unawaited(
+            DiagnosticsService.reportSwallowed(
+              'book_analysis_service.local_stub_bad_regex',
+              error,
+              stackTrace,
+            ),
+          );
         }
       }
     }
