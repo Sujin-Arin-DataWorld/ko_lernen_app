@@ -5,8 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_hanok_growth_preview.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_practice.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
+
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
@@ -128,31 +127,6 @@ void main() {
         semantics.dispose();
       },
     );
-  }
-
-  for (final (locale, meaning) in const [('de', 'Tür'), ('en', 'door')]) {
-    testWidgets('$locale review keeps 문 paired with $meaning', (tester) async {
-      await tester.pumpWidget(
-        _host(
-          locale,
-          Builder(
-            builder: (context) => OnboardingStoryScreen(
-              copy: onboardingV2Copy(AppL10n.of(context)),
-              pageIndex: 2,
-              onContinue: (_) {},
-              onPrevious: (_) {},
-            ),
-          ),
-          scrollable: false,
-        ),
-      );
-      expect(find.text('문'), findsOneWidget);
-      expect(find.text(meaning), findsNothing);
-      await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-hero')));
-      await tester.pumpAndSettle();
-      expect(find.text(meaning), findsOneWidget);
-      expect(find.text('문'), findsOneWidget);
-    });
   }
 
   testWidgets('Hanok preview preserves 4:3 assets inside a bounded stage', (
@@ -340,111 +314,6 @@ void main() {
     expect(tester.hasRunningAnimations, isFalse);
     expect(tester.takeException(), isNull);
   });
-
-  testWidgets(
-    'leaving the recognition page resets the demonstration and always permits next',
-    (tester) async {
-      var page = 3;
-      late StateSetter update;
-      await tester.pumpWidget(
-        _host(
-          'en',
-          StatefulBuilder(
-            builder: (context, setState) {
-              update = setState;
-              return OnboardingStoryScreen(
-                copy: onboardingV2Copy(AppL10n.of(context)),
-                pageIndex: page,
-                onContinue: (_) => setState(() => page = 4),
-                onPrevious: (_) {},
-              );
-            },
-          ),
-          scrollable: false,
-        ),
-      );
-      await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-next')));
-      await tester.pumpAndSettle();
-      expect(page, 4);
-      update(() => page = 3);
-      await tester.pumpAndSettle();
-      final answer = find.byKey(const ValueKey('onboarding-v2-answer-문'));
-      await tester.ensureVisible(answer);
-      await tester.tap(answer);
-      await tester.pumpAndSettle();
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-answer-correct')),
-        findsOneWidget,
-      );
-      update(() => page = 4);
-      await tester.pumpAndSettle();
-      update(() => page = 3);
-      await tester.pumpAndSettle();
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-answer-correct')),
-        findsNothing,
-      );
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-discover-gift')),
-        findsNothing,
-      );
-    },
-  );
-
-  for (final locale in ['de', 'en']) {
-    testWidgets(
-      '$locale gate preview opens and closes without adding primary scroll at 200%',
-      (tester) async {
-        tester.view.physicalSize = const Size(360, 800);
-        tester.view.devicePixelRatio = 1;
-        addTearDown(tester.view.resetPhysicalSize);
-        addTearDown(tester.view.resetDevicePixelRatio);
-        var continued = false;
-        await tester.pumpWidget(
-          _host(
-            locale,
-            Builder(
-              builder: (context) => OnboardingStoryScreen(
-                copy: onboardingV2Copy(AppL10n.of(context)),
-                pageIndex: 4,
-                onContinue: (_) => continued = true,
-                onPrevious: (_) {},
-              ),
-            ),
-            scrollable: false,
-          ),
-        );
-        final preview = find.byKey(
-          const ValueKey('onboarding-v2-gate-preview'),
-        );
-        await tester.ensureVisible(preview);
-        await tester.pumpAndSettle();
-        expect(
-          find.ancestor(of: preview, matching: find.byType(Scrollable)),
-          findsNothing,
-        );
-        expect(tester.getSize(preview).height, greaterThanOrEqualTo(48));
-        await tester.tap(preview);
-        await tester.pumpAndSettle();
-        final image = tester.widget<Image>(
-          find.byKey(const ValueKey('onboarding-v2-gate-preview-image')),
-        );
-        expect((image.image as AssetImage).assetName, kIlDuV3PreviewAsset);
-        final close = find.byKey(
-          const ValueKey('onboarding-v2-gate-preview-close'),
-        );
-        await tester.ensureVisible(close);
-        await tester.tap(close);
-        await tester.pumpAndSettle();
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-gate-preview-image')),
-          findsNothing,
-        );
-        expect(continued, isFalse);
-        expect(tester.takeException(), isNull);
-      },
-    );
-  }
 }
 
 Widget _host(

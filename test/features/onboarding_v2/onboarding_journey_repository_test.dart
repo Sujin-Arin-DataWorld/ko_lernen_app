@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
@@ -16,7 +17,7 @@ void main() {
     final repository = SharedPreferencesOnboardingJourneyRepository();
     final state = OnboardingJourneyState.initial(DateTime.utc(2026, 8, 26, 12))
         .copyWith(
-          phase: OnboardingPhase.confirmation,
+          phase: OnboardingPhase.companion,
           storyPage: StoryPageId.heritageJourney,
           purposeDraft: OnboardingPurpose.studyWork,
           levelDraft: LearnerLevel.b2,
@@ -48,6 +49,85 @@ void main() {
     final repository = SharedPreferencesOnboardingJourneyRepository();
 
     expect(await repository.load(), isNull);
+  });
+
+  test('schema five persists beginner separately from canonical A1', () async {
+    final repository = SharedPreferencesOnboardingJourneyRepository();
+    final state = OnboardingJourneyState.initial(
+      DateTime.utc(2026, 9, 14),
+    ).copyWith(levelDraft: LearnerLevel.a1, beginnerDraft: true);
+    await repository.save(state);
+    expect(await repository.load(), state);
+    expect((await repository.load())!.purposeDraft, isNull);
+  });
+
+  test(
+    'schema four reorders uncommitted pages without replaying saved gates',
+    () async {
+      for (final phase in OnboardingPhase.values) {
+        final old = OnboardingJourneyState.initial(DateTime.utc(2026, 9, 14))
+            .copyWith(
+              phase: phase,
+              storyPage: StoryPageId.saveAndReview,
+              levelDraft: phase == OnboardingPhase.story
+                  ? null
+                  : LearnerLevel.b2,
+              companionDraft: OnboardingCompanion.joy,
+              commitStage: switch (phase) {
+                OnboardingPhase.committing =>
+                  OnboardingCommitStage.placementVerified,
+                OnboardingPhase.gate ||
+                OnboardingPhase.complete => OnboardingCommitStage.completed,
+                _ => OnboardingCommitStage.none,
+              },
+              startEventSent: true,
+              gateIntroAttempted: phase == OnboardingPhase.complete,
+              gateIntroConsumed: phase == OnboardingPhase.complete,
+              shellEntryEventSent: phase == OnboardingPhase.complete,
+            );
+        final json = old.toJson()..['schemaVersion'] = 4;
+        json.remove('beginnerDraft');
+        SharedPreferences.setMockInitialValues({
+          SharedPreferencesOnboardingJourneyRepository.preferenceKey:
+              jsonEncode(json),
+        });
+        final repository = SharedPreferencesOnboardingJourneyRepository();
+        final migrated = (await repository.load())!;
+        expect(migrated.phase, switch (phase) {
+          OnboardingPhase.story => OnboardingPhase.setup,
+          OnboardingPhase.confirmation => OnboardingPhase.companion,
+          _ => phase,
+        });
+        expect(migrated.commitStage, old.commitStage);
+        expect(migrated.rolloutMode, old.rolloutMode);
+        expect(migrated.startEventSent, old.startEventSent);
+        expect(migrated.gateIntroAttempted, old.gateIntroAttempted);
+        expect(migrated.gateIntroConsumed, old.gateIntroConsumed);
+        expect(migrated.shellEntryEventSent, old.shellEntryEventSent);
+        expect(migrated.beginnerDraft, isFalse);
+        expect(migrated.purposeDraft, isNull);
+        expect(migrated.schemaVersion, 5);
+        expect(await repository.load(), migrated);
+      }
+    },
+  );
+
+  test('an old book cursor includes games before resuming the book page', () {
+    final raw =
+        OnboardingJourneyState.initial(DateTime.utc(2026, 9, 14))
+            .copyWith(
+              phase: OnboardingPhase.story,
+              storyPage: StoryPageId.saveAndReview,
+              levelDraft: LearnerLevel.a2,
+              purposeDraft: OnboardingPurpose.studyWork,
+            )
+            .toJson()
+          ..['schemaVersion'] = 4;
+    final migrated = OnboardingJourneyState.fromJson(raw);
+    expect(migrated.phase, OnboardingPhase.story);
+    expect(migrated.storyPage, StoryPageId.gamesAndRewards);
+    expect(migrated.levelDraft, LearnerLevel.a2);
+    expect(migrated.purposeDraft, OnboardingPurpose.studyWork);
   });
 
   test(
@@ -148,13 +228,13 @@ void main() {
     final state = await repository.load();
 
     expect(state!.rolloutMode, OnboardingRolloutMode.full);
-    expect(state.phase, OnboardingPhase.story);
-    expect(state.storyPage, StoryPageId.saveAndReview);
+    expect(state.phase, OnboardingPhase.setup);
+    expect(state.storyPage, StoryPageId.personalCurriculum);
     final preferences = await SharedPreferences.getInstance();
     final migrated = preferences.getString(
       SharedPreferencesOnboardingJourneyRepository.preferenceKey,
     );
-    expect(migrated, contains('"schemaVersion":4'));
+    expect(migrated, contains('"schemaVersion":5'));
     expect(migrated, contains('"rolloutMode":"full"'));
     expect(migrated, contains('"startEventSent":true'));
   });
@@ -172,12 +252,12 @@ void main() {
     final state = await repository.load();
 
     expect(state!.rolloutMode, OnboardingRolloutMode.minimalSafe);
-    expect(state.phase, OnboardingPhase.confirmation);
+    expect(state.phase, OnboardingPhase.companion);
     final preferences = await SharedPreferences.getInstance();
     final migrated = preferences.getString(
       SharedPreferencesOnboardingJourneyRepository.preferenceKey,
     );
-    expect(migrated, contains('"schemaVersion":4'));
+    expect(migrated, contains('"schemaVersion":5'));
     expect(migrated, contains('"rolloutMode":"minimalSafe"'));
     expect(migrated, contains('"startEventSent":true'));
   });

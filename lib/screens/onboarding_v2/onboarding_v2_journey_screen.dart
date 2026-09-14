@@ -21,7 +21,6 @@ import 'onboarding_story_screen.dart';
 import 'onboarding_v2_copy.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
-import 'onboarding_character_media.dart';
 
 /// Connects the pure V2 presentation to the durable first-run coordinator.
 /// No draft changes product data; only the final explicit CTA begins commit.
@@ -51,7 +50,9 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
   bool _busy = false;
   final Stopwatch _journeyStopwatch = Stopwatch();
   final Set<OnboardingPurpose> _pendingPurposes = {};
-  final Set<LearnerLevel> _pendingLevels = {};
+  ({LearnerLevel level, bool beginner})? _levelIntent;
+  int _levelIntentRevision = 0;
+  Future<bool> _levelSave = Future.value(true);
   OnboardingCompanion? _companionIntent;
   int _companionIntentRevision = 0;
   Future<bool> _companionSave = Future.value(true);
@@ -256,13 +257,18 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     }
   }
 
-  Future<void> _commitAndOpenGate() async {
+  Future<void> _commitAndOpenGate({bool fromCompanion = false}) async {
     if (_busy) {
       return;
     }
     setState(() => _busy = true);
     try {
-      final next = await _coordinator.commit();
+      if (fromCompanion && !await _companionSave) {
+        return;
+      }
+      final next = fromCompanion
+          ? await _coordinator.commitFromCompanion()
+          : await _coordinator.commit();
       if (!mounted) {
         return;
       }
@@ -271,7 +277,7 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
         _applyState(next);
         _replace(AppShell(firstRunCoordinator: _coordinator));
       } else {
-        // The durable gate journal is already committed. Keep the confirmation
+        // The durable gate journal is already committed. Keep the companion
         // UI mounted behind the route transition instead of rendering the
         // generic initial-load state. If route replacement is interrupted, the
         // learner retains a usable retry surface and the next launch resolves
@@ -290,30 +296,26 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     }
   }
 
-  Future<void> _commitMinimalFromCompanion() async {
-    if (_busy) {
-      return;
-    }
-    setState(() => _busy = true);
+  Future<bool> _saveLevelIntent(
+    LearnerLevel level, {
+    bool beginner = false,
+  }) async {
+    final revision = ++_levelIntentRevision;
+    setState(() => _levelIntent = (level: level, beginner: beginner));
     try {
-      if (!await _companionSave) {
-        return;
+      final next = await _coordinator.saveLevelDraft(level, beginner: beginner);
+      unawaited(Analytics.onboardingLevelSelectedV2(level));
+      if (mounted) {
+        _applyState(next);
       }
-      final next = await _coordinator.commitFromCompanionMinimal();
-      if (!mounted) {
-        return;
-      }
-      _applyState(next);
-      _recordJourneyDuration();
-      _replace(AppShell(firstRunCoordinator: _coordinator));
-    } on OnboardingPlacementHistoryConflictException {
-      _showPlacementHistoryConflict();
-      await _load();
+      return true;
     } catch (_) {
       _showSaveError();
+      return false;
     } finally {
-      if (mounted) {
-        setState(() => _busy = false);
+      if (mounted && revision == _levelIntentRevision) {
+        _levelSave = Future.value(_state?.levelDraft != null);
+        setState(() => _levelIntent = null);
       }
     }
   }
@@ -348,6 +350,8 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       OnboardingPhase.story => OnboardingStoryScreen(
         copy: copy,
         pageIndex: state.storyPage.index,
+        selectedLevel: state.levelDraft,
+        beginner: state.beginnerDraft,
         onContinue: (id) {
           final page = _storyPageForId(id);
           unawaited(
@@ -369,8 +373,18 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
       OnboardingPhase.setup => OnboardingSetupScreen(
         copy: copy,
         selectedPurposeId: _purposeId(state.purposeDraft),
-        selectedLevelCode: state.levelDraft?.display,
+        selectedLevelCode: (_levelIntent?.level ?? state.levelDraft)?.display,
+        beginnerSelected: _levelIntent?.beginner ?? state.beginnerDraft,
+        onBeginnerSelected: () {
+          if (_busy) {
+            return;
+          }
+          _levelSave = _saveLevelIntent(LearnerLevel.a1, beginner: true);
+        },
         onPurposeChanged: (id) {
+          if (_busy) {
+            return;
+          }
           final purpose = _purposeForId(id);
           if (purpose == state.purposeDraft || !_pendingPurposes.add(purpose)) {
             return;
@@ -385,39 +399,38 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
           );
         },
         onLevelChanged: (code) {
-          final level = LearnerLevel.fromCode(code);
-          if (level == null ||
-              level == state.levelDraft ||
-              !_pendingLevels.add(level)) {
+          if (_busy) {
             return;
           }
-          unawaited(
-            _updateDraft(
-              () => _coordinator.saveLevelDraft(level),
-              onSaved: () =>
-                  unawaited(Analytics.onboardingLevelSelectedV2(level)),
-              onFinished: () => _pendingLevels.remove(level),
-            ),
-          );
+          final level = LearnerLevel.fromCode(code);
+          if (level == null) {
+            return;
+          }
+          _levelSave = _saveLevelIntent(level);
         },
         onContinue: (_) {
-          unawaited(_runTransition(_coordinator.continueFromSetup));
-        },
-        onBack: () {
           unawaited(
-            _runTransition(
-              _coordinator.returnToStoryFromSetup,
-              storyExit: OnboardingStoryExit.previous,
-            ),
+            _runTransition(() async {
+              if (!await _levelSave) {
+                return _state!;
+              }
+              return _coordinator.continueFromSetup();
+            }),
           );
         },
       ),
-      OnboardingPhase.companion => OnboardingCompanionScreen(
+      OnboardingPhase.companion ||
+      OnboardingPhase.confirmation ||
+      OnboardingPhase.committing => OnboardingCompanionScreen(
         copy: copy,
+        mediaEnabled: !_coordinator.usesMinimalSafeFlow,
         selectedCompanionId: _companionId(
           _companionIntent ?? state.companionDraft,
         ),
         onCompanionChanged: (id) {
+          if (_busy) {
+            return;
+          }
           final companion = _companionForId(id);
           if (companion == (_companionIntent ?? _state?.companionDraft)) {
             return;
@@ -425,29 +438,14 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
           _companionSave = _saveCompanionIntent(companion);
         },
         onContinue: (_) {
-          if (_coordinator.usesMinimalSafeFlow) {
-            unawaited(_commitMinimalFromCompanion());
-          } else {
-            unawaited(
-              _runTransition(() async {
-                if (!await _companionSave) {
-                  return _state!;
-                }
-                return _coordinator.continueFromCompanion();
-              }),
-            );
-          }
+          unawaited(
+            _commitAndOpenGate(
+              fromCompanion: state.phase != OnboardingPhase.committing,
+            ),
+          );
         },
-        onBack: () => unawaited(_runTransition(_coordinator.returnToSetup)),
-      ),
-      OnboardingPhase.confirmation ||
-      OnboardingPhase.committing => OnboardingCompanionConfirmationScreen(
-        copy: copy,
-        companionId: _companionId(state.companionDraft)!,
-        previewBuilder: _buildCompanionPreview,
-        onStart: () => unawaited(_commitAndOpenGate()),
-        onChange: () =>
-            unawaited(_runTransition(_coordinator.returnToCompanion)),
+        onBack: () =>
+            unawaited(_runTransition(_coordinator.returnToStoryFromCompanion)),
       ),
       // A durable gate is executable state, never a loading state. This branch
       // is the fail-safe for an injected/restored state that reaches the
@@ -478,23 +476,6 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
             ),
           ),
       ],
-    );
-  }
-
-  Widget _buildCompanionPreview(BuildContext context, String companionId) {
-    return Center(
-      child: OnboardingCharacterMedia(
-        characterId: companionId == OnboardingV2Ids.companionJoy
-            ? 'magpie'
-            : 'tiger',
-        motion: OnboardingCharacterMotion.confirm,
-        size: 320,
-        onFailure: (_, __) => unawaited(
-          _coordinator.recordCompanionPreviewFailure(
-            OnboardingCompanionPreviewFailure.initialization,
-          ),
-        ),
-      ),
     );
   }
 }

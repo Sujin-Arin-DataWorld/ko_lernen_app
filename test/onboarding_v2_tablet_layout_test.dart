@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.d
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 
 import 'support/real_fonts.dart';
 
@@ -107,6 +108,9 @@ void main() {
       await tester.pumpWidget(_app(_CompanionHarness(key: harnessKey)));
       await _pumpFinite(tester);
       final copy = onboardingV2Copy(lookupAppL10n(const Locale('en')));
+      final heading = lookupAppL10n(
+        const Locale('en'),
+      ).onboardingJourneyCompanionTitle;
       final taego = copy.companion.companion(OnboardingV2Ids.companionTaego);
       final joy = copy.companion.companion(OnboardingV2Ids.companionJoy);
       final taegoTile = find.byKey(
@@ -115,13 +119,17 @@ void main() {
       final joyTile = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
 
       expect(
-        tester.getRect(find.text(copy.companion.title)).bottom,
+        tester.getRect(find.text(heading)).bottom,
         lessThan(tester.getRect(taegoTile).top),
         reason: 'The heading must introduce the companion experience.',
       );
       expect(
-        tester.widget<Text>(find.text(copy.companion.title)).textAlign,
-        TextAlign.center,
+        tester
+            .getSemantics(find.text(heading))
+            .getSemanticsData()
+            .flagsCollection
+            .isHeader,
+        isTrue,
       );
       expect(
         tester.getCenter(taegoTile).dx,
@@ -190,6 +198,16 @@ void main() {
       expect(taegoSemantics.flagsCollection.isSelected, Tristate.isFalse);
       expect(joySemantics.flagsCollection.isSelected, Tristate.isTrue);
       expect(joySemantics.flagsCollection.isButton, isTrue);
+      final chosenVideo = tester.widget<CharacterClipPlayer>(
+        find.byType(CharacterClipPlayer),
+      );
+      expect(chosenVideo.asset, CharacterClips.magpieChoose);
+      expect(chosenVideo.loop, isFalse);
+      final idle = tester.widget<OnboardingCharacterMedia>(
+        find.byType(OnboardingCharacterMedia),
+      );
+      expect(idle.characterId, 'tiger');
+      expect(idle.active, isFalse);
 
       final cta = find.byKey(
         const ValueKey('onboarding-v2-companion-continue'),

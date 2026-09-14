@@ -29,6 +29,7 @@ void main() {
     // W10 T-L1: Learn tab's three labeled sections.
     'learn_sections': 'test/sori_stage_learn_sections_test.dart',
     'catalog_test_support': 'test/support/catalog_test_support.dart',
+    'onboarding_learning_start': 'test/onboarding_learning_start_test.dart',
   };
 
   const ceilings = <String, int>{
@@ -55,6 +56,7 @@ void main() {
     'illustrated_card_overflow_guard': 0,
     'learn_sections': 0,
     'catalog_test_support': 0,
+    'onboarding_learning_start': 0,
   };
 
   test(

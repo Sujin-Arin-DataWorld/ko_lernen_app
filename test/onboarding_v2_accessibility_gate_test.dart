@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/features/guide/guide_hub_screen.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
@@ -7,6 +8,7 @@ import 'package:ko_lernen_app/features/guide/guide_topic_detail_screen.dart';
 import 'package:ko_lernen_app/features/study_library/study_library.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/guide_contract.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
@@ -15,6 +17,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.d
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/screens/study_library_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
@@ -42,11 +45,11 @@ void main() {
                 ValueKey('onboarding-v2-story-back'),
               ],
               deepContentKey: switch (pageIndex) {
-                0 => const ValueKey('onboarding-v2-curriculum-sources'),
-                2 => const ValueKey('onboarding-v2-story-status'),
-                3 => const ValueKey('onboarding-v2-reward-catalog'),
-                4 => const ValueKey('onboarding-v2-heritage-sources'),
-                _ => const ValueKey('onboarding-v2-story-hero'),
+                0 => const ValueKey('onboarding-v3-path-0'),
+                2 => const ValueKey('demo-game-0'),
+                3 => const ValueKey('onboarding-v3-book-action'),
+                4 => const ValueKey('onboarding-v3-place-0'),
+                _ => const ValueKey('demo-area-0'),
               },
               build: (copy) => OnboardingStoryScreen(
                 copy: copy,
@@ -61,7 +64,7 @@ void main() {
               ValueKey('onboarding-v2-setup-continue'),
               ValueKey('onboarding-v2-setup-back'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-purpose-details'),
+            deepContentKey: const ValueKey('onboarding-v3-new'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
               selectedPurposeId: null,
@@ -77,7 +80,7 @@ void main() {
               ValueKey('onboarding-v2-setup-continue'),
               ValueKey('onboarding-v2-setup-back'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-level-compare'),
+            deepContentKey: const ValueKey('onboarding-v3-returning'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
               selectedPurposeId: OnboardingV2Ids.purposeKContent,
@@ -93,7 +96,7 @@ void main() {
               ValueKey('onboarding-v2-setup-continue'),
               ValueKey('onboarding-v2-setup-back'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-selected-level'),
+            deepContentKey: const ValueKey('onboarding-v2-level-C2'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
               selectedPurposeId: OnboardingV2Ids.purposeKContent,
@@ -109,9 +112,7 @@ void main() {
               ValueKey('onboarding-v2-companion-continue'),
               ValueKey('onboarding-v2-companion-back'),
             ],
-            deepContentKey: const ValueKey(
-              'onboarding-v2-companion-equal-learning-note',
-            ),
+            deepContentKey: const ValueKey('onboarding-v2-companion-taego'),
             build: (copy) => OnboardingCompanionScreen(
               copy: copy,
               selectedCompanionId: null,
@@ -125,46 +126,12 @@ void main() {
               ValueKey('onboarding-v2-companion-continue'),
               ValueKey('onboarding-v2-companion-back'),
             ],
-            deepContentKey: const ValueKey(
-              'onboarding-v2-companion-equal-learning-note',
-            ),
+            deepContentKey: const ValueKey('onboarding-v2-companion-taego'),
             build: (copy) => OnboardingCompanionScreen(
               copy: copy,
               selectedCompanionId: OnboardingV2Ids.companionJoy,
               onCompanionChanged: (_) {},
               onContinue: (_) {},
-            ),
-          ),
-          (
-            name: 'Taego confirmation',
-            footerActionKeys: const [
-              ValueKey('onboarding-v2-confirmation-start'),
-              ValueKey('onboarding-v2-confirmation-change'),
-            ],
-            deepContentKey: const ValueKey(
-              'onboarding-v2-confirmation-details',
-            ),
-            build: (copy) => OnboardingCompanionConfirmationScreen(
-              copy: copy,
-              companionId: OnboardingV2Ids.companionTaego,
-              onStart: () {},
-              onChange: () {},
-            ),
-          ),
-          (
-            name: 'Joy confirmation',
-            footerActionKeys: const [
-              ValueKey('onboarding-v2-confirmation-start'),
-              ValueKey('onboarding-v2-confirmation-change'),
-            ],
-            deepContentKey: const ValueKey(
-              'onboarding-v2-confirmation-details',
-            ),
-            build: (copy) => OnboardingCompanionConfirmationScreen(
-              copy: copy,
-              companionId: OnboardingV2Ids.companionJoy,
-              onStart: () {},
-              onChange: () {},
             ),
           ),
         ];
@@ -201,7 +168,7 @@ void main() {
                       surface.build(onboardingV2Copy(AppL10n.of(context))),
                 ),
               );
-              await tester.pump();
+              await _pumpFinite(tester);
 
               final evidence =
                   '${surface.name} ${locale.languageCode} '
@@ -212,10 +179,26 @@ void main() {
                 findsNothing,
                 reason: '$evidence primary journey must not scroll',
               );
-              expect(
+              for (final scrollable in tester.stateList<ScrollableState>(
                 find.byType(Scrollable),
-                findsNothing,
-                reason: '$evidence primary journey must fit one viewport',
+              )) {
+                expect(
+                  scrollable.position.maxScrollExtent,
+                  closeTo(0, 0.5),
+                  reason: '$evidence primary journey must fit one viewport',
+                );
+              }
+              final deepContent = find.byKey(surface.deepContentKey);
+              expect(
+                deepContent,
+                findsOneWidget,
+                reason: '$evidence core interaction is unreachable',
+              );
+              _expectInsideSafeViewport(
+                tester,
+                deepContent,
+                viewport.size,
+                reason: evidence,
               );
               final footerActions = surface.footerActionKeys
                   .map(find.byKey)
@@ -267,19 +250,16 @@ void main() {
                   findsOneWidget,
                   reason: '$evidence details did not open a reading sheet',
                 );
+                await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+                await _pumpFinite(tester);
+                expect(find.byType(SoriSheetShell), findsNothing);
               }
-              final deepContent = find.byKey(surface.deepContentKey);
-              expect(
-                deepContent,
-                findsOneWidget,
-                reason: '$evidence secondary details content is unreachable',
-              );
               expect(tester.takeException(), isNull, reason: evidence);
               for (var index = 0; index < footerActions.length; index++) {
                 expect(
                   tester.getRect(footerActions[index]),
                   footerRectsBeforeScroll[index],
-                  reason: '$evidence footer moved before details opened',
+                  reason: '$evidence footer moved after reading details',
                 );
               }
 
@@ -292,102 +272,9 @@ void main() {
     }
 
     testWidgets(
-      'German level comparison keeps its close CTA fixed at 320x640 and 200%',
+      'reduced motion preserves story and the no-media final companion CTA',
       (tester) async {
         _setCompactViewport(tester);
-
-        await tester.pumpWidget(
-          _germanApp(
-            (context) => OnboardingSetupScreen(
-              copy: onboardingV2Copy(AppL10n.of(context)),
-              selectedPurposeId: OnboardingV2Ids.purposeLifeTravel,
-              selectedLevelCode: null,
-              onPurposeChanged: (_) {},
-              onLevelChanged: (_) {},
-              onContinue: (_) {},
-            ),
-          ),
-        );
-        await tester.pump();
-
-        final compareAction = find.byKey(
-          const ValueKey('onboarding-v2-level-compare'),
-        );
-        _expectInsideSafeViewport(
-          tester,
-          compareAction,
-          const Size(320, 640),
-          reason: 'comparison action must fit the single-screen level step',
-        );
-        await tester.tap(compareAction);
-        await _pumpFinite(tester);
-
-        expect(tester.takeException(), isNull);
-        final sheet = find.byType(DraggableScrollableSheet);
-        expect(sheet, findsOneWidget);
-        final list = find.descendant(
-          of: sheet,
-          matching: find.byType(ListView),
-        );
-        expect(list, findsOneWidget);
-        final close = find.byKey(
-          const ValueKey('onboarding-v2-level-compare-close'),
-        );
-        _expectLabeled48DpButton(tester, close);
-        _expectInsideSafeViewport(
-          tester,
-          close,
-          const Size(320, 640),
-          reason: 'German level comparison close CTA',
-        );
-        final closeRectBeforeScroll = tester.getRect(close);
-        final listRect = tester.getRect(list);
-        expect(listRect.bottom, lessThanOrEqualTo(closeRectBeforeScroll.top));
-
-        final finalLevel = find.byKey(
-          const ValueKey('onboarding-v2-level-compare-C2'),
-        );
-        final listScrollable = find.descendant(
-          of: list,
-          matching: find.byType(Scrollable),
-        );
-        expect(listScrollable, findsOneWidget);
-        expect(
-          tester
-              .state<ScrollableState>(listScrollable)
-              .position
-              .maxScrollExtent,
-          greaterThan(0),
-        );
-        await tester.scrollUntilVisible(
-          finalLevel,
-          240,
-          scrollable: listScrollable,
-        );
-        await tester.pump();
-        for (
-          var attempt = 0;
-          attempt < 8 &&
-              tester.getRect(finalLevel).bottom > listRect.bottom + 0.5;
-          attempt++
-        ) {
-          await tester.drag(list, const Offset(0, -300));
-          await _pumpFinite(tester);
-        }
-
-        expect(tester.takeException(), isNull);
-        final finalLevelRect = tester.getRect(finalLevel);
-        expect(finalLevelRect.bottom, lessThanOrEqualTo(listRect.bottom + 0.5));
-        expect(finalLevelRect.bottom, greaterThan(listRect.top));
-        expect(tester.getRect(close), closeRectBeforeScroll);
-      },
-    );
-
-    testWidgets(
-      'reduced motion removes story transition and keeps confirmation usable',
-      (tester) async {
-        _setCompactViewport(tester);
-
         await tester.pumpWidget(
           _germanApp(
             (context) => OnboardingStoryScreen(
@@ -399,7 +286,6 @@ void main() {
           ),
         );
         await tester.pump();
-
         expect(
           tester
               .widgetList<AnimatedSwitcher>(find.byType(AnimatedSwitcher))
@@ -410,53 +296,37 @@ void main() {
           tester,
           find.byKey(const ValueKey('onboarding-v2-story-title')),
         );
-
+        String? started;
         await tester.pumpWidget(
           _germanApp(
-            (context) => OnboardingCompanionConfirmationScreen(
+            (context) => OnboardingCompanionScreen(
               copy: onboardingV2Copy(AppL10n.of(context)),
-              companionId: OnboardingV2Ids.companionJoy,
-              onStart: () {},
-              onChange: () {},
+              selectedCompanionId: OnboardingV2Ids.companionJoy,
+              mediaEnabled: false,
+              onCompanionChanged: (_) {},
+              onContinue: (id) => started = id,
             ),
           ),
         );
         await _pumpFinite(tester);
-
+        expect(find.byType(CharacterClipPlayer), findsNothing);
         expect(
-          find.descendant(
-            of: find.byKey(const ValueKey('onboarding-v2-confirmation-hero')),
-            matching: find.byWidgetPredicate(
-              (widget) =>
-                  widget is RawImage &&
-                  widget.key.toString().contains(
-                    'onboarding-character-animation-',
-                  ),
-            ),
-          ),
-          findsNothing,
+          tester
+              .widgetList<OnboardingCharacterMedia>(
+                find.byType(OnboardingCharacterMedia),
+              )
+              .map((media) => media.active),
+          everyElement(isFalse),
         );
+        final next = find.byKey(
+          const ValueKey('onboarding-v2-companion-continue'),
+        );
+        _expectLabeled48DpButton(tester, next);
+        await tester.tap(next);
+        expect(started, OnboardingV2Ids.companionJoy);
         expect(
-          find.byKey(const ValueKey('onboarding-character-neutral-fallback')),
+          find.byType(OnboardingCompanionConfirmationScreen),
           findsNothing,
-        );
-        final liveHeading = tester
-            .getSemantics(
-              find.byKey(
-                const ValueKey('onboarding-v2-confirmation-live-heading'),
-              ),
-            )
-            .getSemanticsData();
-        expect(liveHeading.flagsCollection.isHeader, isTrue);
-        expect(liveHeading.flagsCollection.isLiveRegion, isTrue);
-        expect(liveHeading.label.trim(), isNotEmpty);
-        _expectLabeled48DpButton(
-          tester,
-          find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
-        );
-        _expectLabeled48DpButton(
-          tester,
-          find.byKey(const ValueKey('onboarding-v2-confirmation-change')),
         );
         expect(tester.takeException(), isNull);
       },

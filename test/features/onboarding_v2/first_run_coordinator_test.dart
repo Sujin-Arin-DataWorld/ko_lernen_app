@@ -46,7 +46,9 @@ void main() {
       gateway: gateway,
     );
 
-    expect((await first.resolveEntry()).entry, FirstRunEntry.story);
+    expect((await first.resolveEntry()).entry, FirstRunEntry.setup);
+    await first.saveLevelDraft(LearnerLevel.a1, beginner: true);
+    await first.continueFromSetup();
     await first.completeStoryPage(StoryPageId.personalCurriculum);
     await first.completeStoryPage(StoryPageId.learn);
 
@@ -58,13 +60,14 @@ void main() {
     final resolution = await relaunched.resolveEntry();
 
     expect(resolution.entry, FirstRunEntry.story);
-    expect(resolution.state!.storyPage, StoryPageId.saveAndReview);
+    expect(resolution.state!.storyPage, StoryPageId.gamesAndRewards);
     expect(resolution.state!.purposeDraft, isNull);
-    expect(resolution.state!.levelDraft, isNull);
+    expect(resolution.state!.levelDraft, LearnerLevel.a1);
+    expect(resolution.state!.beginnerDraft, isTrue);
   });
 
   test(
-    'a current journal without rollout authority restarts the full story',
+    'a current journal without rollout authority restarts level setup',
     () async {
       const raw =
           '{"schemaVersion":4,"phase":"story",'
@@ -87,7 +90,7 @@ void main() {
 
       final resolution = await instance.resolveEntry();
 
-      expect(resolution.entry, FirstRunEntry.story);
+      expect(resolution.entry, FirstRunEntry.setup);
       expect(resolution.state!.storyPage, StoryPageId.personalCurriculum);
       expect(resolution.state!.rolloutMode, OnboardingRolloutMode.full);
       final preferences = await SharedPreferences.getInstance();
@@ -150,8 +153,8 @@ void main() {
         journeyEvents: journeyEvents,
       );
 
-      expect((await instance.resolveEntry()).entry, FirstRunEntry.story);
-      expect((await instance.resolveEntry()).entry, FirstRunEntry.story);
+      expect((await instance.resolveEntry()).entry, FirstRunEntry.setup);
+      expect((await instance.resolveEntry()).entry, FirstRunEntry.setup);
       expect(repository.state!.startEventSent, isTrue);
       expect(journeyEvents.startCalls, 1);
     },
@@ -194,7 +197,9 @@ void main() {
       rolloutModeReader: () => remoteMode,
     );
 
-    expect((await first.resolveEntry()).entry, FirstRunEntry.story);
+    expect((await first.resolveEntry()).entry, FirstRunEntry.setup);
+    await first.saveLevelDraft(LearnerLevel.a2);
+    await first.continueFromSetup();
     await first.completeStoryPage(StoryPageId.personalCurriculum);
     remoteMode = OnboardingRolloutMode.minimalSafe;
 
@@ -454,6 +459,9 @@ void main() {
       await instance.savePurposeDraft(OnboardingPurpose.studyWork);
       await instance.saveLevelDraft(LearnerLevel.c1);
       await instance.continueFromSetup();
+      for (final page in StoryPageId.values) {
+        await instance.completeStoryPage(page);
+      }
       await instance.saveCompanionDraft(OnboardingCompanion.joy);
       await instance.continueFromCompanion();
 
@@ -467,11 +475,11 @@ void main() {
   );
 
   test(
-    'setup back reopens the final story page without discarding drafts',
+    'companion back reopens the final story page without discarding drafts',
     () async {
       final repository = _MemoryJourneyRepository(
         OnboardingJourneyState.initial(now).copyWith(
-          phase: OnboardingPhase.setup,
+          phase: OnboardingPhase.companion,
           storyPage: StoryPageId.heritageJourney,
           purposeDraft: OnboardingPurpose.kContent,
           levelDraft: LearnerLevel.b2,
@@ -490,7 +498,7 @@ void main() {
         gateway: gateway,
       );
 
-      final returned = await instance.returnToStoryFromSetup();
+      final returned = await instance.returnToStoryFromCompanion();
 
       expect(returned.phase, OnboardingPhase.story);
       expect(returned.storyPage, StoryPageId.heritageJourney);
@@ -1060,6 +1068,134 @@ void main() {
     },
   );
 
+  test('seven pages keep drafts local and commit without a purpose', () async {
+    final repository = _MemoryJourneyRepository();
+    final gateway = _CommitGateway()..purpose = OnboardingPurpose.kContent;
+    final legacy = _LegacyReader(
+      const LegacyOnboardingSnapshot(
+        consentAccepted: true,
+        hasCompletedOnboarding: false,
+      ),
+    );
+    final instance = coordinator(
+      repository: repository,
+      legacy: legacy,
+      gateway: gateway,
+    );
+    expect((await instance.resolveEntry()).entry, FirstRunEntry.setup);
+    await expectLater(instance.continueFromSetup(), throwsStateError);
+    await instance.saveLevelDraft(LearnerLevel.a1, beginner: true);
+    await instance.continueFromSetup();
+    final back = await instance.previousStoryPage();
+    expect(back.phase, OnboardingPhase.setup);
+    expect(back.beginnerDraft, isTrue);
+    await instance.saveLevelDraft(LearnerLevel.a1);
+    expect(repository.state!.beginnerDraft, isFalse);
+    await instance.continueFromSetup();
+    expect(StoryPageId.values, [
+      StoryPageId.personalCurriculum,
+      StoryPageId.learn,
+      StoryPageId.gamesAndRewards,
+      StoryPageId.saveAndReview,
+      StoryPageId.heritageJourney,
+    ]);
+    for (final page in StoryPageId.values) {
+      expect(repository.state!.storyPage, page);
+      await instance.completeStoryPage(page);
+    }
+    expect(repository.state!.phase, OnboardingPhase.companion);
+    await instance.saveCompanionDraft(OnboardingCompanion.joy);
+    await instance.returnToStoryFromCompanion();
+    expect(repository.state!.storyPage, StoryPageId.heritageJourney);
+    expect(repository.state!.companionDraft, OnboardingCompanion.joy);
+    await instance.completeStoryPage(StoryPageId.heritageJourney);
+    expect(gateway.purposeWrites, 0);
+    expect(gateway.placementWrites, 0);
+    expect(gateway.companionWrites, 0);
+    expect(gateway.completionWrites, 0);
+
+    final committed = await instance.commitFromCompanion();
+    expect(committed.phase, OnboardingPhase.gate);
+    expect(committed.purposeDraft, isNull);
+    expect(gateway.purpose, OnboardingPurpose.kContent);
+    expect(gateway.purposeWrites, 0);
+    expect(gateway.placementWrites, 1);
+    expect(gateway.companionWrites, 1);
+    expect(gateway.completionWrites, 1);
+    // Duplicate taps and a restart before playback leave one pending gate.
+    expect((await instance.commitFromCompanion()).phase, OnboardingPhase.gate);
+    expect((await instance.resolveEntry()).entry, FirstRunEntry.gate);
+    await instance.markGateAttempted();
+    final restarted = coordinator(
+      repository: repository,
+      legacy: legacy,
+      gateway: gateway,
+    );
+    expect((await restarted.resolveEntry()).entry, FirstRunEntry.appShell);
+    expect((await restarted.consumeGate()).gateIntroConsumed, isTrue);
+    expect(gateway.completionWrites, 1);
+  });
+
+  test('queued companion choices commit the final intent once', () async {
+    final repository = _MemoryJourneyRepository(
+      OnboardingJourneyState.initial(
+        now,
+      ).copyWith(phase: OnboardingPhase.companion, levelDraft: LearnerLevel.b1),
+    );
+    final gateway = _CommitGateway();
+    final instance = coordinator(
+      repository: repository,
+      legacy: _LegacyReader(
+        const LegacyOnboardingSnapshot(
+          consentAccepted: true,
+          hasCompletedOnboarding: false,
+        ),
+      ),
+      gateway: gateway,
+    );
+    final selections = <Future<OnboardingJourneyState>>[];
+    for (var i = 0; i < 30; i++) {
+      selections.add(
+        instance.saveCompanionDraft(
+          i.isEven ? OnboardingCompanion.joy : OnboardingCompanion.taego,
+        ),
+      );
+    }
+    final pendingCommit = instance.commitFromCompanion();
+    await Future.wait(selections);
+    expect((await pendingCommit).phase, OnboardingPhase.gate);
+    expect(gateway.companion, OnboardingCompanion.taego);
+    expect(gateway.companionWrites, 1);
+  });
+
+  test('purposeless minimal final CTA skips story and gate', () async {
+    final repository = _MemoryJourneyRepository();
+    final gateway = _CommitGateway();
+    final instance = coordinator(
+      repository: repository,
+      legacy: _LegacyReader(
+        const LegacyOnboardingSnapshot(
+          consentAccepted: true,
+          hasCompletedOnboarding: false,
+        ),
+      ),
+      gateway: gateway,
+      rolloutMode: OnboardingRolloutMode.minimalSafe,
+    );
+    await instance.resolveEntry();
+    await instance.saveLevelDraft(LearnerLevel.c2);
+    expect(
+      (await instance.continueFromSetup()).phase,
+      OnboardingPhase.companion,
+    );
+    await instance.saveCompanionDraft(OnboardingCompanion.joy);
+    final finalState = await instance.commitFromCompanion();
+    expect(finalState.phase, OnboardingPhase.complete);
+    expect(finalState.gateIntroAttempted, isTrue);
+    expect(finalState.gateIntroConsumed, isTrue);
+    expect(gateway.purposeWrites, 0);
+  });
+
   test(
     'every interrupted durable phase resolves to its exact safe entry',
     () async {
@@ -1073,7 +1209,7 @@ void main() {
         OnboardingPhase.story: FirstRunEntry.story,
         OnboardingPhase.setup: FirstRunEntry.setup,
         OnboardingPhase.companion: FirstRunEntry.companion,
-        OnboardingPhase.confirmation: FirstRunEntry.confirmation,
+        OnboardingPhase.confirmation: FirstRunEntry.companion,
         OnboardingPhase.committing: FirstRunEntry.committing,
         OnboardingPhase.gate: FirstRunEntry.gate,
         OnboardingPhase.complete: FirstRunEntry.appShell,
@@ -1089,7 +1225,7 @@ void main() {
           purposeDraft: phase == OnboardingPhase.story
               ? null
               : OnboardingPurpose.dailyTravel,
-          levelDraft: phase == OnboardingPhase.story ? null : LearnerLevel.a2,
+          levelDraft: LearnerLevel.a2,
           companionDraft:
               phase == OnboardingPhase.story || phase == OnboardingPhase.setup
               ? null

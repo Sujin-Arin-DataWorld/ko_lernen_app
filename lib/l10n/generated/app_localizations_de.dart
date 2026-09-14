@@ -10206,33 +10206,10 @@ class AppL10nDe extends AppL10n {
       'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.';
 
   @override
-  String get onboardingV2RewardDetails => 'Mehr über Belohnungen';
-
-  @override
-  String get onboardingV2CurriculumDetails => 'Lehrplan und Quellen';
-
-  @override
   String get onboardingV2DetailsAction => 'Details';
 
   @override
-  String get onboardingV2ReviewDetails =>
-      'Was du speichern und wiederholen kannst';
-
-  @override
-  String get onboardingV2GatePreviewTitle => '솟을대문 · das große Eingangstor';
-
-  @override
-  String get onboardingV2GatePreviewBody =>
-      '문 bedeutet Tür oder Tor. Hier siehst du das 솟을대문 von Ildu Gotaek; die Reise ist noch in Vorbereitung.';
-
-  @override
-  String get onboardingV2GatePreviewClose => 'Zurück zur Reise';
-
-  @override
   String get onboardingV2GiftOpening => 'Das Bojagi öffnet sich …';
-
-  @override
-  String get onboardingV2DoorMeaning => 'Tür';
 
   @override
   String get onboardingV2DiscoverGift => 'Geschenk entdecken';
@@ -10553,4 +10530,278 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageHanokGifts => 'Geschenke';
+
+  @override
+  String get onboardingDemoUnavailable =>
+      'Dieses Beispiel ist gerade nicht verfügbar.';
+
+  @override
+  String get onboardingDemoPrevious => 'Zurück';
+
+  @override
+  String get onboardingDemoNext => 'Weiter';
+
+  @override
+  String get onboardingDemoReset => 'Neu';
+
+  @override
+  String get onboardingDemoWords => 'Wörter';
+
+  @override
+  String get onboardingDemoCourse => 'Lernweg';
+
+  @override
+  String get onboardingDemoSmalltalk => 'Smalltalk';
+
+  @override
+  String get onboardingDemoScenario => 'Szenario';
+
+  @override
+  String get onboardingDemoListen => 'Hören';
+
+  @override
+  String get onboardingDemoSpeak => 'Sprechen';
+
+  @override
+  String get onboardingDemoRead => 'Lesen';
+
+  @override
+  String get onboardingDemoWrite => 'Schreiben';
+
+  @override
+  String get onboardingDemoAudioUnavailable => 'Ton gerade nicht verfügbar.';
+
+  @override
+  String get onboardingDemoYourTurn => 'Ich bin dran';
+
+  @override
+  String get onboardingDemoListenThenSpeak =>
+      'Erst hören. Dann selbst sprechen.';
+
+  @override
+  String get onboardingDemoModel => 'Vorbild zeigen';
+
+  @override
+  String get onboardingDemoNoRecording => 'Für dich sprechen · ohne Aufnahme';
+
+  @override
+  String get onboardingDemoStop => 'Stopp';
+
+  @override
+  String get onboardingDemoAgain => 'Noch einmal';
+
+  @override
+  String get onboardingDemoKorean => 'Koreanisch';
+
+  @override
+  String get onboardingDemoMeaning => 'Bedeutung';
+
+  @override
+  String get onboardingDemoYourReply => 'Deine Antwort';
+
+  @override
+  String get onboardingDemoPartner => 'Dein Gegenüber';
+
+  @override
+  String get onboardingDemoTrace => 'Mit dem Finger nachzeichnen';
+
+  @override
+  String get onboardingDemoShowMe => 'Strichfolge zeigen';
+
+  @override
+  String get onboardingDemoBag => 'Tasche';
+
+  @override
+  String get onboardingDemoTree => 'Baum';
+
+  @override
+  String get onboardingDemoDad => 'Papa';
+
+  @override
+  String get onboardingDemoDuck => 'Ente';
+
+  @override
+  String get onboardingDemoSound => 'Laut';
+
+  @override
+  String get onboardingDemoWord => 'Wort';
+
+  @override
+  String get onboardingDemoInitials => 'Anlautspiel';
+
+  @override
+  String get onboardingDemoCross => 'Silben-Kreuz';
+
+  @override
+  String get onboardingDemoCloze => 'Lückentext';
+
+  @override
+  String get onboardingDemoPairs => 'Wortpaare';
+
+  @override
+  String get onboardingDemoSentence => 'Satz bauen';
+
+  @override
+  String get onboardingDemoChain => 'Wortkette';
+
+  @override
+  String get onboardingDemoExample => 'Beispiel zeigen';
+
+  @override
+  String get onboardingJourneyStartTitle => 'Dein Koreanisch.\nDein Rhythmus.';
+
+  @override
+  String get onboardingJourneyNew => 'Ich fange neu an';
+
+  @override
+  String get onboardingJourneyNewHint => 'Mit Zeichen und Lauten beginnen.';
+
+  @override
+  String get onboardingJourneyReturning => 'Ich habe schon gelernt';
+
+  @override
+  String get onboardingJourneyReturningHint => 'Bei deinem Können anknüpfen.';
+
+  @override
+  String get onboardingJourneyExperience => 'Deine Erfahrung';
+
+  @override
+  String get onboardingJourneyPathTitle =>
+      'Ein klarer Weg.\nDein nächster Schritt.';
+
+  @override
+  String get onboardingJourneyLettersTitle =>
+      'Zeichen werden\nzu deinen Worten.';
+
+  @override
+  String get onboardingJourneyLearnTitle => 'Aus Verstehen\nwird Sprechen.';
+
+  @override
+  String get onboardingJourneyGamesTitle => 'Spielen gehört\nzum Lernen.';
+
+  @override
+  String get onboardingJourneyBookTitle => 'Dein Buch.\nJetzt zum Mitlernen.';
+
+  @override
+  String get onboardingJourneyHanokTitle =>
+      'Dein Koreanisch wächst.\nDein Hanok lebt.';
+
+  @override
+  String get onboardingJourneyCompanionTitle =>
+      'Ein Lernweg.\nEin Freund an deiner Seite.';
+
+  @override
+  String onboardingJourneyStartWith(String name) {
+    return 'Mit $name beginnen';
+  }
+
+  @override
+  String get onboardingJourneyMethod => 'Der Aufbau';
+
+  @override
+  String get onboardingJourneyMethodBody =>
+      'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 sind unsere Lernstufen, keine offizielle TOPIK-Umrechnung.';
+
+  @override
+  String get onboardingJourneyFromBook => 'Aus deinem Buch';
+
+  @override
+  String get onboardingJourneyPhotoAgain => 'Foto erneut ansehen';
+
+  @override
+  String get onboardingJourneyListen => 'Anhören';
+
+  @override
+  String get onboardingJourneyMeaning => 'Bedeutung';
+
+  @override
+  String get onboardingJourneySamplePage => 'Beispielseite';
+
+  @override
+  String get onboardingJourneyTakePhoto => 'Beispielfoto aufnehmen';
+
+  @override
+  String get onboardingJourneySave => 'Als Lernkarte merken';
+
+  @override
+  String get onboardingJourneySaved => 'In dieser Vorschau gemerkt';
+
+  @override
+  String get onboardingJourneySampleOnly =>
+      'Beispiel · Fotografieren. Anhören. Mitlernen.';
+
+  @override
+  String get onboardingJourneyDoor => 'Die Tür';
+
+  @override
+  String get onboardingJourneyVeranda => 'Erhöhte Veranda';
+
+  @override
+  String get onboardingJourneyBookCaptureShort => 'Foto aufnehmen';
+
+  @override
+  String get onboardingJourneyBookCardShort => 'Als Lernkarte';
+
+  @override
+  String get onboardingJourneyBookSavedShort => 'Vorschaukarte';
+
+  @override
+  String get onboardingJourneyHanokPlacesShort => 'Räume';
+
+  @override
+  String get onboardingJourneyHanokGrowthShort => 'Wachsen';
+
+  @override
+  String get onboardingJourneyHanokHouseShort => 'Haus · 16';
+
+  @override
+  String get onboardingJourneyHanokGateShort => 'Tor · 12';
+
+  @override
+  String get onboardingJourneyHanokPickPlace => 'Raum antippen';
+
+  @override
+  String get onboardingJourneyRoom => 'Das Zimmer';
+
+  @override
+  String get onboardingJourneyPlace => 'Dein Ort';
+
+  @override
+  String get onboardingJourneyGrowth => 'So wächst er';
+
+  @override
+  String get onboardingJourneyFutureStages =>
+      'Die weiteren Bauschritte bleiben eine Überraschung.';
+
+  @override
+  String get onboardingJourneyPeek =>
+      'Ein kleiner Einblick in dein koreanisches Haus.';
+
+  @override
+  String get onboardingJourneyGrowthLink =>
+      'Mit deinen Lernzielen wächst dein Hanok.';
+
+  @override
+  String get onboardingJourneyStartShort => 'Dein Anfang';
+
+  @override
+  String get onboardingJourneyPathShort => 'Dein Lernweg';
+
+  @override
+  String get onboardingJourneyLettersShort => 'Zeichen & Laute';
+
+  @override
+  String get onboardingJourneyLearnShort => 'Deine Worte';
+
+  @override
+  String get onboardingJourneyGamesShort => 'Spielend lernen';
+
+  @override
+  String get onboardingJourneyBookShort => 'Dein Buch';
+
+  @override
+  String get onboardingJourneyHanokShort => 'Dein Hanok';
+
+  @override
+  String get onboardingJourneyCompanionShort => 'Deine Begleitung';
 }

@@ -28,6 +28,7 @@ import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+import 'support/real_fonts.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -53,6 +54,7 @@ typedef _EntryFixture = ({
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {
     TigerStageVideo.videoReady = false;
@@ -181,7 +183,7 @@ void main() {
   ) async {
     final state = OnboardingJourneyState.initial(DateTime.utc(2026, 8, 26, 12))
         .copyWith(
-          phase: OnboardingPhase.confirmation,
+          phase: OnboardingPhase.companion,
           storyPage: StoryPageId.heritageJourney,
           purposeDraft: OnboardingPurpose.dailyTravel,
           levelDraft: LearnerLevel.a1,
@@ -195,7 +197,7 @@ void main() {
       OnboardingV2JourneyScreen(
         firstRunCoordinator: coordinator,
         initialResolution: FirstRunResolution(
-          entry: FirstRunEntry.confirmation,
+          entry: FirstRunEntry.companion,
           state: state,
           migratedLegacyState: false,
         ),
@@ -206,11 +208,11 @@ void main() {
     );
     await _pumpUntilFound(
       tester,
-      find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+      find.byKey(const ValueKey('onboarding-v2-companion-continue')),
     );
 
     await tester.tap(
-      find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+      find.byKey(const ValueKey('onboarding-v2-companion-continue')),
     );
     var reachedGate = false;
     for (var frame = 0; frame < 80; frame++) {
@@ -229,7 +231,7 @@ void main() {
   });
 
   testWidgets(
-    'V2 load failure announces the error and retry recovers into the story',
+    'V2 load failure announces the error and retry recovers into level setup',
     (tester) async {
       final semantics = tester.ensureSemantics();
       final t = lookupAppL10n(const Locale('en'));
@@ -268,15 +270,12 @@ void main() {
       await _tapPointerOwned(tester, retry);
       await _pumpUntilFound(
         tester,
-        find.byKey(const ValueKey('onboarding-v2-story-title')),
+        find.byKey(const ValueKey('onboarding-v3-new')),
       );
 
       expect(error, findsNothing);
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-story-title')),
-        findsOneWidget,
-      );
-      expect(repository.state?.phase, OnboardingPhase.story);
+      expect(find.byKey(const ValueKey('onboarding-v3-new')), findsOneWidget);
+      expect(repository.state?.phase, OnboardingPhase.setup);
       expect(tester.takeException(), isNull);
       await _disposeEntry(tester);
       semantics.dispose();

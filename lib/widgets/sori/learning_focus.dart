@@ -43,6 +43,7 @@ class SoriLearningFocus extends StatelessWidget {
     final title =
         focus?.brief?.unit.title.pick(language) ??
         switch (focus?.today.pick) {
+          HangulIntroPick() => t.screenHangulTitle,
           PackPick(:final pack) => VocabPackService.displayLabel(
             pack.id,
             lang: language,
