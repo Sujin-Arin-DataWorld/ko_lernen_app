@@ -48,8 +48,7 @@ Future<void> tapVisible(WidgetTester tester, String name) async {
   if (key(name).evaluate().isEmpty) {
     await tester.scrollUntilVisible(
       key(name),
-      name == 'ildu-construction-changgo' ||
-              name == 'ildu-construction-hyeopmun'
+      catalog.series.any((series) => name == 'ildu-construction-${series.id}')
           ? -250
           : 250,
       scrollable: find.byType(Scrollable).first,
@@ -71,7 +70,7 @@ void main() {
 
   for (final language in ['en', 'de']) {
     testWidgets(
-      '$language: browse both series to their final with no saved progress',
+      '$language: browse all six series to their final with no saved progress',
       (tester) async {
         tester.view.physicalSize = const Size(800, 1100);
         tester.view.devicePixelRatio = 1;

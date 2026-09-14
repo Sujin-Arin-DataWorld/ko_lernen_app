@@ -1,0 +1,685 @@
+{
+  "schemaVersion": 1,
+  "status": "production_candidate",
+  "camera": {
+    "azimuth": 0,
+    "elevationDegreesAboveGround": 29,
+    "verification": "prompt-target; not a calibrated 3D camera measurement"
+  },
+  "generator": "built-in image_gen",
+  "buildings": [
+    {
+      "id": "jungmunganchae",
+      "name": "중문채",
+      "en": "Jungmunganchae",
+      "de": "Jungmunganchae",
+      "desc": "통행문 · 두 방 · 열린 마루",
+      "steps": [
+        {
+          "id": "site-route",
+          "number": 1,
+          "file": "jungmunganchae/stage_01_site-route.png",
+          "ko": "터와 통행길",
+          "en": "Site and passage",
+          "de": "Bauplatz und Durchgang",
+          "sentence": {
+            "ko": "문은 왼쪽에 있어요.",
+            "en": "The gate is on the left.",
+            "de": "Das Tor ist links."
+          }
+        },
+        {
+          "id": "stone-foundation",
+          "number": 2,
+          "file": "jungmunganchae/stage_02_stone-foundation_v02.png",
+          "ko": "기단과 초석",
+          "en": "Foundation and padstones",
+          "de": "Sockel und Fundamentsteine",
+          "sentence": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          }
+        },
+        {
+          "id": "posts",
+          "number": 3,
+          "file": "jungmunganchae/stage_03_posts_v04.png",
+          "ko": "기둥 세우기",
+          "en": "Raising the posts",
+          "de": "Die Pfosten aufstellen",
+          "sentence": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          }
+        },
+        {
+          "id": "beams-purlins",
+          "number": 4,
+          "file": "jungmunganchae/stage_04_beams-purlins.png",
+          "ko": "보와 도리",
+          "en": "Beams and purlins",
+          "de": "Balken und Pfetten",
+          "sentence": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          }
+        },
+        {
+          "id": "rafters-eaves",
+          "number": 5,
+          "file": "jungmunganchae/stage_05_rafters-eaves.png",
+          "ko": "서까래와 처마",
+          "en": "Rafters and eaves",
+          "de": "Sparren und Dachüberstand",
+          "sentence": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          }
+        },
+        {
+          "id": "roof-bed",
+          "number": 6,
+          "file": "jungmunganchae/stage_06_roof-bed.png",
+          "ko": "지붕 바탕",
+          "en": "Roof underlayers",
+          "de": "Der Dachaufbau",
+          "sentence": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          }
+        },
+        {
+          "id": "tiles",
+          "number": 7,
+          "file": "jungmunganchae/stage_07_tiles.png",
+          "ko": "기와 잇기",
+          "en": "Laying the roof tiles",
+          "de": "Dachziegel verlegen",
+          "sentence": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          }
+        },
+        {
+          "id": "room-walls",
+          "number": 8,
+          "file": "jungmunganchae/stage_08_room-walls.png",
+          "ko": "방의 벽과 구획",
+          "en": "Room walls and divisions",
+          "de": "Wände und Raumaufteilung",
+          "sentence": {
+            "ko": "여기는 방이고, 저기는 마루예요.",
+            "en": "This is a room, and that is the maru.",
+            "de": "Hier ist ein Zimmer, dort der Maru."
+          }
+        },
+        {
+          "id": "ondol-floors",
+          "number": 9,
+          "file": "jungmunganchae/stage_09_ondol-floors.png",
+          "ko": "두 방의 온돌 바닥",
+          "en": "The two ondol floors",
+          "de": "Die beiden Ondol-Böden",
+          "sentence": {
+            "ko": "방바닥을 따뜻하게 만들어요.",
+            "en": "We make the room floors warm.",
+            "de": "Wir sorgen für warme Zimmerböden."
+          }
+        },
+        {
+          "id": "open-maru",
+          "number": 10,
+          "file": "jungmunganchae/stage_10_open-maru.png",
+          "ko": "열린 마루",
+          "en": "The open maru",
+          "de": "Der offene Maru",
+          "sentence": {
+            "ko": "마루에 올라가요.",
+            "en": "We step up onto the maru.",
+            "de": "Wir steigen auf den Maru."
+          }
+        },
+        {
+          "id": "gate-changho",
+          "number": 11,
+          "file": "jungmunganchae/stage_11_gate-changho_v02.png",
+          "ko": "중문과 창호",
+          "en": "Gate, doors and windows",
+          "de": "Tor, Türen und Fenster",
+          "sentence": {
+            "ko": "제가 문을 열게요.",
+            "en": "I will open the door.",
+            "de": "Ich mache die Tür auf."
+          }
+        },
+        {
+          "id": "complete-use",
+          "number": 12,
+          "file": "jungmunganchae/stage_12_complete-use.png",
+          "ko": "한 채의 완성",
+          "en": "The completed building",
+          "de": "Das fertige Gebäude",
+          "sentence": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
+          }
+        }
+      ]
+    },
+    {
+      "id": "araechae",
+      "name": "아래채",
+      "en": "Araechae",
+      "de": "Araechae",
+      "desc": "세 칸 · 마루방 · 온돌방 · 툇마루",
+      "steps": [
+        {
+          "id": "site-rooms",
+          "number": 1,
+          "file": "araechae/stage_01_site-rooms_v02.png",
+          "ko": "터와 방 자리",
+          "en": "Site and rooms",
+          "de": "Bauplatz und Räume",
+          "sentence": {
+            "ko": "여기에 방을 만들어요.",
+            "en": "We will make a room here.",
+            "de": "Hier entsteht ein Zimmer."
+          }
+        },
+        {
+          "id": "stone-foundation",
+          "number": 2,
+          "file": "araechae/stage_02_stone-foundation_v03.png",
+          "ko": "기단과 초석",
+          "en": "Foundation and padstones",
+          "de": "Sockel und Fundamentsteine",
+          "sentence": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          }
+        },
+        {
+          "id": "posts-floor-support",
+          "number": 3,
+          "file": "araechae/stage_03_posts-floor-support_v02.png",
+          "ko": "기둥과 마루 받침",
+          "en": "Posts and floor supports",
+          "de": "Pfosten und Bodenauflager",
+          "sentence": {
+            "ko": "기둥이 위쪽을 받쳐요.",
+            "en": "The posts support the structure above.",
+            "de": "Die Pfosten tragen die Bauteile darüber."
+          }
+        },
+        {
+          "id": "beams-purlins",
+          "number": 4,
+          "file": "araechae/stage_04_beams-purlins.png",
+          "ko": "보와 도리",
+          "en": "Beams and purlins",
+          "de": "Balken und Pfetten",
+          "sentence": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          }
+        },
+        {
+          "id": "rafters-eaves",
+          "number": 5,
+          "file": "araechae/stage_05_rafters-eaves.png",
+          "ko": "서까래와 처마",
+          "en": "Rafters and eaves",
+          "de": "Sparren und Dachüberstand",
+          "sentence": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          }
+        },
+        {
+          "id": "roof-bed",
+          "number": 6,
+          "file": "araechae/stage_06_roof-bed.png",
+          "ko": "지붕 바탕",
+          "en": "Roof underlayers",
+          "de": "Der Dachaufbau",
+          "sentence": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          }
+        },
+        {
+          "id": "tiles",
+          "number": 7,
+          "file": "araechae/stage_07_tiles.png",
+          "ko": "기와 잇기",
+          "en": "Laying the roof tiles",
+          "de": "Dachziegel verlegen",
+          "sentence": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          }
+        },
+        {
+          "id": "room-walls",
+          "number": 8,
+          "file": "araechae/stage_08_room-walls.png",
+          "ko": "방의 벽과 구획",
+          "en": "Room walls and divisions",
+          "de": "Wände und Raumaufteilung",
+          "sentence": {
+            "ko": "여기는 방이고, 저기는 마루예요.",
+            "en": "This is a room, and that is the maru.",
+            "de": "Hier ist ein Zimmer, dort der Maru."
+          }
+        },
+        {
+          "id": "ondol",
+          "number": 9,
+          "file": "araechae/stage_09_ondol.png",
+          "ko": "온돌방 바닥",
+          "en": "Ondol room floors",
+          "de": "Böden mit Ondol-Heizung",
+          "sentence": {
+            "ko": "온돌은 방바닥을 데워요.",
+            "en": "Ondol warms the room floor.",
+            "de": "Die Ondol-Heizung erwärmt den Zimmerboden."
+          }
+        },
+        {
+          "id": "maru",
+          "number": 10,
+          "file": "araechae/stage_10_maru.png",
+          "ko": "마루방과 툇마루",
+          "en": "Maru room and veranda",
+          "de": "Maru-Zimmer und Holzveranda",
+          "sentence": {
+            "ko": "나무 바닥 아래에도 받침이 있어요.",
+            "en": "There are supports beneath the wooden floor too.",
+            "de": "Auch unter dem Holzboden liegen Auflager."
+          }
+        },
+        {
+          "id": "changho",
+          "number": 11,
+          "file": "araechae/stage_11_changho.png",
+          "ko": "문과 창호",
+          "en": "Doors and windows",
+          "de": "Türen und Fenster",
+          "sentence": {
+            "ko": "문을 조금 열어 주세요.",
+            "en": "Please open the door a little.",
+            "de": "Mach bitte die Tür ein Stück auf."
+          }
+        },
+        {
+          "id": "complete-use",
+          "number": 12,
+          "file": "araechae/stage_12_complete-use.png",
+          "ko": "한 채의 완성",
+          "en": "The completed building",
+          "de": "Das fertige Gebäude",
+          "sentence": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
+          }
+        }
+      ]
+    },
+    {
+      "id": "anchae",
+      "name": "안채",
+      "en": "Anchae",
+      "de": "Anchae",
+      "desc": "부엌과 다락 · 온돌방 · 대청",
+      "steps": [
+        {
+          "id": "site-household",
+          "number": 1,
+          "file": "anchae/stage_01_site-household.png",
+          "ko": "터와 생활 공간",
+          "en": "Site and daily life",
+          "de": "Bauplatz und Wohnräume",
+          "sentence": {
+            "ko": "부엌에서 방으로 가요.",
+            "en": "We go from the kitchen to the room.",
+            "de": "Wir gehen von der Küche ins Zimmer."
+          }
+        },
+        {
+          "id": "stone-foundation",
+          "number": 2,
+          "file": "anchae/stage_02_stone-foundation.png",
+          "ko": "기단과 초석",
+          "en": "Foundation and padstones",
+          "de": "Sockel und Fundamentsteine",
+          "sentence": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          }
+        },
+        {
+          "id": "posts",
+          "number": 3,
+          "file": "anchae/stage_03_posts.png",
+          "ko": "기둥 세우기",
+          "en": "Raising the posts",
+          "de": "Die Pfosten aufstellen",
+          "sentence": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          }
+        },
+        {
+          "id": "beams-purlins",
+          "number": 4,
+          "file": "anchae/stage_04_beams-purlins.png",
+          "ko": "보와 도리",
+          "en": "Beams and purlins",
+          "de": "Balken und Pfetten",
+          "sentence": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          }
+        },
+        {
+          "id": "hip-frame",
+          "number": 5,
+          "file": "anchae/stage_05_hip-frame.png",
+          "ko": "추녀와 합각 골격",
+          "en": "Hip and gable framing",
+          "de": "Grat- und Giebelkonstruktion",
+          "sentence": {
+            "ko": "모서리도 단단하게 이어요.",
+            "en": "We join the corners securely too.",
+            "de": "Auch die Ecken verbinden wir stabil."
+          }
+        },
+        {
+          "id": "rafters-eaves",
+          "number": 6,
+          "file": "anchae/stage_06_rafters-eaves.png",
+          "ko": "서까래와 처마",
+          "en": "Rafters and eaves",
+          "de": "Sparren und Dachüberstand",
+          "sentence": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          }
+        },
+        {
+          "id": "roof-bed",
+          "number": 7,
+          "file": "anchae/stage_07_roof-bed_v02.png",
+          "ko": "지붕 바탕",
+          "en": "Roof underlayers",
+          "de": "Der Dachaufbau",
+          "sentence": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          }
+        },
+        {
+          "id": "tiles",
+          "number": 8,
+          "file": "anchae/stage_08_tiles.png",
+          "ko": "기와 잇기",
+          "en": "Laying the roof tiles",
+          "de": "Dachziegel verlegen",
+          "sentence": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          }
+        },
+        {
+          "id": "walls-kitchen",
+          "number": 9,
+          "file": "anchae/stage_09_walls-kitchen.png",
+          "ko": "벽과 부엌",
+          "en": "Walls and kitchen",
+          "de": "Wände und Küche",
+          "sentence": {
+            "ko": "부엌은 아래쪽에 있어요.",
+            "en": "The kitchen is at a lower level.",
+            "de": "Die Küche liegt tiefer."
+          }
+        },
+        {
+          "id": "kitchen-loft",
+          "number": 10,
+          "file": "anchae/stage_10_kitchen-loft.png",
+          "ko": "부엌 위 다락",
+          "en": "Loft over the kitchen",
+          "de": "Der Boden über der Küche",
+          "sentence": {
+            "ko": "다락은 부엌 위에 있어요.",
+            "en": "The loft is above the kitchen.",
+            "de": "Der Dachraum liegt über der Küche."
+          }
+        },
+        {
+          "id": "ondol",
+          "number": 11,
+          "file": "anchae/stage_11_ondol.png",
+          "ko": "온돌방 바닥",
+          "en": "Ondol room floors",
+          "de": "Böden mit Ondol-Heizung",
+          "sentence": {
+            "ko": "온돌은 방바닥을 데워요.",
+            "en": "Ondol warms the room floor.",
+            "de": "Die Ondol-Heizung erwärmt den Zimmerboden."
+          }
+        },
+        {
+          "id": "daecheong-maru",
+          "number": 12,
+          "file": "anchae/stage_12_daecheong-maru.png",
+          "ko": "대청과 앞뒤 마루",
+          "en": "Hall and wooden floors",
+          "de": "Diele und Holzböden",
+          "sentence": {
+            "ko": "대청을 지나 뒤로 가요.",
+            "en": "We walk through the hall to the back.",
+            "de": "Wir gehen durch die Diele nach hinten."
+          }
+        },
+        {
+          "id": "changho",
+          "number": 13,
+          "file": "anchae/stage_13_changho_v02.png",
+          "ko": "문과 창호",
+          "en": "Doors and windows",
+          "de": "Türen und Fenster",
+          "sentence": {
+            "ko": "문을 조금 열어 주세요.",
+            "en": "Please open the door a little.",
+            "de": "Mach bitte die Tür ein Stück auf."
+          }
+        },
+        {
+          "id": "complete-use",
+          "number": 14,
+          "file": "anchae/stage_14_complete-use.png",
+          "ko": "한 채의 완성",
+          "en": "The completed building",
+          "de": "Das fertige Gebäude",
+          "sentence": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
+          }
+        }
+      ]
+    },
+    {
+      "id": "anchae-store",
+      "name": "안채 창고",
+      "en": "Anchae storehouse",
+      "de": "Speicher am Anchae",
+      "desc": "안채곳간채 · 두 보관 공간 · 흙바닥",
+      "steps": [
+        {
+          "id": "site-storage",
+          "number": 1,
+          "file": "anchae-store/stage_01_site-storage.png",
+          "ko": "터와 반입 길",
+          "en": "Site and access",
+          "de": "Bauplatz und Zugang",
+          "sentence": {
+            "ko": "이 길로 물건을 옮겨요.",
+            "en": "We carry things along this path.",
+            "de": "Auf diesem Weg tragen wir Gegenstände."
+          }
+        },
+        {
+          "id": "stone-foundation",
+          "number": 2,
+          "file": "anchae-store/stage_02_stone-foundation.png",
+          "ko": "기단과 초석",
+          "en": "Foundation and padstones",
+          "de": "Sockel und Fundamentsteine",
+          "sentence": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          }
+        },
+        {
+          "id": "posts",
+          "number": 3,
+          "file": "anchae-store/stage_03_posts_v03.png",
+          "ko": "기둥 세우기",
+          "en": "Raising the posts",
+          "de": "Die Pfosten aufstellen",
+          "sentence": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          }
+        },
+        {
+          "id": "beams-purlins",
+          "number": 4,
+          "file": "anchae-store/stage_04_beams-purlins.png",
+          "ko": "보와 도리",
+          "en": "Beams and purlins",
+          "de": "Balken und Pfetten",
+          "sentence": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          }
+        },
+        {
+          "id": "rafters-eaves",
+          "number": 5,
+          "file": "anchae-store/stage_05_rafters-eaves.png",
+          "ko": "서까래와 처마",
+          "en": "Rafters and eaves",
+          "de": "Sparren und Dachüberstand",
+          "sentence": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          }
+        },
+        {
+          "id": "roof-bed",
+          "number": 6,
+          "file": "anchae-store/stage_06_roof-bed.png",
+          "ko": "지붕 바탕",
+          "en": "Roof underlayers",
+          "de": "Der Dachaufbau",
+          "sentence": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          }
+        },
+        {
+          "id": "tiles",
+          "number": 7,
+          "file": "anchae-store/stage_07_tiles.png",
+          "ko": "기와 잇기",
+          "en": "Laying the roof tiles",
+          "de": "Dachziegel verlegen",
+          "sentence": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          }
+        },
+        {
+          "id": "compacted-floor",
+          "number": 8,
+          "file": "anchae-store/stage_08_compacted-floor.png",
+          "ko": "다진 흙바닥",
+          "en": "Compacted earthen floor",
+          "de": "Gestampfter Erdboden",
+          "sentence": {
+            "ko": "여기는 흙바닥으로 만들어요.",
+            "en": "Here we make an earthen floor.",
+            "de": "Hier legen wir einen Erdboden an."
+          }
+        },
+        {
+          "id": "walls-partition",
+          "number": 9,
+          "file": "anchae-store/stage_09_walls-partition_v02.png",
+          "ko": "판벽과 두 보관 공간",
+          "en": "Walls and two storerooms",
+          "de": "Wände und zwei Lagerräume",
+          "sentence": {
+            "ko": "칸막이 양쪽에 공간이 있어요.",
+            "en": "There is space on both sides of the partition.",
+            "de": "Auf beiden Seiten der Trennwand ist Raum."
+          }
+        },
+        {
+          "id": "doors-vents",
+          "number": 10,
+          "file": "anchae-store/stage_10_doors-vents.png",
+          "ko": "널문과 환기구",
+          "en": "Plank doors and vents",
+          "de": "Brettertüren und Lüftungsöffnungen",
+          "sentence": {
+            "ko": "문을 열고 안에 넣어요.",
+            "en": "We open the door and put it inside.",
+            "de": "Wir öffnen die Tür und stellen es hinein."
+          }
+        },
+        {
+          "id": "complete-use",
+          "number": 11,
+          "file": "anchae-store/stage_11_complete-use.png",
+          "ko": "한 채의 완성",
+          "en": "The completed building",
+          "de": "Das fertige Gebäude",
+          "sentence": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "People lived in and used this space.",
+            "de": "Menschen haben hier gelebt und diesen Raum genutzt."
+          }
+        }
+      ]
+    }
+  ]
+}

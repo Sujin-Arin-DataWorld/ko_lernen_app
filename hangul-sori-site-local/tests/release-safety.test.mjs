@@ -1,5 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { execFile } from "node:child_process";
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { pathToFileURL } from "node:url";
+import { promisify } from "node:util";
 import {
   normalizeGitSha,
   validateProductionReleaseIdentity,
@@ -7,6 +13,7 @@ import {
 } from "../scripts/release-id.mjs";
 import {
   createDeployArguments,
+  isReleaseAncestor,
   parseActiveDeployment,
   parseDeployOutput,
   shouldRollback,
@@ -15,6 +22,37 @@ import {
 const releaseSha = "a".repeat(40);
 const oldVersion = "11111111-1111-4111-8111-111111111111";
 const newVersion = "22222222-2222-4222-8222-222222222222";
+
+test("recovers a live ancestor older than 100 commits from a shallow build checkout", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "hanok-release-history-"));
+  const origin = join(directory, "origin");
+  const checkout = join(directory, "checkout");
+  const run = promisify(execFile);
+  const git = async (cwd, ...args) => (await run("git", args, { cwd, windowsHide: true })).stdout.trim();
+  try {
+    await git(directory, "init", "--initial-branch=main", origin);
+    await git(origin, "config", "uploadpack.allowFilter", "true");
+    // Fast-import creates real history in one process on Windows and Linux.
+    const commits = Array.from({ length: 132 }, (_, index) => {
+      const message = `Release ${index}\n`;
+      return `commit refs/heads/main\ncommitter Test <test@example.invalid> ${1700000000 + index} +0000\ndata ${Buffer.byteLength(message)}\n${message}\n`;
+    }).join("") + "done\n";
+    await new Promise((resolveImport, reject) => {
+      const child = execFile("git", ["fast-import", "--quiet"], { cwd: origin, windowsHide: true }, error => error ? reject(error) : resolveImport());
+      child.stdin.end(commits);
+    });
+    const tip = await git(origin, "rev-parse", "HEAD");
+    const live = await git(origin, "rev-parse", "HEAD~131");
+    await git(directory, "clone", "--depth=1", "--branch=main", pathToFileURL(origin).href, checkout);
+    assert.equal(await git(checkout, "rev-parse", "--is-shallow-repository"), "true");
+    assert.equal(await isReleaseAncestor(live, tip, checkout), true);
+    assert.equal(await git(checkout, "rev-parse", "--is-shallow-repository"), "false");
+    assert.equal(await isReleaseAncestor(tip, live, checkout), false, "a rollback is still rejected");
+    assert.equal(await isReleaseAncestor("f".repeat(40), tip, checkout), false, "an unknown release is still rejected");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
 
 test("accepts only full Git SHAs for production releases", () => {
   assert.equal(normalizeGitSha(releaseSha.toUpperCase()), releaseSha);

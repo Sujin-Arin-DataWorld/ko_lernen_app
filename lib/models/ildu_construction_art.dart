@@ -4,6 +4,15 @@ import 'package:flutter/services.dart';
 
 typedef IlDuArtText = Map<String, String>;
 
+const _approvedStageCounts = {
+  'hyeopmun': 6,
+  'changgo': 8,
+  'jungmunganchae': 12,
+  'araechae': 12,
+  'anchae': 14,
+  'anchae-store': 11,
+};
+
 String ilduArtText(IlDuArtText text, String language) =>
     text[language] ?? text['en']!;
 
@@ -27,8 +36,10 @@ final class IlDuConstructionArtCatalog {
       json['series'],
     ).map(IlDuConstructionArtSeries.fromJson).toList(growable: false);
     final ids = series.map((item) => item.id).toSet();
-    if (series.length != 2 || !ids.containsAll(const ['hyeopmun', 'changgo'])) {
-      throw const FormatException('Expected the two approved building series.');
+    if (series.length != _approvedStageCounts.length ||
+        ids.length != _approvedStageCounts.length ||
+        !ids.containsAll(_approvedStageCounts.keys)) {
+      throw const FormatException('Expected all six approved building series.');
     }
     return IlDuConstructionArtCatalog(List.unmodifiable(series));
   }
@@ -50,11 +61,10 @@ final class IlDuConstructionArtSeries {
   factory IlDuConstructionArtSeries.fromJson(Object? value) {
     final json = _object(value);
     final id = _text(json['buildingId']);
-    final count = switch (id) {
-      'hyeopmun' => 6,
-      'changgo' => 8,
-      _ => throw const FormatException('Unknown construction building.'),
-    };
+    final count = _approvedStageCounts[id];
+    if (count == null) {
+      throw const FormatException('Unknown construction building.');
+    }
     final stages = _array(json['stages'])
         .map((stage) => IlDuConstructionArtStage.fromJson(stage, id))
         .toList(growable: false);
@@ -150,7 +160,8 @@ final class IlDuConstructionArtStage {
       if (options.length < 2 || !options.containsKey(correct)) {
         throw const FormatException('Construction answer is missing.');
       }
-    } else if (exercise['kind'] != 'spoken_request_or_suggestion') {
+    } else if (exercise['kind'] != 'spoken_request_or_suggestion' &&
+        exercise['kind'] != 'spoken_description') {
       throw const FormatException('Unsupported construction exercise.');
     }
     return IlDuConstructionArtStage(

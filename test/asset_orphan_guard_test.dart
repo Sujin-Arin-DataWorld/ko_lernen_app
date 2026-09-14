@@ -31,6 +31,14 @@ void main() {
         'assets/illustrations/personal_hanok_v3/construction/',
     'assets/illustrations/personal_hanok_v3/construction/lessons/':
         'assets/illustrations/personal_hanok_v3/construction/',
+    'assets/illustrations/personal_hanok_v3/construction/jungmunganchae/':
+        'assets/illustrations/personal_hanok_v3/construction/',
+    'assets/illustrations/personal_hanok_v3/construction/araechae/':
+        'assets/illustrations/personal_hanok_v3/construction/',
+    'assets/illustrations/personal_hanok_v3/construction/anchae/':
+        'assets/illustrations/personal_hanok_v3/construction/',
+    'assets/illustrations/personal_hanok_v3/construction/anchae-store/':
+        'assets/illustrations/personal_hanok_v3/construction/',
     // SarangchaeConstruction reads the ordered PNG paths from its approved
     // JSON catalog; sarangchae_construction_catalog_test verifies every hash.
     'assets/illustrations/personal_hanok_v3/sarangchae/':
