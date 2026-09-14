@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
+import 'package:flutter/foundation.dart'
+    show debugPrint, kIsWeb, visibleForTesting;
 
 import 'privacy_consent_service.dart';
 
@@ -47,10 +48,19 @@ enum DiagnosticKey {
   schemaVersion,
 }
 
-/// Crashlytics 키/breadcrumb 를 보내는 최소 인터페이스. 테스트에서 대체된다.
+/// Crashlytics 키/breadcrumb/비치명 오류를 보내는 최소 인터페이스. 테스트에서
+/// 대체된다.
 abstract interface class DiagnosticsSink {
   Future<void> log(String message);
   Future<void> setCustomKey(String key, String value);
+
+  /// 무시된(swallowed) 예외를 non-fatal 로 기록한다. [scope] 는 "어디서"를
+  /// 나타내는 고정 문자열이며 Crashlytics `reason` 으로 붙는다.
+  ///
+  /// `CrashConsentClient.recordError` (fatal 플래그가 있는 플랫폼 오류 기록)
+  /// 와는 다른 계약이라 이름을 분리했다 — 두 인터페이스를 함께 구현하는
+  /// 테스트 fake 가 시그니처 충돌 없이 양쪽을 각각 만족할 수 있게 한다.
+  Future<void> recordNonFatal(String scope, Object error, StackTrace stackTrace);
 }
 
 class FirebaseDiagnosticsSink implements DiagnosticsSink {
@@ -62,6 +72,24 @@ class FirebaseDiagnosticsSink implements DiagnosticsSink {
   @override
   Future<void> setCustomKey(String key, String value) =>
       FirebaseCrashlytics.instance.setCustomKey(key, value);
+
+  @override
+  Future<void> recordNonFatal(
+    String scope,
+    Object error,
+    StackTrace stackTrace,
+  ) {
+    if (kIsWeb) {
+      return Future<void>.value();
+    }
+    return FirebaseCrashlytics.instance.recordError(
+      error,
+      stackTrace,
+      reason: scope,
+      fatal: false,
+      printDetails: false,
+    );
+  }
 }
 
 /// 크래시 재현에 필요한 **최소한의 문맥**을 남긴다.
@@ -89,9 +117,17 @@ abstract final class DiagnosticsService {
   /// 않는다(동의가 없으면 애초에 setKey 가 no-op).
   static final Map<DiagnosticKey, String> _lastValues = {};
 
+  /// [reportSwallowed] 가 이번 세션에 이미 Crashlytics 로 보낸 `scope`.
+  /// 재시도 루프가 같은 catch 를 수백 번 지나가도 리포트는 scope 당 한 번뿐이다.
+  static final Set<String> _reportedScopes = <String>{};
+
   @visibleForTesting
   static Map<DiagnosticKey, String> get lastValues =>
       Map.unmodifiable(_lastValues);
+
+  @visibleForTesting
+  static Set<String> get reportedScopesForTesting =>
+      Set.unmodifiable(_reportedScopes);
 
   @visibleForTesting
   static void configureForTesting({
@@ -101,6 +137,7 @@ abstract final class DiagnosticsService {
     _sink = sink ?? const FirebaseDiagnosticsSink();
     _consent = consent ?? () => PrivacyConsentService.canCollectCrash;
     _lastValues.clear();
+    _reportedScopes.clear();
   }
 
   @visibleForTesting
@@ -108,6 +145,7 @@ abstract final class DiagnosticsService {
     _sink = const FirebaseDiagnosticsSink();
     _consent = () => PrivacyConsentService.canCollectCrash;
     _lastValues.clear();
+    _reportedScopes.clear();
   }
 
   /// 크래시 리포트에 붙는 키/값을 설정한다.
@@ -142,6 +180,46 @@ abstract final class DiagnosticsService {
       await _sink.log(sanitized);
     } catch (error) {
       debugPrint('Diagnostics: logBreadcrumb 실패 — $error');
+    }
+  }
+
+  /// 무시된(swallowed) 예외의 최소 흔적을 남긴다.
+  ///
+  /// `catch (_) {}` 가 말 그대로 아무 일도 안 하면, 실기기에서 뭔가 조용히
+  /// 실패해도 **아무도 모른다**. 그렇다고 모든 best-effort catch 를 사용자
+  /// 화면으로 올릴 수도 없다 — 대부분은 진짜로 무시해도 되는 실패다. 이
+  /// 메서드는 그 중간이다: 앱 동작은 그대로 두되(호출부의 제어 흐름은 이
+  /// 메서드가 절대 바꾸지 않는다), 크래시 재현에 쓸 만큼만 남긴다.
+  ///
+  /// [scope] 는 "어디서" 를 나타내는 **짧은 고정 문자열**이어야 한다 (예:
+  /// `tts_service.prefetch`). [logBreadcrumb] 의 `event` 와 같은 규칙 —
+  /// 사용자 입력, 학습 텍스트 원문, uid 를 넣지 않는다.
+  ///
+  /// 디버그 빌드에서는 동의와 무관하게 항상 [debugPrint] 로 남긴다.
+  /// Crashlytics non-fatal 기록은 크래시 수집 동의가 켜져 있을 때만, 그리고
+  /// 같은 [scope] 로는 **세션당 한 번만** 전송한다 — 재시도 루프가 같은
+  /// catch 를 수백 번 지나가도 리포트가 폭주하지 않는다.
+  static Future<void> reportSwallowed(
+    String scope,
+    Object error, [
+    StackTrace? stackTrace,
+  ]) async {
+    debugPrint('Diagnostics: swallowed [$scope] — $error');
+    if (!_consent()) {
+      return;
+    }
+    if (!_reportedScopes.add(scope)) {
+      return;
+    }
+    try {
+      await _sink.recordNonFatal(
+        scope,
+        error,
+        stackTrace ?? StackTrace.current,
+      );
+    } catch (sinkError) {
+      // 진단이 앱을 죽이면 본말전도다 — setKey/logBreadcrumb 와 같은 계약.
+      debugPrint('Diagnostics: reportSwallowed($scope) 실패 — $sinkError');
     }
   }
 
