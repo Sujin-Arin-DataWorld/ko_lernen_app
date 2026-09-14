@@ -237,6 +237,26 @@ class TestBatch25Cloze(unittest.TestCase):
         for item in self.items:
             self.assertEqual(len(item["distractors"]), len(set(item["distractors"])))
 
+    def test_conjugated_answer_forms_have_conjugated_distractors(self):
+        """R8 (Fable review, 2026-09-15): when the vocab row's headword is a
+        Verb (pos_de) and the cloze answer is its conjugated inflection
+        (present -아요/-어요 or past -았어요/-었어요, distinct from the
+        dictionary -다 form), every distractor must also be a conjugated
+        form ending in 요 — otherwise a bare dictionary-form distractor is
+        an instant form-based giveaway regardless of meaning."""
+        rows = _load_vocab_rows(DRAFTS / "batch_25_a1_rows.csv")
+        pos_by_vid = {r["id"]: r["pos_de"] for r in rows}
+        for item in self.items:
+            ans = item["answer"]
+            vid = item.get("sourceVocabId")
+            is_verb = pos_by_vid.get(vid) == "Verb"
+            if is_verb and ans.endswith("요") and not ans.endswith("다"):
+                for d in item["distractors"]:
+                    self.assertTrue(
+                        d.endswith("요"),
+                        f"{item['id']}: verb answer {ans!r} is conjugated but distractor {d!r} is not",
+                    )
+
 
 class TestBatch25Satz(unittest.TestCase):
     @classmethod

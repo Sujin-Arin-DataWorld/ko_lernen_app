@@ -11,14 +11,14 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 그저께,geujeokke,vorgestern,A1,Adverb,그저께 학교에 안 갔어요.,Vorgestern bin ich nicht zur Schule gegangen.,Zeit,a1_time_2,10,false,the day before yesterday,Adverb,I didn't go to school the day before yesterday.,vocab_a1_0468
 작년,jangnyeon,letztes Jahr,A1,Nomen,작년에 한국에 왔어요.,Letztes Jahr bin ich nach Korea gekommen.,Zeit,a1_time_2,11,false,last year,Noun,I came to Korea last year.,vocab_a1_0469
 내년,naenyeon,nächstes Jahr,A1,Nomen,내년에 독일에 가요.,Nächstes Jahr fahre ich nach Deutschland.,Zeit,a1_time_2,12,false,next year,Noun,Next year I'm going to Germany.,vocab_a1_0470
-한,han,ein(e) (Zählwort),A1,Adjektiv,친구 한 명 있어요.,Ich habe einen Freund.,Menge,a1_numbers_3,9,false,one (counter modifier),Adjective,I have one friend.,vocab_a1_0471
-두,du,zwei (Zählwort),A1,Adjektiv,친구 두 명 있어요.,Ich habe zwei Freunde.,Menge,a1_numbers_3,10,false,two (counter modifier),Adjective,I have two friends.,vocab_a1_0472
+한,han,ein(e) (Zählwort),A1,Adjektiv,친구가 한 명 있어요.,Ich habe einen Freund.,Menge,a1_numbers_3,9,false,one (counter modifier),Adjective,I have one friend.,vocab_a1_0471
+두,du,zwei (Zählwort),A1,Adjektiv,친구가 두 명 있어요.,Ich habe zwei Freunde.,Menge,a1_numbers_3,10,false,two (counter modifier),Adjective,I have two friends.,vocab_a1_0472
 세,se,drei (Zählwort),A1,Adjektiv,가족이 세 명이에요.,Meine Familie hat drei Personen.,Menge,a1_numbers_3,11,false,three (counter modifier),Adjective,My family has three people.,vocab_a1_0473
 어느,eoneu,welche(r/s),A1,Adjektiv,어느 나라에서 왔어요?,Aus welchem Land kommen Sie?,Menge,a1_numbers_3,12,false,which,Adjective,Which country are you from?,vocab_a1_0474
 이따가,ittaga,"später, gleich",A1,Adverb,이따가 학교에 가요.,Ich gehe später zur Schule.,Zeit,a1_time_3,9,false,"later, in a bit",Adverb,I'll go to school later.,vocab_a1_0475
 바로,baro,"sofort, direkt",A1,Adverb,저는 지금 바로 가요.,Ich gehe jetzt sofort.,Zeit,a1_time_3,10,false,"right away, immediately",Adverb,I'm going right now.,vocab_a1_0476
 주로,juro,"hauptsächlich, meistens",A1,Adverb,저는 주로 아침에 커피를 마셔요.,Ich trinke morgens meistens Kaffee.,Zeit,a1_time_3,11,false,"mainly, usually",Adverb,I usually drink coffee in the morning.,vocab_a1_0477
-어서,eoseo,"schnell, bitte gleich",A1,Adverb,어서 오세요!,Kommen Sie schnell herein!,Zeit,a1_time_3,12,false,"quickly, please (go ahead)",Adverb,Please come in quickly!,vocab_a1_0478
+어서,eoseo,schnell; (어서 오세요) willkommen,A1,Adverb,어서 오세요!,Herzlich willkommen!,Zeit,a1_time_3,12,false,"quickly, please (go ahead)",Adverb,Welcome!,vocab_a1_0478
 예,ye,ja (formell),A1,Ausdruck,"예, 알겠습니다.","Ja, verstanden.",Höflichkeit,a1_greetings_2,9,false,yes (formal),Expression,"Yes, understood.",vocab_a1_0479
 글쎄요,geulsseyo,Na ja... (unsicher),A1,Ausdruck,"글쎄요, 모르겠어요.","Na ja, ich weiß es nicht.",Höflichkeit,a1_greetings_2,10,false,well... (hedging),Expression,Well... I don't know.,vocab_a1_0480
 와,wa,Wow!,A1,Ausdruck,"와, 진짜 좋아요!","Wow, das ist wirklich toll!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, that's really great!",vocab_a1_0481
@@ -27,12 +27,12 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 좀,jom,"ein bisschen, bitte",A1,Adverb,물 좀 주세요.,Bitte geben Sie mir etwas Wasser.,Alltag,a1_daily_4,10,false,"a bit, please",Adverb,Please give me some water.,vocab_a1_0484
 꼭,kkok,"unbedingt, bestimmt",A1,Adverb,내일 꼭 오세요.,Kommen Sie morgen unbedingt.,Alltag,a1_daily_4,11,false,"surely, without fail",Adverb,Please be sure to come tomorrow.,vocab_a1_0485
 함께,hamkke,zusammen,A1,Adverb,우리 함께 가요.,Lass uns zusammen gehen.,Alltag,a1_daily_4,12,false,together,Adverb,Let's go together.,vocab_a1_0486
-물건,mulgeon,"Ding, Sache, Ware",A1,Nomen,이 물건을 주세요.,Geben Sie mir bitte dieses Ding.,결제와 배달,a1_payment_delivery_1,9,false,"item, thing",Noun,Please give me this item.,vocab_a1_0487
+물건,mulgeon,"Ding, Sache, Ware",A1,Nomen,이 물건을 주세요.,Geben Sie mir bitte diesen Artikel.,결제와 배달,a1_payment_delivery_1,9,false,"item, thing",Noun,Please give me this item.,vocab_a1_0487
 값,gap,Preis,A1,Nomen,이 신발 값이 싸요.,Diese Schuhe sind billig.,결제와 배달,a1_payment_delivery_1,10,false,price,Noun,These shoes are cheap.,vocab_a1_0488
 필요,piryo,"Bedarf, Notwendigkeit",A1,Nomen,물이 필요해요.,Ich brauche Wasser.,결제와 배달,a1_payment_delivery_1,11,false,"need, necessity",Noun,I need water.,vocab_a1_0489
 가게,gage,"Laden, Geschäft",A1,Nomen,이 가게는 커피가 맛있어요.,In diesem Laden ist der Kaffee lecker.,결제와 배달,a1_payment_delivery_1,12,false,"shop, store",Noun,The coffee at this shop is delicious.,vocab_a1_0490
-인사,insa,"Gruß, Begrüßung",A1,Nomen,저는 매일 인사를 해요.,Ich grüße jeden Tag.,Höflichkeit,a1_greetings_1,10,false,greeting,Noun,I greet people every day.,vocab_a1_0491
-축하,chuka,Glückwunsch,A1,Nomen,생일 축하해요!,Alles Gute zum Geburtstag!,Höflichkeit,a1_greetings_1,11,false,congratulations,Noun,Happy birthday!,vocab_a1_0492
+인사,insa,"Gruß, Begrüßung",A1,Nomen,저는 매일 인사를 해요.,Ich sage jeden Tag Hallo.,Höflichkeit,a1_greetings_1,10,false,greeting,Noun,I greet people every day.,vocab_a1_0491
+축하,chukha,Glückwunsch,A1,Nomen,생일 축하해요!,Alles Gute zum Geburtstag!,Höflichkeit,a1_greetings_1,11,false,congratulations,Noun,Happy birthday!,vocab_a1_0492
 여보세요,yeoboseyo,Hallo? (am Telefon),A1,Ausdruck,"여보세요, 크리스티안이에요.","Hallo, hier ist Christian.",Begrüßung,a1_greetings_1,12,false,hello (on the phone),Expression,"Hello, this is Christian.",vocab_a1_0493
 안경,angyeong,Brille,A1,Nomen,저는 안경을 써요.,Ich trage eine Brille.,Alltag,a1_daily_1,10,false,glasses,Noun,I wear glasses.,vocab_a1_0494
 모자,moja,"Hut, Mütze",A1,Nomen,오늘 모자를 썼어요.,Heute habe ich eine Mütze getragen.,Alltag,a1_daily_1,11,false,hat,Noun,Today I wore a hat.,vocab_a1_0495
@@ -55,11 +55,11 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 고르다,goreuda,(aus)wählen,A1,Verb,저는 이 옷을 골랐어요.,Ich habe diese Kleidung ausgewählt.,Einkaufen,a1_misc_2,10,false,"to choose, to pick",Verb,I chose these clothes.,vocab_a1_0512
 빌리다,billida,"leihen, ausleihen",A1,Verb,저는 친구한테 책을 빌려요.,Ich leihe mir ein Buch von meinem Freund.,Einkaufen,a1_misc_2,11,false,"to borrow, to rent",Verb,I borrow a book from my friend.,vocab_a1_0513
 팔다,palda,verkaufen,A1,Verb,이 가게는 과일을 팔아요.,Dieser Laden verkauft Obst.,Einkaufen,a1_misc_2,12,false,to sell,Verb,This shop sells fruit.,vocab_a1_0514
-이십,isip,zwanzig,A1,Nomen,제 남동생은 이십 살이에요.,Mein jüngerer Bruder ist zwanzig Jahre alt.,Zahlen,a1_numbers_1,10,false,twenty,Noun,My younger brother is twenty years old.,vocab_a1_0515
-삼십,samsip,dreißig,A1,Nomen,제 방 번호는 삼십 번이에요.,Meine Zimmernummer ist dreißig.,Zahlen,a1_numbers_1,11,false,thirty,Noun,My room number is thirty.,vocab_a1_0516
+이십,isip,zwanzig,A1,Nomen,이 버스는 이십 번이에요.,Dieser Bus hat die Nummer zwanzig.,Zahlen,a1_numbers_1,10,false,twenty,Noun,This bus is number twenty.,vocab_a1_0515
+삼십,samsip,dreißig,A1,Nomen,제 방은 삼십 호예요.,Mein Zimmer ist Nummer dreißig.,Zahlen,a1_numbers_1,11,false,thirty,Noun,My room is number thirty.,vocab_a1_0516
 사십,sasip,vierzig,A1,Nomen,우리 학교에는 학생이 사십 명 있어요.,An unserer Schule gibt es vierzig Schüler.,Zahlen,a1_numbers_1,12,false,forty,Noun,There are forty students at our school.,vocab_a1_0517
 오십,osip,fünfzig,A1,Nomen,이 학교에는 선생님이 오십 명 있어요.,An dieser Schule gibt es fünfzig Lehrer.,Zahlen,a1_numbers_2,10,false,fifty,Noun,This school has fifty teachers.,vocab_a1_0518
-육십,yuksip,sechzig,A1,Nomen,할아버지는 육십 살이세요.,Mein Opa ist sechzig Jahre alt.,Zahlen,a1_numbers_2,11,false,sixty,Noun,My grandfather is sixty years old.,vocab_a1_0519
+육십,yuksip,sechzig,A1,Nomen,제 방은 육십 층에 있어요.,Mein Zimmer ist im sechzigsten Stock.,Zahlen,a1_numbers_2,11,false,sixty,Noun,My room is on the sixtieth floor.,vocab_a1_0519
 칠십,chilsip,siebzig,A1,Nomen,이 버스는 칠십 번이에요.,Dieser Bus hat die Nummer siebzig.,Zahlen,a1_numbers_2,12,false,seventy,Noun,This bus is number seventy.,vocab_a1_0520
 목,mok,"Hals, Nacken",A1,Nomen,제 목이 길어요.,Mein Hals ist lang.,Körper,a1_body,11,false,"neck, throat",Noun,My neck is long.,vocab_a1_0521
 얼굴,eolgul,Gesicht,A1,Nomen,제 얼굴이 작아요.,Mein Gesicht ist klein.,Körper,a1_body,12,false,face,Noun,My face is small.,vocab_a1_0522

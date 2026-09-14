@@ -159,7 +159,7 @@
     {
       "id": "satz_a1_0386",
       "level": "a1",
-      "targetKo": "친구 한 명 있어요.",
+      "targetKo": "친구가 한 명 있어요.",
       "promptDe": "Ich habe einen Freund.",
       "promptEn": "I have one friend.",
       "distractors": [
@@ -172,7 +172,7 @@
     {
       "id": "satz_a1_0387",
       "level": "a1",
-      "targetKo": "친구 두 명 있어요.",
+      "targetKo": "친구가 두 명 있어요.",
       "promptDe": "Ich habe zwei Freunde.",
       "promptEn": "I have two friends.",
       "distractors": [
@@ -251,8 +251,8 @@
       "id": "satz_a1_0393",
       "level": "a1",
       "targetKo": "어서 오세요!",
-      "promptDe": "Kommen Sie schnell herein!",
-      "promptEn": "Please come in quickly!",
+      "promptDe": "Herzlich willkommen!",
+      "promptEn": "Welcome!",
       "distractors": [
         "사귀다",
         "일곱"
@@ -368,7 +368,7 @@
       "id": "satz_a1_0402",
       "level": "a1",
       "targetKo": "이 물건을 주세요.",
-      "promptDe": "Geben Sie mir bitte dieses Ding.",
+      "promptDe": "Geben Sie mir bitte diesen Artikel.",
       "promptEn": "Please give me this item.",
       "distractors": [
         "시",
@@ -420,7 +420,7 @@
       "id": "satz_a1_0406",
       "level": "a1",
       "targetKo": "저는 매일 인사를 해요.",
-      "promptDe": "Ich grüße jeden Tag.",
+      "promptDe": "Ich sage jeden Tag Hallo.",
       "promptEn": "I greet people every day.",
       "distractors": [
         "문제없어요",
@@ -731,9 +731,9 @@
     {
       "id": "satz_a1_0430",
       "level": "a1",
-      "targetKo": "제 남동생은 이십 살이에요.",
-      "promptDe": "Mein jüngerer Bruder ist zwanzig Jahre alt.",
-      "promptEn": "My younger brother is twenty years old.",
+      "targetKo": "이 버스는 이십 번이에요.",
+      "promptDe": "Dieser Bus hat die Nummer zwanzig.",
+      "promptEn": "This bus is number twenty.",
       "distractors": [
         "천만에요",
         "젓가락질"
@@ -744,12 +744,12 @@
     {
       "id": "satz_a1_0431",
       "level": "a1",
-      "targetKo": "제 방 번호는 삼십 번이에요.",
-      "promptDe": "Meine Zimmernummer ist dreißig.",
-      "promptEn": "My room number is thirty.",
+      "targetKo": "제 방은 삼십 호예요.",
+      "promptDe": "Mein Zimmer ist Nummer dreißig.",
+      "promptEn": "My room is number thirty.",
       "distractors": [
         "빨간색",
-        "덕담"
+        "하나"
       ],
       "vocabKo": "삼십",
       "sourceVocabId": "vocab_a1_0516"
@@ -783,12 +783,12 @@
     {
       "id": "satz_a1_0434",
       "level": "a1",
-      "targetKo": "할아버지는 육십 살이세요.",
-      "promptDe": "Mein Opa ist sechzig Jahre alt.",
-      "promptEn": "My grandfather is sixty years old.",
+      "targetKo": "제 방은 육십 층에 있어요.",
+      "promptDe": "Mein Zimmer ist im sechzigsten Stock.",
+      "promptEn": "My room is on the sixtieth floor.",
       "distractors": [
-        "인사드리다",
-        "시어머니"
+        "타다",
+        "시간"
       ],
       "vocabKo": "육십",
       "sourceVocabId": "vocab_a1_0519"

@@ -10,7 +10,7 @@
       "en": "Christian is an office worker.",
       "distractors": [
         "설날",
-        "장인어른",
+        "월요일",
         "밤"
       ],
       "topic": "Person",
@@ -41,7 +41,7 @@
       "de": "Wer ist die Person dort?",
       "en": "Who is that person?",
       "distractors": [
-        "진짜",
+        "월요일",
         "공부",
         "보다"
       ],
@@ -57,7 +57,7 @@
       "de": "Hallo, alle zusammen!",
       "en": "Hello, everyone!",
       "distractors": [
-        "친구",
+        "우유",
         "밤",
         "많다"
       ],
@@ -75,7 +75,7 @@
       "distractors": [
         "늦게",
         "다시",
-        "채소"
+        "가게"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0463"
@@ -89,9 +89,9 @@
       "de": "Ich mag Mandarinen.",
       "en": "I like tangerines.",
       "distractors": [
-        "돈",
-        "연필",
-        "한국"
+        "빨리",
+        "가끔",
+        "천천히"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0464"
@@ -105,9 +105,9 @@
       "de": "Ich mag Bananen.",
       "en": "I like bananas.",
       "distractors": [
-        "영어",
-        "인사드리겠습니다",
-        "열다"
+        "항상",
+        "다시",
+        "자주"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0465"
@@ -139,7 +139,7 @@
       "distractors": [
         "밑반찬",
         "연습",
-        "시간"
+        "책상"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0467"
@@ -155,7 +155,7 @@
       "distractors": [
         "입구",
         "미안해요",
-        "더"
+        "책상"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0468"
@@ -171,7 +171,7 @@
       "distractors": [
         "손",
         "젓가락질",
-        "지금"
+        "책상"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0469"
@@ -185,7 +185,7 @@
       "de": "Nächstes Jahr fahre ich nach Deutschland.",
       "en": "Next year I'm going to Germany.",
       "distractors": [
-        "사전",
+        "책상",
         "앉다",
         "코"
       ],
@@ -195,9 +195,9 @@
     {
       "id": "cloze_a1_0405",
       "level": "a1",
-      "sentenceKo": "친구 ＿＿＿ 명 있어요.",
+      "sentenceKo": "친구가 ＿＿＿ 명 있어요.",
       "answer": "한",
-      "fullKo": "친구 한 명 있어요.",
+      "fullKo": "친구가 한 명 있어요.",
       "de": "Ich habe einen Freund.",
       "en": "I have one friend.",
       "distractors": [
@@ -211,14 +211,14 @@
     {
       "id": "cloze_a1_0406",
       "level": "a1",
-      "sentenceKo": "친구 ＿＿＿ 명 있어요.",
+      "sentenceKo": "친구가 ＿＿＿ 명 있어요.",
       "answer": "두",
-      "fullKo": "친구 두 명 있어요.",
+      "fullKo": "친구가 두 명 있어요.",
       "de": "Ich habe zwei Freunde.",
       "en": "I have two friends.",
       "distractors": [
         "젓가락질",
-        "장인어른",
+        "저녁",
         "과일"
       ],
       "topic": "Menge",
@@ -265,7 +265,7 @@
       "de": "Ich gehe später zur Schule.",
       "en": "I'll go to school later.",
       "distractors": [
-        "항상",
+        "책",
         "공원",
         "몸"
       ],
@@ -283,7 +283,7 @@
       "distractors": [
         "천만에요",
         "장인어른",
-        "버스"
+        "젓가락질"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0476"
@@ -310,8 +310,8 @@
       "sentenceKo": "＿＿＿ 오세요!",
       "answer": "어서",
       "fullKo": "어서 오세요!",
-      "de": "Kommen Sie schnell herein!",
-      "en": "Please come in quickly!",
+      "de": "Herzlich willkommen!",
+      "en": "Welcome!",
       "distractors": [
         "차례상",
         "있다",
@@ -331,7 +331,7 @@
       "distractors": [
         "귀엽다",
         "옆",
-        "오빠"
+        "월요일"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0479"
@@ -345,9 +345,9 @@
       "de": "Na ja, ich weiß es nicht.",
       "en": "Well... I don't know.",
       "distractors": [
-        "일찍",
-        "돈",
-        "침대"
+        "오다",
+        "쓰다",
+        "보다"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0480"
@@ -362,8 +362,8 @@
       "en": "Wow, that's really great!",
       "distractors": [
         "보다",
-        "아내",
-        "진지"
+        "가다",
+        "읽다"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0481"
@@ -377,9 +377,9 @@
       "de": "Hm, ich weiß es nicht.",
       "en": "Hmm, I don't know.",
       "distractors": [
-        "괜찮아요",
-        "과일",
-        "저"
+        "가다",
+        "읽다",
+        "타다"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0482"
@@ -410,7 +410,7 @@
       "en": "Please give me some water.",
       "distractors": [
         "배고프다",
-        "빨간색",
+        "월요일",
         "손"
       ],
       "topic": "Alltag",
@@ -454,10 +454,10 @@
       "sentenceKo": "이 ＿＿＿을 주세요.",
       "answer": "물건",
       "fullKo": "이 물건을 주세요.",
-      "de": "Geben Sie mir bitte dieses Ding.",
+      "de": "Geben Sie mir bitte diesen Artikel.",
       "en": "Please give me this item.",
       "distractors": [
-        "밑반찬",
+        "기다리다",
         "편의점",
         "화요일"
       ],
@@ -518,10 +518,10 @@
       "sentenceKo": "저는 매일 ＿＿＿를 해요.",
       "answer": "인사",
       "fullKo": "저는 매일 인사를 해요.",
-      "de": "Ich grüße jeden Tag.",
+      "de": "Ich sage jeden Tag Hallo.",
       "en": "I greet people every day.",
       "distractors": [
-        "다리",
+        "월요일",
         "감사합니다",
         "뒤"
       ],
@@ -602,7 +602,7 @@
       "en": "The shoes are very small.",
       "distractors": [
         "처음",
-        "성",
+        "월요일",
         "다른"
       ],
       "topic": "Alltag",
@@ -666,7 +666,7 @@
       "en": "I eat ice cream often.",
       "distractors": [
         "잘못",
-        "저녁",
+        "월요일",
         "한국"
       ],
       "topic": "Essen & Trinken",
@@ -681,9 +681,9 @@
       "de": "Ich mag Schokolade wirklich.",
       "en": "I really like chocolate.",
       "distractors": [
-        "목요일",
-        "지금",
-        "형"
+        "자주",
+        "천천히",
+        "가끔"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0501"
@@ -731,7 +731,7 @@
       "distractors": [
         "노란색",
         "한국",
-        "연습"
+        "책상"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0504"
@@ -777,9 +777,9 @@
       "de": "Ich helfe meinem Freund.",
       "en": "I help my friend.",
       "distractors": [
-        "타다",
-        "댁에",
-        "일요일"
+        "마셔요",
+        "읽어요",
+        "타요"
       ],
       "topic": "Beziehungen",
       "sourceVocabId": "vocab_a1_0507"
@@ -793,9 +793,9 @@
       "de": "Meine große Schwester hilft mir.",
       "en": "My older sister helps me.",
       "distractors": [
-        "오른쪽",
-        "며칠",
-        "설빔"
+        "읽어요",
+        "먹어요",
+        "타요"
       ],
       "topic": "Beziehungen",
       "sourceVocabId": "vocab_a1_0508"
@@ -825,9 +825,9 @@
       "de": "Der Unterricht endet um drei Uhr.",
       "en": "Class ends at three o'clock.",
       "distractors": [
-        "사",
-        "성",
-        "좋아하다"
+        "마셔요",
+        "입어요",
+        "읽어요"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0510"
@@ -841,9 +841,9 @@
       "de": "Ich gehe jeden Tag zur Schule.",
       "en": "I go to school every day.",
       "distractors": [
-        "월요일",
-        "세뱃돈",
-        "기다리다"
+        "마셔요",
+        "읽어요",
+        "써요"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0511"
@@ -857,9 +857,9 @@
       "de": "Ich habe diese Kleidung ausgewählt.",
       "en": "I chose these clothes.",
       "distractors": [
-        "수업",
-        "괜찮아요",
-        "저기"
+        "마셨어요",
+        "읽었어요",
+        "탔어요"
       ],
       "topic": "Einkaufen",
       "sourceVocabId": "vocab_a1_0512"
@@ -873,9 +873,9 @@
       "de": "Ich leihe mir ein Buch von meinem Freund.",
       "en": "I borrow a book from my friend.",
       "distractors": [
-        "크다",
-        "초록색",
-        "작다"
+        "마셔요",
+        "입어요",
+        "타요"
       ],
       "topic": "Einkaufen",
       "sourceVocabId": "vocab_a1_0513"
@@ -889,9 +889,9 @@
       "de": "Dieser Laden verkauft Obst.",
       "en": "This shop sells fruit.",
       "distractors": [
-        "남자친구",
-        "연필",
-        "채소"
+        "읽어요",
+        "입어요",
+        "타요"
       ],
       "topic": "Einkaufen",
       "sourceVocabId": "vocab_a1_0514"
@@ -899,15 +899,15 @@
     {
       "id": "cloze_a1_0449",
       "level": "a1",
-      "sentenceKo": "제 남동생은 ＿＿＿ 살이에요.",
+      "sentenceKo": "이 버스는 ＿＿＿ 번이에요.",
       "answer": "이십",
-      "fullKo": "제 남동생은 이십 살이에요.",
-      "de": "Mein jüngerer Bruder ist zwanzig Jahre alt.",
-      "en": "My younger brother is twenty years old.",
+      "fullKo": "이 버스는 이십 번이에요.",
+      "de": "Dieser Bus hat die Nummer zwanzig.",
+      "en": "This bus is number twenty.",
       "distractors": [
-        "입",
-        "잠깐",
-        "장인어른"
+        "가게",
+        "신발",
+        "목"
       ],
       "topic": "Zahlen",
       "sourceVocabId": "vocab_a1_0515"
@@ -915,15 +915,15 @@
     {
       "id": "cloze_a1_0450",
       "level": "a1",
-      "sentenceKo": "제 방 번호는 ＿＿＿ 번이에요.",
+      "sentenceKo": "제 방은 ＿＿＿ 호예요.",
       "answer": "삼십",
-      "fullKo": "제 방 번호는 삼십 번이에요.",
-      "de": "Meine Zimmernummer ist dreißig.",
-      "en": "My room number is thirty.",
+      "fullKo": "제 방은 삼십 호예요.",
+      "de": "Mein Zimmer ist Nummer dreißig.",
+      "en": "My room is number thirty.",
       "distractors": [
-        "도착",
-        "발음",
-        "감사하다"
+        "얼굴",
+        "물건",
+        "값"
       ],
       "topic": "Zahlen",
       "sourceVocabId": "vocab_a1_0516"
@@ -963,15 +963,15 @@
     {
       "id": "cloze_a1_0453",
       "level": "a1",
-      "sentenceKo": "할아버지는 ＿＿＿ 살이세요.",
+      "sentenceKo": "제 방은 ＿＿＿ 층에 있어요.",
       "answer": "육십",
-      "fullKo": "할아버지는 육십 살이세요.",
-      "de": "Mein Opa ist sechzig Jahre alt.",
-      "en": "My grandfather is sixty years old.",
+      "fullKo": "제 방은 육십 층에 있어요.",
+      "de": "Mein Zimmer ist im sechzigsten Stock.",
+      "en": "My room is on the sixtieth floor.",
       "distractors": [
-        "핸드폰",
-        "검은색",
-        "사전"
+        "가게",
+        "신발",
+        "물건"
       ],
       "topic": "Zahlen",
       "sourceVocabId": "vocab_a1_0519"
@@ -1001,9 +1001,9 @@
       "de": "Mein Hals ist lang.",
       "en": "My neck is long.",
       "distractors": [
-        "왼쪽",
-        "사람",
-        "모든"
+        "모든",
+        "어느",
+        "다른"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0521"
@@ -1017,9 +1017,9 @@
       "de": "Mein Gesicht ist klein.",
       "en": "My face is small.",
       "distractors": [
-        "사전",
-        "왼쪽",
-        "우편함"
+        "모든",
+        "어느",
+        "다른"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0522"

@@ -1,5 +1,7 @@
 # Batch 25 (C3, A1 보강 초안) — Jin 10% 표본 패킷
 
+> **Fable 검수 결과 (2026-09-15, R8):** 1차 검수 반려 사유 6종(고유어/한자어 수사 나이·방 번호 관례 오용, 어서/물건/인사 번역 오류, 축하 RR ㅎ 축약 오류, 한/두 조사 누락, cloze 배분어 2차 유효 정답·활용형 미일치 다수) → **전부 수정 완료.** 아래 표·표본은 수정 반영본이다.
+
 > 생성 2026-09-15 · 대상: A1(1급) 결손 어휘 보강 64단어 초안(신규 팩 없음, 기존 A1 팩 19개를 각 12단어로 채움).
 > **승인 전 — 앱 데이터(`assets/data/**`) 무수정.** `tools/content_factory/drafts/batch_25_a1_*` 초안만 존재하며, 매니페스트 `provenance.approval`은 비어 있다.
 > F8 D-4 절차: 전체 64건 중 **표본** 7건(약 10%, 8~9번째 간격 결정적 추출)을 먼저 보고 ok/반려를 적는다. 나머지 57건은 참고용 압축 표.
@@ -24,7 +26,7 @@
 - 예문 KO: 크리스티안은 회사원이에요.
 - 예문 DE: Christian ist Angestellter.
 - 예문 EN: Christian is an office worker.
-- Cloze `cloze_a1_0393`: 크리스티안은 ＿＿＿이에요. → 정답 `회사원` · 배분어 ['설날', '장인어른', '밤']
+- Cloze `cloze_a1_0393`: 크리스티안은 ＿＿＿이에요. → 정답 `회사원` · 배분어 ['설날', '월요일', '밤']
 - Satz `satz_a1_0374`: 목표 `크리스티안은 회사원이에요.` · 배분 타일 ['별로', '왼쪽']
 - Jin 판정: 
 
@@ -35,7 +37,7 @@
 - 예문 KO: 그저께 학교에 안 갔어요.
 - 예문 DE: Vorgestern bin ich nicht zur Schule gegangen.
 - 예문 EN: I didn't go to school the day before yesterday.
-- Cloze `cloze_a1_0402`: ＿＿＿ 학교에 안 갔어요. → 정답 `그저께` · 배분어 ['입구', '미안해요', '더']
+- Cloze `cloze_a1_0402`: ＿＿＿ 학교에 안 갔어요. → 정답 `그저께` · 배분어 ['입구', '미안해요', '책상']
 - Satz `satz_a1_0383`: 목표 `그저께 학교에 안 갔어요.` · 배분 타일 ['호칭', '검은색']
 - Jin 판정: 
 
@@ -79,7 +81,7 @@
 - 예문 KO: 오늘은 아주 좋은 날이에요.
 - 예문 DE: Heute ist ein sehr guter Tag.
 - 예문 EN: Today is a very good day.
-- Cloze `cloze_a1_0438`: 오늘은 아주 좋은 ＿＿＿이에요. → 정답 `날` · 배분어 ['노란색', '한국', '연습']
+- Cloze `cloze_a1_0438`: 오늘은 아주 좋은 ＿＿＿이에요. → 정답 `날` · 배분어 ['노란색', '한국', '책상']
 - Satz `satz_a1_0419`: 목표 `오늘은 아주 좋은 날이에요.` · 배분 타일 ['감사합니다', '처음']
 - Jin 판정: 
 
@@ -90,7 +92,7 @@
 - 예문 KO: 저는 친구한테 책을 빌려요.
 - 예문 DE: Ich leihe mir ein Buch von meinem Freund.
 - 예문 EN: I borrow a book from my friend.
-- Cloze `cloze_a1_0447`: 저는 친구한테 책을 ＿＿＿. → 정답 `빌려요` · 배분어 ['크다', '초록색', '작다']
+- Cloze `cloze_a1_0447`: 저는 친구한테 책을 ＿＿＿. → 정답 `빌려요` · 배분어 ['마셔요', '입어요', '타요']
 - Satz `satz_a1_0428`: 목표 `저는 친구한테 책을 빌려요.` · 배분 타일 ['예약', '별로']
 - Jin 판정: 
 
@@ -110,14 +112,14 @@
 | **표본** | `vocab_a1_0468` | 그저께 | geujeokke | `a1_time_2` | 10 | vorgestern | the day before yesterday | 그저께 학교에 안 갔어요. |
 |  | `vocab_a1_0469` | 작년 | jangnyeon | `a1_time_2` | 11 | letztes Jahr | last year | 작년에 한국에 왔어요. |
 |  | `vocab_a1_0470` | 내년 | naenyeon | `a1_time_2` | 12 | nächstes Jahr | next year | 내년에 독일에 가요. |
-|  | `vocab_a1_0471` | 한 | han | `a1_numbers_3` | 9 | ein(e) (Zählwort) | one (counter modifier) | 친구 한 명 있어요. |
-|  | `vocab_a1_0472` | 두 | du | `a1_numbers_3` | 10 | zwei (Zählwort) | two (counter modifier) | 친구 두 명 있어요. |
+|  | `vocab_a1_0471` | 한 | han | `a1_numbers_3` | 9 | ein(e) (Zählwort) | one (counter modifier) | 친구가 한 명 있어요. |
+|  | `vocab_a1_0472` | 두 | du | `a1_numbers_3` | 10 | zwei (Zählwort) | two (counter modifier) | 친구가 두 명 있어요. |
 |  | `vocab_a1_0473` | 세 | se | `a1_numbers_3` | 11 | drei (Zählwort) | three (counter modifier) | 가족이 세 명이에요. |
 |  | `vocab_a1_0474` | 어느 | eoneu | `a1_numbers_3` | 12 | welche(r/s) | which | 어느 나라에서 왔어요? |
 |  | `vocab_a1_0475` | 이따가 | ittaga | `a1_time_3` | 9 | später, gleich | later, in a bit | 이따가 학교에 가요. |
 |  | `vocab_a1_0476` | 바로 | baro | `a1_time_3` | 10 | sofort, direkt | right away, immediately | 저는 지금 바로 가요. |
 | **표본** | `vocab_a1_0477` | 주로 | juro | `a1_time_3` | 11 | hauptsächlich, meistens | mainly, usually | 저는 주로 아침에 커피를 마셔요. |
-|  | `vocab_a1_0478` | 어서 | eoseo | `a1_time_3` | 12 | schnell, bitte gleich | quickly, please (go ahead) | 어서 오세요! |
+|  | `vocab_a1_0478` | 어서 | eoseo | `a1_time_3` | 12 | schnell; (어서 오세요) willkommen | quickly, please (go ahead) | 어서 오세요! |
 |  | `vocab_a1_0479` | 예 | ye | `a1_greetings_2` | 9 | ja (formell) | yes (formal) | 예, 알겠습니다. |
 |  | `vocab_a1_0480` | 글쎄요 | geulsseyo | `a1_greetings_2` | 10 | Na ja... (unsicher) | well... (hedging) | 글쎄요, 모르겠어요. |
 |  | `vocab_a1_0481` | 와 | wa | `a1_greetings_2` | 11 | Wow! | wow | 와, 진짜 좋아요! |
@@ -131,7 +133,7 @@
 |  | `vocab_a1_0489` | 필요 | piryo | `a1_payment_delivery_1` | 11 | Bedarf, Notwendigkeit | need, necessity | 물이 필요해요. |
 |  | `vocab_a1_0490` | 가게 | gage | `a1_payment_delivery_1` | 12 | Laden, Geschäft | shop, store | 이 가게는 커피가 맛있어요. |
 |  | `vocab_a1_0491` | 인사 | insa | `a1_greetings_1` | 10 | Gruß, Begrüßung | greeting | 저는 매일 인사를 해요. |
-|  | `vocab_a1_0492` | 축하 | chuka | `a1_greetings_1` | 11 | Glückwunsch | congratulations | 생일 축하해요! |
+|  | `vocab_a1_0492` | 축하 | chukha | `a1_greetings_1` | 11 | Glückwunsch | congratulations | 생일 축하해요! |
 |  | `vocab_a1_0493` | 여보세요 | yeoboseyo | `a1_greetings_1` | 12 | Hallo? (am Telefon) | hello (on the phone) | 여보세요, 크리스티안이에요. |
 |  | `vocab_a1_0494` | 안경 | angyeong | `a1_daily_1` | 10 | Brille | glasses | 저는 안경을 써요. |
 | **표본** | `vocab_a1_0495` | 모자 | moja | `a1_daily_1` | 11 | Hut, Mütze | hat | 오늘 모자를 썼어요. |
@@ -154,11 +156,11 @@
 |  | `vocab_a1_0512` | 고르다 | goreuda | `a1_misc_2` | 10 | (aus)wählen | to choose, to pick | 저는 이 옷을 골랐어요. |
 | **표본** | `vocab_a1_0513` | 빌리다 | billida | `a1_misc_2` | 11 | leihen, ausleihen | to borrow, to rent | 저는 친구한테 책을 빌려요. |
 |  | `vocab_a1_0514` | 팔다 | palda | `a1_misc_2` | 12 | verkaufen | to sell | 이 가게는 과일을 팔아요. |
-|  | `vocab_a1_0515` | 이십 | isip | `a1_numbers_1` | 10 | zwanzig | twenty | 제 남동생은 이십 살이에요. |
-|  | `vocab_a1_0516` | 삼십 | samsip | `a1_numbers_1` | 11 | dreißig | thirty | 제 방 번호는 삼십 번이에요. |
+|  | `vocab_a1_0515` | 이십 | isip | `a1_numbers_1` | 10 | zwanzig | twenty | 이 버스는 이십 번이에요. |
+|  | `vocab_a1_0516` | 삼십 | samsip | `a1_numbers_1` | 11 | dreißig | thirty | 제 방은 삼십 호예요. |
 |  | `vocab_a1_0517` | 사십 | sasip | `a1_numbers_1` | 12 | vierzig | forty | 우리 학교에는 학생이 사십 명 있어요. |
 |  | `vocab_a1_0518` | 오십 | osip | `a1_numbers_2` | 10 | fünfzig | fifty | 이 학교에는 선생님이 오십 명 있어요. |
-|  | `vocab_a1_0519` | 육십 | yuksip | `a1_numbers_2` | 11 | sechzig | sixty | 할아버지는 육십 살이세요. |
+|  | `vocab_a1_0519` | 육십 | yuksip | `a1_numbers_2` | 11 | sechzig | sixty | 제 방은 육십 층에 있어요. |
 |  | `vocab_a1_0520` | 칠십 | chilsip | `a1_numbers_2` | 12 | siebzig | seventy | 이 버스는 칠십 번이에요. |
 |  | `vocab_a1_0521` | 목 | mok | `a1_body` | 11 | Hals, Nacken | neck, throat | 제 목이 길어요. |
 |  | `vocab_a1_0522` | 얼굴 | eolgul | `a1_body` | 12 | Gesicht | face | 제 얼굴이 작아요. |
@@ -185,10 +187,25 @@
 - [x] 자동 회귀: `tools/content_factory/test_batch_25_draft.py` — 행 수 60~68, 라이브 CSV와 `korean` 중복 없음, `pack_id` 전부 라이브에 존재, 예문 ≤8어절, 정답(활용형)이 예문에 포함, 금지 문형 정규식(다고/라고 하/ㄹ지/더라도/는 바람에) 0건, cloze 정답이 배분어의 부분 문자열이 아님, RR 문자셋.
 - [ ] Jin/Fable 레벨 최종 승인 대기 — 승인 후 PR-L3b에서 `apply_review.py`+수동 병합으로 `assets/data/**` 반영, TTS는 Jin 로컬에서 `--missing-from-storage`.
 
-## 판정 필요 항목 (불확실 표시)
+## R8 재검수 반영 내역 (2026-09-15)
 
-- `주로`(mainly, usually) 예문 "저는 주로 아침에 운동해요"의 '운동하다'는 F2 결손 목록에 없는 기존 라이브 A1 단어로 가정했다 — 라이브 존재 여부 재확인 필요(문법·레벨 자체는 안전, 어휘 실재 여부만 확인 대상).
+**한국어 어법:**
+- `이십`·`육십`: 고유어 나이 표현(스무 살/예순 살)에 한자어 수사를 잘못 붙였던 오류 수정 — 이십은 버스 번호("이 버스는 이십 번이에요."), 육십은 층수("제 방은 육십 층에 있어요.")로 문맥 교체. 칠십(버스 번호)은 지시대로 그대로 둠.
+- `삼십`: 방 번호는 "호" 단위를 쓰는 관례에 맞춰 "제 방은 삼십 호예요."로 수정.
+- `한`/`두`: A1에서도 조사를 생략하지 않는 원칙에 맞춰 "친구가 한/두 명 있어요."로 조사(가) 추가.
+
+**번역:**
+- `어서`: "어서 오세요"는 환영 인사 관용구이므로 DE "Herzlich willkommen!"/EN "Welcome!"로 교체, 표제어 뜻풀이도 "schnell; (어서 오세요) willkommen"으로 보강.
+- `물건`: DE를 "Ding"(막연한 것)에서 "Artikel"(상품/물품)로 교체.
+- `인사`: `이웃`이 라이브 A1이 아니어서(확인 완료) 한국어 문장은 유지하고 DE만 "Ich sage jeden Tag Hallo."로 자연스럽게 교체.
+- `축하` RR: 체언 뒤 ㅎ 유지 원칙에 따라 `chuka`→`chukha`로 수정. 나머지 63개 표제어 중 체언+ㄱ/ㄷ/ㅂ+ㅎ 결합은 `축하` 1건뿐임을 재확인.
+
+**Cloze 배분어 전수 재검토(64건):** Fable이 지적한 12건(0393·0396·0398·0399·0409·0413·0416·0428·0430·0434·0435·0438) 외에 자체 재검토로 추가 발견한 위험 항목(0395·0397·0402·0403·0404·0405·0406·0410·0412·0414·0415·0421·0431·0432·0433 등 코퓰러/"좋아해요"/"오세요"/"주세요" 패턴 다수)까지 포함해 총 30여 항목의 배분어를 손으로 교체했다. 원칙: ① 정체성 서술문("X는 Y예요")·"좋아해요"·"오세요"·"주세요" 같은 개방형 술어는 명사 배분어가 거의 항상 문법적으로도 의미적으로도 '두 번째 정답'이 될 수 있어, 부사(빨리·항상·다시 등, 목적격 조사와 결합 불가)나 관형사(모든·어느·다른, 단독 주어 불가) 등 **범주 자체가 안 맞는** 배분어로 교체. ② 활용형 정답(도와요·끝나요·다녀요·골랐어요·빌려요·팔아요·도와줘요)에는 반드시 같은 활용형(-아/어요, 골랐어요류는 -았/었어요)의 의미상 황당한 동사만 사용(마셔요·입어요·읽어요·타요 등). 자동 회귀에 `test_conjugated_answer_forms_have_conjugated_distractors`(Verb 표제어 한정) 추가.
+
+## 판정 필요 항목 (불확실 표시, 재검수 후에도 남는 것)
+
 - `회사원`/`주부`처럼 성별 중립이 어색한 독일어 직업명사는 `Angestellte/r`, `Hausfrau/Hausmann` 슬래시 표기를 썼다 — 기존 `Lehrer/in` 관례를 따랐으나 Jin 확인 바람.
 - `a1_greetings_2`에 넣은 4개 감탄사(예·글쎄요·와·음)는 다시 묻기/공손 화용 범주로 분류했지만, 기존 팩 표시명이 "Begrüßung/Höflichkeit"라 순수 인사말은 아니다 — 화용 범주가 팩 표시명과 완전히 일치하는지 판정 필요.
 - `a1_colors`(6개)와 4개 팩(`a1_misc_1`·`a1_repair_language_1`·`a1_city_services_2026_1`)은 F2 결손 목록에서 자연스러운 후보를 찾지 못해 12단어 미도달로 남겨뒀다 — 다음 배치(Batch 26)에서 신규 팩 또는 하향 흡수로 처리할지 Jin 판단 필요.
+- `모레`(cloze_a1_0401, 배분어 밑반찬·연습·책상)와 `다`(cloze_a1_0417, 배분어 열·일요일·문장), `모자`(cloze_a1_0429, 배분어 기다리다·늦게·어렵다)는 조사 없이 명사가 부사 자리에 오는 구조라 '문장 조각'으로는 보이지만, 완전한 두 번째 정답 문장으로 읽히지는 않는다고 판단해 그대로 두었다 — 재확인 바람.
 
