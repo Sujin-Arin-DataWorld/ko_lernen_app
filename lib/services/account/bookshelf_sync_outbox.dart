@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../net/sori_net.dart';
 import 'cloud_write_session.dart';
 
 class BookshelfSyncPending {
@@ -294,12 +296,18 @@ class BookshelfSyncQueue {
     required this.tokenFactory,
     required this.attempt,
     this.maxImmediateAttempts = 3,
-  }) : assert(maxImmediateAttempts > 0);
+    Random? random,
+  }) : assert(maxImmediateAttempts > 0),
+       _random = random ?? Random();
 
   final BookshelfSyncOutboxStore store;
   final String Function() tokenFactory;
   final BookshelfSyncAttempt attempt;
   final int maxImmediateAttempts;
+
+  /// Injectable so tests can seed it and assert an exact backoff range
+  /// instead of a flaky real-clock delay.
+  final Random _random;
 
   Future<CloudWriteResult>? _draining;
   Future<void> _mutationTail = Future<void>.value();
@@ -667,6 +675,11 @@ class BookshelfSyncQueue {
 
       CloudWriteResult result = CloudWriteResult.blocked;
       for (var index = 0; index < maxImmediateAttempts; index += 1) {
+        if (index > 0) {
+          // Between immediate attempts only — never before the first, never
+          // after the last (there is no next attempt to wait for then).
+          await Future.delayed(backoffDelay(index - 1, random: _random));
+        }
         final latest = await store.read();
         if (latest == null) return CloudWriteResult.completed;
         if (latest.preparedDeletedIds.isNotEmpty ||
