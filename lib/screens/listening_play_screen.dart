@@ -202,7 +202,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     _abandonTracker?.markCompleted();
     final lang = Localizations.localeOf(context).languageCode;
     final earned = (_scenario.dialog.length * 8).clamp(40, 120);
-    final attempt = _learningAttempt = LearningJourneyObserver.beginAttempt();
+    final attempt = _learningAttempt ??= LearningJourneyObserver.beginAttempt();
     final work = _feedbackCompletion.finish(
       persistXp: () async {
         final claim = await Storage.claimListeningCompletionReward(

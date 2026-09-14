@@ -6,8 +6,81 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/learning_journey.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/services/sori_stage_reward_receipt_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+import 'support/hanok_competence_fixture.dart';
 
 void main() {
+  for (final shownStages in [0, 1, 3]) {
+    testWidgets(
+      'receipt preserves only unshown Sarangchae stages after $shownStages shown',
+      (tester) async {
+        final observer = LearningJourneyObserver();
+        late Route<dynamic> origin;
+        await tester.pumpWidget(
+          MaterialApp(
+            navigatorObservers: [observer],
+            home: Builder(
+              builder: (context) {
+                origin = ModalRoute.of(context)!;
+                return const Text('origin');
+              },
+            ),
+          ),
+        );
+        final journey = observer.begin(origin)!;
+        final attempt = journey.beginAttempt()..complete();
+        attempt.shown(SoriRewardKind.xp, 10);
+        attempt.shown(SoriRewardKind.hanokProgress, shownStages);
+        attempt.shown(SoriRewardKind.hanokProgress, shownStages);
+        SoriStageProgressionSnapshot snapshot(int units, int xp) =>
+            SoriStageProgressionSnapshot(
+              today: const TodayLearningSnapshot(pick: null),
+              hanokCompetence: hanokCompetenceFixture(
+                a1Completed: units,
+                a1Total: 16,
+              ),
+              quests: const [],
+              pendingBojagiCount: 0,
+              stampCount: 0,
+              xp: xp,
+              streakDays: 0,
+              todayReward: null,
+            );
+        final receipt = SoriStageRewardReceiptService.compare(
+          activityId: 'course',
+          before: snapshot(4, 100),
+          after: snapshot(7, 115),
+        );
+        final remaining = journey.unshown(receipt);
+        expect(remaining.receiptId, receipt.receiptId);
+        expect(remaining.activityId, receipt.activityId);
+        expect(
+          remaining.items
+              .singleWhere((item) => item.kind == SoriRewardKind.xp)
+              .amount,
+          5,
+        );
+        expect(remaining.sarangchaeStageBefore, 4 + shownStages);
+        expect(remaining.sarangchaeStageAfter, 7);
+        expect(remaining.hasSarangchaeUpgrade, shownStages < 3);
+        final stageItems = remaining.items.where(
+          (item) => item.kind == SoriRewardKind.hanokProgress,
+        );
+        if (shownStages == 3) {
+          expect(stageItems, isEmpty);
+          expect(
+            remaining.isEmpty,
+            isFalse,
+            reason: 'Unshown XP remains without replaying the Hanok upgrade.',
+          );
+        } else {
+          expect(stageItems.single.amount, 3 - shownStages);
+        }
+      },
+    );
+  }
+
   testWidgets(
     'Home confirmation preserves origin identity and scroll through a hub',
     (tester) async {

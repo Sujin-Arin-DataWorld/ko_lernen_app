@@ -103,9 +103,10 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   @override
   void didUpdateWidget(covariant GyeTabScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.loadGyeMetas != widget.loadGyeMetas ||
-        oldWidget.refreshGeneration != widget.refreshGeneration ||
-        (!oldWidget.active && widget.active)) {
+    if (widget.active &&
+        (oldWidget.loadGyeMetas != widget.loadGyeMetas ||
+            oldWidget.refreshGeneration != widget.refreshGeneration ||
+            !oldWidget.active)) {
       _reload();
     }
     if (!oldWidget.active && widget.active && widget.enableCoach) {

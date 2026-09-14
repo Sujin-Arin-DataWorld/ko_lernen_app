@@ -8,8 +8,8 @@ import '../../services/vocab_pack_service.dart';
 import 'button.dart';
 import 'card.dart';
 import 'tokens.dart';
-import 'activity_illustration.dart';
 import 'window_class.dart';
+import 'activity_illustration.dart';
 
 class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
   const LearningFocusScope({
@@ -103,7 +103,7 @@ class SoriLearningFocus extends StatelessWidget {
                       ),
                     );
                     if (constraints.maxWidth <
-                            SoriAdaptiveWidth.illustrationCopyRow ||
+                            SoriAdaptiveWidth.learningFocusHeroRow ||
                         MediaQuery.textScalerOf(context).scale(16) > 24) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,7 +210,7 @@ class SoriLearningFocus extends StatelessWidget {
                           style: text.bodySmall.copyWith(fontSize: 15),
                         );
                   if (constraints.maxWidth <
-                          SoriAdaptiveWidth.compactMetadataRow ||
+                          SoriAdaptiveWidth.learningFocusFooterRow ||
                       MediaQuery.textScalerOf(context).scale(16) >= 24) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

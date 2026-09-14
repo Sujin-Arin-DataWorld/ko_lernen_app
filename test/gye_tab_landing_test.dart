@@ -211,6 +211,72 @@ void main() {
     await _pump(tester, loader, active: true);
     expect(loads, 1);
   });
+
+  testWidgets(
+    'joined Gye defers inactive returns and account loader changes until activation',
+    (tester) async {
+      var firstLoads = 0;
+      var secondLoads = 0;
+      Future<List<GyeMeta>> firstAccount() async {
+        firstLoads++;
+        return const [
+          GyeMeta(
+            id: 'first',
+            name: 'First courtyard',
+            code: 'ABC234',
+            ownerId: 'first-owner',
+          ),
+        ];
+      }
+
+      Future<List<GyeMeta>> secondAccount() async {
+        secondLoads++;
+        return [
+          GyeMeta(
+            id: 'second',
+            name: 'Second courtyard $secondLoads',
+            code: 'BCD345',
+            ownerId: 'second-owner',
+          ),
+        ];
+      }
+
+      await _pump(tester, firstAccount);
+      expect(firstLoads, 1);
+      expect(find.text('First courtyard'), findsOneWidget);
+      for (final generation in [1, 2, 3]) {
+        await _pump(
+          tester,
+          firstAccount,
+          active: false,
+          refreshGeneration: generation,
+        );
+      }
+      expect(firstLoads, 1);
+      await _pump(tester, secondAccount, active: false, refreshGeneration: 4);
+      expect(
+        secondLoads,
+        0,
+        reason: 'Account replacement cannot trigger hidden network work.',
+      );
+      await _pump(tester, secondAccount, refreshGeneration: 4);
+      expect(secondLoads, 1);
+      expect(find.text('First courtyard'), findsNothing);
+      expect(find.text('Second courtyard 1'), findsOneWidget);
+      await _pump(tester, secondAccount, refreshGeneration: 4);
+      expect(secondLoads, 1);
+      await _pump(tester, secondAccount, refreshGeneration: 5);
+      expect(secondLoads, 2);
+      expect(find.text('Second courtyard 2'), findsOneWidget);
+      await _pump(tester, firstAccount, refreshGeneration: 6);
+      expect(
+        firstLoads,
+        2,
+        reason: 'Active account/loader changes still refresh once.',
+      );
+      expect(find.text('First courtyard'), findsOneWidget);
+    },
+  );
 }
 
 Future<void> _pump(
@@ -221,6 +287,7 @@ Future<void> _pump(
   double textScale = 1,
   EdgeInsets safeInsets = EdgeInsets.zero,
   bool active = true,
+  int refreshGeneration = 0,
   bool settle = true,
 }) async {
   await tester.pumpWidget(
@@ -243,6 +310,7 @@ Future<void> _pump(
         onContinueSolo: onContinueSolo,
         enableCoach: false,
         active: active,
+        refreshGeneration: refreshGeneration,
       ),
     ),
   );

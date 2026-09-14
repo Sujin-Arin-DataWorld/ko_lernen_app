@@ -375,7 +375,9 @@ void main() {
       );
       expect(status('chosung', snapshot), t.catalogBestScore(42));
       expect(status('daily_game', snapshot), isNull);
+      // The retired status label must not return when no progress is known.
       expect(find.text('New'), findsNothing);
+      expect(find.text('Neu'), findsNothing);
     },
   );
 

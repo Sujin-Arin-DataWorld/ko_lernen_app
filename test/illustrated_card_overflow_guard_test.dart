@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,24 +12,18 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
+import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
+import 'package:ko_lernen_app/widgets/sori/localized_copy.dart';
 
 import 'support/real_fonts.dart';
 
-/// §LAYOUT-2(J12) — catalog cards use their natural content height and must
-/// never add a private [Scrollable]. A nested scrollable would swallow page
-/// drags and hide copy when localized text or progress labels become taller.
-/// This guard renders every visible catalog card across the states most likely
-/// to increase card height and verifies the natural-height contract directly.
+/// The production catalog uses natural-height cards. Every activity must remain
+/// reachable, its title and description must render fully inside its card,
+/// and card gestures must never compete with an inner scroll view.
 ///
-/// Full coverage would be locale(2) x width(5) x scale(4) x state(4) x tab(2).
-/// This file uses a reduced but representative corner set (both width
-/// extremes, both a normal and a maximum text scale, all locales and states)
-/// to keep CI runtime bounded — for this purely additive text-height budget,
-/// the omitted middle values (360/720dp, 1.3x/1.6x) interpolate between the
-/// tested corners and cannot fail if the corners pass.
-///
-/// A tall physical viewport lets the catalog's [Wrap] materialize every card
-/// in one pump, avoiding a per-entry `scrollUntilVisible` loop.
+/// Retain the 96-case locale / width / text-scale / progress-state matrix.
+/// A tall viewport builds the entire catalog so a missing or duplicate entry
+/// cannot pass just because another card remains visible.
 enum _StateVariant { ready, inProgress, completed, locked }
 
 void main() {
@@ -39,7 +34,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
   });
 
-  group('SoriStageCatalogScreen grid cards', () {
+  group('SoriStageCatalogScreen catalog cards', () {
     const widths = [320.0, 390.0, 1280.0];
     const scales = [1.0, 2.0];
     const locales = [Locale('de'), Locale('en')];
@@ -90,9 +85,6 @@ void main() {
       final entries = soriActivityCatalog
           .where((entry) => entry.tab == tab)
           .toList();
-      final cardEntries = tab == SoriStageTab.learn
-          ? entries.where((entry) => entry.learnSection != null).toList()
-          : entries;
 
       for (final locale in locales) {
         for (final width in widths) {
@@ -100,7 +92,7 @@ void main() {
             for (final variant in _StateVariant.values) {
               testWidgets(
                 '${tab.name} ${locale.languageCode} @ ${width.toInt()}dp '
-                'x$scale ${variant.name}: every card stays natural-height',
+                'x$scale ${variant.name}: no card scrolls its body',
                 (tester) async {
                   tester.view.physicalSize = Size(width, 12000);
                   tester.view.devicePixelRatio = 1;
@@ -130,44 +122,86 @@ void main() {
                   await tester.pump();
                   await tester.pump(const Duration(milliseconds: 300));
 
-                  final failures = <String>[];
                   final cards = tester
                       .widgetList<SoriCatalogCard>(find.byType(SoriCatalogCard))
                       .toList();
+                  final expectedCards = entries
+                      .where((entry) => entry.id != 'course')
+                      .map((entry) => entry.id)
+                      .toList();
                   expect(
-                    cards.length,
-                    greaterThanOrEqualTo(cardEntries.length),
-                    reason:
-                        'expected every visible ${tab.name} entry to build a '
-                        'card (found ${cards.length}, wanted >= '
-                        '${cardEntries.length}) '
-                        '— the tall viewport should materialize the whole '
-                        'catalog.',
+                    cards.map((card) => card.entry.id),
+                    unorderedEquals(expectedCards),
+                    reason: 'Every catalog activity must appear exactly once.',
                   );
-
-                  for (final entry in cardEntries) {
+                  if (tab == SoriStageTab.learn) {
+                    // The learning path is the focus action above the grouped
+                    // catalog, with a route button when no shell scope exists.
+                    final course = entries.singleWhere((e) => e.id == 'course');
+                    final context = tester.element(
+                      find.byType(SoriStageCatalogScreen),
+                    );
+                    final courseAction = find.widgetWithText(
+                      TextButton,
+                      localCopy(context, course.title),
+                    );
+                    expect(courseAction, findsOneWidget);
                     expect(
-                      find.byKey(ValueKey('catalog-card-${entry.id}')),
-                      findsOneWidget,
-                      reason: 'missing catalog card for ${entry.id}',
+                      tester.widget<TextButton>(courseAction).onPressed,
+                      isNotNull,
                     );
                   }
 
                   for (final card in cards) {
-                    final scrollFinder = find.descendant(
-                      of: find.byWidget(card),
-                      matching: find.byType(Scrollable),
+                    final cardFinder = find.byWidget(card);
+                    expect(
+                      find.descendant(
+                        of: cardFinder,
+                        matching: find.byType(Scrollable),
+                      ),
+                      findsNothing,
+                      reason: '${card.entry.id} must use the page scroll.',
                     );
-                    if (scrollFinder.evaluate().isNotEmpty) {
-                      failures.add(
-                        '"${card.entry.id}" owns a nested Scrollable '
-                        '@ ${width.toInt()}dp x$scale '
-                        '${locale.languageCode} ${variant.name}',
+                    final context = tester.element(cardFinder);
+                    final cardBounds = tester.getRect(cardFinder).inflate(.5);
+                    for (final copy in [
+                      card.entry.title,
+                      card.entry.description,
+                    ]) {
+                      final label = find.descendant(
+                        of: cardFinder,
+                        matching: find.text(localCopy(context, copy)),
                       );
+                      expect(label, findsOneWidget);
+                      final text = tester.widget<Text>(label);
+                      expect(text.maxLines, isNull);
+                      expect(text.overflow, isNot(TextOverflow.ellipsis));
+                      final paragraph = tester.renderObject<RenderParagraph>(
+                        find.descendant(
+                          of: label,
+                          matching: find.byType(RichText),
+                        ),
+                      );
+                      expect(paragraph.didExceedMaxLines, isFalse);
+                      final bounds = tester.getRect(label);
+                      expect(cardBounds.contains(bounds.topLeft), isTrue);
+                      expect(cardBounds.contains(bounds.bottomRight), isTrue);
                     }
+                    final art = tester.widget<Image>(
+                      find.descendant(
+                        of: cardFinder,
+                        matching: find.byWidgetPredicate(
+                          (widget) =>
+                              widget is Image &&
+                              widget.image is AssetImage &&
+                              (widget.image as AssetImage).assetName ==
+                                  activityIllustrationAsset(card.entry.id),
+                        ),
+                      ),
+                    );
+                    expect(art.fit, BoxFit.contain);
+                    expect(tester.takeException(), isNull);
                   }
-
-                  expect(failures, isEmpty, reason: failures.join('\n'));
                 },
               );
             }
