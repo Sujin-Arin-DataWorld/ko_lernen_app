@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// §B2(2026-09-03) — [lib/widgets/sori/study_frame.dart]'s `SoriStudyFrame`
 /// owns the sole close (X, leading) and home (trailing) actions; it no
-/// longer accepts a custom `leading` widget. This guard pins the 27-screen
+/// longer accepts a custom `leading` widget. This guard pins the 28-screen
 /// inventory, the confirm-before-leaving contract each active screen wires
 /// through `SoriHomeEscape`, and that the pre-§B2 per-screen close-button
 /// builders (`leading: IconButton(...)`, `Icons.arrow_back_ios_new`,
@@ -25,6 +25,7 @@ void main() {
     'lib/screens/kkeunmari_screen.dart',
     'lib/screens/legacy_vocab_screen.dart',
     'lib/screens/listening_play_screen.dart',
+    'lib/screens/phase_task_screen.dart',
     'lib/screens/pronunciation_studio_screen.dart',
     'lib/screens/review_session_screen.dart',
     'lib/screens/satz_arcade_screen.dart',
@@ -57,6 +58,8 @@ void main() {
     'lib/screens/hard_choice_quiz_screen.dart':
         '!_done && (_idx > 0 || _locked)',
     'lib/screens/kkeunmari_screen.dart': '_end == _End.none && _remaining > 0',
+    'lib/screens/phase_task_screen.dart':
+        '_captureBusy || _recording || (_recorded != null && _result == null) || _hasUnsavedAnswers',
     'lib/screens/pronunciation_studio_screen.dart':
         '_captureBusy || _assessing',
     'lib/screens/review_session_screen.dart':
@@ -97,7 +100,7 @@ void main() {
         .toSet();
 
     expect(actual, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(27));
+    expect(expectedStudyFrameScreens, hasLength(28));
   });
 
   test('all StudyFrame screens rely on the frame-owned home action', () {
@@ -124,7 +127,7 @@ void main() {
     );
   });
 
-  test('active and static home-escape decisions cover all 27 screens', () {
+  test('active and static home-escape decisions cover all 28 screens', () {
     expect(
       activeConfirmContracts.keys.toSet().intersection(
         staticImmediateEscapeScreens,

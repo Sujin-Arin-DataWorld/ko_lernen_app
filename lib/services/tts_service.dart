@@ -1176,6 +1176,18 @@ class TtsService {
     _cacheDir = dir;
   }
 
+  static Future<Directory> Function()? _applicationCacheDirectoryOverride;
+
+  @visibleForTesting
+  static void setApplicationCacheDirectoryForTesting(
+    Future<Directory> Function()? provider,
+  ) {
+    _applicationCacheDirectoryOverride = provider;
+  }
+
+  static Future<Directory> _applicationCacheDirectory() =>
+      (_applicationCacheDirectoryOverride ?? getApplicationCacheDirectory)();
+
   @visibleForTesting
   static void setCanonicalDownloadForTesting(
     Future<Uint8List?> Function(TtsCacheKey key)? download,
@@ -1676,7 +1688,7 @@ class TtsService {
     if (_cacheDir case final cached?) {
       return cached;
     }
-    final base = await getApplicationCacheDirectory();
+    final base = await _applicationCacheDirectory();
     return Directory('${base.path}/tts_cache');
   }
 
@@ -1688,7 +1700,7 @@ class TtsService {
       return _cacheDir;
     }
     try {
-      final base = await getApplicationCacheDirectory();
+      final base = await _applicationCacheDirectory();
       final dir = Directory('${base.path}/tts_cache');
       if (!await dir.exists()) {
         await dir.create(recursive: true);

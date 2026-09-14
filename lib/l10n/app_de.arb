@@ -4955,5 +4955,7 @@
   "ilduConstructionStart": "Mit dem Bau beginnen",
   "@ilduConstructionStart": {
     "description": "Empty site before the first construction stage"
-  }
+  },
+  "phaseTaskLeaveTitle": "Aufgabe verlassen?",
+  "phaseTaskLeaveBody": "Nicht abgegebene Aufnahmen und noch nicht gespeicherte Antworten können verloren gehen. Trotzdem verlassen?"
 }

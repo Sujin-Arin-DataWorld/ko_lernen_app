@@ -4791,5 +4791,7 @@
   "ilduConstructionStart": "Start building",
   "@ilduConstructionStart": {
     "description": "Empty site before the first construction stage"
-  }
+  },
+  "phaseTaskLeaveTitle": "Leave this task?",
+  "phaseTaskLeaveBody": "Unsubmitted recordings and answers that have not been saved may be lost. Leave anyway?"
 }

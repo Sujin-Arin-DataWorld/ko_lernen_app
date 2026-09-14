@@ -75,6 +75,24 @@ void main() {
     },
   );
 
+  test('overlapping callers share one validated catalog load', () async {
+    final first = PhaseTaskCatalog.load();
+    final second = PhaseTaskCatalog.load();
+    expect(identical(first, second), isTrue);
+    final catalogs = await Future.wait([first, second]);
+    expect(identical(catalogs.first, catalogs.last), isTrue);
+    expect(reads[PhaseTaskCatalog.assetPath], 1);
+    expect(reads[PhaseTaskCatalog.phaseAssetPath], 1);
+    expect(
+      identical(
+        catalogs.first.byId(catalogs.first.tasks.first.id),
+        catalogs.first.tasks.first,
+      ),
+      isTrue,
+    );
+    expect(() => catalogs.first.byId('missing-task'), throwsFormatException);
+  });
+
   test(
     'publication mismatch is not cached and the next load recovers',
     () async {
