@@ -10,7 +10,7 @@ Hangul Sori(`ko-lernen-app`)가 "상업화해도 되는 상태"인지 판단하�
 | ANR율 | < 0.47% | Play Console → 품질 → Android Vitals → ANR rate | **Jin, Play Console 수동 확인.** Android 전용 지표(iOS엔 ANR 개념 없음). |
 | Firestore 작업/DAU | ≤ 40 ops/day/user | `firestore.googleapis.com/document/{read,write,delete}_count` 합계를 DAU(활성 사용자 수)로 나눔 | **미측정 — 스크립트 없음.** 이 PR은 만들지 않았다: DAU 소스(Analytics? Firestore users 컬렉션?)를 먼저 정해야 정확한 나눗셈이 된다. `tool/ops/alert_policies/05_firestore_write_surge.json`은 이 SLO와 다른 것 — 그건 "급증 감지"고 이건 "평상시 효율" 지표. |
 | 함수 5xx율 | < 1% | `run.googleapis.com/request_count`, `response_code_class="5xx"` / 전체, 서비스별 | **자동 알림 있음(2% 임계치, `tool/ops/alert_policies/01_functions_5xx_rate.json`).** 주의: 알림 임계치(2%)는 SLO 목표(1%)보다 느슨하다 — 알림이 안 울려도 SLO는 이미 깨졌을 수 있다. SLO 자체의 실측은 Cloud Monitoring Metrics Explorer에서 수동 조회(월 1회 권장) 또는 향후 SLO 객체(`gcloud alpha monitoring services`)로 승격. |
-| TTS `--verify-storage` 결손 | 0건 | `tool/tts_verify_storage.py`(또는 해당 verify-storage 스크립트) 실행 결과 missing count | **Jin 또는 세션, 로컬 스크립트 실행.** 콘텐츠 텍스트가 바뀌면 TTS가 결손되는 구조이므로(`memory/tts-verify-missing-runbook`), 콘텐츠 PR마다 실행이 전제. 이 PR은 그 스크립트를 새로 만들지 않는다 — 기존 절차를 SLO로 등재만 한다. |
+| TTS `--verify-storage` 결손 | 0건 | `python -X utf8 tool/generate_tts.py --verify-storage` 실행 후 출력되는 `Storage verify — expected N, remote N, missing N, stale N` 줄의 `missing` 값. `missing`이 1 이상이면 프로세스가 exit code 1로 끝난다(`tool/generate_tts.py`의 `return 1 if missing else 0`) — 이것이 `.github/workflows/ci.yml`의 "TTS Storage completeness (content)" 잡(940번째 줄)의 step "Verify TTS Storage completeness"(976번째 줄)가 그대로 게이트로 쓰는 명령이다. | **Jin 또는 세션, 로컬 스크립트 실행(또는 CI 잡 결과 확인).** 콘텐츠 텍스트가 바뀌면 TTS가 결손되는 구조이므로(`memory/tts-verify-missing-runbook`), 콘텐츠 PR마다 실행이 전제. 이 PR은 이 스크립트를 새로 만들지 않는다 — 기존 절차를 SLO로 등재만 한다. |
 
 ## 왜 "콘솔 확인"과 "알림"을 분리했나
 

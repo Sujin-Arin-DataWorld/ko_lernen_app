@@ -55,7 +55,11 @@ codebase는 `firebase.json` 기준 `gye-firebase-functions` /
 `tts-firebase-functions` / `pronunciation-firebase-functions` 중 하나,
 `analyze_korean_text`(Python)는 `docs/store/cloud-function-deploy.md`의
 `gcloud functions deploy analyze_korean_text` 절차를 따른다. Gen1
-`auth_cleanup`은 별도 취급 — 같은 문서 참조.
+`auth_cleanup`(`on_auth_user_deleted`)은 Firebase CLI codebase가 아니라 별도
+`gcloud functions deploy` 대상이다 — `docs/store/firebase-backend-release-gates.md`
+§6 "Auth deletion bridge (Gen1)"의
+`gcloud functions deploy on_auth_user_deleted --no-gen2 ...` 절차를 따르고,
+먼저 Gye의 `on_user_deleted`가 live이고 정상인지 확인한 뒤에만 배포한다.
 
 **B. Cloud Run 트래픽을 이전 리비전으로 즉시 되돌리기(긴급, 재배포보다 빠름):**
 ```
