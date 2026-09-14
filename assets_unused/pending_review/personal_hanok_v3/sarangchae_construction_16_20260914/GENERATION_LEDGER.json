@@ -1,0 +1,115 @@
+{
+  "tool": "built-in image_gen",
+  "intermediates": [
+    {
+      "stage": 1,
+      "selectedGeneration": "01",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-014181bf-9837-430f-9073-19c433e4d3d7.png",
+      "promptFile": "prompt-stage01-v01.txt"
+    },
+    {
+      "stage": 2,
+      "selectedGeneration": "02",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-7c2fc645-93c7-4f87-8f46-c244c12488be.png",
+      "promptFile": "prompt-stage02-v01.txt"
+    },
+    {
+      "stage": 3,
+      "selectedGeneration": "03",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-d0417e0a-c7aa-4150-9d97-61366b11f596.png",
+      "promptFile": "prompt-stage03-v01.txt"
+    },
+    {
+      "stage": 4,
+      "selectedGeneration": "04",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-613fee8b-74e4-49aa-b3c0-3a7739ca4162.png",
+      "promptFile": "prompt-stage04-v01.txt"
+    },
+    {
+      "stage": 5,
+      "selectedGeneration": "05_v04",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-b2535e1e-c33f-48f3-840c-8e23e9ab0858.png",
+      "promptFile": "prompt-stage05-v04.txt"
+    },
+    {
+      "stage": 6,
+      "selectedGeneration": "06",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-8459c685-098d-4f3b-8825-e09a13ab5187.png",
+      "promptFile": "prompt-stage06-v01.txt"
+    },
+    {
+      "stage": 7,
+      "selectedGeneration": "07_v02",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-a623fcb2-72f7-4f7a-9576-1f87853350c3.png",
+      "promptFile": "prompt-stage07-v02.txt"
+    },
+    {
+      "stage": 8,
+      "selectedGeneration": "08_v02",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-b4d9a29c-73ab-4446-a168-9e0a72d464eb.png",
+      "promptFile": "prompt-stage08-v02.txt"
+    },
+    {
+      "stage": 9,
+      "selectedGeneration": "09",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-d39dcb92-d096-4e54-950a-afbd54c6cfcb.png",
+      "promptFile": "prompt-stage09.txt"
+    },
+    {
+      "stage": 10,
+      "selectedGeneration": "10",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-58ed1cc2-fcaa-4b29-ac8b-e564f34cc57b.png",
+      "promptFile": "prompt-stage10-v01.txt"
+    },
+    {
+      "stage": 11,
+      "selectedGeneration": "11_v02",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-12734e67-3a72-499b-b2fb-da8b65b3602d.png",
+      "promptFile": "prompt-stage11_v02.txt"
+    },
+    {
+      "stage": 12,
+      "selectedGeneration": "12",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-a3c1b58c-f9e1-4580-8a43-9717c78a3260.png",
+      "promptFile": "prompt-stage12-v01.txt"
+    },
+    {
+      "stage": 13,
+      "selectedGeneration": "13",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-e902cfba-8bc0-4a1d-a49e-5178b094a77f.png",
+      "promptFile": "prompt-stage13-v01.txt"
+    },
+    {
+      "stage": 14,
+      "selectedGeneration": "14",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-cd1fc19a-37a7-4ac9-9fe7-2feba8308a00.png",
+      "promptFile": "prompt-stage14-v01.txt"
+    },
+    {
+      "stage": 15,
+      "selectedGeneration": "15",
+      "tool": "built-in image_gen",
+      "generatedSourcePath": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09c9e-f8d2-7c30-9a20-c097232f2d0c\\exec-b85c8464-e8c7-4038-92c9-d2dd34f837a9.png",
+      "promptFile": "prompt-stage15-v01.txt"
+    }
+  ],
+  "stage16": {
+    "method": "byte-for-byte copy",
+    "source": "../canonical/sarangchae/sarangchae-v3-canonical.png",
+    "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+  }
+}

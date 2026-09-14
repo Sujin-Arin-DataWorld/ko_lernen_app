@@ -1,0 +1,29 @@
+Use case: precise-object-edit. Correct the roof structure only in Image 1, a stage 08 construction illustration.
+1. STYLE: Preserve Image 1's refined matte hand-painted 2.5D detailed hanok art. No watercolor, anime, Pixar, low-poly 3D, PBR, gloss.
+2. REFERENCE SCOPE: Image 1 is the EDIT TARGET; Image 2 is the completed master for camera, original column positions and roof proportions only. Do not restore Image 2's roof covering, walls, doors, rails, floorboards or plaques.
+3. CAMERA: Exactly the same 1536x1024 frame, white background, foundation footprint, post positions and perspective. Everything below the eave supporting beams remains stationary.
+4. WANT:
+WANT 1. Show a genuinely OPEN skeletal roof with clear white background visible through the substantial gaps between the rafters.
+WANT 2. Remove ALL wooden-looking imitations of ceramic tile rows from Image 1. The previous image mistakenly recolored roof tiles into wood; this must be fixed by removing the ceramic shapes.
+WANT 3. Remove all tile-end decorative upright caps, ridge crown stacks, stacked roll moldings and ceramic-shaped curved corner trim, even when they are currently wood-colored.
+WANT 4. Retain only real structural wood: slender cylindrical or modestly squared rafters, exposed purlins beneath, ridge purlins, beams and supporting timber.
+WANT 5. Each rafter runs continuously from its ridge/purlin support toward the same eave line, with a single gently curved long timber surface, no repeating tile-shaped scallops or bumps along it.
+WANT 6. Visible air gaps of roughly one rafter width between adjacent rafters, allowing the transverse purlins underneath to be seen.
+WANT 7. Preserve the original curving hip-ended roof arrangement and joined right numaru wing; clearly supported valley/corner timbers join the two roof frames.
+WANT 8. Each purlin rests on the beam-and-short-post assembly beneath, and every beam continues into a post head. All bearing contacts touch.
+WANT 9. Preserve Image 1's entire stone foundation, stairs, all column axes, two pale-bottom outer eave supports, floor joists and deep open inner timber structure without moving or repainting them.
+WANT 10. Warm healthy unpainted wood, detailed grain, true open construction-stage appearance.
+5. CONNECTIONS: Rafters on purlins, purlins on supported roof beams/short posts, roof beams on the source columns. Continuous timber valley joining main body and wing. No duplicate overlaid independent roofs.
+6. NOT:
+NOT 1. No tile shapes in any color.
+NOT 2. No wood-colored tile-end caps or carved tile ornaments.
+NOT 3. No solid roof sheets, decking, boards, earth or infill between rafters.
+NOT 4. No dense sticks packed so tightly that the roof looks solid.
+NOT 5. No extra columns or moved columns.
+NOT 6. No changed foundation stones or stair edges.
+NOT 7. No floating rafters, detached ridge or disconnected wing.
+NOT 8. No roof timbers passing through each other without a joined end.
+NOT 9. No missing room depth or flattened front façade.
+NOT 10. No people, tools, labels, numbered diagrams, furniture or watermark.
+7. MATERIAL / LIGHT: Same warm maintained timber and source lighting; white visibly shines through empty roof spaces. Keep the existing lower structure's hues and details.
+8. OUTPUT CHECK: At first glance this must look like a wooden roof skeleton you can see THROUGH, not the completed roof recolored brown. One full-frame image.

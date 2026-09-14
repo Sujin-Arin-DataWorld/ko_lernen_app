@@ -1,0 +1,28 @@
+1. STYLE: Preserve the exact fine hand-painted 2.5D hanok architecture of the references: dense fine detail, healthy maintained warm timber, matte materials, restrained painterly shadows and selective fine linework. No watercolor, anime, Pixar, low-poly 3D, photorealistic PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the edit target at the adjacent construction stage. Image 2 is the immutable completed master, used ONLY to maintain architecture, placements, scale, materials and lighting; do not restore later components being removed. This is the same particular Sarangchae, not a new building.
+3. CAMERA: One 1536x1024 landscape image, exact same white background, framing, view and scale. Retained parts must remain stationary. No added labels or numbering.
+4. REQUIRED EDIT AND TEN WANTS:
+WANT 1. Create stage 03: only the finished original stone foundations, central staircase and individual column footstones remain.
+WANT 2. Remove ALL wooden columns, wooden beams, floor framing, braces, roof components and wooden fragments from Image 1.
+WANT 3. Remove the two tall pale lower sections of the outer eave support columns as well; leave only their low original base stones.
+WANT 4. Keep every individual low column footstone in its exact source position and shape, including the inner and rear rows.
+WANT 5. Keep the tall main-body masonry plinth and the lower projecting right-wing platform in precisely their source locations.
+WANT 6. Keep every visible stone block outline, joint and cream-gray mineral texture unchanged.
+WANT 7. Keep the complete central staircase, its step count, side cheeks and raised landing exactly unchanged.
+WANT 8. Reveal the flat compacted construction platform between the footstones where removed timber obscured it, consistent with the existing perspective.
+WANT 9. Keep the same 1536x1024 framing: the stonework stays at the BOTTOM of the original full-house frame with a large empty white area above.
+WANT 10. Low separate foundation stones clearly mark the future post positions; there are no upright columns yet.
+5. CONNECTIONS: Retained column feet meet the same stones; column heads meet their beams; roof purlins bear on supported timber and rafters bear on purlins. Preserve the connected main-body/right-numaru junction and actual spatial depth. Never invent free-floating members or unrelated new front columns.
+6. TEN NOTS:
+NOT 1. Do not move, rescale, mirror or rotate the building.
+NOT 2. Do not change the retained curved roof silhouette or joined right wing.
+NOT 3. Do not change retained stone outlines, staircase edges or the foundation footprint.
+NOT 4. Do not move, thicken or arbitrarily add a visible column.
+NOT 5. Do not remove structural framing while removing finish layers.
+NOT 6. Do not flatten the rooms or hide the numaru underfloor depth.
+NOT 7. Do not restore plaques or add any writing or blank signboards.
+NOT 8. Do not add workers, tools, scaffold, furniture, plants or construction clutter.
+NOT 9. Do not bleach, saturate, weather, decay, smooth away detail or restyle retained materials.
+NOT 10. Do not create a collage, cutaway detached from the building, border, watermark or cropped close-up.
+7. MATERIALS: Same maintained sound timber, fine natural grain, same upper-left light and clean traditional stone. Keep the source palette, material texture and spatial shadows.
+8. OUTPUT: A single polished earlier construction-stage image, visually continuous with its adjacent stage and the approved completed source. STONE ONLY. No wood, no upright white shafts, no machinery or tools. Do not enlarge or center the remaining foundations.

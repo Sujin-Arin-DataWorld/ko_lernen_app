@@ -1,0 +1,29 @@
+Use case: precise-object-edit. One 1536x1024 image. Correct only the LOWER RIGHT foundation and post feet in Image 1. Do not redesign the separate columns.
+1. STYLE: Identical maintained detailed hand-painted 2.5D architecture, matte natural wood and original cream-gray stone. No watercolor, anime, Pixar, low-poly 3D, PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the target with separate columns. Image 2 is the exact unobstructed STONE BASE AUTHORITY. Image 3 shows the correct column feet and same platform under connected beams. Image 4 is the final approved master. COPY Image 2's entire right stone platform shape, surface level, footstone positions and front-edge outline exactly into Image 1, then extend existing column shafts down to those footstones.
+3. CAMERA: Exact same frame, no zoom, rotation or movement.
+4. WANTS:
+WANT 1. Restore the exact right-wing foundation from Image 2, whose pale outer support footstone is centered around (1320,804).
+WANT 2. Preserve that platform's original front bottom at roughly y879 and its original thin masonry height; no added course.
+WANT 3. Place the right slender pale eave column foot directly ON that original stone, lowering its current foot as necessary, with no gap.
+WANT 4. Its pale lower section begins around y578 as in Image 3, not around y600. Keep the head at its present source height.
+WANT 5. Restore the front thick numaru column's footstone to Image 2 near (1260,800), with its wood shaft ending on the top of the stone.
+WANT 6. All other right-wing column feet land on Image 2's unchanged footstones. Adjust lower shafts, not stone height.
+WANT 7. Keep the existing full-height column heads and centerlines unchanged.
+WANT 8. Keep the exact left/main masonry and central stairs from Image 2.
+WANT 9. Temporary braces may move their bottom endpoints only to meet the corrected original platform.
+WANT 10. At completion, overlaying Image 1 on Image 2 must show matching stone-base outlines and footstone positions.
+5. CONNECTIONS: Timbers sit on stones; never raise stones to meet timbers. Only lower shaft ends/brace ends may lengthen in this correction.
+6. NOTS:
+NOT 1. No raised right platform.
+NOT 2. No changed masonry courses.
+NOT 3. No extra footstones.
+NOT 4. No short columns floating above the original stones.
+NOT 5. No moved column heads.
+NOT 6. No new horizontal beams.
+NOT 7. No roof or walls.
+NOT 8. No changed stairs.
+NOT 9. No new clutter, people, text or labels.
+NOT 10. No edited camera, palette or image margins.
+7. MATERIAL: Keep source timber detail and soft light. Copy the actual detailed stonework, not an approximate replacement.
+8. OUTPUT: One corrected columns-only frame. The unobstructed foundation in Image 2 is the absolute authority for the base, which must remain pixel-stationary.

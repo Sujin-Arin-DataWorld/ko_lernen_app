@@ -25,13 +25,14 @@
     },
     {
       "building_id": "sarangchae",
-      "package": "ildu_sarangchae_v01",
-      "canonical_source": "ildu_sarangchae_v01/references/canonical_source/sarangchae_try07_edit.png",
-      "canonical_source_sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
-      "canonical_runtime_version": "v02",
-      "canonical_runtime_frames": "ildu_sarangchae_v01/runtime_views",
-      "runtime_frame_count": 8,
-      "runtime_sha256_matches": 8
+      "status": "retired_turnaround_replaced_by_approved_single_view",
+      "current_art_master": "../canonical/sarangchae/sarangchae-v3-canonical.png",
+      "current_art_master_lock": "../canonical/sarangchae/CANONICAL_LOCK.json",
+      "canonical_runtime_version": "sarangchae-v3-16",
+      "canonical_runtime_asset": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+      "canonical_source_sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "runtime_frame_count": 1,
+      "construction_stage_count": 16
     },
     {
       "building_id": "sotdaeulmun",

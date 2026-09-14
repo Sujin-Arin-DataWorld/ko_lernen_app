@@ -15,14 +15,14 @@ void main() {
       xp: 100,
       stamps: 2,
       bojagi: 0,
-      b1Completed: 24,
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 4, a1Total: 16),
       questCurrent: 3,
     );
     final after = _snapshot(
       xp: 120,
       stamps: 3,
       bojagi: 1,
-      b1Completed: 25,
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 5, a1Total: 16),
       questCurrent: 4,
     );
 
@@ -62,6 +62,59 @@ void main() {
         replay.items.map((item) => item.kind),
         contains(SoriRewardKind.gyeLantern),
       );
+    },
+  );
+
+  test('receipt exposes every newly earned Sarangchae stage once', () {
+    final before = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 14, a1Total: 20),
+    );
+    final after = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 17, a1Total: 20),
+    );
+
+    final receipt = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: before,
+      after: after,
+    );
+    final replay = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: after,
+      after: after,
+    );
+
+    expect(receipt.sarangchaeStageBefore, 14);
+    expect(receipt.sarangchaeStageAfter, 16);
+    expect(receipt.hasSarangchaeUpgrade, isTrue);
+    expect(
+      receipt.items
+          .singleWhere((item) => item.kind == SoriRewardKind.hanokProgress)
+          .amount,
+      2,
+    );
+    expect(replay.hasSarangchaeUpgrade, isFalse);
+    expect(replay.isEmpty, isTrue);
+  });
+
+  test(
+    'completed Sarangchae never advertises a seventeenth building piece',
+    () {
+      final receipt = SoriStageRewardReceiptService.compare(
+        activityId: 'course',
+        before: _snapshot(
+          xp: 10,
+          hanokCompetence: hanokCompetenceFixture(a1Completed: 16, a1Total: 20),
+        ),
+        after: _snapshot(
+          xp: 30,
+          hanokCompetence: hanokCompetenceFixture(a1Completed: 17, a1Total: 20),
+        ),
+      );
+      expect(receipt.sarangchaeStageAfter, 16);
+      expect(receipt.hasSarangchaeUpgrade, isFalse);
+      expect(receipt.items.single.kind, SoriRewardKind.xp);
+      expect(receipt.items.single.amount, 20);
     },
   );
 
@@ -216,16 +269,19 @@ SoriStageProgressionSnapshot _snapshot({
   int b1Completed = 0,
   int questCurrent = 0,
   QuestProgress? extraQuest,
+  HanokCompetenceProjection? hanokCompetence,
 }) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(pick: null),
-  hanokCompetence: b1Completed == 0
-      ? const HanokCompetenceProjection.empty()
-      : hanokCompetenceFixture(
-          a1Completed: 4,
-          a2Completed: 4,
-          b1Completed: b1Completed,
-          b1Total: 100,
-        ),
+  hanokCompetence:
+      hanokCompetence ??
+      (b1Completed == 0
+          ? const HanokCompetenceProjection.empty()
+          : hanokCompetenceFixture(
+              a1Completed: 4,
+              a2Completed: 4,
+              b1Completed: b1Completed,
+              b1Total: 100,
+            )),
   quests: <QuestProgress>[
     QuestProgress(
       questId: 'tracked',

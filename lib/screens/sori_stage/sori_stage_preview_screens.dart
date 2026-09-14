@@ -7,6 +7,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
+import 'sori_stage_reward_receipt_sheet.dart';
 
 class SoriStageTodayPreviewScreen extends StatelessWidget {
   const SoriStageTodayPreviewScreen({super.key});
@@ -128,82 +129,38 @@ class SoriStageRewardReceiptPreviewScreen extends StatelessWidget {
   const SoriStageRewardReceiptPreviewScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    return Scaffold(
-      body: SafeArea(
-        child: SoriContentClamp(
-          base: const EdgeInsets.all(Spacing.xl),
-          builder: (context, padding) => ListView(
-            padding: padding,
-            children: [
-              _PreviewHeader(
-                eyebrow: t.soriStagePreviewCopy('receiptEyebrow'),
-                title: t.soriStagePreviewCopy('receiptTitle'),
+  Widget build(BuildContext context) => const Scaffold(
+    body: SingleChildScrollView(
+      child: SoriStageRewardReceiptSheet(
+        receipt: RewardReceipt(
+          activityId: 'ux-preview-course',
+          receiptId: 'ux-preview-sarangchae-6-8',
+          items: <RewardReceiptItem>[
+            RewardReceiptItem(
+              kind: SoriRewardKind.xp,
+              amount: 20,
+              label: SoriLocalizedCopy(
+                key: SoriCopyKey.rewardXp,
+                de: 'Lern-XP',
+                en: 'XP',
               ),
-              const SizedBox(height: Spacing.xl),
-              Container(
-                padding: const EdgeInsets.all(Spacing.xl),
-                decoration: BoxDecoration(
-                  color: SoriActivityColors.hanokStage,
-                  borderRadius: BorderRadius.circular(SoriRadius.lg),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Icon(
-                      Icons.roofing_rounded,
-                      size: 72,
-                      color: SoriColors.gold,
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                    Text(
-                      t.soriStagePreviewCopy('beamStage'),
-                      style: const TextStyle(
-                        color: SoriColors.gold,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1.2,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    Text(
-                      t.soriStagePreviewCopy('newBeam'),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            RewardReceiptItem(
+              kind: SoriRewardKind.hanokProgress,
+              amount: 2,
+              label: SoriLocalizedCopy(
+                key: SoriCopyKey.rewardHanokPiece,
+                de: 'Neues Hanok-Bauteil',
+                en: 'New Hanok building piece',
               ),
-              const SizedBox(height: Spacing.lg),
-              _ReceiptLine(
-                icon: Icons.bolt_rounded,
-                title: t.soriStagePreviewCopy('xpEarned'),
-                detail: t.soriStagePreviewCopy('completedMission'),
-              ),
-              _ReceiptLine(
-                icon: Icons.checklist_rounded,
-                title: t.soriStagePreviewCopy('questEarned'),
-                detail: t.soriStagePreviewCopy('scenarioProgress'),
-              ),
-              _ReceiptLine(
-                icon: Icons.home_work_rounded,
-                title: t.soriStagePreviewCopy('hanokEarned'),
-                detail: t.soriStagePreviewCopy('verifiedSpeaking'),
-              ),
-              const SizedBox(height: Spacing.xl),
-              SoriButton(
-                label: t.soriStagePreviewCopy('continueToday'),
-                onTap: () {},
-              ),
-            ],
-          ),
+            ),
+          ],
+          sarangchaeStageBefore: 6,
+          sarangchaeStageAfter: 8,
         ),
       ),
-    );
-  }
+    ),
+  );
 }
 
 class SoriStageJourneyPreviewScreen extends StatelessWidget {
@@ -453,28 +410,6 @@ class _LessonStage extends StatelessWidget {
         ],
       ),
     ),
-  );
-}
-
-class _ReceiptLine extends StatelessWidget {
-  const _ReceiptLine({
-    required this.icon,
-    required this.title,
-    required this.detail,
-  });
-  final IconData icon;
-  final String title;
-  final String detail;
-  @override
-  Widget build(BuildContext context) => ListTile(
-    contentPadding: EdgeInsets.zero,
-    minVerticalPadding: Spacing.md,
-    leading: CircleAvatar(
-      backgroundColor: SoriColors.primarySoft,
-      child: Icon(icon, color: SoriColors.primaryDark),
-    ),
-    title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-    subtitle: Text(detail),
   );
 }
 

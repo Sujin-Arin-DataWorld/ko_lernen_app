@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "id": "sarangchae-v3-16",
+  "approvedOn": "2026-09-14",
+  "status": "approved_runtime",
+  "completedStage": 16,
+  "canonicalSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "stages": [
+    {
+      "stageId": "sarangchae-site",
+      "sequence": 1,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_01_site.png",
+      "sha256": "5ed4923fba1894427d3aa34699a62a3469c090f04bc89da2af3ebb654ff47727",
+      "term": "칸",
+      "gloss": {
+        "ko": "칸",
+        "en": "bay",
+        "de": "Gefach"
+      },
+      "chapter": {
+        "ko": "자리와 돌",
+        "en": "Site & stone",
+        "de": "Ort & Stein"
+      },
+      "title": {
+        "ko": "터와 칸 배치",
+        "en": "A place for each space",
+        "de": "Platz für jeden Raum"
+      },
+      "question": {
+        "ko": "방과 마루는 어디에 놓일까요?",
+        "en": "Where will the rooms and wooden floors be?",
+        "de": "Wo liegen die Zimmer und die Holzbereiche?"
+      },
+      "body": {
+        "ko": "집의 자리를 살피고 기둥 사이의 공간을 나눕니다. 방과 마루를 오가는 모습을 먼저 떠올려 보세요.",
+        "en": "Mark out the building and the spaces between its posts. Imagine moving between the rooms and the open wooden floor.",
+        "de": "Wir markieren den Bauplatz und die Räume zwischen den Stützen. Stell dir den Weg von den Zimmern zum offenen Holzbereich vor."
+      },
+      "caption": {
+        "ko": "먼저, 함께 살아갈 자리를 그립니다.",
+        "en": "First, a place for life.",
+        "de": "Zuerst entsteht ein Ort zum Leben."
+      }
+    },
+    {
+      "stageId": "sarangchae-foundation",
+      "sequence": 2,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_02_foundation.png",
+      "sha256": "3b328c697cf1bd570dfed11098246a566a6cc44be372e720b558d9759ffc834a",
+      "term": "기단",
+      "gloss": {
+        "ko": "기단",
+        "en": "raised base",
+        "de": "erhöhter Unterbau"
+      },
+      "chapter": {
+        "ko": "자리와 돌",
+        "en": "Site & stone",
+        "de": "Ort & Stein"
+      },
+      "title": {
+        "ko": "기초와 돌기단",
+        "en": "A raised stone base",
+        "de": "Ein Unterbau aus Stein"
+      },
+      "question": {
+        "ko": "이 집의 바닥은 왜 높을까요?",
+        "en": "Why does this house stand above the ground?",
+        "de": "Warum steht das Haus über dem Boden?"
+      },
+      "body": {
+        "ko": "기초 위에 돌기단을 쌓아 집이 앉을 높이를 만듭니다. 계단을 따라 마당에서 집으로 올라가는 길도 생깁니다.",
+        "en": "A stone base gives the house its level. Steps make a path from the courtyard up into the building.",
+        "de": "Ein steinerner Unterbau schafft die Höhe des Hauses. Eine Treppe führt vom Hof nach oben."
+      },
+      "caption": {
+        "ko": "돌이 쌓이고, 집의 높이가 생깁니다.",
+        "en": "The base gives the house its height.",
+        "de": "Der Unterbau gibt dem Haus seine Höhe."
+      }
+    },
+    {
+      "stageId": "sarangchae-choseok",
+      "sequence": 3,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_03_choseok.png",
+      "sha256": "20d0a220fca2e59081524c9cdd4dee4235b50e198c15ffa7d4e9b5c7e161f337",
+      "term": "초석",
+      "gloss": {
+        "ko": "초석",
+        "en": "foundation stone",
+        "de": "Fundamentstein"
+      },
+      "chapter": {
+        "ko": "자리와 돌",
+        "en": "Site & stone",
+        "de": "Ort & Stein"
+      },
+      "title": {
+        "ko": "기둥을 받칠 초석",
+        "en": "A stone for every post",
+        "de": "Ein Stein für jede Stütze"
+      },
+      "question": {
+        "ko": "나무기둥 아래에 무엇을 놓을까요?",
+        "en": "What belongs beneath a timber post?",
+        "de": "Was liegt unter einer Holzstütze?"
+      },
+      "body": {
+        "ko": "기둥이 설 자리에 초석을 놓습니다. 돌과 나무가 만날 위치를 차례로 살펴보세요.",
+        "en": "Foundation stones mark where the posts will stand. Follow the places where timber will meet stone.",
+        "de": "Fundamentsteine markieren die Stellen für die Stützen. Hier werden Holz und Stein aufeinandertreffen."
+      },
+      "caption": {
+        "ko": "한 개의 돌에서, 하나의 기둥이 시작됩니다.",
+        "en": "Each stone is the beginning of a post.",
+        "de": "Auf jedem Stein beginnt eine Stütze."
+      }
+    },
+    {
+      "stageId": "sarangchae-fitting",
+      "sequence": 4,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_04_fitting.png",
+      "sha256": "dfae617098b905d18d83918af8679b5c9011e543daed43548f2b320b32a7b5f1",
+      "term": "그랭이질",
+      "gloss": {
+        "ko": "그랭이질",
+        "en": "fitting timber to stone",
+        "de": "Holz an Stein anpassen"
+      },
+      "chapter": {
+        "ko": "자리와 돌",
+        "en": "Site & stone",
+        "de": "Ort & Stein"
+      },
+      "title": {
+        "ko": "돌에 나무를 맞추다",
+        "en": "A careful fit",
+        "de": "Holz trifft auf Stein"
+      },
+      "question": {
+        "ko": "울퉁불퉁한 돌에 나무가 꼭 맞을까요?",
+        "en": "Can timber fit an uneven stone?",
+        "de": "Passt Holz auf einen unebenen Stein?"
+      },
+      "body": {
+        "ko": "돌의 굴곡을 따라 기둥 밑면을 다듬어 두 면이 맞닿게 합니다. 이 맞춤을 그랭이질이라고 부릅니다.",
+        "en": "The foot of a timber post is shaped to meet the uneven surface of its stone. This careful fitting is called geuraengijil.",
+        "de": "Der Fuß einer Holzstütze wird an die unebene Oberfläche des Steins angepasst. Diese sorgfältige Arbeit heißt Geuraengijil."
+      },
+      "caption": {
+        "ko": "작은 맞춤이 큰 집의 시작이 됩니다.",
+        "en": "A close fit, at the foot of the house.",
+        "de": "Ein genauer Sitz am Fuß des Hauses."
+      }
+    },
+    {
+      "stageId": "sarangchae-columns",
+      "sequence": 5,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_05_columns.png",
+      "sha256": "0f5e796fdc46c27a3d89007c2822c68513c925202b14a0d7257ff01132d589c7",
+      "term": "기둥",
+      "gloss": {
+        "ko": "기둥",
+        "en": "timber post",
+        "de": "Holzstütze"
+      },
+      "chapter": {
+        "ko": "나무 골조",
+        "en": "Timber frame",
+        "de": "Holztragwerk"
+      },
+      "title": {
+        "ko": "기둥이 서다",
+        "en": "The posts rise",
+        "de": "Die Stützen stehen"
+      },
+      "question": {
+        "ko": "기둥 사이에는 어떤 공간이 생길까요?",
+        "en": "What spaces appear between the posts?",
+        "de": "Welche Räume entstehen zwischen den Stützen?"
+      },
+      "body": {
+        "ko": "앞뒤 기둥을 세우면 평면에 높이가 생깁니다. 골조가 연결되기 전의 임시 지지도 함께 살펴보세요.",
+        "en": "Front and rear posts give the plan height. Notice the temporary supports used before the frame is connected.",
+        "de": "Vordere und hintere Stützen geben dem Grundriss Höhe. Bis das Tragwerk verbunden ist, helfen vorübergehende Abstützungen."
+      },
+      "caption": {
+        "ko": "평면의 자리가 입체적인 공간으로 바뀝니다.",
+        "en": "The plan becomes a three-dimensional space.",
+        "de": "Aus dem Grundriss wird ein räumliches Gerüst."
+      }
+    },
+    {
+      "stageId": "sarangchae-beams",
+      "sequence": 6,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_06_beams.png",
+      "sha256": "4f51ff202300881ed9f7a50196ef0e075d329f28f940b6e7c3b4fec497661b8a",
+      "term": "보",
+      "gloss": {
+        "ko": "보",
+        "en": "beam",
+        "de": "Balken"
+      },
+      "chapter": {
+        "ko": "나무 골조",
+        "en": "Timber frame",
+        "de": "Holztragwerk"
+      },
+      "title": {
+        "ko": "따로 선 나무를 잇다",
+        "en": "Connecting the frame",
+        "de": "Das Tragwerk verbinden"
+      },
+      "question": {
+        "ko": "기둥들은 어떻게 함께 서 있을까요?",
+        "en": "How do separate posts become a frame?",
+        "de": "Wie werden einzelne Stützen zu einem Tragwerk?"
+      },
+      "body": {
+        "ko": "보와 창방을 연결하며 목구조를 짭니다. 앞면뿐 아니라 뒤쪽 기둥까지 이어지는 깊이를 보세요.",
+        "en": "Beams connect the posts into a timber frame. Follow the connections from the front of the house to the rear.",
+        "de": "Balken verbinden die Stützen zum Tragwerk. Verfolge die Verbindungen von der Vorderseite bis nach hinten."
+      },
+      "caption": {
+        "ko": "나무와 나무 사이에 연결이 생깁니다.",
+        "en": "Timbers connect across the house.",
+        "de": "Die Hölzer verbinden sich durch das Haus."
+      }
+    },
+    {
+      "stageId": "sarangchae-purlins",
+      "sequence": 7,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_07_purlins.png",
+      "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+      "term": "상량",
+      "gloss": {
+        "ko": "상량",
+        "en": "raising the ridge beam",
+        "de": "Aufrichten des Firstbalkens"
+      },
+      "chapter": {
+        "ko": "나무 골조",
+        "en": "Timber frame",
+        "de": "Holztragwerk"
+      },
+      "title": {
+        "ko": "지붕의 뼈대가 서다",
+        "en": "A moment to celebrate",
+        "de": "Das Dachgerüst steht"
+      },
+      "question": {
+        "ko": "가장 높은 도리가 오르면 왜 기념했을까요?",
+        "en": "Why celebrate the raising of the ridge beam?",
+        "de": "Warum feierte man das Aufrichten des Firstbalkens?"
+      },
+      "body": {
+        "ko": "도리와 종도리를 올리면 지붕을 받을 뼈대가 갖춰집니다. 상량은 집을 짓는 이들의 중요한 이정표였습니다.",
+        "en": "The purlins and ridge beam prepare the frame for its roof. Raising the ridge marked an important moment for the builders.",
+        "de": "Pfetten und Firstbalken bereiten das Tragwerk auf das Dach vor. Das Aufrichten des Firstbalkens war ein wichtiger Moment für die Bauleute."
+      },
+      "caption": {
+        "ko": "첫 번째 큰 순간. 집의 뼈대가 섰습니다.",
+        "en": "The first great moment: the frame stands.",
+        "de": "Der erste große Moment: Das Tragwerk steht."
+      }
+    },
+    {
+      "stageId": "sarangchae-rafters",
+      "sequence": 8,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_08_rafters.png",
+      "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "term": "서까래",
+      "gloss": {
+        "ko": "서까래",
+        "en": "rafter",
+        "de": "Dachsparren"
+      },
+      "chapter": {
+        "ko": "나무 골조",
+        "en": "Timber frame",
+        "de": "Holztragwerk"
+      },
+      "title": {
+        "ko": "처마의 선을 만들다",
+        "en": "Drawing the eaves",
+        "de": "Die Dachlinie entsteht"
+      },
+      "question": {
+        "ko": "기와가 없어도 한옥의 지붕이 보이나요?",
+        "en": "Can you see the roof before the tiles arrive?",
+        "de": "Erkennst du das Dach schon ohne Ziegel?"
+      },
+      "body": {
+        "ko": "추녀와 서까래가 지붕의 방향과 처마선을 만듭니다. 몸채와 누마루의 지붕이 만나는 부분을 찾아보세요.",
+        "en": "Corner rafters and rafters establish the eaves. Find where the main roof and the projecting wing meet.",
+        "de": "Gratsparren und Dachsparren formen die Dachlinie. Suche die Stelle, an der die Dächer von Haupthaus und Vorbau zusammentreffen."
+      },
+      "caption": {
+        "ko": "나란한 서까래가 한옥의 선을 그립니다.",
+        "en": "Rafter by rafter, the roof takes shape.",
+        "de": "Sparren für Sparren nimmt das Dach Gestalt an."
+      }
+    },
+    {
+      "stageId": "sarangchae-decking",
+      "sequence": 9,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_09_decking.png",
+      "sha256": "60ffa4184d6d947c83f479e681395f764dbd28ffa7384acdc72dc42bc929bb26",
+      "term": "산자",
+      "gloss": {
+        "ko": "산자",
+        "en": "roof underlayer",
+        "de": "Dachunterlage"
+      },
+      "chapter": {
+        "ko": "지붕과 방",
+        "en": "Roof & rooms",
+        "de": "Dach & Räume"
+      },
+      "title": {
+        "ko": "기와 아래의 바탕",
+        "en": "Beneath the tiles",
+        "de": "Unter den Dachziegeln"
+      },
+      "question": {
+        "ko": "기와는 어디에 놓일까요?",
+        "en": "What will the tiles rest on?",
+        "de": "Worauf werden die Ziegel liegen?"
+      },
+      "body": {
+        "ko": "서까래 위에 산자나 개판을 놓아 지붕 바탕을 만듭니다. 완성 뒤에는 보이지 않는 층도 기와를 받치는 구조의 일부입니다.",
+        "en": "Laths or boards form an underlayer above the rafters. These layers will be hidden, but they are part of the structure beneath the tiles.",
+        "de": "Latten oder Bretter bilden die Unterlage über den Sparren. Diese später verdeckten Schichten gehören zum Aufbau unter den Dachziegeln."
+      },
+      "caption": {
+        "ko": "곧 보이지 않게 될 부분도 차근차근.",
+        "en": "Care for the layers that will be hidden.",
+        "de": "Auch die später verborgenen Schichten zählen."
+      }
+    },
+    {
+      "stageId": "sarangchae-earth-roof",
+      "sequence": 10,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_10_earth_roof.png",
+      "sha256": "21db199864dc73d585872030c23be876caedccc2b9078a0a1e658721eee57c4e",
+      "term": "보토",
+      "gloss": {
+        "ko": "보토",
+        "en": "earth roof layer",
+        "de": "Erdschicht im Dach"
+      },
+      "chapter": {
+        "ko": "지붕과 방",
+        "en": "Roof & rooms",
+        "de": "Dach & Räume"
+      },
+      "title": {
+        "ko": "지붕 속을 채우다",
+        "en": "The layers within",
+        "de": "Die Schichten im Dach"
+      },
+      "question": {
+        "ko": "지붕 안에는 어떤 층이 들어갈까요?",
+        "en": "Which layers lie inside the roof?",
+        "de": "Welche Schichten stecken im Dach?"
+      },
+      "body": {
+        "ko": "지붕 바탕에는 적심과 보토 같은 여러 층이 들어갑니다. 기와 아래에 숨을 흙과 나무의 층을 지금 살펴보세요.",
+        "en": "The roof bed includes layers of timber packing and earth. Look at these materials now, before the tiles cover them.",
+        "de": "Zum Dachaufbau gehören Schichten aus Füllholz und Erde. Schau sie dir an, bevor die Ziegel sie verdecken."
+      },
+      "caption": {
+        "ko": "겹겹의 재료 위에 지붕이 완성됩니다.",
+        "en": "A roof is built in layers.",
+        "de": "Ein Dach entsteht Schicht für Schicht."
+      }
+    },
+    {
+      "stageId": "sarangchae-tiles",
+      "sequence": 11,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_11_tiles.png",
+      "sha256": "4cf7a5138c09244559b41148b81924b53458872975c549d934b4910a56872474",
+      "term": "기와",
+      "gloss": {
+        "ko": "기와",
+        "en": "roof tile",
+        "de": "Dachziegel"
+      },
+      "chapter": {
+        "ko": "지붕과 방",
+        "en": "Roof & rooms",
+        "de": "Dach & Räume"
+      },
+      "title": {
+        "ko": "기와지붕을 완성하다",
+        "en": "A roof of many tiles",
+        "de": "Das Ziegeldach ist fertig"
+      },
+      "question": {
+        "ko": "포개진 기와 사이로 빗물은 어디로 갈까요?",
+        "en": "Where does rain travel between the tiles?",
+        "de": "Wohin fließt Regen zwischen den Ziegeln?"
+      },
+      "body": {
+        "ko": "암키와와 수키와가 포개지고 지붕마루가 마무리됩니다. 가까이서 본 기와의 반복이 집 전체의 인상이 됩니다.",
+        "en": "Overlapping tiles and finished ridges complete the roof. Their small repeating shapes define the whole building.",
+        "de": "Überlappende Ziegel und fertige Dachfirste vervollständigen das Dach. Die kleinen, wiederholten Formen prägen das ganze Haus."
+      },
+      "caption": {
+        "ko": "두 번째 큰 순간. 한옥의 지붕이 완성됐습니다.",
+        "en": "The second great moment: the roof is complete.",
+        "de": "Der zweite große Moment: Das Dach ist fertig."
+      }
+    },
+    {
+      "stageId": "sarangchae-walls",
+      "sequence": 12,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_12_walls.png",
+      "sha256": "79959bd0f0885612c95021e8e359dbbd162eef32f2d2fd8cb3f3c8043ade46b2",
+      "term": "흙벽",
+      "gloss": {
+        "ko": "흙벽",
+        "en": "earthen wall",
+        "de": "Lehmwand"
+      },
+      "chapter": {
+        "ko": "지붕과 방",
+        "en": "Roof & rooms",
+        "de": "Dach & Räume"
+      },
+      "title": {
+        "ko": "방의 경계가 생기다",
+        "en": "Making room for life",
+        "de": "Räume zum Leben"
+      },
+      "question": {
+        "ko": "어디가 벽이 되고, 어디가 문이 될까요?",
+        "en": "Where will walls and doorways be?",
+        "de": "Wo entstehen Wände und Türen?"
+      },
+      "body": {
+        "ko": "수장재와 흙벽을 넣고 문과 창의 자리를 남깁니다. 열린 부분으로 방 안의 뒤벽과 깊이를 확인해 보세요.",
+        "en": "The infill defines the rooms while leaving openings. Look through them to the rear walls and the depth inside.",
+        "de": "Die Ausfachung bildet Räume und lässt Öffnungen frei. Durch sie siehst du die Rückwände und die Tiefe im Inneren."
+      },
+      "caption": {
+        "ko": "기둥 사이가 사람이 머무는 방으로.",
+        "en": "Between the posts, rooms appear.",
+        "de": "Zwischen den Stützen entstehen Zimmer."
+      }
+    },
+    {
+      "stageId": "sarangchae-ondol",
+      "sequence": 13,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_13_ondol.png",
+      "sha256": "b3225234ca637a26978a1f1fc5545db7d5cbc1816be4448010fc90ee84e75899",
+      "term": "온돌",
+      "gloss": {
+        "ko": "온돌",
+        "en": "underfloor heating",
+        "de": "Fußbodenheizung"
+      },
+      "chapter": {
+        "ko": "사람이 사는 집",
+        "en": "A home for life",
+        "de": "Ein Haus zum Leben"
+      },
+      "title": {
+        "ko": "바닥에서 오는 온기",
+        "en": "Warmth from below",
+        "de": "Wärme von unten"
+      },
+      "question": {
+        "ko": "불을 방 안에 두지 않고 따뜻해질까요?",
+        "en": "Can a room be warm without a fire inside it?",
+        "de": "Wird ein Zimmer warm, ohne Feuer im Raum?"
+      },
+      "body": {
+        "ko": "전통 온돌은 아궁이에서 나온 뜨거운 연기가 구들장 아래를 지나며 바닥을 데우는 방식입니다. 이 그림에서는 완성된 방바닥 아래에 그 구조가 숨겨져 있습니다.",
+        "en": "In traditional ondol heating, hot smoke from the firebox passes beneath stone slabs and warms the floor. In this picture, the heating structure is concealed beneath the finished room floors.",
+        "de": "Beim traditionellen Ondol ziehen heiße Rauchgase von der Feuerstelle unter Steinplatten hindurch und erwärmen den Boden. Im Bild liegt dieser Aufbau unter den fertigen Zimmerböden verborgen."
+      },
+      "caption": {
+        "ko": "따뜻한 방의 비밀은 바닥 아래에 있습니다.",
+        "en": "The warmth begins beneath the floor.",
+        "de": "Die Wärme beginnt unter dem Boden."
+      }
+    },
+    {
+      "stageId": "sarangchae-maru",
+      "sequence": 14,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_14_maru.png",
+      "sha256": "bb5d353c95c9db07c95fe8b43a3c0023886b7da98b7d01fc0b3c007747b402aa",
+      "term": "누마루",
+      "gloss": {
+        "ko": "누마루",
+        "en": "raised wooden space",
+        "de": "erhöhter Holzbereich"
+      },
+      "chapter": {
+        "ko": "사람이 사는 집",
+        "en": "A home for life",
+        "de": "Ein Haus zum Leben"
+      },
+      "title": {
+        "ko": "바람을 맞는 마루",
+        "en": "A place to rest",
+        "de": "Ein Platz zum Ausruhen"
+      },
+      "question": {
+        "ko": "따뜻한 방 옆에 왜 열린 마루가 있을까요?",
+        "en": "Why have an open wooden space beside a warm room?",
+        "de": "Warum liegt neben dem warmen Zimmer ein offener Holzbereich?"
+      },
+      "body": {
+        "ko": "마루판과 누마루의 난간을 갖춥니다. 방에서 나와 쉬거나 경치를 바라보는 생활을 떠올려 보세요.",
+        "en": "Floorboards and the railing complete the numaru. Imagine stepping out of a room to rest and enjoy the view.",
+        "de": "Bodendielen und Geländer vervollständigen das Numaru. Stell dir vor, du trittst aus dem Zimmer, ruhst dich aus und genießt die Aussicht."
+      },
+      "caption": {
+        "ko": "방의 온기와 마루의 여유가 만납니다.",
+        "en": "A warm room meets an open place to rest.",
+        "de": "Ein warmer Raum trifft auf einen offenen Ruheplatz."
+      }
+    },
+    {
+      "stageId": "sarangchae-changho",
+      "sequence": 15,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_15_changho.png",
+      "sha256": "dc07735943c511bb25c27aba9b25ddc4555b0f319291966b35e3ccc5246e158a",
+      "term": "창호",
+      "gloss": {
+        "ko": "창호",
+        "en": "doors and windows",
+        "de": "Türen und Fenster"
+      },
+      "chapter": {
+        "ko": "사람이 사는 집",
+        "en": "A home for life",
+        "de": "Ein Haus zum Leben"
+      },
+      "title": {
+        "ko": "열고 닫는 경계",
+        "en": "An opening to the world",
+        "de": "Eine Öffnung nach draußen"
+      },
+      "question": {
+        "ko": "문을 열면 방과 마루는 어떻게 달라질까요?",
+        "en": "How does an open door connect room and porch?",
+        "de": "Wie verbindet eine offene Tür Zimmer und Veranda?"
+      },
+      "body": {
+        "ko": "창살과 한지를 갖추고 문을 답니다. 문을 열면 방과 마루가 이어지고, 닫으면 빛을 부드럽게 들이며 공간을 나눕니다.",
+        "en": "Lattices, paper and doors complete the openings. Open doors connect the rooms and the wooden floor; closed doors divide the spaces while admitting soft light.",
+        "de": "Gitter, Papier und Türen vervollständigen die Öffnungen. Geöffnete Türen verbinden Zimmer und Holzbereich; geschlossen trennen sie die Räume und lassen weiches Licht herein."
+      },
+      "caption": {
+        "ko": "이제, 마지막 두 현판과 마감을 남겨두었습니다.",
+        "en": "Only the plaques and final finishing remain.",
+        "de": "Jetzt fehlen nur noch die Tafeln und der letzte Feinschliff."
+      }
+    },
+    {
+      "stageId": "sarangchae-complete",
+      "sequence": 16,
+      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+      "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "term": "사랑채",
+      "gloss": {
+        "ko": "사랑채",
+        "en": "sarangchae · reception and study quarters",
+        "de": "Sarangchae · Räume für Empfang und Studium"
+      },
+      "chapter": {
+        "ko": "사람이 사는 집",
+        "en": "A home for life",
+        "de": "Ein Haus zum Leben"
+      },
+      "title": {
+        "ko": "사랑채가 완성됐어요",
+        "en": "Your sarangchae is complete",
+        "de": "Dein Sarangchae ist fertig"
+      },
+      "question": {
+        "ko": "열여섯 번의 발견이 한 채의 집이 됐습니다.",
+        "en": "Sixteen discoveries. One complete house.",
+        "de": "Sechzehn Entdeckungen. Ein fertiges Haus."
+      },
+      "body": {
+        "ko": "돌 위에 나무가 서고, 지붕 아래에 삶이 깃듭니다. 두 현판까지 갖춘, 정성껏 지은 사랑채가 완성됐습니다.",
+        "en": "Timber rises above stone, and life finds a home beneath the roof. The carefully built sarangchae is complete, with both plaques in place.",
+        "de": "Holz steht auf Stein, unter dem Dach findet das Leben Platz. Das sorgfältig errichtete Sarangchae ist fertig, mit beiden Tafeln."
+      },
+      "caption": {
+        "ko": "열여섯 번째 순간. 우리가 지어 온 사랑채.",
+        "en": "The sixteenth moment. The house we have built.",
+        "de": "Der sechzehnte Moment. Das Haus, das wir gebaut haben."
+      }
+    }
+  ]
+}

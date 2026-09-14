@@ -1,0 +1,28 @@
+1. STYLE: Preserve the exact fine hand-painted 2.5D hanok architecture of the references: dense fine detail, healthy maintained warm timber, matte materials, restrained painterly shadows and selective fine linework. No watercolor, anime, Pixar, low-poly 3D, photorealistic PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the edit target at the adjacent construction stage. Image 2 is the immutable completed master, used ONLY to maintain architecture, placements, scale, materials and lighting; do not restore later components being removed. This is the same particular Sarangchae, not a new building.
+3. CAMERA: One 1536x1024 landscape image, exact same white background, framing, view and scale. Retained parts must remain stationary. No added labels or numbering.
+4. REQUIRED EDIT AND TEN WANTS:
+WANT 1. Create stage 04, timber preparation and grangi fitting, on the exact stone base and footstones of Image 1.
+WANT 2. Add exactly two carefully hewn unpainted timber members resting horizontally on the main rear platform behind the central staircase.
+WANT 3. Show the nearest timber end clearly, with its foot carefully shaped into a shallow irregular contour that could fit a natural stone top.
+WANT 4. Give these prepared timbers the same warm fine-grained material as the approved completed house.
+WANT 5. The timbers rest physically on low temporary wood bearers, never float in the air.
+WANT 6. All original separate column footstones remain in precisely their Image 1 positions, as no columns are standing yet.
+WANT 7. Preserve every foundation stone, stair step, landing and right platform edge without repainting or changing height.
+WANT 8. Preserve the large white area above the unchanged low foundation and the exact full-house camera.
+WANT 9. The two timber pieces are modestly sized to fit on the platform without blocking the stair entrance or hanging off into empty space.
+WANT 10. Fine end grain and the shaped timber foot communicate careful fitting, with no diagram labels needed.
+5. CONNECTIONS: Retained column feet meet the same stones; column heads meet their beams; roof purlins bear on supported timber and rafters bear on purlins. Preserve the connected main-body/right-numaru junction and actual spatial depth. Never invent free-floating members or unrelated new front columns.
+6. TEN NOTS:
+NOT 1. Do not move, rescale, mirror or rotate the building.
+NOT 2. Do not change the retained curved roof silhouette or joined right wing.
+NOT 3. Do not change retained stone outlines, staircase edges or the foundation footprint.
+NOT 4. Do not move, thicken or arbitrarily add a visible column.
+NOT 5. Do not remove structural framing while removing finish layers.
+NOT 6. Do not flatten the rooms or hide the numaru underfloor depth.
+NOT 7. Do not restore plaques or add any writing or blank signboards.
+NOT 8. Do not add workers, tools, scaffold, furniture, plants or construction clutter.
+NOT 9. Do not bleach, saturate, weather, decay, smooth away detail or restyle retained materials.
+NOT 10. Do not create a collage, cutaway detached from the building, border, watermark or cropped close-up.
+7. MATERIALS: Same maintained sound timber, fine natural grain, same upper-left light and clean traditional stone. Keep the source palette, material texture and spatial shadows.
+8. OUTPUT: A single polished earlier construction-stage image, visually continuous with its adjacent stage and the approved completed source. Only two prepared horizontal timbers are new. No upright columns, roof, wall, decorative carving, machinery, workers or extra scattered tools. The full-size fit mechanism is shown in a separate detail view.

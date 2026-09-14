@@ -22,9 +22,9 @@ void main() {
                 builder: (context, setState) {
                   update = setState;
                   return HanokTurntable2D(
-                    frames: kIlDuSarangchaeTurntable.frames,
+                    frames: kIlDuChanggoTurntable.frames,
                     direction: direction,
-                    semanticsLabel: 'Sarangchae rotation',
+                    semanticsLabel: 'Changgo rotation',
                     zoomInLabel: 'Zoom in',
                     zoomOutLabel: 'Zoom out',
                     resetZoomLabel: 'Reset zoom',
@@ -80,9 +80,9 @@ void main() {
           width: 240,
           height: 160,
           child: HanokTurntable2D(
-            frames: kIlDuSarangchaeTurntable.frames,
+            frames: kIlDuChanggoTurntable.frames,
             direction: direction,
-            semanticsLabel: 'Sarangchae rotation',
+            semanticsLabel: 'Changgo rotation',
             zoomInLabel: 'Zoom in',
             zoomOutLabel: 'Zoom out',
             resetZoomLabel: 'Reset zoom',
@@ -97,7 +97,7 @@ void main() {
     );
     expect(semanticsFinder, findsOneWidget);
     final node = tester.getSemantics(semanticsFinder);
-    expect(node.label, 'Sarangchae rotation');
+    expect(node.label, 'Changgo rotation');
     expect(node.value, '1 / 8, 100%');
     expect(node.getSemanticsData().hasAction(SemanticsAction.increase), isTrue);
     expect(node.getSemanticsData().hasAction(SemanticsAction.decrease), isTrue);

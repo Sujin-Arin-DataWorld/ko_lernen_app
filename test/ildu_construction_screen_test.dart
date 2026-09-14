@@ -4,10 +4,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/ildu_construction_art.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
+import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/hanok_preview_screen.dart';
 import 'package:ko_lernen_app/screens/ildu_construction_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
@@ -50,7 +55,10 @@ Future<void> tapVisible(WidgetTester tester, String name) async {
       scrollable: find.byType(Scrollable).first,
     );
   }
-  await tester.ensureVisible(key(name));
+  await Scrollable.ensureVisible(
+    tester.element(key(name)),
+    alignment: name == 'hanok-construction-entry' ? 0.7 : 0,
+  );
   await tester.pumpAndSettle();
   await tester.tap(key(name));
   await tester.pumpAndSettle();
@@ -186,9 +194,32 @@ void main() {
   testWidgets('Hanok tab and preview expose the construction page', (
     tester,
   ) async {
+    final sarangchae = SarangchaeConstruction.fromJson(
+      jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync()),
+    );
+    final snapshot = SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 1),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 1,
+      ),
+      hanokCompetence: const HanokCompetenceProjection.empty(),
+      quests: [],
+      pendingBojagiCount: 0,
+      stampCount: 0,
+      xp: 0,
+      streakDays: 0,
+      todayReward: null,
+    );
     for (final source in [
-      const HanokPreviewScreen(),
-      const SoriStageHanokScreen(active: false),
+      HanokPreviewScreen(
+        loadSnapshot: () async => snapshot,
+        loadConstruction: () async => sarangchae,
+      ),
+      SoriStageHanokScreen(
+        loadSnapshot: () async => snapshot,
+        loadConstruction: () async => sarangchae,
+      ),
     ]) {
       await tester.pumpWidget(app(source));
       await tester.pumpAndSettle();

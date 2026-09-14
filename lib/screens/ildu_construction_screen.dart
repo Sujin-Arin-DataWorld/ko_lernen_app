@@ -144,7 +144,6 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
           SoriButton.filled(
             key: const ValueKey('ildu-construction-start'),
             label: t.ilduConstructionStart,
-            icon: Icons.arrow_forward,
             onTap: () => _selectStep(0),
           ),
         ] else ...[
@@ -167,13 +166,11 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
               SoriButton.outlined(
                 key: const ValueKey('ildu-construction-previous'),
                 label: t.ilduConstructionPrevious,
-                icon: Icons.arrow_back,
                 onTap: () => _selectStep(_step - 1),
               ),
               SoriButton.filled(
                 key: const ValueKey('ildu-construction-next'),
                 label: t.ilduConstructionNext,
-                icon: Icons.arrow_forward,
                 onTap: _step == series.stages.length - 1
                     ? null
                     : () => _selectStep(_step + 1),

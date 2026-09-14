@@ -1,0 +1,29 @@
+Use case: precise-object-edit. Produce one 1536x1024 landscape construction-stage image.
+1. STYLE: Keep the approved image's refined hand-painted 2.5D hanok architectural art, fine wood grain, detailed matte charcoal tiles, clean maintained warm wood, cream stone. No watercolor, anime, Pixar, low-poly 3D, photorealistic PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the EDIT TARGET and approved shape/camera/material master, not merely inspiration. The user's exact source-preservation requirement overrides generic restyling. This is stage 15, immediately before the source's finished stage 16.
+3. CAMERA: Keep the exact source view, framing, scale, 1536x1024 canvas, margins and white background. Pixel-stationary building.
+4. COUNTABLE GEOMETRY / WANT:
+WANT 1. Remove exactly the two wooden calligraphy plaques on the front of the main body, including both their lettering and separate signboard panels.
+WANT 2. Behind these two removed plaques show the continuous structural wood that would support them.
+WANT 3. Preserve every roof tile and tile-end in its source location.
+WANT 4. Preserve the exact curved joined roof silhouette and valley between main body and right wing.
+WANT 5. Preserve all column feet and column heads at the source positions.
+WANT 6. Preserve both slender outer eave supports with their pale stone lower parts.
+WANT 7. Preserve all lattice spacing, the open door leaves, and room depth.
+WANT 8. Preserve all numaru rail cutouts, balusters, floor boards and lower enclosure.
+WANT 9. Preserve every foundation stone and staircase edge at source coordinates.
+WANT 10. Preserve lighting, wood tone, material detail and healthy maintained appearance.
+5. CONNECTIONS: All approved column/beam/eave junctions remain precisely as drawn in the source. Only the two plaques disappear. The removed long four-character board must reveal plausible wood/open depth, not a new wall or extra column.
+6. MATERIALS / LIFE: Keep the source's clean carefully maintained inhabited hanok quality; no new props or people.
+7. NOT:
+NOT 1. Do not change the roof.
+NOT 2. Do not move, thicken or add columns.
+NOT 3. Do not change the stone base or stairs.
+NOT 4. Do not move or close the open lattice doors.
+NOT 5. Do not simplify lattice or railing patterns.
+NOT 6. Do not remove structural beams with the signboards.
+NOT 7. Do not leave lettering or blank hanging signboards behind.
+NOT 8. Do not add a third plaque, logos, annotations, stage numbers or watermark.
+NOT 9. Do not add furniture, plants, workers or tools.
+NOT 10. Do not crop, zoom, mirror, rotate, relight or redesign the image.
+8. OUTPUT CHECK: The only visible difference from the master is that its two decorative calligraphy signboards have not yet been installed. Return one image, no collage or added text.
