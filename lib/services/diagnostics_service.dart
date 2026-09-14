@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart'
-    show debugPrint, kIsWeb, visibleForTesting;
+    show debugPrint, kDebugMode, kIsWeb, visibleForTesting;
 
 import 'privacy_consent_service.dart';
 
@@ -60,7 +60,11 @@ abstract interface class DiagnosticsSink {
   /// `CrashConsentClient.recordError` (fatal 플래그가 있는 플랫폼 오류 기록)
   /// 와는 다른 계약이라 이름을 분리했다 — 두 인터페이스를 함께 구현하는
   /// 테스트 fake 가 시그니처 충돌 없이 양쪽을 각각 만족할 수 있게 한다.
-  Future<void> recordNonFatal(String scope, Object error, StackTrace stackTrace);
+  Future<void> recordNonFatal(
+    String scope,
+    Object error,
+    StackTrace stackTrace,
+  );
 }
 
 class FirebaseDiagnosticsSink implements DiagnosticsSink {
@@ -204,7 +208,12 @@ abstract final class DiagnosticsService {
     Object error, [
     StackTrace? stackTrace,
   ]) async {
-    debugPrint('Diagnostics: swallowed [$scope] — $error');
+    // debugPrint itself is not disabled in product builds. Keep raw SDK
+    // exception text on developer builds only: it may contain a local path or
+    // backend detail, including when crash-collection consent is off.
+    if (kDebugMode) {
+      debugPrint('Diagnostics: swallowed [$scope] — $error');
+    }
     if (!_consent()) {
       return;
     }
@@ -219,7 +228,9 @@ abstract final class DiagnosticsService {
       );
     } catch (sinkError) {
       // 진단이 앱을 죽이면 본말전도다 — setKey/logBreadcrumb 와 같은 계약.
-      debugPrint('Diagnostics: reportSwallowed($scope) 실패 — $sinkError');
+      if (kDebugMode) {
+        debugPrint('Diagnostics: reportSwallowed($scope) 실패 — $sinkError');
+      }
     }
   }
 

@@ -80,15 +80,16 @@ void main() {
       // `on TimeoutException` **앞**에 나오므로, 검사 대상을
       // `on TimeoutException` **뒤** 구간으로 좁혀 그 내부 catch 를
       // 오탐하지 않게 한다 — 우리가 확인해야 하는 건 TimeoutException 절
-      // 바로 뒤에 일반 catch(_) 가 이어지는지다.
+      // 바로 뒤에 일반 catch 절이 이어지는지다. 진단을 위해 error와
+      // stackTrace를 바인딩해도 같은 폴백 계약이다.
       final afterTimeout = localCacheBlock.substring(
         localCacheBlock.indexOf('on TimeoutException'),
       );
       expect(
-        RegExp(r'\}\s*catch\s*\(_\)\s*\{').hasMatch(afterTimeout),
+        RegExp(r'\}\s*catch\s*\([^)]*\)\s*\{').hasMatch(afterTimeout),
         isTrue,
         reason:
-            'TimeoutException 전용 catch 뒤에 일반 catch(_) 가 없으면 '
+            'TimeoutException 전용 catch 뒤에 일반 catch 절이 없으면 '
             'FileSystemException 등이 _resolveAudio 전체를 throw 해 '
             'Storage/CF 폴백을 건너뛴다 (finding 1a)',
       );
