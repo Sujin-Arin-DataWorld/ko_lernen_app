@@ -10700,7 +10700,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingJourneyMethodBody =>
-      'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 sind unsere Lernstufen, keine offizielle TOPIK-Umrechnung.';
+      'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 bezeichnen die Lernstufen in dieser App.';
 
   @override
   String get onboardingJourneyFromBook => 'Aus deinem Buch';

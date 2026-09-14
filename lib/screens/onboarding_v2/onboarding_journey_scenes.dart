@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../widgets/app_loading.dart';
+import '../../widgets/sori/dialog.dart';
 import '../../widgets/sori/external_link.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_shell.dart';
@@ -68,14 +70,14 @@ class JourneyChoice extends StatelessWidget {
           return Material(
             color: selected ? c.primaryContainer : c.surface,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
               side: BorderSide(
                 color: selected ? c.primary : c.outlineVariant,
                 width: selected ? 2 : 1,
               ),
             ),
             child: InkWell(
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
               onTap: onTap,
               child: Padding(
                 padding: EdgeInsets.all(b.maxHeight < 100 ? 4 : 12),
@@ -142,7 +144,7 @@ class JourneyPanel extends StatelessWidget {
           SoriColors.gold.withValues(alpha: .14),
           surfaces.bg,
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(SoriRadius.lg),
         border: Border.all(color: SoriColors.gold.withValues(alpha: .65)),
       ),
       child: Padding(padding: const EdgeInsets.all(12), child: child),
@@ -188,7 +190,7 @@ class _OnboardingPathSceneState extends State<OnboardingPathScene> {
           return Center(child: Text(t.onboardingDemoUnavailable));
         }
         if (!snap.hasData) {
-          return const Center(child: CircularProgressIndicator());
+          return const AppLoading(assetSize: 48);
         }
         final paths =
             snap.data![widget.beginner ? 'new' : widget.level.display] as List;
@@ -359,9 +361,9 @@ class _OnboardingBookSceneState
                       onPressed: _captured
                           ? _photoAgain
                           : () {
-                              showDialog<void>(
+                              showSoriDialog<void>(
                                 context: context,
-                                builder: (context) => AlertDialog(
+                                builder: (context) => SoriDialog(
                                   content: Text(t.onboardingJourneySampleOnly),
                                   actions: [
                                     TextButton(
@@ -634,7 +636,7 @@ class _OnboardingHanokSceneState extends State<OnboardingHanokScene> {
                   child: AspectRatio(
                     aspectRatio: 1.5,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(SoriRadius.lg),
                       child: Stack(
                         fit: StackFit.expand,
                         children: [

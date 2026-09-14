@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
+import '../../widgets/sori/tokens.dart';
 import 'onboarding_journey_scenes.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
@@ -99,7 +100,7 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
               child: LayoutBuilder(
                 builder: (context, bounds) {
                   final columns =
-                      bounds.maxWidth > 560 ||
+                      bounds.maxWidth >= SoriBreakpoints.grid ||
                           MediaQuery.textScalerOf(context).scale(16) > 24
                       ? 3
                       : 2;

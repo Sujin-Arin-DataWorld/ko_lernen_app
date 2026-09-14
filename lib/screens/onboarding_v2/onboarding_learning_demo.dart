@@ -113,7 +113,7 @@ class _OnboardingLearningDemoState
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.surfaceContainerLow,
-                    borderRadius: BorderRadius.circular(18),
+                    borderRadius: BorderRadius.circular(SoriRadius.md),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -248,7 +248,7 @@ class _OnboardingLearningDemoState
             ),
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
               color: _reply
                   ? Theme.of(context).colorScheme.primaryContainer
                   : Theme.of(context).colorScheme.surfaceContainerLow,
@@ -428,7 +428,7 @@ class _OnboardingLearningDemoState
           color: own
               ? Theme.of(context).colorScheme.primaryContainer
               : Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(SoriRadius.sm),
         ),
         child: Column(
           children: [

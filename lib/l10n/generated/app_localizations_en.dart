@@ -10647,7 +10647,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingJourneyMethodBody =>
-      'Learning goals, vocabulary and grammar build on one another. Korean curricula and the European reference framework inform the structure. A1 to C2 are our learning stages, not an official TOPIK conversion.';
+      'Learning goals, vocabulary and grammar build on one another. Korean curricula and the European reference framework inform the structure. A1 to C2 identify the learning stages in this app.';
 
   @override
   String get onboardingJourneyFromBook => 'From your book';

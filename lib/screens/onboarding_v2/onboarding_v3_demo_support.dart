@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../widgets/app_loading.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
 
@@ -39,7 +40,7 @@ class _OnboardingDemoContentState extends State<OnboardingDemoContent> {
           );
         }
         if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
+          return const AppLoading(assetSize: 48);
         }
         final levels = snapshot.data!['levels'] as Map<String, dynamic>;
         return widget.builder(
@@ -143,7 +144,7 @@ class DemoChoice extends StatelessWidget {
               color: selected ? colors.primary : colors.outlineVariant,
             ),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
             ),
           ),
           child: icon == null

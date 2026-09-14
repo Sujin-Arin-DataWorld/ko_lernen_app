@@ -29,7 +29,7 @@ void main() {
       expect(tester.widget<TextButton>(link).onPressed, isNotNull);
     }
     expect(
-      find.textContaining('not an official TOPIK conversion'),
+      find.textContaining('A1 to C2 identify the learning stages in this app.'),
       findsOneWidget,
     );
     await tester.tap(find.text(lookupAppL10n(const Locale('en')).btnClose));

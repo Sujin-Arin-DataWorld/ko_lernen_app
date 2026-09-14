@@ -18123,7 +18123,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingJourneyMethodBody.
   ///
   /// In de, this message translates to:
-  /// **'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 sind unsere Lernstufen, keine offizielle TOPIK-Umrechnung.'**
+  /// **'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 bezeichnen die Lernstufen in dieser App.'**
   String get onboardingJourneyMethodBody;
 
   /// No description provided for @onboardingJourneyFromBook.

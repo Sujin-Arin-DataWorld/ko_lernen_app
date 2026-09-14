@@ -25,6 +25,7 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 import 'support/sori_stage_pump.dart';
+import 'support/sori_speech_stubs.dart';
 
 const _course = CourseUnit(
   id: 'a1_intro',
@@ -103,6 +104,7 @@ Future<LearningFocus> _focus() => LearningFocus.load(
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUp(() async {
+    stubSoriSpeech();
     LearningJourneyObserver.shared.cancel();
     await _seed(_completed());
   });

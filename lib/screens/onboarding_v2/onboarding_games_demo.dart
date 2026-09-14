@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../widgets/sori/tokens.dart';
 import 'onboarding_v3_demo_support.dart';
 
 /// Six distinct sample boards. All selections disappear when the demo closes.
@@ -93,7 +94,7 @@ class _OnboardingGamesDemoState
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.surfaceContainerLow,
-                    borderRadius: BorderRadius.circular(18),
+                    borderRadius: BorderRadius.circular(SoriRadius.md),
                   ),
                   child: _board(data),
                 ),
