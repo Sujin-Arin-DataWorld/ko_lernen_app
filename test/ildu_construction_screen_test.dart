@@ -70,7 +70,7 @@ void main() {
 
   for (final language in ['en', 'de']) {
     testWidgets(
-      '$language: browse all six series to their final with no saved progress',
+      '$language: browse all nine series to their final with no saved progress',
       (tester) async {
         tester.view.physicalSize = const Size(800, 1100);
         tester.view.devicePixelRatio = 1;
@@ -91,11 +91,7 @@ void main() {
           await tapVisible(tester, 'ildu-construction-start');
           for (var i = 0; i < series.stages.length; i++) {
             final stage = series.stages[i];
-            expect(find.text(stage.title['ko']!), findsOneWidget);
-            expect(
-              find.text(ilduArtText(stage.title, language)),
-              findsOneWidget,
-            );
+            expect(key(stage.id), findsOneWidget);
             if (i < series.stages.length - 1) {
               await tapVisible(tester, 'ildu-construction-next');
             }
@@ -140,6 +136,100 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('Next preserves the construction artwork scroll position', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 700);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      app(IlDuConstructionScreen(loader: () async => catalog)),
+    );
+    await tester.pumpAndSettle();
+    await tapVisible(tester, 'ildu-construction-start');
+    await tester.scrollUntilVisible(
+      key('ildu-construction-next'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    final before = scrollable.position.pixels;
+
+    await tester.tap(key('ildu-construction-next'));
+    await tester.pumpAndSettle();
+
+    expect(scrollable.position.pixels, closeTo(before, 0.01));
+    expect(key('ildu-construction-next'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('detail replay switches KO EN DE without writing preferences', (
+    tester,
+  ) async {
+    final before = await SharedPreferences.getInstance();
+    final beforeValues = {
+      for (final name in before.getKeys()) name: before.get(name),
+    };
+    final stage = catalog.series.first.stages.first;
+    await tester.pumpWidget(
+      app(IlDuConstructionScreen(loader: () async => catalog), language: 'en'),
+    );
+    await tester.pumpAndSettle();
+    await tapVisible(tester, 'ildu-construction-start');
+    await tester.scrollUntilVisible(
+      find.text(stage.observe['en']!),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text(stage.observe['en']!), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      key('ildu-construction-language'),
+      -250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(key('ildu-construction-language'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('한국어').last);
+    await tester.pumpAndSettle();
+
+    await tester.scrollUntilVisible(
+      find.text(stage.observe['ko']!),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text(stage.observe['ko']!), findsOneWidget);
+    expect(find.text(stage.task['ko']!), findsOneWidget);
+    expect(find.text(stage.observe['en']!), findsNothing);
+
+    await tester.scrollUntilVisible(
+      key('ildu-construction-language'),
+      -250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(key('ildu-construction-language'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Deutsch').last);
+    await tester.pumpAndSettle();
+
+    await tester.scrollUntilVisible(
+      find.text(stage.observe['de']!),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text(stage.observe['de']!), findsOneWidget);
+    expect(find.text(stage.task['de']!), findsOneWidget);
+    expect(find.text(stage.observe['ko']!), findsNothing);
+    final after = await SharedPreferences.getInstance();
+    expect({
+      for (final name in after.getKeys()) name: after.get(name),
+    }, beforeValues);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('catalog failure has a working retry', (tester) async {
     var attempts = 0;
     await tester.pumpWidget(
@@ -158,6 +248,11 @@ void main() {
     expect(find.byType(AppError), findsOneWidget);
     tester.widget<AppError>(find.byType(AppError)).onRetry!();
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      key('ildu-construction-empty'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(key('ildu-construction-empty'), findsOneWidget);
     expect(attempts, 2);
     expect(tester.takeException(), isNull);
@@ -183,7 +278,7 @@ void main() {
     await tapVisible(tester, 'ildu-construction-next');
     await tester.scrollUntilVisible(
       find.text('기둥 세우기'),
-      200,
+      -200,
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('기둥 세우기'), findsOneWidget);
@@ -224,6 +319,11 @@ void main() {
       await tester.pumpAndSettle();
       await tapVisible(tester, 'hanok-construction-entry');
       expect(find.byType(IlDuConstructionScreen), findsOneWidget);
+      await tester.scrollUntilVisible(
+        key('ildu-construction-empty'),
+        250,
+        scrollable: find.byType(Scrollable).first,
+      );
       expect(key('ildu-construction-empty'), findsOneWidget);
       await tester.pumpWidget(const SizedBox.shrink());
     }

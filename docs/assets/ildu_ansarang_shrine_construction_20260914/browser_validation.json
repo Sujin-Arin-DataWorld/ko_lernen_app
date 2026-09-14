@@ -1,0 +1,59 @@
+{
+  "scope": "Local desktop browser review of a design guide. Not rendered construction artwork or Flutter device QA.",
+  "date": "2026-09-14",
+  "url": "http://127.0.0.1:8896/docs/mockups/ansarang-shrine-construction/index.html?building=ansarangchae&stage=6&lang=en",
+  "checks": {
+    "stageNavigation": {
+      "ansarangchae": 14,
+      "sadangmun": 8,
+      "sadang": 12
+    },
+    "finalMaster": {
+      "allThree": true,
+      "overlayElements": 0,
+      "opacity": 1,
+      "sliderDisabled": true
+    },
+    "languageSwitch": {
+      "testedOn": "sadang complete",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "KoreanSentencePreserved": true,
+      "detailLocalized": true
+    },
+    "rafterStability": {
+      "building": "ansarangchae",
+      "transition": [
+        6,
+        7
+      ],
+      "identicalGuidePolylines": 19
+    },
+    "rearToggle": {
+      "building": "ansarangchae",
+      "frontPosts": 5,
+      "withRearPosts": 10
+    },
+    "gate": {
+      "physicalPosts": 2,
+      "doorLeaves": 2
+    },
+    "opacityRestore": {
+      "manual": 0,
+      "final": 1,
+      "previous": 0
+    },
+    "zoomDialog": "opened and closed",
+    "autoplay": "observed progression from stage 1 to stage 10; then stopped",
+    "horizontalOverflow": false,
+    "browserWarningsAndErrors": 0
+  },
+  "limitations": [
+    "No phone or tablet viewport/device QA",
+    "No intermediate raster alignment measurement",
+    "No app progress integration or CI run"
+  ]
+}

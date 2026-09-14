@@ -3895,6 +3895,2072 @@
           ]
         }
       ]
+    },
+    {
+      "buildingId": "ansarangchae",
+      "mapAnchorId": "ansarang",
+      "name": {
+        "ko": "안사랑채",
+        "en": "Ansarangchae",
+        "de": "Ansarangchae"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
+      "canonicalSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+        "en": "Rooms, kitchen, wooden hall and space for everyday life",
+        "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+      },
+      "stages": [
+        {
+          "stageId": "ansarangchae-site",
+          "buildingId": "ansarangchae",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.png",
+          "title": {
+            "ko": "터와 방 자리",
+            "en": "Site and room layout",
+            "de": "Bauplatz und Raumaufteilung"
+          },
+          "observe": {
+            "ko": "줄로 표시한 네 칸과 앞뒤 간격을 살펴봐요. 이 자리 위에 방과 마루가 생겨요.",
+            "en": "Look at the four bays marked by the strings and the space from front to back. Rooms and wooden floors will take shape here.",
+            "de": "Schau dir die vier mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entstehen später die Räume und Holzböden."
+          },
+          "line": {
+            "ko": "방과 마루가 생길 자리를 살펴봐요.",
+            "en": "Let’s look at where the rooms and wooden floor will go.",
+            "de": "Schauen wir uns an, wo die Räume und der Holzboden entstehen."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "줄로 표시한 네 칸과 앞뒤 간격을 살펴봐요. 이 자리 위에 방과 마루가 생겨요.",
+            "en": "Look at the four bays marked by the strings and the space from front to back. Rooms and wooden floors will take shape here.",
+            "de": "Schau dir die vier mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entstehen später die Räume und Holzböden."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "터",
+              "label": {
+                "ko": "터",
+                "en": "Site and room layout",
+                "de": "Bauplatz und Raumaufteilung"
+              },
+              "explanation": {
+                "ko": "줄로 표시한 네 칸과 앞뒤 간격을 살펴봐요. 이 자리 위에 방과 마루가 생겨요.",
+                "en": "Look at the four bays marked by the strings and the space from front to back. Rooms and wooden floors will take shape here.",
+                "de": "Schau dir die vier mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entstehen später die Räume und Holzböden."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_01_site.png",
+          "approvedPngSha256": "cfa48b0538c2622dfbcbc2541d1e1caa1f693d82205041304f31833be603dcb8",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "fd68ecdb563892a38c380c6ed9db9d08b5a401c876960fb6f33c6c2e4d72d66c",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1499519,
+          "processTags": [
+            "site"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-foundation",
+          "buildingId": "ansarangchae",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.png",
+          "title": {
+            "ko": "기단",
+            "en": "Raised stone base",
+            "de": "Steinsockel"
+          },
+          "observe": {
+            "ko": "기단의 윗면과 옆면을 함께 보세요. 건물이 땅보다 높은 자리에 놓여 있어요.",
+            "en": "Look at both the top and the side of the stone base. The building stands above ground level.",
+            "de": "Schau dir Oberseite und Seite des Steinsockels an. Das Gebäude steht erhöht über dem Boden."
+          },
+          "line": {
+            "ko": "기단 위에 집을 지어요.",
+            "en": "The house is built on a raised stone base.",
+            "de": "Das Haus wird auf einem erhöhten Steinsockel gebaut."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "기단의 윗면과 옆면을 함께 보세요. 건물이 땅보다 높은 자리에 놓여 있어요.",
+            "en": "Look at both the top and the side of the stone base. The building stands above ground level.",
+            "de": "Schau dir Oberseite und Seite des Steinsockels an. Das Gebäude steht erhöht über dem Boden."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "기단",
+              "label": {
+                "ko": "기단",
+                "en": "Raised stone base",
+                "de": "Steinsockel"
+              },
+              "explanation": {
+                "ko": "기단의 윗면과 옆면을 함께 보세요. 건물이 땅보다 높은 자리에 놓여 있어요.",
+                "en": "Look at both the top and the side of the stone base. The building stands above ground level.",
+                "de": "Schau dir Oberseite und Seite des Steinsockels an. Das Gebäude steht erhöht über dem Boden."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_02_foundation.png",
+          "approvedPngSha256": "d483e96b083bf7bb4d375f5faa81d6198fcb6ecfca34394386a16b3af1726b9c",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "76cf1cabe6917da1fd382c50ebc82f09fe91758a6b084b6cac86294f0239571e",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1449462,
+          "processTags": [
+            "foundation"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-padstones",
+          "buildingId": "ansarangchae",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.png",
+          "title": {
+            "ko": "초석과 기둥 밑 맞춤",
+            "en": "Padstones and post bases",
+            "de": "Stützensteine und Pfostenfüße"
+          },
+          "observe": {
+            "ko": "초석은 기둥이 설 자리를 표시해요. 앞쪽과 뒤쪽 초석 사이에 방이 들어설 공간이 있어요.",
+            "en": "The padstones mark where the posts will stand. The space between the front and rear stones will become the rooms.",
+            "de": "Die Steinsockel markieren die späteren Standorte der Pfosten. Zwischen den vorderen und hinteren Sockeln entstehen die Räume."
+          },
+          "line": {
+            "ko": "초석이 나무기둥을 받쳐요.",
+            "en": "The padstones support the wooden posts.",
+            "de": "Die Stützensteine tragen die Holzpfosten."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "초석은 기둥이 설 자리를 표시해요. 앞쪽과 뒤쪽 초석 사이에 방이 들어설 공간이 있어요.",
+            "en": "The padstones mark where the posts will stand. The space between the front and rear stones will become the rooms.",
+            "de": "Die Steinsockel markieren die späteren Standorte der Pfosten. Zwischen den vorderen und hinteren Sockeln entstehen die Räume."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "초석",
+              "label": {
+                "ko": "초석",
+                "en": "Padstones and post bases",
+                "de": "Stützensteine und Pfostenfüße"
+              },
+              "explanation": {
+                "ko": "초석은 기둥이 설 자리를 표시해요. 앞쪽과 뒤쪽 초석 사이에 방이 들어설 공간이 있어요.",
+                "en": "The padstones mark where the posts will stand. The space between the front and rear stones will become the rooms.",
+                "de": "Die Steinsockel markieren die späteren Standorte der Pfosten. Zwischen den vorderen und hinteren Sockeln entstehen die Räume."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_03_padstones.png",
+          "approvedPngSha256": "6ad66d62ca0d89e09bce33fea944d61dd1f7125c7af3915de36095c5b39afbe3",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "04453c8596eca4e1e448011d837e65d6777e087817664c402d5bc4e29b0cd96b",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1412603,
+          "processTags": [
+            "padstones"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-posts",
+          "buildingId": "ansarangchae",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.png",
+          "title": {
+            "ko": "앞뒤 기둥열",
+            "en": "Front and rear posts",
+            "de": "Vordere und hintere Pfostenreihe"
+          },
+          "observe": {
+            "ko": "앞 기둥과 뒤 기둥 사이가 집 안의 깊이예요. 사람은 이 안에서 움직이고 머물러요.",
+            "en": "The space between the front and rear posts gives the house its depth. People move and spend time inside it.",
+            "de": "Der Abstand zwischen vorderen und hinteren Pfosten gibt dem Haus Tiefe. Darin bewegen sich Menschen und halten sich auf."
+          },
+          "line": {
+            "ko": "기둥 사이에 방이 생겨요.",
+            "en": "Rooms take shape between the posts.",
+            "de": "Zwischen den Pfosten entstehen Räume."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "앞 기둥과 뒤 기둥 사이가 집 안의 깊이예요. 사람은 이 안에서 움직이고 머물러요.",
+            "en": "The space between the front and rear posts gives the house its depth. People move and spend time inside it.",
+            "de": "Der Abstand zwischen vorderen und hinteren Pfosten gibt dem Haus Tiefe. Darin bewegen sich Menschen und halten sich auf."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "기둥",
+              "label": {
+                "ko": "기둥",
+                "en": "Front and rear posts",
+                "de": "Vordere und hintere Pfostenreihe"
+              },
+              "explanation": {
+                "ko": "앞 기둥과 뒤 기둥 사이가 집 안의 깊이예요. 사람은 이 안에서 움직이고 머물러요.",
+                "en": "The space between the front and rear posts gives the house its depth. People move and spend time inside it.",
+                "de": "Der Abstand zwischen vorderen und hinteren Pfosten gibt dem Haus Tiefe. Darin bewegen sich Menschen und halten sich auf."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_04_posts.png",
+          "approvedPngSha256": "2d5d7b2491f767aeb04759af547a9ac95ff0677716e94f55655a29a929122262",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "cf1f1d3151a4646a648955b3ff9af0f6f0b4ff7a6b06cca2a2eb7e0a0d6dfe65",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1514076,
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-beams",
+          "buildingId": "ansarangchae",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.png",
+          "title": {
+            "ko": "보와 도리",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "기둥 사이를 잇는 보와 지붕 아래로 길게 이어지는 도리를 구분해 보세요.",
+            "en": "Notice the beams connecting the posts and the purlins running along beneath the roof.",
+            "de": "Unterscheide die Balken zwischen den Pfosten von den Pfetten, die unter dem Dach entlanglaufen."
+          },
+          "line": {
+            "ko": "보는 기둥 사이를 이어요.",
+            "en": "The beams connect the posts.",
+            "de": "Die Balken verbinden die Pfosten."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "기둥 사이를 잇는 보와 지붕 아래로 길게 이어지는 도리를 구분해 보세요.",
+            "en": "Notice the beams connecting the posts and the purlins running along beneath the roof.",
+            "de": "Unterscheide die Balken zwischen den Pfosten von den Pfetten, die unter dem Dach entlanglaufen."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "보·도리",
+              "label": {
+                "ko": "보·도리",
+                "en": "Beams and purlins",
+                "de": "Balken und Pfetten"
+              },
+              "explanation": {
+                "ko": "기둥 사이를 잇는 보와 지붕 아래로 길게 이어지는 도리를 구분해 보세요.",
+                "en": "Notice the beams connecting the posts and the purlins running along beneath the roof.",
+                "de": "Unterscheide die Balken zwischen den Pfosten von den Pfetten, die unter dem Dach entlanglaufen."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_05_beams.png",
+          "approvedPngSha256": "d9fe11a880e0be74c076258cab4aa0f14575c726080d037a9916554351749b0c",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "a821d519f6c4c2a9cf3ae639786a6a0f502d78f7eb05e8b9aa88c590be0ab696",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1964516,
+          "processTags": [
+            "beams"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-rafters",
+          "buildingId": "ansarangchae",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.png",
+          "title": {
+            "ko": "서까래와 추녀",
+            "en": "Rafters and corner rafters",
+            "de": "Sparren und Ecksparren"
+          },
+          "observe": {
+            "ko": "서까래는 도리 위에서 처마 쪽으로 이어져요. 모서리에서는 추녀가 지붕의 꺾이는 부분을 만들어요.",
+            "en": "The rafters extend over the purlins toward the eaves. Corner rafters shape the turning corners of the roof.",
+            "de": "Die Sparren verlaufen über den Pfetten zur Traufe. Ecksparren formen die Ecken des Dachs."
+          },
+          "line": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "The rafters are laid on the purlins.",
+            "de": "Die Sparren werden auf die Pfetten gelegt."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "서까래는 도리 위에서 처마 쪽으로 이어져요. 모서리에서는 추녀가 지붕의 꺾이는 부분을 만들어요.",
+            "en": "The rafters extend over the purlins toward the eaves. Corner rafters shape the turning corners of the roof.",
+            "de": "Die Sparren verlaufen über den Pfetten zur Traufe. Ecksparren formen die Ecken des Dachs."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "서까래",
+              "label": {
+                "ko": "서까래",
+                "en": "Rafters and corner rafters",
+                "de": "Sparren und Ecksparren"
+              },
+              "explanation": {
+                "ko": "서까래는 도리 위에서 처마 쪽으로 이어져요. 모서리에서는 추녀가 지붕의 꺾이는 부분을 만들어요.",
+                "en": "The rafters extend over the purlins toward the eaves. Corner rafters shape the turning corners of the roof.",
+                "de": "Die Sparren verlaufen über den Pfetten zur Traufe. Ecksparren formen die Ecken des Dachs."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_06_rafters.png",
+          "approvedPngSha256": "e16c19958ecd720beffa7ced23a011aafe9f36932c9c032b5bb7b3cfdf7b3b18",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "252306a9887b35119047300ce4cd05c6f5e2f44dc55aaa8f94d3b94066224b28",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2210504,
+          "processTags": [
+            "rafters"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-roof_bed",
+          "buildingId": "ansarangchae",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Dachunterbau"
+          },
+          "observe": {
+            "ko": "서까래를 덮은 판재와 지붕 바탕을 살펴봐요. 이 위에 기와를 얹을 거예요.",
+            "en": "Look at the boards covering the rafters and the roof underlayers. The tiles will be laid on top.",
+            "de": "Schau dir die Bretter über den Sparren und den Dachunterbau an. Darauf werden später die Dachziegel verlegt."
+          },
+          "line": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "서까래를 덮은 판재와 지붕 바탕을 살펴봐요. 이 위에 기와를 얹을 거예요.",
+            "en": "Look at the boards covering the rafters and the roof underlayers. The tiles will be laid on top.",
+            "de": "Schau dir die Bretter über den Sparren und den Dachunterbau an. Darauf werden später die Dachziegel verlegt."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "지붕 바탕",
+              "label": {
+                "ko": "지붕 바탕",
+                "en": "Roof underlayers",
+                "de": "Dachunterbau"
+              },
+              "explanation": {
+                "ko": "서까래를 덮은 판재와 지붕 바탕을 살펴봐요. 이 위에 기와를 얹을 거예요.",
+                "en": "Look at the boards covering the rafters and the roof underlayers. The tiles will be laid on top.",
+                "de": "Schau dir die Bretter über den Sparren und den Dachunterbau an. Darauf werden später die Dachziegel verlegt."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_07_roof_bed.png",
+          "approvedPngSha256": "2b46a83157e3ec28dfbc33467ed44aa4531af697b4ce8b2ed4d7f38ef5348371",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "6d9e6455f004cf228fced6d70b9387a5452c2d9ac2e59475da63b6bd92dbbabf",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2234247,
+          "processTags": [
+            "roofBed"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-tiles",
+          "buildingId": "ansarangchae",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.png",
+          "title": {
+            "ko": "기와와 용마루",
+            "en": "Roof tiles and ridge",
+            "de": "Dachziegel und First"
+          },
+          "observe": {
+            "ko": "기와의 골을 따라 눈으로 내려와 보세요. 위쪽 용마루에서 아래쪽 처마까지 지붕이 이어져요.",
+            "en": "Follow the rows of tiles with your eyes, from the ridge at the top down to the eaves.",
+            "de": "Folge den Ziegelreihen mit den Augen: vom First oben bis zur Traufe unten."
+          },
+          "line": {
+            "ko": "기와가 지붕을 덮어요.",
+            "en": "Tiles cover the roof.",
+            "de": "Dachziegel decken das Dach."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "기와의 골을 따라 눈으로 내려와 보세요. 위쪽 용마루에서 아래쪽 처마까지 지붕이 이어져요.",
+            "en": "Follow the rows of tiles with your eyes, from the ridge at the top down to the eaves.",
+            "de": "Folge den Ziegelreihen mit den Augen: vom First oben bis zur Traufe unten."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "기와",
+              "label": {
+                "ko": "기와",
+                "en": "Roof tiles and ridge",
+                "de": "Dachziegel und First"
+              },
+              "explanation": {
+                "ko": "기와의 골을 따라 눈으로 내려와 보세요. 위쪽 용마루에서 아래쪽 처마까지 지붕이 이어져요.",
+                "en": "Follow the rows of tiles with your eyes, from the ridge at the top down to the eaves.",
+                "de": "Folge den Ziegelreihen mit den Augen: vom First oben bis zur Traufe unten."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_08_tiles.png",
+          "approvedPngSha256": "628033fbe44b2d8faccd37548af318791daac09f7fa71119b24cf12ac0f4ce2c",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "4e6f8cac0ebf6206bb367c7ae365d40878856100456b70bf40e69eaf55bd09f8",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2193118,
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-walls",
+          "buildingId": "ansarangchae",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.png",
+          "title": {
+            "ko": "벽체와 방 구획",
+            "en": "Walls and room divisions",
+            "de": "Wände und Raumaufteilung"
+          },
+          "observe": {
+            "ko": "왼쪽 벽은 앞까지 나오고, 다른 칸의 문틀은 뒤로 물러나 있어요. 문틀 앞에 툇마루가 놓일 공간이 남아요.",
+            "en": "The left wall reaches the front, while the door frames in the other bays are set back. The space in front of them is where the veranda will go.",
+            "de": "Die linke Wand reicht nach vorn, während die Türrahmen der anderen Felder weiter hinten liegen. Davor bleibt Platz für die Veranda."
+          },
+          "line": {
+            "ko": "벽이 공간을 나눠요.",
+            "en": "Walls divide the space.",
+            "de": "Wände teilen den Raum."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "왼쪽 벽은 앞까지 나오고, 다른 칸의 문틀은 뒤로 물러나 있어요. 문틀 앞에 툇마루가 놓일 공간이 남아요.",
+            "en": "The left wall reaches the front, while the door frames in the other bays are set back. The space in front of them is where the veranda will go.",
+            "de": "Die linke Wand reicht nach vorn, während die Türrahmen der anderen Felder weiter hinten liegen. Davor bleibt Platz für die Veranda."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "벽",
+              "label": {
+                "ko": "벽",
+                "en": "Walls and room divisions",
+                "de": "Wände und Raumaufteilung"
+              },
+              "explanation": {
+                "ko": "왼쪽 벽은 앞까지 나오고, 다른 칸의 문틀은 뒤로 물러나 있어요. 문틀 앞에 툇마루가 놓일 공간이 남아요.",
+                "en": "The left wall reaches the front, while the door frames in the other bays are set back. The space in front of them is where the veranda will go.",
+                "de": "Die linke Wand reicht nach vorn, während die Türrahmen der anderen Felder weiter hinten liegen. Davor bleibt Platz für die Veranda."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_09_walls.png",
+          "approvedPngSha256": "54b28ca6d235882281afa05a230bc1d2cfb6c80fae4b3020a3ac7169a1b743be",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "57121a27b21035b435a2706ec226f069d968b40f43feffb5e98cbce4c181a787",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2184140,
+          "processTags": [
+            "walls"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-ondol",
+          "buildingId": "ansarangchae",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.png",
+          "title": {
+            "ko": "부엌과 온돌",
+            "en": "Kitchen and ondol heating",
+            "de": "Küche und Ondol-Heizung"
+          },
+          "observe": {
+            "ko": "온돌은 방바닥 아래의 난방 구조예요. 이 그림은 두 방의 문턱 안쪽 바닥 일부를 열어, 돌 아래의 통로를 보여 줘요.",
+            "en": "Ondol is a heating structure beneath the room floor. In this illustration, part of the floor inside each of the two room openings is exposed to show the channels beneath the stones.",
+            "de": "Ondol ist eine Heizkonstruktion unter dem Zimmerboden. In dieser Darstellung ist der Boden hinter den beiden Zimmeröffnungen teilweise freigelegt, sodass du die Kanäle unter den Steinen sehen kannst."
+          },
+          "line": {
+            "ko": "온돌은 방바닥을 따뜻하게 해요.",
+            "en": "Ondol heating warms the room floor.",
+            "de": "Die Ondol-Heizung wärmt den Fußboden im Zimmer."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "온돌은 방바닥 아래의 난방 구조예요. 이 그림은 두 방의 문턱 안쪽 바닥 일부를 열어, 돌 아래의 통로를 보여 줘요.",
+            "en": "Ondol is a heating structure beneath the room floor. In this illustration, part of the floor inside each of the two room openings is exposed to show the channels beneath the stones.",
+            "de": "Ondol ist eine Heizkonstruktion unter dem Zimmerboden. In dieser Darstellung ist der Boden hinter den beiden Zimmeröffnungen teilweise freigelegt, sodass du die Kanäle unter den Steinen sehen kannst."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "온돌",
+              "label": {
+                "ko": "온돌",
+                "en": "Kitchen and ondol heating",
+                "de": "Küche und Ondol-Heizung"
+              },
+              "explanation": {
+                "ko": "온돌은 방바닥 아래의 난방 구조예요. 이 그림은 두 방의 문턱 안쪽 바닥 일부를 열어, 돌 아래의 통로를 보여 줘요.",
+                "en": "Ondol is a heating structure beneath the room floor. In this illustration, part of the floor inside each of the two room openings is exposed to show the channels beneath the stones.",
+                "de": "Ondol ist eine Heizkonstruktion unter dem Zimmerboden. In dieser Darstellung ist der Boden hinter den beiden Zimmeröffnungen teilweise freigelegt, sodass du die Kanäle unter den Steinen sehen kannst."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_10_ondol.png",
+          "approvedPngSha256": "ba97ceebc30719c05456973e4fad1b88d0fa15e7721ff1baa6dbef04d3499b43",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "7b0ef78627dac12a4ceeea93bb1c46b64b799d06a6f941ca592d98f1b22d50f1",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2141546,
+          "processTags": [
+            "ondol"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-maru_interior",
+          "buildingId": "ansarangchae",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.png",
+          "title": {
+            "ko": "대청마루",
+            "en": "Daecheong wooden hall",
+            "de": "Daecheong mit Holzboden"
+          },
+          "observe": {
+            "ko": "대청의 널바닥 아래에는 받침과 빈 공간이 있어요. 바닥의 윗면만 보지 말고 아래도 살펴봐요.",
+            "en": "Below the wooden hall floor are supports and open space. Look beneath the floor as well as at its surface.",
+            "de": "Unter dem Holzboden der Halle befinden sich Stützen und ein Hohlraum. Schau auch unter den Boden, nicht nur auf seine Oberfläche."
+          },
+          "line": {
+            "ko": "마루 아래에는 빈 공간이 있어요.",
+            "en": "There is open space beneath the wooden floor.",
+            "de": "Unter dem Holzboden bleibt ein Hohlraum."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "대청의 널바닥 아래에는 받침과 빈 공간이 있어요. 바닥의 윗면만 보지 말고 아래도 살펴봐요.",
+            "en": "Below the wooden hall floor are supports and open space. Look beneath the floor as well as at its surface.",
+            "de": "Unter dem Holzboden der Halle befinden sich Stützen und ein Hohlraum. Schau auch unter den Boden, nicht nur auf seine Oberfläche."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "대청마루",
+              "label": {
+                "ko": "대청마루",
+                "en": "Daecheong wooden hall",
+                "de": "Daecheong mit Holzboden"
+              },
+              "explanation": {
+                "ko": "대청의 널바닥 아래에는 받침과 빈 공간이 있어요. 바닥의 윗면만 보지 말고 아래도 살펴봐요.",
+                "en": "Below the wooden hall floor are supports and open space. Look beneath the floor as well as at its surface.",
+                "de": "Unter dem Holzboden der Halle befinden sich Stützen und ein Hohlraum. Schau auch unter den Boden, nicht nur auf seine Oberfläche."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_11_maru_interior.png",
+          "approvedPngSha256": "fe23a461d161fb86737cb4e116f37d75049b422a71ec332ba40f4f684a18f5f4",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "6fda15a52dacf0b72aec17ea60d5b1187bc1b79e0f24974ca82f96595f5d47fa",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2193734,
+          "processTags": [
+            "maruInterior"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-maru_porch",
+          "buildingId": "ansarangchae",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.png",
+          "title": {
+            "ko": "앞·옆 툇마루",
+            "en": "Front and side veranda",
+            "de": "Vordere und seitliche Veranda"
+          },
+          "observe": {
+            "ko": "앞마루에서 오른쪽 옆마루로 길이 이어져요. 기둥 사이로 바깥이 보이는 열린 공간이에요.",
+            "en": "The front veranda continues to the right side. It is an open space with views out between the posts.",
+            "de": "Die vordere Veranda führt an der rechten Seite weiter. Zwischen den Pfosten kann man nach draußen sehen."
+          },
+          "line": {
+            "ko": "앞마루가 옆마루로 이어져요.",
+            "en": "The front veranda continues around the side.",
+            "de": "Die vordere Veranda führt an der Seite weiter."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "앞마루에서 오른쪽 옆마루로 길이 이어져요. 기둥 사이로 바깥이 보이는 열린 공간이에요.",
+            "en": "The front veranda continues to the right side. It is an open space with views out between the posts.",
+            "de": "Die vordere Veranda führt an der rechten Seite weiter. Zwischen den Pfosten kann man nach draußen sehen."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "툇마루",
+              "label": {
+                "ko": "툇마루",
+                "en": "Front and side veranda",
+                "de": "Vordere und seitliche Veranda"
+              },
+              "explanation": {
+                "ko": "앞마루에서 오른쪽 옆마루로 길이 이어져요. 기둥 사이로 바깥이 보이는 열린 공간이에요.",
+                "en": "The front veranda continues to the right side. It is an open space with views out between the posts.",
+                "de": "Die vordere Veranda führt an der rechten Seite weiter. Zwischen den Pfosten kann man nach draußen sehen."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_12_maru_porch.png",
+          "approvedPngSha256": "13b6787826edb668d7b5e2ba163e4fd4ad6b37eea93bca3c424ceb84dda9bd27",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "0c263c99bb71f5e0c5bd7fab1b5fb56e9fc64ed0800107cf7bec4ffc0c7e2eaf",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2170761,
+          "processTags": [
+            "maruPorch"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-doors",
+          "buildingId": "ansarangchae",
+          "sequence": 13,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.png",
+          "title": {
+            "ko": "창호",
+            "en": "Doors and windows",
+            "de": "Türen und Fenster"
+          },
+          "observe": {
+            "ko": "왼쪽의 외짝문, 가운데의 두 짝 문, 오른쪽 대청의 네 짝 문을 비교해 보세요.",
+            "en": "Compare the single door on the left, the paired doors in the middle and the four-leaf doors of the hall on the right.",
+            "de": "Vergleiche die einflügelige Tür links, die zweiflügeligen Türen in der Mitte und die vierflügelige Tür der Halle rechts."
+          },
+          "line": {
+            "ko": "문을 열면 방 안이 보여요.",
+            "en": "When the door opens, the room inside becomes visible.",
+            "de": "Wenn sich die Tür öffnet, sieht man den Raum dahinter."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "왼쪽의 외짝문, 가운데의 두 짝 문, 오른쪽 대청의 네 짝 문을 비교해 보세요.",
+            "en": "Compare the single door on the left, the paired doors in the middle and the four-leaf doors of the hall on the right.",
+            "de": "Vergleiche die einflügelige Tür links, die zweiflügeligen Türen in der Mitte und die vierflügelige Tür der Halle rechts."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "창호",
+              "label": {
+                "ko": "창호",
+                "en": "Doors and windows",
+                "de": "Türen und Fenster"
+              },
+              "explanation": {
+                "ko": "왼쪽의 외짝문, 가운데의 두 짝 문, 오른쪽 대청의 네 짝 문을 비교해 보세요.",
+                "en": "Compare the single door on the left, the paired doors in the middle and the four-leaf doors of the hall on the right.",
+                "de": "Vergleiche die einflügelige Tür links, die zweiflügeligen Türen in der Mitte und die vierflügelige Tür der Halle rechts."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/ansarangchae/stage_13_doors.png",
+          "approvedPngSha256": "cb12a0d58012fcca61fde8538b88aa3247bda716617f5fc1708a7e8c78502f2f",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "613677ea7a16b5c90ec75a09e9a2eed14acfdab54d2e229bca9f191f4f81e611",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2276875,
+          "processTags": [
+            "doors"
+          ]
+        },
+        {
+          "stageId": "ansarangchae-complete",
+          "buildingId": "ansarangchae",
+          "sequence": 14,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
+          "title": {
+            "ko": "안사랑채 완성",
+            "en": "Completed Ansarangchae",
+            "de": "Fertiges Ansarangchae"
+          },
+          "observe": {
+            "ko": "방에서 지내고, 부엌에서 일하고, 마루에서 쉬는 모습을 떠올려 봐요. 각 공간으로 어떻게 이동할까요?",
+            "en": "Imagine spending time in a room, working in the kitchen and resting on the veranda. How would you move between them?",
+            "de": "Stell dir vor, du bist im Zimmer, arbeitest in der Küche und ruhst auf der Veranda. Wie würdest du von einem Bereich zum anderen gehen?"
+          },
+          "line": {
+            "ko": "마루에서 잠깐 쉬어요.",
+            "en": "Let’s rest on the veranda for a moment.",
+            "de": "Ruhen wir uns kurz auf der Veranda aus."
+          },
+          "scene": {
+            "ko": "방·부엌·대청·앞뒤 깊이가 있는 생활 공간",
+            "en": "Rooms, kitchen, wooden hall and space for everyday life",
+            "de": "Zimmer, Küche, Holzhalle und Raum für den Alltag"
+          },
+          "task": {
+            "ko": "방에서 지내고, 부엌에서 일하고, 마루에서 쉬는 모습을 떠올려 봐요. 각 공간으로 어떻게 이동할까요?",
+            "en": "Imagine spending time in a room, working in the kitchen and resting on the veranda. How would you move between them?",
+            "de": "Stell dir vor, du bist im Zimmer, arbeitest in der Küche und ruhst auf der Veranda. Wie würdest du von einem Bereich zum anderen gehen?"
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "안사랑채",
+              "label": {
+                "ko": "안사랑채",
+                "en": "Completed Ansarangchae",
+                "de": "Fertiges Ansarangchae"
+              },
+              "explanation": {
+                "ko": "방에서 지내고, 부엌에서 일하고, 마루에서 쉬는 모습을 떠올려 봐요. 각 공간으로 어떻게 이동할까요?",
+                "en": "Imagine spending time in a room, working in the kitchen and resting on the veranda. How would you move between them?",
+                "de": "Stell dir vor, du bist im Zimmer, arbeitest in der Küche und ruhst auf der Veranda. Wie würdest du von einem Bereich zum anderen gehen?"
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+          "approvedPngSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2358471,
+          "processTags": [
+            "complete"
+          ]
+        }
+      ]
+    },
+    {
+      "buildingId": "sadangmun",
+      "mapAnchorId": "sadang-gate",
+      "name": {
+        "ko": "사당문",
+        "en": "Sadangmun",
+        "de": "Schreintor"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+      "canonicalSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "width": 1086,
+      "height": 1448,
+      "culture": {
+        "ko": "사람이 기다리고 통과하는 작은 문",
+        "en": "A small gate where people wait and pass through",
+        "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+      },
+      "stages": [
+        {
+          "stageId": "sadangmun-foundation",
+          "buildingId": "sadangmun",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.png",
+          "title": {
+            "ko": "문터와 돌받침",
+            "en": "Gate site and stone base",
+            "de": "Torplatz und Steinsockel"
+          },
+          "observe": {
+            "ko": "돌받침 위에 두 문기둥이 설 자리가 있어요. 그 사이에서 사람이 발을 디딜 곳을 살펴봐요.",
+            "en": "The stone base has two places for the gate posts. Look at the space between them where people will step.",
+            "de": "Auf dem Steinsockel sind zwei Plätze für die Torpfosten vorgesehen. Schau dir den Bereich dazwischen an, auf den man beim Durchgehen tritt."
+          },
+          "line": {
+            "ko": "돌받침 위에 문을 세워요.",
+            "en": "The gate is built on a stone base.",
+            "de": "Das Tor wird auf einem Steinsockel errichtet."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "돌받침 위에 두 문기둥이 설 자리가 있어요. 그 사이에서 사람이 발을 디딜 곳을 살펴봐요.",
+            "en": "The stone base has two places for the gate posts. Look at the space between them where people will step.",
+            "de": "Auf dem Steinsockel sind zwei Plätze für die Torpfosten vorgesehen. Schau dir den Bereich dazwischen an, auf den man beim Durchgehen tritt."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "돌받침",
+              "label": {
+                "ko": "돌받침",
+                "en": "Gate site and stone base",
+                "de": "Torplatz und Steinsockel"
+              },
+              "explanation": {
+                "ko": "돌받침 위에 두 문기둥이 설 자리가 있어요. 그 사이에서 사람이 발을 디딜 곳을 살펴봐요.",
+                "en": "The stone base has two places for the gate posts. Look at the space between them where people will step.",
+                "de": "Auf dem Steinsockel sind zwei Plätze für die Torpfosten vorgesehen. Schau dir den Bereich dazwischen an, auf den man beim Durchgehen tritt."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_01_foundation.png",
+          "approvedPngSha256": "cda8bc1c8d242fe0cb7c2a3b3943d43640499366efdaef1ec84358c6273b776a",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "700b482132a141d57b6859872d519abb5d4a33a646bc798eb51685a009a4b7ab",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1202614,
+          "processTags": [
+            "foundation"
+          ]
+        },
+        {
+          "stageId": "sadangmun-posts",
+          "buildingId": "sadangmun",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.png",
+          "title": {
+            "ko": "양쪽 문기둥",
+            "en": "Two gate posts",
+            "de": "Die beiden Torpfosten"
+          },
+          "observe": {
+            "ko": "양쪽 기둥 사이가 통로예요. 기둥의 옆면을 보면 문에도 두께가 있다는 것을 알 수 있어요.",
+            "en": "The passage runs between the two posts. Their side faces show that the gate has depth too.",
+            "de": "Der Durchgang liegt zwischen den beiden Pfosten. Ihre Seitenflächen zeigen, dass auch das Tor Tiefe hat."
+          },
+          "line": {
+            "ko": "문기둥 사이로 지나가요.",
+            "en": "People pass between the gate posts.",
+            "de": "Zwischen den Torpfosten gehen Menschen hindurch."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "양쪽 기둥 사이가 통로예요. 기둥의 옆면을 보면 문에도 두께가 있다는 것을 알 수 있어요.",
+            "en": "The passage runs between the two posts. Their side faces show that the gate has depth too.",
+            "de": "Der Durchgang liegt zwischen den beiden Pfosten. Ihre Seitenflächen zeigen, dass auch das Tor Tiefe hat."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "문기둥",
+              "label": {
+                "ko": "문기둥",
+                "en": "Two gate posts",
+                "de": "Die beiden Torpfosten"
+              },
+              "explanation": {
+                "ko": "양쪽 기둥 사이가 통로예요. 기둥의 옆면을 보면 문에도 두께가 있다는 것을 알 수 있어요.",
+                "en": "The passage runs between the two posts. Their side faces show that the gate has depth too.",
+                "de": "Der Durchgang liegt zwischen den beiden Pfosten. Ihre Seitenflächen zeigen, dass auch das Tor Tiefe hat."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_02_posts.png",
+          "approvedPngSha256": "532fb63454a77464bccd5e36ed1cc647649a2a088af5b310ca937c4ac7bd0d8f",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "e38574ff1e1da590e620dc629e1e57b1437012b7e3f99d2ebe80049911d88546",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1352770,
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "sadangmun-beams",
+          "buildingId": "sadangmun",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.png",
+          "title": {
+            "ko": "문틀과 위쪽 연결재",
+            "en": "Gate frame and upper members",
+            "de": "Torrahmen und obere Querhölzer"
+          },
+          "observe": {
+            "ko": "위쪽 연결재가 두 문기둥을 이어요. 문짝이 달릴 틀의 모양을 살펴봐요.",
+            "en": "Upper members connect the two gate posts. Look at the frame that will hold the door leaves.",
+            "de": "Obere Querhölzer verbinden die Torpfosten. Betrachte den Rahmen, an dem die Torflügel sitzen werden."
+          },
+          "line": {
+            "ko": "문틀이 문짝을 받쳐요.",
+            "en": "The frame supports the door leaves.",
+            "de": "Der Rahmen trägt die Torflügel."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "위쪽 연결재가 두 문기둥을 이어요. 문짝이 달릴 틀의 모양을 살펴봐요.",
+            "en": "Upper members connect the two gate posts. Look at the frame that will hold the door leaves.",
+            "de": "Obere Querhölzer verbinden die Torpfosten. Betrachte den Rahmen, an dem die Torflügel sitzen werden."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "문틀",
+              "label": {
+                "ko": "문틀",
+                "en": "Gate frame and upper members",
+                "de": "Torrahmen und obere Querhölzer"
+              },
+              "explanation": {
+                "ko": "위쪽 연결재가 두 문기둥을 이어요. 문짝이 달릴 틀의 모양을 살펴봐요.",
+                "en": "Upper members connect the two gate posts. Look at the frame that will hold the door leaves.",
+                "de": "Obere Querhölzer verbinden die Torpfosten. Betrachte den Rahmen, an dem die Torflügel sitzen werden."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_03_beams.png",
+          "approvedPngSha256": "25e7cac12055d65ae5faf6309229772900b4355a5f4d3f1f787c9d21927007d4",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "80b244c33aeddcb858215619f0456b1b2084935e6a6cf04fdb87546f69bb67c3",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1538616,
+          "processTags": [
+            "beams"
+          ]
+        },
+        {
+          "stageId": "sadangmun-rafters",
+          "buildingId": "sadangmun",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.png",
+          "title": {
+            "ko": "서까래",
+            "en": "Rafters",
+            "de": "Sparren"
+          },
+          "observe": {
+            "ko": "작은 문 위에도 서까래가 있어요. 문틀 위에서 처마까지 이어지는 지붕의 깊이를 보세요.",
+            "en": "Even this small gate has rafters. Look at the roof’s depth from the frame to the eaves.",
+            "de": "Auch dieses kleine Tor hat Sparren. Betrachte die Tiefe des Dachs vom Rahmen bis zur Traufe."
+          },
+          "line": {
+            "ko": "서까래가 처마까지 뻗어요.",
+            "en": "The rafters extend to the eaves.",
+            "de": "Die Sparren reichen bis zur Traufe."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "작은 문 위에도 서까래가 있어요. 문틀 위에서 처마까지 이어지는 지붕의 깊이를 보세요.",
+            "en": "Even this small gate has rafters. Look at the roof’s depth from the frame to the eaves.",
+            "de": "Auch dieses kleine Tor hat Sparren. Betrachte die Tiefe des Dachs vom Rahmen bis zur Traufe."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "서까래",
+              "label": {
+                "ko": "서까래",
+                "en": "Rafters",
+                "de": "Sparren"
+              },
+              "explanation": {
+                "ko": "작은 문 위에도 서까래가 있어요. 문틀 위에서 처마까지 이어지는 지붕의 깊이를 보세요.",
+                "en": "Even this small gate has rafters. Look at the roof’s depth from the frame to the eaves.",
+                "de": "Auch dieses kleine Tor hat Sparren. Betrachte die Tiefe des Dachs vom Rahmen bis zur Traufe."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_04_rafters.png",
+          "approvedPngSha256": "90e63f1cb7fa7e02b662402059d577dede70068955e73ed5d4de7ca4b5504550",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "ddcffd53b1a89049bd2d6d68a2dacbdb5a8c66e1d0615e1cbb032e0672c6516a",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1844239,
+          "processTags": [
+            "rafters"
+          ]
+        },
+        {
+          "stageId": "sadangmun-roof_bed",
+          "buildingId": "sadangmun",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Dachunterbau"
+          },
+          "observe": {
+            "ko": "서까래 위에 지붕의 바탕이 놓여요. 얇은 종이 한 장 같은 지붕이 아니라 여러 층의 구조예요.",
+            "en": "The roof underlayers sit on the rafters. The roof has several layers rather than being a thin sheet.",
+            "de": "Auf den Sparren liegt der Dachunterbau. Das Dach besteht aus mehreren Schichten und ist keine dünne Fläche."
+          },
+          "line": {
+            "ko": "서까래 위에 지붕 바탕을 얹어요.",
+            "en": "The roof underlayers are laid above the rafters.",
+            "de": "Der Dachunterbau wird über den Sparren angebracht."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "서까래 위에 지붕의 바탕이 놓여요. 얇은 종이 한 장 같은 지붕이 아니라 여러 층의 구조예요.",
+            "en": "The roof underlayers sit on the rafters. The roof has several layers rather than being a thin sheet.",
+            "de": "Auf den Sparren liegt der Dachunterbau. Das Dach besteht aus mehreren Schichten und ist keine dünne Fläche."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "지붕 바탕",
+              "label": {
+                "ko": "지붕 바탕",
+                "en": "Roof underlayers",
+                "de": "Dachunterbau"
+              },
+              "explanation": {
+                "ko": "서까래 위에 지붕의 바탕이 놓여요. 얇은 종이 한 장 같은 지붕이 아니라 여러 층의 구조예요.",
+                "en": "The roof underlayers sit on the rafters. The roof has several layers rather than being a thin sheet.",
+                "de": "Auf den Sparren liegt der Dachunterbau. Das Dach besteht aus mehreren Schichten und ist keine dünne Fläche."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_05_roof_bed.png",
+          "approvedPngSha256": "f7be6a585347486fe722dec4963780842e62c11171a92930e84697588630d9e5",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "2495297932adbee16a2d879ff2f6f140a614f11806754c87af7d50c2221e2c87",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 2000518,
+          "processTags": [
+            "roofBed"
+          ]
+        },
+        {
+          "stageId": "sadangmun-tiles",
+          "buildingId": "sadangmun",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.png",
+          "title": {
+            "ko": "기와",
+            "en": "Roof tiles",
+            "de": "Dachziegel"
+          },
+          "observe": {
+            "ko": "기와가 작은 지붕을 덮어요. 기와의 겹침과 양끝 처마를 살펴봐요.",
+            "en": "Tiles cover the small roof. Look at their overlaps and the eaves at either end.",
+            "de": "Ziegel decken das kleine Dach. Schau auf ihre Überlappungen und die Traufen an den Enden."
+          },
+          "line": {
+            "ko": "기와가 비를 막아 줘요.",
+            "en": "Roof tiles keep the rain out.",
+            "de": "Dachziegel halten den Regen ab."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "기와가 작은 지붕을 덮어요. 기와의 겹침과 양끝 처마를 살펴봐요.",
+            "en": "Tiles cover the small roof. Look at their overlaps and the eaves at either end.",
+            "de": "Ziegel decken das kleine Dach. Schau auf ihre Überlappungen und die Traufen an den Enden."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "기와",
+              "label": {
+                "ko": "기와",
+                "en": "Roof tiles",
+                "de": "Dachziegel"
+              },
+              "explanation": {
+                "ko": "기와가 작은 지붕을 덮어요. 기와의 겹침과 양끝 처마를 살펴봐요.",
+                "en": "Tiles cover the small roof. Look at their overlaps and the eaves at either end.",
+                "de": "Ziegel decken das kleine Dach. Schau auf ihre Überlappungen und die Traufen an den Enden."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_06_tiles.png",
+          "approvedPngSha256": "1af15764cc640f93ec20b839e18d3ffba6966d951351def0e7ee3dbc8c7b1f72",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "c59c10f36c23099ace7152e49b69a098da2e1cf80cbcce9a1ef9f81cb802236f",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1876927,
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "sadangmun-doors",
+          "buildingId": "sadangmun",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.png",
+          "title": {
+            "ko": "문짝과 철물",
+            "en": "Door leaves and iron fittings",
+            "de": "Torflügel und Eisenbeschläge"
+          },
+          "observe": {
+            "ko": "문짝은 두 개예요. 양옆 문기둥 쪽을 축으로 열리면 가운데 통로가 드러나요.",
+            "en": "There are two door leaves. They open on hinges beside the posts to reveal the passage between them.",
+            "de": "Es gibt zwei Torflügel. Sie drehen sich an den Seitenpfosten und geben den Durchgang in der Mitte frei."
+          },
+          "line": {
+            "ko": "문짝이 경첩을 중심으로 움직여요.",
+            "en": "The door leaves move around their hinges.",
+            "de": "Die Torflügel drehen sich um ihre Scharniere."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "문짝은 두 개예요. 양옆 문기둥 쪽을 축으로 열리면 가운데 통로가 드러나요.",
+            "en": "There are two door leaves. They open on hinges beside the posts to reveal the passage between them.",
+            "de": "Es gibt zwei Torflügel. Sie drehen sich an den Seitenpfosten und geben den Durchgang in der Mitte frei."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "문짝",
+              "label": {
+                "ko": "문짝",
+                "en": "Door leaves and iron fittings",
+                "de": "Torflügel und Eisenbeschläge"
+              },
+              "explanation": {
+                "ko": "문짝은 두 개예요. 양옆 문기둥 쪽을 축으로 열리면 가운데 통로가 드러나요.",
+                "en": "There are two door leaves. They open on hinges beside the posts to reveal the passage between them.",
+                "de": "Es gibt zwei Torflügel. Sie drehen sich an den Seitenpfosten und geben den Durchgang in der Mitte frei."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadangmun/stage_07_doors.png",
+          "approvedPngSha256": "d086cd92875f3a03af69ed3e06174bf5ba72774a059337ad072c7d0190919914",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "b1ff339d338b407b2a329b43bc77e2d7cce42dc8d79733543aa63b6fe12ec85d",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 1947038,
+          "processTags": [
+            "doors"
+          ]
+        },
+        {
+          "stageId": "sadangmun-complete",
+          "buildingId": "sadangmun",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+          "title": {
+            "ko": "단청·태극·사당문 완성",
+            "en": "Paintwork, taegeuk and completed gate",
+            "de": "Bemalung, Taegeuk und fertiges Tor"
+          },
+          "observe": {
+            "ko": "이 문은 사당으로 드나드는 경계예요. 문 앞에 서서, 문을 지나 안으로 들어가는 모습을 떠올려 봐요.",
+            "en": "This gate marks the entrance to the shrine. Imagine standing before it, then passing through.",
+            "de": "Dieses Tor bildet den Zugang zum Ahnenschrein. Stell dir vor, du stehst davor und gehst dann hindurch."
+          },
+          "line": {
+            "ko": "문 앞에서 잠깐 기다려요.",
+            "en": "Let’s wait in front of the gate for a moment.",
+            "de": "Warten wir kurz vor dem Tor."
+          },
+          "scene": {
+            "ko": "사람이 기다리고 통과하는 작은 문",
+            "en": "A small gate where people wait and pass through",
+            "de": "Ein kleines Tor zum Warten und Hindurchgehen"
+          },
+          "task": {
+            "ko": "이 문은 사당으로 드나드는 경계예요. 문 앞에 서서, 문을 지나 안으로 들어가는 모습을 떠올려 봐요.",
+            "en": "This gate marks the entrance to the shrine. Imagine standing before it, then passing through.",
+            "de": "Dieses Tor bildet den Zugang zum Ahnenschrein. Stell dir vor, du stehst davor und gehst dann hindurch."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "사당문",
+              "label": {
+                "ko": "사당문",
+                "en": "Paintwork, taegeuk and completed gate",
+                "de": "Bemalung, Taegeuk und fertiges Tor"
+              },
+              "explanation": {
+                "ko": "이 문은 사당으로 드나드는 경계예요. 문 앞에 서서, 문을 지나 안으로 들어가는 모습을 떠올려 봐요.",
+                "en": "This gate marks the entrance to the shrine. Imagine standing before it, then passing through.",
+                "de": "Dieses Tor bildet den Zugang zum Ahnenschrein. Stell dir vor, du stehst davor und gehst dann hindurch."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+          "approvedPngSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 2027089,
+          "processTags": [
+            "complete"
+          ]
+        }
+      ]
+    },
+    {
+      "buildingId": "sadang",
+      "mapAnchorId": "sadang",
+      "name": {
+        "ko": "사당",
+        "en": "Sadang",
+        "de": "Ahnenschrein"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
+      "canonicalSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "조상을 기리기 위해 드나드는 제례 공간",
+        "en": "A ritual space entered to honor ancestors",
+        "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+      },
+      "stages": [
+        {
+          "stageId": "sadang-site",
+          "buildingId": "sadang",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.png",
+          "title": {
+            "ko": "사당과 앞마당 자리",
+            "en": "Shrine and forecourt layout",
+            "de": "Schrein und Vorplatz"
+          },
+          "observe": {
+            "ko": "줄로 표시한 세 칸과 앞뒤 간격을 살펴봐요. 이 위에 사당이 서고, 앞쪽으로 사람이 다가와 들어갈 거예요.",
+            "en": "Look at the three bays marked by the strings and the space from front to back. The shrine will stand here, with people approaching and entering from the front.",
+            "de": "Schau dir die drei mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entsteht der Schrein, dem man sich von vorn nähert und den man von dort betritt."
+          },
+          "line": {
+            "ko": "사당 앞에 마당이 있어요.",
+            "en": "There is a courtyard in front of the shrine.",
+            "de": "Vor dem Schrein liegt ein Hof."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "줄로 표시한 세 칸과 앞뒤 간격을 살펴봐요. 이 위에 사당이 서고, 앞쪽으로 사람이 다가와 들어갈 거예요.",
+            "en": "Look at the three bays marked by the strings and the space from front to back. The shrine will stand here, with people approaching and entering from the front.",
+            "de": "Schau dir die drei mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entsteht der Schrein, dem man sich von vorn nähert und den man von dort betritt."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "앞마당",
+              "label": {
+                "ko": "앞마당",
+                "en": "Shrine and forecourt layout",
+                "de": "Schrein und Vorplatz"
+              },
+              "explanation": {
+                "ko": "줄로 표시한 세 칸과 앞뒤 간격을 살펴봐요. 이 위에 사당이 서고, 앞쪽으로 사람이 다가와 들어갈 거예요.",
+                "en": "Look at the three bays marked by the strings and the space from front to back. The shrine will stand here, with people approaching and entering from the front.",
+                "de": "Schau dir die drei mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entsteht der Schrein, dem man sich von vorn nähert und den man von dort betritt."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_01_site.png",
+          "approvedPngSha256": "f78924efbb06b46c52b8c66512626a70956060ae79a73b5ea6d7284f3a1030ff",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "9fe97f2087c224ad59c5fb4b54cf047416a341a7c77df2e8defb79fe8a983ae7",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1411479,
+          "processTags": [
+            "site"
+          ]
+        },
+        {
+          "stageId": "sadang-foundation",
+          "buildingId": "sadang",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.png",
+          "title": {
+            "ko": "기단과 디딤돌",
+            "en": "Stone base and step",
+            "de": "Steinsockel und Trittstufe"
+          },
+          "observe": {
+            "ko": "기단과 디딤돌에는 높이 차가 있어요. 땅에서 사당 안으로 올라가는 길을 찾아봐요.",
+            "en": "The base and stepping stones form different levels. Find the way up from the ground into the shrine.",
+            "de": "Sockel und Trittsteine bilden unterschiedliche Höhen. Such den Weg vom Boden hinauf in den Schrein."
+          },
+          "line": {
+            "ko": "디딤돌을 밟고 올라가요.",
+            "en": "People step up using the stone step.",
+            "de": "Über die Steinstufe gelangt man hinauf."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "기단과 디딤돌에는 높이 차가 있어요. 땅에서 사당 안으로 올라가는 길을 찾아봐요.",
+            "en": "The base and stepping stones form different levels. Find the way up from the ground into the shrine.",
+            "de": "Sockel und Trittsteine bilden unterschiedliche Höhen. Such den Weg vom Boden hinauf in den Schrein."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "디딤돌",
+              "label": {
+                "ko": "디딤돌",
+                "en": "Stone base and step",
+                "de": "Steinsockel und Trittstufe"
+              },
+              "explanation": {
+                "ko": "기단과 디딤돌에는 높이 차가 있어요. 땅에서 사당 안으로 올라가는 길을 찾아봐요.",
+                "en": "The base and stepping stones form different levels. Find the way up from the ground into the shrine.",
+                "de": "Sockel und Trittsteine bilden unterschiedliche Höhen. Such den Weg vom Boden hinauf in den Schrein."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_02_foundation.png",
+          "approvedPngSha256": "90f2b1ca8720588c8b3741bb7fd6f11f016632578cf65501f5a1307f6496f02b",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "131215cb79d55f8c2fe836f481773394f8dfbf77e630a5c77cbd2c01553c6588",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1344664,
+          "processTags": [
+            "foundation"
+          ]
+        },
+        {
+          "stageId": "sadang-padstones",
+          "buildingId": "sadang",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.png",
+          "title": {
+            "ko": "초석 배치",
+            "en": "Placing the padstones",
+            "de": "Anordnung der Stützensteine"
+          },
+          "observe": {
+            "ko": "초석이 놓인 곳이 기둥이 설 자리예요. 앞쪽과 뒤쪽 받침을 연결해 보면 건물의 깊이가 보여요.",
+            "en": "The padstones mark where the posts will stand. Connecting the front and rear supports reveals the building’s depth.",
+            "de": "Die Stützensteine markieren die Pfostenplätze. Vorder- und Hinterreihe machen die Gebäudetiefe sichtbar."
+          },
+          "line": {
+            "ko": "기둥 밑에 초석을 놓아요.",
+            "en": "Padstones are placed beneath the posts.",
+            "de": "Unter die Pfosten kommen Stützensteine."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "초석이 놓인 곳이 기둥이 설 자리예요. 앞쪽과 뒤쪽 받침을 연결해 보면 건물의 깊이가 보여요.",
+            "en": "The padstones mark where the posts will stand. Connecting the front and rear supports reveals the building’s depth.",
+            "de": "Die Stützensteine markieren die Pfostenplätze. Vorder- und Hinterreihe machen die Gebäudetiefe sichtbar."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "초석",
+              "label": {
+                "ko": "초석",
+                "en": "Placing the padstones",
+                "de": "Anordnung der Stützensteine"
+              },
+              "explanation": {
+                "ko": "초석이 놓인 곳이 기둥이 설 자리예요. 앞쪽과 뒤쪽 받침을 연결해 보면 건물의 깊이가 보여요.",
+                "en": "The padstones mark where the posts will stand. Connecting the front and rear supports reveals the building’s depth.",
+                "de": "Die Stützensteine markieren die Pfostenplätze. Vorder- und Hinterreihe machen die Gebäudetiefe sichtbar."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_03_padstones.png",
+          "approvedPngSha256": "00d0411f7e34e3d9eeafb7fd5a82f2fcd772ec1997fa4f77e992bc8b60c254d2",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "bbbb73a6e220b8b13b918185e6a9998f9bc878065a00658653abbf9dca51afc0",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1376362,
+          "processTags": [
+            "padstones"
+          ]
+        },
+        {
+          "stageId": "sadang-posts",
+          "buildingId": "sadang",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.png",
+          "title": {
+            "ko": "앞뒤 기둥열",
+            "en": "Front and rear posts",
+            "de": "Vordere und hintere Pfostenreihe"
+          },
+          "observe": {
+            "ko": "정면의 둥근 기둥 네 개 사이에 세 칸이 생겨요. 뒤쪽 기둥까지 이어지는 실내 공간을 보세요.",
+            "en": "Four round front posts define three bays. Notice the interior space extending to the rear posts.",
+            "de": "Vier runde Pfosten an der Vorderseite bilden drei Felder. Dahinter reicht der Innenraum bis zur hinteren Pfostenreihe."
+          },
+          "line": {
+            "ko": "기둥 사이에 세 칸이 생겨요.",
+            "en": "Three bays take shape between the posts.",
+            "de": "Zwischen den Pfosten entstehen drei Felder."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "정면의 둥근 기둥 네 개 사이에 세 칸이 생겨요. 뒤쪽 기둥까지 이어지는 실내 공간을 보세요.",
+            "en": "Four round front posts define three bays. Notice the interior space extending to the rear posts.",
+            "de": "Vier runde Pfosten an der Vorderseite bilden drei Felder. Dahinter reicht der Innenraum bis zur hinteren Pfostenreihe."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "기둥",
+              "label": {
+                "ko": "기둥",
+                "en": "Front and rear posts",
+                "de": "Vordere und hintere Pfostenreihe"
+              },
+              "explanation": {
+                "ko": "정면의 둥근 기둥 네 개 사이에 세 칸이 생겨요. 뒤쪽 기둥까지 이어지는 실내 공간을 보세요.",
+                "en": "Four round front posts define three bays. Notice the interior space extending to the rear posts.",
+                "de": "Vier runde Pfosten an der Vorderseite bilden drei Felder. Dahinter reicht der Innenraum bis zur hinteren Pfostenreihe."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_04_posts.png",
+          "approvedPngSha256": "ac3fda00b5ce43a463443a4a78b8e01aaff7e1d689485f10ea8aa68fdc03358d",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "982672950241d32b33163142fc88b9052818eb04e878b16ee3ab4911f1246a09",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1579288,
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "sadang-brackets",
+          "buildingId": "sadang",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.png",
+          "title": {
+            "ko": "공포·보·도리",
+            "en": "Brackets, beams and purlins",
+            "de": "Konsolen, Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "기둥 위의 공포와 보, 도리를 차례로 찾아봐요. 지붕은 그 위에서 이어져요.",
+            "en": "Find the bracket sets, beams and purlins above the posts. The roof continues above them.",
+            "de": "Such über den Pfosten die Konsolen, Balken und Pfetten. Darüber setzt sich das Dach fort."
+          },
+          "line": {
+            "ko": "공포가 지붕 구조를 받쳐요.",
+            "en": "The brackets support the roof structure.",
+            "de": "Die Konsolen tragen die Dachkonstruktion."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "기둥 위의 공포와 보, 도리를 차례로 찾아봐요. 지붕은 그 위에서 이어져요.",
+            "en": "Find the bracket sets, beams and purlins above the posts. The roof continues above them.",
+            "de": "Such über den Pfosten die Konsolen, Balken und Pfetten. Darüber setzt sich das Dach fort."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "공포",
+              "label": {
+                "ko": "공포",
+                "en": "Brackets, beams and purlins",
+                "de": "Konsolen, Balken und Pfetten"
+              },
+              "explanation": {
+                "ko": "기둥 위의 공포와 보, 도리를 차례로 찾아봐요. 지붕은 그 위에서 이어져요.",
+                "en": "Find the bracket sets, beams and purlins above the posts. The roof continues above them.",
+                "de": "Such über den Pfosten die Konsolen, Balken und Pfetten. Darüber setzt sich das Dach fort."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_05_brackets.png",
+          "approvedPngSha256": "db1ecfe7b6601e6490555acb933ad30b352b2621396d26ca04633eb1b4405cef",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "3eae57711b0ad6c0c24cbd78154117e8c16fbf52fd46b93cc7fcc8a617e9e94c",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1894823,
+          "processTags": [
+            "brackets"
+          ]
+        },
+        {
+          "stageId": "sadang-rafters",
+          "buildingId": "sadang",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.png",
+          "title": {
+            "ko": "맞배 서까래",
+            "en": "Gable-roof rafters",
+            "de": "Sparren des Satteldachs"
+          },
+          "observe": {
+            "ko": "맞배지붕의 앞뒤 두 면이 용마루에서 만나요. 서까래가 두 방향의 처마로 이어져요.",
+            "en": "The two sides of the gabled roof meet at the ridge. Rafters run toward the eaves on either side.",
+            "de": "Die beiden Flächen des Satteldachs treffen am First zusammen. Sparren führen zu den Traufen auf beiden Seiten."
+          },
+          "line": {
+            "ko": "서까래가 지붕의 두 면을 만들어요.",
+            "en": "The rafters form the two sides of the roof.",
+            "de": "Die Sparren bilden die beiden Dachseiten."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "맞배지붕의 앞뒤 두 면이 용마루에서 만나요. 서까래가 두 방향의 처마로 이어져요.",
+            "en": "The two sides of the gabled roof meet at the ridge. Rafters run toward the eaves on either side.",
+            "de": "Die beiden Flächen des Satteldachs treffen am First zusammen. Sparren führen zu den Traufen auf beiden Seiten."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "맞배지붕",
+              "label": {
+                "ko": "맞배지붕",
+                "en": "Gable-roof rafters",
+                "de": "Sparren des Satteldachs"
+              },
+              "explanation": {
+                "ko": "맞배지붕의 앞뒤 두 면이 용마루에서 만나요. 서까래가 두 방향의 처마로 이어져요.",
+                "en": "The two sides of the gabled roof meet at the ridge. Rafters run toward the eaves on either side.",
+                "de": "Die beiden Flächen des Satteldachs treffen am First zusammen. Sparren führen zu den Traufen auf beiden Seiten."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_06_rafters.png",
+          "approvedPngSha256": "e944e6ec6434d97ef485da15c93bcc5d6686d5a885d5bc462e4fe48bc780560b",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "faea955dda77a59708a6c82f70563498b832738574f3ba57814c4bc4114c3fce",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2151824,
+          "processTags": [
+            "rafters"
+          ]
+        },
+        {
+          "stageId": "sadang-roof_bed",
+          "buildingId": "sadang",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Dachunterbau"
+          },
+          "observe": {
+            "ko": "기와가 올라갈 바탕을 살펴봐요. 서까래 위에 놓인 층이 지붕의 두께를 만들어요.",
+            "en": "Look at the base for the tiles. Layers above the rafters give the roof its thickness.",
+            "de": "Betrachte den Unterbau für die Ziegel. Die Schichten über den Sparren geben dem Dach seine Stärke."
+          },
+          "line": {
+            "ko": "지붕 바탕이 서까래 위에 놓여요.",
+            "en": "The roof underlayers lie above the rafters.",
+            "de": "Der Dachunterbau liegt über den Sparren."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "기와가 올라갈 바탕을 살펴봐요. 서까래 위에 놓인 층이 지붕의 두께를 만들어요.",
+            "en": "Look at the base for the tiles. Layers above the rafters give the roof its thickness.",
+            "de": "Betrachte den Unterbau für die Ziegel. Die Schichten über den Sparren geben dem Dach seine Stärke."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "지붕 바탕",
+              "label": {
+                "ko": "지붕 바탕",
+                "en": "Roof underlayers",
+                "de": "Dachunterbau"
+              },
+              "explanation": {
+                "ko": "기와가 올라갈 바탕을 살펴봐요. 서까래 위에 놓인 층이 지붕의 두께를 만들어요.",
+                "en": "Look at the base for the tiles. Layers above the rafters give the roof its thickness.",
+                "de": "Betrachte den Unterbau für die Ziegel. Die Schichten über den Sparren geben dem Dach seine Stärke."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_07_roof_bed.png",
+          "approvedPngSha256": "0dd51cc4497abb46e12303cbc0e68d14eac87ace4ee2832669f2c6fafae70ecf",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "bcc7376372af5452a3d084b49fd4d0ea86d9b454b1f7d04414a5c7530352b4ea",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2251436,
+          "processTags": [
+            "roofBed"
+          ]
+        },
+        {
+          "stageId": "sadang-tiles",
+          "buildingId": "sadang",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.png",
+          "title": {
+            "ko": "기와와 박공",
+            "en": "Roof tiles and gable",
+            "de": "Dachziegel und Giebel"
+          },
+          "observe": {
+            "ko": "지붕 옆의 박공과 앞쪽 처마를 비교해 보세요. 사당의 맞배지붕 형태가 드러나요.",
+            "en": "Compare the gable at the side with the eaves at the front. Together they reveal the shrine’s gabled roof.",
+            "de": "Vergleiche den seitlichen Giebel mit der vorderen Traufe. Daran erkennst du die Satteldachform des Schreins."
+          },
+          "line": {
+            "ko": "지붕 옆에 박공이 보여요.",
+            "en": "The gable is visible at the side of the roof.",
+            "de": "An der Dachseite ist der Giebel zu sehen."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "지붕 옆의 박공과 앞쪽 처마를 비교해 보세요. 사당의 맞배지붕 형태가 드러나요.",
+            "en": "Compare the gable at the side with the eaves at the front. Together they reveal the shrine’s gabled roof.",
+            "de": "Vergleiche den seitlichen Giebel mit der vorderen Traufe. Daran erkennst du die Satteldachform des Schreins."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "박공",
+              "label": {
+                "ko": "박공",
+                "en": "Roof tiles and gable",
+                "de": "Dachziegel und Giebel"
+              },
+              "explanation": {
+                "ko": "지붕 옆의 박공과 앞쪽 처마를 비교해 보세요. 사당의 맞배지붕 형태가 드러나요.",
+                "en": "Compare the gable at the side with the eaves at the front. Together they reveal the shrine’s gabled roof.",
+                "de": "Vergleiche den seitlichen Giebel mit der vorderen Traufe. Daran erkennst du die Satteldachform des Schreins."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_08_tiles.png",
+          "approvedPngSha256": "d05287de23cde48c7eb4f6ed88209963e4564166a40ead073eb815bf91f63bb8",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "3494bfa9cf958a424daddcf8b3ef9e5b8909a3e3eda3501b886704d0a16768c4",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2209670,
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "sadang-maru_interior",
+          "buildingId": "sadang",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.png",
+          "title": {
+            "ko": "마루틀과 마루",
+            "en": "Floor frame and boards",
+            "de": "Bodenrahmen und Dielen"
+          },
+          "observe": {
+            "ko": "널을 깔아 사람이 들어가 설 수 있는 마루가 생겼어요. 마루의 앞모서리와 안쪽으로 이어지는 널의 방향을 살펴봐요.",
+            "en": "The floorboards form a wooden floor people can enter and stand on. Look at its front edge and the direction of the boards extending into the room.",
+            "de": "Die Dielen bilden einen Holzboden, auf dem man den Raum betreten und stehen kann. Schau dir die Vorderkante und die Richtung der Dielen im Inneren an."
+          },
+          "line": {
+            "ko": "문 안쪽에 마루가 있어요.",
+            "en": "There is a wooden floor inside the doorway.",
+            "de": "Hinter der Tür liegt ein Holzboden."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "널을 깔아 사람이 들어가 설 수 있는 마루가 생겼어요. 마루의 앞모서리와 안쪽으로 이어지는 널의 방향을 살펴봐요.",
+            "en": "The floorboards form a wooden floor people can enter and stand on. Look at its front edge and the direction of the boards extending into the room.",
+            "de": "Die Dielen bilden einen Holzboden, auf dem man den Raum betreten und stehen kann. Schau dir die Vorderkante und die Richtung der Dielen im Inneren an."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "마루",
+              "label": {
+                "ko": "마루",
+                "en": "Floor frame and boards",
+                "de": "Bodenrahmen und Dielen"
+              },
+              "explanation": {
+                "ko": "널을 깔아 사람이 들어가 설 수 있는 마루가 생겼어요. 마루의 앞모서리와 안쪽으로 이어지는 널의 방향을 살펴봐요.",
+                "en": "The floorboards form a wooden floor people can enter and stand on. Look at its front edge and the direction of the boards extending into the room.",
+                "de": "Die Dielen bilden einen Holzboden, auf dem man den Raum betreten und stehen kann. Schau dir die Vorderkante und die Richtung der Dielen im Inneren an."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_09_maru_interior.png",
+          "approvedPngSha256": "c3a7f5daae74c22ab1f5fef7cfa90ea0e1a2d3a04e853035fc0d665504f257c3",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "e6a74d3b3625b6ba57ff052429bc1d53b545c31d6776b3340dbf516ee0bf7c33",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2148630,
+          "processTags": [
+            "maruInterior"
+          ]
+        },
+        {
+          "stageId": "sadang-walls",
+          "buildingId": "sadang",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.png",
+          "title": {
+            "ko": "벽체와 창호",
+            "en": "Walls and lattice doors",
+            "de": "Wände und Gittertüren"
+          },
+          "observe": {
+            "ko": "창호는 앞 기둥보다 뒤에 있어요. 문을 지나 들어갈 실내와 앞쪽 툇공간을 구분해 보세요.",
+            "en": "The doors are set behind the front posts. Distinguish the interior beyond them from the space in front.",
+            "de": "Die Türen liegen hinter den vorderen Pfosten. Unterscheide den Innenraum dahinter vom Bereich davor."
+          },
+          "line": {
+            "ko": "창호가 기둥 뒤에 있어요.",
+            "en": "The lattice doors sit behind the posts.",
+            "de": "Die Gittertüren liegen hinter den Pfosten."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "창호는 앞 기둥보다 뒤에 있어요. 문을 지나 들어갈 실내와 앞쪽 툇공간을 구분해 보세요.",
+            "en": "The doors are set behind the front posts. Distinguish the interior beyond them from the space in front.",
+            "de": "Die Türen liegen hinter den vorderen Pfosten. Unterscheide den Innenraum dahinter vom Bereich davor."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "창호",
+              "label": {
+                "ko": "창호",
+                "en": "Walls and lattice doors",
+                "de": "Wände und Gittertüren"
+              },
+              "explanation": {
+                "ko": "창호는 앞 기둥보다 뒤에 있어요. 문을 지나 들어갈 실내와 앞쪽 툇공간을 구분해 보세요.",
+                "en": "The doors are set behind the front posts. Distinguish the interior beyond them from the space in front.",
+                "de": "Die Türen liegen hinter den vorderen Pfosten. Unterscheide den Innenraum dahinter vom Bereich davor."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_10_walls.png",
+          "approvedPngSha256": "226389541a7f29fa69c79f216aab8931a30828b3a4dae23c4f9dd1f6e65e35fb",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "1af575c94ad80655dec4d90ea215a12ec2c4f878e372f0ff192ff3a6686684ff",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2248690,
+          "processTags": [
+            "walls"
+          ]
+        },
+        {
+          "stageId": "sadang-finish",
+          "buildingId": "sadang",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.png",
+          "title": {
+            "ko": "단청과 세부 마감",
+            "en": "Dancheong and finishing",
+            "de": "Dancheong und Feinarbeiten"
+          },
+          "observe": {
+            "ko": "단청의 색과 무늬가 목재 위에 놓여요. 장식 아래에서 건물을 받치는 부재를 다시 찾아봐요.",
+            "en": "Dancheong colors and patterns cover the wood. Find the supporting members beneath the decoration.",
+            "de": "Dancheong-Farben und Muster bedecken das Holz. Such unter dem Schmuck die tragenden Bauteile."
+          },
+          "line": {
+            "ko": "나무 위에 단청을 칠해요.",
+            "en": "Dancheong patterns are painted on the wood.",
+            "de": "Dancheong-Muster werden auf das Holz gemalt."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "단청의 색과 무늬가 목재 위에 놓여요. 장식 아래에서 건물을 받치는 부재를 다시 찾아봐요.",
+            "en": "Dancheong colors and patterns cover the wood. Find the supporting members beneath the decoration.",
+            "de": "Dancheong-Farben und Muster bedecken das Holz. Such unter dem Schmuck die tragenden Bauteile."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "단청",
+              "label": {
+                "ko": "단청",
+                "en": "Dancheong and finishing",
+                "de": "Dancheong und Feinarbeiten"
+              },
+              "explanation": {
+                "ko": "단청의 색과 무늬가 목재 위에 놓여요. 장식 아래에서 건물을 받치는 부재를 다시 찾아봐요.",
+                "en": "Dancheong colors and patterns cover the wood. Find the supporting members beneath the decoration.",
+                "de": "Dancheong-Farben und Muster bedecken das Holz. Such unter dem Schmuck die tragenden Bauteile."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_ansarang_shrine_v1/raw/sadang/stage_11_finish.png",
+          "approvedPngSha256": "75ef52239bea20f229b4359a8806d8f5dc415df9d9def3dd549c51670ffc081d",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "eef52f6da300c34e53157bf4dc21c001dcf2f65145e662f3028af590b3eda0cc",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2401790,
+          "processTags": [
+            "finish"
+          ]
+        },
+        {
+          "stageId": "sadang-complete",
+          "buildingId": "sadang",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
+          "title": {
+            "ko": "사당 완성",
+            "en": "Completed ancestral shrine",
+            "de": "Fertiger Ahnenschrein"
+          },
+          "observe": {
+            "ko": "사당은 조상을 기리는 공간이에요. 사람이 문으로 들어가 마루 위에 서는 모습을 떠올려 봐요.",
+            "en": "The shrine is a place for honoring ancestors. Imagine someone entering through the doors and standing on its wooden floor.",
+            "de": "Der Ahnenschrein ist ein Ort des Gedenkens an die Vorfahren. Stell dir vor, wie jemand eintritt und auf dem Holzboden steht."
+          },
+          "line": {
+            "ko": "조상을 기리는 공간이에요.",
+            "en": "It is a place for honoring ancestors.",
+            "de": "Es ist ein Ort, an dem der Vorfahren gedacht wird."
+          },
+          "scene": {
+            "ko": "조상을 기리기 위해 드나드는 제례 공간",
+            "en": "A ritual space entered to honor ancestors",
+            "de": "Ein Ritualraum zum Gedenken an die Vorfahren"
+          },
+          "task": {
+            "ko": "사당은 조상을 기리는 공간이에요. 사람이 문으로 들어가 마루 위에 서는 모습을 떠올려 봐요.",
+            "en": "The shrine is a place for honoring ancestors. Imagine someone entering through the doors and standing on its wooden floor.",
+            "de": "Der Ahnenschrein ist ein Ort des Gedenkens an die Vorfahren. Stell dir vor, wie jemand eintritt und auf dem Holzboden steht."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [
+            {
+              "term": "사당",
+              "label": {
+                "ko": "사당",
+                "en": "Completed ancestral shrine",
+                "de": "Fertiger Ahnenschrein"
+              },
+              "explanation": {
+                "ko": "사당은 조상을 기리는 공간이에요. 사람이 문으로 들어가 마루 위에 서는 모습을 떠올려 봐요.",
+                "en": "The shrine is a place for honoring ancestors. Imagine someone entering through the doors and standing on its wooden floor.",
+                "de": "Der Ahnenschrein ist ein Ort des Gedenkens an die Vorfahren. Stell dir vor, wie jemand eintritt und auf dem Holzboden steht."
+              }
+            }
+          ],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
+          "approvedPngSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "runtimeEncoding": "original PNG; measured at registration",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2516697,
+          "processTags": [
+            "complete"
+          ]
+        }
+      ]
     }
   ],
   "additionalApprovals": [

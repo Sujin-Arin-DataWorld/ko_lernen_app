@@ -196,6 +196,8 @@ void main() {
         const RewardReceipt(
           activityId: 'cloze',
           receiptId: 'r',
+          b2ConstructionStageBefore: 11,
+          b2ConstructionStageAfter: 17,
           items: [
             RewardReceiptItem(kind: SoriRewardKind.xp, label: copy, amount: 13),
             RewardReceiptItem(
@@ -220,6 +222,8 @@ void main() {
       );
       expect(remaining.items.map((i) => i.amount), [3, 1, 1]);
       expect(remaining.items[1].identity, 'daily');
+      expect(remaining.b2ConstructionStageBefore, 11);
+      expect(remaining.b2ConstructionStageAfter, 17);
     },
   );
 }

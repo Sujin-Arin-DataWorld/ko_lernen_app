@@ -26,6 +26,7 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
   int _building = 0;
   int _step = -1;
   String? _answer;
+  String? _languageOverride;
 
   Future<IlDuConstructionArtCatalog> _load() =>
       (widget.loader ?? IlDuConstructionArtCatalog.load)();
@@ -41,7 +42,6 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
       _step = step;
       _answer = null;
     });
-    _scroll.jumpTo(0);
   }
 
   @override
@@ -87,15 +87,48 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
   ) {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
-    final language = Localizations.localeOf(context).languageCode;
+    final language =
+        _languageOverride ?? Localizations.localeOf(context).languageCode;
     final series = catalog.series[_building];
     final stage = _step < 0 ? null : series.stages[_step];
+    final observe = stage == null ? null : ilduArtText(stage.observe, language);
+    final task = stage == null ? null : ilduArtText(stage.task, language);
     return ListView(
       controller: _scroll,
       key: const ValueKey('ildu-construction-content'),
       padding: padding,
       children: [
         Text(t.ilduConstructionIntro, style: type.body),
+        const SizedBox(height: Spacing.md),
+        Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 240),
+            child: DropdownButtonFormField<String>(
+              key: const ValueKey('ildu-construction-language'),
+              initialValue: language,
+              isExpanded: true,
+              decoration: InputDecoration(
+                labelText: t.sarangchaeLessonLanguage,
+              ),
+              items: [
+                DropdownMenuItem(
+                  value: 'ko',
+                  child: Text(t.sarangchaeLanguageKorean),
+                ),
+                DropdownMenuItem(
+                  value: 'de',
+                  child: Text(t.sarangchaeLanguageGerman),
+                ),
+                DropdownMenuItem(
+                  value: 'en',
+                  child: Text(t.sarangchaeLanguageEnglish),
+                ),
+              ],
+              onChanged: (value) => setState(() => _languageOverride = value),
+            ),
+          ),
+        ),
         const SizedBox(height: Spacing.md),
         Wrap(
           spacing: Spacing.sm,
@@ -168,7 +201,11 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
           if (language != 'ko')
             Text(ilduArtText(stage.title, language), style: type.body),
           const SizedBox(height: Spacing.md),
-          _ConstructionImage(key: ValueKey(stage.id), stage: stage),
+          _ConstructionImage(
+            key: ValueKey(stage.id),
+            stage: stage,
+            language: language,
+          ),
           const SizedBox(height: Spacing.md),
           Wrap(
             spacing: Spacing.md,
@@ -189,7 +226,7 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
             ],
           ),
           const SizedBox(height: Spacing.lg),
-          Text(ilduArtText(stage.observe, language), style: type.body),
+          Text(observe!, style: type.body),
           const SizedBox(height: Spacing.lg),
           SoriCard(
             child: Column(
@@ -219,9 +256,12 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
                   const SizedBox(height: Spacing.sm),
                   Text(ilduArtText(stage.line, language), style: type.body),
                 ],
-                const SizedBox(height: Spacing.md),
-                Text(ilduArtText(stage.task, language), style: type.body),
-                const SizedBox(height: Spacing.md),
+                if (task != observe) ...[
+                  const SizedBox(height: Spacing.md),
+                  Text(task!, style: type.body),
+                ],
+                if (stage.options.isNotEmpty)
+                  const SizedBox(height: Spacing.md),
                 for (final option in stage.options.entries)
                   Padding(
                     padding: const EdgeInsets.only(bottom: Spacing.sm),
@@ -293,9 +333,14 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
 }
 
 class _ConstructionImage extends StatefulWidget {
-  const _ConstructionImage({super.key, required this.stage});
+  const _ConstructionImage({
+    super.key,
+    required this.stage,
+    required this.language,
+  });
 
   final IlDuConstructionArtStage stage;
+  final String language;
 
   @override
   State<_ConstructionImage> createState() => _ConstructionImageState();
@@ -307,7 +352,6 @@ class _ConstructionImageState extends State<_ConstructionImage> {
   @override
   Widget build(BuildContext context) {
     final stage = widget.stage;
-    final language = Localizations.localeOf(context).languageCode;
     return LayoutBuilder(
       builder: (context, constraints) {
         final height = (constraints.maxWidth * stage.height / stage.width)
@@ -323,7 +367,7 @@ class _ConstructionImageState extends State<_ConstructionImage> {
             key: ValueKey('${stage.id}-$_retry'),
             cacheWidth: decodeWidth,
             fit: BoxFit.contain,
-            semanticLabel: ilduArtText(stage.observe, language),
+            semanticLabel: ilduArtText(stage.observe, widget.language),
             errorBuilder: (context, error, stackTrace) => AppError(
               message: AppL10n.of(context).loadErrorTryAgain,
               asset: null,

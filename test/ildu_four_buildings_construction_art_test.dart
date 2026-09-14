@@ -24,7 +24,7 @@ void main() {
     '49 adopted PNGs retain their approved bytes in the app and web',
     () async {
       final catalog = await IlDuConstructionArtCatalog.load();
-      expect(catalog.series.map((s) => s.stages.length), [
+      expect(catalog.series.take(6).map((s) => s.stages.length), [
         6,
         8,
         12,
@@ -35,7 +35,10 @@ void main() {
       final approved = readJson('$provenanceRoot/construction_catalog.json');
       final receipt = readJson('$provenanceRoot/promotion_manifest.json');
       final runtime = readJson(IlDuConstructionArtCatalog.assetPath);
-      expect((runtime['series'] as List).skip(2).toList(), approved['series']);
+      expect(
+        (runtime['series'] as List).skip(2).take(4).toList(),
+        approved['series'],
+      );
       expect(approved['status'], 'approved_canonical');
       expect(approved['stageCount'], 49);
       expect(approved['approval'], contains('메인에 병합'));
@@ -45,7 +48,7 @@ void main() {
       final hashes = <String>{};
       final expectedFiles = <String>{};
       var totalBytes = 0;
-      for (final series in catalog.series.skip(2)) {
+      for (final series in catalog.series.skip(2).take(4)) {
         expect(series.stages, hasLength(approvedCounts[series.id]!));
         for (final stage in series.stages) {
           final record = records[stage.asset];
@@ -107,14 +110,14 @@ void main() {
     'duplicate building',
     'missing stage',
   ]) {
-    test('rejects $defect from the adopted six-building catalog', () {
+    test('rejects $defect from the adopted nine-building catalog', () {
       final json = readJson(IlDuConstructionArtCatalog.assetPath);
       final series = json['series'] as List;
       switch (defect) {
         case 'missing building':
           series.removeLast();
         case 'duplicate building':
-          series[5] = series[4];
+          series[8] = series[7];
         case 'missing stage':
           (series[2]['stages'] as List).removeLast();
       }

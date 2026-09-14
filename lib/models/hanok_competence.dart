@@ -1,6 +1,7 @@
 import 'course_mastery.dart';
 import 'curriculum.dart';
 import 'hanok_stage.dart';
+import 'ildu_construction_art.dart';
 import 'sarangchae_construction.dart';
 
 /// Read-only structural evidence for the personal Hanok.
@@ -48,6 +49,11 @@ class HanokCompetenceProjection {
   /// or replay always derives the same owned stage from the mastery snapshot.
   int get sarangchaeConstructionStage =>
       completedUnitCount.clamp(0, SarangchaeConstruction.stageCount).toInt();
+
+  /// The B2 estate sequence is a read-only projection of the verified B2
+  /// completion ratio. One unit may reveal several art stages, but replaying
+  /// or browsing never changes this value.
+  int get b2ConstructionStage => ilduB2ConstructionStageForRatio(b2Ratio);
 
   /// Creates a projection only from current catalog units and completed
   /// course-unit ids. A bypass is an onboarding placement choice, not a

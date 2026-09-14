@@ -11,16 +11,77 @@ const _approvedStageCounts = {
   'araechae': 12,
   'anchae': 14,
   'anchae-store': 11,
+  'ansarangchae': 14,
+  'sadangmun': 8,
+  'sadang': 12,
+};
+
+const _approvedMapAnchors = {
+  'ansarangchae': 'ansarang',
+  'sadangmun': 'sadang-gate',
+  'sadang': 'sadang',
 };
 
 String ilduArtText(IlDuArtText text, String language) =>
     text[language] ?? text['en']!;
+
+const b2ConstructionStageCount = 34;
+const b2ConstructionSeriesIds = <String>['ansarangchae', 'sadangmun', 'sadang'];
+
+/// Projects the verified B2 completion fraction onto the approved 34-stage
+/// sequence. The ratio itself comes from current curriculum units and durable
+/// completion evidence; this function adds no counter or persistence.
+int ilduB2ConstructionStageForRatio(double ratio) {
+  if (!ratio.isFinite || ratio <= 0) {
+    return 0;
+  }
+  if (ratio >= 1) {
+    return b2ConstructionStageCount;
+  }
+  return (ratio * b2ConstructionStageCount + 1e-9).floor();
+}
 
 final class IlDuConstructionArtCatalog {
   const IlDuConstructionArtCatalog(this.series);
 
   static const assetPath = 'assets/data/ildu_construction_art_v1.json';
   final List<IlDuConstructionArtSeries> series;
+
+  List<IlDuConstructionArtReveal> b2RevealsBetween({
+    required int before,
+    required int after,
+  }) {
+    final start = before.clamp(0, b2ConstructionStageCount);
+    final finish = after.clamp(0, b2ConstructionStageCount);
+    if (finish <= start) {
+      return const [];
+    }
+    final byId = {for (final item in series) item.id: item};
+    final reveals = <IlDuConstructionArtReveal>[];
+    var offset = 0;
+    for (final id in b2ConstructionSeriesIds) {
+      final item = byId[id];
+      if (item == null) {
+        throw const FormatException('B2 construction series is missing.');
+      }
+      final localBefore = (start - offset).clamp(0, item.stages.length);
+      final localAfter = (finish - offset).clamp(0, item.stages.length);
+      if (localAfter > localBefore) {
+        reveals.add(
+          IlDuConstructionArtReveal(
+            series: item,
+            beforeSequence: localBefore,
+            afterSequence: localAfter,
+          ),
+        );
+      }
+      offset += item.stages.length;
+    }
+    if (offset != b2ConstructionStageCount) {
+      throw const FormatException('B2 construction stage count is invalid.');
+    }
+    return List.unmodifiable(reveals);
+  }
 
   static Future<IlDuConstructionArtCatalog> load({AssetBundle? bundle}) async {
     final raw = await (bundle ?? rootBundle).loadString(assetPath);
@@ -39,21 +100,41 @@ final class IlDuConstructionArtCatalog {
     if (series.length != _approvedStageCounts.length ||
         ids.length != _approvedStageCounts.length ||
         !ids.containsAll(_approvedStageCounts.keys)) {
-      throw const FormatException('Expected all six approved building series.');
+      throw const FormatException(
+        'Expected all nine approved building series.',
+      );
     }
     return IlDuConstructionArtCatalog(List.unmodifiable(series));
   }
 }
 
+final class IlDuConstructionArtReveal {
+  const IlDuConstructionArtReveal({
+    required this.series,
+    required this.beforeSequence,
+    required this.afterSequence,
+  });
+
+  final IlDuConstructionArtSeries series;
+  final int beforeSequence;
+  final int afterSequence;
+
+  IlDuConstructionArtStage? get beforeStage =>
+      beforeSequence == 0 ? null : series.stages[beforeSequence - 1];
+  IlDuConstructionArtStage get afterStage => series.stages[afterSequence - 1];
+}
+
 final class IlDuConstructionArtSeries {
   const IlDuConstructionArtSeries({
     required this.id,
+    required this.mapAnchorId,
     required this.name,
     required this.culture,
     required this.stages,
   });
 
   final String id;
+  final String mapAnchorId;
   final IlDuArtText name;
   final IlDuArtText culture;
   final List<IlDuConstructionArtStage> stages;
@@ -64,6 +145,13 @@ final class IlDuConstructionArtSeries {
     final count = _approvedStageCounts[id];
     if (count == null) {
       throw const FormatException('Unknown construction building.');
+    }
+    final mapAnchorId = _text(json['mapAnchorId'] ?? id);
+    final approvedMapAnchor = _approvedMapAnchors[id];
+    if (approvedMapAnchor != null && mapAnchorId != approvedMapAnchor) {
+      throw const FormatException(
+        'Construction building map anchor is invalid.',
+      );
     }
     final stages = _array(json['stages'])
         .map((stage) => IlDuConstructionArtStage.fromJson(stage, id))
@@ -87,6 +175,7 @@ final class IlDuConstructionArtSeries {
     }
     return IlDuConstructionArtSeries(
       id: id,
+      mapAnchorId: mapAnchorId,
       name: _translated(json['name']),
       culture: _translated(json['culture']),
       stages: List.unmodifiable(stages),

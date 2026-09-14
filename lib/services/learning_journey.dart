@@ -122,6 +122,10 @@ class LearningJourney {
       activityId: receipt.activityId,
       receiptId: receipt.receiptId,
       items: items,
+      sarangchaeStageBefore: receipt.sarangchaeStageBefore,
+      sarangchaeStageAfter: receipt.sarangchaeStageAfter,
+      b2ConstructionStageBefore: receipt.b2ConstructionStageBefore,
+      b2ConstructionStageAfter: receipt.b2ConstructionStageAfter,
     );
   }
 }

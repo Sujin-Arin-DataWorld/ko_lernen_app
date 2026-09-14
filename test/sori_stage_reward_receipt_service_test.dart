@@ -97,6 +97,32 @@ void main() {
     expect(replay.isEmpty, isTrue);
   });
 
+  test('B2 completion reveals its deterministic stage range only once', () {
+    final before = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(b2Completed: 2, b2Total: 6),
+    );
+    final after = _snapshot(
+      hanokCompetence: hanokCompetenceFixture(b2Completed: 3, b2Total: 6),
+    );
+
+    final receipt = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: before,
+      after: after,
+    );
+    final replay = SoriStageRewardReceiptService.compare(
+      activityId: 'course',
+      before: after,
+      after: after,
+    );
+
+    expect(receipt.b2ConstructionStageBefore, 11);
+    expect(receipt.b2ConstructionStageAfter, 17);
+    expect(receipt.hasB2ConstructionUpgrade, isTrue);
+    expect(replay.hasB2ConstructionUpgrade, isFalse);
+    expect(replay.isEmpty, isTrue);
+  });
+
   test(
     'completed Sarangchae never advertises a seventeenth building piece',
     () {

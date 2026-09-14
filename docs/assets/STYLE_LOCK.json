@@ -285,9 +285,12 @@
         "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
         "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
         "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
-        "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png"
+        "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+        "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+        "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+        "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계는 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다.",
+      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계는 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다. 안사랑채·사당문·사당은 2026-09-14 승인한 canonical/ 하위 고화질 단일 시점을 완성 정본으로 고정했다. 34단계 공정 설계와 실제 공정 그림·런타임 승격 상태는 구분한다.",
       "canonSprites": {
         "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 솟을대문은 2026-09-14 승인된 저장소 루트 기준 construction/sotdaeulmun/12_complete.png를 따른다. 협문과 창고도 승인 후 저장소 루트 기준 런타임 경로를 사용한다.",
         "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
@@ -298,9 +301,9 @@
         "gokganchae": "gokganchae_try02_5kan.png",
         "changgo_gwangchae": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
         "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
-        "sadang": "sadang_try03_oblique.png (지정 대기 — try02_oneroof 병존)",
-        "sadangmun": "sadangmun_try02_small.png",
-        "ansarangchae": "byeoldang_try02_colonnade.png (파일명의 byeoldang 은 구 표제 — 채명은 안사랑채, '별당' 폐기. 전면 개방 기둥열이 실측 정합; byeoldang_ansarang_try01 병존, 지정 대기)",
+        "sadang": "canonical/sadang/sadang-v3-canonical.png",
+        "sadangmun": "canonical/sadangmun/sadangmun-v3-canonical.png",
+        "ansarangchae": "canonical/ansarangchae/ansarangchae-v3-canonical.png",
         "hyeopmun_shared": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
         "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
         "hongyemun": "안사랑채-외부 출입문.png",
@@ -325,6 +328,51 @@
           "completedStage": 16,
           "completedAsset": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
           "historicalSourceSha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212"
+        },
+        "ansarangchae": {
+          "status": "approved_canonical_master",
+          "approvedBy": "Jin",
+          "approvedAt": "2026-09-14",
+          "manifest": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/CANONICAL_LOCK.json",
+          "sourceVersion": "ansarangchae-v3-maintained-v1",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+          "completedStage": 14,
+          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
+          "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
+          "runtimePromoted": true,
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png"
+        },
+        "sadangmun": {
+          "status": "approved_canonical_master",
+          "approvedBy": "Jin",
+          "approvedAt": "2026-09-14",
+          "manifest": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/CANONICAL_LOCK.json",
+          "sourceVersion": "sadangmun-v3-maintained-v1",
+          "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+          "completedStage": 8,
+          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
+          "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
+          "runtimePromoted": true,
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png"
+        },
+        "sadang": {
+          "status": "approved_canonical_master",
+          "approvedBy": "Jin",
+          "approvedAt": "2026-09-14",
+          "manifest": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/CANONICAL_LOCK.json",
+          "sourceVersion": "sadang-v3-maintained-v1",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
+          "completedStage": 12,
+          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
+          "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
+          "runtimePromoted": true,
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png"
         }
       },
       "camera": {
@@ -902,6 +950,45 @@
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/anchae-store/",
           "presentation": "정면 29도 부감 목표의 2.5D 누적 공정. 승인 RGB PNG 바이트 그대로 사용. 생성 단계 사이의 미세한 부재 차이는 유지한다.",
           "scope": "앱 /hanok/construction 및 공개 공정 보기. 완성 8면도와 지도 배치는 그대로 유지한다."
+        },
+        "ansarangchae": {
+          "status": "runtime_series_from_approved_master",
+          "masterApprovedBy": "Jin",
+          "masterApprovedOn": "2026-09-14",
+          "intermediateReview": "agent_visual_review",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
+          "canonicalSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "stageCount": 14,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/",
+          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
+        },
+        "sadangmun": {
+          "status": "runtime_series_from_approved_master",
+          "masterApprovedBy": "Jin",
+          "masterApprovedOn": "2026-09-14",
+          "intermediateReview": "agent_visual_review",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+          "canonicalSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "stageCount": 8,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sadangmun/",
+          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
+        },
+        "sadang": {
+          "status": "runtime_series_from_approved_master",
+          "masterApprovedBy": "Jin",
+          "masterApprovedOn": "2026-09-14",
+          "intermediateReview": "agent_visual_review",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
+          "canonicalSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "stageCount": 12,
+          "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sadang/",
+          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
         }
       }
     },

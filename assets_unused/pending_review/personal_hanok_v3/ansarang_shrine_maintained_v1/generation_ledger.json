@@ -1,0 +1,68 @@
+{
+  "purpose": "Well-maintained high-definition 2.5D review masters requested by Jin on 2026-09-14",
+  "generator": "Built-in image_gen.imagegen",
+  "baseCommit": "0df7789f696d656fa4ba656c5910de1d9fcb0bc8",
+  "runtimePromotion": false,
+  "styleReference": {
+    "path": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+    "role": "Material finish and rendering quality only, not architecture"
+  },
+  "generations": [
+    {
+      "building": "ansarangchae",
+      "version": 1,
+      "prompt": "prompts/ansarang-v1.txt",
+      "inputs": [
+        "alpha_corrected/ildu_ansarangchae_01_front_right.png",
+        "assets_unused/pending_review/personal_hanok_v3/byeoldang_ansarang_try01 (2).png",
+        "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png"
+      ],
+      "output": "raw/ansarangchae-v1-checkerboard.png",
+      "result": "Maintained material study. RGB checkerboard required a background edit; not transparent."
+    },
+    {
+      "building": "ansarangchae",
+      "version": 2,
+      "prompt": "prompts/ansarang-v2.txt",
+      "inputs": [
+        "raw/ansarangchae-v1-checkerboard.png"
+      ],
+      "output": "raw/ansarangchae-chroma.png",
+      "result": "Selected for alpha extraction; open right porch maintained. Image generator also simplified stone texture, so not pixel-identical to v1."
+    },
+    {
+      "building": "sadangmun",
+      "version": 1,
+      "prompt": "prompts/gate-v1.txt",
+      "inputs": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_01_front_right.png",
+        "assets_unused/pending_review/personal_hanok_v3/sadangmun_try02_small.png",
+        "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png"
+      ],
+      "output": "raw/sadangmun-v1-worn.png",
+      "result": "Rejected as final because scratches and paint wear remained."
+    },
+    {
+      "building": "sadangmun",
+      "version": 2,
+      "prompt": "prompts/gate-v2.txt",
+      "inputs": [
+        "raw/sadangmun-v1-worn.png"
+      ],
+      "output": "raw/sadangmun-chroma.png",
+      "result": "Selected: continuous sound paint, intact stone and tile surfaces."
+    },
+    {
+      "building": "sadang",
+      "version": 1,
+      "prompt": "prompts/shrine-v1.txt",
+      "inputs": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_01_front_right.png",
+        "assets_unused/pending_review/personal_hanok_v3/sadang_try03_oblique.png",
+        "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png"
+      ],
+      "output": "raw/sadang-chroma.png",
+      "result": "Selected: three-bay shrine with front/right volume and renewed matte materials."
+    }
+  ]
+}

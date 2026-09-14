@@ -1,0 +1,101 @@
+{
+  "status": "approved_sources_copied_to_canonical_without_reencoding",
+  "runtime_promotion": false,
+  "construction_stage_production": false,
+  "method": "Built-in image generation redraws materials; user-authorized Python changes only alpha.",
+  "alpha_extraction": "Magenta key with one-pixel inner edge alpha; generated RGB remains identical.",
+  "masters": [
+    {
+      "building": "ansarangchae",
+      "status": "approved_canonical_source_runtime_final_exact_copy",
+      "file": "masters/ansarangchae_maintained_front_right.png",
+      "raw": "raw/ansarangchae-chroma.png",
+      "prompt": "prompts/ansarang-v2.txt",
+      "generated_source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0a003-38d5-73e2-bfdd-da442cfdbd91\\exec-5fc6d1d6-69e1-4433-a4ce-6687dcdd693a.png",
+      "raw_sha256": "a95b01a0f8c99ef479e1fc9c59b44503a783f274ac912c21bda1622fee9669df",
+      "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "bytes": 2358471,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        21,
+        96,
+        1517,
+        988
+      ],
+      "transparent_pixels": 618093,
+      "partial_alpha_pixels": 5914,
+      "opaque_pixels": 948857,
+      "rgb_changed_by_alpha_extraction": 0,
+      "visible_magenta_backing_pixels": 0,
+      "protected_pigment_pixels": 2,
+      "upscaled": false,
+      "canonical_lock": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/CANONICAL_LOCK.json"
+    },
+    {
+      "building": "sadangmun",
+      "status": "approved_canonical_source_runtime_final_exact_copy",
+      "file": "masters/sadangmun_maintained_front_right.png",
+      "raw": "raw/sadangmun-chroma.png",
+      "prompt": "prompts/gate-v2.txt",
+      "generated_source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0a003-38d5-73e2-bfdd-da442cfdbd91\\exec-6d2c06a1-8a9a-4366-a95c-9ed4f7962109.png",
+      "raw_sha256": "55a4955c23e8b72a0f22cb7dd7ab7114b870737f93726d9a0818c8b96fe32357",
+      "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "bytes": 2027089,
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        42,
+        141,
+        1049,
+        1364
+      ],
+      "transparent_pixels": 779973,
+      "partial_alpha_pixels": 4835,
+      "opaque_pixels": 787720,
+      "rgb_changed_by_alpha_extraction": 0,
+      "visible_magenta_backing_pixels": 0,
+      "protected_pigment_pixels": 324,
+      "upscaled": false,
+      "canonical_lock": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/CANONICAL_LOCK.json"
+    },
+    {
+      "building": "sadang",
+      "status": "approved_canonical_source_runtime_final_exact_copy",
+      "file": "masters/sadang_maintained_front_right.png",
+      "raw": "raw/sadang-chroma.png",
+      "prompt": "prompts/shrine-v1.txt",
+      "generated_source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0a003-38d5-73e2-bfdd-da442cfdbd91\\exec-522a145c-3e20-4ec5-a927-5f2b3a40e6c0.png",
+      "raw_sha256": "3fed06f09beedd307a17bb2965fd230497146260e08f21e0a633819cfa5af580",
+      "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "bytes": 2516697,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        132,
+        32,
+        1437,
+        980
+      ],
+      "transparent_pixels": 668101,
+      "partial_alpha_pixels": 5073,
+      "opaque_pixels": 899690,
+      "rgb_changed_by_alpha_extraction": 0,
+      "visible_magenta_backing_pixels": 0,
+      "protected_pigment_pixels": 838,
+      "upscaled": false,
+      "canonical_lock": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/CANONICAL_LOCK.json"
+    }
+  ],
+  "approved_by": "Jin",
+  "approved_on": "2026-09-14"
+}

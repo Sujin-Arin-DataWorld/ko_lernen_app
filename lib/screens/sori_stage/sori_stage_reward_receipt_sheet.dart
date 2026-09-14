@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sarangchae_construction.dart';
+import '../../models/ildu_construction_art.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
@@ -16,10 +17,12 @@ class SoriStageRewardReceiptSheet extends StatefulWidget {
     super.key,
     required this.receipt,
     this.loadConstruction,
+    this.loadConstructionArt,
   });
 
   final RewardReceipt receipt;
   final Future<SarangchaeConstruction> Function()? loadConstruction;
+  final Future<IlDuConstructionArtCatalog> Function()? loadConstructionArt;
 
   @override
   State<SoriStageRewardReceiptSheet> createState() =>
@@ -29,6 +32,7 @@ class SoriStageRewardReceiptSheet extends StatefulWidget {
 class _SoriStageRewardReceiptSheetState
     extends State<SoriStageRewardReceiptSheet> {
   Future<SarangchaeConstruction>? _constructionFuture;
+  Future<IlDuConstructionArtCatalog>? _constructionArtFuture;
 
   @override
   void initState() {
@@ -36,6 +40,10 @@ class _SoriStageRewardReceiptSheetState
     if (widget.receipt.hasSarangchaeUpgrade) {
       _constructionFuture =
           (widget.loadConstruction ?? SarangchaeConstruction.load)();
+    }
+    if (widget.receipt.hasB2ConstructionUpgrade) {
+      _constructionArtFuture =
+          (widget.loadConstructionArt ?? IlDuConstructionArtCatalog.load)();
     }
   }
 
@@ -56,6 +64,20 @@ class _SoriStageRewardReceiptSheetState
     } else if (!widget.receipt.hasSarangchaeUpgrade) {
       _constructionFuture = null;
     }
+    final b2ReceiptChanged =
+        oldWidget.receipt.b2ConstructionStageBefore !=
+            widget.receipt.b2ConstructionStageBefore ||
+        oldWidget.receipt.b2ConstructionStageAfter !=
+            widget.receipt.b2ConstructionStageAfter;
+    if (widget.receipt.hasB2ConstructionUpgrade &&
+        (!oldWidget.receipt.hasB2ConstructionUpgrade ||
+            b2ReceiptChanged ||
+            oldWidget.loadConstructionArt != widget.loadConstructionArt)) {
+      _constructionArtFuture =
+          (widget.loadConstructionArt ?? IlDuConstructionArtCatalog.load)();
+    } else if (!widget.receipt.hasB2ConstructionUpgrade) {
+      _constructionArtFuture = null;
+    }
   }
 
   @override
@@ -70,101 +92,211 @@ class _SoriStageRewardReceiptSheetState
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(Spacing.xl),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      t.soriStageReceiptEyebrow,
-                      style: const TextStyle(
-                        color: SoriColors.accent,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1.1,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.soriStageReceiptEyebrow,
+                        style: const TextStyle(
+                          color: SoriColors.accent,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 1.1,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    key: const Key('receipt-close'),
-                    tooltip: t.btnClose,
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.close_rounded),
-                  ),
-                ],
-              ),
-              const SizedBox(height: Spacing.xs),
-              Text(
-                t.soriStageReceiptTitle,
-                style: const TextStyle(
-                  fontSize: 26,
-                  height: 1.15,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              if (receipt.hasSarangchaeUpgrade) ...[
-                Text(
-                  t.sarangchaeNewStages(
-                    receipt.sarangchaeStageAfter -
-                        receipt.sarangchaeStageBefore,
-                  ),
-                  style: tt.h3,
+                    IconButton(
+                      key: const Key('receipt-close'),
+                      tooltip: t.btnClose,
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.close_rounded),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
-                  t.sarangchaeStageTransition(
-                    receipt.sarangchaeStageBefore,
-                    receipt.sarangchaeStageAfter,
+                  t.soriStageReceiptTitle,
+                  style: const TextStyle(
+                    fontSize: 26,
+                    height: 1.15,
+                    fontWeight: FontWeight.w700,
                   ),
-                  style: tt.label,
-                ),
-                const SizedBox(height: Spacing.md),
-                FutureBuilder<SarangchaeConstruction>(
-                  future: _constructionFuture!,
-                  builder: (context, snapshot) {
-                    if (!snapshot.hasData) {
-                      return snapshot.hasError
-                          ? const SizedBox.shrink()
-                          : const AppLoading();
-                    }
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        _SarangchaeBeforeAfter(
-                          construction: snapshot.data!,
-                          before: receipt.sarangchaeStageBefore,
-                          after: receipt.sarangchaeStageAfter,
-                        ),
-                        const SizedBox(height: Spacing.lg),
-                        SarangchaeConstructionExperience(
-                          construction: snapshot.data!,
-                          earnedStageCount: receipt.sarangchaeStageAfter,
-                          minimumSelectableStage:
-                              receipt.sarangchaeStageBefore + 1,
-                          showLockedStages: false,
-                          compact: true,
-                        ),
-                      ],
-                    );
-                  },
                 ),
                 const SizedBox(height: Spacing.lg),
+                if (receipt.hasSarangchaeUpgrade) ...[
+                  Text(
+                    t.sarangchaeNewStages(
+                      receipt.sarangchaeStageAfter -
+                          receipt.sarangchaeStageBefore,
+                    ),
+                    style: tt.h3,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.sarangchaeStageTransition(
+                      receipt.sarangchaeStageBefore,
+                      receipt.sarangchaeStageAfter,
+                    ),
+                    style: tt.label,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  FutureBuilder<SarangchaeConstruction>(
+                    future: _constructionFuture!,
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return snapshot.hasError
+                            ? const SizedBox.shrink()
+                            : const AppLoading();
+                      }
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          _SarangchaeBeforeAfter(
+                            construction: snapshot.data!,
+                            before: receipt.sarangchaeStageBefore,
+                            after: receipt.sarangchaeStageAfter,
+                          ),
+                          const SizedBox(height: Spacing.lg),
+                          SarangchaeConstructionExperience(
+                            construction: snapshot.data!,
+                            earnedStageCount: receipt.sarangchaeStageAfter,
+                            minimumSelectableStage:
+                                receipt.sarangchaeStageBefore + 1,
+                            showLockedStages: false,
+                            compact: true,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (receipt.hasB2ConstructionUpgrade) ...[
+                  FutureBuilder<IlDuConstructionArtCatalog>(
+                    future: _constructionArtFuture!,
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return snapshot.hasError
+                            ? const SizedBox.shrink()
+                            : const AppLoading();
+                      }
+                      final reveals = snapshot.data!.b2RevealsBetween(
+                        before: receipt.b2ConstructionStageBefore,
+                        after: receipt.b2ConstructionStageAfter,
+                      );
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          for (final reveal in reveals) ...[
+                            _ConstructionArtBeforeAfter(reveal: reveal),
+                            const SizedBox(height: Spacing.lg),
+                          ],
+                        ],
+                      );
+                    },
+                  ),
+                ],
+                for (final item in receipt.items) _RewardLine(item: item),
+                const SizedBox(height: Spacing.lg),
+                SoriButton(
+                  label: t.soriStageReceiptContinue,
+                  onTap: () => Navigator.pop(context),
+                  fullWidth: true,
+                ),
               ],
-              for (final item in receipt.items) _RewardLine(item: item),
-              const SizedBox(height: Spacing.lg),
-              SoriButton(
-                label: t.soriStageReceiptContinue,
-                onTap: () => Navigator.pop(context),
-                fullWidth: true,
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+class _ConstructionArtBeforeAfter extends StatelessWidget {
+  const _ConstructionArtBeforeAfter({required this.reveal});
+
+  final IlDuConstructionArtReveal reveal;
+
+  @override
+  Widget build(BuildContext context) {
+    final language = Localizations.localeOf(context).languageCode;
+    final text = SoriTextTheme.of(context);
+    final after = reveal.afterStage;
+    final term = after.glossary.isEmpty
+        ? after.title['ko']!
+        : after.glossary.first.label['ko']!;
+    return Column(
+      key: ValueKey('construction-reveal-${reveal.series.id}'),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(reveal.series.name['ko']!, style: text.h3),
+        const SizedBox(height: Spacing.sm),
+        Row(
+          children: [
+            Expanded(
+              child: _ConstructionReceiptImage(
+                key: ValueKey('construction-before-${reveal.series.id}'),
+                stage: reveal.beforeStage,
+                fallbackAspectRatio: after.width / after.height,
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: Spacing.sm),
+              child: Icon(Icons.arrow_forward_rounded),
+            ),
+            Expanded(
+              child: _ConstructionReceiptImage(
+                key: ValueKey('construction-after-${reveal.series.id}'),
+                stage: after,
+                fallbackAspectRatio: after.width / after.height,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.md),
+        Text(term, style: text.h2),
+        const SizedBox(height: Spacing.xs),
+        Text(ilduArtText(after.observe, language), style: text.body),
+      ],
+    );
+  }
+}
+
+class _ConstructionReceiptImage extends StatelessWidget {
+  const _ConstructionReceiptImage({
+    super.key,
+    required this.stage,
+    required this.fallbackAspectRatio,
+  });
+
+  final IlDuConstructionArtStage? stage;
+  final double fallbackAspectRatio;
+
+  @override
+  Widget build(BuildContext context) => AspectRatio(
+    aspectRatio: stage == null
+        ? fallbackAspectRatio
+        : stage!.width / stage!.height,
+    child: ClipRRect(
+      borderRadius: SoriRadius.brLg,
+      child: stage == null
+          ? ColoredBox(
+              color: SoriSurfaces.of(context).surfaceAlt,
+              child: const Center(child: Icon(Icons.home_work_outlined)),
+            )
+          : Image.asset(
+              stage!.asset,
+              fit: BoxFit.contain,
+              semanticLabel: stage!.title['ko'],
+              errorBuilder: (context, error, stackTrace) =>
+                  const SizedBox.shrink(),
+            ),
+    ),
+  );
 }
 
 class _SarangchaeBeforeAfter extends StatelessWidget {

@@ -1,0 +1,46 @@
+{
+  "base_commit": "0df7789f696d656fa4ba656c5910de1d9fcb0bc8",
+  "asset_status": "approved_canonical_sources",
+  "runtime_changes": "Four legacy Ansarangchae alpha repairs plus exact approved final copies in the 34-stage Flutter construction series.",
+  "checks": [
+    {
+      "name": "Original runtime alpha repair",
+      "result": "passed",
+      "frames_checked": 8,
+      "frames_modified": 4,
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 2425,
+      "evidence": "alpha_repair.json"
+    },
+    {
+      "name": "Master alpha extraction",
+      "result": "passed",
+      "masters": 3,
+      "rgb_changed_pixels": 0,
+      "visible_chroma_backing_pixels": 0,
+      "evidence": "MANIFEST.json"
+    },
+    {
+      "name": "Right porch volume",
+      "result": "passed",
+      "details": "Empty porch opening transparent; front and rear post and side floor remain opaque."
+    },
+    {
+      "name": "Visual review",
+      "result": "completed",
+      "details": "Reviewed light/dark composites. Preserved front/right dimensional reading; corrected residual gate wear; protected red/blue pigment boundary in alpha extraction."
+    },
+    {
+      "name": "Flutter targeted regression",
+      "result": "passed",
+      "count": 12,
+      "command": "flutter test test/ildu_turntable_catalog_test.dart test/hanok_turntable_2d_test.dart --reporter compact"
+    }
+  ],
+  "not_completed": [
+    "High-definition eight-direction sets",
+    "Commit, push, CI, merge or release"
+  ],
+  "canonical_design_validation": "docs/assets/ildu_ansarang_shrine_construction_20260914/design_validation.json",
+  "construction_art_manifest": "docs/assets/ildu_ansarang_shrine_construction_20260914/ART_MANIFEST.json"
+}

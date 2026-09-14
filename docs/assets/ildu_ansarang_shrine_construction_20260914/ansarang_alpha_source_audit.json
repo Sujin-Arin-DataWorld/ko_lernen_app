@@ -1,0 +1,108 @@
+{
+  "status": "source_audit_before_alpha_repair",
+  "base_commit": "0df7789f696d656fa4ba656c5910de1d9fcb0bc8",
+  "repair_status": "applied_in_isolated_worktree_rgb_unchanged",
+  "repair_evidence": "assets_unused/pending_review/personal_hanok_v3/ansarang_shrine_maintained_v1/alpha_repair.json",
+  "frame_records_describe": "original_pre_repair_bytes_and_hashes",
+  "design": "docs/superpowers/specs/2026-09-14-ansarang-shrine-spatial-construction.md",
+  "frames": [
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_00_front.png",
+      "bytes": 164704,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1",
+      "background_patch_observed": false
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_01_front_right.png",
+      "bytes": 192504,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "11f13de705a326f6c5433e03cd094895b148b45658da52c723fc2cd1c17cbf2d",
+      "background_patch_observed": true
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_02_right.png",
+      "bytes": 140605,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060",
+      "background_patch_observed": false
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_03_rear_right.png",
+      "bytes": 164437,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "013f0474b4b91edfbb8498f2584153e9f24076d0162b6b8f5e9856a8d75d358c",
+      "background_patch_observed": true
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_04_rear.png",
+      "bytes": 165991,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1",
+      "background_patch_observed": false
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_05_rear_left.png",
+      "bytes": 195772,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "4605e0487edb2adaef1dcba6179b7ba01f58228503168813d8705ea86ef64954",
+      "background_patch_observed": true
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_06_left.png",
+      "bytes": 151954,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5",
+      "background_patch_observed": false
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_07_front_left.png",
+      "bytes": 204416,
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "0e20233619209fc7a3d1e1748b385266a1e6cf262eb4a05248d51b32ecf65cc7",
+      "background_patch_observed": true
+    }
+  ],
+  "failed_generated_attempt": {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0a003-38d5-73e2-bfdd-da442cfdbd91\\exec-a1ac6523-ea3e-4993-ab02-2ca780fbea72.png",
+    "mode": "RGB",
+    "size": [
+      1086,
+      1448
+    ],
+    "status": "rejected",
+    "reason": "Painted checkerboard; no alpha channel; changed canvas and repainted source."
+  }
+}

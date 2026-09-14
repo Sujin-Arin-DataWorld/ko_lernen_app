@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/ux_preview_catalog.dart';
+import 'ildu_construction_screen.dart';
 import 'ux_preview_app.dart';
 import 'ux_preview_gallery_screen.dart';
 
@@ -40,7 +41,10 @@ class _AppReviewDemoScreenState extends State<AppReviewDemoScreen> {
       ],
       onGenerateRoute: (settings) => MaterialPageRoute<void>(
         settings: settings,
-        builder: (_) => UxPreviewNavigationBoundary(routeName: settings.name),
+        builder: (_) => switch (settings.name) {
+          '/hanok/construction' => const IlDuConstructionScreen(),
+          _ => UxPreviewNavigationBoundary(routeName: settings.name),
+        },
       ),
     ),
   );

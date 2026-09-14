@@ -17529,7 +17529,7 @@ abstract class AppL10n {
   /// Approved Hanok construction artwork learning: Intro
   ///
   /// In de, this message translates to:
-  /// **'Entdecke, wie sechs Hanok-Gebäude entstehen. Schau in ihre Räume und Alltagsbereiche und übe dabei Koreanisch.'**
+  /// **'Entdecke, wie die Gebäude eines Hanok entstehen. Erkunde ihre Wohn-, Arbeits-, Vorrats- und Ritualräume und übe dabei Koreanisch.'**
   String get ilduConstructionIntro;
 
   /// Approved Hanok construction artwork learning: Step

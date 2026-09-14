@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
+import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_reward_receipt_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
@@ -239,6 +240,49 @@ void main() {
     expect(loads, 1);
     expect(find.byType(SarangchaeConstructionExperience), findsOneWidget);
   });
+
+  testWidgets(
+    'B2 crossing receipt shows actual before-after assets and Korean terms',
+    (tester) async {
+      final catalog = _b2CatalogFixture();
+      await tester.pumpWidget(
+        _app(
+          SoriStageRewardReceiptSheet(
+            receipt: const RewardReceipt(
+              activityId: 'course',
+              receiptId: 'b2-crossing',
+              items: [],
+              b2ConstructionStageBefore: 11,
+              b2ConstructionStageAfter: 17,
+            ),
+            loadConstructionArt: () async => catalog,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      expect(
+        find.byKey(const ValueKey('construction-reveal-ansarangchae')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const ValueKey('construction-reveal-sadangmun')),
+        findsOneWidget,
+      );
+      expect(find.text('부재 14'), findsOneWidget);
+      expect(find.text('부재 3'), findsOneWidget);
+      final images = tester.widgetList<Image>(find.byType(Image)).toList();
+      expect(images, hasLength(3));
+      expect(
+        images.map((image) => (image.image as AssetImage).assetName),
+        containsAll(<String>[
+          'assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_part.png',
+          'assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_part.png',
+          'assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_part.png',
+        ]),
+      );
+    },
+  );
 }
 
 Widget _app(Widget home) => MaterialApp(
@@ -282,3 +326,63 @@ _constructionFixture() => SarangchaeConstruction.fromJson({
       },
   ],
 });
+
+IlDuConstructionArtCatalog _b2CatalogFixture() => IlDuConstructionArtCatalog([
+  _series('ansarangchae', 'ansarang', 14),
+  _series('sadangmun', 'sadang-gate', 8),
+  _series('sadang', 'sadang', 12),
+]);
+
+IlDuConstructionArtSeries _series(
+  String id,
+  String anchor,
+  int count,
+) => IlDuConstructionArtSeries(
+  id: id,
+  mapAnchorId: anchor,
+  name: {'ko': id, 'en': id, 'de': id},
+  culture: const {'ko': '문화', 'en': 'Culture', 'de': 'Kultur'},
+  stages: [
+    for (var sequence = 1; sequence <= count; sequence++)
+      IlDuConstructionArtStage(
+        id: '$id-part-$sequence',
+        sequence: sequence,
+        asset:
+            'assets/illustrations/personal_hanok_v3/construction/$id/'
+            'stage_${sequence.toString().padLeft(2, '0')}_part.png',
+        sha256:
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        width: id == 'sadangmun' ? 1086 : 1536,
+        height: id == 'sadangmun' ? 1448 : 1024,
+        title: {
+          'ko': '부재 $sequence',
+          'en': 'Part $sequence',
+          'de': 'Bauteil $sequence',
+        },
+        observe: const {
+          'ko': '짧은 설명',
+          'en': 'Short explanation',
+          'de': 'Kurze Erklärung',
+        },
+        line: const {'ko': '문장', 'en': 'Line', 'de': 'Satz'},
+        scene: const {'ko': '장면', 'en': 'Scene', 'de': 'Szene'},
+        task: const {'ko': '보기', 'en': 'Read', 'de': 'Lesen'},
+        options: const {},
+        correctOptionId: null,
+        glossary: [
+          (
+            label: {
+              'ko': '부재 $sequence',
+              'en': 'Part $sequence',
+              'de': 'Bauteil $sequence',
+            },
+            explanation: const {
+              'ko': '짧은 설명',
+              'en': 'Short explanation',
+              'de': 'Kurze Erklärung',
+            },
+          ),
+        ],
+      ),
+  ],
+);
