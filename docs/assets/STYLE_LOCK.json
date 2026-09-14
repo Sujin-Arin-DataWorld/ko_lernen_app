@@ -278,7 +278,7 @@
         "gate_sadangmun",
         "sadang"
       ],
-      "membersNote": "완성 전 V3 계획 멤버이며 아직 런타임으로 승격하지 않았다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
+      "membersNote": "V3 계획 멤버 목록이다. 사랑채 16단계는 2026-09-14 승인되어 런타임에 등록됐다. 채별 승격 상태는 canonicalMasterApprovals와 approvedConstructionSeries의 개별 기록을 확인한다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
       "anchors": [
         "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/sarangchae-v3-canonical.png",
         "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",

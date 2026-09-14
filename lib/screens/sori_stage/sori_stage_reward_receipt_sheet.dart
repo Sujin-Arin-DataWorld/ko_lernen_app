@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
+import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/reward_icon.dart';
@@ -126,7 +127,7 @@ class _SoriStageRewardReceiptSheetState
                     if (!snapshot.hasData) {
                       return snapshot.hasError
                           ? const SizedBox.shrink()
-                          : const Center(child: CircularProgressIndicator());
+                          : const AppLoading();
                     }
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

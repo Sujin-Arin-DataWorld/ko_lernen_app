@@ -5,6 +5,7 @@ import '../models/sarangchae_construction.dart';
 import '../models/sori_stage_progression.dart';
 import '../motion/transitions.dart';
 import '../services/sori_stage_progression_service.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_v3_preview.dart';
@@ -103,7 +104,7 @@ class _HanokPreviewScreenState extends State<HanokPreviewScreen> {
                     }
                     if (!constructionSnapshot.hasData ||
                         !progressionSnapshot.hasData) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const AppLoading();
                     }
                     return SingleChildScrollView(
                       padding: const EdgeInsets.fromLTRB(

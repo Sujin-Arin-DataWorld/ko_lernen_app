@@ -17663,6 +17663,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
   String get phaseTaskEarlierRevision;
+
+  /// No description provided for @sarangchaeLanguageKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'한국어'**
+  String get sarangchaeLanguageKorean;
+
+  /// No description provided for @sarangchaeLanguageGerman.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutsch'**
+  String get sarangchaeLanguageGerman;
+
+  /// No description provided for @sarangchaeLanguageEnglish.
+  ///
+  /// In de, this message translates to:
+  /// **'English'**
+  String get sarangchaeLanguageEnglish;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -4892,5 +4892,8 @@
   "phaseTaskCriterionPassed": "Kriterium erfüllt",
   "phaseTaskCriterionRequired": "Pflichtkriterium",
   "phaseTaskCriterionUnscored": "Diese Formulierung ist nicht automatisch bewertbar.",
-  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet"
+  "phaseTaskEarlierRevision": "Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet",
+  "sarangchaeLanguageKorean": "한국어",
+  "sarangchaeLanguageGerman": "Deutsch",
+  "sarangchaeLanguageEnglish": "English"
 }

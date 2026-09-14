@@ -4728,5 +4728,8 @@
   "phaseTaskCriterionPassed": "Criterion met",
   "phaseTaskCriterionRequired": "Required criterion",
   "phaseTaskCriterionUnscored": "This wording cannot be scored automatically.",
-  "phaseTaskEarlierRevision": "Earlier attempt saved · task has since been revised"
+  "phaseTaskEarlierRevision": "Earlier attempt saved · task has since been revised",
+  "sarangchaeLanguageKorean": "한국어",
+  "sarangchaeLanguageGerman": "Deutsch",
+  "sarangchaeLanguageEnglish": "English"
 }

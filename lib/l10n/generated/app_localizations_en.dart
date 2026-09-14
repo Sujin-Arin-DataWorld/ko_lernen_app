@@ -10368,4 +10368,13 @@ class AppL10nEn extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Earlier attempt saved · task has since been revised';
+
+  @override
+  String get sarangchaeLanguageKorean => '한국어';
+
+  @override
+  String get sarangchaeLanguageGerman => 'Deutsch';
+
+  @override
+  String get sarangchaeLanguageEnglish => 'English';
 }

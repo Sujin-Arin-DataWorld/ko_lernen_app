@@ -10418,4 +10418,13 @@ class AppL10nDe extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet';
+
+  @override
+  String get sarangchaeLanguageKorean => '한국어';
+
+  @override
+  String get sarangchaeLanguageGerman => 'Deutsch';
+
+  @override
+  String get sarangchaeLanguageEnglish => 'English';
 }

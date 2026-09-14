@@ -7,6 +7,7 @@ import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
+import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/collapsing_header.dart';
@@ -45,6 +46,7 @@ class SoriStageHanokScreen extends StatefulWidget {
 class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   Future<SoriStageProgressionSnapshot>? _future;
   late Future<SarangchaeConstruction> _constructionFuture;
+  int? _selectedSequence;
 
   Future<SoriStageProgressionSnapshot> _load() =>
       (widget.loadSnapshot ?? SoriStageProgressionService.load)();
@@ -76,6 +78,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
     setState(() {
       _future = _load();
       _constructionFuture = _loadConstruction();
+      _selectedSequence = null;
     });
   }
 
@@ -138,6 +141,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                 _HanokMapSliver(
                   progressionFuture: _future,
                   constructionFuture: _constructionFuture,
+                  selectedSequence: _selectedSequence,
                 ),
                 FutureBuilder<SoriStageProgressionSnapshot>(
                   future: _future,
@@ -167,6 +171,8 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                   constructionFuture: _constructionFuture,
                   padding: padding,
                   onRetry: _refresh,
+                  onStageSelected: (sequence) =>
+                      setState(() => _selectedSequence = sequence),
                 ),
               ],
             ),
@@ -181,10 +187,12 @@ class _HanokMapSliver extends StatelessWidget {
   const _HanokMapSliver({
     required this.progressionFuture,
     required this.constructionFuture,
+    required this.selectedSequence,
   });
 
   final Future<SoriStageProgressionSnapshot>? progressionFuture;
   final Future<SarangchaeConstruction> constructionFuture;
+  final int? selectedSequence;
 
   @override
   Widget build(BuildContext context) {
@@ -211,6 +219,7 @@ class _HanokMapSliver extends StatelessWidget {
             child: _CurrentSarangchaeArtwork(
               progressionFuture: progressionFuture,
               constructionFuture: constructionFuture,
+              selectedSequence: selectedSequence,
             ),
           ),
         );
@@ -274,10 +283,12 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
   const _CurrentSarangchaeArtwork({
     required this.progressionFuture,
     required this.constructionFuture,
+    required this.selectedSequence,
   });
 
   final Future<SoriStageProgressionSnapshot>? progressionFuture;
   final Future<SarangchaeConstruction> constructionFuture;
+  final int? selectedSequence;
 
   @override
   Widget build(BuildContext context) => FutureBuilder<SarangchaeConstruction>(
@@ -290,7 +301,7 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
         );
       }
       if (!constructionSnapshot.hasData) {
-        return const Center(child: CircularProgressIndicator());
+        return const AppLoading();
       }
       return FutureBuilder<SoriStageProgressionSnapshot>(
         future: progressionFuture,
@@ -306,11 +317,12 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
               ?.hanokCompetence
               .sarangchaeConstructionStage;
           if (earned == null && progressionFuture != null) {
-            return const Center(child: CircularProgressIndicator());
+            return const AppLoading();
           }
           return SarangchaeStageArtwork(
             construction: constructionSnapshot.data!,
             earnedStageCount: earned ?? 0,
+            sequence: selectedSequence,
           );
         },
       );
@@ -324,12 +336,14 @@ class _SarangchaeConstructionSliver extends StatelessWidget {
     required this.constructionFuture,
     required this.padding,
     required this.onRetry,
+    required this.onStageSelected,
   });
 
   final Future<SoriStageProgressionSnapshot>? progressionFuture;
   final Future<SarangchaeConstruction> constructionFuture;
   final EdgeInsets padding;
   final VoidCallback onRetry;
+  final ValueChanged<int> onStageSelected;
 
   @override
   Widget build(BuildContext context) => SliverPadding(
@@ -365,6 +379,7 @@ class _SarangchaeConstructionSliver extends StatelessWidget {
                   return const SizedBox.shrink();
                 }
                 return SarangchaeConstructionExperience(
+                  key: ObjectKey(progressionFuture),
                   construction: constructionSnapshot.data!,
                   earnedStageCount:
                       progressionSnapshot
@@ -373,6 +388,7 @@ class _SarangchaeConstructionSliver extends StatelessWidget {
                           .sarangchaeConstructionStage ??
                       0,
                   showArtwork: false,
+                  onStageSelected: onStageSelected,
                 );
               },
             ),

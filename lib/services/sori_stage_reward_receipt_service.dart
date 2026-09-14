@@ -119,8 +119,8 @@ abstract final class SoriStageRewardReceiptService {
       items,
       kind: SoriRewardKind.hanokProgress,
       delta:
-          after.hanokCompetence.completedUnitCount -
-          before.hanokCompetence.completedUnitCount,
+          after.hanokCompetence.sarangchaeConstructionStage -
+          before.hanokCompetence.sarangchaeConstructionStage,
       label: const SoriLocalizedCopy(
         de: 'Neues Hanok-Bauteil',
         en: 'New Hanok building piece',

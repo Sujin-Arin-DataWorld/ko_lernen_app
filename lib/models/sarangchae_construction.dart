@@ -54,11 +54,12 @@ final class SarangchaeConstructionStage {
       sha256 = json['sha256'] as String,
       term = json['term'] as String,
       _copy = Map<String, dynamic>.unmodifiable(json as Map) {
-    if (!assetPath.startsWith(
-          'assets/illustrations/personal_hanok_v3/sarangchae/stage_',
-        ) ||
-        assetPath.contains('..') ||
-        !assetPath.endsWith('.png')) {
+    const artworkDirectory =
+        'assets/illustrations/personal_hanok_v3/sarangchae/';
+    if (!assetPath.startsWith(artworkDirectory) ||
+        !RegExp(
+          r'^stage_\d{2}_[a-z_]+\.png$',
+        ).hasMatch(assetPath.substring(artworkDirectory.length))) {
       throw const FormatException('Invalid Sarangchae artwork path.');
     }
     for (final field in [

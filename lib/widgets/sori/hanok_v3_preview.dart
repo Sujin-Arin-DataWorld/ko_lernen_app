@@ -119,6 +119,7 @@ class SarangchaeConstructionExperience extends StatefulWidget {
     this.showLockedStages = true,
     this.showArtwork = true,
     this.compact = false,
+    this.onStageSelected,
   });
 
   final SarangchaeConstruction construction;
@@ -127,6 +128,7 @@ class SarangchaeConstructionExperience extends StatefulWidget {
   final bool showLockedStages;
   final bool showArtwork;
   final bool compact;
+  final ValueChanged<int>? onStageSelected;
 
   @override
   State<SarangchaeConstructionExperience> createState() =>
@@ -225,10 +227,19 @@ class _SarangchaeConstructionExperienceState
               decoration: InputDecoration(
                 labelText: t.sarangchaeLessonLanguage,
               ),
-              items: const [
-                DropdownMenuItem(value: 'ko', child: Text('한국어')),
-                DropdownMenuItem(value: 'de', child: Text('Deutsch')),
-                DropdownMenuItem(value: 'en', child: Text('English')),
+              items: [
+                DropdownMenuItem(
+                  value: 'ko',
+                  child: Text(t.sarangchaeLanguageKorean),
+                ),
+                DropdownMenuItem(
+                  value: 'de',
+                  child: Text(t.sarangchaeLanguageGerman),
+                ),
+                DropdownMenuItem(
+                  value: 'en',
+                  child: Text(t.sarangchaeLanguageEnglish),
+                ),
               ],
               onChanged: (value) => setState(() => _languageOverride = value),
             ),
@@ -252,7 +263,10 @@ class _SarangchaeConstructionExperienceState
                   variant: SoriChipVariant.outlined,
                   minInteractiveHeight: 48,
                   onTap: sequence <= _earned
-                      ? () => setState(() => _selectedSequence = sequence)
+                      ? () {
+                          setState(() => _selectedSequence = sequence);
+                          widget.onStageSelected?.call(sequence);
+                        }
                       : null,
                 ),
             ],

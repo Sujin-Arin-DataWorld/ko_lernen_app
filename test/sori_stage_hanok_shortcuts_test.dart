@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/quest.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -12,6 +13,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
+
+import 'support/hanok_competence_fixture.dart';
 
 void main() {
   setUp(() async {
@@ -158,6 +161,82 @@ void main() {
     );
   });
 
+  testWidgets('selecting earned history updates the hero and lesson together', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1100);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final construction = _constructionFixture();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: SoriStageHanokScreen(
+          loadConstruction: () async => construction,
+          loadSnapshot: () async => _snapshot(
+            questDone: false,
+            pendingBojagi: 0,
+            hanokCompetence: hanokCompetenceFixture(
+              a1Completed: 8,
+              a1Total: 16,
+            ),
+          ),
+        ),
+        routes: {
+          '/quests': (routeContext) => Scaffold(
+            body: Center(
+              child: ElevatedButton(
+                onPressed: () => Navigator.of(routeContext).pop(),
+                child: const Text('Return from history test'),
+              ),
+            ),
+          ),
+        },
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+
+    expect(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
+      findsOneWidget,
+    );
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('sarangchae-stage-choice-5')),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.byKey(const ValueKey('sarangchae-stage-choice-5')));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-5')),
+      findsOneWidget,
+    );
+    expect(find.text('Title 5'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('hanok-shortcut-quests')),
+      -240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.byKey(const ValueKey('hanok-shortcut-quests')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Return from history test'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
+      findsOneWidget,
+    );
+    expect(find.text('Title 8'), findsOneWidget);
+  });
+
   testWidgets('Hanok Stage shortcuts stay complete at 320dp and 200%', (
     tester,
   ) async {
@@ -209,13 +288,14 @@ void main() {
 SoriStageProgressionSnapshot _snapshot({
   required bool questDone,
   required int pendingBojagi,
+  HanokCompetenceProjection? hanokCompetence,
 }) => SoriStageProgressionSnapshot(
   today: const TodayLearningSnapshot(
     pick: ReviewPick(dueCount: 1),
     destination: TodayLearningDestination(route: '/review'),
     dueCount: 1,
   ),
-  hanokCompetence: const HanokCompetenceProjection.empty(),
+  hanokCompetence: hanokCompetence ?? const HanokCompetenceProjection.empty(),
   quests: [
     QuestProgress(
       questId: 'q_jangdokdae',
@@ -232,3 +312,42 @@ SoriStageProgressionSnapshot _snapshot({
   streakDays: 0,
   todayReward: null,
 );
+
+SarangchaeConstruction
+_constructionFixture() => SarangchaeConstruction.fromJson({
+  'id': 'sarangchae-v3-16',
+  'canonicalSha256': SarangchaeConstruction.canonicalSha256,
+  'completedStage': SarangchaeConstruction.stageCount,
+  'stages': [
+    for (
+      var sequence = 1;
+      sequence <= SarangchaeConstruction.stageCount;
+      sequence++
+    )
+      {
+        'stageId': sequence == SarangchaeConstruction.stageCount
+            ? 'sarangchae-complete'
+            : 'stage-$sequence',
+        'sequence': sequence,
+        'assetPath':
+            'assets/illustrations/personal_hanok_v3/sarangchae/stage_01_site.png',
+        'sha256': sequence == SarangchaeConstruction.stageCount
+            ? SarangchaeConstruction.canonicalSha256
+            : 'fixture-$sequence',
+        'term': '부재',
+        for (final field in const [
+          'gloss',
+          'chapter',
+          'question',
+          'body',
+          'caption',
+        ])
+          field: const {'ko': '설명', 'en': 'Detail', 'de': 'Detail'},
+        'title': {
+          'ko': '제목 $sequence',
+          'en': 'Title $sequence',
+          'de': 'Titel $sequence',
+        },
+      },
+  ],
+});
