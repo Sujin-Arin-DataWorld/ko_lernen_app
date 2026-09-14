@@ -1,566 +1,114 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart'
-    show AttributedString, LocaleStringAttribute;
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/data/curriculum_alignment_registry.dart';
-import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/curriculum_evidence_projector.dart';
-import 'package:ko_lernen_app/features/onboarding_v2/onboarding_story_catalog_projector.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/curriculum_alignment_contract.dart';
-import 'package:ko_lernen_app/models/heritage_journey_contract.dart';
-import 'package:ko_lernen_app/models/sori_stage_progression.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'support/real_fonts.dart';
 
 void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
-
-  testWidgets('page 1 renders validated CEFR and NIKL evidence from registry', (
+  testWidgets('path presents the validated official source names', (
     tester,
   ) async {
-    final semantics = tester.ensureSemantics();
-    final projection = OnboardingCurriculumEvidenceProjector.project()!;
-    await tester.pumpWidget(_host(locale: const Locale('en'), pageIndex: 0));
-
-    await tester.ensureVisible(find.text('Curriculum and sources'));
-    await tester.tap(find.text('Curriculum and sources'));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('CEFR performance goals'), findsOneWidget);
-    expect(find.textContaining('Korean Standard Curriculum'), findsOneWidget);
-    final sources = find.byKey(
-      const ValueKey('onboarding-v2-curriculum-sources'),
+    await _show(
+      tester,
+      evidence: OnboardingCurriculumEvidenceProjector.project,
     );
-    await tester.ensureVisible(sources);
-    final sourcesSemantics = tester.getSemantics(sources).getSemanticsData();
-    expect(sourcesSemantics.flagsCollection.isButton, isTrue);
-    expect(sourcesSemantics.label, contains('See the sources'));
-
-    await _focusWithKeyboard(tester, sources);
-    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+    await tester.tap(find.text('The structure'));
     await tester.pumpAndSettle();
-
-    expect(
-      FocusManager.instance.primaryFocus?.debugLabel,
-      'onboarding-v2-curriculum-sources-heading',
-    );
-    final titleSemantics = tester
-        .getSemantics(
-          find.byKey(const ValueKey('onboarding-v2-curriculum-sources-title')),
-        )
-        .getSemanticsData();
-    expect(titleSemantics.flagsCollection.isHeader, isTrue);
-    expect(find.textContaining('mapping is partial'), findsOneWidget);
-    expect(find.textContaining('full exam coverage'), findsOneWidget);
-
-    for (final (index, source) in projection.references.indexed) {
-      expect(find.text(source.documentName), findsWidgets);
-      expect(find.text(source.documentVersion), findsOneWidget);
-      expect(find.text(source.checkedAtIso), findsNWidgets(2));
-      final url = tester.widget<SelectableText>(
-        find.byKey(ValueKey('onboarding-v2-curriculum-source-url-$index')),
+    for (final reference
+        in OnboardingCurriculumEvidenceProjector.project()!.references) {
+      expect(find.text(reference.documentName), findsOneWidget);
+      final link = find.ancestor(
+        of: find.text(reference.documentName),
+        matching: find.byType(TextButton),
       );
-      expect(url.textSpan?.toPlainText() ?? url.data, source.url.toString());
-      final openButton = find.byKey(
-        ValueKey('onboarding-v2-curriculum-source-open-$index'),
-      );
-      final openSemantics = tester.getSemantics(openButton).getSemanticsData();
-      expect(openSemantics.flagsCollection.isButton, isTrue);
-      expect(openSemantics.label, contains(source.documentName));
+      expect(tester.widget<TextButton>(link).onPressed, isNotNull);
     }
-
-    final close = find.byKey(
-      const ValueKey('onboarding-v2-curriculum-sources-close'),
-    );
-    await tester.ensureVisible(close);
-    await tester.tap(close);
-    await tester.pumpAndSettle();
     expect(
-      find.byKey(const ValueKey('onboarding-v2-curriculum-sources-title')),
-      findsNothing,
-    );
-    expect(_primaryFocusIsWithin(sources), isTrue);
-    semantics.dispose();
-  });
-
-  testWidgets('page 1 hides claim and action when validation fails', (
-    tester,
-  ) async {
-    final invalidValidator = CurriculumPublicClaimValidator(
-      registry: const CurriculumAlignmentRegistry([]),
-      topikRequirement: productionTopikCoverageRequirement,
-    );
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('en'),
-        pageIndex: 0,
-        curriculumEvidenceProjector: () =>
-            OnboardingCurriculumEvidenceProjector.project(
-              validator: invalidValidator,
-            ),
-      ),
-    );
-
-    expect(
-      find.byKey(const ValueKey('onboarding-v2-curriculum-claim')),
-      findsNothing,
-    );
-    expect(
-      find.byKey(const ValueKey('onboarding-v2-curriculum-sources')),
-      findsNothing,
-    );
-  });
-
-  testWidgets('page 4 renders only activity-catalog reward examples', (
-    tester,
-  ) async {
-    final semantics = tester.ensureSemantics();
-    var continued = false;
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('en'),
-        pageIndex: 3,
-        onContinue: (_) => continued = true,
-      ),
-    );
-
-    await tester.ensureVisible(find.text('About rewards'));
-    await tester.tap(find.text('About rewards'));
-    await tester.pumpAndSettle();
-    expect(
-      find.text(
-        'Examples from ${soriActivityCatalog.length} current '
-        'activities. Viewing changes nothing.',
-      ),
+      find.textContaining('A1 to C2 identify the learning stages in this app.'),
       findsOneWidget,
     );
-    expect(find.text('XP'), findsOneWidget);
-    expect(find.text('Hanok piece'), findsOneWidget);
-    expect(find.text('Quest'), findsOneWidget);
-    expect(find.text('Dojang stamp'), findsOneWidget);
-    expect(find.text('Personal best'), findsOneWidget);
-    expect(find.text('Bojagi & accessories'), findsNothing);
-    final xpSemantics = tester
-        .getSemantics(find.byKey(const ValueKey('onboarding-v2-reward-xp')))
-        .getSemanticsData();
-    expect(xpSemantics.label, contains('Possible reward: XP'));
-    expect(continued, isFalse);
-    semantics.dispose();
+    await tester.tap(find.text(lookupAppL10n(const Locale('en')).btnClose));
+    await tester.pumpAndSettle();
+    expect(
+      find.byKey(const ValueKey('onboarding-v2-story-next')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
   });
-
   testWidgets(
-    'page 4 stays navigable and hides rewards for inconsistent labels',
+    'a rejected curriculum projection cannot expose official source links',
     (tester) async {
-      var continued = false;
-      final projection = OnboardingStoryCatalogProjector.projectRewards(
-        catalog: _inconsistentRewardCatalog(),
-      );
-      expect(projection.isAvailable, isFalse);
-
-      await tester.pumpWidget(
-        _host(
-          locale: const Locale('en'),
-          pageIndex: 3,
-          onContinue: (_) => continued = true,
-          rewardCatalogProjector: () => projection,
-        ),
-      );
-
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-story-hero')),
-        findsOneWidget,
-      );
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-reward-catalog-title')),
-        findsNothing,
-      );
-      expect(
-        find.byKey(const ValueKey('onboarding-v2-reward-xp')),
-        findsNothing,
-      );
-      expect(find.text('Unverified points'), findsNothing);
-
-      final next = find.byKey(const ValueKey('onboarding-v2-story-next'));
-      await tester.ensureVisible(next);
-      await tester.tap(next);
-      await tester.pump();
-      expect(continued, isTrue);
+      await _show(tester, evidence: () => null);
+      await tester.tap(find.text('The structure'));
+      await tester.pumpAndSettle();
+      for (final reference
+          in OnboardingCurriculumEvidenceProjector.project()!.references) {
+        expect(find.text(reference.documentName), findsNothing);
+      }
+      expect(find.textContaining('European reference framework'), findsNothing);
+      expect(tester.takeException(), isNull);
     },
   );
-
-  testWidgets('page 5 renders registry preview and accessible attribution', (
-    tester,
-  ) async {
-    final semantics = tester.ensureSemantics();
-    final chapter = HeritageJourneyCatalog.ilduGotaekPreview.chapters.single;
-    await tester.pumpWidget(
-      _host(locale: const Locale('en'), pageIndex: 4, textScale: 2),
-    );
-
-    final details = find.byType(OnboardingV2DetailsButton);
-    expect(details, findsOneWidget);
-    await tester.ensureVisible(details);
-    await tester.tap(details);
-    await tester.pumpAndSettle();
-
-    expect(find.text(chapter.officialName), findsOneWidget);
-    expect(
-      _koreanLocaleCodes(
-        tester
-            .getSemantics(
-              find.byKey(
-                const ValueKey('onboarding-v2-heritage-official-name'),
-              ),
-            )
-            .getSemanticsData()
-            .attributedLabel,
-      ),
-      contains('ko'),
-    );
-    expect(find.text('See the gate with 문 · In preparation'), findsOneWidget);
-    expect(
-      find.textContaining('Only artwork already approved for the app'),
-      findsOneWidget,
-    );
-    final imageAssets = tester
-        .widgetList<Image>(find.byType(Image))
-        .map((image) => image.image)
-        .whereType<AssetImage>()
-        .map((image) => image.assetName)
-        .toList(growable: false);
-    expect(imageAssets, contains(kIlDuV3PreviewAsset));
-    expect(
-      imageAssets,
-      containsAll(const [
-        'assets/illustrations/stamps/stamp_taegeuk.png',
-        'assets/illustrations/stamps/stamp_plum.png',
-        'assets/illustrations/stamps/stamp_mountain.png',
-      ]),
-    );
-    expect(
-      imageAssets.where((asset) => asset.contains('personal_hanok_v3')),
-      isEmpty,
-    );
-
-    final sources = find.byKey(
-      const ValueKey('onboarding-v2-heritage-sources'),
-    );
-    await tester.ensureVisible(sources);
-    await _focusWithKeyboard(tester, sources);
-    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
-    await tester.pumpAndSettle();
-
-    expect(
-      FocusManager.instance.primaryFocus?.debugLabel,
-      'onboarding-v2-heritage-sources-heading',
-    );
-    final titleSemantics = tester
-        .getSemantics(
-          find.byKey(const ValueKey('onboarding-v2-heritage-sources-title')),
-        )
-        .getSemanticsData();
-    expect(titleSemantics.flagsCollection.isHeader, isTrue);
-    expect(
-      MediaQuery.textScalerOf(
-        tester.element(
-          find.byKey(const ValueKey('onboarding-v2-heritage-sources-title')),
-        ),
-      ).scale(1),
-      2,
-    );
-    expect(_koreanLocaleCodes(titleSemantics.attributedLabel), contains('ko'));
-    expect(find.text('License status'), findsNWidgets(2));
-    expect(
-      find.text('Citation only; reuse rights not asserted'),
-      findsNWidgets(2),
-    );
-
-    for (final (index, source) in chapter.sources.indexed) {
-      expect(find.text(source.institution), findsWidgets);
-      expect(find.text(source.title), findsWidgets);
-      expect(find.text(source.author), findsWidgets);
-      final url = tester.widget<SelectableText>(
-        find.byKey(ValueKey('onboarding-v2-heritage-source-url-$index')),
+  testWidgets(
+    'advanced learners can preview later chapters without unlocking them',
+    (tester) async {
+      await _show(
+        tester,
+        level: LearnerLevel.c1,
+        evidence: OnboardingCurriculumEvidenceProjector.project,
       );
-      expect(url.textSpan?.toPlainText() ?? url.data, source.url.toString());
-      final openButton = find.byKey(
-        ValueKey('onboarding-v2-heritage-source-open-$index'),
+      expect(find.text('C1'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-path-1')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('certainty'), findsOneWidget);
+      await tester.tap(
+        find
+            .byTooltip(lookupAppL10n(const Locale('en')).onboardingDemoNext)
+            .last,
       );
-      final openSemantics = tester.getSemantics(openButton).getSemanticsData();
-      expect(openSemantics.flagsCollection.isButton, isTrue);
-      expect(openSemantics.label, contains(source.title));
-      expect(_koreanLocaleCodes(openSemantics.attributedLabel), contains('ko'));
-
-      final sourceCard = find.byKey(
-        ValueKey('onboarding-v2-heritage-source-$index'),
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('onboarding-v3-path-5')),
+        findsOneWidget,
       );
-      for (final koreanValue in [
-        source.title,
-        source.institution,
-        source.author,
-      ]) {
-        final valueSemantics = tester
-            .getSemantics(
-              find
-                  .descendant(of: sourceCard, matching: find.text(koreanValue))
-                  .first,
-            )
-            .getSemanticsData();
-        expect(
-          _koreanLocaleCodes(valueSemantics.attributedLabel),
-          contains('ko'),
-          reason: koreanValue,
-        );
-      }
-    }
-
-    final close = find.byKey(
-      const ValueKey('onboarding-v2-heritage-sources-close'),
-    );
-    await tester.ensureVisible(close);
-    await tester.tap(close);
-    await tester.pumpAndSettle();
-    expect(
-      find.byKey(const ValueKey('onboarding-v2-heritage-sources-title')),
-      findsNothing,
-    );
-    expect(_primaryFocusIsWithin(sources), isTrue);
-    semantics.dispose();
-  });
-
-  for (final scenario
-      in <({String name, HeritageJourneyDescriptor descriptor})>[
-        (name: 'invalid descriptor', descriptor: _invalidHeritageDescriptor()),
-        (
-          name: 'missing Ildu chapter',
-          descriptor: _heritageDescriptorWithoutIldu(),
-        ),
-        (
-          name: 'asset-authority violation',
-          descriptor: _heritageDescriptorWithPendingAsset(),
-        ),
-      ]) {
-    testWidgets(
-      'page 5 stays navigable and hides heritage data for ${scenario.name}',
-      (tester) async {
-        var continued = false;
-        final projection = OnboardingStoryCatalogProjector.projectIlduGotaek(
-          descriptor: scenario.descriptor,
-        );
-        expect(projection.isAvailable, isFalse);
-
-        await tester.pumpWidget(
-          _host(
-            locale: const Locale('en'),
-            pageIndex: 4,
-            onContinue: (_) => continued = true,
-            heritageCatalogProjector: () => projection,
-          ),
-        );
-
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-story-hero')),
-          findsOneWidget,
-        );
-        expect(find.text('In preparation'), findsOneWidget);
-        expect(find.text('함양 일두고택'), findsNothing);
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-heritage-official-name')),
-          findsNothing,
-        );
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-heritage-sources')),
-          findsNothing,
-        );
-        expect(
-          find.byKey(const ValueKey('onboarding-v2-heritage-runtime-status')),
-          findsNothing,
-        );
-
-        final next = find.byKey(const ValueKey('onboarding-v2-story-next'));
-        await tester.ensureVisible(next);
-        await tester.tap(next);
-        await tester.pump();
-        expect(continued, isTrue);
-      },
-    );
-  }
+      await tester.tap(find.byKey(const ValueKey('onboarding-v3-path-5')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('appropriate tone'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
-Future<void> _focusWithKeyboard(WidgetTester tester, Finder target) async {
-  for (var attempt = 0; attempt < 40; attempt++) {
-    if (_primaryFocusIsWithin(target)) {
-      return;
-    }
-    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
-    await tester.pump();
-  }
-  fail('Keyboard traversal did not reach $target.');
-}
-
-bool _primaryFocusIsWithin(Finder target) {
-  final targetElements = target.evaluate();
-  final focusContext = FocusManager.instance.primaryFocus?.context;
-  if (targetElements.length != 1 || focusContext == null) {
-    return false;
-  }
-  final targetElement = targetElements.single;
-  if (identical(focusContext, targetElement)) {
-    return true;
-  }
-  var isWithin = false;
-  focusContext.visitAncestorElements((ancestor) {
-    if (identical(ancestor, targetElement)) {
-      isWithin = true;
-      return false;
-    }
-    return true;
-  });
-  return isWithin;
-}
-
-Widget _host({
-  required Locale locale,
-  required int pageIndex,
-  ValueChanged<String>? onContinue,
-  OnboardingCurriculumEvidenceProjection? Function()?
-  curriculumEvidenceProjector,
-  OnboardingCatalogProjectionResult<OnboardingRewardCatalogProjection>
-  Function()?
-  rewardCatalogProjector,
-  OnboardingCatalogProjectionResult<OnboardingHeritageCatalogProjection>
-  Function()?
-  heritageCatalogProjector,
-  double textScale = 1,
-}) {
-  return MaterialApp(
-    theme: AppTheme.light,
-    locale: locale,
-    supportedLocales: AppL10n.supportedLocales,
-    localizationsDelegates: AppL10n.localizationsDelegates,
-    builder: (context, child) => MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        disableAnimations: true,
-        textScaler: TextScaler.linear(textScale),
-      ),
-      child: child ?? const SizedBox.shrink(),
-    ),
-    home: Builder(
-      builder: (context) => OnboardingStoryScreen(
-        copy: onboardingV2Copy(AppL10n.of(context)),
-        pageIndex: pageIndex,
-        onContinue: onContinue ?? (_) {},
+Future<void> _show(
+  WidgetTester tester, {
+  required OnboardingCurriculumEvidenceProjection? Function() evidence,
+  LearnerLevel level = LearnerLevel.a1,
+}) async {
+  tester.view.devicePixelRatio = 1;
+  tester.view.physicalSize = const Size(720, 1152);
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+  await tester.pumpWidget(
+    MaterialApp(
+      key: UniqueKey(),
+      theme: AppTheme.light,
+      locale: const Locale('en'),
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      supportedLocales: AppL10n.supportedLocales,
+      home: OnboardingStoryScreen(
+        copy: onboardingV2Copy(lookupAppL10n(const Locale('en'))),
+        pageIndex: 0,
+        selectedLevel: level,
+        onContinue: (_) {},
         onPrevious: (_) {},
-        curriculumEvidenceProjector: curriculumEvidenceProjector,
-        rewardCatalogProjector: rewardCatalogProjector,
-        heritageCatalogProjector: heritageCatalogProjector,
+        curriculumEvidenceProjector: evidence,
       ),
     ),
   );
+  await tester.pumpAndSettle();
 }
-
-Iterable<String> _koreanLocaleCodes(AttributedString attributedLabel) =>
-    attributedLabel.attributes.whereType<LocaleStringAttribute>().map(
-      (attribute) => attribute.locale.languageCode,
-    );
-
-List<ActivityCatalogEntry> _inconsistentRewardCatalog() {
-  const canonical = RewardContractItem(
-    kind: SoriRewardKind.xp,
-    label: SoriLocalizedCopy(
-      de: 'Lern-XP',
-      en: 'Learning XP',
-      key: SoriCopyKey.rewardXp,
-    ),
-  );
-  const inconsistent = RewardContractItem(
-    kind: SoriRewardKind.xp,
-    label: SoriLocalizedCopy(
-      de: 'Nicht belegte Punkte',
-      en: 'Unverified points',
-      key: SoriCopyKey.rewardXp,
-    ),
-  );
-  return [
-    _rewardActivity('reward-source-a', canonical),
-    _rewardActivity('reward-source-b', inconsistent),
-  ];
-}
-
-ActivityCatalogEntry _rewardActivity(String id, RewardContractItem reward) =>
-    ActivityCatalogEntry(
-      id: id,
-      tab: SoriStageTab.games,
-      title: SoriLocalizedCopy(de: id, en: id),
-      description: SoriLocalizedCopy(de: id, en: id),
-      route: '/test-reward',
-      minutes: 1,
-      colorRole: SoriActivityColorRole.reward,
-      iconName: 'test',
-      reward: RewardContract(
-        activityId: id,
-        condition: const SoriLocalizedCopy(
-          de: 'Beim Abschluss',
-          en: 'On completion',
-          key: SoriCopyKey.finishSession,
-        ),
-        items: [reward],
-      ),
-    );
-
-EstateChapter _heritageChapter({
-  String estateId = HeritageJourneyCatalog.ilduGotaekEstateId,
-  HeritageAssetAuthority assetAuthority = const HeritageAssetAuthority.none(),
-}) {
-  final approved = HeritageJourneyCatalog.ilduGotaekPreview.chapters.single;
-  return EstateChapter(
-    estateId: estateId,
-    officialName: approved.officialName,
-    availability: HeritageAvailability.preview,
-    sources: approved.sources,
-    assetAuthority: assetAuthority,
-    learningBeatBinding: approved.learningBeatBinding,
-    progress: approved.progress,
-    cultureStoryLocalizationKey: approved.cultureStoryLocalizationKey,
-  );
-}
-
-HeritageJourneyDescriptor _invalidHeritageDescriptor() =>
-    HeritageJourneyDescriptor(
-      descriptorVersion: 'not a stable descriptor version',
-      displayUnit: HeritageProgressDisplayUnit.previewOnly,
-      totalDisplayUnits: null,
-      chapters: [_heritageChapter()],
-    );
-
-HeritageJourneyDescriptor _heritageDescriptorWithoutIldu() =>
-    HeritageJourneyDescriptor(
-      descriptorVersion: 'other-estate-preview-v1',
-      displayUnit: HeritageProgressDisplayUnit.previewOnly,
-      totalDisplayUnits: null,
-      chapters: [_heritageChapter(estateId: 'other-estate')],
-    );
-
-HeritageJourneyDescriptor _heritageDescriptorWithPendingAsset() =>
-    HeritageJourneyDescriptor(
-      descriptorVersion: 'ildu-pending-asset-v1',
-      displayUnit: HeritageProgressDisplayUnit.previewOnly,
-      totalDisplayUnits: null,
-      chapters: [
-        _heritageChapter(
-          assetAuthority: const HeritageAssetAuthority(
-            status: HeritageAssetReviewStatus.pendingReview,
-            runtimeAssetPath: 'assets/pending_review/ildu.png',
-            authorityVersion: null,
-            approvedBy: null,
-            approvedAtIso: null,
-          ),
-        ),
-      ],
-    );

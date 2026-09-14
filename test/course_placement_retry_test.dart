@@ -197,7 +197,7 @@ void main() {
       final repository = SharedPreferencesOnboardingJourneyRepository();
       await repository.save(
         OnboardingJourneyState.initial(DateTime.utc(2026, 9, 10)).copyWith(
-          phase: OnboardingPhase.confirmation,
+          phase: OnboardingPhase.companion,
           purposeDraft: OnboardingPurpose.dailyTravel,
           levelDraft: LearnerLevel.a1,
           companionDraft: OnboardingCompanion.taego,
@@ -210,7 +210,7 @@ void main() {
       );
       platform.loseCanonicalReply = true;
       await expectLater(
-        coordinator.commit(),
+        coordinator.commitFromCompanion(),
         throwsA(isA<PreferenceOutcomeUnknownException>()),
       );
       expect(
@@ -219,7 +219,7 @@ void main() {
       );
       platform.unavailable = false;
 
-      final completed = await coordinator.commit();
+      final completed = await coordinator.commitFromCompanion();
 
       expect(completed.phase, OnboardingPhase.gate);
       expect(completed.commitStage, OnboardingCommitStage.completed);

@@ -17274,59 +17274,17 @@ abstract class AppL10n {
   /// **'Nur eine Vorschau. Keine XP, Gegenstände oder Hanok-Bauteile.'**
   String get onboardingV2RewardDemoNote;
 
-  /// No description provided for @onboardingV2RewardDetails.
-  ///
-  /// In de, this message translates to:
-  /// **'Mehr über Belohnungen'**
-  String get onboardingV2RewardDetails;
-
-  /// No description provided for @onboardingV2CurriculumDetails.
-  ///
-  /// In de, this message translates to:
-  /// **'Lehrplan und Quellen'**
-  String get onboardingV2CurriculumDetails;
-
   /// No description provided for @onboardingV2DetailsAction.
   ///
   /// In de, this message translates to:
   /// **'Details'**
   String get onboardingV2DetailsAction;
 
-  /// No description provided for @onboardingV2ReviewDetails.
-  ///
-  /// In de, this message translates to:
-  /// **'Was du speichern und wiederholen kannst'**
-  String get onboardingV2ReviewDetails;
-
-  /// No description provided for @onboardingV2GatePreviewTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'솟을대문 · das große Eingangstor'**
-  String get onboardingV2GatePreviewTitle;
-
-  /// No description provided for @onboardingV2GatePreviewBody.
-  ///
-  /// In de, this message translates to:
-  /// **'문 bedeutet Tür oder Tor. Hier siehst du das 솟을대문 von Ildu Gotaek; die Reise ist noch in Vorbereitung.'**
-  String get onboardingV2GatePreviewBody;
-
-  /// No description provided for @onboardingV2GatePreviewClose.
-  ///
-  /// In de, this message translates to:
-  /// **'Zurück zur Reise'**
-  String get onboardingV2GatePreviewClose;
-
   /// No description provided for @onboardingV2GiftOpening.
   ///
   /// In de, this message translates to:
   /// **'Das Bojagi öffnet sich …'**
   String get onboardingV2GiftOpening;
-
-  /// No description provided for @onboardingV2DoorMeaning.
-  ///
-  /// In de, this message translates to:
-  /// **'Tür'**
-  String get onboardingV2DoorMeaning;
 
   /// No description provided for @onboardingV2DiscoverGift.
   ///
@@ -17843,6 +17801,528 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Geschenke'**
   String get soriStageHanokGifts;
+
+  /// No description provided for @onboardingDemoUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Beispiel ist gerade nicht verfügbar.'**
+  String get onboardingDemoUnavailable;
+
+  /// No description provided for @onboardingDemoPrevious.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get onboardingDemoPrevious;
+
+  /// No description provided for @onboardingDemoNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get onboardingDemoNext;
+
+  /// No description provided for @onboardingDemoReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu'**
+  String get onboardingDemoReset;
+
+  /// No description provided for @onboardingDemoWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter'**
+  String get onboardingDemoWords;
+
+  /// No description provided for @onboardingDemoCourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernweg'**
+  String get onboardingDemoCourse;
+
+  /// No description provided for @onboardingDemoSmalltalk.
+  ///
+  /// In de, this message translates to:
+  /// **'Smalltalk'**
+  String get onboardingDemoSmalltalk;
+
+  /// No description provided for @onboardingDemoScenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenario'**
+  String get onboardingDemoScenario;
+
+  /// No description provided for @onboardingDemoListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören'**
+  String get onboardingDemoListen;
+
+  /// No description provided for @onboardingDemoSpeak.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechen'**
+  String get onboardingDemoSpeak;
+
+  /// No description provided for @onboardingDemoRead.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesen'**
+  String get onboardingDemoRead;
+
+  /// No description provided for @onboardingDemoWrite.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get onboardingDemoWrite;
+
+  /// No description provided for @onboardingDemoAudioUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton gerade nicht verfügbar.'**
+  String get onboardingDemoAudioUnavailable;
+
+  /// No description provided for @onboardingDemoYourTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich bin dran'**
+  String get onboardingDemoYourTurn;
+
+  /// No description provided for @onboardingDemoListenThenSpeak.
+  ///
+  /// In de, this message translates to:
+  /// **'Erst hören. Dann selbst sprechen.'**
+  String get onboardingDemoListenThenSpeak;
+
+  /// No description provided for @onboardingDemoModel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorbild zeigen'**
+  String get onboardingDemoModel;
+
+  /// No description provided for @onboardingDemoNoRecording.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dich sprechen · ohne Aufnahme'**
+  String get onboardingDemoNoRecording;
+
+  /// No description provided for @onboardingDemoStop.
+  ///
+  /// In de, this message translates to:
+  /// **'Stopp'**
+  String get onboardingDemoStop;
+
+  /// No description provided for @onboardingDemoAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal'**
+  String get onboardingDemoAgain;
+
+  /// No description provided for @onboardingDemoKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanisch'**
+  String get onboardingDemoKorean;
+
+  /// No description provided for @onboardingDemoMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung'**
+  String get onboardingDemoMeaning;
+
+  /// No description provided for @onboardingDemoYourReply.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Antwort'**
+  String get onboardingDemoYourReply;
+
+  /// No description provided for @onboardingDemoPartner.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Gegenüber'**
+  String get onboardingDemoPartner;
+
+  /// No description provided for @onboardingDemoTrace.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dem Finger nachzeichnen'**
+  String get onboardingDemoTrace;
+
+  /// No description provided for @onboardingDemoShowMe.
+  ///
+  /// In de, this message translates to:
+  /// **'Strichfolge zeigen'**
+  String get onboardingDemoShowMe;
+
+  /// No description provided for @onboardingDemoBag.
+  ///
+  /// In de, this message translates to:
+  /// **'Tasche'**
+  String get onboardingDemoBag;
+
+  /// No description provided for @onboardingDemoTree.
+  ///
+  /// In de, this message translates to:
+  /// **'Baum'**
+  String get onboardingDemoTree;
+
+  /// No description provided for @onboardingDemoDad.
+  ///
+  /// In de, this message translates to:
+  /// **'Papa'**
+  String get onboardingDemoDad;
+
+  /// No description provided for @onboardingDemoDuck.
+  ///
+  /// In de, this message translates to:
+  /// **'Ente'**
+  String get onboardingDemoDuck;
+
+  /// No description provided for @onboardingDemoSound.
+  ///
+  /// In de, this message translates to:
+  /// **'Laut'**
+  String get onboardingDemoSound;
+
+  /// No description provided for @onboardingDemoWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort'**
+  String get onboardingDemoWord;
+
+  /// No description provided for @onboardingDemoInitials.
+  ///
+  /// In de, this message translates to:
+  /// **'Anlautspiel'**
+  String get onboardingDemoInitials;
+
+  /// No description provided for @onboardingDemoCross.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben-Kreuz'**
+  String get onboardingDemoCross;
+
+  /// No description provided for @onboardingDemoCloze.
+  ///
+  /// In de, this message translates to:
+  /// **'Lückentext'**
+  String get onboardingDemoCloze;
+
+  /// No description provided for @onboardingDemoPairs.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortpaare'**
+  String get onboardingDemoPairs;
+
+  /// No description provided for @onboardingDemoSentence.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz bauen'**
+  String get onboardingDemoSentence;
+
+  /// No description provided for @onboardingDemoChain.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortkette'**
+  String get onboardingDemoChain;
+
+  /// No description provided for @onboardingDemoExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel zeigen'**
+  String get onboardingDemoExample;
+
+  /// No description provided for @onboardingJourneyStartTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Koreanisch.\nDein Rhythmus.'**
+  String get onboardingJourneyStartTitle;
+
+  /// No description provided for @onboardingJourneyNew.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich fange neu an'**
+  String get onboardingJourneyNew;
+
+  /// No description provided for @onboardingJourneyNewHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Zeichen und Lauten beginnen.'**
+  String get onboardingJourneyNewHint;
+
+  /// No description provided for @onboardingJourneyReturning.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe schon gelernt'**
+  String get onboardingJourneyReturning;
+
+  /// No description provided for @onboardingJourneyReturningHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei deinem Können anknüpfen.'**
+  String get onboardingJourneyReturningHint;
+
+  /// No description provided for @onboardingJourneyExperience.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Erfahrung'**
+  String get onboardingJourneyExperience;
+
+  /// No description provided for @onboardingJourneyPathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein klarer Weg.\nDein nächster Schritt.'**
+  String get onboardingJourneyPathTitle;
+
+  /// No description provided for @onboardingJourneyLettersTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichen werden\nzu deinen Worten.'**
+  String get onboardingJourneyLettersTitle;
+
+  /// No description provided for @onboardingJourneyLearnTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus Verstehen\nwird Sprechen.'**
+  String get onboardingJourneyLearnTitle;
+
+  /// No description provided for @onboardingJourneyGamesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielen gehört\nzum Lernen.'**
+  String get onboardingJourneyGamesTitle;
+
+  /// No description provided for @onboardingJourneyBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Buch.\nJetzt zum Mitlernen.'**
+  String get onboardingJourneyBookTitle;
+
+  /// No description provided for @onboardingJourneyHanokTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Koreanisch wächst.\nDein Hanok lebt.'**
+  String get onboardingJourneyHanokTitle;
+
+  /// No description provided for @onboardingJourneyCompanionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Lernweg.\nEin Freund an deiner Seite.'**
+  String get onboardingJourneyCompanionTitle;
+
+  /// No description provided for @onboardingJourneyStartWith.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit {name} beginnen'**
+  String onboardingJourneyStartWith(String name);
+
+  /// No description provided for @onboardingJourneyMethod.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Aufbau'**
+  String get onboardingJourneyMethod;
+
+  /// No description provided for @onboardingJourneyMethodBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernziele, Wortschatz und Grammatik bauen aufeinander auf. Koreanische Lehrpläne und der europäische Referenzrahmen dienen als Orientierung. A1 bis C2 bezeichnen die Lernstufen in dieser App.'**
+  String get onboardingJourneyMethodBody;
+
+  /// No description provided for @onboardingJourneyFromBook.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus deinem Buch'**
+  String get onboardingJourneyFromBook;
+
+  /// No description provided for @onboardingJourneyPhotoAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto erneut ansehen'**
+  String get onboardingJourneyPhotoAgain;
+
+  /// No description provided for @onboardingJourneyListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get onboardingJourneyListen;
+
+  /// No description provided for @onboardingJourneyMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung'**
+  String get onboardingJourneyMeaning;
+
+  /// No description provided for @onboardingJourneySamplePage.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispielseite'**
+  String get onboardingJourneySamplePage;
+
+  /// No description provided for @onboardingJourneyTakePhoto.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispielfoto aufnehmen'**
+  String get onboardingJourneyTakePhoto;
+
+  /// No description provided for @onboardingJourneySave.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Lernkarte merken'**
+  String get onboardingJourneySave;
+
+  /// No description provided for @onboardingJourneySaved.
+  ///
+  /// In de, this message translates to:
+  /// **'In dieser Vorschau gemerkt'**
+  String get onboardingJourneySaved;
+
+  /// No description provided for @onboardingJourneySampleOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel · Fotografieren. Anhören. Mitlernen.'**
+  String get onboardingJourneySampleOnly;
+
+  /// No description provided for @onboardingJourneyDoor.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Tür'**
+  String get onboardingJourneyDoor;
+
+  /// No description provided for @onboardingJourneyVeranda.
+  ///
+  /// In de, this message translates to:
+  /// **'Erhöhte Veranda'**
+  String get onboardingJourneyVeranda;
+
+  /// No description provided for @onboardingJourneyBookCaptureShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto aufnehmen'**
+  String get onboardingJourneyBookCaptureShort;
+
+  /// No description provided for @onboardingJourneyBookCardShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Lernkarte'**
+  String get onboardingJourneyBookCardShort;
+
+  /// No description provided for @onboardingJourneyBookSavedShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschaukarte'**
+  String get onboardingJourneyBookSavedShort;
+
+  /// No description provided for @onboardingJourneyHanokPlacesShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Räume'**
+  String get onboardingJourneyHanokPlacesShort;
+
+  /// No description provided for @onboardingJourneyHanokGrowthShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Wachsen'**
+  String get onboardingJourneyHanokGrowthShort;
+
+  /// No description provided for @onboardingJourneyHanokHouseShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Haus · 16'**
+  String get onboardingJourneyHanokHouseShort;
+
+  /// No description provided for @onboardingJourneyHanokGateShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Tor · 12'**
+  String get onboardingJourneyHanokGateShort;
+
+  /// No description provided for @onboardingJourneyHanokPickPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Raum antippen'**
+  String get onboardingJourneyHanokPickPlace;
+
+  /// No description provided for @onboardingJourneyRoom.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Zimmer'**
+  String get onboardingJourneyRoom;
+
+  /// No description provided for @onboardingJourneyPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ort'**
+  String get onboardingJourneyPlace;
+
+  /// No description provided for @onboardingJourneyGrowth.
+  ///
+  /// In de, this message translates to:
+  /// **'So wächst er'**
+  String get onboardingJourneyGrowth;
+
+  /// No description provided for @onboardingJourneyFutureStages.
+  ///
+  /// In de, this message translates to:
+  /// **'Die weiteren Bauschritte bleiben eine Überraschung.'**
+  String get onboardingJourneyFutureStages;
+
+  /// No description provided for @onboardingJourneyPeek.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein kleiner Einblick in dein koreanisches Haus.'**
+  String get onboardingJourneyPeek;
+
+  /// No description provided for @onboardingJourneyGrowthLink.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit deinen Lernzielen wächst dein Hanok.'**
+  String get onboardingJourneyGrowthLink;
+
+  /// No description provided for @onboardingJourneyStartShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Anfang'**
+  String get onboardingJourneyStartShort;
+
+  /// No description provided for @onboardingJourneyPathShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernweg'**
+  String get onboardingJourneyPathShort;
+
+  /// No description provided for @onboardingJourneyLettersShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichen & Laute'**
+  String get onboardingJourneyLettersShort;
+
+  /// No description provided for @onboardingJourneyLearnShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Worte'**
+  String get onboardingJourneyLearnShort;
+
+  /// No description provided for @onboardingJourneyGamesShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielend lernen'**
+  String get onboardingJourneyGamesShort;
+
+  /// No description provided for @onboardingJourneyBookShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Buch'**
+  String get onboardingJourneyBookShort;
+
+  /// No description provided for @onboardingJourneyHanokShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok'**
+  String get onboardingJourneyHanokShort;
+
+  /// No description provided for @onboardingJourneyCompanionShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Begleitung'**
+  String get onboardingJourneyCompanionShort;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

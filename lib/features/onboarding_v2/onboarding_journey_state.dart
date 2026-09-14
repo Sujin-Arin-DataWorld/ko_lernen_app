@@ -18,8 +18,8 @@ enum OnboardingPhase {
 enum StoryPageId {
   personalCurriculum,
   learn,
-  saveAndReview,
   gamesAndRewards,
+  saveAndReview,
   heritageJourney,
 }
 
@@ -125,9 +125,10 @@ class OnboardingJourneyState {
     required this.gateIntroConsumed,
     required this.shellEntryEventSent,
     required this.updatedAt,
+    this.beginnerDraft = false,
   });
 
-  static const int currentSchemaVersion = 4;
+  static const int currentSchemaVersion = 5;
 
   final int schemaVersion;
   final OnboardingRolloutMode rolloutMode;
@@ -135,6 +136,7 @@ class OnboardingJourneyState {
   final StoryPageId storyPage;
   final OnboardingPurpose? purposeDraft;
   final LearnerLevel? levelDraft;
+  final bool beginnerDraft;
   final OnboardingCompanion? companionDraft;
   final OnboardingCommitStage commitStage;
   final bool startEventSent;
@@ -143,7 +145,7 @@ class OnboardingJourneyState {
   final bool shellEntryEventSent;
   final DateTime updatedAt;
 
-  bool get hasCompleteSetup => purposeDraft != null && levelDraft != null;
+  bool get hasCompleteSetup => levelDraft != null;
 
   bool get canCommit => hasCompleteSetup && companionDraft != null;
 
@@ -154,7 +156,7 @@ class OnboardingJourneyState {
     return OnboardingJourneyState(
       schemaVersion: currentSchemaVersion,
       rolloutMode: rolloutMode,
-      phase: OnboardingPhase.story,
+      phase: OnboardingPhase.setup,
       storyPage: StoryPageId.personalCurriculum,
       purposeDraft: null,
       levelDraft: null,
@@ -200,6 +202,7 @@ class OnboardingJourneyState {
     StoryPageId? storyPage,
     Object? purposeDraft = _notProvided,
     Object? levelDraft = _notProvided,
+    bool? beginnerDraft,
     Object? companionDraft = _notProvided,
     OnboardingCommitStage? commitStage,
     bool? startEventSent,
@@ -219,6 +222,7 @@ class OnboardingJourneyState {
       levelDraft: identical(levelDraft, _notProvided)
           ? this.levelDraft
           : levelDraft as LearnerLevel?,
+      beginnerDraft: beginnerDraft ?? this.beginnerDraft,
       companionDraft: identical(companionDraft, _notProvided)
           ? this.companionDraft
           : companionDraft as OnboardingCompanion?,
@@ -239,6 +243,7 @@ class OnboardingJourneyState {
       'storyPage': storyPage.name,
       'purposeDraft': purposeDraft?.code,
       'levelDraft': levelDraft?.code,
+      'beginnerDraft': beginnerDraft,
       'companionDraft': companionDraft?.storageCode,
       'commitStage': commitStage.name,
       'startEventSent': startEventSent,
@@ -264,14 +269,14 @@ class OnboardingJourneyState {
       OnboardingRolloutMode.values,
       json['rolloutMode'],
     );
-    if (storedSchema == currentSchemaVersion && storedRolloutMode == null) {
+    if (storedSchema >= 4 && storedRolloutMode == null) {
       throw const FormatException(
         'Current onboarding schema requires a recognized rollout mode.',
       );
     }
     final rolloutMode =
         storedRolloutMode ??
-        (storedSchema < currentSchemaVersion && phase == OnboardingPhase.story
+        (storedSchema < 4 && phase == OnboardingPhase.story
             ? OnboardingRolloutMode.full
             : OnboardingRolloutMode.minimalSafe);
 
@@ -286,6 +291,10 @@ class OnboardingJourneyState {
         json['purposeDraft']?.toString(),
       ),
       levelDraft: LearnerLevel.fromCode(json['levelDraft']?.toString()),
+      beginnerDraft:
+          json['beginnerDraft'] == true &&
+          LearnerLevel.fromCode(json['levelDraft']?.toString()) ==
+              LearnerLevel.a1,
       companionDraft: OnboardingCompanion.fromStorageCode(
         json['companionDraft']?.toString(),
       ),
@@ -308,7 +317,23 @@ class OnboardingJourneyState {
           DateTime.tryParse(json['updatedAt']?.toString() ?? '')?.toUtc() ??
           DateTime.fromMillisecondsSinceEpoch(0, isUtc: true),
     );
-    return decoded._normalized();
+    // V5 places level setup before the story and folds confirmation into the
+    // companion page. Preserve completed and in-flight commit journals exactly;
+    // only uncommitted old stories without a level need the new first page.
+    final migrated =
+        storedSchema < 5 &&
+            phase == OnboardingPhase.story &&
+            decoded.levelDraft == null
+        ? decoded.copyWith(
+            phase: OnboardingPhase.setup,
+            storyPage: StoryPageId.personalCurriculum,
+          )
+        : storedSchema < 5 &&
+              phase == OnboardingPhase.story &&
+              decoded.storyPage == StoryPageId.saveAndReview
+        ? decoded.copyWith(storyPage: StoryPageId.gamesAndRewards)
+        : decoded;
+    return migrated._normalized();
   }
 
   OnboardingJourneyState _normalized() {
@@ -318,6 +343,21 @@ class OnboardingJourneyState {
         commitStage: OnboardingCommitStage.completed,
         gateIntroAttempted: true,
         gateIntroConsumed: true,
+      );
+    }
+
+    if (phase == OnboardingPhase.confirmation && canCommit) {
+      return copyWith(
+        phase: OnboardingPhase.companion,
+        commitStage: OnboardingCommitStage.none,
+      );
+    }
+
+    if (phase == OnboardingPhase.story && !hasCompleteSetup) {
+      return copyWith(
+        phase: OnboardingPhase.setup,
+        storyPage: StoryPageId.personalCurriculum,
+        commitStage: OnboardingCommitStage.none,
       );
     }
 
@@ -358,6 +398,7 @@ class OnboardingJourneyState {
             other.storyPage == storyPage &&
             other.purposeDraft == purposeDraft &&
             other.levelDraft == levelDraft &&
+            other.beginnerDraft == beginnerDraft &&
             other.companionDraft == companionDraft &&
             other.commitStage == commitStage &&
             other.startEventSent == startEventSent &&
@@ -375,6 +416,7 @@ class OnboardingJourneyState {
     storyPage,
     purposeDraft,
     levelDraft,
+    beginnerDraft,
     companionDraft,
     commitStage,
     startEventSent,

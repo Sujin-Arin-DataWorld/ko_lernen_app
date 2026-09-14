@@ -3,6 +3,8 @@ import 'package:flutter/semantics.dart'
     show AttributedString, LocaleStringAttribute;
 
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/character_clip.dart';
+import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
@@ -88,11 +90,13 @@ class OnboardingCompanionStage extends StatefulWidget {
     required this.selectedCompanionId,
     required this.onCompanionChanged,
     this.showDescription = true,
+    this.mediaEnabled = true,
   });
   final List<OnboardingCompanionSpec> companions;
   final String? selectedCompanionId;
   final ValueChanged<String> onCompanionChanged;
   final bool showDescription;
+  final bool mediaEnabled;
   @override
   State<OnboardingCompanionStage> createState() =>
       _OnboardingCompanionStageState();
@@ -119,6 +123,7 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
               companion: companion,
               selected: companion.id == widget.selectedCompanionId,
               replayToken: _replay,
+              mediaEnabled: widget.mediaEnabled,
               showDescription: widget.showDescription,
               onTap: () {
                 setState(() => _replay++);
@@ -139,11 +144,13 @@ class _CompanionStageChoice extends StatelessWidget {
     required this.replayToken,
     required this.onTap,
     required this.showDescription,
+    required this.mediaEnabled,
   });
   final OnboardingCompanionSpec companion;
   final bool selected;
   final int replayToken;
   final bool showDescription;
+  final bool mediaEnabled;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
@@ -187,15 +194,27 @@ class _CompanionStageChoice extends StatelessWidget {
                   children: [
                     LayoutBuilder(
                       builder: (context, artConstraints) =>
-                          OnboardingCharacterMedia(
-                            characterId: isJoy ? 'magpie' : 'tiger',
-                            size: artConstraints.biggest.shortestSide,
-                            active: selected,
-                            motion: selected
-                                ? OnboardingCharacterMotion.select
-                                : OnboardingCharacterMotion.idle,
-                            replayToken: replayToken,
-                          ),
+                          selected && mediaEnabled
+                          ? Center(
+                              child: CharacterClipPlayer(
+                                key: ValueKey('${companion.id}-$replayToken'),
+                                asset: isJoy
+                                    ? CharacterClips.magpieChoose
+                                    : CharacterClips.tigerChoose,
+                                size: artConstraints.biggest.shortestSide,
+                                blendColor: surfaces.surfaceAlt,
+                                fallbackKind: isJoy
+                                    ? MascotKind.magpie
+                                    : MascotKind.tiger,
+                              ),
+                            )
+                          : OnboardingCharacterMedia(
+                              characterId: isJoy ? 'magpie' : 'tiger',
+                              size: artConstraints.biggest.shortestSide,
+                              active: false,
+                              motion: OnboardingCharacterMotion.idle,
+                              replayToken: replayToken,
+                            ),
                     ),
                     Positioned(
                       top: 0,
@@ -229,7 +248,7 @@ class _CompanionStageChoice extends StatelessWidget {
                         Text(
                           companion.name,
                           textAlign: TextAlign.center,
-                          style: text.h2,
+                          style: compactNames ? text.h3 : text.h2,
                         ),
                         if (!compactNames)
                           Text(

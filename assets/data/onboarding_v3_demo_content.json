@@ -1,0 +1,791 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "kind": "approved_sites_preview_content",
+    "files": [
+      "app/begin/model.ts",
+      "app/begin/phase-examples.json",
+      "app/journey/library-data.json",
+      "app/journey/conversation-data.json",
+      "app/journey/game-levels.json"
+    ],
+    "scope": "Ephemeral onboarding examples; no course evidence, assessment or rewards.",
+    "source": "sites/onboarding-uiux-20260910"
+  },
+  "levels": {
+    "A1": {
+      "phaseId": "KP01",
+      "course": {
+        "ko": "저는 학생이에요.",
+        "de": "Ich bin Schüler/in oder Student/in.",
+        "en": "I am a student."
+      },
+      "smalltalk": {
+        "id": "smalltalk_a1_0004",
+        "context": {
+          "ko": "주말·계획",
+          "de": "Wochenende & Pläne",
+          "en": "Weekend & plans"
+        },
+        "prompt": {
+          "ko": "주말에 뭐 해요?",
+          "de": "Was machst du am Wochenende?",
+          "en": "What do you do on weekends?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "보통 집에서 쉬어요.",
+          "de": "Meist ruh ich mich zu Hause aus.",
+          "en": "I usually rest at home.",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "airport_arrival-0",
+        "context": {
+          "de": "Am Flughafen",
+          "en": "At the airport"
+        },
+        "prompt": {
+          "speaker": "official",
+          "ko": "안녕하세요. 여권 주세요.",
+          "de": "Guten Tag. Ihren Reisepass, bitte.",
+          "en": "Hello. Your passport, please."
+        },
+        "reply": {
+          "speaker": "user",
+          "ko": "네, 여기 있어요.",
+          "de": "Ja, hier bitte.",
+          "en": "Yes, here you are."
+        }
+      },
+      "words": [
+        {
+          "ko": "안녕",
+          "de": "Hallo / Tschüss (informell)",
+          "en": "Hi / Bye (informal)"
+        },
+        {
+          "ko": "아니요",
+          "de": "Nein",
+          "en": "No"
+        },
+        {
+          "ko": "이름",
+          "de": "Name",
+          "en": "name"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_a1_0002",
+        "level": "a1",
+        "sentenceKo": "제 ＿＿＿은 크리스티안이에요.",
+        "answer": "이름",
+        "fullKo": "제 이름은 크리스티안이에요.",
+        "de": "Mein Name ist Christian.",
+        "en": "My name is Christian.",
+        "distractors": [
+          "육",
+          "과일",
+          "아홉"
+        ],
+        "topic": "Person"
+      },
+      "cross": {
+        "sourceId": "skz_a1_001",
+        "rows": 3,
+        "cols": 2,
+        "solution": [
+          "어",
+          "제",
+          "렵",
+          "",
+          "다",
+          "섯"
+        ],
+        "clues": [
+          {
+            "ko": "어제",
+            "de": "gestern",
+            "en": "yesterday",
+            "dir": "h"
+          },
+          {
+            "ko": "어렵다",
+            "de": "schwierig",
+            "en": "difficult",
+            "dir": "v"
+          },
+          {
+            "ko": "다섯",
+            "de": "fünf (rein-koreanisch)",
+            "en": "five (native Korean)",
+            "dir": "h"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "사과",
+          "de": "Apfel",
+          "en": "apple"
+        },
+        {
+          "ko": "과자",
+          "de": "Gebäck",
+          "en": "snack"
+        },
+        {
+          "ko": "자동차",
+          "de": "Auto",
+          "en": "car"
+        }
+      ]
+    },
+    "A2": {
+      "phaseId": "KP05",
+      "course": {
+        "ko": "학생증이 있으면 할인돼요.",
+        "de": "Mit einem Studierenden- oder Schülerausweis gibt es eine Ermäßigung.",
+        "en": "You get a discount if you have a student ID."
+      },
+      "smalltalk": {
+        "id": "smalltalk_a2_0001",
+        "context": {
+          "ko": "날씨·계절",
+          "de": "Wetter & Jahreszeit",
+          "en": "Weather & season"
+        },
+        "prompt": {
+          "ko": "주말에 날씨 좋을까요?",
+          "de": "Wird das Wetter am Wochenende wohl schön?",
+          "en": "Will the weather be nice this weekend?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "네, 맑을 것 같아요.",
+          "de": "Ja, es wird wohl sonnig.",
+          "en": "Yeah, looks like it'll be sunny.",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "clothing_refund_size-0",
+        "context": {
+          "de": "Im Geschäft",
+          "en": "At the shop"
+        },
+        "prompt": {
+          "speaker": "clerk",
+          "ko": "무엇을 도와드릴까요?",
+          "de": "Wie kann ich Ihnen helfen?",
+          "en": "How can I help you?"
+        },
+        "reply": {
+          "speaker": "user",
+          "ko": "사이즈가 작아서 바꾸고 싶어요.",
+          "de": "Es ist zu klein, deshalb möchte ich es umtauschen.",
+          "en": "It's too small, so I'd like to exchange it."
+        }
+      },
+      "words": [
+        {
+          "ko": "회사",
+          "de": "Firma / Unternehmen",
+          "en": "company / firm"
+        },
+        {
+          "ko": "직업",
+          "de": "Beruf",
+          "en": "occupation / job"
+        },
+        {
+          "ko": "취미",
+          "de": "Hobby",
+          "en": "hobby"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_a2_0001",
+        "level": "a2",
+        "sentenceKo": "＿＿＿에 다녀요.",
+        "answer": "회사",
+        "fullKo": "회사에 다녀요.",
+        "de": "Ich gehe zur Arbeit.",
+        "en": "I go to work.",
+        "distractors": [
+          "젓가락",
+          "냉장고",
+          "후추"
+        ],
+        "topic": "Beruf"
+      },
+      "cross": {
+        "sourceId": "skz_a2_010",
+        "rows": 2,
+        "cols": 3,
+        "solution": [
+          "",
+          "양",
+          "복",
+          "정",
+          "말",
+          ""
+        ],
+        "clues": [
+          {
+            "ko": "정말",
+            "de": "wirklich",
+            "en": "really",
+            "dir": "h"
+          },
+          {
+            "ko": "양말",
+            "de": "Socken",
+            "en": "socks",
+            "dir": "v"
+          },
+          {
+            "ko": "양복",
+            "de": "Anzug",
+            "en": "suit",
+            "dir": "h"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "회사",
+          "de": "Firma",
+          "en": "company"
+        },
+        {
+          "ko": "사장",
+          "de": "Chef",
+          "en": "boss"
+        },
+        {
+          "ko": "장갑",
+          "de": "Handschuhe",
+          "en": "gloves"
+        }
+      ]
+    },
+    "B1": {
+      "phaseId": "KP09",
+      "course": {
+        "ko": "나는 지금 옛 사진을 본다.",
+        "de": "Ich sehe mir gerade alte Fotos an.",
+        "en": "I am looking at old photos now."
+      },
+      "smalltalk": {
+        "id": "smalltalk_b1_0002",
+        "context": {
+          "ko": "기분·컨디션",
+          "de": "Stimmung & Befinden",
+          "en": "Mood & how you feel"
+        },
+        "prompt": {
+          "ko": "오늘 하루 어떠셨어요?",
+          "de": "Wie war Ihr Tag heute?",
+          "en": "How was your day today?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "바빴지만 괜찮았어요.",
+          "de": "Es war viel los, aber insgesamt okay.",
+          "en": "Busy, but it was okay.",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "shared_document_old_version-0",
+        "context": {
+          "de": "Im Team",
+          "en": "With the team"
+        },
+        "prompt": {
+          "speaker": "user",
+          "ko": "레나, 나 예전 파일을 고쳤어.",
+          "de": "Lena, ich habe die alte Datei bearbeitet.",
+          "en": "Lena, I edited the old file."
+        },
+        "reply": {
+          "speaker": "lena",
+          "ko": "공유 문서가 아니었어?",
+          "de": "Nicht das gemeinsame Dokument?",
+          "en": "Not the shared document?"
+        }
+      },
+      "words": [
+        {
+          "ko": "경험",
+          "de": "Erfahrung",
+          "en": "experience"
+        },
+        {
+          "ko": "문화",
+          "de": "Kultur",
+          "en": "culture"
+        },
+        {
+          "ko": "사회",
+          "de": "Gesellschaft",
+          "en": "society"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_b1_0001",
+        "level": "b1",
+        "sentenceKo": "새로운 ＿＿＿을 해요.",
+        "answer": "경험",
+        "fullKo": "새로운 경험을 해요.",
+        "de": "Ich mache neue Erfahrungen.",
+        "en": "I'm having new experiences.",
+        "distractors": [
+          "기술",
+          "명찰",
+          "납부일"
+        ],
+        "topic": "Alltag"
+      },
+      "cross": {
+        "sourceId": "skz_b1_009",
+        "rows": 2,
+        "cols": 3,
+        "solution": [
+          "",
+          "관",
+          "심",
+          "한",
+          "계",
+          ""
+        ],
+        "clues": [
+          {
+            "ko": "한계",
+            "de": "Grenze",
+            "en": "limit",
+            "dir": "h"
+          },
+          {
+            "ko": "관계",
+            "de": "Beziehung",
+            "en": "relationship",
+            "dir": "v"
+          },
+          {
+            "ko": "관심",
+            "de": "Interesse",
+            "en": "interest",
+            "dir": "h"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "환경",
+          "de": "Umwelt",
+          "en": "environment"
+        },
+        {
+          "ko": "경우",
+          "de": "Fall",
+          "en": "case"
+        },
+        {
+          "ko": "우체국",
+          "de": "Post",
+          "en": "post office"
+        }
+      ]
+    },
+    "B2": {
+      "phaseId": "KP14",
+      "course": {
+        "ko": "어떤 방법이 적절한지 함께 검토합시다.",
+        "de": "Lassen Sie uns gemeinsam prüfen, welche Methode geeignet ist.",
+        "en": "Let’s consider together which method is appropriate."
+      },
+      "smalltalk": {
+        "id": "smalltalk_b2_0003",
+        "context": {
+          "ko": "주말·계획",
+          "de": "Wochenende & Pläne",
+          "en": "Weekend & plans"
+        },
+        "prompt": {
+          "ko": "주말에 별 계획 없으면 같이 바람이나 쐬러 갈까요?",
+          "de": "Wenn Sie am Wochenende nichts vorhaben, wollen wir mal zusammen rausgehen?",
+          "en": "If you have no plans this weekend, shall we go out for some fresh air?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "좋아요, 그래요!",
+          "de": "Gerne, machen wir!",
+          "en": "Sure, let's do it!",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "accessible_festival_route-0",
+        "context": {
+          "de": "Beim Festival",
+          "en": "At the festival"
+        },
+        "prompt": {
+          "speaker": "resident",
+          "ko": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
+          "de": "Die Schlange für den Fotopunkt reicht bis vor die Rampe. Ich komme nicht durch.",
+          "en": "The line for the photo spot reaches the ramp, and I can't get through."
+        },
+        "reply": {
+          "speaker": "user",
+          "ko": "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요.",
+          "de": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.",
+          "en": "We focused only on the people taking photos and overlooked the space others need to move."
+        }
+      },
+      "words": [
+        {
+          "ko": "갈등",
+          "de": "Konflikt",
+          "en": "conflict"
+        },
+        {
+          "ko": "관점",
+          "de": "Standpunkt / Perspektive",
+          "en": "viewpoint / perspective"
+        },
+        {
+          "ko": "가치관",
+          "de": "Wertvorstellung",
+          "en": "values / set of values"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_b2_0001",
+        "level": "b2",
+        "sentenceKo": "＿＿＿을 해결해야 해요.",
+        "answer": "갈등",
+        "fullKo": "갈등을 해결해야 해요.",
+        "de": "Wir müssen den Konflikt lösen.",
+        "en": "We must resolve the conflict.",
+        "distractors": [
+          "비상",
+          "재활용",
+          "애인"
+        ],
+        "topic": "Gesellschaft"
+      },
+      "cross": {
+        "sourceId": "skz_b2_003",
+        "rows": 2,
+        "cols": 3,
+        "solution": [
+          "",
+          "동",
+          "창",
+          "명",
+          "사",
+          ""
+        ],
+        "clues": [
+          {
+            "ko": "동창",
+            "de": "Schulfreund",
+            "en": "schoolmate",
+            "dir": "h"
+          },
+          {
+            "ko": "동사",
+            "de": "Verb",
+            "en": "verb",
+            "dir": "v"
+          },
+          {
+            "ko": "명사",
+            "de": "Substantiv",
+            "en": "noun",
+            "dir": "h"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "가치관",
+          "de": "Wertvorstellung",
+          "en": "values"
+        },
+        {
+          "ko": "관용어",
+          "de": "Redewendung",
+          "en": "idiomatic expression"
+        },
+        {
+          "ko": "어감",
+          "de": "Klangwirkung",
+          "en": "connotation"
+        }
+      ]
+    },
+    "C1": {
+      "phaseId": "KP19",
+      "course": {
+        "ko": "조사 보고서: 이 연구는 두 지역의 이용 기록을 비교한다.",
+        "de": "Untersuchungsbericht: Diese Studie vergleicht die Nutzungsdaten zweier Regionen.",
+        "en": "Research report: This study compares usage records from two regions."
+      },
+      "smalltalk": {
+        "id": "smalltalk_c1_0001",
+        "context": {
+          "ko": "일상·근황",
+          "de": "Alltag & Neues",
+          "en": "Daily life & catching up"
+        },
+        "prompt": {
+          "ko": "새 안내 방식이 실제로 접근성을 높였는지 어떻게 확인할까요?",
+          "de": "Wie prüfen wir, ob die neue Information tatsächlich barriereärmer ist?",
+          "en": "How can we check whether the new information actually improved accessibility?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "변경 전후에 어디서 막혔는지 이용자에게 직접 물어보는 게 좋겠어요.",
+          "de": "Wir sollten Nutzer direkt fragen, wo sie vor und nach der Änderung auf Hindernisse gestoßen sind.",
+          "en": "We should ask users directly where they encountered barriers before and after the change.",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "after_hours_messages-1",
+        "context": {
+          "de": "Nach Feierabend",
+          "en": "After work"
+        },
+        "prompt": {
+          "speaker": "andrea",
+          "ko": "시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다.",
+          "de": "Wegen der Zusammenarbeit über Zeitzonen hinweg können wir die Sendezeit kaum begrenzen.",
+          "en": "Because we work across time zones, it's hard to restrict when messages are sent."
+        },
+        "reply": {
+          "speaker": "user",
+          "ko": "퇴근 후에 연락을 보내는 것과 바로 답해야 한다고 기대하는 것은 구분할 필요가 있어요.",
+          "de": "Wir sollten zwischen dem Senden nach Feierabend und der Erwartung einer sofortigen Antwort unterscheiden.",
+          "en": "We need to distinguish sending a message after work from expecting an immediate response."
+        }
+      },
+      "words": [
+        {
+          "ko": "타자화",
+          "de": "Othering",
+          "en": "othering"
+        },
+        {
+          "ko": "휴식권",
+          "de": "Recht auf Pause",
+          "en": "right to rest"
+        },
+        {
+          "ko": "표집틀",
+          "de": "Auswahlrahmen",
+          "en": "sampling frame"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_c1_0066",
+        "level": "c1",
+        "sentenceKo": "＿＿＿을 전통으로만 설명하면 대화가 멈췄어요.",
+        "answer": "성별 분업",
+        "fullKo": "성별 분업을 전통으로만 설명하면 대화가 멈췄어요.",
+        "de": "Die geschlechtliche Arbeitsteilung nur als Tradition zu erklären stoppte das Gespräch.",
+        "en": "Explaining the gendered division of labor as only tradition stopped talk.",
+        "distractors": [
+          "돌봄 부담",
+          "보이지 않는 일",
+          "시행"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "cross": {
+        "sourceId": "skz_c1_006",
+        "rows": 2,
+        "cols": 3,
+        "solution": [
+          "",
+          "신",
+          "고",
+          "동",
+          "원",
+          ""
+        ],
+        "clues": [
+          {
+            "ko": "동원",
+            "de": "Mobilisierung",
+            "en": "mobilisation",
+            "dir": "h"
+          },
+          {
+            "ko": "신원",
+            "de": "Identität",
+            "en": "identity",
+            "dir": "v"
+          },
+          {
+            "ko": "신고",
+            "de": "Meldung",
+            "en": "report",
+            "dir": "h"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "경위",
+          "de": "Hergang",
+          "en": "sequence of events"
+        },
+        {
+          "ko": "위임",
+          "de": "Delegation",
+          "en": "delegation"
+        },
+        {
+          "ko": "임계치",
+          "de": "Schwellenwert",
+          "en": "threshold"
+        }
+      ]
+    },
+    "C2": {
+      "phaseId": "KP25",
+      "course": {
+        "ko": "오차가 모두 사라진다는 주장은 아직 검증되지 않았다.",
+        "de": "Die Behauptung, sämtliche Messabweichungen würden verschwinden, wurde noch nicht überprüft.",
+        "en": "The claim that all measurement errors will disappear has not yet been verified."
+      },
+      "smalltalk": {
+        "id": "smalltalk_c2_0001",
+        "context": {
+          "ko": "일·공부",
+          "de": "Arbeit & Lernen",
+          "en": "Work & study"
+        },
+        "prompt": {
+          "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+          "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
+          "en": "Should minority views remain in the minutes even when the majority decides?",
+          "speaker": "other"
+        },
+        "reply": {
+          "ko": "결정의 전제와 놓친 위험을 나중에 검토하려면 남겨야 해요.",
+          "de": "Ja, damit wir später die Voraussetzungen der Entscheidung und übersehene Risiken prüfen können.",
+          "en": "Yes. We need them to review the assumptions behind the decision and any overlooked risks later.",
+          "speaker": "user"
+        }
+      },
+      "scenario": {
+        "id": "ai_hiring_appeal-0",
+        "context": {
+          "de": "KI und Bewerbung",
+          "en": "AI and hiring"
+        },
+        "prompt": {
+          "speaker": "resident",
+          "ko": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
+          "de": "Beim Video-Upload trat ein Fehler auf, aber im Ergebnis stand nur eine Punktzahl ohne Erklärung.",
+          "en": "There was a video upload error, but the result only showed a score with no explanation."
+        },
+        "reply": {
+          "speaker": "user",
+          "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.",
+          "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
+          "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+        }
+      },
+      "words": [
+        {
+          "ko": "재명명",
+          "de": "Umbenennung",
+          "en": "renaming"
+        },
+        {
+          "ko": "철회권",
+          "de": "Widerrufsrecht",
+          "en": "right to withdraw"
+        },
+        {
+          "ko": "오작동",
+          "de": "Fehlfunktion",
+          "en": "malfunction"
+        }
+      ],
+      "cloze": {
+        "id": "cloze_c2_0078",
+        "level": "c2",
+        "sentenceKo": "＿＿＿가 '전쟁'이면 타협이 패배처럼 들려요.",
+        "answer": "은유 체계",
+        "fullKo": "은유 체계가 '전쟁'이면 타협이 패배처럼 들려요.",
+        "de": "Ist das Metaphernnetz ein Krieg, klingt Kompromiss nach Niederlage.",
+        "en": "If the metaphor system is war, compromise sounds like defeat.",
+        "distractors": [
+          "담론 전제",
+          "주어 선택",
+          "수동 은폐"
+        ],
+        "topic": "Framinganalyse"
+      },
+      "cross": {
+        "sourceId": "skz_c2_001",
+        "rows": 2,
+        "cols": 3,
+        "solution": [
+          "단",
+          "",
+          "발",
+          "정",
+          "당",
+          "화"
+        ],
+        "clues": [
+          {
+            "ko": "정당화",
+            "de": "Rechtfertigung",
+            "en": "justification",
+            "dir": "h"
+          },
+          {
+            "ko": "발화",
+            "de": "Äußerung",
+            "en": "utterance",
+            "dir": "v"
+          },
+          {
+            "ko": "단정",
+            "de": "kategorisches Urteil",
+            "en": "flat assertion",
+            "dir": "v"
+          }
+        ]
+      },
+      "chain": [
+        {
+          "ko": "구제",
+          "de": "Abhilfe",
+          "en": "remedy"
+        },
+        {
+          "ko": "제재",
+          "de": "Sanktion",
+          "en": "sanction"
+        },
+        {
+          "ko": "재명명",
+          "de": "Umbenennung",
+          "en": "renaming"
+        }
+      ]
+    }
+  }
+}

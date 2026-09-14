@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
@@ -10,12 +11,16 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'support/real_fonts.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
-  setUp(stubSoriSpeech);
+  setUp(() {
+    stubSoriSpeech();
+    TigerStageVideo.videoReady = false;
+  });
   for (final size in const [
     Size(320, 640),
     Size(360, 640),
@@ -96,50 +101,25 @@ void main() {
                   home: screens[index],
                 ),
               );
-              await tester.pump(const Duration(milliseconds: 40));
+              await tester.pumpAndSettle();
               final evidence = '$language $size scale=$scale screen=$index';
               _expectScreenFits(tester, size, evidence);
-              if (index == 3) {
-                final title = tester.widget<Text>(
-                  find.byKey(const ValueKey('onboarding-v2-story-title')),
-                );
-                expect(title.data!.toLowerCase(), contains('demo'));
-              }
-              if (index == 1) {
-                await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-jamo-action')),
-                );
-                await tester.pump();
-                _expectScreenFits(tester, size, '$evidence composed');
-              }
-              if (index == 3) {
-                await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-answer-눈')),
-                );
-                await tester.pump();
-                _expectScreenFits(tester, size, '$evidence wrong answer');
-                await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-answer-문')),
-                );
-                await tester.pump();
-                _expectScreenFits(tester, size, '$evidence correct answer');
-                await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-discover-gift')),
-                );
-                await tester.pump();
-                final gift = find.byKey(
-                  const ValueKey('onboarding-v2-gift-action'),
-                );
-                expect(
-                  tester.getSize(gift).height,
-                  greaterThanOrEqualTo(48),
-                  reason: evidence,
-                );
-                await tester.tap(
-                  find.byKey(const ValueKey('onboarding-v2-unwrap-gift')),
-                );
-                await tester.pump();
-                _expectScreenFits(tester, size, '$evidence gift opened');
+              if (screens[index] is OnboardingCompanionScreen) {
+                for (final name in ['Taego', 'Joy']) {
+                  final paragraph = tester.renderObject<RenderParagraph>(
+                    find.descendant(
+                      of: find.text(name),
+                      matching: find.byType(RichText),
+                    ),
+                  );
+                  expect(
+                    paragraph.getBoxesForSelection(
+                      TextSelection(baseOffset: 0, extentOffset: name.length),
+                    ),
+                    hasLength(1),
+                    reason: '$evidence: keep $name on one line',
+                  );
+                }
               }
             }
           },
@@ -151,7 +131,9 @@ void main() {
 
 void _expectScreenFits(WidgetTester tester, Size size, String evidence) {
   expect(tester.takeException(), isNull, reason: evidence);
-  expect(find.byType(Scrollable), findsNothing, reason: evidence);
+  for (final s in tester.stateList<ScrollableState>(find.byType(Scrollable))) {
+    expect(s.position.maxScrollExtent, 0, reason: evidence);
+  }
   for (final button in find.byType(SoriButton).evaluate()) {
     final rect = tester.getRect(find.byWidget(button.widget));
     expect(rect.width, greaterThanOrEqualTo(48), reason: evidence);

@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
+import '../features/onboarding_v2/onboarding_learning_start.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
@@ -36,6 +37,7 @@ class TodayLearningDestination {
 /// Pure route contract for the existing recommendation engine.
 TodayLearningDestination? todayLearningDestinationFor(MissionPick? pick) =>
     switch (pick) {
+      HangulIntroPick() => const TodayLearningDestination(route: '/hangul'),
       CoursePick() => const TodayLearningDestination(route: '/course/mission'),
       PackPick(:final pack) => TodayLearningDestination(
         route: '/vocab/pack',
@@ -199,23 +201,26 @@ class TodayLearningSnapshot {
 
   factory TodayLearningSnapshot.fromInputs(
     TodayLearningInputs inputs, {
+    bool startWithHangul = false,
     int hardCount = 0,
     TodayLearningAvailability availability = TodayLearningAvailability.ready,
     TodayLearningUnavailableReason? unavailableReason,
     Set<TodayLearningSource> unavailableSources = const {},
   }) {
-    final pick = recommendMission(
-      courseUnits: inputs.courseUnits,
-      currentCourseUnitId: inputs.currentCourseUnitId,
-      completedUnitIds: inputs.completedUnitIds,
-      nowNode: inputs.nowNode,
-      dueCount: inputs.dueCount,
-      scenario: inputs.scenario == null
-          ? null
-          : (id: inputs.scenario!.id, level: inputs.scenario!.level),
-      scenarioCompleted: inputs.scenarioCompleted,
-      userLevel: inputs.userLevel,
-    );
+    final pick = startWithHangul
+        ? const HangulIntroPick()
+        : recommendMission(
+            courseUnits: inputs.courseUnits,
+            currentCourseUnitId: inputs.currentCourseUnitId,
+            completedUnitIds: inputs.completedUnitIds,
+            nowNode: inputs.nowNode,
+            dueCount: inputs.dueCount,
+            scenario: inputs.scenario == null
+                ? null
+                : (id: inputs.scenario!.id, level: inputs.scenario!.level),
+            scenarioCompleted: inputs.scenarioCompleted,
+            userLevel: inputs.userLevel,
+          );
     return TodayLearningSnapshot(
       pick: pick,
       scenario: inputs.scenario,
@@ -303,6 +308,14 @@ class TodayLearningSnapshotLoader {
         ? TodayLearningUnavailableReason.localData
         : null;
 
+    final startWithHangul =
+        unavailableReason == null &&
+        review.value.dueCount == 0 &&
+        review.value.hardCount == 0 &&
+        (nowNode.value?.progress.progressFraction ?? 0) == 0 &&
+        await OnboardingLearningStart.shouldOfferHangul(
+          course: course.value.snapshot,
+        );
     return TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
         courseUnits: course.value.units,
@@ -318,6 +331,7 @@ class TodayLearningSnapshotLoader {
         userLevel: scenario.value.userLevel,
       ),
       hardCount: review.value.hardCount,
+      startWithHangul: startWithHangul,
       availability: unavailableReason == null
           ? TodayLearningAvailability.ready
           : TodayLearningAvailability.unavailable,

@@ -1,0 +1,346 @@
+{
+  "A1": [
+    {
+      "id": "KP01",
+      "de": "Begrüßen & sich vorstellen",
+      "en": "Greet & introduce yourself",
+      "example": {
+        "ko": "저는 학생이에요.",
+        "de": "Ich bin Schüler/in oder Student/in.",
+        "en": "I am a student."
+      }
+    },
+    {
+      "id": "KP02",
+      "de": "Dein Tag & deine Wege",
+      "en": "Your day & getting around",
+      "example": {
+        "ko": "두 시에 학교에 가요.",
+        "de": "Um zwei Uhr gehe ich zur Schule.",
+        "en": "I go to school at two o’clock."
+      }
+    },
+    {
+      "id": "KP03",
+      "de": "Bestellen & sich verabreden",
+      "en": "Order & make plans",
+      "example": {
+        "ko": "민수가 유나에게 책을 줘요.",
+        "de": "Minsu gibt Yuna ein Buch.",
+        "en": "Minsu gives Yuna a book."
+      }
+    },
+    {
+      "id": "KP04",
+      "de": "Nachfragen & höflich reagieren",
+      "en": "Ask again & respond politely",
+      "example": {
+        "ko": "비가 와서 집에 있어요.",
+        "de": "Ich bin zu Hause, weil es regnet.",
+        "en": "I am at home because it is raining."
+      }
+    }
+  ],
+  "A2": [
+    {
+      "id": "KP05",
+      "de": "Bitten & Bedingungen klären",
+      "en": "Make requests & check conditions",
+      "example": {
+        "ko": "학생증이 있으면 할인돼요.",
+        "de": "Mit einem Studierenden- oder Schülerausweis gibt es eine Ermäßigung.",
+        "en": "You get a discount if you have a student ID."
+      }
+    },
+    {
+      "id": "KP06",
+      "de": "Erfahrungen & Gefühle erklären",
+      "en": "Explain experiences & feelings",
+      "example": {
+        "ko": "지금 노래하는 사람이 소라예요.",
+        "de": "Die Person, die gerade singt, ist Sora.",
+        "en": "The person singing right now is Sora."
+      }
+    },
+    {
+      "id": "KP07",
+      "de": "Pläne ändern & Fehler beheben",
+      "en": "Change plans & put things right",
+      "example": {
+        "ko": "지금 회의 중인데 나중에 전화해도 될까요?",
+        "de": "Ich bin gerade in einer Besprechung. Darf ich später anrufen?",
+        "en": "I’m in a meeting right now. May I call later?"
+      }
+    },
+    {
+      "id": "KP08",
+      "de": "Nachrichten & Sprechstile",
+      "en": "Messages & speech styles",
+      "example": {
+        "ko": "오늘 오후 수업 없음.",
+        "de": "Heute Nachmittag kein Unterricht.",
+        "en": "No classes this afternoon."
+      }
+    }
+  ],
+  "B1": [
+    {
+      "id": "KP09",
+      "de": "Erlebnisse & Beziehungen",
+      "en": "Experiences & relationships",
+      "example": {
+        "ko": "나는 지금 옛 사진을 본다.",
+        "de": "Ich sehe mir gerade alte Fotos an.",
+        "en": "I am looking at old photos now."
+      }
+    },
+    {
+      "id": "KP10",
+      "de": "Probleme & Lösungen schildern",
+      "en": "Describe problems & solutions",
+      "example": {
+        "ko": "자료를 읽다가 전화를 받았어요.",
+        "de": "Beim Lesen der Unterlagen habe ich einen Anruf angenommen.",
+        "en": "I was reading the material when I answered a call."
+      }
+    },
+    {
+      "id": "KP11",
+      "de": "Alternativen begründen",
+      "en": "Give reasons for alternatives",
+      "example": {
+        "ko": "저도 친구만큼 연습했어요.",
+        "de": "Ich habe auch so viel geübt wie mein Freund.",
+        "en": "I practised as much as my friend, too."
+      }
+    },
+    {
+      "id": "KP12",
+      "de": "Lösungen aushandeln",
+      "en": "Negotiate solutions",
+      "example": {
+        "ko": "시간이 나거든 연락해 주세요.",
+        "de": "Melden Sie sich bitte, wenn Sie Zeit haben.",
+        "en": "Please get in touch when you have time."
+      }
+    },
+    {
+      "id": "KP13",
+      "de": "Informationen einordnen",
+      "en": "Evaluate information",
+      "example": {
+        "ko": "지민은 \"괜찮아요\"라고 말했어요.",
+        "de": "Jimin sagte: „Es ist in Ordnung.“",
+        "en": "Jimin said, “It’s okay.”"
+      }
+    }
+  ],
+  "B2": [
+    {
+      "id": "KP14",
+      "de": "Begriffe & Belege erklären",
+      "en": "Explain concepts & evidence",
+      "example": {
+        "ko": "어떤 방법이 적절한지 함께 검토합시다.",
+        "de": "Lassen Sie uns gemeinsam prüfen, welche Methode geeignet ist.",
+        "en": "Let’s consider together which method is appropriate."
+      }
+    },
+    {
+      "id": "KP15",
+      "de": "Ursachen & Folgen bewerten",
+      "en": "Assess causes & consequences",
+      "example": {
+        "ko": "아침에는 비가 오더니 오후에는 맑아졌어요.",
+        "de": "Morgens regnete es, nachmittags wurde es klar.",
+        "en": "It rained in the morning, then cleared up in the afternoon."
+      }
+    },
+    {
+      "id": "KP16",
+      "de": "Kompromisse aushandeln",
+      "en": "Negotiate compromises",
+      "example": {
+        "ko": "아직 미정인 지원이 늘어난다면 더 많은 사람이 참여할 수 있어요.",
+        "de": "Wenn die noch nicht festgelegte Unterstützung erhöht würde, könnten mehr Menschen teilnehmen.",
+        "en": "If the support, which is still undecided, were increased, more people could take part."
+      }
+    },
+    {
+      "id": "KP17",
+      "de": "Missverständnisse klären",
+      "en": "Clear up misunderstandings",
+      "example": {
+        "ko": "극본에서 교사가 학생에게: 먼저 자료를 읽어라.",
+        "de": "Im Drehbuch sagt eine Lehrkraft zu einem Schüler: Lies zuerst die Unterlagen.",
+        "en": "In a script, a teacher tells a student: Read the material first."
+      }
+    },
+    {
+      "id": "KP18",
+      "de": "Argumente & Schlussfolgerungen",
+      "en": "Arguments & conclusions",
+      "example": {
+        "ko": "보시다시피 자료마다 수치가 다릅니다.",
+        "de": "Wie Sie sehen, unterscheiden sich die Zahlen je nach Quelle.",
+        "en": "As you can see, the figures differ from one source to another."
+      }
+    }
+  ],
+  "C1": [
+    {
+      "id": "KP19",
+      "de": "Fachliche Inhalte ordnen",
+      "en": "Organise specialised ideas",
+      "example": {
+        "ko": "조사 보고서: 이 연구는 두 지역의 이용 기록을 비교한다.",
+        "de": "Untersuchungsbericht: Diese Studie vergleicht die Nutzungsdaten zweier Regionen.",
+        "en": "Research report: This study compares usage records from two regions."
+      }
+    },
+    {
+      "id": "KP20",
+      "de": "Gewissheit & Grenzen ausdrücken",
+      "en": "Express certainty & its limits",
+      "example": {
+        "ko": "이 차이는 안내 방식에서 비롯된 듯합니다. 아직 다른 조건은 비교하지 않았습니다.",
+        "de": "Dieser Unterschied scheint auf die Art der Hinweise zurückzugehen. Andere Bedingungen wurden noch nicht verglichen.",
+        "en": "This difference seems to stem from how information is provided. Other conditions have not yet been compared."
+      }
+    },
+    {
+      "id": "KP21",
+      "de": "Einwände aufgreifen",
+      "en": "Respond to objections",
+      "example": {
+        "ko": "충분히 설명했는데도 오해가 남았습니다.",
+        "de": "Trotz einer ausführlichen Erklärung blieben Missverständnisse bestehen.",
+        "en": "Misunderstandings remained despite a thorough explanation."
+      }
+    },
+    {
+      "id": "KP22",
+      "de": "Bedingungen & Verantwortung",
+      "en": "Conditions & responsibility",
+      "example": {
+        "ko": "나는 이번에는 끝까지 확인할 테다. 기관의 승인 여부는 아직 모른다.",
+        "de": "Diesmal werde ich der Sache bis zum Ende nachgehen. Ob die Institution zustimmt, weiß ich noch nicht.",
+        "en": "This time I will check it through to the end. I don’t yet know whether the institution will approve."
+      }
+    },
+    {
+      "id": "KP23",
+      "de": "Quellen & Absichten vermitteln",
+      "en": "Mediate sources & intentions",
+      "example": {
+        "ko": "동료가 추가 설명이 필요하다기에 자료를 보냈습니다.",
+        "de": "Weil ein Kollege sagte, dass weitere Erläuterungen nötig seien, habe ich die Unterlagen geschickt.",
+        "en": "I sent the material because a colleague said further explanation was needed."
+      }
+    },
+    {
+      "id": "KP24",
+      "de": "Den passenden Ton finden",
+      "en": "Find the appropriate tone",
+      "example": {
+        "ko": "[연극 대사: 보호자가 아이에게] 먼저 들어가거라.",
+        "de": "[Theaterdialog: Eine Betreuungsperson zu einem Kind] Geh schon einmal hinein.",
+        "en": "[Stage dialogue: a guardian to a child] Go on inside first."
+      }
+    }
+  ],
+  "C2": [
+    {
+      "id": "KP25",
+      "de": "Rechte & Verfahren deuten",
+      "en": "Interpret rights & procedures",
+      "example": {
+        "ko": "오차가 모두 사라진다는 주장은 아직 검증되지 않았다.",
+        "de": "Die Behauptung, sämtliche Messabweichungen würden verschwinden, wurde noch nicht überprüft.",
+        "en": "The claim that all measurement errors will disappear has not yet been verified."
+      }
+    },
+    {
+      "id": "KP26",
+      "de": "Erinnerungen & Perspektiven",
+      "en": "Memories & perspectives",
+      "example": {
+        "ko": "뜻은 좋다마는 방법에는 동의하기 어렵다.",
+        "de": "Die Absicht ist gut, doch der Methode kann ich nur schwer zustimmen.",
+        "en": "The intention is good, but I find it difficult to agree with the method."
+      }
+    },
+    {
+      "id": "KP27",
+      "de": "Verantwortung aushandeln",
+      "en": "Negotiate accountability",
+      "example": {
+        "ko": "이제 와서 후회한들 이미 버린 자료가 돌아오겠습니까?",
+        "de": "Bringt spätere Reue etwa die bereits entsorgten Unterlagen zurück?",
+        "en": "Will regretting it now bring back material that has already been discarded?"
+      }
+    },
+    {
+      "id": "KP28",
+      "de": "Ironie & Untertöne verstehen",
+      "en": "Understand irony & undertones",
+      "example": {
+        "ko": "도움이라고 내민 것이 오히려 짐이 되었다. 화자는 그 도움을 낮추어 평가했다.",
+        "de": "Was als Hilfe angeboten wurde, wurde stattdessen zur Last. Die sprechende Person wertete diese Hilfe ab.",
+        "en": "What was offered as help became a burden instead. The speaker judged that help negatively."
+      }
+    },
+    {
+      "id": "KP29",
+      "de": "Literarische Stimmen gestalten",
+      "en": "Shape literary voices",
+      "example": {
+        "ko": "언젠가는 이 차이를 이해하리라. 이것은 화자의 기대다.",
+        "de": "Eines Tages werde ich diesen Unterschied verstehen. Das ist die Erwartung der sprechenden Person.",
+        "en": "One day I shall understand this difference. This is the speaker’s expectation."
+      }
+    },
+    {
+      "id": "KP30",
+      "de": "Sprechstile gezielt wechseln",
+      "en": "Shift speech styles precisely",
+      "example": {
+        "ko": "[반말 합의 친구] 소식을 듣거들랑 나에게도 알려 줘.",
+        "de": "[Freunde, die sich auf informelle Sprache geeinigt haben] Wenn du etwas hörst, sag mir auch Bescheid.",
+        "en": "[Friends who have agreed to use informal speech] If you hear any news, let me know too."
+      }
+    }
+  ],
+  "new": [
+    {
+      "id": "letters",
+      "de": "Zeichen & Laute",
+      "en": "Letters & sounds",
+      "example": {
+        "ko": "ㄱ  ㄴ  ㅏ",
+        "de": "Hören. Mit dem Finger nachzeichnen.",
+        "en": "Listen. Trace with your finger."
+      }
+    },
+    {
+      "id": "words",
+      "de": "Deine ersten Wörter",
+      "en": "Your first words",
+      "example": {
+        "ko": "나무",
+        "de": "Baum",
+        "en": "tree"
+      }
+    },
+    {
+      "id": "hello",
+      "de": "Ein erstes Hallo",
+      "en": "A first hello",
+      "example": {
+        "ko": "안녕하세요.",
+        "de": "Hallo.",
+        "en": "Hello."
+      }
+    }
+  ]
+}
