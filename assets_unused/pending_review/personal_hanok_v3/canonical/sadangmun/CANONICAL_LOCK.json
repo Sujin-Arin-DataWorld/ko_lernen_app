@@ -1,0 +1,51 @@
+{
+  "schema": "hanok-canonical-art-master-v1",
+  "buildingId": "sadangmun",
+  "anchorId": "sadang-gate",
+  "status": "approved_canonical_master",
+  "approvedBy": "Jin",
+  "approvedAt": "2026-09-14",
+  "approvalEvidence": "너무 좋아ㅎㅎ 그걸로 최종 완성된 정본으로 올리고, 완성정본을 고정한채 서까래와 기둥 그리고 지붕등이 설계되면서 어긋나지않고 평면이 아닌 사람이 이용하던 건물을 기억하며 2.5D로 건물 완성 설계해줘",
+  "file": "sadangmun-v3-canonical.png",
+  "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+  "bytes": 2027089,
+  "canvas": [
+    1086,
+    1448
+  ],
+  "mode": "RGBA",
+  "background": "true transparent RGBA",
+  "copiedWithoutReencoding": true,
+  "provenance": {
+    "approvedCandidate": "assets_unused/pending_review/personal_hanok_v3/ansarang_shrine_maintained_v1/masters/sadangmun_maintained_front_right.png",
+    "manifest": "assets_unused/pending_review/personal_hanok_v3/ansarang_shrine_maintained_v1/MANIFEST.json"
+  },
+  "authority": {
+    "styleRegistry": "docs/assets/STYLE_LOCK.json#families.F-D-ildoo",
+    "role": "Final appearance and camera authority for this building and its construction sequence.",
+    "invariants": [
+      "Exact final PNG bytes including alpha, canvas, framing and material finish.",
+      "Building-specific roof shape, bay count, post axes, recessed doors, floor and stone base.",
+      "Front and rear structural rows enclose a usable volume, not a flat facade.",
+      "Shared master camera and canvas guide all stages; inspect generated member contacts visually. No measured zero-drift claim."
+    ],
+    "constructionCompletion": "Preserve this approved PNG byte-for-byte. The runtime final stage uses a lossless WebP copy with identical decoded RGBA. Never regenerate, recolor, crop, warp or resize the stored PNG.",
+    "intermediateStages": "31 generated painted intermediate PNGs across three buildings, reviewed by agent. See ART_MANIFEST; geometry guide is not measured pixel registration.",
+    "historicalAccuracy": "Illustration identity approval; hidden dimensions and members are teaching reconstructions unless evidenced."
+  },
+  "construction": {
+    "stageCount": 8,
+    "completedStage": 8,
+    "design": "docs/assets/ildu_ansarang_shrine_construction_20260914/construction_design.json"
+  },
+  "runtime": {
+    "promoted": true,
+    "catalog": "assets/data/ildu_construction_art_v1.json",
+    "completedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
+    "stageCount": 8,
+    "scope": "Flutter construction detail and verified B2 completion receipt; separate 8-direction map artwork remains.",
+    "completedSha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
+    "encoding": "lossless WebP",
+    "rgbaPixelsIdenticalToApprovedPng": true
+  }
+}

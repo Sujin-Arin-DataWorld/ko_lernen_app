@@ -1,0 +1,46 @@
+{
+  "scope": "Canonical PNG byte identity and authored shared design topology. No intermediate PNG alignment or runtime claim.",
+  "buildings": [
+    {
+      "building": "ansarangchae",
+      "stages": 14,
+      "nodes": 161,
+      "members": 98,
+      "approvedSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "physicalPosts": 10,
+      "result": "passed"
+    },
+    {
+      "building": "sadangmun",
+      "stages": 8,
+      "nodes": 97,
+      "members": 50,
+      "approvedSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "physicalPosts": 2,
+      "result": "passed"
+    },
+    {
+      "building": "sadang",
+      "stages": 12,
+      "nodes": 117,
+      "members": 81,
+      "approvedSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "physicalPosts": 8,
+      "result": "passed"
+    }
+  ],
+  "rejectedInvalidDesigns": [
+    "changed master",
+    "flat facade",
+    "floating post",
+    "floating rafter",
+    "different stage camera",
+    "removed installed post",
+    "wrong final image",
+    "pretend intermediate image"
+  ],
+  "intermediateArtworkRendered": 31,
+  "intermediateArtworkPlanned": 31,
+  "rasterAlignmentTargetPx": 2,
+  "rasterAlignmentMeasured": false
+}

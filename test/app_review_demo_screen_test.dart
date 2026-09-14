@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/app_review_demo_screen.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/ildu_construction_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_preview_screens.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -67,6 +68,31 @@ void main() {
 
     expect(find.text('View demo'), findsNothing);
     expect(find.text('Continue'), findsOneWidget);
+  });
+
+  testWidgets('Hanok demo opens the real read-only construction catalog', (
+    tester,
+  ) async {
+    final before = await _preferencesSnapshot();
+    await tester.pumpWidget(_host(const AppReviewDemoScreen()));
+
+    final hanokPanel = find.byKey(const ValueKey('app-review-demo-panel-03B'));
+    await tester.scrollUntilVisible(
+      hanokPanel,
+      400,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(hanokPanel);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('hanok-construction-entry')),
+    );
+    await tester.tap(find.byKey(const ValueKey('hanok-construction-entry')));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(IlDuConstructionScreen), findsOneWidget);
+    expect(Storage.consentAccepted, isFalse);
+    expect(await _preferencesSnapshot(), equals(before));
   });
 }
 

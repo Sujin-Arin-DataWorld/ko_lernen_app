@@ -196,6 +196,8 @@ abstract final class SoriStageRewardReceiptService {
       items: List.unmodifiable(items),
       sarangchaeStageBefore: before.hanokCompetence.sarangchaeConstructionStage,
       sarangchaeStageAfter: after.hanokCompetence.sarangchaeConstructionStage,
+      b2ConstructionStageBefore: before.hanokCompetence.b2ConstructionStage,
+      b2ConstructionStageAfter: after.hanokCompetence.b2ConstructionStage,
     );
   }
 
@@ -235,6 +237,10 @@ abstract final class SoriStageRewardReceiptService {
       after.pendingBojagiCount,
       before.gyeLanternCount,
       after.gyeLanternCount,
+      before.hanokCompetence.sarangchaeConstructionStage,
+      after.hanokCompetence.sarangchaeConstructionStage,
+      before.hanokCompetence.b2ConstructionStage,
+      after.hanokCompetence.b2ConstructionStage,
       ...after.quests.map((quest) => '${quest.questId}:${quest.current}'),
       ...after.gameBests.entries.map((entry) => '${entry.key}:${entry.value}'),
     ].join('|');

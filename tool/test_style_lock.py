@@ -7,6 +7,8 @@ guards that the 4 older docs still carry the banners pointing at it.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -20,6 +22,37 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class StyleLockLoaderTest(unittest.TestCase):
+    def test_ansarang_shrine_runtime_references_match_the_live_catalog(self) -> None:
+        family = style_lock.load_style_lock()["families"]["F-D-ildoo"]
+        catalog = json.loads(
+            (ROOT / "assets/data/ildu_construction_art_v1.json").read_text(encoding="utf-8")
+        )
+        series_by_id = {item["buildingId"]: item for item in catalog["series"]}
+        for building in ("ansarangchae", "sadangmun", "sadang"):
+            with self.subTest(building=building):
+                item = series_by_id[building]
+                runtime = family["approvedConstructionSeries"][building]
+                master = family["canonicalMasterApprovals"][building]
+                lock = json.loads((ROOT / master["manifest"]).read_text(encoding="utf-8"))
+                for key in (
+                    "canonicalAsset", "canonicalSha256",
+                    "approvedCanonicalPngAsset", "approvedCanonicalPngSha256",
+                ):
+                    self.assertEqual(runtime[key], item[key])
+                self.assertEqual(master["runtimeCompletedAsset"], item["canonicalAsset"])
+                self.assertEqual(master["runtimeCompletedSha256"], item["canonicalSha256"])
+                self.assertEqual(lock["runtime"]["completedAsset"], item["canonicalAsset"])
+                self.assertEqual(lock["runtime"]["completedSha256"], item["canonicalSha256"])
+                self.assertEqual(master["completedAsset"], item["approvedCanonicalPngAsset"])
+                self.assertEqual(master["sha256"], item["approvedCanonicalPngSha256"])
+                self.assertEqual(lock["sha256"], item["approvedCanonicalPngSha256"])
+                self.assertTrue(lock["runtime"]["rgbaPixelsIdenticalToApprovedPng"])
+                for asset, expected in (
+                    (item["canonicalAsset"], item["canonicalSha256"]),
+                    (item["approvedCanonicalPngAsset"], item["approvedCanonicalPngSha256"]),
+                ):
+                    self.assertEqual(hashlib.sha256((ROOT / asset).read_bytes()).hexdigest(), expected)
+
     def test_loads_the_real_file_and_validates_shape(self) -> None:
         lock = style_lock.load_style_lock()
         self.assertIn("chroma", lock)

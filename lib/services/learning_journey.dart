@@ -134,6 +134,8 @@ class LearningJourney {
             )
           : receipt.sarangchaeStageBefore,
       sarangchaeStageAfter: receipt.sarangchaeStageAfter,
+      b2ConstructionStageBefore: receipt.b2ConstructionStageBefore,
+      b2ConstructionStageAfter: receipt.b2ConstructionStageAfter,
     );
   }
 }

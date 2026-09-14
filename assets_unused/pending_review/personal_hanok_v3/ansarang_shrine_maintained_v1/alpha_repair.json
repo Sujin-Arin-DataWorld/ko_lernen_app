@@ -1,0 +1,214 @@
+{
+  "status": "alpha_only_repair_applied_in_isolated_worktree",
+  "authorization": "Jin approved Python alpha-only editing in the current conversation.",
+  "frames_checked": 8,
+  "frames_modified": 4,
+  "rgb_changed_pixels": 0,
+  "alpha_changed_pixels": 2425,
+  "frames": [
+    {
+      "file": "ildu_ansarangchae_00_front.png",
+      "original_sha256": "4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1",
+      "corrected_sha256": "4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1",
+      "original_bytes": 164704,
+      "corrected_bytes": 164704,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 0,
+      "changed_bounds": null,
+      "region": null,
+      "runtime_updated": false
+    },
+    {
+      "file": "ildu_ansarangchae_01_front_right.png",
+      "original_sha256": "11f13de705a326f6c5433e03cd094895b148b45658da52c723fc2cd1c17cbf2d",
+      "corrected_sha256": "f034c749e12d8586c0feef20d4b54037c2c33d3a9076d51aea6e9e32b5fbc2fb",
+      "original_bytes": 192504,
+      "corrected_bytes": 184151,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 706,
+      "changed_bounds": [
+        312,
+        298,
+        329,
+        347
+      ],
+      "region": {
+        "box": [
+          304,
+          295,
+          333,
+          352
+        ],
+        "seeds": [
+          [
+            320,
+            320
+          ]
+        ]
+      },
+      "runtime_updated": true
+    },
+    {
+      "file": "ildu_ansarangchae_02_right.png",
+      "original_sha256": "8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060",
+      "corrected_sha256": "8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060",
+      "original_bytes": 140605,
+      "corrected_bytes": 140605,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 0,
+      "changed_bounds": null,
+      "region": null,
+      "runtime_updated": false
+    },
+    {
+      "file": "ildu_ansarangchae_03_rear_right.png",
+      "original_sha256": "013f0474b4b91edfbb8498f2584153e9f24076d0162b6b8f5e9856a8d75d358c",
+      "corrected_sha256": "ed895a24d2c4469df7c7b2f14067541f7edd0a1352cf58d6b4b18ba127ad171a",
+      "original_bytes": 164437,
+      "corrected_bytes": 159800,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 494,
+      "changed_bounds": [
+        66,
+        320,
+        101,
+        356
+      ],
+      "region": {
+        "box": [
+          60,
+          314,
+          105,
+          359
+        ],
+        "seeds": [
+          [
+            71,
+            343
+          ],
+          [
+            94,
+            347
+          ]
+        ]
+      },
+      "runtime_updated": true
+    },
+    {
+      "file": "ildu_ansarangchae_04_rear.png",
+      "original_sha256": "8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1",
+      "corrected_sha256": "8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1",
+      "original_bytes": 165991,
+      "corrected_bytes": 165991,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 0,
+      "changed_bounds": null,
+      "region": null,
+      "runtime_updated": false
+    },
+    {
+      "file": "ildu_ansarangchae_05_rear_left.png",
+      "original_sha256": "4605e0487edb2adaef1dcba6179b7ba01f58228503168813d8705ea86ef64954",
+      "corrected_sha256": "7441d0d48f0d1f07420513d9901f8eb8a0d45f55ea5667d30aacdeda56639fdf",
+      "original_bytes": 195772,
+      "corrected_bytes": 187944,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 699,
+      "changed_bounds": [
+        309,
+        299,
+        327,
+        349
+      ],
+      "region": {
+        "box": [
+          304,
+          294,
+          331,
+          354
+        ],
+        "seeds": [
+          [
+            317,
+            321
+          ]
+        ]
+      },
+      "runtime_updated": true
+    },
+    {
+      "file": "ildu_ansarangchae_06_left.png",
+      "original_sha256": "1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5",
+      "corrected_sha256": "1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5",
+      "original_bytes": 151954,
+      "corrected_bytes": 151954,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 0,
+      "changed_bounds": null,
+      "region": null,
+      "runtime_updated": false
+    },
+    {
+      "file": "ildu_ansarangchae_07_front_left.png",
+      "original_sha256": "0e20233619209fc7a3d1e1748b385266a1e6cf262eb4a05248d51b32ecf65cc7",
+      "corrected_sha256": "307c78686360a064c1a35e9c9527009e5aa2bd5daf65e071b3693f83891a3f1e",
+      "original_bytes": 204416,
+      "corrected_bytes": 196023,
+      "size": [
+        384,
+        512
+      ],
+      "rgb_changed_pixels": 0,
+      "alpha_changed_pixels": 526,
+      "changed_bounds": [
+        314,
+        300,
+        331,
+        339
+      ],
+      "region": {
+        "box": [
+          309,
+          294,
+          333,
+          345
+        ],
+        "seeds": [
+          [
+            321,
+            321
+          ]
+        ]
+      },
+      "runtime_updated": true
+    }
+  ]
+}

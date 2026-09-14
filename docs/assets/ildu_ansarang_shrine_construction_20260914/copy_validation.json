@@ -1,0 +1,104 @@
+{
+  "mode": "AUTHOR+AUDIT",
+  "source": "ko",
+  "targets": [
+    "en",
+    "de-DE"
+  ],
+  "status": "MODEL_QA_PASS",
+  "sceneLock": {
+    "mode": "AUTHOR+AUDIT",
+    "source": "ko",
+    "targets": [
+      "en",
+      "de-DE"
+    ],
+    "channel": "guided building illustration",
+    "speaker": "app guide",
+    "addressee": "Korean learner",
+    "speechStyle": "haeyo",
+    "purpose": "Explain visible construction and usable space",
+    "taskType": "read and optionally repeat; no graded answer",
+    "authority": "MODEL_QA_PASS; master image approval is separate from copy approval",
+    "historicalUse": "Ansarangchae dwelling; Sadangmun passage; Sadang ancestral ritual space"
+  },
+  "scope": "Eight observation prompts aligned to installed parts in actual PNG stages; no new architecture or separate UI promised.",
+  "criticalErrorsRemaining": 0,
+  "reviewer": "agent",
+  "humanReviewClaimed": false,
+  "changes": [
+    {
+      "building": "ansarangchae",
+      "stage": 1,
+      "observe": {
+        "ko": "줄로 표시한 네 칸과 앞뒤 간격을 살펴봐요. 이 자리 위에 방과 마루가 생겨요.",
+        "en": "Look at the four bays marked by the strings and the space from front to back. Rooms and wooden floors will take shape here.",
+        "de": "Schau dir die vier mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entstehen später die Räume und Holzböden."
+      }
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 3,
+      "observe": {
+        "ko": "초석은 기둥이 설 자리를 표시해요. 앞쪽과 뒤쪽 초석 사이에 방이 들어설 공간이 있어요.",
+        "en": "The padstones mark where the posts will stand. The space between the front and rear stones will become the rooms.",
+        "de": "Die Steinsockel markieren die späteren Standorte der Pfosten. Zwischen den vorderen und hinteren Sockeln entstehen die Räume."
+      }
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 7,
+      "observe": {
+        "ko": "서까래를 덮은 판재와 지붕 바탕을 살펴봐요. 이 위에 기와를 얹을 거예요.",
+        "en": "Look at the boards covering the rafters and the roof underlayers. The tiles will be laid on top.",
+        "de": "Schau dir die Bretter über den Sparren und den Dachunterbau an. Darauf werden später die Dachziegel verlegt."
+      }
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 9,
+      "observe": {
+        "ko": "왼쪽 벽은 앞까지 나오고, 다른 칸의 문틀은 뒤로 물러나 있어요. 문틀 앞에 툇마루가 놓일 공간이 남아요.",
+        "en": "The left wall reaches the front, while the door frames in the other bays are set back. The space in front of them is where the veranda will go.",
+        "de": "Die linke Wand reicht nach vorn, während die Türrahmen der anderen Felder weiter hinten liegen. Davor bleibt Platz für die Veranda."
+      }
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 10,
+      "observe": {
+        "ko": "온돌은 방바닥 아래의 난방 구조예요. 이 그림은 두 방의 문턱 안쪽 바닥 일부를 열어, 돌 아래의 통로를 보여 줘요.",
+        "en": "Ondol is a heating structure beneath the room floor. In this illustration, part of the floor inside each of the two room openings is exposed to show the channels beneath the stones.",
+        "de": "Ondol ist eine Heizkonstruktion unter dem Zimmerboden. In dieser Darstellung ist der Boden hinter den beiden Zimmeröffnungen teilweise freigelegt, sodass du die Kanäle unter den Steinen sehen kannst."
+      }
+    },
+    {
+      "building": "sadangmun",
+      "stage": 1,
+      "observe": {
+        "ko": "돌받침 위에 두 문기둥이 설 자리가 있어요. 그 사이에서 사람이 발을 디딜 곳을 살펴봐요.",
+        "en": "The stone base has two places for the gate posts. Look at the space between them where people will step.",
+        "de": "Auf dem Steinsockel sind zwei Plätze für die Torpfosten vorgesehen. Schau dir den Bereich dazwischen an, auf den man beim Durchgehen tritt."
+      }
+    },
+    {
+      "building": "sadang",
+      "stage": 1,
+      "observe": {
+        "ko": "줄로 표시한 세 칸과 앞뒤 간격을 살펴봐요. 이 위에 사당이 서고, 앞쪽으로 사람이 다가와 들어갈 거예요.",
+        "en": "Look at the three bays marked by the strings and the space from front to back. The shrine will stand here, with people approaching and entering from the front.",
+        "de": "Schau dir die drei mit Schnüren abgesteckten Felder und ihre Tiefe an. Hier entsteht der Schrein, dem man sich von vorn nähert und den man von dort betritt."
+      }
+    },
+    {
+      "building": "sadang",
+      "stage": 9,
+      "observe": {
+        "ko": "널을 깔아 사람이 들어가 설 수 있는 마루가 생겼어요. 마루의 앞모서리와 안쪽으로 이어지는 널의 방향을 살펴봐요.",
+        "en": "The floorboards form a wooden floor people can enter and stand on. Look at its front edge and the direction of the boards extending into the room.",
+        "de": "Die Dielen bilden einen Holzboden, auf dem man den Raum betreten und stehen kann. Schau dir die Vorderkante und die Richtung der Dielen im Inneren an."
+      }
+    }
+  ],
+  "pivot": "Invite learner to observe visible structure; future tense for not-yet-installed rooms/posts/tiles; exposed ondol is part of the shown teaching illustration."
+}

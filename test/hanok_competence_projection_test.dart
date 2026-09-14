@@ -4,6 +4,7 @@ import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/hanok_stage.dart';
+import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/hanok_competence_projection_service.dart';
 
@@ -86,6 +87,48 @@ void main() {
       0,
     );
   });
+
+  test(
+    'B2 projection uses the verified catalog fraction and ignores bypass',
+    () {
+      final units = [
+        for (var index = 1; index <= 6; index++)
+          _unit('b2_$index', 'b2', index),
+      ];
+      for (final expected in const [0, 5, 11, 17, 22, 28, 34]) {
+        final completed = switch (expected) {
+          0 => 0,
+          5 => 1,
+          11 => 2,
+          17 => 3,
+          22 => 4,
+          28 => 5,
+          _ => 6,
+        };
+        final projection = HanokCompetenceProjection.fromSnapshot(
+          snapshot: CourseMasterySnapshot(
+            completedUnitIds: [
+              for (var index = 1; index <= completed; index++) 'b2_$index',
+              if (completed > 0) 'b2_1',
+            ],
+          ),
+          courseUnits: units,
+        );
+        expect(projection.b2ConstructionStage, expected);
+      }
+
+      final bypassed = HanokCompetenceProjection.fromSnapshot(
+        snapshot: const CourseMasterySnapshot(
+          completedUnitIds: ['b2_1'],
+          bypassedPrerequisiteUnitIds: ['b2_1'],
+        ),
+        courseUnits: units,
+      );
+      expect(bypassed.b2Ratio, 0);
+      expect(bypassed.b2ConstructionStage, 0);
+      expect(ilduB2ConstructionStageForRatio(double.nan), 0);
+    },
+  );
 
   test('a completed course path raises structure from competence alone', () {
     final units = [

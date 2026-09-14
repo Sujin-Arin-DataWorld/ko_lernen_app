@@ -120,6 +120,8 @@ class RewardReceipt {
     required this.items,
     this.sarangchaeStageBefore = 0,
     this.sarangchaeStageAfter = 0,
+    this.b2ConstructionStageBefore = 0,
+    this.b2ConstructionStageAfter = 0,
   });
 
   final String activityId;
@@ -127,9 +129,13 @@ class RewardReceipt {
   final List<RewardReceiptItem> items;
   final int sarangchaeStageBefore;
   final int sarangchaeStageAfter;
+  final int b2ConstructionStageBefore;
+  final int b2ConstructionStageAfter;
 
-  bool get isEmpty => items.isEmpty;
+  bool get isEmpty => items.isEmpty && !hasB2ConstructionUpgrade;
   bool get hasSarangchaeUpgrade => sarangchaeStageAfter > sarangchaeStageBefore;
+  bool get hasB2ConstructionUpgrade =>
+      b2ConstructionStageAfter > b2ConstructionStageBefore;
 }
 
 @immutable

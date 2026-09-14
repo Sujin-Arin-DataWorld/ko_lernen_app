@@ -1,0 +1,418 @@
+{
+  "scope": "Lossless runtime WebP RGBA equality to PNGs in source commit; original PNG alpha/RGB checks apply to identical pixels. No measured geometric registration.",
+  "stages": 34,
+  "runtimeBytes": 43792814,
+  "records": [
+    {
+      "building": "ansarangchae",
+      "stage": 1,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 2,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 3,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 4,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 5,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 6,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 7,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 8,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 9,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 10,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 11,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 12,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 13,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "ansarangchae",
+      "stage": 14,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 1,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 2,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 3,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 4,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 5,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 6,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 7,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadangmun",
+      "stage": 8,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1086,
+        1448
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 1,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 2,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 3,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 4,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 5,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 6,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 7,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 8,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 9,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 10,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 11,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    },
+    {
+      "building": "sadang",
+      "stage": 12,
+      "rgbChanged": 0,
+      "visibleChromaPixels": 0,
+      "opaqueCanvasEdgePixels": 0,
+      "canvas": [
+        1536,
+        1024
+      ],
+      "runtimeRgbaPixelsIdenticalToPng": true
+    }
+  ],
+  "losslessValidation": "lossless_validation.json",
+  "sourceCommit": "547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b",
+  "sourcePngBytes": 65128736
+}

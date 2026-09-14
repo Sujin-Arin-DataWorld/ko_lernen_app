@@ -10323,7 +10323,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduConstructionIntro =>
-      'Entdecke, wie sechs Hanok-Gebäude entstehen. Schau in ihre Räume und Alltagsbereiche und übe dabei Koreanisch.';
+      'Entdecke, wie die Gebäude eines Hanok entstehen. Erkunde ihre Wohn-, Arbeits-, Vorrats- und Ritualräume und übe dabei Koreanisch.';
 
   @override
   String ilduConstructionStep(int current, int total) {
