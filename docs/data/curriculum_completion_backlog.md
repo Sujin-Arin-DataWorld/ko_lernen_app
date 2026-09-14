@@ -2,7 +2,7 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 876
+- 고유 작업 항목: 874
 - 고유 sampleLexis 후보: 211 (Phase×단어 맥락 343)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `b97b0338510ceb0a13dcd7a3d9bf3ea3b7c124093a32cbe8446ccc2fd178c6bd`
+- `tool/curriculum_matrix_gaps.csv`: `44fb3ad99736b5ef91785a95eb76d072ee98daf0c2b06bad62ef67173aff6451`
 - `tool/learning_phase_findings.csv`: `1b2fd35168227b87237cacdfac226c694ad24a58f383f3cc243a044cd2245f4c`
 - `tool/learning_phase_summary.json`: `3b7670ee8e99c9ff07b36077f91230c19f9ab84819c752a2cdd71ea483aa2ed2`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -347,14 +347,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_grammar_row
 - 근거: missing: nikl=;app_levels=;ids=
-
-### `A1|grammar_nikl|G1:-습니까|unassigned`
-
-- 항목: 종결어미 -ㅂ니까
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
 
 ### `A1|phase_warning|C16_lexis:KP01 · etiquette_honorific_lexis|unassigned`
 
@@ -1287,14 +1279,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A2|grammar_nikl|G2:-을 것1|unassigned`
 
 - 항목: 표현 -ㄹ 것1
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
-
-### `A2|grammar_nikl|G2:-음|unassigned`
-
-- 항목: 전성어미 -ㅁ
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row

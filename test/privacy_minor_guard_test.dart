@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'support/privacy_preferences_platform.dart';
 import 'package:ko_lernen_app/services/privacy_consent_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,7 +14,10 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
-    PrivacyConsentService.analyticsEnabled.value = false;
+    PrivacyConsentService.configureForTesting(
+      analytics: PrivacyFakeAnalytics(),
+      crash: PrivacyFakeCrash(),
+    );
   });
 
   tearDown(Storage.resetForTesting);
@@ -21,8 +25,14 @@ void main() {
   test('under-16 cannot enable analytics or crash collection', () async {
     await Storage.setBirthYear(DateTime.now().year - 12); // 12 years old
 
-    await PrivacyConsentService.setAnalytics(true);
-    await PrivacyConsentService.setCrash(true);
+    await expectLater(
+      PrivacyConsentService.setAnalytics(true),
+      throwsA(isA<PrivacyAgeEligibilityException>()),
+    );
+    await expectLater(
+      PrivacyConsentService.setCrash(true),
+      throwsA(isA<PrivacyAgeEligibilityException>()),
+    );
 
     expect(Storage.analyticsConsent, isFalse);
     expect(Storage.crashConsent, isFalse);
@@ -32,8 +42,14 @@ void main() {
   test('unknown age cannot enable analytics or crash collection', () async {
     expect(Storage.birthYear, 0);
 
-    await PrivacyConsentService.setAnalytics(true);
-    await PrivacyConsentService.setCrash(true);
+    await expectLater(
+      PrivacyConsentService.setAnalytics(true),
+      throwsA(isA<PrivacyAgeEligibilityException>()),
+    );
+    await expectLater(
+      PrivacyConsentService.setCrash(true),
+      throwsA(isA<PrivacyAgeEligibilityException>()),
+    );
 
     expect(Storage.analyticsConsent, isFalse);
     expect(Storage.crashConsent, isFalse);

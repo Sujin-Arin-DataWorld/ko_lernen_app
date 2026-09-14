@@ -1,3 +1,5 @@
+import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -44,9 +46,19 @@ class CustomPackTypingScreen extends StatefulWidget {
 }
 
 class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
-    with ScreenCoachMixin<CustomPackTypingScreen> {
+    with
+        ScreenCoachMixin<CustomPackTypingScreen>,
+        GameResultRecovery<CustomPackTypingScreen>,
+        StudyEvidenceRecovery<CustomPackTypingScreen> {
   final TextEditingController _input = TextEditingController();
   CustomPack? _pack;
+  int _presentation = 0;
+  bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
   List<ExtractedWord> _pool = const [];
   List<int> _order = const [];
   String _languageCode = 'de';
@@ -108,6 +120,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   }
 
   void _startRoundForLocale(String languageCode) {
+    _presentation++;
     _languageCode = languageCode;
     final pack = _pack;
     if (pack == null) {
@@ -127,6 +140,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     _correct = null;
     _outcome = null;
     _feedbackCompletion.reset();
+    resetGameResult();
     _input.clear();
   }
 
@@ -139,17 +153,32 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
 
   String _norm(String s) => s.replaceAll(' ', '').trim();
 
-  void _submit() {
-    if (_correct != null) {
+  Future<void> _submit(int presentation) async {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _idx >= _order.length ||
+        _correct != null) {
       return;
     }
     final word = _pool[_order[_idx]];
     final ok = _norm(_input.text) == _norm(word.korean);
-    Storage.addVokSeen(word.korean);
-    Storage.srsReview(word.korean, gotIt: ok); // A1 연동
-    if (!ok) {
-      // ignore: discarded_futures
-      Storage.incrementWrongCount(word.korean);
+    final attempt = SrsReviewAttempt(id: word.korean, gotIt: ok);
+    final progress = VocabProgressAttempt(
+      seenId: word.korean,
+      wrongCountId: ok ? null : word.korean,
+    );
+    if (!await saveStudyEvidence(() async {
+          if (!await attempt.save()) {
+            return false;
+          }
+          if (!studyEvidenceIsCurrent) {
+            return false;
+          }
+          return progress.save();
+        }) ||
+        !_acceptsInput ||
+        presentation != _presentation) {
+      return;
     }
     setState(() {
       _correct = ok;
@@ -172,7 +201,14 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
   }
 
-  void _next() {
+  void _next(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        _correct == null ||
+        _idx >= _order.length) {
+      return;
+    }
+    _presentation++;
     setState(() {
       _idx++;
       _correct = null;
@@ -183,7 +219,10 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
   }
 
-  void _restart() {
+  void _restart(int presentation) {
+    if (!_acceptsInput || presentation != _presentation || _outcome == null) {
+      return;
+    }
     final languageCode = Localizations.localeOf(context).languageCode;
     setState(() {
       _startRoundForLocale(languageCode);
@@ -191,6 +230,20 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   }
 
   Future<void> _finish() async {
+    if (!_acceptsInput) return;
+    final presentation = _presentation;
+    final pct = ((_score / _order.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'cp_typing',
+      xp: _score * 5,
+      score: pct,
+    );
+    if (!mounted ||
+        !studyEvidenceIsCurrent ||
+        presentation != _presentation ||
+        outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.customPackTyping(
         packId: widget.packId,
@@ -198,17 +251,12 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         total: _order.length,
       ),
     );
-    final pct = ((_score / _order.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'cp_typing',
-      xp: _score * 5,
-      score: pct,
-    );
     await Analytics.gameCompleted(
       gameType: 'typing',
       result: pct >= 60 ? 'win' : 'lose',
       score: pct,
     );
+    if (!studyEvidenceIsCurrent || presentation != _presentation) return;
     _abandonTracker.markCompleted();
     if (mounted) {
       setState(() => _outcome = outcome);
@@ -217,10 +265,18 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
 
   @override
   Widget build(BuildContext context) {
+    final presentation = _presentation;
+    final recovery =
+        studyEvidenceRecoveryFrame(AppL10n.of(context).wbTyping) ??
+        gameResultRecoveryFrame(AppL10n.of(context).wbTyping);
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
 
     if (_pack == null) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
@@ -234,6 +290,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
     if (_pool.isEmpty) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.wbTyping,
         child: Center(
           child: SoriEmptyState(
@@ -254,6 +311,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final revealed = _correct != null;
 
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       title: t.wbTyping,
       homeEscape: SoriHomeEscape(confirmWhen: _idx > 0 || _correct != null),
       actions: const [TtsSpeedAction()],
@@ -304,7 +362,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
                 style: tt.h2,
                 labelText: t.wbTypingPrompt,
                 hintText: t.wbTypingHint,
-                onSubmitted: (_) => _submit(),
+                onSubmitted: (_) => _submit(presentation),
               ),
             ),
             if (revealed) ...[
@@ -348,7 +406,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               variant: SoriButtonVariant.filled,
               accent: SoriColors.accent,
               fullWidth: true,
-              onTap: revealed ? _next : _submit,
+              onTap: revealed
+                  ? () => _next(presentation)
+                  : () => _submit(presentation),
             ),
           ],
         ),
@@ -356,9 +416,23 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     );
   }
 
+  void _closeResult(int presentation) {
+    if (!_acceptsInput ||
+        presentation != _presentation ||
+        !(_outcome != null)) {
+      return;
+    }
+    _retireStudy();
+    Navigator.of(
+      context,
+    ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst);
+  }
+
   Widget _buildDone(AppL10n t) {
+    final presentation = _presentation;
     final pct = ((_score / _order.length) * 100).round();
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
@@ -386,16 +460,14 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               variant: SoriButtonVariant.filled,
               accent: SoriColors.accent,
               fullWidth: true,
-              onTap: _restart,
+              onTap: () => _restart(presentation),
             ),
             SoriButton(
               label: t.customPackResultBack,
               icon: Icons.menu_book_outlined,
               variant: SoriButtonVariant.outlined,
               fullWidth: true,
-              onTap: () => Navigator.of(
-                context,
-              ).pushNamedAndRemoveUntil('/my_words', (route) => route.isFirst),
+              onTap: () => _closeResult(presentation),
             ),
           ],
         ),

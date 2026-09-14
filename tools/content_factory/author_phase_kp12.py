@@ -43,7 +43,7 @@ def kp12():
        ('제가 정리할 테니 번호를 알려 주세요.','화자는 정리, 청자에게 번호 알림 요청','화자가 이미 정리를 끝냈다는 뜻')),
       ('G3:만 아니면',loc('하나의 방해 조건을 제외해 가정해요. 본문에 다른 조건이 있다면 그 조건까지 사라지는 것은 아니에요.','Suppose one obstacle is absent. Other conditions stated in the text still apply.','Nimm an, ein Hindernis entfällt. Andere im Text genannte Bedingungen gelten weiterhin.'),
        ('비만 아니면 밖에서 할 수 있어요. 장소 예약은 따로 필요해요.','비가 아니어도 예약 조건은 남음','비만 안 오면 예약도 자동 면제'),
-       ('월요일만 아니면 시간을 낼 수 있어요. 최종 일정은 서로 확인해야 해요.','월요일 외 날짜도 상호 일정 확인 필요','월요일 외 날짜는 모두 이미 확정')), 
+       ('월요일만 아니면 시간을 낼 수 있어요. 최종 일정은 서로 확인해야 해요.','월요일 외 날짜도 상호 일정 확인 필요','월요일 외 날짜는 모두 이미 확정')),
     ]
     tasks=[grammar_task('KP12',i,key,h,p,a) for i,(key,h,p,a) in enumerate(rows,1)]
     prod=[

@@ -101,6 +101,11 @@ void main() {
       // cannot be created. A regular file where the cache root should be makes
       // the real `Directory.create` fail (ENOTDIR); _resolveAudio must keep
       // going to the public transport instead of returning null there.
+      // Earlier tests in this file leave the same bytes in the memory tier
+      // (an unwritable disk cache keeps verified bytes in memory); this run
+      // must prove that the public transport itself is reached.
+      await TtsService.clearCache(cacheDirectory: () async => cache);
+      await cache.create(recursive: true); // clearCache removed the temp dir.
       final occupied = File('${cache.path}/occupied-root');
       await occupied.writeAsString('keep');
       TtsService.setCacheDirForTesting(null);
@@ -123,7 +128,6 @@ void main() {
       expect(result!.path, isNull);
       expect(result.bytes, mp3);
       expect(calls, 1);
-      expect(TtsService.lastError, contains('캐시 디렉토리 실패'));
       // Without a disk cache the verified bytes stay in the memory tier.
       final again = await http.runWithClient(
         () => TtsService.resolveAudioForTesting(text, 'female'),

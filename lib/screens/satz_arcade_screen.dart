@@ -1,3 +1,5 @@
+import '../widgets/sori/game_result_recovery.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -46,12 +48,16 @@ class SatzArcadeScreen extends StatefulWidget {
   State<SatzArcadeScreen> createState() => _SatzArcadeScreenState();
 }
 
-class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
+class _SatzArcadeScreenState extends State<SatzArcadeScreen>
+    with
+        GameResultRecovery<SatzArcadeScreen>,
+        StudyEvidenceRecovery<SatzArcadeScreen> {
   static const _roundSize = 8;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
   static const _allLevels = '';
 
   List<SatzSentence> _all = const [];
+  Set<String>? _linkedCourseSentenceIds;
   bool _loading = true;
   String? _level;
   int _roundId = 0;
@@ -60,6 +66,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   int _idx = 0;
   int _passed = 0;
   bool _hasSubmittedAnswer = false;
+  bool _answerPending = false;
   GameOutcome? _outcome;
   CoursePracticeContext? _missionContext;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -78,7 +85,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final catalog = courseUnitId == null
         ? null
         : await CurriculumCatalog.load();
-    if (!mounted) return;
+    if (!gameResultAcceptsInput || !studyEvidenceIsCurrent) {
+      return;
+    }
     final user = Storage.browseLevelCode ?? Storage.placementLevelCode;
     final start = (user != null && all.any((c) => c.level == user))
         ? user
@@ -110,6 +119,10 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         : requestedContext;
     setState(() {
       _all = scoped;
+      _linkedCourseSentenceIds = catalog?.contentLinks
+          .where((link) => link.contentKind == CurriculumContentKind.satz)
+          .map((link) => link.contentId)
+          .toSet();
       _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
       _loading = false;
@@ -136,8 +149,10 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _idx = 0;
       _passed = 0;
       _hasSubmittedAnswer = false;
+      _answerPending = false;
       _outcome = null;
       _feedbackCompletion.reset();
+      resetGameResult();
     });
   }
 
@@ -150,7 +165,13 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       ? _all.length
       : _all.where((item) => item.level == level).length;
 
-  Future<void> _showLevelFilter(AppL10n t) async {
+  Future<void> _showLevelFilter(AppL10n t, int roundId) async {
+    if (_roundId != roundId ||
+        _answerPending ||
+        !gameResultAcceptsInput ||
+        !studyEvidenceAcceptsInput) {
+      return;
+    }
     final next = await showSoriLevelFilterSheet(
       context: context,
       selected: _level ?? _allLevels,
@@ -158,11 +179,17 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       allLabel: t.clozeLevelAll,
       countFor: _levelCount,
     );
-    if (!mounted || next == null) return;
+    if (next == null ||
+        _roundId != roundId ||
+        _answerPending ||
+        !gameResultAcceptsInput ||
+        !studyEvidenceAcceptsInput) {
+      return;
+    }
     _setLevel(next == _allLevels ? null : next);
   }
 
-  Widget _levelChrome(AppL10n t) {
+  Widget _levelChrome(AppL10n t, int roundId) {
     if (widget.courseContext != null || widget.courseUnitId != null) {
       return const SizedBox.shrink();
     }
@@ -171,7 +198,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SoriChromeRow(
-        onFilterTap: () => _showLevelFilter(t),
+        onFilterTap: () => _showLevelFilter(t, roundId),
         filterSemanticLabel: t.clozeLevelLabel,
         meta: Text(
           '$label · ${_levelCount(selected)}',
@@ -181,38 +208,90 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     );
   }
 
-  void _onComplete(QuestResult result) {
-    final rid = _roundId;
+  Future<void> _onComplete(
+    QuestResult result,
+    int roundId,
+    int index,
+    SatzSentence item,
+  ) async {
+    if (!_isCurrentCard(roundId, index, item) ||
+        !gameResultAcceptsInput ||
+        !studyEvidenceAcceptsInput ||
+        _answerPending) {
+      return;
+    }
+    _answerPending = true;
     // Produktiver Abruf → Haupt-SRS. Key = Headword (vocabKo), NICHT der ganze
     // Satz → sonst Geisterkarten, die in der Wiederholung nie auftauchen.
-    if (_idx < _round.length) {
-      final item = _round[_idx];
-      final ko = item.vocabKo;
-      if (ko.isNotEmpty) {
-        Storage.srsReview(ko, gotIt: result.passed);
+    final srsAttempt = item.vocabKo.isEmpty
+        ? null
+        : SrsReviewAttempt(id: item.vocabKo, gotIt: result.passed);
+    final courseAttempt = CourseContentAttempt(
+      kind: CurriculumContentKind.satz,
+      contentId: item.id,
+      isCorrect: result.passed,
+      isApplicable: _linkedCourseSentenceIds?.contains(item.id),
+      courseContext: _missionContext?.initialContentId == item.id
+          ? _missionContext
+          : null,
+      errorReason: result.passed ? null : MasteryErrorReason.wordOrder,
+    );
+    final saved = await saveStudyEvidence(() async {
+      if (srsAttempt != null && !await srsAttempt.save()) {
+        return false;
       }
-      // ignore: discarded_futures
-      CourseActivityReporter.recordContentAttempt(
-        CurriculumContentKind.satz,
-        item.id,
-        result.passed,
-        courseContext: _missionContext?.initialContentId == item.id
-            ? _missionContext
-            : null,
-        errorReason: result.passed ? null : MasteryErrorReason.wordOrder,
-      );
+      if (!_isCurrentCard(roundId, index, item) ||
+          !studyEvidenceMayFlushAcceptedProgress ||
+          !gameResultAcceptsInput) {
+        return false;
+      }
+      final courseResult = await courseAttempt.save();
+      return courseResult == CourseContentAttemptResult.persisted ||
+          courseResult == CourseContentAttemptResult.notApplicable;
+    });
+    if (!saved ||
+        !_isCurrentCard(roundId, index, item) ||
+        !gameResultAcceptsInput) {
+      return;
     }
     if (result.passed) _passed++;
     Future.delayed(const Duration(milliseconds: 300), () {
       // Bei Level-Wechsel/Neustart während der Verzögerung nicht die neue
       // Runde verschieben (Round-Token-Guard).
-      if (!mounted || _roundId != rid) return;
-      setState(() => _idx++);
+      if (!_isCurrentCard(roundId, index, item) || !gameResultAcceptsInput) {
+        return;
+      }
+      setState(() {
+        _idx++;
+        _answerPending = false;
+      });
       if (_idx >= _round.length) _finish();
     });
   }
 
+  bool _isCurrentCard(int roundId, int index, SatzSentence item) =>
+      mounted &&
+      _roundId == roundId &&
+      _idx == index &&
+      index >= 0 &&
+      index < _round.length &&
+      identical(_round[index], item);
+
+  void _retireStudy() {
+    retireStudyEvidence();
+    retireGameResult();
+  }
+
   Future<void> _finish() async {
+    final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
+    final outcome = await saveGameResult(
+      gameId: 'satz_arcade',
+      xp: _passed * 5,
+      score: pct,
+    );
+    if (!mounted || outcome == null) {
+      return;
+    }
     _feedbackCompletion.complete(
       () => FeedbackCompletion.satzArcade(
         contentLabel: AppL10n.of(context).satzArcadeTitle,
@@ -221,20 +300,27 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         total: _round.length,
       ),
     );
-    final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
-    final outcome = await recordGameResult(
-      gameId: 'satz_arcade',
-      xp: _passed * 5,
-      score: pct,
-    );
     if (mounted) setState(() => _outcome = outcome);
   }
 
   @override
   Widget build(BuildContext context) {
+    final evidenceRecovery = studyEvidenceRecoveryFrame(
+      AppL10n.of(context).satzArcadeTitle,
+    );
+    if (evidenceRecovery != null) {
+      return evidenceRecovery;
+    }
+    final recovery = gameResultRecoveryFrame(
+      AppL10n.of(context).satzArcadeTitle,
+    );
+    if (recovery != null) {
+      return recovery;
+    }
     final t = AppL10n.of(context);
     if (_loading) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.satzArcadeTitle,
         padding: EdgeInsets.zero,
         child: const Center(child: CircularProgressIndicator()),
@@ -242,6 +328,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     }
     if (_round.isEmpty) {
       return SoriStudyFrame(
+        onLeave: _retireStudy,
         title: t.satzArcadeTitle,
         padding: EdgeInsets.zero,
         child: Column(
@@ -249,7 +336,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
             if (widget.items == null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                child: _levelChrome(t),
+                child: _levelChrome(t, _roundId),
               ),
             Expanded(
               child: Center(
@@ -272,7 +359,10 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     }
 
     final item = _round[_idx];
+    final roundId = _roundId;
+    final index = _idx;
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       title: t.satzArcadeTitle,
       homeEscape: SoriHomeEscape(confirmWhen: _hasSubmittedAnswer),
       eyebrow:
@@ -282,17 +372,21 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.items == null) _levelChrome(t),
+            if (widget.items == null) _levelChrome(t, roundId),
             Expanded(
               child: SatzBauenQuest(
                 key: ValueKey('satz_${_roundId}_$_idx'),
                 data: item.toQuestData(),
                 onAttempt: () {
-                  if (!_hasSubmittedAnswer) {
+                  if (_isCurrentCard(roundId, index, item) &&
+                      gameResultAcceptsInput &&
+                      studyEvidenceAcceptsInput &&
+                      !_hasSubmittedAnswer) {
                     setState(() => _hasSubmittedAnswer = true);
                   }
                 },
-                onComplete: _onComplete,
+                onComplete: (result) =>
+                    _onComplete(result, roundId, index, item),
               ),
             ),
           ],
@@ -303,7 +397,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
+    final roundId = _roundId;
     return SoriStudyFrame(
+      onLeave: _retireStudy,
       automaticallyImplyLeading: false,
       title: t.satzArcadeTitle,
       padding: EdgeInsets.zero,
@@ -328,13 +424,28 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
               variant: SoriButtonVariant.filled,
               accent: SoriColors.contentCta,
               fullWidth: true,
-              onTap: _newRound,
+              onTap: () {
+                if (_roundId == roundId &&
+                    _idx >= _round.length &&
+                    gameResultAcceptsInput &&
+                    studyEvidenceAcceptsInput) {
+                  _newRound();
+                }
+              },
             ),
             SoriButton(
               label: t.btnClose,
               variant: SoriButtonVariant.ghost,
               fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () {
+                if (_roundId == roundId &&
+                    _idx >= _round.length &&
+                    gameResultAcceptsInput &&
+                    studyEvidenceAcceptsInput) {
+                  _retireStudy();
+                  Navigator.of(context).maybePop();
+                }
+              },
             ),
           ],
         ),

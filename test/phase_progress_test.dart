@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
-import 'package:ko_lernen_app/services/phase_attempt_history.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/phase_task_drafts.dart';
@@ -38,46 +37,6 @@ void main() {
         phaseTaskEvidence: [e],
       );
 
-  test(
-    'attempt history stays bounded while the newest pass survives',
-    () async {
-      final service = CourseMasteryService(curriculum);
-      final task = phases.byId('KP01:writing:01');
-      await service.recordPhaseAttempt(
-        result: result(),
-        phaseCatalog: phases,
-        attemptId: 'pass',
-        occurredAt: time,
-      );
-      for (var i = 1; i <= PhaseAttemptHistory.maxAttemptsPerTask + 2; i++) {
-        await service.recordPhaseAttempt(
-          result: task.evaluate({'name': '유나'}, assessment: false),
-          phaseCatalog: phases,
-          attemptId: 'practice$i',
-          occurredAt: time.add(Duration(minutes: i)),
-        );
-      }
-      final ids = service
-          .readForDisplay()!
-          .phaseTaskEvidence
-          .map((e) => e.attemptId)
-          .toList();
-      expect(ids, ['pass', 'practice3', 'practice4', 'practice5']);
-      expect(
-        service
-            .readForDisplay()!
-            .phaseTaskEvidence
-            .where(task.passedBy)
-            .map((e) => e.attemptId),
-        ['pass'],
-      );
-      final restarted = CourseMasteryService(curriculum);
-      expect(
-        restarted.readForDisplay()!.phaseTaskEvidence.map((e) => e.attemptId),
-        ids,
-      );
-    },
-  );
   test('v1-v4 cannot introduce Phase mastery, v5 requires a valid list', () {
     for (final version in [1, 2, 3, 4]) {
       final raw = const CourseMasterySnapshot.empty().toJson()

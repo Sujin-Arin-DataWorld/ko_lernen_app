@@ -720,8 +720,11 @@ void main() {
         scrollable: find.byType(Scrollable).first,
       );
       await tester.ensureVisible(deleteTile);
+      await tester.pump();
+      expect(deleteTile.hitTestable(), findsOneWidget);
       await tester.tap(deleteTile);
       await tester.pumpAndSettle();
+      expect(find.text('Löschen'), findsWidgets);
       await tester.tap(find.text('Löschen').last);
       await tester.pumpAndSettle();
 

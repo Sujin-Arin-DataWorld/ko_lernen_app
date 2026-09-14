@@ -1,0 +1,93 @@
+name: App Store iOS Screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: Full 40-character main commit SHA to capture
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: app-store-ios-screenshots
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    name: Real iPhone and iPad store captures
+    runs-on: macos-15-intel
+    timeout-minutes: 120
+    env:
+      CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - name: Checkout exact capture source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact green main source
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "::error::Screenshots may only be captured from main."
+            exit 1
+          fi
+          if [[ ! "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::expected_sha must be a full lowercase commit SHA."
+            exit 1
+          fi
+          test "$GITHUB_SHA" = "$EXPECTED_SHA"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          successes="$(
+            gh api \
+              "repos/${GITHUB_REPOSITORY}/actions/workflows/ci.yml/runs?branch=main&status=completed&per_page=100" |
+              jq --arg sha "$EXPECTED_SHA" \
+                '[.workflow_runs[] | select(.head_sha == $sha and .head_branch == "main" and .event == "push" and .conclusion == "success")] | length'
+          )"
+          test "$successes" -ge 1
+
+      - name: Verify pinned Xcode and simulator SDK
+        run: |
+          set -euo pipefail
+          test "$(uname -m)" = "x86_64"
+          test -d "$DEVELOPER_DIR"
+          xcode_version="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_version"
+          test "${xcode_version%%$'\n'*}" = "Xcode 26.3"
+          sdk_version="$(xcrun --sdk iphonesimulator --show-sdk-version)"
+          test "$sdk_version" = "26.2"
+
+      - name: Prepare existing pinned iOS toolchain and plugins
+        run: bash ios/ci_scripts/ci_post_clone.sh
+
+      - name: Capture production learning routes
+        run: >-
+          bash .github/scripts/capture_app_store_screenshots.sh
+          "$RUNNER_TEMP/app-store-screenshots"
+
+      - name: Validate captures and write exact-source receipt
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          set -euo pipefail
+          python3 .github/scripts/build_app_store_screenshot_receipt.py \
+            --artifact-root "$RUNNER_TEMP/app-store-screenshots" \
+            --expected-sha "$EXPECTED_SHA" \
+            --workflow-run-url "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+      - name: Retain screenshots, hashes, device receipt, and logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: app-store-ios-screenshots-${{ github.sha }}
+          path: ${{ runner.temp }}/app-store-screenshots
+          if-no-files-found: error
+          retention-days: 14

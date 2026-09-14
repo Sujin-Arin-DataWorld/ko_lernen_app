@@ -1,3 +1,6 @@
+import 'local_data_lifetime.dart';
+import 'storage_service.dart';
+
 /// The evidence state for one vocabulary word during one pack session.
 ///
 /// This is deliberately session-local. It is not an SRS card state and must
@@ -96,6 +99,42 @@ class PackRecallSession {
   final String packId;
   final PackSessionSrsLedger ledger;
   final bool _canRecordEvidence;
+  final _lifetime = LocalDataLifetime.capture();
+  Future<void> _writeTail = Future.value();
+  PackSrsEvidenceAttempt? _pendingEvidence;
+
+  /// Retain this attempt while the same judgment is retried. Session state is
+  /// published only after its SRS card and daily study log are confirmed.
+  PackSrsEvidenceAttempt evidenceAttempt({
+    required String expectedPackId,
+    required String wordId,
+    required bool gotIt,
+  }) => PackSrsEvidenceAttempt._(this, expectedPackId, wordId, gotIt);
+
+  Future<bool> _saveEvidence(PackSrsEvidenceAttempt attempt) {
+    final result = _writeTail.then((_) async {
+      if (!isValidForPack(attempt.expectedPackId)) {
+        return true;
+      }
+      _lifetime.assertCurrent();
+      final pending = _pendingEvidence;
+      if (pending != null) {
+        await pending._persist();
+        _pendingEvidence = null;
+      }
+      if (!attempt._saved) {
+        _pendingEvidence = attempt;
+        await attempt._persist();
+        _pendingEvidence = null;
+      }
+      return true;
+    });
+    _writeTail = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
 
   bool get isPracticeOnly => !_canRecordEvidence;
 
@@ -127,5 +166,50 @@ class PackRecallSession {
       return PackSessionSrsAction.none;
     }
     return ledger.recordNegative(wordId);
+  }
+}
+
+/// One accepted answer, with the exact native attempt retained on failure.
+class PackSrsEvidenceAttempt {
+  PackSrsEvidenceAttempt._(
+    this._session,
+    this.expectedPackId,
+    this.wordId,
+    this.gotIt,
+  );
+  final PackRecallSession _session;
+  final String expectedPackId;
+  final String wordId;
+  final bool gotIt;
+  SrsReviewAttempt? _srs;
+  bool _saved = false;
+
+  Future<bool> save() => _session._saveEvidence(this);
+
+  Future<void> _persist() async {
+    _session._lifetime.assertCurrent();
+    if (_saved) {
+      return;
+    }
+    final state = _session.ledger.stateFor(wordId);
+    final needsWrite =
+        wordId.trim().isNotEmpty &&
+        (gotIt
+            ? state == PackSessionSrsState.unrated
+            : state != PackSessionSrsState.negative);
+    if (needsWrite) {
+      final srs = _srs ??= SrsReviewAttempt(id: wordId, gotIt: gotIt);
+      if (!await srs.save()) {
+        _session._lifetime.assertCurrent();
+        throw StateError('Pack SRS evidence has not been confirmed.');
+      }
+      _session._lifetime.assertCurrent();
+      if (gotIt) {
+        _session.ledger.recordPositive(wordId);
+      } else {
+        _session.ledger.recordNegative(wordId);
+      }
+    }
+    _saved = true;
   }
 }

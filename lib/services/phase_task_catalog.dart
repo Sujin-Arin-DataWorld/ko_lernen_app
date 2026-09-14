@@ -10,6 +10,7 @@ class PhaseTaskCatalog {
   PhaseTaskCatalog._(this.tasks, this.objectives, this.publications)
     : _byId = {for (final task in tasks) task.id: task};
   static const assetPath = 'assets/data/phase_tasks.json';
+  static const phaseAssetPath = 'assets/data/learning_phases.json';
   final List<PhaseTask> tasks;
   final List<PhaseObjectiveBinding> objectives;
   final List<PhasePublication> publications;
@@ -48,12 +49,10 @@ class PhaseTaskCatalog {
 
   static Future<PhaseTaskCatalog> _loadUncached() async {
     final json =
-        jsonDecode(await rootBundle.loadString(assetPath))
+        jsonDecode(await rootBundle.loadString(assetPath, cache: false))
             as Map<String, dynamic>;
     final phases =
-        jsonDecode(
-              await rootBundle.loadString('assets/data/learning_phases.json'),
-            )
+        jsonDecode(await rootBundle.loadString(phaseAssetPath, cache: false))
             as Map<String, dynamic>;
     final catalog = parse(json);
     if (phases['schemaVersion'] != 2 ||
@@ -170,11 +169,4 @@ class PhaseTaskCatalog {
       _byId[id] ?? (throw const FormatException('Unknown Phase task'));
   bool accepts(PhaseTaskResult result) =>
       byId(result.task.id).contentHash == result.task.contentHash;
-
-  /// Whether [evidence] is a current pass of a task that is still published.
-  /// Evidence for a withdrawn or revised task is never a current pass.
-  bool currentlyPassedBy(PhaseAttemptEvidence evidence) {
-    final task = _byId[evidence.taskId];
-    return task != null && task.passedBy(evidence);
-  }
 }

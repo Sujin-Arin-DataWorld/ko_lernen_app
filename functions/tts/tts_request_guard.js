@@ -246,12 +246,36 @@ function ttsSynthesisPlan(claim, hasAudio) {
   return { action: "wait", reason: "completed_miss" };
 }
 
+const GRPC_STATUS_NAMES = Object.freeze([
+  "ok",
+  "cancelled",
+  "unknown",
+  "invalid-argument",
+  "deadline-exceeded",
+  "not-found",
+  "already-exists",
+  "permission-denied",
+  "resource-exhausted",
+  "failed-precondition",
+  "aborted",
+  "out-of-range",
+  "unimplemented",
+  "internal",
+  "unavailable",
+  "data-loss",
+  "unauthenticated",
+]);
+const TTS_LOG_ERROR_CODES = new Set(GRPC_STATUS_NAMES);
+
 function ttsLogErrorCode(error) {
   if (!error || typeof error !== "object") {
     return "internal";
   }
   const code = error.code;
-  if (typeof code === "string" && /^[a-z][a-z0-9_-]{0,40}$/i.test(code)) {
+  if (Number.isInteger(code) && code >= 0 && code < GRPC_STATUS_NAMES.length) {
+    return GRPC_STATUS_NAMES[code];
+  }
+  if (typeof code === "string" && TTS_LOG_ERROR_CODES.has(code)) {
     return code;
   }
   return "internal";

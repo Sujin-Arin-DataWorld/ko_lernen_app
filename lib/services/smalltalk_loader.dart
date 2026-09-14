@@ -6,6 +6,8 @@ import '../models/smalltalk.dart';
 /// Lädt und cached den Small-talk-Korpus aus `assets/data/smalltalk.json`.
 /// Pattern wie [ScenarioLoader] — best-effort, wirft nie.
 class SmalltalkLoader {
+  static const assetPath = 'assets/data/smalltalk.json';
+
   static List<SmalltalkCategory>? _cats;
   static List<SmalltalkPhrase>? _phrases;
   static String? lastError;
@@ -13,7 +15,7 @@ class SmalltalkLoader {
   static Future<void> load() async {
     if (_phrases != null) return;
     try {
-      final raw = await rootBundle.loadString('assets/data/smalltalk.json');
+      final raw = await rootBundle.loadString(assetPath);
       final json = jsonDecode(raw) as Map<String, dynamic>;
       _cats = (json['categories'] as List? ?? const [])
           .whereType<Map<String, dynamic>>()
@@ -48,5 +50,6 @@ class SmalltalkLoader {
     _cats = null;
     _phrases = null;
     lastError = null;
+    rootBundle.evict(assetPath);
   }
 }

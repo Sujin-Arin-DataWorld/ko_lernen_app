@@ -4,6 +4,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_finish_coordinator.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -12,6 +13,7 @@ import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helpers/deck_actions.dart';
 import 'support/sori_speech_stubs.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late SoriSpeechStub stub;
@@ -30,9 +32,7 @@ void main() {
     // 스텁으로 바꿔 dedupe 윈도우가 정상적으로 열리고 닫히게 한다.
     stub = stubSoriSpeech();
   });
-  testWidgets('Learn 카드 전진 시 새로 보이는 카드와 그 다음 카드를 프리페치한다', (
-    tester,
-  ) async {
+  testWidgets('Learn 카드 전진 시 새로 보이는 카드와 그 다음 카드를 프리페치한다', (tester) async {
     final t = await _pumpPack(tester, _pack(count: 3));
     // 큐 변이(markKnown)는 _advanceLearn() 호출 전에 이미 끝나 있다 —
     // [단어1,단어2,단어3] → GotIt(단어1) → [단어2,단어3]. 그 시점의
@@ -84,6 +84,9 @@ void main() {
         .widgetList<QuizChoice>(find.byType(QuizChoice))
         .firstWhere((choice) => choice.isCorrect)
         .onSelected!();
+    for (var index = 0; index < 30; index++) {
+      await tester.pump();
+    }
     await tester.pump(const Duration(milliseconds: 900));
     // _quizQuestions는 pack.normalWords를 shuffledAssessmentOrder로 섞은
     // 순열이다 — 그 rng는 seed 없는 math.Random()(vocab_pack_screen.dart
@@ -95,9 +98,7 @@ void main() {
     // 한 단어 — 즉 정확히 문항2 — 를 유일한 기대값으로 도출한다.
     final remaining = pack.words
         .map((v) => v.korean)
-        .where(
-          (korean) => korean != stub.spoken[0] && korean != stub.spoken[1],
-        )
+        .where((korean) => korean != stub.spoken[0] && korean != stub.spoken[1])
         .toList();
     expect(remaining, hasLength(1));
     // M7: _advanceQuiz는 list[_qIdx + 1]단 하나만 프리페치한다(Learn의
@@ -107,7 +108,9 @@ void main() {
     expect(stub.prefetched, [remaining.single]);
   });
 }
+
 Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
+  await tester.runAsync(CurriculumCatalog.load);
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
@@ -129,6 +132,7 @@ Future<AppL10n> _pumpPack(WidgetTester tester, VocabPack pack) async {
   await tester.pump(const Duration(milliseconds: 300));
   return AppL10n.delegate.load(const Locale('de'));
 }
+
 VocabPack _pack({required int count}) => VocabPack(
   id: 'a1_prefetch_$count',
   level: 'A1',
@@ -150,6 +154,7 @@ VocabPack _pack({required int count}) => VocabPack(
       ),
   ],
 );
+
 class _NoopFinishOperations implements VocabPackFinishOperations {
   @override
   Future<VocabPackFinishOutcome> recordBossAttempt(

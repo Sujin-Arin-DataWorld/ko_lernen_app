@@ -13,6 +13,7 @@ import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
@@ -248,9 +249,7 @@ class _HangulScreenState extends State<HangulScreen>
         // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
         // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
         // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-        physics: _tabIndex == 0
-            ? null
-            : const NeverScrollableScrollPhysics(),
+        physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
         children: [
           _OverviewTab(speak: _speakJamo),
           _CardsTab(
@@ -284,11 +283,7 @@ class _OverviewTab extends StatelessWidget {
         padding: padding,
         children: [
           _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-          _CharGrid(
-            chars: consonants,
-            color: SoriColors.primary,
-            speak: speak,
-          ),
+          _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
           const SizedBox(height: 24),
           _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
           _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
@@ -665,10 +660,21 @@ class _CardsTabState extends State<_CardsTab> {
   /// **읽는 유일한 경로**다 — 이게 없으면 좌/우 판정이 write-only 라 아무
   /// 효과가 없다(grammar 의 Schwer 필터와 같은 모양, `grammar_screen.dart:215`).
   bool _hardOnly = false;
+  late final ConfirmedChoiceActionOwner _choiceOwner;
+  int _likeSourceGeneration = 0;
 
   @override
   void initState() {
     super.initState();
+    _choiceOwner = ConfirmedChoiceActionOwner(
+      isCurrentSource: () =>
+          mounted && (ModalRoute.of(context)?.isActive ?? false),
+      onConfirmed: () {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) {
         return;
@@ -679,6 +685,7 @@ class _CardsTabState extends State<_CardsTab> {
 
   @override
   void dispose() {
+    _choiceOwner.dispose();
     _flipHint.dispose();
     super.dispose();
   }
@@ -740,6 +747,8 @@ class _CardsTabState extends State<_CardsTab> {
 
   void _toggleHardOnly() {
     HapticFeedback.selectionClick();
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     setState(() {
       _hardOnly = !_hardOnly;
       _idx = 0;
@@ -815,15 +824,19 @@ class _CardsTabState extends State<_CardsTab> {
     });
   }
 
-  Future<void> _likeCurrent() async {
-    final letter = _pool[_idx % _pool.length].letter;
-    await LikedContentService.toggle(
-      kind: LikedContentService.hangul,
-      id: letter,
-    );
-    if (mounted) {
-      setState(() {});
+  Future<void> _likeLetter(String letter, int sourceGeneration) async {
+    if (sourceGeneration != _likeSourceGeneration ||
+        _pool[_idx % _pool.length].letter != letter) {
+      return;
     }
+    await _choiceOwner.toggle(
+      context,
+      ConfirmedChoiceTarget.liked(
+        label: letter,
+        kind: LikedContentService.hangul,
+        id: letter,
+      ),
+    );
   }
 
   Future<void> _shareCurrent() async {
@@ -838,6 +851,8 @@ class _CardsTabState extends State<_CardsTab> {
   void _setMode(int m) {
     if (_mode == m) return;
     HapticFeedback.selectionClick();
+    _likeSourceGeneration++;
+    _choiceOwner.replaceSource();
     setState(() {
       _sessionInteractions++;
       _mode = m;
@@ -1033,6 +1048,7 @@ class _CardsTabState extends State<_CardsTab> {
   @override
   Widget build(BuildContext context) {
     final c = _pool[_idx % _pool.length];
+    final likeSourceGeneration = _likeSourceGeneration;
     final s = SoriSurfaces.of(context);
     return _HangulCardsViewport(
       child: Padding(
@@ -1090,7 +1106,7 @@ class _CardsTabState extends State<_CardsTab> {
                     onHard: _dontKnow,
                     onSkip: _next,
                     onPrevious: _prev,
-                    onLike: _likeCurrent,
+                    onLike: () => _likeLetter(c.letter, likeSourceGeneration),
                     onShare: _shareCurrent,
                     onFlip: () {
                       unawaited(widget.speak(c.letter));

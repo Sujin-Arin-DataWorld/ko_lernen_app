@@ -96,6 +96,16 @@ void main() {
 
       expect(find.byKey(const ValueKey('path-course-row-a2_02')), findsOne);
       expect(find.byKey(const ValueKey('path-course-row-a1_03')), findsNothing);
+      final phases = find.byKey(const ValueKey('path-learning-phases'));
+      await tester.scrollUntilVisible(phases, 240);
+      await tester.ensureVisible(phases);
+      await tester.tap(phases);
+      await tester.pumpAndSettle();
+      expect(openedRoute, '/course/phases');
+      expect(openedArguments, 'A2');
+      tester.state<NavigatorState>(find.byType(Navigator)).pop();
+      await tester.pumpAndSettle();
+
       final currentMission = find.byKey(const ValueKey('path-current-mission'));
       await tester.scrollUntilVisible(currentMission, 240);
       await tester.tap(currentMission);

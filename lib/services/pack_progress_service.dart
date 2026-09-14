@@ -299,7 +299,9 @@ class PackProgressService {
       // updates its in-memory cache synchronously, so this is visible to
       // the very next call even though the disk write itself is async.
       // ignore: discarded_futures, unawaited_futures
-      Storage.setPackProgressJson(migrated.packId, migrated.toJson());
+      if (!PackCompletionStorage.admissionClosed) {
+        Storage.setPackProgressJson(migrated.packId, migrated.toJson());
+      }
       return migrated;
     }
     return null;
@@ -311,9 +313,7 @@ class PackProgressService {
   /// Ein alter Key wird nie zurückgegeben.
   static Map<String, PackProgress> getAll() {
     final raw = Storage.allPackProgressJson();
-    final decoded = raw.map(
-      (k, v) => MapEntry(k, PackProgress.fromJson(k, v)),
-    );
+    final decoded = raw.map((k, v) => MapEntry(k, PackProgress.fromJson(k, v)));
     return _withAliasesResolved(decoded);
   }
 
@@ -424,8 +424,41 @@ class PackProgressService {
     List<VocabPack> allPacksInLevel, {
     required double bossAccuracy,
   }) async {
+    final plan = prepareBossAttempt(
+      pack,
+      allPacksInLevel,
+      bossAccuracy: bossAccuracy,
+      existing: getAll(),
+      earnedAt: DateTime.now(),
+    );
+    await _persist(plan.progress);
+    if (plan.nextProgress case final next?) {
+      await _persist(next);
+    }
+    return (
+      progress: plan.progress,
+      justCleared: plan.justCleared,
+      nextUnlocked: plan.nextUnlocked,
+    );
+  }
+
+  /// Shared terminal policy; preparation never persists or starts cloud work.
+  static ({
+    PackProgress progress,
+    PackProgress? nextProgress,
+    bool justCleared,
+    VocabPack? nextUnlocked,
+  })
+  prepareBossAttempt(
+    VocabPack pack,
+    List<VocabPack> allPacksInLevel, {
+    required double bossAccuracy,
+    required Map<String, PackProgress> existing,
+    required DateTime earnedAt,
+  }) {
+    existing = _withAliasesResolved(existing);
     final current =
-        get(pack.id) ??
+        existing[pack.id] ??
         PackProgress.fresh(
           packId: pack.id,
           level: pack.level,
@@ -456,24 +489,22 @@ class PackProgressService {
       bossAccuracy: bestAccuracy,
       clearedAtIso: wasCleared
           ? current.clearedAtIso
-          : (nowCleared ? DateTime.now().toUtc().toIso8601String() : null),
+          : (nowCleared ? earnedAt.toUtc().toIso8601String() : null),
     );
-    await _persist(updated);
 
     VocabPack? unlockedNext;
+    PackProgress? nextProgress;
     if (!wasCleared && nowCleared) {
       // Keep the existing next-pack CTA and normalize any legacy stored lock.
       final next = nextPackInLevel(pack.id, allPacksInLevel);
       if (next != null) {
-        final nextExisting = get(next.id);
+        final nextExisting = existing[next.id];
         if (nextExisting == null || nextExisting.status == PackStatus.locked) {
-          await _persist(
-            PackProgress.fresh(
-              packId: next.id,
-              level: next.level,
-              wordsTotal: next.total,
-              status: PackStatus.available,
-            ),
+          nextProgress = PackProgress.fresh(
+            packId: next.id,
+            level: next.level,
+            wordsTotal: next.total,
+            status: PackStatus.available,
           );
           unlockedNext = next;
         }
@@ -482,6 +513,7 @@ class PackProgressService {
 
     return (
       progress: updated,
+      nextProgress: nextProgress,
       justCleared: !wasCleared && nowCleared,
       nextUnlocked: unlockedNext,
     );
@@ -489,6 +521,9 @@ class PackProgressService {
 
   static Future<void> _persist(PackProgress p) async {
     await Storage.setPackProgressJson(p.packId, p.toJson());
+    if (PackCompletionStorage.admissionClosed) {
+      return;
+    }
     // Fire-and-forget Firestore sync.
     // ignore: discarded_futures, unawaited_futures
     FirestoreProgressService.savePack(p);

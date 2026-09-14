@@ -59,6 +59,7 @@ typedef TtsAudioResolver =
     Future<TtsAudio?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
 typedef TtsPlaybackStarted = void Function(String text, String voice);
+typedef TtsUnavailableReporter = void Function(TtsUnavailableReason reason);
 
 /// 서버 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
 ///
@@ -103,6 +104,26 @@ class TtsSynthesisBlocked implements Exception {
 
   @override
   String toString() => message;
+}
+
+class _TtsResolutionUnavailable implements Exception {
+  const _TtsResolutionUnavailable(this.message, {required this.reason});
+
+  final String message;
+  final TtsUnavailableReason reason;
+
+  @override
+  String toString() => message;
+}
+
+TtsUnavailableReason? _unavailableReasonFrom(Object error) {
+  if (error is TtsSynthesisBlocked) {
+    return error.reason;
+  }
+  if (error is _TtsResolutionUnavailable) {
+    return error.reason;
+  }
+  return null;
 }
 
 /// How the client should treat one Cloud Function TTS error.
@@ -288,6 +309,7 @@ class TtsPlaybackEngine {
     this.completionTimeout = const Duration(seconds: 30),
     this.errorReporter,
     this.onResolutionFailed,
+    this.onResolutionUnavailable,
     this.onPlaybackFailed,
     this.onPlaybackStarted,
   });
@@ -304,6 +326,7 @@ class TtsPlaybackEngine {
   // 불려, TtsService 가 unavailable(오프라인 추정) 배너를 그 계열에만
   // 한정할 수 있게 한다.
   final TtsErrorReporter? onResolutionFailed;
+  final TtsUnavailableReporter? onResolutionUnavailable;
   // Keep device playback failures distinct from missing/network audio. A
   // cancelled or superseded request must not show a failure for the new one.
   final TtsErrorReporter? onPlaybackFailed;
@@ -363,14 +386,22 @@ class TtsPlaybackEngine {
             // TtsSynthesisBlocked 는 사유 문자열이 이미 사람이 읽을 말이다.
             // 그 외 예외(finding 1b — 예전엔 여기서 조용히 버려졌다)도
             // errorReporter 로 보내야 lastError 가 갱신된다.
-            final message = error is TtsSynthesisBlocked
-                ? error.message
-                : 'TTS resolution failed: $error';
-            errorReporter?.call(message);
-            // post-review: unavailable 배너는 이 "해석 실패" 분기에서만
-            // 켠다 — stop/시작/완료 같은 재생-기전 실패(아래 catch 들)는
-            // errorReporter 만 타고 onResolutionFailed 는 타지 않는다.
-            onResolutionFailed?.call(message);
+            final message = switch (error) {
+              TtsSynthesisBlocked() => error.message,
+              _TtsResolutionUnavailable() => error.message,
+              _ => 'TTS resolution failed: $error',
+            };
+            if (!_disposed && generation == _generation) {
+              errorReporter?.call(message);
+              final unavailableReason = _unavailableReasonFrom(error);
+              if (unavailableReason != null) {
+                onResolutionUnavailable?.call(unavailableReason);
+              }
+              // post-review: unavailable 배너는 이 "해석 실패" 분기에서만
+              // 켠다 — stop/시작/완료 같은 재생-기전 실패(아래 catch 들)는
+              // errorReporter 만 타고 onResolutionFailed 는 타지 않는다.
+              onResolutionFailed?.call(message);
+            }
             return const _TtsResolution(audio: null, failureReported: true);
           },
         );
@@ -617,6 +648,7 @@ class TtsService {
         _reportUnavailable(TtsUnavailableReason.audioUnavailable);
       }
     },
+    onResolutionUnavailable: _reportUnavailable,
     onPlaybackFailed: (_) =>
         _reportUnavailable(TtsUnavailableReason.playbackFailed),
     onPlaybackStarted: (text, voice) {
@@ -625,8 +657,8 @@ class TtsService {
     },
   );
 
-  /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
-  /// 상한을 두는 이유: 한 세션에서 수백 줄을 들으면 탭이 무거워진다.
+  /// 웹 또는 네이티브 디스크 실패용 메모리 캐시.
+  /// 상한을 두는 이유: 한 세션에서 수백 줄을 들으면 프로세스가 무거워진다.
   static final Map<String, Uint8List> _memoryCache = <String, Uint8List>{};
   static const int _memoryCacheEntries = 64;
   static TtsPrivateCache? _privateCache;
@@ -640,6 +672,10 @@ class TtsService {
   static DateTime Function()? _privateNowForTesting;
   static Duration Function()? _privateElapsedForTesting;
   static Future<void> Function()? _preparePlaybackForTesting;
+  static Future<TtsAudio?> Function(String text, String voice)?
+  _prefetchResolverForTesting;
+  static Future<Uint8List?> Function(TtsCacheKey key)?
+  _canonicalDownloadForTesting;
 
   @visibleForTesting
   static void configurePrivateForTesting({
@@ -802,16 +838,29 @@ class TtsService {
     if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
       return;
     }
-    // 세션 내 1회로 묶는다. Storage 에 없는 텍스트는 매번 네트워크 왕복을
-    // 되풀이하고, 있는 텍스트도 mp3 전체를 다시 읽는다 — 카드를 넘길 때마다
-    // ±1 이웃이 겹쳐 들어오므로 이게 금방 수십 번이 된다.
+    // 성공한 키는 세션 내 1회로 묶는다. Storage 에 없는 텍스트와 일시적
+    // 실패는 다음 화면 진입에서 다시 시도할 수 있어야 한다. 있는 텍스트도
+    // mp3 전체를 다시 읽으므로 카드의 ±1 이웃 중복은 억제한다.
     final resolvedVoice = TtsVoicePolicy.resolve(text: trimmed, voice: voice);
     final key = '$resolvedVoice|$trimmed';
     if (!_prefetchAttempted.add(key)) {
       return;
     }
     try {
-      await _resolveAudio(trimmed, resolvedVoice, allowSynthesis: false);
+      final resolver = _prefetchResolverForTesting;
+      final TtsAudio? audio;
+      if (resolver == null) {
+        audio = await _resolveAudio(
+          trimmed,
+          resolvedVoice,
+          allowSynthesis: false,
+        );
+      } else {
+        audio = await resolver(trimmed, resolvedVoice);
+      }
+      if (audio == null) {
+        _prefetchAttempted.remove(key);
+      }
     } catch (_) {
       // 일시적 실패(시한 초과·오프라인)는 메모에서 뺀다. 예전에는 시도
       // **전에** 기록해서, 한 번 삐끗한 문자열이 그 세션 내내 봉인됐다 —
@@ -825,6 +874,13 @@ class TtsService {
 
   @visibleForTesting
   static void resetPrefetchMemoForTesting() => _prefetchAttempted.clear();
+
+  @visibleForTesting
+  static void setPrefetchResolverForTesting(
+    Future<TtsAudio?> Function(String text, String voice)? resolver,
+  ) {
+    _prefetchResolverForTesting = resolver;
+  }
 
   /// [texts] 를 동시 [concurrency] 개씩 미리 받는다. 중복은 알아서 제거한다.
   ///
@@ -977,7 +1033,8 @@ class TtsService {
     // 캐시 경로) 여기서 끝내지 않는다 — 그러면 Storage/공개 티어에 닿기도
     // 전에 검수된 정본 음성이 전부 끊긴다(#303 리뷰 P2). 웹과 같은
     // 파일 없는 경로(file == null)로 계속 가서 받은 바이트를 메모리 캐시에
-    // 두고 그대로 재생한다. 사유는 _ensureCacheDir 가 lastError 에 남긴다.
+    // 두고 그대로 재생한다. 디스크 캐시는 선택 사항이라 lastError 는 남기지
+    // 않는다 — 그 필드는 해석 실패(errorReporter) 전용이다.
     final Directory? dir = kIsWeb ? null : await _ensureCacheDir();
     final File? file = dir == null
         ? null
@@ -1005,25 +1062,26 @@ class TtsService {
         // 여기서 던지면 _resolveAudio 전체가 throw 해 Storage/CF 폴백을
         // 건너뛴다(finding 1a). Storage 로 넘어간다.
       }
-    } else {
-      final cached = _memoryCache[key.localFileName];
-      if (cached != null) {
-        return TtsAudio.bytes(cached);
-      }
+    }
+    final cached = _memoryCache[key.localFileName];
+    if (cached != null) {
+      return TtsAudio.bytes(cached);
     }
 
     // 3. Firebase Storage (사전생성된 고정 콘텐츠)
     try {
-      final Uint8List? data = kIsWeb
-          ? await TtsPublicWebAudio.read(
-              key,
-              maxBytes: _maxBytes,
-              timeout: _storageTimeout,
-            )
-          : await _storage
-                .ref(key.storagePath)
-                .getData(_maxBytes)
-                .timeout(_storageTimeout);
+      final download = _canonicalDownloadForTesting;
+      final Uint8List? data =
+          await (download != null
+                  ? download(key)
+                  : kIsWeb
+                  ? TtsPublicWebAudio.read(
+                      key,
+                      maxBytes: _maxBytes,
+                      timeout: _storageTimeout,
+                    )
+                  : _storage.ref(key.storagePath).getData(_maxBytes))
+              .timeout(_storageTimeout);
       if (data != null && TtsCacheKey.isUsableAudio(data)) {
         return await _cacheAndWrap(key, file, data);
       }
@@ -1084,12 +1142,14 @@ class TtsService {
       if (bytes != null) {
         return await _cacheAndWrap(key, file, bytes);
       }
-    } on TtsSynthesisBlocked catch (blocked) {
-      _reportUnavailable(blocked.reason);
+    } on TtsSynthesisBlocked {
       rethrow;
-    } catch (_) {
+    } catch (error) {
       // Firebase/Auth/App Check 에 못 닿았다. 무음이지만 이유는 남긴다.
-      _reportUnavailable(TtsUnavailableReason.offline);
+      throw _TtsResolutionUnavailable(
+        'TTS resolution failed: $error',
+        reason: TtsUnavailableReason.offline,
+      );
     }
     return null;
   }
@@ -1099,7 +1159,18 @@ class TtsService {
     String text,
     String voice, {
     bool allowSynthesis = false,
-  }) => _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
+  }) async {
+    try {
+      return await _resolveAudio(text, voice, allowSynthesis: allowSynthesis);
+    } catch (error) {
+      final unavailableReason = _unavailableReasonFrom(error);
+      if (unavailableReason == null) {
+        rethrow;
+      }
+      _reportUnavailable(unavailableReason);
+      return null;
+    }
+  }
 
   /// 테스트 전용 — 디스크 캐시 티어가 참조하는 디렉터리를 임시 디렉터리로
   /// 갈아끼운다. `_ensureCacheDir()`은 `_cacheDir`가 이미 있으면 그대로
@@ -1110,6 +1181,13 @@ class TtsService {
   @visibleForTesting
   static void setCacheDirForTesting(Directory? dir) {
     _cacheDir = dir;
+  }
+
+  @visibleForTesting
+  static void setCanonicalDownloadForTesting(
+    Future<Uint8List?> Function(TtsCacheKey key)? download,
+  ) {
+    _canonicalDownloadForTesting = download;
   }
 
   static String? _authenticatedUid() {
@@ -1130,8 +1208,10 @@ class TtsService {
   ) async {
     if (TtsPrivatePlayback.routeFor(defaultTargetPlatform, isWeb: kIsWeb) ==
         PrivateTtsRoute.denied) {
-      _reportUnavailable(TtsUnavailableReason.audioUnavailable);
-      return null;
+      throw const _TtsResolutionUnavailable(
+        'Private TTS playback is unavailable on this device.',
+        reason: TtsUnavailableReason.audioUnavailable,
+      );
     }
     final uid = _authenticatedUid();
     final session = _privateSessions.current;
@@ -1202,12 +1282,13 @@ class TtsService {
         return null;
       }
       return TtsAudio.privateBytes(audio);
-    } on TtsSynthesisBlocked catch (blocked) {
-      _reportUnavailable(blocked.reason);
+    } on TtsSynthesisBlocked {
       rethrow;
-    } catch (_) {
-      _reportUnavailable(TtsUnavailableReason.offline);
-      return null;
+    } catch (error) {
+      throw _TtsResolutionUnavailable(
+        'Private TTS resolution failed: $error',
+        reason: TtsUnavailableReason.offline,
+      );
     }
   }
 
@@ -1236,10 +1317,7 @@ class TtsService {
     Uint8List data,
   ) async {
     if (file == null) {
-      if (_memoryCache.length >= _memoryCacheEntries) {
-        _memoryCache.remove(_memoryCache.keys.first);
-      }
-      _memoryCache[key.localFileName] = data;
+      _rememberCanonicalBytes(key, data);
       return TtsAudio.bytes(data);
     }
     try {
@@ -1247,10 +1325,18 @@ class TtsService {
       _maybePruneCache(file.parent);
       return TtsAudio.path(file.path);
     } catch (_) {
-      // The public disk cache is optional. Keep the verified bytes playable
-      // without claiming that a failed cache write was persisted.
+      // The public disk cache is optional. Keep verified bytes playable and
+      // reusable in this process without claiming that they were persisted.
+      _rememberCanonicalBytes(key, data);
       return TtsAudio.bytes(data);
     }
+  }
+
+  static void _rememberCanonicalBytes(TtsCacheKey key, Uint8List data) {
+    if (_memoryCache.length >= _memoryCacheEntries) {
+      _memoryCache.remove(_memoryCache.keys.first);
+    }
+    _memoryCache[key.localFileName] = data;
   }
 
   /// 캐시 히트 시 mtime을 지금으로 갱신 — mtime 기반 prune(§9-4)이 진짜
@@ -1343,21 +1429,18 @@ class TtsService {
           continue;
         }
         if (kind == TtsCallableKind.retryInflight) {
-          lastError = TtsCallableFailure.alreadyInProgressMessage;
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.alreadyInProgressMessage,
             reason: TtsUnavailableReason.pendingSynthesis,
           );
         }
         if (kind == TtsCallableKind.blockQuota) {
-          lastError = TtsCallableFailure.quotaMessage;
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.quotaMessage,
             reason: TtsUnavailableReason.quota,
           );
         }
         if (kind == TtsCallableKind.blockUnavailable) {
-          lastError = TtsCallableFailure.audioUnavailableMessage;
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.audioUnavailableMessage,
             reason: TtsUnavailableReason.audioUnavailable,
@@ -1637,8 +1720,7 @@ class TtsService {
       }
       _cacheDir = dir;
       return dir;
-    } catch (e) {
-      lastError = '캐시 디렉토리 실패: $e';
+    } catch (_) {
       return null;
     }
   }

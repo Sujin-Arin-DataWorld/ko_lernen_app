@@ -62,7 +62,8 @@ void main() {
         '_recording || (_recorded != null && _result == null)',
     'lib/screens/pronunciation_studio_screen.dart':
         '_captureBusy || _assessing',
-    'lib/screens/review_session_screen.dart': '!_done && _reviewed > 0',
+    'lib/screens/review_session_screen.dart':
+        '!_done && (_reviewed > 0 || _pendingJudgment != null)',
     'lib/screens/satz_arcade_screen.dart': '_hasSubmittedAnswer',
     'lib/screens/scenario_player_screen.dart': '_stage > 0 && !_isResultStage',
     'lib/screens/silben_kreuz_screen.dart':
