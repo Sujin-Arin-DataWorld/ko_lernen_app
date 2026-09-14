@@ -2559,9 +2559,9 @@ Nodes (27): assetName, background, border, build, _DeckActionButton, deckActionK
 
 ### Community 287 - "_"
 Cohesion: 0.05
-Nodes (41): course_mastery.dart, dancheong, 
-  gate, 
-  windows, 
+Nodes (41): course_mastery.dart, dancheong,
+  gate,
+  windows,
   sideBuilding,, hanok_stage.dart, ildu_construction_art.dart, CourseUnit, _, a1Ratio, a2Ratio (+33 more)
 
 ### Community 288 - "quiz_choice.dart"
@@ -2644,7 +2644,7 @@ Nodes (26): apply(), _at_path(), _fingerprint(), main(), Any, Path, _read(), _sy
 Cohesion: 0.06
 Nodes (34): compact,
 
-  
+
   medium,, alignment, AppContentFrame, AppWindowClass, appWindowClassOf, build, catalogFeaturedRow, child (+26 more)
 
 ### Community 306 - "book_analysis_service.dart"
