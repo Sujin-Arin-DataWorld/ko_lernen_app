@@ -1,11 +1,10 @@
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
-import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { promisify } from "node:util";
 import { assertDeletionPageContract } from "./deletion-page-contract.mjs";
-import { requestPublicAsset } from "./public-asset-response.mjs";
+import { assertPublicAssetBody, requestPublicAsset } from "./public-asset-response.mjs";
 
 const execFileAsync = promisify(execFile);
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/sbvJNQSt";
@@ -84,10 +83,6 @@ async function listFiles(directory, prefix = "") {
     }
   }
   return files.sort();
-}
-
-function sha256(bytes) {
-  return createHash("sha256").update(bytes).digest("hex");
 }
 
 function collectReferencedBuildAssets(html, documentUrl, origin) {
@@ -306,17 +301,15 @@ for (const relativeUrl of [...referencedBuildAssets].sort()) {
 const publicFiles = await listFiles(publicPath);
 assert.ok(publicFiles.length > 0, "public/ must contain owned assets");
 for (const relativePath of publicFiles) {
-  const expectedHash = sha256(await readExpectedPublicAsset(relativePath));
+  const original = await readExpectedPublicAsset(relativePath);
   for (const origin of origins) {
     const assetUrl = `${origin}/${relativePath}`;
     const response = await requestPublicAsset(assetUrl, request);
-    const bytes = new Uint8Array(await response.arrayBuffer());
-    assert.ok(bytes.byteLength > 0, `${assetUrl} must not be empty`);
-    assert.equal(
-      sha256(bytes),
-      expectedHash,
-      `${assetUrl} must match the owned public asset byte-for-byte`,
-    );
+    if (relativePath.endsWith(".html")) {
+      assertSecurityHeaders(response, assetUrl);
+      assertReleaseHeader(response, assetUrl);
+    }
+    await assertPublicAssetBody(response, original, assetUrl);
   }
 }
 
@@ -335,5 +328,5 @@ if (external) {
 }
 
 console.log(
-  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} byte-exact assets, and the gated store CTAs on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
+  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} owned assets (HTML permits only the production script nonce), and the gated store CTAs on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
 );

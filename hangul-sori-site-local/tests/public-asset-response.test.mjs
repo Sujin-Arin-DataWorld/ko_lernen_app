@@ -1,8 +1,63 @@
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { once } from "node:events";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { requestPublicAsset } from "../scripts/public-asset-response.mjs";
+import { assertPublicAssetBody, requestPublicAsset } from "../scripts/public-asset-response.mjs";
+
+const productionHtmlUrl = "https://www.hangul-sori.com/hanok/construction/index.html";
+async function fetchProductionHtml(original) {
+  const { default: worker } = await import(new URL("../dist/server/index.js", import.meta.url));
+  return worker.fetch(new Request(productionHtmlUrl), {
+    ASSETS: { fetch: async () => new Response(original, { headers: { "content-type": "text/html; charset=utf-8" } }) },
+  }, { waitUntil() {}, passThroughOnException() {} });
+}
+
+test("accepts the built production Worker's CSP nonce while detecting every other HTML change", async () => {
+  const original = await readFile(new URL("../public/hanok/construction/index.html", import.meta.url));
+  const url = productionHtmlUrl;
+  const response = await fetchProductionHtml(original);
+  assert.equal(response.status, 200);
+  const rendered = await response.clone().text();
+  assert.notEqual(rendered, original.toString("utf8"), "the production hostname must exercise nonce injection");
+  await assertPublicAssetBody(response, original, url);
+
+  for (const html of [
+    rendered.replace('src="app.js"', 'src="unexpected.js"'),
+    `${rendered}<script>alert(1)</script>`,
+    rendered.replace(/nonce="[^"]+"/, 'nonce="wrong"'),
+    original.toString("utf8"),
+  ]) {
+    assert.notEqual(html, rendered, "each tampering fixture must change the response");
+    await assert.rejects(assertPublicAssetBody(new Response(html, { headers: response.headers }), original, url), /must match the owned public asset/);
+  }
+  const wrongCsp = new Headers(response.headers);
+  wrongCsp.set("content-security-policy", wrongCsp.get("content-security-policy").replace(/nonce-[^']+/, `nonce-${"A".repeat(24)}`));
+  await assert.rejects(assertPublicAssetBody(new Response(rendered, { headers: wrongCsp }), original, url), /must match the owned public asset/);
+  await assert.rejects(assertPublicAssetBody(new Response(rendered, { headers: { "content-type": "text/html" } }), original, url), /production script nonce/);
+  const unchangedAssets = [
+    ["original.png", Buffer.from([0, 1, 255, 128])],
+    ["app.js", Buffer.from('const example = "<script>";\n')],
+    ["styles.css", Buffer.from('/* <script> */\nbody { color: #fff; }\n')],
+  ];
+  for (const [path, bytes] of unchangedAssets) {
+    const assetUrl = `https://hangul-sori.com/${path}`;
+    await assertPublicAssetBody(new Response(bytes), bytes, assetUrl);
+    const changed = Buffer.from(bytes);
+    changed[0] ^= 1;
+    await assert.rejects(assertPublicAssetBody(new Response(changed), bytes, assetUrl), /byte-for-byte/);
+  }
+});
+
+test("applies the CSP nonce exactly once to every script in the original HTML", async () => {
+  const original = Buffer.from('<!doctype html><script src="app.js"></script><script type="application/json">{}</script><script>void 0</script>');
+  const response = await fetchProductionHtml(original);
+  const nonce = /'nonce-([^']+)'/.exec(response.headers.get("content-security-policy"))[1];
+  const rendered = await response.clone().text();
+  assert.equal((rendered.match(/ nonce="/g) ?? []).length, 3);
+  assert.equal(rendered, original.toString("utf8").replace(/<script(?=\s|>)/g, `<script nonce="${nonce}"`));
+  await assertPublicAssetBody(response, original, productionHtmlUrl);
+});
 
 test("verifies directory indexes through only their exact canonical redirect", async () => {
   const expected = Buffer.from("<!doctype html><title>한옥 공정</title>");
