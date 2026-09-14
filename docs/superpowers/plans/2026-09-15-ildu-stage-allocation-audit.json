@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "scope": "Planning-only stage-to-unit allocation; no published assessment mapping",
+  "reviewedOn": "2026-09-15",
+  "baselineSha": "a185bba83f1696e0f33656d02bb96d1049a55f7f",
+  "stageCount": 149,
+  "uniqueStageIds": 149,
+  "uniqueHashes": 149,
+  "totalBytes": 269109572.0,
+  "totalMiB": 256.64,
+  "levels": [
+    {
+      "level": "a1",
+      "count": 42
+    },
+    {
+      "level": "a2",
+      "count": 36
+    },
+    {
+      "level": "b1",
+      "count": 37
+    },
+    {
+      "level": "b2",
+      "count": 34
+    }
+  ],
+  "chapters": [
+    {
+      "chapterId": "anchae",
+      "count": 14
+    },
+    {
+      "chapterId": "anchae-store",
+      "count": 11
+    },
+    {
+      "chapterId": "ansarangchae",
+      "count": 14
+    },
+    {
+      "chapterId": "araechae",
+      "count": 12
+    },
+    {
+      "chapterId": "gokgan",
+      "count": 12
+    },
+    {
+      "chapterId": "jungmunganchae",
+      "count": 12
+    },
+    {
+      "chapterId": "sadang",
+      "count": 12
+    },
+    {
+      "chapterId": "sadangmun",
+      "count": 8
+    },
+    {
+      "chapterId": "sarangchae",
+      "count": 16
+    },
+    {
+      "chapterId": "site",
+      "count": 6
+    },
+    {
+      "chapterId": "sotdaeulmun",
+      "count": 12
+    },
+    {
+      "chapterId": "toilet",
+      "count": 12
+    },
+    {
+      "chapterId": "wall",
+      "count": 8
+    }
+  ],
+  "unreviewedAssessmentMappings": 149,
+  "allFileHashesMatch": true,
+  "runtimeEnablementApproved": false
+}
