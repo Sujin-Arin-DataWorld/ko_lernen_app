@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -26,6 +29,9 @@ class AppStoreScreenshotWorkflowContractTest(unittest.TestCase):
         cls.receipt = (
             ROOT / '.github/scripts/build_app_store_screenshot_receipt.py'
         ).read_text(encoding='utf-8')
+        cls.device_selector = (
+            ROOT / '.github/scripts/select_app_store_simulator_devices.py'
+        )
 
     def test_workflow_is_manual_exact_green_main_only(self) -> None:
         self.assertIn('workflow_dispatch:', self.workflow)
@@ -46,9 +52,43 @@ class AppStoreScreenshotWorkflowContractTest(unittest.TestCase):
         self.assertIn('for locale in de en', self.runner)
         self.assertIn('--use-application-binary="$app_path"', self.runner)
         self.assertIn('binary_sha256=', self.runner)
-        self.assertIn('iPad-Pro-13-inch-M4', self.runner)
-        self.assertIn('iPhone-16-Pro-Max', self.runner)
+        self.assertIn('select_app_store_simulator_devices.py', self.runner)
+        self.assertNotIn('iPad-Pro-13-inch-M4', self.runner)
         self.assertNotIn('flutter pub get', self.runner)
+
+    def test_device_selector_uses_installed_69_inch_phone_and_13_inch_ipad(self) -> None:
+        self.assertTrue(self.device_selector.is_file())
+        payload = {
+            'devicetypes': [
+                {
+                    'name': 'iPhone 16 Pro Max',
+                    'identifier': 'com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max',
+                },
+                {
+                    'name': 'iPad Pro 13-inch (M5)',
+                    'identifier': 'com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M5',
+                },
+                {
+                    'name': 'iPad Pro 13-inch (M4)',
+                    'identifier': 'com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M4',
+                },
+                {
+                    'name': 'iPad Air 13-inch (M3)',
+                    'identifier': 'com.apple.CoreSimulator.SimDeviceType.iPad-Air-13-inch-M3',
+                },
+            ]
+        }
+        result = subprocess.run(
+            [sys.executable, str(self.device_selector), '-'],
+            input=json.dumps(payload),
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        selected = json.loads(result.stdout)
+        self.assertEqual(selected['iphone-6.9']['name'], 'iPhone 16 Pro Max')
+        self.assertEqual(selected['ipad-13']['name'], 'iPad Pro 13-inch (M5)')
 
     def test_capture_uses_real_production_routes_without_grants(self) -> None:
         self.assertIn('KoLernenApp(', self.integration)
