@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -7,8 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
@@ -34,11 +38,15 @@ const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
 /// bullet for the exact regeneration command.
 void main() {
   late CulturalGlossary glossary;
+  late SarangchaeConstruction construction;
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
     glossary = CulturalGlossary.fromJsonString(
       await File(CulturalGlossaryRepository.assetPath).readAsString(),
+    );
+    construction = SarangchaeConstruction.fromJson(
+      jsonDecode(await File(SarangchaeConstruction.assetPath).readAsString()),
     );
   });
 
@@ -135,7 +143,10 @@ void main() {
     await tester.pumpWidget(
       _app(
         locale: const Locale('de'),
-        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
+        home: SoriStageHanokScreen(
+          loadSnapshot: () async => _snapshot(hanok: true),
+          loadConstruction: () async => construction,
+        ),
       ),
     );
     await _settleHanok(tester);
@@ -154,7 +165,10 @@ void main() {
     await tester.pumpWidget(
       _app(
         locale: const Locale('de'),
-        home: SoriStageHanokScreen(loadSnapshot: () async => _snapshot()),
+        home: SoriStageHanokScreen(
+          loadSnapshot: () async => _snapshot(hanok: true),
+          loadConstruction: () async => construction,
+        ),
       ),
     );
     await _settleHanok(tester);
@@ -223,7 +237,7 @@ Future<void> _awaitImageDecode(WidgetTester tester) async {
 }
 
 /// The Hanok tab resolves its competency snapshot asynchronously before
-/// showing the static V3 preview. A few pumps keep this visual harness aligned
+/// showing the approved construction stage. A few pumps keep this harness aligned
 /// with `sori_stage_hanok_fold_test.dart`'s `settle()` helper.
 Future<void> _settleHanok(WidgetTester tester) async {
   for (var i = 0; i < 10; i++) {
@@ -248,54 +262,79 @@ GyeMeta _gyeMeta() => const GyeMeta(
   weeklyPromiseWeekKey: '2026-W36',
 );
 
-SoriStageProgressionSnapshot _snapshot() => SoriStageProgressionSnapshot(
-  today: const TodayLearningSnapshot(
-    pick: ReviewPick(dueCount: 12),
-    destination: TodayLearningDestination(route: '/review'),
-    dueCount: 12,
-  ),
-  hanokCompetence: const HanokCompetenceProjection.empty(),
-  quests: const [],
-  pendingBojagiCount: 1,
-  stampCount: 4,
-  xp: 320,
-  streakDays: 6,
-  todayReward: const RewardContract(
-    activityId: 'srs',
-    condition: SoriLocalizedCopy(
-      key: SoriCopyKey.finishSession,
-      de: 'Wenn du die Runde abschließt',
-      en: 'When you finish the session',
-    ),
-    items: <RewardContractItem>[
-      RewardContractItem(
-        kind: SoriRewardKind.xp,
-        amount: 15,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardXp,
-          de: 'Lern-XP',
-          en: 'XP',
-        ),
+SoriStageProgressionSnapshot _snapshot({bool hanok = false}) =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
       ),
-      RewardContractItem(
-        kind: SoriRewardKind.questProgress,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardQuest,
-          de: 'Quest',
-          en: 'Quest',
+      hanokCompetence: hanok
+          ? HanokCompetenceProjection.fromSnapshot(
+              snapshot: CourseMasterySnapshot(
+                completedUnitIds: [for (var i = 1; i <= 8; i++) 'a1_$i'],
+              ),
+              courseUnits: [
+                for (var i = 1; i <= 16; i++)
+                  CourseUnit(
+                    id: 'a1_$i',
+                    level: 'a1',
+                    order: i,
+                    title: const CurriculumText(
+                      ko: '학습',
+                      de: 'Lernen',
+                      en: 'Learn',
+                    ),
+                    canDo: const CurriculumText(
+                      ko: '학습',
+                      de: 'Lernen',
+                      en: 'Learn',
+                    ),
+                  ),
+              ],
+            )
+          : const HanokCompetenceProjection.empty(),
+      quests: const [],
+      pendingBojagiCount: 1,
+      stampCount: 4,
+      xp: 320,
+      streakDays: 6,
+      todayReward: const RewardContract(
+        activityId: 'srs',
+        condition: SoriLocalizedCopy(
+          key: SoriCopyKey.finishSession,
+          de: 'Wenn du die Runde abschließt',
+          en: 'When you finish the session',
         ),
+        items: <RewardContractItem>[
+          RewardContractItem(
+            kind: SoriRewardKind.xp,
+            amount: 15,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardXp,
+              de: 'Lern-XP',
+              en: 'XP',
+            ),
+          ),
+          RewardContractItem(
+            kind: SoriRewardKind.questProgress,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardQuest,
+              de: 'Quest',
+              en: 'Quest',
+            ),
+          ),
+          RewardContractItem(
+            kind: SoriRewardKind.hanokProgress,
+            label: SoriLocalizedCopy(
+              key: SoriCopyKey.rewardHanok,
+              de: 'Hanok-Bauteil',
+              en: 'Hanok piece',
+            ),
+          ),
+        ],
       ),
-      RewardContractItem(
-        kind: SoriRewardKind.hanokProgress,
-        label: SoriLocalizedCopy(
-          key: SoriCopyKey.rewardHanok,
-          de: 'Hanok-Bauteil',
-          en: 'Hanok piece',
-        ),
-      ),
-    ],
-  ),
-);
+    );
 
 Widget _app({required Locale locale, required Widget home}) => MaterialApp(
   debugShowCheckedModeBanner: false,

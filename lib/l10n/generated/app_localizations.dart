@@ -14676,6 +14676,54 @@ abstract class AppL10n {
   /// **'Dein Hanok wird gerade erneuert. Bald wieder da.'**
   String get soriStageHanokUpdating;
 
+  /// No description provided for @sarangchaeConstructionProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{earned} von {total} Bauabschnitten'**
+  String sarangchaeConstructionProgress(int earned, int total);
+
+  /// No description provided for @sarangchaeConstructionStages.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauabschnitte'**
+  String get sarangchaeConstructionStages;
+
+  /// No description provided for @sarangchaeLessonLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernsprache'**
+  String get sarangchaeLessonLanguage;
+
+  /// No description provided for @sarangchaeStageTransition.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauabschnitt {before} → Bauabschnitt {after}'**
+  String sarangchaeStageTransition(int before, int after);
+
+  /// No description provided for @sarangchaeStageUnlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauabschnitt {stage} freigeschaltet'**
+  String sarangchaeStageUnlocked(int stage);
+
+  /// No description provided for @sarangchaeStageLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauabschnitt {stage} ist noch gesperrt'**
+  String sarangchaeStageLocked(int stage);
+
+  /// No description provided for @sarangchaeStartMission.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe eine Lernmission ab, um dein Sarangchae zu beginnen.'**
+  String get sarangchaeStartMission;
+
+  /// No description provided for @sarangchaeNewStages.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 neuer Bauabschnitt} other{{count} neue Bauabschnitte}}'**
+  String sarangchaeNewStages(int count);
+
   /// No description provided for @soriStageOpenMap.
   ///
   /// In de, this message translates to:
@@ -17615,6 +17663,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet'**
   String get phaseTaskEarlierRevision;
+
+  /// No description provided for @sarangchaeLanguageKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'한국어'**
+  String get sarangchaeLanguageKorean;
+
+  /// No description provided for @sarangchaeLanguageGerman.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutsch'**
+  String get sarangchaeLanguageGerman;
+
+  /// No description provided for @sarangchaeLanguageEnglish.
+  ///
+  /// In de, this message translates to:
+  /// **'English'**
+  String get sarangchaeLanguageEnglish;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

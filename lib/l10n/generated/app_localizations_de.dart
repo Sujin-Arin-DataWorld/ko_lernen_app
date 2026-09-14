@@ -8452,6 +8452,47 @@ class AppL10nDe extends AppL10n {
       'Dein Hanok wird gerade erneuert. Bald wieder da.';
 
   @override
+  String sarangchaeConstructionProgress(int earned, int total) {
+    return '$earned von $total Bauabschnitten';
+  }
+
+  @override
+  String get sarangchaeConstructionStages => 'Bauabschnitte';
+
+  @override
+  String get sarangchaeLessonLanguage => 'Lernsprache';
+
+  @override
+  String sarangchaeStageTransition(int before, int after) {
+    return 'Bauabschnitt $before → Bauabschnitt $after';
+  }
+
+  @override
+  String sarangchaeStageUnlocked(int stage) {
+    return 'Bauabschnitt $stage freigeschaltet';
+  }
+
+  @override
+  String sarangchaeStageLocked(int stage) {
+    return 'Bauabschnitt $stage ist noch gesperrt';
+  }
+
+  @override
+  String get sarangchaeStartMission =>
+      'Schließe eine Lernmission ab, um dein Sarangchae zu beginnen.';
+
+  @override
+  String sarangchaeNewStages(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count neue Bauabschnitte',
+      one: '1 neuer Bauabschnitt',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get soriStageOpenMap => 'Hanok-Karte öffnen';
 
   @override
@@ -10377,4 +10418,13 @@ class AppL10nDe extends AppL10n {
   @override
   String get phaseTaskEarlierRevision =>
       'Früherer Versuch gespeichert · Aufgabe inzwischen überarbeitet';
+
+  @override
+  String get sarangchaeLanguageKorean => '한국어';
+
+  @override
+  String get sarangchaeLanguageGerman => 'Deutsch';
+
+  @override
+  String get sarangchaeLanguageEnglish => 'English';
 }

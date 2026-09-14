@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "id": "sarangchae-v3-16",
+  "approvedOn": "2026-09-14",
+  "status": "approved_runtime",
+  "completedStage": 16,
+  "canonicalSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "stages": [
+    {
+      "stageId": "sarangchae-site",
+      "sequence": 1,
+      "file": "stage_01_site.png",
+      "sha256": "5ed4923fba1894427d3aa34699a62a3469c090f04bc89da2af3ebb654ff47727",
+      "bytes": 1585510,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-foundation",
+      "sequence": 2,
+      "file": "stage_02_foundation.png",
+      "sha256": "3b328c697cf1bd570dfed11098246a566a6cc44be372e720b558d9759ffc834a",
+      "bytes": 1656482,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-choseok",
+      "sequence": 3,
+      "file": "stage_03_choseok.png",
+      "sha256": "20d0a220fca2e59081524c9cdd4dee4235b50e198c15ffa7d4e9b5c7e161f337",
+      "bytes": 1685987,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-fitting",
+      "sequence": 4,
+      "file": "stage_04_fitting.png",
+      "sha256": "dfae617098b905d18d83918af8679b5c9011e543daed43548f2b320b32a7b5f1",
+      "bytes": 1715042,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-columns",
+      "sequence": 5,
+      "file": "stage_05_columns.png",
+      "sha256": "0f5e796fdc46c27a3d89007c2822c68513c925202b14a0d7257ff01132d589c7",
+      "bytes": 1775293,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-beams",
+      "sequence": 6,
+      "file": "stage_06_beams.png",
+      "sha256": "4f51ff202300881ed9f7a50196ef0e075d329f28f940b6e7c3b4fec497661b8a",
+      "bytes": 1899721,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-purlins",
+      "sequence": 7,
+      "file": "stage_07_purlins.png",
+      "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+      "bytes": 1957033,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-rafters",
+      "sequence": 8,
+      "file": "stage_08_rafters.png",
+      "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "bytes": 2116848,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-decking",
+      "sequence": 9,
+      "file": "stage_09_decking.png",
+      "sha256": "60ffa4184d6d947c83f479e681395f764dbd28ffa7384acdc72dc42bc929bb26",
+      "bytes": 2026194,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-earth-roof",
+      "sequence": 10,
+      "file": "stage_10_earth_roof.png",
+      "sha256": "21db199864dc73d585872030c23be876caedccc2b9078a0a1e658721eee57c4e",
+      "bytes": 2067248,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-tiles",
+      "sequence": 11,
+      "file": "stage_11_tiles.png",
+      "sha256": "4cf7a5138c09244559b41148b81924b53458872975c549d934b4910a56872474",
+      "bytes": 2100803,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-walls",
+      "sequence": 12,
+      "file": "stage_12_walls.png",
+      "sha256": "79959bd0f0885612c95021e8e359dbbd162eef32f2d2fd8cb3f3c8043ade46b2",
+      "bytes": 2096304,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-ondol",
+      "sequence": 13,
+      "file": "stage_13_ondol.png",
+      "sha256": "b3225234ca637a26978a1f1fc5545db7d5cbc1816be4448010fc90ee84e75899",
+      "bytes": 2108299,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-maru",
+      "sequence": 14,
+      "file": "stage_14_maru.png",
+      "sha256": "bb5d353c95c9db07c95fe8b43a3c0023886b7da98b7d01fc0b3c007747b402aa",
+      "bytes": 2174873,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-changho",
+      "sequence": 15,
+      "file": "stage_15_changho.png",
+      "sha256": "dc07735943c511bb25c27aba9b25ddc4555b0f319291966b35e3ccc5246e158a",
+      "bytes": 2247497,
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "stageId": "sarangchae-complete",
+      "sequence": 16,
+      "file": "stage_16_complete.png",
+      "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "bytes": 2328995,
+      "size": [
+        1536,
+        1024
+      ]
+    }
+  ]
+}

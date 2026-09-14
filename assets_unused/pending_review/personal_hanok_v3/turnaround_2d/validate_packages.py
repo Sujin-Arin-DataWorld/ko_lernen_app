@@ -37,13 +37,6 @@ PACKAGES = {
         "expected_source_sha256": "58bdc53622eb0e47f874a11fbf0314bccc40aa168dc1b480c00abee60d01ef39",
         "runtime_revision_views": "revisions/ildu_ansarangchae_v05_runtime/transparent_views",
     },
-    "ildu_sarangchae_v01": {
-        "prefix": "ildu_sarangchae",
-        "preserved": "ildu_sarangchae_00_source_original_exact.png",
-        "canonical": "references/canonical_source/sarangchae_try07_edit.png",
-        "expected_source_sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
-        "runtime_revision_views": "revisions/ildu_sarangchae_v02_runtime/transparent_views",
-    },
     "ildu_sotdaeulmun_v02": {
         "prefix": "ildu_sotdaeulmun",
         "preserved": "ildu_sotdaeulmun_00_source_original_exact.png",

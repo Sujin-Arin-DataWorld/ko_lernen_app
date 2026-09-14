@@ -13,7 +13,6 @@ void main() {
       expect(
         kIlDuTurntables.keys,
         containsAll(<String>[
-          'sarangchae',
           'ansarang',
           'changgo',
           'anchae',
@@ -103,7 +102,7 @@ void main() {
   );
 
   test('manifest degrees select the matching 45 degree frame', () {
-    final spec = kIlDuSarangchaeTurntable;
+    final spec = kIlDuChanggoTurntable;
     for (var direction = 0; direction < 8; direction++) {
       expect(spec.directionForDegrees(direction * 45), direction);
     }

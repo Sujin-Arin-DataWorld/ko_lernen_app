@@ -43,8 +43,33 @@ void main() {
       expect(projection.totalUnitCount, 4);
       expect(projection.a1Ratio, .25);
       expect(projection.stage, HanokStage.foundation);
+      expect(projection.sarangchaeConstructionStage, 1);
     },
   );
+
+  test('Sarangchae projection clamps at 16 and ignores replay or bypass', () {
+    final units = [
+      for (var index = 1; index <= 20; index++) _unit('a1_$index', 'a1', index),
+    ];
+    final projection = HanokCompetenceProjection.fromSnapshot(
+      snapshot: CourseMasterySnapshot(
+        completedUnitIds: [
+          for (var index = 1; index <= 20; index++) 'a1_$index',
+          'a1_01',
+          'unknown',
+        ],
+        bypassedPrerequisiteUnitIds: const ['a1_19', 'a1_20'],
+      ),
+      courseUnits: units,
+    );
+
+    expect(projection.completedUnitCount, 18);
+    expect(projection.sarangchaeConstructionStage, 16);
+    expect(
+      const HanokCompetenceProjection.empty().sarangchaeConstructionStage,
+      0,
+    );
+  });
 
   test('a completed course path raises structure from competence alone', () {
     final units = [

@@ -1,0 +1,28 @@
+1. STYLE: Preserve the exact fine hand-painted 2.5D hanok architecture of the references: dense fine detail, healthy maintained warm timber, matte materials, restrained painterly shadows and selective fine linework. No watercolor, anime, Pixar, low-poly 3D, photorealistic PBR or gloss.
+2. REFERENCE SCOPE: Image 1 is the edit target at the adjacent construction stage. Image 2 is the immutable completed master, used ONLY to maintain architecture, placements, scale, materials and lighting; do not restore later components being removed. This is the same particular Sarangchae, not a new building.
+3. CAMERA: One 1536x1024 landscape image, exact same white background, framing, view and scale. Retained parts must remain stationary. No added labels or numbering.
+4. REQUIRED EDIT AND TEN WANTS:
+WANT 1. Correct ONLY the unwanted rafters remaining in this stage 07 purlin image.
+WANT 2. Keep the high long main-body and right-wing purlins, their vertical short-post supports, and the thick transverse load-bearing beams unchanged.
+WANT 3. REMOVE the diagonal descending corner/hip rafters at the extreme left and extreme right roof ends, including the curved outer timbers that still draw a pitched roof edge.
+WANT 4. REMOVE the dense rows of short parallel rafter sticks still visible under the eaves and across the overhead spaces behind the front beam.
+WANT 5. In those cleared spaces show open air between the sparse thick transverse beam assemblies, not a ceiling of closely spaced sticks.
+WANT 6. Preserve every full-height main column and both slender pale-bottom outer eave supports in place.
+WANT 7. Preserve the joined supporting beam on top of each outer eave support.
+WANT 8. Preserve the entire lower floor framing, all stones and stairs without changing them.
+WANT 9. Keep the existing purlins visibly seated on short posts and thick beams; no floating members after deletion.
+WANT 10. The stage must read clearly as columns + beams + purlins only, with no repeating sloped roof-rib arrays.
+5. CONNECTIONS: Retained column feet meet the same stones; column heads meet their beams; roof purlins bear on supported timber and rafters bear on purlins. Preserve the connected main-body/right-numaru junction and actual spatial depth. Never invent free-floating members or unrelated new front columns.
+6. TEN NOTS:
+NOT 1. Do not move, rescale, mirror or rotate the building.
+NOT 2. Do not change the retained curved roof silhouette or joined right wing.
+NOT 3. Do not change retained stone outlines, staircase edges or the foundation footprint.
+NOT 4. Do not move, thicken or arbitrarily add a visible column.
+NOT 5. Do not remove structural framing while removing finish layers.
+NOT 6. Do not flatten the rooms or hide the numaru underfloor depth.
+NOT 7. Do not restore plaques or add any writing or blank signboards.
+NOT 8. Do not add workers, tools, scaffold, furniture, plants or construction clutter.
+NOT 9. Do not bleach, saturate, weather, decay, smooth away detail or restyle retained materials.
+NOT 10. Do not create a collage, cutaway detached from the building, border, watermark or cropped close-up.
+7. MATERIALS: Same maintained sound timber, fine natural grain, same upper-left light and clean traditional stone. Keep the source palette, material texture and spatial shadows.
+8. OUTPUT: A single polished earlier construction-stage image, visually continuous with its adjacent stage and the approved completed source. This targeted correction must remove the rafters left in the prior result. Keep the sparse purlin/short-post network; no diagonal hip/corner roof edges and no dense overhead ceiling sticks.
