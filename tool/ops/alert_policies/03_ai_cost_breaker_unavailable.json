@@ -1,0 +1,62 @@
+{
+  "displayName": "AI cost breaker unavailable (cost approval or Apple revocation config)",
+  "documentation": {
+    "content": "Either the AI cost-control Firestore doc (service_cost_controls/ai_v1) failed validation — thrown as ServiceCostError('unavailable', 'AI cost approval unavailable.') in functions/pronunciation/service_cost_policy.js and functions/tts/service_cost_policy.js — or the Apple token-revocation secret/config is invalid, thrown as error.code === 'apple/revocation-config-invalid' in functions/gye/apple_revocation_adapter.js. Either means a safety breaker degraded silently: AI endpoints may reject all requests, or account deletions may be stuck unable to revoke Apple grants. First checks: docs/runbooks/ops-alerts.md#03. Metrics: two log-based counters created by tool/ops/log_metrics.sh.",
+    "mimeType": "text/markdown"
+  },
+  "combiner": "OR",
+  "conditions": [
+    {
+      "displayName": "ai_cost_breaker_unavailable log count > 0 over 10m",
+      "conditionThreshold": {
+        "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/ai_cost_breaker_unavailable\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0,
+        "duration": "0s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "600s",
+            "perSeriesAligner": "ALIGN_SUM",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": []
+          }
+        ],
+        "trigger": {
+          "count": 1
+        }
+      }
+    },
+    {
+      "displayName": "apple_revocation_config_invalid log count > 0 over 10m",
+      "conditionThreshold": {
+        "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/apple_revocation_config_invalid\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0,
+        "duration": "0s",
+        "aggregations": [
+          {
+            "alignmentPeriod": "600s",
+            "perSeriesAligner": "ALIGN_SUM",
+            "crossSeriesReducer": "REDUCE_SUM",
+            "groupByFields": []
+          }
+        ],
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "notificationChannels": [
+    "${NOTIFICATION_CHANNEL_ID}"
+  ],
+  "alertStrategy": {
+    "autoClose": "1800s"
+  },
+  "userLabels": {
+    "pr": "b1-ops-alerts",
+    "component": "ai-cost-breaker"
+  },
+  "_unverified": false,
+  "_requires": "tool/ops/log_metrics.sh must run before apply_alerts, so these two logging.googleapis.com/user/* metrics exist"
+}
