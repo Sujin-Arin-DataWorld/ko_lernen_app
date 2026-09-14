@@ -4378,6 +4378,20 @@ class Storage {
   static Future<void> setStreakDays(int value) => _si('kl_streak_days', value);
   static Future<void> setBestStreak(int value) => _si('kl_best_streak', value);
 
+  /// §S3: calendar day (yyyy-MM-dd, local) the Gye life-promise projection
+  /// backup ([CourseActivityReporter._scheduleLifePromiseProjectionSync])
+  /// last ran, so a second passing checkpoint on the same day skips a
+  /// redundant full [CloudSync.backupWithResult] call. `null` = never run.
+  static String? get lastLifePromiseBackupDay =>
+      _optionalString('kl_last_life_promise_backup_day_v1');
+  static Future<void> setLastLifePromiseBackupDay(String day) async {
+    final normalized = day.trim();
+    if (normalized.isEmpty) {
+      throw ArgumentError.value(day, 'day', 'must not be empty');
+    }
+    await _ss('kl_last_life_promise_backup_day_v1', normalized);
+  }
+
   /// Streak-Freeze Tokens. Verdient an jeder 7-Tage-Marke (Cap [kStreakFreezeMax]).
   /// Schützt automatisch genau einen verpassten Tag, damit der Streak überlebt.
   static int get streakFreezes => _i('kl_streak_freezes');

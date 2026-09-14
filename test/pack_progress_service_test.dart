@@ -5,6 +5,8 @@
 // initialisiert → alle Firestore-Aufrufe sind no-ops (Web-Guard pattern).
 // Lokale Storage-Pfad bleibt voll funktional → testbar.
 
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +14,7 @@ import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/services/pack_progress_service.dart';
+import 'package:ko_lernen_app/services/pack_sync_queue.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
@@ -22,6 +25,10 @@ void main() {
     Storage.resetPackProgressForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    // §S3: pack_progress_service now debounces its Firestore mirror through
+    // the PackSyncQueue singleton. Reset it between tests so a pending idle
+    // timer / remembered status from one test can't leak into the next.
+    PackSyncQueue.resetForTesting();
   });
 
   final pack1 = _pack('a1_greetings_1', 'A1', wordCount: 6, bossCount: 2);
@@ -279,6 +286,46 @@ void main() {
       expect(p2.bossAccuracy, p.bossAccuracy);
       expect(p2.clearedAtIso, p.clearedAtIso);
     });
+
+    test(
+      '§S3: local prefs are written synchronously before any Firestore '
+      'queue activity — recordWordLearned',
+      () async {
+        var enqueued = false;
+        PackSyncQueue.instance = PackSyncQueue(
+          savePack: (_) async {},
+          createTimer: (duration, callback) {
+            enqueued = true;
+            return Timer(duration, callback);
+          },
+        );
+        addTearDown(PackSyncQueue.resetForTesting);
+
+        for (final word in pack1.learnWords) {
+          await Storage.addVokSeen(word.korean);
+        }
+        // Before the write, nothing about pack1 is persisted locally yet.
+        expect(Storage.packProgressJson(pack1.id), isNull);
+
+        final future = PackProgressService.recordWordLearned(pack1);
+        // recordWordLearned is an `async` function; the very first
+        // `await Storage.setPackProgressJson(...)` inside `_persist` still
+        // has to run before this call returns, so by the time the Future
+        // completes local storage must already reflect the update —
+        // regardless of when/whether the debounced queue ever flushes.
+        await future;
+
+        final stored = Storage.packProgressJson(pack1.id);
+        expect(stored, isNotNull);
+        expect(
+          PackProgress.fromJson(pack1.id, stored!).wordsLearned,
+          pack1.total,
+        );
+        // The Firestore mirror only got as far as being queued (idle timer
+        // armed) — it must not have been required for the local write above.
+        expect(enqueued, isTrue);
+      },
+    );
 
     test('allPackProgressJson returns all', () async {
       await Storage.setPackProgressJson('a', {

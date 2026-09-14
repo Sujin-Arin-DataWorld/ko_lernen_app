@@ -8,6 +8,7 @@ import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
 import 'local_data_lifetime.dart';
+import 'pack_sync_queue.dart';
 import 'storage_service.dart';
 import 'stamp_entitlement_reconciler.dart';
 import 'vocab_pack_service.dart';
@@ -524,9 +525,11 @@ class PackProgressService {
     if (PackCompletionStorage.admissionClosed) {
       return;
     }
-    // Fire-and-forget Firestore sync.
-    // ignore: discarded_futures, unawaited_futures
-    FirestoreProgressService.savePack(p);
+    // §S3: local write above is immediate/synchronous (progress-loss-0);
+    // the Firestore backup mirror is debounced through PackSyncQueue instead
+    // of a fire-and-forget savePack on every call (was ~90k ops/day @ 1k
+    // DAU). See lib/services/pack_sync_queue.dart.
+    PackSyncQueue.instance.enqueue(p);
   }
 
   // ── Cloud-Sync (Backup / Restore) ──────────────────────────────────

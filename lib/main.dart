@@ -20,6 +20,7 @@ import 'services/analytics_service.dart';
 import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
+import 'services/pack_sync_queue.dart';
 import 'services/storage_service.dart';
 import 'widgets/sori/ai_voice_notice_host.dart';
 import 'widgets/sori/srs_recovery_banner.dart';
@@ -600,6 +601,15 @@ class _ContentFeedbackLifecycleObserverState
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       unawaited(_resumePending());
+      return;
+    }
+    // §S3: flush any debounced pack-progress Firestore writes before the
+    // app leaves the foreground (or is killed outright), so a pending
+    // write isn't lost waiting for PackSyncQueue's 30s idle timer.
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached ||
+        state == AppLifecycleState.hidden) {
+      unawaited(PackSyncQueue.instance.flushAll());
     }
   }
 
