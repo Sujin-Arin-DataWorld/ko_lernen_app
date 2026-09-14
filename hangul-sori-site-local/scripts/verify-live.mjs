@@ -5,6 +5,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { promisify } from "node:util";
 import { assertDeletionPageContract } from "./deletion-page-contract.mjs";
+import { requestPublicAsset } from "./public-asset-response.mjs";
 
 const execFileAsync = promisify(execFile);
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/sbvJNQSt";
@@ -308,8 +309,7 @@ for (const relativePath of publicFiles) {
   const expectedHash = sha256(await readExpectedPublicAsset(relativePath));
   for (const origin of origins) {
     const assetUrl = `${origin}/${relativePath}`;
-    const response = await request(assetUrl, { headers: { accept: "*/*" } });
-    assert.equal(response.status, 200, `${assetUrl} must be available`);
+    const response = await requestPublicAsset(assetUrl, request);
     const bytes = new Uint8Array(await response.arrayBuffer());
     assert.ok(bytes.byteLength > 0, `${assetUrl} must not be empty`);
     assert.equal(
