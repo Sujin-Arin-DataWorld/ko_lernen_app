@@ -7,6 +7,7 @@ import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
 import 'onboarding_v2_stage.dart';
+import 'onboarding_journey_scenes.dart';
 
 class OnboardingCompanionScreen extends StatelessWidget {
   const OnboardingCompanionScreen({
@@ -16,6 +17,7 @@ class OnboardingCompanionScreen extends StatelessWidget {
     required this.onCompanionChanged,
     required this.onContinue,
     this.onBack,
+    this.mediaEnabled = true,
   });
 
   final OnboardingV2Copy copy;
@@ -23,6 +25,7 @@ class OnboardingCompanionScreen extends StatelessWidget {
   final ValueChanged<String> onCompanionChanged;
   final ValueChanged<String> onContinue;
   final VoidCallback? onBack;
+  final bool mediaEnabled;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +33,6 @@ class OnboardingCompanionScreen extends StatelessWidget {
     final companionCopy = copy.companion;
     final text = SoriTextTheme.of(context);
     final progress = copy.navigation.progress(7, 7);
-    final compactHeading =
-        MediaQuery.sizeOf(context).height < 700 &&
-        MediaQuery.textScalerOf(context).scale(16) > 24;
     return OnboardingV2PageShell(
       brandLatin: copy.brandLatin,
       brandKorean: copy.brandKorean,
@@ -40,12 +40,9 @@ class OnboardingCompanionScreen extends StatelessWidget {
       totalSteps: 7,
       progressLabel: progress,
       showStage: false,
-      heading: OnboardingV2Heading(
-        eyebrow: companionCopy.eyebrow,
-        title: compactHeading ? companionCopy.eyebrow : companionCopy.title,
-        body: companionCopy.body,
-        showBody: false,
-        announcementLabel: '$progress. ${companionCopy.title}',
+      heading: JourneyHeading(
+        title: AppL10n.of(context).onboardingJourneyCompanionTitle,
+        shortTitle: AppL10n.of(context).onboardingJourneyCompanionShort,
       ),
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: LayoutBuilder(
@@ -54,6 +51,7 @@ class OnboardingCompanionScreen extends StatelessWidget {
           children: [
             Expanded(
               child: OnboardingCompanionStage(
+                mediaEnabled: mediaEnabled,
                 companions: companionCopy.companions,
                 selectedCompanionId: selectedCompanionId,
                 onCompanionChanged: onCompanionChanged,
@@ -127,7 +125,13 @@ class OnboardingCompanionScreen extends StatelessWidget {
         onBack: onBack,
         primaryAction: SoriButton.filled(
           key: const ValueKey('onboarding-v2-companion-continue'),
-          label: companionCopy.continueAction,
+          label: selectedCompanionId == null
+              ? companionCopy.continueAction
+              : AppL10n.of(context).onboardingJourneyStartWith(
+                  companionCopy.companions
+                      .firstWhere((c) => c.id == selectedCompanionId)
+                      .name,
+                ),
           trailingIcon: MediaQuery.textScalerOf(context).scale(16) > 24
               ? null
               : Icons.arrow_forward_rounded,

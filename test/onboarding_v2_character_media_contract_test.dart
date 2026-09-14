@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_reposito
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
@@ -57,7 +58,33 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('selected companion alone receives select motion', (
+  testWidgets('minimal companion selection keeps media disabled', (
+    tester,
+  ) async {
+    await _pump(
+      tester,
+      const _CompanionHarness(
+        selectedCompanionId: OnboardingV2Ids.companionJoy,
+        mediaEnabled: false,
+      ),
+    );
+    await _pumpFinite(tester);
+    expect(find.byType(CharacterClipPlayer), findsNothing);
+    expect(
+      tester
+          .widgetList<OnboardingCharacterMedia>(
+            find.byType(OnboardingCharacterMedia),
+          )
+          .map((media) => media.active),
+      everyElement(isFalse),
+    );
+    await tester.tap(
+      find.byKey(const ValueKey('onboarding-v2-companion-continue')),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('selected companion alone receives its original choose video', (
     tester,
   ) async {
     await _pump(
@@ -73,14 +100,16 @@ void main() {
           find.byType(OnboardingCharacterMedia),
         )
         .toList(growable: false);
-    expect(media, hasLength(2));
+    expect(media, hasLength(1));
     expect(media[0].characterId, 'tiger');
     expect(media[0].motion, OnboardingCharacterMotion.idle);
     expect(media[0].active, isFalse);
-    expect(media[1].characterId, 'magpie');
-    expect(media[1].motion, OnboardingCharacterMotion.select);
-    expect(media[1].active, isTrue);
-    _expectNoLegacyMediaOrTint();
+    final player = tester.widget<CharacterClipPlayer>(
+      find.byType(CharacterClipPlayer),
+    );
+    expect(player.asset, CharacterClips.magpieChoose);
+    expect(player.loop, isFalse);
+    expect(find.byType(TigerStageVideo), findsNothing);
   });
 
   testWidgets(
@@ -144,14 +173,11 @@ void main() {
             .isSelected,
         Tristate.isTrue,
       );
-      final media = tester
-          .widgetList<OnboardingCharacterMedia>(
-            find.byType(OnboardingCharacterMedia),
-          )
-          .toList(growable: false);
       expect(
-        media.singleWhere((item) => item.characterId == 'tiger').motion,
-        OnboardingCharacterMotion.select,
+        tester
+            .widget<CharacterClipPlayer>(find.byType(CharacterClipPlayer))
+            .asset,
+        CharacterClips.tigerChoose,
       );
 
       await _releaseSaves(tester, repository, count: 29, failAt: 9);
@@ -169,15 +195,13 @@ void main() {
         find.byKey(const ValueKey('onboarding-v2-companion-continue')),
       );
       await tester.pump();
-      await _releaseSaves(tester, repository, count: 1);
+      await _releaseSaves(tester, repository, count: 5);
       await tester.pump();
 
-      expect(repository.state?.phase, OnboardingPhase.confirmation);
+      expect(repository.state?.phase, OnboardingPhase.gate);
       expect(repository.state?.companionDraft, OnboardingCompanion.taego);
-      expect(
-        find.byType(OnboardingCompanionConfirmationScreen),
-        findsOneWidget,
-      );
+      expect(find.byType(OnboardingCompanionConfirmationScreen), findsNothing);
+      expect(find.byType(IntroGateScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
       semantics.dispose();
     },
@@ -241,6 +265,13 @@ void main() {
       expect(_isSelected(tester, OnboardingV2Ids.companionJoy), isTrue);
       await tester.tap(continueButton);
       await tester.pump();
+      // Keyboard/semantic activation can reach callbacks while pointer input
+      // is absorbed. A finalization in flight must also reject those changes.
+      tester
+          .widget<OnboardingCompanionScreen>(
+            find.byType(OnboardingCompanionScreen),
+          )
+          .onCompanionChanged(OnboardingV2Ids.companionTaego);
       await _releaseSaves(tester, repository, count: 1, failAt: 1);
       await _pumpFinite(tester);
 
@@ -256,15 +287,13 @@ void main() {
 
       await tester.tap(continueButton);
       await tester.pump();
-      await _releaseSaves(tester, repository, count: 1);
+      await _releaseSaves(tester, repository, count: 5);
       await tester.pump();
 
-      expect(repository.state?.phase, OnboardingPhase.confirmation);
+      expect(repository.state?.phase, OnboardingPhase.gate);
       expect(repository.state?.companionDraft, OnboardingCompanion.taego);
-      expect(
-        find.byType(OnboardingCompanionConfirmationScreen),
-        findsOneWidget,
-      );
+      expect(find.byType(OnboardingCompanionConfirmationScreen), findsNothing);
+      expect(find.byType(IntroGateScreen), findsOneWidget);
       expect(tester.takeException(), isNull);
       semantics.dispose();
     },
@@ -383,9 +412,13 @@ Future<void> _releaseSaves(
 }
 
 class _CompanionHarness extends StatefulWidget {
-  const _CompanionHarness({required this.selectedCompanionId});
+  const _CompanionHarness({
+    required this.selectedCompanionId,
+    this.mediaEnabled = true,
+  });
 
   final String? selectedCompanionId;
+  final bool mediaEnabled;
 
   @override
   State<_CompanionHarness> createState() => _CompanionHarnessState();
@@ -397,6 +430,7 @@ class _CompanionHarnessState extends State<_CompanionHarness> {
   @override
   Widget build(BuildContext context) => OnboardingCompanionScreen(
     copy: onboardingV2Copy(AppL10n.of(context)),
+    mediaEnabled: widget.mediaEnabled,
     selectedCompanionId: selectedCompanionId,
     onCompanionChanged: (value) {
       setState(() => selectedCompanionId = value);

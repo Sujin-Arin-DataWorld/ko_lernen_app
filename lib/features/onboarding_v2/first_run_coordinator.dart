@@ -323,9 +323,7 @@ class FirstRunCoordinator {
         final rolloutMode = _rolloutModeReader();
         state = OnboardingJourneyState.initial(_now(), rolloutMode: rolloutMode)
             .copyWith(
-              phase: restoredLevel == null
-                  ? OnboardingPhase.story
-                  : OnboardingPhase.setup,
+              phase: OnboardingPhase.setup,
               purposeDraft: legacy.purpose,
               levelDraft: restoredLevel,
               companionDraft: legacy.companion,
@@ -352,20 +350,20 @@ class FirstRunCoordinator {
       await _repository.save(state);
     }
 
+    if (state.phase == OnboardingPhase.confirmation) {
+      state = state.copyWith(
+        phase: OnboardingPhase.companion,
+        commitStage: OnboardingCommitStage.none,
+        updatedAt: _now(),
+      );
+      await _repository.save(state);
+    }
+
     if (state.rolloutMode == OnboardingRolloutMode.minimalSafe) {
       if (state.phase == OnboardingPhase.story) {
         state = state.copyWith(
           phase: OnboardingPhase.setup,
           storyPage: StoryPageId.heritageJourney,
-          updatedAt: _now(),
-        );
-        await _repository.save(state);
-      } else if (state.phase == OnboardingPhase.confirmation) {
-        // The full-flow final CTA has not been pressed yet. Return to the
-        // companion CTA instead of auto-committing an unconfirmed draft.
-        state = state.copyWith(
-          phase: OnboardingPhase.companion,
-          commitStage: OnboardingCommitStage.none,
           updatedAt: _now(),
         );
         await _repository.save(state);
@@ -394,7 +392,11 @@ class FirstRunCoordinator {
       final state = await _requireState();
       if (state.phase != OnboardingPhase.story) {
         if (page == StoryPageId.heritageJourney &&
-            state.phase.index > OnboardingPhase.story.index) {
+            (state.phase == OnboardingPhase.companion ||
+                state.phase == OnboardingPhase.confirmation ||
+                state.phase == OnboardingPhase.committing ||
+                state.phase == OnboardingPhase.gate ||
+                state.phase == OnboardingPhase.complete)) {
           return state;
         }
         throw StateError('Story pages are not active.');
@@ -409,7 +411,7 @@ class FirstRunCoordinator {
 
       final isLast = page == StoryPageId.heritageJourney;
       final next = state.copyWith(
-        phase: isLast ? OnboardingPhase.setup : OnboardingPhase.story,
+        phase: isLast ? OnboardingPhase.companion : OnboardingPhase.story,
         storyPage: isLast ? page : StoryPageId.values[page.index + 1],
         updatedAt: _now(),
       );
@@ -421,11 +423,16 @@ class FirstRunCoordinator {
   Future<OnboardingJourneyState> previousStoryPage() {
     return _serialized(() async {
       final state = await _requireState();
-      if (state.phase != OnboardingPhase.story || state.storyPage.index == 0) {
+      if (state.phase != OnboardingPhase.story) {
         return state;
       }
       final next = state.copyWith(
-        storyPage: StoryPageId.values[state.storyPage.index - 1],
+        phase: state.storyPage.index == 0
+            ? OnboardingPhase.setup
+            : OnboardingPhase.story,
+        storyPage: state.storyPage.index == 0
+            ? state.storyPage
+            : StoryPageId.values[state.storyPage.index - 1],
         updatedAt: _now(),
       );
       await _repository.save(next);
@@ -445,13 +452,21 @@ class FirstRunCoordinator {
     });
   }
 
-  Future<OnboardingJourneyState> saveLevelDraft(LearnerLevel level) {
+  Future<OnboardingJourneyState> saveLevelDraft(
+    LearnerLevel level, {
+    bool beginner = false,
+  }) {
     return _serialized(() async {
       final state = await _requirePhase(OnboardingPhase.setup);
-      if (state.levelDraft == level) {
+      final beginnerDraft = beginner && level == LearnerLevel.a1;
+      if (state.levelDraft == level && state.beginnerDraft == beginnerDraft) {
         return state;
       }
-      final next = state.copyWith(levelDraft: level, updatedAt: _now());
+      final next = state.copyWith(
+        levelDraft: level,
+        beginnerDraft: beginnerDraft,
+        updatedAt: _now(),
+      );
       await _repository.save(next);
       return next;
     });
@@ -461,10 +476,13 @@ class FirstRunCoordinator {
     return _serialized(() async {
       final state = await _requirePhase(OnboardingPhase.setup);
       if (!state.hasCompleteSetup) {
-        throw StateError('Purpose and level are both required.');
+        throw StateError('A level is required.');
       }
       final next = state.copyWith(
-        phase: OnboardingPhase.companion,
+        phase: state.rolloutMode == OnboardingRolloutMode.minimalSafe
+            ? OnboardingPhase.companion
+            : OnboardingPhase.story,
+        storyPage: StoryPageId.personalCurriculum,
         updatedAt: _now(),
       );
       await _repository.save(next);
@@ -472,16 +490,14 @@ class FirstRunCoordinator {
     });
   }
 
-  /// Reopens the final explanatory page without discarding setup drafts.
-  ///
-  /// The seven-step presentation exposes a real Back action on step six. The
-  /// purpose and level remain drafts only, so returning to the story never
-  /// changes course placement, mastery, rewards, or legacy completion state.
-  Future<OnboardingJourneyState> returnToStoryFromSetup() {
+  /// Reopens the final explanatory page from companion without changing drafts.
+  Future<OnboardingJourneyState> returnToStoryFromCompanion() {
     return _serialized(() async {
-      final state = await _requirePhase(OnboardingPhase.setup);
+      final state = await _requirePhase(OnboardingPhase.companion);
       final next = state.copyWith(
-        phase: OnboardingPhase.story,
+        phase: state.rolloutMode == OnboardingRolloutMode.minimalSafe
+            ? OnboardingPhase.setup
+            : OnboardingPhase.story,
         storyPage: StoryPageId.heritageJourney,
         commitStage: OnboardingCommitStage.none,
         updatedAt: _now(),
@@ -568,8 +584,15 @@ class FirstRunCoordinator {
     return _serialized(_commit);
   }
 
+  /// The final companion CTA owns the same verified commit journal in both
+  /// rollouts. Full journeys retain the original one-time gate after commit.
+  Future<OnboardingJourneyState> commitFromCompanion() {
+    return _serialized(() => _commit(allowCompanion: true));
+  }
+
   Future<OnboardingJourneyState> _commit({
     bool allowMinimalCompanion = false,
+    bool allowCompanion = false,
   }) async {
     var state = await _requireState();
     if (state.phase == OnboardingPhase.gate ||
@@ -582,7 +605,8 @@ class FirstRunCoordinator {
         state.phase == OnboardingPhase.companion;
     if (state.phase != OnboardingPhase.confirmation &&
         state.phase != OnboardingPhase.committing &&
-        !isMinimalCompanion) {
+        !isMinimalCompanion &&
+        !(allowCompanion && state.phase == OnboardingPhase.companion)) {
       throw StateError('Onboarding is not ready to commit.');
     }
     if (!state.canCommit) {
@@ -632,12 +656,12 @@ class FirstRunCoordinator {
       await _repository.save(state);
     }
 
-    final purpose = state.purposeDraft!;
+    final purpose = state.purposeDraft;
     if (state.commitStage.index < OnboardingCommitStage.motivationSaved.index) {
-      if (await _commitGateway.readPurpose() != purpose) {
+      if (purpose != null && await _commitGateway.readPurpose() != purpose) {
         await _commitGateway.savePurpose(purpose);
       }
-      if (await _commitGateway.readPurpose() != purpose) {
+      if (purpose != null && await _commitGateway.readPurpose() != purpose) {
         throw const OnboardingCommitVerificationException('purpose');
       }
       state = state.copyWith(

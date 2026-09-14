@@ -285,7 +285,7 @@ class OnboardingSetupSelection {
     required this.levelCode,
   });
 
-  final String purposeId;
+  final String? purposeId;
   final String levelCode;
 }
 

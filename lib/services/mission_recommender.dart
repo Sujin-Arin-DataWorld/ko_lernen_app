@@ -14,6 +14,12 @@ sealed class MissionPick {
   const MissionPick();
 }
 
+/// A completed beginner onboarding's first real activity, before the course.
+/// Admission belongs to the shared Today loader, never the course graph.
+final class HangulIntroPick extends MissionPick {
+  const HangulIntroPick();
+}
+
 final class CoursePick extends MissionPick {
   final CourseUnit unit;
 

@@ -29,7 +29,7 @@
       "Front and rear structural rows enclose a usable volume, not a flat facade.",
       "Shared master camera and canvas guide all stages; inspect generated member contacts visually. No measured zero-drift claim."
     ],
-    "constructionCompletion": "Use this exact file for the final stage. Never regenerate, recolor, crop, warp or resize the stored PNG.",
+    "constructionCompletion": "Preserve this approved PNG byte-for-byte. The runtime final stage uses a lossless WebP copy with identical decoded RGBA. Never regenerate, recolor, crop, warp or resize the stored PNG.",
     "intermediateStages": "31 generated painted intermediate PNGs across three buildings, reviewed by agent. See ART_MANIFEST; geometry guide is not measured pixel registration.",
     "historicalAccuracy": "Illustration identity approval; hidden dimensions and members are teaching reconstructions unless evidenced."
   },
@@ -41,8 +41,11 @@
   "runtime": {
     "promoted": true,
     "catalog": "assets/data/ildu_construction_art_v1.json",
-    "completedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
+    "completedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
     "stageCount": 8,
-    "scope": "Flutter construction detail and verified B2 completion receipt; separate 8-direction map artwork remains."
+    "scope": "Flutter construction detail and verified B2 completion receipt; separate 8-direction map artwork remains.",
+    "completedSha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
+    "encoding": "lossless WebP",
+    "rgbaPixelsIdenticalToApprovedPng": true
   }
 }

@@ -338,11 +338,12 @@
           "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
           "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
           "completedStage": 14,
-          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "scope": "승인한 단일 시점 완성 정본 PNG의 바이트를 그대로 보존한다. 앱의 마지막 공정은 디코딩한 RGBA가 동일한 무손실 WebP를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
           "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
           "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
           "runtimePromoted": true,
-          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png"
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp",
+          "runtimeCompletedSha256": "c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95"
         },
         "sadangmun": {
           "status": "approved_canonical_master",
@@ -353,11 +354,12 @@
           "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
           "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
           "completedStage": 8,
-          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "scope": "승인한 단일 시점 완성 정본 PNG의 바이트를 그대로 보존한다. 앱의 마지막 공정은 디코딩한 RGBA가 동일한 무손실 WebP를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
           "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
           "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
           "runtimePromoted": true,
-          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png"
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
+          "runtimeCompletedSha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d"
         },
         "sadang": {
           "status": "approved_canonical_master",
@@ -368,11 +370,12 @@
           "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
           "completedAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
           "completedStage": 12,
-          "scope": "승인한 단일 시점 완성 정본. 마지막 공정은 같은 PNG 바이트를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
+          "scope": "승인한 단일 시점 완성 정본 PNG의 바이트를 그대로 보존한다. 앱의 마지막 공정은 디코딩한 RGBA가 동일한 무손실 WebP를 사용한다. 기둥·보·도리·서까래·지붕은 공통 기준점을 공유한다.",
           "materialOverride": "사람이 돌보고 이용하는 건강한 무광 목재·기와·회벽·석재·단청. 낡음·파손·평면화로 돌아가지 않는다.",
           "derivativeViews": "이 시점만 승인됐다. 이전 8방향 파일은 역사적 참고이며 새 고화질 정본을 대신하지 않는다.",
           "runtimePromoted": true,
-          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png"
+          "runtimeCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp",
+          "runtimeCompletedSha256": "5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811"
         }
       },
       "camera": {
@@ -957,12 +960,14 @@
           "masterApprovedOn": "2026-09-14",
           "intermediateReview": "agent_visual_review",
           "catalog": "assets/data/ildu_construction_art_v1.json",
-          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.png",
-          "canonicalSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp",
+          "canonicalSha256": "c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95",
           "stageCount": 14,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/",
-          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
-          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
+          "presentation": "투명 2.5D 공정 무손실 WebP. 승인 원본 PNG 바이트는 보존하고, 완성 3장의 디코딩된 RGBA는 승인 원본과 모든 픽셀이 같다. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도.",
+          "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+          "approvedCanonicalPngSha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497"
         },
         "sadangmun": {
           "status": "runtime_series_from_approved_master",
@@ -970,12 +975,14 @@
           "masterApprovedOn": "2026-09-14",
           "intermediateReview": "agent_visual_review",
           "catalog": "assets/data/ildu_construction_art_v1.json",
-          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.png",
-          "canonicalSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
+          "canonicalSha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
           "stageCount": 8,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sadangmun/",
-          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
-          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
+          "presentation": "투명 2.5D 공정 무손실 WebP. 승인 원본 PNG 바이트는 보존하고, 완성 3장의 디코딩된 RGBA는 승인 원본과 모든 픽셀이 같다. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도.",
+          "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+          "approvedCanonicalPngSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e"
         },
         "sadang": {
           "status": "runtime_series_from_approved_master",
@@ -983,12 +990,14 @@
           "masterApprovedOn": "2026-09-14",
           "intermediateReview": "agent_visual_review",
           "catalog": "assets/data/ildu_construction_art_v1.json",
-          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.png",
-          "canonicalSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+          "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp",
+          "canonicalSha256": "5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811",
           "stageCount": 12,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/sadang/",
-          "presentation": "투명 2.5D 공정 PNG. 완성 3장은 승인 원본과 같은 바이트. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
-          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도."
+          "presentation": "투명 2.5D 공정 무손실 WebP. 승인 원본 PNG 바이트는 보존하고, 완성 3장의 디코딩된 RGBA는 승인 원본과 모든 픽셀이 같다. 중간 원화는 같은 캔버스에서 생성한 학습용 재구성으로 미세한 부재 차이가 있을 수 있다.",
+          "scope": "Flutter 건축 상세 화면과 검증된 B2 단원 최초 완료 전후 화면. 기존 8방향 지도 에셋 교체는 별도.",
+          "approvedCanonicalPngAsset": "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png",
+          "approvedCanonicalPngSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
         }
       }
     },

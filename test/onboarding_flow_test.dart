@@ -11,7 +11,7 @@ import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.da
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
@@ -34,13 +34,13 @@ void main() {
     expect(find.byType(OnboardingV2JourneyScreen), findsNothing);
   });
 
-  testWidgets('consented learner without placement reaches mandatory story', (
+  testWidgets('consented learner without placement reaches level selection', (
     tester,
   ) async {
     await _launch(tester, const {'kl_consent_accepted': true});
 
     expect(find.byType(OnboardingV2JourneyScreen), findsOneWidget);
-    expect(find.byType(OnboardingStoryScreen), findsOneWidget);
+    expect(find.byType(OnboardingSetupScreen), findsOneWidget);
     expect(find.byType(ConsentScreen), findsNothing);
     expect(find.byType(ScenarioPlayerScreen), findsNothing);
     expect(find.byType(FirstVoiceSuccessScreen), findsNothing);
@@ -76,10 +76,10 @@ void main() {
     );
     for (var attempt = 0; attempt < 40; attempt++) {
       await tester.pump(const Duration(milliseconds: 50));
-      if (find.byType(OnboardingStoryScreen).evaluate().isNotEmpty) break;
+      if (find.byType(OnboardingSetupScreen).evaluate().isNotEmpty) break;
     }
 
-    expect(find.byType(OnboardingStoryScreen), findsOneWidget);
+    expect(find.byType(OnboardingSetupScreen), findsOneWidget);
     expect(repository.loadCalls, 1);
   });
 
