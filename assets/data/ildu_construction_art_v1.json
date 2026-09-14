@@ -1614,6 +1614,2303 @@
           "sourceSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
         }
       ]
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "name": {
+        "ko": "중문채",
+        "en": "Jungmunganchae",
+        "de": "Jungmunganchae"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_12_complete_use.png",
+      "canonicalSha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "중문채는 통행문과 두 방, 열린 마루를 함께 가진 생활 건물이에요. 길이 통하는 곳과 사람이 머무는 곳의 차이를 살펴봐요.",
+        "en": "The Jungmunganchae combines a passage gate, two rooms and an open maru. Compare the route through the building with the spaces where people stayed.",
+        "de": "Das Jungmunganchae verbindet einen Tordurchgang, zwei Räume und einen offenen Maru. Vergleiche den Durchgang mit den Bereichen, in denen Menschen verweilten."
+      },
+      "stages": [
+        {
+          "stageId": "jungmunganchae-site-route",
+          "buildingId": "jungmunganchae",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_01_site_route.png",
+          "title": {
+            "ko": "터와 통행길",
+            "en": "Site and passage",
+            "de": "Bauplatz und Durchgang"
+          },
+          "observe": {
+            "ko": "통행길과 방, 마루가 놓일 자리를 함께 살펴봐요.",
+            "en": "Look at the space for the passage, rooms and open maru.",
+            "de": "Betrachte den Platz für den Durchgang, die Räume und den offenen Maru."
+          },
+          "line": {
+            "ko": "문은 왼쪽에 있어요.",
+            "en": "The gate is on the left.",
+            "de": "Das Tor ist links."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_01_site-route.png",
+          "approvedPngSha256": "21b75324e6dc098e4327b4ee88f24a77c81f11691b003ea9c88ba9cd6146ddf9",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1467666,
+          "sha256": "21b75324e6dc098e4327b4ee88f24a77c81f11691b003ea9c88ba9cd6146ddf9",
+          "processTags": [
+            "site-route"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-stone-foundation",
+          "buildingId": "jungmunganchae",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_02_stone_foundation.png",
+          "title": {
+            "ko": "기단과 초석",
+            "en": "Foundation and padstones",
+            "de": "Sockel und Fundamentsteine"
+          },
+          "observe": {
+            "ko": "초석은 나무기둥을 받쳐요. 기단의 높이는 건물마다 달라요.",
+            "en": "Stone bases support the wooden posts. The height of the platform varies by building.",
+            "de": "Steinsockel tragen die Holzpfosten. Die Höhe des Unterbaus unterscheidet sich von Gebäude zu Gebäude."
+          },
+          "line": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_02_stone-foundation_v02.png",
+          "approvedPngSha256": "8033e02f3876d19a062bbf4747d871af6423b4a1bd57089201a92e11bd0342a3",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1740792,
+          "sha256": "8033e02f3876d19a062bbf4747d871af6423b4a1bd57089201a92e11bd0342a3",
+          "processTags": [
+            "stone-foundation"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-posts",
+          "buildingId": "jungmunganchae",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_03_posts.png",
+          "title": {
+            "ko": "기둥 세우기",
+            "en": "Raising the posts",
+            "de": "Die Pfosten aufstellen"
+          },
+          "observe": {
+            "ko": "앞뒤 기둥 사이에 사람이 들어갈 공간의 깊이가 생겨요.",
+            "en": "The front and rear posts define the depth of a space people can enter.",
+            "de": "Zwischen den vorderen und hinteren Pfosten entsteht ein begehbarer Raum."
+          },
+          "line": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_03_posts_v04.png",
+          "approvedPngSha256": "9b9055d2dfecb8df71a0d46c2f7d0c6c612247d7148ceea6e14875a36c06df64",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1827273,
+          "sha256": "9b9055d2dfecb8df71a0d46c2f7d0c6c612247d7148ceea6e14875a36c06df64",
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-beams-purlins",
+          "buildingId": "jungmunganchae",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_04_beams_purlins.png",
+          "title": {
+            "ko": "보와 도리",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "보는 기둥 사이를 잇고, 도리는 서까래를 받아요. 힘이 아래로 전달되는 연결을 살펴봐요.",
+            "en": "Beams span between posts, and purlins support the rafters. Follow the connections that carry the load downwards.",
+            "de": "Balken verbinden die Pfosten, Pfetten tragen die Sparren. Verfolge, wie die Last über diese Verbindungen nach unten gelangt."
+          },
+          "line": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_04_beams-purlins.png",
+          "approvedPngSha256": "dde340c19fc80e053a3b7edbba0cde3552a4179f2b75766024b9414d7b51d9f6",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1980195,
+          "sha256": "dde340c19fc80e053a3b7edbba0cde3552a4179f2b75766024b9414d7b51d9f6",
+          "processTags": [
+            "beams-purlins"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-rafters-eaves",
+          "buildingId": "jungmunganchae",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_05_rafters_eaves.png",
+          "title": {
+            "ko": "서까래와 처마",
+            "en": "Rafters and eaves",
+            "de": "Sparren und Dachüberstand"
+          },
+          "observe": {
+            "ko": "서까래는 도리에 걸쳐 처마까지 뻗어요. 벽 밖으로 나온 처마는 비와 햇빛을 가리는 데 도움이 돼요.",
+            "en": "Rafters rest across the purlins and extend into the eaves. The overhang helps shelter the walls from rain and sunlight.",
+            "de": "Die Sparren liegen auf den Pfetten und reichen bis zum Dachüberstand. Dieser hilft, die Wände vor Regen und Sonne zu schützen."
+          },
+          "line": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_05_rafters-eaves.png",
+          "approvedPngSha256": "85933f03f97e5d067f17935471905b19575e3b03f305489cc754f3d1e83b4e54",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2146355,
+          "sha256": "85933f03f97e5d067f17935471905b19575e3b03f305489cc754f3d1e83b4e54",
+          "processTags": [
+            "rafters-eaves"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-roof-bed",
+          "buildingId": "jungmunganchae",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_06_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Der Dachaufbau"
+          },
+          "observe": {
+            "ko": "서까래 위의 바탕층이 기와를 받을 면을 만들어요.",
+            "en": "Layers above the rafters form the surface that will carry the roof tiles.",
+            "de": "Die Schichten über den Sparren bilden die Unterlage für die Dachziegel."
+          },
+          "line": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_06_roof-bed.png",
+          "approvedPngSha256": "d2d4b1cc9f5904b2080d6599dc84ac34a71b12087cb845a4ae0ba0e56a67757b",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2021105,
+          "sha256": "d2d4b1cc9f5904b2080d6599dc84ac34a71b12087cb845a4ae0ba0e56a67757b",
+          "processTags": [
+            "roof-bed"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-tiles",
+          "buildingId": "jungmunganchae",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_07_tiles.png",
+          "title": {
+            "ko": "기와 잇기",
+            "en": "Laying the roof tiles",
+            "de": "Dachziegel verlegen"
+          },
+          "observe": {
+            "ko": "겹쳐 놓인 기와와 지붕 경사를 따라 빗물이 아래로 흘러요.",
+            "en": "Rainwater runs down the sloping roof over the overlapping tiles.",
+            "de": "Regenwasser fließt über die überlappenden Ziegel das geneigte Dach hinunter."
+          },
+          "line": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_07_tiles.png",
+          "approvedPngSha256": "d775405eaa9a5db9bf9107b5f5a1051a4d944cd3e66ad42fcfa892cb04a2c9c2",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2160071,
+          "sha256": "d775405eaa9a5db9bf9107b5f5a1051a4d944cd3e66ad42fcfa892cb04a2c9c2",
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-room-walls",
+          "buildingId": "jungmunganchae",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_08_room_walls.png",
+          "title": {
+            "ko": "방의 벽과 구획",
+            "en": "Room walls and divisions",
+            "de": "Wände und Raumaufteilung"
+          },
+          "observe": {
+            "ko": "벽은 기둥 사이를 채워요. 문과 창 안쪽에는 방의 깊이가 남아 있어요.",
+            "en": "Walls fill the spaces between posts. The openings still reveal the depth of the rooms.",
+            "de": "Wände füllen die Felder zwischen den Pfosten. Durch die Öffnungen bleibt die Tiefe der Räume erkennbar."
+          },
+          "line": {
+            "ko": "여기는 방이고, 저기는 마루예요.",
+            "en": "This is a room, and that is the maru.",
+            "de": "Hier ist ein Zimmer, dort der Maru."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_08_room-walls.png",
+          "approvedPngSha256": "71e103b0679406f678b6cdcbec05c29e518e7943fe5d93cf807048588468c880",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2123132,
+          "sha256": "71e103b0679406f678b6cdcbec05c29e518e7943fe5d93cf807048588468c880",
+          "processTags": [
+            "room-walls"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-ondol-floors",
+          "buildingId": "jungmunganchae",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_09_ondol_floors.png",
+          "title": {
+            "ko": "두 방의 온돌 바닥",
+            "en": "The two ondol floors",
+            "de": "Die beiden Ondol-Böden"
+          },
+          "observe": {
+            "ko": "중문채에도 사람이 쓰던 두 방이 있어요. 방바닥과 열린 마루를 비교해 봐요.",
+            "en": "The Jungmunganchae also contains two rooms people used. Compare their floors with the open maru.",
+            "de": "Auch im Jungmunganchae liegen zwei genutzte Räume. Vergleiche ihre Böden mit dem offenen Maru."
+          },
+          "line": {
+            "ko": "방바닥을 따뜻하게 만들어요.",
+            "en": "We make the room floors warm.",
+            "de": "Wir sorgen für warme Zimmerböden."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_09_ondol-floors.png",
+          "approvedPngSha256": "ebd1bf08b34106f6beb860d3de42d0efe272561d5c1a991674052ab2acbed823",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2166396,
+          "sha256": "ebd1bf08b34106f6beb860d3de42d0efe272561d5c1a991674052ab2acbed823",
+          "processTags": [
+            "ondol-floors"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-open-maru",
+          "buildingId": "jungmunganchae",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_10_open_maru.png",
+          "title": {
+            "ko": "열린 마루",
+            "en": "The open maru",
+            "de": "Der offene Maru"
+          },
+          "observe": {
+            "ko": "마루판은 귀틀과 받침 위에 놓여요. 마루 아래에는 빈 공간이 있어요.",
+            "en": "The floorboards rest on a timber framework and supports, leaving open space beneath the maru.",
+            "de": "Die Dielen liegen auf einem Holzrahmen mit Stützen. Unter dem Maru bleibt ein Hohlraum."
+          },
+          "line": {
+            "ko": "마루에 올라가요.",
+            "en": "We step up onto the maru.",
+            "de": "Wir steigen auf den Maru."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_10_open-maru.png",
+          "approvedPngSha256": "ed9a104446c0545cc5249d130550191a461904913d698a57a40624d9f6ede885",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2220577,
+          "sha256": "ed9a104446c0545cc5249d130550191a461904913d698a57a40624d9f6ede885",
+          "processTags": [
+            "open-maru"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-gate-changho",
+          "buildingId": "jungmunganchae",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_11_gate_changho.png",
+          "title": {
+            "ko": "중문과 창호",
+            "en": "Gate, doors and windows",
+            "de": "Tor, Türen und Fenster"
+          },
+          "observe": {
+            "ko": "문은 문틀에 달려 있어요. 열린 문 너머로 통행길과 방 안쪽이 보여요.",
+            "en": "The doors hang from their frames. Through the openings, you can see the passage and room interiors.",
+            "de": "Die Türen hängen in ihren Rahmen. Durch die Öffnungen siehst du den Durchgang und das Innere der Räume."
+          },
+          "line": {
+            "ko": "제가 문을 열게요.",
+            "en": "I will open the door.",
+            "de": "Ich mache die Tür auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_11_gate-changho_v02.png",
+          "approvedPngSha256": "4a0c912315aa43f6dcf144941ff78821e4a46fe12526b7241752e2cb5bbc35bb",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2206807,
+          "sha256": "4a0c912315aa43f6dcf144941ff78821e4a46fe12526b7241752e2cb5bbc35bb",
+          "processTags": [
+            "gate-changho"
+          ]
+        },
+        {
+          "stageId": "jungmunganchae-complete-use",
+          "buildingId": "jungmunganchae",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_12_complete_use.png",
+          "title": {
+            "ko": "한 채의 완성",
+            "en": "The completed building",
+            "de": "Das fertige Gebäude"
+          },
+          "observe": {
+            "ko": "건물의 방과 마루, 일하고 보관하는 공간은 사람의 생활을 위한 자리였어요.",
+            "en": "Rooms, wooden halls, work areas and storage spaces served the needs of everyday life.",
+            "de": "Zimmer, Holzhallen, Arbeits- und Lagerräume dienten dem täglichen Leben."
+          },
+          "line": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "This is a place where people lived and worked.",
+            "de": "Hier haben Menschen gewohnt und gearbeitet."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_12_complete-use.png",
+          "approvedPngSha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2173264,
+          "sha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+          "processTags": [
+            "complete-use"
+          ]
+        }
+      ]
+    },
+    {
+      "buildingId": "araechae",
+      "name": {
+        "ko": "아래채",
+        "en": "Araechae",
+        "de": "Araechae"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_12_complete_use.png",
+      "canonicalSha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "아래채는 세 칸의 실내와 앞 툇마루를 함께 살펴보는 건물이에요. 온돌방과 마루, 바닥을 받치는 구조가 서로 달라요.",
+        "en": "The Araechae brings together three indoor bays and a front wooden porch. Its ondol rooms, maru and floor supports show different ways of using the space.",
+        "de": "Beim Araechae gehören drei innere Gefache und ein vorderer Holzvorbau zusammen. Ondol-Zimmer, Maru und Bodenstützen zeigen unterschiedliche Nutzungen des Raums."
+      },
+      "stages": [
+        {
+          "stageId": "araechae-site-rooms",
+          "buildingId": "araechae",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_01_site_rooms.png",
+          "title": {
+            "ko": "터와 방 자리",
+            "en": "Site and rooms",
+            "de": "Bauplatz und Räume"
+          },
+          "observe": {
+            "ko": "방 세 칸과 앞 툇마루에 필요한 깊이를 확보해요.",
+            "en": "The site allows depth for three bays and the front wooden porch.",
+            "de": "Der Bauplatz bietet Tiefe für drei Gefache und den vorderen Holzvorbau."
+          },
+          "line": {
+            "ko": "여기에 방을 만들어요.",
+            "en": "We will make a room here.",
+            "de": "Hier entsteht ein Zimmer."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_01_site-rooms_v02.png",
+          "approvedPngSha256": "c34097b57f510df95c80ad054502ac2265666cb096e2a8887a2012e92a84bd47",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1804959,
+          "sha256": "c34097b57f510df95c80ad054502ac2265666cb096e2a8887a2012e92a84bd47",
+          "processTags": [
+            "site-rooms"
+          ]
+        },
+        {
+          "stageId": "araechae-stone-foundation",
+          "buildingId": "araechae",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_02_stone_foundation.png",
+          "title": {
+            "ko": "기단과 초석",
+            "en": "Foundation and padstones",
+            "de": "Sockel und Fundamentsteine"
+          },
+          "observe": {
+            "ko": "초석은 나무기둥을 받쳐요. 기단의 높이는 건물마다 달라요.",
+            "en": "Stone bases support the wooden posts. The height of the platform varies by building.",
+            "de": "Steinsockel tragen die Holzpfosten. Die Höhe des Unterbaus unterscheidet sich von Gebäude zu Gebäude."
+          },
+          "line": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_02_stone-foundation_v03.png",
+          "approvedPngSha256": "778c8e8330f2c81e21c27cfac98250b0ab5f0a6c7c36ff30cbea49838497c2e4",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1819160,
+          "sha256": "778c8e8330f2c81e21c27cfac98250b0ab5f0a6c7c36ff30cbea49838497c2e4",
+          "processTags": [
+            "stone-foundation"
+          ]
+        },
+        {
+          "stageId": "araechae-posts-floor-support",
+          "buildingId": "araechae",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_03_posts_floor_support.png",
+          "title": {
+            "ko": "기둥과 마루 받침",
+            "en": "Posts and floor supports",
+            "de": "Pfosten und Bodenauflager"
+          },
+          "observe": {
+            "ko": "큰 기둥뿐 아니라 툇마루 아래의 작은 받침도 바닥을 지탱해요.",
+            "en": "Alongside the main posts, smaller supports beneath the porch carry its floor.",
+            "de": "Neben den großen Pfosten tragen kleinere Stützen unter dem Vorbau dessen Boden."
+          },
+          "line": {
+            "ko": "기둥이 위쪽을 받쳐요.",
+            "en": "The posts support the structure above.",
+            "de": "Die Pfosten tragen die Bauteile darüber."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_03_posts-floor-support_v02.png",
+          "approvedPngSha256": "403906e7bd587220e0d077a49b451a6e73e7f2f6f49ed1e463e48b5f3d1d0790",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1695181,
+          "sha256": "403906e7bd587220e0d077a49b451a6e73e7f2f6f49ed1e463e48b5f3d1d0790",
+          "processTags": [
+            "posts-floor-support"
+          ]
+        },
+        {
+          "stageId": "araechae-beams-purlins",
+          "buildingId": "araechae",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_04_beams_purlins.png",
+          "title": {
+            "ko": "보와 도리",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "보는 기둥 사이를 잇고, 도리는 서까래를 받아요. 힘이 아래로 전달되는 연결을 살펴봐요.",
+            "en": "Beams span between posts, and purlins support the rafters. Follow the connections that carry the load downwards.",
+            "de": "Balken verbinden die Pfosten, Pfetten tragen die Sparren. Verfolge, wie die Last über diese Verbindungen nach unten gelangt."
+          },
+          "line": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_04_beams-purlins.png",
+          "approvedPngSha256": "cd7e8420a504df60996d639660b76b75bc9db1238636a3c43325b6b07f64e025",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1812034,
+          "sha256": "cd7e8420a504df60996d639660b76b75bc9db1238636a3c43325b6b07f64e025",
+          "processTags": [
+            "beams-purlins"
+          ]
+        },
+        {
+          "stageId": "araechae-rafters-eaves",
+          "buildingId": "araechae",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_05_rafters_eaves.png",
+          "title": {
+            "ko": "서까래와 처마",
+            "en": "Rafters and eaves",
+            "de": "Sparren und Dachüberstand"
+          },
+          "observe": {
+            "ko": "서까래는 도리에 걸쳐 처마까지 뻗어요. 벽 밖으로 나온 처마는 비와 햇빛을 가리는 데 도움이 돼요.",
+            "en": "Rafters rest across the purlins and extend into the eaves. The overhang helps shelter the walls from rain and sunlight.",
+            "de": "Die Sparren liegen auf den Pfetten und reichen bis zum Dachüberstand. Dieser hilft, die Wände vor Regen und Sonne zu schützen."
+          },
+          "line": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_05_rafters-eaves.png",
+          "approvedPngSha256": "49d45cd1ed211532521192e60cdf7907aa9c05a9600724bead7460db8cd0026a",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1985748,
+          "sha256": "49d45cd1ed211532521192e60cdf7907aa9c05a9600724bead7460db8cd0026a",
+          "processTags": [
+            "rafters-eaves"
+          ]
+        },
+        {
+          "stageId": "araechae-roof-bed",
+          "buildingId": "araechae",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_06_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Der Dachaufbau"
+          },
+          "observe": {
+            "ko": "서까래 위의 바탕층이 기와를 받을 면을 만들어요.",
+            "en": "Layers above the rafters form the surface that will carry the roof tiles.",
+            "de": "Die Schichten über den Sparren bilden die Unterlage für die Dachziegel."
+          },
+          "line": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_06_roof-bed.png",
+          "approvedPngSha256": "bf3dc11e887cfb977b760bc2ab0c93d8e57b423264fadc8cf84af500e7e3004e",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2106099,
+          "sha256": "bf3dc11e887cfb977b760bc2ab0c93d8e57b423264fadc8cf84af500e7e3004e",
+          "processTags": [
+            "roof-bed"
+          ]
+        },
+        {
+          "stageId": "araechae-tiles",
+          "buildingId": "araechae",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_07_tiles.png",
+          "title": {
+            "ko": "기와 잇기",
+            "en": "Laying the roof tiles",
+            "de": "Dachziegel verlegen"
+          },
+          "observe": {
+            "ko": "겹쳐 놓인 기와와 지붕 경사를 따라 빗물이 아래로 흘러요.",
+            "en": "Rainwater runs down the sloping roof over the overlapping tiles.",
+            "de": "Regenwasser fließt über die überlappenden Ziegel das geneigte Dach hinunter."
+          },
+          "line": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_07_tiles.png",
+          "approvedPngSha256": "751e233446f7a39061380650fe1a1880486cdcea4f8435adab04caeb52909618",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2042413,
+          "sha256": "751e233446f7a39061380650fe1a1880486cdcea4f8435adab04caeb52909618",
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "araechae-room-walls",
+          "buildingId": "araechae",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_08_room_walls.png",
+          "title": {
+            "ko": "방의 벽과 구획",
+            "en": "Room walls and divisions",
+            "de": "Wände und Raumaufteilung"
+          },
+          "observe": {
+            "ko": "벽은 기둥 사이를 채워요. 문과 창 안쪽에는 방의 깊이가 남아 있어요.",
+            "en": "Walls fill the spaces between posts. The openings still reveal the depth of the rooms.",
+            "de": "Wände füllen die Felder zwischen den Pfosten. Durch die Öffnungen bleibt die Tiefe der Räume erkennbar."
+          },
+          "line": {
+            "ko": "여기는 방이고, 저기는 마루예요.",
+            "en": "This is a room, and that is the maru.",
+            "de": "Hier ist ein Zimmer, dort der Maru."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_08_room-walls.png",
+          "approvedPngSha256": "4dfc83fba8638b6013e1b64e31357663da1a00cc3ad2a282b3c65e38eafa5990",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2034641,
+          "sha256": "4dfc83fba8638b6013e1b64e31357663da1a00cc3ad2a282b3c65e38eafa5990",
+          "processTags": [
+            "room-walls"
+          ]
+        },
+        {
+          "stageId": "araechae-ondol",
+          "buildingId": "araechae",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_09_ondol.png",
+          "title": {
+            "ko": "온돌방 바닥",
+            "en": "Ondol room floors",
+            "de": "Böden mit Ondol-Heizung"
+          },
+          "observe": {
+            "ko": "온돌방은 바닥을 데우는 공간이에요. 나무 마루와 쓰임이 달라요.",
+            "en": "An ondol room is heated through its floor. Its use differs from that of a wooden maru.",
+            "de": "Ein Ondol-Zimmer wird über den Boden beheizt. Es wird anders genutzt als ein hölzerner Maru."
+          },
+          "line": {
+            "ko": "온돌은 방바닥을 데워요.",
+            "en": "Ondol warms the room floor.",
+            "de": "Die Ondol-Heizung erwärmt den Zimmerboden."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_09_ondol.png",
+          "approvedPngSha256": "6d2af1937a77e07e952ba4a78cb494b342701c8d642ba88c4932d7d47d34f49f",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2069104,
+          "sha256": "6d2af1937a77e07e952ba4a78cb494b342701c8d642ba88c4932d7d47d34f49f",
+          "processTags": [
+            "ondol"
+          ]
+        },
+        {
+          "stageId": "araechae-maru",
+          "buildingId": "araechae",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_10_maru.png",
+          "title": {
+            "ko": "마루방과 툇마루",
+            "en": "Maru room and veranda",
+            "de": "Maru-Zimmer und Holzveranda"
+          },
+          "observe": {
+            "ko": "마루방과 앞 툇마루의 판재 아래로 받침 구조가 이어져요.",
+            "en": "A supporting framework runs beneath the boards of the maru room and front porch.",
+            "de": "Unter den Dielen des Maru-Raums und des vorderen Vorbaus liegt ein tragendes Holzgerüst."
+          },
+          "line": {
+            "ko": "나무 바닥 아래에도 받침이 있어요.",
+            "en": "There are supports beneath the wooden floor too.",
+            "de": "Auch unter dem Holzboden liegen Auflager."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_10_maru.png",
+          "approvedPngSha256": "7fdec94627095f98575c641d5c3811026770d7587e46ef1ee7d655b7a9dd813c",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2132637,
+          "sha256": "7fdec94627095f98575c641d5c3811026770d7587e46ef1ee7d655b7a9dd813c",
+          "processTags": [
+            "maru"
+          ]
+        },
+        {
+          "stageId": "araechae-changho",
+          "buildingId": "araechae",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_11_changho.png",
+          "title": {
+            "ko": "문과 창호",
+            "en": "Doors and windows",
+            "de": "Türen und Fenster"
+          },
+          "observe": {
+            "ko": "문짝이 걸리는 곳과 문 뒤의 방을 함께 살펴봐요.",
+            "en": "Look at where each door leaf is attached and at the room behind it.",
+            "de": "Betrachte die Befestigung der Türflügel und den Raum dahinter."
+          },
+          "line": {
+            "ko": "문을 조금 열어 주세요.",
+            "en": "Please open the door a little.",
+            "de": "Mach bitte die Tür ein Stück auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_11_changho.png",
+          "approvedPngSha256": "ecad08d535f1b8f3998997918b222a65cfc90f7f6917b155e62bbb55babd90b6",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2213943,
+          "sha256": "ecad08d535f1b8f3998997918b222a65cfc90f7f6917b155e62bbb55babd90b6",
+          "processTags": [
+            "changho"
+          ]
+        },
+        {
+          "stageId": "araechae-complete-use",
+          "buildingId": "araechae",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_12_complete_use.png",
+          "title": {
+            "ko": "한 채의 완성",
+            "en": "The completed building",
+            "de": "Das fertige Gebäude"
+          },
+          "observe": {
+            "ko": "건물의 방과 마루, 일하고 보관하는 공간은 사람의 생활을 위한 자리였어요.",
+            "en": "Rooms, wooden halls, work areas and storage spaces served the needs of everyday life.",
+            "de": "Zimmer, Holzhallen, Arbeits- und Lagerräume dienten dem täglichen Leben."
+          },
+          "line": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "This is a place where people lived and worked.",
+            "de": "Hier haben Menschen gewohnt und gearbeitet."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_12_complete-use.png",
+          "approvedPngSha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2163363,
+          "sha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+          "processTags": [
+            "complete-use"
+          ]
+        }
+      ]
+    },
+    {
+      "buildingId": "anchae",
+      "name": {
+        "ko": "안채",
+        "en": "Anchae",
+        "de": "Anchae"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_14_complete_use.png",
+      "canonicalSha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "안채에는 부엌과 그 위 다락, 온돌방, 대청이 이어져요. 요리하고 쉬고 오가는 생활을 공간의 높이와 깊이에 맞춰 살펴봐요.",
+        "en": "The Anchae connects a kitchen and loft, ondol rooms and a main hall. Explore how changes in height and depth accommodate cooking, resting and moving through the house.",
+        "de": "Das Anchae verbindet Küche und Zwischenboden, Ondol-Zimmer und Haupthalle. Erkunde, wie unterschiedliche Höhen und Tiefen Platz zum Kochen, Ruhen und Durchgehen schaffen."
+      },
+      "stages": [
+        {
+          "stageId": "anchae-site-household",
+          "buildingId": "anchae",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_01_site_household.png",
+          "title": {
+            "ko": "터와 생활 공간",
+            "en": "Site and daily life",
+            "de": "Bauplatz und Wohnräume"
+          },
+          "observe": {
+            "ko": "부엌과 방, 대청은 서로 다른 높이와 동선으로 연결돼요.",
+            "en": "The kitchen, rooms and main hall connect through different floor levels and routes.",
+            "de": "Küche, Zimmer und Haupthalle sind durch unterschiedliche Bodenhöhen und Wege verbunden."
+          },
+          "line": {
+            "ko": "부엌에서 방으로 가요.",
+            "en": "We go from the kitchen to the room.",
+            "de": "Wir gehen von der Küche ins Zimmer."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_01_site-household.png",
+          "approvedPngSha256": "e5c25d00f115b92684de04989852ae45484da3ed63b4584df807db0ebc3725e2",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1867993,
+          "sha256": "e5c25d00f115b92684de04989852ae45484da3ed63b4584df807db0ebc3725e2",
+          "processTags": [
+            "site-household"
+          ]
+        },
+        {
+          "stageId": "anchae-stone-foundation",
+          "buildingId": "anchae",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_02_stone_foundation.png",
+          "title": {
+            "ko": "기단과 초석",
+            "en": "Foundation and padstones",
+            "de": "Sockel und Fundamentsteine"
+          },
+          "observe": {
+            "ko": "초석은 나무기둥을 받쳐요. 기단의 높이는 건물마다 달라요.",
+            "en": "Stone bases support the wooden posts. The height of the platform varies by building.",
+            "de": "Steinsockel tragen die Holzpfosten. Die Höhe des Unterbaus unterscheidet sich von Gebäude zu Gebäude."
+          },
+          "line": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_02_stone-foundation.png",
+          "approvedPngSha256": "a1ee9576cbd4980b9ce83de51041de617c57aea8628dd5fe46ae89d95b6172bd",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1428339,
+          "sha256": "a1ee9576cbd4980b9ce83de51041de617c57aea8628dd5fe46ae89d95b6172bd",
+          "processTags": [
+            "stone-foundation"
+          ]
+        },
+        {
+          "stageId": "anchae-posts",
+          "buildingId": "anchae",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_03_posts.png",
+          "title": {
+            "ko": "기둥 세우기",
+            "en": "Raising the posts",
+            "de": "Die Pfosten aufstellen"
+          },
+          "observe": {
+            "ko": "앞뒤 기둥 사이에 사람이 들어갈 공간의 깊이가 생겨요.",
+            "en": "The front and rear posts define the depth of a space people can enter.",
+            "de": "Zwischen den vorderen und hinteren Pfosten entsteht ein begehbarer Raum."
+          },
+          "line": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_03_posts.png",
+          "approvedPngSha256": "32237b786b6e02f7cb9072628ca29dc4e2d12f195afee2b2a84dea2f3aa90088",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1804657,
+          "sha256": "32237b786b6e02f7cb9072628ca29dc4e2d12f195afee2b2a84dea2f3aa90088",
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "anchae-beams-purlins",
+          "buildingId": "anchae",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_04_beams_purlins.png",
+          "title": {
+            "ko": "보와 도리",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "보는 기둥 사이를 잇고, 도리는 서까래를 받아요. 힘이 아래로 전달되는 연결을 살펴봐요.",
+            "en": "Beams span between posts, and purlins support the rafters. Follow the connections that carry the load downwards.",
+            "de": "Balken verbinden die Pfosten, Pfetten tragen die Sparren. Verfolge, wie die Last über diese Verbindungen nach unten gelangt."
+          },
+          "line": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_04_beams-purlins.png",
+          "approvedPngSha256": "098de6ae3f3e721194f8560d53fdd041cca280f206a0fb76faa515539e6ce8e5",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1913330,
+          "sha256": "098de6ae3f3e721194f8560d53fdd041cca280f206a0fb76faa515539e6ce8e5",
+          "processTags": [
+            "beams-purlins"
+          ]
+        },
+        {
+          "stageId": "anchae-hip-frame",
+          "buildingId": "anchae",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_05_hip_frame.png",
+          "title": {
+            "ko": "추녀와 합각 골격",
+            "en": "Hip and gable framing",
+            "de": "Grat- und Giebelkonstruktion"
+          },
+          "observe": {
+            "ko": "안채의 팔작지붕은 모서리에서도 골격이 이어져요.",
+            "en": "The Anchae roof frame also connects around the corners of its hipped-and-gabled roof.",
+            "de": "Das Gerüst des Walmdachs mit Giebeln am Anchae ist auch an den Ecken verbunden."
+          },
+          "line": {
+            "ko": "모서리도 단단하게 이어요.",
+            "en": "We join the corners securely too.",
+            "de": "Auch die Ecken verbinden wir stabil."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_05_hip-frame.png",
+          "approvedPngSha256": "d11560e23f652233a4d7feadf2206ac6ac327ac3548a9713ec2dcb291ce1934e",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1977226,
+          "sha256": "d11560e23f652233a4d7feadf2206ac6ac327ac3548a9713ec2dcb291ce1934e",
+          "processTags": [
+            "hip-frame"
+          ]
+        },
+        {
+          "stageId": "anchae-rafters-eaves",
+          "buildingId": "anchae",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_06_rafters_eaves.png",
+          "title": {
+            "ko": "서까래와 처마",
+            "en": "Rafters and eaves",
+            "de": "Sparren und Dachüberstand"
+          },
+          "observe": {
+            "ko": "서까래는 도리에 걸쳐 처마까지 뻗어요. 벽 밖으로 나온 처마는 비와 햇빛을 가리는 데 도움이 돼요.",
+            "en": "Rafters rest across the purlins and extend into the eaves. The overhang helps shelter the walls from rain and sunlight.",
+            "de": "Die Sparren liegen auf den Pfetten und reichen bis zum Dachüberstand. Dieser hilft, die Wände vor Regen und Sonne zu schützen."
+          },
+          "line": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_06_rafters-eaves.png",
+          "approvedPngSha256": "4439f400dd8f27eecfc24e169a047ba157c01b6ce9a931ed172becfcaa08968b",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2097293,
+          "sha256": "4439f400dd8f27eecfc24e169a047ba157c01b6ce9a931ed172becfcaa08968b",
+          "processTags": [
+            "rafters-eaves"
+          ]
+        },
+        {
+          "stageId": "anchae-roof-bed",
+          "buildingId": "anchae",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_07_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Der Dachaufbau"
+          },
+          "observe": {
+            "ko": "서까래 위의 바탕층이 기와를 받을 면을 만들어요.",
+            "en": "Layers above the rafters form the surface that will carry the roof tiles.",
+            "de": "Die Schichten über den Sparren bilden die Unterlage für die Dachziegel."
+          },
+          "line": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_07_roof-bed_v02.png",
+          "approvedPngSha256": "75a2cd4005530aa766c55eec0f33cfa415a077412c2dc57e1733e9d96283782e",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2013026,
+          "sha256": "75a2cd4005530aa766c55eec0f33cfa415a077412c2dc57e1733e9d96283782e",
+          "processTags": [
+            "roof-bed"
+          ]
+        },
+        {
+          "stageId": "anchae-tiles",
+          "buildingId": "anchae",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_08_tiles.png",
+          "title": {
+            "ko": "기와 잇기",
+            "en": "Laying the roof tiles",
+            "de": "Dachziegel verlegen"
+          },
+          "observe": {
+            "ko": "겹쳐 놓인 기와와 지붕 경사를 따라 빗물이 아래로 흘러요.",
+            "en": "Rainwater runs down the sloping roof over the overlapping tiles.",
+            "de": "Regenwasser fließt über die überlappenden Ziegel das geneigte Dach hinunter."
+          },
+          "line": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_08_tiles.png",
+          "approvedPngSha256": "b8526856fd74f9fd513d978764a3f58c8c0890bcd1bff556b5ab3e24d08238dc",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2184204,
+          "sha256": "b8526856fd74f9fd513d978764a3f58c8c0890bcd1bff556b5ab3e24d08238dc",
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "anchae-walls-kitchen",
+          "buildingId": "anchae",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_09_walls_kitchen.png",
+          "title": {
+            "ko": "벽과 부엌",
+            "en": "Walls and kitchen",
+            "de": "Wände und Küche"
+          },
+          "observe": {
+            "ko": "부엌과 온돌방의 바닥 높이가 달라요. 생활에 맞춰 공간을 나눠요.",
+            "en": "The kitchen and ondol rooms have different floor levels, arranged for everyday activities.",
+            "de": "Küche und Ondol-Zimmer haben unterschiedliche Bodenhöhen, passend zu ihrer Nutzung im Alltag."
+          },
+          "line": {
+            "ko": "부엌은 아래쪽에 있어요.",
+            "en": "The kitchen is at a lower level.",
+            "de": "Die Küche liegt tiefer."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_09_walls-kitchen.png",
+          "approvedPngSha256": "21c900f76b552160d92861ded7c37ac796fe410750150b2b9c5bccba57ffd4ce",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2125824,
+          "sha256": "21c900f76b552160d92861ded7c37ac796fe410750150b2b9c5bccba57ffd4ce",
+          "processTags": [
+            "walls-kitchen"
+          ]
+        },
+        {
+          "stageId": "anchae-kitchen-loft",
+          "buildingId": "anchae",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_10_kitchen_loft.png",
+          "title": {
+            "ko": "부엌 위 다락",
+            "en": "Loft over the kitchen",
+            "de": "Der Boden über der Küche"
+          },
+          "observe": {
+            "ko": "다락 바닥을 받치는 나무와 그 아래 부엌 공간을 함께 살펴봐요.",
+            "en": "Look at the timbers supporting the loft floor and the kitchen space beneath it.",
+            "de": "Betrachte die Hölzer, die den Zwischenboden tragen, und den Küchenraum darunter."
+          },
+          "line": {
+            "ko": "다락은 부엌 위에 있어요.",
+            "en": "The loft is above the kitchen.",
+            "de": "Der erhöhte Boden liegt über der Küche."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_10_kitchen-loft.png",
+          "approvedPngSha256": "425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2173058,
+          "sha256": "425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a",
+          "processTags": [
+            "kitchen-loft"
+          ]
+        },
+        {
+          "stageId": "anchae-ondol",
+          "buildingId": "anchae",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_11_ondol.png",
+          "title": {
+            "ko": "온돌방 바닥",
+            "en": "Ondol room floors",
+            "de": "Böden mit Ondol-Heizung"
+          },
+          "observe": {
+            "ko": "온돌방은 바닥을 데우는 공간이에요. 나무 마루와 쓰임이 달라요.",
+            "en": "An ondol room is heated through its floor. Its use differs from that of a wooden maru.",
+            "de": "Ein Ondol-Zimmer wird über den Boden beheizt. Es wird anders genutzt als ein hölzerner Maru."
+          },
+          "line": {
+            "ko": "온돌은 방바닥을 데워요.",
+            "en": "Ondol warms the room floor.",
+            "de": "Die Ondol-Heizung erwärmt den Zimmerboden."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_11_ondol.png",
+          "approvedPngSha256": "da430042fe5cc54e16f71e218f2a03c8538d09545771a6d29a7ff4d72e934594",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2188514,
+          "sha256": "da430042fe5cc54e16f71e218f2a03c8538d09545771a6d29a7ff4d72e934594",
+          "processTags": [
+            "ondol"
+          ]
+        },
+        {
+          "stageId": "anchae-daecheong-maru",
+          "buildingId": "anchae",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_12_daecheong_maru.png",
+          "title": {
+            "ko": "대청과 앞뒤 마루",
+            "en": "Hall and wooden floors",
+            "de": "Diele und Holzböden"
+          },
+          "observe": {
+            "ko": "대청은 앞뒤를 잇는 깊은 공간이에요. 바닥 아래의 귀틀이 마루판을 받쳐요.",
+            "en": "The main hall is a deep space linking front and back. Timber framing beneath supports the floorboards.",
+            "de": "Die Haupthalle verbindet als tiefer Raum Vorder- und Rückseite. Ein Holzrahmen darunter trägt die Dielen."
+          },
+          "line": {
+            "ko": "대청을 지나 뒤로 가요.",
+            "en": "We walk through the hall to the back.",
+            "de": "Wir gehen durch die Diele nach hinten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_12_daecheong-maru.png",
+          "approvedPngSha256": "98555c21b336587053917997e72128462bd5e4d7db9fe858dea51305d78311df",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2054271,
+          "sha256": "98555c21b336587053917997e72128462bd5e4d7db9fe858dea51305d78311df",
+          "processTags": [
+            "daecheong-maru"
+          ]
+        },
+        {
+          "stageId": "anchae-changho",
+          "buildingId": "anchae",
+          "sequence": 13,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_13_changho.png",
+          "title": {
+            "ko": "문과 창호",
+            "en": "Doors and windows",
+            "de": "Türen und Fenster"
+          },
+          "observe": {
+            "ko": "문짝이 걸리는 곳과 문 뒤의 방을 함께 살펴봐요.",
+            "en": "Look at where each door leaf is attached and at the room behind it.",
+            "de": "Betrachte die Befestigung der Türflügel und den Raum dahinter."
+          },
+          "line": {
+            "ko": "문을 조금 열어 주세요.",
+            "en": "Please open the door a little.",
+            "de": "Mach bitte die Tür ein Stück auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_13_changho_v02.png",
+          "approvedPngSha256": "fc0ec2f33d6a4cc1a6d7f361c4af799efbf85ae7f05c293248e6b27d83019708",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2199459,
+          "sha256": "fc0ec2f33d6a4cc1a6d7f361c4af799efbf85ae7f05c293248e6b27d83019708",
+          "processTags": [
+            "changho"
+          ]
+        },
+        {
+          "stageId": "anchae-complete-use",
+          "buildingId": "anchae",
+          "sequence": 14,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_14_complete_use.png",
+          "title": {
+            "ko": "한 채의 완성",
+            "en": "The completed building",
+            "de": "Das fertige Gebäude"
+          },
+          "observe": {
+            "ko": "건물의 방과 마루, 일하고 보관하는 공간은 사람의 생활을 위한 자리였어요.",
+            "en": "Rooms, wooden halls, work areas and storage spaces served the needs of everyday life.",
+            "de": "Zimmer, Holzhallen, Arbeits- und Lagerräume dienten dem täglichen Leben."
+          },
+          "line": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "This is a place where people lived and worked.",
+            "de": "Hier haben Menschen gewohnt und gearbeitet."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_14_complete-use.png",
+          "approvedPngSha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2082318,
+          "sha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+          "processTags": [
+            "complete-use"
+          ]
+        }
+      ]
+    },
+    {
+      "buildingId": "anchae-store",
+      "name": {
+        "ko": "안채 창고",
+        "en": "Anchae storehouse",
+        "de": "Speicher am Anchae"
+      },
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_11_complete_use.png",
+      "canonicalSha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+      "width": 1536,
+      "height": 1024,
+      "culture": {
+        "ko": "안채 창고는 물건을 들이고 보관하고 꺼내 쓰던 생활 공간이에요. 두 보관 공간과 출입문, 흙바닥을 살펴봐요. 구체적인 보관 물품이나 거주 방은 단정하지 않아요.",
+        "en": "The Anchae storehouse was used to bring in, store and retrieve belongings. Explore its two storage spaces, entrances and earth floor. These images do not establish particular stored goods or sleeping rooms.",
+        "de": "Im Lagergebäude des Anchae wurden Gegenstände hineingebracht, aufbewahrt und wieder herausgeholt. Betrachte die zwei Lagerräume, Eingänge und den Erdboden. Bestimmte Lagergüter oder Schlafräume werden durch diese Bilder nicht belegt."
+      },
+      "stages": [
+        {
+          "stageId": "anchae-store-site-storage",
+          "buildingId": "anchae-store",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_01_site_storage.png",
+          "title": {
+            "ko": "터와 반입 길",
+            "en": "Site and access",
+            "de": "Bauplatz und Zugang"
+          },
+          "observe": {
+            "ko": "문으로 들어온 물건을 보관할 안쪽 공간도 필요해요.",
+            "en": "Objects brought through the doors need space inside for storage.",
+            "de": "Für Gegenstände, die durch die Türen kommen, braucht es innen Lagerfläche."
+          },
+          "line": {
+            "ko": "이 길로 물건을 옮겨요.",
+            "en": "We carry things along this path.",
+            "de": "Auf diesem Weg tragen wir die Vorräte hinein."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_01_site-storage.png",
+          "approvedPngSha256": "7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1870708,
+          "sha256": "7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838",
+          "processTags": [
+            "site-storage"
+          ]
+        },
+        {
+          "stageId": "anchae-store-stone-foundation",
+          "buildingId": "anchae-store",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_02_stone_foundation.png",
+          "title": {
+            "ko": "기단과 초석",
+            "en": "Foundation and padstones",
+            "de": "Sockel und Fundamentsteine"
+          },
+          "observe": {
+            "ko": "초석은 나무기둥을 받쳐요. 기단의 높이는 건물마다 달라요.",
+            "en": "Stone bases support the wooden posts. The height of the platform varies by building.",
+            "de": "Steinsockel tragen die Holzpfosten. Die Höhe des Unterbaus unterscheidet sich von Gebäude zu Gebäude."
+          },
+          "line": {
+            "ko": "기둥은 돌 위에 세워요.",
+            "en": "The posts stand on stones.",
+            "de": "Die Pfosten stehen auf Steinen."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_02_stone-foundation.png",
+          "approvedPngSha256": "3a60999fee3f8d18a425b63f4d4fc0b56301a36eafa4a5e2f83d331c398b8383",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1847140,
+          "sha256": "3a60999fee3f8d18a425b63f4d4fc0b56301a36eafa4a5e2f83d331c398b8383",
+          "processTags": [
+            "stone-foundation"
+          ]
+        },
+        {
+          "stageId": "anchae-store-posts",
+          "buildingId": "anchae-store",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_03_posts.png",
+          "title": {
+            "ko": "기둥 세우기",
+            "en": "Raising the posts",
+            "de": "Die Pfosten aufstellen"
+          },
+          "observe": {
+            "ko": "앞뒤 기둥 사이에 사람이 들어갈 공간의 깊이가 생겨요.",
+            "en": "The front and rear posts define the depth of a space people can enter.",
+            "de": "Zwischen den vorderen und hinteren Pfosten entsteht ein begehbarer Raum."
+          },
+          "line": {
+            "ko": "기둥을 세워요.",
+            "en": "We raise the posts.",
+            "de": "Wir stellen die Pfosten auf."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_03_posts_v03.png",
+          "approvedPngSha256": "f9b46ef7d83cefddc7f99b3fc30f23b3ad1c3e2bb075260cc8333a9be97df3d6",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1844615,
+          "sha256": "f9b46ef7d83cefddc7f99b3fc30f23b3ad1c3e2bb075260cc8333a9be97df3d6",
+          "processTags": [
+            "posts"
+          ]
+        },
+        {
+          "stageId": "anchae-store-beams-purlins",
+          "buildingId": "anchae-store",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_04_beams_purlins.png",
+          "title": {
+            "ko": "보와 도리",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "observe": {
+            "ko": "보는 기둥 사이를 잇고, 도리는 서까래를 받아요. 힘이 아래로 전달되는 연결을 살펴봐요.",
+            "en": "Beams span between posts, and purlins support the rafters. Follow the connections that carry the load downwards.",
+            "de": "Balken verbinden die Pfosten, Pfetten tragen die Sparren. Verfolge, wie die Last über diese Verbindungen nach unten gelangt."
+          },
+          "line": {
+            "ko": "보를 기둥 위에 올려요.",
+            "en": "We place the beam on the posts.",
+            "de": "Wir legen den Balken auf die Pfosten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_04_beams-purlins.png",
+          "approvedPngSha256": "eae1118b860a8fdb9812b047e4c5a8b3a588c6a5eb723c09a9b9c6a7c7d34133",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1928433,
+          "sha256": "eae1118b860a8fdb9812b047e4c5a8b3a588c6a5eb723c09a9b9c6a7c7d34133",
+          "processTags": [
+            "beams-purlins"
+          ]
+        },
+        {
+          "stageId": "anchae-store-rafters-eaves",
+          "buildingId": "anchae-store",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_05_rafters_eaves.png",
+          "title": {
+            "ko": "서까래와 처마",
+            "en": "Rafters and eaves",
+            "de": "Sparren und Dachüberstand"
+          },
+          "observe": {
+            "ko": "서까래는 도리에 걸쳐 처마까지 뻗어요. 벽 밖으로 나온 처마는 비와 햇빛을 가리는 데 도움이 돼요.",
+            "en": "Rafters rest across the purlins and extend into the eaves. The overhang helps shelter the walls from rain and sunlight.",
+            "de": "Die Sparren liegen auf den Pfetten und reichen bis zum Dachüberstand. Dieser hilft, die Wände vor Regen und Sonne zu schützen."
+          },
+          "line": {
+            "ko": "서까래를 도리 위에 얹어요.",
+            "en": "We lay the rafters on the purlins.",
+            "de": "Wir legen die Sparren auf die Pfetten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_05_rafters-eaves.png",
+          "approvedPngSha256": "ee54b1302c4067b210276684761274d3edefafa82a41d3904a476176f46e3f97",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2094980,
+          "sha256": "ee54b1302c4067b210276684761274d3edefafa82a41d3904a476176f46e3f97",
+          "processTags": [
+            "rafters-eaves"
+          ]
+        },
+        {
+          "stageId": "anchae-store-roof-bed",
+          "buildingId": "anchae-store",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_06_roof_bed.png",
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof underlayers",
+            "de": "Der Dachaufbau"
+          },
+          "observe": {
+            "ko": "서까래 위의 바탕층이 기와를 받을 면을 만들어요.",
+            "en": "Layers above the rafters form the surface that will carry the roof tiles.",
+            "de": "Die Schichten über den Sparren bilden die Unterlage für die Dachziegel."
+          },
+          "line": {
+            "ko": "기와 아래에도 층이 있어요.",
+            "en": "There are layers beneath the tiles too.",
+            "de": "Auch unter den Dachziegeln liegen Schichten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_06_roof-bed.png",
+          "approvedPngSha256": "63b1099b9b7e9690daf6c2ab43a0993828facffdfa22c4d9f3d1438e874ee5d5",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2164853,
+          "sha256": "63b1099b9b7e9690daf6c2ab43a0993828facffdfa22c4d9f3d1438e874ee5d5",
+          "processTags": [
+            "roof-bed"
+          ]
+        },
+        {
+          "stageId": "anchae-store-tiles",
+          "buildingId": "anchae-store",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_07_tiles.png",
+          "title": {
+            "ko": "기와 잇기",
+            "en": "Laying the roof tiles",
+            "de": "Dachziegel verlegen"
+          },
+          "observe": {
+            "ko": "겹쳐 놓인 기와와 지붕 경사를 따라 빗물이 아래로 흘러요.",
+            "en": "Rainwater runs down the sloping roof over the overlapping tiles.",
+            "de": "Regenwasser fließt über die überlappenden Ziegel das geneigte Dach hinunter."
+          },
+          "line": {
+            "ko": "빗물이 아래로 흘러요.",
+            "en": "Rainwater flows down.",
+            "de": "Regenwasser fließt nach unten."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_07_tiles.png",
+          "approvedPngSha256": "21fff7b91c2825b2a632c356b2e6ad24b5a54538ce1b616d7e9b393224aa3d79",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2166570,
+          "sha256": "21fff7b91c2825b2a632c356b2e6ad24b5a54538ce1b616d7e9b393224aa3d79",
+          "processTags": [
+            "tiles"
+          ]
+        },
+        {
+          "stageId": "anchae-store-compacted-floor",
+          "buildingId": "anchae-store",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_08_compacted_floor.png",
+          "title": {
+            "ko": "다진 흙바닥",
+            "en": "Compacted earthen floor",
+            "de": "Gestampfter Erdboden"
+          },
+          "observe": {
+            "ko": "안채 창고에는 다진 흙바닥을 표현했어요. 마루와 온돌방의 바닥과 비교해 봐요.",
+            "en": "The Anchae storehouse is shown with a compacted earth floor. Compare it with the maru and ondol floors.",
+            "de": "Das Lagergebäude des Anchae ist mit einem gestampften Erdboden dargestellt. Vergleiche ihn mit den Böden von Maru und Ondol-Zimmern."
+          },
+          "line": {
+            "ko": "여기는 흙바닥으로 만들어요.",
+            "en": "Here we make an earthen floor.",
+            "de": "Hier legen wir einen Erdboden an."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_08_compacted-floor.png",
+          "approvedPngSha256": "972ea798c5073ee935e606432cff196b0a52bb1f3cbcb2808a6970d4fd3825ae",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2171012,
+          "sha256": "972ea798c5073ee935e606432cff196b0a52bb1f3cbcb2808a6970d4fd3825ae",
+          "processTags": [
+            "compacted-floor"
+          ]
+        },
+        {
+          "stageId": "anchae-store-walls-partition",
+          "buildingId": "anchae-store",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_09_walls_partition.png",
+          "title": {
+            "ko": "판벽과 두 보관 공간",
+            "en": "Walls and two storerooms",
+            "de": "Wände und zwei Lagerräume"
+          },
+          "observe": {
+            "ko": "중앙 칸막이를 기준으로 두 보관 공간이 생겨요.",
+            "en": "A central partition creates two storage spaces.",
+            "de": "Eine mittlere Trennwand schafft zwei Lagerräume."
+          },
+          "line": {
+            "ko": "칸막이 양쪽에 공간이 있어요.",
+            "en": "There is space on both sides of the partition.",
+            "de": "Auf beiden Seiten der Trennwand ist Raum."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_09_walls-partition_v02.png",
+          "approvedPngSha256": "bb8023445b6b319ace57fac9b4708fffd05b0d1b4f32adf4a8c34cdfae5354be",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2099027,
+          "sha256": "bb8023445b6b319ace57fac9b4708fffd05b0d1b4f32adf4a8c34cdfae5354be",
+          "processTags": [
+            "walls-partition"
+          ]
+        },
+        {
+          "stageId": "anchae-store-doors-vents",
+          "buildingId": "anchae-store",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_10_doors_vents.png",
+          "title": {
+            "ko": "널문과 환기구",
+            "en": "Plank doors and vents",
+            "de": "Brettertüren und Lüftungsöffnungen"
+          },
+          "observe": {
+            "ko": "물건을 드나들게 하는 문과 작은 환기구는 역할이 달라요.",
+            "en": "Doors for moving objects and small ventilation openings serve different purposes.",
+            "de": "Türen für den Transport von Gegenständen und kleine Lüftungsöffnungen haben unterschiedliche Aufgaben."
+          },
+          "line": {
+            "ko": "문을 열고 안에 넣어요.",
+            "en": "We open the door and put it inside.",
+            "de": "Wir öffnen die Tür und stellen es hinein."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_10_doors-vents.png",
+          "approvedPngSha256": "10572eeacf28decf6d2c4220404c4d483f747b3168489c96f27e977d01601e3f",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2234023,
+          "sha256": "10572eeacf28decf6d2c4220404c4d483f747b3168489c96f27e977d01601e3f",
+          "processTags": [
+            "doors-vents"
+          ]
+        },
+        {
+          "stageId": "anchae-store-complete-use",
+          "buildingId": "anchae-store",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_11_complete_use.png",
+          "title": {
+            "ko": "한 채의 완성",
+            "en": "The completed building",
+            "de": "Das fertige Gebäude"
+          },
+          "observe": {
+            "ko": "건물의 방과 마루, 일하고 보관하는 공간은 사람의 생활을 위한 자리였어요.",
+            "en": "Rooms, wooden halls, work areas and storage spaces served the needs of everyday life.",
+            "de": "Zimmer, Holzhallen, Arbeits- und Lagerräume dienten dem täglichen Leben."
+          },
+          "line": {
+            "ko": "사람이 살고 사용하던 공간이에요.",
+            "en": "This is a place where people lived and worked.",
+            "de": "Hier haben Menschen gewohnt und gearbeitet."
+          },
+          "scene": {
+            "ko": "건축 공정 그림을 보며 구조와 생활 공간을 설명하는 장면이에요.",
+            "en": "You are describing a construction illustration and the spaces used in daily life.",
+            "de": "Du beschreibst eine Darstellung des Bauablaufs und die darin genutzten Alltagsräume."
+          },
+          "task": {
+            "ko": "그림을 보며 이번 공정을 한국어 한 문장으로 설명해 보세요.",
+            "en": "Describe this stage in one Korean sentence while looking at the picture.",
+            "de": "Beschreibe diesen Bauschritt beim Betrachten des Bildes mit einem koreanischen Satz."
+          },
+          "exercise": {
+            "kind": "spoken_description"
+          },
+          "glossary": [],
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_11_complete-use.png",
+          "approvedPngSha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+          "runtimeEncoding": "original PNG; byte-identical",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2042810,
+          "sha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+          "processTags": [
+            "complete-use"
+          ]
+        }
+      ]
+    }
+  ],
+  "additionalApprovals": [
+    {
+      "approvedBy": "Jin",
+      "approvedOn": "2026-09-14",
+      "approval": "너무 잘햇어ㅎㅎ 커밋푸시 메인에 병합하고 이걸로 라이브 되게해줘.",
+      "buildingIds": [
+        "jungmunganchae",
+        "araechae",
+        "anchae",
+        "anchae-store"
+      ],
+      "stageCount": 49,
+      "postprocessing": "Original approved RGB PNG bytes; no resizing, recoloring or regenerated replacements.",
+      "geometryReview": "Visual adoption does not certify calibrated 29-degree camera geometry or pixel-identical joints across generated stages."
     }
   ]
 }

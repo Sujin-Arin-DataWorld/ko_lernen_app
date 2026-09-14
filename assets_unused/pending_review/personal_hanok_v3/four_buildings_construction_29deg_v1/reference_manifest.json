@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-09-14",
+  "sources": [
+    {
+      "buildingId": "jungmunganchae",
+      "role": "approved completed-turnaround reference, not newly approved 29deg construction art",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_jungmunganchae_v05_final_byte_locked\\transparent_28deg\\00_front_000.png",
+      "copy": "references/jungmunganchae_approved_front.png",
+      "bytes": 2112122,
+      "sha256": "bc7021ef7ba05f5c21746626e1b3ddec2e82609db40d55171c65860256d17909"
+    },
+    {
+      "buildingId": "araechae",
+      "role": "approved completed-turnaround reference, not newly approved 29deg construction art",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\araechae_00_front.png",
+      "copy": "references/araechae_approved_front.png",
+      "bytes": 1855690,
+      "sha256": "7dca50e664e5973effe7f994f041c2c4ae7b5c00fc57303f86eb16effa3f703e"
+    },
+    {
+      "buildingId": "anchae",
+      "role": "approved completed-turnaround reference, not newly approved 29deg construction art",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_anchae_blueprint100_v03_28deg_2p5d\\transparent_28deg\\00_front_000_28deg.png",
+      "copy": "references/anchae_approved_front.png",
+      "bytes": 2088510,
+      "sha256": "8d5d7011dcdc191e79005fca05ad31fad805b5e33562b1f5a90e3c197c6471ab"
+    },
+    {
+      "buildingId": "anchae-store",
+      "role": "approved completed-turnaround reference, not newly approved 29deg construction art",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\turnaround_2d\\ildu_anchae_store_blueprint100_v01_28deg\\final_384x512\\ildu_anchae_store_00_front.png",
+      "copy": "references/anchae-store_approved_front.png",
+      "bytes": 75963,
+      "sha256": "5be1a8b7f08c2a0ddde81dad2656628dd5557267c7ac0a9583f7727b9486e8ad"
+    }
+  ],
+  "sarangchaeQualityReference": {
+    "url": "http://127.0.0.1:8846/docs/mockups/sarangchae-16/index.html?stage=8&lang=ko",
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_08_rafters.png",
+    "usedAsGenerationInput": false
+  }
+}

@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "approvedBy": "Jin",
+  "approvedOn": "2026-09-14",
+  "approval": "너무 잘햇어ㅎㅎ 커밋푸시 메인에 병합하고 이걸로 라이브 되게해줘.",
+  "buildingIds": [
+    "jungmunganchae",
+    "araechae",
+    "anchae",
+    "anchae-store"
+  ],
+  "stageCount": 49,
+  "postprocessing": "Original approved RGB PNG bytes; no resizing, recoloring or regenerated replacements.",
+  "geometryReview": "Visual adoption does not certify calibrated 29-degree camera geometry or pixel-identical joints across generated stages.",
+  "files": [
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 1,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_01_site-route.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_01_site_route.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_01_site_route.png",
+      "sha256": "21b75324e6dc098e4327b4ee88f24a77c81f11691b003ea9c88ba9cd6146ddf9",
+      "bytes": 1467666
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 2,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_02_stone-foundation_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_02_stone_foundation.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_02_stone_foundation.png",
+      "sha256": "8033e02f3876d19a062bbf4747d871af6423b4a1bd57089201a92e11bd0342a3",
+      "bytes": 1740792
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 3,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_03_posts_v04.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_03_posts.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_03_posts.png",
+      "sha256": "9b9055d2dfecb8df71a0d46c2f7d0c6c612247d7148ceea6e14875a36c06df64",
+      "bytes": 1827273
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 4,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_04_beams-purlins.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_04_beams_purlins.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_04_beams_purlins.png",
+      "sha256": "dde340c19fc80e053a3b7edbba0cde3552a4179f2b75766024b9414d7b51d9f6",
+      "bytes": 1980195
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 5,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_05_rafters-eaves.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_05_rafters_eaves.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_05_rafters_eaves.png",
+      "sha256": "85933f03f97e5d067f17935471905b19575e3b03f305489cc754f3d1e83b4e54",
+      "bytes": 2146355
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 6,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_06_roof-bed.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_06_roof_bed.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_06_roof_bed.png",
+      "sha256": "d2d4b1cc9f5904b2080d6599dc84ac34a71b12087cb845a4ae0ba0e56a67757b",
+      "bytes": 2021105
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 7,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_07_tiles.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_07_tiles.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_07_tiles.png",
+      "sha256": "d775405eaa9a5db9bf9107b5f5a1051a4d944cd3e66ad42fcfa892cb04a2c9c2",
+      "bytes": 2160071
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 8,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_08_room-walls.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_08_room_walls.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_08_room_walls.png",
+      "sha256": "71e103b0679406f678b6cdcbec05c29e518e7943fe5d93cf807048588468c880",
+      "bytes": 2123132
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 9,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_09_ondol-floors.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_09_ondol_floors.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_09_ondol_floors.png",
+      "sha256": "ebd1bf08b34106f6beb860d3de42d0efe272561d5c1a991674052ab2acbed823",
+      "bytes": 2166396
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 10,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_10_open-maru.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_10_open_maru.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_10_open_maru.png",
+      "sha256": "ed9a104446c0545cc5249d130550191a461904913d698a57a40624d9f6ede885",
+      "bytes": 2220577
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 11,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_11_gate-changho_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_11_gate_changho.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_11_gate_changho.png",
+      "sha256": "4a0c912315aa43f6dcf144941ff78821e4a46fe12526b7241752e2cb5bbc35bb",
+      "bytes": 2206807
+    },
+    {
+      "buildingId": "jungmunganchae",
+      "sequence": 12,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/jungmunganchae/stage_12_complete-use.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_12_complete_use.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/jungmunganchae/stage_12_complete_use.png",
+      "sha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+      "bytes": 2173264
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 1,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_01_site-rooms_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_01_site_rooms.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_01_site_rooms.png",
+      "sha256": "c34097b57f510df95c80ad054502ac2265666cb096e2a8887a2012e92a84bd47",
+      "bytes": 1804959
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 2,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_02_stone-foundation_v03.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_02_stone_foundation.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_02_stone_foundation.png",
+      "sha256": "778c8e8330f2c81e21c27cfac98250b0ab5f0a6c7c36ff30cbea49838497c2e4",
+      "bytes": 1819160
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 3,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_03_posts-floor-support_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_03_posts_floor_support.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_03_posts_floor_support.png",
+      "sha256": "403906e7bd587220e0d077a49b451a6e73e7f2f6f49ed1e463e48b5f3d1d0790",
+      "bytes": 1695181
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 4,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_04_beams-purlins.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_04_beams_purlins.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_04_beams_purlins.png",
+      "sha256": "cd7e8420a504df60996d639660b76b75bc9db1238636a3c43325b6b07f64e025",
+      "bytes": 1812034
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 5,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_05_rafters-eaves.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_05_rafters_eaves.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_05_rafters_eaves.png",
+      "sha256": "49d45cd1ed211532521192e60cdf7907aa9c05a9600724bead7460db8cd0026a",
+      "bytes": 1985748
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 6,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_06_roof-bed.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_06_roof_bed.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_06_roof_bed.png",
+      "sha256": "bf3dc11e887cfb977b760bc2ab0c93d8e57b423264fadc8cf84af500e7e3004e",
+      "bytes": 2106099
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 7,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_07_tiles.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_07_tiles.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_07_tiles.png",
+      "sha256": "751e233446f7a39061380650fe1a1880486cdcea4f8435adab04caeb52909618",
+      "bytes": 2042413
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 8,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_08_room-walls.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_08_room_walls.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_08_room_walls.png",
+      "sha256": "4dfc83fba8638b6013e1b64e31357663da1a00cc3ad2a282b3c65e38eafa5990",
+      "bytes": 2034641
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 9,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_09_ondol.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_09_ondol.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_09_ondol.png",
+      "sha256": "6d2af1937a77e07e952ba4a78cb494b342701c8d642ba88c4932d7d47d34f49f",
+      "bytes": 2069104
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 10,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_10_maru.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_10_maru.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_10_maru.png",
+      "sha256": "7fdec94627095f98575c641d5c3811026770d7587e46ef1ee7d655b7a9dd813c",
+      "bytes": 2132637
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 11,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_11_changho.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_11_changho.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_11_changho.png",
+      "sha256": "ecad08d535f1b8f3998997918b222a65cfc90f7f6917b155e62bbb55babd90b6",
+      "bytes": 2213943
+    },
+    {
+      "buildingId": "araechae",
+      "sequence": 12,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/araechae/stage_12_complete-use.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_12_complete_use.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/araechae/stage_12_complete_use.png",
+      "sha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+      "bytes": 2163363
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 1,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_01_site-household.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_01_site_household.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_01_site_household.png",
+      "sha256": "e5c25d00f115b92684de04989852ae45484da3ed63b4584df807db0ebc3725e2",
+      "bytes": 1867993
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 2,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_02_stone-foundation.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_02_stone_foundation.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_02_stone_foundation.png",
+      "sha256": "a1ee9576cbd4980b9ce83de51041de617c57aea8628dd5fe46ae89d95b6172bd",
+      "bytes": 1428339
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 3,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_03_posts.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_03_posts.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_03_posts.png",
+      "sha256": "32237b786b6e02f7cb9072628ca29dc4e2d12f195afee2b2a84dea2f3aa90088",
+      "bytes": 1804657
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 4,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_04_beams-purlins.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_04_beams_purlins.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_04_beams_purlins.png",
+      "sha256": "098de6ae3f3e721194f8560d53fdd041cca280f206a0fb76faa515539e6ce8e5",
+      "bytes": 1913330
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 5,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_05_hip-frame.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_05_hip_frame.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_05_hip_frame.png",
+      "sha256": "d11560e23f652233a4d7feadf2206ac6ac327ac3548a9713ec2dcb291ce1934e",
+      "bytes": 1977226
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 6,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_06_rafters-eaves.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_06_rafters_eaves.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_06_rafters_eaves.png",
+      "sha256": "4439f400dd8f27eecfc24e169a047ba157c01b6ce9a931ed172becfcaa08968b",
+      "bytes": 2097293
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 7,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_07_roof-bed_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_07_roof_bed.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_07_roof_bed.png",
+      "sha256": "75a2cd4005530aa766c55eec0f33cfa415a077412c2dc57e1733e9d96283782e",
+      "bytes": 2013026
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 8,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_08_tiles.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_08_tiles.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_08_tiles.png",
+      "sha256": "b8526856fd74f9fd513d978764a3f58c8c0890bcd1bff556b5ab3e24d08238dc",
+      "bytes": 2184204
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 9,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_09_walls-kitchen.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_09_walls_kitchen.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_09_walls_kitchen.png",
+      "sha256": "21c900f76b552160d92861ded7c37ac796fe410750150b2b9c5bccba57ffd4ce",
+      "bytes": 2125824
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 10,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_10_kitchen-loft.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_10_kitchen_loft.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_10_kitchen_loft.png",
+      "sha256": "425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a",
+      "bytes": 2173058
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 11,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_11_ondol.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_11_ondol.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_11_ondol.png",
+      "sha256": "da430042fe5cc54e16f71e218f2a03c8538d09545771a6d29a7ff4d72e934594",
+      "bytes": 2188514
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 12,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_12_daecheong-maru.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_12_daecheong_maru.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_12_daecheong_maru.png",
+      "sha256": "98555c21b336587053917997e72128462bd5e4d7db9fe858dea51305d78311df",
+      "bytes": 2054271
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 13,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_13_changho_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_13_changho.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_13_changho.png",
+      "sha256": "fc0ec2f33d6a4cc1a6d7f361c4af799efbf85ae7f05c293248e6b27d83019708",
+      "bytes": 2199459
+    },
+    {
+      "buildingId": "anchae",
+      "sequence": 14,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae/stage_14_complete-use.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_14_complete_use.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae/stage_14_complete_use.png",
+      "sha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+      "bytes": 2082318
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 1,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_01_site-storage.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_01_site_storage.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_01_site_storage.png",
+      "sha256": "7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838",
+      "bytes": 1870708
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 2,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_02_stone-foundation.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_02_stone_foundation.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_02_stone_foundation.png",
+      "sha256": "3a60999fee3f8d18a425b63f4d4fc0b56301a36eafa4a5e2f83d331c398b8383",
+      "bytes": 1847140
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 3,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_03_posts_v03.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_03_posts.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_03_posts.png",
+      "sha256": "f9b46ef7d83cefddc7f99b3fc30f23b3ad1c3e2bb075260cc8333a9be97df3d6",
+      "bytes": 1844615
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 4,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_04_beams-purlins.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_04_beams_purlins.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_04_beams_purlins.png",
+      "sha256": "eae1118b860a8fdb9812b047e4c5a8b3a588c6a5eb723c09a9b9c6a7c7d34133",
+      "bytes": 1928433
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 5,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_05_rafters-eaves.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_05_rafters_eaves.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_05_rafters_eaves.png",
+      "sha256": "ee54b1302c4067b210276684761274d3edefafa82a41d3904a476176f46e3f97",
+      "bytes": 2094980
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 6,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_06_roof-bed.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_06_roof_bed.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_06_roof_bed.png",
+      "sha256": "63b1099b9b7e9690daf6c2ab43a0993828facffdfa22c4d9f3d1438e874ee5d5",
+      "bytes": 2164853
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 7,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_07_tiles.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_07_tiles.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_07_tiles.png",
+      "sha256": "21fff7b91c2825b2a632c356b2e6ad24b5a54538ce1b616d7e9b393224aa3d79",
+      "bytes": 2166570
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 8,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_08_compacted-floor.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_08_compacted_floor.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_08_compacted_floor.png",
+      "sha256": "972ea798c5073ee935e606432cff196b0a52bb1f3cbcb2808a6970d4fd3825ae",
+      "bytes": 2171012
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 9,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_09_walls-partition_v02.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_09_walls_partition.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_09_walls_partition.png",
+      "sha256": "bb8023445b6b319ace57fac9b4708fffd05b0d1b4f32adf4a8c34cdfae5354be",
+      "bytes": 2099027
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 10,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_10_doors-vents.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_10_doors_vents.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_10_doors_vents.png",
+      "sha256": "10572eeacf28decf6d2c4220404c4d483f747b3168489c96f27e977d01601e3f",
+      "bytes": 2234023
+    },
+    {
+      "buildingId": "anchae-store",
+      "sequence": 11,
+      "approvedSource": "assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/anchae-store/stage_11_complete-use.png",
+      "runtimeAsset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_11_complete_use.png",
+      "publicAsset": "hangul-sori-site-local/public/hanok/construction/images/anchae-store/stage_11_complete_use.png",
+      "sha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+      "bytes": 2042810
+    }
+  ]
+}

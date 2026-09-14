@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>사람이 머무는 한옥 · 네 채의 공정</title>
+<link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+<header><a class="brand" href="./">소 <span>Hangul Sori</span></a><span class="edition">네 채의 공정 원화 · 제작 검토본</span><label>함께 읽기 <select id="language"><option value="en">English</option><option value="de">Deutsch</option></select></label></header>
+<main><div class="heading"><div><p class="eyebrow">한 채를 짓는 시간</p><h1>사람이 머무는 한옥</h1><p class="intro">기둥 사이에 방이 생기고, 처마 아래에 생활이 깃들어요.</p></div><p class="camera">정면 · 29° 부감 기준<br><span>건물별 누적 공정 원화</span></p></div>
+<nav id="buildings" aria-label="건물 선택"></nav>
+<div class="workspace"><section class="art"><div class="artbar"><span id="building-role"></span><button id="enlarge">원화 크게 보기 ↗</button></div><div id="canvas"><img id="stage-image" alt=""><img id="complete-image" alt="완성 프레임 비교" aria-hidden="true"></div><div class="compare"><label for="overlay">완성 프레임 겹쳐 보기</label><input type="range" min="0" max="100" value="0" id="overlay"><output id="opacity">0%</output></div></section><aside aria-live="polite"><p class="eyebrow" id="count"></p><h2 id="stage-title"></h2><p id="stage-translation" class="translation"></p><div class="rule"></div><p class="eyebrow">한국어로 함께 말해요</p><p id="sentence-ko" class="sentence"></p><p id="sentence-translation"></p><div class="structure-note"><strong>공간을 살펴보세요</strong><p id="note"></p></div><a id="download" download>이 단계 PNG 받기 ↓</a><button id="next" class="primary">다음 공정 →</button></aside></div>
+<section class="timeline-section"><div class="timeline-head"><h3 id="timeline-title"></h3><div><button id="previous">← 이전</button><button id="play" aria-pressed="false">▷ 흐름 재생</button><button id="overview-toggle" aria-expanded="false">전체 과정</button></div></div><div id="timeline" aria-label="공정 단계 선택"></div><div id="overview" hidden></div></section>
+<div class="package-links"><a href="https://hangul-sori.com/hanok/construction/">공개 한옥 짓기 보기 ↗</a><a href="../../../assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/README.md">제작 기준과 검수 범위 ↗</a></div>
+<details class="review-scope"><summary>공정 연결 검수 · 남은 항목</summary><p>중문채 3→4단계의 우측 마루 기둥축·기둥머리 높이, 아래채 1→2단계의 앞쪽 터 깊이는 추가 정합이 필요합니다. 현재 49장은 제작 검토본이며, 전체 부재가 완전히 고정된 최종 공정 정본으로 승인하지 않았습니다.</p></details>
+<footer>각 단계는 실제 생성한 독립 PNG 원화입니다. 29°는 제작 시점의 목표값이며, 정밀한 3D 카메라 실측값이 아닙니다. 공정 순서는 학습을 위해 묶었습니다. 원도면의 미확인 내부 상세는 학습용 재구성입니다.</footer>
+</main><dialog id="zoom"><button id="close-zoom" aria-label="닫기">닫기 ×</button><img id="zoom-image" alt=""></dialog></html>

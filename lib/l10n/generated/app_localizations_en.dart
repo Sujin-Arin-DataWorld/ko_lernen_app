@@ -10295,7 +10295,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ilduConstructionIntro =>
-      'Watch the small gate and storehouse take shape, and practise Korean along the way.';
+      'Explore how six hanok buildings take shape. Look inside the rooms and everyday spaces, and practise Korean along the way.';
 
   @override
   String ilduConstructionStep(int current, int total) {
