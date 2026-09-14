@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "buildingId": "sotdaeulmun",
+  "status": "approved_original_reference_collection",
+  "approvedBy": "Jin",
+  "approvedOn": "2026-09-14",
+  "approval": "3, 4, 6, 8번을 이름 변경해 원본 참고 자료로 등록하고 중복 1, 2, 5, 7번을 삭제하는 작업만 커밋하도록 승인.",
+  "source": "Jin created and shared these images in ChatGPT.",
+  "scope": "Original visual references for future gate views. These four illustrations are variants, not a validated eight-direction set. The completed-art canonical master and runtime views are unchanged.",
+  "processing": "Byte-preserved PNG copies; no cropping, recoloring, resampling or alpha editing.",
+  "canonicalCompletedAsset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+  "canonicalCompletedSha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+  "runtimeBundled": false,
+  "files": [
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/references/sotdaeulmun/jin_20260914/sotdaeulmun_stone_wall_right_oblique_closed.png",
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (3).png",
+      "sourceNumber": 3,
+      "sha256": "26a03780435d20efaaa206ad790ad34310bd2a8f1e340dae8dca7a6f2f1dbc32",
+      "bytes": 1332379,
+      "width": 1448,
+      "height": 1086,
+      "role": "approved_original_reference"
+    },
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/references/sotdaeulmun/jin_20260914/sotdaeulmun_wood_wall_right_oblique_closed.png",
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (4).png",
+      "sourceNumber": 4,
+      "sha256": "662f2d63af2f6757c76562108d49e135f59117175dec843fac297478371066b2",
+      "bytes": 1676234,
+      "width": 1448,
+      "height": 1086,
+      "role": "approved_original_reference"
+    },
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/references/sotdaeulmun/jin_20260914/sotdaeulmun_wood_wall_right_oblique_open.png",
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (6).png",
+      "sourceNumber": 6,
+      "sha256": "202266bef7076b735b526e3e9fff2907e80a7746b69a6c75d442bdd8b9817db8",
+      "bytes": 1574463,
+      "width": 1448,
+      "height": 1086,
+      "role": "approved_original_reference"
+    },
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/references/sotdaeulmun/jin_20260914/sotdaeulmun_stone_wall_left_oblique_closed.png",
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (8).png",
+      "sourceNumber": 8,
+      "sha256": "d930f8901630d4f56cd1b7cf5f891fdee67170f7d00cf75e6c83e3fec38842c4",
+      "bytes": 1433875,
+      "width": 1448,
+      "height": 1086,
+      "role": "approved_original_reference"
+    }
+  ],
+  "duplicateOriginals": [
+    {
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (1).png",
+      "sha256": "8a9ace584e291fb8df1cff9870751bdc2964bb273cd0f4c687a16c07aa99af0d",
+      "preservedAssets": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문1.png"
+      ]
+    },
+    {
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (2).png",
+      "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+      "preservedAssets": [
+        "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+        "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문2.png"
+      ]
+    },
+    {
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (5).png",
+      "sha256": "943c3baf16f4d8129bbae09f0443c17ee69dd82653b9a228c79e90889977d1a6",
+      "preservedAssets": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png"
+      ]
+    },
+    {
+      "originalFilename": "ChatGPT Image 2026년 9월 14일 오전 12_31_47 (7).png",
+      "sha256": "9d032f469b0902358eebcf7fdc894b3a300e53e091adf9c6102e4baf5a3ad6bd",
+      "preservedAssets": [
+        "assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png"
+      ]
+    }
+  ]
+}
