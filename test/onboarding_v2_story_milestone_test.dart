@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
@@ -8,6 +9,54 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
+  test('lossless onboarding WebP keeps the approved RGBA pixels', () {
+    // Digests were taken from the approved PNGs before their lossless conversion.
+    // They include transparent pixels, not just the visible non-alpha area.
+    const originals = {
+      'book_extract': (
+        1448,
+        1086,
+        '62435a619d16b813e797fc7316b3b51caf5fbf24c6578a21c2d6e3a7f936ccac',
+      ),
+      'gate-01-alpha': (
+        1446,
+        1087,
+        '5ff68cbecb57b1b90efa5f996e747121c1e1a8e1405416cfe9095e8605c8e2cc',
+      ),
+      'gate-02-alpha': (
+        1446,
+        1087,
+        '751168d3ff35d49d12fb7c4c0fa4764e6717d7627dc2f3da2164b7b3a0ce1e1c',
+      ),
+      'sarangchae-01-alpha': (
+        1536,
+        1024,
+        '49300054991df8242417ab5f6d389cb4b7969be75d513c8f7f0d933254c446fb',
+      ),
+      'sarangchae-02-alpha': (
+        1536,
+        1024,
+        '608972ed55aa8965296bc75d9d617d20e73d93bd386ff97a2359e4340860d391',
+      ),
+      'sarangchae_canonical': (
+        1536,
+        1024,
+        '9ad674aa7ce47ec1ebfd50b483c3c5c1a56be4dbeb294271ab58be891f182d7d',
+      ),
+    };
+    for (final entry in originals.entries) {
+      final base = 'assets/illustrations/onboarding/${entry.key}';
+      expect(File('$base.png').existsSync(), isFalse, reason: entry.key);
+      final image = img.decodeWebP(File('$base.webp').readAsBytesSync())!;
+      expect((image.width, image.height), (entry.value.$1, entry.value.$2));
+      expect(
+        sha256.convert(image.getBytes(order: img.ChannelOrder.rgba)).toString(),
+        entry.value.$3,
+        reason: entry.key,
+      );
+    }
+  });
+
   test(
     'all four construction previews retain their real transparent backgrounds',
     () {
@@ -17,8 +66,8 @@ void main() {
         'gate-01-alpha',
         'gate-02-alpha',
       ]) {
-        final image = img.decodePng(
-          File('assets/illustrations/onboarding/$name.png').readAsBytesSync(),
+        final image = img.decodeWebP(
+          File('assets/illustrations/onboarding/$name.webp').readAsBytesSync(),
         )!;
         var clear = 0;
         for (var y = 0; y < image.height; y += 12) {
@@ -81,7 +130,7 @@ void main() {
                 (w) =>
                     w.image is AssetImage &&
                     (w.image as AssetImage).assetName.endsWith(
-                      'sarangchae-0${i + 1}-alpha.png',
+                      'sarangchae-0${i + 1}-alpha.webp',
                     ),
               ),
           isTrue,

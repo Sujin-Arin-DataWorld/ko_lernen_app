@@ -387,7 +387,7 @@ class _OnboardingBookSceneState
                                 Expanded(
                                   flex: 2,
                                   child: Image.asset(
-                                    'assets/illustrations/onboarding/book_extract.png',
+                                    'assets/illustrations/onboarding/book_extract.webp',
                                     fit: BoxFit.contain,
                                     semanticLabel: t.onboardingJourneyFromBook,
                                   ),
@@ -505,15 +505,15 @@ class _OnboardingHanokSceneState extends State<OnboardingHanokScene> {
   int _stage = 0;
   int? _place;
   static const _house =
-      'assets/illustrations/onboarding/sarangchae_canonical.png';
+      'assets/illustrations/onboarding/sarangchae_canonical.webp';
   static const _construction = [
     [
-      'assets/illustrations/onboarding/sarangchae-01-alpha.png',
-      'assets/illustrations/onboarding/sarangchae-02-alpha.png',
+      'assets/illustrations/onboarding/sarangchae-01-alpha.webp',
+      'assets/illustrations/onboarding/sarangchae-02-alpha.webp',
     ],
     [
-      'assets/illustrations/onboarding/gate-01-alpha.png',
-      'assets/illustrations/onboarding/gate-02-alpha.png',
+      'assets/illustrations/onboarding/gate-01-alpha.webp',
+      'assets/illustrations/onboarding/gate-02-alpha.webp',
     ],
   ];
   static const _places = [
