@@ -4,6 +4,10 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import 'dart:async';
+
+import 'diagnostics_service.dart';
+
 /// **NotificationService (M3)** — tägliche lokale Lern-Erinnerung (Retention).
 ///
 /// Best-effort wie [AuthService]: initialisiert leise, wirft
@@ -37,9 +41,16 @@ class NotificationService {
       try {
         final info = await FlutterTimezone.getLocalTimezone();
         tz.setLocalLocation(tz.getLocation(info.identifier));
-      } catch (_) {
+      } catch (error, stackTrace) {
         // Zeitzone nicht ermittelbar → tz.local bleibt UTC. Die Erinnerung
         // kann dann um den UTC-Offset abweichen, aber nichts crasht.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'notification_service.init_timezone',
+            error,
+            stackTrace,
+          ),
+        );
       }
       const android = AndroidInitializationSettings('ic_stat_hangul_sori');
       const darwin = DarwinInitializationSettings(
@@ -184,7 +195,15 @@ class NotificationService {
     if (!_ready) return;
     try {
       await _plugin.cancelAll();
-    } catch (_) {}
+    } catch (error, stackTrace) {
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'notification_service.cancel_all',
+          error,
+          stackTrace,
+        ),
+      );
+    }
   }
 
   static tz.TZDateTime _nextInstanceOf(int hour, int minute) {

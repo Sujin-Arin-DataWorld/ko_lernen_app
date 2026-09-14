@@ -8,6 +8,7 @@ import '../models/content_feedback.dart';
 import 'content_feedback_client.dart';
 import 'content_feedback_outbox.dart';
 import 'content_feedback_version_provider.dart';
+import 'diagnostics_service.dart';
 
 typedef ContentFeedbackUidReader = String? Function();
 typedef ContentFeedbackIdFactory = String Function();
@@ -389,9 +390,16 @@ class ContentFeedbackService implements FeedbackOutbox {
       } else {
         try {
           await _discardById(queue, attempted.submission.feedbackId);
-        } catch (_) {
+        } catch (error, stackTrace) {
           // The attempt was durably persisted before the callable. Keep that
           // pending record when cleanup itself cannot be persisted.
+          unawaited(
+            DiagnosticsService.reportSwallowed(
+              'content_feedback_service.discard_after_non_retryable_failure',
+              error,
+              stackTrace,
+            ),
+          );
         }
       }
       if (_closed) return _closedSubmission(attempted.submission.feedbackId);
@@ -576,9 +584,16 @@ class ContentFeedbackService implements FeedbackOutbox {
           try {
             await _discardById(queue, attempted.submission.feedbackId);
             discarded += 1;
-          } catch (_) {
+          } catch (error, stackTrace) {
             // The prior attempted item remains durably pending. Do not turn a
             // failed cleanup into a permanently non-resumable blocked item.
+            unawaited(
+              DiagnosticsService.reportSwallowed(
+                'content_feedback_service.discard_after_non_retryable_failure_resume',
+                error,
+                stackTrace,
+              ),
+            );
           }
         }
         break;
@@ -642,8 +657,15 @@ class ContentFeedbackService implements FeedbackOutbox {
     if (_closed) return;
     try {
       await _writeOutbox(queue);
-    } catch (_) {
+    } catch (error, stackTrace) {
       // The previously persisted attempted item remains safe and retryable.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'content_feedback_service.retain_failure_write_outbox',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -755,9 +777,16 @@ class ContentFeedbackService implements FeedbackOutbox {
   Future<void> _settleStorage(Future<dynamic> operation) async {
     try {
       await operation;
-    } catch (_) {
+    } catch (error, stackTrace) {
       // An admitted feedback operation owns its own storage error result.
       // Close still advances to the final authoritative clear.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'content_feedback_service.settle_storage',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 }

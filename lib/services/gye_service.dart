@@ -10,6 +10,8 @@ import 'account/cloud_write_session.dart';
 import 'age_gate_service.dart';
 import 'auth_service.dart';
 import 'storage_service.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 class GyeLeaveMembership {
   const GyeLeaveMembership({
@@ -198,7 +200,17 @@ class GyeService {
   static FirebaseFirestore? get _db {
     try {
       return FirebaseFirestore.instance;
-    } catch (_) {
+    } catch (error, stackTrace) {
+      // web-safe: Firebase may be unconfigured on web. Callers already treat
+      // a null db as "Gye unavailable" and degrade gracefully — keep
+      // returning null.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.db_getter',
+          error,
+          stackTrace,
+        ),
+      );
       return null;
     }
   }
@@ -898,8 +910,15 @@ class GyeService {
     try {
       final m = await ref.collection('members').doc(uid).get();
       nickname = m.data()?['nickname'] as String? ?? '';
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 닉네임 없이도 전송은 진행
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.send_sticker_nickname',
+          error,
+          stackTrace,
+        ),
+      );
     }
     try {
       final result = await _runWrite(
@@ -957,8 +976,15 @@ class GyeService {
     try {
       final m = await ref.collection('members').doc(uid).get();
       nickname = m.data()?['nickname'] as String? ?? '';
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 닉네임 없이도 전송 진행
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.send_reaction_nickname',
+          error,
+          stackTrace,
+        ),
+      );
     }
     try {
       final result = await _runWrite(
@@ -1024,8 +1050,15 @@ class GyeService {
     try {
       final m = await ref.collection('members').doc(uid).get();
       nickname = m.data()?['nickname'] as String? ?? '';
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 닉네임 없이도 진행
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.mark_all_in_nickname',
+          error,
+          stackTrace,
+        ),
+      );
     }
     try {
       // create-only: 문서가 이미 있으면 set은 update가 되어 rules가 거부 → dedup.
@@ -1045,8 +1078,15 @@ class GyeService {
             ),
         snapshot: session,
       );
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 이미 기록됨(다른 멤버가 먼저) 또는 권한 → 무시. burst는 화면이 담당.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.mark_all_in_write',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -1092,8 +1132,15 @@ class GyeService {
         if (result != CloudWriteResult.completed) {
           return;
         }
-      } catch (_) {
+      } catch (error, stackTrace) {
         // 한 계 실패해도 나머지 진행
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'gye_service.broadcast_feed_one_gye',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
   }
@@ -1137,8 +1184,15 @@ class GyeService {
         if (result != CloudWriteResult.completed) {
           return;
         }
-      } catch (_) {
+      } catch (error, stackTrace) {
         // best-effort — 한 계 실패해도 나머지 진행
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'gye_service.sync_my_member_stats_one_gye',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
   }
@@ -1174,8 +1228,15 @@ class GyeService {
     try {
       final m = await ref.collection('members').doc(uid).get();
       nickname = m.data()?['nickname'] as String? ?? '';
-    } catch (_) {
+    } catch (error, stackTrace) {
       // 닉네임 없이도 전송 진행
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'gye_service.send_cheer_nickname',
+          error,
+          stackTrace,
+        ),
+      );
     }
     try {
       final result = await _runWrite(

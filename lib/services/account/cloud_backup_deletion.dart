@@ -10,6 +10,8 @@ import 'account_failure_diagnostics.dart';
 import 'account_failure_reason.dart';
 import 'cloud_write_session.dart';
 import 'first_link_backfill_journal.dart';
+import 'dart:async' show unawaited;
+import '../diagnostics_service.dart';
 
 enum CloudBackupDeletionRemoteState { completed, pending }
 
@@ -590,9 +592,16 @@ class CloudBackupDeletionCoordinator {
 
     try {
       if (await firstLinkJournalStore.clearIfCurrent(receipt)) return true;
-    } catch (_) {
+    } catch (error, stackTrace) {
       // A platform store may throw after native removal. Only a fresh read
       // can distinguish that completed removal from an unresolved receipt.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'cloud_backup_deletion.clear_same_uid_first_link_receipt',
+          error,
+          stackTrace,
+        ),
+      );
     }
 
     try {

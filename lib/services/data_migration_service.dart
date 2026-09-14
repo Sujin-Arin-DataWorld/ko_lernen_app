@@ -9,6 +9,8 @@ import 'ildu_world_state_service.dart';
 import 'legacy_hanok_v1_importer.dart';
 import 'legacy_preferences_native_snapshot.dart';
 import 'storage_service.dart';
+import 'dart:async' show unawaited;
+import 'diagnostics_service.dart';
 
 /// 로컬 데이터 마이그레이션 한 단계. 여러 번 실행돼도 안전해야 한다(멱등).
 typedef DataMigrationStep = Future<void> Function(SharedPreferences prefs);
@@ -472,9 +474,16 @@ class _MigrationRun {
     if (_loaded != null) {
       try {
         await _reload();
-      } catch (_) {
+      } catch (error, stackTrace) {
         // The typed failure remains the only diagnostic. Never print data or
         // exceptions from the persistence platform.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'data_migration_service.refresh_after_failure',
+            error,
+            stackTrace,
+          ),
+        );
       }
     }
   }
