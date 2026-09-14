@@ -18,7 +18,7 @@
    "sidekick": "minsu",
    "xpReward": 160,
    "title": {
-    "ko": "먼저 밝힐 것이 있습니다",
+    "ko": "먼저 미리 말씀드리고 싶은 사항이 있습니다",
     "de": "Ich muss zuerst etwas offenlegen",
     "en": "There is something I should disclose first"
    },
@@ -65,7 +65,7 @@
    "dialog": [
     {
      "speaker": "user",
-     "ko": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
+     "ko": "심사 시작 전에 먼저 말씀드릴 것이 있습니다.",
      "de": "Vor Beginn der Bewertung muss ich etwas offenlegen.",
      "en": "Before we start the review, there is something I should disclose."
     },
