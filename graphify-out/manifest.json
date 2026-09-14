@@ -672,9 +672,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1789386058.302075,
-    "seen": 1789386289.5636096,
-    "ast_hash": "20ee8f636e562d81477b5707a2fe36ea",
+    "mtime": 1789391962.4659371,
+    "seen": 1789392192.9433513,
+    "ast_hash": "ebb9eb985a510dce0643d5d9abc11f03",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
@@ -726,9 +726,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-live.mjs": {
-    "mtime": 1789259456.668237,
-    "seen": 1789368152.202825,
-    "ast_hash": "6869455d2c4d6db669aa1f8b660be054",
+    "mtime": 1789391962.4679334,
+    "seen": 1789392192.9471526,
+    "ast_hash": "520d3b3cfec989f099e453ff028f5d0d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-tester-email.mjs": {
@@ -17661,6 +17661,18 @@
     "mtime": 1789386349.161372,
     "seen": 1789389661.7604458,
     "ast_hash": "14b0fabcd05283de0cc788e7cbaf0524",
+    "semantic_hash": ""
+  },
+  "hangul-sori-site-local/scripts/public-asset-response.mjs": {
+    "mtime": 1789391962.466934,
+    "seen": 1789392192.945789,
+    "ast_hash": "bc8824206ef800132d4cbb2d71c42c70",
+    "semantic_hash": ""
+  },
+  "hangul-sori-site-local/tests/public-asset-response.test.mjs": {
+    "mtime": 1789391962.4689336,
+    "seen": 1789392192.9487617,
+    "ast_hash": "f1c26d5f3b3fa0f2180402bb40702520",
     "semantic_hash": ""
   }
 }
