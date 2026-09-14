@@ -277,7 +277,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   ) => LayoutBuilder(
     builder: (context, constraints) {
       final columns =
-          constraints.maxWidth < 600 &&
+          constraints.maxWidth < SoriBreakpoints.grid &&
               MediaQuery.textScalerOf(context).scale(16) >= 24
           ? 1
           : 2;

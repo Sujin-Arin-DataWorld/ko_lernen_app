@@ -375,7 +375,7 @@ void main() {
       );
       expect(status('chosung', snapshot), t.catalogBestScore(42));
       expect(status('daily_game', snapshot), isNull);
-      expect(find.text(t.soriStageActivityNew), findsNothing);
+      expect(find.text('New'), findsNothing);
     },
   );
 

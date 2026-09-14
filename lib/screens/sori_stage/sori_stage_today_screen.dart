@@ -928,7 +928,7 @@ class _PendingBojagi extends StatelessWidget {
                 final stacked =
                     constraints.maxWidth <
                         SoriAdaptiveWidth.criticalActionRow ||
-                    textScale >= 1.6;
+                    textScale >= 1.3;
                 final details = Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

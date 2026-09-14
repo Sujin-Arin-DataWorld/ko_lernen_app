@@ -9,6 +9,7 @@ import 'button.dart';
 import 'card.dart';
 import 'tokens.dart';
 import 'activity_illustration.dart';
+import 'window_class.dart';
 
 class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
   const LearningFocusScope({
@@ -101,7 +102,8 @@ class SoriLearningFocus extends StatelessWidget {
                         ),
                       ),
                     );
-                    if (constraints.maxWidth < 300 ||
+                    if (constraints.maxWidth <
+                            SoriAdaptiveWidth.illustrationCopyRow ||
                         MediaQuery.textScalerOf(context).scale(16) > 24) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,7 +209,8 @@ class SoriLearningFocus extends StatelessWidget {
                           ),
                           style: text.bodySmall.copyWith(fontSize: 15),
                         );
-                  if (constraints.maxWidth < 285 ||
+                  if (constraints.maxWidth <
+                          SoriAdaptiveWidth.compactMetadataRow ||
                       MediaQuery.textScalerOf(context).scale(16) >= 24) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

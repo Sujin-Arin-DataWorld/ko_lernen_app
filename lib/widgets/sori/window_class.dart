@@ -156,6 +156,12 @@ abstract final class SoriAdaptiveWidth {
 
   /// 긴 라벨과 수치 값을 한 줄에서 함께 읽을 수 있는 최소 내부 폭.
   static const double labelValueRow = 320;
+
+  /// 4:3 illustration and primary copy can remain side by side.
+  static const double illustrationCopyRow = 300;
+
+  /// Compact metadata and its adjacent action can remain on one row.
+  static const double compactMetadataRow = 285;
 }
 
 /// [SafeArea] + 최대 너비 클램프를 한 번에 적용하는 화면 프레임.

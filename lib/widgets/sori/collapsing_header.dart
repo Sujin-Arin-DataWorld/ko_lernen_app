@@ -23,9 +23,7 @@ import 'tokens.dart';
 /// CustomScrollView(
 ///   slivers: [
 ///     SoriCollapsingHeader(
-///       eyebrow: t.soriStageNavLearn,
-///       title: t.soriStageLearnTitle,
-///       body: t.soriStageLearnBody,
+///       title: t.soriStageNavLearn,
 ///       collapsedTitle: t.soriStageNavLearn,
 ///       trailing: profileButton,
 ///     ),

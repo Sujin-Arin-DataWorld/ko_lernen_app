@@ -10,21 +10,15 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart'
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
+import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
 
 import 'support/real_fonts.dart';
 
-/// §LAYOUT-2(J12) — `illustrated_card.dart`'s `SingleChildScrollView`
-/// fallback (`ValueKey('sori-illustrated-card-body-scroll')`) is a safety
-/// net for when `_cellAspectRatio`'s `TextPainter` measurement undershoots
-/// the actual rendered footer. If it is ever *scrollable*
-/// (`maxScrollExtent > 0`), the measurement contract is broken — a card
-/// silently swallowed vertical drags meant for the page scroll instead of
-/// starting/stopping a start button press. This guard keeps that net dark
-/// across the states most likely to defeat the title-height-dominated cell
-/// budget — in particular the numeric progress suffix (`_StateLabel`'s
-/// ` · $current / $target`), which `footerLabels` did not measure before
-/// this PR.
+/// §LAYOUT-2(J12) — catalog cards use their natural content height and must
+/// never add a private [Scrollable]. A nested scrollable would swallow page
+/// drags and hide copy when localized text or progress labels become taller.
+/// This guard renders every visible catalog card across the states most likely
+/// to increase card height and verifies the natural-height contract directly.
 ///
 /// Full coverage would be locale(2) x width(5) x scale(4) x state(4) x tab(2).
 /// This file uses a reduced but representative corner set (both width
@@ -33,17 +27,8 @@ import 'support/real_fonts.dart';
 /// the omitted middle values (360/720dp, 1.3x/1.6x) interpolate between the
 /// tested corners and cannot fail if the corners pass.
 ///
-/// A tall physical viewport is used so the whole lazily-built
-/// `SliverChildBuilderDelegate` grid materializes in a single pump —
-/// avoiding a per-entry `scrollUntilVisible` loop while still exercising
-/// every card.
-///
-/// `PackCard` (vocab_packs grid) shares `SoriIllustratedCard`'s fallback but
-/// is sized by a *different*, private measurer
-/// (`vocab_packs_screen.dart:_packCardMainAxisExtent`) that this file does
-/// not attempt to reproduce — a fixture height picked by hand here would
-/// test this file's own guess, not that measurer's real contract. Left as a
-/// follow-up (flagged separately) rather than shipped inaccurate.
+/// A tall physical viewport lets the catalog's [Wrap] materialize every card
+/// in one pump, avoiding a per-entry `scrollUntilVisible` loop.
 enum _StateVariant { ready, inProgress, completed, locked }
 
 void main() {
@@ -105,6 +90,9 @@ void main() {
       final entries = soriActivityCatalog
           .where((entry) => entry.tab == tab)
           .toList();
+      final cardEntries = tab == SoriStageTab.learn
+          ? entries.where((entry) => entry.learnSection != null).toList()
+          : entries;
 
       for (final locale in locales) {
         for (final width in widths) {
@@ -112,7 +100,7 @@ void main() {
             for (final variant in _StateVariant.values) {
               testWidgets(
                 '${tab.name} ${locale.languageCode} @ ${width.toInt()}dp '
-                'x$scale ${variant.name}: no card scrolls its body',
+                'x$scale ${variant.name}: every card stays natural-height',
                 (tester) async {
                   tester.view.physicalSize = Size(width, 12000);
                   tester.view.devicePixelRatio = 1;
@@ -144,39 +132,36 @@ void main() {
 
                   final failures = <String>[];
                   final cards = tester
-                      .widgetList<SoriIllustratedCard>(
-                        find.byType(SoriIllustratedCard),
-                      )
+                      .widgetList<SoriCatalogCard>(find.byType(SoriCatalogCard))
                       .toList();
                   expect(
                     cards.length,
-                    greaterThanOrEqualTo(entries.length),
+                    greaterThanOrEqualTo(cardEntries.length),
                     reason:
-                        'expected every ${tab.name} entry to build a card '
-                        '(found ${cards.length}, wanted >= ${entries.length}) '
-                        '— the tall viewport should force the whole lazy '
-                        'grid to materialize.',
+                        'expected every visible ${tab.name} entry to build a '
+                        'card (found ${cards.length}, wanted >= '
+                        '${cardEntries.length}) '
+                        '— the tall viewport should materialize the whole '
+                        'catalog.',
                   );
 
+                  for (final entry in cardEntries) {
+                    expect(
+                      find.byKey(ValueKey('catalog-card-${entry.id}')),
+                      findsOneWidget,
+                      reason: 'missing catalog card for ${entry.id}',
+                    );
+                  }
+
                   for (final card in cards) {
-                    if (card.shrinkWrap) {
-                      continue; // hero card — no fallback scroll possible.
-                    }
                     final scrollFinder = find.descendant(
                       of: find.byWidget(card),
                       matching: find.byType(Scrollable),
                     );
-                    if (scrollFinder.evaluate().isEmpty) {
-                      continue;
-                    }
-                    final position = tester
-                        .state<ScrollableState>(scrollFinder.first)
-                        .position;
-                    if (position.maxScrollExtent > 0.5) {
+                    if (scrollFinder.evaluate().isNotEmpty) {
                       failures.add(
-                        '"${card.title}": maxScrollExtent='
-                        '${position.maxScrollExtent.toStringAsFixed(1)}px '
-                        'over budget @ ${width.toInt()}dp x$scale '
+                        '"${card.entry.id}" owns a nested Scrollable '
+                        '@ ${width.toInt()}dp x$scale '
                         '${locale.languageCode} ${variant.name}',
                       );
                     }

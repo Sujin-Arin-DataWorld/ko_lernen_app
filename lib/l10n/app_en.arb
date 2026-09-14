@@ -2349,12 +2349,9 @@
   "pathNextAfterEvidence": "Next after your evidence",
   "pathShowMorePractice": "Show more practice",
   "pathHideMorePractice": "Hide more practice",
-  "gyeVoluntaryEyebrow": "Optional learning community",
   "gyeEmptyHeadline": "Learning alone is complete. Together can feel warmer.",
-  "gyeEmptyLead": "A 계 is a small group that holds a weekly intention together.",
   "gyeFindOrCreate": "Join or create a group",
   "gyeContinueSolo": "Continue without a group",
-  "gyeEmptyPreviewCaption": "This is a preview of the shared courtyard. It is not required for your learning path.",
   "homePathCardTitle": "Learning path",
   "homePathCardSub": "See where you are",
   "homeBrowseTitle": "Browse all",
@@ -2692,10 +2689,6 @@
   "gyeExplainHow": "Create a group or join with a 6-digit code when you are ready.",
   "gyePrivacyTitle": "What others see",
   "gyePrivacyBody": "It only shows that you contributed. Your answers, words, and assessment results stay private.",
-  "gyeExplainWhatShort": "A small, voluntary study group.",
-  "gyeExplainWhyShort": "A shared hanok, not a competition.",
-  "gyeExplainHowShort": "Join with a 6-digit code.",
-  "gyeShowcaseCaption": "This is what your shared hanok can look like",
   "gyeExplainMore": "Learn more",
   "gyeWeeklyEyebrow": "Together this week",
   "gyeWeeklyTitle": "Keep the courtyard lights on together.",
@@ -3907,28 +3900,8 @@
   "soriStageBojagiBody": "Choose one of three pieces for your room.",
   "soriStageOpenBojagi": "Open Bojagi",
   "soriStageHanokNow": "Your Hanok now",
-  "soriStageNextPiece": "Next building piece",
-  "soriStageHanokPieces": "{built} / {total} pieces",
-  "@soriStageHanokPieces": {
-    "placeholders": {
-      "built": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "soriStageClosestQuests": "Nearly complete",
   "soriStageNextQuests": "Up next",
-  "soriStageLearnTitle": "Choose how you want to learn.",
-  "soriStageLearnBody": "Every activity stays connected to your quests and Hanok.",
-  "soriStageLearnSectionToday": "Learn today",
-  "soriStageLearnSectionExplore": "Explore & practice",
-  "soriStageLearnSectionReview": "Review",
-  "soriStageGamesTitle": "Play with a clear purpose.",
-  "soriStageGamesBody": "See the XP, personal best, and related quest before you start.",
-  "soriStageContinueEyebrow": "Continue with",
   "soriStageMinutes": "{minutes} min",
   "@soriStageMinutes": {
     "placeholders": {
@@ -3946,8 +3919,6 @@
       }
     }
   },
-  "soriStageHanokTitle": "Your hanok grows with you.",
-  "soriStageHanokBody": "Every word you learn builds here.",
   "soriStageHanokUpdating": "Hanok preview · the new view is in progress.",
   "sarangchaeConstructionProgress": "{earned} of {total} construction stages",
   "@sarangchaeConstructionProgress": {
@@ -3999,16 +3970,9 @@
     }
   },
   "soriStageOpenMap": "Open Hanok map",
-  "soriStageQuests": "Quests",
-  "soriStageDojang": "Stamp book",
-  "soriStageBojagi": "Bojagi",
   "soriStageRooms": "Rooms and furnishing",
-  "soriStageGyePromise": "This week's promise",
   "soriStageGyeFlow": "Mission complete → lantern → shared Hanok progress",
   "soriStageGyeUpdating": "The shared courtyard is being rebuilt.",
-  "gyeStepMission": "Mission",
-  "gyeStepLantern": "Lantern",
-  "gyeStepHanok": "Shared hanok",
   "pronunciationTitle": "Pronunciation studio",
   "pronunciationEyebrow": "PRONUNCIATION PRACTICE",
   "pronunciationIntro": "Listen first. Record up to 10 seconds, then listen to your voice and compare.",
@@ -4063,7 +4027,6 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
-  "soriStageActivityNew": "New",
   "soriStageActivityTitle": "{activityId, select, course{Learning path} hangul{Hangul} calligraphy{Character of the day} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{Review} hard_words{Hard words} word_web{Nuances & opposites} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} my_words{My words} daily_game{Daily challenge} chosung{First-sound quiz} syllable_cross{Syllable puzzle} cloze{Fill the gap} speed_match{Speed pairs} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_practice{Practice my words} other{Learning activity}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
@@ -4898,7 +4861,7 @@
     }
   },
   "learningFocusStart": "Start learning",
-  "learningFocusViewCourse": "View course",
+  "learningFocusViewCourse": "View learning path",
   "learningFocusCoursePosition": "{level} · Unit {number}",
   "@learningFocusCoursePosition": {
     "placeholders": {
@@ -4913,7 +4876,7 @@
   "catalogImageUnavailable": "No image",
   "todayGuideExpand": "Show all guide topics",
   "todayGuideCollapse": "Show next topic only",
-  "soriStageConfirmedUnits": "{built} / {total} course units confirmed",
+  "soriStageConfirmedUnits": "{built} / {total} learning path units confirmed",
   "soriStageOpenHanok": "View Hanok",
   "soriStageHanokLearningSummary": "What you have learned",
   "soriStageHanokProgressUnavailable": "Your learning progress could not be loaded.",
@@ -4928,7 +4891,7 @@
       }
     }
   },
-  "soriStageHanokNoUnits": "No course units available yet.",
+  "soriStageHanokNoUnits": "No learning path units available yet.",
   "soriStageNoQuests": "None yet",
   "gyeRootPurpose": "Work towards a weekly goal together.",
   "gyeRootPrivacy": "Your answers and results stay private.",

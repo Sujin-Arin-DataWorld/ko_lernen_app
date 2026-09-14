@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'character_clip.dart';
 import 'mascot.dart';
 import 'tokens.dart';
+import 'window_class.dart';
 
 /// Compact greeting whose lower edge is the next learning card's surface.
 /// Place immediately before that card, including loading and failure states.
@@ -103,7 +104,9 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
-        final stacked = constraints.maxWidth < 300 || largeText;
+        final stacked =
+            constraints.maxWidth < SoriAdaptiveWidth.illustrationCopyRow ||
+            largeText;
         // Paint the external texture first and the text last. This also keeps
         // the greeting outside the texture layer on Android compositors.
         return Stack(
