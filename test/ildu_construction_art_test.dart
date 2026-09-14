@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/services.dart';
@@ -10,23 +11,60 @@ Map<String, dynamic> source() =>
     jsonDecode(File(IlDuConstructionArtCatalog.assetPath).readAsStringSync())
         as Map<String, dynamic>;
 
+Future<
+  ({int width, int height, String alphaHash, bool transparent, bool opaque})
+>
+imageFacts(Uint8List bytes) async {
+  final codec = await ui.instantiateImageCodec(bytes);
+  final frame = await codec.getNextFrame();
+  final pixels = (await frame.image.toByteData())!;
+  final alpha = Uint8List(pixels.lengthInBytes ~/ 4);
+  for (var i = 0; i < alpha.length; i++) {
+    alpha[i] = pixels.getUint8(i * 4 + 3);
+  }
+  final result = (
+    width: frame.image.width,
+    height: frame.image.height,
+    alphaHash: sha256.convert(alpha).toString(),
+    transparent: alpha.contains(0),
+    opaque: alpha.contains(255),
+  );
+  frame.image.dispose();
+  codec.dispose();
+  return result;
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'the bundled catalog resolves all 14 approved RGBA PNGs and final hashes',
+    'the bundled catalog decodes all 14 transparent stages and exact finals',
     () async {
       final catalog = await IlDuConstructionArtCatalog.load();
+      final approvedRows = {
+        for (final series in source()['series'])
+          for (final stage in series['stages']) stage['stageId']: stage,
+      };
       expect(catalog.series.map((s) => s.stages.length), [6, 8]);
       final seen = <String>{};
       for (final series in catalog.series) {
         for (final stage in series.stages) {
           final data = await rootBundle.load(stage.asset);
           final bytes = Uint8List.sublistView(data);
-          expect(bytes.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-          expect(data.getUint32(16), stage.width);
-          expect(data.getUint32(20), stage.height);
-          expect(data.getUint8(25), 6, reason: 'PNG must contain RGBA');
+          final facts = await imageFacts(bytes);
+          expect(facts.width, stage.width);
+          expect(facts.height, stage.height);
+          expect(facts.transparent && facts.opaque, isTrue);
+          final original = File(
+            approvedRows[stage.id]['approvedPngAsset'] as String,
+          ).readAsBytesSync();
+          expect(facts, await imageFacts(original));
+          if (stage == series.stages.last) {
+            expect(stage.asset, endsWith('.png'));
+            expect(bytes.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
+          } else {
+            expect(stage.asset, endsWith('.webp'));
+          }
           expect(sha256.convert(bytes).toString(), stage.sha256);
           seen.add(stage.sha256);
         }
@@ -65,12 +103,42 @@ void main() {
       expect(approved['stageCount'], series['stages'].length);
       for (final stage in series['stages']) {
         final archived = File(
-          'assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/'
-          '${series['buildingId']}/stages/${(stage['asset'] as String).split('/').last}',
+          stage['approvedPngAsset'] as String,
         ).readAsBytesSync();
-        expect(sha256.convert(archived).toString(), stage['sha256']);
+        expect(sha256.convert(archived).toString(), stage['approvedPngSha256']);
+        expect(archived.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
+        if (stage['sequence'] == approved['stageCount']) {
+          expect(stage['sha256'], stage['approvedPngSha256']);
+        }
       }
     }
+  });
+
+  test('only referenced runtime images are bundled within 24 MiB', () {
+    final json = source();
+    final expected = <String>{};
+    final actual = <String>{};
+    var bytes = 0;
+    for (final series in json['series']) {
+      for (final stage in series['stages']) {
+        expected.add(stage['asset'] as String);
+        if (stage['lessonIllustration'] != null) {
+          expected.add(stage['lessonIllustration']['asset'] as String);
+        }
+      }
+    }
+    for (final name in ['hyeopmun', 'changgo', 'lessons']) {
+      final directory = Directory(
+        'assets/illustrations/personal_hanok_v3/construction/$name',
+      );
+      for (final file in directory.listSync().whereType<File>()) {
+        actual.add(file.path.replaceAll('\\', '/'));
+        bytes += file.lengthSync();
+      }
+    }
+    expect(actual, expected);
+    // The exact two final PNGs account for 8.06 MiB of this ceiling.
+    expect(bytes, lessThanOrEqualTo(24 * 1024 * 1024));
   });
 
   test(
@@ -89,6 +157,17 @@ void main() {
           lesson['sha256'],
         );
         expect(lesson['asset'], isNot(stage['asset']));
+        final original = File(
+          lesson['approvedPngAsset'] as String,
+        ).readAsBytesSync();
+        expect(
+          sha256.convert(original).toString(),
+          lesson['approvedPngSha256'],
+        );
+        expect(
+          await imageFacts(Uint8List.sublistView(data)),
+          await imageFacts(original),
+        );
         expect((lesson['caption']['ko'] as String), contains('현대 생활 예시'));
       }
     },

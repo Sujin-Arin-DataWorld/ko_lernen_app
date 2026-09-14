@@ -6,7 +6,7 @@
   "approval": "협문이랑 창고 설계 이미지 만든거 정본으로 채택하고 라이브 되게 해줘",
   "runtimeRoute": "/hanok/construction",
   "presentation": "single-view construction learning; no progress or reward writes",
-  "postprocessing": "Magenta matte extraction with edge decontamination, Lanczos resize to each locked canvas. Final bytes unchanged.",
+  "postprocessing": "Approved RGBA PNGs retained in the source archive. Runtime intermediates and lesson illustration use WebP q82 method6 with the original canvas and identical alpha. Final PNG bytes unchanged.",
   "geometryReview": "User-selected generated forms are retained. Small frame/base differences across stages remain; pixel-identical member continuity is not claimed.",
   "inheritedDefects": [
     "The canonical Changgo final retains its existing fine green outline."
@@ -40,7 +40,7 @@
           "stageId": "hyeopmun-foundation",
           "buildingId": "hyeopmun",
           "sequence": 1,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_01_foundation.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_01_foundation.webp",
           "processTags": [
             "site",
             "foundation"
@@ -84,10 +84,13 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_01_foundation.png",
+          "approvedPngSha256": "c3e1f7e227dddfd51e36ce37335fbbb584321cbe6814ae2937d770ec38bfc564",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 1568,
           "height": 2021,
-          "bytes": 2891685,
-          "sha256": "c3e1f7e227dddfd51e36ce37335fbbb584321cbe6814ae2937d770ec38bfc564",
+          "bytes": 1363820,
+          "sha256": "9b275608c5d1ee58818949eac354e14a40b2f3eb431df33b633e18a9d6beee91",
           "alphaBBox": [
             0,
             0,
@@ -125,7 +128,7 @@
           "stageId": "hyeopmun-frame",
           "buildingId": "hyeopmun",
           "sequence": 2,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_02_frame.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_02_frame.webp",
           "processTags": [
             "framePosts",
             "frameBeams"
@@ -187,10 +190,13 @@
             ],
             "correctOptionId": "a"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_02_frame.png",
+          "approvedPngSha256": "c6c243b803b8526cd2a5f17d2905c20d1417ed030bae4b1023d96cada14d275c",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 1568,
           "height": 2021,
-          "bytes": 4274836,
-          "sha256": "c6c243b803b8526cd2a5f17d2905c20d1417ed030bae4b1023d96cada14d275c",
+          "bytes": 1068496,
+          "sha256": "3d80916f5330c6f4158c89a51fbc87cff8df92f6c907619a07f01263a80cf2ab",
           "alphaBBox": [
             0,
             0,
@@ -227,7 +233,7 @@
           "stageId": "hyeopmun-rafters",
           "buildingId": "hyeopmun",
           "sequence": 3,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_03_rafters.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_03_rafters.webp",
           "processTags": [
             "frameBeams",
             "raftersSanja"
@@ -271,10 +277,13 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_03_rafters.png",
+          "approvedPngSha256": "207a9bee6ed97e768e3b5c437b9a2558cd75d1d286e6fb65aec42af589b8e412",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 1568,
           "height": 2021,
-          "bytes": 5057341,
-          "sha256": "207a9bee6ed97e768e3b5c437b9a2558cd75d1d286e6fb65aec42af589b8e412",
+          "bytes": 895112,
+          "sha256": "a67ad0a6866c50cf188e55986f1f186e2d1c74911bd7417b1cebe2ccfc5ea0b4",
           "alphaBBox": [
             0,
             0,
@@ -352,7 +361,7 @@
           "stageId": "hyeopmun-roof-bed",
           "buildingId": "hyeopmun",
           "sequence": 4,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_04_roof_bed.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_04_roof_bed.webp",
           "processTags": [
             "roofBed"
           ],
@@ -395,10 +404,13 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_04_roof_bed.png",
+          "approvedPngSha256": "3b3bd65fd5da82b764a8b496c2a81c9b2229f2bf2b369121e55384963494af64",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 1568,
           "height": 2021,
-          "bytes": 4957139,
-          "sha256": "3b3bd65fd5da82b764a8b496c2a81c9b2229f2bf2b369121e55384963494af64",
+          "bytes": 737870,
+          "sha256": "bb447e72ccebe55f7ba32dfe935d964667773da50b8ebd99a6d5116cbf23ad9e",
           "alphaBBox": [
             0,
             0,
@@ -434,7 +446,7 @@
           "stageId": "hyeopmun-roof-tiles",
           "buildingId": "hyeopmun",
           "sequence": 5,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_05_roof_tiles.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_05_roof_tiles.webp",
           "processTags": [
             "roofTiles"
           ],
@@ -496,10 +508,13 @@
             ],
             "correctOptionId": "a"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_05_roof_tiles.png",
+          "approvedPngSha256": "5d6e2fb356c230f748aa28afc91974235c3f351775926c9e29301ec83621934b",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 1568,
           "height": 2021,
-          "bytes": 4513983,
-          "sha256": "5d6e2fb356c230f748aa28afc91974235c3f351775926c9e29301ec83621934b",
+          "bytes": 919496,
+          "sha256": "c94d6ec5db592a373f5002c089af9b5faeeab05db8e7211b4cdcb5b18d2fdf55",
           "alphaBBox": [
             0,
             0,
@@ -581,6 +596,9 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/hyeopmun/stages/stage_06_complete.png",
+          "approvedPngSha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884",
+          "runtimeEncoding": "original PNG",
           "width": 1568,
           "height": 2021,
           "bytes": 4333517,
@@ -648,7 +666,7 @@
           "stageId": "changgo-foundation",
           "buildingId": "changgo",
           "sequence": 1,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_01_foundation.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_01_foundation.webp",
           "processTags": [
             "site",
             "foundation"
@@ -711,10 +729,13 @@
             ],
             "correctOptionId": "a"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_01_foundation.png",
+          "approvedPngSha256": "fcc7006575538dfab7753e40d443bab438cf9510db48225c9161fa89a94d4ce8",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 2447811,
-          "sha256": "fcc7006575538dfab7753e40d443bab438cf9510db48225c9161fa89a94d4ce8",
+          "bytes": 1734644,
+          "sha256": "c5eeef039e878103d7aa306bb74dab5fa831309e38ba13d29fe5cbddf147cd3d",
           "alphaBBox": [
             0,
             0,
@@ -772,7 +793,7 @@
           "stageId": "changgo-posts",
           "buildingId": "changgo",
           "sequence": 2,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_02_posts.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_02_posts.webp",
           "processTags": [
             "framePosts"
           ],
@@ -834,10 +855,13 @@
             ],
             "correctOptionId": "a"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_02_posts.png",
+          "approvedPngSha256": "2b53770adc49bec724279bf1fa7cc3f3db235db2df8ecd749dcfda881f72d39c",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 4327108,
-          "sha256": "2b53770adc49bec724279bf1fa7cc3f3db235db2df8ecd749dcfda881f72d39c",
+          "bytes": 1504896,
+          "sha256": "493a2547adc84d3f93063573fde76b8370f9cda3b0279dfd27f1dd8c90e45002",
           "alphaBBox": [
             0,
             0,
@@ -895,7 +919,7 @@
           "stageId": "changgo-beams",
           "buildingId": "changgo",
           "sequence": 3,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_03_beams.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_03_beams.webp",
           "processTags": [
             "frameBeams"
           ],
@@ -938,10 +962,13 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_03_beams.png",
+          "approvedPngSha256": "fc53d3e375666f530e98723184fa42571698885871386e139d728363fa612575",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 4698869,
-          "sha256": "fc53d3e375666f530e98723184fa42571698885871386e139d728363fa612575",
+          "bytes": 1481812,
+          "sha256": "685800084c237ba122c50148283a754b1b2f8fa986bfbf26ec37a3428283b5ed",
           "alphaBBox": [
             0,
             0,
@@ -999,7 +1026,7 @@
           "stageId": "changgo-rafters",
           "buildingId": "changgo",
           "sequence": 4,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_04_rafters.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_04_rafters.webp",
           "processTags": [
             "raftersSanja"
           ],
@@ -1042,10 +1069,13 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_04_rafters.png",
+          "approvedPngSha256": "f05165413ce5e98a86a79c504f3b26c52e5293faa46e5657d6bb0a4d6859e0e6",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 5380766,
-          "sha256": "f05165413ce5e98a86a79c504f3b26c52e5293faa46e5657d6bb0a4d6859e0e6",
+          "bytes": 1298196,
+          "sha256": "b8686bca8f4569aa1213b60f372e9470903398a1e6fac0f1dc01bb7b574e9330",
           "alphaBBox": [
             0,
             0,
@@ -1102,7 +1132,7 @@
           "stageId": "changgo-roof-bed",
           "buildingId": "changgo",
           "sequence": 5,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_05_roof_bed.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_05_roof_bed.webp",
           "processTags": [
             "roofBed"
           ],
@@ -1164,10 +1194,39 @@
             ],
             "correctOptionId": "a"
           },
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.webp",
+            "sha256": "f286cba8cd85f896b13d5cc0ea4899ac55486e8c6b1c5d2c06334f9103136c8c",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            },
+            "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/lessons/storage_box_cloth.png",
+            "approvedPngSha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
+            "bytes": 124316
+          },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_05_roof_bed.png",
+          "approvedPngSha256": "270d80530dcc8f964cf420723b0563da2defeff29d2cc58231bc50aa89b60f41",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 5879220,
-          "sha256": "270d80530dcc8f964cf420723b0563da2defeff29d2cc58231bc50aa89b60f41",
+          "bytes": 1324358,
+          "sha256": "ffc78c9a50e3c308317b416d3a5a823263358433bd0f68d267f2a128484c1016",
           "alphaBBox": [
             0,
             0,
@@ -1196,28 +1255,6 @@
               ]
             }
           ],
-          "lessonIllustration": {
-            "stageIds": [
-              "changgo-roof-bed",
-              "changgo-roof-tiles",
-              "changgo-walls",
-              "changgo-complete"
-            ],
-            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
-            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
-            "width": 1448,
-            "height": 1086,
-            "caption": {
-              "ko": "현대 생활 예시 · 상자와 천",
-              "en": "An everyday example today · box and cloth",
-              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
-            },
-            "alt": {
-              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
-              "en": "Dry folded cloth inside and beside an open wooden box",
-              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
-            }
-          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_05_try01.png",
           "sourceSha256": "a15e83aa1159294e30bd6ec8df376bb5153a4b05c07969dad9a751b8dc086d00"
         },
@@ -1225,7 +1262,7 @@
           "stageId": "changgo-roof-tiles",
           "buildingId": "changgo",
           "sequence": 6,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_06_roof_tiles.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_06_roof_tiles.webp",
           "processTags": [
             "roofTiles"
           ],
@@ -1267,10 +1304,39 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.webp",
+            "sha256": "f286cba8cd85f896b13d5cc0ea4899ac55486e8c6b1c5d2c06334f9103136c8c",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            },
+            "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/lessons/storage_box_cloth.png",
+            "approvedPngSha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
+            "bytes": 124316
+          },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_06_roof_tiles.png",
+          "approvedPngSha256": "799ccbd0ce8ae0e246cde17cd2d369a98e66a348dc05fd4d0f4192a395b8d96a",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 4926889,
-          "sha256": "799ccbd0ce8ae0e246cde17cd2d369a98e66a348dc05fd4d0f4192a395b8d96a",
+          "bytes": 1529590,
+          "sha256": "00d15aa40b830a68ce252432575dd0fd2be850636279773b1fabfbbdc1453850",
           "alphaBBox": [
             0,
             0,
@@ -1300,28 +1366,6 @@
               ]
             }
           ],
-          "lessonIllustration": {
-            "stageIds": [
-              "changgo-roof-bed",
-              "changgo-roof-tiles",
-              "changgo-walls",
-              "changgo-complete"
-            ],
-            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
-            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
-            "width": 1448,
-            "height": 1086,
-            "caption": {
-              "ko": "현대 생활 예시 · 상자와 천",
-              "en": "An everyday example today · box and cloth",
-              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
-            },
-            "alt": {
-              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
-              "en": "Dry folded cloth inside and beside an open wooden box",
-              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
-            }
-          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_06_try01.png",
           "sourceSha256": "814ec1ae8ee2884f4033af69c06436e3441ea03c8ae345e0b41b464c6d8b1cea"
         },
@@ -1329,7 +1373,7 @@
           "stageId": "changgo-walls",
           "buildingId": "changgo",
           "sequence": 7,
-          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_07_walls.png",
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_07_walls.webp",
           "processTags": [
             "wallInfill"
           ],
@@ -1391,10 +1435,39 @@
             ],
             "correctOptionId": "a"
           },
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.webp",
+            "sha256": "f286cba8cd85f896b13d5cc0ea4899ac55486e8c6b1c5d2c06334f9103136c8c",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            },
+            "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/lessons/storage_box_cloth.png",
+            "approvedPngSha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
+            "bytes": 124316
+          },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_07_walls.png",
+          "approvedPngSha256": "53b20450b8154f33ac2778af51ad88298280253fdcef33d9713462c15fc399ff",
+          "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
           "width": 2736,
           "height": 1536,
-          "bytes": 6196461,
-          "sha256": "53b20450b8154f33ac2778af51ad88298280253fdcef33d9713462c15fc399ff",
+          "bytes": 1231940,
+          "sha256": "732a1234b6e5e7e2d25a2074c8c1f87ebe2f38b629c8850bd97df320d49bcf7d",
           "alphaBBox": [
             0,
             0,
@@ -1423,28 +1496,6 @@
               ]
             }
           ],
-          "lessonIllustration": {
-            "stageIds": [
-              "changgo-roof-bed",
-              "changgo-roof-tiles",
-              "changgo-walls",
-              "changgo-complete"
-            ],
-            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
-            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
-            "width": 1448,
-            "height": 1086,
-            "caption": {
-              "ko": "현대 생활 예시 · 상자와 천",
-              "en": "An everyday example today · box and cloth",
-              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
-            },
-            "alt": {
-              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
-              "en": "Dry folded cloth inside and beside an open wooden box",
-              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
-            }
-          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/raw/stage_07_try03.png",
           "sourceSha256": "43a643374c4775925f51d67209df8324dc923cc3e1839afd361517c5c6ffcd3f"
         },
@@ -1497,6 +1548,35 @@
           "exercise": {
             "kind": "spoken_request_or_suggestion"
           },
+          "lessonIllustration": {
+            "stageIds": [
+              "changgo-roof-bed",
+              "changgo-roof-tiles",
+              "changgo-walls",
+              "changgo-complete"
+            ],
+            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.webp",
+            "sha256": "f286cba8cd85f896b13d5cc0ea4899ac55486e8c6b1c5d2c06334f9103136c8c",
+            "width": 1448,
+            "height": 1086,
+            "caption": {
+              "ko": "현대 생활 예시 · 상자와 천",
+              "en": "An everyday example today · box and cloth",
+              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
+            },
+            "alt": {
+              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
+              "en": "Dry folded cloth inside and beside an open wooden box",
+              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
+            },
+            "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/lessons/storage_box_cloth.png",
+            "approvedPngSha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
+            "runtimeEncoding": "WebP q82 method6; original canvas and alpha",
+            "bytes": 124316
+          },
+          "approvedPngAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/changgo/stages/stage_08_complete.png",
+          "approvedPngSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488",
+          "runtimeEncoding": "original PNG",
           "width": 2736,
           "height": 1536,
           "bytes": 4112877,
@@ -1530,28 +1610,6 @@
               ]
             }
           ],
-          "lessonIllustration": {
-            "stageIds": [
-              "changgo-roof-bed",
-              "changgo-roof-tiles",
-              "changgo-walls",
-              "changgo-complete"
-            ],
-            "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
-            "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
-            "width": 1448,
-            "height": 1086,
-            "caption": {
-              "ko": "현대 생활 예시 · 상자와 천",
-              "en": "An everyday example today · box and cloth",
-              "de": "Ein heutiges Alltagsbeispiel · Kiste und Tuch"
-            },
-            "alt": {
-              "ko": "열린 나무 상자 안과 옆에 놓인 마른 천",
-              "en": "Dry folded cloth inside and beside an open wooden box",
-              "de": "Trockene gefaltete Tücher in und neben einer offenen Holzkiste"
-            }
-          },
           "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_hyeopmun_changgo_v1/references/changgo_final.png",
           "sourceSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
         }

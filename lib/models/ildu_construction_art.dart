@@ -126,9 +126,9 @@ final class IlDuConstructionArtStage {
         'assets/illustrations/personal_hanok_v3/construction/$buildingId/';
     if (!asset.startsWith(prefix) ||
         !RegExp(
-          r'^stage_[0-9]{2}_[a-z_]+\.png$',
+          r'^stage_[0-9]{2}_[a-z_]+\.(png|webp)$',
         ).hasMatch(asset.substring(prefix.length))) {
-      throw const FormatException('Stage image must be a bundled PNG.');
+      throw const FormatException('Stage image must be a bundled PNG or WebP.');
     }
     final hash = _text(json['sha256']);
     if (!RegExp(r'^[a-f0-9]{64}$').hasMatch(hash)) {
@@ -192,9 +192,11 @@ final class IlDuLessonIllustration {
     final json = _object(value);
     final asset = _text(json['asset']);
     if (!RegExp(
-      r'^assets/illustrations/personal_hanok_v3/construction/lessons/[a-z_]+\.png$',
+      r'^assets/illustrations/personal_hanok_v3/construction/lessons/[a-z_]+\.webp$',
     ).hasMatch(asset)) {
-      throw const FormatException('Lesson illustration must be a bundled PNG.');
+      throw const FormatException(
+        'Lesson illustration must be a bundled WebP.',
+      );
     }
     return IlDuLessonIllustration(
       asset,

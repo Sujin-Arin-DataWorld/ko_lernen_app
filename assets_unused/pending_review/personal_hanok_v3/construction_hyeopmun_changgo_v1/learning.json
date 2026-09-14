@@ -672,7 +672,7 @@
           "changgo-walls",
           "changgo-complete"
         ],
-        "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+        "asset": "lessons/storage_box_cloth.png",
         "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
         "width": 1448,
         "height": 1086,
@@ -741,7 +741,7 @@
           "changgo-walls",
           "changgo-complete"
         ],
-        "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+        "asset": "lessons/storage_box_cloth.png",
         "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
         "width": 1448,
         "height": 1086,
@@ -830,7 +830,7 @@
           "changgo-walls",
           "changgo-complete"
         ],
-        "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+        "asset": "lessons/storage_box_cloth.png",
         "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
         "width": 1448,
         "height": 1086,
@@ -902,7 +902,7 @@
           "changgo-walls",
           "changgo-complete"
         ],
-        "asset": "assets/illustrations/personal_hanok_v3/construction/lessons/storage_box_cloth.png",
+        "asset": "lessons/storage_box_cloth.png",
         "sha256": "c1a01e31862c9baa212294dc93c1e66b0a152eecd459bd4ac7079bbe3dc34049",
         "width": 1448,
         "height": 1086,

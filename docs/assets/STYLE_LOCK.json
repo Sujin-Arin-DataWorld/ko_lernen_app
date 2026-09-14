@@ -838,7 +838,7 @@
           "canonicalSha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884",
           "stageCount": 6,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/",
-          "presentation": "투명 PNG 공정 그림. 승인한 원화의 미세한 기둥 및 기단 차이는 유지하며 픽셀 단위 누적 정합을 주장하지 않는다.",
+          "presentation": "승인 PNG 원본을 보존하며 앱 중간 단계는 같은 캔버스·동일 알파의 WebP q82를 사용한다. 마지막 PNG는 정본과 바이트가 같다. 승인 원화의 미세한 기둥·기단 차이는 유지한다.",
           "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
           "supersedesCanonical": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)"
         },
@@ -851,7 +851,7 @@
           "canonicalSha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488",
           "stageCount": 8,
           "assetDirectory": "assets/illustrations/personal_hanok_v3/construction/changgo/",
-          "presentation": "투명 PNG 공정 그림. 승인한 원화의 미세한 기둥 및 기단 차이는 유지하며 픽셀 단위 누적 정합을 주장하지 않는다.",
+          "presentation": "승인 PNG 원본을 보존하며 앱 중간 단계는 같은 캔버스·동일 알파의 WebP q82를 사용한다. 마지막 PNG는 정본과 바이트가 같다. 승인 원화의 미세한 기둥·기단 차이는 유지한다.",
           "scope": "앱 번들 및 /hanok/construction 학습 화면 정본. 지도 8방향과 진행도 저장 방식은 유지한다.",
           "supersedesCanonical": "changgo_try04_lowlong.png"
         }

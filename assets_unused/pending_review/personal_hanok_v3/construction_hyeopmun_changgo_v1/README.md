@@ -59,3 +59,7 @@ python build_review.py --check
 원화의 작은 형태 차이는 QA.md에 기록했다. 앱 API·진행도 저장·보상은 유지하며 승인한 공정 그림과 학습 설명을 별도 런타임 카탈로그에 연결한다.
 
 별도 학습 삽화: lessons/storage_box_cloth.png (현대 생활 예시). 프롬프트는 lesson_illustration_prompt.txt, 파일·해시는 lesson_illustrations.json에 있다. 건물 PNG와 합성하지 않았다.
+
+## 앱 번들 용량
+
+승인 PNG 14장은 단계 폴더에 그대로 보존한다. 앱은 중간 12장과 생활 삽화를 원본 캔버스·동일 알파의 WebP q82 method6로 사용하고, 마지막 두 PNG는 원본 바이트를 유지한다. 전체 추가 이미지 번들은 23,660,940바이트(22.56 MiB)이며, 24 MiB 상한을 테스트한다. 기존 65,296,526바이트보다 약 64% 작다. 원본과 런타임 해시는 promotion.json 및 앱 카탈로그에서 구분한다.
