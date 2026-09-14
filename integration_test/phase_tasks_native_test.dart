@@ -80,7 +80,9 @@ void main() {
       );
       await tester.ensureVisible(target);
       await tester.pumpAndSettle();
-      if (target.hitTestable().evaluate().length == 1) break;
+      if (target.hitTestable().evaluate().length == 1) {
+        break;
+      }
     }
     expect(target.hitTestable(), findsOneWidget);
     await tester.tap(target);
@@ -457,7 +459,9 @@ void main() {
   );
   test('native suite emits a nonempty execution receipt', () {
     expect(binding.results, isNotEmpty);
-    if (audioEnabled) expect(completedAudioPackets, greaterThan(0));
+    if (audioEnabled) {
+      expect(completedAudioPackets, greaterThan(0));
+    }
     binding.reportData = {
       'phaseNativeReceipt': 1,
       'level': qaLevel,
