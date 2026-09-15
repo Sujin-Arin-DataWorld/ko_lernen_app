@@ -1,0 +1,823 @@
+{
+  "items": [
+    {
+      "id": "satz_a1_0567",
+      "level": "a1",
+      "targetKo": "약속 시간에 늦지 마세요.",
+      "promptDe": "Bitte kommen Sie nicht zu spät zum Termin.",
+      "promptEn": "Please don't be late for the appointment.",
+      "distractors": [
+        "메뉴",
+        "장소"
+      ],
+      "vocabKo": "늦다",
+      "sourceVocabId": "vocab_a1_0652"
+    },
+    {
+      "id": "satz_a1_0568",
+      "level": "a1",
+      "targetKo": "선생님한테 다시 물어요.",
+      "promptDe": "Ich frage den Lehrer noch einmal.",
+      "promptEn": "I ask the teacher again.",
+      "distractors": [
+        "키",
+        "장소"
+      ],
+      "vocabKo": "묻다",
+      "sourceVocabId": "vocab_a1_0653"
+    },
+    {
+      "id": "satz_a1_0569",
+      "level": "a1",
+      "targetKo": "제 대답이 맞아요?",
+      "promptDe": "Ist meine Antwort richtig?",
+      "promptEn": "Is my answer right?",
+      "distractors": [
+        "곳",
+        "잡채"
+      ],
+      "vocabKo": "맞다",
+      "sourceVocabId": "vocab_a1_0654"
+    },
+    {
+      "id": "satz_a1_0570",
+      "level": "a1",
+      "targetKo": "아침에 샤워해요.",
+      "promptDe": "Ich dusche am Morgen.",
+      "promptEn": "I take a shower in the morning.",
+      "distractors": [
+        "곳",
+        "월"
+      ],
+      "vocabKo": "샤워",
+      "sourceVocabId": "vocab_a1_0655"
+    },
+    {
+      "id": "satz_a1_0571",
+      "level": "a1",
+      "targetKo": "매일 세수해요.",
+      "promptDe": "Ich wasche mir jeden Tag das Gesicht.",
+      "promptEn": "I wash my face every day.",
+      "distractors": [
+        "달",
+        "교통"
+      ],
+      "vocabKo": "세수",
+      "sourceVocabId": "vocab_a1_0656"
+    },
+    {
+      "id": "satz_a1_0572",
+      "level": "a1",
+      "targetKo": "제가 집을 청소해요.",
+      "promptDe": "Ich putze das Haus.",
+      "promptEn": "I clean the house.",
+      "distractors": [
+        "주",
+        "안내"
+      ],
+      "vocabKo": "청소",
+      "sourceVocabId": "vocab_a1_0657"
+    },
+    {
+      "id": "satz_a1_0573",
+      "level": "a1",
+      "targetKo": "내일 여행을 준비해요.",
+      "promptDe": "Ich bereite morgen die Reise vor.",
+      "promptEn": "I prepare for the trip tomorrow.",
+      "distractors": [
+        "올해",
+        "감기"
+      ],
+      "vocabKo": "준비",
+      "sourceVocabId": "vocab_a1_0658"
+    },
+    {
+      "id": "satz_a1_0574",
+      "level": "a1",
+      "targetKo": "한국 생활이 재미있어요.",
+      "promptDe": "Das Leben in Korea ist interessant.",
+      "promptEn": "Life in Korea is interesting.",
+      "distractors": [
+        "요즘",
+        "방학"
+      ],
+      "vocabKo": "생활",
+      "sourceVocabId": "vocab_a1_0659"
+    },
+    {
+      "id": "satz_a1_0575",
+      "level": "a1",
+      "targetKo": "잠을 못 잤어요.",
+      "promptDe": "Ich konnte nicht schlafen.",
+      "promptEn": "I couldn't sleep.",
+      "distractors": [
+        "글",
+        "병"
+      ],
+      "vocabKo": "잠",
+      "sourceVocabId": "vocab_a1_0660"
+    },
+    {
+      "id": "satz_a1_0576",
+      "level": "a1",
+      "targetKo": "오늘 제가 요리해요.",
+      "promptDe": "Ich koche heute.",
+      "promptEn": "I cook today.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "요리",
+      "sourceVocabId": "vocab_a1_0661"
+    },
+    {
+      "id": "satz_a1_0577",
+      "level": "a1",
+      "targetKo": "가족과 식사해요.",
+      "promptDe": "Ich esse mit der Familie.",
+      "promptEn": "I have a meal with my family.",
+      "distractors": [
+        "월",
+        "종업원"
+      ],
+      "vocabKo": "식사",
+      "sourceVocabId": "vocab_a1_0662"
+    },
+    {
+      "id": "satz_a1_0578",
+      "level": "a1",
+      "targetKo": "에어컨을 켜요.",
+      "promptDe": "Ich schalte die Klimaanlage ein.",
+      "promptEn": "I turn on the air conditioner.",
+      "distractors": [
+        "키",
+        "직원"
+      ],
+      "vocabKo": "에어컨",
+      "sourceVocabId": "vocab_a1_0663"
+    },
+    {
+      "id": "satz_a1_0579",
+      "level": "a1",
+      "targetKo": "저는 운전을 잘해요.",
+      "promptDe": "Ich fahre gut Auto.",
+      "promptEn": "I'm good at driving.",
+      "distractors": [
+        "곳",
+        "병"
+      ],
+      "vocabKo": "운전",
+      "sourceVocabId": "vocab_a1_0664"
+    },
+    {
+      "id": "satz_a1_0580",
+      "level": "a1",
+      "targetKo": "컴퓨터를 사용해요.",
+      "promptDe": "Ich benutze den Computer.",
+      "promptEn": "I use the computer.",
+      "distractors": [
+        "달",
+        "종업원"
+      ],
+      "vocabKo": "사용",
+      "sourceVocabId": "vocab_a1_0665"
+    },
+    {
+      "id": "satz_a1_0581",
+      "level": "a1",
+      "targetKo": "친구한테 부탁해요.",
+      "promptDe": "Ich bitte einen Freund um einen Gefallen.",
+      "promptEn": "I ask a friend for a favor.",
+      "distractors": [
+        "키",
+        "안내"
+      ],
+      "vocabKo": "부탁",
+      "sourceVocabId": "vocab_a1_0666"
+    },
+    {
+      "id": "satz_a1_0582",
+      "level": "a1",
+      "targetKo": "마야 씨가 가요를 불러요.",
+      "promptDe": "Maya singt ein Lied.",
+      "promptEn": "Maya sings a song.",
+      "distractors": [
+        "곳",
+        "병"
+      ],
+      "vocabKo": "가요",
+      "sourceVocabId": "vocab_a1_0667"
+    },
+    {
+      "id": "satz_a1_0583",
+      "level": "a1",
+      "targetKo": "아이가 그림을 그려요.",
+      "promptDe": "Das Kind malt ein Bild.",
+      "promptEn": "The child draws a picture.",
+      "distractors": [
+        "월",
+        "감기"
+      ],
+      "vocabKo": "그림",
+      "sourceVocabId": "vocab_a1_0668"
+    },
+    {
+      "id": "satz_a1_0584",
+      "level": "a1",
+      "targetKo": "동생이 한국 드라마를 봐요.",
+      "promptDe": "Mein Geschwister schaut koreanische Dramen.",
+      "promptEn": "My younger sibling watches Korean dramas.",
+      "distractors": [
+        "주",
+        "교통"
+      ],
+      "vocabKo": "드라마",
+      "sourceVocabId": "vocab_a1_0669"
+    },
+    {
+      "id": "satz_a1_0585",
+      "level": "a1",
+      "targetKo": "학교에서 연극을 봐요.",
+      "promptDe": "Ich schaue mir in der Schule ein Theaterstück an.",
+      "promptEn": "I watch a play at school.",
+      "distractors": [
+        "달",
+        "키"
+      ],
+      "vocabKo": "연극",
+      "sourceVocabId": "vocab_a1_0670"
+    },
+    {
+      "id": "satz_a1_0586",
+      "level": "a1",
+      "targetKo": "저 영화배우가 영화에 나와요.",
+      "promptDe": "Dieser Filmschauspieler tritt in einem Film auf.",
+      "promptEn": "That movie actor appears in a movie.",
+      "distractors": [
+        "주",
+        "잡채"
+      ],
+      "vocabKo": "영화배우",
+      "sourceVocabId": "vocab_a1_0671"
+    },
+    {
+      "id": "satz_a1_0587",
+      "level": "a1",
+      "targetKo": "크리스티안 씨, 우리 같이 콘서트에 갈까요?",
+      "promptDe": "Christian, sollen wir zusammen zum Konzert gehen?",
+      "promptEn": "Christian, shall we go to the concert together?",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "콘서트",
+      "sourceVocabId": "vocab_a1_0672"
+    },
+    {
+      "id": "satz_a1_0588",
+      "level": "a1",
+      "targetKo": "크리스티안 씨, 저는 태권도를 배워요.",
+      "promptDe": "Christian, ich lerne Taekwondo.",
+      "promptEn": "Christian, I learn taekwondo.",
+      "distractors": [
+        "달",
+        "장소"
+      ],
+      "vocabKo": "태권도",
+      "sourceVocabId": "vocab_a1_0673"
+    },
+    {
+      "id": "satz_a1_0589",
+      "level": "a1",
+      "targetKo": "생일 파티에 초대해요.",
+      "promptDe": "Ich lade zur Geburtstagsparty ein.",
+      "promptEn": "I invite you to a birthday party.",
+      "distractors": [
+        "키",
+        "종업원"
+      ],
+      "vocabKo": "파티",
+      "sourceVocabId": "vocab_a1_0674"
+    },
+    {
+      "id": "satz_a1_0590",
+      "level": "a1",
+      "targetKo": "텔레비전 프로그램을 봐요.",
+      "promptDe": "Ich schaue eine Fernsehsendung.",
+      "promptEn": "I watch a TV program.",
+      "distractors": [
+        "곳",
+        "월"
+      ],
+      "vocabKo": "프로그램",
+      "sourceVocabId": "vocab_a1_0675"
+    },
+    {
+      "id": "satz_a1_0591",
+      "level": "a1",
+      "targetKo": "저는 매일 피아노를 쳐요.",
+      "promptDe": "Ich spiele jeden Tag Klavier.",
+      "promptEn": "I play the piano every day.",
+      "distractors": [
+        "달",
+        "병"
+      ],
+      "vocabKo": "피아노",
+      "sourceVocabId": "vocab_a1_0676"
+    },
+    {
+      "id": "satz_a1_0592",
+      "level": "a1",
+      "targetKo": "레나 씨, 여기서 사진을 찍어요!",
+      "promptDe": "Lena, lass uns hier Fotos machen!",
+      "promptEn": "Lena, let's take photos here!",
+      "distractors": [
+        "달",
+        "교통"
+      ],
+      "vocabKo": "사진",
+      "sourceVocabId": "vocab_a1_0677"
+    },
+    {
+      "id": "satz_a1_0593",
+      "level": "a1",
+      "targetKo": "친구를 파티에 초대해요.",
+      "promptDe": "Ich lade einen Freund zur Party ein.",
+      "promptEn": "I invite a friend to the party.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "초대",
+      "sourceVocabId": "vocab_a1_0678"
+    },
+    {
+      "id": "satz_a1_0594",
+      "level": "a1",
+      "targetKo": "저는 감기에 걸렸어요.",
+      "promptDe": "Ich habe mich erkältet.",
+      "promptEn": "I caught a cold.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "감기",
+      "sourceVocabId": "vocab_a1_0679"
+    },
+    {
+      "id": "satz_a1_0595",
+      "level": "a1",
+      "targetKo": "저는 병이 났어요.",
+      "promptDe": "Ich bin krank geworden.",
+      "promptEn": "I got sick.",
+      "distractors": [
+        "잠",
+        "글"
+      ],
+      "vocabKo": "병",
+      "sourceVocabId": "vocab_a1_0680"
+    },
+    {
+      "id": "satz_a1_0596",
+      "level": "a1",
+      "targetKo": "저는 의사한테 가요.",
+      "promptDe": "Ich gehe zum Arzt.",
+      "promptEn": "I go to the doctor.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "의사",
+      "sourceVocabId": "vocab_a1_0681"
+    },
+    {
+      "id": "satz_a1_0597",
+      "level": "a1",
+      "targetKo": "아버지가 담배를 안 피워요.",
+      "promptDe": "Mein Vater raucht nicht.",
+      "promptEn": "My father doesn't smoke.",
+      "distractors": [
+        "달",
+        "키"
+      ],
+      "vocabKo": "담배",
+      "sourceVocabId": "vocab_a1_0682"
+    },
+    {
+      "id": "satz_a1_0598",
+      "level": "a1",
+      "targetKo": "아버지는 술을 안 마셔요.",
+      "promptDe": "Mein Vater trinkt keinen Alkohol.",
+      "promptEn": "My father doesn't drink alcohol.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "술",
+      "sourceVocabId": "vocab_a1_0683"
+    },
+    {
+      "id": "satz_a1_0599",
+      "level": "a1",
+      "targetKo": "저는 매일 운동해요.",
+      "promptDe": "Ich mache jeden Tag Sport.",
+      "promptEn": "I exercise every day.",
+      "distractors": [
+        "글",
+        "주"
+      ],
+      "vocabKo": "운동",
+      "sourceVocabId": "vocab_a1_0684"
+    },
+    {
+      "id": "satz_a1_0600",
+      "level": "a1",
+      "targetKo": "동생은 키가 커요.",
+      "promptDe": "Mein jüngeres Geschwister ist groß.",
+      "promptEn": "My younger sibling is tall.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "키",
+      "sourceVocabId": "vocab_a1_0685"
+    },
+    {
+      "id": "satz_a1_0601",
+      "level": "a1",
+      "targetKo": "저는 잡채를 만들어요.",
+      "promptDe": "Ich mache Japchae.",
+      "promptEn": "I make japchae.",
+      "distractors": [
+        "달",
+        "종업원"
+      ],
+      "vocabKo": "잡채",
+      "sourceVocabId": "vocab_a1_0686"
+    },
+    {
+      "id": "satz_a1_0602",
+      "level": "a1",
+      "targetKo": "이 음식이 맛있어요.",
+      "promptDe": "Dieses Essen ist lecker.",
+      "promptEn": "This food is delicious.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "음식",
+      "sourceVocabId": "vocab_a1_0687"
+    },
+    {
+      "id": "satz_a1_0603",
+      "level": "a1",
+      "targetKo": "저는 음료수를 마셔요.",
+      "promptDe": "Ich trinke ein Getränk.",
+      "promptEn": "I drink a beverage.",
+      "distractors": [
+        "달",
+        "종업원"
+      ],
+      "vocabKo": "음료수",
+      "sourceVocabId": "vocab_a1_0688"
+    },
+    {
+      "id": "satz_a1_0604",
+      "level": "a1",
+      "targetKo": "종업원이 메뉴를 줘요.",
+      "promptDe": "Die Bedienung gibt die Speisekarte.",
+      "promptEn": "The waiter gives the menu.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "메뉴",
+      "sourceVocabId": "vocab_a1_0689"
+    },
+    {
+      "id": "satz_a1_0605",
+      "level": "a1",
+      "targetKo": "저는 오렌지를 먹어요.",
+      "promptDe": "Ich esse eine Orange.",
+      "promptEn": "I eat an orange.",
+      "distractors": [
+        "달",
+        "직원"
+      ],
+      "vocabKo": "오렌지",
+      "sourceVocabId": "vocab_a1_0690"
+    },
+    {
+      "id": "satz_a1_0606",
+      "level": "a1",
+      "targetKo": "방학 동안 여행해요.",
+      "promptDe": "Ich reise während der Ferien.",
+      "promptEn": "I travel during the school vacation.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "방학",
+      "sourceVocabId": "vocab_a1_0691"
+    },
+    {
+      "id": "satz_a1_0607",
+      "level": "a1",
+      "targetKo": "저는 올해 졸업해요.",
+      "promptDe": "Ich mache dieses Jahr meinen Abschluss.",
+      "promptEn": "I graduate this year.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "졸업",
+      "sourceVocabId": "vocab_a1_0692"
+    },
+    {
+      "id": "satz_a1_0608",
+      "level": "a1",
+      "targetKo": "저는 외국어를 가르쳐요.",
+      "promptDe": "Ich unterrichte eine Fremdsprache.",
+      "promptEn": "I teach a foreign language.",
+      "distractors": [
+        "달",
+        "키"
+      ],
+      "vocabKo": "외국어",
+      "sourceVocabId": "vocab_a1_0693"
+    },
+    {
+      "id": "satz_a1_0609",
+      "level": "a1",
+      "targetKo": "저는 편의점에서 아르바이트를 해요.",
+      "promptDe": "Ich habe einen Nebenjob im Supermarkt.",
+      "promptEn": "I have a part-time job at a convenience store.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "아르바이트",
+      "sourceVocabId": "vocab_a1_0694"
+    },
+    {
+      "id": "satz_a1_0610",
+      "level": "a1",
+      "targetKo": "저는 회사 직원이에요.",
+      "promptDe": "Ich bin Angestellter einer Firma.",
+      "promptEn": "I'm an employee of a company.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "직원",
+      "sourceVocabId": "vocab_a1_0695"
+    },
+    {
+      "id": "satz_a1_0611",
+      "level": "a1",
+      "targetKo": "종업원이 친절해요.",
+      "promptDe": "Die Bedienung ist freundlich.",
+      "promptEn": "The staff is kind.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "종업원",
+      "sourceVocabId": "vocab_a1_0696"
+    },
+    {
+      "id": "satz_a1_0612",
+      "level": "a1",
+      "targetKo": "직원이 안내해요.",
+      "promptDe": "Der Angestellte gibt Auskunft.",
+      "promptEn": "The employee gives information.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "안내",
+      "sourceVocabId": "vocab_a1_0697"
+    },
+    {
+      "id": "satz_a1_0613",
+      "level": "a1",
+      "targetKo": "교통이 안 좋아요.",
+      "promptDe": "Der Verkehr ist nicht gut.",
+      "promptEn": "The traffic isn't good.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "교통",
+      "sourceVocabId": "vocab_a1_0698"
+    },
+    {
+      "id": "satz_a1_0614",
+      "level": "a1",
+      "targetKo": "저는 지금 일을 시작해요.",
+      "promptDe": "Ich fange jetzt mit der Arbeit an.",
+      "promptEn": "I start work now.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "시작",
+      "sourceVocabId": "vocab_a1_0699"
+    },
+    {
+      "id": "satz_a1_0615",
+      "level": "a1",
+      "targetKo": "약속 장소가 어디예요?",
+      "promptDe": "Wo ist der Treffpunkt?",
+      "promptEn": "Where is the meeting place?",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "장소",
+      "sourceVocabId": "vocab_a1_0700"
+    },
+    {
+      "id": "satz_a1_0616",
+      "level": "a1",
+      "targetKo": "저는 매일 글을 써요.",
+      "promptDe": "Ich schreibe jeden Tag.",
+      "promptEn": "I write every day.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "글",
+      "sourceVocabId": "vocab_a1_0701"
+    },
+    {
+      "id": "satz_a1_0617",
+      "level": "a1",
+      "targetKo": "친구랑 이야기해요.",
+      "promptDe": "Ich unterhalte mich mit einem Freund.",
+      "promptEn": "I talk with a friend.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "이야기",
+      "sourceVocabId": "vocab_a1_0702"
+    },
+    {
+      "id": "satz_a1_0618",
+      "level": "a1",
+      "targetKo": "이 곳에 사람이 많아요.",
+      "promptDe": "An diesem Ort sind viele Leute.",
+      "promptEn": "There are many people at this place.",
+      "distractors": [
+        "달",
+        "직원"
+      ],
+      "vocabKo": "곳",
+      "sourceVocabId": "vocab_a1_0703"
+    },
+    {
+      "id": "satz_a1_0619",
+      "level": "a1",
+      "targetKo": "이 달에 생일이 있어요.",
+      "promptDe": "Diesen Monat ist Geburtstag.",
+      "promptEn": "There's a birthday this month.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "달",
+      "sourceVocabId": "vocab_a1_0704"
+    },
+    {
+      "id": "satz_a1_0620",
+      "level": "a1",
+      "targetKo": "제 동생은 아홉 살이에요.",
+      "promptDe": "Mein jüngeres Geschwister ist neun Jahre alt.",
+      "promptEn": "My younger sibling is nine years old.",
+      "distractors": [
+        "곳",
+        "병"
+      ],
+      "vocabKo": "동생",
+      "sourceVocabId": "vocab_a1_0705"
+    },
+    {
+      "id": "satz_a1_0621",
+      "level": "a1",
+      "targetKo": "책상 밑에 가방이 있어요.",
+      "promptDe": "Unter dem Schreibtisch ist eine Tasche.",
+      "promptEn": "There's a bag under the desk.",
+      "distractors": [
+        "달",
+        "종업원"
+      ],
+      "vocabKo": "밑",
+      "sourceVocabId": "vocab_a1_0706"
+    },
+    {
+      "id": "satz_a1_0622",
+      "level": "a1",
+      "targetKo": "다음 주가 제 생일이에요.",
+      "promptDe": "Nächste Woche ist mein Geburtstag.",
+      "promptEn": "Next week is my birthday.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "생일",
+      "sourceVocabId": "vocab_a1_0707"
+    },
+    {
+      "id": "satz_a1_0623",
+      "level": "a1",
+      "targetKo": "동생한테 선물을 줘요.",
+      "promptDe": "Ich gebe meinem Geschwister ein Geschenk.",
+      "promptEn": "I give my sibling a gift.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "선물",
+      "sourceVocabId": "vocab_a1_0708"
+    },
+    {
+      "id": "satz_a1_0624",
+      "level": "a1",
+      "targetKo": "주말에 쇼핑해요.",
+      "promptDe": "Ich gehe am Wochenende einkaufen.",
+      "promptEn": "I go shopping on the weekend.",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "쇼핑",
+      "sourceVocabId": "vocab_a1_0709"
+    },
+    {
+      "id": "satz_a1_0625",
+      "level": "a1",
+      "targetKo": "올해 한국에 왔어요.",
+      "promptDe": "Ich bin dieses Jahr nach Korea gekommen.",
+      "promptEn": "I came to Korea this year.",
+      "distractors": [
+        "곳",
+        "키"
+      ],
+      "vocabKo": "올해",
+      "sourceVocabId": "vocab_a1_0710"
+    },
+    {
+      "id": "satz_a1_0626",
+      "level": "a1",
+      "targetKo": "요즘 바빠요.",
+      "promptDe": "Ich bin heutzutage beschäftigt.",
+      "promptEn": "I'm busy these days.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "요즘",
+      "sourceVocabId": "vocab_a1_0711"
+    },
+    {
+      "id": "satz_a1_0627",
+      "level": "a1",
+      "targetKo": "지금 몇 월이에요?",
+      "promptDe": "Welcher Monat ist jetzt?",
+      "promptEn": "What month is it now?",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "월",
+      "sourceVocabId": "vocab_a1_0712"
+    },
+    {
+      "id": "satz_a1_0628",
+      "level": "a1",
+      "targetKo": "잠시 기다려요.",
+      "promptDe": "Warten Sie einen Moment.",
+      "promptEn": "Wait a moment.",
+      "distractors": [
+        "곳",
+        "종업원"
+      ],
+      "vocabKo": "잠시",
+      "sourceVocabId": "vocab_a1_0713"
+    },
+    {
+      "id": "satz_a1_0629",
+      "level": "a1",
+      "targetKo": "이번 주에 시간이 있어요?",
+      "promptDe": "Haben Sie diese Woche Zeit?",
+      "promptEn": "Do you have time this week?",
+      "distractors": [
+        "곳",
+        "직원"
+      ],
+      "vocabKo": "주",
+      "sourceVocabId": "vocab_a1_0714"
+    }
+  ]
+}

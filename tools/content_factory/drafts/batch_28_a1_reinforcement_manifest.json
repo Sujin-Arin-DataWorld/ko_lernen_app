@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "batch": "c3_batch28_a1_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A1(1급) vocabulary reinforcement — 63 headwords from the NIKL KIIQ 2017 grade-1 gap list (not yet live, not in the Batch 26 or Batch 27 drafts). Fills the two remaining under-12 A1 packs that had matching grade-1 candidates (a1_weekend_promise_1 +1 verb, a1_repair_language_1 +2 verbs) and creates 5 new 12-word A1 packs (all Nomen). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1). Follows the persona (character_profiles.json recurringCharacters) and liveliness rules set for Batch 26/27.",
+    "rights": "original_clean_room",
+    "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=1, minus live assets/data/korean_vocab.csv, tools/content_factory/drafts/batch_26_a1_rows.csv and tools/content_factory/drafts/batch_27_a1_rows.csv)",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "PENDING_FABLE_REVIEW",
+    "humanLanguageQaClaim": false
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_28_a1_rows.csv",
+      "collection": "korean_vocab",
+      "count": 63,
+      "level": "A1"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_28_a1_cloze.json",
+      "collection": "cloze_items",
+      "count": 63,
+      "level": "A1"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_28_a1_satz.json",
+      "collection": "satz_items",
+      "count": 63,
+      "level": "A1"
+    }
+  ],
+  "recordCount": 189,
+  "packsFilledTo12": [
+    "a1_weekend_promise_1",
+    "a1_repair_language_1"
+  ],
+  "newPacks": [
+    {
+      "pack_id": "a1_home_daily_1",
+      "displayName": {
+        "de": "Zuhause & Alltag",
+        "en": "Home & Daily Life"
+      },
+      "wordCount": 12,
+      "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
+    },
+    {
+      "pack_id": "a1_culture_hobbies_1",
+      "displayName": {
+        "de": "Kultur & Hobbys",
+        "en": "Culture & Hobbies"
+      },
+      "wordCount": 12,
+      "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
+    },
+    {
+      "pack_id": "a1_health_food_1",
+      "displayName": {
+        "de": "Gesundheit & Essen",
+        "en": "Health & Food"
+      },
+      "wordCount": 12,
+      "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
+    },
+    {
+      "pack_id": "a1_school_work_1",
+      "displayName": {
+        "de": "Schule & Arbeit",
+        "en": "School & Work"
+      },
+      "wordCount": 12,
+      "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
+    },
+    {
+      "pack_id": "a1_time_family_1",
+      "displayName": {
+        "de": "Zeit & Familie",
+        "en": "Time & Family"
+      },
+      "wordCount": 12,
+      "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
+    }
+  ],
+  "packsLeftUnfilled": [
+    {
+      "pack_id": "a1_colors",
+      "reason": "NIKL grade-1 gap list has no more color adjectives (remaining colors are all A2) — unchanged from Batch 26/27's finding, independently re-checked against the fresh gap list for this batch."
+    },
+    {
+      "pack_id": "a1_partner_meet_names_1",
+      "reason": "NIKL grade-1 gap list has no honorific in-law/kinship-address candidates left (remaining family-adjacent gap word 동생 is a plain sibling term, not an honorific meet-the-family address term, so it doesn't fit this pack's theme) — unchanged from Batch 26/27's finding; 동생 was used in this batch instead as a plain-sibling headword in the new a1_time_family_1 pack."
+    }
+  ],
+  "remainingA1Gap": {
+    "count": 127,
+    "note": "NIKL grade-1 headwords (all parts of speech, deduplicated) still not in live korean_vocab.csv, the Batch 26 draft, the Batch 27 draft, or this Batch 28 draft, as of 2026-09-15. Only 10 of the original 190 NOUN candidates remain (60 of 70 nouns were used this batch, deferring 가운데/계속/모두/먼저/전/영/제일/말/주일/천만 as too grammar-function-like or event-numeral for a clean topic pack); the rest of the 127 are verbs (29)/adjectives (26)/adverbs (19)/pronouns (13)/dependent nouns (13)/determiners (11)/numerals (3)/interjections (2), none targeted by this noun-first batch."
+  },
+  "personaRows": {
+    "vocab_a1_0652": "andrea",
+    "vocab_a1_0654": "christian",
+    "vocab_a1_0657": "sujin",
+    "vocab_a1_0667": "maya",
+    "vocab_a1_0672": "lena",
+    "vocab_a1_0673": "jun",
+    "vocab_a1_0677": "daniel",
+    "vocab_a1_0687": "minho",
+    "vocab_a1_0703": "hyuna"
+  },
+  "reviewPacket": "docs/data/review_packets/batch_28_a1_jin_sample.md",
+  "promotion": {
+    "runtime": false,
+    "assetsDataWritten": false,
+    "tts": false,
+    "firebase": false,
+    "note": "DRAFT ONLY per level-canon program hard rule — no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+  }
+}
