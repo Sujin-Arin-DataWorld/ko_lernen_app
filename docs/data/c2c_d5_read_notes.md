@@ -1,0 +1,121 @@
+# C2c D5 read notes -- 2026-09-15
+
+Items read: 115
+
+- `cloze_a1_0008` (a1): ＿＿＿가 있어요. -- answer `남자친구` (topic 'Beziehungen'). replaced ['엄마', '여기', '침대'] -> ['이', '구', '오']; kept [].
+- `cloze_a1_0009` (a1): ＿＿＿가 있어요. -- answer `여자친구` (topic 'Beziehungen'). replaced ['아빠', '여기', '앞접시'] -> ['위', '아래', '사']; kept [].
+- `cloze_a1_0013` (a1): ＿＿＿이 있어요? -- answer `핸드폰` (topic 'Technologie'). replaced ['이름', '학생'] -> ['육', '왼쪽']; kept ['오른쪽'].
+- `cloze_a1_0018` (a1): ＿＿＿가 집에 있어요. -- answer `아버지` (topic 'Familie'). replaced ['어머니', '침대', '편지'] -> ['이', '사', '뒤']; kept [].
+- `cloze_a1_0021` (a1): ＿＿＿ 어디 있어요? -- answer `엄마` (topic 'Familie'). replaced ['라면', '문'] -> ['오른쪽', '팔']; kept ['앞'].
+- `cloze_a1_0022` (a1): ＿＿＿가 멋있어요. -- answer `오빠` (topic 'Familie'). replaced ['커피', '거기', '저기'] -> ['사', '위', '뒤']; kept [].
+- `cloze_a1_0031` (a1): ＿＿＿을 좋아해요. -- answer `빨간색` (topic 'Farben'). replaced ['파란색', '몸', '지하철'] -> ['팔', '삼', '왼쪽']; kept [].
+- `cloze_a1_0038` (a1): ＿＿＿을 좋아해요? -- answer `생선` (topic 'Essen & Trinken'). replaced ['다섯', '수요일', '한복'] -> ['노란색', '검은색', '육']; kept [].
+- `cloze_a1_0040` (a1): ＿＿＿이 맛있어요. -- answer `과일` (topic 'Essen & Trinken'). replaced ['계란', '입', '국물'] -> ['삼', '검은색', '오른쪽']; kept [].
+- `cloze_a1_0066` (a1): ＿＿＿이 없어요. -- answer `시간` (topic 'Zeit'). replaced ['열', '도서관', '공원'] -> ['오른쪽', '옆', '왼쪽']; kept [].
+- `cloze_a1_0070` (a1): ＿＿＿이 좋아요. -- answer `수요일` (topic 'Zeit'). replaced ['화요일', '지하철역', '핸드폰'] -> ['밖', '오른쪽', '십']; kept [].
+- `cloze_a1_0079` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0080` (a1): 우리 ＿＿＿는 좋아요. -- answer `사이` (topic 'Beziehungen'). replaced ['엄마', '배달비', '저기'] -> ['위', '오', '뒤']; kept [].
+- `cloze_a1_0082` (a1): ＿＿＿에 화장실이 있어요. -- answer `오른쪽` (topic 'Position'). replaced ['앞', '일요일', '사이'] -> ['초록색', '오', '삼']; kept [].
+- `cloze_a1_0088` (a1): ＿＿＿ 가 본 적 있어요. -- answer `거기` (topic 'Position'). replaced ['아래', '밖'] -> ['육', '초록색']; kept ['밤'].
+- `cloze_a1_0090` (a1): ＿＿＿ 색깔도 있어요? -- answer `다른` (topic 'Beschreibung'). replaced ['싸다', '짧다', '어렵다'] -> ['밖', '칠', '십']; kept [].
+- `cloze_a1_0092` (a1): ＿＿＿ 사람이 좋아해요. -- answer `모든` (topic 'Menge'). replaced ['크다', '다른', '비싸다'] -> ['왼쪽', '아래', '삼']; kept [].
+- `cloze_a1_0098` (a1): ＿＿＿ 안 좋아해요. -- answer `별로` (topic 'Alltag'). replaced ['늦게', '천천히', '일찍'] -> ['구', '육', '앞']; kept [].
+- `cloze_a1_0099` (a1): ＿＿＿ 맛있어요! -- answer `진짜` (topic 'Alltag'). replaced ['항상', '어제', '자주'] -> ['검은색', '오', '파란색']; kept [].
+- `cloze_a1_0313` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0333` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0343` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0355` (a1): ＿＿＿는 어렵지만 재미있어요. -- answer `한국어` (topic '자기소개'). replaced ['나이', '나라', '커피'] -> ['뒤', '사', '구']; kept [].
+- `cloze_a1_0365` (a1): 한국어 ＿＿＿은 월요일에 있어요. -- answer `수업` (topic '첫 수업'). replaced ['책상', '연필'] -> ['칠', '왼쪽']; kept ['집'].
+- `cloze_a1_0369` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0398` (a1): 저는 ＿＿＿ 좋아해요. -- answer `귤을` (topic None). replaced ['가다', '쓰다', '에서'] -> ['사', '파란색', '검은색']; kept [].
+- `cloze_a1_0399` (a1): 저는 ＿＿＿를 좋아해요. -- answer `바나나` (topic 'Essen & Trinken'). replaced ['귀', '나라', '자주'] -> ['이', '사', '오']; kept [].
+- `cloze_a1_0424` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0435` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0436` (a1): 오렌지 ＿＿＿가 맛있어요. -- answer `주스` (topic 'Essen & Trinken'). replaced ['나', '엄마', '누나'] -> ['이', '아래', '구']; kept [].
+- `cloze_a1_0443` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0453` (a1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a2_0005` (a2): 어떤 ＿＿＿을 좋아해요? -- answer `계절` (topic 'Wetter'). replaced ['보라색', '가글액', '땅콩'] -> ['육', '옆', '안']; kept [].
+- `cloze_a2_0007` (a2): ＿＿＿ 단풍이 예뻐요. -- answer `가을` (topic 'Wetter'). replaced ['주황색', '풀', '비빔밥'] -> ['흰색', '일', '검은색']; kept [].
+- `cloze_a2_0018` (a2): 내일 ＿＿＿이 있어요. -- answer `시험` (topic 'Bildung'). replaced ['스타킹', '인터넷', '중학생'] -> ['노란색', '안', '빨간색']; kept [].
+- `cloze_a2_0020` (a2): ＿＿＿이 좋아요. -- answer `성적` (topic 'Bildung'). replaced ['분홍색', '거울', '스타킹'] -> ['십', '안', '팔']; kept [].
+- `cloze_a2_0022` (a2): ＿＿＿가 있어요. -- answer `회의` (topic 'Beruf'). replaced ['가구', '불고기', '문자'] -> ['이', '뒤', '위']; kept [].
+- `cloze_a2_0030` (a2): ＿＿＿이 없어요. -- answer `지갑` (topic 'Alltag'). replaced ['배낭', '유학생', '시장'] -> ['십', '팔', '초록색']; kept [].
+- `cloze_a2_0032` (a2): ＿＿＿이 있어요? -- answer `우산` (topic 'Wetter'). replaced ['솔잎', '교환', '이불'] -> ['밖', '왼쪽', '십']; kept [].
+- `cloze_a2_0034` (a2): ＿＿＿이 있어요? -- answer `할인` (topic 'Einkaufen'). replaced ['용', '여름', '유학생'] -> ['흰색', '노란색', '빨간색']; kept [].
+- `cloze_a2_0037` (a2): ＿＿＿ 맛있어요! -- answer `정말` (topic 'Alltag'). replaced ['오늘', '모레', '그저께'] -> ['일', '뒤', '구']; kept [].
+- `cloze_a2_0046` (a2): 다른 ＿＿＿도 있어요? -- answer `색깔` (topic 'Einkaufen'). replaced ['약', '영화', '기차'] -> ['뒤', '오른쪽', '오']; kept [].
+- `cloze_a2_0056` (a2): 내일 ＿＿＿이 있어요. -- answer `면접` (topic 'Beruf'). replaced ['이불', '눈사람', '수박'] -> ['칠', '삼', '오른쪽']; kept [].
+- `cloze_a2_0057` (a2): ＿＿＿이 예뻐요. -- answer `분홍색` (topic 'Farben'). replaced ['영수증', '눈싸움', '신호등'] -> ['안', '밖', '삼']; kept [].
+- `cloze_a2_0058` (a2): ＿＿＿을 좋아해요. -- answer `보라색` (topic 'Farben'). replaced ['반찬', '숟가락', '후식'] -> ['삼', '안', '칠']; kept [].
+- `cloze_a2_0059` (a2): ＿＿＿ 가방이 멋있어요. -- answer `갈색` (topic 'Farben'). replaced ['교실', '땅콩', '구두'] -> ['옆', '아래', '일']; kept [].
+- `cloze_a2_0064` (a2): ＿＿＿에 우유가 있어요. -- answer `냉장고` (topic 'Wohnen'). replaced ['딸기', '팔찌', '사장'] -> ['빨간색', '왼쪽', '노란색']; kept [].
+- `cloze_a2_0074` (a2): ＿＿＿가 있어요? -- answer `수수료` (topic 'Geld'). replaced ['아저씨', '문자', '후추'] -> ['뒤', '위', '오']; kept [].
+- `cloze_a1_0214` (a2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0217` (a2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a1_0244` (a2): ＿＿＿ 안에 펜이 세 자루 있어요. -- answer `필통` (topic 'Schultasche'). replaced ['지우개', '가위'] -> ['검은색', '밖']; kept ['세탁기'].
+- `cloze_a1_0257` (a2): 사 번 ＿＿＿로 나가면 은행이 있어요. -- answer `출구` (topic 'U-Bahnkarte'). replaced ['막차'] -> ['오']; kept ['무게', '한국어'].
+- `cloze_a2_0215` (a2): 주말 예약은 ＿＿＿이 있어요. -- answer `예약금` (topic 'Friseursalon'). replaced ['미용실', '염색'] -> ['칠', '일']; kept ['방석'].
+- `cloze_a2_0292` (a2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_a2_0302` (a2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b1_0007` (b1): 좋은 ＿＿＿이 있어요? -- answer `방법` (topic 'Alltag'). replaced ['야근', '예금', '중개인'] -> ['교육', '영향', '가능성']; kept [].
+- `cloze_b1_0008` (b1): ＿＿＿가 있어요? -- answer `문제` (topic 'Alltag'). replaced ['뉴스', '정보', '근무표'] -> ['정도', '사회', '종류']; kept [].
+- `cloze_b1_0009` (b1): ＿＿＿에 관심이 있어요? -- answer `정치` (topic 'Gesellschaft'). replaced ['미래', '박물관', '출장'] -> ['부분', '한계', '사회']; kept [].
+- `cloze_b1_0020` (b1): ＿＿＿가 좋아요. -- answer `결과` (topic 'Alltag'). replaced ['돌잔치', '주사', '업무'] -> ['정치', '경제', '경우']; kept [].
+- `cloze_b1_0028` (b1): ＿＿＿ 맛도 있어요. -- answer `게다가` (topic 'Alltag'). replaced ['다시', '어제', '어서'] -> ['주제', '영향', '균형']; kept [].
+- `cloze_b1_0030` (b1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b1_0050` (b1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b1_0052` (b1): ＿＿＿이 있어요. -- answer `가능성` (topic 'Denken'). replaced ['표현', '하숙집', '알림장'] -> ['기술', '영향', '균형']; kept [].
+- `cloze_a1_0120` (b1): ＿＿＿은 편하지만 정이 없어 보일 수 있어요. -- answer `백화점 상품권` (topic 'Partnerschaft & koreanische Familie'). replaced ['단체 사진', '덕담'] -> ['느낌', '가능성']; kept ['책임감'].
+- `cloze_a1_0183` (b1): ＿＿＿에서 제가 제일 뒤에 서 있어요. -- answer `단체 사진` (topic 'Partnerschaft & koreanische Familie'). replaced ['과일 바구니', '국물', '귀성'] -> ['한계', '기술', '사회']; kept [].
+- `cloze_a1_0213` (b1): ＿＿＿가 어디에 있어요? -- answer `체온계` (topic 'Apotheke'). replaced ['연고', '마스크', '계산대'] -> ['경제', '정도', '경우']; kept [].
+- `cloze_a1_0241` (b1): 엘리베이터에 ＿＿＿이 있어요. -- answer `공지문` (topic 'Nachbarschaft'). replaced ['초인종', '이웃집', '명찰'] -> ['가능성', '내용', '영향']; kept [].
+- `cloze_a2_0221` (b1): ＿＿＿만 지하 주차장을 쓸 수 있어요. -- answer `입주민` (topic 'Hausordnung'). replaced ['관리사무소', '주차스티커', '음식물 봉투'] -> ['한계', '가능성', '기술']; kept [].
+- `cloze_a2_0246` (b1): 지갑은 ＿＿＿에 삼 일 동안 있어요. -- answer `보관함` (topic 'Fundsachen'). replaced ['분실물', '습득하다', '신분증'] -> ['정도', '균형', '경제']; kept [].
+- `cloze_a2_0257` (b1): 전통차 ＿＿＿가 입구 옆에 있어요. -- answer `부스` (topic 'Feststand'). replaced ['축제'] -> ['정도']; kept ['바나나', '안내데스크'].
+- `cloze_b1_0230` (b1): ＿＿＿을 들어야 부스를 맡을 수 있어요. -- answer `사전 교육` (topic 'Ehrenamtsschicht'). replaced ['봉사 시간'] -> ['균형']; kept ['지갑', '처방전'].
+- `cloze_b1_0245` (b1): ＿＿＿에 현장학습 날짜가 있어요. -- answer `가정 통신` (topic 'Elterngespräch'). replaced ['학부모 면담', '알림장', '상담 시간'] -> ['균형', '느낌', '부분']; kept [].
+- `cloze_b1_0255` (b1): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b1_0277` (b1): ＿＿＿에 필요한 경력이 적혀 있어요. -- answer `지원 자격` (topic '취업과 근무 조건'). replaced ['관련 경력', '면접 일정', '근무 조건'] -> ['균형', '가능성', '경우']; kept [].
+- `cloze_b2_0002` (b2): 다양한 ＿＿＿이 있어요. -- answer `관점` (topic 'Denken'). replaced ['지속 가능성', '야경'] -> ['느낌', '비용']; kept ['현상'].
+- `cloze_b2_0007` (b2): ＿＿＿가 없어요. -- answer `근거` (topic 'Denken'). replaced ['통계', '관용어'] -> ['한계', '문화']; kept ['경우'].
+- `cloze_b2_0033` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0034` (b2): 어떤 ＿＿＿이 있어요? -- answer `자격증` (topic 'Beruf'). replaced ['자신감', '애인'] -> ['경쟁력', '결론']; kept ['부분'].
+- `cloze_b2_0054` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0059` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0087` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0089` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0090` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0091` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0099` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0108` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0109` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0111` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0113` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0114` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0124` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0127` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0132` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0163` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0227` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b1_0220` (b2): 전입 신고는 ＿＿＿가 따로 있어요. -- answer `담당 창구` (topic 'Amtgang'). replaced ['구비 서류'] -> ['전제']; kept ['주사', '날짜'].
+- `cloze_b2_0288` (b2): ＿＿＿에 관할 기관이 명시되어 있어요. -- answer `분쟁 조항` (topic 'Wohnstreit'). replaced ['내용증명', '원상복구', '하자 보수'] -> ['정책', '근거', '부분']; kept [].
+- `cloze_b2_0332` (b2): ＿＿＿가 모호하면 성공을 나중에 다툴 수 있어요. -- answer `측정 지표` (topic 'Kurzlage'). replaced ['선택지 비교', '가정 명시'] -> ['제도', '양극화']; kept ['자료'].
+- `cloze_b2_0363` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0395` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_b2_0400` (b2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_c1_0100` (c1): ＿＿＿을 남기면 나중에 과장 여부를 확인할 수 있어요. -- answer `발언 기록` (topic 'Öffentliche Lage'). replaced ['브리핑 문안', '위험 등급', '비전문가 설명'] -> ['가치관', '현상', '본질']; kept [].
+- `cloze_c1_0128` (c1): ＿＿＿가 있어야 본 경로 장애를 견딜 수 있어요. -- answer `우회 경로` (topic 'Zugangskosten'). replaced ['선택권 축소'] -> ['민주주의']; kept ['자동이체', '팔로워'].
+- `cloze_c1_0151` (c1): ＿＿＿과 주차 확대를 같은 면적에서 고를 수는 없어요. -- answer `녹지 보전` (topic 'Ortliche Abwägung'). replaced ['지역 여건', '상권 이전'] -> ['핵심', '가능성']; kept ['벌금'].
+- `cloze_c1_0159` (c1): ＿＿＿를 나누면 한 공간이 두 집단을 받을 수 있어요. -- answer `이용 시간대` (topic 'Ortliche Abwägung'). replaced ['야간 소음 한도'] -> ['자료']; kept ['무게', '잠시만요'].
+- `cloze_c1_0164` (c1): ＿＿＿를 공개하면 방치 여부를 따질 수 있어요. -- answer `점검 로그` (topic 'Betriebslast'). replaced ['교체 주기'] -> ['전제']; kept ['단어', '아래'].
+- `cloze_c1_0168` (c1): ＿＿＿이 제한되면 남은 예산을 소진하기 위한 불필요한 지출이 발생할 수 있어요. -- answer `예산 이월` (topic 'Betriebslast'). replaced ['운영 인력', '예비 부품'] -> ['수익', '부분']; kept ['메뉴판'].
+- `cloze_c2_0026` (c2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_c2_0030` (c2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_c2_0032` (c2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_c2_0092` (c2): ＿＿＿가 약하면 나중에 기억을 고를 수 있어요. -- answer `기록 의무` (topic 'Institutionsstimme'). replaced ['공식 어조', '위임 범위'] -> ['통계', '문화']; kept ['통화'].
+- `cloze_c2_0099` (c2): ＿＿＿ 없이 대행하면 결정을 되돌릴 수 있어요. -- answer `권한 위임장` (topic 'Institutionsstimme'). replaced ['제도적 권한', '공식 어조', '위임 범위'] -> ['논리', '낙인', '근거']; kept [].
+- `cloze_c2_0149` (c2): kept as-is, no distractor read as a same-topic/open-frame concrete match.
+- `cloze_c2_0156` (c2): ＿＿＿ 없이 완료 화면만 보여 주면 증명이 없어요. -- answer `철회 확인서` (topic 'Widerrufsrecht'). replaced ['철회권', '동의 철회', '파생 데이터'] -> ['경쟁력', '맥락', '담론']; kept [].
+- `cloze_c2_0166` (c2): ＿＿＿ 권한이 개발팀에만 있으면 공적 통제가 없어요. -- answer `긴급 차단` (topic 'Automatenfolgen'). replaced ['차등 영향', '오류 비용', '피드백 왜곡'] -> ['발화', '가설', '맥락']; kept [].
+
+Items changed: 74 / 115

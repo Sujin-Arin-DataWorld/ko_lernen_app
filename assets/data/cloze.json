@@ -112,9 +112,9 @@
       "de": "Das ist mein Freund.",
       "en": "This is my friend.",
       "distractors": [
-        "지하철",
         "귀",
-        "남편"
+        "창구",
+        "뒤"
       ],
       "topic": "Beziehungen"
     },
@@ -127,9 +127,9 @@
       "de": "Ich habe einen Freund.",
       "en": "I have a boyfriend.",
       "distractors": [
-        "엄마",
-        "여기",
-        "침대"
+        "이",
+        "구",
+        "오"
       ],
       "topic": "Beziehungen"
     },
@@ -142,9 +142,9 @@
       "de": "Ich habe eine Freundin.",
       "en": "I have a girlfriend.",
       "distractors": [
-        "아빠",
-        "여기",
-        "앞접시"
+        "위",
+        "아래",
+        "사"
       ],
       "topic": "Beziehungen"
     },
@@ -202,9 +202,9 @@
       "de": "Hast du ein Handy?",
       "en": "Do you have a phone?",
       "distractors": [
-        "이름",
-        "학생",
-        "오른쪽"
+        "오른쪽",
+        "육",
+        "왼쪽"
       ],
       "topic": "Technologie"
     },
@@ -277,9 +277,9 @@
       "de": "Mein Vater ist zu Hause.",
       "en": "My father is at home.",
       "distractors": [
-        "어머니",
-        "침대",
-        "편지"
+        "이",
+        "사",
+        "뒤"
       ],
       "topic": "Familie"
     },
@@ -322,9 +322,9 @@
       "de": "Wo bist du, Mama?",
       "en": "Where are you, Mom?",
       "distractors": [
-        "라면",
         "앞",
-        "문"
+        "오른쪽",
+        "팔"
       ],
       "topic": "Familie"
     },
@@ -337,9 +337,9 @@
       "de": "Mein älterer Bruder ist toll.",
       "en": "My older brother is cool.",
       "distractors": [
-        "커피",
-        "거기",
-        "저기"
+        "사",
+        "위",
+        "뒤"
       ],
       "topic": "Familie"
     },
@@ -472,9 +472,9 @@
       "de": "Ich mag Rot.",
       "en": "I like red.",
       "distractors": [
-        "파란색",
-        "몸",
-        "지하철"
+        "팔",
+        "삼",
+        "왼쪽"
       ],
       "topic": "Farben"
     },
@@ -577,9 +577,9 @@
       "de": "Magst du Fisch?",
       "en": "Do you like fish?",
       "distractors": [
-        "다섯",
-        "수요일",
-        "한복"
+        "노란색",
+        "검은색",
+        "육"
       ],
       "topic": "Essen & Trinken"
     },
@@ -607,9 +607,9 @@
       "de": "Das Obst ist lecker.",
       "en": "The fruit is delicious.",
       "distractors": [
-        "계란",
-        "입",
-        "국물"
+        "삼",
+        "검은색",
+        "오른쪽"
       ],
       "topic": "Essen & Trinken"
     },
@@ -967,9 +967,9 @@
       "de": "Welche Jahreszeit magst du?",
       "en": "Which season do you like?",
       "distractors": [
-        "보라색",
-        "가글액",
-        "땅콩"
+        "육",
+        "옆",
+        "안"
       ],
       "topic": "Wetter"
     },
@@ -997,9 +997,9 @@
       "de": "Das Herbstlaub ist schön.",
       "en": "The autumn leaves are beautiful.",
       "distractors": [
-        "주황색",
-        "풀",
-        "비빔밥"
+        "흰색",
+        "일",
+        "검은색"
       ],
       "topic": "Wetter"
     },
@@ -1162,9 +1162,9 @@
       "de": "Morgen habe ich eine Prüfung.",
       "en": "I have an exam tomorrow.",
       "distractors": [
-        "스타킹",
-        "인터넷",
-        "중학생"
+        "노란색",
+        "안",
+        "빨간색"
       ],
       "topic": "Bildung"
     },
@@ -1192,9 +1192,9 @@
       "de": "Meine Noten sind gut.",
       "en": "My grades are good.",
       "distractors": [
-        "분홍색",
-        "거울",
-        "스타킹"
+        "십",
+        "안",
+        "팔"
       ],
       "topic": "Bildung"
     },
@@ -1222,9 +1222,9 @@
       "de": "Ich habe ein Meeting.",
       "en": "I have a meeting.",
       "distractors": [
-        "가구",
-        "불고기",
-        "문자"
+        "이",
+        "뒤",
+        "위"
       ],
       "topic": "Beruf"
     },
@@ -1252,9 +1252,9 @@
       "de": "Ich fahre mit dem Zug.",
       "en": "I go by train.",
       "distractors": [
-        "보증금",
         "비누",
-        "거실"
+        "할아버지",
+        "주소"
       ],
       "topic": "Verkehr"
     },
@@ -1327,9 +1327,9 @@
       "de": "Ich arbeite am Computer.",
       "en": "I work on the computer.",
       "distractors": [
-        "사원",
         "계산서",
-        "공주"
+        "공주",
+        "전화"
       ],
       "topic": "Technologie"
     },
@@ -1342,9 +1342,9 @@
       "de": "Ich habe keine Geldbörse.",
       "en": "I don't have a wallet.",
       "distractors": [
-        "배낭",
-        "유학생",
-        "시장"
+        "십",
+        "팔",
+        "초록색"
       ],
       "topic": "Alltag"
     },
@@ -1372,9 +1372,9 @@
       "de": "Hast du einen Regenschirm?",
       "en": "Do you have an umbrella?",
       "distractors": [
-        "솔잎",
-        "교환",
-        "이불"
+        "밖",
+        "왼쪽",
+        "십"
       ],
       "topic": "Wetter"
     },
@@ -1389,7 +1389,7 @@
       "distractors": [
         "반지",
         "잃어버리다",
-        "현금"
+        "쇠고기"
       ],
       "topic": "Einkaufen"
     },
@@ -1402,9 +1402,9 @@
       "de": "Gibt es einen Rabatt?",
       "en": "Is there a discount?",
       "distractors": [
-        "용",
-        "여름",
-        "유학생"
+        "흰색",
+        "노란색",
+        "빨간색"
       ],
       "topic": "Einkaufen"
     },
@@ -1433,8 +1433,8 @@
       "en": "I pay by card.",
       "distractors": [
         "청소기",
-        "봄",
-        "여름"
+        "야채",
+        "영어"
       ],
       "topic": "Einkaufen"
     },
@@ -1447,9 +1447,9 @@
       "de": "Das ist wirklich lecker!",
       "en": "It's really delicious!",
       "distractors": [
-        "좁다",
-        "씹다",
-        "슬프다"
+        "바로",
+        "오늘",
+        "모레"
       ],
       "topic": "Alltag"
     },
@@ -1462,9 +1462,9 @@
       "de": "Es ist zu heiß.",
       "en": "It's too hot.",
       "distractors": [
-        "건강하다",
-        "호텔",
-        "배부르다"
+        "이따가",
+        "어제",
+        "잠깐"
       ],
       "topic": "Alltag"
     },
@@ -1477,9 +1477,9 @@
       "de": "Noch ein bisschen mehr bitte.",
       "en": "A little more, please.",
       "distractors": [
-        "남다",
-        "회색",
-        "그립다"
+        "이따가",
+        "일찍",
+        "주로"
       ],
       "topic": "Alltag"
     },
@@ -1492,9 +1492,9 @@
       "de": "Ich habe viel gegessen.",
       "en": "I ate a lot.",
       "distractors": [
-        "청소하다",
-        "외롭다",
-        "넥타이"
+        "매일",
+        "지금",
+        "모레"
       ],
       "topic": "Alltag"
     },
@@ -1507,9 +1507,9 @@
       "de": "Ich wohne alleine.",
       "en": "I live alone.",
       "distractors": [
-        "빠르다",
-        "덥다",
-        "면접"
+        "바로",
+        "어제",
+        "내일"
       ],
       "topic": "Alltag"
     },
@@ -1522,9 +1522,9 @@
       "de": "Lass uns zusammen gehen.",
       "en": "Let's go together.",
       "distractors": [
-        "느리다",
-        "치마",
-        "답답하다"
+        "오늘",
+        "어제",
+        "바로"
       ],
       "topic": "Alltag"
     },
@@ -1627,9 +1627,9 @@
       "de": "Gibt es eine gute Methode?",
       "en": "Is there a good way?",
       "distractors": [
-        "야근",
-        "예금",
-        "중개인"
+        "교육",
+        "영향",
+        "가능성"
       ],
       "topic": "Alltag"
     },
@@ -1642,9 +1642,9 @@
       "de": "Gibt es ein Problem?",
       "en": "Is there a problem?",
       "distractors": [
-        "뉴스",
-        "정보",
-        "근무표"
+        "정도",
+        "사회",
+        "종류"
       ],
       "topic": "Alltag"
     },
@@ -1657,9 +1657,9 @@
       "de": "Interessierst du dich für Politik?",
       "en": "Are you interested in politics?",
       "distractors": [
-        "미래",
-        "박물관",
-        "출장"
+        "부분",
+        "한계",
+        "사회"
       ],
       "topic": "Gesellschaft"
     },
@@ -1762,9 +1762,9 @@
       "de": "Das ist eine gute Gelegenheit.",
       "en": "This is a good opportunity.",
       "distractors": [
-        "외로움",
         "보고서",
-        "일정"
+        "고마워요",
+        "불고기"
       ],
       "topic": "Motivation"
     },
@@ -1822,9 +1822,9 @@
       "de": "Das Ergebnis ist gut.",
       "en": "The result is good.",
       "distractors": [
-        "돌잔치",
-        "주사",
-        "업무"
+        "정치",
+        "경제",
+        "경우"
       ],
       "topic": "Alltag"
     },
@@ -1912,9 +1912,9 @@
       "de": "Letztendlich hat es geklappt.",
       "en": "In the end, it worked out.",
       "distractors": [
-        "업무",
-        "다양하다",
-        "건강"
+        "스스로",
+        "곧장",
+        "다시"
       ],
       "topic": "Alltag"
     },
@@ -1927,9 +1927,9 @@
       "de": "Es hat mir eher geholfen.",
       "en": "It helped me, if anything.",
       "distractors": [
-        "교통카드",
-        "마음에 들다",
-        "예금"
+        "바로",
+        "그저께",
+        "곧장"
       ],
       "topic": "Alltag"
     },
@@ -1942,9 +1942,9 @@
       "de": "Außerdem ist es auch lecker.",
       "en": "On top of that, it's tasty too.",
       "distractors": [
-        "똑같다",
-        "회비",
-        "불편하다"
+        "어서",
+        "늦게",
+        "잠깐"
       ],
       "topic": "Alltag"
     },
@@ -1957,9 +1957,9 @@
       "de": "Daher muss man vorsichtig sein.",
       "en": "Therefore, one must be careful.",
       "distractors": [
-        "번역하다",
-        "방송",
-        "섭섭하다"
+        "모레",
+        "이따가",
+        "지금"
       ],
       "topic": "Alltag"
     },
@@ -1972,9 +1972,9 @@
       "de": "Ich mag besonders koreanisches Essen.",
       "en": "I especially like Korean food.",
       "distractors": [
-        "발전하다",
-        "시설",
-        "공유하다"
+        "그저께",
+        "바로",
+        "어서"
       ],
       "topic": "Alltag"
     },
@@ -1987,9 +1987,9 @@
       "de": "Es hat plötzlich geregnet.",
       "en": "It suddenly started to rain.",
       "distractors": [
-        "승진",
-        "존댓말",
-        "벌다"
+        "어제",
+        "잠깐",
+        "늦게"
       ],
       "topic": "Alltag"
     },
@@ -2002,9 +2002,9 @@
       "de": "Es ist endlich vorbei!",
       "en": "It's finally over!",
       "distractors": [
-        "영상",
         "오히려",
-        "반말"
+        "주로",
+        "스스로"
       ],
       "topic": "Alltag"
     },
@@ -2017,9 +2017,9 @@
       "de": "Es ist gut, aber teuer.",
       "en": "It's good but expensive.",
       "distractors": [
-        "차이",
-        "입원하다",
-        "후회하다"
+        "잠깐",
+        "오늘",
+        "어서"
       ],
       "topic": "Alltag"
     },
@@ -2047,9 +2047,9 @@
       "de": "Es gibt verschiedene Standpunkte.",
       "en": "There are various viewpoints.",
       "distractors": [
-        "지속 가능성",
-        "야경",
-        "현상"
+        "현상",
+        "느낌",
+        "비용"
       ],
       "topic": "Denken"
     },
@@ -2123,8 +2123,8 @@
       "en": "There is no evidence.",
       "distractors": [
         "경우",
-        "통계",
-        "관용어"
+        "한계",
+        "문화"
       ],
       "topic": "Denken"
     },
@@ -2317,9 +2317,9 @@
       "de": "Ich habe keine Zeit.",
       "en": "I have no time.",
       "distractors": [
-        "열",
-        "도서관",
-        "공원"
+        "오른쪽",
+        "옆",
+        "왼쪽"
       ],
       "topic": "Zeit"
     },
@@ -2377,9 +2377,9 @@
       "de": "Mittwoch passt mir gut.",
       "en": "Wednesday works for me.",
       "distractors": [
-        "화요일",
-        "지하철역",
-        "핸드폰"
+        "밖",
+        "오른쪽",
+        "십"
       ],
       "topic": "Zeit"
     },
@@ -2527,9 +2527,9 @@
       "de": "Wir verstehen uns gut.",
       "en": "We get along well.",
       "distractors": [
-        "엄마",
-        "배달비",
-        "저기"
+        "위",
+        "오",
+        "뒤"
       ],
       "topic": "Beziehungen"
     },
@@ -2542,9 +2542,9 @@
       "de": "Gehen Sie nach links.",
       "en": "Go to the left.",
       "distractors": [
-        "누나",
         "옷",
-        "만"
+        "만",
+        "파란색"
       ],
       "topic": "Position"
     },
@@ -2557,9 +2557,9 @@
       "de": "Rechts ist die Toilette.",
       "en": "The bathroom is on the right.",
       "distractors": [
-        "앞",
-        "일요일",
-        "사이"
+        "초록색",
+        "오",
+        "삼"
       ],
       "topic": "Position"
     },
@@ -2572,9 +2572,9 @@
       "de": "Lass uns zusammen gehen.",
       "en": "Let's go together.",
       "distractors": [
-        "없다",
-        "맛있다",
-        "만나다"
+        "파란색",
+        "월요일",
+        "날"
       ],
       "topic": "Person"
     },
@@ -2602,9 +2602,9 @@
       "de": "Das da bitte.",
       "en": "That one, please.",
       "distractors": [
-        "하다",
         "너",
-        "같은"
+        "초",
+        "언니"
       ],
       "topic": "Alltag"
     },
@@ -2617,9 +2617,9 @@
       "de": "Was ist das dort?",
       "en": "What's that over there?",
       "distractors": [
-        "많다",
-        "길다",
-        "앉다"
+        "언니",
+        "외국인",
+        "우리"
       ],
       "topic": "Alltag"
     },
@@ -2647,9 +2647,9 @@
       "de": "Da war ich schon mal.",
       "en": "I've been there before.",
       "distractors": [
-        "아래",
         "밤",
-        "밖"
+        "육",
+        "초록색"
       ],
       "topic": "Position"
     },
@@ -2677,9 +2677,9 @@
       "de": "Gibt es auch andere Farben?",
       "en": "Are there other colors too?",
       "distractors": [
-        "싸다",
-        "짧다",
-        "어렵다"
+        "입다",
+        "죄송하다",
+        "쓰다"
       ],
       "topic": "Beschreibung"
     },
@@ -2707,9 +2707,9 @@
       "de": "Alle Leute mögen es.",
       "en": "Everyone likes it.",
       "distractors": [
-        "크다",
-        "다른",
-        "비싸다"
+        "시끄럽다",
+        "기다리다",
+        "결제하다"
       ],
       "topic": "Menge"
     },
@@ -2797,9 +2797,9 @@
       "de": "Ich mag es nicht besonders.",
       "en": "I don't really like it.",
       "distractors": [
-        "늦게",
-        "천천히",
-        "일찍"
+        "다시",
+        "지금",
+        "어서"
       ],
       "topic": "Alltag"
     },
@@ -2812,9 +2812,9 @@
       "de": "Das ist echt lecker!",
       "en": "It's really delicious!",
       "distractors": [
-        "항상",
-        "어제",
-        "자주"
+        "잠깐",
+        "주로",
+        "지금"
       ],
       "topic": "Alltag"
     },
@@ -2872,9 +2872,9 @@
       "de": "Gibt es auch andere Farben?",
       "en": "Are there other colors too?",
       "distractors": [
-        "약",
-        "영화",
-        "기차"
+        "뒤",
+        "오른쪽",
+        "오"
       ],
       "topic": "Einkaufen"
     },
@@ -2932,9 +2932,9 @@
       "de": "Gehen Sie geradeaus.",
       "en": "Go straight ahead.",
       "distractors": [
-        "일어나다",
-        "화장하다",
-        "바쁘다"
+        "더",
+        "또",
+        "항상"
       ],
       "topic": "Verkehr"
     },
@@ -3022,9 +3022,9 @@
       "de": "Morgen habe ich ein Vorstellungsgespräch.",
       "en": "I have a job interview tomorrow.",
       "distractors": [
-        "이불",
-        "눈사람",
-        "수박"
+        "칠",
+        "삼",
+        "오른쪽"
       ],
       "topic": "Beruf"
     },
@@ -3037,9 +3037,9 @@
       "de": "Rosa ist hübsch.",
       "en": "Pink is pretty.",
       "distractors": [
-        "영수증",
-        "눈싸움",
-        "신호등"
+        "안",
+        "밖",
+        "삼"
       ],
       "topic": "Farben"
     },
@@ -3052,9 +3052,9 @@
       "de": "Ich mag Lila.",
       "en": "I like purple.",
       "distractors": [
-        "반찬",
-        "숟가락",
-        "후식"
+        "삼",
+        "안",
+        "칠"
       ],
       "topic": "Farben"
     },
@@ -3067,9 +3067,9 @@
       "de": "Die braune Tasche ist schön.",
       "en": "The brown bag is nice.",
       "distractors": [
-        "교실",
-        "땅콩",
-        "구두"
+        "옆",
+        "아래",
+        "일"
       ],
       "topic": "Farben"
     },
@@ -3382,9 +3382,9 @@
       "de": "Es gibt eine Möglichkeit.",
       "en": "There is a possibility.",
       "distractors": [
-        "표현",
-        "하숙집",
-        "알림장"
+        "기술",
+        "영향",
+        "균형"
       ],
       "topic": "Denken"
     },
@@ -3743,8 +3743,8 @@
       "en": "What certificates do you have?",
       "distractors": [
         "부분",
-        "자신감",
-        "애인"
+        "경쟁력",
+        "결론"
       ],
       "topic": "Beruf"
     },
@@ -3833,8 +3833,8 @@
       "en": "What's your major?",
       "distractors": [
         "가치관",
-        "봉투",
-        "인기"
+        "생신",
+        "형"
       ],
       "topic": "Bildung"
     },
@@ -3952,9 +3952,9 @@
       "de": "Im Kühlschrank ist Milch.",
       "en": "There is milk in the fridge.",
       "distractors": [
-        "딸기",
-        "팔찌",
-        "사장"
+        "빨간색",
+        "왼쪽",
+        "노란색"
       ],
       "topic": "Wohnen"
     },
@@ -3982,9 +3982,9 @@
       "de": "Ich sauge mit dem Staubsauger.",
       "en": "I vacuum the floor.",
       "distractors": [
-        "거울",
-        "손님",
-        "횡단보도"
+        "횡단보도",
+        "아니요",
+        "상자"
       ],
       "topic": "Wohnen"
     },
@@ -4027,9 +4027,9 @@
       "de": "Ich habe die Kaution bezahlt.",
       "en": "I paid the deposit.",
       "distractors": [
-        "전화",
-        "교수",
-        "땅콩"
+        "땅콩",
+        "노란색",
+        "잼"
       ],
       "topic": "Wohnen"
     },
@@ -4057,9 +4057,9 @@
       "de": "Ich zahle bar.",
       "en": "I'll pay in cash.",
       "distractors": [
-        "지구",
-        "휴가",
-        "교차로"
+        "윗목",
+        "도착",
+        "정기권"
       ],
       "topic": "Geld"
     },
@@ -4102,9 +4102,9 @@
       "de": "Gibt es eine Gebühr?",
       "en": "Is there a fee?",
       "distractors": [
-        "아저씨",
-        "문자",
-        "후추"
+        "뒤",
+        "위",
+        "오"
       ],
       "topic": "Geld"
     },
@@ -4117,9 +4117,9 @@
       "de": "In welcher Währung soll ich zahlen?",
       "en": "Which currency should I pay in?",
       "distractors": [
-        "컵",
-        "칠판",
-        "월세"
+        "월세",
+        "친구",
+        "아빠"
       ],
       "topic": "Geld"
     },
@@ -6592,9 +6592,9 @@
       "de": "Zunächst identifizierte ich mich mit der Hauptfigur. Nach den Aufzeichnungen einer anderen Figur geriet mein Urteil ins Wanken.",
       "en": "At first I identified with the main character, but another character's account unsettled my judgment.",
       "distractors": [
-        "주인공을 전혀 이해하지 못해",
-        "결말을 이미 알고 있어서",
-        "다른 인물을 먼저 비판하고"
+        "표현의 수위는 낮췄지만",
+        "상대의 언어를 그대로 빌렸지만",
+        "촉박하긴 하지만"
       ],
       "topic": "Erinnerung & Erzählperspektive"
     },
@@ -7432,9 +7432,9 @@
       "de": "Um den Konflikt zu entschärfen, wurde der Ton gemildert, ohne die Kernforderung zu streichen.",
       "en": "We toned down the wording to reduce conflict, but did not erase the core demand.",
       "distractors": [
-        "요구 자체를 철회했고",
-        "상대를 더 자극했고",
-        "주제를 완전히 바꿨고"
+        "촉박하긴 하지만",
+        "상대의 언어를 그대로 빌렸지만",
+        "주인공에게 이입했지만"
       ],
       "topic": "Sprache, Deutung & Macht"
     },
@@ -7537,9 +7537,9 @@
       "de": "Um zu widersprechen, übernahm man die Begriffe der Gegenseite und stärkte damit ungewollt deren Prämisse.",
       "en": "In trying to rebut the argument, we borrowed the other side's language and ended up reinforcing its assumptions.",
       "distractors": [
-        "새로운 개념을 제안했고",
-        "전제를 먼저 비판했고",
-        "용어의 역사를 설명했고"
+        "주인공에게 이입했지만",
+        "촉박하긴 하지만",
+        "표현의 수위는 낮췄지만"
       ],
       "topic": "Sprache, Deutung & Macht"
     },
@@ -7813,9 +7813,9 @@
       "de": "Bitte teilen Sie uns die Prüfergebnisse und Folgemaßnahmen bis morgen schriftlich mit.",
       "en": "Please provide the inspection results and follow-up action in writing by tomorrow.",
       "distractors": [
-        "구두",
-        "임시",
-        "비공개"
+        "협상",
+        "공책",
+        "습관"
       ],
       "topic": "Formelle Beschwerde & Abhilfe",
       "sourceSeedId": "seed_b2_device_escalation",
@@ -8071,9 +8071,9 @@
       "de": "Vor der Tür habe ich sie zuerst respektvoll gegrüßt.",
       "en": "I greeted them respectfully at the door first.",
       "distractors": [
-        "조용히",
-        "친해",
-        "성함을 묻"
+        "수저를 놓았어요",
+        "들어요",
+        "골랐어요"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8266,9 +8266,9 @@
       "de": "Hyunwoo sagte, ein zu großes Geschenk setzt die anderen unter Druck.",
       "en": "Hyunwoo said too big a gift puts people under pressure.",
       "distractors": [
-        "세배 드리다",
-        "송편 빚다",
-        "송편 찌다"
+        "도서관",
+        "스타킹",
+        "감정"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8281,9 +8281,9 @@
       "de": "Kein teures Geschenk, eine kleine Aufmerksamkeit reicht.",
       "en": "Not something expensive; a small gesture is enough.",
       "distractors": [
-        "송편 찌다",
-        "수저 놓다",
-        "앉으세요"
+        "회사원",
+        "전공",
+        "수요일"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8341,9 +8341,9 @@
       "de": "Wenn ich mit leeren Händen komme, ist Hyunwoo noch nervöser.",
       "en": "If I arrive empty-handed, Hyunwoo gets even more nervous.",
       "distractors": [
-        "시아버지",
-        "시어머니",
-        "아랫목"
+        "아랫목",
+        "여동생",
+        "보험금"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8356,9 +8356,9 @@
       "de": "Ein Kaufhausgutschein ist praktisch, wirkt aber schnell unpersönlich.",
       "en": "A department-store voucher is practical but can come across as impersonal.",
       "distractors": [
-        "단체 사진",
-        "덕담",
-        "책임감"
+        "책임감",
+        "느낌",
+        "가능성"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8386,9 +8386,9 @@
       "de": "Beim Gehen packten sie mir als Gegengabe Beilagen ein.",
       "en": "As I left they packed side dishes for me in return.",
       "distractors": [
-        "국물",
-        "귀성",
-        "꽃다발"
+        "뒤",
+        "상자",
+        "커피"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8581,9 +8581,9 @@
       "de": "Die Benimmregeln für den Besuch hat Hyunwoo mir im Auto erklärt.",
       "en": "Hyunwoo explained the visiting manners to me in the car.",
       "distractors": [
-        "송편 찌다",
-        "수저 놓다",
-        "앉으세요"
+        "비빔밥",
+        "한국",
+        "형"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8793,7 +8793,7 @@
       "distractors": [
         "손 씻기",
         "손님 슬리퍼",
-        "송편"
+        "실례합니다"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8836,9 +8836,9 @@
       "de": "Ich habe den Hanbok angezogen und die Schleife gebunden.",
       "en": "I put on the hanbok and tied the ribbon.",
       "distractors": [
-        "벌초",
         "빈손",
-        "사진 전송"
+        "사진 전송",
+        "작년"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8942,8 +8942,8 @@
       "en": "For New Year clothes I chose a neat sweater instead of hanbok.",
       "distractors": [
         "포장",
-        "한가위",
-        "연습"
+        "연습",
+        "형"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -8986,9 +8986,9 @@
       "de": "Beim Formen wurden meine Songpyeon so groß wie Teigtaschen.",
       "en": "As I shaped the songpyeon, mine got as big as dumplings.",
       "distractors": [
-        "작은 정성",
         "잘 다녀오겠습니다",
-        "잘 먹었습니다"
+        "잘 먹었습니다",
+        "쌀쌀하다"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9046,9 +9046,9 @@
       "de": "Der Dampf der Songpyeon machte die Küche ganz neblig.",
       "en": "Steam from the songpyeon left the kitchen hazy.",
       "distractors": [
-        "수저 놓",
         "인사드렸어요",
-        "절하"
+        "절하",
+        "시간표"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9287,8 +9287,8 @@
       "en": "They teased my pronunciation, and we laughed together.",
       "distractors": [
         "설빔",
-        "성묘",
-        "세배"
+        "달력",
+        "노인"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9301,9 +9301,9 @@
       "de": "Auf dem Gruppenfoto stehe ich ganz hinten.",
       "en": "In the group photo I am standing at the very back.",
       "distractors": [
-        "과일 바구니",
-        "국물",
-        "귀성"
+        "한계",
+        "기술",
+        "사회"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9422,8 +9422,8 @@
       "en": "In the car I sent a thank-you message on KakaoTalk.",
       "distractors": [
         "한복",
-        "햇과일",
-        "현관"
+        "현관",
+        "물건"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9481,9 +9481,9 @@
       "de": "Als Eindruck schrieb ich nur, es sei warm gewesen.",
       "en": "For my impression of the visit I only wrote that it felt warm.",
       "distractors": [
-        "촬영 금지",
         "과한 선물",
-        "다음에 또 오세요"
+        "검은색",
+        "은행"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9661,9 +9661,9 @@
       "de": "Wenn ich die Lage nicht lese, schaue ich Hyunwoo an.",
       "en": "If I cannot read the room, I look at Hyunwoo's face.",
       "distractors": [
-        "국물 새다",
         "동생 편",
-        "떡국 먹다"
+        "집주인",
+        "마감"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9706,9 +9706,9 @@
       "de": "Als Erwachsene lehnte ich das Geld zweimal ab und nahm es dann.",
       "en": "As an adult I declined the New Year money twice, then accepted.",
       "distractors": [
-        "편하게 말해요",
-        "한국어 잘하시네요",
-        "가방이 무겁다"
+        "알림장",
+        "할인",
+        "위약금"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10051,9 +10051,9 @@
       "de": "Hyunwoo hat zu mir gehalten, und das hat mir Sicherheit gegeben.",
       "en": "Hyunwoo took my side, and that made me feel supported.",
       "distractors": [
-        "놀려도",
-        "세배하러 가",
-        "싸 주"
+        "높임말",
+        "회의실",
+        "냉동실"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10126,9 +10126,9 @@
       "de": "Versteht Hyunwoo meinen Blick nicht, lache ich einfach.",
       "en": "If Hyunwoo doesn't get the look, I just laugh.",
       "distractors": [
-        "국물 새다",
         "동생 편",
-        "떡국 먹다"
+        "숲",
+        "칠십"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10156,9 +10156,9 @@
       "de": "Halte ich zum jüngeren Geschwister, schielt Hyunwoo.",
       "en": "If I take the younger sibling side, Hyunwoo side-eyes me.",
       "distractors": [
-        "반말 실수",
         "분위기 파악",
-        "비밀 보장"
+        "비밀 보장",
+        "색연필"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10456,9 +10456,9 @@
       "de": "Die in ein Tuch gewickelte Schüssel rutschte, also nahm ich sie in beide Hände.",
       "en": "The bowl wrapped in cloth kept slipping, so I held it with both hands.",
       "distractors": [
-        "벌초 장갑",
-        "별명",
-        "보름달"
+        "소나기",
+        "문제",
+        "위"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10712,8 +10712,8 @@
       "en": "I asked for only fruit as a late snack, but ramyeon came out.",
       "distractors": [
         "호칭 연습",
-        "화장실 줄",
-        "휴게소"
+        "옆",
+        "늦잠"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10773,7 +10773,7 @@
       "distractors": [
         "고향 이야기",
         "국물 새다",
-        "동생 편"
+        "모국어"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10786,9 +10786,9 @@
       "de": "Aus Versehen sagte ich hyeong, und Hyunwoo riss die Augen auf.",
       "en": "I slipped and called him hyeong, and Hyunwoo's eyes went wide.",
       "distractors": [
-        "송편 점",
         "아침 인사",
-        "아침밥"
+        "오빠",
+        "협조"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10876,9 +10876,9 @@
       "de": "Am Anfang half gegenseitige Höflichkeit, ich war erleichtert.",
       "en": "Starting with mutual honorifics made me feel safer.",
       "distractors": [
-        "성묘 옷",
-        "세면 도구",
-        "세배 순서"
+        "납부일",
+        "월요일",
+        "교실"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10891,9 +10891,9 @@
       "de": "Hyunwoo half mit einem Blick, den Ton anzupassen.",
       "en": "Hyunwoo helped me match the speech style with a look.",
       "distractors": [
-        "비밀 보장",
         "세배하러 가다",
-        "세뱃돈 사양"
+        "경찰서",
+        "반지"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11281,9 +11281,9 @@
       "de": "Als ich sagte, dass ich geregelt lebe, nickte der Vater.",
       "en": "When I said my life is steady, father nodded.",
       "distractors": [
-        "먼저 따르다",
-        "명절 당번",
-        "명절 예산"
+        "정말",
+        "모레",
+        "곧장"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11477,8 +11477,8 @@
       "en": "I took the glass with both hands, and uncle nodded.",
       "distractors": [
         "다시 확인",
-        "대충 하",
-        "먼저 따르"
+        "장모님",
+        "유학생"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11491,9 +11491,9 @@
       "de": "Hyunwoo lobte mich, weil ich beim Einschenken den Flaschenhals verdeckte.",
       "en": "Hyunwoo said I did well to cover the bottle neck while pouring.",
       "distractors": [
-        "다시 확인",
         "대충 하",
-        "먼저 따르"
+        "먼저 따르",
+        "횡단보도"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11941,9 +11941,9 @@
       "de": "Hyunwoo ordnete die Nörgelei für mich ein, das tat weniger weh.",
       "en": "Hyunwoo put the nagging in context, and it stung less.",
       "distractors": [
-        "올해는 못 가요",
-        "요약해서 전하다",
-        "웃고 넘기다"
+        "우체국",
+        "어른",
+        "독일"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12286,9 +12286,9 @@
       "de": "Beim Haus, das wir nicht schafften, ersetzte ein Videogruß die Verbeugung.",
       "en": "For the house we could not reach, a video greeting stood in for the bow.",
       "distractors": [
-        "실수 목록",
         "아침 이부자리",
-        "야근"
+        "이유",
+        "주부"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12436,9 +12436,9 @@
       "de": "Um beide Familien zu lesen, kaufte ich Geschenke in zwei Sätzen.",
       "en": "Reading both families, I bought gifts in two sets.",
       "distractors": [
-        "각자 계산",
         "관계를 지키다",
-        "관계부터 말하다"
+        "관계부터 말하다",
+        "결과"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12766,9 +12766,9 @@
       "de": "Als ich das jüngere Geschwister zu vertraulich anredete, hustete Hyunwoo.",
       "en": "When I addressed the younger sibling too casually, Hyunwoo coughed to stop me.",
       "distractors": [
-        "한쪽에만",
         "호칭을 미루다",
-        "각자 계산"
+        "감사합니다",
+        "접수했습니다"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12886,9 +12886,9 @@
       "de": "Bei Zweifel noch einmal höflich zu fragen war besser als Schweigen.",
       "en": "When unsure, asking again politely was better than silence.",
       "distractors": [
-        "선을 긋",
         "소개를 미루",
-        "예를 갖추"
+        "예를 갖추",
+        "밀가루"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13231,9 +13231,9 @@
       "de": "Getrennt zahlen kann bei einem Familienessen gekränkt wirken.",
       "en": "Each paying their share can look cold at a family meal.",
       "distractors": [
-        "예를 갖추다",
-        "오늘은 여기까지",
-        "용돈 드리다"
+        "안내문",
+        "로밍",
+        "공동현관"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13261,9 +13261,9 @@
       "de": "Die Summe bleibt privat stoppte weitere Fragen.",
       "en": "Saying the amount stays private stopped further questions.",
       "distractors": [
-        "어른 앞에서",
-        "예를 갖추다",
-        "오늘은 여기까지"
+        "창문",
+        "알바생",
+        "자기부담금"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13308,7 +13308,7 @@
       "distractors": [
         "소개를 미루다",
         "아직 아니에요",
-        "액수는 비밀"
+        "잘 다녀오겠습니다"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13411,9 +13411,9 @@
       "de": "Ich werde helfen laut zu sagen öffnete einen Platz.",
       "en": "Saying I will help out loud opened a place.",
       "distractors": [
-        "밖에서 예의를",
         "선을 긋다",
-        "소개를 미루다"
+        "소개를 미루다",
+        "접수했습니다"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -14761,9 +14761,9 @@
       "de": "Bitte schreiben Sie die Einnahmezeiten auf Papier.",
       "en": "Please write the dose times on paper.",
       "distractors": [
-        "연고",
-        "마스크",
-        "계산대"
+        "외국인",
+        "아침",
+        "공항"
       ],
       "topic": "Apotheke"
     },
@@ -14791,9 +14791,9 @@
       "de": "Wo ist das Fieberthermometer?",
       "en": "Where is the thermometer?",
       "distractors": [
-        "연고",
-        "마스크",
-        "계산대"
+        "경제",
+        "정도",
+        "경우"
       ],
       "topic": "Apotheke"
     },
@@ -14851,9 +14851,9 @@
       "de": "Dieses Mittel gibt es rezeptfrei.",
       "en": "You can buy this medicine over the counter.",
       "distractors": [
-        "연고",
-        "마스크",
-        "계산대"
+        "밑반찬",
+        "방",
+        "소개팅"
       ],
       "topic": "Apotheke"
     },
@@ -14912,8 +14912,8 @@
       "en": "Shall we change the meeting time to three?",
       "distractors": [
         "늦잠",
-        "약속 장소",
-        "취소하다"
+        "오십",
+        "값"
       ],
       "topic": "Wochenendzusage"
     },
@@ -14926,9 +14926,9 @@
       "de": "Der Treffpunkt ist vor dem Bahnhof.",
       "en": "The meeting place is in front of the station.",
       "distractors": [
-        "늦잠",
-        "약속 시간",
-        "취소하다"
+        "취소하다",
+        "인사드리겠습니다",
+        "누나"
       ],
       "topic": "Wochenendzusage"
     },
@@ -14971,9 +14971,9 @@
       "de": "Morgen stimme ich die Zeit mit einem Freund ab.",
       "en": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
-        "늦잠",
-        "약속 시간",
-        "약속 장소"
+        "좀 주세요",
+        "끝나요",
+        "기다려요"
       ],
       "topic": "Wochenendzusage"
     },
@@ -15018,7 +15018,7 @@
       "distractors": [
         "늦잠",
         "약속 시간",
-        "약속 장소"
+        "젓가락질"
       ],
       "topic": "Wochenendzusage"
     },
@@ -15046,9 +15046,9 @@
       "de": "Abends gehen wir zusammen am Hangang spazieren.",
       "en": "In the evening we walk together along the Hangang.",
       "distractors": [
-        "늦잠",
-        "약속 시간",
-        "약속 장소"
+        "다 먹었어요",
+        "들어요",
+        "문제없어요"
       ],
       "topic": "Wochenendzusage"
     },
@@ -15211,9 +15211,9 @@
       "de": "Am Aufzug hängt ein Aushang.",
       "en": "There is a notice on the elevator.",
       "distractors": [
-        "초인종",
-        "이웃집",
-        "명찰"
+        "가능성",
+        "내용",
+        "영향"
       ],
       "topic": "Nachbarschaft"
     },
@@ -15241,9 +15241,9 @@
       "de": "Heute Morgen habe ich die Nachbarn gegrüßt.",
       "en": "This morning I said hi to the neighbors.",
       "distractors": [
-        "초인종",
         "복도",
-        "이웃집"
+        "아저씨",
+        "시누이"
       ],
       "topic": "Nachbarschaft"
     },
@@ -15256,9 +15256,9 @@
       "de": "Im Federmäppchen sind drei Stifte.",
       "en": "There are three pens in the pencil case.",
       "distractors": [
-        "지우개",
-        "가위",
-        "세탁기"
+        "세탁기",
+        "검은색",
+        "밖"
       ],
       "topic": "Schultasche"
     },
@@ -15271,9 +15271,9 @@
       "de": "Ich radiere den Bleistiftfehler mit dem Radiergummi weg.",
       "en": "I erase the pencil mistake with an eraser.",
       "distractors": [
-        "필통",
         "가위",
-        "자"
+        "자",
+        "문제없어요"
       ],
       "topic": "Schultasche"
     },
@@ -15286,9 +15286,9 @@
       "de": "Bitte schneiden Sie dieses Papier mit der Schere.",
       "en": "Please cut this paper with scissors.",
       "distractors": [
-        "필통",
         "지우개",
-        "자"
+        "자",
+        "복주머니"
       ],
       "topic": "Schultasche"
     },
@@ -15316,9 +15316,9 @@
       "de": "Ich habe die Karte mit Buntstiften ausgemalt.",
       "en": "I colored the map with colored pencils.",
       "distractors": [
-        "필통",
-        "지우개",
-        "가위"
+        "둘",
+        "일",
+        "교실"
       ],
       "topic": "Schultasche"
     },
@@ -15361,9 +15361,9 @@
       "de": "Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.",
       "en": "Before I submit the homework, I write my name.",
       "distractors": [
-        "필통",
-        "지우개",
-        "가위"
+        "쌀쌀하다",
+        "처음 뵙겠습니다",
+        "잘 먹었습니다"
       ],
       "topic": "Schultasche"
     },
@@ -15421,9 +15421,9 @@
       "de": "Bist du vor der Stunde soweit?",
       "en": "Are you ready before class starts?",
       "distractors": [
-        "필통",
-        "지우개",
-        "가위"
+        "문제없어요",
+        "예뻐요",
+        "다시 말하세요"
       ],
       "topic": "Schultasche"
     },
@@ -15451,9 +15451,9 @@
       "de": "Wenn Sie Ausgang vier nehmen, ist dort eine Bank.",
       "en": "If you take exit four, there is a bank.",
       "distractors": [
-        "환승",
-        "승강장",
-        "막차"
+        "무게",
+        "한국어",
+        "오"
       ],
       "topic": "U-Bahnkarte"
     },
@@ -15571,9 +15571,9 @@
       "de": "Wenn die Ansage kommt, stehe ich auf.",
       "en": "When the arrival announcement comes, I stand up.",
       "distractors": [
-        "환승",
         "출구",
-        "승강장"
+        "이거",
+        "소포"
       ],
       "topic": "U-Bahnkarte"
     },
@@ -15587,8 +15587,8 @@
       "en": "The card balance is low, so I need to top up.",
       "distractors": [
         "환승",
-        "출구",
-        "승강장"
+        "승강장",
+        "가글액"
       ],
       "topic": "U-Bahnkarte"
     },
@@ -15602,8 +15602,8 @@
       "en": "The exit door is on the right.",
       "distractors": [
         "환승",
-        "출구",
-        "승강장"
+        "승강장",
+        "현금"
       ],
       "topic": "U-Bahnkarte"
     },
@@ -15677,8 +15677,8 @@
       "en": "Light clothes are comfortable during the day.",
       "distractors": [
         "겉옷",
-        "미세먼지",
-        "일기예보"
+        "백",
+        "거울"
       ],
       "topic": "Wetterschicht"
     },
@@ -15692,8 +15692,8 @@
       "en": "At night I need thick clothes.",
       "distractors": [
         "겉옷",
-        "미세먼지",
-        "일기예보"
+        "밥",
+        "일곱"
       ],
       "topic": "Wetterschicht"
     },
@@ -15721,9 +15721,9 @@
       "de": "Die Luft fühlt sich heute schwül an, deshalb öffne ich das Fenster.",
       "en": "The air feels humid today, so I open the window.",
       "distractors": [
-        "겉옷",
-        "미세먼지",
-        "일기예보"
+        "송편 빚다",
+        "죄송합니다",
+        "제출하다"
       ],
       "topic": "Wetterschicht"
     },
@@ -15736,9 +15736,9 @@
       "de": "Weil der Morgen kühl ist, habe ich den Hals bedeckt.",
       "en": "Because the morning is chilly, I covered my neck.",
       "distractors": [
-        "겉옷",
-        "미세먼지",
-        "일기예보"
+        "송편 빚다",
+        "제출하다",
+        "알겠습니다"
       ],
       "topic": "Wetterschicht"
     },
@@ -15781,9 +15781,9 @@
       "de": "Bei großem Temperaturunterschied trage ich Kleidung in Lagen.",
       "en": "When the temperature gap is large, I layer clothes.",
       "distractors": [
-        "겉옷",
-        "미세먼지",
-        "일기예보"
+        "인사드렸어요",
+        "비어요",
+        "문제없어요"
       ],
       "topic": "Wetterschicht"
     },
@@ -15796,9 +15796,9 @@
       "de": "Es tut mir wirklich leid, dass ich zu spät gekommen bin.",
       "en": "I'm really sorry that I came late.",
       "distractors": [
-        "우산",
-        "가방",
-        "단어"
+        "일해요",
+        "감사해요",
+        "피곤해요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15811,9 +15811,9 @@
       "de": "Andrea, vielen Dank!",
       "en": "Andrea, thank you so much!",
       "distractors": [
-        "신발",
-        "안경",
-        "모자"
+        "시작해요",
+        "죄송해요",
+        "좋아해요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15826,9 +15826,9 @@
       "de": "Entschuldigung, wo ist die Toilette?",
       "en": "Excuse me, where's the bathroom?",
       "distractors": [
-        "편지",
-        "단어",
-        "가게"
+        "좋아해요",
+        "정말 죄송해요",
+        "정말 감사해요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15871,9 +15871,9 @@
       "de": "Wenn du einen Fehler machst, ist das kein Problem.",
       "en": "If you make a mistake, no problem.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "와",
+        "자다",
+        "모르다"
       ],
       "topic": "Entschuldigung"
     },
@@ -15886,9 +15886,9 @@
       "de": "Danke schön! Ich habe zu danken.",
       "en": "Thank you! I should thank you.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "사세요",
+        "기다려요",
+        "빌려요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15901,9 +15901,9 @@
       "de": "Vor dem Bezahlen, einen Moment bitte.",
       "en": "Just a moment before paying.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "여보세요",
+        "예뻐요",
+        "없어요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15916,9 +15916,9 @@
       "de": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
       "en": "I didn't catch that. Please say it again.",
       "distractors": [
-        "실수",
-        "잘못",
-        "단어"
+        "새해 복 많이 받으세요",
+        "여보세요",
+        "적어 주세요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15946,9 +15946,9 @@
       "de": "Vielen Dank, dass Sie den Platz überlassen haben.",
       "en": "Thank you so much for giving up the seat.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "좋아해요",
+        "죄송해요",
+        "피곤해요"
       ],
       "topic": "Entschuldigung"
     },
@@ -15961,9 +15961,9 @@
       "de": "Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.",
       "en": "I am very sorry I stepped on your foot.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "일해요",
+        "정말 감사해요",
+        "실례해요"
       ],
       "topic": "Entschuldigung"
     },
@@ -16006,9 +16006,9 @@
       "de": "Am Wochenende ist das Datenvolumen unbegrenzt.",
       "en": "On weekends the data is unlimited.",
       "distractors": [
-        "요금제",
         "데이터량",
-        "약정"
+        "약정",
+        "젓가락질"
       ],
       "topic": "Handytarif"
     },
@@ -16097,8 +16097,8 @@
       "en": "The fee is taken by auto debit.",
       "distractors": [
         "요금제",
-        "데이터량",
-        "무제한"
+        "야채",
+        "창구"
       ],
       "topic": "Handytarif"
     },
@@ -16126,9 +16126,9 @@
       "de": "Bevor ich eine neue Nummer freischalte, brauche ich den Ausweis.",
       "en": "Before I activate a new number, I need ID.",
       "distractors": [
-        "요금제",
-        "데이터량",
-        "무제한"
+        "죄송합니다",
+        "처음 뵙겠습니다",
+        "습하다"
       ],
       "topic": "Handytarif"
     },
@@ -16141,9 +16141,9 @@
       "de": "Wenn es nicht reicht, kaufe ich eine Datenaufladung dazu.",
       "en": "If it is not enough, I buy a data top-up.",
       "distractors": [
-        "요금제",
         "데이터량",
-        "무제한"
+        "무제한",
+        "아침밥"
       ],
       "topic": "Handytarif"
     },
@@ -16156,9 +16156,9 @@
       "de": "Bevor ich die Miete überweise, schaue ich auf den Kontostand.",
       "en": "Before I transfer the rent, I check the balance.",
       "distractors": [
-        "인증서",
-        "보안카드",
-        "대기번호"
+        "죄송합니다",
+        "전달하다",
+        "인사드리겠습니다"
       ],
       "topic": "Bankschalter"
     },
@@ -16276,9 +16276,9 @@
       "de": "Zum Passwort zurücksetzen habe ich den Ausweis gezeigt.",
       "en": "I showed my ID for a password reset.",
       "distractors": [
-        "이체하다",
-        "인증서",
-        "보안카드"
+        "칠판",
+        "열",
+        "기념품"
       ],
       "topic": "Bankschalter"
     },
@@ -16291,9 +16291,9 @@
       "de": "Der Schalterschluss ist um vier, deshalb habe ich mich beeilt.",
       "en": "Counter closing is at four, so I hurried.",
       "distractors": [
-        "이체하다",
-        "인증서",
-        "보안카드"
+        "명찰",
+        "이름",
+        "예문"
       ],
       "topic": "Bankschalter"
     },
@@ -16621,9 +16621,9 @@
       "de": "Für eine Wochenendreservierung gibt es eine Anzahlung.",
       "en": "Weekend bookings have a deposit.",
       "distractors": [
-        "미용실",
-        "염색",
-        "방석"
+        "방석",
+        "칠",
+        "일"
       ],
       "topic": "Friseursalon"
     },
@@ -16636,9 +16636,9 @@
       "de": "Bitte waschen Sie mit einem schwachen Shampoo.",
       "en": "Please wash with a mild-scent shampoo.",
       "distractors": [
-        "미용실",
         "커트",
-        "염색"
+        "휴가",
+        "세배"
       ],
       "topic": "Friseursalon"
     },
@@ -16711,9 +16711,9 @@
       "de": "Nur Bewohner dürfen die Tiefgarage nutzen.",
       "en": "Only residents can use the underground parking.",
       "distractors": [
-        "관리사무소",
-        "주차스티커",
-        "음식물 봉투"
+        "한계",
+        "가능성",
+        "기술"
       ],
       "topic": "Hausordnung"
     },
@@ -16742,8 +16742,8 @@
       "en": "Food-waste bags go only in the designated bin.",
       "distractors": [
         "관리사무소",
-        "입주민",
-        "주차스티커"
+        "주차스티커",
+        "교수"
       ],
       "topic": "Hausordnung"
     },
@@ -16817,8 +16817,8 @@
       "en": "The sofa must be booked as bulk waste.",
       "distractors": [
         "관리사무소",
-        "입주민",
-        "주차스티커"
+        "주차스티커",
+        "말실수"
       ],
       "topic": "Hausordnung"
     },
@@ -17026,9 +17026,9 @@
       "de": "Bevor ich den Laden abschließe, wische ich den Boden.",
       "en": "Before I close up the shop, I mop the floor.",
       "distractors": [
-        "시급",
-        "근무표",
-        "야간수당"
+        "알겠습니다",
+        "송편 빚다",
+        "사양하다"
       ],
       "topic": "Nebenjob"
     },
@@ -17041,9 +17041,9 @@
       "de": "Ich habe den Lohnzettel per Nachricht bekommen.",
       "en": "I received the wage slip by text.",
       "distractors": [
-        "시급",
         "근무표",
-        "야간수당"
+        "파스",
+        "사이"
       ],
       "topic": "Nebenjob"
     },
@@ -17071,9 +17071,9 @@
       "de": "Als ich den Schirm gefunden habe, habe ich ihn sofort an den Infoschalter gegeben.",
       "en": "When I found the umbrella, I took it straight to the information desk.",
       "distractors": [
-        "분실물",
-        "보관함",
-        "신분증"
+        "개통하다",
+        "줄서다",
+        "쌀쌀하다"
       ],
       "topic": "Fundsachen"
     },
@@ -17086,9 +17086,9 @@
       "de": "Die Geldbörse bleibt drei Tage in der Aufbewahrung.",
       "en": "The wallet stays at the holding desk for three days.",
       "distractors": [
-        "분실물",
-        "습득하다",
-        "신분증"
+        "정도",
+        "균형",
+        "경제"
       ],
       "topic": "Fundsachen"
     },
@@ -17116,9 +17116,9 @@
       "de": "Bevor ich den Schirm abhole, rufe ich zur Bestätigung an.",
       "en": "Before I pick up the umbrella, I confirm by phone.",
       "distractors": [
-        "분실물",
         "습득하다",
-        "보관함"
+        "죄송합니다",
+        "감사합니다"
       ],
       "topic": "Fundsachen"
     },
@@ -17131,9 +17131,9 @@
       "de": "Ich habe die Tasche verloren und sie sofort gemeldet.",
       "en": "I lost the bag and reported it right away.",
       "distractors": [
-        "분실물",
         "습득하다",
-        "보관함"
+        "사양하다",
+        "송편 빚다"
       ],
       "topic": "Fundsachen"
     },
@@ -17237,8 +17237,8 @@
       "en": "The neighborhood festival is this weekend.",
       "distractors": [
         "부스",
-        "체험하다",
-        "줄서다"
+        "형부",
+        "죄송합니다"
       ],
       "topic": "Feststand"
     },
@@ -17251,9 +17251,9 @@
       "de": "Der Stand mit traditionellem Tee steht neben dem Eingang.",
       "en": "The traditional-tea booth is next to the entrance.",
       "distractors": [
-        "축제",
-        "체험하다",
-        "줄서다"
+        "바나나",
+        "안내데스크",
+        "정도"
       ],
       "topic": "Feststand"
     },
@@ -17266,9 +17266,9 @@
       "de": "Bevor ich Hanji ausprobiere, stelle ich mich an.",
       "en": "Before I try Hanji, I stand in line.",
       "distractors": [
-        "축제",
-        "부스",
-        "줄서다"
+        "줄서다",
+        "송편 빚다",
+        "전달하다"
       ],
       "topic": "Feststand"
     },
@@ -17281,9 +17281,9 @@
       "de": "Am beliebten Stand beginnt man schon am Vormittag anstehen.",
       "en": "At the popular booth people start to queue in the morning.",
       "distractors": [
-        "축제",
-        "무료시식",
-        "체험하다"
+        "체험하다",
+        "송편 빚다",
+        "신고하다"
       ],
       "topic": "Feststand"
     },
@@ -17432,8 +17432,8 @@
       "en": "I put external addresses in bcc.",
       "distractors": [
         "참조",
-        "회신 기한",
-        "첨부 누락"
+        "고기",
+        "계약서"
       ],
       "topic": "Dienstmail"
     },
@@ -17446,9 +17446,9 @@
       "de": "Ich habe die Antwortfrist auf Freitagmittag gesetzt.",
       "en": "I wrote the reply deadline as Friday noon.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "첨부 누락"
+        "첨부 누락",
+        "분리배출",
+        "카톡"
       ],
       "topic": "Dienstmail"
     },
@@ -17461,9 +17461,9 @@
       "de": "Wegen eines fehlenden Anhangs habe ich die Mail sofort noch einmal geschickt.",
       "en": "There was a missing attachment, so I sent it again right away.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "창구직원",
+        "연필"
       ],
       "topic": "Dienstmail"
     },
@@ -17476,9 +17476,9 @@
       "de": "Bevor ich die Mail weiterleite, lösche ich persönliche Daten.",
       "en": "Before I forward this mail, I remove personal data.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "사양하다",
+        "실례합니다",
+        "잘 다녀오겠습니다"
       ],
       "topic": "Dienstmail"
     },
@@ -17491,9 +17491,9 @@
       "de": "Den Zahlenfehler habe ich per Korrekturmail mitgeteilt.",
       "en": "I reported the number error in a correction email.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "옛날",
+        "칫솔",
+        "귤"
       ],
       "topic": "Dienstmail"
     },
@@ -17506,9 +17506,9 @@
       "de": "Lesebestätigung schalte ich nur bei dringenden Bitten ein.",
       "en": "I turn on read receipt only for urgent requests.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "영수증",
+        "창구직원"
       ],
       "topic": "Dienstmail"
     },
@@ -17521,9 +17521,9 @@
       "de": "Als ich beim Weiterleiten den Betreff geändert habe, wurde der Inhalt klarer.",
       "en": "When I fixed the subject while forwarding, the content became clearer.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "쌀쌀하다",
+        "같이 웃다"
       ],
       "topic": "Dienstmail"
     },
@@ -17536,9 +17536,9 @@
       "de": "Weil keine Antwort kam, habe ich eine kurze Folgmail geschickt.",
       "en": "No reply came, so I sent a short follow-up mail.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "겨울",
+        "기념품"
       ],
       "topic": "Dienstmail"
     },
@@ -17566,9 +17566,9 @@
       "de": "Im höflichen Schluss habe ich geschrieben, dass ich die Zeit respektiere.",
       "en": "In the polite closing I wrote that I respect their time.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "입장권",
+        "삼십"
       ],
       "topic": "Dienstmail"
     },
@@ -17581,9 +17581,9 @@
       "de": "Die Empfangsbestätigung erschien, deshalb habe ich nicht noch einmal gesendet.",
       "en": "The delivery receipt appeared, so I did not send it again.",
       "distractors": [
-        "참조",
-        "숨은참조",
-        "회신 기한"
+        "회신 기한",
+        "회원권",
+        "일정"
       ],
       "topic": "Dienstmail"
     },
@@ -17686,9 +17686,9 @@
       "de": "Die Waschreihenfolge habe ich als Tabelle aufgehängt.",
       "en": "I posted the laundry turn as a chart.",
       "distractors": [
-        "공용 선반",
-        "청소 당번",
-        "공과금 정산"
+        "귀걸이",
+        "회의",
+        "주사"
       ],
       "topic": "WG-Gespräch"
     },
@@ -17701,9 +17701,9 @@
       "de": "Wenn der Gemeinschaftsreiniger leer ist, kaufen wir ihn zusammen.",
       "en": "When the shared detergent runs out, we buy it together.",
       "distractors": [
-        "공용 선반",
-        "청소 당번",
-        "공과금 정산"
+        "차이",
+        "자동이체",
+        "관계"
       ],
       "topic": "WG-Gespräch"
     },
@@ -17746,9 +17746,9 @@
       "de": "Toilettenpapier haben wir im Sammelkauf günstiger gekauft.",
       "en": "We bought toilet paper cheaper as a group purchase.",
       "distractors": [
-        "공용 선반",
-        "청소 당번",
-        "공과금 정산"
+        "마스크",
+        "사회",
+        "주사"
       ],
       "topic": "WG-Gespräch"
     },
@@ -17777,8 +17777,8 @@
       "en": "I filed the claim the same afternoon.",
       "distractors": [
         "보장 범위",
-        "자기부담금",
-        "진단서"
+        "진단서",
+        "소나기"
       ],
       "topic": "Versicherungsfall"
     },
@@ -17792,8 +17792,8 @@
       "en": "I check the coverage scope on page three of the terms.",
       "distractors": [
         "사고 접수",
-        "자기부담금",
-        "진단서"
+        "진단서",
+        "소포"
       ],
       "topic": "Versicherungsfall"
     },
@@ -17868,7 +17868,7 @@
       "distractors": [
         "사고 접수",
         "보장 범위",
-        "자기부담금"
+        "잠깐만요"
       ],
       "topic": "Versicherungsfall"
     },
@@ -17898,7 +17898,7 @@
       "distractors": [
         "사고 접수",
         "보장 범위",
-        "자기부담금"
+        "휴게소"
       ],
       "topic": "Versicherungsfall"
     },
@@ -17913,7 +17913,7 @@
       "distractors": [
         "사고 접수",
         "보장 범위",
-        "자기부담금"
+        "한가위"
       ],
       "topic": "Versicherungsfall"
     },
@@ -17943,7 +17943,7 @@
       "distractors": [
         "사고 접수",
         "보장 범위",
-        "자기부담금"
+        "너"
       ],
       "topic": "Versicherungsfall"
     },
@@ -18002,8 +18002,8 @@
       "en": "I was told the processing time is two weeks.",
       "distractors": [
         "민원실",
-        "구비 서류",
-        "접수증"
+        "접수증",
+        "연필"
       ],
       "topic": "Amtgang"
     },
@@ -18016,9 +18016,9 @@
       "de": "Für die Ummeldung gibt es einen zuständigen Schalter.",
       "en": "Change-of-address has its own responsible counter.",
       "distractors": [
-        "민원실",
-        "구비 서류",
-        "접수증"
+        "주사",
+        "날짜",
+        "전제"
       ],
       "topic": "Amtgang"
     },
@@ -18076,9 +18076,9 @@
       "de": "Die Gebührenzahlung sei nur mit Karte möglich.",
       "en": "They said fee payment is card only.",
       "distractors": [
-        "민원실",
         "구비 서류",
-        "접수증"
+        "날씨",
+        "배달비"
       ],
       "topic": "Amtgang"
     },
@@ -18091,9 +18091,9 @@
       "de": "Mit der Vorgangsnummer prüfe ich den Stand.",
       "en": "I check the status with the case number.",
       "distractors": [
-        "민원실",
         "구비 서류",
-        "접수증"
+        "채소",
+        "오빠"
       ],
       "topic": "Amtgang"
     },
@@ -18107,8 +18107,8 @@
       "en": "I asked twice on the phone for a transfer to an officer.",
       "distractors": [
         "민원실",
-        "구비 서류",
-        "접수증"
+        "접수증",
+        "일"
       ],
       "topic": "Amtgang"
     },
@@ -18136,9 +18136,9 @@
       "de": "Die Ehrenamtsstunden diesen Monat trage ich in die Tabelle ein.",
       "en": "I write this month's volunteer hours in the chart.",
       "distractors": [
-        "배정표",
         "사전 교육",
-        "안전 조끼"
+        "왼쪽",
+        "휴게시간"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18166,9 +18166,9 @@
       "de": "Ohne Vorschulung darf ich den Stand nicht übernehmen.",
       "en": "I need pre-shift training before I can run the booth.",
       "distractors": [
-        "봉사 시간",
-        "배정표",
-        "안전 조끼"
+        "지갑",
+        "처방전",
+        "균형"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18181,9 +18181,9 @@
       "de": "Die Wegweisung mache ich mit Warnweste.",
       "en": "I do street guidance wearing a safety vest.",
       "distractors": [
-        "봉사 시간",
         "배정표",
-        "사전 교육"
+        "성묘",
+        "문제"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18196,9 +18196,9 @@
       "de": "Für die nächste Gruppe habe ich eine Übergabenotiz hinterlassen.",
       "en": "I left a handover note for the next team.",
       "distractors": [
-        "봉사 시간",
         "배정표",
-        "사전 교육"
+        "말실수",
+        "연락드릴게요"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18257,8 +18257,8 @@
       "en": "Before starting we do the supply check in pairs.",
       "distractors": [
         "봉사 시간",
-        "배정표",
-        "사전 교육"
+        "사전 교육",
+        "삼"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18301,9 +18301,9 @@
       "de": "Am Semesterende bekomme ich den Nachweis.",
       "en": "I receive the service certificate at the end of the term.",
       "distractors": [
-        "봉사 시간",
         "배정표",
-        "사전 교육"
+        "올케",
+        "팔로워"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18318,7 +18318,7 @@
       "distractors": [
         "알림장",
         "상담 시간",
-        "학습 태도"
+        "원인"
       ],
       "topic": "Elterngespräch"
     },
@@ -18348,7 +18348,7 @@
       "distractors": [
         "학부모 면담",
         "알림장",
-        "학습 태도"
+        "젓가락"
       ],
       "topic": "Elterngespräch"
     },
@@ -18361,9 +18361,9 @@
       "de": "Die Lernhaltung ist besser, aber die Hausaufgaben dauern länger.",
       "en": "The study attitude improved, but homework is slower.",
       "distractors": [
-        "학부모 면담",
-        "알림장",
-        "상담 시간"
+        "청소기",
+        "앞접시",
+        "유산소"
       ],
       "topic": "Elterngespräch"
     },
@@ -18391,9 +18391,9 @@
       "de": "Im Elternbrief steht das Datum des Ausflugs.",
       "en": "The school letter has the field-trip date.",
       "distractors": [
-        "학부모 면담",
-        "알림장",
-        "상담 시간"
+        "균형",
+        "느낌",
+        "부분"
       ],
       "topic": "Elterngespräch"
     },
@@ -18498,7 +18498,7 @@
       "distractors": [
         "부품 교체",
         "출장 수리",
-        "무상 기간"
+        "택시"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18528,7 +18528,7 @@
       "distractors": [
         "고장 부위",
         "부품 교체",
-        "무상 기간"
+        "커피"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18541,9 +18541,9 @@
       "de": "Die Garantiezeit beträgt noch eine Woche.",
       "en": "One week remains in the warranty period.",
       "distractors": [
-        "고장 부위",
-        "부품 교체",
-        "출장 수리"
+        "안내문",
+        "회의록",
+        "샌들"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18601,9 +18601,9 @@
       "de": "Bei einer Kostenvoranschlagsänderung sollen sie zuerst anrufen.",
       "en": "I asked them to call first if there is a quote change.",
       "distractors": [
-        "고장 부위",
-        "부품 교체",
-        "출장 수리"
+        "눈사람",
+        "장모님",
+        "밖"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18646,9 +18646,9 @@
       "de": "Ohne Fertigstellungsbeleg läuft die Garantie nicht weiter.",
       "en": "The warranty continues only with the repair receipt.",
       "distractors": [
-        "고장 부위",
-        "부품 교체",
-        "출장 수리"
+        "이모티콘",
+        "날",
+        "칠판"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18677,8 +18677,8 @@
       "en": "I requested a schedule change because of the typhoon.",
       "distractors": [
         "환불 규정",
-        "수수료 면제",
-        "대체 열차"
+        "야근",
+        "승강장"
       ],
       "topic": "Reiseänderung"
     },
@@ -18692,8 +18692,8 @@
       "en": "I reread the refund rule on the booking confirmation.",
       "distractors": [
         "일정 변경",
-        "수수료 면제",
-        "대체 열차"
+        "로밍",
+        "방송"
       ],
       "topic": "Reiseänderung"
     },
@@ -18706,9 +18706,9 @@
       "de": "Bei höherer Gewalt sei ein Gebührenerlass möglich.",
       "en": "They said a fee waiver is possible for a natural disaster.",
       "distractors": [
-        "일정 변경",
-        "환불 규정",
-        "대체 열차"
+        "대체 열차",
+        "다리",
+        "우유"
       ],
       "topic": "Reiseänderung"
     },
@@ -18738,7 +18738,7 @@
       "distractors": [
         "일정 변경",
         "환불 규정",
-        "수수료 면제"
+        "한국"
       ],
       "topic": "Reiseänderung"
     },
@@ -18813,7 +18813,7 @@
       "distractors": [
         "일정 변경",
         "환불 규정",
-        "수수료 면제"
+        "아랫목"
       ],
       "topic": "Reiseänderung"
     },
@@ -18826,9 +18826,9 @@
       "de": "Die Umbuchungsgebühr habe ich sofort mit Karte gezahlt.",
       "en": "I paid the change fee by card immediately.",
       "distractors": [
-        "일정 변경",
-        "환불 규정",
-        "수수료 면제"
+        "수수료 면제",
+        "열차",
+        "수수료"
       ],
       "topic": "Reiseänderung"
     },
@@ -18886,9 +18886,9 @@
       "de": "Die Entwicklungsaufgabe formuliere ich in einem Quartal messbar.",
       "en": "I set the growth task so it can be measured within a quarter.",
       "distractors": [
-        "성과 면담",
         "목표 대비",
-        "자기 평가"
+        "자기 평가",
+        "정치"
       ],
       "topic": "Beurteilung"
     },
@@ -18917,8 +18917,8 @@
       "en": "I write the skill description with cases, not adjectives.",
       "distractors": [
         "성과 면담",
-        "목표 대비",
-        "개선 과제"
+        "성",
+        "시장"
       ],
       "topic": "Beurteilung"
     },
@@ -18931,9 +18931,9 @@
       "de": "Die Rückmeldungsnotiz ordne ich am selben Tag.",
       "en": "I organize the feedback note the same day I receive it.",
       "distractors": [
-        "성과 면담",
         "목표 대비",
-        "개선 과제"
+        "개선 과제",
+        "취미"
       ],
       "topic": "Beurteilung"
     },
@@ -18947,8 +18947,8 @@
       "en": "The promotion criterion is not public, so I prepared questions.",
       "distractors": [
         "성과 면담",
-        "목표 대비",
-        "개선 과제"
+        "국적",
+        "택배함"
       ],
       "topic": "Beurteilung"
     },
@@ -18962,8 +18962,8 @@
       "en": "I asked them to share the review minutes within two days.",
       "distractors": [
         "성과 면담",
-        "목표 대비",
-        "개선 과제"
+        "승강장",
+        "결원"
       ],
       "topic": "Beurteilung"
     },
@@ -18977,8 +18977,8 @@
       "en": "I tie the strength statement to the team result.",
       "distractors": [
         "성과 면담",
-        "목표 대비",
-        "개선 과제"
+        "축의금",
+        "칫솔"
       ],
       "topic": "Beurteilung"
     },
@@ -19006,9 +19006,9 @@
       "de": "Der Beurteilungszyklus ist halbjährlich, deshalb habe ich eine Zwischenprüfung eingefügt.",
       "en": "The review cycle is half-yearly, so I added a midpoint check.",
       "distractors": [
-        "성과 면담",
         "목표 대비",
-        "개선 과제"
+        "개선 과제",
+        "숨은참조"
       ],
       "topic": "Beurteilung"
     },
@@ -19021,9 +19021,9 @@
       "de": "Den vereinbarten Folgeschritt trage ich sofort in den Kalender ein.",
       "en": "I put the agreed next step on the calendar immediately.",
       "distractors": [
-        "성과 면담",
         "목표 대비",
-        "개선 과제"
+        "개선 과제",
+        "여자친구"
       ],
       "topic": "Beurteilung"
     },
@@ -19036,9 +19036,9 @@
       "de": "Die Ablehnung der Reparatur habe ich per Einschreiben mit Inhalt festgehalten.",
       "en": "I recorded the repair refusal with content-certified mail.",
       "distractors": [
-        "원상복구",
-        "하자 보수",
-        "관리단"
+        "관리단",
+        "역",
+        "현관"
       ],
       "topic": "Wohnstreit"
     },
@@ -19097,8 +19097,8 @@
       "en": "Direct agreement failed, so I filed a mediation request.",
       "distractors": [
         "내용증명",
-        "원상복구",
-        "하자 보수"
+        "자음",
+        "독일"
       ],
       "topic": "Wohnstreit"
     },
@@ -19127,8 +19127,8 @@
       "en": "I asked them to announce the use restriction during construction in advance.",
       "distractors": [
         "내용증명",
-        "원상복구",
-        "하자 보수"
+        "법",
+        "계약직"
       ],
       "topic": "Wohnstreit"
     },
@@ -19171,9 +19171,9 @@
       "de": "Melddatum und Schlüsselübergabe schreibe ich getrennt auf.",
       "en": "I write the move-in date and key handover separately.",
       "distractors": [
-        "내용증명",
         "원상복구",
-        "하자 보수"
+        "하자 보수",
+        "계산대"
       ],
       "topic": "Wohnstreit"
     },
@@ -19186,9 +19186,9 @@
       "de": "In der Streitklausel steht die zuständige Stelle.",
       "en": "The dispute clause names the competent body.",
       "distractors": [
-        "내용증명",
-        "원상복구",
-        "하자 보수"
+        "정책",
+        "근거",
+        "부분"
       ],
       "topic": "Wohnstreit"
     },
@@ -19202,8 +19202,8 @@
       "en": "I do not agree to the work before receiving a settlement draft.",
       "distractors": [
         "내용증명",
-        "원상복구",
-        "하자 보수"
+        "주인",
+        "고향집"
       ],
       "topic": "Wohnstreit"
     },
@@ -19216,9 +19216,9 @@
       "de": "Schauen Sie nicht nur die Überschrift an, machen Sie zuerst einen Quellenabgleich.",
       "en": "Do not look only at the headline; do a source check first.",
       "distractors": [
-        "선택 편집",
         "후원 표시",
-        "통계 단위"
+        "통계 단위",
+        "자동이체"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19247,8 +19247,8 @@
       "en": "Without a sponsorship label I question whether it is an ad.",
       "distractors": [
         "원문 대조",
-        "선택 편집",
-        "통계 단위"
+        "통계 단위",
+        "무단주차"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19262,8 +19262,8 @@
       "en": "If different comparison criteria are used, the figures cannot be compared directly just by looking at the numbers.",
       "distractors": [
         "기사 제목",
-        "출처 표시",
-        "작성 시점"
+        "작성 시점",
+        "도착"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19276,9 +19276,9 @@
       "de": "Reißt man einen Satz heraus, fehlt der Zitatrahmen.",
       "en": "If you lift one sentence, the quote context disappears.",
       "distractors": [
-        "원문 대조",
         "선택 편집",
-        "후원 표시"
+        "옛날",
+        "알바생"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19292,8 +19292,8 @@
       "en": "Even after a correction notice, the first headline travels farther.",
       "distractors": [
         "원문 대조",
-        "선택 편집",
-        "후원 표시"
+        "후원 표시",
+        "냉장고"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19307,8 +19307,8 @@
       "en": "With an anonymous tip I check overlap with other sources.",
       "distractors": [
         "원문 대조",
-        "선택 편집",
-        "후원 표시"
+        "후원 표시",
+        "고기"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19351,9 +19351,9 @@
       "de": "Ich lasse übertriebene Formulierungen weg und gebe die Zahlen sachlich wieder.",
       "en": "I leave out exaggerated wording and present the figures as they are.",
       "distractors": [
-        "원문 대조",
         "선택 편집",
-        "후원 표시"
+        "격식",
+        "흰색"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19366,9 +19366,9 @@
       "de": "Ist die Quellenlage sekundär, suche ich das Original.",
       "en": "If the source layer is secondary, I look for the primary.",
       "distractors": [
-        "원문 대조",
         "선택 편집",
-        "후원 표시"
+        "여러분",
+        "잔액"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19382,8 +19382,8 @@
       "en": "The angrier I am, the more I use a ten-minute hold before sharing.",
       "distractors": [
         "원문 대조",
-        "선택 편집",
-        "후원 표시"
+        "후원 표시",
+        "나라"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19396,9 +19396,9 @@
       "de": "Die Einwohnerstimme fasse ich in drei Minuten auf einen Punkt.",
       "en": "I state resident input as one point in three minutes.",
       "distractors": [
-        "안건 순서",
         "발언권",
-        "회의 기록문"
+        "회의 기록문",
+        "팔"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19411,9 +19411,9 @@
       "de": "Ändert sich die Tagesordnung, bereite ich die Wortmeldung neu vor.",
       "en": "If the agenda order changes, I prepare the remark again.",
       "distractors": [
-        "주민 의견",
-        "발언권",
-        "회의 기록문"
+        "문제",
+        "무단주차",
+        "반지"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19471,9 +19471,9 @@
       "de": "Den Gegengrund nenne ich mit Kosten statt mit Gefühl.",
       "en": "I state the reason against with cost, not emotion.",
       "distractors": [
-        "주민 의견",
         "안건 순서",
-        "발언권"
+        "문자",
+        "이유"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19502,8 +19502,8 @@
       "en": "I check whether the voting method is a show of hands or secret.",
       "distractors": [
         "주민 의견",
-        "안건 순서",
-        "발언권"
+        "발언권",
+        "상황"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19532,8 +19532,8 @@
       "en": "There was no quorum, so we postponed the decision.",
       "distractors": [
         "주민 의견",
-        "안건 순서",
-        "발언권"
+        "발언권",
+        "유형"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19546,9 +19546,9 @@
       "de": "In der öffentlichen Nachfrage frage ich nur nach Fakten, ohne persönliche Kritik.",
       "en": "In a public question I ask only for facts, without personal blame.",
       "distractors": [
-        "주민 의견",
         "안건 순서",
-        "발언권"
+        "임산부",
+        "보자기"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -19576,9 +19576,9 @@
       "de": "Den Spielraum schreibe ich vor der Besprechung auf.",
       "en": "I write the concession range before I enter the meeting.",
       "distractors": [
-        "핵심 조건",
         "대안 제시",
-        "침묵 구간"
+        "구",
+        "불고기"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19591,9 +19591,9 @@
       "de": "Die Kernbedingung ist der Termin, der Rest ist verhandelbar.",
       "en": "The must-have is the schedule; the rest can move.",
       "distractors": [
-        "양보 범위",
-        "대안 제시",
-        "침묵 구간"
+        "침묵 구간",
+        "오염",
+        "검은색"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19607,8 +19607,8 @@
       "en": "Instead of only refusing, I add one line of counter-offer.",
       "distractors": [
         "양보 범위",
-        "핵심 조건",
-        "침묵 구간"
+        "치마",
+        "주거비"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19621,9 +19621,9 @@
       "de": "Nach der Zahl lasse ich zehn Sekunden Denkpause.",
       "en": "After a number I leave a ten-second silent pause.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "한복",
+        "국물"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19636,9 +19636,9 @@
       "de": "Den Gemeinentwurf zeigen wir und prüfen Satz für Satz.",
       "en": "We put the joint draft on screen and check sentence by sentence.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "소금",
+        "위험"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19651,9 +19651,9 @@
       "de": "Ohne Entscheidungskompetenz sage ich, dass der Punkt ruht.",
       "en": "If there is no decision right, I say the item is on hold.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "야경",
+        "휴게시간"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19681,9 +19681,9 @@
       "de": "Im Verständnischeck wiederhole ich die andere Seite in einem Satz.",
       "en": "In the check for understanding I restate the other side in one sentence.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "과정",
+        "편견"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19696,9 +19696,9 @@
       "de": "Ohne Protokollführung verwässert die Einigung.",
       "en": "Without a note owner the agreement blurs.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "감기약",
+        "사장"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19712,8 +19712,8 @@
       "en": "If the reason to pause is missing material, we set a date together.",
       "distractors": [
         "양보 범위",
-        "핵심 조건",
-        "대안 제시"
+        "대안 제시",
+        "가위"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19727,8 +19727,8 @@
       "en": "If the mutual concession is only on one side, I say so.",
       "distractors": [
         "양보 범위",
-        "핵심 조건",
-        "대안 제시"
+        "대안 제시",
+        "배불러요"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19741,9 +19741,9 @@
       "de": "Wir kleben den Einigungssatz in den Chat und schließen.",
       "en": "We paste the agreed sentence in chat, confirm, and end.",
       "distractors": [
-        "양보 범위",
         "핵심 조건",
-        "대안 제시"
+        "식단",
+        "메뉴판"
       ],
       "topic": "Teamverhandlung"
     },
@@ -19771,9 +19771,9 @@
       "de": "Im Optionsvergleich stehen Kosten, Zeit und Risiko in derselben Reihenfolge.",
       "en": "In the option compare I list cost, time, and risk in the same order.",
       "distractors": [
-        "한 장 요약",
         "가정 명시",
-        "영향 집단"
+        "관리사무소",
+        "형부"
       ],
       "topic": "Kurzlage"
     },
@@ -19786,9 +19786,9 @@
       "de": "Ohne Annahmenklarheit wirkt die Zahl wie eine Tatsache.",
       "en": "Without a stated assumption the number looks like a fact.",
       "distractors": [
-        "한 장 요약",
         "선택지 비교",
-        "영향 집단"
+        "미안해요",
+        "교과서"
       ],
       "topic": "Kurzlage"
     },
@@ -19802,8 +19802,8 @@
       "en": "I name the affected group first, then the benefit.",
       "distractors": [
         "한 장 요약",
-        "선택지 비교",
-        "가정 명시"
+        "아랫목",
+        "작년"
       ],
       "topic": "Kurzlage"
     },
@@ -19816,9 +19816,9 @@
       "de": "Die Umsetzungsschritte kürze ich auf drei Aufgaben in diesem Monat.",
       "en": "I cut implementation steps to three tasks this month.",
       "distractors": [
-        "한 장 요약",
         "선택지 비교",
-        "가정 명시"
+        "가정 명시",
+        "배불러요"
       ],
       "topic": "Kurzlage"
     },
@@ -19831,9 +19831,9 @@
       "de": "Schon ein Absatz Gegenszenario macht die Begründung fester.",
       "en": "Even one paragraph of counter-case makes the case firmer.",
       "distractors": [
-        "한 장 요약",
         "선택지 비교",
-        "가정 명시"
+        "가정 명시",
+        "나이"
       ],
       "topic": "Kurzlage"
     },
@@ -19846,9 +19846,9 @@
       "de": "Ist die Messgröße unklar, streiten wir später über Erfolg.",
       "en": "If the metric is vague, we may later argue about success.",
       "distractors": [
-        "한 장 요약",
-        "선택지 비교",
-        "가정 명시"
+        "자료",
+        "제도",
+        "양극화"
       ],
       "topic": "Kurzlage"
     },
@@ -19862,8 +19862,8 @@
       "en": "The recommendation line starts with a verb and adds a condition.",
       "distractors": [
         "한 장 요약",
-        "선택지 비교",
-        "가정 명시"
+        "맑음",
+        "난방"
       ],
       "topic": "Kurzlage"
     },
@@ -19876,9 +19876,9 @@
       "de": "Den Öffnungsgrad teile ich in intern und extern.",
       "en": "I split the disclosure scope into internal and external.",
       "distractors": [
-        "한 장 요약",
         "선택지 비교",
-        "가정 명시"
+        "가정 명시",
+        "무단주차"
       ],
       "topic": "Kurzlage"
     },
@@ -19892,8 +19892,8 @@
       "en": "Without a decision deadline the discussion stretches.",
       "distractors": [
         "한 장 요약",
-        "선택지 비교",
-        "가정 명시"
+        "딸",
+        "월급"
       ],
       "topic": "Kurzlage"
     },
@@ -19906,9 +19906,9 @@
       "de": "In der Belegfußnote stehen Datum und Stelle vor dem Link.",
       "en": "In the source footnote I put date and institution before the link.",
       "distractors": [
-        "한 장 요약",
         "선택지 비교",
-        "가정 명시"
+        "가정 명시",
+        "출구"
       ],
       "topic": "Kurzlage"
     },
@@ -19922,8 +19922,8 @@
       "en": "I do not hide remaining uncertainty; I put it at the end.",
       "distractors": [
         "한 장 요약",
-        "선택지 비교",
-        "가정 명시"
+        "금요일",
+        "인상"
       ],
       "topic": "Kurzlage"
     },
@@ -19951,9 +19951,9 @@
       "de": "Die Fallnummer setze ich in den Betreff und hänge den Verlauf an.",
       "en": "I put the case id in the subject and attach the history.",
       "distractors": [
-        "상위 담당",
-        "약속 불이행",
-        "보상 한도"
+        "보상 한도",
+        "자유",
+        "관계"
       ],
       "topic": "Eskalation"
     },
@@ -19981,9 +19981,9 @@
       "de": "Nennt man den Kulanzrahmen zuerst, passen die Erwartungen.",
       "en": "If you state the goodwill limit first, expectations align.",
       "distractors": [
-        "상위 담당",
         "사건 번호",
-        "약속 불이행"
+        "끈기",
+        "비타민제"
       ],
       "topic": "Eskalation"
     },
@@ -19997,8 +19997,8 @@
       "en": "If the repeat log hits three, I demand an inspection.",
       "distractors": [
         "상위 담당",
-        "사건 번호",
-        "약속 불이행"
+        "약속 불이행",
+        "연필"
       ],
       "topic": "Eskalation"
     },
@@ -20026,9 +20026,9 @@
       "de": "Über den Nebenweg schicke ich keine private Nachricht.",
       "en": "I do not send a private message through a side channel.",
       "distractors": [
-        "상위 담당",
-        "사건 번호",
-        "약속 불이행"
+        "환율",
+        "얼굴",
+        "기술"
       ],
       "topic": "Eskalation"
     },
@@ -20056,9 +20056,9 @@
       "de": "Liegt die Zuständigkeit bei zwei Stellen, bitte ich um eine Person.",
       "en": "If who owns it is two offices, I ask them to name one person.",
       "distractors": [
-        "상위 담당",
         "사건 번호",
-        "약속 불이행"
+        "공주",
+        "문자"
       ],
       "topic": "Eskalation"
     },
@@ -20072,8 +20072,8 @@
       "en": "If photos are not enough, I request an on-site check.",
       "distractors": [
         "상위 담당",
-        "사건 번호",
-        "약속 불이행"
+        "약속 불이행",
+        "아이스크림"
       ],
       "topic": "Eskalation"
     },
@@ -20087,8 +20087,8 @@
       "en": "I do not take the settlement term only verbally; I get it in writing.",
       "distractors": [
         "상위 담당",
-        "사건 번호",
-        "약속 불이행"
+        "약속 불이행",
+        "양말"
       ],
       "topic": "Eskalation"
     },
@@ -20102,8 +20102,8 @@
       "en": "I do not close the case before the closure confirm arrives.",
       "distractors": [
         "상위 담당",
-        "사건 번호",
-        "약속 불이행"
+        "약속 불이행",
+        "예금"
       ],
       "topic": "Eskalation"
     },
@@ -20116,9 +20116,9 @@
       "de": "Ich fixiere die Leitfrage in einem Satz und sammle dann Material.",
       "en": "I lock the research question in one sentence, then gather sources.",
       "distractors": [
-        "표본 크기",
         "한계 문장",
-        "교차 확인"
+        "교차 확인",
+        "여섯"
       ],
       "topic": "Kurzreferat"
     },
@@ -20131,9 +20131,9 @@
       "de": "Ist der Stichprobenumfang klein, formuliere ich die Verallgemeinerung schwächer.",
       "en": "If the sample size is small, I weaken the generalization.",
       "distractors": [
-        "연구 질문",
-        "한계 문장",
-        "교차 확인"
+        "세트",
+        "배불러요",
+        "주사"
       ],
       "topic": "Kurzreferat"
     },
@@ -20147,8 +20147,8 @@
       "en": "I place the limitation line before the result.",
       "distractors": [
         "연구 질문",
-        "표본 크기",
-        "교차 확인"
+        "교차 확인",
+        "장난"
       ],
       "topic": "Kurzreferat"
     },
@@ -20176,9 +20176,9 @@
       "de": "Die Arbeitsdefinition steht klein unter der Folie.",
       "en": "I put the working definition in small type under the slide.",
       "distractors": [
-        "연구 질문",
         "표본 크기",
-        "한계 문장"
+        "세배",
+        "그거"
       ],
       "topic": "Kurzreferat"
     },
@@ -20192,8 +20192,8 @@
       "en": "We unify the citation form inside the team.",
       "distractors": [
         "연구 질문",
-        "표본 크기",
-        "한계 문장"
+        "한계 문장",
+        "은행"
       ],
       "topic": "Kurzreferat"
     },
@@ -20206,9 +20206,9 @@
       "de": "Die Aussagestärke teile ich in 'scheint' und 'ist belegt'.",
       "en": "I split claim strength into 'appears' and 'is confirmed'.",
       "distractors": [
-        "연구 질문",
         "표본 크기",
-        "한계 문장"
+        "종류",
+        "할머니"
       ],
       "topic": "Kurzreferat"
     },
@@ -20221,9 +20221,9 @@
       "de": "Bei der Diagrammlektüre prüfe ich zuerst die Achsen laut.",
       "en": "In chart reading I check the axes out loud first.",
       "distractors": [
-        "연구 질문",
         "표본 크기",
-        "한계 문장"
+        "잠시만요",
+        "준비됐나요"
       ],
       "topic": "Kurzreferat"
     },
@@ -20236,9 +20236,9 @@
       "de": "Schon fünf Minuten Gegenbeispielsuche machen die These vorsichtiger.",
       "en": "Even five minutes of looking for counterexamples makes the claim more careful.",
       "distractors": [
-        "연구 질문",
         "표본 크기",
-        "한계 문장"
+        "후추",
+        "엄마"
       ],
       "topic": "Kurzreferat"
     },
@@ -20252,8 +20252,8 @@
       "en": "The summary paragraph does not add new information.",
       "distractors": [
         "연구 질문",
-        "표본 크기",
-        "한계 문장"
+        "한계 문장",
+        "빨간색"
       ],
       "topic": "Kurzreferat"
     },
@@ -20282,8 +20282,8 @@
       "en": "I share the source list sorted by date.",
       "distractors": [
         "연구 질문",
-        "표본 크기",
-        "한계 문장"
+        "한계 문장",
+        "할인"
       ],
       "topic": "Kurzreferat"
     },
@@ -20297,8 +20297,8 @@
       "en": "If you hide the uncertainty range, the conclusion looks too strong.",
       "distractors": [
         "표본 편향",
-        "과잉 일반화",
-        "신뢰 구간"
+        "신뢰 구간",
+        "보완책"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20312,8 +20312,8 @@
       "en": "Only after naming sample bias is the comparison honest.",
       "distractors": [
         "불확실성 구간",
-        "과잉 일반화",
-        "신뢰 구간"
+        "신뢰 구간",
+        "재활용실"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20326,9 +20326,9 @@
       "de": "Um Überverallgemeinerung zu vermeiden, verenge ich den Geltungsbereich.",
       "en": "To avoid overgeneralization I narrow the scope of application.",
       "distractors": [
-        "불확실성 구간",
-        "표본 편향",
-        "신뢰 구간"
+        "복주머니",
+        "잠깐만요",
+        "영어"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20343,7 +20343,7 @@
       "distractors": [
         "불확실성 구간",
         "표본 편향",
-        "과잉 일반화"
+        "여동생"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20358,7 +20358,7 @@
       "distractors": [
         "불확실성 구간",
         "표본 편향",
-        "과잉 일반화"
+        "시급"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20371,9 +20371,9 @@
       "de": "Die Erklärstärke hebe ich nur so weit, wie die Daten tragen.",
       "en": "I raise explanatory strength only as far as the data can carry.",
       "distractors": [
-        "불확실성 구간",
-        "표본 편향",
-        "과잉 일반화"
+        "과잉 일반화",
+        "수저",
+        "비행기"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20388,7 +20388,7 @@
       "distractors": [
         "불확실성 구간",
         "표본 편향",
-        "과잉 일반화"
+        "공연장"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20401,9 +20401,9 @@
       "de": "Nennt man die Messabweichung, übertreibt man kleine Differenzen weniger.",
       "en": "Naming measurement error keeps small differences from being overstated.",
       "distractors": [
-        "불확실성 구간",
-        "표본 편향",
-        "과잉 일반화"
+        "과잉 일반화",
+        "현장접수",
+        "대학교"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20418,7 +20418,7 @@
       "distractors": [
         "불확실성 구간",
         "표본 편향",
-        "과잉 일반화"
+        "신발"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20431,9 +20431,9 @@
       "de": "Vor der Prüfung der Replizierbarkeit soll die Politik nicht geändert werden.",
       "en": "I argue we should not change policy before checking replicability.",
       "distractors": [
-        "불확실성 구간",
-        "표본 편향",
-        "과잉 일반화"
+        "과잉 일반화",
+        "복지",
+        "임계치"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20446,9 +20446,9 @@
       "de": "Gegen selektives Berichten lasse ich auch gescheiterte Kennzahlen in der Tabelle.",
       "en": "To reduce selective reporting I keep failed metrics in the table.",
       "distractors": [
-        "불확실성 구간",
-        "표본 편향",
-        "과잉 일반화"
+        "과잉 일반화",
+        "연고",
+        "싸고"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20463,7 +20463,7 @@
       "distractors": [
         "불확실성 구간",
         "표본 편향",
-        "과잉 일반화"
+        "회원권"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20551,9 +20551,9 @@
       "de": "Bei Eilzurückhaltung nenne ich die Prüfzeit und warte.",
       "en": "When holding a flash update I state the check time and wait.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "합의서",
+        "오류",
+        "명사"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20566,9 +20566,9 @@
       "de": "Vor der Gemeinerklärung gleichen wir abweichende Zahlen ab.",
       "en": "Before a joint statement we align numbers that differ by office.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "순서",
+        "복지",
+        "습도"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20596,9 +20596,9 @@
       "de": "Den Korrekturkanal nenne ich am Ende der Lage deutlich.",
       "en": "I announce the correction channel clearly at the end of the briefing.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "우표",
+        "앉으세요",
+        "팔찌"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20611,9 +20611,9 @@
       "de": "Die Handlungsempfehlung nennt Zielgruppe und Frist.",
       "en": "Action advice always names the audience and the deadline.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "발소리를 죽이고",
+        "가지고",
+        "신고"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20641,9 +20641,9 @@
       "de": "Mit Wortprotokoll lässt sich später prüfen, ob übertrieben wurde.",
       "en": "A spoken record lets us later check whether something was overstated.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "가치관",
+        "현상",
+        "본질"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20658,7 +20658,7 @@
       "distractors": [
         "무응답 처리",
         "가중치 부여",
-        "표집틀"
+        "계산서"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20673,7 +20673,7 @@
       "distractors": [
         "문항 유도",
         "가중치 부여",
-        "표집틀"
+        "미안해요"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20731,9 +20731,9 @@
       "de": "Bei hoher Antwortlast sinkt die Qualität am Ende.",
       "en": "If respondent burden is long, later quality drops.",
       "distractors": [
-        "문항 유도",
-        "무응답 처리",
-        "가중치 부여"
+        "처음",
+        "휴일",
+        "분리배출"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20746,9 +20746,9 @@
       "de": "Bei ungleichmäßigem Skalenabstand nutze ich keinen Mittelwert.",
       "en": "If scale spacing is uneven, I do not use a mean.",
       "distractors": [
-        "문항 유도",
-        "무응답 처리",
-        "가중치 부여"
+        "한쪽에만",
+        "배달",
+        "반말"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20776,9 +20776,9 @@
       "de": "Liegt die Erhebungszeit direkt nach der Wahl, dämpfe ich die Deutung.",
       "en": "If the collection window is right after an election, I soften the reading.",
       "distractors": [
-        "문항 유도",
-        "무응답 처리",
-        "가중치 부여"
+        "거스름돈",
+        "공책",
+        "보상"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20806,9 +20806,9 @@
       "de": "Ein höherer Anonymisierungsgrad erschwert die lokale Analyse.",
       "en": "Raising the anonymization level makes local analysis harder.",
       "distractors": [
-        "문항 유도",
-        "무응답 처리",
-        "가중치 부여"
+        "전통",
+        "회원권",
+        "야경"
       ],
       "topic": "Erhebungsdesign"
     },
@@ -20851,9 +20851,9 @@
       "de": "Steht die Absolutenzahl daneben, sinkt die Angst.",
       "en": "Putting the absolute count beside it reduces fear.",
       "distractors": [
-        "상대 위험",
-        "잔여 위험",
-        "조기 경보"
+        "조기 경보",
+        "입구",
+        "팔로워"
       ],
       "topic": "Risikosprache"
     },
@@ -20867,8 +20867,8 @@
       "en": "I do not promise residual risk of zero.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "조기 경보"
+        "준비운동",
+        "예약금"
       ],
       "topic": "Risikosprache"
     },
@@ -20897,8 +20897,8 @@
       "en": "If the false-alarm rate is high, people start ignoring alerts.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "풀"
       ],
       "topic": "Risikosprache"
     },
@@ -20912,8 +20912,8 @@
       "en": "Without exposure time the same concentration sounds different.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "택배함"
       ],
       "topic": "Risikosprache"
     },
@@ -20927,8 +20927,8 @@
       "en": "I do not bury the vulnerable group in the average.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "정류장"
       ],
       "topic": "Risikosprache"
     },
@@ -20942,8 +20942,8 @@
       "en": "A numeric action threshold keeps on-site judgment from wobbling.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "저녁"
       ],
       "topic": "Risikosprache"
     },
@@ -20957,8 +20957,8 @@
       "en": "A calmer communication tone keeps people listening longer.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "갈색"
       ],
       "topic": "Risikosprache"
     },
@@ -20971,9 +20971,9 @@
       "de": "Ein klarer Aktualisierungsrhythmus lässt Stille nicht wie Vertuschung wirken.",
       "en": "A stated update cadence keeps silence from looking like concealment.",
       "distractors": [
-        "상대 위험",
         "절대 건수",
-        "잔여 위험"
+        "경계",
+        "세트"
       ],
       "topic": "Risikosprache"
     },
@@ -20987,8 +20987,8 @@
       "en": "I first decide whether the comparison anchor is last year or a normal year.",
       "distractors": [
         "상대 위험",
-        "절대 건수",
-        "잔여 위험"
+        "잔여 위험",
+        "모양"
       ],
       "topic": "Risikosprache"
     },
@@ -21001,9 +21001,9 @@
       "de": "Gegen Warnmüdigkeit nutze ich nur drei Stufen.",
       "en": "To reduce alert fatigue I use only three grades.",
       "distractors": [
-        "상대 위험",
         "절대 건수",
-        "잔여 위험"
+        "마트",
+        "무대"
       ],
       "topic": "Risikosprache"
     },
@@ -21017,8 +21017,8 @@
       "en": "I count access cost as travel time, not only as a fee.",
       "distractors": [
         "유지 부담",
-        "선택권 축소",
-        "우회 경로"
+        "납부일",
+        "민원"
       ],
       "topic": "Zugangskosten"
     },
@@ -21032,8 +21032,8 @@
       "en": "I write the upkeep burden separately from install cost.",
       "distractors": [
         "접근 비용",
-        "선택권 축소",
-        "우회 경로"
+        "학년",
+        "재활용"
       ],
       "topic": "Zugangskosten"
     },
@@ -21046,9 +21046,9 @@
       "de": "Wahlverengung verkaufe ich nicht als Effizienz.",
       "en": "I do not package narrowed choice as efficiency.",
       "distractors": [
-        "접근 비용",
-        "유지 부담",
-        "우회 경로"
+        "우회 경로",
+        "다운로드",
+        "횟수"
       ],
       "topic": "Zugangskosten"
     },
@@ -21061,9 +21061,9 @@
       "de": "Ein Umwegzugang macht die Störung des Hauptwegs erträglich.",
       "en": "A workaround path makes a main-path outage bearable.",
       "distractors": [
-        "접근 비용",
-        "유지 부담",
-        "선택권 축소"
+        "자동이체",
+        "팔로워",
+        "민주주의"
       ],
       "topic": "Zugangskosten"
     },
@@ -21093,7 +21093,7 @@
       "distractors": [
         "접근 비용",
         "유지 부담",
-        "선택권 축소"
+        "밤참"
       ],
       "topic": "Zugangskosten"
     },
@@ -21108,7 +21108,7 @@
       "distractors": [
         "접근 비용",
         "유지 부담",
-        "선택권 축소"
+        "하숙집"
       ],
       "topic": "Zugangskosten"
     },
@@ -21123,7 +21123,7 @@
       "distractors": [
         "접근 비용",
         "유지 부담",
-        "선택권 축소"
+        "바람"
       ],
       "topic": "Zugangskosten"
     },
@@ -21138,7 +21138,7 @@
       "distractors": [
         "접근 비용",
         "유지 부담",
-        "선택권 축소"
+        "화이팅"
       ],
       "topic": "Zugangskosten"
     },
@@ -21181,9 +21181,9 @@
       "de": "Geht die Kostenverschiebung nur an Nutzende, entwerfe ich neu.",
       "en": "If the cost shift lands only on users, I redesign.",
       "distractors": [
-        "접근 비용",
-        "유지 부담",
-        "선택권 축소"
+        "선택권 축소",
+        "잠시만요",
+        "성묘"
       ],
       "topic": "Zugangskosten"
     },
@@ -21197,8 +21197,8 @@
       "en": "I split the participation barrier into time, language, and travel.",
       "distractors": [
         "발언 할당",
-        "대리 참여",
-        "피드백 순환"
+        "피드백 순환",
+        "공연장"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21212,8 +21212,8 @@
       "en": "I do not give the speaking allotment only by who arrived first.",
       "distractors": [
         "참여 장벽",
-        "대리 참여",
-        "피드백 순환"
+        "피드백 순환",
+        "비상"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21226,9 +21226,9 @@
       "de": "Erlaubt man Stellvertretung, steht der Auftrag kurz.",
       "en": "If proxy participation is allowed, I write a short mandate.",
       "distractors": [
-        "참여 장벽",
-        "발언 할당",
-        "피드백 순환"
+        "생태계",
+        "몸매",
+        "인수인계"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21243,7 +21243,7 @@
       "distractors": [
         "참여 장벽",
         "발언 할당",
-        "대리 참여"
+        "오십"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21258,7 +21258,7 @@
       "distractors": [
         "참여 장벽",
         "발언 할당",
-        "대리 참여"
+        "숲"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21273,7 +21273,7 @@
       "distractors": [
         "참여 장벽",
         "발언 할당",
-        "대리 참여"
+        "냉동실"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21286,9 +21286,9 @@
       "de": "Fehlt ein barrierearmer Ort, öffne ich einen Onlineweg.",
       "en": "If I cannot pick an accessible venue, I open an online option.",
       "distractors": [
-        "참여 장벽",
-        "발언 할당",
-        "대리 참여"
+        "대리 참여",
+        "고기",
+        "주의"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21303,7 +21303,7 @@
       "distractors": [
         "참여 장벽",
         "발언 할당",
-        "대리 참여"
+        "국물"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21316,9 +21316,9 @@
       "de": "Vorabunterlagen drei Tage vorher machen Fragen tiefer.",
       "en": "Sending the advance packet three days earlier deepens questions.",
       "distractors": [
-        "참여 장벽",
-        "발언 할당",
-        "대리 참여"
+        "대리 참여",
+        "끈기",
+        "채소"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21331,9 +21331,9 @@
       "de": "Gegen Beteiligungsmüdigkeit lege ich Sitzungen nicht übereinander.",
       "en": "To reduce engagement fatigue I do not stack meetings.",
       "distractors": [
-        "참여 장벽",
-        "발언 할당",
-        "대리 참여"
+        "대리 참여",
+        "동료",
+        "동의어"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21346,9 +21346,9 @@
       "de": "Kommt die Beschlussrückgabe spät, sinkt die nächste Beteiligung.",
       "en": "If the decision return is late, the next turnout drops.",
       "distractors": [
-        "참여 장벽",
-        "발언 할당",
-        "대리 참여"
+        "대리 참여",
+        "상견례",
+        "고마워요"
       ],
       "topic": "Beteiligungsdesign"
     },
@@ -21376,9 +21376,9 @@
       "de": "Passt man die Ortslage an den Landesdurchschnitt, verfehlt der Plan.",
       "en": "If you force local conditions to a national average, the plan misses.",
       "distractors": [
-        "야간 소음 한도",
         "녹지 보전",
-        "상권 이전"
+        "상권 이전",
+        "우편함"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21391,9 +21391,9 @@
       "de": "Ein niedrigerer Nachtpegel verkürzt die Lieferzeiten.",
       "en": "Lowering the night noise cap shortens delivery hours.",
       "distractors": [
-        "지역 여건",
-        "녹지 보전",
-        "상권 이전"
+        "와",
+        "누나",
+        "관용어"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21406,9 +21406,9 @@
       "de": "Grünschutz und mehr Parkraum gehen nicht auf derselben Fläche.",
       "en": "You cannot choose green-space keep and more parking on the same land.",
       "distractors": [
-        "지역 여건",
-        "야간 소음 한도",
-        "상권 이전"
+        "벌금",
+        "핵심",
+        "가능성"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21422,8 +21422,8 @@
       "en": "If a commerce shift empties the alley, evening safety weakens.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "문장"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21436,9 +21436,9 @@
       "de": "Führt die Verkehrsumlegung an der Schule vorbei, ändere ich die Stunden.",
       "en": "If the traffic diversion passes the school, I change the hours.",
       "distractors": [
-        "지역 여건",
         "야간 소음 한도",
-        "녹지 보전"
+        "자동차",
+        "신용카드"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21452,8 +21452,8 @@
       "en": "If who is compensated is only owners, tenants drop out.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "생신"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21482,8 +21482,8 @@
       "en": "If the shared benefit is visible, the rule is easier to accept.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "토요일"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21497,8 +21497,8 @@
       "en": "If relocation cost is treated as a one-time grant only, it fails.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "사십"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21512,8 +21512,8 @@
       "en": "More night lighting raises safety and worsens sleep.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "시설"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21526,9 +21526,9 @@
       "de": "Geteilte Nutzungsfenster lassen einen Ort zwei Gruppen tragen.",
       "en": "Split hours of use let one space serve two groups.",
       "distractors": [
-        "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "무게",
+        "잠시만요",
+        "자료"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21542,8 +21542,8 @@
       "en": "Even a one-month on-site trial makes complaints more specific.",
       "distractors": [
         "지역 여건",
-        "야간 소음 한도",
-        "녹지 보전"
+        "녹지 보전",
+        "여름"
       ],
       "topic": "Ortliche Abwägung"
     },
@@ -21556,9 +21556,9 @@
       "de": "Stützt sich das Betriebspersonal nur auf Ehrenamt, bricht es im Winter.",
       "en": "If ops staff rest only on volunteers, service breaks in winter.",
       "distractors": [
-        "교체 주기",
         "예비 부품",
-        "점검 로그"
+        "경험",
+        "입장권"
       ],
       "topic": "Betriebslast"
     },
@@ -21571,9 +21571,9 @@
       "de": "Ein verborgener Ersatzrhythmus bringt die Kosten später auf einmal.",
       "en": "Hiding the replacement cycle brings the cost all at once later.",
       "distractors": [
-        "운영 인력",
-        "예비 부품",
-        "점검 로그"
+        "점검 로그",
+        "송별회",
+        "위"
       ],
       "topic": "Betriebslast"
     },
@@ -21587,8 +21587,8 @@
       "en": "Without spare stock, inclusive equipment stops at once.",
       "distractors": [
         "운영 인력",
-        "교체 주기",
-        "점검 로그"
+        "파란색",
+        "출장"
       ],
       "topic": "Betriebslast"
     },
@@ -21601,9 +21601,9 @@
       "de": "Ein öffentliches Wartungslog lässt Vernachlässigung prüfen.",
       "en": "A public service log lets people test whether upkeep was neglected.",
       "distractors": [
-        "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "단어",
+        "아래",
+        "전제"
       ],
       "topic": "Betriebslast"
     },
@@ -21617,8 +21617,8 @@
       "en": "If night duty sits on one person, mistakes rise.",
       "distractors": [
         "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "예비 부품",
+        "가능성"
       ],
       "topic": "Betriebslast"
     },
@@ -21632,8 +21632,8 @@
       "en": "Without refresher training the new procedure does not stay on site.",
       "distractors": [
         "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "예비 부품",
+        "색깔"
       ],
       "topic": "Betriebslast"
     },
@@ -21646,9 +21646,9 @@
       "de": "Bei langer Störwartezeit plane ich den Ersatzweg mit.",
       "en": "If outage wait is long, I design the fallback with it.",
       "distractors": [
-        "운영 인력",
         "교체 주기",
-        "예비 부품"
+        "협조",
+        "사회"
       ],
       "topic": "Betriebslast"
     },
@@ -21661,9 +21661,9 @@
       "de": "Wenn die Übertragung von Haushaltsmitteln eingeschränkt ist, kann es zu unnötigen Ausgaben kommen, nur um das verbleibende Budget auszuschöpfen.",
       "en": "If budget carryover is restricted, unnecessary spending may occur simply to use up the remaining budget.",
       "distractors": [
-        "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "메뉴판",
+        "수익",
+        "부분"
       ],
       "topic": "Betriebslast"
     },
@@ -21692,8 +21692,8 @@
       "en": "An optimistic life estimate empties the replacement fund.",
       "distractors": [
         "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "예비 부품",
+        "태양"
       ],
       "topic": "Betriebslast"
     },
@@ -21707,8 +21707,8 @@
       "en": "If vendor lock is high, even a small change must wait.",
       "distractors": [
         "운영 인력",
-        "교체 주기",
-        "예비 부품"
+        "예비 부품",
+        "집"
       ],
       "topic": "Betriebslast"
     },
@@ -21721,9 +21721,9 @@
       "de": "Nutzt man die Dauercheckliste nur am Eventtag, sinkt die Alltagqualität.",
       "en": "If the ongoing checklist is used only on event day, weekday quality drops.",
       "distractors": [
-        "운영 인력",
         "교체 주기",
-        "예비 부품"
+        "기회",
+        "소포"
       ],
       "topic": "Betriebslast"
     },
@@ -21737,8 +21737,8 @@
       "en": "If the discourse premise stays hidden, the choice looks natural.",
       "distractors": [
         "은유 체계",
-        "주어 선택",
-        "수동 은폐"
+        "수동 은폐",
+        "계산대"
       ],
       "topic": "Framinganalyse"
     },
@@ -21752,8 +21752,8 @@
       "en": "If the metaphor system is war, compromise sounds like defeat.",
       "distractors": [
         "담론 전제",
-        "주어 선택",
-        "수동 은폐"
+        "수동 은폐",
+        "전체"
       ],
       "topic": "Framinganalyse"
     },
@@ -21766,9 +21766,9 @@
       "de": "Ändert man die Subjektwahl, wandert die Verantwortung.",
       "en": "Changing the choice of subject moves where responsibility sits.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "수동 은폐"
+        "예약금",
+        "경험",
+        "평등"
       ],
       "topic": "Framinganalyse"
     },
@@ -21783,7 +21783,7 @@
       "distractors": [
         "담론 전제",
         "은유 체계",
-        "주어 선택"
+        "아니요"
       ],
       "topic": "Framinganalyse"
     },
@@ -21796,9 +21796,9 @@
       "de": "Durch Kategorieverschiebung klingt die Beschwerde wie Straftat und die Antwort wird härter.",
       "en": "A category shift that names a complaint as crime hardens the response.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "주어 선택"
+        "주어 선택",
+        "평등",
+        "이견"
       ],
       "topic": "Framinganalyse"
     },
@@ -21811,9 +21811,9 @@
       "de": "Ein Zeitrahmen von einer Woche lässt Strukturprobleme verschwinden.",
       "en": "A one-week time frame makes structural problems vanish.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "주어 선택"
+        "주어 선택",
+        "휴일",
+        "세월"
       ],
       "topic": "Framinganalyse"
     },
@@ -21826,9 +21826,9 @@
       "de": "Bleibt die Gegenüberstellung nur Sicherheit gegen Freiheit, fehlt die Mitte.",
       "en": "If the contrast pair is only safety versus freedom, the middle disappears.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "주어 선택"
+        "주어 선택",
+        "송편",
+        "분홍색"
       ],
       "topic": "Framinganalyse"
     },
@@ -21843,7 +21843,7 @@
       "distractors": [
         "담론 전제",
         "은유 체계",
-        "주어 선택"
+        "일반화"
       ],
       "topic": "Framinganalyse"
     },
@@ -21856,9 +21856,9 @@
       "de": "Eine Tabelle der Schweigestellen zeigt die fehlende Gruppe.",
       "en": "A table of what is left unsaid shows the missing group.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "주어 선택"
+        "주어 선택",
+        "빈손",
+        "수익"
       ],
       "topic": "Framinganalyse"
     },
@@ -21888,7 +21888,7 @@
       "distractors": [
         "담론 전제",
         "은유 체계",
-        "주어 선택"
+        "컴퓨터"
       ],
       "topic": "Framinganalyse"
     },
@@ -21901,9 +21901,9 @@
       "de": "Die Deutungskonkurrenz schließe ich nicht, ich lege Belege nebeneinander.",
       "en": "I do not close competing readings; I set the evidence side by side.",
       "distractors": [
-        "담론 전제",
-        "은유 체계",
-        "주어 선택"
+        "주어 선택",
+        "주인",
+        "납부일"
       ],
       "topic": "Framinganalyse"
     },
@@ -21916,9 +21916,9 @@
       "de": "Amtsmacht verstecke ich nicht hinter dem Verfahren, ich nenne sie zuerst.",
       "en": "I do not hide institutional power behind procedure; I put it first.",
       "distractors": [
-        "공식 어조",
-        "위임 범위",
-        "기록 의무"
+        "취향",
+        "연필",
+        "택배함"
       ],
       "topic": "Institutionsstimme"
     },
@@ -21931,9 +21931,9 @@
       "de": "Verwässert das Amtsregister die Verantwortung, schreibe ich im Indikativ neu.",
       "en": "If the official register blurs responsibility, I rewrite it as a plain statement.",
       "distractors": [
-        "제도적 권한",
         "위임 범위",
-        "기록 의무"
+        "기록 의무",
+        "후추"
       ],
       "topic": "Institutionsstimme"
     },
@@ -21946,9 +21946,9 @@
       "de": "Eine Entscheidung jenseits der Zuständigkeitsgrenze nenne ich nicht Gewohnheit.",
       "en": "I don't pass off a decision beyond the scope of authority as custom.",
       "distractors": [
-        "제도적 권한",
         "공식 어조",
-        "기록 의무"
+        "기록 의무",
+        "온도"
       ],
       "topic": "Institutionsstimme"
     },
@@ -21961,9 +21961,9 @@
       "de": "Ist die Dokumentationspflicht schwach, lässt sich Erinnerung später wählen.",
       "en": "If the duty to record is weak, memory can be selected later.",
       "distractors": [
-        "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "통화",
+        "통계",
+        "문화"
       ],
       "topic": "Institutionsstimme"
     },
@@ -21977,8 +21977,8 @@
       "en": "I admit discretion space and publish the criteria table with it.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "야간소음",
+        "누적"
       ],
       "topic": "Institutionsstimme"
     },
@@ -21991,9 +21991,9 @@
       "de": "Sitzt die Widerspruchsstelle in derselben Abteilung, ist sie nicht unabhängig.",
       "en": "If the objection desk is the same office, it is not independent.",
       "distractors": [
-        "제도적 권한",
         "공식 어조",
-        "위임 범위"
+        "위임 범위",
+        "냉장고"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22007,8 +22007,8 @@
       "en": "I do not explain disclosure delay as review only; I give a date.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "파란색",
+        "환승"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22022,8 +22022,8 @@
       "en": "An appeal to custom is not evidence; it is the name of a habit.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "백",
+        "익명"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22037,8 +22037,8 @@
       "en": "If diffused ownership is severe, I cut the signature line to one.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "귀성",
+        "아이스크림"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22052,8 +22052,8 @@
       "en": "If the internal directive differs from the public line, I show both.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "왕",
+        "조항"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22066,9 +22066,9 @@
       "de": "Ohne Übertragungsakt ist die Vertretung später rückholbar.",
       "en": "Acting without a delegation instrument makes the decision reversible.",
       "distractors": [
-        "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "논리",
+        "낙인",
+        "근거"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22082,8 +22082,8 @@
       "en": "If institutional memory sits in one person, it leaves with them.",
       "distractors": [
         "제도적 권한",
-        "공식 어조",
-        "위임 범위"
+        "민원실",
+        "우편함"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22097,8 +22097,8 @@
       "en": "A changed narrative standpoint turns the same event into a different moral.",
       "distractors": [
         "선택적 기억",
-        "증언 위치",
-        "연대기 절단"
+        "연대기 절단",
+        "예약금"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22112,8 +22112,8 @@
       "en": "If selective memory is fixed only to a memorial day, the rest is erased.",
       "distractors": [
         "서술 시점",
-        "증언 위치",
-        "연대기 절단"
+        "연대기 절단",
+        "귤"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22126,9 +22126,9 @@
       "de": "Liegt der Zeugenort am Bühnenrand, wird die Stimme klein.",
       "en": "If where testimony sits is the edge of the stage, the voice shrinks.",
       "distractors": [
-        "서술 시점",
-        "선택적 기억",
-        "연대기 절단"
+        "모자",
+        "우유",
+        "동의어"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22143,7 +22143,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "컵"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22158,7 +22158,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "달력"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22171,9 +22171,9 @@
       "de": "Ich achte die Schweigegeneration und bitte trotzdem ums Archiv.",
       "en": "I respect the silent generation and still ask that records remain.",
       "distractors": [
-        "서술 시점",
-        "선택적 기억",
-        "증언 위치"
+        "증언 위치",
+        "정보",
+        "딸기"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22188,7 +22188,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "삼십"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22203,7 +22203,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "경력"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22218,7 +22218,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "내용"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22231,9 +22231,9 @@
       "de": "Mehrfacherzählung nebeneinander schwächt die Siegergeschichte.",
       "en": "Plural narrative side by side weakens winner history.",
       "distractors": [
-        "서술 시점",
-        "선택적 기억",
-        "증언 위치"
+        "증언 위치",
+        "차이",
+        "횟수"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22246,9 +22246,9 @@
       "de": "Wird Vergessensordnung zur Kürzung des Archivs, gebe ich ihr einen Namen.",
       "en": "If designed forgetting appears as an archive budget cut, I name it.",
       "distractors": [
-        "서술 시점",
-        "선택적 기억",
-        "증언 위치"
+        "증언 위치",
+        "형부",
+        "경위"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22263,7 +22263,7 @@
       "distractors": [
         "서술 시점",
         "선택적 기억",
-        "증언 위치"
+        "생선"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22276,9 +22276,9 @@
       "de": "Ein Befehlshinweis ohne Grund erhöht den Widerstand.",
       "en": "An imperative notice without a reason raises pushback.",
       "distractors": [
-        "전문 장벽",
         "불가피 수사",
-        "전문가 위임"
+        "휴게소",
+        "설거지"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22307,8 +22307,8 @@
       "en": "Inevitability talk first erases the existence of alternatives.",
       "distractors": [
         "명령형 공지",
-        "전문 장벽",
-        "전문가 위임"
+        "차",
+        "이"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22321,9 +22321,9 @@
       "de": "Ersetzt das Expertenmandat das politische Urteil, frage ich nach der Verantwortung.",
       "en": "If expert handover replaces a political judgment, I ask who is responsible.",
       "distractors": [
-        "명령형 공지",
         "전문 장벽",
-        "불가피 수사"
+        "근로계약",
+        "옵션"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22336,9 +22336,9 @@
       "de": "Schweigedruck nenne ich nicht Teamgeist.",
       "en": "I do not call pressure to stay quiet 'teamwork'.",
       "distractors": [
-        "명령형 공지",
         "전문 장벽",
-        "불가피 수사"
+        "비빔밥",
+        "회원권"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22367,8 +22367,8 @@
       "en": "With no softening label I write 'dismissal' instead of 'tidying'.",
       "distractors": [
         "명령형 공지",
-        "전문 장벽",
-        "불가피 수사"
+        "불가피 수사",
+        "배제"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22381,9 +22381,9 @@
       "de": "Publikumsspaltung erzeugt zwei Protokolle, innen und außen.",
       "en": "A split audience creates two records, inside and outside.",
       "distractors": [
-        "명령형 공지",
-        "전문 장벽",
-        "불가피 수사"
+        "벌",
+        "민원실",
+        "서술"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22396,9 +22396,9 @@
       "de": "Vor der Unumkehrbarkeit zeige ich den Rückholweg.",
       "en": "Before claiming irreversibility I show the withdrawal path.",
       "distractors": [
-        "명령형 공지",
         "전문 장벽",
-        "불가피 수사"
+        "딸",
+        "오작동"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22411,9 +22411,9 @@
       "de": "Macht die Normverpackung Geschmack zur Moral, widerspreche ich.",
       "en": "If norm wrapping turns taste into morals, I object.",
       "distractors": [
-        "명령형 공지",
         "전문 장벽",
-        "불가피 수사"
+        "보증금",
+        "편향"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22427,8 +22427,8 @@
       "en": "I do not apply silence as consent; I get an explicit confirm.",
       "distractors": [
         "명령형 공지",
-        "전문 장벽",
-        "불가피 수사"
+        "불가피 수사",
+        "복주머니"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22442,8 +22442,8 @@
       "en": "If the seat of the utterance is a lecture, questions are pushed back.",
       "distractors": [
         "명령형 공지",
-        "전문 장벽",
-        "불가피 수사"
+        "불가피 수사",
+        "목표"
       ],
       "topic": "Autoritätssprache"
     },
@@ -22456,9 +22456,9 @@
       "de": "Ist der Einspruchsweg nur der Chatbot, fehlt der Mensch.",
       "en": "If the appeal path is only a chatbot, it is as if no person is there.",
       "distractors": [
-        "자동 결정",
-        "인간 재심",
-        "기한 안내"
+        "기한 안내",
+        "죄송합니다",
+        "자동이체"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22486,9 +22486,9 @@
       "de": "Drückt die menschliche Nachprüfung dieselbe Note, ist es keine Prüfung.",
       "en": "If human review just presses the same score, it is not a review.",
       "distractors": [
-        "이의 경로",
         "자동 결정",
-        "기한 안내"
+        "지하철역",
+        "국물"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22502,8 +22502,8 @@
       "en": "I do not put the deadline notice only at the bottom of the refusal screen.",
       "distractors": [
         "이의 경로",
-        "자동 결정",
-        "인간 재심"
+        "후추",
+        "사고"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22516,9 +22516,9 @@
       "de": "Nimmt das Belegfeld nur Zeichen, bleibt der Fotobeleg draußen.",
       "en": "If the evidence field takes only characters, photo proof is blocked.",
       "distractors": [
-        "이의 경로",
         "자동 결정",
-        "인간 재심"
+        "인간 재심",
+        "세뱃돈"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22531,9 +22531,9 @@
       "de": "Den Bescheidkern schreibe ich in drei Gründen ohne Punktzahl.",
       "en": "I write the decision core as three reasons without a score.",
       "distractors": [
-        "이의 경로",
         "자동 결정",
-        "인간 재심"
+        "인간 재심",
+        "오역"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22546,9 +22546,9 @@
       "de": "Wird der Beschwerdeaufwand nur als Zeit groß, ist der Verzicht erzwungen.",
       "en": "If the cost of appealing grows only as time, giving up is coerced.",
       "distractors": [
-        "이의 경로",
         "자동 결정",
-        "인간 재심"
+        "인간 재심",
+        "왼쪽"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22577,8 +22577,8 @@
       "en": "If the same vendor does the third-party look, it is not independent.",
       "distractors": [
         "이의 경로",
-        "자동 결정",
-        "인간 재심"
+        "맞장구",
+        "양극화"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22592,8 +22592,8 @@
       "en": "If the effect of withdrawal is future-only, past harm remains.",
       "distractors": [
         "이의 경로",
-        "자동 결정",
-        "인간 재심"
+        "회사",
+        "시아버지"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22606,9 +22606,9 @@
       "de": "Ist die Zugangssprache Juristensprache, schließt sich der Einspruchsweg.",
       "en": "If the language of access is legalese, the appeal path closes.",
       "distractors": [
-        "결정 요약",
-        "자동 결정",
-        "인간 재심"
+        "정보",
+        "경제",
+        "아래"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22622,8 +22622,8 @@
       "en": "I do not end the closure rationale with one template line.",
       "distractors": [
         "이의 경로",
-        "자동 결정",
-        "인간 재심"
+        "확인서",
+        "전제"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22756,9 +22756,9 @@
       "de": "Gegen Protokollbruch entwerfe ich eine Mit-Signatur.",
       "en": "I design a co-signature that detects log tampering.",
       "distractors": [
-        "추적 가능성",
-        "변경 이력",
-        "접근 기록"
+        "몸매",
+        "동생이에요",
+        "인수인계"
       ],
       "topic": "Prüfspur"
     },
@@ -22786,9 +22786,9 @@
       "de": "Ist der Einsichtskanal nur die Post, ist die Frist schwer haltbar.",
       "en": "If the inspection channel is mail only, the deadline is hard to meet.",
       "distractors": [
-        "추적 가능성",
-        "변경 이력",
-        "접근 기록"
+        "여자친구",
+        "필요",
+        "마트"
       ],
       "topic": "Prüfspur"
     },
@@ -22816,9 +22816,9 @@
       "de": "Sitzt das Widerrufsrecht tief in den Einstellungen, gibt es es kaum.",
       "en": "If the right to withdraw sits deep in settings, it barely exists.",
       "distractors": [
-        "동의 철회",
-        "파생 데이터",
-        "복원 금지"
+        "결혼기념일",
+        "식단",
+        "벌금"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22861,9 +22861,9 @@
       "de": "Ohne Wiederherstellstopp in der Sicherung ist der Widerruf unvollständig.",
       "en": "Without no-restore in the backup policy, withdrawal is incomplete.",
       "distractors": [
-        "철회권",
         "동의 철회",
-        "파생 데이터"
+        "파생 데이터",
+        "한계"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22876,9 +22876,9 @@
       "de": "Der Verarbeitungsstopp muss in der Einspruchsfrist automatisch greifen.",
       "en": "A processing pause must engage automatically during the appeal period.",
       "distractors": [
-        "철회권",
         "동의 철회",
-        "파생 데이터"
+        "파생 데이터",
+        "인기"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22891,9 +22891,9 @@
       "de": "Zielt die Voreinstellung aufs Sammeln, bleibt Widerruf ein Kampf.",
       "en": "If default design leans toward collection, withdrawal stays a fight.",
       "distractors": [
-        "철회권",
         "동의 철회",
-        "파생 데이터"
+        "파생 데이터",
+        "가습기"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22907,8 +22907,8 @@
       "en": "If when notice is given is after signup, consent is only formal.",
       "distractors": [
         "철회권",
-        "동의 철회",
-        "파생 데이터"
+        "노란색",
+        "편견"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22921,9 +22921,9 @@
       "de": "Nur der Fertig-Bildschirm ohne Widerrufsbeleg beweist nichts.",
       "en": "A done screen without a withdrawal receipt proves nothing.",
       "distractors": [
-        "철회권",
-        "동의 철회",
-        "파생 데이터"
+        "경쟁력",
+        "맥락",
+        "담론"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22952,8 +22952,8 @@
       "en": "Pressure to re-consent via a locked feature is not freedom.",
       "distractors": [
         "철회권",
-        "동의 철회",
-        "파생 데이터"
+        "동전",
+        "생선"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22966,9 +22966,9 @@
       "de": "Eine weite Halteausnahme locht das Widerrufsrecht.",
       "en": "A wide retention exception puts a hole in the right to withdraw.",
       "distractors": [
-        "고지 시점",
         "동의 철회",
-        "파생 데이터"
+        "파생 데이터",
+        "논리"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22981,9 +22981,9 @@
       "de": "Ist der Beendigungsweg nur das Telefon, hängt das Recht an der Uhrzeit.",
       "en": "If the exit path is phone-only, the right changes with the hour.",
       "distractors": [
-        "철회권",
         "동의 철회",
-        "파생 데이터"
+        "파생 데이터",
+        "역효과"
       ],
       "topic": "Widerrufsrecht"
     },
@@ -22998,7 +22998,7 @@
       "distractors": [
         "오류 비용",
         "피드백 왜곡",
-        "대리 변수"
+        "직업"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23013,7 +23013,7 @@
       "distractors": [
         "차등 영향",
         "피드백 왜곡",
-        "대리 변수"
+        "소개팅"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23028,7 +23028,7 @@
       "distractors": [
         "차등 영향",
         "오류 비용",
-        "대리 변수"
+        "지식"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23041,9 +23041,9 @@
       "de": "Nutzt das Ersatzmerkmal die Adresse, umgeht die Diskriminierung.",
       "en": "If the proxy feature uses address, discrimination takes a detour.",
       "distractors": [
-        "차등 영향",
-        "오류 비용",
-        "피드백 왜곡"
+        "임산부",
+        "현장접수",
+        "배정표"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23071,9 +23071,9 @@
       "de": "Liegt die Notsperre nur beim Entwicklerteam, fehlt öffentliche Kontrolle.",
       "en": "If the kill switch sits only with developers, there is no public control.",
       "distractors": [
-        "차등 영향",
-        "오류 비용",
-        "피드백 왜곡"
+        "발화",
+        "가설",
+        "맥락"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23086,9 +23086,9 @@
       "de": "Ist der Schadensweg ein Gutschein, wurde das Recht zum Preis.",
       "en": "If the remedy path is a coupon, a right was turned into a price.",
       "distractors": [
-        "차등 영향",
-        "오류 비용",
-        "피드백 왜곡"
+        "차례",
+        "제사",
+        "아니요"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23101,9 +23101,9 @@
       "de": "Beginnt der Ausrollbereich in verletzlichen Vierteln, wird das Experiment verschoben.",
       "en": "If rollout scope starts in vulnerable areas, the experiment is offloaded.",
       "distractors": [
-        "차등 영향",
-        "오류 비용",
-        "피드백 왜곡"
+        "보자기",
+        "트레이너",
+        "경제"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23146,9 +23146,9 @@
       "de": "Modellrückzug verkleide ich nicht als Versionswechsel.",
       "en": "I do not disguise model retirement as a version bump.",
       "distractors": [
-        "차등 영향",
-        "오류 비용",
-        "피드백 왜곡"
+        "단어",
+        "철자",
+        "코골이"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23507,8 +23507,8 @@
       "en": "Left as a recommendation rather than a duty, compliance drops.",
       "distractors": [
         "규제",
-        "상한",
-        "완화"
+        "완화",
+        "돌리고"
       ],
       "topic": "Regulierung & Nebenwirkung"
     },
@@ -23536,9 +23536,9 @@
       "de": "Die Übersetzung lief seit Langem als unbezahlte Arbeit.",
       "en": "Translation has long run as unpaid work.",
       "distractors": [
-        "자발성",
-        "헌신",
-        "분담"
+        "김치",
+        "창구",
+        "미안해요"
       ],
       "topic": "Fanarbeit & Belastung"
     },
@@ -23717,8 +23717,8 @@
       "en": "At the stage of anonymity there is little that can be checked.",
       "distractors": [
         "신원",
-        "노출",
-        "대면"
+        "대면",
+        "사람"
       ],
       "topic": "Sicherheit & Grenzen"
     },
@@ -23897,8 +23897,8 @@
       "en": "A meter malfunction billed three times the amount.",
       "distractors": [
         "시정",
-        "통보",
-        "유예"
+        "공원",
+        "연락"
       ],
       "topic": "Automatisierung & Rechtsweg"
     },
@@ -24511,9 +24511,9 @@
       "de": "Die Dauer der Aktivität hat sich zu einer Hierarchie verfestigt.",
       "en": "Seniority of activity has hardened into a hierarchy.",
       "distractors": [
-        "담론",
         "동조",
-        "배제"
+        "배제",
+        "철자"
       ],
       "topic": "Diskurs & Macht"
     },
@@ -24658,9 +24658,9 @@
       "de": "Bitte lassen Sie sich die Zusatzkosten vor Vertragsabschluss schriftlich bestätigen.",
       "en": "Please confirm the additional costs in writing before signing.",
       "distractors": [
-        "입주 날짜",
         "방문 시간",
-        "가구 배치"
+        "책방",
+        "바람"
       ],
       "topic": "Formelle Vereinbarungen",
       "sourceSeedId": "seed_batch17_b2_housing",
@@ -24700,9 +24700,9 @@
       "de": "Erfahrung außerhalb standardisierter Felder sollte mit Kontext und eigener Rolle erklärt werden.",
       "en": "Experience outside standard fields should be explained with context and role.",
       "distractors": [
-        "점수와 순위",
-        "학력과 나이",
-        "사진과 주소"
+        "서면",
+        "타협안",
+        "아침밥"
       ],
       "topic": "Beruf",
       "sourceSeedId": "seed_batch17_b2_work_ai",
@@ -24763,9 +24763,9 @@
       "de": "Wohnungsmangel und Unterstützung beim Ankommen hängen zusammen, sind aber nicht dasselbe Problem.",
       "en": "Housing shortages and settlement support are connected but are not the same issue.",
       "distractors": [
-        "같은 사람",
         "같은 언어",
-        "같은 직업"
+        "비누",
+        "뉘앙스"
       ],
       "topic": "Gesellschaft",
       "sourceSeedId": "seed_batch17_b2_migration_demography",
@@ -24784,9 +24784,9 @@
       "de": "Wer das Anerkennungsverfahren kennt, findet leichter eine Stelle passend zur Erfahrung.",
       "en": "Knowing the recognition process makes it easier to find work that matches one's experience.",
       "distractors": [
-        "주택 계약 기간",
         "통근 교통비",
-        "세대별 취향"
+        "봉투",
+        "왕비"
       ],
       "topic": "Gesellschaft",
       "sourceSeedId": "seed_batch17_b2_migration_demography",
@@ -24827,8 +24827,8 @@
       "en": "High short-form views do not automatically guarantee participation at the event.",
       "distractors": [
         "영상의 길이",
-        "노래의 후렴",
-        "자막의 색"
+        "밀가루",
+        "교수"
       ],
       "topic": "Lesen & Reaktionen",
       "sourceSeedId": "seed_batch17_b2_k_culture",
@@ -24847,9 +24847,9 @@
       "de": "Freiwillige Fanarbeit bleibt tragbar, wenn Zeit und Rollen vorher verteilt werden.",
       "en": "Fan volunteering stays sustainable when time and roles are divided in advance.",
       "distractors": [
-        "조회수와 순위",
         "음식과 음악",
-        "자막과 화면"
+        "자막과 화면",
+        "영향"
       ],
       "topic": "Lesen & Reaktionen",
       "sourceSeedId": "seed_batch17_b2_k_culture",
@@ -24891,7 +24891,7 @@
       "distractors": [
         "계약 기간",
         "방의 방향",
-        "입주 순서"
+        "딸"
       ],
       "topic": "Zugänglichkeit & Teilhabe",
       "sourceSeedId": "seed_batch17_c1_housing",
@@ -24910,9 +24910,9 @@
       "de": "Förderwirkung und Verwaltungsaufwand des Antrags müssen gemeinsam bewertet werden.",
       "en": "The effect of support and the administrative burden of applying must be evaluated together.",
       "distractors": [
-        "홍보 문구",
-        "통근 거리",
-        "가구 배치"
+        "방문증",
+        "통역",
+        "교육"
       ],
       "topic": "Zugänglichkeit & Teilhabe",
       "sourceSeedId": "seed_batch17_c1_housing",
@@ -24954,7 +24954,7 @@
       "distractors": [
         "같은 순위",
         "단일 점수",
-        "빠른 답장"
+        "학교"
       ],
       "topic": "Forschung & Evidenz",
       "sourceSeedId": "seed_batch17_c1_work_ai",
@@ -24973,9 +24973,9 @@
       "de": "Erst mit der Quote geänderter Ergebnisse lässt sich das Prüfverfahren bewerten.",
       "en": "The review process can only be evaluated if the rate of changed outcomes is disclosed.",
       "distractors": [
-        "지원자의 나이",
-        "면접실 위치",
-        "공고의 길이"
+        "의견",
+        "놀이공원",
+        "기간"
       ],
       "topic": "Forschung & Evidenz",
       "sourceSeedId": "seed_batch17_c1_work_ai",
@@ -25015,9 +25015,9 @@
       "de": "Bei später Anerkennung und Wohnhilfe lässt sich vorhandene Erfahrung schwer nutzen.",
       "en": "When recognition and housing support are delayed, existing experience is hard to use.",
       "distractors": [
-        "입국 통계",
         "세대 이름",
-        "광고 문구"
+        "음복",
+        "택배함"
       ],
       "topic": "Nachhaltige Entscheidungen vor Ort",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
@@ -25036,9 +25036,9 @@
       "de": "Erst mit regionalen Stellen und Unterstützungskapazitäten wird ein Ankommensplan realistisch.",
       "en": "A settlement plan is realistic only when regional jobs and support capacity are considered together.",
       "distractors": [
-        "공연 순서",
-        "월세 광고",
-        "면접 점수"
+        "부동산",
+        "여력",
+        "우체국"
       ],
       "topic": "Nachhaltige Entscheidungen vor Ort",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
@@ -25078,9 +25078,9 @@
       "de": "Wird Fan-Untertitelarbeit nur als kostenlose Werbung gezählt, verschwinden Arbeit und Verantwortung.",
       "en": "When fan subtitle work is counted only as free promotion, labor and responsibility disappear.",
       "distractors": [
-        "조회수와 순위",
         "노래와 음식",
-        "화면과 색상"
+        "화면과 색상",
+        "마감"
       ],
       "topic": "Fanarbeit & Belastung",
       "sourceSeedId": "seed_batch17_c1_k_culture",
@@ -25100,8 +25100,8 @@
       "en": "Scale of reach and sustainable participation need different indicators.",
       "distractors": [
         "하나의 순위",
-        "같은 자막",
-        "짧은 후렴"
+        "엄마",
+        "한계"
       ],
       "topic": "Fanarbeit & Belastung",
       "sourceSeedId": "seed_batch17_c1_k_culture",
@@ -25120,9 +25120,9 @@
       "de": "Bezahlbares Wohnen ist als Zustand definiert, der den Grundbedarf nicht verdrängt.",
       "en": "Affordable housing is defined as a condition that does not crowd out basic needs.",
       "distractors": [
-        "주거에 불과하면",
-        "주거를 전제로",
-        "주거라고 치더라도"
+        "오늘은",
+        "이 방은",
+        "딸은"
       ],
       "topic": "Framinganalyse",
       "sourceSeedId": "seed_batch17_c2_housing",
@@ -25162,9 +25162,9 @@
       "de": "Erst die Belastungsverteilung nach Einkommen zeigt, welche Unterschiede der Mittelwert verdeckt.",
       "en": "Publishing the burden distribution by income reveals differences hidden by the average.",
       "distractors": [
-        "광고의 색상",
-        "계약의 글꼴",
-        "회의의 순서"
+        "회의의 순서",
+        "말실수",
+        "계산대"
       ],
       "topic": "Framinganalyse",
       "sourceSeedId": "seed_batch17_c2_housing",
@@ -25205,8 +25205,8 @@
       "en": "The division of labor between company and vendor must not create an accountability gap.",
       "distractors": [
         "속도의 향상",
-        "광고의 효과",
-        "면접의 순서"
+        "뚜껑",
+        "의사결정권"
       ],
       "topic": "Technikethik & Verantwortung",
       "sourceSeedId": "seed_batch17_c2_work_ai",
@@ -25227,7 +25227,7 @@
       "distractors": [
         "받은 점수",
         "지원한 날짜",
-        "공고의 제목"
+        "집까지"
       ],
       "topic": "Technikethik & Verantwortung",
       "sourceSeedId": "seed_batch17_c2_work_ai",
@@ -25246,9 +25246,9 @@
       "de": "Die Beschäftigungsquote ist nichts weiter als ein Teilindikator der Arbeitsmarktteilhabe.",
       "en": "Employment rate is nothing more than one partial measure of labor-market participation.",
       "distractors": [
-        "지표라 함은",
-        "지표를 전제로",
-        "지표라고 치더라도"
+        "접근성도 함께 확보해야 합니다",
+        "죄송합니다",
+        "발언권은 보장해야 합니다"
       ],
       "topic": "Sprache, Deutung & Macht",
       "sourceSeedId": "seed_batch17_c2_migration_demography",
@@ -25288,9 +25288,9 @@
       "de": "Bei politischen Erfolgen müssen auch Entscheidungen und langfristiges Ankommen der Betroffenen zum Subjekt werden.",
       "en": "When describing policy success, the choices and long-term settlement of the people concerned must also become the subject.",
       "distractors": [
-        "정부의 홍보",
-        "기업의 점수",
-        "기사의 제목"
+        "기사의 제목",
+        "설빔",
+        "시댁"
       ],
       "topic": "Sprache, Deutung & Macht",
       "sourceSeedId": "seed_batch17_c2_migration_demography",
@@ -25352,8 +25352,8 @@
       "en": "Without questions about recommendation power and revenue distribution, the authenticity debate hides the relationships.",
       "distractors": [
         "후렴 반복",
-        "자막 속도",
-        "의상 색상"
+        "의상 색상",
+        "아홉"
       ],
       "topic": "Diskurs & Macht",
       "sourceSeedId": "seed_batch17_c2_k_culture",
@@ -25612,9 +25612,9 @@
       "de": "Wer die Durchschnittsmiete nennt, muss auch die Grenzen der Kennzahl und den Erhebungsbereich offenlegen.",
       "en": "When citing average rent, you should also state the limits of the indicator and the survey scope.",
       "distractors": [
-        "표본 구성",
         "이해관계자",
-        "제도 접근성"
+        "무료",
+        "아니요"
       ],
       "topic": "Gesellschaft im Wandel",
       "sourceSeedId": "seed_batch18_c1_housing",
@@ -25692,9 +25692,9 @@
       "de": "Vor einer Regeländerung sollten sowohl Bewerbende als auch Personalverantwortliche als Interessengruppen einbezogen werden.",
       "en": "Before changing the system, applicants and hiring staff should both be included as stakeholders.",
       "distractors": [
-        "보완책",
-        "돌봄 공백",
-        "맥락 번역"
+        "집까지",
+        "제산제",
+        "부스"
       ],
       "topic": "Gesellschaft im Wandel",
       "sourceSeedId": "seed_batch18_c1_work_ai",
@@ -25813,8 +25813,8 @@
       "en": "When fan subtitles remain unpaid labor, both quality and sustainability suffer.",
       "distractors": [
         "맥락 번역",
-        "인과관계",
-        "보완책"
+        "보완책",
+        "오른쪽"
       ],
       "topic": "Gesellschaft im Wandel",
       "sourceSeedId": "seed_batch18_c1_k_culture",
@@ -26094,8 +26094,8 @@
       "en": "I greet the teacher politely in the morning.",
       "distractors": [
         "안녕",
-        "고마워",
-        "잘 자"
+        "꼭 오세요",
+        "적어 주세요"
       ],
       "courseUnitId": "a1_01_greetings_hangul",
       "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
@@ -26331,9 +26331,9 @@
       "de": "Ich bin Studentin.",
       "en": "I am a student.",
       "distractors": [
-        "제가",
-        "저를",
-        "저에게"
+        "커피는",
+        "날씨는",
+        "절하는"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26348,9 +26348,9 @@
       "de": "Mein Freund arbeitet in einer Firma.",
       "en": "My friend is an office worker.",
       "distractors": [
-        "제 친구가",
-        "제 친구를",
-        "제 친구와"
+        "커피는",
+        "날씨는",
+        "절하는"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26365,9 +26365,9 @@
       "de": "Heute ist Montag.",
       "en": "Today is Monday.",
       "distractors": [
-        "오늘이",
-        "오늘을",
-        "오늘에서"
+        "내일은",
+        "제 성은",
+        "같은"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26382,9 +26382,9 @@
       "de": "Mein Nachname ist Park.",
       "en": "My family name is Park.",
       "distractors": [
-        "제 성이",
-        "제 성을",
-        "제 성도"
+        "오늘은",
+        "딸은",
+        "같은"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26416,7 +26416,7 @@
       "de": "Ich bin Sujin.",
       "en": "I'm Sujin.",
       "distractors": [
-        "저는",
+        "날씨는",
         "저를",
         "저도"
       ],
@@ -26450,9 +26450,9 @@
       "de": "Das Buch liegt auf dem Schreibtisch.",
       "en": "The book is on the desk.",
       "distractors": [
-        "책은",
-        "책을",
-        "책에"
+        "가방이",
+        "친구가",
+        "우산이"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26467,9 +26467,9 @@
       "de": "Kaffee mag ich, aber Tee trinke ich nicht.",
       "en": "I like coffee, but I don't drink tea.",
       "distractors": [
-        "커피가",
-        "커피를",
-        "커피와"
+        "절하는",
+        "날씨는",
+        "사진은"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -26502,8 +26502,8 @@
       "en": "Sorry, please say that again.",
       "distractors": [
         "빨리",
-        "조용히",
-        "먼저"
+        "좀",
+        "다"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -26603,9 +26603,9 @@
       "de": "Soll ich hier warten?",
       "en": "Shall I wait here?",
       "distractors": [
-        "어제부터",
-        "친구하고",
-        "세 개를"
+        "덕담에서",
+        "침대에서",
+        "영어에서"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -26688,9 +26688,9 @@
       "de": "Bitte geben Sie mir den Kassenbon.",
       "en": "Please give me the receipt.",
       "distractors": [
-        "메뉴",
-        "주소",
-        "가방"
+        "가방",
+        "출발",
+        "발음"
       ],
       "courseUnitId": "a1_14_payment_delivery",
       "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
@@ -26774,8 +26774,8 @@
       "en": "Please say the order number again.",
       "distractors": [
         "배달비",
-        "도착 시간",
-        "카드 이름"
+        "순서",
+        "친구"
       ],
       "courseUnitId": "a1_14_payment_delivery",
       "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
@@ -26790,9 +26790,9 @@
       "de": "Kann ich diesen Gutschein verwenden?",
       "en": "Can I use this coupon?",
       "distractors": [
-        "주소",
-        "봉투",
-        "영수증"
+        "영수증",
+        "오른쪽",
+        "왼쪽"
       ],
       "courseUnitId": "a1_14_payment_delivery",
       "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
@@ -27148,8 +27148,8 @@
       "en": "If this week is difficult, how about next week?",
       "distractors": [
         "지난주",
-        "매일",
-        "지금까지"
+        "지금까지",
+        "소포"
       ],
       "courseUnitId": "a2_02_plans_proposals",
       "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
@@ -27385,9 +27385,9 @@
       "de": "In den Bewerbungsvoraussetzungen steht die nötige Berufserfahrung.",
       "en": "The required experience is listed in the eligibility requirements.",
       "distractors": [
-        "관련 경력",
-        "면접 일정",
-        "근무 조건"
+        "균형",
+        "가능성",
+        "경우"
       ],
       "courseUnitId": "b1_03_work_softening",
       "sourceSeedId": "seed_batch20_b1_work_entry_2026"
@@ -27840,9 +27840,9 @@
       "de": "Koreanisch ist schwer, aber es macht Spaß.",
       "en": "Korean is hard, but it's fun.",
       "distractors": [
-        "나이",
-        "나라",
-        "커피"
+        "뒤",
+        "사",
+        "구"
       ],
       "courseUnitId": "a1_02_self_intro_identity"
     },
@@ -28000,9 +28000,9 @@
       "de": "Der Koreanischunterricht ist am Montag.",
       "en": "Korean class is on Monday.",
       "distractors": [
-        "책상",
-        "연필",
-        "집"
+        "집",
+        "칠",
+        "왼쪽"
       ],
       "courseUnitId": "a1_15_first_class_work"
     },
@@ -28080,9 +28080,9 @@
       "de": "Ich schreibe meinen Namen mit Bleistift.",
       "en": "I write my name with a pencil.",
       "distractors": [
-        "사과",
         "지하철",
-        "커피"
+        "열",
+        "귤"
       ],
       "courseUnitId": "a1_15_first_class_work"
     },
@@ -28224,9 +28224,9 @@
       "de": "Ich fahre mit dem Auto zur Arbeit.",
       "en": "I go to work by car.",
       "distractors": [
-        "과일",
-        "정류장",
-        "떡국"
+        "어머니",
+        "귀",
+        "초"
       ],
       "courseUnitId": "a1_06_transport_directions"
     },
@@ -29056,9 +29056,9 @@
       "de": "Auch Glück ist ein wichtiger Faktor für den Erfolg.",
       "en": "Luck is also an important factor in success.",
       "distractors": [
-        "애인",
-        "타협안",
-        "형광등"
+        "인사",
+        "세배",
+        "정치"
       ],
       "courseUnitId": "b2_02_professional_opinion"
     },
@@ -29283,9 +29283,9 @@
       "de": "Am Morgen trinke ich Milch.",
       "en": "I drink milk in the morning.",
       "distractors": [
-        "늦게",
-        "다시",
-        "가게"
+        "가게",
+        "날짜",
+        "네"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0463",
@@ -29301,7 +29301,7 @@
       "en": "I like tangerines.",
       "distractors": [
         "가다",
-        "쓰다",
+        "먹다",
         "에서"
       ],
       "topic": "Essen & Trinken",
@@ -29317,9 +29317,9 @@
       "de": "Ich mag Bananen.",
       "en": "I like bananas.",
       "distractors": [
-        "귀",
-        "나라",
-        "자주"
+        "이",
+        "사",
+        "오"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0465",
@@ -29334,9 +29334,9 @@
       "de": "Am Geburtstag isst man Kuchen.",
       "en": "We eat cake on birthdays.",
       "distractors": [
-        "작다",
         "안녕하세요",
-        "짧다"
+        "언니",
+        "한국어"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0466",
@@ -29351,9 +29351,9 @@
       "de": "Wir treffen uns übermorgen wieder.",
       "en": "Let's meet again the day after tomorrow.",
       "distractors": [
-        "밑반찬",
-        "연습",
-        "책상"
+        "더",
+        "천천히",
+        "함께"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0467",
@@ -29368,9 +29368,9 @@
       "de": "Vorgestern bin ich nicht zur Schule gegangen.",
       "en": "I didn't go to school the day before yesterday.",
       "distractors": [
-        "입구",
-        "미안해요",
-        "책상"
+        "다",
+        "다시",
+        "별로"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0468",
@@ -29470,9 +29470,9 @@
       "de": "Aus welchem Land kommen Sie?",
       "en": "Which country are you from?",
       "distractors": [
-        "학생",
-        "댁에",
-        "아내"
+        "맛있다",
+        "짧다",
+        "싫어하다"
       ],
       "topic": "Menge",
       "sourceVocabId": "vocab_a1_0474",
@@ -29487,9 +29487,9 @@
       "de": "Ich gehe später zur Schule.",
       "en": "I'll go to school later.",
       "distractors": [
-        "책",
-        "공원",
-        "몸"
+        "좀",
+        "함께",
+        "다"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0475",
@@ -29504,9 +29504,9 @@
       "de": "Ich gehe jetzt sofort.",
       "en": "I'm going right now.",
       "distractors": [
-        "천만에요",
-        "장인어른",
-        "젓가락질"
+        "더",
+        "가끔",
+        "진짜"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0476",
@@ -29521,9 +29521,9 @@
       "de": "Ich trinke morgens meistens Kaffee.",
       "en": "I usually drink coffee in the morning.",
       "distractors": [
-        "오다",
-        "국물",
-        "죄송하다"
+        "항상",
+        "별로",
+        "빨리"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0477",
@@ -29538,9 +29538,9 @@
       "de": "Herzlich willkommen in unserem Geschäft!",
       "en": "Welcome to our shop!",
       "distractors": [
-        "차례상",
-        "있다",
-        "외국인"
+        "자주",
+        "꼭",
+        "가끔"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0478",
@@ -29572,9 +29572,9 @@
       "de": "Na ja, ich weiß es auch nicht.",
       "en": "Well... I don't know either.",
       "distractors": [
-        "오다",
-        "쓰다",
-        "보다"
+        "사귀었어요",
+        "안녕히 가세요",
+        "안녕하세요"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0480",
@@ -29674,9 +29674,9 @@
       "de": "Lass uns zusammen gehen.",
       "en": "Let's go together.",
       "distractors": [
-        "화이팅",
-        "시끄럽다",
-        "싫어하다"
+        "그저께",
+        "잠깐",
+        "바로"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0486",
@@ -29743,8 +29743,8 @@
       "en": "The coffee at this shop is delicious.",
       "distractors": [
         "인사드리겠습니다",
-        "다시",
-        "조용하다"
+        "채소",
+        "사과"
       ],
       "topic": "결제와 배달",
       "sourceVocabId": "vocab_a1_0490",
@@ -29793,9 +29793,9 @@
       "de": "Hallo, ich bin Christian.",
       "en": "Hello, this is Christian.",
       "distractors": [
-        "길다",
-        "침대",
-        "내일"
+        "적어 주세요",
+        "미리 연락하세요",
+        "확인해 주세요"
       ],
       "topic": "Begrüßung",
       "sourceVocabId": "vocab_a1_0493",
@@ -29827,9 +29827,9 @@
       "de": "Heute habe ich eine Mütze getragen.",
       "en": "Today I wore a hat.",
       "distractors": [
-        "기다리다",
-        "늦게",
-        "어렵다"
+        "우유",
+        "할아버지",
+        "세배"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0495",
@@ -29878,9 +29878,9 @@
       "de": "Mein Opa liest Zeitung.",
       "en": "My grandfather reads the newspaper.",
       "distractors": [
-        "죄송하다",
         "창구",
-        "가다"
+        "별말씀을요",
+        "번호"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0498",
@@ -29946,9 +29946,9 @@
       "de": "Orangensaft ist lecker.",
       "en": "Orange juice is delicious.",
       "distractors": [
-        "부탁하다",
-        "듣다",
-        "나"
+        "이",
+        "아래",
+        "구"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0502",
@@ -29997,9 +29997,9 @@
       "de": "Welches Datum ist heute?",
       "en": "What's today's date?",
       "distractors": [
-        "맛있다",
-        "별로",
-        "졸업하다"
+        "바나나",
+        "뒤",
+        "와"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0505",
@@ -30065,9 +30065,9 @@
       "de": "Ich habe ein Buch dabei.",
       "en": "I have a book with me.",
       "distractors": [
-        "미안해요",
-        "모든",
-        "절하다"
+        "절하다",
+        "타고",
+        "싸고"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0509",
