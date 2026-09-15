@@ -269,9 +269,9 @@
     {
       "id": "satz_a1_0457",
       "level": "a1",
-      "targetKo": "혹시 중국 사람이세요?",
-      "promptDe": "Sind Sie zufällig aus China?",
-      "promptEn": "Are you by any chance from China?",
+      "targetKo": "다니엘 씨, 중국 사람이세요?",
+      "promptDe": "Daniel, sind Sie aus China?",
+      "promptEn": "Daniel, are you Chinese?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -283,9 +283,9 @@
     {
       "id": "satz_a1_0458",
       "level": "a1",
-      "targetKo": "혹시 영국에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus England?",
-      "promptEn": "Did you by any chance come from England?",
+      "targetKo": "민호 씨, 영국에서 오셨어요?",
+      "promptDe": "Minho, kommen Sie aus England?",
+      "promptEn": "Minho, are you from England?",
       "distractors": [
         "책",
         "물건"
@@ -311,9 +311,9 @@
     {
       "id": "satz_a1_0460",
       "level": "a1",
-      "targetKo": "혹시 러시아에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus Russland?",
-      "promptEn": "Did you by any chance come from Russia?",
+      "targetKo": "안드레아 씨, 러시아에서 오셨어요?",
+      "promptDe": "Andrea, kommen Sie aus Russland?",
+      "promptEn": "Andrea, are you from Russia?",
       "distractors": [
         "바나나",
         "우유"
@@ -381,9 +381,9 @@
     {
       "id": "satz_a1_0465",
       "level": "a1",
-      "targetKo": "혹시 말레이시아에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus Malaysia?",
-      "promptEn": "Did you by any chance come from Malaysia?",
+      "targetKo": "저기, 말레이시아에서 오셨어요?",
+      "promptDe": "Entschuldigung, kommen Sie aus Malaysia?",
+      "promptEn": "Excuse me, are you from Malaysia?",
       "distractors": [
         "밤",
         "생일"
@@ -437,9 +437,9 @@
     {
       "id": "satz_a1_0469",
       "level": "a1",
-      "targetKo": "혹시 야구 좋아하세요?",
-      "promptDe": "Mögen Sie zufällig Baseball?",
-      "promptEn": "Do you by any chance like baseball?",
+      "targetKo": "주말에 야구 좋아하세요?",
+      "promptDe": "Mögen Sie am Wochenende Baseball?",
+      "promptEn": "Do you like baseball on weekends?",
       "distractors": [
         "안경",
         "모자"
@@ -633,9 +633,9 @@
     {
       "id": "satz_a1_0483",
       "level": "a1",
-      "targetKo": "혹시 된장찌개를 좋아하세요?",
-      "promptDe": "Mögen Sie zufällig Doenjang-Eintopf?",
-      "promptEn": "Do you by any chance like doenjang stew?",
+      "targetKo": "현아 씨, 된장찌개를 좋아하세요?",
+      "promptDe": "Hyuna, mögen Sie Doenjang-Eintopf?",
+      "promptEn": "Hyuna, do you like doenjang stew?",
       "distractors": [
         "신발",
         "핸드폰"

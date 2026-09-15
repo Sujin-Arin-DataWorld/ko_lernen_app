@@ -30921,9 +30921,9 @@
     {
       "id": "satz_a1_0457",
       "level": "a1",
-      "targetKo": "혹시 중국 사람이세요?",
-      "promptDe": "Sind Sie zufällig aus China?",
-      "promptEn": "Are you by any chance from China?",
+      "targetKo": "다니엘 씨, 중국 사람이세요?",
+      "promptDe": "Daniel, sind Sie aus China?",
+      "promptEn": "Daniel, are you Chinese?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -30935,9 +30935,9 @@
     {
       "id": "satz_a1_0458",
       "level": "a1",
-      "targetKo": "혹시 영국에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus England?",
-      "promptEn": "Did you by any chance come from England?",
+      "targetKo": "민호 씨, 영국에서 오셨어요?",
+      "promptDe": "Minho, kommen Sie aus England?",
+      "promptEn": "Minho, are you from England?",
       "distractors": [
         "책",
         "물건"
@@ -30963,9 +30963,9 @@
     {
       "id": "satz_a1_0460",
       "level": "a1",
-      "targetKo": "혹시 러시아에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus Russland?",
-      "promptEn": "Did you by any chance come from Russia?",
+      "targetKo": "안드레아 씨, 러시아에서 오셨어요?",
+      "promptDe": "Andrea, kommen Sie aus Russland?",
+      "promptEn": "Andrea, are you from Russia?",
       "distractors": [
         "바나나",
         "우유"
@@ -31033,9 +31033,9 @@
     {
       "id": "satz_a1_0465",
       "level": "a1",
-      "targetKo": "혹시 말레이시아에서 오셨어요?",
-      "promptDe": "Kommen Sie zufällig aus Malaysia?",
-      "promptEn": "Did you by any chance come from Malaysia?",
+      "targetKo": "저기, 말레이시아에서 오셨어요?",
+      "promptDe": "Entschuldigung, kommen Sie aus Malaysia?",
+      "promptEn": "Excuse me, are you from Malaysia?",
       "distractors": [
         "밤",
         "생일"
@@ -31089,9 +31089,9 @@
     {
       "id": "satz_a1_0469",
       "level": "a1",
-      "targetKo": "혹시 야구 좋아하세요?",
-      "promptDe": "Mögen Sie zufällig Baseball?",
-      "promptEn": "Do you by any chance like baseball?",
+      "targetKo": "주말에 야구 좋아하세요?",
+      "promptDe": "Mögen Sie am Wochenende Baseball?",
+      "promptEn": "Do you like baseball on weekends?",
       "distractors": [
         "안경",
         "모자"
@@ -31285,9 +31285,9 @@
     {
       "id": "satz_a1_0483",
       "level": "a1",
-      "targetKo": "혹시 된장찌개를 좋아하세요?",
-      "promptDe": "Mögen Sie zufällig Doenjang-Eintopf?",
-      "promptEn": "Do you by any chance like doenjang stew?",
+      "targetKo": "현아 씨, 된장찌개를 좋아하세요?",
+      "promptDe": "Hyuna, mögen Sie Doenjang-Eintopf?",
+      "promptEn": "Hyuna, do you like doenjang stew?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -31971,9 +31971,9 @@
     {
       "id": "satz_a1_0532",
       "level": "a1",
-      "targetKo": "우리 나중에 이야기해요.",
-      "promptDe": "Wir reden später.",
-      "promptEn": "Let's talk later.",
+      "targetKo": "민호 씨, 나중에 이야기해요.",
+      "promptDe": "Minho, wir reden später.",
+      "promptEn": "Minho, we'll talk later.",
       "distractors": [
         "유명",
         "대답"
@@ -31999,9 +31999,9 @@
     {
       "id": "satz_a1_0534",
       "level": "a1",
-      "targetKo": "저는 오전에 운동해요.",
-      "promptDe": "Ich mache am Vormittag Sport.",
-      "promptEn": "I exercise in the morning.",
+      "targetKo": "오전에 공원에서 운동해요.",
+      "promptDe": "Ich mache am Vormittag im Park Sport.",
+      "promptEn": "I exercise in the park in the morning.",
       "distractors": [
         "가방",
         "볼펜"
@@ -32041,9 +32041,9 @@
     {
       "id": "satz_a1_0537",
       "level": "a1",
-      "targetKo": "저는 지난달에 바빴어요.",
-      "promptDe": "Letzten Monat war ich beschäftigt.",
-      "promptEn": "I was busy last month.",
+      "targetKo": "정말 지난달에 바빴어요.",
+      "promptDe": "Ich war letzten Monat wirklich beschäftigt.",
+      "promptEn": "I was really busy last month.",
       "distractors": [
         "운동화",
         "잔"
@@ -32055,9 +32055,9 @@
     {
       "id": "satz_a1_0538",
       "level": "a1",
-      "targetKo": "저는 지난주에 아팠어요.",
-      "promptDe": "Letzte Woche war ich krank.",
-      "promptEn": "I was sick last week.",
+      "targetKo": "선생님, 지난주에 아팠어요.",
+      "promptDe": "Lehrer, ich war letzte Woche krank.",
+      "promptEn": "Teacher, I was sick last week.",
       "distractors": [
         "표",
         "신문"
@@ -32349,9 +32349,9 @@
     {
       "id": "satz_a1_0559",
       "level": "a1",
-      "targetKo": "정말 너무 감사해요.",
-      "promptDe": "Ich bin wirklich sehr dankbar.",
-      "promptEn": "I'm really so grateful.",
+      "targetKo": "선생님, 정말 감사해요.",
+      "promptDe": "Lehrer, vielen Dank.",
+      "promptEn": "Teacher, thank you very much.",
       "distractors": [
         "아기",
         "아이"
@@ -32503,9 +32503,9 @@
     {
       "id": "satz_a1_0570",
       "level": "a1",
-      "targetKo": "저는 아침에 샤워해요.",
-      "promptDe": "Ich dusche am Morgen.",
-      "promptEn": "I take a shower in the morning.",
+      "targetKo": "아침에 먼저 샤워해요.",
+      "promptDe": "Ich dusche morgens zuerst.",
+      "promptEn": "I shower first in the morning.",
       "distractors": [
         "곳",
         "월"
@@ -32517,9 +32517,9 @@
     {
       "id": "satz_a1_0571",
       "level": "a1",
-      "targetKo": "저는 매일 세수해요.",
-      "promptDe": "Ich wasche mir jeden Tag das Gesicht.",
-      "promptEn": "I wash my face every day.",
+      "targetKo": "매일 아침 세수해요.",
+      "promptDe": "Ich wasche mir jeden Morgen das Gesicht.",
+      "promptEn": "I wash my face every morning.",
       "distractors": [
         "달",
         "교통"
@@ -32601,9 +32601,9 @@
     {
       "id": "satz_a1_0577",
       "level": "a1",
-      "targetKo": "저는 가족과 식사해요.",
-      "promptDe": "Ich esse mit der Familie.",
-      "promptEn": "I have a meal with my family.",
+      "targetKo": "주말에 가족과 식사해요.",
+      "promptDe": "Ich esse am Wochenende mit der Familie.",
+      "promptEn": "I have a meal with my family on weekends.",
       "distractors": [
         "월",
         "종업원"
@@ -32643,9 +32643,9 @@
     {
       "id": "satz_a1_0580",
       "level": "a1",
-      "targetKo": "저는 컴퓨터를 사용해요.",
-      "promptDe": "Ich benutze den Computer.",
-      "promptEn": "I use the computer.",
+      "targetKo": "회사에서 컴퓨터를 사용해요.",
+      "promptDe": "Ich benutze im Büro den Computer.",
+      "promptEn": "I use the computer at the office.",
       "distractors": [
         "달",
         "종업원"
@@ -32657,9 +32657,9 @@
     {
       "id": "satz_a1_0581",
       "level": "a1",
-      "targetKo": "저는 친구한테 부탁해요.",
-      "promptDe": "Ich bitte einen Freund um einen Gefallen.",
-      "promptEn": "I ask a friend for a favor.",
+      "targetKo": "오늘 친구한테 부탁해요.",
+      "promptDe": "Ich bitte heute einen Freund um einen Gefallen.",
+      "promptEn": "I ask a friend for a favor today.",
       "distractors": [
         "키",
         "안내"
@@ -33077,9 +33077,9 @@
     {
       "id": "satz_a1_0611",
       "level": "a1",
-      "targetKo": "이 종업원이 친절해요.",
-      "promptDe": "Diese Bedienung ist freundlich.",
-      "promptEn": "This staff member is kind.",
+      "targetKo": "여기 종업원이 친절해요.",
+      "promptDe": "Hier ist die Bedienung freundlich.",
+      "promptEn": "The staff here is kind.",
       "distractors": [
         "곳",
         "직원"
@@ -33161,9 +33161,9 @@
     {
       "id": "satz_a1_0617",
       "level": "a1",
-      "targetKo": "저는 친구랑 이야기해요.",
-      "promptDe": "Ich unterhalte mich mit einem Freund.",
-      "promptEn": "I talk with a friend.",
+      "targetKo": "레나 씨, 친구랑 이야기해요?",
+      "promptDe": "Lena, unterhältst du dich mit einem Freund?",
+      "promptEn": "Lena, are you talking with a friend?",
       "distractors": [
         "곳",
         "키"
@@ -33259,9 +33259,9 @@
     {
       "id": "satz_a1_0624",
       "level": "a1",
-      "targetKo": "저는 주말에 쇼핑해요.",
-      "promptDe": "Ich gehe am Wochenende einkaufen.",
-      "promptEn": "I go shopping on the weekend.",
+      "targetKo": "이번 주말에 쇼핑해요.",
+      "promptDe": "Ich gehe dieses Wochenende einkaufen.",
+      "promptEn": "I'm going shopping this weekend.",
       "distractors": [
         "곳",
         "직원"
@@ -33287,9 +33287,9 @@
     {
       "id": "satz_a1_0626",
       "level": "a1",
-      "targetKo": "저는 요즘 바빠요.",
-      "promptDe": "Ich bin heutzutage beschäftigt.",
-      "promptEn": "I'm busy these days.",
+      "targetKo": "요즘 일이 바빠요.",
+      "promptDe": "Zurzeit ist die Arbeit stressig.",
+      "promptEn": "Work is busy these days.",
       "distractors": [
         "곳",
         "종업원"

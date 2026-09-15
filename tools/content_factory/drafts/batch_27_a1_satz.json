@@ -395,9 +395,9 @@
     {
       "id": "satz_a1_0532",
       "level": "a1",
-      "targetKo": "우리 나중에 이야기해요.",
-      "promptDe": "Wir reden später.",
-      "promptEn": "Let's talk later.",
+      "targetKo": "민호 씨, 나중에 이야기해요.",
+      "promptDe": "Minho, wir reden später.",
+      "promptEn": "Minho, we'll talk later.",
       "distractors": [
         "유명",
         "대답"
@@ -423,9 +423,9 @@
     {
       "id": "satz_a1_0534",
       "level": "a1",
-      "targetKo": "저는 오전에 운동해요.",
-      "promptDe": "Ich mache am Vormittag Sport.",
-      "promptEn": "I exercise in the morning.",
+      "targetKo": "오전에 공원에서 운동해요.",
+      "promptDe": "Ich mache am Vormittag im Park Sport.",
+      "promptEn": "I exercise in the park in the morning.",
       "distractors": [
         "가방",
         "볼펜"
@@ -465,9 +465,9 @@
     {
       "id": "satz_a1_0537",
       "level": "a1",
-      "targetKo": "저는 지난달에 바빴어요.",
-      "promptDe": "Letzten Monat war ich beschäftigt.",
-      "promptEn": "I was busy last month.",
+      "targetKo": "정말 지난달에 바빴어요.",
+      "promptDe": "Ich war letzten Monat wirklich beschäftigt.",
+      "promptEn": "I was really busy last month.",
       "distractors": [
         "운동화",
         "잔"
@@ -479,9 +479,9 @@
     {
       "id": "satz_a1_0538",
       "level": "a1",
-      "targetKo": "저는 지난주에 아팠어요.",
-      "promptDe": "Letzte Woche war ich krank.",
-      "promptEn": "I was sick last week.",
+      "targetKo": "선생님, 지난주에 아팠어요.",
+      "promptDe": "Lehrer, ich war letzte Woche krank.",
+      "promptEn": "Teacher, I was sick last week.",
       "distractors": [
         "표",
         "신문"
@@ -773,9 +773,9 @@
     {
       "id": "satz_a1_0559",
       "level": "a1",
-      "targetKo": "정말 너무 감사해요.",
-      "promptDe": "Ich bin wirklich sehr dankbar.",
-      "promptEn": "I'm really so grateful.",
+      "targetKo": "선생님, 정말 감사해요.",
+      "promptDe": "Lehrer, vielen Dank.",
+      "promptEn": "Teacher, thank you very much.",
       "distractors": [
         "아기",
         "아이"

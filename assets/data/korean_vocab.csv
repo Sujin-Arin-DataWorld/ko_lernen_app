@@ -2656,13 +2656,13 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 건너편,geonneopyeon,gegenüberliegende Seite,A1,Nomen,은행이 건너편에 있어요.,Die Bank ist auf der gegenüberliegenden Seite.,도시 생활,a1_places_buildings_1,11,true,opposite side,Noun,The bank is on the opposite side.,vocab_a1_0614
 층,cheung,"Stock, Etage",A1,Nomen,가게가 이 층에 있어요. 이거 예뻐요!,Der Laden ist auf dieser Etage. Das hier ist schön!,도시 생활,a1_places_buildings_1,12,true,"floor, story",Noun,The shop is on this floor. This is pretty!,vocab_a1_0615
 다음,daeum,nächst-,A1,Nomen,다음 주에 만나요.,Wir treffen uns nächste Woche.,Zeit,a1_time_expressions_1,1,false,next,Noun,See you next week.,vocab_a1_0616
-나중,najung,später,A1,Nomen,우리 나중에 이야기해요.,Wir reden später.,Zeit,a1_time_expressions_1,2,false,later,Noun,Let's talk later.,vocab_a1_0617
+나중,najung,später,A1,Nomen,"민호 씨, 나중에 이야기해요.","Minho, wir reden später.",Zeit,a1_time_expressions_1,2,false,later,Noun,"Minho, we'll talk later.",vocab_a1_0617
 동안,dongan,"während, für (Dauer)",A1,Nomen,방학 동안 뭐 해요?,Was machst du während der Ferien?,Zeit,a1_time_expressions_1,3,false,"during, for (duration)",Noun,What do you do during the vacation?,vocab_a1_0618
-오전,ojeon,Vormittag,A1,Nomen,저는 오전에 운동해요.,Ich mache am Vormittag Sport.,Zeit,a1_time_expressions_1,4,false,"morning, AM",Noun,I exercise in the morning.,vocab_a1_0619
+오전,ojeon,Vormittag,A1,Nomen,오전에 공원에서 운동해요.,Ich mache am Vormittag im Park Sport.,Zeit,a1_time_expressions_1,4,false,"morning, AM",Noun,I exercise in the park in the morning.,vocab_a1_0619
 오후,ohu,Nachmittag,A1,Nomen,저는 오후에 산책해요.,Ich mache am Nachmittag einen Spaziergang.,Zeit,a1_time_expressions_1,5,false,"afternoon, PM",Noun,I go for a walk in the afternoon.,vocab_a1_0620
 이번,ibeon,"dieses-, jetzig-",A1,Nomen,이번 달에 바빠요.,Diesen Monat bin ich beschäftigt.,Zeit,a1_time_expressions_1,6,false,this (upcoming),Noun,I'm busy this month.,vocab_a1_0621
-지난달,jinandal,letzten Monat,A1,Nomen,저는 지난달에 바빴어요.,Letzten Monat war ich beschäftigt.,Zeit,a1_time_expressions_1,7,false,last month,Noun,I was busy last month.,vocab_a1_0622
-지난주,jinanju,letzte Woche,A1,Nomen,저는 지난주에 아팠어요.,Letzte Woche war ich krank.,Zeit,a1_time_expressions_1,8,false,last week,Noun,I was sick last week.,vocab_a1_0623
+지난달,jinandal,letzten Monat,A1,Nomen,정말 지난달에 바빴어요.,Ich war letzten Monat wirklich beschäftigt.,Zeit,a1_time_expressions_1,7,false,last month,Noun,I was really busy last month.,vocab_a1_0622
+지난주,jinanju,letzte Woche,A1,Nomen,"선생님, 지난주에 아팠어요.","Lehrer, ich war letzte Woche krank.",Zeit,a1_time_expressions_1,8,false,last week,Noun,"Teacher, I was sick last week.",vocab_a1_0623
 지난해,jinanhae,letztes Jahr,A1,Nomen,우리 지난해에 만났어요.,Wir haben uns letztes Jahr kennengelernt.,Zeit,a1_time_expressions_1,9,false,last year,Noun,We met last year.,vocab_a1_0624
 일주일,iljuil,eine Woche,A1,Nomen,일주일 동안 여행해요.,Ich reise eine Woche lang.,Zeit,a1_time_expressions_1,10,false,one week,Noun,I travel for one week.,vocab_a1_0625
 하루,haru,ein Tag,A1,Nomen,오늘 하루 정말 피곤해요.,Heute bin ich den ganzen Tag wirklich müde.,Zeit,a1_time_expressions_1,11,true,one day,Noun,I'm really tired all day today.,vocab_a1_0626
@@ -2683,7 +2683,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 마음,maeum,"Herz, Gemüt",A1,Nomen,오늘 마음이 아파요.,Mein Herz tut heute weh.,Gefühle,a1_feelings_talk_1,2,false,"heart, mind",Noun,My heart aches today.,vocab_a1_0641
 사랑,sarang,Liebe,A1,Nomen,저는 수진 씨를 사랑해요.,Ich liebe Sujin.,Gefühle,a1_feelings_talk_1,3,false,love,Noun,I love Sujin.,vocab_a1_0642
 피곤,pigon,Müdigkeit,A1,Nomen,저는 오늘 정말 피곤해요.,Ich bin heute wirklich müde.,Gefühle,a1_feelings_talk_1,4,false,tiredness,Noun,I'm really tired today.,vocab_a1_0643
-감사,gamsa,Dank,A1,Nomen,정말 너무 감사해요.,Ich bin wirklich sehr dankbar.,Höflichkeit,a1_feelings_talk_1,5,false,"gratitude, thanks",Noun,I'm really so grateful.,vocab_a1_0644
+감사,gamsa,Dank,A1,Nomen,"선생님, 정말 감사해요.","Lehrer, vielen Dank.",Höflichkeit,a1_feelings_talk_1,5,false,"gratitude, thanks",Noun,"Teacher, thank you very much.",vocab_a1_0644
 미안,mian,Entschuldigung (Gefühl),A1,Nomen,"미안해요, 정말 늦었어요.","Entschuldigung, ich bin wirklich zu spät.",Höflichkeit,a1_feelings_talk_1,6,false,sorry (feeling),Noun,"Sorry, I'm really late.",vocab_a1_0645
 친절,chinjeol,Freundlichkeit,A1,Nomen,선생님이 정말 친절해요.,Der Lehrer ist wirklich freundlich.,Höflichkeit,a1_feelings_talk_1,7,false,kindness,Noun,The teacher is really kind.,vocab_a1_0646
 실례,sillye,Verzeihung,A1,Nomen,실례합니다. 화장실이 어디예요?,Entschuldigung. Wo ist die Toilette?,Höflichkeit,a1_feelings_talk_1,8,false,excuse me,Noun,Excuse me. Where is the restroom?,vocab_a1_0647
@@ -2694,18 +2694,18 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 늦다,neutda,"zu spät sein, sich verspäten",A1,Verb,"미안해요, 버스가 늦었어요.","Entschuldigung, der Bus hatte Verspätung.",Zeit,a1_weekend_promise_1,1,false,to be late,Verb,"Sorry, the bus was late.",vocab_a1_0652
 묻다,mutda,fragen,A1,Verb,선생님한테 다시 물어요.,Ich frage den Lehrer noch einmal.,Kommunikation,a1_repair_language_1,11,false,to ask,Verb,I ask the teacher again.,vocab_a1_0653
 맞다,matda,"stimmen, richtig sein",A1,Verb,제 대답이 맞아요?,Ist meine Antwort richtig?,Kommunikation,a1_repair_language_1,12,false,"to be right, to match",Verb,Is my answer right?,vocab_a1_0654
-샤워,syawo,Dusche,A1,Nomen,저는 아침에 샤워해요.,Ich dusche am Morgen.,Alltag,a1_home_daily_1,1,false,shower,Noun,I take a shower in the morning.,vocab_a1_0655
-세수,sesu,Gesichtwaschen,A1,Nomen,저는 매일 세수해요.,Ich wasche mir jeden Tag das Gesicht.,Alltag,a1_home_daily_1,2,false,washing one's face,Noun,I wash my face every day.,vocab_a1_0656
+샤워,syawo,Dusche,A1,Nomen,아침에 먼저 샤워해요.,Ich dusche morgens zuerst.,Alltag,a1_home_daily_1,1,false,shower,Noun,I shower first in the morning.,vocab_a1_0655
+세수,sesu,Gesichtwaschen,A1,Nomen,매일 아침 세수해요.,Ich wasche mir jeden Morgen das Gesicht.,Alltag,a1_home_daily_1,2,false,washing one's face,Noun,I wash my face every morning.,vocab_a1_0656
 청소,cheongso,"Putzen, Reinigung",A1,Nomen,제가 집을 청소해요.,Ich putze das Haus.,Alltag,a1_home_daily_1,3,false,cleaning,Noun,I clean the house.,vocab_a1_0657
 준비,junbi,Vorbereitung,A1,Nomen,내일 여행을 준비해요.,Ich bereite morgen die Reise vor.,Alltag,a1_home_daily_1,4,false,preparation,Noun,I prepare for the trip tomorrow.,vocab_a1_0658
 생활,saenghwal,"Leben, Alltag",A1,Nomen,기숙사 생활이 재미있어요.,Das Wohnheimleben macht Spaß.,Alltag,a1_home_daily_1,5,false,"life, living",Noun,Dormitory life is fun.,vocab_a1_0659
 잠,jam,Schlaf,A1,Nomen,잠을 못 잤어요.,Ich konnte nicht schlafen.,Alltag,a1_home_daily_1,6,false,sleep,Noun,I couldn't sleep.,vocab_a1_0660
 요리,yori,"Kochen, Gericht",A1,Nomen,오늘 저녁은 제가 요리해요!,Heute Abend koche ich!,Alltag,a1_home_daily_1,7,false,"cooking, dish",Noun,"Tonight, I'm cooking!",vocab_a1_0661
-식사,siksa,Mahlzeit,A1,Nomen,저는 가족과 식사해요.,Ich esse mit der Familie.,Alltag,a1_home_daily_1,8,false,meal,Noun,I have a meal with my family.,vocab_a1_0662
+식사,siksa,Mahlzeit,A1,Nomen,주말에 가족과 식사해요.,Ich esse am Wochenende mit der Familie.,Alltag,a1_home_daily_1,8,false,meal,Noun,I have a meal with my family on weekends.,vocab_a1_0662
 에어컨,eeokeon,Klimaanlage,A1,Nomen,지금 에어컨을 켜요.,Ich schalte jetzt die Klimaanlage ein.,Technologie,a1_home_daily_1,9,false,air conditioner,Noun,I'm turning on the air conditioner now.,vocab_a1_0663
 운전,unjeon,Fahren (Auto),A1,Nomen,저는 운전을 잘해요.,Ich fahre gut Auto.,Verkehr,a1_home_daily_1,10,false,driving,Noun,I'm good at driving.,vocab_a1_0664
-사용,sayong,"Gebrauch, Benutzung",A1,Nomen,저는 컴퓨터를 사용해요.,Ich benutze den Computer.,Technologie,a1_home_daily_1,11,true,use,Noun,I use the computer.,vocab_a1_0665
-부탁,butak,"Bitte, Gefallen",A1,Nomen,저는 친구한테 부탁해요.,Ich bitte einen Freund um einen Gefallen.,Höflichkeit,a1_home_daily_1,12,true,"favor, request",Noun,I ask a friend for a favor.,vocab_a1_0666
+사용,sayong,"Gebrauch, Benutzung",A1,Nomen,회사에서 컴퓨터를 사용해요.,Ich benutze im Büro den Computer.,Technologie,a1_home_daily_1,11,true,use,Noun,I use the computer at the office.,vocab_a1_0665
+부탁,butak,"Bitte, Gefallen",A1,Nomen,오늘 친구한테 부탁해요.,Ich bitte heute einen Freund um einen Gefallen.,Höflichkeit,a1_home_daily_1,12,true,"favor, request",Noun,I ask a friend for a favor today.,vocab_a1_0666
 가요,gayo,(koreanischer) Popsong,A1,Nomen,마야 씨가 가요를 불러요.,Maya singt ein Lied.,Freizeit,a1_culture_hobbies_1,1,false,(Korean) pop song,Noun,Maya sings a song.,vocab_a1_0667
 그림,geurim,"Bild, Zeichnung",A1,Nomen,아이가 그림을 그려요.,Das Kind malt ein Bild.,Bildung,a1_culture_hobbies_1,2,false,"picture, drawing",Noun,The child draws a picture.,vocab_a1_0668
 드라마,deurama,"Drama, Serie",A1,Nomen,동생이 한국 드라마를 봐요.,Mein Geschwister schaut koreanische Dramen.,Freizeit,a1_culture_hobbies_1,3,false,"drama, TV series",Noun,My younger sibling watches Korean dramas.,vocab_a1_0669
@@ -2735,22 +2735,22 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 외국어,oegugeo,Fremdsprache,A1,Nomen,저는 외국어를 가르쳐요.,Ich unterrichte eine Fremdsprache.,Bildung,a1_school_work_1,3,false,foreign language,Noun,I teach a foreign language.,vocab_a1_0693
 아르바이트,areubaiteu,"Nebenjob, Teilzeitarbeit",A1,Nomen,저는 편의점에서 아르바이트를 해요.,Ich habe einen Nebenjob im Supermarkt.,Beruf,a1_school_work_1,4,false,part-time job,Noun,I have a part-time job at a convenience store.,vocab_a1_0694
 직원,jigwon,Angestellte(r),A1,Nomen,저는 회사 직원이에요.,Ich bin Angestellter einer Firma.,Beruf,a1_school_work_1,5,false,employee,Noun,I'm an employee of a company.,vocab_a1_0695
-종업원,jongeobwon,"Bedienung, Angestellte(r)",A1,Nomen,이 종업원이 친절해요.,Diese Bedienung ist freundlich.,Beruf,a1_school_work_1,6,false,"staff, waiter/waitress",Noun,This staff member is kind.,vocab_a1_0696
+종업원,jongeobwon,"Bedienung, Angestellte(r)",A1,Nomen,여기 종업원이 친절해요.,Hier ist die Bedienung freundlich.,Beruf,a1_school_work_1,6,false,"staff, waiter/waitress",Noun,The staff here is kind.,vocab_a1_0696
 안내,annae,"Auskunft, Information",A1,Nomen,직원이 안내해요. 저기로 가세요.,Der Angestellte gibt Auskunft. Gehen Sie dorthin.,Kommunikation,a1_school_work_1,7,false,"information, guidance",Noun,The employee gives information. Go over there.,vocab_a1_0697
 교통,gyotong,Verkehr,A1,Nomen,교통 카드가 없어요.,Ich habe keine Verkehrskarte.,Verkehr,a1_school_work_1,8,false,traffic,Noun,I don't have a transit card.,vocab_a1_0698
 시작,sijak,"Anfang, Beginn",A1,Nomen,저는 지금 일을 시작해요.,Ich fange jetzt mit der Arbeit an.,Zeit,a1_school_work_1,9,false,"beginning, start",Noun,I start work now.,vocab_a1_0699
 장소,jangso,"Ort, Platz",A1,Nomen,약속 장소가 어디예요?,Wo ist der Treffpunkt?,Position,a1_school_work_1,10,false,"place, venue",Noun,Where is the meeting place?,vocab_a1_0700
 글,geul,"Text, Schrift",A1,Nomen,저는 매일 글을 써요.,Ich schreibe jeden Tag.,Bildung,a1_school_work_1,11,true,"writing, text",Noun,I write every day.,vocab_a1_0701
-이야기,iyagi,"Geschichte, Gespräch",A1,Nomen,저는 친구랑 이야기해요.,Ich unterhalte mich mit einem Freund.,Kommunikation,a1_school_work_1,12,true,"story, talk",Noun,I talk with a friend.,vocab_a1_0702
+이야기,iyagi,"Geschichte, Gespräch",A1,Nomen,"레나 씨, 친구랑 이야기해요?","Lena, unterhältst du dich mit einem Freund?",Kommunikation,a1_school_work_1,12,true,"story, talk",Noun,"Lena, are you talking with a friend?",vocab_a1_0702
 곳,got,"Ort, Stelle",A1,Nomen,이 곳에 사람이 많아요.,An diesem Ort sind viele Leute.,Position,a1_time_family_1,1,false,"place, spot",Noun,There are many people at this place.,vocab_a1_0703
 달,dal,Monat,A1,Nomen,이 달에 생일이 있어요.,Diesen Monat ist Geburtstag.,Zeit,a1_time_family_1,2,false,month,Noun,There's a birthday this month.,vocab_a1_0704
 동생,dongsaeng,jüngeres Geschwister,A1,Nomen,제 동생은 아홉 살이에요.,Mein jüngeres Geschwister ist neun Jahre alt.,Familie,a1_time_family_1,3,false,younger sibling,Noun,My younger sibling is nine years old.,vocab_a1_0705
 밑,mit,"Unterseite, unten",A1,Nomen,책상 밑에 가방이 있어요.,Unter dem Schreibtisch ist eine Tasche.,Position,a1_time_family_1,4,false,"underside, below",Noun,There's a bag under the desk.,vocab_a1_0706
 생일,saengil,Geburtstag,A1,Nomen,다음 주가 제 생일이에요.,Nächste Woche ist mein Geburtstag.,Familie,a1_time_family_1,5,false,birthday,Noun,Next week is my birthday.,vocab_a1_0707
 선물,seonmul,Geschenk,A1,Nomen,동생한테 선물을 줘요.,Ich gebe meinem Geschwister ein Geschenk.,Familie,a1_time_family_1,6,false,gift,Noun,I give my sibling a gift.,vocab_a1_0708
-쇼핑,syoping,Einkaufen,A1,Nomen,저는 주말에 쇼핑해요.,Ich gehe am Wochenende einkaufen.,Freizeit,a1_time_family_1,7,false,shopping,Noun,I go shopping on the weekend.,vocab_a1_0709
+쇼핑,syoping,Einkaufen,A1,Nomen,이번 주말에 쇼핑해요.,Ich gehe dieses Wochenende einkaufen.,Freizeit,a1_time_family_1,7,false,shopping,Noun,I'm going shopping this weekend.,vocab_a1_0709
 올해,olhae,dieses Jahr,A1,Nomen,올해 한국에 왔어요.,Ich bin dieses Jahr nach Korea gekommen.,Zeit,a1_time_family_1,8,false,this year,Noun,I came to Korea this year.,vocab_a1_0710
-요즘,yojeum,"heutzutage, dieser Tage",A1,Nomen,저는 요즘 바빠요.,Ich bin heutzutage beschäftigt.,Zeit,a1_time_family_1,9,false,these days,Noun,I'm busy these days.,vocab_a1_0711
+요즘,yojeum,"heutzutage, dieser Tage",A1,Nomen,요즘 일이 바빠요.,Zurzeit ist die Arbeit stressig.,Zeit,a1_time_family_1,9,false,these days,Noun,Work is busy these days.,vocab_a1_0711
 월,wol,Monat (Zähleinheit),A1,Nomen,지금 몇 월이에요?,Welcher Monat ist jetzt?,Zeit,a1_time_family_1,10,false,month (counter),Noun,What month is it now?,vocab_a1_0712
 잠시,jamsi,"kurz, eine Weile",A1,Nomen,여기 잠시 앉아요.,Setzen Sie sich hier für einen Moment.,Zeit,a1_time_family_1,11,true,"a moment, a while",Noun,Sit here for a moment.,vocab_a1_0713
 주,ju,Woche,A1,Nomen,이번 주에 학교에 가요.,Ich gehe diese Woche zur Schule.,Zeit,a1_time_family_1,12,true,week,Noun,I go to school this week.,vocab_a1_0714

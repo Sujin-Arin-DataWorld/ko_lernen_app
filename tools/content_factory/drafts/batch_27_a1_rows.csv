@@ -27,13 +27,13 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 건너편,geonneopyeon,gegenüberliegende Seite,A1,Nomen,은행이 건너편에 있어요.,Die Bank ist auf der gegenüberliegenden Seite.,도시 생활,a1_places_buildings_1,11,true,opposite side,Noun,The bank is on the opposite side.,vocab_a1_0614
 층,cheung,"Stock, Etage",A1,Nomen,가게가 이 층에 있어요. 이거 예뻐요!,Der Laden ist auf dieser Etage. Das hier ist schön!,도시 생활,a1_places_buildings_1,12,true,"floor, story",Noun,The shop is on this floor. This is pretty!,vocab_a1_0615
 다음,daeum,nächst-,A1,Nomen,다음 주에 만나요.,Wir treffen uns nächste Woche.,Zeit,a1_time_expressions_1,1,false,next,Noun,See you next week.,vocab_a1_0616
-나중,najung,später,A1,Nomen,우리 나중에 이야기해요.,Wir reden später.,Zeit,a1_time_expressions_1,2,false,later,Noun,Let's talk later.,vocab_a1_0617
+나중,najung,später,A1,Nomen,"민호 씨, 나중에 이야기해요.","Minho, wir reden später.",Zeit,a1_time_expressions_1,2,false,later,Noun,"Minho, we'll talk later.",vocab_a1_0617
 동안,dongan,"während, für (Dauer)",A1,Nomen,방학 동안 뭐 해요?,Was machst du während der Ferien?,Zeit,a1_time_expressions_1,3,false,"during, for (duration)",Noun,What do you do during the vacation?,vocab_a1_0618
-오전,ojeon,Vormittag,A1,Nomen,저는 오전에 운동해요.,Ich mache am Vormittag Sport.,Zeit,a1_time_expressions_1,4,false,"morning, AM",Noun,I exercise in the morning.,vocab_a1_0619
+오전,ojeon,Vormittag,A1,Nomen,오전에 공원에서 운동해요.,Ich mache am Vormittag im Park Sport.,Zeit,a1_time_expressions_1,4,false,"morning, AM",Noun,I exercise in the park in the morning.,vocab_a1_0619
 오후,ohu,Nachmittag,A1,Nomen,저는 오후에 산책해요.,Ich mache am Nachmittag einen Spaziergang.,Zeit,a1_time_expressions_1,5,false,"afternoon, PM",Noun,I go for a walk in the afternoon.,vocab_a1_0620
 이번,ibeon,"dieses-, jetzig-",A1,Nomen,이번 달에 바빠요.,Diesen Monat bin ich beschäftigt.,Zeit,a1_time_expressions_1,6,false,this (upcoming),Noun,I'm busy this month.,vocab_a1_0621
-지난달,jinandal,letzten Monat,A1,Nomen,저는 지난달에 바빴어요.,Letzten Monat war ich beschäftigt.,Zeit,a1_time_expressions_1,7,false,last month,Noun,I was busy last month.,vocab_a1_0622
-지난주,jinanju,letzte Woche,A1,Nomen,저는 지난주에 아팠어요.,Letzte Woche war ich krank.,Zeit,a1_time_expressions_1,8,false,last week,Noun,I was sick last week.,vocab_a1_0623
+지난달,jinandal,letzten Monat,A1,Nomen,정말 지난달에 바빴어요.,Ich war letzten Monat wirklich beschäftigt.,Zeit,a1_time_expressions_1,7,false,last month,Noun,I was really busy last month.,vocab_a1_0622
+지난주,jinanju,letzte Woche,A1,Nomen,"선생님, 지난주에 아팠어요.","Lehrer, ich war letzte Woche krank.",Zeit,a1_time_expressions_1,8,false,last week,Noun,"Teacher, I was sick last week.",vocab_a1_0623
 지난해,jinanhae,letztes Jahr,A1,Nomen,우리 지난해에 만났어요.,Wir haben uns letztes Jahr kennengelernt.,Zeit,a1_time_expressions_1,9,false,last year,Noun,We met last year.,vocab_a1_0624
 일주일,iljuil,eine Woche,A1,Nomen,일주일 동안 여행해요.,Ich reise eine Woche lang.,Zeit,a1_time_expressions_1,10,false,one week,Noun,I travel for one week.,vocab_a1_0625
 하루,haru,ein Tag,A1,Nomen,오늘 하루 정말 피곤해요.,Heute bin ich den ganzen Tag wirklich müde.,Zeit,a1_time_expressions_1,11,true,one day,Noun,I'm really tired all day today.,vocab_a1_0626
@@ -54,7 +54,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 마음,maeum,"Herz, Gemüt",A1,Nomen,오늘 마음이 아파요.,Mein Herz tut heute weh.,Gefühle,a1_feelings_talk_1,2,false,"heart, mind",Noun,My heart aches today.,vocab_a1_0641
 사랑,sarang,Liebe,A1,Nomen,저는 수진 씨를 사랑해요.,Ich liebe Sujin.,Gefühle,a1_feelings_talk_1,3,false,love,Noun,I love Sujin.,vocab_a1_0642
 피곤,pigon,Müdigkeit,A1,Nomen,저는 오늘 정말 피곤해요.,Ich bin heute wirklich müde.,Gefühle,a1_feelings_talk_1,4,false,tiredness,Noun,I'm really tired today.,vocab_a1_0643
-감사,gamsa,Dank,A1,Nomen,정말 너무 감사해요.,Ich bin wirklich sehr dankbar.,Höflichkeit,a1_feelings_talk_1,5,false,"gratitude, thanks",Noun,I'm really so grateful.,vocab_a1_0644
+감사,gamsa,Dank,A1,Nomen,"선생님, 정말 감사해요.","Lehrer, vielen Dank.",Höflichkeit,a1_feelings_talk_1,5,false,"gratitude, thanks",Noun,"Teacher, thank you very much.",vocab_a1_0644
 미안,mian,Entschuldigung (Gefühl),A1,Nomen,"미안해요, 정말 늦었어요.","Entschuldigung, ich bin wirklich zu spät.",Höflichkeit,a1_feelings_talk_1,6,false,sorry (feeling),Noun,"Sorry, I'm really late.",vocab_a1_0645
 친절,chinjeol,Freundlichkeit,A1,Nomen,선생님이 정말 친절해요.,Der Lehrer ist wirklich freundlich.,Höflichkeit,a1_feelings_talk_1,7,false,kindness,Noun,The teacher is really kind.,vocab_a1_0646
 실례,sillye,Verzeihung,A1,Nomen,실례합니다. 화장실이 어디예요?,Entschuldigung. Wo ist die Toilette?,Höflichkeit,a1_feelings_talk_1,8,false,excuse me,Noun,Excuse me. Where is the restroom?,vocab_a1_0647
