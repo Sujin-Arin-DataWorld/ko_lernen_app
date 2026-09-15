@@ -14,7 +14,8 @@
         "빨리"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0523"
+      "sourceVocabId": "vocab_a1_0523",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0458",
@@ -30,7 +31,8 @@
         "오다"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0524"
+      "sourceVocabId": "vocab_a1_0524",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0459",
@@ -46,7 +48,8 @@
         "꼭"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0525"
+      "sourceVocabId": "vocab_a1_0525",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0460",
@@ -62,7 +65,8 @@
         "읽다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0526"
+      "sourceVocabId": "vocab_a1_0526",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0461",
@@ -78,7 +82,8 @@
         "참"
       ],
       "topic": "Verkehr",
-      "sourceVocabId": "vocab_a1_0527"
+      "sourceVocabId": "vocab_a1_0527",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0462",
@@ -94,7 +99,8 @@
         "쓰다"
       ],
       "topic": "자기소개",
-      "sourceVocabId": "vocab_a1_0528"
+      "sourceVocabId": "vocab_a1_0528",
+      "courseUnitId": "a1_03_topic_subject_particles"
     },
     {
       "id": "cloze_a1_0463",
@@ -110,7 +116,8 @@
         "항상"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0529"
+      "sourceVocabId": "vocab_a1_0529",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0464",
@@ -126,7 +133,8 @@
         "입다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0530"
+      "sourceVocabId": "vocab_a1_0530",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0465",
@@ -142,7 +150,8 @@
         "이따가"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0531"
+      "sourceVocabId": "vocab_a1_0531",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0466",
@@ -158,7 +167,8 @@
         "모르다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0532"
+      "sourceVocabId": "vocab_a1_0532",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0467",
@@ -174,7 +184,8 @@
         "가끔"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0533"
+      "sourceVocabId": "vocab_a1_0533",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0468",
@@ -190,7 +201,8 @@
         "팔다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0534"
+      "sourceVocabId": "vocab_a1_0534",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0469",
@@ -206,7 +218,8 @@
         "참"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0535"
+      "sourceVocabId": "vocab_a1_0535",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0470",
@@ -222,7 +235,8 @@
         "빌리다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0536"
+      "sourceVocabId": "vocab_a1_0536",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0471",
@@ -238,7 +252,8 @@
         "천천히"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0537"
+      "sourceVocabId": "vocab_a1_0537",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0472",
@@ -254,7 +269,8 @@
         "다니다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0538"
+      "sourceVocabId": "vocab_a1_0538",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0473",
@@ -270,7 +286,8 @@
         "항상"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0539"
+      "sourceVocabId": "vocab_a1_0539",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0474",
@@ -286,7 +303,8 @@
         "오다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0540"
+      "sourceVocabId": "vocab_a1_0540",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0475",
@@ -302,7 +320,8 @@
         "좀"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0541"
+      "sourceVocabId": "vocab_a1_0541",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0476",
@@ -318,7 +337,8 @@
         "읽다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0542"
+      "sourceVocabId": "vocab_a1_0542",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0477",
@@ -334,7 +354,8 @@
         "주로"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0543"
+      "sourceVocabId": "vocab_a1_0543",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0478",
@@ -350,7 +371,8 @@
         "쓰다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0544"
+      "sourceVocabId": "vocab_a1_0544",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0479",
@@ -366,7 +388,8 @@
         "꼭"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0545"
+      "sourceVocabId": "vocab_a1_0545",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0480",
@@ -382,7 +405,8 @@
         "입다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0546"
+      "sourceVocabId": "vocab_a1_0546",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0481",
@@ -398,7 +422,8 @@
         "함께"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0547"
+      "sourceVocabId": "vocab_a1_0547",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0482",
@@ -414,7 +439,8 @@
         "모르다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0548"
+      "sourceVocabId": "vocab_a1_0548",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0483",
@@ -430,7 +456,8 @@
         "빨리"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0549"
+      "sourceVocabId": "vocab_a1_0549",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0484",
@@ -446,7 +473,8 @@
         "팔다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0550"
+      "sourceVocabId": "vocab_a1_0550",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0485",
@@ -462,7 +490,8 @@
         "바로"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0551"
+      "sourceVocabId": "vocab_a1_0551",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0486",
@@ -478,7 +507,8 @@
         "빌리다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0552"
+      "sourceVocabId": "vocab_a1_0552",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "cloze_a1_0487",
@@ -494,7 +524,8 @@
         "이따가"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0553"
+      "sourceVocabId": "vocab_a1_0553",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0488",
@@ -510,7 +541,8 @@
         "다니다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0554"
+      "sourceVocabId": "vocab_a1_0554",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0489",
@@ -526,7 +558,8 @@
         "바로"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0555"
+      "sourceVocabId": "vocab_a1_0555",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0490",
@@ -542,7 +575,8 @@
         "오다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0556"
+      "sourceVocabId": "vocab_a1_0556",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0491",
@@ -558,7 +592,8 @@
         "이따가"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0557"
+      "sourceVocabId": "vocab_a1_0557",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0492",
@@ -574,7 +609,8 @@
         "읽다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0558"
+      "sourceVocabId": "vocab_a1_0558",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0493",
@@ -590,7 +626,8 @@
         "항상"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0559"
+      "sourceVocabId": "vocab_a1_0559",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0494",
@@ -606,7 +643,8 @@
         "꼭"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0560"
+      "sourceVocabId": "vocab_a1_0560",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0495",
@@ -622,7 +660,8 @@
         "좀"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0561"
+      "sourceVocabId": "vocab_a1_0561",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0496",
@@ -638,7 +677,8 @@
         "입다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0562"
+      "sourceVocabId": "vocab_a1_0562",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0497",
@@ -654,7 +694,8 @@
         "천천히"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0563"
+      "sourceVocabId": "vocab_a1_0563",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0498",
@@ -670,7 +711,8 @@
         "모르다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0564"
+      "sourceVocabId": "vocab_a1_0564",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0499",
@@ -686,7 +728,8 @@
         "항상"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0565"
+      "sourceVocabId": "vocab_a1_0565",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0500",
@@ -702,7 +745,8 @@
         "팔다"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0566"
+      "sourceVocabId": "vocab_a1_0566",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0501",
@@ -718,7 +762,8 @@
         "아주"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0567"
+      "sourceVocabId": "vocab_a1_0567",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0502",
@@ -734,7 +779,8 @@
         "빌리다"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0568"
+      "sourceVocabId": "vocab_a1_0568",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0503",
@@ -750,7 +796,8 @@
         "꼭"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0569"
+      "sourceVocabId": "vocab_a1_0569",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0504",
@@ -766,7 +813,8 @@
         "빨리"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0570"
+      "sourceVocabId": "vocab_a1_0570",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0505",
@@ -782,7 +830,8 @@
         "참"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0571"
+      "sourceVocabId": "vocab_a1_0571",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0506",
@@ -798,7 +847,8 @@
         "다시"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0572"
+      "sourceVocabId": "vocab_a1_0572",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0507",
@@ -814,7 +864,8 @@
         "읽다"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0573"
+      "sourceVocabId": "vocab_a1_0573",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0508",
@@ -830,7 +881,8 @@
         "좀"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0574"
+      "sourceVocabId": "vocab_a1_0574",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0509",
@@ -846,7 +898,8 @@
         "가끔"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0575"
+      "sourceVocabId": "vocab_a1_0575",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0510",
@@ -862,7 +915,8 @@
         "입다"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0576"
+      "sourceVocabId": "vocab_a1_0576",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0511",
@@ -878,7 +932,8 @@
         "다시"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0577"
+      "sourceVocabId": "vocab_a1_0577",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0512",
@@ -894,7 +949,8 @@
         "모르다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0578"
+      "sourceVocabId": "vocab_a1_0578",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0513",
@@ -910,7 +966,8 @@
         "바로"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0579"
+      "sourceVocabId": "vocab_a1_0579",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0514",
@@ -926,7 +983,8 @@
         "팔다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0580"
+      "sourceVocabId": "vocab_a1_0580",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0515",
@@ -942,7 +1000,8 @@
         "이따가"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0581"
+      "sourceVocabId": "vocab_a1_0581",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0516",
@@ -958,7 +1017,8 @@
         "빌리다"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0582"
+      "sourceVocabId": "vocab_a1_0582",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0517",
@@ -974,7 +1034,8 @@
         "좀"
       ],
       "topic": "Geographie",
-      "sourceVocabId": "vocab_a1_0583"
+      "sourceVocabId": "vocab_a1_0583",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0518",
@@ -990,7 +1051,8 @@
         "다니다"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0584"
+      "sourceVocabId": "vocab_a1_0584",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0519",
@@ -1006,7 +1068,8 @@
         "참"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0585"
+      "sourceVocabId": "vocab_a1_0585",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0520",
@@ -1022,7 +1085,8 @@
         "오다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0586"
+      "sourceVocabId": "vocab_a1_0586",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0521",
@@ -1038,7 +1102,8 @@
         "가끔"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0587"
+      "sourceVocabId": "vocab_a1_0587",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0522",
@@ -1054,7 +1119,8 @@
         "알다"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0588"
+      "sourceVocabId": "vocab_a1_0588",
+      "courseUnitId": "a1_16_survival_capstone"
     }
   ]
 }

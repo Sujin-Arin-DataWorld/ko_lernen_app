@@ -9232,6 +9232,46 @@
     {
       "id": "seed_vocab_pack_c2_withdrawal_right_1_v1",
       "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_a1_countries_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_hobbies_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_korean_food_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_korean_places_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_months_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_belongings_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_places_buildings_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_time_expressions_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_nature_people_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_feelings_talk_1_v1",
+      "level": "a1"
     }
   ],
   "contentReferences": [
@@ -27070,11 +27110,81 @@
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_withdrawal_right_1_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_countries_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_countries_1_v1",
+      "courseUnitId": "a1_02_self_intro_identity"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_hobbies_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_hobbies_1_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_korean_food_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_korean_food_1_v1",
+      "courseUnitId": "a1_04_order_request_object"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_korean_places_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_korean_places_1_v1",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_months_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_months_1_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_belongings_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_belongings_1_v1",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_places_buildings_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_places_buildings_1_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_time_expressions_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_time_expressions_1_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_nature_people_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_nature_people_1_v1",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_feelings_talk_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_feelings_talk_1_v1",
+      "courseUnitId": "a1_11_titles_relationships"
     }
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 224,
+      "vocabPack": 234,
       "grammar": 252,
       "smalltalk": 582,
       "scenario": 179,
@@ -27083,8 +27193,8 @@
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1172,
-      "satz": 1964
+      "cloze": 1238,
+      "satz": 2030
     },
     "inheritedContentReferences": [
       {
@@ -61582,6 +61692,1458 @@
         "level": "b2",
         "canDoSegmentId": "segment_b2_decision_criteria",
         "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0457",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_1",
+        "sourceVocabId": "vocab_a1_0523",
+        "sourceVocabFingerprintSha256": "7570bbf22aff2dcd594eabe469c80391f82bc1838a6e2cedf31f4148519fdf27",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0458",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_1",
+        "sourceVocabId": "vocab_a1_0524",
+        "sourceVocabFingerprintSha256": "46cee3319dbe58aaf8ee0150a98942f0240a93879b39e8beb3a4aff6a320e626",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0459",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0525",
+        "sourceVocabFingerprintSha256": "61a8a21e70c505af569314e8942a362c242198b7166bb4254d102e8bd7a90e9c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0460",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0526",
+        "sourceVocabFingerprintSha256": "0a655e410065ca8d97700354801c34d1c1cf47912a0cc995b91ece953131bc8c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0461",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_transport",
+        "sourceVocabId": "vocab_a1_0527",
+        "sourceVocabFingerprintSha256": "c295d5f816eabcbae4d69455123b5947114dae2f2b7f47810a31e95b2bb60b30",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0462",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_particles_in_use_1",
+        "sourceVocabId": "vocab_a1_0528",
+        "sourceVocabFingerprintSha256": "9dc7a3b8076d027c03f0585038893fc8c8d4940f618460de4c49e41e507069b3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_03_topic_subject_particles",
+        "courseUnitId": "a1_03_topic_subject_particles"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0463",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0529",
+        "sourceVocabFingerprintSha256": "de21191574e52904435d430c45ace281320a94c2133d6a424458a45193ba99e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0464",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0530",
+        "sourceVocabFingerprintSha256": "7f7b7988e45f564677937ccf4b02cc973b46806822bf9484ca9c68d89761cfe1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0465",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0531",
+        "sourceVocabFingerprintSha256": "6bb383bf5147a597df6f89ce768e971ce7962fb445a56be2e73bb012c13cee89",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0466",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0532",
+        "sourceVocabFingerprintSha256": "88867ea1d2a04640b26af6d0497efb6f22a5baefe3e570996c22e5f91d340582",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0467",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0533",
+        "sourceVocabFingerprintSha256": "222c26b44f4a922b33d2ee9b0060e00d22d1ff78d81490f2a205e4dd1a66f362",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0468",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0534",
+        "sourceVocabFingerprintSha256": "0ccd276319cc91f84b2b245d06ede4f17f17a2da361011cc8c8cf040d4fa4448",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0469",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0535",
+        "sourceVocabFingerprintSha256": "f2068660959d0f933abb1a60d2001fbc9c34d838d26390a684e7707563404eba",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0470",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0536",
+        "sourceVocabFingerprintSha256": "7307e11f9b6ea440ef9db786e2a5062c2a0f53158455de44c3acb4503746237b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0471",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0537",
+        "sourceVocabFingerprintSha256": "41c94150302e9c27f1cdde0c11fde5a6dcb9b1315cd1a3ddfd9348ea5ed45694",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0472",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0538",
+        "sourceVocabFingerprintSha256": "b8e5a452cdf68230324d8506613796f650a8a0f70625338c53da18b6ee15977a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0473",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0539",
+        "sourceVocabFingerprintSha256": "13b72b999f797c4345055ae7a779554bf1ba3c243d1c44b2ba3d15ee0dbebc95",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0474",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0540",
+        "sourceVocabFingerprintSha256": "774925d9fced9ff28ccf2a9126688e5061dbb90d05de2411efb5ca5a978abab5",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0475",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0541",
+        "sourceVocabFingerprintSha256": "0e5e33b1b0f5ad16166147478d4f162d91c6186813b948778d90fa892c6e307c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0476",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0542",
+        "sourceVocabFingerprintSha256": "a989f5368603489093f8e1035e7aa91e8ba119beabb231c3d00b7e3ab5b6f90a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0477",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0543",
+        "sourceVocabFingerprintSha256": "c259f48a62b4c8b8327d2309bacf0a3e999edfc0858a52093db09d46a9916b81",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0478",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0544",
+        "sourceVocabFingerprintSha256": "3f8d73410bcd9964285231d443098528a72d6554189c513b302217323e72ab97",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0479",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0545",
+        "sourceVocabFingerprintSha256": "f1da55b7aea363f30c48db415ce8ae1948ea9309d69b180606e0adf33fc358b9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0480",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0546",
+        "sourceVocabFingerprintSha256": "f6ae174167af594b3af0f8c1b8dfb5160746d25dd0a74de9ba6379875b4f92ea",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0481",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0547",
+        "sourceVocabFingerprintSha256": "a8a9b36874d3c0e5cf6697ba871598b50e7d9b38abc2f1ba24ca146dad99d547",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0482",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0548",
+        "sourceVocabFingerprintSha256": "6a758b61a229fc33135b5e422b7b3bbba2d9835b59d0fa6717ab13b67895253c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0483",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0549",
+        "sourceVocabFingerprintSha256": "ee1b1734beefbec7feef06ed81c4b48cc936835b18bd1c8d2416c7f1cf1cbd3d",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0484",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0550",
+        "sourceVocabFingerprintSha256": "035a2d590d923330c464b60bf9b9e08c7ee32a56a8708c40e52b90689f021a0b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0485",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0551",
+        "sourceVocabFingerprintSha256": "21377c4ba25fc549e119c3eb154928c6e407d15fac684aff1e94943546197b49",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0486",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0552",
+        "sourceVocabFingerprintSha256": "d511bfd1ad6ad5965edd7d4757fb6fee2131c21ace54190c1ca0138ce185cefb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0487",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0553",
+        "sourceVocabFingerprintSha256": "abc228e7dae2c790ca454af7548c27d8b08d49380c0618f9c6e52fd5e07eea36",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0488",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0554",
+        "sourceVocabFingerprintSha256": "a2d483382afeb0a17f8ec0b5cf4947d7c47dfb1e6680483526772c3bfc6df41b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0489",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0555",
+        "sourceVocabFingerprintSha256": "143ece13c948e3122e625582a39e7327f39e6fa550aba0031659e1cce3bb59b8",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0490",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0556",
+        "sourceVocabFingerprintSha256": "8d07ec5ce160917b97acc4b83682cfbd6a213fcca17e2a5379d8d8eef5b3cfb6",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0491",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0557",
+        "sourceVocabFingerprintSha256": "eab081d0430594ae106a2332c974cd9a54b52b71f28a4918fa1a665f09ce5a60",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0492",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0558",
+        "sourceVocabFingerprintSha256": "9da7fe1e971c770d4eb3e09e8ea157f7be61f275ad2ea4adda5eb5387b1896eb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0493",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0559",
+        "sourceVocabFingerprintSha256": "e69a177c51b75ba614ea7d09281a6b47c80f5515d8608f701aa0b7425751df88",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0494",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0560",
+        "sourceVocabFingerprintSha256": "4738de86d8cd7569a5efbde5ad8ff0b677716ee8fcea4ed9dd3016642674514b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0495",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0561",
+        "sourceVocabFingerprintSha256": "fb84a9bdba34a4245fdac90eb58730929ce1a7368836f6e8ebea7bc1ebaf187e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0496",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0562",
+        "sourceVocabFingerprintSha256": "daf637dad24dc922fd3117cf369b2ff124a09cc70aac2c7a22b854705ed8dee0",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0497",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0563",
+        "sourceVocabFingerprintSha256": "e7e89a76aff534189d532f1a04498262d69b6f50990e858366ca2205c1b54a35",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0498",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0564",
+        "sourceVocabFingerprintSha256": "b513bd12182a876fd3e3a66a335519234936de145c4bb999ee622b6bf020ea1f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0499",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0565",
+        "sourceVocabFingerprintSha256": "fb0f7a02a43ab8ba2b248b983cf233a15862bc30aad240afbfd2275384f1db63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0500",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0566",
+        "sourceVocabFingerprintSha256": "977eff35a43bdb19926c252547c9734665d34e59d0d9e22feb5c4fb34588dfee",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0501",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0567",
+        "sourceVocabFingerprintSha256": "466c3a5b506031246a17f30a9141d3841719060a68912945f6ecb9c82ad67a4c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0502",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0568",
+        "sourceVocabFingerprintSha256": "0995843830a176d0822c2f32332de9005c350abbe3ae41b92e44fcc6e10eb3bf",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0503",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0569",
+        "sourceVocabFingerprintSha256": "994643e628d8efdf7d47e5a55ddf070b934f90bf391fdbd1d3ac527aed6924f4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0504",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0570",
+        "sourceVocabFingerprintSha256": "ec6b9ff78784b94e1c06e4c57b5521f51ee90aa99fc8f7c31727b5b4c16ee4b3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0505",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0571",
+        "sourceVocabFingerprintSha256": "7c438b5a6cd32cbdac524d80dd0f3fb61ebb79a01d53167834604600ab6a92db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0506",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0572",
+        "sourceVocabFingerprintSha256": "ed2b978a0e4c64b18836a05c1999e5d25323201ab09a1ea404b9df79ff0323c2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0507",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0573",
+        "sourceVocabFingerprintSha256": "9336a09bfea673edba190022c1b4068cb4b01b15b7213a3718beedc8b52585f9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0508",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0574",
+        "sourceVocabFingerprintSha256": "784d29e79756893814a0a503be6934899b9b557e6485fb9c910900325b79478e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0509",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0575",
+        "sourceVocabFingerprintSha256": "976820f27d1f4e6941f0da2cd6f905815571e7f923f251ec98d18f8ecb0a0d32",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0510",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0576",
+        "sourceVocabFingerprintSha256": "6a38065f610b4e0eb023fe8a461da5c17ff198f7c7455bf86ab1f8b9c109ae63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0511",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0577",
+        "sourceVocabFingerprintSha256": "ad2cf171396f9c6d93ed6ac9b81c544b019156f6fd1dca26cad55dbedfa7e72a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0512",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0578",
+        "sourceVocabFingerprintSha256": "ba331ce144191d92ae2d53d5e801b62ff71b3f18556f71056fb600748f69d910",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0513",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0579",
+        "sourceVocabFingerprintSha256": "7fdbbaf96d932ae7368c913baef6002d53d68e75a994050e16f5b6709d94bb1e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0514",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0580",
+        "sourceVocabFingerprintSha256": "8658dc3cdcc6b3d38c7cbda03316b04bf021521bec4ff00c3afb8f5158b109bc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0515",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0581",
+        "sourceVocabFingerprintSha256": "35450b7ad8bd2c81a300d8b5fa506d0e636f63beb26060be9232060fab3c458a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0516",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0582",
+        "sourceVocabFingerprintSha256": "aaaa3186b3abc13381fee33059eb7aba134525b3e29cec090fc950c0eb2122b2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0517",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0583",
+        "sourceVocabFingerprintSha256": "ac4d26933d1cc704f6e29a16ac37ac9e3067fba43e6f18ddb9936e4c5f65ddae",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0518",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0584",
+        "sourceVocabFingerprintSha256": "73becdb65a2dd8037e8540424403bb2c79a767d31d8e0f9ff720e63f045feb0a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0519",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0585",
+        "sourceVocabFingerprintSha256": "909bde0ef2e30442c02c1261a04ea425a8ff5c047a09ae5fc28159930402a502",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0520",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0586",
+        "sourceVocabFingerprintSha256": "20955aee8964288f5cc5f1d71e1c1db43621fb514a045dc702954baad4c9f362",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0521",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0587",
+        "sourceVocabFingerprintSha256": "80eee5d281f5c60c1fe4d8f4a14e62ee9325ed9ddd1c19821a38a894453d825f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0522",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0588",
+        "sourceVocabFingerprintSha256": "04297cc4a90583bd3121e26daa888d9aceb5e78bf4fbed720b88ac2dda2df70a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0438",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_1",
+        "sourceVocabId": "vocab_a1_0523",
+        "sourceVocabFingerprintSha256": "7570bbf22aff2dcd594eabe469c80391f82bc1838a6e2cedf31f4148519fdf27",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0439",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_1",
+        "sourceVocabId": "vocab_a1_0524",
+        "sourceVocabFingerprintSha256": "46cee3319dbe58aaf8ee0150a98942f0240a93879b39e8beb3a4aff6a320e626",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0440",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0525",
+        "sourceVocabFingerprintSha256": "61a8a21e70c505af569314e8942a362c242198b7166bb4254d102e8bd7a90e9c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0441",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0526",
+        "sourceVocabFingerprintSha256": "0a655e410065ca8d97700354801c34d1c1cf47912a0cc995b91ece953131bc8c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0442",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_transport",
+        "sourceVocabId": "vocab_a1_0527",
+        "sourceVocabFingerprintSha256": "c295d5f816eabcbae4d69455123b5947114dae2f2b7f47810a31e95b2bb60b30",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0443",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_particles_in_use_1",
+        "sourceVocabId": "vocab_a1_0528",
+        "sourceVocabFingerprintSha256": "9dc7a3b8076d027c03f0585038893fc8c8d4940f618460de4c49e41e507069b3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_03_topic_subject_particles",
+        "courseUnitId": "a1_03_topic_subject_particles"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0444",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0529",
+        "sourceVocabFingerprintSha256": "de21191574e52904435d430c45ace281320a94c2133d6a424458a45193ba99e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0445",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0530",
+        "sourceVocabFingerprintSha256": "7f7b7988e45f564677937ccf4b02cc973b46806822bf9484ca9c68d89761cfe1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0446",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0531",
+        "sourceVocabFingerprintSha256": "6bb383bf5147a597df6f89ce768e971ce7962fb445a56be2e73bb012c13cee89",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0447",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0532",
+        "sourceVocabFingerprintSha256": "88867ea1d2a04640b26af6d0497efb6f22a5baefe3e570996c22e5f91d340582",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0448",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0533",
+        "sourceVocabFingerprintSha256": "222c26b44f4a922b33d2ee9b0060e00d22d1ff78d81490f2a205e4dd1a66f362",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0449",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0534",
+        "sourceVocabFingerprintSha256": "0ccd276319cc91f84b2b245d06ede4f17f17a2da361011cc8c8cf040d4fa4448",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0450",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0535",
+        "sourceVocabFingerprintSha256": "f2068660959d0f933abb1a60d2001fbc9c34d838d26390a684e7707563404eba",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0451",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0536",
+        "sourceVocabFingerprintSha256": "7307e11f9b6ea440ef9db786e2a5062c2a0f53158455de44c3acb4503746237b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0452",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0537",
+        "sourceVocabFingerprintSha256": "41c94150302e9c27f1cdde0c11fde5a6dcb9b1315cd1a3ddfd9348ea5ed45694",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0453",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0538",
+        "sourceVocabFingerprintSha256": "b8e5a452cdf68230324d8506613796f650a8a0f70625338c53da18b6ee15977a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0454",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0539",
+        "sourceVocabFingerprintSha256": "13b72b999f797c4345055ae7a779554bf1ba3c243d1c44b2ba3d15ee0dbebc95",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0455",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_months_1",
+        "sourceVocabId": "vocab_a1_0540",
+        "sourceVocabFingerprintSha256": "774925d9fced9ff28ccf2a9126688e5061dbb90d05de2411efb5ca5a978abab5",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_05_numbers_time",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0456",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0541",
+        "sourceVocabFingerprintSha256": "0e5e33b1b0f5ad16166147478d4f162d91c6186813b948778d90fa892c6e307c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0457",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0542",
+        "sourceVocabFingerprintSha256": "a989f5368603489093f8e1035e7aa91e8ba119beabb231c3d00b7e3ab5b6f90a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0458",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0543",
+        "sourceVocabFingerprintSha256": "c259f48a62b4c8b8327d2309bacf0a3e999edfc0858a52093db09d46a9916b81",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0459",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0544",
+        "sourceVocabFingerprintSha256": "3f8d73410bcd9964285231d443098528a72d6554189c513b302217323e72ab97",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0460",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0545",
+        "sourceVocabFingerprintSha256": "f1da55b7aea363f30c48db415ce8ae1948ea9309d69b180606e0adf33fc358b9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0461",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0546",
+        "sourceVocabFingerprintSha256": "f6ae174167af594b3af0f8c1b8dfb5160746d25dd0a74de9ba6379875b4f92ea",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0462",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0547",
+        "sourceVocabFingerprintSha256": "a8a9b36874d3c0e5cf6697ba871598b50e7d9b38abc2f1ba24ca146dad99d547",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0463",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0548",
+        "sourceVocabFingerprintSha256": "6a758b61a229fc33135b5e422b7b3bbba2d9835b59d0fa6717ab13b67895253c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0464",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0549",
+        "sourceVocabFingerprintSha256": "ee1b1734beefbec7feef06ed81c4b48cc936835b18bd1c8d2416c7f1cf1cbd3d",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0465",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0550",
+        "sourceVocabFingerprintSha256": "035a2d590d923330c464b60bf9b9e08c7ee32a56a8708c40e52b90689f021a0b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0466",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0551",
+        "sourceVocabFingerprintSha256": "21377c4ba25fc549e119c3eb154928c6e407d15fac684aff1e94943546197b49",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0467",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_countries_1",
+        "sourceVocabId": "vocab_a1_0552",
+        "sourceVocabFingerprintSha256": "d511bfd1ad6ad5965edd7d4757fb6fee2131c21ace54190c1ca0138ce185cefb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_02_self_intro_identity",
+        "courseUnitId": "a1_02_self_intro_identity"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0468",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0553",
+        "sourceVocabFingerprintSha256": "abc228e7dae2c790ca454af7548c27d8b08d49380c0618f9c6e52fd5e07eea36",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0469",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0554",
+        "sourceVocabFingerprintSha256": "a2d483382afeb0a17f8ec0b5cf4947d7c47dfb1e6680483526772c3bfc6df41b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0470",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0555",
+        "sourceVocabFingerprintSha256": "143ece13c948e3122e625582a39e7327f39e6fa550aba0031659e1cce3bb59b8",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0471",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0556",
+        "sourceVocabFingerprintSha256": "8d07ec5ce160917b97acc4b83682cfbd6a213fcca17e2a5379d8d8eef5b3cfb6",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0472",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0557",
+        "sourceVocabFingerprintSha256": "eab081d0430594ae106a2332c974cd9a54b52b71f28a4918fa1a665f09ce5a60",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0473",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0558",
+        "sourceVocabFingerprintSha256": "9da7fe1e971c770d4eb3e09e8ea157f7be61f275ad2ea4adda5eb5387b1896eb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0474",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0559",
+        "sourceVocabFingerprintSha256": "e69a177c51b75ba614ea7d09281a6b47c80f5515d8608f701aa0b7425751df88",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0475",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0560",
+        "sourceVocabFingerprintSha256": "4738de86d8cd7569a5efbde5ad8ff0b677716ee8fcea4ed9dd3016642674514b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0476",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0561",
+        "sourceVocabFingerprintSha256": "fb84a9bdba34a4245fdac90eb58730929ce1a7368836f6e8ebea7bc1ebaf187e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0477",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0562",
+        "sourceVocabFingerprintSha256": "daf637dad24dc922fd3117cf369b2ff124a09cc70aac2c7a22b854705ed8dee0",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0478",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0563",
+        "sourceVocabFingerprintSha256": "e7e89a76aff534189d532f1a04498262d69b6f50990e858366ca2205c1b54a35",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0479",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_hobbies_1",
+        "sourceVocabId": "vocab_a1_0564",
+        "sourceVocabFingerprintSha256": "b513bd12182a876fd3e3a66a335519234936de145c4bb999ee622b6bf020ea1f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_11_titles_relationships",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0480",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0565",
+        "sourceVocabFingerprintSha256": "fb0f7a02a43ab8ba2b248b983cf233a15862bc30aad240afbfd2275384f1db63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0481",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0566",
+        "sourceVocabFingerprintSha256": "977eff35a43bdb19926c252547c9734665d34e59d0d9e22feb5c4fb34588dfee",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0482",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0567",
+        "sourceVocabFingerprintSha256": "466c3a5b506031246a17f30a9141d3841719060a68912945f6ecb9c82ad67a4c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0483",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0568",
+        "sourceVocabFingerprintSha256": "0995843830a176d0822c2f32332de9005c350abbe3ae41b92e44fcc6e10eb3bf",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0484",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0569",
+        "sourceVocabFingerprintSha256": "994643e628d8efdf7d47e5a55ddf070b934f90bf391fdbd1d3ac527aed6924f4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0485",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0570",
+        "sourceVocabFingerprintSha256": "ec6b9ff78784b94e1c06e4c57b5521f51ee90aa99fc8f7c31727b5b4c16ee4b3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0486",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0571",
+        "sourceVocabFingerprintSha256": "7c438b5a6cd32cbdac524d80dd0f3fb61ebb79a01d53167834604600ab6a92db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0487",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0572",
+        "sourceVocabFingerprintSha256": "ed2b978a0e4c64b18836a05c1999e5d25323201ab09a1ea404b9df79ff0323c2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0488",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0573",
+        "sourceVocabFingerprintSha256": "9336a09bfea673edba190022c1b4068cb4b01b15b7213a3718beedc8b52585f9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0489",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0574",
+        "sourceVocabFingerprintSha256": "784d29e79756893814a0a503be6934899b9b557e6485fb9c910900325b79478e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0490",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0575",
+        "sourceVocabFingerprintSha256": "976820f27d1f4e6941f0da2cd6f905815571e7f923f251ec98d18f8ecb0a0d32",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0491",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_food_1",
+        "sourceVocabId": "vocab_a1_0576",
+        "sourceVocabFingerprintSha256": "6a38065f610b4e0eb023fe8a461da5c17ff198f7c7455bf86ab1f8b9c109ae63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_04_order_request_object",
+        "courseUnitId": "a1_04_order_request_object"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0492",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0577",
+        "sourceVocabFingerprintSha256": "ad2cf171396f9c6d93ed6ac9b81c544b019156f6fd1dca26cad55dbedfa7e72a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0493",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0578",
+        "sourceVocabFingerprintSha256": "ba331ce144191d92ae2d53d5e801b62ff71b3f18556f71056fb600748f69d910",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0494",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0579",
+        "sourceVocabFingerprintSha256": "7fdbbaf96d932ae7368c913baef6002d53d68e75a994050e16f5b6709d94bb1e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0495",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0580",
+        "sourceVocabFingerprintSha256": "8658dc3cdcc6b3d38c7cbda03316b04bf021521bec4ff00c3afb8f5158b109bc",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0496",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0581",
+        "sourceVocabFingerprintSha256": "35450b7ad8bd2c81a300d8b5fa506d0e636f63beb26060be9232060fab3c458a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0497",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0582",
+        "sourceVocabFingerprintSha256": "aaaa3186b3abc13381fee33059eb7aba134525b3e29cec090fc950c0eb2122b2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0498",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0583",
+        "sourceVocabFingerprintSha256": "ac4d26933d1cc704f6e29a16ac37ac9e3067fba43e6f18ddb9936e4c5f65ddae",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0499",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0584",
+        "sourceVocabFingerprintSha256": "73becdb65a2dd8037e8540424403bb2c79a767d31d8e0f9ff720e63f045feb0a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0500",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0585",
+        "sourceVocabFingerprintSha256": "909bde0ef2e30442c02c1261a04ea425a8ff5c047a09ae5fc28159930402a502",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0501",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0586",
+        "sourceVocabFingerprintSha256": "20955aee8964288f5cc5f1d71e1c1db43621fb514a045dc702954baad4c9f362",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0502",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0587",
+        "sourceVocabFingerprintSha256": "80eee5d281f5c60c1fe4d8f4a14e62ee9325ed9ddd1c19821a38a894453d825f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0503",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_korean_places_1",
+        "sourceVocabId": "vocab_a1_0588",
+        "sourceVocabFingerprintSha256": "04297cc4a90583bd3121e26daa888d9aceb5e78bf4fbed720b88ac2dda2df70a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
       }
     ],
     "inheritanceRules": [

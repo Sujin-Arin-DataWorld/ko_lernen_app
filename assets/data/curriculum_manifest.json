@@ -2551,7 +2551,17 @@
     "b1_festival_booth": "b1_06_life_capstone",
     "b1_apt_rules": "b1_06_life_capstone",
     "b1_partner_leftover_bags": "b1_04_relationships",
-    "a1_first_class": "a1_15_first_class_work"
+    "a1_first_class": "a1_15_first_class_work",
+    "a1_countries": "a1_02_self_intro_identity",
+    "a1_hobbies": "a1_11_titles_relationships",
+    "a1_korean_food": "a1_04_order_request_object",
+    "a1_korean_places": "a1_16_survival_capstone",
+    "a1_months": "a1_05_numbers_time",
+    "a1_belongings": "a1_09_home_daily_life",
+    "a1_places_buildings": "a1_06_transport_directions",
+    "a1_time_expressions": "a1_05_numbers_time",
+    "a1_nature_people": "a1_16_survival_capstone",
+    "a1_feelings_talk": "a1_11_titles_relationships"
   },
   "contentLinks": [
     {

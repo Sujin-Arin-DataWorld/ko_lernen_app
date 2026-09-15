@@ -168,12 +168,13 @@ class TestBatch25VocabRows(unittest.TestCase):
             self.assertNotIn(row["korean"], pre_batch_korean)
 
     def test_all_ids_unique_and_above_pre_batch_live_max(self):
-        batch_ids = {r["id"] for r in self.rows}
-        pre_batch_max = max(
-            int(r["id"].rsplit("_", 1)[1])
-            for r in self.live_rows
-            if r["id"].startswith("vocab_a1_") and r["id"] not in batch_ids
-        )
+        # C3-T3 (2026-09-16): the exclude-own-ids approach this used to use
+        # broke once Batch 26/27 were promoted on top of Batch 25 with
+        # higher, disjoint id ranges -- "pre-batch" live max must be a fixed
+        # baseline (one below this batch's own lowest id), not a live
+        # recomputation that later batches inflate.
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
@@ -299,12 +300,10 @@ class TestBatch25Cloze(unittest.TestCase):
         self.assertEqual(len(self.items), len(rows))
 
     def test_ids_unique_and_above_pre_batch_live_max(self):
-        batch_ids = {i["id"] for i in self.items}
-        pre_batch_max = max(
-            int(i["id"].rsplit("_", 1)[1])
-            for i in self.live_cloze
-            if i["id"].startswith("cloze_a1_") and i["id"] not in batch_ids
-        )
+        # C3-T3 (2026-09-16): fixed baseline, see the vocab-row version of
+        # this fix above for why exclude-own-ids no longer works.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
@@ -472,12 +471,10 @@ class TestBatch25Satz(unittest.TestCase):
         self.assertEqual(len(self.items), len(rows))
 
     def test_ids_unique_and_above_pre_batch_live_max(self):
-        batch_ids = {i["id"] for i in self.items}
-        pre_batch_max = max(
-            int(i["id"].rsplit("_", 1)[1])
-            for i in self.live_satz
-            if i["id"].startswith("satz_a1_") and i["id"] not in batch_ids
-        )
+        # C3-T3 (2026-09-16): fixed baseline, see the vocab-row version of
+        # this fix above for why exclude-own-ids no longer works.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:

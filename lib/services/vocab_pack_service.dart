@@ -207,6 +207,17 @@ class VocabPackService {
     'a1_payment_delivery': ('Bezahlen & Lieferung', 'Payment & Delivery'),
     // A1 2026-09-09 (PR-L3a Batch 23 2차): a1_15 첫 수업 유닛 로더 커버리지.
     'a1_first_class': ('Erster Kurstag', 'First Day of Class'),
+    // A1 C3-T3 (2026-09-16): Batch 26/27 A1 reinforcement new packs.
+    'a1_countries': ('Länder', 'Countries'),
+    'a1_hobbies': ('Hobbys', 'Hobbies'),
+    'a1_korean_food': ('Koreanisches Essen', 'Korean Food'),
+    'a1_korean_places': ('Orte in Korea', 'Places in Korea'),
+    'a1_months': ('Monate', 'Months'),
+    'a1_belongings': ('Persönliche Sachen', 'Personal Items'),
+    'a1_places_buildings': ('Orte & Gebäude', 'Places & Buildings'),
+    'a1_time_expressions': ('Zeitausdrücke', 'Time Expressions'),
+    'a1_nature_people': ('Natur & Menschen', 'Nature & People'),
+    'a1_feelings_talk': ('Gefühle & Gespräch', 'Feelings & Conversation'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),

@@ -11,7 +11,8 @@
         "월요일"
       ],
       "vocabKo": "게임",
-      "sourceVocabId": "vocab_a1_0523"
+      "sourceVocabId": "vocab_a1_0523",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0439",
@@ -24,7 +25,8 @@
         "생일"
       ],
       "vocabKo": "텔레비전",
-      "sourceVocabId": "vocab_a1_0524"
+      "sourceVocabId": "vocab_a1_0524",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0440",
@@ -37,7 +39,8 @@
         "작년"
       ],
       "vocabKo": "슈퍼마켓",
-      "sourceVocabId": "vocab_a1_0525"
+      "sourceVocabId": "vocab_a1_0525",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0441",
@@ -50,7 +53,8 @@
         "그저께"
       ],
       "vocabKo": "백화점",
-      "sourceVocabId": "vocab_a1_0526"
+      "sourceVocabId": "vocab_a1_0526",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0442",
@@ -63,7 +67,8 @@
         "책상"
       ],
       "vocabKo": "터미널",
-      "sourceVocabId": "vocab_a1_0527"
+      "sourceVocabId": "vocab_a1_0527",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0443",
@@ -76,7 +81,8 @@
         "모자"
       ],
       "vocabKo": "미국",
-      "sourceVocabId": "vocab_a1_0528"
+      "sourceVocabId": "vocab_a1_0528",
+      "courseUnitId": "a1_03_topic_subject_particles"
     },
     {
       "id": "satz_a1_0444",
@@ -89,7 +95,8 @@
         "핸드폰"
       ],
       "vocabKo": "일월",
-      "sourceVocabId": "vocab_a1_0529"
+      "sourceVocabId": "vocab_a1_0529",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0445",
@@ -102,7 +109,8 @@
         "물건"
       ],
       "vocabKo": "이월",
-      "sourceVocabId": "vocab_a1_0530"
+      "sourceVocabId": "vocab_a1_0530",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0446",
@@ -115,7 +123,8 @@
         "귤"
       ],
       "vocabKo": "삼월",
-      "sourceVocabId": "vocab_a1_0531"
+      "sourceVocabId": "vocab_a1_0531",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0447",
@@ -128,7 +137,8 @@
         "우유"
       ],
       "vocabKo": "사월",
-      "sourceVocabId": "vocab_a1_0532"
+      "sourceVocabId": "vocab_a1_0532",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0448",
@@ -141,7 +151,8 @@
         "할아버지"
       ],
       "vocabKo": "오월",
-      "sourceVocabId": "vocab_a1_0533"
+      "sourceVocabId": "vocab_a1_0533",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0449",
@@ -154,7 +165,8 @@
         "딸"
       ],
       "vocabKo": "유월",
-      "sourceVocabId": "vocab_a1_0534"
+      "sourceVocabId": "vocab_a1_0534",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0450",
@@ -167,7 +179,8 @@
         "주부"
       ],
       "vocabKo": "칠월",
-      "sourceVocabId": "vocab_a1_0535"
+      "sourceVocabId": "vocab_a1_0535",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0451",
@@ -180,7 +193,8 @@
         "월요일"
       ],
       "vocabKo": "팔월",
-      "sourceVocabId": "vocab_a1_0536"
+      "sourceVocabId": "vocab_a1_0536",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0452",
@@ -193,7 +207,8 @@
         "생일"
       ],
       "vocabKo": "구월",
-      "sourceVocabId": "vocab_a1_0537"
+      "sourceVocabId": "vocab_a1_0537",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0453",
@@ -206,7 +221,8 @@
         "작년"
       ],
       "vocabKo": "시월",
-      "sourceVocabId": "vocab_a1_0538"
+      "sourceVocabId": "vocab_a1_0538",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0454",
@@ -219,7 +235,8 @@
         "그저께"
       ],
       "vocabKo": "십일월",
-      "sourceVocabId": "vocab_a1_0539"
+      "sourceVocabId": "vocab_a1_0539",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0455",
@@ -232,7 +249,8 @@
         "책상"
       ],
       "vocabKo": "십이월",
-      "sourceVocabId": "vocab_a1_0540"
+      "sourceVocabId": "vocab_a1_0540",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0456",
@@ -245,7 +263,8 @@
         "모자"
       ],
       "vocabKo": "일본",
-      "sourceVocabId": "vocab_a1_0541"
+      "sourceVocabId": "vocab_a1_0541",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0457",
@@ -258,7 +277,8 @@
         "핸드폰"
       ],
       "vocabKo": "중국",
-      "sourceVocabId": "vocab_a1_0542"
+      "sourceVocabId": "vocab_a1_0542",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0458",
@@ -271,7 +291,8 @@
         "물건"
       ],
       "vocabKo": "영국",
-      "sourceVocabId": "vocab_a1_0543"
+      "sourceVocabId": "vocab_a1_0543",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0459",
@@ -284,7 +305,8 @@
         "귤"
       ],
       "vocabKo": "프랑스",
-      "sourceVocabId": "vocab_a1_0544"
+      "sourceVocabId": "vocab_a1_0544",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0460",
@@ -297,7 +319,8 @@
         "우유"
       ],
       "vocabKo": "러시아",
-      "sourceVocabId": "vocab_a1_0545"
+      "sourceVocabId": "vocab_a1_0545",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0461",
@@ -310,7 +333,8 @@
         "할아버지"
       ],
       "vocabKo": "캐나다",
-      "sourceVocabId": "vocab_a1_0546"
+      "sourceVocabId": "vocab_a1_0546",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0462",
@@ -323,7 +347,8 @@
         "딸"
       ],
       "vocabKo": "태국",
-      "sourceVocabId": "vocab_a1_0547"
+      "sourceVocabId": "vocab_a1_0547",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0463",
@@ -336,7 +361,8 @@
         "주부"
       ],
       "vocabKo": "베트남",
-      "sourceVocabId": "vocab_a1_0548"
+      "sourceVocabId": "vocab_a1_0548",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0464",
@@ -349,7 +375,8 @@
         "월요일"
       ],
       "vocabKo": "몽골",
-      "sourceVocabId": "vocab_a1_0549"
+      "sourceVocabId": "vocab_a1_0549",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0465",
@@ -362,7 +389,8 @@
         "생일"
       ],
       "vocabKo": "말레이시아",
-      "sourceVocabId": "vocab_a1_0550"
+      "sourceVocabId": "vocab_a1_0550",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0466",
@@ -375,7 +403,8 @@
         "작년"
       ],
       "vocabKo": "인도네시아",
-      "sourceVocabId": "vocab_a1_0551"
+      "sourceVocabId": "vocab_a1_0551",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0467",
@@ -388,7 +417,8 @@
         "그저께"
       ],
       "vocabKo": "외국",
-      "sourceVocabId": "vocab_a1_0552"
+      "sourceVocabId": "vocab_a1_0552",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0468",
@@ -401,7 +431,8 @@
         "책상"
       ],
       "vocabKo": "축구",
-      "sourceVocabId": "vocab_a1_0553"
+      "sourceVocabId": "vocab_a1_0553",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0469",
@@ -414,7 +445,8 @@
         "모자"
       ],
       "vocabKo": "야구",
-      "sourceVocabId": "vocab_a1_0554"
+      "sourceVocabId": "vocab_a1_0554",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0470",
@@ -427,7 +459,8 @@
         "핸드폰"
       ],
       "vocabKo": "농구",
-      "sourceVocabId": "vocab_a1_0555"
+      "sourceVocabId": "vocab_a1_0555",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0471",
@@ -440,7 +473,8 @@
         "물건"
       ],
       "vocabKo": "테니스",
-      "sourceVocabId": "vocab_a1_0556"
+      "sourceVocabId": "vocab_a1_0556",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0472",
@@ -453,7 +487,8 @@
         "귤"
       ],
       "vocabKo": "수영",
-      "sourceVocabId": "vocab_a1_0557"
+      "sourceVocabId": "vocab_a1_0557",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0473",
@@ -466,7 +501,8 @@
         "우유"
       ],
       "vocabKo": "스키",
-      "sourceVocabId": "vocab_a1_0558"
+      "sourceVocabId": "vocab_a1_0558",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0474",
@@ -479,7 +515,8 @@
         "할아버지"
       ],
       "vocabKo": "등산",
-      "sourceVocabId": "vocab_a1_0559"
+      "sourceVocabId": "vocab_a1_0559",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0475",
@@ -492,7 +529,8 @@
         "딸"
       ],
       "vocabKo": "산책",
-      "sourceVocabId": "vocab_a1_0560"
+      "sourceVocabId": "vocab_a1_0560",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0476",
@@ -505,7 +543,8 @@
         "주부"
       ],
       "vocabKo": "춤",
-      "sourceVocabId": "vocab_a1_0561"
+      "sourceVocabId": "vocab_a1_0561",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0477",
@@ -518,7 +557,8 @@
         "월요일"
       ],
       "vocabKo": "노래",
-      "sourceVocabId": "vocab_a1_0562"
+      "sourceVocabId": "vocab_a1_0562",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0478",
@@ -531,7 +571,8 @@
         "생일"
       ],
       "vocabKo": "구경",
-      "sourceVocabId": "vocab_a1_0563"
+      "sourceVocabId": "vocab_a1_0563",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0479",
@@ -544,7 +585,8 @@
         "작년"
       ],
       "vocabKo": "탁구",
-      "sourceVocabId": "vocab_a1_0564"
+      "sourceVocabId": "vocab_a1_0564",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0480",
@@ -557,7 +599,8 @@
         "그저께"
       ],
       "vocabKo": "김밥",
-      "sourceVocabId": "vocab_a1_0565"
+      "sourceVocabId": "vocab_a1_0565",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0481",
@@ -570,7 +613,8 @@
         "책상"
       ],
       "vocabKo": "떡볶이",
-      "sourceVocabId": "vocab_a1_0566"
+      "sourceVocabId": "vocab_a1_0566",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0482",
@@ -583,7 +627,8 @@
         "모자"
       ],
       "vocabKo": "김치찌개",
-      "sourceVocabId": "vocab_a1_0567"
+      "sourceVocabId": "vocab_a1_0567",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0483",
@@ -596,7 +641,8 @@
         "핸드폰"
       ],
       "vocabKo": "된장찌개",
-      "sourceVocabId": "vocab_a1_0568"
+      "sourceVocabId": "vocab_a1_0568",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0484",
@@ -609,7 +655,8 @@
         "물건"
       ],
       "vocabKo": "삼계탕",
-      "sourceVocabId": "vocab_a1_0569"
+      "sourceVocabId": "vocab_a1_0569",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0485",
@@ -622,7 +669,8 @@
         "귤"
       ],
       "vocabKo": "갈비",
-      "sourceVocabId": "vocab_a1_0570"
+      "sourceVocabId": "vocab_a1_0570",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0486",
@@ -635,7 +683,8 @@
         "우유"
       ],
       "vocabKo": "갈비탕",
-      "sourceVocabId": "vocab_a1_0571"
+      "sourceVocabId": "vocab_a1_0571",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0487",
@@ -648,7 +697,8 @@
         "할아버지"
       ],
       "vocabKo": "참외",
-      "sourceVocabId": "vocab_a1_0572"
+      "sourceVocabId": "vocab_a1_0572",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0488",
@@ -661,7 +711,8 @@
         "딸"
       ],
       "vocabKo": "포도",
-      "sourceVocabId": "vocab_a1_0573"
+      "sourceVocabId": "vocab_a1_0573",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0489",
@@ -674,7 +725,8 @@
         "주부"
       ],
       "vocabKo": "감",
-      "sourceVocabId": "vocab_a1_0574"
+      "sourceVocabId": "vocab_a1_0574",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0490",
@@ -687,7 +739,8 @@
         "월요일"
       ],
       "vocabKo": "사이다",
-      "sourceVocabId": "vocab_a1_0575"
+      "sourceVocabId": "vocab_a1_0575",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0491",
@@ -700,7 +753,8 @@
         "생일"
       ],
       "vocabKo": "콜라",
-      "sourceVocabId": "vocab_a1_0576"
+      "sourceVocabId": "vocab_a1_0576",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0492",
@@ -713,7 +767,8 @@
         "작년"
       ],
       "vocabKo": "서울",
-      "sourceVocabId": "vocab_a1_0577"
+      "sourceVocabId": "vocab_a1_0577",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0493",
@@ -726,7 +781,8 @@
         "그저께"
       ],
       "vocabKo": "부산",
-      "sourceVocabId": "vocab_a1_0578"
+      "sourceVocabId": "vocab_a1_0578",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0494",
@@ -739,7 +795,8 @@
         "책상"
       ],
       "vocabKo": "인천",
-      "sourceVocabId": "vocab_a1_0579"
+      "sourceVocabId": "vocab_a1_0579",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0495",
@@ -752,7 +809,8 @@
         "모자"
       ],
       "vocabKo": "제주도",
-      "sourceVocabId": "vocab_a1_0580"
+      "sourceVocabId": "vocab_a1_0580",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0496",
@@ -765,7 +823,8 @@
         "핸드폰"
       ],
       "vocabKo": "남대문",
-      "sourceVocabId": "vocab_a1_0581"
+      "sourceVocabId": "vocab_a1_0581",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0497",
@@ -778,7 +837,8 @@
         "물건"
       ],
       "vocabKo": "남산",
-      "sourceVocabId": "vocab_a1_0582"
+      "sourceVocabId": "vocab_a1_0582",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0498",
@@ -791,7 +851,8 @@
         "귤"
       ],
       "vocabKo": "동대문",
-      "sourceVocabId": "vocab_a1_0583"
+      "sourceVocabId": "vocab_a1_0583",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0499",
@@ -804,7 +865,8 @@
         "우유"
       ],
       "vocabKo": "서점",
-      "sourceVocabId": "vocab_a1_0584"
+      "sourceVocabId": "vocab_a1_0584",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0500",
@@ -817,7 +879,8 @@
         "할아버지"
       ],
       "vocabKo": "커피숍",
-      "sourceVocabId": "vocab_a1_0585"
+      "sourceVocabId": "vocab_a1_0585",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0501",
@@ -830,7 +893,8 @@
         "딸"
       ],
       "vocabKo": "영화관",
-      "sourceVocabId": "vocab_a1_0586"
+      "sourceVocabId": "vocab_a1_0586",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0502",
@@ -843,7 +907,8 @@
         "주부"
       ],
       "vocabKo": "극장",
-      "sourceVocabId": "vocab_a1_0587"
+      "sourceVocabId": "vocab_a1_0587",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0503",
@@ -856,7 +921,8 @@
         "월요일"
       ],
       "vocabKo": "목욕탕",
-      "sourceVocabId": "vocab_a1_0588"
+      "sourceVocabId": "vocab_a1_0588",
+      "courseUnitId": "a1_16_survival_capstone"
     }
   ]
 }
