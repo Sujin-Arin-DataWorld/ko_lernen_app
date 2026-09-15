@@ -125,12 +125,14 @@ HEADWORD_EMBEDDED_GRAMMAR = {
         ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
         ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
         ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
-        # C2d-2 (2026-09-16, Jin option a): kept in sync with
-        # scan_a1_grammar.py's own copy of this dict -- see that module for
-        # the full justification.
-        ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+        # Jin ruling 2026-09-16 (Batch 25, F9 예외표) -- kept in sync with
+        # scan_a1_grammar.py's own copy of this dict; closes out C2d-2's
+        # original "relevel-to-A2 candidate" framing (kept at A1
+        # permanently). See that module for the full justification and the
+        # F9 CSV it must agree with.
+        ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
         ("satz", "satz_a1_0317"): "mirrors vocab_a1_0410",
-        ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+        ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
         ("cloze", "cloze_a1_0442"): "mirrors vocab_a1_0508",
         ("satz", "satz_a1_0423"): "mirrors vocab_a1_0508",
     },

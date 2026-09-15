@@ -234,19 +234,21 @@ HEADWORD_EMBEDDED_GRAMMAR = {
     ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
     ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
     ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
-    # C2d-2 (2026-09-16, Jin option a -- rewrite -아/어 주세요 requests to
-    # 1급 -으세요): vocab_a1_0410's headword IS "적어 주다", a lexicalized
-    # -아/어 주다 compound (nikl grade 2, 표현 "-어 주다"). Its example
-    # keeps the headword verbatim per the same rule as vocab_a1_0341 --
-    # relevel-to-A2 candidate (pack-level decision, LCP F9), not rewritten.
-    ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+    # Jin ruling 2026-09-16 (Batch 25, F9 예외표 -- docs/data/level_bible/
+    # F9_exceptions.md "표제어 내장 문법" / tools/content_factory/lexicon/
+    # f9_headword_embedded_grammar.csv): 적어 주다/도와주다 are lexicalized
+    # -아/어 주다 (nikl grade 2, 표현) survival expressions kept at A1
+    # PERMANENTLY -- closing out C2d-2's original "relevel-to-A2 candidate"
+    # framing below. Productive -아/어 주다 is taught from A2 (see PR #348,
+    # which rewrote every other A1 use of -아/어 주세요 to 1급 -으세요).
+    # vocab_a1_0508's headword IS "도와주다" (돕다+아 주다, lexicalized --
+    # named explicitly in the C2d-2 brief's rule 2; found via
+    # scan_grammar_level.py --level A1, a1_family_2 pack, promoted after
+    # the 2026-09-15 C2d scan). test_scan_a1_grammar.py asserts this dict
+    # agrees with the F9 CSV above.
+    ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
     ("satz", "satz_a1_0317"): "mirrors vocab_a1_0410",
-    # C2d-2: vocab_a1_0508's headword IS "도와주다" (돕다+아 주다,
-    # lexicalized -- named explicitly as this exact case in the C2d-2
-    # brief's rule 2). Found via scan_grammar_level.py --level A1 (not in
-    # the original 38-row DOCUMENTED_EXCEPTIONS list -- a1_family_2 pack,
-    # promoted after the 2026-09-15 C2d scan).
-    ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+    ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
     ("cloze", "cloze_a1_0442"): "mirrors vocab_a1_0508",
     ("satz", "satz_a1_0423"): "mirrors vocab_a1_0508",
 }
