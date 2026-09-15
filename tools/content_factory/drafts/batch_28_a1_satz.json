@@ -11,7 +11,8 @@
         "장소"
       ],
       "vocabKo": "늦다",
-      "sourceVocabId": "vocab_a1_0652"
+      "sourceVocabId": "vocab_a1_0652",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0568",
@@ -24,7 +25,8 @@
         "장소"
       ],
       "vocabKo": "묻다",
-      "sourceVocabId": "vocab_a1_0653"
+      "sourceVocabId": "vocab_a1_0653",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0569",
@@ -37,7 +39,8 @@
         "잡채"
       ],
       "vocabKo": "맞다",
-      "sourceVocabId": "vocab_a1_0654"
+      "sourceVocabId": "vocab_a1_0654",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0570",
@@ -50,7 +53,8 @@
         "월"
       ],
       "vocabKo": "샤워",
-      "sourceVocabId": "vocab_a1_0655"
+      "sourceVocabId": "vocab_a1_0655",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0571",
@@ -63,7 +67,8 @@
         "교통"
       ],
       "vocabKo": "세수",
-      "sourceVocabId": "vocab_a1_0656"
+      "sourceVocabId": "vocab_a1_0656",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0572",
@@ -76,7 +81,8 @@
         "안내"
       ],
       "vocabKo": "청소",
-      "sourceVocabId": "vocab_a1_0657"
+      "sourceVocabId": "vocab_a1_0657",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0573",
@@ -89,7 +95,8 @@
         "감기"
       ],
       "vocabKo": "준비",
-      "sourceVocabId": "vocab_a1_0658"
+      "sourceVocabId": "vocab_a1_0658",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0574",
@@ -102,7 +109,8 @@
         "방학"
       ],
       "vocabKo": "생활",
-      "sourceVocabId": "vocab_a1_0659"
+      "sourceVocabId": "vocab_a1_0659",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0575",
@@ -115,7 +123,8 @@
         "병"
       ],
       "vocabKo": "잠",
-      "sourceVocabId": "vocab_a1_0660"
+      "sourceVocabId": "vocab_a1_0660",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0576",
@@ -128,7 +137,8 @@
         "직원"
       ],
       "vocabKo": "요리",
-      "sourceVocabId": "vocab_a1_0661"
+      "sourceVocabId": "vocab_a1_0661",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0577",
@@ -141,7 +151,8 @@
         "종업원"
       ],
       "vocabKo": "식사",
-      "sourceVocabId": "vocab_a1_0662"
+      "sourceVocabId": "vocab_a1_0662",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0578",
@@ -154,7 +165,8 @@
         "직원"
       ],
       "vocabKo": "에어컨",
-      "sourceVocabId": "vocab_a1_0663"
+      "sourceVocabId": "vocab_a1_0663",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0579",
@@ -167,7 +179,8 @@
         "병"
       ],
       "vocabKo": "운전",
-      "sourceVocabId": "vocab_a1_0664"
+      "sourceVocabId": "vocab_a1_0664",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0580",
@@ -180,7 +193,8 @@
         "종업원"
       ],
       "vocabKo": "사용",
-      "sourceVocabId": "vocab_a1_0665"
+      "sourceVocabId": "vocab_a1_0665",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0581",
@@ -193,7 +207,8 @@
         "안내"
       ],
       "vocabKo": "부탁",
-      "sourceVocabId": "vocab_a1_0666"
+      "sourceVocabId": "vocab_a1_0666",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0582",
@@ -206,7 +221,8 @@
         "병"
       ],
       "vocabKo": "가요",
-      "sourceVocabId": "vocab_a1_0667"
+      "sourceVocabId": "vocab_a1_0667",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0583",
@@ -219,7 +235,8 @@
         "감기"
       ],
       "vocabKo": "그림",
-      "sourceVocabId": "vocab_a1_0668"
+      "sourceVocabId": "vocab_a1_0668",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0584",
@@ -232,7 +249,8 @@
         "교통"
       ],
       "vocabKo": "드라마",
-      "sourceVocabId": "vocab_a1_0669"
+      "sourceVocabId": "vocab_a1_0669",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0585",
@@ -245,7 +263,8 @@
         "키"
       ],
       "vocabKo": "연극",
-      "sourceVocabId": "vocab_a1_0670"
+      "sourceVocabId": "vocab_a1_0670",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0586",
@@ -258,7 +277,8 @@
         "잡채"
       ],
       "vocabKo": "영화배우",
-      "sourceVocabId": "vocab_a1_0671"
+      "sourceVocabId": "vocab_a1_0671",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0587",
@@ -271,7 +291,8 @@
         "종업원"
       ],
       "vocabKo": "콘서트",
-      "sourceVocabId": "vocab_a1_0672"
+      "sourceVocabId": "vocab_a1_0672",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0588",
@@ -284,7 +305,8 @@
         "장소"
       ],
       "vocabKo": "태권도",
-      "sourceVocabId": "vocab_a1_0673"
+      "sourceVocabId": "vocab_a1_0673",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0589",
@@ -297,7 +319,8 @@
         "종업원"
       ],
       "vocabKo": "파티",
-      "sourceVocabId": "vocab_a1_0674"
+      "sourceVocabId": "vocab_a1_0674",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0590",
@@ -310,7 +333,8 @@
         "월"
       ],
       "vocabKo": "프로그램",
-      "sourceVocabId": "vocab_a1_0675"
+      "sourceVocabId": "vocab_a1_0675",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0591",
@@ -323,7 +347,8 @@
         "병"
       ],
       "vocabKo": "피아노",
-      "sourceVocabId": "vocab_a1_0676"
+      "sourceVocabId": "vocab_a1_0676",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0592",
@@ -336,7 +361,8 @@
         "교통"
       ],
       "vocabKo": "사진",
-      "sourceVocabId": "vocab_a1_0677"
+      "sourceVocabId": "vocab_a1_0677",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0593",
@@ -349,7 +375,8 @@
         "종업원"
       ],
       "vocabKo": "초대",
-      "sourceVocabId": "vocab_a1_0678"
+      "sourceVocabId": "vocab_a1_0678",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0594",
@@ -362,7 +389,8 @@
         "종업원"
       ],
       "vocabKo": "감기",
-      "sourceVocabId": "vocab_a1_0679"
+      "sourceVocabId": "vocab_a1_0679",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0595",
@@ -375,7 +403,8 @@
         "글"
       ],
       "vocabKo": "병",
-      "sourceVocabId": "vocab_a1_0680"
+      "sourceVocabId": "vocab_a1_0680",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0596",
@@ -388,7 +417,8 @@
         "종업원"
       ],
       "vocabKo": "의사",
-      "sourceVocabId": "vocab_a1_0681"
+      "sourceVocabId": "vocab_a1_0681",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0597",
@@ -401,7 +431,8 @@
         "키"
       ],
       "vocabKo": "담배",
-      "sourceVocabId": "vocab_a1_0682"
+      "sourceVocabId": "vocab_a1_0682",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0598",
@@ -414,7 +445,8 @@
         "직원"
       ],
       "vocabKo": "술",
-      "sourceVocabId": "vocab_a1_0683"
+      "sourceVocabId": "vocab_a1_0683",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0599",
@@ -427,7 +459,8 @@
         "주"
       ],
       "vocabKo": "운동",
-      "sourceVocabId": "vocab_a1_0684"
+      "sourceVocabId": "vocab_a1_0684",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0600",
@@ -440,7 +473,8 @@
         "직원"
       ],
       "vocabKo": "키",
-      "sourceVocabId": "vocab_a1_0685"
+      "sourceVocabId": "vocab_a1_0685",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0601",
@@ -453,7 +487,8 @@
         "종업원"
       ],
       "vocabKo": "잡채",
-      "sourceVocabId": "vocab_a1_0686"
+      "sourceVocabId": "vocab_a1_0686",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0602",
@@ -466,7 +501,8 @@
         "직원"
       ],
       "vocabKo": "음식",
-      "sourceVocabId": "vocab_a1_0687"
+      "sourceVocabId": "vocab_a1_0687",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0603",
@@ -479,7 +515,8 @@
         "종업원"
       ],
       "vocabKo": "음료수",
-      "sourceVocabId": "vocab_a1_0688"
+      "sourceVocabId": "vocab_a1_0688",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0604",
@@ -492,7 +529,8 @@
         "키"
       ],
       "vocabKo": "메뉴",
-      "sourceVocabId": "vocab_a1_0689"
+      "sourceVocabId": "vocab_a1_0689",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0605",
@@ -505,7 +543,8 @@
         "직원"
       ],
       "vocabKo": "오렌지",
-      "sourceVocabId": "vocab_a1_0690"
+      "sourceVocabId": "vocab_a1_0690",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0606",
@@ -518,7 +557,8 @@
         "직원"
       ],
       "vocabKo": "방학",
-      "sourceVocabId": "vocab_a1_0691"
+      "sourceVocabId": "vocab_a1_0691",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0607",
@@ -531,7 +571,8 @@
         "종업원"
       ],
       "vocabKo": "졸업",
-      "sourceVocabId": "vocab_a1_0692"
+      "sourceVocabId": "vocab_a1_0692",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0608",
@@ -544,7 +585,8 @@
         "키"
       ],
       "vocabKo": "외국어",
-      "sourceVocabId": "vocab_a1_0693"
+      "sourceVocabId": "vocab_a1_0693",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0609",
@@ -557,7 +599,8 @@
         "키"
       ],
       "vocabKo": "아르바이트",
-      "sourceVocabId": "vocab_a1_0694"
+      "sourceVocabId": "vocab_a1_0694",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0610",
@@ -570,7 +613,8 @@
         "종업원"
       ],
       "vocabKo": "직원",
-      "sourceVocabId": "vocab_a1_0695"
+      "sourceVocabId": "vocab_a1_0695",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0611",
@@ -583,7 +627,8 @@
         "직원"
       ],
       "vocabKo": "종업원",
-      "sourceVocabId": "vocab_a1_0696"
+      "sourceVocabId": "vocab_a1_0696",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0612",
@@ -596,7 +641,8 @@
         "키"
       ],
       "vocabKo": "안내",
-      "sourceVocabId": "vocab_a1_0697"
+      "sourceVocabId": "vocab_a1_0697",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0613",
@@ -609,7 +655,8 @@
         "직원"
       ],
       "vocabKo": "교통",
-      "sourceVocabId": "vocab_a1_0698"
+      "sourceVocabId": "vocab_a1_0698",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0614",
@@ -622,7 +669,8 @@
         "종업원"
       ],
       "vocabKo": "시작",
-      "sourceVocabId": "vocab_a1_0699"
+      "sourceVocabId": "vocab_a1_0699",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0615",
@@ -635,7 +683,8 @@
         "키"
       ],
       "vocabKo": "장소",
-      "sourceVocabId": "vocab_a1_0700"
+      "sourceVocabId": "vocab_a1_0700",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0616",
@@ -648,7 +697,8 @@
         "직원"
       ],
       "vocabKo": "글",
-      "sourceVocabId": "vocab_a1_0701"
+      "sourceVocabId": "vocab_a1_0701",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0617",
@@ -661,7 +711,8 @@
         "키"
       ],
       "vocabKo": "이야기",
-      "sourceVocabId": "vocab_a1_0702"
+      "sourceVocabId": "vocab_a1_0702",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "satz_a1_0618",
@@ -674,7 +725,8 @@
         "직원"
       ],
       "vocabKo": "곳",
-      "sourceVocabId": "vocab_a1_0703"
+      "sourceVocabId": "vocab_a1_0703",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0619",
@@ -687,7 +739,8 @@
         "종업원"
       ],
       "vocabKo": "달",
-      "sourceVocabId": "vocab_a1_0704"
+      "sourceVocabId": "vocab_a1_0704",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0620",
@@ -700,7 +753,8 @@
         "병"
       ],
       "vocabKo": "동생",
-      "sourceVocabId": "vocab_a1_0705"
+      "sourceVocabId": "vocab_a1_0705",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0621",
@@ -713,7 +767,8 @@
         "종업원"
       ],
       "vocabKo": "밑",
-      "sourceVocabId": "vocab_a1_0706"
+      "sourceVocabId": "vocab_a1_0706",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0622",
@@ -726,7 +781,8 @@
         "키"
       ],
       "vocabKo": "생일",
-      "sourceVocabId": "vocab_a1_0707"
+      "sourceVocabId": "vocab_a1_0707",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0623",
@@ -739,7 +795,8 @@
         "종업원"
       ],
       "vocabKo": "선물",
-      "sourceVocabId": "vocab_a1_0708"
+      "sourceVocabId": "vocab_a1_0708",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0624",
@@ -752,7 +809,8 @@
         "직원"
       ],
       "vocabKo": "쇼핑",
-      "sourceVocabId": "vocab_a1_0709"
+      "sourceVocabId": "vocab_a1_0709",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0625",
@@ -765,7 +823,8 @@
         "키"
       ],
       "vocabKo": "올해",
-      "sourceVocabId": "vocab_a1_0710"
+      "sourceVocabId": "vocab_a1_0710",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0626",
@@ -778,7 +837,8 @@
         "종업원"
       ],
       "vocabKo": "요즘",
-      "sourceVocabId": "vocab_a1_0711"
+      "sourceVocabId": "vocab_a1_0711",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0627",
@@ -791,7 +851,8 @@
         "직원"
       ],
       "vocabKo": "월",
-      "sourceVocabId": "vocab_a1_0712"
+      "sourceVocabId": "vocab_a1_0712",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0628",
@@ -804,7 +865,8 @@
         "종업원"
       ],
       "vocabKo": "잠시",
-      "sourceVocabId": "vocab_a1_0713"
+      "sourceVocabId": "vocab_a1_0713",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0629",
@@ -817,7 +879,8 @@
         "직원"
       ],
       "vocabKo": "주",
-      "sourceVocabId": "vocab_a1_0714"
+      "sourceVocabId": "vocab_a1_0714",
+      "courseUnitId": "a1_11_titles_relationships"
     }
   ]
 }

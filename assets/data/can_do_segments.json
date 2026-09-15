@@ -211,7 +211,7 @@
     {
       "id": "cluster_a1_04_order_request_object_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_scenario_bunshik_tteokbokki_v1",
         "seed_vocab_pack_a1_food_1_v1",
@@ -237,7 +237,8 @@
         "seed_smalltalk_smalltalk_a1_0082_v1",
         "seed_smalltalk_smalltalk_a1_0089_v1",
         "seed_scenario_a1_w10_eat_v1",
-        "seed_vocab_pack_a1_korean_food_1_v1"
+        "seed_vocab_pack_a1_korean_food_1_v1",
+        "seed_vocab_pack_a1_health_food_1_v1"
       ],
       "contentReferences": [
         {
@@ -339,6 +340,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_korean_food_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_health_food_1"
         }
       ]
     },
@@ -756,7 +761,7 @@
     {
       "id": "cluster_a1_09_home_daily_life_v1",
       "level": "a1",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_scenario_home_morning_routine_v1",
         "seed_vocab_pack_a1_colors_v1",
@@ -787,7 +792,8 @@
         "seed_grammar_grammar_a2_cause_nikka_v1",
         "seed_grammar_grammar_a2_progressive_v1",
         "seed_scenario_umbrella_weather_v1",
-        "seed_vocab_pack_a1_belongings_1_v1"
+        "seed_vocab_pack_a1_belongings_1_v1",
+        "seed_vocab_pack_a1_home_daily_1_v1"
       ],
       "contentReferences": [
         {
@@ -909,6 +915,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_belongings_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_home_daily_1"
         }
       ]
     },
@@ -989,7 +999,7 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 17,
+      "revision": 18,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_family_1_v1",
         "seed_vocab_pack_a1_family_2_v1",
@@ -1044,7 +1054,9 @@
         "seed_scenario_favorite_korean_music_v1",
         "seed_scenario_korea_stay_smalltalk_v1",
         "seed_vocab_pack_a1_hobbies_1_v1",
-        "seed_vocab_pack_a1_feelings_talk_1_v1"
+        "seed_vocab_pack_a1_feelings_talk_1_v1",
+        "seed_vocab_pack_a1_culture_hobbies_1_v1",
+        "seed_vocab_pack_a1_time_family_1_v1"
       ],
       "contentReferences": [
         {
@@ -1262,6 +1274,14 @@
         {
           "kind": "vocabPack",
           "id": "a1_feelings_talk_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_culture_hobbies_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_time_family_1"
         }
       ]
     },
@@ -1525,7 +1545,7 @@
     {
       "id": "cluster_a1_15_first_class_work_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_first_class_meeting_v1",
         "seed_smalltalk_smalltalk_a1_0011_v1",
@@ -1535,7 +1555,8 @@
         "seed_smalltalk_smalltalk_a1_0032_v1",
         "seed_smalltalk_smalltalk_a1_0033_v1",
         "seed_grammar_grammar_a2_ability_v1",
-        "seed_vocab_pack_a1_first_class_1_v1"
+        "seed_vocab_pack_a1_first_class_1_v1",
+        "seed_vocab_pack_a1_school_work_1_v1"
       ],
       "contentReferences": [
         {
@@ -1573,6 +1594,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_first_class_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_school_work_1"
         }
       ]
     },

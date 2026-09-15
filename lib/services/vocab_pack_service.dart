@@ -218,6 +218,12 @@ class VocabPackService {
     'a1_time_expressions': ('Zeitausdrücke', 'Time Expressions'),
     'a1_nature_people': ('Natur & Menschen', 'Nature & People'),
     'a1_feelings_talk': ('Gefühle & Gespräch', 'Feelings & Conversation'),
+    // A1 C3-T3 (2026-09-16): Batch 28 A1 reinforcement new packs.
+    'a1_home_daily': ('Zuhause & Alltag', 'Home & Daily Life'),
+    'a1_culture_hobbies': ('Kultur & Hobbys', 'Culture & Hobbies'),
+    'a1_health_food': ('Gesundheit & Essen', 'Health & Food'),
+    'a1_school_work': ('Schule & Arbeit', 'School & Work'),
+    'a1_time_family': ('Zeit & Familie', 'Time & Family'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),

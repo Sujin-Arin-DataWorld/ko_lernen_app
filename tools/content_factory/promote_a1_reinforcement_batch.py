@@ -22,6 +22,8 @@ Run:  promote_a1_reinforcement_batch.py --batch 26 --check   (dry run)
       promote_a1_reinforcement_batch.py --batch 26 --apply
       promote_a1_reinforcement_batch.py --batch 27 --check
       promote_a1_reinforcement_batch.py --batch 27 --apply
+      promote_a1_reinforcement_batch.py --batch 28 --check
+      promote_a1_reinforcement_batch.py --batch 28 --apply
 
 Promote batches in order (lower number first) and commit between them so
 each batch's live-id-above-max invariant holds against the other's already-
@@ -74,9 +76,14 @@ VOCAB_COLUMNS = [
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 
 APPROVED_AT = "2026-09-16"
-APPROVAL_SOURCE = "owner chat: 'Batch 26·27 승인'"
+APPROVAL_SOURCE = {
+    26: "owner chat: 'Batch 26·27 승인'",
+    27: "owner chat: 'Batch 26·27 승인'",
+    28: "owner chat: 'Batch 28 승인'",
+}
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
-                 27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows"}
+                 27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
+                 28: "7/63"}
 
 
 def rj(p: Path):
@@ -128,7 +135,7 @@ def main(batch: int, apply: bool) -> None:
     manifest = rj(manifest_path)
 
     memo = (
-        f"Jin 승인 2026-09-16 (owner chat: 'Batch 26·27 승인'; "
+        f"Jin 승인 2026-09-16 ({APPROVAL_SOURCE[batch]}; "
         f"{BATCH_SAMPLE[batch]}); C3-T3 승격"
     )
 
@@ -298,7 +305,7 @@ def main(batch: int, apply: bool) -> None:
     approval = {
         "authority": "Jin",
         "approvedAt": APPROVED_AT,
-        "source": APPROVAL_SOURCE,
+        "source": APPROVAL_SOURCE[batch],
         "sample": BATCH_SAMPLE[batch],
     }
     manifest["status"] = "merged"
@@ -341,7 +348,7 @@ def main(batch: int, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27))
+    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")
     g.add_argument("--apply", action="store_true")

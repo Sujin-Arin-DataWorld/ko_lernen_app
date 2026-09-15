@@ -14,7 +14,8 @@
         "팔다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0652"
+      "sourceVocabId": "vocab_a1_0652",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0587",
@@ -30,7 +31,8 @@
         "빌리다"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0653"
+      "sourceVocabId": "vocab_a1_0653",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "cloze_a1_0588",
@@ -46,7 +48,8 @@
         "자다"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0654"
+      "sourceVocabId": "vocab_a1_0654",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "cloze_a1_0589",
@@ -62,7 +65,8 @@
         "가요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0655"
+      "sourceVocabId": "vocab_a1_0655",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0590",
@@ -78,7 +82,8 @@
         "피아노"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0656"
+      "sourceVocabId": "vocab_a1_0656",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0591",
@@ -94,7 +99,8 @@
         "병"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0657"
+      "sourceVocabId": "vocab_a1_0657",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0592",
@@ -110,7 +116,8 @@
         "잠시"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0658"
+      "sourceVocabId": "vocab_a1_0658",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0593",
@@ -126,7 +133,8 @@
         "그림이"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0659"
+      "sourceVocabId": "vocab_a1_0659",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0594",
@@ -142,7 +150,8 @@
         "청소를"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0660"
+      "sourceVocabId": "vocab_a1_0660",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0595",
@@ -158,7 +167,8 @@
         "동생"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0661"
+      "sourceVocabId": "vocab_a1_0661",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0596",
@@ -174,7 +184,8 @@
         "요즘"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0662"
+      "sourceVocabId": "vocab_a1_0662",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0597",
@@ -190,7 +201,8 @@
         "요리를"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0663"
+      "sourceVocabId": "vocab_a1_0663",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0598",
@@ -206,7 +218,8 @@
         "올해를"
       ],
       "topic": "Verkehr",
-      "sourceVocabId": "vocab_a1_0664"
+      "sourceVocabId": "vocab_a1_0664",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0599",
@@ -222,7 +235,8 @@
         "키"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0665"
+      "sourceVocabId": "vocab_a1_0665",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0600",
@@ -238,7 +252,8 @@
         "주"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0666"
+      "sourceVocabId": "vocab_a1_0666",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0601",
@@ -254,7 +269,8 @@
         "사용을"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0667"
+      "sourceVocabId": "vocab_a1_0667",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0602",
@@ -270,7 +286,8 @@
         "사용을"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0668"
+      "sourceVocabId": "vocab_a1_0668",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0603",
@@ -286,7 +303,8 @@
         "파티를"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0669"
+      "sourceVocabId": "vocab_a1_0669",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0604",
@@ -302,7 +320,8 @@
         "음식"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0670"
+      "sourceVocabId": "vocab_a1_0670",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0605",
@@ -318,7 +337,8 @@
         "방학이"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0671"
+      "sourceVocabId": "vocab_a1_0671",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0606",
@@ -334,7 +354,8 @@
         "아르바이트"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0672"
+      "sourceVocabId": "vocab_a1_0672",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0607",
@@ -350,7 +371,8 @@
         "음료수를"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0673"
+      "sourceVocabId": "vocab_a1_0673",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0608",
@@ -366,7 +388,8 @@
         "이야기"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0674"
+      "sourceVocabId": "vocab_a1_0674",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0609",
@@ -382,7 +405,8 @@
         "세수를"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0675"
+      "sourceVocabId": "vocab_a1_0675",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0610",
@@ -398,7 +422,8 @@
         "준비를"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0676"
+      "sourceVocabId": "vocab_a1_0676",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0611",
@@ -414,7 +439,8 @@
         "식사를"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0677"
+      "sourceVocabId": "vocab_a1_0677",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0612",
@@ -430,7 +456,8 @@
         "가요"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0678"
+      "sourceVocabId": "vocab_a1_0678",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0613",
@@ -446,7 +473,8 @@
         "부탁"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0679"
+      "sourceVocabId": "vocab_a1_0679",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0614",
@@ -462,7 +490,8 @@
         "오렌지가"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0680"
+      "sourceVocabId": "vocab_a1_0680",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0615",
@@ -478,7 +507,8 @@
         "태권도"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0681"
+      "sourceVocabId": "vocab_a1_0681",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0616",
@@ -494,7 +524,8 @@
         "운동을"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0682"
+      "sourceVocabId": "vocab_a1_0682",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0617",
@@ -510,7 +541,8 @@
         "졸업을"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0683"
+      "sourceVocabId": "vocab_a1_0683",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0618",
@@ -526,7 +558,8 @@
         "메뉴"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0684"
+      "sourceVocabId": "vocab_a1_0684",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0619",
@@ -542,7 +575,8 @@
         "잡채가"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0685"
+      "sourceVocabId": "vocab_a1_0685",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0620",
@@ -558,7 +592,8 @@
         "안내를"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0686"
+      "sourceVocabId": "vocab_a1_0686",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0621",
@@ -574,7 +609,8 @@
         "장소가"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0687"
+      "sourceVocabId": "vocab_a1_0687",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0622",
@@ -590,7 +626,8 @@
         "선물"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0688"
+      "sourceVocabId": "vocab_a1_0688",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0623",
@@ -606,7 +643,8 @@
         "세수를"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0689"
+      "sourceVocabId": "vocab_a1_0689",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0624",
@@ -622,7 +660,8 @@
         "생활을"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0690"
+      "sourceVocabId": "vocab_a1_0690",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "cloze_a1_0625",
@@ -638,7 +677,8 @@
         "감기가"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0691"
+      "sourceVocabId": "vocab_a1_0691",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0626",
@@ -654,7 +694,8 @@
         "장소"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0692"
+      "sourceVocabId": "vocab_a1_0692",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0627",
@@ -670,7 +711,8 @@
         "밑을"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0693"
+      "sourceVocabId": "vocab_a1_0693",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0628",
@@ -686,7 +728,8 @@
         "에어컨을"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0694"
+      "sourceVocabId": "vocab_a1_0694",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0629",
@@ -702,7 +745,8 @@
         "운전이에요"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0695"
+      "sourceVocabId": "vocab_a1_0695",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0630",
@@ -718,7 +762,8 @@
         "연극이"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0696"
+      "sourceVocabId": "vocab_a1_0696",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0631",
@@ -734,7 +779,8 @@
         "피아노"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0697"
+      "sourceVocabId": "vocab_a1_0697",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0632",
@@ -750,7 +796,8 @@
         "요즘"
       ],
       "topic": "Verkehr",
-      "sourceVocabId": "vocab_a1_0698"
+      "sourceVocabId": "vocab_a1_0698",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0633",
@@ -766,7 +813,8 @@
         "장소"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0699"
+      "sourceVocabId": "vocab_a1_0699",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0634",
@@ -782,7 +830,8 @@
         "파티가"
       ],
       "topic": "Position",
-      "sourceVocabId": "vocab_a1_0700"
+      "sourceVocabId": "vocab_a1_0700",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0635",
@@ -798,7 +847,8 @@
         "음식을"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0701"
+      "sourceVocabId": "vocab_a1_0701",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0636",
@@ -814,7 +864,8 @@
         "생일"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0702"
+      "sourceVocabId": "vocab_a1_0702",
+      "courseUnitId": "a1_15_first_class_work"
     },
     {
       "id": "cloze_a1_0637",
@@ -830,7 +881,8 @@
         "술"
       ],
       "topic": "Position",
-      "sourceVocabId": "vocab_a1_0703"
+      "sourceVocabId": "vocab_a1_0703",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0638",
@@ -846,7 +898,8 @@
         "외국어에"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0704"
+      "sourceVocabId": "vocab_a1_0704",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0639",
@@ -862,7 +915,8 @@
         "시작은"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0705"
+      "sourceVocabId": "vocab_a1_0705",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0640",
@@ -878,7 +932,8 @@
         "쇼핑에"
       ],
       "topic": "Position",
-      "sourceVocabId": "vocab_a1_0706"
+      "sourceVocabId": "vocab_a1_0706",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0641",
@@ -894,7 +949,8 @@
         "청소예요"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0707"
+      "sourceVocabId": "vocab_a1_0707",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0642",
@@ -910,7 +966,8 @@
         "요리를"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0708"
+      "sourceVocabId": "vocab_a1_0708",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0643",
@@ -926,7 +983,8 @@
         "월"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0709"
+      "sourceVocabId": "vocab_a1_0709",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0644",
@@ -942,7 +1000,8 @@
         "사용"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0710"
+      "sourceVocabId": "vocab_a1_0710",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0645",
@@ -958,7 +1017,8 @@
         "콘서트"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0711"
+      "sourceVocabId": "vocab_a1_0711",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0646",
@@ -974,7 +1034,8 @@
         "초대예요"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0712"
+      "sourceVocabId": "vocab_a1_0712",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0647",
@@ -990,7 +1051,8 @@
         "글"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0713"
+      "sourceVocabId": "vocab_a1_0713",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0648",
@@ -1006,7 +1068,8 @@
         "밑에"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0714"
+      "sourceVocabId": "vocab_a1_0714",
+      "courseUnitId": "a1_11_titles_relationships"
     }
   ]
 }
