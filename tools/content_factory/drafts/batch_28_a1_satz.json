@@ -45,7 +45,7 @@
     {
       "id": "satz_a1_0570",
       "level": "a1",
-      "targetKo": "아침에 샤워해요.",
+      "targetKo": "저는 아침에 샤워해요.",
       "promptDe": "Ich dusche am Morgen.",
       "promptEn": "I take a shower in the morning.",
       "distractors": [
@@ -59,7 +59,7 @@
     {
       "id": "satz_a1_0571",
       "level": "a1",
-      "targetKo": "매일 세수해요.",
+      "targetKo": "저는 매일 세수해요.",
       "promptDe": "Ich wasche mir jeden Tag das Gesicht.",
       "promptEn": "I wash my face every day.",
       "distractors": [
@@ -143,7 +143,7 @@
     {
       "id": "satz_a1_0577",
       "level": "a1",
-      "targetKo": "가족과 식사해요.",
+      "targetKo": "저는 가족과 식사해요.",
       "promptDe": "Ich esse mit der Familie.",
       "promptEn": "I have a meal with my family.",
       "distractors": [
@@ -157,9 +157,9 @@
     {
       "id": "satz_a1_0578",
       "level": "a1",
-      "targetKo": "에어컨을 켜요.",
-      "promptDe": "Ich schalte die Klimaanlage ein.",
-      "promptEn": "I turn on the air conditioner.",
+      "targetKo": "지금 에어컨을 켜요.",
+      "promptDe": "Ich schalte jetzt die Klimaanlage ein.",
+      "promptEn": "I'm turning on the air conditioner now.",
       "distractors": [
         "키",
         "직원"
@@ -185,7 +185,7 @@
     {
       "id": "satz_a1_0580",
       "level": "a1",
-      "targetKo": "컴퓨터를 사용해요.",
+      "targetKo": "저는 컴퓨터를 사용해요.",
       "promptDe": "Ich benutze den Computer.",
       "promptEn": "I use the computer.",
       "distractors": [
@@ -199,7 +199,7 @@
     {
       "id": "satz_a1_0581",
       "level": "a1",
-      "targetKo": "친구한테 부탁해요.",
+      "targetKo": "저는 친구한테 부탁해요.",
       "promptDe": "Ich bitte einen Freund um einen Gefallen.",
       "promptEn": "I ask a friend for a favor.",
       "distractors": [
@@ -549,9 +549,9 @@
     {
       "id": "satz_a1_0606",
       "level": "a1",
-      "targetKo": "방학이 언제예요?",
-      "promptDe": "Wann sind die Ferien?",
-      "promptEn": "When is the vacation?",
+      "targetKo": "이번 방학이 언제예요?",
+      "promptDe": "Wann sind die Ferien dieses Mal?",
+      "promptEn": "When is the vacation this time?",
       "distractors": [
         "곳",
         "직원"
@@ -619,9 +619,9 @@
     {
       "id": "satz_a1_0611",
       "level": "a1",
-      "targetKo": "종업원이 친절해요.",
-      "promptDe": "Die Bedienung ist freundlich.",
-      "promptEn": "The staff is kind.",
+      "targetKo": "이 종업원이 친절해요.",
+      "promptDe": "Diese Bedienung ist freundlich.",
+      "promptEn": "This staff member is kind.",
       "distractors": [
         "곳",
         "직원"
@@ -703,7 +703,7 @@
     {
       "id": "satz_a1_0617",
       "level": "a1",
-      "targetKo": "친구랑 이야기해요.",
+      "targetKo": "저는 친구랑 이야기해요.",
       "promptDe": "Ich unterhalte mich mit einem Freund.",
       "promptEn": "I talk with a friend.",
       "distractors": [
@@ -801,7 +801,7 @@
     {
       "id": "satz_a1_0624",
       "level": "a1",
-      "targetKo": "주말에 쇼핑해요.",
+      "targetKo": "저는 주말에 쇼핑해요.",
       "promptDe": "Ich gehe am Wochenende einkaufen.",
       "promptEn": "I go shopping on the weekend.",
       "distractors": [
@@ -829,7 +829,7 @@
     {
       "id": "satz_a1_0626",
       "level": "a1",
-      "targetKo": "요즘 바빠요.",
+      "targetKo": "저는 요즘 바빠요.",
       "promptDe": "Ich bin heutzutage beschäftigt.",
       "promptEn": "I'm busy these days.",
       "distractors": [
@@ -857,9 +857,9 @@
     {
       "id": "satz_a1_0628",
       "level": "a1",
-      "targetKo": "잠시 앉아요.",
-      "promptDe": "Setzen Sie sich für einen Moment.",
-      "promptEn": "Sit for a moment.",
+      "targetKo": "여기 잠시 앉아요.",
+      "promptDe": "Setzen Sie sich hier für einen Moment.",
+      "promptEn": "Sit here for a moment.",
       "distractors": [
         "곳",
         "종업원"

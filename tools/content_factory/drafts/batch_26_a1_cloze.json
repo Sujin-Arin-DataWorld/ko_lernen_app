@@ -649,15 +649,15 @@
     {
       "id": "cloze_a1_0495",
       "level": "a1",
-      "sentenceKo": "레나 씨, 우리 같이 ＿＿＿을 출까요?",
-      "answer": "춤",
+      "sentenceKo": "레나 씨, 우리 같이 ＿＿＿ 출까요?",
+      "answer": "춤을",
       "fullKo": "레나 씨, 우리 같이 춤을 출까요?",
       "de": "Lena, sollen wir zusammen tanzen?",
       "en": "Lena, shall we dance together?",
       "distractors": [
-        "이월",
-        "삼월",
-        "좀"
+        "이월을",
+        "삼월을",
+        "산책을"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0561",
@@ -870,15 +870,15 @@
     {
       "id": "cloze_a1_0508",
       "level": "a1",
-      "sentenceKo": "할머니가 ＿＿＿을 좋아하세요.",
-      "answer": "감",
+      "sentenceKo": "할머니가 ＿＿＿ 좋아하세요.",
+      "answer": "감을",
       "fullKo": "할머니가 감을 좋아하세요.",
       "de": "Meine Großmutter mag Kaki.",
       "en": "My grandmother likes persimmons.",
       "distractors": [
-        "값",
-        "기분",
-        "좀"
+        "값을",
+        "기분을",
+        "선물을"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0574",

@@ -479,9 +479,9 @@
     {
       "id": "cloze_a1_0551",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 이야기해요.",
+      "sentenceKo": "우리 ＿＿＿에 이야기해요.",
       "answer": "나중",
-      "fullKo": "나중에 이야기해요.",
+      "fullKo": "우리 나중에 이야기해요.",
       "de": "Wir reden später.",
       "en": "Let's talk later.",
       "distractors": [
@@ -513,9 +513,9 @@
     {
       "id": "cloze_a1_0553",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 운동해요.",
+      "sentenceKo": "저는 ＿＿＿에 운동해요.",
       "answer": "오전",
-      "fullKo": "오전에 운동해요.",
+      "fullKo": "저는 오전에 운동해요.",
       "de": "Ich mache am Vormittag Sport.",
       "en": "I exercise in the morning.",
       "distractors": [
@@ -564,9 +564,9 @@
     {
       "id": "cloze_a1_0556",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 바빴어요.",
+      "sentenceKo": "저는 ＿＿＿에 바빴어요.",
       "answer": "지난달",
-      "fullKo": "지난달에 바빴어요.",
+      "fullKo": "저는 지난달에 바빴어요.",
       "de": "Letzten Monat war ich beschäftigt.",
       "en": "I was busy last month.",
       "distractors": [
@@ -581,9 +581,9 @@
     {
       "id": "cloze_a1_0557",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 아팠어요.",
+      "sentenceKo": "저는 ＿＿＿에 아팠어요.",
       "answer": "지난주",
-      "fullKo": "지난주에 아팠어요.",
+      "fullKo": "저는 지난주에 아팠어요.",
       "de": "Letzte Woche war ich krank.",
       "en": "I was sick last week.",
       "distractors": [
@@ -598,9 +598,9 @@
     {
       "id": "cloze_a1_0558",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 만났어요.",
+      "sentenceKo": "우리 ＿＿＿에 만났어요.",
       "answer": "지난해",
-      "fullKo": "지난해에 만났어요.",
+      "fullKo": "우리 지난해에 만났어요.",
       "de": "Wir haben uns letztes Jahr kennengelernt.",
       "en": "We met last year.",
       "distractors": [
@@ -802,11 +802,11 @@
     {
       "id": "cloze_a1_0570",
       "level": "a1",
-      "sentenceKo": "＿＿＿가 자요.",
+      "sentenceKo": "지금 ＿＿＿가 자요.",
       "answer": "아기",
-      "fullKo": "아기가 자요.",
-      "de": "Das Baby schläft.",
-      "en": "The baby is sleeping.",
+      "fullKo": "지금 아기가 자요.",
+      "de": "Das Baby schläft jetzt.",
+      "en": "The baby is sleeping now.",
       "distractors": [
         "여행사",
         "근처",
@@ -938,11 +938,11 @@
     {
       "id": "cloze_a1_0578",
       "level": "a1",
-      "sentenceKo": "정말 ＿＿＿해요.",
+      "sentenceKo": "정말 너무 ＿＿＿해요.",
       "answer": "감사",
-      "fullKo": "정말 감사해요.",
-      "de": "Ich bin wirklich dankbar.",
-      "en": "I'm really grateful.",
+      "fullKo": "정말 너무 감사해요.",
+      "de": "Ich bin wirklich sehr dankbar.",
+      "en": "I'm really so grateful.",
       "distractors": [
         "고양이",
         "꽃",
@@ -955,11 +955,11 @@
     {
       "id": "cloze_a1_0579",
       "level": "a1",
-      "sentenceKo": "＿＿＿해요, 늦었어요.",
+      "sentenceKo": "＿＿＿해요, 정말 늦었어요.",
       "answer": "미안",
-      "fullKo": "미안해요, 늦었어요.",
-      "de": "Entschuldigung, ich bin zu spät.",
-      "en": "Sorry, I'm late.",
+      "fullKo": "미안해요, 정말 늦었어요.",
+      "de": "Entschuldigung, ich bin wirklich zu spät.",
+      "en": "Sorry, I'm really late.",
       "distractors": [
         "나무",
         "산",
@@ -1023,11 +1023,11 @@
     {
       "id": "cloze_a1_0583",
       "level": "a1",
-      "sentenceKo": "제가 ＿＿＿해요.",
+      "sentenceKo": "제가 먼저 ＿＿＿해요.",
       "answer": "대답",
-      "fullKo": "제가 대답해요.",
-      "de": "Ich antworte.",
-      "en": "I'll answer.",
+      "fullKo": "제가 먼저 대답해요.",
+      "de": "Ich antworte zuerst.",
+      "en": "I'll answer first.",
       "distractors": [
         "여자",
         "가방",
@@ -1040,11 +1040,11 @@
     {
       "id": "cloze_a1_0584",
       "level": "a1",
-      "sentenceKo": "친구를 ＿＿＿해요.",
+      "sentenceKo": "제 친구를 ＿＿＿해요.",
       "answer": "소개",
-      "fullKo": "친구를 소개해요.",
-      "de": "Ich stelle einen Freund vor.",
-      "en": "I'm introducing a friend.",
+      "fullKo": "제 친구를 소개해요.",
+      "de": "Ich stelle meinen Freund vor.",
+      "en": "I'm introducing my friend.",
       "distractors": [
         "볼펜",
         "수첩",

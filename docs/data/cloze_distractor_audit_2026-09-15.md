@@ -4,7 +4,7 @@ Live corpus: `assets/data/cloze.json`, 2151 items, 6 levels. Rules D1-D6 per `to
 
 **Total items with >=1 mechanical (D1/D2/D3/D4/D6) violation: 0**
 
-D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, excluded from D3): 100
+D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, excluded from D3): 101
 
 ## Counts per rule per level
 
