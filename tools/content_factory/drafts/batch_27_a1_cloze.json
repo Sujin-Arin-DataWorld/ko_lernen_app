@@ -169,8 +169,8 @@
       "de": "Ich trinke Wasser aus diesem Glas.",
       "en": "I drink water from this cup.",
       "distractors": [
-        "대사관",
-        "건물",
+        "대사관으로",
+        "건물로",
         "주로"
       ],
       "topic": "Alltag",
@@ -185,8 +185,8 @@
       "de": "Sujin, ich habe eine Konzertkarte!",
       "en": "Sujin, I have a concert ticket!",
       "distractors": [
-        "건너편",
-        "층",
+        "건너편이",
+        "층이",
         "이따가"
       ],
       "topic": "Freizeit",
@@ -425,9 +425,9 @@
       "de": "Der Laden ist auf dieser Etage. Das hier ist schön!",
       "en": "The shop is on this floor. This is pretty!",
       "distractors": [
-        "고양이",
-        "나무",
-        "끄다"
+        "고양이에",
+        "표에",
+        "끄다에"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0615"
@@ -617,9 +617,9 @@
       "de": "Wir sehen uns in einem Moment.",
       "en": "See you in a moment.",
       "distractors": [
-        "잔",
-        "표",
-        "참"
+        "잔에",
+        "표에",
+        "참에"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0627"
@@ -633,9 +633,9 @@
       "de": "Wie viele Hunde gibt es?",
       "en": "How many dogs are there?",
       "distractors": [
-        "신문",
-        "학생증",
-        "가다"
+        "신문이",
+        "학생증이",
+        "가다가"
       ],
       "topic": "Natur",
       "sourceVocabId": "vocab_a1_0628"
@@ -665,9 +665,9 @@
       "de": "Ich gieße die Blumen.",
       "en": "I water the flowers.",
       "distractors": [
-        "여권",
-        "사무실",
-        "보다"
+        "여권에",
+        "사무실에",
+        "보다에"
       ],
       "topic": "Natur",
       "sourceVocabId": "vocab_a1_0630"
@@ -697,9 +697,9 @@
       "de": "Ich steige am Wochenende auf den Berg.",
       "en": "I climb the mountain on weekends.",
       "distractors": [
-        "동안",
-        "오전",
-        "타다"
+        "동안에",
+        "학생증에",
+        "타다에"
       ],
       "topic": "Natur",
       "sourceVocabId": "vocab_a1_0632"
@@ -729,9 +729,9 @@
       "de": "Heute regnet es.",
       "en": "It's raining today.",
       "distractors": [
-        "수영장",
-        "운동장",
-        "자다"
+        "수영장이",
+        "운동장이",
+        "자다가"
       ],
       "topic": "Natur",
       "sourceVocabId": "vocab_a1_0634"
@@ -745,9 +745,9 @@
       "de": "Auf dem Berg ist ein Feuer ausgebrochen.",
       "en": "A fire broke out on the mountain.",
       "distractors": [
-        "노래방",
-        "대사관",
-        "입다"
+        "노래방이",
+        "대사관이",
+        "입다가"
       ],
       "topic": "Natur",
       "sourceVocabId": "vocab_a1_0635"

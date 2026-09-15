@@ -485,6 +485,24 @@ class TestBatch27Cloze(unittest.TestCase):
                     f"{item['id']} ({headword}): 보다 is a too-natural collocate distractor",
                 )
 
+    def test_distractors_carry_the_same_particle_as_a_folded_answer(self):
+        """Fable coordinator review of PR #344 (2026-09-15): when `answer`
+        is a headword+particle fold (e.g. "잔으로", "표가", "층에"), every
+        distractor must carry the matching particle allomorph too (대사관으로/
+        건물로, not bare 대사관/건물) -- otherwise the answer is the only
+        option with a particle attached and is identifiable by form alone.
+        9 rows fixed on 2026-09-15 (distractors only, no KO/DE/EN changed).
+        See a1_draft_rules.distractor_particle_mismatches."""
+        vocab_by_source = self.rows_by_id
+        for item in self.items:
+            headword = vocab_by_source[item["sourceVocabId"]]["korean"]
+            bad = R.distractor_particle_mismatches(headword, item["answer"], item["distractors"])
+            self.assertEqual(
+                bad, [],
+                f"{item['id']} ({headword}, answer {item['answer']!r}): distractor(s) "
+                f"{bad} don't carry a particle matching the answer's fold",
+            )
+
 
 class TestBatch27Satz(unittest.TestCase):
     @classmethod

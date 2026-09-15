@@ -218,3 +218,80 @@ NAME_BEFORE_SSI_RE = re.compile(r"([가-힣]{1,5})\s*씨")
 
 def names_before_ssi(example_korean: str):
     return [m.group(1) for m in NAME_BEFORE_SSI_RE.finditer(example_korean)]
+
+
+# ---------------------------------------------------------------------------
+# Particle-form leak (Fable coordinator review of PR #344, 2026-09-15).
+#
+# When a cloze `answer` is a headword+particle fold (e.g. "생활이", "잠을",
+# "드라마를", "주에" -- used throughout Batch 26-28 to fold a 1-syllable
+# headword or to avoid a batchim-alternating particle sitting exposed right
+# after the blank), the DISTRACTOR strings must carry a particle too, and
+# the correct allomorph for each distractor's OWN final sound (마시다 ->
+# "사과를"/"우유를"/"안경을", never bare "사과"/"우유"/"안경"). Otherwise the
+# answer is the only option with a particle attached and is trivially
+# identifiable by FORM alone, regardless of Korean comprehension -- live A1
+# content already does this correctly (cloze_a1_0169: 잎을 vs 송편을/귀성을/
+# 명절 증후군을). Batch 27 and Batch 28 both had rows where the fold applied
+# to the answer but not to the distractors; see distractor_particle_mismatches
+# below, wired into each batch's own regression test.
+from distractor_rules import ALTERNATING_PARTICLES, batchim_class  # noqa: E402
+
+
+def particle_suffix_of_answer(headword: str, answer: str):
+    """If `answer` is exactly `headword` plus a trailing suffix (a
+    particle/copula fold), return that suffix; otherwise None (e.g. answer
+    is a conjugated predicate for the predicate-slot waiver, not a fold,
+    or answer == headword with nothing appended)."""
+    if answer.startswith(headword) and len(answer) > len(headword):
+        return answer[len(headword):]
+    return None
+
+
+def distractor_particle_mismatches(headword: str, answer: str, distractors):
+    """Return the subset of `distractors` that do NOT carry a particle
+    consistent with the fold in `answer` (empty list = all consistent, or
+    the rule doesn't apply because `answer` isn't a headword+particle
+    fold). For an alternating particle (이에요/예요, 이/가, 을/를, 은/는,
+    과/와, 으로/로) each distractor must end with the allomorph that
+    matches ITS OWN final-sound class, not necessarily the same literal
+    text as the answer's suffix. For any other (non-alternating: 에/에서/
+    한테/도/...) suffix, every distractor must end with that exact same
+    text."""
+    suffix = particle_suffix_of_answer(headword, answer)
+    if not suffix:
+        return []
+    for cform, vform, kind in ALTERNATING_PARTICLES:
+        if suffix not in (cform, vform):
+            continue
+        bad = []
+        for d in distractors:
+            if d.endswith(cform) and len(d) > len(cform):
+                base = d[: -len(cform)]
+                if batchim_class(base, kind) != "consonant":
+                    bad.append(d)
+            elif d.endswith(vform) and len(d) > len(vform):
+                base = d[: -len(vform)]
+                if batchim_class(base, kind) == "consonant":
+                    bad.append(d)
+            else:
+                bad.append(d)
+        return bad
+    # Non-alternating particle (에/에서/한테/도/...): exact suffix match.
+    return [d for d in distractors if not d.endswith(suffix)]
+
+
+def attach_matching_particle(word: str, headword: str, answer: str) -> str:
+    """Build the distractor form of `word` that carries the same particle
+    as `answer` (a headword+particle fold) -- the inverse helper used to
+    FIX a distractor list, mirroring distractor_particle_mismatches'
+    matching logic. Returns `word` unchanged if `answer` isn't a fold."""
+    suffix = particle_suffix_of_answer(headword, answer)
+    if not suffix:
+        return word
+    for cform, vform, kind in ALTERNATING_PARTICLES:
+        if suffix not in (cform, vform):
+            continue
+        cls = batchim_class(word, kind)
+        return word + (cform if cls == "consonant" else vform)
+    return word + suffix

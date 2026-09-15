@@ -121,9 +121,9 @@
       "de": "Das Wohnheimleben macht Spaß.",
       "en": "Dormitory life is fun.",
       "distractors": [
-        "잠시",
-        "가요",
-        "그림"
+        "잠시가",
+        "가요가",
+        "그림이"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0659"
@@ -137,9 +137,9 @@
       "de": "Ich konnte nicht schlafen.",
       "en": "I couldn't sleep.",
       "distractors": [
-        "샤워",
-        "세수",
-        "청소"
+        "샤워를",
+        "세수를",
+        "청소를"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0660"
@@ -185,9 +185,9 @@
       "de": "Ich schalte die Klimaanlage ein.",
       "en": "I turn on the air conditioner.",
       "distractors": [
-        "준비",
-        "생활",
-        "요리"
+        "준비를",
+        "생활을",
+        "요리를"
       ],
       "topic": "Technologie",
       "sourceVocabId": "vocab_a1_0663"
@@ -201,9 +201,9 @@
       "de": "Ich fahre gut Auto.",
       "en": "I'm good at driving.",
       "distractors": [
-        "달",
-        "동생",
-        "올해"
+        "달을",
+        "동생을",
+        "올해를"
       ],
       "topic": "Verkehr",
       "sourceVocabId": "vocab_a1_0664"
@@ -249,9 +249,9 @@
       "de": "Maya singt ein Lied.",
       "en": "Maya sings a song.",
       "distractors": [
-        "식사",
-        "운전",
-        "사용"
+        "식사를",
+        "안내를",
+        "사용을"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0667"
@@ -265,9 +265,9 @@
       "de": "Das Kind malt ein Bild.",
       "en": "The child draws a picture.",
       "distractors": [
-        "부탁",
-        "연극",
-        "콘서트"
+        "식사를",
+        "운전을",
+        "사용을"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0668"
@@ -281,9 +281,9 @@
       "de": "Mein Geschwister schaut koreanische Dramen.",
       "en": "My younger sibling watches Korean dramas.",
       "distractors": [
-        "태권도",
-        "파티",
-        "초대"
+        "부탁을",
+        "태권도를",
+        "파티를"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0669"
@@ -297,9 +297,9 @@
       "de": "Ich schaue mir in der Schule ein Theaterstück an.",
       "en": "I watch a play at school.",
       "distractors": [
-        "운동",
-        "음식",
-        "방학"
+        "초대를",
+        "운동을",
+        "음식을"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0670"
@@ -313,9 +313,9 @@
       "de": "Dieser Filmschauspieler tritt in einem Film auf.",
       "en": "That movie actor appears in a movie.",
       "distractors": [
-        "졸업",
-        "외국어",
-        "아르바이트"
+        "연극이",
+        "콘서트가",
+        "방학이"
       ],
       "topic": "Person",
       "sourceVocabId": "vocab_a1_0671"
@@ -329,9 +329,9 @@
       "de": "Christian, sollen wir zusammen zum Konzert gehen?",
       "en": "Christian, shall we go to the concert together?",
       "distractors": [
-        "안내",
-        "시작",
-        "이야기"
+        "졸업",
+        "외국어",
+        "아르바이트"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0672"
@@ -345,9 +345,9 @@
       "de": "Christian, ich lerne Taekwondo.",
       "en": "Christian, I learn taekwondo.",
       "distractors": [
-        "프로그램",
-        "키",
-        "음료수"
+        "프로그램을",
+        "키를",
+        "음료수를"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0673"
@@ -361,9 +361,9 @@
       "de": "Ich lade zur Geburtstagsparty ein.",
       "en": "I invite you to a birthday party.",
       "distractors": [
-        "선물",
-        "샤워",
-        "세수"
+        "안내",
+        "시작",
+        "이야기"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0674"
@@ -377,9 +377,9 @@
       "de": "Ich schaue eine Fernsehsendung.",
       "en": "I watch a TV program.",
       "distractors": [
-        "청소",
-        "준비",
-        "생활"
+        "선물을",
+        "샤워를",
+        "세수를"
       ],
       "topic": "Technologie",
       "sourceVocabId": "vocab_a1_0675"
@@ -393,9 +393,9 @@
       "de": "Ich spiele jeden Tag Klavier.",
       "en": "I play the piano every day.",
       "distractors": [
-        "쇼핑",
-        "요리",
-        "식사"
+        "쇼핑을",
+        "청소를",
+        "준비를"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0676"
@@ -409,9 +409,9 @@
       "de": "Lena, lass uns hier Fotos machen!",
       "en": "Lena, let's take photos here!",
       "distractors": [
-        "운전",
-        "사용",
-        "부탁"
+        "생활을",
+        "요리를",
+        "식사를"
       ],
       "topic": "Technologie",
       "sourceVocabId": "vocab_a1_0677"
@@ -441,9 +441,9 @@
       "de": "Ich habe mich erkältet.",
       "en": "I caught a cold.",
       "distractors": [
-        "연극",
-        "콘서트",
-        "태권도"
+        "운전",
+        "사용",
+        "부탁"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0679"
@@ -457,9 +457,9 @@
       "de": "Ich bin krank geworden.",
       "en": "I got sick.",
       "distractors": [
-        "잡채",
-        "메뉴",
-        "오렌지"
+        "잡채가",
+        "메뉴가",
+        "오렌지가"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0680"
@@ -473,9 +473,9 @@
       "de": "Ich gehe zum Arzt.",
       "en": "I go to the doctor.",
       "distractors": [
-        "파티",
-        "초대",
-        "운동"
+        "연극",
+        "콘서트",
+        "태권도"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0681"
@@ -489,9 +489,9 @@
       "de": "Mein Vater raucht nicht.",
       "en": "My father doesn't smoke.",
       "distractors": [
-        "음식",
-        "방학",
-        "졸업"
+        "파티를",
+        "초대를",
+        "운동을"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0682"
@@ -505,9 +505,9 @@
       "de": "Mein Vater trinkt keinen Alkohol.",
       "en": "My father doesn't drink alcohol.",
       "distractors": [
-        "외국어",
-        "아르바이트",
-        "안내"
+        "음식을",
+        "방학을",
+        "졸업을"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0683"
@@ -537,9 +537,9 @@
       "de": "Mein jüngeres Geschwister ist groß.",
       "en": "My younger sibling is tall.",
       "distractors": [
-        "시작",
-        "이야기",
-        "선물"
+        "시작이",
+        "이야기가",
+        "잡채가"
       ],
       "topic": "Körper",
       "sourceVocabId": "vocab_a1_0685"
@@ -553,9 +553,9 @@
       "de": "Ich mache Japchae.",
       "en": "I make japchae.",
       "distractors": [
-        "쇼핑",
-        "샤워",
-        "세수"
+        "외국어를",
+        "아르바이트를",
+        "안내를"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0686"
@@ -569,9 +569,9 @@
       "de": "Dieses Essen ist lecker.",
       "en": "This food is delicious.",
       "distractors": [
-        "곳",
-        "밑",
-        "장소"
+        "곳이",
+        "밑이",
+        "장소가"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0687"
@@ -585,9 +585,9 @@
       "de": "Ich trinke ein Getränk.",
       "en": "I drink a beverage.",
       "distractors": [
-        "청소",
-        "준비",
-        "생활"
+        "시작을",
+        "이야기를",
+        "선물을"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0688"
@@ -601,9 +601,9 @@
       "de": "Die Bedienung gibt die Speisekarte.",
       "en": "The waiter gives the menu.",
       "distractors": [
-        "요리",
-        "식사",
-        "운전"
+        "쇼핑을",
+        "샤워를",
+        "세수를"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0689"
@@ -617,9 +617,9 @@
       "de": "Ich esse eine Orange.",
       "en": "I eat an orange.",
       "distractors": [
-        "사용",
-        "부탁",
-        "연극"
+        "청소를",
+        "준비를",
+        "생활을"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0690"
@@ -633,9 +633,9 @@
       "de": "Wann sind die Ferien?",
       "en": "When is the vacation?",
       "distractors": [
-        "피아노",
-        "사진",
-        "감기"
+        "피아노가",
+        "사진이",
+        "감기가"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0691"
@@ -665,9 +665,9 @@
       "de": "Ich unterrichte eine Fremdsprache.",
       "en": "I teach a foreign language.",
       "distractors": [
-        "곳",
-        "달",
-        "밑"
+        "곳을",
+        "달을",
+        "밑을"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0693"
@@ -681,9 +681,9 @@
       "de": "Ich habe einen Nebenjob im Supermarkt.",
       "en": "I have a part-time job at a convenience store.",
       "distractors": [
-        "주",
-        "잠",
-        "에어컨"
+        "주를",
+        "잠을",
+        "에어컨을"
       ],
       "topic": "Beruf",
       "sourceVocabId": "vocab_a1_0694"
@@ -697,9 +697,9 @@
       "de": "Ich bin Angestellter einer Firma.",
       "en": "I'm an employee of a company.",
       "distractors": [
-        "콘서트",
-        "태권도",
-        "파티"
+        "요리예요",
+        "식사예요",
+        "운전이에요"
       ],
       "topic": "Beruf",
       "sourceVocabId": "vocab_a1_0695"
@@ -713,9 +713,9 @@
       "de": "Die Bedienung ist freundlich.",
       "en": "The staff is kind.",
       "distractors": [
-        "초대",
-        "운동",
-        "음식"
+        "사용이",
+        "부탁이",
+        "연극이"
       ],
       "topic": "Beruf",
       "sourceVocabId": "vocab_a1_0696"
@@ -777,9 +777,9 @@
       "de": "Wo ist der Treffpunkt?",
       "en": "Where is the meeting place?",
       "distractors": [
-        "방학",
-        "졸업",
-        "외국어"
+        "콘서트가",
+        "태권도가",
+        "파티가"
       ],
       "topic": "Position",
       "sourceVocabId": "vocab_a1_0700"
@@ -793,9 +793,9 @@
       "de": "Ich schreibe jeden Tag.",
       "en": "I write every day.",
       "distractors": [
-        "아르바이트",
-        "안내",
-        "시작"
+        "초대를",
+        "운동을",
+        "음식을"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0701"
@@ -841,9 +841,9 @@
       "de": "Diesen Monat ist Geburtstag.",
       "en": "There's a birthday this month.",
       "distractors": [
-        "이야기",
-        "선물",
-        "쇼핑"
+        "방학에",
+        "졸업에",
+        "외국어에"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0704"
@@ -857,9 +857,9 @@
       "de": "Mein jüngeres Geschwister ist neun Jahre alt.",
       "en": "My younger sibling is nine years old.",
       "distractors": [
-        "샤워",
-        "세수",
-        "청소"
+        "아르바이트는",
+        "안내는",
+        "시작은"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0705"
@@ -873,9 +873,9 @@
       "de": "Unter dem Schreibtisch ist eine Tasche.",
       "en": "There's a bag under the desk.",
       "distractors": [
-        "준비",
-        "생활",
-        "요리"
+        "이야기에",
+        "선물에",
+        "쇼핑에"
       ],
       "topic": "Position",
       "sourceVocabId": "vocab_a1_0706"
@@ -889,9 +889,9 @@
       "de": "Nächste Woche ist mein Geburtstag.",
       "en": "Next week is my birthday.",
       "distractors": [
-        "식사",
-        "운전",
-        "사용"
+        "샤워예요",
+        "세수예요",
+        "청소예요"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0707"
@@ -905,9 +905,9 @@
       "de": "Ich gebe meinem Geschwister ein Geschenk.",
       "en": "I give my sibling a gift.",
       "distractors": [
-        "부탁",
-        "연극",
-        "콘서트"
+        "준비를",
+        "생활을",
+        "요리를"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0708"
@@ -937,9 +937,9 @@
       "de": "Ich bin dieses Jahr nach Korea gekommen.",
       "en": "I came to Korea this year.",
       "distractors": [
-        "태권도",
-        "파티",
-        "초대"
+        "식사",
+        "운전",
+        "사용"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0710"
@@ -953,9 +953,9 @@
       "de": "Ich bin heutzutage beschäftigt.",
       "en": "I'm busy these days.",
       "distractors": [
-        "운동",
-        "음식",
-        "방학"
+        "부탁",
+        "연극",
+        "콘서트"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0711"
@@ -969,9 +969,9 @@
       "de": "Welcher Monat ist jetzt?",
       "en": "What month is it now?",
       "distractors": [
-        "졸업",
-        "외국어",
-        "아르바이트"
+        "태권도예요",
+        "파티예요",
+        "초대예요"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0712"
@@ -1001,9 +1001,9 @@
       "de": "Ich gehe diese Woche zur Schule.",
       "en": "I go to school this week.",
       "distractors": [
-        "곳",
-        "동생",
-        "밑"
+        "곳에",
+        "동생에",
+        "밑에"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0714"

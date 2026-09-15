@@ -544,6 +544,24 @@ class TestBatch28Cloze(unittest.TestCase):
                     f"ACTIVITY_NOUN_SET word",
                 )
 
+    def test_distractors_carry_the_same_particle_as_a_folded_answer(self):
+        """Fable coordinator review of commit b0670d2d (PR #344, 2026-09-15):
+        when `answer` is a headword+particle fold (e.g. "생활이", "운전을",
+        "주에"), every distractor must carry the matching particle
+        allomorph too, appended to the SAME base word already vetted as
+        nonsense-only -- otherwise the answer is the only option with a
+        particle attached and is identifiable by form alone. See
+        a1_draft_rules.distractor_particle_mismatches."""
+        vocab_by_source = self.rows_by_id
+        for item in self.items:
+            headword = vocab_by_source[item["sourceVocabId"]]["korean"]
+            bad = R.distractor_particle_mismatches(headword, item["answer"], item["distractors"])
+            self.assertEqual(
+                bad, [],
+                f"{item['id']} ({headword}, answer {item['answer']!r}): distractor(s) "
+                f"{bad} don't carry a particle matching the answer's fold",
+            )
+
 
 class TestBatch28Satz(unittest.TestCase):
     @classmethod
