@@ -2,8 +2,8 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 874
-- 고유 sampleLexis 후보: 211 (Phase×단어 맥락 343)
+- 고유 작업 항목: 872
+- 고유 sampleLexis 후보: 209 (Phase×단어 맥락 341)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
 
@@ -12,8 +12,8 @@
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
 - `tool/curriculum_matrix_gaps.csv`: `44fb3ad99736b5ef91785a95eb76d072ee98daf0c2b06bad62ef67173aff6451`
-- `tool/learning_phase_findings.csv`: `1b2fd35168227b87237cacdfac226c694ad24a58f383f3cc243a044cd2245f4c`
-- `tool/learning_phase_summary.json`: `3b7670ee8e99c9ff07b36077f91230c19f9ab84819c752a2cdd71ea483aa2ed2`
+- `tool/learning_phase_findings.csv`: `9b73ef8ce0ba0087bb3c0221a982391c63e640ffe120df1a30d0e22ebe6516a6`
+- `tool/learning_phase_summary.json`: `c41b77432f15e32078a5fc05f4bb011799eaf6e161689815a7e7036801e66ccd`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
 - `tools/content_factory/cefr_matrix/ko.json`: `c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf`
 - `tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv`: `c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014`
@@ -362,7 +362,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 부모님, 동생
+- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 동생
 
 ### `A1|phase_warning|C16_lexis:KP01 · fixed_expressions_collocations|unassigned`
 
@@ -631,14 +631,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A1|sample_lexis|배|unassigned`
 
 - 항목: 배
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|부모님|unassigned`
-
-- 항목: 부모님
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -1338,7 +1330,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신발, 크기
+- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 크기
 
 ### `A2|phase_warning|C16_lexis:KP05 · food_cooking|unassigned`
 
@@ -1479,14 +1471,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A2|sample_lexis|산책|unassigned`
 
 - 항목: 산책
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A2|sample_lexis|신발|unassigned`
-
-- 항목: 신발
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.

@@ -22,6 +22,41 @@ This script only:
 
 Run:  promote_batch25_a1_reinforcement.py check   (dry run, no writes)
       promote_batch25_a1_reinforcement.py apply
+
+FOLLOW-UP CHECKLIST (CI caught these missing on PR #340 -- any batch that
+fills existing packs to 12/12, or otherwise changes word/pack counts, must
+also regenerate these before pushing; they are NOT run by this script):
+  - TTS: functions/tts/build_canonical_manifest.py, then
+    tool/generate_tts.py --missing-from-storage --workers 8, then
+    tool/generate_tts.py --verify-storage (must report missing 0).
+  - Level reports: tool/audit_content_levels.py (default + --json),
+    tool/audit_vocab_levels.py, tool/build_level_bible_tables.py -- restore
+    docs/data/level_bible/F9_exceptions.md's hand-curated rows afterward
+    (the generator clobbers them every run; diff back to HEAD, it should be
+    a no-op unless F9 itself was intentionally hand-edited this batch).
+  - Curriculum/phase CI gate (content-validator step in .github/workflows/
+    ci.yml): tool/audit_curriculum_matrix.py --check, tool/
+    audit_learning_phases.py --check --quiet, tool/build_phase_tasks.py
+    --check, python -m tool.audit_phase_context_evidence --check, tool/
+    build_learning_phase_catalog.py --check, tool/build_curriculum_backlog.
+    py --check -- run each WITHOUT --check first (write mode) wherever it
+    reports stale, then confirm --check exits 0. Also run python -m
+    unittest tool.test_audit_curriculum_matrix tool.test_audit_learning_
+    phases tool.test_audit_content_levels (their Live*Test classes ratchet
+    committed outputs against a fresh run).
+  - vocab_pack_map.md / vocab_level_report.md / F2_vocab_coverage.md: check
+    for a real diff (not just CRLF/LF noise) after the level-report
+    regeneration above; commit only if content actually changed.
+  - Flutter goldens: test/goldens/baselines/screen_vocab_packs_{compact,
+    medium,expanded}.png encode pack progress labels (e.g. "12/12") and go
+    stale whenever a pack's live word count changes. Goldens are
+    Linux-rendered -- do NOT regenerate them locally on Windows/macOS; run
+    the "Regenerate goldens (manual)" GitHub Actions workflow
+    (gh workflow run ci.yml --ref <branch> -f task=regenerate-goldens),
+    wait for it, and pull the result (see .github/workflows/ci.yml for how
+    it's delivered). If more than the 3 vocab_packs PNGs differ, stop and
+    investigate before committing -- that means something besides the pack
+    count changed.
 """
 from __future__ import annotations
 

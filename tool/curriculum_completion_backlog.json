@@ -14,25 +14,25 @@
       "c18RequirementReferences": 85,
       "c18WarningRows": 72,
       "matrixRows": 532,
-      "missingSampleWordEntries": 211,
+      "missingSampleWordEntries": 209,
       "otherPhaseFindingRows": 117
     },
     "modeRequirements": {
       "P": 25,
       "R": 30,
-      "unassigned": 819
+      "unassigned": 817
     },
-    "sampleWordContextOccurrences": 343,
+    "sampleWordContextOccurrences": 341,
     "sampleWordContextsByLevel": {
-      "A1": 37,
-      "A2": 42,
+      "A1": 36,
+      "A2": 41,
       "B1": 64,
       "B2": 45,
       "C1": 79,
       "C2": 76
     },
-    "uniqueMissingSampleWords": 211,
-    "uniqueWorkItems": 874,
+    "uniqueMissingSampleWords": 209,
+    "uniqueWorkItems": 872,
     "warningRequirementReferencesMerged": 85,
     "warningsInformational": 5,
     "warningsMerged": 72
@@ -1322,7 +1322,7 @@
       ],
       "provisionalClassifications": [],
       "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 부모님, 동생"
+        "C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 동생"
       ],
       "sourceReferences": [
         {
@@ -2719,45 +2719,6 @@
       "axis": "sample_lexis",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "부모님",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "부모님"
-      ],
-      "level": "A1",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "family_kinship_address_terms",
-          "jsonPointer": "/phases/0/vocabDomains/0/sampleLexis/1/ko",
-          "level": "A1",
-          "phaseId": "KP01"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/84",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "A1|sample_lexis|부모님|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
       "id": "비",
       "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
       "labels": [
@@ -2783,7 +2744,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/86",
+          "jsonPointer": "/lexis/missingWords/85",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2828,7 +2789,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/102",
+          "jsonPointer": "/lexis/missingWords/101",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2873,7 +2834,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/114",
+          "jsonPointer": "/lexis/missingWords/112",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2918,7 +2879,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/118",
+          "jsonPointer": "/lexis/missingWords/116",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3017,7 +2978,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/119",
+          "jsonPointer": "/lexis/missingWords/117",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3074,7 +3035,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/123",
+          "jsonPointer": "/lexis/missingWords/121",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3113,7 +3074,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/131",
+          "jsonPointer": "/lexis/missingWords/129",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3152,7 +3113,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/132",
+          "jsonPointer": "/lexis/missingWords/130",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3251,7 +3212,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/139",
+          "jsonPointer": "/lexis/missingWords/137",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3308,7 +3269,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/168",
+          "jsonPointer": "/lexis/missingWords/166",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3353,7 +3314,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/170",
+          "jsonPointer": "/lexis/missingWords/168",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3392,7 +3353,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/176",
+          "jsonPointer": "/lexis/missingWords/174",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -3449,7 +3410,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/210",
+          "jsonPointer": "/lexis/missingWords/208",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5788,7 +5749,7 @@
       ],
       "provisionalClassifications": [],
       "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신발, 크기"
+        "C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 크기"
       ],
       "sourceReferences": [
         {
@@ -6376,7 +6337,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/87",
+          "jsonPointer": "/lexis/missingWords/86",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6427,7 +6388,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/88",
+          "jsonPointer": "/lexis/missingWords/87",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6466,7 +6427,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/94",
+          "jsonPointer": "/lexis/missingWords/93",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6475,45 +6436,6 @@
       ],
       "warningChecks": [],
       "workKey": "A2|sample_lexis|산책|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "신발",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "신발"
-      ],
-      "level": "A2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "clothing_accessories",
-          "jsonPointer": "/phases/4/vocabDomains/0/sampleLexis/1/ko",
-          "level": "A2",
-          "phaseId": "KP05"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/111",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "A2|sample_lexis|신발|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -6562,7 +6484,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/112",
+          "jsonPointer": "/lexis/missingWords/110",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6619,7 +6541,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/115",
+          "jsonPointer": "/lexis/missingWords/113",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6676,7 +6598,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/116",
+          "jsonPointer": "/lexis/missingWords/114",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6727,7 +6649,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/128",
+          "jsonPointer": "/lexis/missingWords/126",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6778,7 +6700,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/134",
+          "jsonPointer": "/lexis/missingWords/132",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6817,7 +6739,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/136",
+          "jsonPointer": "/lexis/missingWords/134",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6868,7 +6790,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/153",
+          "jsonPointer": "/lexis/missingWords/151",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6925,7 +6847,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/154",
+          "jsonPointer": "/lexis/missingWords/152",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6964,7 +6886,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/178",
+          "jsonPointer": "/lexis/missingWords/176",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -7015,7 +6937,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/182",
+          "jsonPointer": "/lexis/missingWords/180",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -7066,7 +6988,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/204",
+          "jsonPointer": "/lexis/missingWords/202",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11757,7 +11679,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/103",
+          "jsonPointer": "/lexis/missingWords/102",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11802,7 +11724,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/141",
+          "jsonPointer": "/lexis/missingWords/139",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11853,7 +11775,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/148",
+          "jsonPointer": "/lexis/missingWords/146",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11916,7 +11838,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/160",
+          "jsonPointer": "/lexis/missingWords/158",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11961,7 +11883,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/206",
+          "jsonPointer": "/lexis/missingWords/204",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -16612,7 +16534,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/129",
+          "jsonPointer": "/lexis/missingWords/127",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -16675,7 +16597,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/179",
+          "jsonPointer": "/lexis/missingWords/177",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21628,7 +21550,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/85",
+          "jsonPointer": "/lexis/missingWords/84",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21667,7 +21589,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/89",
+          "jsonPointer": "/lexis/missingWords/88",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21706,7 +21628,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/90",
+          "jsonPointer": "/lexis/missingWords/89",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21745,7 +21667,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/93",
+          "jsonPointer": "/lexis/missingWords/92",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21784,7 +21706,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/99",
+          "jsonPointer": "/lexis/missingWords/98",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21823,7 +21745,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/101",
+          "jsonPointer": "/lexis/missingWords/100",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21862,7 +21784,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/104",
+          "jsonPointer": "/lexis/missingWords/103",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21901,7 +21823,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/105",
+          "jsonPointer": "/lexis/missingWords/104",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21940,7 +21862,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/109",
+          "jsonPointer": "/lexis/missingWords/108",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21979,7 +21901,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/110",
+          "jsonPointer": "/lexis/missingWords/109",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22018,7 +21940,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/113",
+          "jsonPointer": "/lexis/missingWords/111",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22057,7 +21979,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/117",
+          "jsonPointer": "/lexis/missingWords/115",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22096,7 +22018,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/121",
+          "jsonPointer": "/lexis/missingWords/119",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22135,7 +22057,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/124",
+          "jsonPointer": "/lexis/missingWords/122",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22174,7 +22096,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/126",
+          "jsonPointer": "/lexis/missingWords/124",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22213,7 +22135,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/130",
+          "jsonPointer": "/lexis/missingWords/128",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22252,7 +22174,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/137",
+          "jsonPointer": "/lexis/missingWords/135",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22291,7 +22213,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/138",
+          "jsonPointer": "/lexis/missingWords/136",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22330,7 +22252,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/140",
+          "jsonPointer": "/lexis/missingWords/138",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22369,7 +22291,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/142",
+          "jsonPointer": "/lexis/missingWords/140",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22408,7 +22330,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/144",
+          "jsonPointer": "/lexis/missingWords/142",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22447,7 +22369,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/146",
+          "jsonPointer": "/lexis/missingWords/144",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22486,7 +22408,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/149",
+          "jsonPointer": "/lexis/missingWords/147",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22525,7 +22447,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/152",
+          "jsonPointer": "/lexis/missingWords/150",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22564,7 +22486,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/156",
+          "jsonPointer": "/lexis/missingWords/154",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22603,7 +22525,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/157",
+          "jsonPointer": "/lexis/missingWords/155",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22642,7 +22564,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/158",
+          "jsonPointer": "/lexis/missingWords/156",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22681,7 +22603,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/159",
+          "jsonPointer": "/lexis/missingWords/157",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22720,7 +22642,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/161",
+          "jsonPointer": "/lexis/missingWords/159",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22759,7 +22681,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/162",
+          "jsonPointer": "/lexis/missingWords/160",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22798,7 +22720,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/166",
+          "jsonPointer": "/lexis/missingWords/164",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22837,7 +22759,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/169",
+          "jsonPointer": "/lexis/missingWords/167",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22876,7 +22798,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/171",
+          "jsonPointer": "/lexis/missingWords/169",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22915,7 +22837,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/174",
+          "jsonPointer": "/lexis/missingWords/172",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22954,7 +22876,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/175",
+          "jsonPointer": "/lexis/missingWords/173",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22993,7 +22915,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/181",
+          "jsonPointer": "/lexis/missingWords/179",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23032,7 +22954,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/183",
+          "jsonPointer": "/lexis/missingWords/181",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23071,7 +22993,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/185",
+          "jsonPointer": "/lexis/missingWords/183",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23110,7 +23032,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/189",
+          "jsonPointer": "/lexis/missingWords/187",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23149,7 +23071,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/192",
+          "jsonPointer": "/lexis/missingWords/190",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23188,7 +23110,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/196",
+          "jsonPointer": "/lexis/missingWords/194",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23227,7 +23149,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/198",
+          "jsonPointer": "/lexis/missingWords/196",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23266,7 +23188,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/199",
+          "jsonPointer": "/lexis/missingWords/197",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23305,7 +23227,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/201",
+          "jsonPointer": "/lexis/missingWords/199",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23344,7 +23266,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/207",
+          "jsonPointer": "/lexis/missingWords/205",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -23383,7 +23305,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/209",
+          "jsonPointer": "/lexis/missingWords/207",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28286,7 +28208,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/91",
+          "jsonPointer": "/lexis/missingWords/90",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28325,7 +28247,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/92",
+          "jsonPointer": "/lexis/missingWords/91",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28364,7 +28286,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/95",
+          "jsonPointer": "/lexis/missingWords/94",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28403,7 +28325,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/96",
+          "jsonPointer": "/lexis/missingWords/95",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28442,7 +28364,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/97",
+          "jsonPointer": "/lexis/missingWords/96",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28481,7 +28403,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/98",
+          "jsonPointer": "/lexis/missingWords/97",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28520,7 +28442,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/100",
+          "jsonPointer": "/lexis/missingWords/99",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28559,7 +28481,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/106",
+          "jsonPointer": "/lexis/missingWords/105",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28598,7 +28520,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/107",
+          "jsonPointer": "/lexis/missingWords/106",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28637,7 +28559,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/108",
+          "jsonPointer": "/lexis/missingWords/107",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28676,7 +28598,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/120",
+          "jsonPointer": "/lexis/missingWords/118",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28715,7 +28637,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/122",
+          "jsonPointer": "/lexis/missingWords/120",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28754,7 +28676,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/125",
+          "jsonPointer": "/lexis/missingWords/123",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28793,7 +28715,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/127",
+          "jsonPointer": "/lexis/missingWords/125",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28832,7 +28754,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/133",
+          "jsonPointer": "/lexis/missingWords/131",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28871,7 +28793,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/135",
+          "jsonPointer": "/lexis/missingWords/133",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28910,7 +28832,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/143",
+          "jsonPointer": "/lexis/missingWords/141",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28949,7 +28871,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/145",
+          "jsonPointer": "/lexis/missingWords/143",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28988,7 +28910,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/147",
+          "jsonPointer": "/lexis/missingWords/145",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29027,7 +28949,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/150",
+          "jsonPointer": "/lexis/missingWords/148",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29066,7 +28988,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/151",
+          "jsonPointer": "/lexis/missingWords/149",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29105,7 +29027,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/155",
+          "jsonPointer": "/lexis/missingWords/153",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29144,7 +29066,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/163",
+          "jsonPointer": "/lexis/missingWords/161",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29183,7 +29105,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/164",
+          "jsonPointer": "/lexis/missingWords/162",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29222,7 +29144,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/165",
+          "jsonPointer": "/lexis/missingWords/163",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29261,7 +29183,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/167",
+          "jsonPointer": "/lexis/missingWords/165",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29300,7 +29222,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/172",
+          "jsonPointer": "/lexis/missingWords/170",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29339,7 +29261,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/173",
+          "jsonPointer": "/lexis/missingWords/171",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29378,7 +29300,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/177",
+          "jsonPointer": "/lexis/missingWords/175",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29417,7 +29339,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/180",
+          "jsonPointer": "/lexis/missingWords/178",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29456,7 +29378,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/184",
+          "jsonPointer": "/lexis/missingWords/182",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29495,7 +29417,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/186",
+          "jsonPointer": "/lexis/missingWords/184",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29534,7 +29456,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/187",
+          "jsonPointer": "/lexis/missingWords/185",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29573,7 +29495,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/188",
+          "jsonPointer": "/lexis/missingWords/186",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29612,7 +29534,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/190",
+          "jsonPointer": "/lexis/missingWords/188",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29651,7 +29573,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/191",
+          "jsonPointer": "/lexis/missingWords/189",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29690,7 +29612,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/193",
+          "jsonPointer": "/lexis/missingWords/191",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29729,7 +29651,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/194",
+          "jsonPointer": "/lexis/missingWords/192",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29768,7 +29690,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/195",
+          "jsonPointer": "/lexis/missingWords/193",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29807,7 +29729,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/197",
+          "jsonPointer": "/lexis/missingWords/195",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29846,7 +29768,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/200",
+          "jsonPointer": "/lexis/missingWords/198",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29885,7 +29807,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/202",
+          "jsonPointer": "/lexis/missingWords/200",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29924,7 +29846,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/203",
+          "jsonPointer": "/lexis/missingWords/201",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -29963,7 +29885,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/205",
+          "jsonPointer": "/lexis/missingWords/203",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -30002,7 +29924,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/208",
+          "jsonPointer": "/lexis/missingWords/206",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -30736,8 +30658,8 @@
   "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
   "sourceSha256": {
     "tool/curriculum_matrix_gaps.csv": "44fb3ad99736b5ef91785a95eb76d072ee98daf0c2b06bad62ef67173aff6451",
-    "tool/learning_phase_findings.csv": "1b2fd35168227b87237cacdfac226c694ad24a58f383f3cc243a044cd2245f4c",
-    "tool/learning_phase_summary.json": "3b7670ee8e99c9ff07b36077f91230c19f9ab84819c752a2cdd71ea483aa2ed2",
+    "tool/learning_phase_findings.csv": "9b73ef8ce0ba0087bb3c0221a982391c63e640ffe120df1a30d0e22ebe6516a6",
+    "tool/learning_phase_summary.json": "c41b77432f15e32078a5fc05f4bb011799eaf6e161689815a7e7036801e66ccd",
     "tools/content_factory/cefr_matrix/ko.json": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf",
     "tools/content_factory/cefr_matrix/phases.json": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9",
     "tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv": "c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014"
