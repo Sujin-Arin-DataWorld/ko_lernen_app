@@ -104,11 +104,35 @@ ATTRIBUTIVE_NOUN_GRADE = 2
 ALLOWLIST_MATCHED_TEXT = {"그래요", "있어요", "같이"}
 _LOCATIVE_BAKKE_RE = re.compile(r"^밖에\b")
 
+# F9 (2026-09-16, Jin round 2 on C2d-2): kept in sync with
+# scan_a1_grammar.py's own copy -- see that module for the full
+# justification. Only matters for A1 (CONTRACTED_AUX_GRADE=2 threshold);
+# at A2 the aux_give check doesn't fire at all (threshold raised to 3), so
+# no level-gating is needed here.
+A1_REQUEST_FORMULAS = (
+    "말해 주세요",
+    "적어 주세요",
+    "도와주세요",
+)
+
+
+def _is_allowed_request_formula(text: str, match: re.Match) -> bool:
+    context = text[max(0, match.start() - 1):match.end()]
+    return context in A1_REQUEST_FORMULAS
+
 HEADWORD_EMBEDDED_GRAMMAR = {
     "A1": {
         ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
         ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
         ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
+        # C2d-2 (2026-09-16, Jin option a): kept in sync with
+        # scan_a1_grammar.py's own copy of this dict -- see that module for
+        # the full justification.
+        ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+        ("satz", "satz_a1_0317"): "mirrors vocab_a1_0410",
+        ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9)",
+        ("cloze", "cloze_a1_0442"): "mirrors vocab_a1_0508",
+        ("satz", "satz_a1_0423"): "mirrors vocab_a1_0508",
     },
     "A2": {},
 }
@@ -119,6 +143,11 @@ EXACT_SENTENCE_ALLOWLIST = {
     "짧은 예문을 하나 적어 주세요.", "짧은 예문을 하나 보여 주세요.", "누나가 웃어요.",
     "바나나가 노란색이에요.", "오늘 하늘이 정말 파래요.", "오늘 저녁은 라면 어때요?",
     "라면을 끓여요.", "TV를 봐요.",
+    # C2d-2 (2026-09-16): kept in sync with scan_a1_grammar.py's own copy
+    # (see that module for the full justification of each entry below).
+    "짧은 예문을 하나 적으세요.", "짧은 예문을 하나 볼 수 있어요?",
+    "저는 바나나를 좋아해요.", "여보세요, 저는 크리스티안이에요.",
+    "저는 책을 가지고 있어요.",
 }
 
 # Manual, hand-verified additions per level: `GrammarIndex` structurally
@@ -210,8 +239,17 @@ def _contracted_aux_hits(text: str, threshold: int):
         return []
     hits = []
     for m in AUX_TRY_RE.finditer(text):
+        if m.group(0) == "여보세요":
+            # C2d-2 (2026-09-16): kept in sync with scan_a1_grammar.py's
+            # own copy of this discriminator -- see that module for the
+            # full justification.
+            preceding = text[: m.start()]
+            if not preceding or not ("가" <= preceding[-1] <= "힣"):
+                continue
         hits.append(("aux_try_아어보다", CONTRACTED_AUX_GRADE, m.group(0)))
     for m in AUX_GIVE_RE.finditer(text):
+        if _is_allowed_request_formula(text, m):
+            continue  # F9 closed-list request formula, see A1_REQUEST_FORMULAS
         hits.append(("aux_give_아어주다", CONTRACTED_AUX_GRADE, m.group(0)))
     for m in LAW_METHOD_RE.finditer(text):
         hits.append(("nominalizer_는_법", CONTRACTED_AUX_GRADE, m.group(0)))

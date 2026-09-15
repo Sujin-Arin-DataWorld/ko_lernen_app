@@ -6,27 +6,8 @@ Detector: `tool/cefr_lexicon.py` `GrammarIndex` (regex built from `tools/content
 
 ## korean_vocab.csv (A1 `example_korean`)
 
-- flagged rows: **12**
+- flagged rows: **0**
 - id-prefix/level-field mismatches: **291**
-
-| pattern | grade | count |
-|---|---|---|
-| `aux_give_아어주다` | 2 (A2) | 12 |
-
-| id | matched pattern(s) | sentence |
-|---|---|---|
-| `vocab_a1_0141` | `aux_give_아어주다`(g2:'려주세요') | 천 원만 빌려주세요. |
-| `vocab_a1_0202` | `aux_give_아어주다`(g2:'려 주세요') | 잠깐만 기다려 주세요. |
-| `vocab_a1_0203` | `aux_give_아어주다`(g2:'해 주세요') | 천천히 말해 주세요. |
-| `vocab_a1_0217` | `aux_give_아어주다`(g2:'어 주셨어요') | 시어머니께서 웃어 주셨어요. |
-| `vocab_a1_0311` | `aux_give_아어주다`(g2:'어 주세요') | 편지는 아래 우편함에 넣어 주세요. |
-| `vocab_a1_0316` | `aux_give_아어주다`(g2:'어 주세요') | 받는 사람 전화번호를 적어 주세요. |
-| `vocab_a1_0408` | `aux_give_아어주다`(g2:'려주세요') | 이 단어 발음을 다시 들려주세요. |
-| `vocab_a1_0409` | `aux_give_아어주다`(g2:'어 주세요') | 짧은 예문을 하나 적어 주세요. |
-| `vocab_a1_0410` | `aux_give_아어주다`(g2:'어 주세요') | 주소를 천천히 적어 주세요. |
-| `vocab_a1_0438` | `aux_give_아어주다`(g2:'려 주세요') | 전화번호를 알려 주세요. |
-| `vocab_a1_0456` | `aux_give_아어주다`(g2:'해 주세요') | 다시 한번 말해 주세요. |
-| `vocab_b1_0196` | `aux_give_아어주다`(g2:'해 주세요') | 질문에 대답해 주세요. |
 
 id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are immutable (validate_promoted_batch.py), a later relevel only changes the `level` field, so an `_a1_` id can legitimately carry level a2/b1 today. Listed for visibility; these rows are already excluded from the A1 corpus above and are not in scope for this task.
 
@@ -61,28 +42,8 @@ id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are im
 
 ## cloze.json (A1 `fullKo`)
 
-- flagged rows: **13**
+- flagged rows: **0**
 - id-prefix/level-field mismatches: **256**
-
-| pattern | grade | count |
-|---|---|---|
-| `aux_give_아어주다` | 2 (A2) | 13 |
-
-| id | matched pattern(s) | sentence |
-|---|---|---|
-| `cloze_a1_0094` | `aux_give_아어주다`(g2:'해 주세요') | 천천히 말해 주세요. |
-| `cloze_a1_0105` | `aux_give_아어주다`(g2:'어 주셨어요') | 시어머니께서 웃어 주셨어요. |
-| `cloze_a1_0199` | `aux_give_아어주다`(g2:'어 주세요') | 편지는 아래 우편함에 넣어 주세요. |
-| `cloze_a1_0204` | `aux_give_아어주다`(g2:'어 주세요') | 받는 사람 전화번호를 적어 주세요. |
-| `cloze_a1_0316` | `aux_give_아어주다`(g2:'해 주세요') | 죄송하지만 다시 말해 주세요. |
-| `cloze_a1_0317` | `aux_give_아어주다`(g2:'해 주세요') | 조금 천천히 말해 주세요. |
-| `cloze_a1_0319` | `aux_give_아어주다`(g2:'어 주세요') | 이름을 적어 주세요. |
-| `cloze_a1_0320` | `aux_give_아어주다`(g2:'여 주세요') | 짧은 예문을 하나 보여 주세요. |
-| `cloze_a1_0324` | `aux_give_아어주다`(g2:'해 주세요') | 주소를 한 번 더 확인해 주세요. |
-| `cloze_a1_0331` | `aux_give_아어주다`(g2:'아 주세요') | 문 앞에 놓아 주세요. |
-| `cloze_a1_0332` | `aux_give_아어주다`(g2:'해 주세요') | 주문 번호를 다시 말해 주세요. |
-| `cloze_a1_0367` | `aux_give_아어주다`(g2:'려 주세요') | 전화번호를 알려 주세요. |
-| `cloze_a1_0390` | `aux_give_아어주다`(g2:'해 주세요') | 다시 한번 말해 주세요. |
 
 id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are immutable (validate_promoted_batch.py), a later relevel only changes the `level` field, so an `_a1_` id can legitimately carry level a2/b1 today. Listed for visibility; these rows are already excluded from the A1 corpus above and are not in scope for this task.
 
@@ -117,28 +78,8 @@ id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are im
 
 ## satz_sentences.json (A1 `targetKo`)
 
-- flagged rows: **13**
+- flagged rows: **0**
 - id-prefix/level-field mismatches: **267**
-
-| pattern | grade | count |
-|---|---|---|
-| `aux_give_아어주다` | 2 (A2) | 13 |
-
-| id | matched pattern(s) | sentence |
-|---|---|---|
-| `satz_a1_0028` | `aux_give_아어주다`(g2:'려주세요') | 천 원만 빌려주세요. |
-| `satz_a1_0059` | `aux_give_아어주다`(g2:'해 주세요') | 천천히 말해 주세요. |
-| `satz_a1_0069` | `aux_give_아어주다`(g2:'어 주셨어요') | 시어머니께서 웃어 주셨어요. |
-| `satz_a1_0163` | `aux_give_아어주다`(g2:'어 주세요') | 편지는 아래 우편함에 넣어 주세요. |
-| `satz_a1_0168` | `aux_give_아어주다`(g2:'어 주세요') | 받는 사람 전화번호를 적어 주세요. |
-| `satz_a1_0300` | `aux_give_아어주다`(g2:'려 주세요') | 잠깐만 기다려 주세요. |
-| `satz_a1_0315` | `aux_give_아어주다`(g2:'려주세요') | 이 단어 발음을 다시 들려주세요. |
-| `satz_a1_0316` | `aux_give_아어주다`(g2:'어 주세요') | 짧은 예문을 하나 적어 주세요. |
-| `satz_a1_0317` | `aux_give_아어주다`(g2:'어 주세요') | 주소를 천천히 적어 주세요. |
-| `satz_a1_0321` | `aux_give_아어주다`(g2:'어 주세요') | 이름을 종이에 적어 주세요. |
-| `satz_a1_0353` | `aux_give_아어주다`(g2:'려 주세요') | 전화번호를 알려 주세요. |
-| `satz_a1_0371` | `aux_give_아어주다`(g2:'해 주세요') | 다시 한번 말해 주세요. |
-| `satz_b1_0407` | `aux_give_아어주다`(g2:'해 주세요') | 질문에 대답해 주세요. |
 
 id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are immutable (validate_promoted_batch.py), a later relevel only changes the `level` field, so an `_a1_` id can legitimately carry level a2/b1 today. Listed for visibility; these rows are already excluded from the A1 corpus above and are not in scope for this task.
 
@@ -178,8 +119,13 @@ These A1 headwords are themselves a multi-word expression whose lexical form bak
 | kind | id | embedded item |
 |---|---|---|
 | cloze | `cloze_a1_0229` | mirrors vocab_a1_0341 |
+| cloze | `cloze_a1_0442` | mirrors vocab_a1_0508 |
 | satz | `satz_a1_0193` | mirrors vocab_a1_0341 |
+| satz | `satz_a1_0317` | mirrors vocab_a1_0410 |
+| satz | `satz_a1_0423` | mirrors vocab_a1_0508 |
 | vocab | `vocab_a1_0341` | 늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현) |
+| vocab | `vocab_a1_0410` | 적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9) |
+| vocab | `vocab_a1_0508` | 도와주다 embeds -아/어 주다 (nikl grade 2, 표현); relevel-to-A2 candidate (C2d-2, LCP F9) |
 
 ## A1 vocabulary outside NIKL grade 1 (report only, top offenders)
 
@@ -240,8 +186,8 @@ Headword-level check only (`phrase_grade` on the `korean` column), high/medium-c
 
 ## Summary
 
-- vocab flagged: 12
-- cloze flagged: 13
-- satz flagged: 13
-- **total flagged: 38**
+- vocab flagged: 0
+- cloze flagged: 0
+- satz flagged: 0
+- **total flagged: 0**
 - A1 vocab words outside NIKL grade 1: 48
