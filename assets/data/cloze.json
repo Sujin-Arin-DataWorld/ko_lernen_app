@@ -1252,9 +1252,9 @@
       "de": "Ich fahre mit dem Zug.",
       "en": "I go by train.",
       "distractors": [
-        "타다",
-        "끝나다",
-        "에서"
+        "커피",
+        "의자",
+        "지도"
       ],
       "topic": "Verkehr"
     },
@@ -1327,9 +1327,9 @@
       "de": "Ich arbeite am Computer.",
       "en": "I work on the computer.",
       "distractors": [
-        "알다",
-        "쓰다",
-        "에서"
+        "우표",
+        "케이크",
+        "버스"
       ],
       "topic": "Technologie"
     },
@@ -1432,9 +1432,9 @@
       "de": "Ich zahle mit Karte.",
       "en": "I pay by card.",
       "distractors": [
-        "쓰다",
-        "오다",
-        "에게"
+        "커피",
+        "의자",
+        "지도"
       ],
       "topic": "Einkaufen"
     },
@@ -2557,9 +2557,9 @@
       "de": "Rechts ist die Toilette.",
       "en": "The bathroom is on the right.",
       "distractors": [
-        "자다",
-        "가다",
-        "랑"
+        "사과",
+        "커피",
+        "모자"
       ],
       "topic": "Position"
     },
@@ -3952,9 +3952,9 @@
       "de": "Im Kühlschrank ist Milch.",
       "en": "There is milk in the fridge.",
       "distractors": [
-        "가다",
-        "보다",
-        "한테"
+        "사과",
+        "커피",
+        "모자"
       ],
       "topic": "Wohnen"
     },
@@ -3982,9 +3982,9 @@
       "de": "Ich sauge mit dem Staubsauger.",
       "en": "I vacuum the floor.",
       "distractors": [
-        "입다",
-        "모르다",
-        "와"
+        "우표",
+        "케이크",
+        "버스"
       ],
       "topic": "Wohnen"
     },
@@ -4057,9 +4057,9 @@
       "de": "Ich zahle bar.",
       "en": "I'll pay in cash.",
       "distractors": [
-        "보다",
-        "팔다",
-        "한테"
+        "지갑",
+        "여권",
+        "가방"
       ],
       "topic": "Geld"
     },
@@ -8836,9 +8836,9 @@
       "de": "Ich habe den Hanbok angezogen und die Schleife gebunden.",
       "en": "I put on the hanbok and tied the ribbon.",
       "distractors": [
-        "다니다",
-        "가다",
-        "에서"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -14911,9 +14911,9 @@
       "de": "Sollen wir die Terminzeit auf drei Uhr ändern?",
       "en": "Shall we change the meeting time to three?",
       "distractors": [
-        "다니다",
-        "보다",
-        "에서"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Wochenendzusage"
     },
@@ -15586,9 +15586,9 @@
       "de": "Das Kartenguthaben reicht nicht, ich muss aufladen.",
       "en": "The card balance is low, so I need to top up.",
       "distractors": [
-        "팔다",
-        "빌리다",
-        "한테"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "U-Bahnkarte"
     },
@@ -16141,9 +16141,9 @@
       "de": "Wenn es nicht reicht, kaufe ich eine Datenaufladung dazu.",
       "en": "If it is not enough, I buy a data top-up.",
       "distractors": [
-        "육",
-        "대중교통",
-        "맛"
+        "기간",
+        "조건",
+        "가능성"
       ],
       "topic": "Handytarif"
     },
@@ -17446,9 +17446,9 @@
       "de": "Ich habe die Antwortfrist auf Freitagmittag gesetzt.",
       "en": "I wrote the reply deadline as Friday noon.",
       "distractors": [
-        "입다",
-        "쓰다",
-        "랑"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Dienstmail"
     },
@@ -17701,9 +17701,9 @@
       "de": "Wenn der Gemeinschaftsreiniger leer ist, kaufen wir ihn zusammen.",
       "en": "When the shared detergent runs out, we buy it together.",
       "distractors": [
-        "팔다",
-        "먹다",
-        "에게"
+        "정치",
+        "문화",
+        "사회"
       ],
       "topic": "WG-Gespräch"
     },
@@ -17896,9 +17896,9 @@
       "de": "Die Leistungsprüfung soll bis Ende der Woche fertig sein.",
       "en": "I heard the payout review is due this week.",
       "distractors": [
-        "모르다",
-        "자다",
-        "에게"
+        "커피",
+        "의자",
+        "지도"
       ],
       "topic": "Versicherungsfall"
     },
@@ -18001,9 +18001,9 @@
       "de": "Mir wurde eine Bearbeitungsfrist von zwei Wochen genannt.",
       "en": "I was told the processing time is two weeks.",
       "distractors": [
-        "팔다",
-        "모르다",
-        "랑"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Amtgang"
     },
@@ -18091,9 +18091,9 @@
       "de": "Mit der Vorgangsnummer prüfe ich den Stand.",
       "en": "I check the status with the case number.",
       "distractors": [
-        "돕다",
-        "입다",
-        "에게"
+        "우표",
+        "케이크",
+        "버스"
       ],
       "topic": "Amtgang"
     },
@@ -18301,9 +18301,9 @@
       "de": "Am Semesterende bekomme ich den Nachweis.",
       "en": "I receive the service certificate at the end of the term.",
       "distractors": [
-        "사",
-        "코트",
-        "드라이"
+        "정도",
+        "한계",
+        "사"
       ],
       "topic": "Ehrenamtsschicht"
     },
@@ -18316,9 +18316,9 @@
       "de": "Das Elterngespräch habe ich auf Mittwochabend gelegt.",
       "en": "I scheduled the parent meeting for Wednesday evening.",
       "distractors": [
-        "알다",
-        "오다",
-        "에서"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Elterngespräch"
     },
@@ -18391,9 +18391,9 @@
       "de": "Im Elternbrief steht das Datum des Ausflugs.",
       "en": "The school letter has the field-trip date.",
       "distractors": [
-        "고르다",
-        "알다",
-        "랑"
+        "사과",
+        "커피",
+        "모자"
       ],
       "topic": "Elterngespräch"
     },
@@ -18496,9 +18496,9 @@
       "de": "Die defekte Stelle habe ich dreimal fotografiert.",
       "en": "I took three photos of the fault location.",
       "distractors": [
-        "횡단보도",
-        "샴푸",
-        "커피"
+        "한계",
+        "정도",
+        "경제"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -18541,9 +18541,9 @@
       "de": "Die Garantiezeit beträgt noch eine Woche.",
       "en": "One week remains in the warranty period.",
       "distractors": [
-        "마시다",
-        "먹다",
-        "으로"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Reparaturwortschatz"
     },
@@ -19021,9 +19021,9 @@
       "de": "Den vereinbarten Folgeschritt trage ich sofort in den Kalender ein.",
       "en": "I put the agreed next step on the calendar immediately.",
       "distractors": [
-        "돕다",
-        "먹다",
-        "에게"
+        "커피",
+        "의자",
+        "지도"
       ],
       "topic": "Beurteilung"
     },
@@ -19366,9 +19366,9 @@
       "de": "Ist die Quellenlage sekundär, suche ich das Original.",
       "en": "If the source layer is secondary, I look for the primary.",
       "distractors": [
-        "타다",
-        "빌리다",
-        "에게"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Medienkompetenz"
     },
@@ -19501,9 +19501,9 @@
       "de": "Ich prüfe, ob die Abstimmungsform per Hand oder geheim ist.",
       "en": "I check whether the voting method is a show of hands or secret.",
       "distractors": [
-        "다니다",
-        "고르다",
-        "한테"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Bürgerversammlung"
     },
@@ -20206,9 +20206,9 @@
       "de": "Die Aussagestärke teile ich in 'scheint' und 'ist belegt'.",
       "en": "I split claim strength into 'appears' and 'is confirmed'.",
       "distractors": [
-        "입다",
-        "다니다",
-        "한테"
+        "우표",
+        "케이크",
+        "버스"
       ],
       "topic": "Kurzreferat"
     },
@@ -20311,9 +20311,9 @@
       "de": "Erst mit der Stichprobenverzerrung wird der Vergleich ehrlich.",
       "en": "Only after naming sample bias is the comparison honest.",
       "distractors": [
-        "읽다",
-        "알다",
-        "랑"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Evidenzvorbehalt"
     },
@@ -20851,9 +20851,9 @@
       "de": "Steht die Absolutenzahl daneben, sinkt die Angst.",
       "en": "Putting the absolute count beside it reduces fear.",
       "distractors": [
-        "상자",
-        "고기",
-        "샴푸"
+        "오다",
+        "팔다",
+        "으로"
       ],
       "topic": "Risikosprache"
     },
@@ -20866,9 +20866,9 @@
       "de": "Ich verspreche kein Restrisiko von null.",
       "en": "I do not promise residual risk of zero.",
       "distractors": [
-        "모르다",
-        "자다",
-        "과"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Risikosprache"
     },
@@ -21046,9 +21046,9 @@
       "de": "Wahlverengung verkaufe ich nicht als Effizienz.",
       "en": "I do not package narrowed choice as efficiency.",
       "distractors": [
-        "쓰다",
-        "끝나다",
-        "한테"
+        "커피",
+        "의자",
+        "지도"
       ],
       "topic": "Zugangskosten"
     },
@@ -22141,9 +22141,9 @@
       "de": "Ein Chronikbruch lässt das Ende und nimmt die Ursache.",
       "en": "A cut in the timeline keeps the ending and drops the cause.",
       "distractors": [
-        "마시다",
-        "읽다",
-        "랑"
+        "가방",
+        "우산",
+        "책상"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22336,9 +22336,9 @@
       "de": "Schweigedruck nenne ich nicht Teamgeist.",
       "en": "I do not call pressure to stay quiet 'teamwork'.",
       "distractors": [
-        "빌리다",
-        "오다",
-        "에서"
+        "지갑",
+        "여권",
+        "신발"
       ],
       "topic": "Autoritätssprache"
     },
@@ -28080,9 +28080,9 @@
       "de": "Ich schreibe meinen Namen mit Bleistift.",
       "en": "I write my name with a pencil.",
       "distractors": [
-        "빌리다",
-        "가다",
-        "와"
+        "딸",
+        "물",
+        "쌀"
       ],
       "courseUnitId": "a1_15_first_class_work"
     },
@@ -29827,9 +29827,9 @@
       "de": "Heute habe ich eine Mütze getragen.",
       "en": "Today I wore a hat.",
       "distractors": [
-        "저기",
-        "케이크",
-        "우표"
+        "읽다",
+        "다니다",
+        "과"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0495",
